@@ -1,0 +1,8 @@
+.DS_Store
+node_modules
+*.log
+.temp
+TODOs.md
+packages/@vuepress/shared-utils/lib/
+types
+.idea
