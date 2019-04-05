@@ -134,7 +134,7 @@ module.exports = ctx => ({
         sidebar: {
           '/ru/introduction/': [
             {
-              title: 'Overview',
+              title: 'Обзор',
               collapsable: true
             },
             {

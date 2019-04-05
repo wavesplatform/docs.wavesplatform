@@ -44,6 +44,22 @@
         slot="bottom"
       />
     </Page>
+    <Sidebar
+      :items="sidebarItems"
+      @toggle-sidebar="toggleSidebar"
+      style="left: auto;
+    right: 0;
+    border-left: 1px solid #eaecef;"
+    >
+      <slot
+        name="sidebar-top"
+        slot="top"
+      />
+      <slot
+        name="sidebar-bottom"
+        slot="bottom"
+      />
+    </Sidebar>
   </div>
 </template>
 
