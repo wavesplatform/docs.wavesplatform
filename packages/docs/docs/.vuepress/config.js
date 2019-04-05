@@ -6,13 +6,28 @@ module.exports = ctx => ({
   locales: {
     '/': {
       lang: 'en-US',
-      title: 'VuePress 1.x',
+      title: 'Waves Doc',
       description: 'Vue-powered Static Site Generator'
     },
     '/zh/': {
       lang: 'zh-CN',
-      title: 'VuePress 1.x',
+      title: 'Waves Doc',
       description: 'Vue 驱动的静态网站生成器'
+    },
+    '/ru/': {
+      lang: 'ru-RU',
+      title: 'Waves Doc',
+      description: 'Waves документация на русском'
+    },
+    '/ko/': {
+      lang: 'ko-Ko',
+      title: 'Waves Doc',
+      description: 'Waves документация на ko'
+    },
+    '/pt-br/': {
+      lang: 'pt-Br',
+      title: 'Waves Doc',
+      description: 'Waves документация на Português'
     }
   },
   head: [
@@ -28,6 +43,8 @@ module.exports = ctx => ({
   ],
   theme: '@vuepress/vue',
   themeConfig: {
+    logo: '/waves-docs-logo.svg',
+
     repo: 'vuejs/vuepress',
     editLinks: true,
     docsDir: 'packages/docs/docs',
@@ -45,7 +62,7 @@ module.exports = ctx => ({
         nav: require('./nav/en'),
         sidebar: {
           '/api/': getApiSidebar(),
-          '/guide/': getGuideSidebar('Guide', 'Advanced'),
+          '/introduction/': getGuideSidebar('Guide', 'Advanced'),
           '/plugin/': getPluginSidebar('Plugin', 'Introduction', 'Official Plugins'),
           '/theme/': getThemeSidebar('Theme', 'Introduction'),
         }
@@ -62,8 +79,47 @@ module.exports = ctx => ({
           '/zh/plugin/': getPluginSidebar('插件', '介绍', '官方插件'),
           '/zh/theme/': getThemeSidebar('主题', '介绍')
         }
+      },
+      '/ru/': {
+        label: 'Русский',
+        selectText: 'Язык',
+        editLinkText: 'Изменить эту страницу на GitHub',
+        lastUpdated: 'Последние изменения',
+        nav: require('./nav/ru'),
+        sidebar: {
+          '/ru/api/': getApiSidebar(),
+          '/ru/guide/': getGuideSidebar('Гайд', 'Тест'),
+          '/ru/plugin/': getPluginSidebar('Плагин', 'Введение', 'Официальные плагины'),
+          '/ru/theme/': getThemeSidebar('Тема', 'Введение')
+        }
+      },
+      '/ko/': {
+        label: '한국어',
+        selectText: 'Язык',
+        editLinkText: 'Изменить эту страницу на GitHub',
+        lastUpdated: 'Последние изменения',
+        nav: require('./nav/ko'),
+        sidebar: {
+          '/ru/api/': getApiSidebar(),
+          '/ru/guide/': getGuideSidebar('Гайд', 'Тест'),
+          '/ru/plugin/': getPluginSidebar('Плагин', 'Введение', 'Официальные плагины'),
+          '/ru/theme/': getThemeSidebar('Тема', 'Введение')
+        }
+      },
+      '/pt-br/': {
+        label: 'Português',
+        selectText: 'Язык',
+        editLinkText: 'Изменить эту страницу на GitHub',
+        lastUpdated: 'Последние изменения',
+        nav: require('./nav/pt-br'),
+        sidebar: {
+          '/ru/api/': getApiSidebar(),
+          '/ru/guide/': getGuideSidebar('Гайд', 'Тест'),
+          '/ru/plugin/': getPluginSidebar('Плагин', 'Введение', 'Официальные плагины'),
+          '/pt-br/theme/': getThemeSidebar('Тема', 'Введение')
+        }
       }
-    }
+    },
   },
   plugins: [
     ['@vuepress/back-to-top', true],
@@ -101,104 +157,88 @@ function getApiSidebar () {
 
 function getGuideSidebar (groupA, groupB) {
   return [
+// '',
+    // 'developer-tools',
+    // ['developer-tools/', {
+    //   title: 'Foo',
+    //   collapsable: true,
+    //   children: [
+    //     // '',
+    //     'faq'
+    //   ]
+    // }],
     {
-      title: groupA,
+      title: 'Overview',
+      collapsable: true,
+    },
+    {
+      title: 'Waves environment',
+      collapsable: true,
+      children: [
+        {
+          title: 'Waves Tokens',
+          path: 'waves-environment/waves-tokens'
+        },
+        {
+          title: 'Custom Tokens',
+          path: 'waves-environment/custom-tokens',
+        },
+      ],
+    },
+    {
+      title: 'Getting started',
+      collapsable: false,
+    },
+    {
+      title: 'Developer tools',
+      collapsable: false,
+    },
+    {
+      title: 'Waves api & sdk',
+      collapsable: false,
+    },
+    {
+      title: 'Smart contracts',
+      collapsable: false,
+    },
+    {
+      title: 'Waves full node',
+      collapsable: false,
+    },
+    {
+      title: 'Oracles developments',
+      collapsable: false,
+    },
+    {
+      title: 'Waves client',
+      collapsable: false,
+    },
+    {
+      title: 'Tutorials and articles',
+
       collapsable: false,
       children: [
-        // '',
-        // 'developer-tools',
-        // ['developer-tools/', {
-        //   title: 'Foo',
-        //   collapsable: true,
-        //   children: [
-        //     // '',
-        //     'faq'
-        //   ]
-        // }],
         {
-          title: 'Overview',
-          collapsable: false,
-        },
-        {
-          title: 'Waves environment',
-          collapsable: false,
-          children: [
-            {
-              title: 'Waves Tokens',
-              path: 'waves-environment/waves-tokens'
-            },
-            {
-              title: 'Custom Tokens',
-              path: 'waves-environment/custom-tokens',
-            },
-          ],
-        },
-        {
-          title: 'Getting started',
-          collapsable: false,
-        },
-        {
-          title: 'Developer tools',
-          collapsable: false,
-        },
-        {
-          title: 'Waves api & sdk',
-          collapsable: false,
-        },
-        {
-          title: 'Smart contracts',
-          collapsable: false,
-        },
-        {
-          title: 'Waves full node',
-          collapsable: false,
-        },
-        {
-          title: 'Oracles developments',
-          collapsable: false,
-        },
-        {
-          title: 'Waves client',
-          collapsable: false,
-        },
-        {
-          title: 'Tutorials and articles',
-
-          collapsable: false,
-          children: [
-            {
-              title: 'Test',
-              path: 'developer-tools/faq',
-            }
-          ]
-        },
-        {
-          title: 'Proposals',
-          collapsable: false,
-        },
-        // ['developer-tools/faq', ],
-
-        // 'developer-tools/faq',
-        // 'getting-started',
-        // 'directory-structure',
-        // 'basic-config',
-        // 'assets',
-        // 'markdown',
-        // 'using-vue',
-        // 'i18n',
-        // 'deploy',
+          title: 'Test',
+          path: 'developer-tools/faq',
+        }
       ]
     },
     {
-      title: groupB,
+      title: 'Proposals',
       collapsable: false,
-      children: [
-        'frontmatter',
-        'permalinks',
-        'markdown-slot',
-        'global-computed'
-      ]
-    }
+    },
+    // ['developer-tools/faq', ],
+
+    // 'developer-tools/faq',
+    // 'getting-started',
+    // 'directory-structure',
+    // 'basic-config',
+    // 'assets',
+    // 'markdown',
+    // 'using-vue',
+    // 'i18n',
+    // 'deploy',
   ]
 }
 

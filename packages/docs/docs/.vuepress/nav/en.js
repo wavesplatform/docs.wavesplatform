@@ -1,22 +1,22 @@
 module.exports = [
   {
-    text: 'Guide',
-    link: '/guide/',
+    text: 'Introduction',
+    link: '/introduction/'
   },
   {
-    text: 'Config Reference',
-    link: '/config/'
+    text: 'The Waves Protocol',
+    link: '/waves-protocol/'
   },
   {
-    text: 'Plugin',
-    link: '/plugin/'
+    text: 'For Developers',
+    link: '/for-developers/'
   },
   {
-    text: 'Theme',
-    link: '/theme/'
+    text: 'Blockchain Infrastructure',
+    link: '/blockchain-infrastructure/'
   },
   {
-    text: 'Learn More',
+    text: 'Waves Apps',
     items: [
       {
         text: 'API',
@@ -28,7 +28,7 @@ module.exports = [
           {
             text: 'Node',
             link: '/api/node.html'
-          },
+          }
         ]
       },
       {
@@ -40,12 +40,12 @@ module.exports = [
           },
           {
             text: 'FAQ',
-            link: '/faq/',
+            link: '/faq/'
           },
           {
             text: 'Glossary',
             link: '/miscellaneous/glossary.html'
-          },
+          }
         ]
       },
       {
@@ -64,7 +64,11 @@ module.exports = [
     ]
   },
   {
-    text: '0.x',
-    link: 'https://vuepress.vuejs.org/'
+    text: 'Community Projects',
+    link: '/community-projects/'
   },
+  {
+    text: 'Support',
+    link: '/support/'
+  }
 ]

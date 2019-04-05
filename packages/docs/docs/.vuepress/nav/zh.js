@@ -1,59 +1,59 @@
 module.exports = [
   {
-    text: '指南',
-    link: '/zh/guide/',
+    text: 'Introduction',
+    link: '/introduction/',
   },
   {
-    text: '配置',
-    link: '/zh/config/'
+    text: 'The Waves Protocol',
+    link: '/waves-protocol/'
   },
   {
-    text: '插件',
-    link: '/zh/plugin/'
+    text: 'For Developers',
+    link: '/for-developers/'
   },
   {
-    text: '主题',
-    link: '/zh/theme/'
+    text: 'Blockchain Infrastructure',
+    link: '/blockchain-infrastructure/'
   },
   {
-    text: '了解更多',
+    text: 'Waves Apps',
     items: [
       {
         text: 'API',
         items: [
           {
             text: 'CLI',
-            link: '/zh/api/cli.html'
+            link: '/api/cli.html'
           },
           {
             text: 'Node',
-            link: '/zh/api/node.html'
+            link: '/api/node.html'
           },
         ]
       },
       {
-        text: '开发指南',
+        text: 'Contributing Guide',
         items: [
           {
-            text: '设计理念',
-            link: '/zh/miscellaneous/design-concepts.html'
+            text: 'Design Concepts',
+            link: '/miscellaneous/design-concepts.html'
           },
           {
             text: 'FAQ',
-            link: '/zh/faq/',
+            link: '/faq/',
           },
           {
-            text: '术语',
-            link: '/zh/miscellaneous/glossary.html'
+            text: 'Glossary',
+            link: '/miscellaneous/glossary.html'
           },
         ]
       },
       {
-        text: '其他',
+        text: 'Miscellaneous',
         items: [
           {
-            text: '从 0.x 迁移',
-            link: '/zh/miscellaneous/migration-guide.html'
+            text: 'Migrate from 0.x',
+            link: '/miscellaneous/migration-guide.html'
           },
           {
             text: 'Changelog',
@@ -64,7 +64,11 @@ module.exports = [
     ]
   },
   {
-    text: '0.x',
-    link: 'https://vuepress.vuejs.org/'
+    text: 'Community Projects',
+    link: '/community-projects/'
+  },
+  {
+    text: 'Support',
+    link: '/support/'
   },
 ]
