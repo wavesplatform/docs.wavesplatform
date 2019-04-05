@@ -6,27 +6,27 @@ module.exports = ctx => ({
   locales: {
     '/': {
       lang: 'en-US',
-      title: 'Waves Doc',
+      title: 'Waves Docs',
       description: 'Vue-powered Static Site Generator'
-    },
-    '/zh/': {
-      lang: 'zh-CN',
-      title: 'Waves Doc',
-      description: 'Vue 驱动的静态网站生成器'
     },
     '/ru/': {
       lang: 'ru-RU',
-      title: 'Waves Doc',
+      title: 'Waves Docs',
       description: 'Waves документация на русском'
+    },
+    '/zh/': {
+      lang: 'zh-CN',
+      title: 'Waves Docs',
+      description: 'Vue 驱动的静态网站生成器'
     },
     '/ko/': {
       lang: 'ko-Ko',
-      title: 'Waves Doc',
+      title: 'Waves Docs',
       description: 'Waves документация на ko'
     },
     '/pt-br/': {
       lang: 'pt-Br',
-      title: 'Waves Doc',
+      title: 'Waves Docs',
       description: 'Waves документация на Português'
     }
   },
@@ -44,7 +44,6 @@ module.exports = ctx => ({
   theme: '@vuepress/vue',
   themeConfig: {
     logo: '/waves-docs-logo.svg',
-
     repo: 'vuejs/vuepress',
     editLinks: true,
     docsDir: 'packages/docs/docs',
@@ -61,23 +60,69 @@ module.exports = ctx => ({
         lastUpdated: 'Last Updated',
         nav: require('./nav/en'),
         sidebar: {
-          '/api/': getApiSidebar(),
-          '/introduction/': getGuideSidebar('Guide', 'Advanced'),
-          '/plugin/': getPluginSidebar('Plugin', 'Introduction', 'Official Plugins'),
-          '/theme/': getThemeSidebar('Theme', 'Introduction'),
-        }
-      },
-      '/zh/': {
-        label: '简体中文',
-        selectText: '选择语言',
-        editLinkText: '在 GitHub 上编辑此页',
-        lastUpdated: '上次更新',
-        nav: require('./nav/zh'),
-        sidebar: {
-          '/zh/api/': getApiSidebar(),
-          '/zh/guide/': getGuideSidebar('指南', '深入'),
-          '/zh/plugin/': getPluginSidebar('插件', '介绍', '官方插件'),
-          '/zh/theme/': getThemeSidebar('主题', '介绍')
+          '/introduction/': [
+            {
+              title: 'Overview',
+              collapsable: true
+            },
+            {
+              title: 'Waves environment',
+              collapsable: true,
+              children: [
+                {
+                  title: 'Waves Tokens',
+                  path: 'waves-environment/waves-tokens'
+                },
+                {
+                  title: 'Custom Tokens',
+                  path: 'waves-environment/custom-tokens'
+                }
+              ]
+            },
+            {
+              title: 'Getting started',
+              collapsable: false
+            },
+            {
+              title: 'Developer tools',
+              collapsable: false
+            },
+            {
+              title: 'Waves api & sdk',
+              collapsable: false
+            },
+            {
+              title: 'Smart contracts',
+              collapsable: false
+            },
+            {
+              title: 'Waves full node',
+              collapsable: false
+            },
+            {
+              title: 'Oracles developments',
+              collapsable: false
+            },
+            {
+              title: 'Waves client',
+              collapsable: false
+            },
+            {
+              title: 'Tutorials and articles',
+
+              collapsable: false,
+              children: [
+                {
+                  title: 'Test',
+                  path: 'developer-tools/faq'
+                }
+              ]
+            },
+            {
+              title: 'Proposals',
+              collapsable: false
+            }
+          ]
         }
       },
       '/ru/': {
@@ -87,10 +132,141 @@ module.exports = ctx => ({
         lastUpdated: 'Последние изменения',
         nav: require('./nav/ru'),
         sidebar: {
-          '/ru/api/': getApiSidebar(),
-          '/ru/guide/': getGuideSidebar('Гайд', 'Тест'),
-          '/ru/plugin/': getPluginSidebar('Плагин', 'Введение', 'Официальные плагины'),
-          '/ru/theme/': getThemeSidebar('Тема', 'Введение')
+          '/ru/introduction/': [
+            {
+              title: 'Overview',
+              collapsable: true
+            },
+            {
+              title: 'Waves environment',
+              collapsable: true,
+              children: [
+                {
+                  title: 'Waves Tokens',
+                  path: 'waves-environment/waves-tokens'
+                },
+                {
+                  title: 'Custom Tokens',
+                  path: 'waves-environment/custom-tokens'
+                }
+              ]
+            },
+            {
+              title: 'Getting started',
+              collapsable: false
+            },
+            {
+              title: 'Developer tools',
+              collapsable: false
+            },
+            {
+              title: 'Waves api & sdk',
+              collapsable: false
+            },
+            {
+              title: 'Smart contracts',
+              collapsable: false
+            },
+            {
+              title: 'Waves full node',
+              collapsable: false
+            },
+            {
+              title: 'Oracles developments',
+              collapsable: false
+            },
+            {
+              title: 'Waves client',
+              collapsable: false
+            },
+            {
+              title: 'Tutorials and articles',
+
+              collapsable: false,
+              children: [
+                {
+                  title: 'Test',
+                  path: 'developer-tools/faq'
+                }
+              ]
+            },
+            {
+              title: 'Proposals',
+              collapsable: false
+            }
+          ]
+        }
+      },
+      '/zh/': {
+        label: '简体中文',
+        selectText: '选择语言',
+        editLinkText: '在 GitHub 上编辑此页',
+        lastUpdated: '上次更新',
+        nav: require('./nav/zh'),
+        sidebar: {
+          '/introduction/': [
+            {
+              title: 'Overview',
+              collapsable: true
+            },
+            {
+              title: 'Waves environment',
+              collapsable: true,
+              children: [
+                {
+                  title: 'Waves Tokens',
+                  path: 'waves-environment/waves-tokens'
+                },
+                {
+                  title: 'Custom Tokens',
+                  path: 'waves-environment/custom-tokens'
+                }
+              ]
+            },
+            {
+              title: 'Getting started',
+              collapsable: false
+            },
+            {
+              title: 'Developer tools',
+              collapsable: false
+            },
+            {
+              title: 'Waves api & sdk',
+              collapsable: false
+            },
+            {
+              title: 'Smart contracts',
+              collapsable: false
+            },
+            {
+              title: 'Waves full node',
+              collapsable: false
+            },
+            {
+              title: 'Oracles developments',
+              collapsable: false
+            },
+            {
+              title: 'Waves client',
+              collapsable: false
+            },
+            {
+              title: 'Tutorials and articles',
+
+              collapsable: false,
+              children: [
+                {
+                  title: 'Test',
+                  path: 'developer-tools/faq'
+                }
+              ]
+            },
+            {
+              title: 'Proposals',
+              collapsable: false
+            }
+          ]
         }
       },
       '/ko/': {
@@ -100,10 +276,69 @@ module.exports = ctx => ({
         lastUpdated: 'Последние изменения',
         nav: require('./nav/ko'),
         sidebar: {
-          '/ru/api/': getApiSidebar(),
-          '/ru/guide/': getGuideSidebar('Гайд', 'Тест'),
-          '/ru/plugin/': getPluginSidebar('Плагин', 'Введение', 'Официальные плагины'),
-          '/ru/theme/': getThemeSidebar('Тема', 'Введение')
+          '/introduction/': [
+            {
+              title: 'Overview',
+              collapsable: true
+            },
+            {
+              title: 'Waves environment',
+              collapsable: true,
+              children: [
+                {
+                  title: 'Waves Tokens',
+                  path: 'waves-environment/waves-tokens'
+                },
+                {
+                  title: 'Custom Tokens',
+                  path: 'waves-environment/custom-tokens'
+                }
+              ]
+            },
+            {
+              title: 'Getting started',
+              collapsable: false
+            },
+            {
+              title: 'Developer tools',
+              collapsable: false
+            },
+            {
+              title: 'Waves api & sdk',
+              collapsable: false
+            },
+            {
+              title: 'Smart contracts',
+              collapsable: false
+            },
+            {
+              title: 'Waves full node',
+              collapsable: false
+            },
+            {
+              title: 'Oracles developments',
+              collapsable: false
+            },
+            {
+              title: 'Waves client',
+              collapsable: false
+            },
+            {
+              title: 'Tutorials and articles',
+
+              collapsable: false,
+              children: [
+                {
+                  title: 'Test',
+                  path: 'developer-tools/faq'
+                }
+              ]
+            },
+            {
+              title: 'Proposals',
+              collapsable: false
+            }
+          ]
         }
       },
       '/pt-br/': {
@@ -113,13 +348,72 @@ module.exports = ctx => ({
         lastUpdated: 'Последние изменения',
         nav: require('./nav/pt-br'),
         sidebar: {
-          '/ru/api/': getApiSidebar(),
-          '/ru/guide/': getGuideSidebar('Гайд', 'Тест'),
-          '/ru/plugin/': getPluginSidebar('Плагин', 'Введение', 'Официальные плагины'),
-          '/pt-br/theme/': getThemeSidebar('Тема', 'Введение')
+          '/introduction/': [
+            {
+              title: 'Overview',
+              collapsable: true
+            },
+            {
+              title: 'Waves environment',
+              collapsable: true,
+              children: [
+                {
+                  title: 'Waves Tokens',
+                  path: 'waves-environment/waves-tokens'
+                },
+                {
+                  title: 'Custom Tokens',
+                  path: 'waves-environment/custom-tokens'
+                }
+              ]
+            },
+            {
+              title: 'Getting started',
+              collapsable: false
+            },
+            {
+              title: 'Developer tools',
+              collapsable: false
+            },
+            {
+              title: 'Waves api & sdk',
+              collapsable: false
+            },
+            {
+              title: 'Smart contracts',
+              collapsable: false
+            },
+            {
+              title: 'Waves full node',
+              collapsable: false
+            },
+            {
+              title: 'Oracles developments',
+              collapsable: false
+            },
+            {
+              title: 'Waves client',
+              collapsable: false
+            },
+            {
+              title: 'Tutorials and articles',
+
+              collapsable: false,
+              children: [
+                {
+                  title: 'Test',
+                  path: 'developer-tools/faq'
+                }
+              ]
+            },
+            {
+              title: 'Proposals',
+              collapsable: false
+            }
+          ]
         }
       }
-    },
+    }
   },
   plugins: [
     ['@vuepress/back-to-top', true],
@@ -134,155 +428,17 @@ module.exports = ctx => ({
     ['container', {
       type: 'vue',
       before: '<pre class="vue-container"><code>',
-      after: '</code></pre>',
+      after: '</code></pre>'
     }],
     ['container', {
       type: 'upgrade',
       before: info => `<UpgradePath title="${info}">`,
-      after: '</UpgradePath>',
-    }],
+      after: '</UpgradePath>'
+    }]
   ],
   extraWatchFiles: [
     '.vuepress/nav/en.js',
-    '.vuepress/nav/zh.js',
+    '.vuepress/nav/zh.js'
   ]
 })
 
-function getApiSidebar () {
-  return [
-    'cli',
-    'node'
-  ]
-}
-
-function getGuideSidebar (groupA, groupB) {
-  return [
-// '',
-    // 'developer-tools',
-    // ['developer-tools/', {
-    //   title: 'Foo',
-    //   collapsable: true,
-    //   children: [
-    //     // '',
-    //     'faq'
-    //   ]
-    // }],
-    {
-      title: 'Overview',
-      collapsable: true,
-    },
-    {
-      title: 'Waves environment',
-      collapsable: true,
-      children: [
-        {
-          title: 'Waves Tokens',
-          path: 'waves-environment/waves-tokens'
-        },
-        {
-          title: 'Custom Tokens',
-          path: 'waves-environment/custom-tokens',
-        },
-      ],
-    },
-    {
-      title: 'Getting started',
-      collapsable: false,
-    },
-    {
-      title: 'Developer tools',
-      collapsable: false,
-    },
-    {
-      title: 'Waves api & sdk',
-      collapsable: false,
-    },
-    {
-      title: 'Smart contracts',
-      collapsable: false,
-    },
-    {
-      title: 'Waves full node',
-      collapsable: false,
-    },
-    {
-      title: 'Oracles developments',
-      collapsable: false,
-    },
-    {
-      title: 'Waves client',
-      collapsable: false,
-    },
-    {
-      title: 'Tutorials and articles',
-
-      collapsable: false,
-      children: [
-        {
-          title: 'Test',
-          path: 'developer-tools/faq',
-        }
-      ]
-    },
-    {
-      title: 'Proposals',
-      collapsable: false,
-    },
-    // ['developer-tools/faq', ],
-
-    // 'developer-tools/faq',
-    // 'getting-started',
-    // 'directory-structure',
-    // 'basic-config',
-    // 'assets',
-    // 'markdown',
-    // 'using-vue',
-    // 'i18n',
-    // 'deploy',
-  ]
-}
-
-const officalPlugins = fs
-  .readdirSync(path.resolve(__dirname, '../plugin/official'))
-  .map(filename => 'official/' + filename.slice(0, -3))
-  .sort()
-
-function getPluginSidebar (pluginTitle, pluginIntro, officialPluginTitle) {
-  return [
-    {
-      title: pluginTitle,
-      collapsable: false,
-      children: [
-        ['', pluginIntro],
-        'using-a-plugin',
-        'writing-a-plugin',
-        'life-cycle',
-        'option-api',
-        'context-api'
-      ]
-    },
-    {
-      title: officialPluginTitle,
-      collapsable: false,
-      children: officalPlugins,
-    }
-  ]
-}
-
-function getThemeSidebar (groupA, introductionA) {
-  return [
-    {
-      title: groupA,
-      collapsable: false,
-      sidebarDepth: 2,
-      children: [
-        ['', introductionA],
-        'using-a-theme',
-        'writing-a-theme',
-        'option-api',
-        'default-theme-config',
-        'inheritance'
-      ]
-    },
-  ]
-}

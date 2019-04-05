@@ -19,44 +19,44 @@ module.exports = [
     text: 'Waves Apps',
     items: [
       {
-        text: 'API',
+        text: 'Title1',
         items: [
           {
-            text: 'CLI',
-            link: '/api/cli.html'
+            text: 'subtitle1',
+            link: '/title1/subtitle1.html'
           },
           {
-            text: 'Node',
-            link: '/api/node.html'
+            text: 'subtitle2',
+            link: '/title1/node.html'
           }
         ]
       },
       {
-        text: 'Contributing Guide',
+        text: 'Title2',
         items: [
           {
-            text: 'Design Concepts',
-            link: '/miscellaneous/design-concepts.html'
+            text: 'subtitle1',
+            link: '/title2/design-concepts.html'
           },
           {
-            text: 'FAQ',
-            link: '/faq/'
+            text: 'subtitle2',
+            link: '/title2/'
           },
           {
-            text: 'Glossary',
-            link: '/miscellaneous/glossary.html'
+            text: 'subtitle3',
+            link: '/title2/glossary.html'
           }
         ]
       },
       {
-        text: 'Miscellaneous',
+        text: 'Title3',
         items: [
           {
-            text: 'Migrate from 0.x',
-            link: '/miscellaneous/migration-guide.html'
+            text: 'subtitle1',
+            link: '/title2/migration-guide.html'
           },
           {
-            text: 'Changelog',
+            text: 'subtitle2',
             link: 'https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md'
           }
         ]

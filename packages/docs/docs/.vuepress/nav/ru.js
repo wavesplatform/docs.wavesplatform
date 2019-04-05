@@ -1,22 +1,22 @@
 module.exports = [
   {
-    text: 'Introduction',
-    link: '/introduction/',
+    text: 'Введение',
+    link: '/ru/introduction/',
   },
   {
-    text: 'The Waves Protocol',
-    link: '/config/'
+    text: 'Waves протокол',
+    link: '/waves-protocol/'
   },
   {
-    text: 'For Developers',
-    link: '/plugin/'
+    text: 'Для разработчиков',
+    link: '/for-developers/'
   },
   {
-    text: 'Blockchain Infrastructure',
-    link: '/theme/'
+    text: 'Блокчейн инфраструктура',
+    link: '/blockchain-infrastructure/'
   },
   {
-    text: 'Waves Apps',
+    text: 'Waves приложения',
     items: [
       {
         text: 'API',
@@ -64,11 +64,11 @@ module.exports = [
     ]
   },
   {
-    text: 'Community Projects',
+    text: 'Проекты сообщества',
     link: '/community-projects/'
   },
   {
-    text: 'Support',
-    link: 'https://vuepress.vuejs.org/'
+    text: 'Поддержка',
+    link: '/support/'
   },
 ]
