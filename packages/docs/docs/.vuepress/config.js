@@ -2,7 +2,7 @@ const { fs, path } = require('@vuepress/shared-utils')
 
 module.exports = ctx => ({
   dest: '../../vuepress',
-  port: 80,
+  port: 81,
   locales: {
     '/': {
       lang: 'en-US',
