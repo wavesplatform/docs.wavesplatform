@@ -1,1 +1,1 @@
-module.exports = require('@vuepress/core')
+module.exports = require('@vuepress/core');

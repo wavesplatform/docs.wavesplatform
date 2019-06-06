@@ -1,4 +1,4 @@
-const { fs, path, logger, chalk } = require('@vuepress/shared-utils')
+const { fs, path, logger, chalk } = require('@vuepress/shared-utils');
 
 /**
  * @param options
@@ -10,36 +10,36 @@ module.exports = (options, ctx) => ({
   enhanceAppFiles: [path.resolve(__dirname, 'client.js')],
 
   async ready () {
-    const { sourceDir, writeTemp, themeAPI } = ctx
+    const { sourceDir, writeTemp, themeAPI } = ctx;
 
-    const overridePath = path.resolve(sourceDir, '.vuepress/override.styl')
-    const hasUserOverride = fs.existsSync(overridePath)
+    const overridePath = path.resolve(sourceDir, '.vuepress/override.styl');
+    const hasUserOverride = fs.existsSync(overridePath);
 
     if (hasUserOverride) {
-      logger.tip(`${chalk.magenta('override.styl')} has been deprecated from v1.0.0, using ${chalk.cyan('.vuepress/styles/palette.styl')} instead.\n`)
+      logger.tip(`${chalk.magenta('override.styl')} has been deprecated from v1.0.0, using ${chalk.cyan('.vuepress/styles/palette.styl')} instead.\n`);
     }
 
-    const themeStyle = path.resolve(themeAPI.theme.path, 'styles/index.styl')
-    const userStyle = path.resolve(sourceDir, '.vuepress/styles/index.styl')
+    const themeStyle = path.resolve(themeAPI.theme.path, 'styles/index.styl');
+    const userStyle = path.resolve(sourceDir, '.vuepress/styles/index.styl');
 
     const themeStyleContent = fs.existsSync(themeStyle)
       ? `@import(${JSON.stringify(themeStyle.replace(/[\\]+/g, '/'))})`
-      : ''
+      : '';
 
     const userStyleContent = fs.existsSync(userStyle)
       ? `@import(${JSON.stringify(userStyle.replace(/[\\]+/g, '/'))})`
-      : ''
+      : '';
 
-    let styleContent = themeStyleContent + userStyleContent
+    let styleContent = themeStyleContent + userStyleContent;
 
     if (themeAPI.existsParentTheme) {
-      const parentThemeStyle = path.resolve(themeAPI.parentTheme.path, 'styles/index.styl')
+      const parentThemeStyle = path.resolve(themeAPI.parentTheme.path, 'styles/index.styl');
       const parentThemeStyleContent = fs.existsSync(parentThemeStyle)
         ? `@import(${JSON.stringify(parentThemeStyle.replace(/[\\]+/g, '/'))})`
-        : ''
-      styleContent = parentThemeStyleContent + styleContent
+        : '';
+      styleContent = parentThemeStyleContent + styleContent;
     }
 
-    await writeTemp('style.styl', styleContent)
+    await writeTemp('style.styl', styleContent);
   }
-})
+});

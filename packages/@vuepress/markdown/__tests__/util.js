@@ -1,3 +1,3 @@
 export function Md () {
-  return require('markdown-it')()
+  return require('markdown-it')();
 }

@@ -1,10 +1,10 @@
-'use strict'
+'use strict';
 
 /**
  * Module dependencies.
  */
 
-const { logger, chalk, datatypes: { assertTypes }} = require('@vuepress/shared-utils')
+const { logger, chalk, datatypes: { assertTypes }} = require('@vuepress/shared-utils');
 
 /**
  * flatten your plugin config by passing in name, options and context.
@@ -22,32 +22,32 @@ exports.flattenPlugin = function (
   pluginContext,
   self
 ) {
-  const { valid, warnMsg } = assertTypes(pluginOptions, [Object, Array, Boolean])
+  const { valid, warnMsg } = assertTypes(pluginOptions, [Object, Array, Boolean]);
   if (!valid) {
     if (pluginOptions !== undefined) {
       logger.warn(
         `[${chalk.gray(shortcut)}] `
         + `Invalid value for "pluginOptions" ${chalk.cyan(name)}: ${warnMsg}`
-      )
+      );
     }
-    pluginOptions = {}
+    pluginOptions = {};
   }
 
-  let enabled = true
+  let enabled = true;
   if (typeof pluginOptions === 'boolean') {
-    enabled = pluginOptions
-    pluginOptions = {}
+    enabled = pluginOptions;
+    pluginOptions = {};
   }
 
   if (typeof config === 'function') {
     // 'Object.create' here is to give each plugin a separate context,
     // but also own the inheritance context.
-    config = config(pluginOptions, Object.create(pluginContext), self)
+    config = config(pluginOptions, Object.create(pluginContext), self);
   }
 
   // respect name in local plugin config
   if (!fromDep && config.name) {
-    name = config.name
+    name = config.name;
   }
 
   return Object.assign({}, config, {
@@ -55,5 +55,5 @@ exports.flattenPlugin = function (
     shortcut: fromDep ? shortcut : null,
     enabled,
     $$options: pluginOptions /* used for test */
-  })
-}
+  });
+};

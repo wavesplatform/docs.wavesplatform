@@ -4,10 +4,10 @@ module.exports = () => ({
   chainWebpack (config) {
     config
       .module
-        .rule('data-block')
-          .resourceQuery(/blockType=data/)
-          .use('date-block-loader')
-            .loader(require.resolve('./loader.js'))
+      .rule('data-block')
+      .resourceQuery(/blockType=data/)
+      .use('date-block-loader')
+      .loader(require.resolve('./loader.js'));
   },
 
   enhanceAppFiles () {
@@ -21,6 +21,6 @@ module.exports = () => ({
       }
     }
   }) }`.trim()
-    }]
+    }];
   }
-})
+});

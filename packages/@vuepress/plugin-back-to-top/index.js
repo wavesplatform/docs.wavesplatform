@@ -1,4 +1,4 @@
-const { path } = require('@vuepress/shared-utils')
+const { path } = require('@vuepress/shared-utils');
 
 module.exports = {
   enhanceAppFiles: [
@@ -6,4 +6,4 @@ module.exports = {
   ],
 
   globalUIComponents: 'BackToTop'
-}
+};

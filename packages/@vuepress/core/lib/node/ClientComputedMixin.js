@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /**
  * Get page data via path (permalink).
@@ -10,15 +10,15 @@
 
 function findPageForPath (pages, path) {
   for (let i = 0; i < pages.length; i++) {
-    const page = pages[i]
+    const page = pages[i];
     if (page.path.toLowerCase() === path.toLowerCase()) {
-      return page
+      return page;
     }
   }
   return {
     path: '',
     frontmatter: {}
-  }
+  };
 }
 
 /**
@@ -32,94 +32,94 @@ function findPageForPath (pages, path) {
 module.exports = siteData => {
   return class ClientComputedMixin {
     setPage (page) {
-      this.__page = page
+      this.__page = page;
     }
 
     get $site () {
-      return siteData
+      return siteData;
     }
 
     get $themeConfig () {
-      return this.$site.themeConfig
+      return this.$site.themeConfig;
     }
 
     get $frontmatter () {
-      return this.$page.frontmatter
+      return this.$page.frontmatter;
     }
 
     get $localeConfig () {
-      const { locales = {}} = this.$site
-      let targetLang
-      let defaultLang
+      const { locales = {}} = this.$site;
+      let targetLang;
+      let defaultLang;
       for (const path in locales) {
         if (path === '/') {
-          defaultLang = locales[path]
+          defaultLang = locales[path];
         } else if (this.$page.path.indexOf(path) === 0) {
-          targetLang = locales[path]
+          targetLang = locales[path];
         }
       }
-      return targetLang || defaultLang || {}
+      return targetLang || defaultLang || {};
     }
 
     get $siteTitle () {
-      return this.$localeConfig.title || this.$site.title || ''
+      return this.$localeConfig.title || this.$site.title || '';
     }
 
     get $title () {
-      const page = this.$page
-      const { metaTitle } = this.$page.frontmatter
+      const page = this.$page;
+      const { metaTitle } = this.$page.frontmatter;
       if (typeof metaTitle === 'string') {
-        return metaTitle
+        return metaTitle;
       }
 
-      const siteTitle = this.$siteTitle
+      const siteTitle = this.$siteTitle;
       const selfTitle = page.frontmatter.home ? null : (
         page.frontmatter.title // explicit title
         || page.title // inferred title
-      )
+      );
       return siteTitle
         ? selfTitle
           ? (selfTitle + ' | ' + siteTitle)
           : siteTitle
-        : selfTitle || 'VuePress'
+        : selfTitle || 'VuePress';
     }
 
     get $description () {
       // #565 hoist description from meta
-      const description = getMetaDescription(this.$page.frontmatter.meta)
+      const description = getMetaDescription(this.$page.frontmatter.meta);
       if (description) {
-        return description
+        return description;
       }
-      return this.$page.frontmatter.description || this.$localeConfig.description || this.$site.description || ''
+      return this.$page.frontmatter.description || this.$localeConfig.description || this.$site.description || '';
     }
 
     get $lang () {
-      return this.$page.frontmatter.lang || this.$localeConfig.lang || 'en-US'
+      return this.$page.frontmatter.lang || this.$localeConfig.lang || 'en-US';
     }
 
     get $localePath () {
-      return this.$localeConfig.path || '/'
+      return this.$localeConfig.path || '/';
     }
 
     get $themeLocaleConfig () {
-      return (this.$site.themeConfig.locales || {})[this.$localePath] || {}
+      return (this.$site.themeConfig.locales || {})[this.$localePath] || {};
     }
 
     get $page () {
       if (this.__page) {
-        return this.__page
+        return this.__page;
       }
       return findPageForPath(
         this.$site.pages,
         this.$route.path
-      )
+      );
     }
-  }
-}
+  };
+};
 
 function getMetaDescription (meta) {
   if (meta) {
-    const descriptionMeta = meta.filter(item => item.name === 'description')[0]
-    if (descriptionMeta) return descriptionMeta.content
+    const descriptionMeta = meta.filter(item => item.name === 'description')[0];
+    if (descriptionMeta) return descriptionMeta.content;
   }
 }

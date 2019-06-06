@@ -8,12 +8,12 @@
 //   4. <!--afterend-->
 
 module.exports = md => {
-  const fence = md.renderer.rules.fence
+  const fence = md.renderer.rules.fence;
   md.renderer.rules.fence = (...args) => {
-    const [tokens, idx] = args
-    const token = tokens[idx]
-    const rawCode = fence(...args)
+    const [tokens, idx] = args;
+    const token = tokens[idx];
+    const rawCode = fence(...args);
     return `<!--beforebegin--><div class="language-${token.info.trim()} extra-class">`
-    + `<!--afterbegin-->${rawCode}<!--beforeend--></div><!--afterend-->`
-  }
-}
+    + `<!--afterbegin-->${rawCode}<!--beforeend--></div><!--afterend-->`;
+  };
+};

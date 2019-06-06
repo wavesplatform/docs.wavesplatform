@@ -1,10 +1,10 @@
-'use strict'
+'use strict';
 
 /**
  * Module dependencies.
  */
 
-const { inferDate, DATE_RE } = require('./util/index')
+const { inferDate, DATE_RE } = require('./util/index');
 const {
   fs,
   path,
@@ -18,7 +18,7 @@ const {
   extractHeaders,
   parseFrontmatter,
   parseVueFrontmatter: { parse: parseVueFrontmatter }
-} = require('@vuepress/shared-utils')
+} = require('@vuepress/shared-utils');
 
 /**
  * Expose Page class.
@@ -47,30 +47,30 @@ module.exports = class Page {
     frontmatter = {},
     permalinkPattern
   }, context) {
-    this.title = title
-    this._meta = meta
-    this._filePath = filePath
-    this._content = content
-    this._permalink = permalink
-    this.frontmatter = frontmatter
-    this._permalinkPattern = permalinkPattern
-    this._context = context
+    this.title = title;
+    this._meta = meta;
+    this._filePath = filePath;
+    this._content = content;
+    this._permalink = permalink;
+    this.frontmatter = frontmatter;
+    this._permalinkPattern = permalinkPattern;
+    this._context = context;
 
     if (relative) {
-      this.regularPath = encodeURI(fileToPath(relative))
+      this.regularPath = encodeURI(fileToPath(relative));
     } else if (_path) {
-      this.regularPath = encodeURI(_path)
+      this.regularPath = encodeURI(_path);
     } else if (permalink) {
-      this.regularPath = encodeURI(permalink)
+      this.regularPath = encodeURI(permalink);
     }
 
     if (filePath) {
-      this.relativePath = path.relative(context.sourceDir, filePath).replace(/\\/g, '/')
+      this.relativePath = path.relative(context.sourceDir, filePath).replace(/\\/g, '/');
     }
 
-    this.key = 'v-' + hash(`${this._filePath}${this.regularPath}`)
+    this.key = 'v-' + hash(`${this._filePath}${this.regularPath}`);
     // Using regularPath first, would be override by permalink later.
-    this.path = this.regularPath
+    this.path = this.regularPath;
   }
 
   /**
@@ -90,25 +90,25 @@ module.exports = class Page {
     preRender = {}
   }) {
     if (this._filePath) {
-      logger.developer(`static_route`, chalk.cyan(this.path))
-      this._content = await fs.readFile(this._filePath, 'utf-8')
+      logger.developer('static_route', chalk.cyan(this.path));
+      this._content = await fs.readFile(this._filePath, 'utf-8');
     } else if (this._content) {
-      logger.developer(`static_route`, chalk.cyan(this.path))
-      this._filePath = await this._context.writeTemp(`temp-pages/${this.key}.md`, this._content)
+      logger.developer('static_route', chalk.cyan(this.path));
+      this._filePath = await this._context.writeTemp(`temp-pages/${this.key}.md`, this._content);
     } else {
-      logger.developer(`dynamic_route`, chalk.cyan(this.path))
+      logger.developer('dynamic_route', chalk.cyan(this.path));
     }
 
     if (this._content) {
       if (this._filePath.endsWith('.md')) {
-        const { excerpt, data, content } = parseFrontmatter(this._content)
-        this._strippedContent = content
-        Object.assign(this.frontmatter, data)
+        const { excerpt, data, content } = parseFrontmatter(this._content);
+        this._strippedContent = content;
+        Object.assign(this.frontmatter, data);
 
         // infer title
-        const title = inferTitle(this.frontmatter, this._strippedContent)
+        const title = inferTitle(this.frontmatter, this._strippedContent);
         if (title) {
-          this.title = title
+          this.title = title;
         }
 
         // headers
@@ -116,34 +116,34 @@ module.exports = class Page {
           this._strippedContent,
           ['h2', 'h3'],
           markdown
-        )
+        );
         if (headers.length) {
-          this.headers = headers
+          this.headers = headers;
         }
 
         if (excerpt) {
           const { html } = markdown.render(excerpt, {
             frontmatter: this.frontmatter,
             relativePath: this.relativePath
-          })
-          this.excerpt = html
+          });
+          this.excerpt = html;
         }
       } else if (this._filePath.endsWith('.vue')) {
-        const { data = {}} = parseVueFrontmatter(this._content)
+        const { data = {}} = parseVueFrontmatter(this._content);
         // When Vue SFCs are source files, make them as layout components directly.
         this.frontmatter = Object.assign({
           layout: this.key
-        }, data)
+        }, data);
       }
     }
 
     // resolve i18n
-    computed.setPage(this)
-    this._computed = computed
-    this._localePath = computed.$localePath
+    computed.setPage(this);
+    this._computed = computed;
+    this._localePath = computed.$localePath;
 
-    this.enhance(enhancers)
-    this.buildPermalink()
+    this.enhance(enhancers);
+    this.buildPermalink();
   }
 
   /**
@@ -154,7 +154,7 @@ module.exports = class Page {
    */
 
   get filename () {
-    return path.parse(this._filePath || this.regularPath).name
+    return path.parse(this._filePath || this.regularPath).name;
   }
 
   /**
@@ -165,7 +165,7 @@ module.exports = class Page {
    */
 
   get slug () {
-    return slugify(this.strippedFilename)
+    return slugify(this.strippedFilename);
   }
 
   /**
@@ -179,8 +179,8 @@ module.exports = class Page {
    */
 
   get strippedFilename () {
-    const match = this.filename.match(DATE_RE)
-    return match ? match[3] : this.filename
+    const match = this.filename.match(DATE_RE);
+    return match ? match[3] : this.filename;
   }
 
   /**
@@ -191,7 +191,7 @@ module.exports = class Page {
    */
 
   get date () {
-    return inferDate(this.frontmatter, this.filename)
+    return inferDate(this.frontmatter, this.filename);
   }
 
   /**
@@ -203,14 +203,14 @@ module.exports = class Page {
    */
 
   toJson () {
-    const json = {}
+    const json = {};
     Object.keys(this).reduce((json, key) => {
       if (!key.startsWith('_')) {
-        json[key] = this[key]
+        json[key] = this[key];
       }
-      return json
-    }, json)
-    return json
+      return json;
+    }, json);
+    return json;
   }
 
   /**
@@ -227,11 +227,11 @@ module.exports = class Page {
         date: this.date,
         localePath: this._localePath,
         regularPath: this.regularPath
-      })
+      });
     }
 
     if (this._permalink) {
-      this.path = this._permalink
+      this.path = this._permalink;
     }
   }
 
@@ -247,11 +247,11 @@ module.exports = class Page {
   enhance (enhancers) {
     for (const { name: pluginName, value: enhancer } of enhancers) {
       try {
-        enhancer(this)
+        enhancer(this);
       } catch (error) {
-        console.log(error)
-        throw new Error(`[${pluginName}] excuete extendPageData failed.`)
+        console.log(error);
+        throw new Error(`[${pluginName}] excuete extendPageData failed.`);
       }
     }
   }
-}
+};

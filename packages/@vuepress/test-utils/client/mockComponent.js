@@ -3,9 +3,9 @@ const Component = {
   render (h) {
     return h('p', {
       class: ['component', this.name]
-    }, this.name)
+    }, this.name);
   }
-}
+};
 
 // When the child component is a pure presentation component,
 // we want to be able to display a sub-component with minimal info,
@@ -13,7 +13,7 @@ const Component = {
 export default function mockComponent (name) {
   return {
     render (h) {
-      return h(Component, { props: { name }})
+      return h(Component, { props: { name }});
     }
-  }
+  };
 }

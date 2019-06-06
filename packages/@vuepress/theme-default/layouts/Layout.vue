@@ -15,8 +15,13 @@
       @click="toggleSidebar(false)"
     ></div>
 
+    <div
+      style="position: fixed; z-index: 999;left: 0;top: 0;"
+      @click="sidebar1Mod = 0"
+    >test1</div>
     <Sidebar
       :items="sidebarItems"
+      :mod="sidebar1Mod"
       @toggle-sidebar="toggleSidebar"
     >
       <slot
@@ -46,6 +51,7 @@
     </Page>
     <Sidebar
       :items="sidebarItems"
+      :mod="sidebar2Mod"
       @toggle-sidebar="toggleSidebar"
       style="left: auto;
     right: 0;
@@ -75,7 +81,9 @@ export default {
 
   data () {
     return {
-      isSidebarOpen: false
+      isSidebarOpen: false,
+      sidebar1Mod: 1,
+      sidebar2Mod: 2,
     }
   },
 

@@ -1,10 +1,10 @@
-'use strict'
+'use strict';
 
 /**
  * Module dependencies.
  */
 
-const { logger, chalk, compose, datatypes: { isFunction }} = require('@vuepress/shared-utils')
+const { logger, chalk, compose, datatypes: { isFunction }} = require('@vuepress/shared-utils');
 
 /**
  * Expose synchronous option class.
@@ -12,8 +12,8 @@ const { logger, chalk, compose, datatypes: { isFunction }} = require('@vuepress/
 
 class Option {
   constructor (key) {
-    this.key = key
-    this.items = []
+    this.key = key;
+    this.items = [];
   }
 
   /**
@@ -26,9 +26,9 @@ class Option {
 
   add (name, value) {
     if (Array.isArray(value)) {
-      return this.items.push(...value.map(i => ({ value: i, name })))
+      return this.items.push(...value.map(i => ({ value: i, name })));
     }
-    this.items.push({ value, name })
+    this.items.push({ value, name });
   }
 
   /**
@@ -39,10 +39,10 @@ class Option {
    */
 
   delete (name) {
-    let index = this.items.findIndex(({ name: _name }) => _name === name)
+    let index = this.items.findIndex(({ name: _name }) => _name === name);
     while (index !== -1) {
-      this.items.splice(index, 1)
-      index = this.items.findIndex(({ name: _name }) => _name === name)
+      this.items.splice(index, 1);
+      index = this.items.findIndex(({ name: _name }) => _name === name);
     }
   }
 
@@ -54,7 +54,7 @@ class Option {
    */
 
   clear (name) {
-    this.items = []
+    this.items = [];
   }
 
   /**
@@ -65,7 +65,7 @@ class Option {
    */
 
   get values () {
-    return this.items.map(item => item.value)
+    return this.items.map(item => item.value);
   }
 
   /**
@@ -76,7 +76,7 @@ class Option {
    */
 
   get appliedValues () {
-    return this.appliedItems && this.appliedItems.map(item => item.value)
+    return this.appliedItems && this.appliedItems.map(item => item.value);
   }
 
   /**
@@ -87,7 +87,7 @@ class Option {
    */
 
   get entries () {
-    return this.items.map(({ name, value }) => ([name, value]))
+    return this.items.map(({ name, value }) => ([name, value]));
   }
 
   /**
@@ -98,9 +98,9 @@ class Option {
    */
 
   syncApply (...args) {
-    const rawItems = this.items
-    this.items = []
-    this.appliedItems = this.items
+    const rawItems = this.items;
+    this.items = [];
+    this.appliedItems = this.items;
 
     for (const { name, value } of rawItems) {
       try {
@@ -109,14 +109,14 @@ class Option {
           isFunction(value)
             ? value(...args)
             : value
-        )
+        );
       } catch (error) {
-        logger.error(`${chalk.cyan(name)} apply ${chalk.cyan(this.key)} failed.`)
-        throw error
+        logger.error(`${chalk.cyan(name)} apply ${chalk.cyan(this.key)} failed.`);
+        throw error;
       }
     }
 
-    this.items = rawItems
+    this.items = rawItems;
   }
 
   /**
@@ -126,10 +126,10 @@ class Option {
    */
 
   pipeline (input) {
-    const fn = compose(this.values)
-    return fn(input)
+    const fn = compose(this.values);
+    return fn(input);
   }
 }
 
-Option.prototype.apply = Option.prototype.syncApply
-module.exports = Option
+Option.prototype.apply = Option.prototype.syncApply;
+module.exports = Option;

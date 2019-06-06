@@ -9,9 +9,9 @@ exports.PLUGINS = {
   EMOJI: 'emoji',
   TOC: 'toc',
   LINE_NUMBERS: 'line-numbers'
-}
+};
 
 exports.REQUIRED_PLUGINS = [
   exports.PLUGINS.COMPONENT,
   exports.PLUGINS.ANCHOR
-]
+];

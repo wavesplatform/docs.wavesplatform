@@ -2,7 +2,11 @@
   <aside class="sidebar">
     <NavLinks/>
     <slot name="top"/>
-    <SidebarLinks :depth="0" :items="items"/>
+    <SidebarLinks
+      :depth="0"
+      :items="items"
+      :mod="mod"
+    />
     <slot name="bottom"/>
   </aside>
 </template>
@@ -16,7 +20,16 @@ export default {
 
   components: { SidebarLinks, NavLinks },
 
-  props: ['items']
+  props: {
+    items: {
+      type: Array,
+      default: () => [],
+    },
+    mod: {
+      type: Number,
+      default: 0,
+    }
+  }
 }
 </script>
 

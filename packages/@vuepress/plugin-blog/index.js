@@ -1,18 +1,18 @@
-const { path, datatypes: { isString }} = require('@vuepress/shared-utils')
+const { path, datatypes: { isString }} = require('@vuepress/shared-utils');
 
 module.exports = (options, ctx) => {
-  const { themeAPI: { layoutComponentMap }} = ctx
+  const { themeAPI: { layoutComponentMap }} = ctx;
   const {
     pageEnhancers = [],
     postsDir = '_posts',
     categoryIndexPageUrl = '/category/',
     tagIndexPageUrl = '/tag/',
     permalink = '/:year/:month/:day/:slug'
-  } = options
+  } = options;
 
-  const isLayoutExists = name => layoutComponentMap[name] !== undefined
-  const getLayout = (name, fallback) => isLayoutExists(name) ? name : fallback
-  const isDirectChild = regularPath => path.parse(regularPath).dir === '/'
+  const isLayoutExists = name => layoutComponentMap[name] !== undefined;
+  const getLayout = (name, fallback) => isLayoutExists(name) ? name : fallback;
+  const isDirectChild = regularPath => path.parse(regularPath).dir === '/';
 
   const enhancers = [
     {
@@ -49,14 +49,14 @@ module.exports = (options, ctx) => {
       frontmatter: { layout: getLayout('Page', 'Layout') },
       data: { type: 'page' }
     }
-  ]
+  ];
 
   return {
     /**
      * Modify page's metadata according to the habits of blog users.
      */
     extendPageData (pageCtx) {
-      const { frontmatter: rawFrontmatter } = pageCtx
+      const { frontmatter: rawFrontmatter } = pageCtx;
 
       enhancers.forEach(({
         when,
@@ -66,34 +66,34 @@ module.exports = (options, ctx) => {
         if (when(pageCtx)) {
           Object.keys(frontmatter).forEach(key => {
             if (!rawFrontmatter[key]) {
-              rawFrontmatter[key] = frontmatter[key]
+              rawFrontmatter[key] = frontmatter[key];
             }
-          })
-          Object.assign(pageCtx, data)
+          });
+          Object.assign(pageCtx, data);
         }
-      })
+      });
     },
 
     /**
      * Create tag page and category page.
      */
     async ready () {
-      const { pages } = ctx
-      const tagMap = {}
-      const categoryMap = {}
+      const { pages } = ctx;
+      const tagMap = {};
+      const categoryMap = {};
 
       const curryHandler = (scope, map) => (key, pageKey) => {
         if (key) {
           if (!map[key]) {
-            map[key] = {}
-            map[key].path = `${scope}${key}.html`
-            map[key].pageKeys = []
+            map[key] = {};
+            map[key].path = `${scope}${key}.html`;
+            map[key].pageKeys = [];
           }
-          map[key].pageKeys.push(pageKey)
+          map[key].pageKeys.push(pageKey);
         }
-      }
-      const handleTag = curryHandler(tagIndexPageUrl, tagMap)
-      const handleCategory = curryHandler(categoryIndexPageUrl, categoryMap)
+      };
+      const handleTag = curryHandler(tagIndexPageUrl, tagMap);
+      const handleCategory = curryHandler(categoryIndexPageUrl, categoryMap);
 
       pages.forEach(({
         key,
@@ -105,30 +105,30 @@ module.exports = (options, ctx) => {
         }
       }) => {
         if (isString(tag)) {
-          handleTag(tag, key)
+          handleTag(tag, key);
         }
         if (Array.isArray(tags)) {
-          tags.forEach(tag => handleTag(tag, key))
+          tags.forEach(tag => handleTag(tag, key));
         }
         if (isString(category)) {
-          handleCategory(category, key)
+          handleCategory(category, key);
         }
         if (Array.isArray(categories)) {
-          categories.forEach(category => handleCategory(category, key))
+          categories.forEach(category => handleCategory(category, key));
         }
-      })
+      });
 
-      ctx.tagMap = tagMap
-      ctx.categoryMap = categoryMap
+      ctx.tagMap = tagMap;
+      ctx.categoryMap = categoryMap;
 
       const extraPages = [
         {
           permalink: tagIndexPageUrl,
-          frontmatter: { title: `Tags` }
+          frontmatter: { title: 'Tags' }
         },
         {
           permalink: categoryIndexPageUrl,
-          frontmatter: { title: `Categories` }
+          frontmatter: { title: 'Categories' }
         },
         ...Object.keys(tagMap).map(tagName => ({
           permalink: tagMap[tagName].path,
@@ -140,8 +140,8 @@ module.exports = (options, ctx) => {
           meta: { categoryName },
           frontmatter: { title: `${categoryName} | Category` }
         }))
-      ]
-      await Promise.all(extraPages.map(page => ctx.addPage(page)))
+      ];
+      await Promise.all(extraPages.map(page => ctx.addPage(page)));
     },
 
     /**
@@ -157,9 +157,9 @@ module.exports = (options, ctx) => {
           name: 'category.js',
           content: `export default ${JSON.stringify(ctx.categoryMap, null, 2)}`
         }
-      ]
+      ];
     },
 
     enhanceAppFiles: path.resolve(__dirname, 'enhanceAppFile.js')
-  }
-}
+  };
+};

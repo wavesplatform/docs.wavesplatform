@@ -1,7 +1,7 @@
-import createLocalVue from './createLocalVue'
-import mockComponent from './mockComponent'
+import createLocalVue from './createLocalVue';
+import mockComponent from './mockComponent';
 
 export {
   createLocalVue,
   mockComponent
-}
+};

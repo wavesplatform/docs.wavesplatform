@@ -3,6 +3,7 @@
     class="sidebar-links"
     v-if="items.length"
   >
+
     <li v-for="(item, i) in items" :key="i">
       <SidebarGroup
         v-if="item.type === 'group'"
@@ -10,12 +11,14 @@
         :open="i === openGroupIndex"
         :collapsable="item.collapsable || item.collapsible"
         :depth="depth"
+        :mod="mod"
         @toggle="toggleGroup(i)"
       />
       <SidebarLink
         v-else
         :sidebarDepth="sidebarDepth"
         :item="item"
+        :mod="mod"
       />
     </li>
   </ul>
@@ -31,11 +34,24 @@ export default {
 
   components: { SidebarGroup, SidebarLink },
 
-  props: [
-    'items',
-    'depth',  // depth of current sidebar links
-    'sidebarDepth' // depth of headers to be extracted
-  ],
+  props: {
+    items: {
+      type: Array,
+      default: () => [],
+    },
+    depth: {
+      type: Number,
+      default: 0,
+    },
+    sidebarDepth: {
+      type: Number,
+      default: 0,
+    },
+    mod: {
+      type: Number,
+      default: 0,
+    },
+  },
 
   data () {
     return {

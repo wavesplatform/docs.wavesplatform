@@ -1,10 +1,10 @@
-const { logger, fs, path } = require('@vuepress/shared-utils')
+const { logger, fs, path } = require('@vuepress/shared-utils');
 
 module.exports = (options, context) => ({
   ready () {
     options = Object.assign({
       serviceWorker: true
-    }, options)
+    }, options);
   },
 
   alias: {
@@ -12,13 +12,13 @@ module.exports = (options, context) => ({
   },
 
   define () {
-    const { serviceWorker, updatePopup } = options
-    const base = context.base || '/'
+    const { serviceWorker, updatePopup } = options;
+    const base = context.base || '/';
     return {
       SW_BASE_URL: base,
       SW_ENABLED: !!serviceWorker,
       SW_UPDATE_POPUP: updatePopup || false
-    }
+    };
   },
 
   // TODO support components option
@@ -31,22 +31,22 @@ module.exports = (options, context) => ({
   enhanceAppFiles: path.resolve(__dirname, 'lib/enhanceAppFile.js'),
 
   async generated () {
-    const { serviceWorker } = options
-    const { outDir } = context
-    const swFilePath = path.resolve(outDir, 'service-worker.js')
+    const { serviceWorker } = options;
+    const { outDir } = context;
+    const swFilePath = path.resolve(outDir, 'service-worker.js');
     if (serviceWorker) {
-      logger.wait('Generating service worker...')
-      const wbb = require('workbox-build')
+      logger.wait('Generating service worker...');
+      const wbb = require('workbox-build');
       await wbb.generateSW({
         swDest: swFilePath,
         globDirectory: outDir,
         globPatterns: ['**\/*.{js,css,html,png,jpg,jpeg,gif,svg,woff,woff2,eot,ttf,otf}']
-      })
+      });
       await fs.writeFile(
         swFilePath,
         await fs.readFile(path.resolve(__dirname, 'lib/skip-waiting.js'), 'utf8'),
         { flag: 'a' }
-      )
+      );
     }
   }
-})
+});

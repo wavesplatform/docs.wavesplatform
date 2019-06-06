@@ -1,6 +1,6 @@
-const { fs, path } = require('@vuepress/shared-utils')
+const { fs, path } = require('@vuepress/shared-utils');
 
-const DIR = 'transform'
+const DIR = 'transform';
 
 module.exports = (options, ctx) => ({
   name: '@vuepress/internal-transform-modules',
@@ -12,15 +12,15 @@ module.exports = (options, ctx) => ({
   async clientDynamicModules () {
     const files = [
       path.resolve(__dirname, '../ClientComputedMixin.js')
-    ]
+    ];
 
     const modules = await Promise.all(files.map(async file => {
-      const { base } = path.parse(file)
-      let content = await fs.readFile(file, 'utf-8')
-      content = content.replace('module.exports =', 'export default')
-      return { name: base, content, dirname: DIR }
-    }))
+      const { base } = path.parse(file);
+      let content = await fs.readFile(file, 'utf-8');
+      content = content.replace('module.exports =', 'export default');
+      return { name: base, content, dirname: DIR };
+    }));
 
-    return modules
+    return modules;
   }
-})
+});

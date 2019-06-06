@@ -1,5 +1,5 @@
-import BackToTop from './BackToTop.vue'
+import BackToTop from './BackToTop.vue';
 
 export default ({ Vue }) => {
-  Vue.component('BackToTop', BackToTop)
-}
+  Vue.component('BackToTop', BackToTop);
+};

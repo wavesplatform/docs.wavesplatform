@@ -23,4 +23,4 @@ export const popupConfig = {
     message: 'Hay nuevo contenido disponible.',
     buttonText: 'Actualizar'
   }
-}
+};

@@ -1,69 +1,69 @@
 /* global VUEPRESS_TEMP_PATH */
-import Vue from 'vue'
-import Router from 'vue-router'
-import dataMixin from './dataMixin'
-import { routes } from '@internal/routes'
-import { siteData } from '@internal/siteData'
-import appEnhancers from '@internal/app-enhancers'
-import globalUIComponents from '@internal/global-ui'
-import ClientComputedMixin from '@transform/ClientComputedMixin'
-import VuePress from './plugins/VuePress'
-import { handleRedirectForCleanUrls } from './redirect.js'
-import { getLayoutAsyncComponent } from './util'
+import Vue from 'vue';
+import Router from 'vue-router';
+import dataMixin from './dataMixin';
+import { routes } from '@internal/routes';
+import { siteData } from '@internal/siteData';
+import appEnhancers from '@internal/app-enhancers';
+import globalUIComponents from '@internal/global-ui';
+import ClientComputedMixin from '@transform/ClientComputedMixin';
+import VuePress from './plugins/VuePress';
+import { handleRedirectForCleanUrls } from './redirect.js';
+import { getLayoutAsyncComponent } from './util';
 
 // built-in components
-import Content from './components/Content.js'
-import ContentSlotsDistributor from './components/ContentSlotsDistributor'
-import OutboundLink from './components/OutboundLink.vue'
-import ClientOnly from './components/ClientOnly'
-import TOC from './components/TOC.vue'
+import Content from './components/Content.js';
+import ContentSlotsDistributor from './components/ContentSlotsDistributor';
+import OutboundLink from './components/OutboundLink.vue';
+import ClientOnly from './components/ClientOnly';
+import TOC from './components/TOC.vue';
 
 // suggest dev server restart on base change
 if (module.hot) {
-  const prevBase = siteData.base
+  const prevBase = siteData.base;
   module.hot.accept(VUEPRESS_TEMP_PATH + '/internal/siteData.js', () => {
     if (siteData.base !== prevBase) {
       window.alert(
-        `[vuepress] Site base has changed. `
-        + `Please restart dev server to ensure correct asset paths.`
-      )
+        '[vuepress] Site base has changed. '
+        + 'Please restart dev server to ensure correct asset paths.'
+      );
     }
-  })
+  });
 }
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
-Vue.use(Router)
-Vue.use(VuePress)
+Vue.use(Router);
+Vue.use(VuePress);
 // mixin for exposing $site and $page
-Vue.mixin(dataMixin(ClientComputedMixin, siteData))
+Vue.mixin(dataMixin(ClientComputedMixin, siteData));
 // component for rendering markdown content and setting title etc.
 
-Vue.component('Content', Content)
-Vue.component('ContentSlotsDistributor', ContentSlotsDistributor)
-Vue.component('OutboundLink', OutboundLink)
+Vue.component('Content', Content);
+Vue.component('ContentSlotsDistributor', ContentSlotsDistributor);
+Vue.component('OutboundLink', OutboundLink);
 // component for client-only content
-Vue.component('ClientOnly', ClientOnly)
+Vue.component('ClientOnly', ClientOnly);
 // core components
-Vue.component('Layout', getLayoutAsyncComponent('Layout'))
-Vue.component('NotFound', getLayoutAsyncComponent('NotFound'))
+Vue.component('Layout', getLayoutAsyncComponent('Layout'));
+Vue.component('NotFound', getLayoutAsyncComponent('NotFound'));
 // markdown components
-Vue.component('TOC', TOC)
+Vue.component('TOC', TOC);
 
 // global helper for adding base path to absolute urls
 Vue.prototype.$withBase = function (path) {
-  const base = this.$site.base
+  const base = this.$site.base;
   if (path.charAt(0) === '/') {
-    return base + path.slice(1)
+    return base + path.slice(1);
   } else {
-    return path
+    return path;
   }
-}
+};
 
 export function createApp (isServer) {
   const routerBase = typeof window !== 'undefined' && window.__VUEPRESS_ROUTER_BASE__
     ? window.__VUEPRESS_ROUTER_BASE__
-    : (siteData.routerBase || siteData.base)
+    : (siteData.routerBase || siteData.base);
 
   const router = new Router({
     base: routerBase,
@@ -72,32 +72,32 @@ export function createApp (isServer) {
     routes,
     scrollBehavior (to, from, savedPosition) {
       if (savedPosition) {
-        return savedPosition
+        return savedPosition;
       } else if (to.hash) {
         if (Vue.$vuepress.$get('disableScrollBehavior')) {
-          return false
+          return false;
         }
         return {
           selector: to.hash
-        }
+        };
       } else {
-        return { x: 0, y: 0 }
+        return { x: 0, y: 0 };
       }
     }
-  })
+  });
 
-  handleRedirectForCleanUrls(router)
+  handleRedirectForCleanUrls(router);
 
-  const options = {}
+  const options = {};
 
   try {
     appEnhancers.forEach(enhancer => {
       if (typeof enhancer === 'function') {
-        enhancer({ Vue, options, router, siteData, isServer })
+        enhancer({ Vue, options, router, siteData, isServer });
       }
-    })
+    });
   } catch (e) {
-    console.error(e)
+    console.error(e);
   }
 
   const app = new Vue(
@@ -107,10 +107,10 @@ export function createApp (isServer) {
         return h('div', { attrs: { id: 'app' }}, [
           h('router-view', { ref: 'layout' }),
           h('div', { class: 'global-ui' }, globalUIComponents.map(component => h(component)))
-        ])
+        ]);
       }
     })
-  )
+  );
 
-  return { app, router }
+  return { app, router };
 }

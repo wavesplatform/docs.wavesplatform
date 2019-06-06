@@ -1,6 +1,6 @@
-import { mount, RouterLinkStub } from '@vue/test-utils'
-import DropdownLink from '../../components/DropdownLink.vue'
-import { createLocalVue } from '@vuepress/test-utils/client'
+import { mount, RouterLinkStub } from '@vue/test-utils';
+import DropdownLink from '../../components/DropdownLink.vue';
+import { createLocalVue } from '@vuepress/test-utils/client';
 
 describe('DropdownLink', () => {
   test('renders dropdown link.', () => {
@@ -16,14 +16,14 @@ describe('DropdownLink', () => {
           link: '/config/'
         }
       ]
-    }
+    };
     const wrapper = mount(DropdownLink, {
       localVue: createLocalVue(),
       stubs: {
         'router-link': RouterLinkStub
       },
       propsData: { item }
-    })
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-})
+    });
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+});

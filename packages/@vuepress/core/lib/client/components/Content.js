@@ -1,4 +1,4 @@
-import { getPageAsyncComponent } from '../util'
+import { getPageAsyncComponent } from '../util';
 
 export default {
   props: {
@@ -9,11 +9,11 @@ export default {
     }
   },
   render (h) {
-    const pageKey = this.pageKey || this.$parent.$page.key
-    const pageComponent = getPageAsyncComponent(pageKey)
+    const pageKey = this.pageKey || this.$parent.$page.key;
+    const pageComponent = getPageAsyncComponent(pageKey);
     if (pageComponent) {
-      return h(pageComponent)
+      return h(pageComponent);
     }
-    return h('')
+    return h('');
   }
-}
+};

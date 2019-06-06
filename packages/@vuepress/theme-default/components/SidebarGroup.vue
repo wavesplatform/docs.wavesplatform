@@ -9,37 +9,40 @@
       `depth-${depth}`
     ]"
   >
-    <router-link
-      v-if="item.path"
-      class="sidebar-heading clickable"
-      :class="{
+    <template v-if="mod === 1 || mod === 0">
+      <router-link
+        v-if="item.path"
+        class="sidebar-heading clickable"
+        :class="{
         open,
         'active': isActive($route, item.path)
       }"
-      :to="item.path"
-      @click.native="$emit('toggle')"
-    >
-      <span>{{ item.title }}</span>
-      <span
-        class="arrow"
-        v-if="collapsable"
-        :class="open ? 'down' : 'right'">
+        :to="item.path"
+        @click.native="$emit('toggle')"
+      >
+        <span>{{ item.title }}</span>
+        <span
+          class="arrow"
+          v-if="collapsable"
+          :class="open ? 'down' : 'right'">
       </span>
-    </router-link>
+      </router-link>
 
-    <p
-      v-else
-      class="sidebar-heading"
-      :class="{ open }"
-      @click="$emit('toggle')"
-    >
-      <span>{{ item.title }}</span>
-      <span
-        class="arrow"
-        v-if="collapsable"
-        :class="open ? 'down' : 'right'">
+      <p
+        v-else
+        class="sidebar-heading"
+        :class="{ open }"
+        @click="$emit('toggle')"
+      >
+        <span>{{ item.title }}</span>
+        <span
+          class="arrow"
+          v-if="collapsable"
+          :class="open ? 'down' : 'right'">
       </span>
-    </p>
+      </p>
+    </template>
+
 
     <DropdownTransition>
       <SidebarLinks
@@ -48,6 +51,7 @@
         v-if="open || !collapsable"
         :sidebarDepth="item.sidebarDepth"
         :depth="depth + 1"
+        :mod="mod"
       />
     </DropdownTransition>
   </section>
@@ -59,7 +63,32 @@ import DropdownTransition from '@theme/components/DropdownTransition.vue'
 
 export default {
   name: 'SidebarGroup',
-  props: ['item', 'open', 'collapsable', 'depth'],
+  // props: [
+  //   'item', 'open', 'collapsable', 'depth'
+  // ],
+
+  props: {
+    item: {
+      type: Object,
+      default: () => ({})
+    },
+    open: {
+      type: Boolean,
+      default: true
+    },
+    collapsable: {
+      type: Boolean,
+      default: true
+    },
+    depth: {
+      type: Number,
+      default: 1,
+    },
+    mod: {
+      type: Number,
+      default: 0,
+    },
+  },
   components: { DropdownTransition },
   // ref: https://vuejs.org/v2/guide/components-edge-cases.html#Circular-References-Between-Components
   beforeCreate () {

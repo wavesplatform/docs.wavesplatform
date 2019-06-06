@@ -1,10 +1,10 @@
-'use strict'
+'use strict';
 
 /**
  * Module dependencies.
  */
 
-const Option = require('../abstract/Option')
+const Option = require('../abstract/Option');
 
 /**
  * globalUIComponents option.
@@ -13,8 +13,8 @@ const Option = require('../abstract/Option')
 module.exports = class GlobalUIComponentsOption extends Option {
   async apply (ctx) {
     await ctx.writeTemp(
-      `internal/global-ui.js`,
+      'internal/global-ui.js',
       `export default ${JSON.stringify(this.values, null, 2)}`
-    )
+    );
   }
-}
+};

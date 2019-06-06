@@ -1,51 +1,51 @@
-'use strict'
+'use strict';
 
 /**
  * Module dependencies.
  */
 
-const { createApp } = require('@vuepress/core')
-const { path, logger, globby, chalk } = require('@vuepress/shared-utils')
-const { isKnownCommand, CLI } = require('./util')
-const pwd = process.cwd()
+const { createApp } = require('@vuepress/core');
+const { path, logger, globby, chalk } = require('@vuepress/shared-utils');
+const { isKnownCommand, CLI } = require('./util');
+const pwd = process.cwd();
 
 /**
  * Expose handleUnknownCommand function.
  */
 
 module.exports = async function (cli, options) {
-  registerUnknownCommands(cli, options)
+  registerUnknownCommands(cli, options);
 
-  const argv = process.argv.slice(2)
-  const inferredUserDocsDirectory = await inferUserDocsDirectory(pwd)
-  logger.developer('inferredUserDocsDirectory', inferredUserDocsDirectory)
+  const argv = process.argv.slice(2);
+  const inferredUserDocsDirectory = await inferUserDocsDirectory(pwd);
+  logger.developer('inferredUserDocsDirectory', inferredUserDocsDirectory);
 
   const needPrepareBeforeLaunchCLI = inferredUserDocsDirectory
-    && (isHelpFlag(argv[0]) || isUnknownCommandHelp(argv))
+    && (isHelpFlag(argv[0]) || isUnknownCommandHelp(argv));
 
-  logger.developer('needPrepareBeforeLaunchCLI', needPrepareBeforeLaunchCLI)
+  logger.developer('needPrepareBeforeLaunchCLI', needPrepareBeforeLaunchCLI);
 
   if (needPrepareBeforeLaunchCLI) {
-    let app
-    let [, sourceDir] = argv
+    let app;
+    let [, sourceDir] = argv;
 
     if (!sourceDir || sourceDir.startsWith('-')) {
-      sourceDir = inferredUserDocsDirectory
+      sourceDir = inferredUserDocsDirectory;
     } else {
-      sourceDir = pwd
+      sourceDir = pwd;
     }
 
-    logger.setOptions({ logLevel: 1 })
+    logger.setOptions({ logLevel: 1 });
 
     if (sourceDir) {
-      app = createApp({ sourceDir, ...options })
-      await app.process()
-      app.pluginAPI.applySyncOption('extendCli', cli, app)
+      app = createApp({ sourceDir, ...options });
+      await app.process();
+      app.pluginAPI.applySyncOption('extendCli', cli, app);
     }
 
-    logger.setOptions({ logLevel: 3 })
+    logger.setOptions({ logLevel: 3 });
   }
-}
+};
 
 // When user type `vuepress [customCommand] --help`,
 // VuePress will try to detect where user to place docs.
@@ -57,15 +57,15 @@ async function inferUserDocsDirectory (cwd) {
   ], {
     cwd,
     dot: true
-  })
-  const siteConfigPath = paths && paths[0]
+  });
+  const siteConfigPath = paths && paths[0];
   if (siteConfigPath) {
     return path.resolve(
       cwd,
       siteConfigPath.replace('.vuepress/config.js', '')
-    )
+    );
   }
-  return null
+  return null;
 }
 
 /**
@@ -75,63 +75,63 @@ async function inferUserDocsDirectory (cwd) {
 
 function registerUnknownCommands (cli, options) {
   cli.on('command:*', async () => {
-    const { args, options: commandoptions } = cli
+    const { args, options: commandoptions } = cli;
 
-    logger.debug('global_options', options)
-    logger.debug('cli_options', commandoptions)
-    logger.debug('cli_args', args)
+    logger.debug('global_options', options);
+    logger.debug('cli_options', commandoptions);
+    logger.debug('cli_args', args);
 
-    const [commandName] = args
-    const sourceDir = args[1] ? path.resolve(args[1]) : pwd
-    const inferredUserDocsDirectory = await inferUserDocsDirectory(pwd)
-    logger.developer('inferredUserDocsDirectory', inferredUserDocsDirectory)
-    logger.developer('sourceDir', sourceDir)
+    const [commandName] = args;
+    const sourceDir = args[1] ? path.resolve(args[1]) : pwd;
+    const inferredUserDocsDirectory = await inferUserDocsDirectory(pwd);
+    logger.developer('inferredUserDocsDirectory', inferredUserDocsDirectory);
+    logger.developer('sourceDir', sourceDir);
 
     if (inferredUserDocsDirectory && sourceDir !== inferredUserDocsDirectory) {
-      logUnknownCommand(cli)
-      console.log()
-      logger.tip(`Did you miss to specify the target docs dir? e.g. ${chalk.cyan(`vuepress ${commandName} [targetDir]`)}.`)
-      logger.tip(`A custom command registered by a plugin requires VuePress to locate your site configuration like ${chalk.cyan('vuepress dev')} or ${chalk.cyan('vuepress build')}.`)
-      console.log()
-      process.exit(1)
+      logUnknownCommand(cli);
+      console.log();
+      logger.tip(`Did you miss to specify the target docs dir? e.g. ${chalk.cyan(`vuepress ${commandName} [targetDir]`)}.`);
+      logger.tip(`A custom command registered by a plugin requires VuePress to locate your site configuration like ${chalk.cyan('vuepress dev')} or ${chalk.cyan('vuepress build')}.`);
+      console.log();
+      process.exit(1);
     }
 
     if (!inferredUserDocsDirectory) {
-      logUnknownCommand(cli)
-      process.exit(1)
+      logUnknownCommand(cli);
+      process.exit(1);
     }
 
-    logger.debug('Custom command', chalk.cyan(commandName))
+    logger.debug('Custom command', chalk.cyan(commandName));
     CLI({
       async beforeParse (subCli) {
         const app = createApp({
           sourceDir: sourceDir,
           ...options,
           ...commandoptions
-        })
-        await app.process()
-        app.pluginAPI.applySyncOption('extendCli', subCli, app)
-        console.log()
+        });
+        await app.process();
+        app.pluginAPI.applySyncOption('extendCli', subCli, app);
+        console.log();
       },
       async afterParse (subCli) {
         if (!subCli.matchedCommand) {
-          logUnknownCommand(subCli)
-          console.log()
+          logUnknownCommand(subCli);
+          console.log();
         }
       }
-    })
-  })
+    });
+  });
 }
 
 function isHelpFlag (v) {
-  return v === '--help' || v === '-h'
+  return v === '--help' || v === '-h';
 }
 
 function isUnknownCommandHelp (argv) {
-  return !isKnownCommand(argv) && isHelpFlag(argv[1])
+  return !isKnownCommand(argv) && isHelpFlag(argv[1]);
 }
 
 function logUnknownCommand (cli) {
-  console.error('Unknown command: %s', cli.args.join(' '))
+  console.error('Unknown command: %s', cli.args.join(' '));
 }
 

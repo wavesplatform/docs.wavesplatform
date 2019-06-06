@@ -13,6 +13,6 @@ export default {
         ]
       },
       slots()[props.slotKey]
-    )
+    );
   }
-}
+};

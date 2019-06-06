@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /**
  * Module dependencies.
@@ -7,7 +7,7 @@
 const {
   path, toAbsolutePath, chalk, logger,
   datatypes: { isString, isBoolean }
-} = require('@vuepress/shared-utils')
+} = require('@vuepress/shared-utils');
 
 /**
  * Get cache directory and cache identifier via config.
@@ -16,18 +16,18 @@ const {
  */
 
 exports.getCacheLoaderOptions = function (siteConfig, options, cwd, isProd) {
-  const defaultCacheDirectory = path.resolve(__dirname, '../../node_modules/.cache/vuepress')
-  let cache = options.cache || siteConfig.cache || defaultCacheDirectory
+  const defaultCacheDirectory = path.resolve(__dirname, '../../node_modules/.cache/vuepress');
+  let cache = options.cache || siteConfig.cache || defaultCacheDirectory;
 
   if (isBoolean(cache)) {
     if (cache === true) {
-      cache = defaultCacheDirectory
+      cache = defaultCacheDirectory;
     }
   } else if (!isString(cache)) {
-    throw new Error(`expected cache option to be string or boolean, but got ${typeof cache}`)
+    throw new Error(`expected cache option to be string or boolean, but got ${typeof cache}`);
   }
 
-  const cacheDirectory = toAbsolutePath(cache, cwd)
+  const cacheDirectory = toAbsolutePath(cache, cwd);
   const cacheIdentifier = JSON.stringify({
     vuepress: require('../../package.json').version,
     'cache-loader': require('cache-loader/package.json').version,
@@ -52,10 +52,10 @@ exports.getCacheLoaderOptions = function (siteConfig, options, cwd, isProd) {
       + (siteConfig.chainWebpack || '').toString()
       + (siteConfig.configureWebpack || '').toString()
     )
-  })
+  });
 
-  logger.debug('Cache directory: ' + chalk.gray(cacheDirectory))
-  logger.debug('Cache identifier : ' + chalk.gray(cacheIdentifier))
+  logger.debug('Cache directory: ' + chalk.gray(cacheDirectory));
+  logger.debug('Cache identifier : ' + chalk.gray(cacheIdentifier));
 
-  return { cacheDirectory, cacheIdentifier }
-}
+  return { cacheDirectory, cacheIdentifier };
+};

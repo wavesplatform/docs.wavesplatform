@@ -1,4 +1,4 @@
-const { path } = require('@vuepress/shared-utils')
+const { path } = require('@vuepress/shared-utils');
 
 module.exports = (options) => ({
   alias: {
@@ -10,4 +10,4 @@ module.exports = (options) => ({
     SEARCH_MAX_SUGGESTIONS: options.searchMaxSuggestions || 5,
     SEARCH_PATHS: options.test || null
   }
-})
+});

@@ -5,5 +5,5 @@ module.exports = function (source, map) {
       Component.options.__data__block__ = ${source.trim()}
     }`,
     map
-  )
-}
+  );
+};

@@ -1,18 +1,18 @@
-'use strict'
+'use strict';
 
 /**
  * Expose createClientConfig method.
  */
 
 module.exports = function createClientConfig (ctx) {
-  const { env } = require('@vuepress/shared-utils')
-  const createBaseConfig = require('./createBaseConfig')
+  const { env } = require('@vuepress/shared-utils');
+  const createBaseConfig = require('./createBaseConfig');
 
-  const config = createBaseConfig(ctx)
+  const config = createBaseConfig(ctx);
 
   config
     .entry('app')
-      .add(ctx.getLibFilePath('client/clientEntry.js'))
+    .add(ctx.getLibFilePath('client/clientEntry.js'));
 
   config.node
     .merge({
@@ -28,7 +28,7 @@ module.exports = function createClientConfig (ctx) {
       net: 'empty',
       tls: 'empty',
       child_process: 'empty'
-    })
+    });
 
   // generate client manifest only during build
   if (process.env.NODE_ENV === 'production') {
@@ -42,7 +42,7 @@ module.exports = function createClientConfig (ctx) {
       .plugin('ssr-client')
       .use(require('./ClientPlugin'), [{
         filename: 'manifest/client.json'
-      }])
+      }]);
 
     config
       .plugin('optimize-css')
@@ -53,25 +53,25 @@ module.exports = function createClientConfig (ctx) {
           autoprefixer: { disable: true },
           mergeLonghand: false
         }
-      }])
+      }]);
   } else {
     config
       .plugin('hmr')
-      .use(require('webpack/lib/HotModuleReplacementPlugin'))
+      .use(require('webpack/lib/HotModuleReplacementPlugin'));
   }
 
   if (!env.isDebug) {
-    const WebpackBar = require('webpackbar')
+    const WebpackBar = require('webpackbar');
     config
       .plugin('bar')
       .use(WebpackBar, [{
         name: 'Client',
         color: '#41b883',
         compiledIn: false
-      }])
+      }]);
   }
 
-  ctx.pluginAPI.applySyncOption('chainWebpack', config, false /* isServer */)
+  ctx.pluginAPI.applySyncOption('chainWebpack', config, false /* isServer */);
 
-  return config
-}
+  return config;
+};

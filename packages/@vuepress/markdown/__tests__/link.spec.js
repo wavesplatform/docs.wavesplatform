@@ -1,13 +1,13 @@
-import { Md } from './util'
-import link from '../lib/link.js'
-import { dataReturnable } from '../index.js'
+import { Md } from './util';
+import link from '../lib/link.js';
+import { dataReturnable } from '../index.js';
 
 const mdL = Md().use(link, {
   target: '_blank',
   rel: 'noopener noreferrer'
-})
+});
 
-dataReturnable(mdL)
+dataReturnable(mdL);
 
 const internalLinkAsserts = {
   // START abosolute path usage
@@ -45,33 +45,33 @@ const internalLinkAsserts = {
   '../foo/one.md': './../foo/one.html',
   '../foo/one.md#hash': './../foo/one.html#hash'
   // END relative path usage
-}
+};
 
 const externalLinks = [
   '[vue](https://vuejs.org/)',
   '[vue](http://vuejs.org/)',
   '[some **link** with `code`](https://google.com)' // #496
-]
+];
 
 describe('link', () => {
   test('should convert internal links to router links correctly', () => {
     for (const before in internalLinkAsserts) {
-      const input = `[${before}](${before})`
-      const output = mdL.render(input)
-      const after = getCompiledLink(output)
-      expect(after).toBe(internalLinkAsserts[before])
+      const input = `[${before}](${before})`;
+      const output = mdL.render(input);
+      const after = getCompiledLink(output);
+      expect(after).toBe(internalLinkAsserts[before]);
     }
-  })
+  });
 
   test('should render external links correctly', () => {
     for (const link of externalLinks) {
-      const { html } = mdL.render(link)
-      expect(html).toMatchSnapshot()
+      const { html } = mdL.render(link);
+      expect(html).toMatchSnapshot();
     }
-  })
-})
+  });
+});
 
 function getCompiledLink (output) {
-  const { data: { routerLinks }} = output
-  return routerLinks[0]
+  const { data: { routerLinks }} = output;
+  return routerLinks[0];
 }

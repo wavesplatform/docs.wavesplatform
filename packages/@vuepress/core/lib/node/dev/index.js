@@ -1,25 +1,25 @@
-'use strict'
+'use strict';
 
 /**
  * Module dependencies.
  */
 
-const EventEmitter = require('events').EventEmitter
-const WebpackDevServer = require('webpack-dev-server')
-const { frontmatterEmitter } = require('@vuepress/markdown-loader')
-const webpack = require('webpack')
-const chokidar = require('chokidar')
+const EventEmitter = require('events').EventEmitter;
+const WebpackDevServer = require('webpack-dev-server');
+const { frontmatterEmitter } = require('@vuepress/markdown-loader');
+const webpack = require('webpack');
+const chokidar = require('chokidar');
 
-const { path, fs, logger } = require('@vuepress/shared-utils')
-const HeadPlugin = require('../webpack/HeadPlugin')
-const DevLogPlugin = require('../webpack/DevLogPlugin')
-const createClientConfig = require('../webpack/createClientConfig')
-const { applyUserWebpackConfig } = require('../util/index')
+const { path, fs, logger } = require('@vuepress/shared-utils');
+const HeadPlugin = require('../webpack/HeadPlugin');
+const DevLogPlugin = require('../webpack/DevLogPlugin');
+const createClientConfig = require('../webpack/createClientConfig');
+const { applyUserWebpackConfig } = require('../util/index');
 
 module.exports = class DevProcess extends EventEmitter {
   constructor (context) {
-    super()
-    this.context = context
+    super();
+    this.context = context;
   }
 
   /**
@@ -27,15 +27,15 @@ module.exports = class DevProcess extends EventEmitter {
    */
 
   async process () {
-    this.context.resolveCacheLoaderOptions()
-    this.watchSourceFiles()
-    this.watchUserConfig()
-    this.watchFrontmatter()
-    this.setupDebugTip()
-    await this.resolvePort()
-    await this.resolveHost()
-    this.prepareWebpackConfig()
-    return this
+    this.context.resolveCacheLoaderOptions();
+    this.watchSourceFiles();
+    this.watchUserConfig();
+    this.watchFrontmatter();
+    this.setupDebugTip();
+    await this.resolvePort();
+    await this.resolveHost();
+    this.prepareWebpackConfig();
+    return this;
   }
 
   /**
@@ -46,18 +46,18 @@ module.exports = class DevProcess extends EventEmitter {
    */
 
   handleUpdate (type, target) {
-    logger.debug(type, target)
+    logger.debug(type, target);
     if (!path.isAbsolute(target)) {
-      target = path.join(this.context.sourceDir, target)
+      target = path.join(this.context.sourceDir, target);
     }
     if (target.endsWith('.js')) {
       // Bust cache.
-      delete require.cache[target]
+      delete require.cache[target];
     }
     this.emit('fileChanged', {
       type,
       target
-    })
+    });
   }
 
   /**
@@ -73,11 +73,11 @@ module.exports = class DevProcess extends EventEmitter {
       cwd: this.context.sourceDir,
       ignored: ['.vuepress/**/*.md', 'node_modules'],
       ignoreInitial: true
-    })
-    this.pagesWatcher.on('add', target => this.handleUpdate('add', target))
-    this.pagesWatcher.on('unlink', target => this.handleUpdate('unlink', target))
-    this.pagesWatcher.on('addDir', target => this.handleUpdate('addDir', target))
-    this.pagesWatcher.on('unlinkDir', target => this.handleUpdate('unlinkDir', target))
+    });
+    this.pagesWatcher.on('add', target => this.handleUpdate('add', target));
+    this.pagesWatcher.on('unlink', target => this.handleUpdate('unlink', target));
+    this.pagesWatcher.on('addDir', target => this.handleUpdate('addDir', target));
+    this.pagesWatcher.on('unlinkDir', target => this.handleUpdate('unlinkDir', target));
   }
 
   /**
@@ -93,16 +93,16 @@ module.exports = class DevProcess extends EventEmitter {
       (
         this.context.siteConfig.extraWatchFiles || []
       ).map(file => normalizeWatchFilePath(file, this.context.sourceDir))
-    )
+    );
 
-    logger.debug('watchFiles', this.watchFiles)
+    logger.debug('watchFiles', this.watchFiles);
 
     this.configWatcher = chokidar.watch(this.watchFiles, {
       cwd: this.context.sourceDir,
       ignoreInitial: true
-    })
+    });
 
-    this.configWatcher.on('change', target => this.handleUpdate('change', target))
+    this.configWatcher.on('change', target => this.handleUpdate('change', target));
   }
 
   /**
@@ -110,7 +110,7 @@ module.exports = class DevProcess extends EventEmitter {
    */
 
   watchFrontmatter () {
-    frontmatterEmitter.on('update', target => this.handleUpdate('frontmatter', target))
+    frontmatterEmitter.on('update', target => this.handleUpdate('frontmatter', target));
   }
 
   /**
@@ -118,7 +118,7 @@ module.exports = class DevProcess extends EventEmitter {
    */
 
   async resolvePort () {
-    this.port = await resolvePort(this.context.options.port || this.context.siteConfig.port)
+    this.port = await resolvePort(this.context.options.port || this.context.siteConfig.port);
   }
 
   /**
@@ -126,9 +126,9 @@ module.exports = class DevProcess extends EventEmitter {
    */
 
   async resolveHost () {
-    const { host, displayHost } = await resolveHost(this.context.options.host || this.context.siteConfig.host)
-    this.host = host
-    this.displayHost = displayHost
+    const { host, displayHost } = await resolveHost(this.context.options.host || this.context.siteConfig.host);
+    this.host = host;
+    this.displayHost = displayHost;
   }
 
   /**
@@ -139,14 +139,14 @@ module.exports = class DevProcess extends EventEmitter {
     // debug in a running dev process.
     process.stdin
     && process.stdin.on('data', chunk => {
-      const parsed = chunk.toString('utf-8').trim()
+      const parsed = chunk.toString('utf-8').trim();
       if (parsed === '*') {
-        console.log(Object.keys(this.context))
+        console.log(Object.keys(this.context));
       }
       if (this.context[parsed]) {
-        console.log(this.context[parsed])
+        console.log(this.context[parsed]);
       }
-    })
+    });
   }
 
   /**
@@ -155,7 +155,7 @@ module.exports = class DevProcess extends EventEmitter {
 
   prepareWebpackConfig () {
     // resolve webpack config
-    let config = createClientConfig(this.context)
+    let config = createClientConfig(this.context);
 
     config
       .plugin('html')
@@ -163,13 +163,13 @@ module.exports = class DevProcess extends EventEmitter {
       // internals from an incompatible version.
       .use(require('vuepress-html-webpack-plugin'), [{
         template: this.context.devTemplate
-      }])
+      }]);
 
     config
       .plugin('site-data')
       .use(HeadPlugin, [{
         tags: this.context.siteConfig.head || []
-      }])
+      }]);
 
     config
       .plugin('vuepress-log')
@@ -178,14 +178,14 @@ module.exports = class DevProcess extends EventEmitter {
         displayHost: this.displayHost,
         publicPath: this.context.base,
         clearScreen: this.context.options.clearScreen
-      }])
+      }]);
 
-    config = config.toConfig()
-    const userConfig = this.context.siteConfig.configureWebpack
+    config = config.toConfig();
+    const userConfig = this.context.siteConfig.configureWebpack;
     if (userConfig) {
-      config = applyUserWebpackConfig(userConfig, config, false /* isServer */)
+      config = applyUserWebpackConfig(userConfig, config, false /* isServer */);
     }
-    this.webpackConfig = config
+    this.webpackConfig = config;
   }
 
   /**
@@ -194,7 +194,7 @@ module.exports = class DevProcess extends EventEmitter {
    */
 
   createServer () {
-    const contentBase = path.resolve(this.context.sourceDir, '.vuepress/public')
+    const contentBase = path.resolve(this.context.sourceDir, '.vuepress/public');
 
     const serverConfig = Object.assign({
       disableHostCheck: true,
@@ -224,21 +224,21 @@ module.exports = class DevProcess extends EventEmitter {
       contentBase,
       before: (app, server) => {
         if (fs.existsSync(contentBase)) {
-          app.use(this.context.base, require('express').static(contentBase))
+          app.use(this.context.base, require('express').static(contentBase));
         }
 
-        this.context.pluginAPI.applySyncOption('beforeDevServer', app, server)
+        this.context.pluginAPI.applySyncOption('beforeDevServer', app, server);
       },
       after: (app, server) => {
-        this.context.pluginAPI.applySyncOption('afterDevServer', app, server)
+        this.context.pluginAPI.applySyncOption('afterDevServer', app, server);
       }
-    }, this.context.siteConfig.devServer || {})
+    }, this.context.siteConfig.devServer || {});
 
-    WebpackDevServer.addDevServerEntrypoints(this.webpackConfig, serverConfig)
+    WebpackDevServer.addDevServerEntrypoints(this.webpackConfig, serverConfig);
 
-    const compiler = webpack(this.webpackConfig)
-    this.server = new WebpackDevServer(compiler, serverConfig)
-    return this
+    const compiler = webpack(this.webpackConfig);
+    this.server = new WebpackDevServer(compiler, serverConfig);
+    return this;
   }
 
   /**
@@ -251,12 +251,12 @@ module.exports = class DevProcess extends EventEmitter {
   listen (callback) {
     this.server.listen(this.port, this.host, (err) => {
       if (typeof callback === 'function') {
-        callback(err)
+        callback(err);
       }
-    })
-    return this
+    });
+    return this;
   }
-}
+};
 
 /**
  * Resolve host.
@@ -266,15 +266,15 @@ module.exports = class DevProcess extends EventEmitter {
  */
 
 function resolveHost (host) {
-  const defaultHost = '0.0.0.0'
-  host = host || defaultHost
+  const defaultHost = '0.0.0.0';
+  host = host || defaultHost;
   const displayHost = host === defaultHost
     ? 'localhost'
-    : host
+    : host;
   return {
     displayHost,
     host
-  }
+  };
 }
 
 /**
@@ -285,10 +285,10 @@ function resolveHost (host) {
  */
 
 async function resolvePort (port) {
-  const portfinder = require('portfinder')
-  portfinder.basePort = parseInt(port) || 8080
-  port = await portfinder.getPortPromise()
-  return port
+  const portfinder = require('portfinder');
+  portfinder.basePort = parseInt(port) || 8080;
+  port = await portfinder.getPortPromise();
+  return port;
 }
 
 /**
@@ -300,9 +300,9 @@ async function resolvePort (port) {
  */
 
 function normalizeWatchFilePath (filepath, baseDir) {
-  const { isAbsolute, relative } = require('path')
+  const { isAbsolute, relative } = require('path');
   if (isAbsolute(filepath)) {
-    return relative(baseDir, filepath)
+    return relative(baseDir, filepath);
   }
-  return filepath
+  return filepath;
 }

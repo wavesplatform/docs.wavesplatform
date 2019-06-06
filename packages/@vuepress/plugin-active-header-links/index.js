@@ -1,4 +1,4 @@
-const { path } = require('@vuepress/shared-utils')
+const { path } = require('@vuepress/shared-utils');
 
 module.exports = (options) => ({
   clientRootMixin: path.resolve(__dirname, 'clientRootMixin.js'),
@@ -6,4 +6,4 @@ module.exports = (options) => ({
     AHL_SIDEBAR_LINK_SELECTOR: options.sidebarLinkSelector || '.sidebar-link',
     AHL_HEADER_ANCHOR_SELECTOR: options.headerAnchorSelector || '.header-anchor'
   }
-})
+});

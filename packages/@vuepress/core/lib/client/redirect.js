@@ -23,32 +23,32 @@
 export function handleRedirectForCleanUrls (router) {
   router.beforeEach((to, from, next) => {
     if (isRouteExists(router, to.path)) {
-      next()
+      next();
     } else {
       if (!/(\/|\.html)$/.test(to.path)) {
-        const endingSlashUrl = to.path + '/'
-        const endingHtmlUrl = to.path + '.html'
+        const endingSlashUrl = to.path + '/';
+        const endingHtmlUrl = to.path + '.html';
         if (isRouteExists(router, endingHtmlUrl)) {
-          next(endingHtmlUrl)
+          next(endingHtmlUrl);
         } else if (isRouteExists(router, endingSlashUrl)) {
-          next(endingSlashUrl)
+          next(endingSlashUrl);
         } else {
-          next()
+          next();
         }
       } else if (/\/$/.test(to.path)) {
-        const endingHtmlUrl = to.path.replace(/\/$/, '') + '.html'
+        const endingHtmlUrl = to.path.replace(/\/$/, '') + '.html';
         if (isRouteExists(router, endingHtmlUrl)) {
-          next(endingHtmlUrl)
+          next(endingHtmlUrl);
         } else {
-          next()
+          next();
         }
       } else {
-        next()
+        next();
       }
     }
-  })
+  });
 }
 
 function isRouteExists (router, path) {
-  return router.options.routes.filter(route => route.path.toLowerCase() === path.toLowerCase()).length > 0
+  return router.options.routes.filter(route => route.path.toLowerCase() === path.toLowerCase()).length > 0;
 }

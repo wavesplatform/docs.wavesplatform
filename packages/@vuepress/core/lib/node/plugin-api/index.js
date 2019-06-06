@@ -1,17 +1,17 @@
-'use strict'
+'use strict';
 
 /**
  * Module dependencies.
  */
 
-const instantiateOption = require('./override/instantiateOption')
-const { flattenPlugin } = require('./util')
-const { PLUGIN_OPTION_MAP } = require('./constants')
+const instantiateOption = require('./override/instantiateOption');
+const { flattenPlugin } = require('./util');
+const { PLUGIN_OPTION_MAP } = require('./constants');
 const {
   moduleResolver: { getPluginResolver },
   datatypes: { assertTypes, isPlainObject },
   logger, chalk, normalizeConfig
-} = require('@vuepress/shared-utils')
+} = require('@vuepress/shared-utils');
 
 /**
  * Expose PluginAPI class.
@@ -19,13 +19,13 @@ const {
 
 module.exports = class PluginAPI {
   constructor (context) {
-    this.options = {}
-    this._pluginContext = context
-    this._pluginQueue = []
-    this._loggedPlugins = []
-    this._initialized = false
-    this._pluginResolver = getPluginResolver()
-    this.initializeOptions(PLUGIN_OPTION_MAP)
+    this.options = {};
+    this._pluginContext = context;
+    this._pluginQueue = [];
+    this._loggedPlugins = [];
+    this._initialized = false;
+    this._pluginResolver = getPluginResolver();
+    this.initializeOptions(PLUGIN_OPTION_MAP);
   }
 
   /**
@@ -36,7 +36,7 @@ module.exports = class PluginAPI {
    */
 
   get enabledPlugins () {
-    return this._pluginQueue.filter(({ enabled }) => enabled)
+    return this._pluginQueue.filter(({ enabled }) => enabled);
   }
 
   /**
@@ -47,7 +47,7 @@ module.exports = class PluginAPI {
    */
 
   get disabledPlugins () {
-    return this._pluginQueue.filter(({ enabled }) => !enabled)
+    return this._pluginQueue.filter(({ enabled }) => !enabled);
   }
 
   /**
@@ -57,14 +57,14 @@ module.exports = class PluginAPI {
    */
 
   initialize () {
-    this._initialized = true
+    this._initialized = true;
     this._pluginQueue.forEach(plugin => {
       if (plugin.enabled) {
-        this.applyPlugin(plugin)
+        this.applyPlugin(plugin);
       } else {
-        logger.debug(`${chalk.gray(`[${plugin.name}]`)} disabled.`)
+        logger.debug(`${chalk.gray(`[${plugin.name}]`)} disabled.`);
       }
-    })
+    });
   }
 
   /**
@@ -78,36 +78,36 @@ module.exports = class PluginAPI {
 
   use (pluginRaw, pluginOptions = {}) {
     if (this._initialized) {
-      throw new Error(`Cannot add new plugins after initialization.`)
+      throw new Error('Cannot add new plugins after initialization.');
     }
 
-    let plugin
+    let plugin;
     if (isPlainObject(pluginRaw) && pluginRaw.$$normalized) {
-      plugin = pluginRaw
+      plugin = pluginRaw;
     } else {
       try {
-        plugin = this.normalizePlugin(pluginRaw, pluginOptions)
+        plugin = this.normalizePlugin(pluginRaw, pluginOptions);
       } catch (e) {
-        logger.warn(e.message)
-        return this
+        logger.warn(e.message);
+        return this;
       }
     }
 
     if (plugin.multiple !== true) {
-      const duplicateIndex = this._pluginQueue.findIndex(({ name }) => name === plugin.name)
+      const duplicateIndex = this._pluginQueue.findIndex(({ name }) => name === plugin.name);
       if (duplicateIndex !== -1) {
-        this._pluginQueue.splice(duplicateIndex, 1)
+        this._pluginQueue.splice(duplicateIndex, 1);
       }
     }
 
-    this._pluginQueue.push(plugin)
+    this._pluginQueue.push(plugin);
 
     if (plugin.plugins) {
-      logger.debug(`Plugins defined at ${chalk.gray(plugin.name)}`, plugin.plugins)
-      this.useByPluginsConfig(plugin.plugins)
+      logger.debug(`Plugins defined at ${chalk.gray(plugin.name)}`, plugin.plugins);
+      this.useByPluginsConfig(plugin.plugins);
     }
 
-    return this
+    return this;
   }
 
   /**
@@ -118,13 +118,13 @@ module.exports = class PluginAPI {
    */
 
   normalizePlugin (pluginRaw, pluginOptions = {}) {
-    let plugin = this._pluginResolver.resolve(pluginRaw)
+    let plugin = this._pluginResolver.resolve(pluginRaw);
     if (!plugin.entry) {
-      throw new Error(`[vuepress] cannot resolve plugin "${pluginRaw}"`)
+      throw new Error(`[vuepress] cannot resolve plugin "${pluginRaw}"`);
     }
-    plugin = flattenPlugin(plugin, pluginOptions, this._pluginContext, this)
-    plugin.$$normalized = true
-    return plugin
+    plugin = flattenPlugin(plugin, pluginOptions, this._pluginContext, this);
+    plugin.$$normalized = true;
+    return plugin;
   }
 
   /**
@@ -136,11 +136,11 @@ module.exports = class PluginAPI {
    */
 
   useByPluginsConfig (pluginsConfig) {
-    pluginsConfig = normalizeConfig(pluginsConfig)
+    pluginsConfig = normalizeConfig(pluginsConfig);
     pluginsConfig.forEach(([pluginRaw, pluginOptions]) => {
-      this.use(pluginRaw, pluginOptions)
-    })
-    return this
+      this.use(pluginRaw, pluginOptions);
+    });
+    return this;
   }
 
   /**
@@ -151,9 +151,9 @@ module.exports = class PluginAPI {
 
   initializeOptions () {
     Object.keys(PLUGIN_OPTION_MAP).forEach(key => {
-      const option = PLUGIN_OPTION_MAP[key]
-      this.options[option.name] = instantiateOption(option)
-    })
+      const option = PLUGIN_OPTION_MAP[key];
+      this.options[option.name] = instantiateOption(option);
+    });
   }
 
   /**
@@ -167,18 +167,18 @@ module.exports = class PluginAPI {
    */
 
   registerOption (key, value, pluginName) {
-    const option = PLUGIN_OPTION_MAP[key]
-    const types = option.types
-    const { valid, warnMsg } = assertTypes(value, types)
+    const option = PLUGIN_OPTION_MAP[key];
+    const types = option.types;
+    const { valid, warnMsg } = assertTypes(value, types);
     if (valid) {
-      this.options[option.name].add(pluginName, value)
+      this.options[option.name].add(pluginName, value);
     } else if (value !== undefined) {
       logger.warn(
         `${chalk.gray(pluginName)} `
         + `Invalid value for "option" ${chalk.cyan(option.name)}: ${warnMsg}`
-      )
+      );
     }
-    return this
+    return this;
   }
 
   /**
@@ -216,9 +216,9 @@ module.exports = class PluginAPI {
     afterDevServer
   }) {
     if (!this._loggedPlugins.includes(pluginName)) {
-      const isInternalPlugin = pluginName.startsWith('@vuepress/internal-')
-      logger[isInternalPlugin ? 'debug' : 'tip'](pluginLog(pluginName, shortcut))
-      this._loggedPlugins.push(pluginName)
+      const isInternalPlugin = pluginName.startsWith('@vuepress/internal-');
+      logger[isInternalPlugin ? 'debug' : 'tip'](pluginLog(pluginName, shortcut));
+      this._loggedPlugins.push(pluginName);
     }
 
     this
@@ -240,7 +240,7 @@ module.exports = class PluginAPI {
       .registerOption(PLUGIN_OPTION_MAP.ALIAS.key, alias, pluginName)
       .registerOption(PLUGIN_OPTION_MAP.EXTEND_CLI.key, extendCli, pluginName)
       .registerOption(PLUGIN_OPTION_MAP.BEFORE_DEV_SERVER.key, beforeDevServer, pluginName)
-      .registerOption(PLUGIN_OPTION_MAP.AFTER_DEV_SERVER.key, afterDevServer, pluginName)
+      .registerOption(PLUGIN_OPTION_MAP.AFTER_DEV_SERVER.key, afterDevServer, pluginName);
   }
 
   /**
@@ -253,9 +253,9 @@ module.exports = class PluginAPI {
    */
 
   applySyncOption (name, ...args) {
-    logger.debug('applySyncOption: ' + name)
-    this.getOption(name).apply(...args)
-    return this
+    logger.debug('applySyncOption: ' + name);
+    this.getOption(name).apply(...args);
+    return this;
   }
 
   /**
@@ -268,8 +268,8 @@ module.exports = class PluginAPI {
    */
 
   async applyAsyncOption (name, ...args) {
-    logger.debug('applyAsyncOption: ' + name)
-    await this.getOption(name).apply(...args)
+    logger.debug('applyAsyncOption: ' + name);
+    await this.getOption(name).apply(...args);
   }
 
   /**
@@ -282,14 +282,14 @@ module.exports = class PluginAPI {
 
   getOption (name) {
     if (!this.options[name]) {
-      throw new Error(`Unknown option ${name}`)
+      throw new Error(`Unknown option ${name}`);
     }
-    return this.options[name]
+    return this.options[name];
   }
-}
+};
 
 function pluginLog (name, shortcut) {
   return shortcut
     ? `Apply plugin ${chalk.magenta(shortcut)} ${chalk.gray(`(i.e. "${name}")`)} ...`
-    : `Apply plugin ${chalk.magenta(name)} ...`
+    : `Apply plugin ${chalk.magenta(name)} ...`;
 }

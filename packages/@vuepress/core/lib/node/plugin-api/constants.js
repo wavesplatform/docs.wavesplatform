@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const PLUGIN_OPTION_META_MAP = {
   // hooks
@@ -22,14 +22,14 @@ const PLUGIN_OPTION_META_MAP = {
   EXTEND_CLI: { name: 'extendCli', types: [Function] },
   BEFORE_DEV_SERVER: { name: 'beforeDevServer', types: [Function] },
   AFTER_DEV_SERVER: { name: 'afterDevServer', types: [Function] }
-}
+};
 
-const PLUGIN_OPTION_MAP = {}
+const PLUGIN_OPTION_MAP = {};
 Object.keys(PLUGIN_OPTION_META_MAP).forEach(key => {
-  PLUGIN_OPTION_MAP[key] = Object.assign({ key }, PLUGIN_OPTION_META_MAP[key])
-})
+  PLUGIN_OPTION_MAP[key] = Object.assign({ key }, PLUGIN_OPTION_META_MAP[key]);
+});
 
-const OPTION_NAMES = Object.keys(PLUGIN_OPTION_META_MAP).map(key => PLUGIN_OPTION_META_MAP[key].name)
+const OPTION_NAMES = Object.keys(PLUGIN_OPTION_META_MAP).map(key => PLUGIN_OPTION_META_MAP[key].name);
 
-exports.PLUGIN_OPTION_MAP = PLUGIN_OPTION_MAP
-exports.OPTION_NAMES = OPTION_NAMES
+exports.PLUGIN_OPTION_MAP = PLUGIN_OPTION_MAP;
+exports.OPTION_NAMES = OPTION_NAMES;

@@ -1,1 +1,1 @@
-import './nprogress.styl'
+import './nprogress.styl';
