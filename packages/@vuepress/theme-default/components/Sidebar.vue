@@ -1,13 +1,36 @@
 <template>
-  <aside class="sidebar">
-    <NavLinks/>
-    <slot name="top"/>
-    <SidebarLinks
-      :depth="0"
-      :items="items"
-      :mod="mod"
-    />
-    <slot name="bottom"/>
+  <aside
+    :class="[
+      $style.sidebarWrapper2,
+      $style[`_side_${side}`],
+      isShow && $style._isShow
+    ]"
+  >
+    <div :class="$style.sidebarWrapper">
+      <div
+        v-if="sidebarToggleTriggerMergedOptions.isShow"
+        :class="[$style.sidebarToggleTrigger, $style[`_side_${side}`]]"
+        @click="isShow = !isShow"
+      >
+        <template v-if="(isShow && side === 'left') || (!isShow && side === 'right')">
+          <
+        </template>
+        <template v-else>
+          >
+        </template>
+
+      </div>
+      <div :class="['sidebar', $style.sidebar]">
+        <NavLinks/>
+        <slot name="top"/>
+        <SidebarLinks
+          :depth="0"
+          :items="items"
+          :mod="mod"
+        />
+        <slot name="bottom"/>
+      </div>
+    </div>
   </aside>
 </template>
 
@@ -28,10 +51,98 @@ export default {
     mod: {
       type: Number,
       default: 0,
-    }
+    },
+    sidebarToggleTriggerOptions: {
+      type: Object,
+      default: () => ({}),
+    },
+    isDefaultShow: {
+      type: Boolean,
+      default: true,
+    },
+    side: {
+      type: String,
+      default: 'left',
+      validator(value) {
+        return ['left', 'right'].includes(value);
+      },
+    },
+  },
+
+  data() {
+    return {
+      sidebarToggleTriggerDefaultOptions: {
+        side: 'right',
+        isShow: false,
+      },
+      isShow: this.isDefaultShow,
+    };
+  },
+
+  computed: {
+    sidebarToggleTriggerMergedOptions() {
+      return {
+        ...this.sidebarToggleTriggerDefaultOptions,
+        ...this.sidebarToggleTriggerOptions,
+      }
+    },
   }
 }
 </script>
+
+<style lang="stylus" module>
+  .sidebarWrapper2 {
+    visibility: hidden;
+    &._side_left {
+      :global(.sidebar) {
+        border-right: 1px solid $borderColor;
+      }
+    }
+    &._side_right {
+      :global(.sidebar) {
+        border-left: 1px solid $borderColor;
+      }
+    }
+    &:not(._isShow) {
+      &._side_left {
+        .sidebarWrapper {
+          margin-left -100%
+        }
+      }
+      &._side_right {
+        .sidebarWrapper {
+          margin-left 100%
+        }
+      }
+
+    }
+  }
+  .sidebarWrapper {
+    visibility: visible;
+    display flex
+    height 100%
+    margin-left: 0
+    position: relative;
+    width: 100%
+    transition margin-left $toggleSidebarTransitionDuration
+  }
+  .sidebarToggleTrigger {
+    background: #ccc;
+    position: absolute;
+    top: 0;
+    &._side_left {
+      left: 100%;
+    }
+    &._side_right {
+      right: 100%;
+    }
+  }
+  .sidebar {
+    width 100%
+    background #fff
+    overflow-y auto
+  }
+</style>
 
 <style lang="stylus">
 .sidebar

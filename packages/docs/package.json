@@ -33,5 +33,13 @@
     "vue-toasted": "^1.1.25",
     "vuepress": "^1.0.0-alpha.46",
     "vuepress-plugin-flowchart": "^1.4.2"
+  },
+  "dependencies": {
+    "@types/fs-extra": "^5.0.4",
+    "@types/node": "^10.12.12",
+    "inquirer": "^6.2.0",
+    "lerna": "^3.6.0",
+    "typescript": "^3.2.2",
+    "vuepress": "1.0.0-alpha.46"
   }
 }

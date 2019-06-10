@@ -67,6 +67,7 @@ module.exports = ctx => ({
             },
             {
               title: 'Waves environment',
+              path: '/introduction/waves-environment/custom-tokens',
               collapsable: true,
               children: [
                 {

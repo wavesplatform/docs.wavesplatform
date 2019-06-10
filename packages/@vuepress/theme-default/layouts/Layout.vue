@@ -19,9 +19,20 @@
       style="position: fixed; z-index: 999;left: 0;top: 0;"
       @click="sidebar1Mod = 0"
     >test1</div>
+
     <Sidebar
+      ref="sidebar1"
+      :sidebar-toggle-trigger-options="{
+        isShow: true,
+      }"
       :items="sidebarItems"
       :mod="sidebar1Mod"
+      :is-default-show="sidebar1Show"
+      :class="[
+        $style.sidebar,
+        $style.sidebar1,
+        sidebar1Show && $style._isShow
+      ]"
       @toggle-sidebar="toggleSidebar"
     >
       <slot
@@ -39,6 +50,11 @@
     <Page
       v-else
       :sidebar-items="sidebarItems"
+      :class="$style.page"
+      :style="{
+        paddingLeft: sidebar1Show ? pageContentPaddingLeftPx + 'px' : 0,
+        paddingRight: sidebar2Show ? pageContentPaddingRightPx + 'px' : 0,
+      }"
     >
       <slot
         name="page-top"
@@ -50,12 +66,20 @@
       />
     </Page>
     <Sidebar
+      ref="sidebar2"
+      :sidebar-toggle-trigger-options="{
+        isShow: true,
+      }"
+      side="right"
       :items="sidebarItems"
       :mod="sidebar2Mod"
+      :is-default-show="sidebar2Show"
+      :class="[
+        $style.sidebar,
+        $style.sidebar2,
+        sidebar2Show && $style._isShow
+      ]"
       @toggle-sidebar="toggleSidebar"
-      style="left: auto;
-    right: 0;
-    border-left: 1px solid #eaecef;"
     >
       <slot
         name="sidebar-top"
@@ -76,14 +100,29 @@ import Page from '@theme/components/Page.vue'
 import Sidebar from '@theme/components/Sidebar.vue'
 import { resolveSidebarItems } from '../util'
 
+import elementResizeDetectorMaker from 'element-resize-detector'
+
+const erd = elementResizeDetectorMaker({
+  strategy: 'scroll',
+});
+
+
+
 export default {
   components: { Home, Page, Sidebar, Navbar },
 
   data () {
     return {
       isSidebarOpen: false,
+
       sidebar1Mod: 1,
       sidebar2Mod: 2,
+
+      sidebar1Show: true,
+      sidebar2Show: true,
+
+      pageContentPaddingLeftPx: 0,
+      pageContentPaddingRightPx: 0,
     }
   },
 
@@ -139,10 +178,30 @@ export default {
   mounted () {
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
-    })
+    });
+
+    this.setSidebarStateWatcher('sidebar1', 'sidebar1Show');
+    this.setSidebarStateWatcher('sidebar2', 'sidebar2Show');
+
+    this.setSidebarResizeDetector('sidebar1', 'pageContentPaddingLeftPx');
+    this.setSidebarResizeDetector('sidebar2', 'pageContentPaddingRightPx');
+
   },
 
   methods: {
+    setSidebarResizeDetector(sidebarRefName, pageContentPaddingSide) {
+      erd.listenTo(this.$refs[sidebarRefName].$el, element => {
+        this[pageContentPaddingSide] = element.offsetWidth;
+      });
+    },
+    setSidebarStateWatcher(sidebarName, sidebarShowPropName) {
+      this.$refs[sidebarName].$watch('isShow', newValue => {
+        this[sidebarShowPropName] = newValue;
+      }, {
+        immediate: true,
+      })
+    },
+
     toggleSidebar (to) {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
     },
@@ -172,3 +231,38 @@ export default {
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style src="../styles/theme.styl" lang="stylus"></style>
+
+<style lang="stylus" module>
+  .sidebar {
+    font-size: 16px;
+    background-color: #fff;
+    width: $sidebarWidth;
+    position: fixed;
+    z-index: 10;
+    margin: 0;
+    top: $navbarHeight;
+    bottom: 0;
+    box-sizing: border-box;
+  }
+  .sidebar1 {
+    left: 0;
+    &:not(._isShow) {
+
+    }
+    &._isShow {
+
+    }
+  }
+  .sidebar2 {
+    right: 0;
+    &:not(._isShow) {
+
+    }
+    &._isShow {
+
+    }
+  }
+  .page {
+    transition-duration $toggleSidebarTransitionDuration
+  }
+</style>

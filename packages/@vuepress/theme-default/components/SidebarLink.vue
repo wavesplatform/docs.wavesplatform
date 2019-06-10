@@ -35,6 +35,7 @@
                 mod
               }
             }) {
+      console.log('item:', item);
       // use custom active class matching logic
       // due to edge case of paths ending with / + hash
       const selfActive = isActive($route, item.path)
@@ -65,7 +66,6 @@
         })]
       } else if ((active || displayAllHeaders) && item.headers && !hashRE.test(item.path)) {
         const children = groupHeaders(item.headers)
-
         return ((mod === 1 || mod === 0) ? [link] : [])
           .concat([renderChildren(h, {
             children,
@@ -73,7 +73,7 @@
             route: $route,
             maxDepth,
             mod
-          })])
+          })]);
       } else {
         return (mod === 1 || mod === 0) && link;
       }

@@ -20,12 +20,11 @@
         :to="item.path"
         @click.native="$emit('toggle')"
       >
-        <span>{{ item.title }}</span>
         <span
           class="arrow"
           v-if="collapsable"
-          :class="open ? 'down' : 'right'">
-      </span>
+          :class="open ? 'down' : 'right'"/>
+        <span>{{ item.title }}</span>
       </router-link>
 
       <p
@@ -34,12 +33,11 @@
         :class="{ open }"
         @click="$emit('toggle')"
       >
-        <span>{{ item.title }}</span>
         <span
           class="arrow"
           v-if="collapsable"
-          :class="open ? 'down' : 'right'">
-      </span>
+          :class="open ? 'down' : 'right'"/>
+        <span>{{ item.title }}</span>
       </p>
     </template>
 
@@ -142,7 +140,7 @@ export default {
   .arrow
     position relative
     top -0.12em
-    left 0.5em
+    left -.5em
   &.clickable
     &.active
       font-weight 600

@@ -1,5 +1,7 @@
 # Tokens Definition
-
+### OutboundLink <Badge text="stable"/>
+<OutboundLink/>
+  
 Tokens operate on top of a blockchain that facilitates the creation of decentralized applications.
 
 In general, tokens are a reproduction of a particular asset or utility, which usually remains on top of another blockchain. Tokens can represent essentially any assets that are fungible and tradeable, from commodities to loyalty points to even other cryptocurrencies. Creating tokens is a much straightforward process as you do not need to modify the codes from a particular protocol or to create a blockchain from scratch. All you have to do to issue tokens is to follow a standard template on the blockchain such as on the Ethereum or on Waves platform which both allows you to create your own tokens.
