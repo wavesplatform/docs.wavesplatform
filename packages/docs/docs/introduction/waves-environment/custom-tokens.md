@@ -2,6 +2,8 @@
 
 Asset is a sort of a digital asset that has a certain consensus value. The Waves platform allows users to create their own tokens to fulfill their specific need.
 
+## <Tooltip/><OutboundLink/>
+
 # 1. Issuing your own Token 
 
 Waves platform allows business to issue their own tokens for whatever needs they have. By releasing tokens, a business is able to create an internal digital currency via the blockchain. This way, it can use the blockchain to pay for the services and goods within projects or even crowdfunding.

@@ -16,6 +16,7 @@
   padding 0.6rem
   top 0.6rem
   left 1rem
+  z-index 1
   .icon
     display block
     width 1.25rem

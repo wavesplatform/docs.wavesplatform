@@ -15,6 +15,7 @@ import { getLayoutAsyncComponent } from './util';
 import Content from './components/Content.js';
 import ContentSlotsDistributor from './components/ContentSlotsDistributor';
 import OutboundLink from './components/OutboundLink.vue';
+import Tooltip from './components/Tooltip';
 import ClientOnly from './components/ClientOnly';
 import TOC from './components/TOC.vue';
 
@@ -41,7 +42,12 @@ Vue.mixin(dataMixin(ClientComputedMixin, siteData));
 
 Vue.component('Content', Content);
 Vue.component('ContentSlotsDistributor', ContentSlotsDistributor);
+
+
 Vue.component('OutboundLink', OutboundLink);
+
+Vue.component('Tooltip', Tooltip);
+
 // component for client-only content
 Vue.component('ClientOnly', ClientOnly);
 // core components

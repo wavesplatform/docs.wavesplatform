@@ -129,12 +129,19 @@ export default {
   .sidebarToggleTrigger {
     background: #ccc;
     position: absolute;
-    top: 0;
+    top calc(50% - 10px)
+    padding 5px
+    border-radius 50%
+    width 20px
+    height 20px
+    display flex
+    justify-content center
+    align-items center
     &._side_left {
-      left: 100%;
+      left: calc(100% - 10px);
     }
     &._side_right {
-      right: 100%;
+      right: calc(100% - 10px);
     }
   }
   .sidebar {

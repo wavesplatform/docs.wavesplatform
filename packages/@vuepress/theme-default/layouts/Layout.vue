@@ -15,18 +15,13 @@
       @click="toggleSidebar(false)"
     ></div>
 
-    <div
-      style="position: fixed; z-index: 999;left: 0;top: 0;"
-      @click="sidebar1Mod = 0"
-    >test1</div>
-
     <Sidebar
       ref="sidebar1"
       :sidebar-toggle-trigger-options="{
         isShow: true,
       }"
       :items="sidebarItems"
-      :mod="sidebar1Mod"
+      :mod="layoutWidth > 719 ? 1 : 0"
       :is-default-show="sidebar1Show"
       :class="[
         $style.sidebar,
@@ -66,6 +61,7 @@
       />
     </Page>
     <Sidebar
+      v-show="layoutWidth > 719"
       ref="sidebar2"
       :sidebar-toggle-trigger-options="{
         isShow: true,
@@ -94,143 +90,167 @@
 </template>
 
 <script>
-import Home from '@theme/components/Home.vue'
-import Navbar from '@theme/components/Navbar.vue'
-import Page from '@theme/components/Page.vue'
-import Sidebar from '@theme/components/Sidebar.vue'
-import { resolveSidebarItems } from '../util'
+  import Home from '@theme/components/Home.vue'
+  import Navbar from '@theme/components/Navbar.vue'
+  import Page from '@theme/components/Page.vue'
+  import Sidebar from '@theme/components/Sidebar.vue'
+  import { resolveSidebarItems } from '../util'
 
-import elementResizeDetectorMaker from 'element-resize-detector'
+  import elementResizeDetectorMaker from 'element-resize-detector'
 
-const erd = elementResizeDetectorMaker({
-  strategy: 'scroll',
-});
+  const erd = elementResizeDetectorMaker({
+    strategy: 'scroll',
+  });
 
 
+  export default {
+    components: { Home, Page, Sidebar, Navbar },
 
-export default {
-  components: { Home, Page, Sidebar, Navbar },
+    data () {
+      return {
+        isSidebarOpen: false,
 
-  data () {
-    return {
-      isSidebarOpen: false,
+        sidebar1Mod: 1,
+        sidebar2Mod: 2,
 
-      sidebar1Mod: 1,
-      sidebar2Mod: 2,
+        sidebar1Show: true,
+        sidebar2Show: true,
 
-      sidebar1Show: true,
-      sidebar2Show: true,
-
-      pageContentPaddingLeftPx: 0,
-      pageContentPaddingRightPx: 0,
-    }
-  },
-
-  computed: {
-    shouldShowNavbar () {
-      const { themeConfig } = this.$site
-      const { frontmatter } = this.$page
-      if (
-        frontmatter.navbar === false
-        || themeConfig.navbar === false) {
-        return false
+        pageContentPaddingLeftPx: 0,
+        pageContentPaddingRightPx: 0,
       }
-      return (
-        this.$title
-        || themeConfig.logo
-        || themeConfig.repo
-        || themeConfig.nav
-        || this.$themeLocaleConfig.nav
-      )
     },
 
-    shouldShowSidebar () {
-      const { frontmatter } = this.$page
-      return (
-        !frontmatter.home
-        && frontmatter.sidebar !== false
-        && this.sidebarItems.length
-      )
+    computed: {
+      shouldShowNavbar () {
+        const { themeConfig } = this.$site
+        const { frontmatter } = this.$page
+        if (
+          frontmatter.navbar === false
+          || themeConfig.navbar === false) {
+          return false
+        }
+        return (
+          this.$title
+          || themeConfig.logo
+          || themeConfig.repo
+          || themeConfig.nav
+          || this.$themeLocaleConfig.nav
+        )
+      },
+
+      shouldShowSidebar () {
+        const { frontmatter } = this.$page
+        return (
+          !frontmatter.home
+          && frontmatter.sidebar !== false
+          && this.sidebarItems.length
+        )
+      },
+
+      sidebarItems () {
+        return resolveSidebarItems(
+          this.$page,
+          this.$page.regularPath,
+          this.$site,
+          this.$localePath
+        )
+      },
+
+      pageClasses () {
+        const userPageClass = this.$page.frontmatter.pageClass
+        return [
+          {
+            'no-navbar': !this.shouldShowNavbar,
+            'sidebar-open': this.isSidebarOpen,
+            'no-sidebar': !this.shouldShowSidebar
+          },
+          userPageClass
+        ]
+      },
+
+      layoutWidth() {
+        return this.$store.state.interface.layoutWidth;
+      },
     },
 
-    sidebarItems () {
-      return resolveSidebarItems(
-        this.$page,
-        this.$page.regularPath,
-        this.$site,
-        this.$localePath
-      )
-    },
+    // watch: {
+    //   '$store.state.interface.layoutWidth'(newValue) {
+    //     console.log('newValue:', newValue);
+    //   }
+    // },
 
-    pageClasses () {
-      const userPageClass = this.$page.frontmatter.pageClass
-      return [
-        {
-          'no-navbar': !this.shouldShowNavbar,
-          'sidebar-open': this.isSidebarOpen,
-          'no-sidebar': !this.shouldShowSidebar
-        },
-        userPageClass
-      ]
-    }
-  },
-
-  mounted () {
-    this.$router.afterEach(() => {
-      this.isSidebarOpen = false
-    });
-
-    this.setSidebarStateWatcher('sidebar1', 'sidebar1Show');
-    this.setSidebarStateWatcher('sidebar2', 'sidebar2Show');
-
-    this.setSidebarResizeDetector('sidebar1', 'pageContentPaddingLeftPx');
-    this.setSidebarResizeDetector('sidebar2', 'pageContentPaddingRightPx');
-
-  },
-
-  methods: {
-    setSidebarResizeDetector(sidebarRefName, pageContentPaddingSide) {
-      erd.listenTo(this.$refs[sidebarRefName].$el, element => {
-        this[pageContentPaddingSide] = element.offsetWidth;
+    mounted () {
+      this.$router.afterEach(() => {
+        this.isSidebarOpen = false
       });
-    },
-    setSidebarStateWatcher(sidebarName, sidebarShowPropName) {
-      this.$refs[sidebarName].$watch('isShow', newValue => {
-        this[sidebarShowPropName] = newValue;
-      }, {
-        immediate: true,
-      })
+
+      this.setSidebarStateWatcher('sidebar1', 'sidebar1Show');
+      this.setSidebarStateWatcher('sidebar2', 'sidebar2Show');
+
+      this.setSidebarResizeDetector('sidebar1', 'pageContentPaddingLeftPx');
+      this.setSidebarResizeDetector('sidebar2', 'pageContentPaddingRightPx');
+
+      window.addEventListener('resize', this.setInterfaceInnerWidthLayout);
+      this.setInterfaceInnerWidthLayout();
+
     },
 
-    toggleSidebar (to) {
-      this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
+    beforeDestroy() {
+      window.removeEventListener('resize', this.setInterfaceInnerWidthLayout)
     },
 
-    // side swipe
-    onTouchStart (e) {
-      this.touchStart = {
-        x: e.changedTouches[0].clientX,
-        y: e.changedTouches[0].clientY
-      }
-    },
+    methods: {
 
-    onTouchEnd (e) {
-      const dx = e.changedTouches[0].clientX - this.touchStart.x
-      const dy = e.changedTouches[0].clientY - this.touchStart.y
-      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-        if (dx > 0 && this.touchStart.x <= 80) {
-          this.toggleSidebar(true)
-        } else {
-          this.toggleSidebar(false)
+      setInterfaceInnerWidthLayout() {
+        this.$store.commit('setInterfaceInnerWidthLayout', window.innerWidth)
+      },
+
+
+      setSidebarResizeDetector(sidebarRefName, pageContentPaddingSide) {
+        erd.listenTo(this.$refs[sidebarRefName].$el, element => {
+          this[pageContentPaddingSide] = element.offsetWidth;
+        });
+      },
+
+      setSidebarStateWatcher(sidebarName, sidebarShowPropName) {
+        this.$refs[sidebarName].$watch('isShow', newValue => {
+          this[sidebarShowPropName] = newValue;
+        }, {
+          immediate: true,
+        })
+      },
+
+      toggleSidebar (to) {
+        this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
+      },
+
+      // side swipe
+      onTouchStart (e) {
+        this.touchStart = {
+          x: e.changedTouches[0].clientX,
+          y: e.changedTouches[0].clientY
+        }
+      },
+
+      onTouchEnd (e) {
+        const dx = e.changedTouches[0].clientX - this.touchStart.x
+        const dy = e.changedTouches[0].clientY - this.touchStart.y
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+          if (dx > 0 && this.touchStart.x <= 80) {
+            this.toggleSidebar(true)
+          } else {
+            this.toggleSidebar(false)
+          }
         }
       }
     }
   }
-}
 </script>
 
+
 <style src="prismjs/themes/prism-tomorrow.css"></style>
-<style src="../styles/theme.styl" lang="stylus"></style>
+<!--<style src="../styles/theme.styl" lang="stylus"></style>-->
 
 <style lang="stylus" module>
   .sidebar {
@@ -264,5 +284,7 @@ export default {
   }
   .page {
     transition-duration $toggleSidebarTransitionDuration
+    margin 0 6rem
+    padding-top 3rem
   }
 </style>

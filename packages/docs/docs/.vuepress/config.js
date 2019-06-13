@@ -2,7 +2,7 @@ const { fs, path } = require('@vuepress/shared-utils')
 
 module.exports = ctx => ({
   dest: '../../vuepress',
-  port: 81,
+  port: 3083,
   locales: {
     '/': {
       lang: 'en-US',
@@ -41,7 +41,7 @@ module.exports = ctx => ({
     ['meta', { name: 'msapplication-TileImage', content: '/icons/msapplication-icon-144x144.png' }],
     ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
   ],
-  theme: '@vuepress/default',
+  theme: '../../../../@vuepress/theme-default',
   themeConfig: {
     logo: '/waves-docs-logo.svg',
     repo: 'vuejs/vuepress',
