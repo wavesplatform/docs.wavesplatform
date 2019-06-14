@@ -10,4 +10,4 @@ if you have not installed yarn -
 
 $ yarn
 
-$ yarn run dev
+$ yarn dev
