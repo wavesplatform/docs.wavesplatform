@@ -1,5 +1,5 @@
-const path = require('upath')
-const { createJestConfig } = require('@vuepress/test-utils')
+const path = require('upath');
+const { createJestConfig } = require('@vuepress/test-utils');
 module.exports = createJestConfig({
   rootDir: path.resolve(__dirname, '..'),
   moduleNameMapper: {
@@ -13,4 +13,4 @@ module.exports = createJestConfig({
   modulePathIgnorePatterns: [
     '<rootDir>/packages/@vuepress/core/__test__/plugin-api/AsyncOption.spec.js'
   ]
-})
+});

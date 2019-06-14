@@ -4,6 +4,14 @@ module.exports = [
     link: '/introduction/'
   },
   {
+    text: 'Blockchain',
+    link: '/blockchain/'
+  },
+  {
+    text: 'RIDE',
+    link: '/ride/'
+  },
+  {
     text: 'The Waves Protocol',
     link: '/waves-protocol/'
   },

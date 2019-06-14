@@ -123,7 +123,23 @@ module.exports = ctx => ({
               title: 'Proposals',
               collapsable: false
             }
+          ],
+
+
+          '/blockchain/': [
+            {
+              title: 'Alias',
+              path: '/blockchain/alias',
+            },
+          ],
+
+          '/ride/': [
+            {
+              title: 'About RIDE',
+              path: '/ride/about-ride',
+            },
           ]
+
         }
       },
       '/ru/': {
@@ -417,13 +433,13 @@ module.exports = ctx => ({
     }
   },
   plugins: [
-    ['@vuepress/back-to-top', true],
-    ['@vuepress/pwa', {
+    ['../../../../@vuepress/back-to-top', true],
+    ['../../../../@vuepress/pwa', {
       serviceWorker: true,
       updatePopup: true
     }],
-    ['@vuepress/medium-zoom', true],
-    ['@vuepress/google-analytics', {
+    ['../../../../@vuepress/medium-zoom', true],
+    ['../../../../@vuepress/google-analytics', {
       ga: 'UA-128189152-1'
     }],
     ['container', {
