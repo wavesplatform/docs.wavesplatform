@@ -2,6 +2,9 @@
 123
 4444
 
+<el-button>test</el-button>
+
+<page-popover/>
 
 ## Relative URLs
 
@@ -10,6 +13,8 @@ All markdown files are compiled into Vue components and processed by webpack, th
 ``` md
 ![An image](./image.png)
 ```
+
+
 
 This would work the same way as in `*.vue` file templates. The image will be processed with `url-loader` and `file-loader`, and copied to appropriate locations in the generated static build.
 

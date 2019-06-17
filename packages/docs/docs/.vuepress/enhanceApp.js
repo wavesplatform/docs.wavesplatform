@@ -1,10 +1,23 @@
 import Vuex from 'vuex'
+import {
+  Select,
+  Button,
+  Popover,
+} from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
 export default ({ Vue,
                   options,
                   router,
                   isServer
                 }) => {
+
+  // Vue.use(Element)
+  Vue.component(Select.name, Select)
+  Vue.component(Button.name, Button)
+  Vue.component(Popover.name, Popover)
+
+  /**/
 
   Vue.use(Vuex);
 
