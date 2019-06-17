@@ -22,6 +22,9 @@
       <!--&gt;{{ $siteTitle }}</span>-->
     </router-link>
 
+
+
+
     <div
       class="links"
       :style="linksWrapMaxWidth ? {
@@ -107,6 +110,8 @@ $navbar-horizontal-padding = 1.5rem
     color $textColor
     position relative
   .links
+    visibility hidden
+    height 100vh
     padding-left 1.5rem
     box-sizing border-box
     background-color white
@@ -116,6 +121,9 @@ $navbar-horizontal-padding = 1.5rem
     left $navbar-horizontal-padding
     top $navbar-vertical-padding
     display flex
+    align-items flex-start
+    &>*
+      visibility visible
     .search-box
       flex: 0 0 auto
       vertical-align top

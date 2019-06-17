@@ -1,6 +1,9 @@
 # Asset Handling
 123
 4444
+
+<monaco-editor language="javascript"/>
+
 ## Relative URLs
 
 All markdown files are compiled into Vue components and processed by webpack, therefore you can and **should prefer** referencing any asset using relative URLs:

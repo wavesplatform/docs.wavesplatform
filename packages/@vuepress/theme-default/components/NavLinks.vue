@@ -1,36 +1,38 @@
 <template>
-  <nav
-    class="nav-links"
-    v-if="userLinks.length || repoLink"
-  >
-    <!-- user links -->
-    <div
-      class="nav-item"
-      v-for="item in userLinks"
-      :key="item.link"
+  <vue-scrollbar :class="$style.root">
+    <nav
+      class="nav-links"
+      v-if="userLinks.length || repoLink"
     >
-      <DropdownLink
-        v-if="item.type === 'links'"
-        :item="item"
-      />
-      <NavLink
-        v-else
-        :item="item"
-      />
-    </div>
+      <!-- user links -->
+      <div
+        class="nav-item"
+        v-for="item in userLinks"
+        :key="item.link"
+      >
+        <DropdownLink
+          v-if="item.type === 'links'"
+          :item="item"
+        />
+        <NavLink
+          v-else
+          :item="item"
+        />
+      </div>
 
-    <!-- repo link -->
-    <a
-      v-if="repoLink"
-      :href="repoLink"
-      class="repo-link"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {{ repoLabel }}
-      <OutboundLink/>
-    </a>
-  </nav>
+      <!-- repo link -->
+      <a
+        v-if="repoLink"
+        :href="repoLink"
+        class="repo-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {{ repoLabel }}
+        <OutboundLink/>
+      </a>
+    </nav>
+  </vue-scrollbar>
 </template>
 
 <script>
@@ -114,6 +116,21 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus" module>
+  .root
+    /*padding-bottom: 10px;*/
+    visibility hidden !important
+    /*height 100%*/
+    align-self: stretch;
+    &>*
+      visibility visible
+    :global(.ps__rail-x) {
+      bottom auto
+      top 0
+    }
+
+</style>
 
 <style lang="stylus">
 .nav-links

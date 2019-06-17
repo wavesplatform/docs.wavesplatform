@@ -18,7 +18,7 @@
     <Sidebar
       ref="sidebar1"
       :sidebar-toggle-trigger-options="{
-        isShow: true,
+        isShow: layoutWidth > 719,
       }"
       :items="sidebarItems"
       :mod="layoutWidth > 719 ? 1 : 0"
@@ -46,10 +46,7 @@
       v-else
       :sidebar-items="sidebarItems"
       :class="$style.page"
-      :style="{
-        paddingLeft: sidebar1Show ? pageContentPaddingLeftPx + 'px' : 0,
-        paddingRight: sidebar2Show ? pageContentPaddingRightPx + 'px' : 0,
-      }"
+      :style="pageContainerStile"
     >
       <slot
         name="page-top"
@@ -122,6 +119,14 @@
     },
 
     computed: {
+      pageContainerStile() {
+        const isPadding = this.layoutWidth > 719;
+        return isPadding ? {
+          paddingLeft: this.sidebar1Show ? this.pageContentPaddingLeftPx + 'px' : 0,
+          paddingRight: this.sidebar2Show ? this.pageContentPaddingRightPx + 'px' : 0,
+        } : {};
+      },
+
       shouldShowNavbar () {
         const { themeConfig } = this.$site
         const { frontmatter } = this.$page
@@ -221,8 +226,10 @@
         })
       },
 
-      toggleSidebar (to) {
-        this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
+      toggleSidebar (/*to*/) {
+        const sidebar1ComponentExemplar = this.$refs.sidebar1;
+        sidebar1ComponentExemplar.isShow = !sidebar1ComponentExemplar.isShow;
+        // this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
       },
 
       // side swipe

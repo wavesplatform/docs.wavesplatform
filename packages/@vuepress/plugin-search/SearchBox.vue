@@ -220,7 +220,7 @@ export default {
     padding 0.4rem
     list-style-type none
     &.align-right
-      right 0
+      left 0
   .suggestion
     line-height 1.4
     padding 0.4rem 0.6rem

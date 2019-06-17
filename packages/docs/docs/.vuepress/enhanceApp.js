@@ -51,9 +51,9 @@ export default ({ Vue,
   }
 
 
-  router.addRoutes([
-    { path: '/introduction/waves-environment/custom-tokens', redirect: '/' },
-    { path: '/bar/', redirect: '/' }
-  ])
+  // router.addRoutes([
+  //   { path: '/introduction/waves-environment/custom-tokens', redirect: '/' },
+  //   { path: '/bar/', redirect: '/' }
+  // ])
 
 }

@@ -51,6 +51,8 @@
   },
   "dependencies": {
     "element-resize-detector": "^1.1.15",
+    "monaco-editor": "^0.17.0",
+    "perfect-scrollbar": "^1.4.0",
     "vuex": "^3.1.1"
   }
 }
