@@ -456,6 +456,18 @@ module.exports = ctx => ({
   extraWatchFiles: [
     '.vuepress/nav/en.js',
     '.vuepress/nav/zh.js'
-  ]
+  ],
+
+
+  // configureWebpack () {
+  //   return {
+  //     resolve: {
+  //       alias: {
+  //         '@public': path.join(__dirname, './public')
+  //       }
+  //     }
+  //   }
+  // },
+
 })
 

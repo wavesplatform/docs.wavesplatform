@@ -2,7 +2,6 @@
 123
 4444
 
-<monaco-editor language="javascript"/>
 
 ## Relative URLs
 

@@ -9,16 +9,13 @@
     <div :class="$style.sidebarWrapper">
       <div
         v-if="sidebarToggleTriggerMergedOptions.isShow"
-        :class="[$style.sidebarToggleTrigger, $style[`_side_${side}`]]"
+        :class="[
+          $style.sidebarToggleTrigger,
+          $style[`_side_${side}`],
+          isShow && $style._isShow,
+        ]"
         @click="isShow = !isShow"
       >
-        <template v-if="(isShow && side === 'left') || (!isShow && side === 'right')">
-          <
-        </template>
-        <template v-else>
-          >
-        </template>
-
       </div>
       <div :class="['sidebar', $style.sidebar]">
         <NavLinks/>
@@ -86,6 +83,7 @@ export default {
         ...this.sidebarToggleTriggerOptions,
       }
     },
+
   }
 }
 </script>
@@ -127,21 +125,57 @@ export default {
     transition margin-left $toggleSidebarTransitionDuration
   }
   .sidebarToggleTrigger {
-    background: #ccc;
-    position: absolute;
-    top calc(50% - 10px)
-    padding 5px
+    $w-h = 40px
+    cursor pointer
+    background #fff
+    position absolute
+    top calc(50% - 20px)
     border-radius 50%
-    width 20px
-    height 20px
+    width $w-h
+    height $w-h
     display flex
     justify-content center
     align-items center
+    box-shadow 0 0 0 1px $borderColor
+    transition .3s
+    &:hover {
+      box-shadow 0 0 0 1px $arrowBgColor
+    }
+    &:not(._isShow) {
+      &._side_left {
+        left: calc(100% - 10px);
+        &:before {
+          transform rotate(-135deg)
+        }
+      }
+      &._side_right {
+        right: calc(100% - 10px);
+        &:before {
+          transform rotate(225deg)
+        }
+      }
+    }
     &._side_left {
-      left: calc(100% - 10px);
+      left: calc(100% - 20px);
+      &:before {
+        border-bottom 1px solid $accentColor
+        border-left 1px solid $accentColor
+      }
     }
     &._side_right {
-      right: calc(100% - 10px);
+      right: calc(100% - 20px);
+      &:before {
+        border-top 1px solid $accentColor
+        border-right 1px solid $accentColor
+      }
+    }
+    &:before {
+      content: '';
+      width 10px
+      height 10px
+      position absolute
+      transform rotate(45deg)
+      transition .3s
     }
   }
   .sidebar {

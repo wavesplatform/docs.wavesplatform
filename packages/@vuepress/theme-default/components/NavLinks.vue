@@ -123,6 +123,7 @@ export default {
     visibility hidden !important
     /*height 100%*/
     align-self: stretch;
+    margin-top -12px
     &>*
       visibility visible
     :global(.ps__rail-x) {
@@ -135,6 +136,7 @@ export default {
 <style lang="stylus">
 .nav-links
   display inline-block
+  padding-top 12px
   a
     line-height 1.4rem
     color inherit
