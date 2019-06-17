@@ -3,6 +3,8 @@ import {
   Select,
   Button,
   Popover,
+  Breadcrumb,
+  BreadcrumbItem,
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
@@ -16,6 +18,8 @@ export default ({ Vue,
   Vue.component(Select.name, Select)
   Vue.component(Button.name, Button)
   Vue.component(Popover.name, Popover)
+  Vue.component(Breadcrumb.name, Breadcrumb)
+  Vue.component(BreadcrumbItem.name, BreadcrumbItem)
 
   /**/
 
