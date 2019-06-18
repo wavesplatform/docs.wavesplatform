@@ -1,8 +1,8 @@
 {
   "private": true,
   "version": "1.0.1",
-  "name": "docs",
-  "description": "docs of VuePress",
+  "name": "waves-documentation",
+  "description": "Documentation of Waves",
   "scripts": {
     "dev": "vuepress dev docs --temp .temp",
     "build": "vuepress build docs --temp .temp",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vuejs/vuepress.git"
+    "url": "git+https://github.com/wavesplatform/waves-documentation.git"
   },
   "keywords": [
     "documentation",
@@ -21,9 +21,9 @@
   "author": "Evan You",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vuejs/vuepress/issues"
+    "url": "https://github.com/wavesplatform/waves-documentation/issues"
   },
-  "homepage": "https://github.com/vuejs/vuepress#readme",
+  "homepage": "https://github.com/wavesplatform/waves-documentation#readme",
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.0.1",
     "@vuepress/plugin-google-analytics": "^1.0.1",
