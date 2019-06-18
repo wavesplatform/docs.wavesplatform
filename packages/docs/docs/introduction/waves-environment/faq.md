@@ -1,4 +1,4 @@
-# Frequently Asked Questions
+# Frequently Asked Questions1
 
 ### 1. How I can list my tokens on Waves ?
 

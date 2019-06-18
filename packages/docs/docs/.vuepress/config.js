@@ -76,7 +76,13 @@ module.exports = ctx => ({
                 },
                 {
                   title: 'Custom Tokens',
-                  path: 'waves-environment/custom-tokens'
+
+                  children: [
+                    {
+                      title: 'Test 3',
+                      path: 'waves-environment/custom-tokens',
+                    }
+                  ],
                 }
               ]
             },

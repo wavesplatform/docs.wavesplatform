@@ -28,17 +28,26 @@ export default ({ Vue,
   const state = {
     interface: {
       layoutWidth: 0,
-    }
+    },
+    navbarSubHeaders: [],
   }
 
   const modules = {
 
   }
 
+
+  const set = key => (state, val) => {
+    state[key] = val
+  };
+
+
   const mutations = {
     setInterfaceInnerWidthLayout(state, width) {
       state.interface.layoutWidth = width;
     },
+
+    setNavbarSubHeaders: set('navbarSubHeaders'),
   }
 
   const actions = {

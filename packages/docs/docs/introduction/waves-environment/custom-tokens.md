@@ -2,7 +2,7 @@
 
 Asset is a sort of a digital asset that has a certain consensus value. The Waves platform allows users to create their own tokens to fulfill their specific need.
 
-## <Tooltip/><OutboundLink/>
+## <OutboundLink/>
 
 # 1. Issuing your own Token 
 

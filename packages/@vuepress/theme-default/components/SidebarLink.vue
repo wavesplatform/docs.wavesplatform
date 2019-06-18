@@ -26,6 +26,7 @@
                 $page,
                 $site,
                 $route,
+                $store,
                 $themeConfig,
                 $themeLocaleConfig
               },
@@ -57,23 +58,29 @@
         || $themeConfig.displayAllHeaders
 
       if (item.type === 'auto') {
+
         return [link, renderChildren(h, {
           children: item.children,
           path: item.basePath,
           route: $route,
+          $store,
           maxDepth,
           mod
         })]
       } else if ((active || displayAllHeaders) && item.headers && !hashRE.test(item.path)) {
         const children = groupHeaders(item.headers)
-        return ((mod === 1 || mod === 0) ? [link] : [])
+
+        const result = ((mod === 1 || mod === 0) ? [link] : [])
           .concat([renderChildren(h, {
             children,
             path: item.path,
             route: $route,
+            $store,
             maxDepth,
             mod
-          })]);
+          })])
+        console.log('result:', result)
+        return result;
       } else {
         return (mod === 1 || mod === 0) && link;
       }
@@ -94,9 +101,19 @@
     }, text)
   }
 
-  function renderChildren (h, { children, path, route, maxDepth, depth = 1, mod }) {
+  function renderChildren (h, { children, path, route, $store, maxDepth, depth = 1, mod }) {
 
-    if (!children || depth > maxDepth) return null
+
+    if (!children || depth > maxDepth) {
+      return null;
+    } else if(!children.length) {
+      $store.commit('setNavbarSubHeaders', []);
+      return null;
+    }
+
+    $store.commit('setNavbarSubHeaders', children);
+
+
     return h('ul', { class: 'sidebar-sub-headers' }, children.map(c => {
       const active = isActive(route, path + '#' + c.slug)
 
@@ -106,11 +123,12 @@
           children: c.children,
           path,
           route,
+          $store,
           maxDepth,
           depth: depth + 1,
           mod
         })
-      ]
+      ];
 
       return h('li',
         { class: 'sidebar-sub-header' },

@@ -43,6 +43,7 @@ import NavLink from '@theme/components/NavLink.vue'
 export default {
   components: { NavLink, DropdownLink },
 
+
   computed: {
     userNav () {
       return this.$themeLocaleConfig.nav || this.$site.themeConfig.nav || []

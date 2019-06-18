@@ -61,7 +61,7 @@
       v-show="layoutWidth > 719"
       ref="sidebar2"
       :sidebar-toggle-trigger-options="{
-        isShow: true,
+        isShow: navbarSubHeaders.length,
       }"
       side="right"
       :items="sidebarItems"
@@ -177,13 +177,30 @@
       layoutWidth() {
         return this.$store.state.interface.layoutWidth;
       },
+
+      navbarSubHeaders() {
+        return this.$store.state.navbarSubHeaders;
+      },
     },
 
-    // watch: {
-    //   '$store.state.interface.layoutWidth'(newValue) {
-    //     console.log('newValue:', newValue);
-    //   }
-    // },
+
+    watch: {
+      // '$store.state.interface.layoutWidth'(newValue) {
+      //   console.log('newValue:', newValue);
+      // }
+
+      navbarSubHeaders: {
+        handler(newValue) {
+          const sidebar2 = this.$refs.sidebar2;
+          if(!newValue.length) {
+            sidebar2.isShow = false;
+            return;
+          }
+          sidebar2.isShow = true;
+        },
+        immediate: true,
+      }
+    },
 
     mounted () {
       this.$router.afterEach(() => {

@@ -70,12 +70,32 @@
 </template>
 
 <script>
-import { resolvePage, outboundRE, endingSlashRE } from '../util'
+import { isActive, resolvePage, outboundRE, endingSlashRE } from '../util'
+
+
 
 export default {
   props: ['sidebarItems'],
 
   computed: {
+
+    bread() {
+      const parts = this.$page.path.split("/");
+      if (!parts[parts.length - 1].length) { parts.pop(); }
+      let link = "";
+      const crumbs = [];
+      for (let i = 0; i < parts.length; i++) {
+        link += parts[i];
+        const page = this.$site.pages.find((el) => el.path === link || el.path === link + "/");
+        link += "/";
+        if (page != null) {
+          crumbs.push({path: page.path, title: page.frontmatter.breadcrumb || page.title});
+        }
+      }
+      return crumbs;
+    },
+
+
     lastUpdated () {
       return this.$page.lastUpdated
     },
@@ -138,6 +158,22 @@ export default {
     }
   },
 
+  mounted() {
+    console.log('this.$site:', this.$site, this.$route, this, this.sidebarItems)
+    this.$toasted.info('123');
+
+    console.log('bread:', this.bread);
+
+    // isActive()
+    // const selfActive = isActive(this.$route, item.path)
+    this.sidebarItems.forEach(item => {
+
+      // const selfActive = isActive(this.$route, item.path)
+      console.log('selfActive:', item);
+    });
+
+  },
+
   methods: {
     createEditLink (repo, docsRepo, docsDir, docsBranch, path) {
       const bitbucket = /bitbucket.org/
@@ -166,7 +202,9 @@ export default {
         + path
       )
     }
-  }
+  },
+
+
 }
 
 function resolvePrev (page, items) {

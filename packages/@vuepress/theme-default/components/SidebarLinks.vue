@@ -64,7 +64,7 @@ export default {
 
   watch: {
     '$route' () {
-      this.refreshIndex()
+      this.refreshIndex();
     }
   },
 
