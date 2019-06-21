@@ -137,6 +137,16 @@ module.exports = ctx => ({
               title: 'Alias',
               path: '/blockchain/alias',
             },
+            {
+              title: 'Transaction type',
+              path: '/blockchain/transaction-type/',
+              children: [
+                {
+                  title: 'test',
+                  path: '/transaction-type/alias-transaction'
+                }
+              ]
+            },
           ],
 
           '/ride/': [
