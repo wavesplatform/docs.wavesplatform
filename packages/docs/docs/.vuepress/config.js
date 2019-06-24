@@ -4,7 +4,7 @@ module.exports = ctx => ({
   dest: '../../vuepress',
   port: 3083,
   locales: {
-    '/': {
+    '/en/': {
       lang: 'en-US',
       title: 'Waves Docs',
       description: 'Vue-powered Static Site Generator'
@@ -53,34 +53,33 @@ module.exports = ctx => ({
     //   indexName: 'vuepress'
     // }) : null,
     locales: {
-      '/': {
+      '/en/': {
         label: 'English',
         selectText: 'Languages',
         editLinkText: 'Edit this page on GitHub',
         lastUpdated: 'Last Updated',
         nav: require('./nav/en'),
         sidebar: {
-          '/introduction/': [
+          '/en/introduction/': [
             {
               title: 'Overview',
               collapsable: true
             },
             {
               title: 'Waves environment',
-              path: '/introduction/waves-environment/custom-tokens',
+              path: '/en/introduction/waves-environment',
               collapsable: true,
               children: [
                 {
                   title: 'Waves Tokens',
-                  path: 'waves-environment/waves-tokens'
+                  path: '/en/introduction/waves-environment/waves-tokens'
                 },
                 {
                   title: 'Custom Tokens',
-
                   children: [
                     {
                       title: 'Test 3',
-                      path: 'waves-environment/custom-tokens',
+                      path: '/en/introduction/waves-environment/custom-tokens',
                     }
                   ],
                 }
@@ -116,7 +115,6 @@ module.exports = ctx => ({
             },
             {
               title: 'Tutorials and articles',
-
               collapsable: false,
               children: [
                 {
@@ -132,19 +130,19 @@ module.exports = ctx => ({
           ],
 
 
-          '/blockchain/': [
+          '/en/blockchain/': [
             {
               title: 'Alias',
-              path: '/blockchain/alias',
+              path: '/en/blockchain/alias',
             },
             {
               title: 'Transaction type',
-              path: '/blockchain/transaction-type/',
+              path: '/en/blockchain/transaction-type/',
               collapsable: true,
               children: [
                 {
                   title: 'Alias transaction',
-                  path: '/blockchain/transaction-type/alias-transaction'
+                  path: '/en/blockchain/transaction-type/alias-transaction'
                 }
               ]
             },

@@ -1,27 +1,27 @@
 module.exports = [
   {
     text: 'Introduction',
-    link: '/introduction/'
+    link: '/en/introduction/'
   },
   {
     text: 'Blockchain',
-    link: '/blockchain/'
+    link: '/en/blockchain/'
   },
   {
     text: 'RIDE',
-    link: '/ride/'
+    link: '/en/ride/'
   },
   {
     text: 'The Waves Protocol',
-    link: '/waves-protocol/'
+    link: '/en/waves-protocol/'
   },
   {
     text: 'For Developers',
-    link: '/for-developers/'
+    link: '/en/for-developers/'
   },
   {
     text: 'Blockchain Infrastructure',
-    link: '/blockchain-infrastructure/'
+    link: '/en/blockchain-infrastructure/'
   },
   {
     text: 'Waves Apps',
@@ -31,11 +31,11 @@ module.exports = [
         items: [
           {
             text: 'subtitle1',
-            link: '/title1/subtitle1.html'
+            link: '/en/title1/subtitle1.html'
           },
           {
             text: 'subtitle2',
-            link: '/title1/node.html'
+            link: '/en/title1/node.html'
           }
         ]
       },
@@ -44,15 +44,15 @@ module.exports = [
         items: [
           {
             text: 'subtitle1',
-            link: '/title2/design-concepts.html'
+            link: '/en/title2/design-concepts.html'
           },
           {
             text: 'subtitle2',
-            link: '/title2/'
+            link: '/en/title2/'
           },
           {
             text: 'subtitle3',
-            link: '/title2/glossary.html'
+            link: '/en/title2/glossary.html'
           }
         ]
       },
@@ -61,7 +61,7 @@ module.exports = [
         items: [
           {
             text: 'subtitle1',
-            link: '/title2/migration-guide.html'
+            link: '/en/title2/migration-guide.html'
           },
           {
             text: 'subtitle2',
@@ -73,10 +73,10 @@ module.exports = [
   },
   {
     text: 'Community Projects',
-    link: '/community-projects/'
+    link: '/en/community-projects/'
   },
   {
     text: 'Support',
-    link: '/support/'
+    link: '/en/support/'
   }
 ]

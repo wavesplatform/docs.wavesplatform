@@ -190,8 +190,12 @@
       // }
 
       navbarSubHeaders: {
-        handler(newValue) {
+        async handler(newValue) {
+          await this.$nextTick();
           const sidebar2 = this.$refs.sidebar2;
+          if(!sidebar2) {
+            return;
+          }
           if(!newValue.length) {
             sidebar2.isShow = false;
             return;
@@ -203,6 +207,9 @@
     },
 
     mounted () {
+
+      console.log('sidebarItems:', this.sidebarItems);
+
       this.$router.afterEach(() => {
         this.isSidebarOpen = false
       });

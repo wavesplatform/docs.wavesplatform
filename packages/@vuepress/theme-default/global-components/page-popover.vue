@@ -12,7 +12,7 @@
   const md = new MarkdownIt();
 
   const test = '# markdown-it rulezz <el-button>test</el-button>>!';
-  import test2 from '/Users/sbibik/Desktop/portecosys/projects/waves-documentation/packages/docs/docs/ride/about-ride.md'
+  import test2 from '/Users/sbibik/Desktop/portecosys/projects/waves-documentation/packages/docs/docs/en/ride/about-ride.md'
 
 
   console.log('test2:', test2);

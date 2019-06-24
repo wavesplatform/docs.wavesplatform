@@ -5,14 +5,20 @@ import {
   Popover,
   Breadcrumb,
   BreadcrumbItem,
+  Alert,
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
-export default ({ Vue,
-                  options,
-                  router,
-                  isServer
-                }) => {
+export default async(context) => {
+
+  const { Vue,
+    options,
+    router,
+    isServer
+  } = context;
+
+
+
 
   // Vue.use(Element)
   Vue.component(Select.name, Select)
@@ -20,7 +26,7 @@ export default ({ Vue,
   Vue.component(Popover.name, Popover)
   Vue.component(Breadcrumb.name, Breadcrumb)
   Vue.component(BreadcrumbItem.name, BreadcrumbItem)
-
+  Vue.component(Alert.name, Alert)
   /**/
 
   Vue.use(Vuex);
@@ -77,9 +83,14 @@ export default ({ Vue,
   }
 
 
-  router.addRoutes([
-    // { path: '/', redirect: '/blockchain' },
-    { path: '/bar/', redirect: '/' }
-  ])
+  console.log('router:', context);
+  if(!isServer) {
+    await Vue.nextTick();
+    router.push('/en/')
+  }
+  // router.addRoutes([
+  //   // { path: 'http://localhost:3083', redirect: '/en/' },
+  //   // { path: '/bar/', redirect: '/' }
+  // ])
 
 }
