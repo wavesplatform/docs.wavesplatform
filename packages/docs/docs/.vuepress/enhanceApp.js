@@ -83,10 +83,12 @@ export default async(context) => {
   }
 
 
-  console.log('router:', context);
+
   if(!isServer) {
-    await Vue.nextTick();
-    router.push('/en/')
+    if(window.location.pathname === '/') {
+      await Vue.nextTick();
+      router.push('/en/');
+    }
   }
   // router.addRoutes([
   //   // { path: 'http://localhost:3083', redirect: '/en/' },
