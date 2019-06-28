@@ -125,6 +125,7 @@ export default {
     /*height 100%*/
     align-self: stretch;
     margin-top -12px
+    padding 0 5px
     &>*
       visibility visible
     :global(.ps__rail-x) {

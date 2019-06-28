@@ -14,21 +14,6 @@ module.exports = ctx => ({
       title: 'Waves Docs',
       description: 'Waves документация на русском'
     },
-    '/zh/': {
-      lang: 'zh-CN',
-      title: 'Waves Docs',
-      description: 'Vue 驱动的静态网站生成器'
-    },
-    '/ko/': {
-      lang: 'ko-Ko',
-      title: 'Waves Docs',
-      description: 'Waves документация на ko'
-    },
-    '/pt-br/': {
-      lang: 'pt-Br',
-      title: 'Waves Docs',
-      description: 'Waves документация на Português'
-    }
   },
   head: [
     ['link', { rel: 'icon', href: `/logo.png` }],
@@ -157,6 +142,7 @@ module.exports = ctx => ({
 
         }
       },
+
       '/ru/': {
         label: 'Русский',
         selectText: 'Язык',
@@ -226,7 +212,26 @@ module.exports = ctx => ({
               title: 'Proposals',
               collapsable: false
             }
-          ]
+          ],
+
+          '/ru/blockchain/': [
+            {
+              title: 'Псевдоним',
+              path: '/ru/blockchain/alias',
+            },
+            {
+              title: 'Тип транзакции',
+              path: '/ru/blockchain/transaction-type/',
+              collapsable: true,
+              children: [
+                {
+                  title: 'Транзакция создания псевдонима',
+                  path: '/ru/blockchain/transaction-type/alias-transaction'
+                }
+              ]
+            },
+          ],
+
         }
       },
     }

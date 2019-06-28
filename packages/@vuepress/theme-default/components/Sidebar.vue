@@ -104,7 +104,7 @@ export default {
     &:not(._isShow) {
       &._side_left {
         .sidebarWrapper {
-          margin-left -100%
+          margin-left calc(-100% + 80px)
         }
       }
       &._side_right {
@@ -129,7 +129,8 @@ export default {
     cursor pointer
     background #fff
     position absolute
-    top calc(50% - 20px)
+    /*top calc(50% - 20px)*/
+    bottom 20px
     border-radius 50%
     width $w-h
     height $w-h
@@ -143,27 +144,31 @@ export default {
     }
     &:not(._isShow) {
       &._side_left {
-        left: calc(100% - 10px);
+        /*left: calc(100% - 10px);*/
+        right 20px
         &:before {
           transform rotate(-135deg)
         }
       }
       &._side_right {
-        right: calc(100% - 10px);
+        /*right: calc(100% - 10px);*/
+        left 20px
         &:before {
           transform rotate(225deg)
         }
       }
     }
     &._side_left {
-      left: calc(100% - 20px);
+      /*left: calc(100% - 20px);*/
+      right 20px
       &:before {
         border-bottom 1px solid $accentColor
         border-left 1px solid $accentColor
       }
     }
     &._side_right {
-      right: calc(100% - 20px);
+      /*right: calc(100% - 20px);*/
+      left 20px
       &:before {
         border-top 1px solid $accentColor
         border-right 1px solid $accentColor

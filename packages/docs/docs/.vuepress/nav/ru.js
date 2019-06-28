@@ -4,16 +4,16 @@ module.exports = [
     link: '/ru/introduction/',
   },
   {
+    text: 'Блокчейн',
+    link: '/ru/blockchain/'
+  },
+  {
     text: 'Waves протокол',
     link: '/waves-protocol/'
   },
   {
     text: 'Для разработчиков',
     link: '/for-developers/'
-  },
-  {
-    text: 'Блокчейн инфраструктура',
-    link: '/blockchain-infrastructure/'
   },
   {
     text: 'Waves приложения',
