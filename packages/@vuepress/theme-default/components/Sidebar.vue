@@ -8,7 +8,7 @@
   >
     <div :class="$style.sidebarWrapper">
       <span :class="$style.resizeTrigger"/>
-      <el-button
+      <span
         v-if="sidebarToggleTriggerMergedOptions.isShow"
         :class="[
           $style.sidebarToggleTrigger,
@@ -21,7 +21,7 @@
           <i :class="['el-icon-arrow-left', $style.icon1]"/>
           <i :class="['el-icon-arrow-left', $style.icon2]"/>
         </div>
-      </el-button>
+      </span>
       <div :class="['sidebar', $style.sidebar]">
         <NavLinks/>
         <slot name="top"/>
@@ -88,8 +88,8 @@ export default {
         ...this.sidebarToggleTriggerOptions,
       }
     },
+  },
 
-  }
 }
 </script>
 

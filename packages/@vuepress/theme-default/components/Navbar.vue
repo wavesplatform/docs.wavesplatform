@@ -2,10 +2,10 @@
   <header class="navbar">
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
 
-    <router-link
-      :to="$localePath"
-      class="home-link"
-    >
+    <!--<router-link-->
+      <!--:to="$localePath"-->
+      <!--class="home-link"-->
+    <!--&gt;-->
       <!--<img-->
         <!--class="logo"-->
         <!--v-if="$site.themeConfig.logo"-->
@@ -20,35 +20,41 @@
         <!--v-if="$siteTitle"-->
         <!--:class="{ 'can-hide': $site.themeConfig.logo }"-->
       <!--&gt;{{ $siteTitle }}</span>-->
-    </router-link>
-
-
-
-
+    <!--</router-link>-->
     <div
       class="links"
       :style="linksWrapMaxWidth ? {
         'max-width': linksWrapMaxWidth + 'px'
       } : {}"
     >
-      <AlgoliaSearchBox
-        v-if="isAlgoliaSearch"
-        :options="algolia"
-      />
-      <SearchBox v-else-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false"/>
-      <NavLinks class="can-hide"/>
+
+      <NavLinks :class="['can-hide', $style.navLinks]"/>
+
+      <SearchBox v-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false"/>
+      <div :class="$style.languagesNav">
+        <NavLink
+          v-for="languageItem in languageNavDropdown.items"
+          :key="languageItem.link"
+          :item="languageItem"
+          :class="$style.languagesNav__link"
+        />
+      </div>
+
     </div>
+
+
+
   </header>
 </template>
 
 <script>
-import AlgoliaSearchBox from '@AlgoliaSearchBox'
 import SearchBox from '@SearchBox'
 import SidebarButton from '@theme/components/SidebarButton.vue'
 import NavLinks from '@theme/components/NavLinks.vue'
+import NavLink from '@theme/components/NavLink.vue'
 
 export default {
-  components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox },
+  components: { SidebarButton, NavLinks, NavLink, SearchBox },
 
   data () {
     return {
@@ -56,7 +62,49 @@ export default {
     }
   },
 
+  computed: {
+    algolia () {
+      return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
+    },
+
+    isAlgoliaSearch () {
+      return this.algolia && this.algolia.apiKey && this.algolia.indexName
+    },
+    languageNavDropdown() {
+      const { locales } = this.$site;
+      let languageDropdown = [];
+      if (locales && Object.keys(locales).length > 1) {
+        const currentLink = this.$page.path
+        const routes = this.$router.options.routes
+        const themeLocales = this.$site.themeConfig.locales || {}
+        languageDropdown = {
+          text: this.$themeLocaleConfig.selectText || 'Languages',
+          items: Object.keys(locales).map(path => {
+            const locale = locales[path]
+            const text = themeLocales[path] && themeLocales[path].label || locale.lang
+            let link
+            // Stay on the current page
+            if (locale.lang === this.$lang) {
+              link = currentLink
+            } else {
+              // Try to stay on the same page
+              link = currentLink.replace(this.$localeConfig.path, path)
+              // fallback to homepage
+              if (!routes.some(route => route.path === link)) {
+                link = path
+              }
+            }
+            return { text, link }
+          })
+        }
+      }
+      return languageDropdown;
+    },
+  },
+
   mounted () {
+    console.log('languageNavDropdown:', this.languageNavDropdown);
+
     const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
     const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'))
     const handleLinksWrapWidth = () => {
@@ -70,16 +118,6 @@ export default {
     handleLinksWrapWidth()
     window.addEventListener('resize', handleLinksWrapWidth, false)
   },
-
-  computed: {
-    algolia () {
-      return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
-    },
-
-    isAlgoliaSearch () {
-      return this.algolia && this.algolia.apiKey && this.algolia.indexName
-    }
-  }
 }
 
 function css (el, property) {
@@ -90,6 +128,46 @@ function css (el, property) {
 }
 </script>
 
+<style lang="stylus" module>
+  .navLinks {
+    width 100%
+  }
+  .languagesNav {
+    flex-shrink 0
+    margin-left .5rem
+    display flex
+  }
+  .languagesNav__link {
+
+    display flex
+    justify-content center
+    align-items center
+    &:not(:first-child) {
+      margin-left .5rem
+    }
+    &:global(.router-link-active) {
+      background orangered
+    }
+    &:before, &:after {
+      content ''
+      width: 0;
+      height: 0;
+      display flex
+      position absolute
+    }
+    &:before {
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid #f00;
+    }
+    &:after {
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid #0f0;
+    }
+  }
+</style>
+
 <style lang="stylus">
 $navbar-vertical-padding = 0.7rem
 $navbar-horizontal-padding = 1.5rem
@@ -97,6 +175,7 @@ $navbar-horizontal-padding = 1.5rem
 .navbar
   padding $navbar-vertical-padding $navbar-horizontal-padding
   line-height $navbarHeight - 1.4rem
+  display flex
   a, span, img
     display inline-block
   .logo
@@ -112,12 +191,13 @@ $navbar-horizontal-padding = 1.5rem
   .links
     visibility hidden
     height 100vh
-    padding-left 1.5rem
+    width 100%
+    /*padding-left 1.5rem*/
     box-sizing border-box
     background-color white
     white-space nowrap
     font-size 0.9rem
-    position absolute
+    /*position absolute*/
     left $navbar-horizontal-padding
     top $navbar-vertical-padding
     display flex
@@ -134,5 +214,5 @@ $navbar-horizontal-padding = 1.5rem
     .can-hide
       display none
     .links
-      padding-left 1.5rem
+      /*padding-left 1.5rem*/
 </style>

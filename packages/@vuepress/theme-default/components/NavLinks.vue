@@ -7,7 +7,7 @@
       <!-- user links -->
       <div
         class="nav-item"
-        v-for="item in userLinks"
+        v-for="item in userNav"
         :key="item.link"
       >
         <DropdownLink
@@ -21,20 +21,19 @@
       </div>
 
       <!-- repo link -->
-      <a
-        v-if="repoLink"
-        :href="repoLink"
-        class="repo-link"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {{ repoLabel }}
-        <OutboundLink/>
-      </a>
+      <!--<a-->
+        <!--v-if="repoLink"-->
+        <!--:href="repoLink"-->
+        <!--class="repo-link"-->
+        <!--target="_blank"-->
+        <!--rel="noopener noreferrer"-->
+      <!--&gt;-->
+        <!--{{ repoLabel }}-->
+        <!--<OutboundLink/>-->
+      <!--</a>-->
     </nav>
   </vue-scrollbar>
 </template>
-
 <script>
 import DropdownLink from '@theme/components/DropdownLink.vue'
 import { resolveNavLinkItem } from '../util'
@@ -49,13 +48,14 @@ export default {
       return this.$themeLocaleConfig.nav || this.$site.themeConfig.nav || []
     },
 
-    nav () {
-      const { locales } = this.$site
+    languageNavDropdown () {
+      const { locales } = this.$site;
+      let languageDropdown = [];
       if (locales && Object.keys(locales).length > 1) {
         const currentLink = this.$page.path
         const routes = this.$router.options.routes
         const themeLocales = this.$site.themeConfig.locales || {}
-        const languageDropdown = {
+        languageDropdown = {
           text: this.$themeLocaleConfig.selectText || 'Languages',
           items: Object.keys(locales).map(path => {
             const locale = locales[path]
@@ -75,13 +75,12 @@ export default {
             return { text, link }
           })
         }
-        return [...this.userNav, languageDropdown]
       }
-      return this.userNav
+      return languageDropdown;
     },
 
     userLinks () {
-      return (this.nav || []).map(link => {
+      return (this.userNav || []).map(link => {
         return Object.assign(resolveNavLinkItem(link), {
           items: (link.items || []).map(resolveNavLinkItem)
         })
@@ -114,6 +113,9 @@ export default {
 
       return 'Source'
     }
+  },
+  mounted () {
+    // console.log('userLinks:', this.userLinks);
   }
 }
 </script>
