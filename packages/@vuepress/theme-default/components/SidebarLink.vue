@@ -144,6 +144,8 @@
     font-size 0.95em
 
   a.sidebar-link
+    overflow hidden
+    text-overflow ellipsis
     font-size 1em
     font-weight 400
     display inline-block

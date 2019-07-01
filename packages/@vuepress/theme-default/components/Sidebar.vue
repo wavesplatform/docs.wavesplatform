@@ -7,7 +7,8 @@
     ]"
   >
     <div :class="$style.sidebarWrapper">
-      <div
+      <span :class="$style.resizeTrigger"/>
+      <el-button
         v-if="sidebarToggleTriggerMergedOptions.isShow"
         :class="[
           $style.sidebarToggleTrigger,
@@ -15,8 +16,12 @@
           isShow && $style._isShow,
         ]"
         @click="isShow = !isShow"
-      >
-      </div>
+        circle>
+        <div :class="$style.iconWrapper">
+          <i :class="['el-icon-arrow-left', $style.icon1]"/>
+          <i :class="['el-icon-arrow-left', $style.icon2]"/>
+        </div>
+      </el-button>
       <div :class="['sidebar', $style.sidebar]">
         <NavLinks/>
         <slot name="top"/>
@@ -91,12 +96,34 @@ export default {
 <style lang="stylus" module>
   .sidebarWrapper2 {
     visibility: hidden;
+    display: flex;
+
     &._side_left {
+      justify-content: flex-start;
+      .resizeTrigger {
+        left (100% + 1px)
+        &:before, &:after {
+        }
+        &:before {
+        }
+        &:after {
+        }
+      }
       :global(.sidebar) {
         border-right: 1px solid $borderColor;
       }
     }
     &._side_right {
+      justify-content: flex-end;
+      .resizeTrigger {
+        right (100% + 1px)
+        &:before, &:after {
+        }
+        &:before {
+        }
+        &:after {
+        }
+      }
       :global(.sidebar) {
         border-left: 1px solid $borderColor;
       }
@@ -104,84 +131,96 @@ export default {
     &:not(._isShow) {
       &._side_left {
         .sidebarWrapper {
-          margin-left calc(-100% + 80px)
+          /*margin-left calc(-100% + 80px)*/
+          width 0
         }
       }
       &._side_right {
         .sidebarWrapper {
-          margin-left 100%
+          /*margin-left calc(100% - 80px)*/
+          width 0
         }
       }
 
     }
   }
   .sidebarWrapper {
+    min-width 80px
     visibility: visible;
     display flex
     height 100%
     margin-left: 0
     position: relative;
     width: 100%
-    transition margin-left $toggleSidebarTransitionDuration
+    transition width $toggleSidebarTransitionDuration
   }
+
+  .resizeTrigger {
+    height 20px
+    display flex
+    position absolute
+    top calc(50% - 10px)
+    cursor ew-resize
+    &:before, &:after {
+      content ''
+      height 100%
+      width 3px
+      background $arrowBgColor
+    }
+    &:before {
+
+    }
+    &:after {
+      margin-left 2px
+    }
+  }
+
   .sidebarToggleTrigger {
-    $w-h = 40px
-    cursor pointer
     background #fff
     position absolute
-    /*top calc(50% - 20px)*/
     bottom 20px
-    border-radius 50%
-    width $w-h
-    height $w-h
-    display flex
-    justify-content center
-    align-items center
-    box-shadow 0 0 0 1px $borderColor
-    transition .3s
+    transition $toggleSidebarTransitionDuration
     &:hover {
-      box-shadow 0 0 0 1px $arrowBgColor
     }
     &:not(._isShow) {
       &._side_left {
-        /*left: calc(100% - 10px);*/
-        right 20px
-        &:before {
-          transform rotate(-135deg)
+        .iconWrapper {
+          transform rotate(-180deg)
         }
       }
       &._side_right {
-        /*right: calc(100% - 10px);*/
-        left 20px
-        &:before {
-          transform rotate(225deg)
+        .iconWrapper {
+          transform rotate(0deg)
         }
       }
     }
     &._side_left {
-      /*left: calc(100% - 20px);*/
       right 20px
-      &:before {
-        border-bottom 1px solid $accentColor
-        border-left 1px solid $accentColor
+      .iconWrapper {
+
       }
     }
     &._side_right {
-      /*right: calc(100% - 20px);*/
       left 20px
-      &:before {
-        border-top 1px solid $accentColor
-        border-right 1px solid $accentColor
+      .iconWrapper {
+        transform rotate(-180deg)
       }
     }
-    &:before {
-      content: '';
-      width 10px
-      height 10px
-      position absolute
-      transform rotate(45deg)
-      transition .3s
-    }
+  }
+  .iconWrapper {
+    $w-h = 10px
+    display flex
+    align-items center
+    justify-content center
+    width $w-h
+    height $w-h
+    transition transform .3s
+  }
+  .icon1 {
+
+  }
+  .icon2 {
+    margin-left -8px
   }
   .sidebar {
     width 100%
@@ -212,11 +251,11 @@ export default {
   & > .sidebar-links
     padding 1.5rem 0
     & > li > a.sidebar-link
-      font-size 1.1em
+      font-size .9rem
       line-height 1.7
       font-weight bold
     & > li:not(:first-child)
-      margin-top .75rem
+      margin-top 0rem
 
 @media (max-width: $MQMobile)
   .sidebar

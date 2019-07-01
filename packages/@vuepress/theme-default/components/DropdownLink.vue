@@ -8,9 +8,9 @@
       @click="toggle"
     >
       <span class="title">{{ item.text }}</span>
+      <!--:class="open ? 'el-icon-arrow-down' : 'el-icon-arrow-right'"-->
       <span
-        class="arrow"
-        :class="open ? 'down' : 'right'"
+        :class="['dropdown-title__arrow', open ? 'el-icon-arrow-down' : 'el-icon-arrow-right']"
       ></span>
     </a>
 
@@ -152,12 +152,13 @@ export default {
     &:hover .nav-dropdown
       // override the inline style.
       display block !important
-    .dropdown-title .arrow
+    .dropdown-title__arrow
       // make the arrow always down at desktop
-      border-left 4px solid transparent
+      /*border-left 4px solid transparent
       border-right 4px solid transparent
       border-top 6px solid $arrowBgColor
-      border-bottom 0
+      border-bottom 0*/
+      transform rotate(90deg)
     .nav-dropdown
       display none
       // Avoid height shaked by clicking
