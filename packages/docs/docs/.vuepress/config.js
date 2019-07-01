@@ -45,26 +45,26 @@ module.exports = ctx => ({
         lastUpdated: 'Last Updated',
         nav: require('./nav/en'),
         sidebar: {
-          '/en/introduction/': [
+          '/en/': [
             {
               title: 'Overview',
               collapsable: true
             },
             {
               title: 'Waves environment',
-              path: '/en/introduction/waves-environment',
+              path: '/en/waves-environment',
               collapsable: true,
               children: [
                 {
                   title: 'Waves Tokens',
-                  path: '/en/introduction/waves-environment/waves-tokens'
+                  path: '/en/waves-environment/waves-tokens'
                 },
                 {
                   title: 'Custom Tokens',
                   children: [
                     {
                       title: 'Test 3',
-                      path: '/en/introduction/waves-environment/custom-tokens',
+                      path: '/en/waves-environment/custom-tokens',
                     }
                   ],
                 }
@@ -150,7 +150,7 @@ module.exports = ctx => ({
         lastUpdated: 'Последние изменения',
         nav: require('./nav/ru'),
         sidebar: {
-          '/ru/introduction/': [
+          '/ru/': [
             {
               title: 'Обзор',
               collapsable: true
@@ -161,11 +161,11 @@ module.exports = ctx => ({
               children: [
                 {
                   title: 'Waves Tokens',
-                  path: 'waves-environment/waves-tokens'
+                  path: '/ru/waves-environment/waves-tokens'
                 },
                 {
                   title: 'Custom Tokens',
-                  path: 'waves-environment/custom-tokens'
+                  path: '/ru/waves-environment/custom-tokens'
                 }
               ]
             },

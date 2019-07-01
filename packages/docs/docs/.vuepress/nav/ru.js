@@ -1,7 +1,7 @@
 module.exports = [
   {
-    text: 'Введение',
-    link: '/ru/introduction/',
+    text: 'Главная',
+    link: '/ru/',
   },
   {
     text: 'Блокчейн',

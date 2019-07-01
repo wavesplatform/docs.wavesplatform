@@ -208,7 +208,6 @@ export default {
       cursor text
       left 0
       width 12rem
-      margin-left: 1rem
   .suggestions
     background #fff
     width 20rem
@@ -263,8 +262,6 @@ export default {
 @media (max-width: $MQMobile)
   .search-box
     margin-right 0
-    input
-      left 1rem
     .suggestions
       right 0
 

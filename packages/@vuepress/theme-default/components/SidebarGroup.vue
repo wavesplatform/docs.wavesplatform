@@ -138,12 +138,12 @@
     font-size .9rem
     /*font-weight bold*/
     // text-transform uppercase
-    padding 0.35rem 1.5rem 0.35rem 1.25rem
+    padding 0.35rem .65rem 0.35rem .65rem
     width 100%
     box-sizing border-box
     margin 0
     border-left 0.25rem solid transparent
-
+    font-weight 400
     &.open, &:hover
       color inherit
 
@@ -166,6 +166,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     margin-left 5px
+
 
   .sidebar-group-items
     transition height .1s ease-out

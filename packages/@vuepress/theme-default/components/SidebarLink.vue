@@ -36,7 +36,6 @@
                 mod
               }
             }) {
-      console.log('item:', item);
       // use custom active class matching logic
       // due to edge case of paths ending with / + hash
       const selfActive = isActive($route, item.path)
@@ -98,7 +97,12 @@
         active,
         'sidebar-link': true
       }
-    }, text)
+    }, [
+      h('span', {
+        class: 'dot'
+      }),
+      text
+    ])
   }
 
   function renderChildren (h, { children, path, route, $store, maxDepth, depth = 1, mod }) {
@@ -148,7 +152,8 @@
     text-overflow ellipsis
     font-size 1em
     font-weight 400
-    display inline-block
+    display inline-flex
+    align-items baseline
     color $textColor
     border-left 0.25rem solid transparent
     padding 0.35rem 1rem 0.35rem 1.25rem
@@ -174,4 +179,27 @@
 
       &.active
         font-weight 500
+
+  .dot {
+    top: -2px;
+    position: relative;
+    height 100%;
+    display inline-flex
+    justify-content center
+    align-items center
+    vertical-align middle
+    margin 0px 9px 0px -5px
+    opacity .7
+    flex-shrink 0
+    border 1px solid currentColor
+    border-radius 50%
+    &:before {
+      content ''
+      width 4px
+      height 4px
+      border-radius 50%
+      background currentColor
+      opacity .0
+    }
+  }
 </style>

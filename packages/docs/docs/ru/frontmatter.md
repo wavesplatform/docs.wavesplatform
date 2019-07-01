@@ -108,11 +108,11 @@ meta:
 - Type: `boolean`
 - Default: `undefined`
 
-See: [Default Theme Config > Disable the Navbar](../theme/default-theme-config.md#disable-the-navbar).
+See: [Default Theme Config > Disable the Navbar](theme/default-theme-config.md#disable-the-navbar).
 
 ### sidebar
 
 - Type: `boolean|'auto'`
 - Default: `undefined`
 
-See: [Default Theme Config > Sidebar](../theme/default-theme-config.md#sidebar).
+See: [Default Theme Config > Sidebar](theme/default-theme-config.md#sidebar).

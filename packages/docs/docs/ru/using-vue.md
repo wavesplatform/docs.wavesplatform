@@ -58,7 +58,7 @@ Directives also work:
 
 ### Access to Site & Page Data
 
-The compiled component does not have any private data but does have access to the [site metadata](../theme/writing-a-theme.md#site-and-page-metadata). For example:
+The compiled component does not have any private data but does have access to the [site metadata](theme/writing-a-theme.md#site-and-page-metadata). For example:
 
 **Input**
 
@@ -139,7 +139,7 @@ The HTML wrapped by `<code>` will be displayed as is, only the HTML that is not 
 
 ::: tip
 
-The output HTML is accomplished by [markdown-it](https://github.com/markdown-it/markdown-it), while the parsed headers are done by VuePress, and used for the [sidebar](../theme/default-theme-config.md#sidebar) and the document title.
+The output HTML is accomplished by [markdown-it](https://github.com/markdown-it/markdown-it), while the parsed headers are done by VuePress, and used for the [sidebar](theme/default-theme-config.md#sidebar) and the document title.
 :::
 
 ## Using Pre-processors
@@ -168,7 +168,7 @@ yarn add -D pug pug-plain-loader
 ::: tip
 If you are a Stylus user, you don't need to install `stylus` and `stylus-loader` in your project because VuePress uses Stylus internally.
 
-For pre-processors that do not have built-in webpack config support, you will need to [extend the internal webpack config](../config/README.md#configurewebpack) in addition to installing the necessary dependencies.
+For pre-processors that do not have built-in webpack config support, you will need to [extend the internal webpack config](config/README.md#configurewebpack) in addition to installing the necessary dependencies.
 :::
 
 ## Script & Style Hoisting
@@ -207,12 +207,12 @@ See [Browser API Access Restrictions](#browser-api-access-restrictions).
 
 - **Props**:
 
-  - `pageKey` - string, [page](./global-computed.md#page)'s hash key, defaults to current page's key.
-  - `slotKey` - string, key of [markdown slot](./markdown-slot.md). defaults to [default slot](./markdown-slot.md#default-slot-content).
+  - `pageKey` - string, [page](global-computed.md#page)'s hash key, defaults to current page's key.
+  - `slotKey` - string, key of [markdown slot](markdown-slot.md). defaults to [default slot](markdown-slot.md#default-slot-content).
 
 - **Usage**：
 
-Specify a specific slot for a specific page (.md) for rendering. This will be very useful when you use [Custom Layout](../theme/default-theme-config.md#custom-layout-for-specific-pages) or [Writing a theme](../theme/writing-a-theme.md)
+Specify a specific slot for a specific page (.md) for rendering. This will be very useful when you use [Custom Layout](theme/default-theme-config.md#custom-layout-for-specific-pages) or [Writing a theme](theme/writing-a-theme.md)
 
 ``` vue
 <Content/>
@@ -220,9 +220,9 @@ Specify a specific slot for a specific page (.md) for rendering. This will be ve
 
 **Also see:**
 
-- [Global Computed > $page](./global-computed.md#page)
-- [Markdown Slot](./markdown-slot.md)
-- [Writing a theme > Content Outlet](../theme/writing-a-theme.md#content-outlet)
+- [Global Computed > $page](global-computed.md#page)
+- [Markdown Slot](markdown-slot.md)
+- [Writing a theme > Content Outlet](theme/writing-a-theme.md#content-outlet)
 
 ### TOC <Badge text="1.0.0-alpha.41+"/>
 

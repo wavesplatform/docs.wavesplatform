@@ -1,5 +1,6 @@
 <template>
   <aside
+    ref="root"
     :class="[
       $style.sidebarWrapper2,
       $style[`_side_${side}`],
@@ -7,7 +8,10 @@
     ]"
   >
     <div :class="$style.sidebarWrapper">
-      <span :class="$style.resizeTrigger"/>
+      <span
+        :class="$style.resizeTrigger"
+        @mousedown.prevent.stop="resizeTriggerMousedown"
+      />
       <span
         v-if="sidebarToggleTriggerMergedOptions.isShow"
         :class="[
@@ -78,6 +82,8 @@ export default {
         isShow: false,
       },
       isShow: this.isDefaultShow,
+      latestClientX: 0,
+      latestSidebarWidth: 0,
     };
   },
 
@@ -87,6 +93,32 @@ export default {
         ...this.sidebarToggleTriggerDefaultOptions,
         ...this.sidebarToggleTriggerOptions,
       }
+    },
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('mouseup', this.resizeTriggerMouseup);
+    window.removeEventListener('mousemove', this.resizeTriggerMousemove);
+    document.documentElement.style.cursor = '';
+  },
+
+  methods: {
+    resizeTriggerMouseup() {
+      window.removeEventListener('mousemove', this.resizeTriggerMousemove);
+      document.documentElement.style.cursor = '';
+    },
+    resizeTriggerMousemove(event) {
+      const sideConst = this.side === 'left' ? 1 : -1;
+      this.$refs.root.style.width = this.latestSidebarWidth - (this.latestClientX - event.clientX) * sideConst + 'px';
+    },
+    resizeTriggerMousedown(event) {
+      this.latestClientX = event.clientX;
+      this.latestSidebarWidth = this.$refs.root.offsetWidth;
+      document.documentElement.style.cursor = 'ew-resize';
+      window.addEventListener('mousemove', this.resizeTriggerMousemove);
+      window.addEventListener('mouseup', this.resizeTriggerMouseup, {
+        once: true
+      });
     },
   },
 
@@ -101,12 +133,13 @@ export default {
     &._side_left {
       justify-content: flex-start;
       .resizeTrigger {
-        left (100% + 1px)
+        left calc(100% - 7px)
         &:before, &:after {
         }
         &:before {
         }
         &:after {
+          opacity 0
         }
       }
       :global(.sidebar) {
@@ -116,10 +149,11 @@ export default {
     &._side_right {
       justify-content: flex-end;
       .resizeTrigger {
-        right (100% + 1px)
+        right calc(100% - 7px)
         &:before, &:after {
         }
         &:before {
+          opacity 0
         }
         &:after {
         }
@@ -156,16 +190,16 @@ export default {
   }
 
   .resizeTrigger {
-    height 20px
+    height 100%
     display flex
     position absolute
-    top calc(50% - 10px)
+    top 0
     cursor ew-resize
     &:before, &:after {
       content ''
       height 100%
       width 3px
-      background $arrowBgColor
+      background url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMiAxNCI+CiAgICA8ZyBmaWxsPSIjN0Y4RkE0IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxwYXRoIGZpbGw9Im5vbmUiIGQ9Ik0wIDBoMnYxNEgweiIvPgogICAgICAgIDxwYXRoIGQ9Ik0wIDBoMnYySDB6TTAgNGgydjJIMHpNMCA4aDJ2Mkgwek0wIDEyaDJ2MkgweiIvPgogICAgPC9nPgo8L3N2Zz4K') center no-repeat
     }
     &:before {
 
@@ -176,6 +210,7 @@ export default {
   }
 
   .sidebarToggleTrigger {
+    cursor pointer
     background #fff
     position absolute
     bottom 20px
@@ -208,13 +243,14 @@ export default {
     }
   }
   .iconWrapper {
-    $w-h = 10px
+    /*$w-h = 10px*/
     display flex
     align-items center
     justify-content center
-    width $w-h
-    height $w-h
+    /*width $w-h
+    height $w-h*/
     transition transform .3s
+    font-size .85rem
   }
   .icon1 {
 
@@ -235,8 +271,6 @@ export default {
     padding 0
     margin 0
     list-style-type none
-  a
-    display inline-block
   .nav-links
     display none
     border-bottom 1px solid $borderColor
@@ -253,7 +287,6 @@ export default {
     & > li > a.sidebar-link
       font-size .9rem
       line-height 1.7
-      font-weight bold
     & > li:not(:first-child)
       margin-top 0rem
 

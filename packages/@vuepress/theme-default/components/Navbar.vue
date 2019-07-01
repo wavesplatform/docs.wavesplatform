@@ -30,14 +30,22 @@
 
       <NavLinks :class="['can-hide', $style.navLinks]"/>
 
-      <SearchBox v-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false"/>
+      <SearchBox
+        v-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false"
+        :class="$style.searchBox"
+      />
       <div :class="$style.languagesNav">
-        <NavLink
-          v-for="languageItem in languageNavDropdown.items"
-          :key="languageItem.link"
-          :item="languageItem"
-          :class="$style.languagesNav__link"
-        />
+        <template v-for="(languageItem, index) in languageNavDropdown.items">
+          <span
+            v-if="index > 0"
+            :class="$style.languagesNav__separator"/>
+          <NavLink
+            :key="languageItem.link"
+            :item="languageItem"
+            :class="$style.languagesNav__link"
+          />
+        </template>
+
       </div>
 
     </div>
@@ -132,40 +140,60 @@ function css (el, property) {
   .navLinks {
     width 100%
   }
+  .searchBox {
+    margin-left 1rem
+  }
   .languagesNav {
     flex-shrink 0
     margin-left .5rem
     display flex
-  }
-  .languagesNav__link {
-
-    display flex
-    justify-content center
     align-items center
-    &:not(:first-child) {
-      margin-left .5rem
-    }
-    &:global(.router-link-active) {
-      background orangered
-    }
-    &:before, &:after {
-      content ''
-      width: 0;
-      height: 0;
+    .languagesNav__link {
+      $triangleSize = 9px;
+      color $textColor
       display flex
-      position absolute
-    }
-    &:before {
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-bottom: 5px solid #f00;
-    }
-    &:after {
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-bottom: 5px solid #0f0;
+      justify-content center
+      align-items center
+      position relative
+      &:not(:first-child) {
+
+      }
+      &:not(:global(.router-link-active)) {
+
+      }
+      &:global(.router-link-active) {
+        cursor default
+        &:before, &:after {
+          content ''
+          width: 0;
+          height: 0;
+          display flex
+          position absolute
+          top calc(100% + 2px)
+        }
+        &:before {
+          border-left: $triangleSize solid transparent;
+          border-right: $triangleSize solid transparent;
+          border-bottom: $triangleSize solid $borderColor;
+        }
+        &:after {
+          border-left: $triangleSize solid transparent;
+          border-right: $triangleSize solid transparent;
+          border-bottom: $triangleSize solid #fff;
+          margin-top 1px
+        }
+      }
     }
   }
+
+  .languagesNav__separator {
+    width 1px
+    height 30px
+    background $arrowBgColor
+    margin 0 .5rem
+    opacity .3
+  }
+
 </style>
 
 <style lang="stylus">

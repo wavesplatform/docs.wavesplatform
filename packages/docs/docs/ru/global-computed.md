@@ -1,6 +1,6 @@
 # Global Computed
 
-In VuePress, some core [computed](https://vuejs.org/v2/guide/computed.html#Computed-Properties) properties are built in for use by [default theme](../theme/default-theme-config.md) or custom themes.
+In VuePress, some core [computed](https://vuejs.org/v2/guide/computed.html#Computed-Properties) properties are built in for use by [default theme](theme/default-theme-config.md) or custom themes.
 
 ## $site
 
@@ -60,7 +60,7 @@ The language of the current page, the default value is `en-US`.
 
 **Also see:**
 
-- [Internationalization](../guide/i18n.md)
+- [Internationalization](guide/i18n.md)
 
 ## $localePath
 
@@ -68,7 +68,7 @@ The locale path prefix for the current page, the default value is `/`.
 
 **Also see:**
 
-- [Internationalization](../guide/i18n.md)
+- [Internationalization](guide/i18n.md)
 
 ## $title
 

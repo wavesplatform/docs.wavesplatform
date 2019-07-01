@@ -208,7 +208,7 @@ See [Browser API Access Restrictions](#browser-api-access-restrictions).
 - **Props**:
 
   - `pageKey` - string, [page](./global-computed.md#page)'s hash key, defaults to current page's key.
-  - `slotKey` - string, key of [markdown slot](./markdown-slot.md). defaults to [default slot](./markdown-slot.md#default-slot-content).
+  - `slotKey` - string, key of [markdown slot](markdown-slot.md). defaults to [default slot](./markdown-slot.md#default-slot-content).
 
 - **Usage**：
 
@@ -221,7 +221,7 @@ Specify a specific slot for a specific page (.md) for rendering. This will be ve
 **Also see:**
 
 - [Global Computed > $page](./global-computed.md#page)
-- [Markdown Slot](./markdown-slot.md)
+- [Markdown Slot](markdown-slot.md)
 - [Writing a theme > Content Outlet](../theme/writing-a-theme.md#content-outlet)
 
 ### TOC <Badge text="1.0.0-alpha.41+"/>
