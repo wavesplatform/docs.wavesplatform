@@ -45,16 +45,47 @@ module.exports = ctx => ({
         lastUpdated: 'Last Updated',
         nav: require('./nav/en'),
         sidebar: {
-          '/en/': [
+          '/en/title1': [
             {
-              title: 'Overview',
-              collapsable: true
+              title: 'Getting started',
+              collapsable: true,
+              children: [
+
+                {
+                  title: 'Getting started guide',
+                  path: '/en/waves-environment/waves-tokens'
+                },
+                {
+                  title: 'Custom Tokens',
+                  children: [
+                    {
+                      title: 'Test 3',
+                      path: '/en/waves-environment/custom-tokens',
+                    }
+                  ],
+                }
+              ]
             },
+              {
+                title: 'Blockchain',
+                collapsable: true,
+                children: [
+                  {
+                    title: 'Account',
+                    path: '/en/blockchain/account'
+                  },
+                  {
+                    title: 'Account data storage',
+                    path: '/en/blockchain/account-data-storage'
+                  }
+                ]
+              },
             {
               title: 'Waves environment',
               path: '/en/waves-environment',
               collapsable: true,
               children: [
+
                 {
                   title: 'Waves Tokens',
                   path: '/en/waves-environment/waves-tokens'
@@ -69,10 +100,6 @@ module.exports = ctx => ({
                   ],
                 }
               ]
-            },
-            {
-              title: 'Getting started',
-              collapsable: false
             },
             {
               title: 'Developer tools',
@@ -113,30 +140,149 @@ module.exports = ctx => ({
               collapsable: false
             }
           ],
-
-
           '/en/blockchain/': [
+            {
+              title: 'Account',
+              path: '/en/blockchain/account',
+            },
+            {
+              title: 'Account data storage',
+              path: '/en/blockchain/account-data-storage',
+            },
+            {
+              title: 'Account script',
+              path: '/en/blockchain/account-script',
+            },
+            {
+              title: 'Address',
+              path: '/en/blockchain/address',
+            },
             {
               title: 'Alias',
               path: '/en/blockchain/alias',
             },
             {
+              title: 'Asset',
+              path: '/en/blockchain/asset',
+            },
+            {
+              title: 'Asset Script',
+              path: '/en/blockchain/asset-script',
+            },
+            {
+              title: 'Block',
+              path: '/en/blockchain/block',
+            },
+            {
+              title: 'Block height',
+              path: '/en/blockchain/block-height',
+            },
+            {
+              title: 'Blockchain',
+              path: '/en/blockchain/blockchain',
+            },
+            {
+              title: 'Blockchain height',
+              path: '/en/blockchain/blockchain-height',
+            },
+            {
+              title: 'dApp',
+              path: '/en/blockchain/dapp',
+            },
+            {
+              title: 'dApp Script',
+              path: '/en/blockchain/dapp-script',
+            },
+            {
+              title: 'Mainnet',
+              path: '/en/blockchain/mainnet',
+            },
+            {
+              title: 'Node',
+              path: '/en/blockchain/node',
+            },
+            {
+              title: 'Smart account',
+              path: '/en/blockchain/smart-account',
+            },
+            {
+              title: 'Smart asset',
+              path: '/en/blockchain/smart-asset',
+            },
+            {
+              title: 'Test network',
+              path: '/en/blockchain/test-network',
+            },
+            {
+              title: 'Token',
+              path: '/en/blockchain/token',
+              children: [
+                {
+                  title: 'Non-fungible token',
+                  path: '/en/blockchain/token/non-fungible-token'
+                },
+                {
+                  title: 'WAVES',
+                  path: '/en/blockchain/token/waves'
+                },
+                {
+                  title: 'WAVELET',
+                  path: '/en/blockchain/token/wavelet'
+                },
+                {
+                  title: 'WCT',
+                  path: '/en/blockchain/token/wct'
+                }
+              ]
+            },
+            {
+              title: 'Transaction',
+              path: '/en/blockchain/transaction',
+            },
+            {
+              title: 'Transaction data structure',
+              path: '/en/blockchain/transaction-data-structure',
+            },
+            {
+              title: 'Transaction fee',
+              path: '/en/blockchain/transaction-fee',
+            },
+            {
+              title: 'Transaction proof',
+              path: '/en/blockchain/transaction-proof',
+            },
+            {
+              title: 'Transaction signature',
+              path: '/en/blockchain/transaction-signature',
+            },
+            {
               title: 'Transaction type',
-              path: '/en/blockchain/transaction-type/',
-              collapsable: true,
+              path: '/en/blockchain/transaction-type',
               children: [
                 {
                   title: 'Alias transaction',
                   path: '/en/blockchain/transaction-type/alias-transaction'
+                },
+                {
+                  title: 'Burn transaction',
+                  path: '/en/blockchain/transaction-type/burn-transaction'
+                },
+                {
+                  title: 'Data transaction',
+                  path: '/en/blockchain/transaction-type/data-transaction'
                 }
               ]
             },
-          ],
+            {
+              title: 'Transaction validation',
+              path: '/en/blockchain/transaction-validation',
+            },
 
+          ],
           '/en/ride/': [
             {
               title: 'About RIDE',
-              path: '/en/ride/about-ride',
+              path: '/en/ride/about-ride'
             },
           ]
 
@@ -213,22 +359,10 @@ module.exports = ctx => ({
               collapsable: false
             }
           ],
-
           '/ru/blockchain/': [
             {
               title: 'Псевдоним',
-              path: '/ru/blockchain/alias',
-            },
-            {
-              title: 'Тип транзакции',
-              path: '/ru/blockchain/transaction-type/',
-              collapsable: true,
-              children: [
-                {
-                  title: 'Транзакция создания псевдонима',
-                  path: '/ru/blockchain/transaction-type/alias-transaction'
-                }
-              ]
+              path: '/ru/blockchain/account',
             },
           ],
 
@@ -274,4 +408,3 @@ module.exports = ctx => ({
   // },
 
 })
-
