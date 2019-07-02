@@ -8,75 +8,47 @@ module.exports = [
     link: '/en/blockchain/'
   },
   {
+    text: 'Client',
+    link: '/en/client/'
+  },
+  {
+    text: 'DEX',
+    link: '/en/dex/'
+  },
+  {
+    text: 'Explorer',
+    link: '/en/explorer/'
+  },
+  {
+    text: 'Keeper',
+    link: '/en/keeper/'
+  },
+  {
     text: 'RIDE',
     link: '/en/ride/'
   },
   {
-    text: 'The Waves Protocol',
-    link: '/en/waves-protocol/'
+    text: 'Smart contract',
+    link: '/en/smart-contracts/'
   },
   {
-    text: 'For Developers',
-    link: '/en/for-developers/'
+    text: 'Node',
+    link: '/en/node/'
   },
   {
-    text: 'Blockchain Infrastructure',
-    link: '/en/blockchain-infrastructure/'
+    text: 'Developer tools',
+    link: '/en/developer-tools/'
   },
   {
-    text: 'Waves Apps',
-    items: [
-      {
-        text: 'Title1',
-        items: [
-          {
-            text: 'subtitle1',
-            link: '/en/title1/subtitle1.html'
-          },
-          {
-            text: 'subtitle2',
-            link: '/en/title1/node.html'
-          }
-        ]
-      },
-      {
-        text: 'Title2',
-        items: [
-          {
-            text: 'subtitle1',
-            link: '/en/title2/design-concepts.html'
-          },
-          {
-            text: 'subtitle2',
-            link: '/en/title2/'
-          },
-          {
-            text: 'subtitle3',
-            link: '/en/title2/glossary.html'
-          }
-        ]
-      },
-      {
-        text: 'Title3',
-        items: [
-          {
-            text: 'subtitle1',
-            link: '/en/title2/migration-guide.html'
-          },
-          {
-            text: 'subtitle2',
-            link: 'https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md'
-          }
-        ]
-      }
-    ]
+    text: 'API & SDK',
+    link: '/en/api-and-sdk/'
   },
   {
-    text: 'Community Projects',
-    link: '/en/community-projects/'
+    text: 'Oracles',
+    link: '/en/oracles/'
   },
   {
-    text: 'Support',
-    link: '/en/support/'
+    text: 'Token Rating',
+    link: '/en/token-rating/'
   }
 ]
