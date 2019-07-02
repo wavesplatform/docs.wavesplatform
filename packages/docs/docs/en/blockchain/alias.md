@@ -1,18 +1,22 @@
 # Alias
 
-An **alias** is a short, easy to remember, name of [address](/blockchain/address.md).
+An **alias** is a short, easy to remember, name of [address](/blockchain/address.md).
 
-Aliases are easy to remember, so they are often used instead of addresses.
+Aliases are easy to remember, because of that they are often used instead of addresses.
 
-A single address can have an unlimited number of aliases.
+There cannot be two aliases with the same name.
 
-The alias name is unique — there cannot be two aliases with the same name.
+One address can have several aliases.
 
-## Allowed symbols
+## Creation of an alias
 
-An alias is a string of 4 to 30 characters in length inclusive.
+An alias is created using an [alias transaction](/blockchain/transaction-type/alias-transaction.md).
 
-The following characters are allowed in the alias name:
+> A created alias cannot be deleted
+
+The length of an alias can be from 4 to 30 characters inclusive.
+
+The following characters are allowed in the name of an alias:
 
 * lowercase Latin letters
 * numbers
