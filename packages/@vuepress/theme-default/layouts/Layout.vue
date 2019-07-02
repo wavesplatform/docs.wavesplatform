@@ -154,6 +154,13 @@
       },
 
       sidebarItems () {
+        console.log('this.$page,\n' +
+          '          this.$page.regularPath,\n' +
+          '          this.$site,\n' +
+          '          this.$localePath', this.$page,
+          this.$page.regularPath,
+          this.$site,
+          this.$localePath)
         return resolveSidebarItems(
           this.$page,
           this.$page.regularPath,

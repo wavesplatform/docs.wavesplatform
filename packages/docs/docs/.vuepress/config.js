@@ -133,10 +133,10 @@ module.exports = ctx => ({
             },
           ],
 
-          '/ride/': [
+          '/en/ride/': [
             {
               title: 'About RIDE',
-              path: '/ride/about-ride',
+              path: '/en/ride/about-ride',
             },
           ]
 

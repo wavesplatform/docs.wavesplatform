@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import SearchBox from '@SearchBox'
+import SearchBox from '@theme/components/SearchBox/'
 import SidebarButton from '@theme/components/SidebarButton.vue'
 import NavLinks from '@theme/components/NavLinks.vue'
 import NavLink from '@theme/components/NavLink.vue'
