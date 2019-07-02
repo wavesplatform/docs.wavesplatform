@@ -1,15 +1,35 @@
-$ git clone https://github.com/wavesplatform/docs.wavesplatform.git
+1. Install yarn
 
-$ cd waves-documentation
+``` console
+npm i -g yarn
+```
 
-checkout to actual branch
+2. Clone the repository
 
-if you have not installed yarn - 
+``` console
+git clone https://github.com/wavesplatform/docs.wavesplatform.git
+```
 
-\# npm i -g yarn
+3. Change directory to docs.wavesplatform 
 
-$ yarn
+``` console
+cd docs.wavesplatform
+```
 
-$ cd ./packages/docs
+4. Checkout develop branch
 
-$ yarn dev
+``` console
+git checkout develop
+```
+
+5. Change directory to docs
+
+``` console
+cd ./packages/docs
+```
+
+6. Launch the website 
+
+``` console
+yarn dev
+```
