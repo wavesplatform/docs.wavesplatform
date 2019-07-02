@@ -45,7 +45,7 @@ module.exports = ctx => ({
         lastUpdated: 'Last Updated',
         nav: require('./nav/en'),
         sidebar: {
-          '/en/title1': [
+          '/en/': [
             {
               title: 'Getting started',
               collapsable: true,
