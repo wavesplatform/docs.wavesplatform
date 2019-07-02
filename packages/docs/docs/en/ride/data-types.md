@@ -1,4 +1,4 @@
-#Data types
+# Data types
 
 All data types in RIDE can be divided into the following groups:
 
@@ -31,4 +31,3 @@ All data types in RIDE can be divided into the following groups:
 7. WriteSet
 
 ## Union types
-
