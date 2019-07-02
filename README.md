@@ -1,4 +1,4 @@
-$ git clone git@bitbucket.org:sbibik/waves-documentation.git
+$ git clone https://github.com/wavesplatform/docs.wavesplatform.git
 
 $ cd waves-documentation
 
@@ -9,5 +9,7 @@ if you have not installed yarn -
 \# npm i -g yarn
 
 $ yarn
+
+$ cd ./packages/docs
 
 $ yarn dev
