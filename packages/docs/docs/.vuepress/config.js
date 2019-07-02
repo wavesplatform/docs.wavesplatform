@@ -140,6 +140,14 @@ module.exports = ctx => ({
               collapsable: false
             }
           ],
+
+          '/en/getting-started/': [
+            {
+              title: 'About RIDE',
+              path: '/en/ride/about-ride'
+            },
+          ],
+
           '/en/blockchain/': [
             {
               title: 'Account',
@@ -284,6 +292,91 @@ module.exports = ctx => ({
               title: 'About RIDE',
               path: '/en/ride/about-ride'
             },
+            {
+              title: 'RIDE script',
+              path: '/en/ride/ride-script'
+            },
+            {
+              title: 'RIDE script complexity',
+              path: '/en/ride/ride-script-complexity'
+            },
+            {
+              title: 'Immutable variables',
+              path: '/en/ride/immutable-variables'
+            },
+            {
+              title: 'Comments in code',
+              path: '/en/ride/comments-in-code'
+            },
+            {
+              title: 'Data types',
+              path: '/en/ride/data-types'
+            },
+            {
+              title: 'Operators',
+              path: '/en/ride/operators'
+            },
+            {
+              title: 'Structures',
+              path: '/en/ride/structures/structures',
+              children: [
+                {
+                  title: 'Built-in structures',
+                  path: '/en/ride/structures/built-in-structures'
+                }
+              ]
+            },
+            {
+              title: 'Functions',
+              path: '/en/ride/functions/functions'
+            },
+            {
+              title: 'Built-in functions',
+              path: '/en/ride/built-in-functions/built-in-functions',
+              children: [
+                {
+                  title: 'Blockchain functions',
+                  path: '/en/ride/built-in-functions/blockchain-functions'
+                },
+                {
+                  title: 'Byte array functions',
+                  path: '/en/ride/built-in-functions/byte-array-functions'
+                },
+                {
+                  title: 'Converting functions',
+                  path: '/en/ride/built-in-functions/converting-functions'
+                },
+                {
+                  title: 'Encoding and decoding functions',
+                  path: '/en/ride/built-in-functions/encoding-and-decoding-functions'
+                },
+                {
+                  title: 'Exception functions',
+                  path: '/en/ride/built-in-functions/exception-functions'
+                },
+                {
+                  title: 'List functions',
+                  path: '/en/ride/built-in-functions/list-functions'
+                },
+                {
+                  title: 'Math functions',
+                  path: '/en/ride/built-in-functions/math-functions'
+                },
+                {
+                  title: 'String functions',
+                  path: '/en/ride/built-in-functions/string-functions'
+                },
+                {
+                  title: 'Verification functions',
+                  path: '/en/ride/built-in-functions/verification-functions'
+                }
+              ]
+            },
+            {
+              title: 'Exceptions',
+              path: '/en/ride/exceptions'
+            },
+
           ]
 
         }
