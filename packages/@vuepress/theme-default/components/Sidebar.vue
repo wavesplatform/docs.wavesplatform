@@ -12,29 +12,41 @@
         :class="$style.resizeTrigger"
         @mousedown.prevent.stop="resizeTriggerMousedown"
       />
-      <span
-        v-if="sidebarToggleTriggerMergedOptions.isShow"
-        :class="[
-          $style.sidebarToggleTrigger,
-          $style[`_side_${side}`],
-          isShow && $style._isShow,
-        ]"
-        @click="isShow = !isShow"
-        circle>
-        <div :class="$style.iconWrapper">
-          <i :class="['el-icon-arrow-left', $style.icon1]"/>
-          <i :class="['el-icon-arrow-left', $style.icon2]"/>
-        </div>
-      </span>
+
       <div :class="['sidebar', $style.sidebar]">
-        <NavLinks/>
-        <slot name="top"/>
-        <SidebarLinks
-          :depth="0"
-          :items="items"
-          :mod="mod"
-        />
-        <slot name="bottom"/>
+
+
+        <div :class="$style.sidebarLinks">
+          <div :class="$style.sidebarLinks__content">
+            <NavLinks v-if="layoutWidth < 720"/>
+            <slot name="top"/>
+            <SidebarLinks
+              :depth="0"
+              :items="items"
+              :mod="mod"
+            />
+          </div>
+        </div>
+
+        <div :class="$style.sidebarFooter">
+          <span
+            v-if="sidebarToggleTriggerMergedOptions.isShow"
+            :class="[
+              $style.sidebarToggleTrigger,
+              $style[`_side_${side}`],
+              isShow && $style._isShow,
+            ]"
+            @click="isShow = !isShow"
+            circle>
+            <div :class="$style.iconWrapper">
+              <i :class="['el-icon-arrow-left', $style.icon1]"/>
+              <i :class="['el-icon-arrow-left', $style.icon2]"/>
+            </div>
+          </span>
+          <slot name="bottom"/>
+        </div>
+
+
       </div>
     </div>
   </aside>
@@ -94,6 +106,9 @@ export default {
         ...this.sidebarToggleTriggerOptions,
       }
     },
+    layoutWidth() {
+      return this.$store.state.interface.layoutWidth;
+    },
   },
 
   beforeDestroy() {
@@ -145,6 +160,10 @@ export default {
       :global(.sidebar) {
         border-right: 1px solid $borderColor;
       }
+
+      .sidebarFooter {
+        justify-content flex-end
+      }
     }
     &._side_right {
       justify-content: flex-end;
@@ -160,6 +179,9 @@ export default {
       }
       :global(.sidebar) {
         border-left: 1px solid $borderColor;
+      }
+      .sidebarFooter {
+        justify-content flex-start
       }
     }
     &:not(._isShow) {
@@ -190,6 +212,7 @@ export default {
   }
 
   .resizeTrigger {
+    z-index 1
     height 100%
     display flex
     position absolute
@@ -210,10 +233,9 @@ export default {
   }
 
   .sidebarToggleTrigger {
+    margin 15px
     cursor pointer
     background #fff
-    position absolute
-    bottom 20px
     transition $toggleSidebarTransitionDuration
     &:hover {
     }
@@ -260,8 +282,27 @@ export default {
   }
   .sidebar {
     width 100%
+    height 100%
+    position relative
     background #fff
+    display flex
+    flex-direction column
+    justify-content space-between
+  }
+  .sidebarLinks {
+    height 100%
+    overflow hidden
+  }
+  .sidebarLinks__content {
+    height 100%
     overflow-y auto
+    padding-top 10px
+  }
+  .sidebarFooter {
+    flex-shrink 0
+    display flex
+    align-items center
+    /*justify-content flex-end*/
   }
 </style>
 

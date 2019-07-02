@@ -76,7 +76,6 @@ export default {
       erd.listenTo(this.$refs.content, () => {
         this.ps.update();
       });
-      console.log('ps:', this.ps)
     }
   },
   updated() {
