@@ -131,7 +131,9 @@ export function resolveSidebarItems (page, regularPath, site, localePath) {
   if (!sidebarConfig) {
     return [];
   } else {
+
     const { base, config } = resolveMatchingConfig(regularPath, sidebarConfig);
+
     return config
       ? config.map(item => resolveItem(item, pages, base))
       : [];
@@ -191,7 +193,7 @@ export function resolveMatchingConfig (regularPath, config) {
       config: config
     };
   }
-  for (const base in config) {
+  for (const base of Object.keys(config).reverse()) {
     if (ensureEndingSlash(regularPath).indexOf(encodeURI(base)) === 0) {
       return {
         base,

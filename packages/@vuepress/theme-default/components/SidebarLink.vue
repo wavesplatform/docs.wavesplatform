@@ -191,7 +191,7 @@
     margin 0px 9px 0px -5px
     opacity .7
     flex-shrink 0
-    border 1px solid currentColor
+    /*border 1px solid currentColor*/
     border-radius 50%
     &:before {
       content ''
@@ -199,7 +199,7 @@
       height 4px
       border-radius 50%
       background currentColor
-      opacity .0
+      opacity 1
     }
   }
 </style>

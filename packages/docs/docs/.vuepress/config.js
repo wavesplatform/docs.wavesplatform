@@ -101,12 +101,12 @@ module.exports = ctx => ({
             {
               title: 'Tutorials and articles',
               collapsable: false,
-              children: [
-                {
-                  title: 'Test',
-                  path: 'developer-tools/faq'
-                }
-              ]
+              // children: [
+              //   {
+              //     title: 'Test',
+              //     path: 'developer-tools/faq'
+              //   }
+              // ]
             },
             {
               title: 'Proposals',

@@ -250,13 +250,13 @@ export default {
     /*width $w-h
     height $w-h*/
     transition transform .3s
-    font-size .85rem
+    font-size .6rem
   }
   .icon1 {
 
   }
   .icon2 {
-    margin-left -8px
+    margin-left -5px
   }
   .sidebar {
     width 100%

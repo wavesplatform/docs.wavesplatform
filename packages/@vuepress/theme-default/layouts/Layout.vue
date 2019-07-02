@@ -154,13 +154,13 @@
       },
 
       sidebarItems () {
-        console.log('this.$page,\n' +
-          '          this.$page.regularPath,\n' +
-          '          this.$site,\n' +
-          '          this.$localePath', this.$page,
-          this.$page.regularPath,
-          this.$site,
-          this.$localePath)
+        // console.log('this.$page,\n' +
+        //   '          this.$page.regularPath,\n' +
+        //   '          this.$site,\n' +
+        //   '          this.$localePath', this.$page,
+        //   this.$page.regularPath,
+        //   this.$site,
+        //   this.$localePath)
         return resolveSidebarItems(
           this.$page,
           this.$page.regularPath,
@@ -175,7 +175,7 @@
           {
             'no-navbar': !this.shouldShowNavbar,
             'sidebar-open': this.isSidebarOpen,
-            'no-sidebar': !this.shouldShowSidebar
+            // 'no-sidebar': !this.shouldShowSidebar
           },
           userPageClass
         ]

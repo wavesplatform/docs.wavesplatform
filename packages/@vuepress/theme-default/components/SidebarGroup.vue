@@ -22,7 +22,7 @@
       >
         <span
           v-if="collapsable"
-          :class="open ? 'el-icon-arrow-down' : 'el-icon-arrow-right'"/>
+          :class="[$style.arrowIcon, open ? 'el-icon-arrow-down' : 'el-icon-arrow-right']"/>
         <span class="sidebar-heading__title">{{ item.title }}</span>
       </router-link>
 
@@ -34,7 +34,7 @@
       >
         <span
           v-if="collapsable"
-          :class="open ? 'el-icon-arrow-down' : 'el-icon-arrow-right'"/>
+          :class="[$style.arrowIcon, open ? 'el-icon-arrow-down' : 'el-icon-arrow-right']"/>
         <span class="sidebar-heading__title">{{ item.title }}</span>
       </p>
     </template>
@@ -93,6 +93,12 @@
     methods: { isActive }
   }
 </script>
+
+<style lang="stylus" module>
+  .arrowIcon {
+    font-size .6rem
+  }
+</style>
 
 <style lang="stylus">
   .sidebar-group

@@ -159,8 +159,7 @@ export default {
   },
 
   mounted() {
-    console.log('this.$site:', this.$site, this.$route, this, this.sidebarItems)
-    this.$toasted.info('123');
+    // this.$toasted.info('123');
 
     console.log('bread:', this.bread);
 
@@ -169,7 +168,7 @@ export default {
     this.sidebarItems.forEach(item => {
 
       // const selfActive = isActive(this.$route, item.path)
-      console.log('selfActive:', item);
+      // console.log('selfActive:', item);
     });
 
   },
