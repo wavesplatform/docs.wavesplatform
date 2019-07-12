@@ -16,7 +16,7 @@ module.exports = ctx => ({
     },
   },
   head: [
-    ['link', { rel: 'icon', href: `/logo.png` }],
+    ['link', { rel: 'icon', href: `/favicon-32x32.png` }],
     ['link', { rel: 'manifest', href: '/manifest.json' }],
     ['meta', { name: 'theme-color', content: '#1f5af6' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],

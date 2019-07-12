@@ -142,8 +142,9 @@ export default {
 
 <style lang="stylus" module>
   .sidebarWrapper2 {
-    visibility: hidden;
-    display: flex;
+    visibility hidden
+    display flex
+    max-width 300px
 
     &._side_left {
       justify-content: flex-start;
