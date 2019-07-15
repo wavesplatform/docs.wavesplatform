@@ -15,6 +15,9 @@
 
       <div :class="['sidebar', $style.sidebar]">
 
+        <div :class="$style.sidebarHeader">
+          123
+        </div>
 
         <div :class="$style.sidebarLinks">
           <div :class="$style.sidebarLinks__content">
@@ -295,6 +298,7 @@ export default {
     overflow hidden
   }
   .sidebarLinks__content {
+    margin-right -1px
     height 100%
     overflow-y auto
     padding-top 10px

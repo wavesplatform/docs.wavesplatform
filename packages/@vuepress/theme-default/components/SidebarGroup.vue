@@ -96,7 +96,7 @@
 
 <style lang="stylus" module>
   .arrowIcon {
-    font-size .6rem
+    /*font-size .6rem*/
   }
 </style>
 
@@ -121,8 +121,8 @@
         font-weight normal
         padding-left 2rem
 
-        &:not(.clickable)
-          opacity 0.5
+        /*&:not(.clickable)
+          opacity 0.5*/
 
       & > .sidebar-group-items
         padding-left 1rem

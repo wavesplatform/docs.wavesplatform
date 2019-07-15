@@ -1,12 +1,16 @@
 <template>
   <div
-    class="theme-container"
-    :class="pageClasses"
+    :class="['theme-container', pageClasses]"
     @touchstart="onTouchStart"
     @touchend="onTouchEnd"
   >
     <Navbar
       v-if="shouldShowNavbar"
+      ref="navbar"
+      :class="$style.navbar"
+      :style="{
+        maxWidth: navbarMaxWidthPx ? navbarMaxWidthPx + 'px' : '',
+      }"
       @toggle-sidebar="toggleSidebar"
     />
 
@@ -115,6 +119,8 @@
 
         pageContentPaddingLeftPx: 0,
         pageContentPaddingRightPx: 0,
+
+        navbarMaxWidthPx: 0,
       }
     },
 
@@ -215,8 +221,6 @@
 
     mounted () {
 
-      console.log('sidebarItems:', this.sidebarItems);
-
       this.$router.afterEach(() => {
         this.isSidebarOpen = false
       });
@@ -224,7 +228,10 @@
       this.setSidebarStateWatcher('sidebar1', 'sidebar1Show');
       this.setSidebarStateWatcher('sidebar2', 'sidebar2Show');
 
-      this.setSidebarResizeDetector('sidebar1', 'pageContentPaddingLeftPx');
+      this.setSidebarResizeDetector('sidebar1', 'pageContentPaddingLeftPx', element => {
+        this.navbarMaxWidthPx = document.body.clientWidth - element.offsetWidth;
+      });
+
       this.setSidebarResizeDetector('sidebar2', 'pageContentPaddingRightPx');
 
       window.addEventListener('resize', this.setInterfaceInnerWidthLayout);
@@ -243,9 +250,12 @@
       },
 
 
-      setSidebarResizeDetector(sidebarRefName, pageContentPaddingSide) {
+      setSidebarResizeDetector(sidebarRefName, pageContentPaddingSide, callback) {
         erd.listenTo(this.$refs[sidebarRefName].$el, element => {
           this[pageContentPaddingSide] = element.offsetWidth;
+          if(callback) {
+            callback(element);
+          }
         });
       },
 
@@ -291,6 +301,9 @@
 <!--<style src="../styles/theme.styl" lang="stylus"></style>-->
 
 <style lang="stylus" module>
+  .navbar {
+    right 0
+  }
   .sidebar {
     font-size: 16px;
     background-color: #fff;
@@ -298,11 +311,11 @@
     position: fixed;
     z-index: 10;
     margin: 0;
-    top: $navbarHeight;
     bottom: 0;
     box-sizing: border-box;
   }
   .sidebar1 {
+    top: 0;
     left: 0;
     &:not(._isShow) {
 
@@ -312,6 +325,7 @@
     }
   }
   .sidebar2 {
+    top: $navbarHeight;
     right: 0;
     &:not(._isShow) {
 

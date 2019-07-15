@@ -9,10 +9,7 @@
       <!--<el-breadcrumb-item>promotion list</el-breadcrumb-item>-->
       <!--<el-breadcrumb-item>promotion detail</el-breadcrumb-item>-->
     <!--</el-breadcrumb>-->
-
-    <Content/>
-
-    <footer class="page-edit">
+    <div :class="$style.page__header">
       <div
         class="edit-link"
         v-if="editLink"
@@ -24,17 +21,21 @@
         >{{ editLinkText }}</a>
         <OutboundLink/>
       </div>
+    </div>
 
-      <div
-        class="last-updated"
-        v-if="lastUpdated"
-      >
-        <span class="prefix">{{ lastUpdatedText }}: </span>
-        <span class="time">{{ lastUpdated }}</span>
-      </div>
-    </footer>
+    <Content/>
 
-    <div class="page-nav" v-if="prev || next">
+    <!--<footer class="page-edit">-->
+      <!--<div-->
+        <!--class="last-updated"-->
+        <!--v-if="lastUpdated"-->
+      <!--&gt;-->
+        <!--<span class="prefix">{{ lastUpdatedText }}: </span>-->
+        <!--<span class="time">{{ lastUpdated }}</span>-->
+      <!--</div>-->
+    <!--</footer>-->
+
+    <!--<div class="page-nav" v-if="prev || next">
       <p class="inner">
         <span
           v-if="prev"
@@ -63,7 +64,7 @@
           →
         </span>
       </p>
-    </div>
+    </div>-->
 
     <slot name="bottom"/>
   </main>
@@ -236,6 +237,17 @@ function flatten (items, res) {
 }
 
 </script>
+
+<style lang="stylus" module>
+  .page__header {
+    width 100%
+    display flex
+    justify-content flex-end
+    a {
+      color lighten($textColor, 25%)
+    }
+  }
+</style>
 
 <style lang="stylus">
 @require '../styles/wrapper.styl'
