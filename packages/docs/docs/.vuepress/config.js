@@ -6,13 +6,13 @@ module.exports = ctx => ({
   locales: {
     '/en/': {
       lang: 'en-US',
-      title: 'Waves Docs',
-      description: 'Vue-powered Static Site Generator'
+      title: 'Waves documentation',
+      description: 'Waves documentation in English'
     },
     '/ru/': {
       lang: 'ru-RU',
-      title: 'Waves Docs',
-      description: 'Waves документация на русском'
+      title: 'Документация Waves',
+      description: 'Документация Waves на русском'
     },
   },
   head: [
