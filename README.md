@@ -12,7 +12,7 @@ sudo npm i -g yarn
 git clone https://github.com/wavesplatform/docs.wavesplatform.git
 ```
 
-4. Change directory to docs.wavesplatform.
+4. Change directory to `docs.wavesplatform`.
 
 ``` console
 cd docs.wavesplatform
@@ -30,7 +30,7 @@ git checkout develop
 yarn
 ```
 
-7. Change directory to docs.
+7. Change directory to `docs`.
 
 ``` console
 cd packages/docs
