@@ -26,7 +26,7 @@ git checkout develop
 
 6. Install packages.
 
-```` console
+``` console
 yarn
 ```
 
