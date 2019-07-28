@@ -6,8 +6,14 @@
       $style[`_side_${side}`],
       isShow && $style._isShow
     ]"
+    :style="{
+      width: rootElementWidthPx,
+      minWidth: sidebarMinWidthPx + 'px',
+    }"
   >
-    <div :class="$style.sidebarWrapper">
+    <div
+      :class="$style.sidebarWrapper"
+    >
       <span
         :class="$style.resizeTrigger"
         @mousedown.prevent.stop="resizeTriggerMousedown"
@@ -15,8 +21,17 @@
 
       <div :class="['sidebar', $style.sidebar]">
 
-        <div :class="$style.sidebarHeader">
-          123
+        <div
+          v-if="$slots.header"
+          :class="$style.sidebarHeader"
+        >
+          <slot name="header"/>
+          <ToggleTrigger
+            v-if="sidebarToggleTriggerMergedOptions.isShow"
+            :side="side"
+            :is-show="isShow"
+            @click="isShow = $event"
+          />
         </div>
 
         <div :class="$style.sidebarLinks">
@@ -32,24 +47,14 @@
         </div>
 
         <div :class="$style.sidebarFooter">
-          <span
+          <ToggleTrigger
             v-if="sidebarToggleTriggerMergedOptions.isShow"
-            :class="[
-              $style.sidebarToggleTrigger,
-              $style[`_side_${side}`],
-              isShow && $style._isShow,
-            ]"
-            @click="isShow = !isShow"
-            circle>
-            <div :class="$style.iconWrapper">
-              <i :class="['el-icon-arrow-left', $style.icon1]"/>
-              <i :class="['el-icon-arrow-left', $style.icon2]"/>
-            </div>
-          </span>
+            :side="side"
+            :is-show="isShow"
+            @click="isShow = $event"
+          />
           <slot name="bottom"/>
         </div>
-
-
       </div>
     </div>
   </aside>
@@ -58,11 +63,16 @@
 <script>
 import SidebarLinks from '@theme/components/SidebarLinks.vue'
 import NavLinks from '@theme/components/NavLinks.vue'
+import ToggleTrigger from './ToggleTrigger'
 
 export default {
   name: 'Sidebar',
 
-  components: { SidebarLinks, NavLinks },
+  components: {
+    SidebarLinks,
+    NavLinks,
+    ToggleTrigger,
+  },
 
   props: {
     items: {
@@ -88,6 +98,10 @@ export default {
         return ['left', 'right'].includes(value);
       },
     },
+    sidebarMinWidthPx: {
+      type: Number,
+      default: 0,
+    }
   },
 
   data() {
@@ -99,6 +113,8 @@ export default {
       isShow: this.isDefaultShow,
       latestClientX: 0,
       latestSidebarWidth: 0,
+      rootElementWidthPx: '',
+      lastRootElementWidthPx: '',
     };
   },
 
@@ -111,6 +127,19 @@ export default {
     },
     layoutWidth() {
       return this.$store.state.interface.layoutWidth;
+    },
+
+  },
+
+  watch: {
+    isShow(newValue) {
+      this.$emit('toggleSidebar', newValue);
+      if(newValue) {
+        this.rootElementWidthPx = '';
+
+      } else {
+        this.rootElementWidthPx = 0;
+      }
     },
   },
 
@@ -127,7 +156,7 @@ export default {
     },
     resizeTriggerMousemove(event) {
       const sideConst = this.side === 'left' ? 1 : -1;
-      this.$refs.root.style.width = this.latestSidebarWidth - (this.latestClientX - event.clientX) * sideConst + 'px';
+      this.rootElementWidthPx = this.latestSidebarWidth - (this.latestClientX - event.clientX) * sideConst + 'px';
     },
     resizeTriggerMousedown(event) {
       this.latestClientX = event.clientX;
@@ -189,23 +218,24 @@ export default {
       }
     }
     &:not(._isShow) {
+      /*width 0*/
       &._side_left {
         .sidebarWrapper {
           /*margin-left calc(-100% + 80px)*/
-          width 0
+          /*width 0*/
         }
       }
       &._side_right {
         .sidebarWrapper {
           /*margin-left calc(100% - 80px)*/
-          width 0
+          /*width 0*/
         }
       }
 
     }
   }
   .sidebarWrapper {
-    min-width 80px
+    /*min-width 80px*/
     visibility: visible;
     display flex
     height 100%
@@ -292,6 +322,14 @@ export default {
     display flex
     flex-direction column
     justify-content space-between
+    overflow hidden
+  }
+  .sidebarHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom 1px solid $borderColor
+    /*overflow hidden*/
   }
   .sidebarLinks {
     height 100%
