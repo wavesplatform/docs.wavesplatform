@@ -20,7 +20,7 @@ module.exports = {
       '/': {
         label: 'English',
         selectText: 'Languages',
-        editLinkText: 'Edit this page on GitHub',
+        editLinkText: 'Edit on GitHub',
         lastUpdated: 'Last Updated'
       },
       '/zh/': {
