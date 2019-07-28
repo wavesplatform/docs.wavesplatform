@@ -1,36 +1,36 @@
-1. Install [nodejs](https://nodejs.org) and [npm](https://www.npmjs.com/get-npm)
+1. Install [nodejs](https://nodejs.org) and [npm](https://www.npmjs.com/get-npm).
 
-2. Install [yarn](https://yarnpkg.com/en/docs/install)
+2. Install [yarn](https://yarnpkg.com/en/docs/install).
 
 ``` console
-npm i -g yarn
+sudo npm i -g yarn
 ```
 
-3. Clone the repository
+3. Clone the repository.
 
 ``` console
 git clone https://github.com/wavesplatform/docs.wavesplatform.git
 ```
 
-4. Change directory to docs.wavesplatform 
+4. Change directory to docs.wavesplatform.
 
 ``` console
 cd docs.wavesplatform
 ```
 
-5. Checkout develop branch
+5. Checkout develop branch.
 
 ``` console
 git checkout develop
 ```
 
-6. Change directory to docs
+6. Change directory to docs.
 
 ``` console
 cd ./packages/docs
 ```
 
-7. Launch the website 
+7. Launch the website.
 
 ``` console
 yarn dev
