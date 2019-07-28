@@ -24,13 +24,19 @@ cd docs.wavesplatform
 git checkout develop
 ```
 
-6. Change directory to docs.
+6. Install packages.
 
-``` console
-cd ./packages/docs
+```` console
+yarn
 ```
 
-7. Launch the website.
+7. Change directory to docs.
+
+``` console
+cd packages/docs
+```
+
+8. Launch the website.
 
 ``` console
 yarn dev
