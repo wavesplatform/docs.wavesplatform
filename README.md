@@ -18,7 +18,7 @@ git clone https://github.com/wavesplatform/docs.wavesplatform.git
 cd docs.wavesplatform
 ```
 
-5. Checkout develop branch.
+5. Check out `develop` branch.
 
 ``` console
 git checkout develop
