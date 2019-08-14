@@ -111,10 +111,13 @@
 </template>
 
 <script>
+  import axios from 'axios'
+
   import Home from '@theme/components/Home.vue'
   import Navbar from '@theme/components/Navbar.vue'
   import Page from '@theme/components/Page.vue'
   import Sidebar from '@theme/components/Sidebar/'
+
   import { resolveSidebarItems } from '../util'
 
   import elementResizeDetectorMaker from 'element-resize-detector'
@@ -123,6 +126,7 @@
     strategy: 'scroll',
   });
 
+  // console.log('process.env', process.env);
 
   export default {
     components: { Home, Page, Sidebar, Navbar },
@@ -251,6 +255,11 @@
         },
         immediate: true,
       }
+    },
+
+    async beforeMount() {
+      // this.$data.items = await axios.get('https://reqres.in/api/users')
+      // console.log('this test:', this.$data.items);
     },
 
     mounted () {

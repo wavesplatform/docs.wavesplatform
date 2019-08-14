@@ -50,6 +50,7 @@
     "yorkie": "^2.0.0"
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "element-resize-detector": "^1.1.15",
     "element-ui": "^2.9.1",
     "monaco-editor": "^0.17.0",
