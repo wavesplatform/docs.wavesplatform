@@ -1,0 +1,24 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "redirect",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "from": {
+      "required": true,
+      "type": "string"
+    },
+    "to": {
+      "type": "string",
+      "required": true
+    },
+    "note": {
+      "type": "string"
+    }
+  }
+}
