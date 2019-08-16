@@ -263,7 +263,6 @@
     },
 
     mounted () {
-
       this.$router.afterEach(() => {
         this.isSidebarOpen = false
       });

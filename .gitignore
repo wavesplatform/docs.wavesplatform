@@ -7,3 +7,4 @@ packages/@vuepress/shared-utils/lib/
 types
 .idea
 vuepress
+./data
