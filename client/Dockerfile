@@ -7,7 +7,10 @@ RUN rm -rf node_modules && \
     npm i -g yarn && \
     yarn global add serve && \
     yarn && \
-    yarn run build
+RUN cd ./packages/docs/ && \
+    tarn dev
+
+
 
 
 

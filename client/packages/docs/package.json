@@ -5,7 +5,7 @@
   "description": "Documentation of Waves",
   "scripts": {
     "dev": "NODE_OPTIONS=\"--inspect\" adminServerUrl='http://localhost:1337/' vuepress dev docs --temp .temp",
-    "build": "vuepress build docs --temp .temp",
+    "build": "adminServerUrl='http://localhost:1337/' vuepress build docs --temp .temp",
     "view-info": "vuepress view-info docs --temp .temp",
     "show-help": "vuepress --help"
   },

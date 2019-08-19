@@ -492,17 +492,9 @@ module.exports = (ctx) => {
                 after: '</UpgradePath>'
             }]
 
-            // ['serve', {
-            //     async beforeServer(app, server) {
-            //         const inspector = require('inspector');
-            //         inspector.open(9229, '127.0.0.1');
-            //         await new Promise(resolve => {})
-            //         console.log('app')
-            //         app.get('/path/to/my/custom', function(req, res) {
-            //             res.json({ custom: 'response' })
-            //         })
-            //     },
-            // }],
+            ['serve', {
+                beforeServer: beforeDevServer,
+            }],
 
             // ['redirect', {
             //     // provide i18n redirection

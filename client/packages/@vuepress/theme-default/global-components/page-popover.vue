@@ -12,10 +12,10 @@
   const md = new MarkdownIt();
 
   const test = '# markdown-it rulezz <el-button>test</el-button>>!';
-  import test2 from '/Users/sbibik/Desktop/portecosys/projects/waves-documentation/packages/docs/docs/en/ride/about-ride.md'
+  // import test2 from 'waves-documentation/packages/docs/docs/en/ride/about-ride.md'
 
 
-  console.log('test2:', test2);
+  // console.log('test2:', test2);
   const result = md.render(test);
 
 export default {
@@ -23,7 +23,7 @@ export default {
     return {
       msg: result,
       t: null,
-      tt: test2,
+      // tt: test2,
     }
   },
 
