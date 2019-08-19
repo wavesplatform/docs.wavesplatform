@@ -4,9 +4,8 @@ WORKDIR /app
 COPY ./ /app
 
 RUN rm -rf node_modules && \
-    yarn && \
-    cd ./packages/docs/ && \
-    yarn dev
+   yarn
+ENTRYPOINT cd packages/docs/ && yarn dev
 
 
 
