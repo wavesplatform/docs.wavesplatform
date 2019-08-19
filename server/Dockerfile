@@ -18,5 +18,6 @@ COPY ./ /app
 RUN  rm -rf node_modules
 RUN  yarn global add strapi@beta
 RUN  yarn
+RUN  yarn build
 
-ENTRYPOINT strapi develop
+ENTRYPOINT yarn start

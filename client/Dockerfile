@@ -6,7 +6,7 @@ COPY ./ /app
 RUN rm -rf node_modules && \
     npm i -g yarn && \
     yarn global add serve && \
-    yarn install && \
+    yarn && \
     yarn run build
 
 
