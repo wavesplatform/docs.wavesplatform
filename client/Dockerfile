@@ -5,8 +5,8 @@ COPY ./ /app
 
 RUN rm -rf node_modules && \
     npm i -g yarn && \
-    yarn global add serve && \
     yarn && \
+#    yarn global add serve && \
 RUN cd ./packages/docs/ && \
     yarn dev
 
