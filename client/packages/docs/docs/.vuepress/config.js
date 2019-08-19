@@ -1,6 +1,4 @@
-// const { fs, path } = require('@vuepress/shared-utils');
 const beforeDevServer = require('./config/beforeDevServer/');
-// console.log('test', process.env)
 
 module.exports = (ctx) => {
     return {

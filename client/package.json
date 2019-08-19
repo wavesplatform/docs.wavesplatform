@@ -10,7 +10,7 @@
     "bootstrap": "yarn && lerna bootstrap && yarn tsc",
     "boot": "node scripts/bootstrap.js",
     "remote-version": "node scripts/remote-version.js",
-    "dev": "yarn tsc && yarn dev:docs",
+    "dev": "adminServerUrl='http://localhost:1337' yarn tsc && yarn dev:docs",
     "dev:docs": "yarn workspace docs dev",
     "build": "yarn tsc && yarn build:docs",
     "build:docs": "yarn workspace docs build",
