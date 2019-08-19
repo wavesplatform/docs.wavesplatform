@@ -8,7 +8,7 @@ RUN rm -rf node_modules && \
     yarn global add serve && \
     yarn && \
 RUN cd ./packages/docs/ && \
-    tarn dev
+    yarn dev
 
 
 
