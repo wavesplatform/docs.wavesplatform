@@ -11,7 +11,6 @@ const getRedirects = async() => {
             return null;
         });
 };
-
 module.exports = function(app, server) {
 
     let redirects = getRedirects();
