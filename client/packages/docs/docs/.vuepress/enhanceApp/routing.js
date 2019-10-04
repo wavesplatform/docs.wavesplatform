@@ -6,8 +6,8 @@ export default async(context) => {
 
     if(!isServer) {
         if(window.location.pathname === '/') {
-            await Vue.nextTick();
-            router.push('/en/');
+            // await Vue.nextTick();
+            // router.push('/en/');
         }
     }
     // router.addRoutes([

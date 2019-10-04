@@ -4,7 +4,7 @@
       @input="query = $event.target.value"
       aria-label="Search"
       :value="query"
-      :class="{ 'focused': focused }"
+      :class="{ focused: isFullSize || focused }"
       autocomplete="off"
       spellcheck="false"
       @focus="focused = true"
@@ -38,11 +38,17 @@
 <script>
 /* global SEARCH_MAX_SUGGESTIONS, SEARCH_PATHS */
 export default {
+  props: {
+    isFullSize: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data () {
     return {
       query: '',
       focused: false,
-      focusIndex: 0
+      focusIndex: 0,
     }
   },
 
@@ -173,7 +179,7 @@ export default {
 
 <style lang="stylus">
 .search-box
-  display inline-block
+  display inline-flex
   position relative
   input
     /*cursor text
@@ -190,7 +196,7 @@ export default {
     transition all .2s ease
     background-size 1rem*/
     cursor pointer
-    width 0
+
     color lighten($textColor, 25%)
     display inline-block
     border 1px solid transparent
@@ -203,11 +209,19 @@ export default {
     transition all .2s ease
     background #fff url(search.svg) 0.6rem 0.5rem no-repeat
     background-size 1rem
-    &:focus
-      border-color $accentColor
-      cursor text
-      left 0
-      width 12rem
+    &.focused {
+        border-color $arrowBgColor
+        cursor text
+        left 0
+        /*max-width 12rem*/
+        width 100%
+        &:focus {
+            border-color $accentColor
+        }
+    }
+    &:not(.focused) {
+        width 0
+    }
   .suggestions
     background #fff
     width 20rem
@@ -241,13 +255,8 @@ export default {
   .search-box
     input
       cursor pointer
-      width 0
       border-color transparent
       position relative
-      &:focus
-        cursor text
-        left 0
-        width 10rem
 
 // Match IE11
 @media all and (-ms-high-contrast: none)
@@ -269,6 +278,4 @@ export default {
   .search-box
     .suggestions
       width calc(100vw - 4rem)
-    input:focus
-      width 8rem
 </style>
