@@ -24,28 +24,46 @@
                     <span :class="$style.technologyCategoryCheckboxes__row2__text">
                         Browse by topic or technology category
                     </span>
-                    <el-checkbox-group
-                        v-model="activeTechnologyCategories"
-                        :class="$style.technologyCategoryCheckboxes__row2__group"
+
+                    <el-tag
+                        v-for="technologyCategory of technologyCategories"
+                        :key="technologyCategory"
+                        :type="technologyCategory === 'Advanced' ? '' :
+                        technologyCategory === 'Beginners' ? 'success' :
+                        technologyCategory === 'Supplementary' && 'info'"
+                        :class="$style.technologyCategoryTag"
                     >
-                        <el-checkbox-button
-                            v-for="technologyCategory of technologyCategories"
-                            :key="technologyCategory"
-                            :label="technologyCategory"
-                        >
-                            {{ technologyCategory }}
-                        </el-checkbox-button>
-                    </el-checkbox-group>
+                        {{ technologyCategory }}
+                    </el-tag>
+
+<!--                    <el-checkbox-group-->
+<!--                        v-model="activeTechnologyCategories"-->
+<!--                        :class="$style.technologyCategoryCheckboxes__row2__group"-->
+<!--                    >-->
+<!--                        <el-checkbox-button-->
+<!--                            v-for="technologyCategory of technologyCategories"-->
+<!--                            :key="technologyCategory"-->
+<!--                            :label="technologyCategory"-->
+<!--                        >-->
+<!--                            {{ technologyCategory }}-->
+<!--                        </el-checkbox-button>-->
+<!--                    </el-checkbox-group>-->
                 </div>
             </div>
 
             <ul :class="$style.categoryCards">
+                <!--v-if="activeTechnologyCategories.includes(category.type)"-->
                 <li
                     v-for="(category, index) of categories"
-                    v-if="activeTechnologyCategories.includes(category.type)"
                     :key="index"
                     :class="$style.categoryCardWrapper">
-                    <CategoryCard :class="$style.categoryCard">
+                    <CategoryCard
+                        :class="$style.categoryCard"
+                        :marker-color="category.type === 'Advanced' ? '#ecf5ff' :
+                        category.type === 'Beginners' ? '#f0f9eb' :
+                        category.type === 'Supplementary' && '#f4f4f5'"
+                        :root-link="category.rootLink"
+                    >
                         <template
                             slot="icon"
                         >
@@ -106,6 +124,7 @@
       return {
         categories: [
           {
+            rootLink: '#123',
             type: 'Beginners',
             iconFilePath: require('@theme/static/images/category1.svg'),
             title: 'Learn about Waves Platform',
@@ -126,6 +145,7 @@
             ],
           },
           {
+            rootLink: '#',
             type: 'Advanced',
             iconFilePath: require('@theme/static/images/category2.svg'),
             title: 'Node',
@@ -150,6 +170,7 @@
             ],
           },
           {
+            rootLink: '#',
             type: 'Beginners',
             iconFilePath: require('@theme/static/images/category3.svg'),
             title: 'Ecosystem Applications',
@@ -170,6 +191,7 @@
             ],
           },
           {
+            rootLink: '#',
             type: 'Advanced',
             iconFilePath: require('@theme/static/images/category4.svg'),
             title: 'Build Blockchain Applications',
@@ -190,6 +212,7 @@
             ],
           },
           {
+            rootLink: '#',
             type: 'Advanced',
             iconFilePath: require('@theme/static/images/category5.svg'),
             title: 'Ride Programming Language',
@@ -198,6 +221,7 @@
             ],
           },
           {
+            rootLink: '#',
             type: 'Supplementary',
             iconFilePath: require('@theme/static/images/category6.svg'),
             title: 'Additional Services',
@@ -218,6 +242,7 @@
             ],
           },
           {
+            rootLink: '#',
             type: 'Supplementary',
             iconFilePath: require('@theme/static/images/category7.svg'),
             title: 'Miscellaneous',
@@ -296,6 +321,9 @@
         display flex
         align-items center
         margin-top 10px
+    }
+    .technologyCategoryTag {
+        margin-left 15px
     }
     .technologyCategoryCheckboxes__row2__text {
 

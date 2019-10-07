@@ -10,6 +10,7 @@ import {
     Checkbox,
     CheckboxButton,
     CheckboxGroup,
+    Tag,
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
@@ -28,6 +29,7 @@ export default async(context) => {
         Checkbox,
         CheckboxButton,
         CheckboxGroup,
+        Tag,
     ].forEach(component => {
         Vue.component(component.name, component)
     });
