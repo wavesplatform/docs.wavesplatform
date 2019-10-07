@@ -49,7 +49,6 @@
 </td></tr></table>
 </td></tr>
 <tr><td><a id="Transaction">Transaction</a></td><td>
-
 <a href="#ReissueTransaction">ReissueTransaction</a> <a href="#BurnTransaction">BurnTransaction</a> <a href="#MassTransferTransaction">MassTransferTransaction</a> <a href="#ExchangeTransaction">ExchangeTransaction</a> <a href="#TransferTransaction">TransferTransaction</a> <a href="#SetAssetScriptTransaction">SetAssetScriptTransaction</a> <a href="#InvokeScriptTransaction">InvokeScriptTransaction</a> <a href="#IssueTransaction">IssueTransaction</a> <a href="#LeaseTransaction">LeaseTransaction</a> <a href="#LeaseCancelTransaction">LeaseCancelTransaction</a> <a href="#CreateAliasTransaction">CreateAliasTransaction</a> <a href="#SetScriptTransaction">SetScriptTransaction</a> <a href="#SponsorFeeTransaction">SponsorFeeTransaction</a> <a href="#DataTransaction">DataTransaction</a> 
 </td></tr>
 <tr><td><a id="GenesisTransaction">GenesisTransaction</a></td><td>

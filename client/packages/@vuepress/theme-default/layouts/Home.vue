@@ -274,7 +274,7 @@
     },
 
     mounted () {
-
+      console.log('this.$page.lastUpdated, temp1.$vuepress.store.state.siteData:', this.$page.lastUpdated, this.$vuepress.store.state.siteData.themeConfig.buildDate);
     },
 
     beforeDestroy () {

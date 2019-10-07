@@ -1,4 +1,10 @@
+const inspector = require('inspector');
+inspector.open(9229, '127.0.0.1');
+
+const Webpack = require('webpack')
 const beforeDevServer = require('./config/beforeDevServer/');
+
+// console.log('Webpack:', Webpack);
 
 module.exports = (ctx) => {
     return {
@@ -33,6 +39,7 @@ module.exports = (ctx) => {
         ],
         theme: '../../../../@vuepress/theme-default',
         themeConfig: {
+            buildDate: new Date(),
             env: {
                 adminServerUrl: process.env.adminServerUrl
             },
@@ -472,6 +479,8 @@ module.exports = (ctx) => {
             }
         },
         plugins: [
+            '@vuepress/last-updated',
+
             ['@vuepress/back-to-top', true],
             ['@vuepress/pwa', {
                 serviceWorker: true,
@@ -525,15 +534,21 @@ module.exports = (ctx) => {
         //     '.vuepress/nav/zh.js'
         // ]
 
-        // configureWebpack () {
-        //   return {
-        //     resolve: {
-        //       alias: {
-        //         '@public': path.join(__dirname, './public')
-        //       }
-        //     }
-        //   }
-        // },
+        configureWebpack(config, isServer) {
+            console.log('config, isServer:', config, isServer);
+            // config.plugins.push(
+            //     new Webpack.DefinePlugin({
+            //         __VERSION__: JSON.stringify('12345')
+            //     })
+            // )
+            return {
+                plugins: [
+                    new Webpack.DefinePlugin({
+                        __VERSION__: JSON.stringify('12345')
+                    })
+                ],
+            }
+        },
 
     }
 }
