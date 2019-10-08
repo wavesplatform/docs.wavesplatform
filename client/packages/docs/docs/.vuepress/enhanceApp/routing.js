@@ -9,30 +9,41 @@ export default async(context, store) => {
     const defaultLanguage = store.state.defaultLanguage;
     const currentLanguage = store.state.currentLanguage;
 
+    const goToLocalePage = (locale) => {
+        switch(locale) {
+            case 'ru-RU':
+                router.push('/ru/');
+                break;
+            case 'en-EN':
+                router.push('/en/');
+        }
+    };
+
 
     console.log('currentLanguage:', currentLanguage, defaultLanguage, Vue, store, context)
 
-    // store.watch('currentLanguage', newCurrentLanguage => {
-    //     switch(newCurrentLanguage) {
-    //         case 'ru-RU':
-    //             router.push('/ru/');
-    //             break;
-    //         case 'en-EN':
-    //             router.push('/en/');
-    //     }
-    // });
+
+    store.watch(
+        (state, getters) => {
+            return state.currentLanguage;
+        },
+        (newValue, oldValue) => {
+            goToLocalePage(newValue);
+        },
+    );
+
+    // store.commit('setCurrentLanguage', new Date())
+
 
     if(!isServer) {
         if(window.location.pathname === '/') {
             await Vue.nextTick();
-            if(!currentLanguage) {
-                store.commit('setCurrentLanguage', defaultLanguage)
+            if(currentLanguage) {
+                goToLocalePage(currentLanguage);
+            } else {
+                store.commit('setCurrentLanguage', defaultLanguage);
             }
         }
-
-
-
-
     }
 
     console.log('router:', router);

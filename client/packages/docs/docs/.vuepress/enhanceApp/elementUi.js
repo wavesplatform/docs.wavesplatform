@@ -15,7 +15,6 @@ import {
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
-console.log('Alert:', Alert)
 
 export default async(context) => {
 

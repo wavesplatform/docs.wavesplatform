@@ -10,7 +10,6 @@
 <!--            <Logotype :class="$style.logotype"/>-->
 <!--        </div>-->
 
-
         <div :class="[$style.root__row, $style.root__row2]">
             {{ $themeLocaleConfig.homePage.welcomeText }}
             <SearchBox
@@ -127,142 +126,8 @@
 
     data () {
       return {
-        // categories: [
-        //   {
-        //     rootLink: '#123',
-        //     type: 'Beginners',
-        //     iconFilePath: require('@theme/static/images/category1.svg'),
-        //     title: 'Learn about Waves Platform',
-        //     caption: 'Overview of the Waves Platform main features. Protocol, consensus, cryptography. Understand the value a blockchain offers.',
-        //     buttonSet: [
-        //       {
-        //         text: 'Protocol',
-        //         link: '#',
-        //       },
-        //       {
-        //         text: 'Consensus',
-        //         link: '#',
-        //       },
-        //       {
-        //         text: 'Glossary',
-        //         link: '#',
-        //       },
-        //     ],
-        //   },
-        //   {
-        //     rootLink: '#',
-        //     type: 'Advanced',
-        //     iconFilePath: require('@theme/static/images/category2.svg'),
-        //     title: 'Node',
-        //     caption: 'Learn about Waves full node. How to install a node. Node configuration and API. Work with node extensions: matcher, gRPC server.',
-        //     buttonSet: [
-        //       {
-        //         text: 'Node API',
-        //         link: '#',
-        //       },
-        //       {
-        //         text: 'Matcher',
-        //         link: '#',
-        //       },
-        //       {
-        //         text: 'gRPC',
-        //         link: '#',
-        //       },
-        //       {
-        //         text: 'Leasing',
-        //         link: '#',
-        //       },
-        //     ],
-        //   },
-        //   {
-        //     rootLink: '#',
-        //     type: 'Beginners',
-        //     iconFilePath: require('@theme/static/images/category3.svg'),
-        //     title: 'Ecosystem Applications',
-        //     caption: 'Learn about the Waves blockchain ecosystem applications.',
-        //     buttonSet: [
-        //       {
-        //         text: 'DEX',
-        //         link: '#',
-        //       },
-        //       {
-        //         text: 'Explorer',
-        //         link: '#',
-        //       },
-        //       {
-        //         text: 'Keeper',
-        //         link: '#',
-        //       },
-        //     ],
-        //   },
-        //   {
-        //     rootLink: '#',
-        //     type: 'Advanced',
-        //     iconFilePath: require('@theme/static/images/rocket.svg'),
-        //     title: 'Building Blockchain Apps',
-        //     caption: 'Learn how to build a blockchain application with Waves. Understanding Waves Smart Contracts. API & SDK. Developer Tools.',
-        //     buttonSet: [
-        //       {
-        //         text: 'Smart Contracts',
-        //         link: '#',
-        //       },
-        //       {
-        //         text: 'Tools',
-        //         link: '#',
-        //       },
-        //       {
-        //         text: 'API & SDK',
-        //         link: '#',
-        //       },
-        //     ],
-        //   },
-        //   {
-        //     rootLink: '#',
-        //     type: 'Advanced',
-        //     iconFilePath: require('@theme/static/images/category5.svg'),
-        //     title: 'Ride Programming Language',
-        //     caption: 'Learn the syntax of new Ride programming language that allows building dApps. Examples of use.',
-        //     buttonSet: [
-        //     ],
-        //   },
-        //   {
-        //     rootLink: '#',
-        //     type: 'Supplementary',
-        //     iconFilePath: require('@theme/static/images/category6.svg'),
-        //     title: 'Additional Services',
-        //     caption: 'Work with additional services built on the Waves blockchain: Data Services, Oracles, Token Rating, Item Market, DappOcean, PyWaves Statistics, etc.',
-        //     buttonSet: [
-        //       {
-        //         text: 'Data Services',
-        //         link: '#',
-        //       },
-        //       {
-        //         text: 'Oracles',
-        //         link: '#',
-        //       },
-        //       {
-        //         text: 'Token Rating',
-        //         link: '#',
-        //       },
-        //     ],
-        //   },
-        //   {
-        //     rootLink: '#',
-        //     type: 'Supplementary',
-        //     iconFilePath: require('@theme/static/images/category7.svg'),
-        //     title: 'Miscellaneous',
-        //     caption: 'Waves Platform official resources. Read articles on various topics dedicated to Wave blockchain. Contributing to Waves platform.',
-        //     buttonSet: [
-        //       {
-        //         text: 'Official Resources',
-        //         link: '#',
-        //       },
-        //     ],
-        //   }
-        // ],
-
-        activeTechnologyCategories: ['Beginners'],
-        technologyCategories: ['Beginners', 'Advanced', 'Supplementary']
+        // activeTechnologyCategories: ['Beginners'],
+        // technologyCategories: ['Beginners', 'Advanced', 'Supplementary']
       }
     },
 
@@ -282,6 +147,10 @@
 
     watch: {
 
+    },
+
+    created() {
+      console.log('$themeLocaleConfig:', this.$themeLocaleConfig);
     },
 
     mounted () {
