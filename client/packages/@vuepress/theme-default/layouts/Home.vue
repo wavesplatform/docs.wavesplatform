@@ -7,7 +7,7 @@
 
 
         <div :class="[$style.root__row, $style.root__row2]">
-            Welcome to the documentation on everything about Waves platform
+            {{ $themeLocaleConfig.homePage.welcomeText }}
             <SearchBox
                 :class="$style.searchBox"
                 :is-full-size="true"
@@ -18,23 +18,26 @@
 
             <div :class="$style.technologyCategoryCheckboxes">
                 <span :class="$style.technologyCategoryCheckboxes__row1">
-                    Or
+                    {{ $themeLocaleConfig.homePage.or }}
                 </span>
                 <div :class="$style.technologyCategoryCheckboxes__row2">
-                    <span :class="$style.technologyCategoryCheckboxes__row2__text">
-                        Browse by topic or technology category
+
+                    <span :class="[$style.technologyCategoryCheckboxes__row2__part, $style.technologyCategoryCheckboxes__row2__text]">
+                        {{ $themeLocaleConfig.homePage.technologyCategoriesText }}
                     </span>
 
-                    <el-tag
-                        v-for="technologyCategory of technologyCategories"
-                        :key="technologyCategory"
-                        :type="technologyCategory === 'Advanced' ? '' :
-                        technologyCategory === 'Beginners' ? 'success' :
-                        technologyCategory === 'Supplementary' && 'info'"
-                        :class="$style.technologyCategoryTag"
-                    >
-                        {{ technologyCategory }}
-                    </el-tag>
+                    <div :class="[$style.technologyCategoryCheckboxes__row2__part, $style.technologyCategoryTags]">
+                        <el-tag
+                            v-for="(technologyCategoryValue, technologyCategoryKey) of $themeLocaleConfig.homePage.technologyCategories"
+                            :key="technologyCategoryKey"
+                            :type="technologyCategoryKey === 'advanced' ? '' :
+                        technologyCategoryKey === 'beginners' ? 'success' :
+                        technologyCategoryKey === 'supplementary' && 'info'"
+                            :class="$style.technologyCategoryTag"
+                        >
+                            {{ technologyCategoryValue }}
+                        </el-tag>
+                    </div>
 
 <!--                    <el-checkbox-group-->
 <!--                        v-model="activeTechnologyCategories"-->
@@ -50,7 +53,6 @@
 <!--                    </el-checkbox-group>-->
                 </div>
             </div>
-
             <ul :class="$style.categoryCards">
                 <!--v-if="activeTechnologyCategories.includes(category.type)"-->
                 <li
@@ -67,6 +69,7 @@
                         <template
                             slot="icon"
                         >
+<!--                            {{category}}-->
                             <img
                                 :class="$style.categoryCard__icon"
                                 :src="category.iconFilePath"
@@ -113,6 +116,8 @@
   import { resolveSidebarItems } from '../util'
 
 
+  console.log('req2:', require('@theme/static/images/category2.svg'))
+
   export default {
     components: {
       SearchBox,
@@ -122,139 +127,139 @@
 
     data () {
       return {
-        categories: [
-          {
-            rootLink: '#123',
-            type: 'Beginners',
-            iconFilePath: require('@theme/static/images/category1.svg'),
-            title: 'Learn about Waves Platform',
-            caption: 'Overview of the Waves Platform main features. Protocol, consensus, cryptography. Understand the value a blockchain offers.',
-            buttonSet: [
-              {
-                text: 'Protocol',
-                link: '#',
-              },
-              {
-                text: 'Consensus',
-                link: '#',
-              },
-              {
-                text: 'Glossary',
-                link: '#',
-              },
-            ],
-          },
-          {
-            rootLink: '#',
-            type: 'Advanced',
-            iconFilePath: require('@theme/static/images/category2.svg'),
-            title: 'Node',
-            caption: 'Learn about Waves full node. How to install a node. Node configuration and API. Work with node extensions: matcher, gRPC server.',
-            buttonSet: [
-              {
-                text: 'Node API',
-                link: '#',
-              },
-              {
-                text: 'Matcher',
-                link: '#',
-              },
-              {
-                text: 'gRPC',
-                link: '#',
-              },
-              {
-                text: 'Leasing',
-                link: '#',
-              },
-            ],
-          },
-          {
-            rootLink: '#',
-            type: 'Beginners',
-            iconFilePath: require('@theme/static/images/category3.svg'),
-            title: 'Ecosystem Applications',
-            caption: 'Learn about the Waves blockchain ecosystem applications.',
-            buttonSet: [
-              {
-                text: 'DEX',
-                link: '#',
-              },
-              {
-                text: 'Explorer',
-                link: '#',
-              },
-              {
-                text: 'Keeper',
-                link: '#',
-              },
-            ],
-          },
-          {
-            rootLink: '#',
-            type: 'Advanced',
-            iconFilePath: require('@theme/static/images/category4.svg'),
-            title: 'Build Blockchain Applications',
-            caption: 'Learn how to build a blockchain application with Waves. Understanding Waves Smart Contracts. API & SDK. Developer Tools.',
-            buttonSet: [
-              {
-                text: 'Smart Contracts',
-                link: '#',
-              },
-              {
-                text: 'Tools',
-                link: '#',
-              },
-              {
-                text: 'API & SDK',
-                link: '#',
-              },
-            ],
-          },
-          {
-            rootLink: '#',
-            type: 'Advanced',
-            iconFilePath: require('@theme/static/images/category5.svg'),
-            title: 'Ride Programming Language',
-            caption: 'Learn the syntax of new Ride programming language that allows building dApps. Examples of use.',
-            buttonSet: [
-            ],
-          },
-          {
-            rootLink: '#',
-            type: 'Supplementary',
-            iconFilePath: require('@theme/static/images/category6.svg'),
-            title: 'Additional Services',
-            caption: 'Work with additional services built on the Waves blockchain: Data Services, Oracles, Token Rating, Item Market, DappOcean, PyWaves Statistics, etc.',
-            buttonSet: [
-              {
-                text: 'Data Services',
-                link: '#',
-              },
-              {
-                text: 'Oracles',
-                link: '#',
-              },
-              {
-                text: 'Token Rating',
-                link: '#',
-              },
-            ],
-          },
-          {
-            rootLink: '#',
-            type: 'Supplementary',
-            iconFilePath: require('@theme/static/images/category7.svg'),
-            title: 'Miscellaneous',
-            caption: 'Waves Platform official resources. Read articles on various topics dedicated to Wave blockchain. Contributing to Waves platform.',
-            buttonSet: [
-              {
-                text: 'Official Resources',
-                link: '#',
-              },
-            ],
-          }
-        ],
+        // categories: [
+        //   {
+        //     rootLink: '#123',
+        //     type: 'Beginners',
+        //     iconFilePath: require('@theme/static/images/category1.svg'),
+        //     title: 'Learn about Waves Platform',
+        //     caption: 'Overview of the Waves Platform main features. Protocol, consensus, cryptography. Understand the value a blockchain offers.',
+        //     buttonSet: [
+        //       {
+        //         text: 'Protocol',
+        //         link: '#',
+        //       },
+        //       {
+        //         text: 'Consensus',
+        //         link: '#',
+        //       },
+        //       {
+        //         text: 'Glossary',
+        //         link: '#',
+        //       },
+        //     ],
+        //   },
+        //   {
+        //     rootLink: '#',
+        //     type: 'Advanced',
+        //     iconFilePath: require('@theme/static/images/category2.svg'),
+        //     title: 'Node',
+        //     caption: 'Learn about Waves full node. How to install a node. Node configuration and API. Work with node extensions: matcher, gRPC server.',
+        //     buttonSet: [
+        //       {
+        //         text: 'Node API',
+        //         link: '#',
+        //       },
+        //       {
+        //         text: 'Matcher',
+        //         link: '#',
+        //       },
+        //       {
+        //         text: 'gRPC',
+        //         link: '#',
+        //       },
+        //       {
+        //         text: 'Leasing',
+        //         link: '#',
+        //       },
+        //     ],
+        //   },
+        //   {
+        //     rootLink: '#',
+        //     type: 'Beginners',
+        //     iconFilePath: require('@theme/static/images/category3.svg'),
+        //     title: 'Ecosystem Applications',
+        //     caption: 'Learn about the Waves blockchain ecosystem applications.',
+        //     buttonSet: [
+        //       {
+        //         text: 'DEX',
+        //         link: '#',
+        //       },
+        //       {
+        //         text: 'Explorer',
+        //         link: '#',
+        //       },
+        //       {
+        //         text: 'Keeper',
+        //         link: '#',
+        //       },
+        //     ],
+        //   },
+        //   {
+        //     rootLink: '#',
+        //     type: 'Advanced',
+        //     iconFilePath: require('@theme/static/images/rocket.svg'),
+        //     title: 'Building Blockchain Apps',
+        //     caption: 'Learn how to build a blockchain application with Waves. Understanding Waves Smart Contracts. API & SDK. Developer Tools.',
+        //     buttonSet: [
+        //       {
+        //         text: 'Smart Contracts',
+        //         link: '#',
+        //       },
+        //       {
+        //         text: 'Tools',
+        //         link: '#',
+        //       },
+        //       {
+        //         text: 'API & SDK',
+        //         link: '#',
+        //       },
+        //     ],
+        //   },
+        //   {
+        //     rootLink: '#',
+        //     type: 'Advanced',
+        //     iconFilePath: require('@theme/static/images/category5.svg'),
+        //     title: 'Ride Programming Language',
+        //     caption: 'Learn the syntax of new Ride programming language that allows building dApps. Examples of use.',
+        //     buttonSet: [
+        //     ],
+        //   },
+        //   {
+        //     rootLink: '#',
+        //     type: 'Supplementary',
+        //     iconFilePath: require('@theme/static/images/category6.svg'),
+        //     title: 'Additional Services',
+        //     caption: 'Work with additional services built on the Waves blockchain: Data Services, Oracles, Token Rating, Item Market, DappOcean, PyWaves Statistics, etc.',
+        //     buttonSet: [
+        //       {
+        //         text: 'Data Services',
+        //         link: '#',
+        //       },
+        //       {
+        //         text: 'Oracles',
+        //         link: '#',
+        //       },
+        //       {
+        //         text: 'Token Rating',
+        //         link: '#',
+        //       },
+        //     ],
+        //   },
+        //   {
+        //     rootLink: '#',
+        //     type: 'Supplementary',
+        //     iconFilePath: require('@theme/static/images/category7.svg'),
+        //     title: 'Miscellaneous',
+        //     caption: 'Waves Platform official resources. Read articles on various topics dedicated to Wave blockchain. Contributing to Waves platform.',
+        //     buttonSet: [
+        //       {
+        //         text: 'Official Resources',
+        //         link: '#',
+        //       },
+        //     ],
+        //   }
+        // ],
 
         activeTechnologyCategories: ['Beginners'],
         technologyCategories: ['Beginners', 'Advanced', 'Supplementary']
@@ -262,7 +267,17 @@
     },
 
     computed: {
+      categories() {
+        console.log('this.$themeLocaleConfig.homePage:', this.$themeLocaleConfig.homePage);
 
+        const technologyList = Object.values(this.$themeLocaleConfig.homePage.technologyList);
+
+        // technologyList.forEach(technology => {
+        //   technology.iconFilePath = require(technology.iconFilePath);
+        // });
+
+        return technologyList;
+      },
     },
 
     watch: {
@@ -273,8 +288,14 @@
 
     },
 
+    created() {
+      console.log('req:', require(this.$themeLocaleConfig.homePage.technologyList.node.iconFilePath))
+    },
+
     mounted () {
       console.log('this.$page.lastUpdated, temp1.$vuepress.store.state.siteData:', this.$page.lastUpdated, this.$vuepress.store.state.siteData.themeConfig.buildDate);
+
+      console.log('this:', this);
     },
 
     beforeDestroy () {
@@ -303,9 +324,10 @@
     }
     .root__row2 {
         margin-top 40px
+        z-index 1
     }
     .root__row3 {
-        margin-top 10px
+        margin-top 15px
     }
     .technologyCategoryCheckboxes {
         display flex
@@ -316,17 +338,29 @@
         text-transform uppercase
         display flex
         justify-content center
+        font-weight: bold;
+        font-size: 20px;
     }
     .technologyCategoryCheckboxes__row2 {
         display flex
         align-items center
         margin-top 10px
+        flex-wrap wrap
+        justify-content center
+    }
+    .technologyCategoryCheckboxes__row2__part {
+        padding 0 10px
+    }
+    .technologyCategoryTags {
+        display flex
     }
     .technologyCategoryTag {
-        margin-left 15px
+        &:not(:first-child) {
+            margin-left 15px
+        }
     }
     .technologyCategoryCheckboxes__row2__text {
-
+        font-weight: bold;
     }
     .technologyCategoryCheckboxes__row2__group {
         margin-left 30px

@@ -63,30 +63,44 @@ export default {
 
     suggestions () {
       const query = this.query.trim().toLowerCase()
+
+
       if (!query) {
         return
       }
 
-      const { pages } = this.$site
+
+      const { pages } = this.$site;
+
+
       const max = SEARCH_MAX_SUGGESTIONS
+
+
       const localePath = this.$localePath
+
+
       const matches = item => (
         item.title
         && item.title.toLowerCase().indexOf(query) > -1
       )
+
+
       const res = []
+
+
       for (let i = 0; i < pages.length; i++) {
         if (res.length >= max) break
         const p = pages[i]
+
         // filter out results that do not match current locale
         if (this.getPageLocalePath(p) !== localePath) {
           continue
         }
-
         // filter out results that do not match searchable paths
         if (!this.isSearchable(p)) {
           continue
         }
+
 
         if (matches(p)) {
           res.push(p)
@@ -103,6 +117,8 @@ export default {
           }
         }
       }
+
+
       return res
     },
 
@@ -224,7 +240,7 @@ export default {
     }
   .suggestions
     background #fff
-    width 20rem
+    width 100%
     position absolute
     top 1.5rem
     border 1px solid darken($borderColor, 10%)

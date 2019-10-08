@@ -210,7 +210,7 @@ export default {
       width 12rem
   .suggestions
     background #fff
-    width 20rem
+    width 100%
     position absolute
     top 1.5rem
     border 1px solid darken($borderColor, 10%)

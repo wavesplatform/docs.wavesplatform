@@ -1,8 +1,7 @@
-# Test
-
-
-Text
-
-## test 2
-
-text2
+---
+layout: Home
+heroImage: /waves-docs-logo.svg
+actionText: Get Started →
+actionLink: /guide/
+description: Russian content
+---
