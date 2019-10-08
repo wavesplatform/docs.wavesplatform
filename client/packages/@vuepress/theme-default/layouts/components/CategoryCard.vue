@@ -128,6 +128,7 @@
         height 100%
         position relative
         margin-bottom 10px
+        padding-bottom 1px
     }
     .icon {
         height auto

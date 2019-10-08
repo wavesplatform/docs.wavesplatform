@@ -1,6 +1,9 @@
 <template>
   <header class="navbar">
-    <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
+      <Logotype :class="$style.logotype"/>
+    <SidebarButton
+        v-if="!isHomePageMod"
+        @toggle-sidebar="$emit('toggle-sidebar')"/>
 
     <!--<router-link-->
       <!--:to="$localePath"-->
@@ -23,15 +26,18 @@
     <!--</router-link>-->
     <div
       class="links"
-      :style="linksWrapMaxWidth ? {
-        'max-width': linksWrapMaxWidth + 'px'
-      } : {}"
+      :style="{
+        maxWidth: linksWrapMaxWidth ? linksWrapMaxWidth + 'px' : '',
+        justifyContent: isHomePageMod ? 'flex-end' : '',
+      }"
     >
-
-      <NavLinks :class="['can-hide', $style.navLinks]"/>
+      <NavLinks
+          v-if="!isHomePageMod"
+          :class="['can-hide', $style.navLinks]"
+      />
 
       <SearchBox
-        v-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false"
+        v-if="($site.themeConfig.search !== false && $page.frontmatter.search !== false) && !isHomePageMod"
         :class="$style.searchBox"
       />
       <div :class="$style.languagesNav">
@@ -60,9 +66,23 @@ import SearchBox from '@theme/components/SearchBox/'
 import SidebarButton from '@theme/components/SidebarButton.vue'
 import NavLinks from '@theme/components/NavLinks.vue'
 import NavLink from '@theme/components/NavLink.vue'
+import Logotype from '@theme/components/Logotype'
 
 export default {
-  components: { SidebarButton, NavLinks, NavLink, SearchBox },
+  props: {
+    isHomePageMod: {
+      type: Boolean,
+      default: false,
+    },
+  },
+
+  components: {
+    SidebarButton,
+    NavLinks,
+    NavLink,
+    SearchBox,
+    Logotype,
+  },
 
   data () {
     return {
@@ -135,6 +155,9 @@ function css (el, property) {
 </script>
 
 <style lang="stylus" module>
+    .logotype {
+        height 100%
+    }
   .navLinks {
     width 100%
   }
@@ -236,7 +259,7 @@ $navbar-horizontal-padding = 1.5rem
 
 @media (max-width: $MQMobile)
   .navbar
-    padding-left 4rem
+    /*padding-left 4rem*/
     .can-hide
       display none
     .links

@@ -1,5 +1,5 @@
-const deepmerge = require('deepmerge');
-const technologyListMixin = require('../_mixins/technologyList');
+const deepmerge = require('deepmerge')
+const technologyListMixin = require('../_mixins/technologyList')
 module.exports = {
     homePage: {
         welcomeText: 'Welcome to the documentation on everything about Waves platform',
@@ -13,33 +13,117 @@ module.exports = {
         technologyList: deepmerge(technologyListMixin, {
             learnAboutWavesPlatform: {
                 title: 'Learn about Waves Platform',
-                caption: 'Overview of the Waves Platform main features. Protocol, consensus, cryptography. Understand the value a blockchain offers.'
+                caption: 'Overview of the Waves Platform main features. Protocol, consensus, cryptography. Understand the value a blockchain offers.',
+                buttonSet: [
+                    {
+                        text: 'Node API',
+                        link: '#'
+                    },
+                    {
+                        text: 'Matcher',
+                        link: '#'
+                    },
+                    {
+                        text: 'gRPC',
+                        link: '#'
+                    },
+                    {
+                        text: 'Leasing',
+                        link: '#'
+                    }
+                ]
             },
             node: {
                 title: 'Node',
-                caption: 'Learn about Waves full node. How to install a node. Node configuration and API. Work with node extensions: matcher, gRPC server.'
+                caption: 'Learn about Waves full node. How to install a node. Node configuration and API. Work with node extensions: matcher, gRPC server.',
+                buttonSet: [
+                    {
+                        text: 'DEX',
+                        link: '#',
+                    },
+                    {
+                        text: 'Explorer',
+                        link: '#',
+                    },
+                    {
+                        text: 'Keeper',
+                        link: '#',
+                    },
+                ],
             },
             ecosystemApplications: {
                 title: 'Ecosystem Applications',
-                caption: 'Learn about the Waves blockchain ecosystem applications.'
+                caption: 'Learn about the Waves blockchain ecosystem applications.',
+                buttonSet: [
+                    {
+                        text: 'Smart Contracts',
+                        link: '#',
+                    },
+                    {
+                        text: 'Tools',
+                        link: '#',
+                    },
+                    {
+                        text: 'API & SDK',
+                        link: '#',
+                    },
+                ],
             },
             buildingBlockchainApps: {
                 title: 'Building Blockchain Apps',
-                caption: 'Learn how to build a blockchain application with Waves. Understanding Waves Smart Contracts. API & SDK. Developer Tools.'
+                caption: 'Learn how to build a blockchain application with Waves. Understanding Waves Smart Contracts. API & SDK. Developer Tools.',
+                buttonSet: [
+                    {
+                        text: 'Node API',
+                        link: '#'
+                    },
+                    {
+                        text: 'Matcher',
+                        link: '#'
+                    },
+                    {
+                        text: 'gRPC',
+                        link: '#'
+                    },
+                    {
+                        text: 'Leasing',
+                        link: '#'
+                    }
+                ]
             },
             rideProgrammingLanguage: {
                 title: 'Ride Programming Language',
-                caption: 'Learn the syntax of new Ride programming language that allows building dApps. Examples of use.'
+                caption: 'Learn the syntax of new Ride programming language that allows building dApps. Examples of use.',
             },
             additionalServices: {
                 title: 'Additional Services',
-                caption: 'Work with additional services built on the Waves blockchain: Data Services, Oracles, Token Rating, Item Market, DappOcean, PyWaves Statistics, etc.'
+                caption: 'Work with additional services built on the Waves blockchain: Data Services, Oracles, Token Rating, Item Market, DappOcean, PyWaves Statistics, etc.',
+                buttonSet: [
+                    {
+                        text: 'Data Services',
+                        link: '#',
+                    },
+                    {
+                        text: 'Oracles',
+                        link: '#',
+                    },
+                    {
+                        text: 'Token Rating',
+                        link: '#',
+                    },
+                ],
             },
             miscellaneous: {
                 title: 'Miscellaneous',
-                caption: 'Waves Platform official resources. Read articles on various topics dedicated to Wave blockchain. Contributing to Waves platform.'
+                caption: 'Waves Platform official resources. Read articles on various topics dedicated to Wave blockchain. Contributing to Waves platform.',
+                buttonSet: [
+                    {
+                        text: 'Official Resources',
+                        link: '#',
+                    },
+                ],
             }
-        }),
+        })
     },
 
     label: 'English',

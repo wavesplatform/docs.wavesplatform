@@ -20,9 +20,7 @@
       />
 
       <div :class="['sidebar', $style.sidebar]">
-
         <div
-          v-if="$slots.header"
           :class="$style.sidebarHeader"
         >
           <slot name="header"/>
@@ -34,6 +32,7 @@
           />
         </div>
 
+<!--          {{items}}-->
         <div :class="$style.sidebarLinks">
           <div :class="$style.sidebarLinks__content">
             <NavLinks v-if="layoutWidth < 720"/>
@@ -46,7 +45,10 @@
           </div>
         </div>
 
-        <div :class="$style.sidebarFooter">
+        <div
+            v-if="$slots.bottom"
+            :class="$style.sidebarFooter"
+        >
           <ToggleTrigger
             v-if="sidebarToggleTriggerMergedOptions.isShow"
             :side="side"

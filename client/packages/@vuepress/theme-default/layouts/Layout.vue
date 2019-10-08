@@ -82,8 +82,8 @@
             v-show="layoutWidth > 719"
             ref="sidebar2"
             :sidebar-toggle-trigger-options="{
-        isShow: navbarSubHeaders.length,
-      }"
+                isShow: /*navbarSubHeaders.length*/true,
+              }"
             side="right"
             :items="sidebarItems"
             :mod="sidebar2Mod"

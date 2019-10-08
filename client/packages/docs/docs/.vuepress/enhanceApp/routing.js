@@ -1,15 +1,41 @@
-export default async(context) => {
+import VuexPersistence from 'vuex-persist';
+
+export default async(context, store) => {
     const { Vue,
         router,
-        isServer
+        isServer,
     } = context;
+
+    const defaultLanguage = store.state.defaultLanguage;
+    const currentLanguage = store.state.currentLanguage;
+
+
+    console.log('currentLanguage:', currentLanguage, defaultLanguage, Vue, store, context)
+
+    // store.watch('currentLanguage', newCurrentLanguage => {
+    //     switch(newCurrentLanguage) {
+    //         case 'ru-RU':
+    //             router.push('/ru/');
+    //             break;
+    //         case 'en-EN':
+    //             router.push('/en/');
+    //     }
+    // });
 
     if(!isServer) {
         if(window.location.pathname === '/') {
             await Vue.nextTick();
-            router.push('/en/');
+            if(!currentLanguage) {
+                store.commit('setCurrentLanguage', defaultLanguage)
+            }
         }
+
+
+
+
     }
+
+    console.log('router:', router);
     // router.addRoutes([
     //   // { path: 'http://localhost:3083', redirect: '/en/' },
     //   // { path: '/bar/', redirect: '/' }

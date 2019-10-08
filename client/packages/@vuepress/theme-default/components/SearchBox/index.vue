@@ -174,7 +174,13 @@ export default {
     },
 
     go (i) {
+
+      console.log('this.query', this.query, this.showSuggestions);
+
       if (!this.showSuggestions) {
+        if(this.query) {
+          this.openDeepSearchResults();
+        }
         return
       }
       this.$router.push(this.suggestions[i].path)
@@ -188,6 +194,18 @@ export default {
 
     unfocus () {
       this.focusIndex = -1
+    },
+
+    openDeepSearchResults() {
+      this.$alert(
+        'Results',
+        'Deep search result',
+        {
+          confirmButtonText: 'OK',
+          callback: action => {
+            console.log(`action: ${ action }`)
+          }
+        });
     }
   }
 }
@@ -226,7 +244,7 @@ export default {
     background #fff url(search.svg) 0.6rem 0.5rem no-repeat
     background-size 1rem
     &.focused {
-        border-color $arrowBgColor
+        border-color $borderColor
         cursor text
         left 0
         /*max-width 12rem*/

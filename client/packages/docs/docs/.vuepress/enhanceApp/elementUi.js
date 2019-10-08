@@ -11,19 +11,23 @@ import {
     CheckboxButton,
     CheckboxGroup,
     Tag,
+    MessageBox,
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
+console.log('Alert:', Alert)
+
 export default async(context) => {
+
     const { Vue } = context;
 
     [
+        Alert,
         Select,
         Button,
         Popover,
         Breadcrumb,
         BreadcrumbItem,
-        Alert,
         Card,
         Divider,
         Checkbox,
@@ -34,4 +38,12 @@ export default async(context) => {
         Vue.component(component.name, component)
     });
 
+    // [
+    //     Alert,
+    // ].forEach(component => {
+    //     Vue.use(component);
+    // });
+
+    Vue.prototype.$msgbox = MessageBox;
+    Vue.prototype.$alert = MessageBox.alert;
 }

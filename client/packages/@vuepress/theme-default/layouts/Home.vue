@@ -1,9 +1,14 @@
 <template>
     <div :class="$style.root">
+        <Navbar
+            ref="navbar"
+            :class="$style.navbar"
+            :is-home-page-mod="true"
+        />
 
-        <div :class="[$style.root__row, $style.root__row1]">
-            <Logotype :class="$style.logotype"/>
-        </div>
+<!--        <div :class="[$style.root__row, $style.root__row1]">-->
+<!--            <Logotype :class="$style.logotype"/>-->
+<!--        </div>-->
 
 
         <div :class="[$style.root__row, $style.root__row2]">
@@ -66,16 +71,12 @@
                         category.type === 'Supplementary' && '#f4f4f5'"
                         :root-link="category.rootLink"
                     >
-                        <template
+                        <div
+                            :class="$style.categoryCard__icon"
+                            v-html="category.iconFilePath"
+                            alt=""
                             slot="icon"
-                        >
-<!--                            {{category}}-->
-                            <img
-                                :class="$style.categoryCard__icon"
-                                :src="category.iconFilePath"
-                                alt=""
-                            >
-                        </template>
+                        />
 
                         <template slot="title">
                             {{ category.title }}
@@ -84,6 +85,7 @@
                         <template slot="caption">
                             {{ category.caption }}
                         </template>
+
 
                         <template slot="buttonSet">
                             <!--small-->
@@ -115,11 +117,9 @@
   import Logotype from '@theme/components/Logotype'
   import { resolveSidebarItems } from '../util'
 
-
-  console.log('req2:', require('@theme/static/images/category2.svg'))
-
   export default {
     components: {
+      Navbar,
       SearchBox,
       CategoryCard,
       Logotype,
@@ -284,18 +284,13 @@
 
     },
 
-    async beforeMount () {
-
-    },
-
-    created() {
-      console.log('req:', require(this.$themeLocaleConfig.homePage.technologyList.node.iconFilePath))
-    },
-
     mounted () {
       console.log('this.$page.lastUpdated, temp1.$vuepress.store.state.siteData:', this.$page.lastUpdated, this.$vuepress.store.state.siteData.themeConfig.buildDate);
 
       console.log('this:', this);
+
+      console.log('Navigator language:', navigator.language);
+
     },
 
     beforeDestroy () {
@@ -303,7 +298,8 @@
 
     methods: {
 
-    }
+    },
+
   }
 </script>
 
@@ -314,6 +310,9 @@
         flex-direction column
         padding 20px
     }
+    .navbar {
+        left 0
+    }
     .root__row {
         display flex
         flex-direction column
@@ -323,7 +322,7 @@
         margin-top 0px
     }
     .root__row2 {
-        margin-top 40px
+        margin-top 70px
         z-index 1
     }
     .root__row3 {
@@ -389,7 +388,12 @@
         width 100%
         height 100%
     }
-
+    .categoryCard__icon {
+        height 100%
+        :global(svg) {
+            height 100%
+        }
+    }
     .categoryCard__link {
         margin 4px
         display inline-flex

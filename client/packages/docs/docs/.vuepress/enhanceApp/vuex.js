@@ -1,10 +1,13 @@
 import Vuex from 'vuex'
+import VuexPersistence from 'vuex-persist'
 export default async(context) => {
-    const { Vue } = context;
+    const { Vue, isServer } = context;
 
     Vue.use(Vuex);
 
     const state = {
+        defaultLanguage: navigator.language,
+        currentLanguage: '',
         interface: {
             layoutWidth: 0,
         },
@@ -27,6 +30,8 @@ export default async(context) => {
         },
 
         setNavbarSubHeaders: set('navbarSubHeaders'),
+
+        setCurrentLanguage: set('currentLanguage'),
     }
 
     const actions = {
@@ -49,4 +54,12 @@ export default async(context) => {
     // }
     //
     // router.afterEach(afterEach)
+
+    if(!isServer) {
+        new VuexPersistence({
+            storage: window.localStorage
+        }).plugin(store);
+    }
+
+    return store;
 }
