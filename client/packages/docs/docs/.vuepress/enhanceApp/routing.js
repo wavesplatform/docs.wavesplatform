@@ -14,7 +14,7 @@ export default async(context, store) => {
             case 'ru-RU':
                 router.push('/ru/');
                 break;
-            case 'en-EN':
+            default:
                 router.push('/en/');
         }
     };
