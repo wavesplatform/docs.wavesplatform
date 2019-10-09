@@ -1,5 +1,85 @@
 <script>
   import { isActive, hashRE, groupHeaders } from '../util'
+  const renderLink = (h, to, text, active) => {
+    return h('router-link', {
+      props: {
+        to,
+        activeClass: '',
+        exactActiveClass: ''
+      },
+      class: {
+        active,
+        'sidebar-link': true
+      }
+    }, [
+      h('span', {
+        class: 'dot'
+      }),
+      text
+    ])
+  }
+
+  const renderChildren = (h, { children, path, route, $store, maxDepth, depth = 1, mod }) => {
+
+
+    // if(mod === 2) {
+    //   console.log('mod:', mod, children, depth, maxDepth);
+    //
+    //   console.log('depth > maxDepth', depth > maxDepth)
+    //   return null;
+    //   // return
+    // }
+
+    if (!children) {
+      return null
+    }
+
+    if(!children || depth > maxDepth) {
+
+      return null;
+    }
+
+    if(!children && !children.length) {
+      $store.commit('setNavbarSubHeaders', []);
+      return null;
+    }
+
+
+    $store.commit('setNavbarSubHeaders', children);
+
+    console.log('children:', children);
+
+    return h('ul', { class: 'sidebar-sub-headers' }, children.map(child => {
+
+
+
+      const active = isActive(route, path + '#' + child.slug)
+
+      console.log('child:', child, child.children);
+
+      const elements = [
+        renderLink(h, path + '#' + child.slug, child.title, active),
+
+
+        renderChildren(h, {
+          children: child.children,
+          path,
+          route,
+          $store,
+          maxDepth,
+          depth: depth + 1,
+          mod
+        })
+      ];
+
+
+
+      return h('li',
+        { class: 'sidebar-sub-header' },
+        mod === 1 ? [] : elements
+      )
+    }))
+  }
 
   export default {
 
@@ -56,6 +136,9 @@
       const displayAllHeaders = $themeLocaleConfig.displayAllHeaders
         || $themeConfig.displayAllHeaders
 
+
+
+
       if (item.type === 'auto') {
 
         return [link, renderChildren(h, {
@@ -66,79 +149,48 @@
           maxDepth,
           mod
         })]
+
+
       } else if ((active || displayAllHeaders) && item.headers && !hashRE.test(item.path)) {
-        const children = groupHeaders(item.headers)
-
-        const result = ((mod === 1 || mod === 0) ? [link] : [])
-          .concat([renderChildren(h, {
-            children,
-            path: item.path,
-            route: $route,
-            $store,
-            maxDepth,
-            mod
-          })])
-        console.log('result:', result)
-        return result;
-      } else {
-        return (mod === 1 || mod === 0) && link;
-      }
-    }
-  }
-
-  function renderLink (h, to, text, active) {
-    return h('router-link', {
-      props: {
-        to,
-        activeClass: '',
-        exactActiveClass: ''
-      },
-      class: {
-        active,
-        'sidebar-link': true
-      }
-    }, [
-      h('span', {
-        class: 'dot'
-      }),
-      text
-    ])
-  }
-
-  function renderChildren (h, { children, path, route, $store, maxDepth, depth = 1, mod }) {
 
 
-    if (!children || depth > maxDepth) {
-      return null;
-    } else if(!children.length) {
-      $store.commit('setNavbarSubHeaders', []);
-      return null;
-    }
-
-    $store.commit('setNavbarSubHeaders', children);
+        const children = groupHeaders(item.headers);
 
 
-    return h('ul', { class: 'sidebar-sub-headers' }, children.map(c => {
-      const active = isActive(route, path + '#' + c.slug)
-
-      const elements = [
-        renderLink(h, path + '#' + c.slug, c.title, active),
-        renderChildren(h, {
-          children: c.children,
-          path,
-          route,
+        const renderedChildren = renderChildren(h, {
+          children,
+          path: item.path,
+          route: $route,
           $store,
           maxDepth,
-          depth: depth + 1,
           mod
-        })
-      ];
+        });
 
-      return h('li',
-        { class: 'sidebar-sub-header' },
-        mod === 1 ? [] : elements
-      )
-    }))
+        let result = [];
+
+        if(mod === 1) {
+          result = [link];
+        }
+
+        result.push(renderedChildren);
+
+
+
+        console.log('result:', result)
+
+
+
+        return result;
+
+
+      } else {
+
+        console.log('(mod === 1 || mod === 0) && link:', (mod === 1 || mod === 0) && link)
+        return (mod === 1 || mod === 0) && link;
+      }
+
+
+    }
   }
 </script>
 

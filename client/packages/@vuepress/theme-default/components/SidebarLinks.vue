@@ -3,19 +3,20 @@
     class="sidebar-links"
     v-if="items.length"
   >
-    <li v-for="(item, i) in items" :key="i">
+    <li v-for="(item, index) in items" :key="index">
         <pre>
             {{item}}
+<!--            {{sidebarDepth}}-->
         </pre>
 
       <SidebarGroup
         v-if="item.type === 'group'"
         :item="item"
-        :open="openGroups.includes(i)"
+        :open="openGroups.includes(index)"
         :collapsable="item.collapsable || item.collapsible"
         :depth="depth"
         :mod="mod"
-        @toggle="toggleGroup(i)"
+        @toggle="toggleGroup(index)"
       />
       <SidebarLink
         v-else
@@ -31,7 +32,15 @@
 import SidebarGroup from '@theme/components/SidebarGroup.vue'
 import SidebarLink from '@theme/components/SidebarLink.vue'
 import { isActive } from '../util'
-
+const resolveOpenGroupIndex = (route, items) => {
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i]
+    if (item.type === 'group' && item.children.some(c => c.type === 'page' && isActive(route, c.path))) {
+      return i
+    }
+  }
+  return -1
+}
 export default {
   name: 'SidebarLinks',
 
@@ -98,15 +107,5 @@ export default {
       return isActive(this.$route, page.regularPath)
     }
   }
-}
-
-function resolveOpenGroupIndex (route, items) {
-  for (let i = 0; i < items.length; i++) {
-    const item = items[i]
-    if (item.type === 'group' && item.children.some(c => c.type === 'page' && isActive(route, c.path))) {
-      return i
-    }
-  }
-  return -1
 }
 </script>

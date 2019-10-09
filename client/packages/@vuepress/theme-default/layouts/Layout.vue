@@ -85,15 +85,15 @@
                 isShow: /*navbarSubHeaders.length*/true,
               }"
             side="right"
-            :items="sidebarItems"
+            :items="[$page]"
             :mod="sidebar2Mod"
             :is-default-show="sidebar2Show"
             :sidebar-min-width-px="sidebarMinWidthPx"
             :class="[
-        $style.sidebar,
-        $style.sidebar2,
-        sidebar2Show && $style._isShow
-      ]"
+                $style.sidebar,
+                $style.sidebar2,
+                sidebar2Show && $style._isShow
+              ]"
             :style="{
         minWidth: sidebarMinWidthPx + 'px',
       }"
@@ -265,6 +265,8 @@
     },
 
     mounted () {
+      console.log('Layout this:', this);
+
       this.$router.afterEach(() => {
         this.isSidebarOpen = false
       })
