@@ -1,17 +1,13 @@
-const Webpack = require('webpack')
+// const Webpack = require('webpack')
 const beforeDevServer = require('./beforeDevServer/');
-
 const enLocaleConfig = require('./locales/en/');
 const ruLocaleConfig = require('./locales/ru/');
 
 module.exports = (ctx) => {
     return {
-
-        beforeDevServer,
-
+        beforeDevServer: beforeDevServer(ctx),
         dest: '../../vuepress',
         port: 3083,
-
         locales: {
             '/en/': {
                 lang: 'en-US',
@@ -83,15 +79,12 @@ module.exports = (ctx) => {
                 beforeServer: beforeDevServer,
             }],
         ],
-
         extraWatchFiles: [
             '.vuepress/locales/**',
         ]
-
         // configureWebpack(config, isServer) {
         //     return {
         //     }
         // },
-
     }
 }

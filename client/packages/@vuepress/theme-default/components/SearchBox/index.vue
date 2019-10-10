@@ -37,6 +37,7 @@
 
 <script>
 /* global SEARCH_MAX_SUGGESTIONS, SEARCH_PATHS */
+import axios from 'axios';
 export default {
   props: {
     isFullSize: {
@@ -196,10 +197,12 @@ export default {
       this.focusIndex = -1
     },
 
-    openDeepSearchResults() {
+    async openDeepSearchResults() {
+      const searchResult = await axios.get(`?search=${this.query}`);
+      const searchData = searchResult.data;
       this.$alert(
-        'Results',
-        'Deep search result',
+        searchData,
+        // 'Deep search result',
         {
           confirmButtonText: 'OK',
           callback: action => {

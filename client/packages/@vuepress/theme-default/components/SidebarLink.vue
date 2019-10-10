@@ -47,7 +47,7 @@
 
     $store.commit('setNavbarSubHeaders', children);
 
-    console.log('children:', children);
+
 
     return h('ul', { class: 'sidebar-sub-headers' }, children.map(child => {
 
@@ -116,6 +116,7 @@
                 mod
               }
             }) {
+      console.log('RENDER')
       // use custom active class matching logic
       // due to edge case of paths ending with / + hash
       const selfActive = isActive($route, item.path)
@@ -140,7 +141,7 @@
 
 
       if (item.type === 'auto') {
-
+        console.log('1')
         return [link, renderChildren(h, {
           children: item.children,
           path: item.basePath,
@@ -156,6 +157,7 @@
 
         const children = groupHeaders(item.headers);
 
+        console.log('children:', item, children, item.headers);
 
         const renderedChildren = renderChildren(h, {
           children,
@@ -186,6 +188,8 @@
       } else {
 
         console.log('(mod === 1 || mod === 0) && link:', (mod === 1 || mod === 0) && link)
+
+
         return (mod === 1 || mod === 0) && link;
       }
 

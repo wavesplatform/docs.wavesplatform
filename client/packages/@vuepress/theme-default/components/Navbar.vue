@@ -1,6 +1,10 @@
 <template>
   <header class="navbar">
-      <Logotype :class="$style.logotype"/>
+
+      <Logotype
+          v-if="isHomePageMod"
+          :class="$style.logotype"/>
+
     <SidebarButton
         v-if="!isHomePageMod"
         @toggle-sidebar="$emit('toggle-sidebar')"/>
