@@ -38,7 +38,13 @@
 <script>
 /* global SEARCH_MAX_SUGGESTIONS, SEARCH_PATHS */
 import axios from 'axios';
+import SearchFrameContent from './SearchFrameContent';
 export default {
+
+  components: {
+    SearchFrameContent
+  },
+
   props: {
     isFullSize: {
       type: Boolean,
@@ -199,20 +205,67 @@ export default {
 
     async openDeepSearchResults() {
       const searchResult = await axios.get(`?search=${this.query}`);
-      const searchData = searchResult.data;
-      this.$alert(
-        searchData,
-        // 'Deep search result',
-        {
-          confirmButtonText: 'OK',
-          callback: action => {
-            console.log(`action: ${ action }`)
-          }
-        });
+      const searchResultData = searchResult.data;
+      console.log('searchResultData:', searchResultData);
+      const newSearchResultListComponentExemplar = new this.constructor({
+        ...this.$options.components.SearchFrameContent,
+        propsData: {
+          searchResult: searchResultData,
+        },
+      }).$mount();
+
+      this.$msgbox({
+        customClass: this.$style.messageBoxWithSearchResult,
+        title: '',
+        message: newSearchResultListComponentExemplar._vnode,
+        showCancelButton: true,
+        showConfirmButton: false,
+        // confirmButtonText: 'OK',
+        cancelButtonText: 'Cancel',
+        beforeClose: (action, instance, done) => {
+          // if (action === 'confirm') {
+          //   instance.confirmButtonLoading = true;
+          //   instance.confirmButtonText = 'Loading...';
+          //   setTimeout(() => {
+          //     done();
+          //     setTimeout(() => {
+          //       instance.confirmButtonLoading = false;
+          //     }, 300);
+          //   }, 3000);
+          // } else {
+          //   done();
+          // }
+
+          done();
+        }
+      }).then(action => {
+        // this.$message({
+        //   type: 'info',
+        //   message: 'action: ' + action
+        // });
+      });
     }
   }
 }
 </script>
+
+<style lang="stylus" module>
+    .messageBoxWithSearchResult {
+        max-height calc(100% - 40px);
+        max-width 600px
+        width: calc(100% - 40px);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        :global(.el-message-box__header, .el-message-box__content) {
+            flex-shrink 0
+        }
+        :global(.el-message-box__content) {
+            height: 100%;
+            overflow: auto;
+        }
+    }
+</style>
 
 <style lang="stylus">
 .search-box

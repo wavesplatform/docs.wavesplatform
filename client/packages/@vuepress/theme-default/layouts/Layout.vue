@@ -20,46 +20,46 @@
             @click="toggleSidebar(false)"
         ></div>
 
-<!--        <Sidebar-->
-<!--            ref="sidebar1"-->
-<!--            :sidebar-toggle-trigger-options="{-->
-<!--        isShow: layoutWidth > 719,-->
-<!--      }"-->
-<!--            :items="sidebarItems"-->
-<!--            :mod="layoutWidth > 719 ? 1 : 0"-->
-<!--            :is-default-show="sidebar1Show"-->
-<!--            :sidebar-min-width-px="sidebarMinWidthPx"-->
-<!--            :class="[-->
-<!--        $style.sidebar,-->
-<!--        $style.sidebar1,-->
-<!--        sidebar1Show && $style._isShow,-->
-<!--        layoutWidth > 719 && $style._bigLayoutWidth,-->
-<!--      ]"-->
-<!--            :style="{-->
-<!--        minWidth: sidebarMinWidthPx + 'px',-->
-<!--      }"-->
-<!--            @toggleSidebar="toggleLeftSidebar"-->
-<!--        >-->
-<!--            <div-->
-<!--                ref="sidebar1__header"-->
-<!--                :class="$style.sidebar1__header"-->
-<!--                slot="header">-->
-<!--                <router-link-->
-<!--                    :to="$localePath"-->
-<!--                    class="home-link"-->
-<!--                >-->
-<!--                    <Logotype :class="$style.logotype"/>-->
-<!--                </router-link>-->
-<!--            </div>-->
-<!--            <slot-->
-<!--                name="sidebar-top"-->
-<!--                slot="top"-->
-<!--            />-->
-<!--            <slot-->
-<!--                name="sidebar-bottom"-->
-<!--                slot="bottom"-->
-<!--            />-->
-<!--        </Sidebar>-->
+        <Sidebar
+            ref="sidebar1"
+            :sidebar-toggle-trigger-options="{
+        isShow: layoutWidth > 719,
+      }"
+            :items="sidebarItems"
+            :mod="layoutWidth > 719 ? 1 : 0"
+            :is-default-show="sidebar1Show"
+            :sidebar-min-width-px="sidebarMinWidthPx"
+            :class="[
+        $style.sidebar,
+        $style.sidebar1,
+        sidebar1Show && $style._isShow,
+        layoutWidth > 719 && $style._bigLayoutWidth,
+      ]"
+            :style="{
+        minWidth: sidebarMinWidthPx + 'px',
+      }"
+            @toggleSidebar="toggleLeftSidebar"
+        >
+            <div
+                ref="sidebar1__header"
+                :class="$style.sidebar1__header"
+                slot="header">
+                <router-link
+                    :to="$localePath"
+                    class="home-link"
+                >
+                    <Logotype :class="$style.logotype"/>
+                </router-link>
+            </div>
+            <slot
+                name="sidebar-top"
+                slot="top"
+            />
+            <slot
+                name="sidebar-bottom"
+                slot="bottom"
+            />
+        </Sidebar>
 
         <Home v-if="$page.frontmatter.home"/>
 
@@ -271,26 +271,26 @@
         this.isSidebarOpen = false
       })
 
-      // this.setSidebarStateWatcher('sidebar1', 'sidebar1Show')
+      this.setSidebarStateWatcher('sidebar1', 'sidebar1Show')
       this.setSidebarStateWatcher('sidebar2', 'sidebar2Show')
 
-      // const sidebar1ResizeCallback = this.setSidebarResizeDetector('sidebar1', 'pageContentPaddingLeftPx', element => {
-      //   this.navbarMaxWidthPx = document.body.clientWidth - element.offsetWidth - 1
-      // })
-      //
-      // this.setSidebarResizeDetector('sidebar2', 'pageContentPaddingRightPx')
-      //
-      // window.addEventListener('resize', () => {
-      //
-      //   this.setInterfaceInnerWidthLayout()
-      //   sidebar1ResizeCallback()
-      // })
-      // this.setInterfaceInnerWidthLayout()
-      //
-      // erd.listenTo(this.$refs.navbar.$el, element => {
-      //   this.$refs.sidebar1__header.style.height = element.offsetHeight - 1 + 'px'
-      //   // element.offsetHeight
-      // })
+      const sidebar1ResizeCallback = this.setSidebarResizeDetector('sidebar1', 'pageContentPaddingLeftPx', element => {
+        this.navbarMaxWidthPx = document.body.clientWidth - element.offsetWidth - 1
+      })
+
+      this.setSidebarResizeDetector('sidebar2', 'pageContentPaddingRightPx')
+
+      window.addEventListener('resize', () => {
+
+        this.setInterfaceInnerWidthLayout()
+        sidebar1ResizeCallback()
+      })
+      this.setInterfaceInnerWidthLayout()
+
+      erd.listenTo(this.$refs.navbar.$el, element => {
+        this.$refs.sidebar1__header.style.height = element.offsetHeight - 1 + 'px'
+        // element.offsetHeight
+      })
 
     },
 

@@ -12,6 +12,8 @@ import {
     CheckboxGroup,
     Tag,
     MessageBox,
+    RadioGroup,
+    RadioButton,
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
@@ -33,6 +35,8 @@ export default async(context) => {
         CheckboxButton,
         CheckboxGroup,
         Tag,
+        RadioGroup,
+        RadioButton,
     ].forEach(component => {
         Vue.component(component.name, component)
     });

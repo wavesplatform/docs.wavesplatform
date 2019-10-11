@@ -1,6 +1,64 @@
 const Fuse = require('fuse.js');
 const fuseOptions = {
+    // keys: [{
+    //     name: 'title',
+    //     weight: 0.1
+    // }, {
+    //     name: '_content',
+    //     weight: 0.1
+    // }],
+
+    include: ['score', 'matches'],
+
+    // shouldSort: true,
+    // threshold: 0.5,
+    // location: 0,
+    // distance: 100,
+    // maxPatternLength: 32,
+    // minMatchCharLength: 1,
     keys: ['title', '_content'],
+
+
+
+    // shouldSort: true,
+    // tokenize: true,
+    // matchAllTokens: true,
+    // findAllMatches: true,
+    // threshold: 0,
+    // location: 0,
+    // distance: 0,
+    // maxPatternLength: 32,
+    // minMatchCharLength: 2,
+
+    shouldSort: true,
+    findAllMatches: true,
+    includeScore: true,
+    includeMatches: true,
+    threshold: 0.6,
+    location: 0,
+    distance: 100,
+    maxPatternLength: 32,
+    minMatchCharLength: 1,
+    // keys: [
+    //     "title",
+    //     "author.firstName"
+    // ]
+
+
+    // keys: [
+    //     "name",
+    //     "username",
+    //     "email",
+    //     "website",
+    //     "phone",
+    //     "address.street",
+    //     "address.suite",
+    //     "address.city",
+    //     "address.zipcode",
+    //     "company.name",
+    //     "company.catchPhrase",
+    //     "company.bs",
+    // ]
     // id: 'ISBN'
 };
 const findItemForSendingLimit = 10;
@@ -47,17 +105,16 @@ module.exports = (ctx) => {
     return async(req) => {
         const querySearchString = req.query.search;
         const fuseSearchResult = fuse.search(querySearchString);
+
         const dataPreparedForSending = fuseSearchResult.map(page => {
             return {
-                title: page.title,
-                content: page._content,
+                path: page.item.path,
+                matches: page.matches,
             }
         })
             .slice(0, findItemForSendingLimit)
         ;
         // console.log('fuseSearchResult:', fuseSearchResult);
-
-
         return dataPreparedForSending;
     }
 }

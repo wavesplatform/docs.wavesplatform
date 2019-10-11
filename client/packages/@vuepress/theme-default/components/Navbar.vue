@@ -44,19 +44,38 @@
         v-if="($site.themeConfig.search !== false && $page.frontmatter.search !== false) && !isHomePageMod"
         :class="$style.searchBox"
       />
-      <div :class="$style.languagesNav">
-        <template v-for="(languageItem, index) in languageNavDropdown.items">
-          <span
-            v-if="index > 0"
-            :class="$style.languagesNav__separator"/>
-          <NavLink
-            :key="languageItem.link"
-            :item="languageItem"
-            :class="$style.languagesNav__link"
-          />
-        </template>
+        <!--
+            fill="#ecf5ff"
+            text-color="#409EFF"
+        -->
+        <el-radio-group
+            v-model="currentLanguage"
+            :class="$style.languageRadioGroup"
+            size="mini"
+            @change="$router.push($event)"
+        >
+                <el-radio-button
+                    v-for="(languageItem, index) in languageNavDropdown.items"
+                    :label="languageItem.link"
+                >
+                    {{languageItem.text}}
+                </el-radio-button>
 
-      </div>
+        </el-radio-group>
+
+<!--      <div :class="$style.languagesNav">-->
+<!--        <template v-for="(languageItem, index) in languageNavDropdown.items">-->
+<!--          <span-->
+<!--            v-if="index > 0"-->
+<!--            :class="$style.languagesNav__separator"/>-->
+<!--          <NavLink-->
+<!--            :key="languageItem.link"-->
+<!--            :item="languageItem"-->
+<!--            :class="$style.languagesNav__link"-->
+<!--          />-->
+<!--        </template>-->
+
+<!--      </div>-->
 
     </div>
 
@@ -90,18 +109,12 @@ export default {
 
   data () {
     return {
-      linksWrapMaxWidth: null
+      linksWrapMaxWidth: null,
+      currentLanguage: '',
     }
   },
 
   computed: {
-    algolia () {
-      return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
-    },
-
-    isAlgoliaSearch () {
-      return this.algolia && this.algolia.apiKey && this.algolia.indexName
-    },
     languageNavDropdown() {
       const { locales } = this.$site;
       let languageDropdown = [];
@@ -147,6 +160,8 @@ export default {
     }
     handleLinksWrapWidth()
     window.addEventListener('resize', handleLinksWrapWidth, false)
+
+    this.currentLanguage = this.$page.path;
   },
 }
 
@@ -161,12 +176,16 @@ function css (el, property) {
 <style lang="stylus" module>
     .logotype {
         height 100%
+        min-width 100px
     }
   .navLinks {
     width 100%
   }
   .searchBox {
     margin-left 1rem
+  }
+  .languageRadioGroup {
+      margin-top: 4px;
   }
   .languagesNav {
     flex-shrink 0

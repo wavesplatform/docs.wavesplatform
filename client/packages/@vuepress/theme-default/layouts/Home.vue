@@ -126,8 +126,6 @@
 
     data () {
       return {
-        // activeTechnologyCategories: ['Beginners'],
-        // technologyCategories: ['Beginners', 'Advanced', 'Supplementary']
       }
     },
 
@@ -145,28 +143,9 @@
       },
     },
 
-    watch: {
-
-    },
-
-    created() {
-      console.log('$themeLocaleConfig:', this.$themeLocaleConfig);
-    },
 
     mounted () {
-      console.log('this.$page.lastUpdated, temp1.$vuepress.store.state.siteData:', this.$page.lastUpdated, this.$vuepress.store.state.siteData.themeConfig.buildDate);
-
       console.log('this:', this);
-
-      console.log('Navigator language:', navigator.language);
-
-    },
-
-    beforeDestroy () {
-    },
-
-    methods: {
-
     },
 
   }
