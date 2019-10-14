@@ -32,7 +32,7 @@
                 <el-radio-group
                     v-model="currentLanguage"
                     :class="$style.languageRadioGroup"
-                    size="mini"
+                    size="small"
                     @change="$router.push($event)"
                 >
                     <el-radio-button

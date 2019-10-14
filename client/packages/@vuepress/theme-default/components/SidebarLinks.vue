@@ -4,10 +4,9 @@
     v-if="items.length"
   >
     <li v-for="(item, index) in items" :key="index">
-        <pre>
-            {{item}}
-<!--            {{sidebarDepth}}-->
-        </pre>
+<!--        <pre>-->
+<!--            {{item}}-->
+<!--        </pre>-->
 
       <SidebarGroup
         v-if="item.type === 'group'"
