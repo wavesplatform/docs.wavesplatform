@@ -6,10 +6,6 @@
             :is-home-page-mod="true"
         />
 
-<!--        <div :class="[$style.root__row, $style.root__row1]">-->
-<!--            <Logotype :class="$style.logotype"/>-->
-<!--        </div>-->
-
         <div :class="[$style.root__row, $style.root__row2]">
             {{ $themeLocaleConfig.homePage.welcomeText }}
             <SearchBox
@@ -174,7 +170,7 @@
         z-index 1
     }
     .root__row3 {
-        margin-top 15px
+        margin-top 45px
     }
     .technologyCategoryCheckboxes {
         display flex
@@ -191,7 +187,7 @@
     .technologyCategoryCheckboxes__row2 {
         display flex
         align-items center
-        margin-top 10px
+        margin-top 45px
         flex-wrap wrap
         justify-content center
     }
@@ -224,13 +220,13 @@
     .categoryCards {
         display flex
         flex-wrap wrap
-        padding 10px
+        padding 20px
         justify-content center
     }
     .categoryCardWrapper {
         width calc(100% / 3)
         min-width 300px
-        padding 10px
+        padding 20px
     }
     .categoryCard {
         width 100%

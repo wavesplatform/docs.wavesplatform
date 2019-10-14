@@ -8,13 +8,14 @@
               :class="$style.title"
               content-position="left"
           >
-              <span :class="$style.title__text">
-                  <div v-html="titleHighlightMarkupString"></div>
-              </span>
+              <span
+                  v-html="titleHighlightMarkupString"
+                  :class="$style.title__text"/>
           </el-divider>
-          <div :class="$style.description">
-              <div v-html="contentHighlightMarkupString"></div>
-          </div>
+
+          <div
+            v-html="contentHighlightMarkupString"
+            :class="$style.description"/>
       </a>
   </div>
 </template>
@@ -109,8 +110,9 @@ export default {
 
     }
     .description {
-        color: initial;
-        font-weight: 100;
+        color initial
+        font-weight 100
+        white-space pre-line
     }
     .highlightPart {
         background-color rgba(79, 140, 255, 0.3607843137254902)

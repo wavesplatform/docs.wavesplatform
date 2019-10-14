@@ -218,7 +218,7 @@ export default {
         customClass: this.$style.messageBoxWithSearchResult,
         title: '',
         message: newSearchResultListComponentExemplar._vnode,
-        showCancelButton: true,
+        showCancelButton: false,
         showConfirmButton: false,
         // confirmButtonText: 'OK',
         cancelButtonText: 'Cancel',
@@ -253,16 +253,17 @@ export default {
     .messageBoxWithSearchResult {
         max-height calc(100% - 40px);
         max-width 600px
-        width: calc(100% - 40px);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
+        width calc(100% - 40px);
+        display flex;
+        flex-direction column;
+        overflow hidden;
         :global(.el-message-box__header, .el-message-box__content) {
             flex-shrink 0
         }
         :global(.el-message-box__content) {
-            height: 100%;
-            overflow: auto;
+            height 100%
+            overflow-x hidden
+            overflow-y auto
         }
     }
 </style>
