@@ -1,9 +1,9 @@
 {
   "private": true,
   "workspaces": [
-    "packages/@vuepress/*",
-    "packages/vuepress",
-    "packages/docs"
+    "@vuepress/*",
+    "vuepress",
+    "docs"
   ],
   "description": "Minimalistic doc generator with Vue component based layout system",
   "scripts": {
@@ -55,6 +55,8 @@
     "element-resize-detector": "^1.1.15",
     "element-ui": "^2.9.1",
     "fuse.js": "^3.4.5",
+    "koa": "^2.10.0",
+    "koa-static": "^5.0.0",
     "lunr": "^2.3.7",
     "monaco-editor": "^0.17.0",
     "perfect-scrollbar": "^1.4.0",
