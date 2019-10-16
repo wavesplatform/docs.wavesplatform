@@ -1,8 +1,8 @@
 <template>
-    <header class="navbar">
+    <header :class="['navbar', isHomePageMod && $style.navbar_isHomePageMod]">
         <Logotype
             v-if="isHomePageMod"
-            :class="$style.logotype"/>
+            :class="[$style.logotype, $style._isHomePageMod]"/>
 
         <SidebarButton
             v-if="!isHomePageMod"
@@ -23,7 +23,7 @@
                 <SearchBox
                     v-if="($site.themeConfig.search !== false && $page.frontmatter.search !== false) && !isHomePageMod"
                     :class="$style.searchBox"
-                    :is-full-size="true"
+                    :is-full-size="layoutWidth > 720"
                 />
                 <!--
                     fill="#ecf5ff"
@@ -133,6 +133,9 @@
                 }
                 return languageDropdown;
             },
+          layoutWidth () {
+            return this.$store.state.interface.layoutWidth;
+          },
         },
 
         watch: {
@@ -163,6 +166,12 @@
 </script>
 
 <style lang="stylus" module>
+    .navbar_isHomePageMod {
+        .navbar__cell{
+            justify-content flex-end
+        }
+    }
+
     .navbar__cell {
         display flex
         align-items center

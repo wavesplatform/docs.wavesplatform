@@ -5,7 +5,7 @@ COPY ./ /app
 
 RUN rm -rf node_modules && \
    yarn
-ENTRYPOINT cd packages/docs/ && yarn dev
+ENTRYPOINT yarn dev
 
 
 
