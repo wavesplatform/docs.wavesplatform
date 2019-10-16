@@ -37,6 +37,7 @@
                 >
                     <el-radio-button
                         v-for="(languageItem, index) in languageNavDropdown.items"
+                        :key="index"
                         :label="languageItem.link"
                     >
                         {{languageItem.text}}
@@ -64,99 +65,109 @@
 </template>
 
 <script>
-import SearchBox from '@theme/components/SearchBox/'
-import SidebarButton from '@theme/components/SidebarButton.vue'
-import NavLinks from '@theme/components/NavLinks.vue'
-import NavLink from '@theme/components/NavLink.vue'
-import Logotype from '@theme/components/Logotype'
+    import SearchBox from '@theme/components/SearchBox/'
+    import SidebarButton from '@theme/components/SidebarButton.vue'
+    import NavLinks from '@theme/components/NavLinks.vue'
+    import NavLink from '@theme/components/NavLink.vue'
+    import Logotype from '@theme/components/Logotype'
 
-export default {
-  props: {
-    isHomePageMod: {
-      type: Boolean,
-      default: false,
-    },
-  },
+    const css = function (el, property) {
+        // NOTE: Known bug, will return 'auto' if style value is 'auto'
+        const win = el.ownerDocument.defaultView
+        // null means not to return pseudo styles
+        return win.getComputedStyle(el, null)[property]
+    };
 
-  components: {
-    SidebarButton,
-    NavLinks,
-    NavLink,
-    SearchBox,
-    Logotype,
-  },
 
-  data () {
-    return {
-      linksWrapMaxWidth: null,
-      currentLanguage: '',
-    }
-  },
+    export default {
+        props: {
+            isHomePageMod: {
+                type: Boolean,
+                default: false,
+            },
+        },
 
-  computed: {
-    languageNavDropdown() {
-      const { locales } = this.$site;
-      let languageDropdown = [];
-      if (locales && Object.keys(locales).length > 1) {
-        const currentLink = this.$page.path
-        const routes = this.$router.options.routes
-        const themeLocales = this.$site.themeConfig.locales || {}
-        languageDropdown = {
-          text: this.$themeLocaleConfig.selectText || 'Languages',
-          items: Object.keys(locales).map(path => {
-            const locale = locales[path]
-            const text = themeLocales[path] && themeLocales[path].label || locale.lang
-            let link
-            // Stay on the current page
-            if (locale.lang === this.$lang) {
-              link = currentLink
-            } else {
-              // Try to stay on the same page
-              link = currentLink.replace(this.$localeConfig.path, path)
-              // fallback to homepage
-              if (!routes.some(route => route.path === link)) {
-                link = path
-              }
+        components: {
+            SidebarButton,
+            NavLinks,
+            NavLink,
+            SearchBox,
+            Logotype,
+        },
+
+        data() {
+            return {
+                linksWrapMaxWidth: null,
+                currentLanguage: '',
             }
-            return { text, link }
-          })
-        }
-      }
-      return languageDropdown;
-    },
-  },
+        },
 
-  mounted () {
-    const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
-    const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'))
-    const handleLinksWrapWidth = () => {
-      if (document.documentElement.clientWidth < MOBILE_DESKTOP_BREAKPOINT) {
-        this.linksWrapMaxWidth = null
-      } else {
-        this.linksWrapMaxWidth = this.$el.offsetWidth - NAVBAR_VERTICAL_PADDING
-          - (this.$refs.siteName && this.$refs.siteName.offsetWidth || 0)
-      }
+        computed: {
+            languageNavDropdown() {
+                const {locales} = this.$site;
+                let languageDropdown = [];
+                if (locales && Object.keys(locales).length > 1) {
+                    const currentLink = this.$page.path
+                    const routes = this.$router.options.routes
+                    const themeLocales = this.$site.themeConfig.locales || {}
+                    languageDropdown = {
+                        text: this.$themeLocaleConfig.selectText || 'Languages',
+                        items: Object.keys(locales).map(path => {
+                            const locale = locales[path]
+                            const text = themeLocales[path] && themeLocales[path].label || locale.lang
+                            let link
+                            // Stay on the current page
+                            if (locale.lang === this.$lang) {
+                                link = currentLink
+                            } else {
+                                // Try to stay on the same page
+                                link = currentLink.replace(this.$localeConfig.path, path)
+                                // fallback to homepage
+                                if (!routes.some(route => route.path === link)) {
+                                    link = path
+                                }
+                            }
+                            return {text, link}
+                        })
+                    }
+                }
+                return languageDropdown;
+            },
+        },
+
+        watch: {
+          $route(newValue) {
+              this.currentLanguage = newValue.path;
+          },
+        },
+
+        mounted() {
+            const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
+            const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'))
+            const handleLinksWrapWidth = () => {
+                if (document.documentElement.clientWidth < MOBILE_DESKTOP_BREAKPOINT) {
+                    this.linksWrapMaxWidth = null
+                } else {
+                    this.linksWrapMaxWidth = this.$el.offsetWidth - NAVBAR_VERTICAL_PADDING
+                        - (this.$refs.siteName && this.$refs.siteName.offsetWidth || 0)
+                }
+            }
+            handleLinksWrapWidth()
+            window.addEventListener('resize', handleLinksWrapWidth, false)
+
+            this.currentLanguage = this.$page.path;
+        },
     }
-    handleLinksWrapWidth()
-    window.addEventListener('resize', handleLinksWrapWidth, false)
 
-    this.currentLanguage = this.$page.path;
-  },
-}
 
-function css (el, property) {
-  // NOTE: Known bug, will return 'auto' if style value is 'auto'
-  const win = el.ownerDocument.defaultView
-  // null means not to return pseudo styles
-  return win.getComputedStyle(el, null)[property]
-}
 </script>
 
 <style lang="stylus" module>
     .navbar__cell {
         display flex
         align-items center
-        justify-content flex-end
+        justify-content space-between
+        width 100%
     }
 
     .logotype {

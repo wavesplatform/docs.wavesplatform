@@ -1,7 +1,7 @@
 {
   "private": true,
   "version": "1.0.1",
-  "name": "waves-documentation",
+  "name": "docs",
   "description": "Documentation of Waves",
   "scripts": {
     "dev": "node_modules/.bin/vuepress dev --temp .temp",

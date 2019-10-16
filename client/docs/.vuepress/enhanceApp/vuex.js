@@ -1,8 +1,7 @@
-import Vuex from 'client/docs/.vuepress/enhanceApp/vuex'
+import Vuex from 'vuex'
 import VuexPersistence from 'vuex-persist'
 export default async(context) => {
     const { Vue, isServer } = context;
-    console.log('isServer:', isServer)
 
     Vue.use(Vuex);
 
@@ -13,7 +12,7 @@ export default async(context) => {
             layoutWidth: 0,
         },
         navbarSubHeaders: [],
-    }
+    };
 
     if(!isServer) {
         state.defaultLanguage = navigator.language;
@@ -21,7 +20,7 @@ export default async(context) => {
 
     const modules = {
 
-    }
+    };
 
 
     const set = key => (state, val) => {
@@ -37,11 +36,11 @@ export default async(context) => {
         setNavbarSubHeaders: set('navbarSubHeaders'),
 
         setCurrentLanguage: set('currentLanguage'),
-    }
+    };
 
     const actions = {
 
-    }
+    };
 
     const store = new Vuex.Store({
         state,
