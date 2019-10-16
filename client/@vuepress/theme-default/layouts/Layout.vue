@@ -126,7 +126,7 @@
       Page,
       Sidebar,
       Navbar,
-      Logotype,
+      Logotype
     },
 
     data () {
@@ -148,12 +148,21 @@
     },
 
     computed: {
+
+      headerHeight () {
+        return this.$store.state.interface.headerHeight;
+      },
+
       pageContainerStile () {
-        const isPadding = this.layoutWidth > 719
-        return isPadding ? {
+        const isPadding = this.layoutWidth > 719;
+
+        return Object.assign(isPadding && {
+          paddingTop: this.headerHeight + 'px',
           paddingLeft: this.sidebar1Show ? this.pageContentPaddingLeftPx + 'px' : 0,
-          paddingRight: this.sidebar2Show ? this.pageContentPaddingRightPx + 'px' : 0
-        } : {}
+          paddingRight: this.sidebar2Show ? this.pageContentPaddingRightPx + 'px' : 0,
+        }, {
+          margin: `${this.layoutWidth > 719 ? 2 : 1}rem`,
+        })
       },
 
       shouldShowNavbar () {
@@ -211,12 +220,12 @@
       },
 
       layoutWidth () {
-        return this.$store.state.interface.layoutWidth;
+        return this.$store.state.interface.layoutWidth
       },
 
       navbarSubHeaders () {
         // return [];
-        return this.$store.state.navbarSubHeaders;
+        return this.$store.state.navbarSubHeaders
       },
 
       navbarMaxWidth () {
@@ -239,7 +248,7 @@
 
       navbarSubHeaders: {
         async handler (newValue) {
-          await this.$nextTick();
+          await this.$nextTick()
           const sidebar2 = this.$refs.sidebar2
           if (!sidebar2) {
             return
@@ -250,7 +259,7 @@
           }
           sidebar2.isShow = true
         },
-        immediate: true,
+        immediate: true
       }
     },
 
@@ -264,7 +273,7 @@
         this.isSidebarOpen = false
       })
 
-      if(!this.$isServer) {
+      if (!this.$isServer) {
         this.elementResizeDetector = elementResizeDetectorMaker({
           strategy: 'scroll'
         })
@@ -285,16 +294,14 @@
         this.setInterfaceInnerWidthLayout()
 
         this.elementResizeDetector.listenTo(this.$refs.navbar.$el, element => {
-          this.$refs.sidebar1__header.style.height = element.offsetHeight - 1 + 'px'
-          // element.offsetHeight
+            const navbarHeight = element.offsetHeight
+            this.$refs.sidebar1__header.style.height = navbarHeight - 1 + 'px';
+            console.log('this.$store:', this.$store);
+            this.$store.commit('setHeaderHeight', navbarHeight);
+            console.log('navbarHeight:', navbarHeight, this.headerHeight)
         })
+
       }
-
-
-
-
-
-
     },
 
     beforeDestroy () {
@@ -422,7 +429,7 @@
 
     .page {
         transition-duration $toggleSidebarTransitionDuration
-        margin 0 6rem
+        /*margin 0 1rem*/
         padding-top 3rem
     }
 </style>

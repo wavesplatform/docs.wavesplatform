@@ -1,7 +1,5 @@
 <template>
   <main class="page">
-    <br>
-    <br>
     <slot name="top"/>
     <!--<el-breadcrumb separator="/">-->
       <!--<el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>-->

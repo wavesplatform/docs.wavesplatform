@@ -5,25 +5,30 @@
             :class="[$style.logotype, $style._isHomePageMod]"/>
 
         <SidebarButton
-            v-if="!isHomePageMod"
+            v-if="!isHomePageMod && layoutWidth < 720"
             @toggle-sidebar="$emit('toggle-sidebar')"/>
         <div
             class="links"
             :style="{
-        maxWidth: linksWrapMaxWidth ? linksWrapMaxWidth + 'px' : '',
-        justifyContent: isHomePageMod ? 'flex-end' : '',
-      }"
+                maxWidth: linksWrapMaxWidth ? linksWrapMaxWidth + 'px' : '',
+                justifyContent: isHomePageMod ? 'flex-end' : '',
+            }"
         >
             <!--      <NavLinks-->
             <!--          v-if="!isHomePageMod"-->
             <!--          :class="['can-hide', $style.navLinks]"-->
             <!--      />-->
 
-            <div :class="$style.navbar__cell">
+            <div
+                :class="$style.navbar__cell"
+                :style="{
+                    justifyContent: layoutWidth > 719 ? 'space-between' : 'flex-end',
+                }"
+            >
                 <SearchBox
                     v-if="($site.themeConfig.search !== false && $page.frontmatter.search !== false) && !isHomePageMod"
                     :class="$style.searchBox"
-                    :is-full-size="layoutWidth > 720"
+                    :is-full-size="layoutWidth > 719"
                 />
                 <!--
                     fill="#ecf5ff"
@@ -294,9 +299,6 @@ $navbar-horizontal-padding = 1.5rem
     justify-content flex-end
     &>*
       visibility visible
-    .search-box
-      flex: 0 0 auto
-      vertical-align top
 
 @media (max-width: $MQMobile)
   .navbar

@@ -8,21 +8,12 @@
 
 <style lang="stylus">
 .sidebar-button
-  cursor pointer
-  display none
-  width 1.25rem
-  height 1.25rem
-  position absolute
-  padding 0.6rem
-  top 0.6rem
-  left 1rem
-  z-index 1
-  .icon
-    display block
-    width 1.25rem
-    height 1.25rem
-
-@media (max-width: $MQMobile)
-  .sidebar-button
-    display block
+    cursor pointer
+    z-index 1
+    display flex
+    align-items center
+    .icon
+        display block
+        width 1.25rem
+        height 1.25rem
 </style>

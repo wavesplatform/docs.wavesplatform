@@ -10,6 +10,7 @@ export default async(context) => {
         currentLanguage: '',
         interface: {
             layoutWidth: 0,
+            headerHeight: 0,
         },
         navbarSubHeaders: [],
     };
@@ -36,6 +37,10 @@ export default async(context) => {
         setNavbarSubHeaders: set('navbarSubHeaders'),
 
         setCurrentLanguage: set('currentLanguage'),
+
+        setHeaderHeight (state, value) {
+            state.interface.headerHeight = value;
+        },
     };
 
     const actions = {
