@@ -106,7 +106,7 @@ module.exports = (ctx) => {
                     }
                 });
 
-                config.plugins(
+                config.plugins.push(
                     new webpack.EnvironmentPlugin({
                         isDev: process.env.isDev,
                     })
