@@ -71,9 +71,6 @@ module.exports = async function() {
 
     const vuepressPages = {};
 
-    if(envIsDev) {
-        vuepressPagesParamsList = vuepressPagesParamsList.slice(0,30);
-    }
     for(let vuepressPageParams of vuepressPagesParamsList) {
         let vuepressPageRegularPath = vuepressPageParams.regularPath;
         const vuepressPageTitle = vuepressPageParams.title;

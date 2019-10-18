@@ -13,6 +13,7 @@ export default async(context) => {
             headerHeight: 0,
         },
         navbarSubHeaders: [],
+        // isProcessDev: process.env.isDev,
     };
 
     if(!isServer) {

@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const webpack = require('webpack');
 // const beforeDevServer = require('./beforeDevServer/');
 
 const enLocaleConfig = require('./locales/en');
@@ -110,7 +111,14 @@ module.exports = (ctx) => {
             // console.log('chainWebpack config:', config, isServer)
         },
 
-        chainMarkdown (config) {
+        configureWebpack: (config) => {
+            return {
+                plugins: [
+                    new webpack.EnvironmentPlugin({
+                        isDev: process.env.isDev,
+                    })
+                ]
+            };
             // console.log('chainMarkdown config:', config)
             // require('@vuepress/markdown').removeAllBuiltInPlugins(config)
         },

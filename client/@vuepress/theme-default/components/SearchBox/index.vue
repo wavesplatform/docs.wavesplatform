@@ -39,6 +39,8 @@
 /* global SEARCH_MAX_SUGGESTIONS, SEARCH_PATHS */
 import axios from 'axios';
 import SearchFrameContent from './SearchFrameContent';
+
+
 export default {
 
   components: {
@@ -203,7 +205,8 @@ export default {
     },
 
     async openDeepSearchResults() {
-      const searchResult = await axios.get(`/?search=${this.query}`);
+        console.log('isProcessDev:', this.isProcessDev);
+      const searchResult = await axios.get(`${process.env.isDev ? 'http://localhost:3000' : ''}/?search=${this.query}`);
 
       console.log('searchResult:', searchResult);
 
@@ -224,6 +227,8 @@ export default {
 
       await newSearchResultListComponentExemplarMountedPromise;
       await this.$nextTick();
+
+      console.log('newSearchResultListComponentExemplar:', newSearchResultListComponentExemplar);
 
       this.$msgbox({
         customClass: this.$style.messageBoxWithSearchResult,
@@ -256,7 +261,11 @@ export default {
         // });
       });
     }
-  }
+  },
+
+  // mounted () {
+  //   console.log('this.$store.state:', this.$store.state);
+  // }
 }
 </script>
 
