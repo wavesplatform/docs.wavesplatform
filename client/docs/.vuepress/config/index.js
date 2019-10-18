@@ -8,7 +8,7 @@ const ruLocaleConfig = require('./locales/ru');
 const destDirectory = path.join(__dirname, '../../../vuepress');
 
 module.exports = (ctx) => {
-    console.log('ctx:', ctx);
+    // console.log('ctx:', ctx);
     return {
         serviceWorker: false,
         // beforeDevServer: beforeDevServer(ctx),

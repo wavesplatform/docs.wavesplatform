@@ -3,12 +3,19 @@ const envIsDev = processEnv.isDev;
 const path = require('path');
 const fs = require('fs');
 const { promisify } = require('util');
-const puppeteer = require('puppeteer');
+// const puppeteer = require('puppeteer');
 const Fuse = require('fuse.js');
+// const DomParser = require('dom-parser');
+
+const jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+
 
 const vuepressDestPath = path.join(__dirname, '../vuepress');
 
-// const readFileAsync = promisify(fs.readFile);
+const readFileAsync = promisify(fs.readFile);
+
+// const parser = new DomParser();
 
 const fuseOptions = {
     // include: ['score', 'matches'],
@@ -68,7 +75,7 @@ module.exports = async function() {
         return;
     }
 
-    const browser = await puppeteer.launch();
+    // const browser = await puppeteer.launch();
 
     const vuepressPages = {};
 
@@ -92,32 +99,48 @@ module.exports = async function() {
         //     .catch(error => {
         //         console.error(error);
         //     });
-        const page = await browser.newPage();
-        await page.goto(`file:${pagePath}`);
-        const pageText = await page.evaluate(() => {
-            // const pageElement = /*document.querySelector('body .page')*/document.body;
-            const pageElement = document.querySelector('main');
-            if(!pageElement) {
-                return '';
-            }
-            return pageElement.innerText;
-        });
 
+        // const page = await browser.newPage();
+        // await page.goto(`file:${pagePath}`);
+        // const pageText = await page.evaluate(() => {
+        //     // const pageElement = /*document.querySelector('body .page')*/document.body;
+        //     const pageElement = document.querySelector('main');
+        //     if(!pageElement) {
+        //         return '';
+        //     }
+        //     return pageElement.innerText;
+        // });
+
+        const vuepressPageContent = await readFileAsync(pagePath)
+            .then(result => {
+                return result.toString()
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+        const dom = new JSDOM(vuepressPageContent);
+        let vuepressPageText = '';
+        const pageDomMainElement = dom.window.document.querySelector('main');
+
+        if(pageDomMainElement) {
+            vuepressPageText = pageDomMainElement.textContent;
+        }
         // replace(/\n/g, "<br />");
+        // await page.close();
 
-        await page.close();
         vuepressPages[vuepressPageRegularPath] = {
             path: vuepressPageRegularPath,
             title: vuepressPageTitle,
             localePath: vuepressPageLocalePath,
-            content: pageText.replace(/(?:\r\n|\r|\n)/g, ''),
+            content: vuepressPageText.replace(/(?:\r\n|\r|\n)/g, ''),
         };
 
 
         console.log('Parsed page:', vuepressPageRegularPath);
     }
 
-    await browser.close();
+    // await browser.close();
 
     // let sortedPagesContentByLocalePath = vuepressPages.reduce((accumulator, page) => {
     //     const pageLocalePath = page.localePath;
