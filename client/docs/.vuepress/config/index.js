@@ -1,15 +1,18 @@
-// const Webpack = require('webpack')
+const path = require('path');
+const fs = require('fs');
 // const beforeDevServer = require('./beforeDevServer/');
+
 const enLocaleConfig = require('./locales/en');
 const ruLocaleConfig = require('./locales/ru');
 
+const destDirectory = path.join(__dirname, '../../../vuepress');
+
 module.exports = (ctx) => {
+    console.log('ctx:', ctx);
     return {
         serviceWorker: false,
-
-
         // beforeDevServer: beforeDevServer(ctx),
-        dest: '../vuepress',
+        dest: destDirectory,
         port: 3083,
         locales: {
             '/en/': {
@@ -44,11 +47,6 @@ module.exports = (ctx) => {
             repo: 'vuejs/vuepress',
             editLinks: true,
             docsDir: 'packages/docs/docs',
-            // #697 Provided by the official algolia team.
-            // algolia: ctx.isProd ? ({
-            //   apiKey: '3a539aab83105f01761a137c61004d85',
-            //   indexName: 'vuepress'
-            // }) : null,
             locales: {
                 '/en/': enLocaleConfig,
 
@@ -57,16 +55,15 @@ module.exports = (ctx) => {
         },
         plugins: [
             '../../@vuepress/last-updated',
-
             ['../../@vuepress/back-to-top', true],
             // ['../../@vuepress/pwa', {
             //     serviceWorker: true,
             //     updatePopup: true
             // }],
             ['../../@vuepress/medium-zoom', true],
-            ['../../@vuepress/google-analytics', {
-                ga: 'UA-128189152-1'
-            }],
+            // ['../../@vuepress/google-analytics', {
+            //     ga: 'UA-128189152-1'
+            // }],
             ['container', {
                 type: 'vue',
                 before: '<pre class="vue-container"><code>',
@@ -77,32 +74,49 @@ module.exports = (ctx) => {
                 before: info => `<UpgradePath title="${info}">`,
                 after: '</UpgradePath>'
             }],
-
-            // ['serve', {
-            //     beforeServer: beforeDevServer,
-            // }],
-
-            // [
-            //     '../../@vuepress/plugin-serve',
-            //     {
-            //         post: 1234,
-            //         staticOptions: {
-            //             dotfiles: 'allow'
-            //         },
-            //         beforeServer (app, server) {
-            //             app.get('/path/to/my/custom', function (req, res) {
-            //                 res.json({ custom: 'response' })
-            //             })
-            //         }
-            //     }
-            // ]
         ],
         extraWatchFiles: [
             '.vuepress/locales/**',
-        ]
-        // configureWebpack(config, isServer) {
-        //     return {
-        //     }
-        // },
+        ],
+        configureWebpack(config, isServer) {
+            // console.log('configureWebpack config:', config, isServer)
+
+            if (!isServer) {
+                config.plugins.push({
+                    apply: (compiler) => {
+                        compiler.hooks.done.tap('compilationDone', (compilation) => {
+
+                            const pageListJson = JSON.stringify(
+                                ctx.pages.map(page => {
+                                    // console.log(page);
+                                    return {
+                                        title: page.title,
+                                        regularPath: page.regularPath,
+                                        localePath: page._localePath,
+                                    };
+                                })
+                            );
+
+                            fs.writeFile(`${destDirectory}/documentation-files-map.json`, pageListJson, 'utf8', () => {
+                                console.log('documentation-files-map.json done');
+                            });
+
+                        });
+                    }
+                })
+            }
+        },
+        chainWebpack: (config, isServer) => {
+            // console.log('chainWebpack config:', config, isServer)
+        },
+
+        chainMarkdown (config) {
+            // console.log('chainMarkdown config:', config)
+            // require('@vuepress/markdown').removeAllBuiltInPlugins(config)
+        },
     }
-}
+};
+
+// setInterval(() => {
+//
+// }, 5000);

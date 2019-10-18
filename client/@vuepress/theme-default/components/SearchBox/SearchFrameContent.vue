@@ -4,6 +4,7 @@
             :class="$style.resultList"
         >
             <div
+                v-if="searchResult.length"
                 v-for="(searchResultItem, index) of searchResult"
                 :key="index"
                 :class="$style.resultItem"
@@ -12,6 +13,9 @@
                     :item="searchResultItem"
                     :class="$style.resultItem"
                 />
+            </div>
+            <div v-else>
+                No such results
             </div>
         </div>
     </div>
@@ -30,6 +34,11 @@
         default: () => []
       }
     },
+
+
+    created () {
+      console.log('searchResult:', this.searchResult);
+    }
   }
 </script>
 

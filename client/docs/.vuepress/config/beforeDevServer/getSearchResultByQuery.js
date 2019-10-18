@@ -16,7 +16,7 @@ const fuseOptions = {
     // distance: 100,
     // maxPatternLength: 32,
     // minMatchCharLength: 1,
-    keys: ['title', '_content'],
+    keys: ['title', 'content'],
 
 
 
@@ -65,7 +65,6 @@ const findItemForSendingLimit = 10;
 
 module.exports = (ctx) => {
     let fuse = {};
-    // let lunrIdx = null;
     let pages = [];
     const getSortedPagesContentByLocalePath = (pages) => {
         return pages.reduce((accumulator, page) => {
@@ -99,22 +98,30 @@ module.exports = (ctx) => {
     });
 
     sortedPagesContentByLocalePath = getSortedPagesContentByLocalePath(pages);
-    fuse = new Fuse(pages, fuseOptions)
 
+    fuse = new Fuse(pages, fuseOptions);
 
     return async(req) => {
         const querySearchString = req.query.search;
         const fuseSearchResult = fuse.search(querySearchString);
 
         const dataPreparedForSending = fuseSearchResult.map(page => {
+
+            // page.matches.reduce((accumulator, ) => {
+            //
+            // }, {})
+            console.log('page:', page);
             return {
                 path: page.item.path,
+                title: page.item.title,
                 matches: page.matches,
             }
         })
             .slice(0, findItemForSendingLimit)
         ;
+
         // console.log('fuseSearchResult:', fuseSearchResult);
+
         return dataPreparedForSending;
     }
 }

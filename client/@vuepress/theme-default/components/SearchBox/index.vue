@@ -13,25 +13,25 @@
       @keyup.up="onUp"
       @keyup.down="onDown"
     >
-    <ul
-      class="suggestions"
-      v-if="showSuggestions"
-      :class="{ 'align-right': alignRight }"
-      @mouseleave="unfocus"
-    >
-      <li
-        class="suggestion"
-        v-for="(s, i) in suggestions"
-        :class="{ focused: i === focusIndex }"
-        @mousedown="go(i)"
-        @mouseenter="focus(i)"
-      >
-        <a :href="s.path" @click.prevent>
-          <span class="page-title">{{ s.title || s.path }}</span>
-          <span v-if="s.header" class="header">&gt; {{ s.header.title }}</span>
-        </a>
-      </li>
-    </ul>
+<!--    <ul-->
+<!--      class="suggestions"-->
+<!--      v-if="showSuggestions"-->
+<!--      :class="{ 'align-right': alignRight }"-->
+<!--      @mouseleave="unfocus"-->
+<!--    >-->
+<!--      <li-->
+<!--        class="suggestion"-->
+<!--        v-for="(s, i) in suggestions"-->
+<!--        :class="{ focused: i === focusIndex }"-->
+<!--        @mousedown="go(i)"-->
+<!--        @mouseenter="focus(i)"-->
+<!--      >-->
+<!--        <a :href="s.path" @click.prevent>-->
+<!--          <span class="page-title">{{ s.title || s.path }}</span>-->
+<!--          <span v-if="s.header" class="header">&gt; {{ s.header.title }}</span>-->
+<!--        </a>-->
+<!--      </li>-->
+<!--    </ul>-->
   </div>
 </template>
 
@@ -149,7 +149,6 @@ export default {
 
     isSearchable (page) {
       let searchPaths = SEARCH_PATHS
-
       // all paths searchables
       if (searchPaths === null) { return true }
 
@@ -181,18 +180,18 @@ export default {
     },
 
     go (i) {
-
+      console.log(i)
       // console.log('this.query', this.query, this.showSuggestions);
-
-      if (!this.showSuggestions) {
-        if(this.query) {
-          this.openDeepSearchResults();
-        }
-        return
-      }
-      this.$router.push(this.suggestions[i].path)
-      this.query = ''
-      this.focusIndex = 0
+      // if (!this.showSuggestions) {
+      //   if(this.query) {
+      //     this.openDeepSearchResults();
+      //   }
+      //   return
+      // }
+      this.openDeepSearchResults();
+      // this.$router.push(this.suggestions[i].path)
+      // this.query = ''
+      // this.focusIndex = 0
     },
 
     focus (i) {
@@ -204,15 +203,27 @@ export default {
     },
 
     async openDeepSearchResults() {
-      const searchResult = await axios.get(`?search=${this.query}`);
+      const searchResult = await axios.get(`/?search=${this.query}`);
+
+      console.log('searchResult:', searchResult);
+
       const searchResultData = searchResult.data;
+
       // console.log('searchResultData:', searchResultData);
-      const newSearchResultListComponentExemplar = new this.constructor({
+
+      const newSearchResultListComponentExemplar = new this.constructor.super({
         ...this.$options.components.SearchFrameContent,
         propsData: {
           searchResult: searchResultData,
         },
-      }).$mount();
+      });
+
+      const newSearchResultListComponentExemplarMountedPromise = new Promise(resolve => newSearchResultListComponentExemplar.$once('hook:mounted', resolve))
+
+      newSearchResultListComponentExemplar.$mount();
+
+      await newSearchResultListComponentExemplarMountedPromise;
+      await this.$nextTick();
 
       this.$msgbox({
         customClass: this.$style.messageBoxWithSearchResult,
@@ -223,6 +234,7 @@ export default {
         // confirmButtonText: 'OK',
         cancelButtonText: 'Cancel',
         beforeClose: (action, instance, done) => {
+          newSearchResultListComponentExemplar.$destroy();
           // if (action === 'confirm') {
           //   instance.confirmButtonLoading = true;
           //   instance.confirmButtonText = 'Loading...';
@@ -235,7 +247,6 @@ export default {
           // } else {
           //   done();
           // }
-
           done();
         }
       }).then(action => {

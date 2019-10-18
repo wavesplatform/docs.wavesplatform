@@ -8,73 +8,110 @@
               :class="$style.title"
               content-position="left"
           >
-              <span
-                  v-html="titleHighlightMarkupString"
-                  :class="$style.title__text"/>
+              <div :class="$style.title__text">
+                  <template
+                      v-for="titleMatch of titleMatches"
+                  >
+                      <span :class="[Array.isArray(titleMatch) && $style._highlight]">{{(Array.isArray(titleMatch)? titleMatch[0] : titleMatch) | trim}}</span>
+                  </template>
+              </div>
+
+
           </el-divider>
 
           <div
-            v-html="contentHighlightMarkupString"
-            :class="$style.description"/>
+            :class="$style.description">
+
+              <div
+                  v-for="(contentMatchRow, indexMatchRow) of displayedContentMatches"
+                  :key="indexMatchRow"
+                  :class="$style.description__cell"
+              >
+                  <span
+                      v-for="(contentMatch, indexMatch) of contentMatchRow"
+                      :key="`${indexMatchRow}_${indexMatch}`"
+                      :class="[
+                        $style.description__cell__part,
+                        Array.isArray(contentMatch) && $style._highlight,
+                      ]"
+                  >{{ Array.isArray(contentMatch) ? contentMatch[0] : contentMatch | trim }}</span>
+              </div>
+
+          </div>
       </a>
+
+      <div
+          v-if="displayedContentMatches && displayedContentMatches.length && contentMatches.length > limitDisplayMatchesNumber"
+          :class="$style.showMoreButton"
+          @click="showMore"
+      >
+          {{isShowMore ? 'Hide more' : 'Show more...'}}
+      </div>
   </div>
 </template>
 
 <script>
-export default {
+  export default {
     props: {
       item: {
         type: Object,
-        required: true,
+        required: true
       }
     },
 
-  computed: {
-    title() {
-      return this.item.matches.find(item => {
-        return item.key === 'title';
-      })
+    filters: {
+      trim(value) {
+        if(!value) {
+          return '';
+        }
+        return value.trim();
+      },
     },
-    titleHighlightMarkupString() {
-      let offset = 0
-      let text = this.title.value;
-      this.title.indices.forEach(index => {
-        text = this.highlightText(text, index[0] + offset, index[1] + offset)
-        offset += 31
-      });
-      return text;
-    },
-    content() {
-      return this.item.matches.find(item => {
-        return item.key === '_content';
-      })
-    },
-    contentHighlightMarkupString() {
-      let offset = 0
-      let text = this.content.value;
-      this.content.indices.forEach(index => {
-        text = this.highlightText(text, index[0] + offset, index[1] + offset)
-        offset += 31
-      });
-      return text;
-    },
-  },
 
-  methods: {
-    highlightText (sourceString, startIndex, endIndex) {
-      /*${this.$style.highlightPart}*/
-      return sourceString.substring(0, startIndex)
-        + '<span class="highlight">'
-        + sourceString.substring(startIndex, endIndex + 1)
-        + '</span>'
-        + (endIndex ? sourceString.substring(endIndex + 1) : "")
-    }
-  },
+    data() {
+      return {
+        limitDisplayMatchesNumber: 5,
+        displayedContentMatches: [],
+        isShowMore: false,
+      }
+    },
 
-  mounted () {
-    // console.log('title:', this.title, this.content)
+    computed: {
+      matches() {
+        return this.item.matches
+      },
+
+      titleMatches () {
+        return this.matches.title;
+      },
+
+      contentMatches () {
+        return this.matches.content;
+      },
+
+      limitedDisplayContentMatches() {
+        return this.contentMatches.slice(0, this.limitDisplayMatchesNumber);
+      }
+    },
+
+    methods: {
+        showMore() {
+          this.isShowMore = !this.isShowMore;
+          if(this.isShowMore) {
+            this.displayedContentMatches = this.contentMatches;
+          } else {
+            this.displayedContentMatches = this.limitedDisplayContentMatches;
+          }
+        },
+    },
+
+    created() {
+      this.displayedContentMatches = this.limitedDisplayContentMatches;
+    },
+
+    mounted () {
+    },
   }
-}
 </script>
 
 <style lang="stylus">
@@ -82,9 +119,6 @@ export default {
         display flex
         justify-content center
         align-items center
-    }
-    .highlight {
-        background-color rgba(79, 140, 255, 0.3607843137254902)
     }
 </style>
 
@@ -112,9 +146,28 @@ export default {
     .description {
         color initial
         font-weight 100
-        white-space pre-line
+        /*white-space pre-line*/
+        display flex
+        flex-wrap wrap
     }
-    .highlightPart {
-        background-color rgba(79, 140, 255, 0.3607843137254902)
+    .description__cell {
+        display flex
+        border 1px solid #ddd
+        margin 3px
+        padding 1px
+    }
+    .description__cell__part {
+        display flex
+
+    }
+    ._highlight {
+        background-color rgba(79, 140, 255, 0.35)
+    }
+    .showMoreButton {
+        cursor pointer
+        border 1px solid #ccc
+        padding 10px
+        margin 5px
+        text-align center
     }
 </style>
