@@ -104,24 +104,20 @@ module.exports = (ctx) => {
 
                         });
                     }
-                })
+                });
+
+                config.plugins(
+                    new webpack.EnvironmentPlugin({
+                        isDev: process.env.isDev,
+                    })
+                );
             }
         },
         chainWebpack: (config, isServer) => {
             // console.log('chainWebpack config:', config, isServer)
         },
 
-        configureWebpack: (config) => {
-            return {
-                plugins: [
-                    new webpack.EnvironmentPlugin({
-                        isDev: process.env.isDev,
-                    })
-                ]
-            };
-            // console.log('chainMarkdown config:', config)
-            // require('@vuepress/markdown').removeAllBuiltInPlugins(config)
-        },
+
     }
 };
 
