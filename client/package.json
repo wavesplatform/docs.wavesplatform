@@ -7,8 +7,9 @@
     ],
     "description": "Minimalistic doc generator with Vue component based layout system",
     "scripts": {
-        "dev": "cd docs && ../node_modules/.bin/vuepress dev --temp .temp",
-        "build": "cd docs && ../node_modules/.bin/vuepress build --temp .temp",
+        "dev": "isDev=true cd docs && ../node_modules/.bin/vuepress dev --temp .temp",
+        "build": "isDev=true cd docs && ../node_modules/.bin/vuepress build --temp .temp",
+        "build:dev": "yarn build",
         "view-info": "node_modules/.bin/vuepress view-info --temp .temp",
         "show-help": "node_modules/.bin/vuepress --help",
         "production-server": "node ./server/ ",

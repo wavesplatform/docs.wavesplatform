@@ -1,24 +1,18 @@
-const inspector = require('inspector');
-inspector.open(9229, '127.0.0.1');
-
-const path = require('path');
-const fs = require('fs');
-
-const Koa = require('koa');
-const cors = require('@koa/cors');
-const serve = require('koa-static');
-
-const app = new Koa();
-
-const GetSearchResultByQuery = require('./getSearchResultByQuery');
-
 const processEnv = process.env;
 const envPort = processEnv.port;
 const envIsDev = processEnv.isDev;
 const serverPort = envPort ? envPort :
-    envIsDev ? 3083 : 3000
+    envIsDev ? 3000 : 3083
 ;
-
+if(envIsDev) {
+    const inspector = require('inspector');
+    inspector.open(9229, '127.0.0.1');
+}
+const path = require('path');
+const Koa = require('koa');
+const serve = require('koa-static');
+const app = new Koa();
+const GetSearchResultByQuery = require('./getSearchResultByQuery');
 
 (async() => {
 
@@ -27,10 +21,6 @@ const serverPort = envPort ? envPort :
     if(!getSearchResultByQuery) {
         console.error('!getSearchResultByQuery');
     }
-
-    // app.use(cors({
-    //     'Access-Control-Allow-Origin': '*'
-    // }));
 
     app.use(async(ctx, next) => {
         ctx.set('Access-Control-Allow-Origin', '*');

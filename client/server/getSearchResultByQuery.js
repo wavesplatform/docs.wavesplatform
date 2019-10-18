@@ -3,19 +3,11 @@ const envIsDev = processEnv.isDev;
 const path = require('path');
 const fs = require('fs');
 const { promisify } = require('util');
-// const puppeteer = require('puppeteer');
 const Fuse = require('fuse.js');
-// const DomParser = require('dom-parser');
-
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
-
-
 const vuepressDestPath = path.join(__dirname, '../vuepress');
-
 const readFileAsync = promisify(fs.readFile);
-
-// const parser = new DomParser();
 
 const fuseOptions = {
     // include: ['score', 'matches'],
