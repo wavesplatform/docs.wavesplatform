@@ -34,13 +34,21 @@
 
 <!--          {{items}}-->
         <div :class="$style.sidebarLinks">
-          <div :class="$style.sidebarLinks__content">
+          <div
+              :class="$style.sidebarLinks__content"
+              :style="{
+                transform: mod === 1 ? 'scaleX(-1)' : '',
+              }"
+          >
             <NavLinks v-if="layoutWidth < 720"/>
             <slot name="top"/>
             <SidebarLinks
               :depth="0"
               :items="items"
               :mod="mod"
+              :style="{
+                transform: mod === 1 ? 'scaleX(-1)' : '',
+              }"
             />
           </div>
         </div>

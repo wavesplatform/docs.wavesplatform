@@ -42,12 +42,12 @@
     }
 
     if(!children && !children.length) {
-      $store.commit('setNavbarSubHeaders', []);
+      // $store.commit('setNavbarSubHeaders', []);
       return null;
     }
 
 
-    $store.commit('setNavbarSubHeaders', children);
+    // $store.commit('setNavbarSubHeaders', children);
 
 
 

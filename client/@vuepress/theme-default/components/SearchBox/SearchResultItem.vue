@@ -41,7 +41,7 @@
       </a>
 
       <div
-          v-if="displayedContentMatches && displayedContentMatches.length && contentMatches.length > limitDisplayMatchesNumber"
+          v-if="isDisplayShowMoreButton && displayedContentMatches && displayedContentMatches.length && contentMatches.length > limitDisplayMatchesNumber"
           :class="$style.showMoreButton"
           @click="showMore"
       >
@@ -73,6 +73,7 @@
         limitDisplayMatchesNumber: 5,
         displayedContentMatches: [],
         isShowMore: false,
+        isDisplayShowMoreButton: false,
       }
     },
 

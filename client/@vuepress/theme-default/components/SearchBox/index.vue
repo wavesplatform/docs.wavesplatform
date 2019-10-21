@@ -10,28 +10,32 @@
       @focus="focused = true"
       @blur="focused = false"
       @keyup.enter="go(focusIndex)"
-      @keyup.up="onUp"
-      @keyup.down="onDown"
+      @keyup.up.prevent.stop="onUp"
+      @keyup.down.prevent.stop="onDown"
+      placeholder="Search for answer"
     >
-<!--    <ul-->
-<!--      class="suggestions"-->
-<!--      v-if="showSuggestions"-->
-<!--      :class="{ 'align-right': alignRight }"-->
-<!--      @mouseleave="unfocus"-->
-<!--    >-->
-<!--      <li-->
-<!--        class="suggestion"-->
-<!--        v-for="(s, i) in suggestions"-->
-<!--        :class="{ focused: i === focusIndex }"-->
-<!--        @mousedown="go(i)"-->
-<!--        @mouseenter="focus(i)"-->
-<!--      >-->
-<!--        <a :href="s.path" @click.prevent>-->
-<!--          <span class="page-title">{{ s.title || s.path }}</span>-->
-<!--          <span v-if="s.header" class="header">&gt; {{ s.header.title }}</span>-->
-<!--        </a>-->
-<!--      </li>-->
-<!--    </ul>-->
+    <ul
+      class="suggestions"
+      v-if="showSuggestions"
+      :class="{ 'align-right': alignRight }"
+      @mouseleave="unfocus"
+    >
+<!--        <li :class="['suggestion']">-->
+<!--            -->
+<!--        </li>-->
+      <li
+        class="suggestion"
+        v-for="(suggestion, suggestionIndex) in suggestions"
+        :class="{ focused: suggestionIndex === focusIndex }"
+        @mousedown="go(suggestionIndex)"
+        @mouseenter="focus(suggestionIndex)"
+      >
+        <a :href="suggestion.path" @click.prevent>
+          <span class="page-title">{{ suggestion.title || suggestion.path }}</span>
+          <span v-if="suggestion.header" class="header">&gt; {{ suggestion.header.title }}</span>
+        </a>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -39,7 +43,6 @@
 /* global SEARCH_MAX_SUGGESTIONS, SEARCH_PATHS */
 import axios from 'axios';
 import SearchFrameContent from './SearchFrameContent';
-
 
 export default {
 
@@ -54,10 +57,13 @@ export default {
     },
   },
   data () {
+    const defaultFocusIndex = -1;
     return {
       query: '',
       focused: false,
-      focusIndex: 0,
+      focusIndex: defaultFocusIndex,
+      defaultFocusIndex,
+      currentMessageBoxKey: 1,
     }
   },
 
@@ -161,7 +167,7 @@ export default {
       }).length > 0
     },
 
-    onUp () {
+    onUp (event) {
       if (this.showSuggestions) {
         if (this.focusIndex > 0) {
           this.focusIndex--
@@ -171,7 +177,7 @@ export default {
       }
     },
 
-    onDown () {
+    onDown (event) {
       if (this.showSuggestions) {
         if (this.focusIndex < this.suggestions.length - 1) {
           this.focusIndex++
@@ -182,18 +188,13 @@ export default {
     },
 
     go (i) {
-      console.log(i)
-      // console.log('this.query', this.query, this.showSuggestions);
-      // if (!this.showSuggestions) {
-      //   if(this.query) {
-      //     this.openDeepSearchResults();
-      //   }
-      //   return
-      // }
-      this.openDeepSearchResults();
-      // this.$router.push(this.suggestions[i].path)
-      // this.query = ''
-      // this.focusIndex = 0
+      if(this.focusIndex < 0 && this.query) {
+        this.openDeepSearchResults();
+        return;
+      }
+      this.$router.push(this.suggestions[i].path)
+      this.query = ''
+      this.focusIndex = this.defaultFocusIndex;
     },
 
     focus (i) {
@@ -205,13 +206,16 @@ export default {
     },
 
     async openDeepSearchResults() {
-        console.log('isProcessDev:', this.isProcessDev);
+
       const searchResult = await axios.get(`${process.env.isDev ? 'http://localhost:3000' : ''}/?search=${this.query}`);
 
-      console.log('searchResult:', searchResult);
 
-      const searchResultData = searchResult.data;
+      let searchResultData = searchResult.data;
 
+      console.log('searchResultData:', searchResultData);
+      if(!searchResultData || !Array.isArray(searchResultData)) {
+        searchResultData = [];
+      }
       // console.log('searchResultData:', searchResultData);
 
       const newSearchResultListComponentExemplar = new this.constructor.super({
@@ -233,7 +237,12 @@ export default {
       this.$msgbox({
         customClass: this.$style.messageBoxWithSearchResult,
         title: '',
-        message: newSearchResultListComponentExemplar._vnode,
+        message: this.$createElement(this.$options.components.SearchFrameContent, {
+          key: this.currentMessageBoxKey++,
+          props: {
+            searchResult: searchResultData,
+          },
+        })/*newSearchResultListComponentExemplar._vnode*/,
         showCancelButton: false,
         showConfirmButton: false,
         // confirmButtonText: 'OK',
@@ -255,17 +264,15 @@ export default {
           done();
         }
       }).then(action => {
+        console.log('then')
         // this.$message({
         //   type: 'info',
         //   message: 'action: ' + action
         // });
       });
+
     }
   },
-
-  // mounted () {
-  //   console.log('this.$store.state:', this.$store.state);
-  // }
 }
 </script>
 
@@ -293,32 +300,21 @@ export default {
   display inline-flex
   position relative
   input
-    /*cursor text
-    width 10rem
-    height: 2rem
-    color lighten($textColor, 25%)
-    display inline-block
-    border 1px solid darken($borderColor, 10%)
-    border-radius 2rem
-    font-size 0.9rem
-    line-height 2rem
-    padding 0 0.5rem 0 2rem
-    outline none
-    transition all .2s ease
-    background-size 1rem*/
+    /*height 64px*/
     cursor pointer
 
     color lighten($textColor, 25%)
     display inline-block
-    border 1px solid transparent
-    border-radius 2rem
+    border /*1px solid transparent*/none
+    border-radius 4px
     font-size 0.9rem
     line-height 2rem
     padding 0 0.5rem 0 2rem
     outline none
     position relative
     transition all .2s ease
-    background #fff url(search.svg) 0.6rem 0.5rem no-repeat
+    background #fff url(search-24-basic-300.svg) 0.6rem 0.5rem no-repeat
+    background-color $color2
     background-size 1rem
     &.focused {
         border-color $borderColor

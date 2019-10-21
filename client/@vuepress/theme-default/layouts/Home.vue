@@ -1,6 +1,5 @@
 <template>
     <div :class="$style.root">
-        1
         <template v-if="$themeLocaleConfig.homePage">
 
             <Navbar
@@ -101,6 +100,9 @@
                     </li>
                 </ul>
             </div>
+
+
+            <Footer/>
         </template>
     </div>
 </template>
@@ -110,6 +112,7 @@
   import SearchBox from '@theme/components/SearchBox/'
   import CategoryCard from './components/CategoryCard'
   import Logotype from '@theme/components/Logotype'
+  import Footer from '@theme/components/Footer'
 
   export default {
     components: {
@@ -117,6 +120,7 @@
       SearchBox,
       CategoryCard,
       Logotype,
+      Footer,
     },
 
     data () {
@@ -137,7 +141,7 @@
     .root {
         display flex
         flex-direction column
-        padding 20px
+        /*padding 20px*/
     }
     .navbar {
         left 0
@@ -156,6 +160,7 @@
     }
     .root__row3 {
         margin-top 45px
+        background-color $color1
     }
     .technologyCategoryCheckboxes {
         display flex

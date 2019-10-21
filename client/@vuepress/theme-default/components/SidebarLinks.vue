@@ -5,21 +5,38 @@
   >
     <li v-for="(item, index) in items" :key="index">
 
-      <SidebarGroup
-        v-if="item.type === 'group'"
-        :item="item"
-        :open="openGroups.includes(index)"
-        :collapsable="item.collapsable || item.collapsible"
-        :depth="depth"
-        :mod="mod"
-        @toggle="toggleGroup(index)"
-      />
-      <SidebarLink
-        v-else
-        :sidebarDepth="sidebarDepth"
-        :item="item"
-        :mod="mod"
-      />
+<!--      <SidebarGroup-->
+<!--        v-if="item.type === 'group'"-->
+<!--        :item="item"-->
+<!--        :open="openGroups.includes(index)"-->
+<!--        :collapsable="item.collapsable || item.collapsible"-->
+<!--        :depth="depth"-->
+<!--        :mod="mod"-->
+<!--        @toggle="toggleGroup(index)"-->
+<!--      />-->
+<!--      <SidebarLink-->
+<!--        v-else-->
+<!--        :sidebarDepth="sidebarDepth"-->
+<!--        :item="item"-->
+<!--        :mod="mod"-->
+<!--      />-->
+
+
+        <SidebarGroup
+            v-if="item.type === 'group'"
+            :item="item"
+            :open="openGroups.includes(index)"
+            :collapsable="item.collapsable || item.collapsible"
+            :depth="depth"
+            :mod="mod"
+            @toggle="toggleGroup(index)"
+        />
+        <SidebarLink
+            v-if="item.type !== 'group'"
+            :sidebarDepth="sidebarDepth"
+            :item="item"
+            :mod="mod"
+        />
     </li>
   </ul>
 </template>

@@ -37,21 +37,21 @@ module.exports = {
     rideProgrammingLanguage: {
         rootLink: '#',
         type: 'Advanced',
-        iconFilePath: getRawIcon('./images/category4.svg'),
+        iconFilePath: getRawIcon('./images/category5.svg'),
         buttonSet: [
         ],
     },
     additionalServices: {
         rootLink: '#',
         type: 'Supplementary',
-        iconFilePath: getRawIcon('./images/category5.svg'),
+        iconFilePath: getRawIcon('./images/category6.svg'),
         buttonSet: [
         ],
     },
     miscellaneous: {
         rootLink: '#',
         type: 'Supplementary',
-        iconFilePath: getRawIcon('./images/category6.svg'),
+        iconFilePath: getRawIcon('./images/category4.svg'),
         buttonSet: [
         ],
     }
