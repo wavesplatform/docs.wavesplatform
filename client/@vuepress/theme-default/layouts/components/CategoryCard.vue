@@ -1,22 +1,17 @@
 <template>
     <el-card :class="$style.root">
-        <div
-            :class="$style.marker"
-            :style="{
-                backgroundColor: markerColor,
-            }"
-        />
-
         <div :class="$style.root__contentWrapper">
             <a :href="rootLink" :class="$style.root__row1">
                 <div :class="$style.iconWrapper">
                     <slot name="icon"/>
                 </div>
-                <el-divider>
-                    <div :class="$style.title">
-                        <slot name="title"/>
-                    </div>
-                </el-divider>
+                <span :class="$style.categoryType">
+                    {{categoryType}}
+                </span>
+
+                <h2 :class="$style.title">
+                    <slot name="title"/>
+                </h2>
 
                 <div :class="$style.caption">
                     <slot name="caption"/>
@@ -37,14 +32,14 @@
   export default {
 
     props: {
-      markerColor: {
-        type: String,
-        default: '',
-      },
       rootLink: {
         type: String,
         default: '',
       },
+      categoryType: {
+        type: String,
+        default: '',
+      }
     },
 
     components: {
@@ -87,14 +82,6 @@
         height 100%
         display flex
         position relative
-    }
-    .marker {
-        position absolute
-        top 0
-        left 0
-        width 8px
-        height 100%
-        background #f0f9eb
     }
     .root__contentWrapper {
         display flex

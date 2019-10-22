@@ -1,16 +1,22 @@
+const fs = require('fs');
+const path = require('path');
+
 const deepmerge = require('deepmerge');
-const technologyListMixin = require('../_mixins/technologyList');
-module.exports = {
+const technologyListMixin = require('../_mixins');
+module.exports = deepmerge(technologyListMixin, {
+    langIconRawSvg: fs.readFileSync(path.resolve(__dirname, './russia-18.svg')).toString(),
+    searchPlaceholderText: 'Введите интересующий вам запрос',
     homePage: {
         welcomeText: 'Добро пожаловать в документацию о всей платформе Waves',
         or: 'Или',
         technologyCategoriesText: 'Обзор по теме или категории технологии',
         technologyCategories: {
+            all: 'Всё',
             beginners: 'Начальный',
             advanced: 'Продвинутый',
             supplementary: 'Дополнительно',
         },
-        technologyList: deepmerge(technologyListMixin, {
+        technologyList: {
             learnAboutWavesPlatform: {
                 title: 'Узнайте о платформе Waves',
                 caption: 'Обзор основных функций Waves Platform. Протокол, консенсус, криптография. Понять значение, которое предлагает блокчейн.',
@@ -129,7 +135,7 @@ module.exports = {
                     },
                 ],
             }
-        }),
+        },
     },
 
     label: 'Русский',
@@ -283,4 +289,4 @@ module.exports = {
         ]
 
     }
-}
+});

@@ -1,108 +1,100 @@
 <template>
     <div :class="$style.root">
         <template v-if="$themeLocaleConfig.homePage">
-
             <Navbar
                 ref="navbar"
-                :class="$style.navbar"
+                :class="[$style.root__cell1, $style.navbar]"
                 :is-home-page-mod="true"
             />
-
-            <div :class="[$style.root__row, $style.root__row2]">
-                {{ $themeLocaleConfig.homePage.welcomeText }}
-                <SearchBox
-                    :class="$style.searchBox"
-                    :is-full-size="true"
-                />
-            </div>
-
-            <div :class="[$style.root__row, $style.root__row3]">
-
-                <div :class="$style.technologyCategoryCheckboxes">
-                <span :class="$style.technologyCategoryCheckboxes__row1">
-                    {{ $themeLocaleConfig.homePage.or }}
-                </span>
-                    <div :class="$style.technologyCategoryCheckboxes__row2">
-
-                    <span :class="[$style.technologyCategoryCheckboxes__row2__part, $style.technologyCategoryCheckboxes__row2__text]">
-                        {{ $themeLocaleConfig.homePage.technologyCategoriesText }}
-                    </span>
-
-                        <div :class="[$style.technologyCategoryCheckboxes__row2__part, $style.technologyCategoryTags]">
-                            <el-tag
-                                v-for="(technologyCategoryValue, technologyCategoryKey) of $themeLocaleConfig.homePage.technologyCategories"
-                                :key="technologyCategoryKey"
-                                :type="technologyCategoryKey === 'advanced' ? '' :
-                        technologyCategoryKey === 'beginners' ? 'success' :
-                        technologyCategoryKey === 'supplementary' && 'info'"
-                                :class="$style.technologyCategoryTag"
-                            >
-                                {{ technologyCategoryValue }}
-                            </el-tag>
+            <div :class="$style.root__cell2">
+                <main :class="$style.mainContentCell">
+                    <div :class="[$style.mainContentCell__row, $style.mainContentCell__row2]">
+                        <h1
+                            v-if="layoutWidth > 719"
+                            :class="$style.mainContentCell__row2__text">
+                            {{ $themeLocaleConfig.homePage.welcomeText }}
+                        </h1>
+                        <div :class="$style.searchBoxWrapper">
+                            <SearchBox
+                                ref="searchBox"
+                                :class="$style.searchBox"
+                                :is-full-size="true"
+                            />
                         </div>
 
-                        <!--                    <el-checkbox-group-->
-                        <!--                        v-model="activeTechnologyCategories"-->
-                        <!--                        :class="$style.technologyCategoryCheckboxes__row2__group"-->
-                        <!--                    >-->
-                        <!--                        <el-checkbox-button-->
-                        <!--                            v-for="technologyCategory of technologyCategories"-->
-                        <!--                            :key="technologyCategory"-->
-                        <!--                            :label="technologyCategory"-->
-                        <!--                        >-->
-                        <!--                            {{ technologyCategory }}-->
-                        <!--                        </el-checkbox-button>-->
-                        <!--                    </el-checkbox-group>-->
                     </div>
-                </div>
-                <ul :class="$style.categoryCards">
-                    <!--v-if="activeTechnologyCategories.includes(category.type)"-->
-                    <li
-                        v-for="(category, index) of categories"
-                        :key="index"
-                        :class="$style.categoryCardWrapper">
-                        <CategoryCard
-                            :class="$style.categoryCard"
-                            :marker-color="category.type === 'Advanced' ? '#ecf5ff' :
-                        category.type === 'Beginners' ? '#f0f9eb' :
-                        category.type === 'Supplementary' && '#f4f4f5'"
-                            :root-link="category.rootLink"
-                        >
-                            <div
-                                :class="$style.categoryCard__icon"
-                                v-html="category.iconFilePath"
-                                alt=""
-                                slot="icon"
-                            />
 
-                            <template slot="title">
-                                {{ category.title }}
-                            </template>
+                    <div :class="[$style.mainContentCell__row, $style.mainContentCell__row3]">
 
-                            <template slot="caption">
-                                {{ category.caption }}
-                            </template>
+                        <div :class="$style.technologyCategoryCheckboxes">
+                            <!--                <span :class="$style.technologyCategoryCheckboxes__row1">-->
+                            <!--                    {{ $themeLocaleConfig.homePage.or }}-->
+                            <!--                </span>-->
+                            <div :class="$style.technologyCategoryCheckboxes__row2">
 
+                                <!--                    <span :class="[$style.technologyCategoryCheckboxes__row2__part, $style.technologyCategoryCheckboxes__row2__text]">-->
+                                <!--                        {{ $themeLocaleConfig.homePage.technologyCategoriesText }}-->
+                                <!--                    </span>-->
+                                <TabsPanel
+                                    :class="[
+                                $style.technologyCategoryCheckboxes__row2__part,
+                                $style.technologyCategoryTags
+                            ]"
+                                    :items="technologyCategories"
+                                    active-item-index="all"
+                                    @change="selectCategoryTag"
+                                />
+                            </div>
+                        </div>
 
-                            <template slot="buttonSet">
-                                <!--small-->
-                                <a
-                                    v-for="button of category.buttonSet"
-                                    :href="button.link"
-                                    :class="$style.categoryCard__link"
+                        <ul
+                            ref="categoryCards"
+                            :class="$style.categoryCards">
+                            <li
+                                v-for="(category, index) of technologyCategoriesFiltered"
+                                :key="index"
+                                :class="$style.categoryCardWrapper">
+                                <CategoryCard
+                                    :class="$style.categoryCard"
+                                    :root-link="category.rootLink"
+                                    :category-type="technologyCategories[category.type]"
                                 >
-                                    <el-button size="mini">
-                                        {{ button.text }}
-                                    </el-button>
-                                </a>
-                            </template>
-                        </CategoryCard>
-                    </li>
-                </ul>
+                                    <div
+                                        :class="$style.categoryCard__icon"
+                                        v-html="category.iconFilePath"
+                                        alt=""
+                                        slot="icon"
+                                    />
+
+                                    <template slot="title">
+                                        {{ category.title }}
+                                    </template>
+
+                                    <template slot="caption">
+                                        {{ category.caption }}
+                                    </template>
+
+
+                                    <template slot="buttonSet">
+                                        <a
+                                            v-for="button of category.buttonSet"
+                                            :href="button.link"
+                                            :class="$style.categoryCard__link"
+                                        >
+                                            <el-button size="mini">
+                                                {{ button.text }}
+                                            </el-button>
+                                        </a>
+                                    </template>
+                                </CategoryCard>
+                            </li>
+                        </ul>
+                    </div>
+                </main>
+                <Footer/>
             </div>
 
 
-            <Footer/>
         </template>
     </div>
 </template>
@@ -113,24 +105,66 @@
   import CategoryCard from './components/CategoryCard'
   import Logotype from '@theme/components/Logotype'
   import Footer from '@theme/components/Footer'
+  import TabsPanel from '@theme/components/TabsPanel'
+
+  import watchLayoutWidthMixin from './mixins/watchLayoutWidth'
 
   export default {
+    mixins: [
+      watchLayoutWidthMixin,
+    ],
+
     components: {
       Navbar,
       SearchBox,
       CategoryCard,
       Logotype,
       Footer,
+      TabsPanel,
     },
 
     data () {
       return {
+        currentTechnologyCategoryFilter: 'all',
       }
     },
 
     computed: {
+      layoutWidth () {
+        return this.$store.state.interface.layoutWidth
+      },
       categories() {
         return Object.values(this.$themeLocaleConfig.homePage.technologyList);
+      },
+      technologyCategories() {
+        return this.$themeLocaleConfig.homePage.technologyCategories;
+      },
+      technologyCategoriesFiltered() {
+        if(this.currentTechnologyCategoryFilter === 'all') {
+          return this.categories;
+        }
+        return this.categories.filter(category => {
+          return category.type === this.currentTechnologyCategoryFilter;
+        });
+      },
+    },
+
+    mounted () {
+      if(!this.$isServer) {
+        const categoryCardsRefElement = this.$refs.categoryCards;
+        const searchBoxRefElement = this.$refs.searchBox.$el;
+        // erd.listenTo(categoryCardsRefElement, element => {
+        //   console.log('element:', element, searchBoxRefElement)
+        //   const searchBoxRefElementWight = searchBoxRefElement.offsetWidth;
+        //   searchBoxRefElement.style.maxWidth =
+        // });
+      }
+    },
+
+    methods: {
+      selectCategoryTag(categoryTagName) {
+        console.log('categoryTagName:', categoryTagName);
+        this.currentTechnologyCategoryFilter = categoryTagName;
       },
     },
   }
@@ -142,30 +176,54 @@
         display flex
         flex-direction column
         /*padding 20px*/
+        height 100vh
+        width 100vw
+    }
+    .root__cell1 {
+        flex-shrink 0
+    }
+    .root__cell2 {
+        height 100%
+        overflow-y auto
+        overflow-x hidden
+        display flex
+        flex-direction column
+        justify-content space-between
+        background-color $color1
+    }
+    .mainContentCell {
+
     }
     .navbar {
         left 0
+        z-index 1
     }
-    .root__row {
+    .mainContentCell__row {
         display flex
         flex-direction column
         align-items center
     }
-    .root__row1 {
+    .mainContentCell__row1 {
         margin-top 0px
     }
-    .root__row2 {
-        margin-top 70px
+    .mainContentCell__row2 {
         z-index 1
+        background-color #fff
+        padding 30px 0
     }
-    .root__row3 {
+    .mainContentCell__row2__text {
+        text-align center
+        width 100%
+        padding 0 40px
+    }
+    .mainContentCell__row3 {
         margin-top 45px
-        background-color $color1
     }
     .technologyCategoryCheckboxes {
         display flex
         flex-direction column
-        justify-content center
+        justify-content flex-start
+        width 100%
     }
     .technologyCategoryCheckboxes__row1 {
         text-transform uppercase
@@ -179,10 +237,11 @@
         align-items center
         margin-top 45px
         flex-wrap wrap
-        justify-content center
+        justify-content flex-start
+        padding 0 40px
     }
     .technologyCategoryCheckboxes__row2__part {
-        padding 0 10px
+        /*padding 0 10px*/
     }
     .technologyCategoryTags {
         display flex
@@ -191,6 +250,12 @@
         &:not(:first-child) {
             margin-left 15px
         }
+        &:not(.technologyCategoryTag_active) {
+            cursor pointer
+        }
+    }
+    .technologyCategoryTag_active {
+        font-weight bold
     }
     .technologyCategoryCheckboxes__row2__text {
         font-weight: bold;
@@ -202,10 +267,14 @@
         max-width 400px
         width 100%
     }
-    .searchBox {
-        max-width 600px
+    .searchBoxWrapper {
+        /*max-width 600px*/
         width 100%
         margin-top 10px
+        padding 0 40px
+    }
+    .searchBox {
+        width 100%
     }
     .categoryCards {
         display flex

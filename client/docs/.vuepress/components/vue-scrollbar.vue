@@ -74,6 +74,9 @@ export default {
     if (!this.$isServer) {
       this.__init();
       erd.listenTo(this.$refs.content, () => {
+        if(!this.ps) {
+          return
+        }
         this.ps.update();
       });
     }
@@ -96,6 +99,9 @@ export default {
     },
     update() {
       if (this.ps) {
+        if(!this.ps) {
+          return
+        }
         this.ps.update()
       }
     },
@@ -105,6 +111,9 @@ export default {
           this._ps_inited = true
           this.ps = new PerfectScrollbar(this.$el, this.settings)
         } else {
+          if(!this.ps) {
+            return
+          }
           this.ps.update()
         }
       }

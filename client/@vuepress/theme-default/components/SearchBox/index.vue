@@ -12,7 +12,7 @@
       @keyup.enter="go(focusIndex)"
       @keyup.up.prevent.stop="onUp"
       @keyup.down.prevent.stop="onDown"
-      placeholder="Search for answer"
+      :placeholder="$themeLocaleConfig.searchPlaceholderText"
     >
     <ul
       class="suggestions"

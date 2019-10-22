@@ -1,16 +1,21 @@
-const deepmerge = require('deepmerge')
-const technologyListMixin = require('../_mixins/technologyList')
-module.exports = {
+const fs = require('fs');
+const path = require('path');
+const deepmerge = require('deepmerge');
+const mixin = require('../_mixins');
+module.exports = deepmerge(mixin, {
+    langIconRawSvg: fs.readFileSync(path.resolve(__dirname, './britain-18.svg')).toString(),
+    searchPlaceholderText: 'Search for answer',
     homePage: {
         welcomeText: 'Welcome to the documentation on everything about Waves platform',
         or: 'Or',
         technologyCategoriesText: 'Browse by topic or technology category',
         technologyCategories: {
+            all: 'All',
             beginners: 'Beginners',
             advanced: 'Advanced',
             supplementary: 'Supplementary'
         },
-        technologyList: deepmerge(technologyListMixin, {
+        technologyList: {
             learnAboutWavesPlatform: {
                 title: 'Learn about Waves Platform',
                 caption: 'Overview of the Waves Platform main features. Protocol, consensus, cryptography. Understand the value a blockchain offers.',
@@ -123,7 +128,7 @@ module.exports = {
                     },
                 ],
             }
-        })
+        },
     },
 
     label: 'English',
@@ -520,4 +525,4 @@ module.exports = {
         ]
 
     }
-}
+});

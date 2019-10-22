@@ -1,113 +1,127 @@
 <template>
     <div
-        :class="['theme-container', pageClasses]"
+        :class="[$style.root, 'theme-container', pageClasses]"
         @touchstart="onTouchStart"
         @touchend="onTouchEnd"
     >
-
+<!--        <div :class="$style.root__cell1">-->
+<!--            -->
+<!--        </div>-->
         <Navbar
             v-if="shouldShowNavbar"
             ref="navbar"
-            :class="$style.navbar"
+            :class="[$style.root__cell1, $style.navbar]"
             :style="{
-        maxWidth: navbarMaxWidth,
-      }"
+                // maxWidth: navbarMaxWidth,
+              }"
             @toggle-sidebar="toggleSidebar"
         />
 
         <div
-            class="sidebar-mask"
-            @click="toggleSidebar(false)"
-        ></div>
+            v-if="layoutWidth < 720"
+            :class="$style.root__cell2">
+            <SearchBox
+                ref="searchBox"
+                :class="$style.searchBox"
+                :is-full-size="true"
+            />
+        </div>
 
-        <Sidebar
-            ref="sidebar1"
-            :sidebar-toggle-trigger-options="{
+        <div :class="$style.root__cell3">
+            <!--        <div-->
+            <!--            class="sidebar-mask"-->
+            <!--            @click="toggleSidebar(false)"-->
+            <!--        ></div>-->
+
+            <Sidebar
+                ref="sidebar1"
+                :sidebar-toggle-trigger-options="{
                 isShow: layoutWidth > 719,
               }"
-            :items="sidebarItems"
-            :mod="layoutWidth > 719 ? 1 : 0"
-            :is-default-show="sidebar1Show"
-            :sidebar-min-width-px="sidebarMinWidthPx"
-            :class="[
-        $style.sidebar,
-        $style.sidebar1,
-        sidebar1Show && $style._isShow,
-        layoutWidth > 719 && $style._bigLayoutWidth,
-      ]"
-            :style="{
-        minWidth: sidebarMinWidthPx + 'px',
-      }"
-            @toggleSidebar="toggleLeftSidebar"
-        >
-            <div
-                ref="sidebar1__header"
-                :class="$style.sidebar1__header"
-                slot="header">
-                <router-link
-                    :to="$localePath"
-                    class="home-link"
-                >
-                    <Logotype :class="$style.logotype"/>
-                </router-link>
-            </div>
-            <slot
-                name="sidebar-top"
-                slot="top"
-            />
-            <slot
-                name="sidebar-bottom"
-                slot="bottom"
-            />
-        </Sidebar>
+                :items="sidebarItems"
+                :mod="layoutWidth > 719 ? 1 : 0"
+                :is-default-show="sidebar1Show"
+                :sidebar-min-width-px="sidebarMinWidthPx"
+                :class="[
+                $style.sidebar,
+                $style.sidebar1,
+                sidebar1Show && $style._isShow,
+                layoutWidth > 719 && $style._bigLayoutWidth,
+            ]"
+                :style="{
+                minWidth: sidebarMinWidthPx + 'px',
+            }"
+                @toggleSidebar="toggleLeftSidebar"
+            >
+                <div
+                    ref="sidebar1__header"
+                    :class="$style.sidebar1__header"
+                    slot="header">
+                    <router-link
+                        :to="$localePath"
+                        class="home-link"
+                    >
+                        <Logotype :class="$style.logotype"/>
+                    </router-link>
+                </div>
+                <slot
+                    name="sidebar-top"
+                    slot="top"
+                />
+                <slot
+                    name="sidebar-bottom"
+                    slot="bottom"
+                />
+            </Sidebar>
 
-        <Home v-if="$page.frontmatter.home"/>
+            <Home v-if="$page.frontmatter.home"/>
 
-        <Page
-            v-else
-            :sidebar-items="sidebarItems"
-            :class="$style.page"
-            :style="pageContainerStile"
-        >
-            <slot
-                name="page-top"
-                slot="top"
-            />
-            <slot
-                name="page-bottom"
-                slot="bottom"
-            />
-        </Page>
-        <Sidebar
-            v-show="layoutWidth > 719"
-            ref="sidebar2"
-            :sidebar-toggle-trigger-options="{
+            <Page
+                v-else
+                :sidebar-items="sidebarItems"
+                :class="$style.page"
+                :style="pageContainerStile"
+            >
+                <slot
+                    name="page-top"
+                    slot="top"
+                />
+                <slot
+                    name="page-bottom"
+                    slot="bottom"
+                />
+            </Page>
+            <Sidebar
+                v-show="layoutWidth > 719"
+                ref="sidebar2"
+                :sidebar-toggle-trigger-options="{
                 isShow: /*navbarSubHeaders.length*/true,
               }"
-            side="right"
-            :items="[$page]"
-            :mod="sidebar2Mod"
-            :is-default-show="sidebar2Show"
-            :sidebar-min-width-px="sidebarMinWidthPx"
-            :class="[
+                side="right"
+                :items="[$page]"
+                :mod="sidebar2Mod"
+                :is-default-show="sidebar2Show"
+                :sidebar-min-width-px="sidebarMinWidthPx"
+                :class="[
                 $style.sidebar,
                 $style.sidebar2,
                 sidebar2Show && $style._isShow
               ]"
-            :style="{
-        minWidth: sidebarMinWidthPx + 'px',
-      }"
-            @toggle-sidebar="toggleSidebar"
-        >
-            <slot
-                name="sidebar-top"
-                slot="top"
-            />
-            <slot
-                name="sidebar-bottom"
-                slot="bottom"
-            />
-        </Sidebar>
+                :style="{
+                minWidth: sidebarMinWidthPx + 'px',
+              }"
+                @toggle-sidebar="toggleSidebar"
+            >
+                <slot
+                    name="sidebar-top"
+                    slot="top"
+                />
+                <slot
+                    name="sidebar-bottom"
+                    slot="bottom"
+                />
+            </Sidebar>
+        </div>
     </div>
 </template>
 
@@ -117,16 +131,23 @@
   import Page from '@theme/components/Page.vue'
   import Sidebar from '@theme/components/Sidebar/'
   import Logotype from '@theme/components/Logotype'
+  import SearchBox from '@theme/components/SearchBox/'
+  import watchLayoutWidthMixin from './mixins/watchLayoutWidth'
   import { resolveSidebarItems } from '../util'
-  import elementResizeDetectorMaker from 'element-resize-detector'
 
   export default {
+
+    mixins: [
+      watchLayoutWidthMixin,
+    ],
+
     components: {
       Home,
       Page,
       Sidebar,
       Navbar,
-      Logotype
+      Logotype,
+      SearchBox,
     },
 
     data () {
@@ -148,7 +169,6 @@
     },
 
     computed: {
-
       headerHeight () {
         return this.$store.state.interface.headerHeight;
       },
@@ -157,7 +177,7 @@
         const isPadding = this.layoutWidth > 719;
 
         return Object.assign(isPadding && {
-          paddingTop: this.headerHeight + 'px',
+          // paddingTop: this.headerHeight + 'px',
           // paddingLeft: this.sidebar1Show ? this.pageContentPaddingLeftPx + 'px' : 0,
           // paddingRight: this.sidebar2Show ? this.pageContentPaddingRightPx + 'px' : 0,
           paddingLeft: this.pageContentPaddingLeftPx + 'px',
@@ -221,10 +241,6 @@
         ]
       },
 
-      layoutWidth () {
-        return this.$store.state.interface.layoutWidth
-      },
-
       navbarSubHeaders () {
         // return [];
         return this.$store.state.navbarSubHeaders
@@ -244,9 +260,12 @@
     },
 
     watch: {
-      // '$store.state.interface.layoutWidth'(newValue) {
-      //   console.log('newValue:', newValue);
-      // }
+      layoutWidth(newValue) {
+        if(this.layoutWidth < 720) {
+          this.sidebar1Show = false;
+        }
+        console.log('newValue:', newValue);
+      },
 
       navbarSubHeaders: {
         async handler (newValue) {
@@ -265,57 +284,36 @@
       }
     },
 
-    async beforeMount () {
-      // this.$data.items = await axios.get('https://reqres.in/api/users')
-      // console.log('this test:', this.$data.items);
-    },
-
     mounted () {
       this.$router.afterEach(() => {
         this.isSidebarOpen = false
       })
 
       if (!this.$isServer) {
-        this.elementResizeDetector = elementResizeDetectorMaker({
-          strategy: 'scroll'
-        })
+        this.resizeCallback = this.setSidebarResizeDetector('sidebar1', 'pageContentPaddingLeftPx', element => {
+          this.navbarMaxWidthPx = document.body.clientWidth - element.offsetWidth - 1
+        });
+
+
         this.setSidebarStateWatcher('sidebar1', 'sidebar1Show')
         this.setSidebarStateWatcher('sidebar2', 'sidebar2Show')
 
-        const sidebar1ResizeCallback = this.setSidebarResizeDetector('sidebar1', 'pageContentPaddingLeftPx', element => {
-          this.navbarMaxWidthPx = document.body.clientWidth - element.offsetWidth - 1
-        })
-
         this.setSidebarResizeDetector('sidebar2', 'pageContentPaddingRightPx')
-
-        window.addEventListener('resize', () => {
-
-          this.setInterfaceInnerWidthLayout()
-          sidebar1ResizeCallback()
-        })
-        this.setInterfaceInnerWidthLayout()
 
         this.elementResizeDetector.listenTo(this.$refs.navbar.$el, element => {
             const navbarHeight = element.offsetHeight
             this.$refs.sidebar1__header.style.height = navbarHeight - 1 + 'px';
-            console.log('this.$store:', this.$store);
             this.$store.commit('setHeaderHeight', navbarHeight);
-            console.log('navbarHeight:', navbarHeight, this.headerHeight)
         })
 
       }
     },
 
     beforeDestroy () {
-      window.removeEventListener('resize', this.setInterfaceInnerWidthLayout)
+      window.removeEventListener('resize', this.setInterfaceInnerWidthLayout);
     },
 
     methods: {
-
-      setInterfaceInnerWidthLayout () {
-        this.$store.commit('setInterfaceInnerWidthLayout', window.innerWidth)
-      },
-
       setSidebarResizeDetector (sidebarRefName, pageContentPaddingSide, callback) {
         const element = this.$refs[sidebarRefName].$el
         const resizeFunction = () => {
@@ -372,12 +370,41 @@
 <!--<style src="../styles/theme.styl" lang="stylus"></style>-->
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 <style lang="stylus" module>
+    .root {
+        /*max-width 1000px*/
+        /*width 100%*/
+        display flex
+        flex-direction column
+        height 100vh
+        width 100vw
+        overflow hidden
+    }
+    .root__cell1 {
+
+    }
     .navbar {
         right 0
         width 100%
         justify-content space-between
+        flex-shrink 0
+        z-index 1
     }
 
+
+    .root__cell2 {
+        flex-shrink 0
+        padding 15px 20px
+        border-bottom 1px solid $borderColor
+    }
+
+    .searchBox {
+        width 100%
+    }
+
+    .root__cell3 {
+        height 100%
+        overflow auto
+    }
     .sidebar {
         font-size: 16px;
         background-color: #fff;
@@ -392,7 +419,7 @@
     .sidebar1 {
         top: 0;
         left: 0;
-
+        width 100%
         &:not(._isShow) {
 
         }
@@ -402,7 +429,7 @@
         }
 
         &:not(._bigLayoutWidth) {
-            top: $navbarHeight;
+            /*top: $navbarHeight;*/
         }
     }
 
@@ -432,6 +459,6 @@
     .page {
         transition-duration $toggleSidebarTransitionDuration
         /*margin 0 1rem*/
-        padding-top 3rem
+        /*padding-top 3rem*/
     }
 </style>

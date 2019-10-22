@@ -9,15 +9,17 @@
     <!--</el-breadcrumb>-->
     <div :class="$style.page__header">
       <div
-        class="edit-link"
+          :class="$style.editLinkWrapper"
         v-if="editLink"
       >
         <a
+            :class="$style.editLink"
           :href="editLink"
           target="_blank"
           rel="noopener noreferrer"
-        >{{ editLinkText }}</a>
-        <OutboundLink/>
+        >
+            <el-button size="small" icon="el-icon-edit"/>
+        </a>
       </div>
     </div>
 
@@ -70,8 +72,6 @@
 
 <script>
 import { isActive, resolvePage, outboundRE, endingSlashRE } from '../util'
-
-
 
 export default {
   props: ['sidebarItems'],
@@ -236,6 +236,8 @@ function flatten (items, res) {
 
 </script>
 
+
+
 <style lang="stylus" module>
   .page__header {
     width 100%
@@ -245,6 +247,15 @@ function flatten (items, res) {
       color lighten($textColor, 25%)
     }
   }
+    .editLinkWrapper {
+        display flex
+        width 100%
+        visibility hidden
+        justify-content flex-end
+    }
+    .editLink {
+        visibility visible
+    }
 </style>
 
 <style lang="stylus">
@@ -259,11 +270,6 @@ function flatten (items, res) {
   padding-top 1rem
   padding-bottom 1rem
   overflow auto
-  .edit-link
-    display inline-block
-    a
-      color lighten($textColor, 25%)
-      margin-right 0.25rem
   .last-updated
     float right
     font-size 0.9em
@@ -286,14 +292,4 @@ function flatten (items, res) {
     overflow auto // clear float
   .next
     float right
-
-@media (max-width: $MQMobile)
-  .page-edit
-    .edit-link
-      margin-bottom .5rem
-    .last-updated
-      font-size .8em
-      float none
-      text-align left
-
 </style>

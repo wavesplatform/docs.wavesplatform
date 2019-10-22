@@ -1,70 +1,57 @@
 <template>
-    <header :class="['navbar', isHomePageMod && $style.navbar_isHomePageMod]">
-        <Logotype
-            v-if="isHomePageMod"
-            :class="[$style.logotype, $style._isHomePageMod]"/>
+    <header :class="[$style.root, isHomePageMod && $style.root_isHomePageMod]">
+        <div :class="[$style.root__wrapper, isHomePageMod && $style.root__wrapper_isHomePageMod]">
+            <Logotype
+                v-if="isHomePageMod"
+                :class="[$style.logotype, $style._isHomePageMod]"/>
 
-        <SidebarButton
-            v-if="!isHomePageMod && layoutWidth < 720"
-            @toggle-sidebar="$emit('toggle-sidebar')"/>
-        <div
-            class="links"
-            :style="{
+            <SidebarButton
+                v-if="!isHomePageMod && layoutWidth < 720"
+                @toggle-sidebar="$emit('toggle-sidebar')"/>
+
+            <router-link
+                v-if="!isHomePageMod && layoutWidth < 720"
+                :to="$localePath"
+                :class="$style.logotype2Wrapper"
+            >
+                <Logotype :class="$style.logotype2"/>
+            </router-link>
+
+
+            <div
+                :class="[
+                $style.links,
+                isHomePageMod && $style.links_isHomePageMod
+            ]"
+                :style="{
                 maxWidth: linksWrapMaxWidth ? linksWrapMaxWidth + 'px' : '',
                 justifyContent: isHomePageMod ? 'flex-end' : '',
             }"
-        >
-            <!--      <NavLinks-->
-            <!--          v-if="!isHomePageMod"-->
-            <!--          :class="['can-hide', $style.navLinks]"-->
-            <!--      />-->
-
-            <div
-                :class="$style.navbar__cell"
-                :style="{
-                    justifyContent: layoutWidth > 719 ? 'space-between' : 'flex-end',
-                }"
             >
-                <SearchBox
-                    v-if="($site.themeConfig.search !== false && $page.frontmatter.search !== false) && !isHomePageMod"
-                    :class="$style.searchBox"
-                    :is-full-size="layoutWidth > 719"
-                />
-                <!--
-                    fill="#ecf5ff"
-                    text-color="#409EFF"
-                -->
-                <el-radio-group
-                    v-model="currentLanguage"
-                    :class="$style.languageRadioGroup"
-                    size="small"
-                    @change="$router.push($event)"
+                <!--      <NavLinks-->
+                <!--          v-if="!isHomePageMod"-->
+                <!--          :class="['can-hide', $style.navLinks]"-->
+                <!--      />-->
+                <div
+                    :class="$style.root__cell"
+                    :style="{
+                    justifyContent: (layoutWidth > 719 && !isHomePageMod) ? 'space-between' : 'flex-end',
+                }"
                 >
-                    <el-radio-button
-                        v-for="(languageItem, index) in languageNavDropdown.items"
-                        :key="index"
-                        :label="languageItem.link"
-                    >
-                        {{languageItem.text}}
-                    </el-radio-button>
-                </el-radio-group>
+                    <SearchBox
+                        v-if="
+                        ($site.themeConfig.search !== false && $page.frontmatter.search !== false)
+                        &&
+                        !isHomePageMod
+                        &&
+                        layoutWidth > 719
+                    "
+                        :class="$style.searchBox"
+                        :is-full-size="true"
+                    />
+                    <SwitchLanguage/>
+                </div>
             </div>
-
-
-            <!--      <div :class="$style.languagesNav">-->
-            <!--        <template v-for="(languageItem, index) in languageNavDropdown.items">-->
-            <!--          <span-->
-            <!--            v-if="index > 0"-->
-            <!--            :class="$style.languagesNav__separator"/>-->
-            <!--          <NavLink-->
-            <!--            :key="languageItem.link"-->
-            <!--            :item="languageItem"-->
-            <!--            :class="$style.languagesNav__link"-->
-            <!--          />-->
-            <!--        </template>-->
-
-            <!--      </div>-->
-
         </div>
     </header>
 </template>
@@ -75,6 +62,7 @@
     import NavLinks from '@theme/components/NavLinks.vue'
     import NavLink from '@theme/components/NavLink.vue'
     import Logotype from '@theme/components/Logotype'
+    import SwitchLanguage from './SwitchLanguage'
 
     const css = function (el, property) {
         // NOTE: Known bug, will return 'auto' if style value is 'auto'
@@ -82,7 +70,6 @@
         // null means not to return pseudo styles
         return win.getComputedStyle(el, null)[property]
     };
-
 
     export default {
         props: {
@@ -98,6 +85,7 @@
             NavLink,
             SearchBox,
             Logotype,
+            SwitchLanguage,
         },
 
         data() {
@@ -108,36 +96,6 @@
         },
 
         computed: {
-            languageNavDropdown() {
-                const {locales} = this.$site;
-                let languageDropdown = [];
-                if (locales && Object.keys(locales).length > 1) {
-                    const currentLink = this.$page.path
-                    const routes = this.$router.options.routes
-                    const themeLocales = this.$site.themeConfig.locales || {}
-                    languageDropdown = {
-                        text: this.$themeLocaleConfig.selectText || 'Languages',
-                        items: Object.keys(locales).map(path => {
-                            const locale = locales[path]
-                            const text = themeLocales[path] && themeLocales[path].label || locale.lang
-                            let link
-                            // Stay on the current page
-                            if (locale.lang === this.$lang) {
-                                link = currentLink
-                            } else {
-                                // Try to stay on the same page
-                                link = currentLink.replace(this.$localeConfig.path, path)
-                                // fallback to homepage
-                                if (!routes.some(route => route.path === link)) {
-                                    link = path
-                                }
-                            }
-                            return {text, link}
-                        })
-                    }
-                }
-                return languageDropdown;
-            },
           layoutWidth () {
             return this.$store.state.interface.layoutWidth;
           },
@@ -166,18 +124,46 @@
             this.currentLanguage = this.$page.path;
         },
     }
-
-
 </script>
 
 <style lang="stylus" module>
-    .navbar_isHomePageMod {
-        .navbar__cell{
+    $navbar-vertical-padding = 0.7rem;
+    $navbar-horizontal-padding = 1.5rem;
+
+    .root {
+        padding 20px
+        display flex
+        height 60px
+        border-bottom 1px solid $borderColor
+    }
+
+    .root__wrapper {
+        display flex
+        width 100%
+        justify-content space-between
+    }
+
+    .logotype2Wrapper {
+        width 100%
+        height 100%
+        max-width 200px
+    }
+    .logotype2 {
+        width 100%
+        height 100%
+    }
+
+    .root__wrapper_isHomePageMod {
+        .root__cell{
             justify-content flex-end
         }
     }
 
-    .navbar__cell {
+    .root_isHomePageMod {
+
+    }
+
+    .root__cell {
         display flex
         align-items center
         justify-content space-between
@@ -194,7 +180,8 @@
     }
 
     .searchBox {
-        margin-left 1rem
+        /*margin-left 1rem*/
+        width 100%
     }
 
     .languageRadioGroup {
@@ -251,7 +238,6 @@
             }
         }
     }
-
     .languagesNav__separator {
         width 1px
         height 30px
@@ -259,52 +245,29 @@
         margin 0 .5rem
         opacity .3
     }
+    .links {
+        visibility hidden
+        height 100vh
+        /*padding-left 1.5rem*/
+        box-sizing border-box
+        background-color white
+        white-space nowrap
+        font-size 0.9rem
+        /*position absolute*/
+        left $navbar-horizontal-padding
+        top $navbar-vertical-padding
+        display flex
+        align-items flex-start
+        justify-content flex-end
+        &.links_isHomePageMod {
+            width 100%
+        }
+        &:not(.links_isHomePageMod) {
 
+        }
+        & > * {
+            visibility visible
+        }
+    }
 </style>
 
-<style lang="stylus">
-$navbar-vertical-padding = 0.7rem
-$navbar-horizontal-padding = 1.5rem
-
-.navbar
-  padding $navbar-vertical-padding $navbar-horizontal-padding
-  line-height $navbarHeight - 1.4rem
-  display flex
-  a, span, img
-    display inline-block
-  .logo
-    height $navbarHeight - 1.4rem
-    min-width $navbarHeight - 1.4rem
-    margin-right 0.8rem
-    vertical-align top
-  .site-name
-    font-size 1.3rem
-    font-weight 600
-    color $textColor
-    position relative
-  .links
-    visibility hidden
-    height 100vh
-    width 100%
-    /*padding-left 1.5rem*/
-    box-sizing border-box
-    background-color white
-    white-space nowrap
-    font-size 0.9rem
-    /*position absolute*/
-    left $navbar-horizontal-padding
-    top $navbar-vertical-padding
-    display flex
-    align-items flex-start
-    justify-content flex-end
-    &>*
-      visibility visible
-
-@media (max-width: $MQMobile)
-  .navbar
-    /*padding-left 4rem*/
-    .can-hide
-      display none
-    .links
-      /*padding-left 1.5rem*/
-</style>

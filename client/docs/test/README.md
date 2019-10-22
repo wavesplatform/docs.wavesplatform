@@ -1,4 +1,6 @@
-
+---
+layout: Test
+---
 
 [Component documentation](https://element.eleme.io/#/en-US/component/alert)
 

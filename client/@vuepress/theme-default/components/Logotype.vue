@@ -12,7 +12,9 @@
                 <path
                     d="M95.716 13.639s-1.918-.395-3.5-.746c-1.45-.33-2.186-.747-2.186-1.756 0-1.076 1.048-1.976 3.3-1.976 2.208 0 3.434.966 3.434 1.822l.379.33h3.21l.246-.308c0-2.261-1.985-4.961-7.18-4.961-5.417 0-7.112 3.139-7.112 5.158 0 1.69.624 3.688 4.771 4.632l3.568.79c1.806.396 2.564 1.01 2.564 2.042 0 .944-.959 2.085-3.456 2.085-2.319 0-3.724-1.097-3.79-2.392l-.402-.33h-3.277l-.245.33c.29 2.897 2.474 5.619 7.692 5.619 5.908 0 7.112-3.556 7.112-5.422 0-2.502-1.45-4.127-5.128-4.917z"/>
             </g>
-            <text font-family="Helvetica" font-size="1rem" font-weight="100" fill="#000"
+            <text
+                v-if="isShowAdditionalText"
+                font-family="Helvetica" font-size="1rem" font-weight="100" fill="#000"
                   transform="translate(0 -1)">
                 <tspan x="127" y="24">Docs</tspan>
             </text>
@@ -22,7 +24,12 @@
 
 <script>
 export default {
-
+    props: {
+      isShowAdditionalText: {
+        type: Boolean,
+        default: true,
+      }
+    },
 }
 </script>
 

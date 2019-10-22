@@ -3,8 +3,13 @@
 @require './arrow'
 @require './wrapper'
 @require './toc'
+
+
+
 * {
     box-sizing border-box
+    margin 0
+    padding 0
 }
 html, body
   padding 0
@@ -16,9 +21,12 @@ body
   //font-family 'SuisseIntl'
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
+  height 100vh
   font-size 15px
   font-weight 100
   color $textColor
+  position: fixed;
+  overflow: hidden;
 
 
 a {
@@ -33,9 +41,9 @@ a {
   //padding-left $sidebarWidth
 
 .navbar
-  position fixed
-  z-index 20
-  top 0
+  //position fixed
+  //z-index 20
+  //top 0
   width 100%
   height $navbarHeight
   background-color #fff
@@ -97,8 +105,8 @@ blockquote
   & > p
     margin 0
 
-ul, ol
-  padding-left 1.2em
+//ul, ol
+//  padding-left 1.2em
 li
     list-style none
 strong

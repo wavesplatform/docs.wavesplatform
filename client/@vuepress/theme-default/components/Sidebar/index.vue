@@ -67,6 +67,13 @@
         </div>
       </div>
     </div>
+    <div
+        v-if="mod === 0"
+        :class="$style.closeOverlay"
+        @click="isShow = false"
+    >
+
+    </div>
   </aside>
 </template>
 
@@ -186,8 +193,11 @@ export default {
   .sidebarWrapper2 {
     visibility hidden
     display flex
-    max-width 300px
-
+    /*max-width 300px*/
+    width 100%
+    /*transition width .3s*/
+    position relative
+    overflow hidden
     &._side_left {
       justify-content: flex-start;
       .resizeTrigger {
@@ -228,6 +238,7 @@ export default {
       }
     }
     &:not(._isShow) {
+        transition .3s
       /*width 0*/
       &._side_left {
         .sidebarWrapper {
@@ -245,14 +256,16 @@ export default {
     }
   }
   .sidebarWrapper {
+    flex-shrink 0
     /*min-width 80px*/
     visibility: visible;
     display flex
     height 100%
     margin-left: 0
     position: relative;
-    width: 100%
+    width: calc(100% - 40px)
     transition width $toggleSidebarTransitionDuration
+    max-width 300px
   }
 
   .resizeTrigger {
@@ -356,6 +369,14 @@ export default {
     display flex
     align-items center
     /*justify-content flex-end*/
+  }
+
+  .closeOverlay {
+      display flex
+      visibility visible
+      height 100%
+      width 100%
+      background-color $color5
   }
 </style>
 
