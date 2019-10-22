@@ -21,12 +21,7 @@
 
 <script>
 import PerfectScrollbar from 'perfect-scrollbar'
-
 const elementResizeDetectorMaker = require('element-resize-detector');
-const erd = elementResizeDetectorMaker({
-  strategy: 'scroll',
-});
-
 
 export default {
   name:'vue-scrollbar',
@@ -72,8 +67,11 @@ export default {
   mounted() {
     // for support ssr
     if (!this.$isServer) {
+      this.erd = elementResizeDetectorMaker({
+        strategy: 'scroll',
+      });
       this.__init();
-      erd.listenTo(this.$refs.content, () => {
+      this.erd.listenTo(this.$refs.content, () => {
         if(!this.ps) {
           return
         }

@@ -138,6 +138,83 @@ module.exports = deepmerge(technologyListMixin, {
         },
     },
 
+    footer: {
+        broughtToYouByWavesTeam: 'Сделано для вас командой Waves.',
+        resourcesCategories: {
+            productsAndTools: {
+                title: 'Продукты & инструменты',
+                links: {
+                    wavesWallet: {
+                        title: 'Waves Wallet',
+                    },
+                    wavesKeeper: {
+                        title: 'Waves Keeper',
+                    },
+                    wavesBlockchain: {
+                        title: 'Waves Blockchain',
+                    },
+                    WavesIde: {
+                        title: 'Waves IDE',
+                    },
+                    wavesExplorer: {
+                        title: 'Waves Explorer',
+                    },
+                },
+            },
+            forDevelopers: {
+                title: 'Для разработчиков',
+                links: {
+                    gitHub: {
+                        title: 'GitHub',
+                    },
+                    api: {
+                        title: 'API',
+                    },
+                    stackOverflow: {
+                        title: 'Stack Overflow',
+                    },
+                    wavesLabs: {
+                        title: 'Waves Labs',
+                    },
+                },
+            },
+            legal: {
+                title: 'Legal',
+                links: {
+                    privacyPolicy: {
+                        title: 'Политика конфиденциальности',
+                    },
+                    termsOfUse: {
+                        title: 'Условия использования',
+                    },
+                    cookies: {
+                        title: 'Cookies',
+                    },
+                    gdpr: {
+                        title: 'GDPR',
+                    },
+                },
+            },
+            social: {
+                title: 'Social',
+                links: {
+                    blog: {
+                        title: 'Блог',
+                    },
+                    twitter: {
+                        title: 'Twitter',
+                    },
+                    telegram: {
+                        title: 'Telegram',
+                    },
+                    forum: {
+                        title: 'Форум',
+                    },
+                },
+            },
+        },
+    },
+
     label: 'Русский',
     selectText: 'Язык',
     editLinkText: 'Изменить эту страницу на GitHub',
