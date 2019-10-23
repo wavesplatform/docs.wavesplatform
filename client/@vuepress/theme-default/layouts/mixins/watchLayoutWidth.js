@@ -13,16 +13,13 @@ export default {
         },
     },
 
-    created() {
+
+
+    mounted () {
         if (!this.$isServer) {
             this.elementResizeDetector = elementResizeDetectorMaker({
                 strategy: 'scroll'
             })
-        }
-    },
-
-    mounted () {
-        if (!this.$isServer) {
             window.addEventListener('resize', () => {
                 this.setInterfaceInnerWidthLayout();
                 if(this.resizeCallback) {

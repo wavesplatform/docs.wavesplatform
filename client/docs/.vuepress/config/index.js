@@ -76,9 +76,9 @@ module.exports = (ctx) => {
                 after: '</UpgradePath>'
             }],
         ],
-        extraWatchFiles: [
-            '.vuepress/locales/**',
-        ],
+        // extraWatchFiles: [
+        //     '.vuepress/locales/**',
+        // ],
         configureWebpack(config, isServer) {
             // console.log('configureWebpack config:', config, isServer)
 

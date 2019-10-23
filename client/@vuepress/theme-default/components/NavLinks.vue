@@ -1,5 +1,6 @@
 <template>
-  <vue-scrollbar :class="$style.root">
+    <!--vue-scrollbar-->
+  <div :class="$style.root">
     <nav
       class="nav-links"
       v-if="userLinks.length || repoLink"
@@ -32,7 +33,7 @@
         <!--<OutboundLink/>-->
       <!--</a>-->
     </nav>
-  </vue-scrollbar>
+  </div>
 </template>
 <script>
 import DropdownLink from '@theme/components/DropdownLink.vue'
