@@ -1,6 +1,9 @@
 <template>
     <header :class="[$style.root, isHomePageMod && $style.root_isHomePageMod]">
-        <WidthLimit :class="[$style.root__wrapper, isHomePageMod && $style.root__wrapper_isHomePageMod]">
+        <WidthLimit
+            :class="[$style.root__wrapper, isHomePageMod && $style.root__wrapper_isHomePageMod]"
+            :type="2"
+        >
             <Logotype
                 v-if="isHomePageMod"
                 :class="[$style.logotype, $style._isHomePageMod]"/>
