@@ -2,12 +2,11 @@
     <div
         ref="root"
         :class="$style.root">
-        <span
+        <div
             :class="$style.currentLangIconWrapper"
+            v-html="currentLanguageParams.langIconRawSvg"
             @click="toggleLangList"
-        >
-            <div v-html="currentLanguageParams.langIconRawSvg"></div>
-        </span>
+        ></div>
 
         <el-card
             :class="[$style.langListCard, isShowLangList && $style.langListCard_isShow]"
@@ -137,12 +136,14 @@
     }
     .currentLangIconWrapper {
         cursor pointer
+        display flex
     }
     .langListCard {
         position absolute
         top 100%
         right 0
         transition .3
+        margin-top 40px
         &:not(.langListCard_isShow) {
             visibility hidden
             opacity 0
@@ -152,7 +153,7 @@
         margin 5px 0
     }
     .langList__item {
-        padding 5px 10px
+        padding 12px 16px
         display flex
         align-items center
         justify-content space-between
@@ -184,15 +185,22 @@
         align-items center
     }
     .langList__title {
-        margin-left 10px
+        margin-left 8px
         flex-shrink 0
+        height: 16px;
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
     }
     .checkMark {
         transition .3s
         width 12px
         display flex
         position relative
-        margin-left 10px
+        margin-left 30px
         flex-shrink 0
         &:after {
             content: '';

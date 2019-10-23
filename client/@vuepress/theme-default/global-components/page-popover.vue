@@ -38,7 +38,7 @@ export default {
       template: test
     });
     // this.t=t
-    console.log('this:', t)
+    // console.log('this:', t)
   }
 }
 </script>

@@ -1,5 +1,10 @@
 <template>
-    <el-card :class="$style.root">
+    <el-card
+        :class="$style.root"
+        :body-style="{
+            padding: '32px'
+        }"
+    >
         <div :class="$style.root__contentWrapper">
             <a :href="rootLink" :class="$style.root__row1">
                 <div :class="$style.iconWrapper">
@@ -105,14 +110,23 @@
         justify-content flex-end
     }
     .title {
-        text-align center
+        text-align left
         display flex
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color $color7
+        border none
+        padding 0
+        margin-top 3px
     }
     .iconWrapper {
         display flex
         justify-content center
-        max-height 40px
-        height 100%
+        height 80px
         position relative
         margin-bottom 10px
         padding-bottom 1px
@@ -120,12 +134,27 @@
     .icon {
         height auto
     }
+    .categoryType {
+        color $color6
+        font-size 14px
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        margin-top 56px
+    }
     .caption {
-        margin-top 10px
-        color initial
-        font-weight 100
+        margin-top 16px
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color $color8
     }
     .buttonSet {
-        margin 25px -4px -4px -4px
+        margin 40px -4px -4px -4px
     }
 </style>

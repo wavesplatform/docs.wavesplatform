@@ -64,14 +64,15 @@ export default {
       this.update()
     }
   },
-  mounted() {
+  async mounted() {
     // for support ssr
     if (!this.$isServer) {
       this.erd = elementResizeDetectorMaker({
         strategy: 'scroll',
       });
       this.__init();
-      this.erd.listenTo(this.$refs.content, () => {
+      this.erd.listenTo(this.$refs.content, async() => {
+        await this.$nextTick();
         if(!this.ps) {
           return
         }
@@ -95,7 +96,8 @@ export default {
     scrollHandle(evt) {
       this.$emit(evt.type, evt)
     },
-    update() {
+    async update() {
+      await this.$nextTick();
       if (this.ps) {
         if(!this.ps) {
           return

@@ -264,7 +264,7 @@
         if(this.layoutWidth < 720) {
           this.sidebar1Show = false;
         }
-        console.log('newValue:', newValue);
+        // console.log('newValue:', newValue);
       },
 
       navbarSubHeaders: {

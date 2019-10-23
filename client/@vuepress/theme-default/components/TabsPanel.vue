@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.root">
-      <vue-scrollbar
-          ref="test"
+      <div
+          ref="scrollbar"
           :class="$style.scrollbar"
       >
           <ul :class="$style.tabsList">
@@ -27,7 +27,7 @@
               left: markerLeft + 'px',
           }"
           ></div>
-      </vue-scrollbar>
+      </div>
   </div>
 </template>
 
@@ -65,12 +65,18 @@
     },
     async mounted() {
       await this.$nextTick();
+      this.$refs.scrollbar.addEventListener('scroll', this.updateMarkerParams);
       this.updateMarkerParams();
+
     },
 
     async updated() {
       await this.$nextTick();
       this.updateMarkerParams();
+    },
+
+    beforeDestroy() {
+      this.$refs.scrollbar.removeEventListener('scroll', this.updateMarkerParams);
     },
 
     methods: {
@@ -83,11 +89,14 @@
         if(!itemRefElements) {
           return
         }
+        const scrollbarElement = this.$refs.scrollbar;
         const itemRefElement = itemRefElements[0];
         const itemRefElementBoundingClientRect = itemRefElement.getBoundingClientRect();
         this.markerMaxWidth = itemRefElementBoundingClientRect.width;
-        this.markerTop = itemRefElement.offsetTop + itemRefElementBoundingClientRect.height;
-        this.markerLeft = itemRefElement.offsetLeft;
+
+
+        this.markerTop = itemRefElement.offsetTop + itemRefElementBoundingClientRect.height - scrollbarElement.scrollTop;
+        this.markerLeft = itemRefElement.offsetLeft - scrollbarElement.scrollLeft;
       },
     }
   }
@@ -101,18 +110,25 @@
 
     }
     .scrollbar {
-
+        max-width 100%
+        overflow-x auto
     }
     .tabsList {
         display flex
         margin 0 0 20px 0
     }
     .tabsList__item {
+        font-size: 18px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        letter-spacing: normal;
         &:not(.tabsList__item_active) {
             cursor pointer
+            color $color8
         }
         &:not(:first-child) {
-            margin-left 15px
+            margin-left 40px
         }
     }
     .tabsList__item_active {

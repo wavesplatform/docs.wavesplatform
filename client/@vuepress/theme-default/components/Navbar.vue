@@ -1,6 +1,6 @@
 <template>
     <header :class="[$style.root, isHomePageMod && $style.root_isHomePageMod]">
-        <div :class="[$style.root__wrapper, isHomePageMod && $style.root__wrapper_isHomePageMod]">
+        <WidthLimit :class="[$style.root__wrapper, isHomePageMod && $style.root__wrapper_isHomePageMod]">
             <Logotype
                 v-if="isHomePageMod"
                 :class="[$style.logotype, $style._isHomePageMod]"/>
@@ -52,11 +52,12 @@
                     <SwitchLanguage/>
                 </div>
             </div>
-        </div>
+        </WidthLimit>
     </header>
 </template>
 
 <script>
+    import WidthLimit from '@theme/components/WidthLimit'
     import SearchBox from '@theme/components/SearchBox/'
     import SidebarButton from '@theme/components/SidebarButton.vue'
     import NavLinks from '@theme/components/NavLinks.vue'
@@ -80,6 +81,7 @@
         },
 
         components: {
+            WidthLimit,
             SidebarButton,
             NavLinks,
             NavLink,
@@ -131,10 +133,11 @@
     $navbar-horizontal-padding = 1.5rem;
 
     .root {
-        padding 20px
+        padding 20px 0
         display flex
-        height 60px
+        height 72px
         border-bottom 1px solid $borderColor
+        justify-content center
     }
 
     .root__wrapper {
@@ -172,7 +175,8 @@
 
     .logotype {
         height 100%
-        min-width 100px
+        min-width 164px
+
     }
 
     .navLinks {
@@ -247,7 +251,7 @@
     }
     .links {
         visibility hidden
-        height 100vh
+        /*height 100vh*/
         /*padding-left 1.5rem*/
         box-sizing border-box
         background-color white
@@ -257,10 +261,10 @@
         left $navbar-horizontal-padding
         top $navbar-vertical-padding
         display flex
-        align-items flex-start
+        align-items center
         justify-content flex-end
         &.links_isHomePageMod {
-            width 100%
+            /*width 100%*/
         }
         &:not(.links_isHomePageMod) {
 

@@ -1,10 +1,16 @@
 <template>
-  <div class="search-box">
+  <div :class="$style.searchBox">
+      <img
+          :class="$style.searchBox__icon"
+          src="./search-24-basic-300.svg"
+          alt="">
     <input
       @input="query = $event.target.value"
       aria-label="Search"
       :value="query"
-      :class="{ focused: isFullSize || focused }"
+      :class="[$style.input, {
+            [$style.focused]: isFullSize || focused,
+      }]"
       autocomplete="off"
       spellcheck="false"
       @focus="focused = true"
@@ -15,24 +21,34 @@
       :placeholder="$themeLocaleConfig.searchPlaceholderText"
     >
     <ul
-      class="suggestions"
+      :class="[$style.suggestions, {
+        [$style.alignRight]: alignRight
+      }]"
       v-if="showSuggestions"
-      :class="{ 'align-right': alignRight }"
       @mouseleave="unfocus"
     >
 <!--        <li :class="['suggestion']">-->
 <!--            -->
 <!--        </li>-->
       <li
-        class="suggestion"
+        :class="[$style.suggestion, {
+            [$style.focused]: suggestionIndex === focusIndex,
+        }]"
         v-for="(suggestion, suggestionIndex) in suggestions"
-        :class="{ focused: suggestionIndex === focusIndex }"
         @mousedown="go(suggestionIndex)"
         @mouseenter="focus(suggestionIndex)"
       >
-        <a :href="suggestion.path" @click.prevent>
-          <span class="page-title">{{ suggestion.title || suggestion.path }}</span>
-          <span v-if="suggestion.header" class="header">&gt; {{ suggestion.header.title }}</span>
+        <a
+            :href="suggestion.path"
+            :class="$style.suggestion__link"
+            @click.prevent
+        >
+          <span :class="$style.pageTitle">
+              {{ suggestion.title || suggestion.path }}
+          </span>
+          <span v-if="suggestion.header" :class="$style.header">
+              {{ suggestion.header.title }}
+          </span>
         </a>
       </li>
     </ul>
@@ -212,43 +228,46 @@ export default {
 
       let searchResultData = searchResult.data;
 
-      console.log('searchResultData:', searchResultData);
+      // console.log('searchResultData:', searchResultData);
       if(!searchResultData || !Array.isArray(searchResultData)) {
         searchResultData = [];
       }
       // console.log('searchResultData:', searchResultData);
 
-      const newSearchResultListComponentExemplar = new this.constructor.super({
-        ...this.$options.components.SearchFrameContent,
-        propsData: {
-          searchResult: searchResultData,
-        },
-      });
+      // const newSearchResultListComponentExemplar = new this.constructor.super({
+      //   ...this.$options.components.SearchFrameContent,
+      //   propsData: {
+      //     searchResult: searchResultData,
+      //   },
+      // });
+      //
+      // const newSearchResultListComponentExemplarMountedPromise = new Promise(resolve => newSearchResultListComponentExemplar.$once('hook:mounted', resolve))
+      //
+      // newSearchResultListComponentExemplar.$mount();
 
-      const newSearchResultListComponentExemplarMountedPromise = new Promise(resolve => newSearchResultListComponentExemplar.$once('hook:mounted', resolve))
+      // await newSearchResultListComponentExemplarMountedPromise;
+      // await this.$nextTick();
 
-      newSearchResultListComponentExemplar.$mount();
+      // console.log('newSearchResultListComponentExemplar:', newSearchResultListComponentExemplar);
 
-      await newSearchResultListComponentExemplarMountedPromise;
-      await this.$nextTick();
-
-      console.log('newSearchResultListComponentExemplar:', newSearchResultListComponentExemplar);
-
+      // console.log('this.$options.components.SearchFrameContent:', this.$options.components.SearchFrameContent)
       this.$msgbox({
         customClass: this.$style.messageBoxWithSearchResult,
-        title: '',
+        // title: '',
         message: this.$createElement(this.$options.components.SearchFrameContent, {
           key: this.currentMessageBoxKey++,
           props: {
             searchResult: searchResultData,
+            query: this.query,
           },
         })/*newSearchResultListComponentExemplar._vnode*/,
         showCancelButton: false,
         showConfirmButton: false,
+        showClose: false,
         // confirmButtonText: 'OK',
         cancelButtonText: 'Cancel',
         beforeClose: (action, instance, done) => {
-          newSearchResultListComponentExemplar.$destroy();
+          // newSearchResultListComponentExemplar.$destroy();
           // if (action === 'confirm') {
           //   instance.confirmButtonLoading = true;
           //   instance.confirmButtonText = 'Loading...';
@@ -277,6 +296,123 @@ export default {
 </script>
 
 <style lang="stylus" module>
+    .searchBox {
+        display inline-flex
+        position relative
+        width 100%
+        height 100%
+        align-items center
+    }
+    .searchBox__icon {
+        position absolute
+        height 80%
+        z-index 1
+        max-width 24px
+        min-height 16px
+        margin-left 20px
+        @media screen and (max-width: 719px) {
+            max-width 16px
+            margin-left 16px
+        }
+    }
+    .input {
+        height 100%
+        width 100%
+        cursor pointer
+        color lighten($textColor, 25%)
+        display inline-block
+        border /*1px solid transparent*/none
+        border-radius 4px
+        font-size 24px
+        padding 0 10px 0 60px
+        outline none
+        position relative
+        transition all .2s ease
+        /*background #fff url(search-24-basic-300.svg) 0.6rem 0.5rem no-repeat*/
+        background-color $color2
+        background-size 1rem
+        &::placeholder {
+            font-size: 24px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+        }
+        &.focused {
+            border-color $borderColor
+            cursor text
+            left 0
+            width 100%
+            &:focus {
+                border-color $accentColor
+            }
+        }
+        &:not(.focused) {
+            width 0
+        }
+
+        @media screen and (max-width: 719px) {
+            font-size: 14px;
+            padding-left: 38px
+            &::placeholder {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .suggestions {
+        background #fff
+        width 100%
+        position absolute
+        top 100%
+        /*border 1px solid darken($borderColor, 10%)*/
+        border-radius 0 0 4px 4px
+        padding 0.4rem
+        list-style-type none
+        box-shadow 0 2px 12px 0 rgba(0,0,0,.1)
+        &.alignRight {
+            left 0
+        }
+    }
+
+    .suggestion {
+        line-height 1.4
+        padding 0.4rem 0.6rem
+        border-radius 4px
+        cursor pointer
+        &.focused {
+            background-color #f3f4f5
+            .suggestion__link {
+                color $accentColor
+            }
+        }
+        .suggestion__link {
+            white-space normal
+            font-size: 18px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.2;
+            letter-spacing: normal;
+            color $color7
+            .pageTitle {
+                font-weight 600
+            }
+            .header {
+                font-size 0.9em
+                margin-left 0.25em
+                color $color8
+                font-size: 16px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.75;
+                letter-spacing: normal;
+            }
+        }
+    }
+
     .messageBoxWithSearchResult {
         max-height calc(100% - 40px);
         max-width 600px
@@ -287,102 +423,27 @@ export default {
         :global(.el-message-box__header, .el-message-box__content) {
             flex-shrink 0
         }
+        :global(.el-message-box__header) {
+            padding 0
+            /*display none*/
+        }
         :global(.el-message-box__content) {
             height 100%
-            overflow-x hidden
-            overflow-y auto
+            overflow hidden
+            /*overflow-x hidden*/
+            /*overflow-y auto*/
+            padding 0
+        }
+        :global(.el-message-box__message) {
+            height 100%
+            overflow: hidden;
+        }
+        @media screen and (max-width: 719px) {
+            width 100%
+            max-width inherit
+            height 100%
+            max-height initial
         }
     }
 </style>
 
-<style lang="stylus">
-.search-box
-  display inline-flex
-  position relative
-  input
-    /*height 64px*/
-    cursor pointer
-
-    color lighten($textColor, 25%)
-    display inline-block
-    border /*1px solid transparent*/none
-    border-radius 4px
-    font-size 0.9rem
-    line-height 2rem
-    padding 0 0.5rem 0 2rem
-    outline none
-    position relative
-    transition all .2s ease
-    background #fff url(search-24-basic-300.svg) 0.6rem 0.5rem no-repeat
-    background-color $color2
-    background-size 1rem
-    &.focused {
-        border-color $borderColor
-        cursor text
-        left 0
-        /*max-width 12rem*/
-        width 100%
-        &:focus {
-            border-color $accentColor
-        }
-    }
-    &:not(.focused) {
-        width 0
-    }
-  .suggestions
-    background #fff
-    width 100%
-    position absolute
-    top 1.5rem
-    border 1px solid darken($borderColor, 10%)
-    border-radius 6px
-    padding 0.4rem
-    list-style-type none
-    &.align-right
-      left 0
-  .suggestion
-    line-height 1.4
-    padding 0.4rem 0.6rem
-    border-radius 4px
-    cursor pointer
-    a
-      white-space normal
-      color lighten($textColor, 35%)
-      .page-title
-        font-weight 600
-      .header
-        font-size 0.9em
-        margin-left 0.25em
-    &.focused
-      background-color #f3f4f5
-      a
-        color $accentColor
-
-@media (max-width: $MQNarrow)
-  .search-box
-    input
-      cursor pointer
-      border-color transparent
-      position relative
-
-// Match IE11
-@media all and (-ms-high-contrast: none)
-  .search-box input
-    height 2rem
-
-@media (max-width: $MQNarrow) and (min-width: $MQMobile)
-  .search-box
-    .suggestions
-      left 0
-
-@media (max-width: $MQMobile)
-  .search-box
-    margin-right 0
-    .suggestions
-      right 0
-
-@media (max-width: $MQMobileNarrow)
-  .search-box
-    .suggestions
-      width calc(100vw - 4rem)
-</style>

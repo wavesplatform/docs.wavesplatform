@@ -14,9 +14,9 @@
             </g>
             <text
                 v-if="isShowAdditionalText"
-                font-family="Helvetica" font-size="1rem" font-weight="100" fill="#000"
-                  transform="translate(0 -1)">
-                <tspan x="127" y="24">Docs</tspan>
+                :class="$style.text"
+                 fill="#000">
+                <tspan x="127" y="26">Docs</tspan>
             </text>
         </g>
     </svg>
@@ -33,6 +33,9 @@ export default {
 }
 </script>
 
-<style lang="stylus">
-
+<style lang="stylus" module>
+    .text {
+        font-size 24px
+        font-weight 400
+    }
 </style>

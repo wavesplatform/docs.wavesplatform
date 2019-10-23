@@ -4,20 +4,13 @@
           :href="item.path"
           :class="$style.link"
       >
-          <el-divider
-              :class="$style.title"
-              content-position="left"
-          >
-              <div :class="$style.title__text">
-                  <template
-                      v-for="titleMatch of titleMatches"
-                  >
-                      <span :class="[Array.isArray(titleMatch) && $style._highlight]">{{(Array.isArray(titleMatch)? titleMatch[0] : titleMatch) | trim}}</span>
-                  </template>
-              </div>
-
-
-          </el-divider>
+          <div :class="$style.title">
+              <template
+                  v-for="titleMatch of titleMatches"
+              >
+                  <span :class="[Array.isArray(titleMatch) && $style._highlight]">{{(Array.isArray(titleMatch)? titleMatch[0] : titleMatch) | trim}}</span>
+              </template>
+          </div>
 
           <div
             :class="$style.description">
@@ -128,7 +121,7 @@
         display flex
         flex-direction column
         &:not(:first-child) {
-            margin-top 15px
+            margin-top 16px
         }
     }
     .link {
@@ -139,10 +132,13 @@
         }
     }
     .title {
-
-    }
-    .title__text {
-
+        color $color4
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.75;
+        letter-spacing: normal;
     }
     .description {
         color initial
@@ -150,12 +146,20 @@
         /*white-space pre-line*/
         display flex
         flex-wrap wrap
+        margin-top 5px
     }
     .description__cell {
         display flex
-        border 1px solid #ddd
-        margin 3px
+        /*border 1px solid #ddd*/
+        /*margin 3px*/
         padding 1px
+        color $color7
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.71;
+        letter-spacing: normal;
     }
     .description__cell__part {
         display flex

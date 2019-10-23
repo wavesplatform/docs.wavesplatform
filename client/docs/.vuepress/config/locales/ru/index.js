@@ -5,7 +5,7 @@ const deepmerge = require('deepmerge');
 const technologyListMixin = require('../_mixins');
 module.exports = deepmerge(technologyListMixin, {
     langIconRawSvg: fs.readFileSync(path.resolve(__dirname, './russia-18.svg')).toString(),
-    searchPlaceholderText: 'Введите интересующий вам запрос',
+    searchPlaceholderText: 'Введите интересующий вас запрос',
     homePage: {
         welcomeText: 'Добро пожаловать в документацию о всей платформе Waves',
         or: 'Или',

@@ -110,7 +110,7 @@ module.exports = (ctx) => {
             // page.matches.reduce((accumulator, ) => {
             //
             // }, {})
-            console.log('page:', page);
+            // console.log('page:', page);
             return {
                 path: page.item.path,
                 title: page.item.title,
