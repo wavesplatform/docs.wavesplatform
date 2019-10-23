@@ -3,6 +3,7 @@ WORKDIR /app
 COPY ./ /app
 RUN rm -rf node_modules && \
     yarn && \
-    yarn run build
+    yarn run build && \
+    yarn run production-server:dev && \
+    isDev=true yarn dev
 
-ENTRYPOINT yarn run production-server:dev && isDev=true yarn dev
