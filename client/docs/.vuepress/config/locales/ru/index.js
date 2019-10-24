@@ -12,7 +12,7 @@ module.exports = deepmerge(technologyListMixin, {
         technologyCategoriesText: 'Обзор по теме или категории технологии',
         technologyCategories: {
             all: 'Всё',
-            beginners: 'Начальный',
+            beginner: 'Начальный',
             advanced: 'Продвинутый',
             supplementary: 'Дополнительно',
         },
@@ -20,85 +20,21 @@ module.exports = deepmerge(technologyListMixin, {
             learnAboutWavesPlatform: {
                 title: 'Узнайте о платформе Waves',
                 caption: 'Обзор основных функций Waves Platform. Протокол, консенсус, криптография. Понять значение, которое предлагает блокчейн.',
-                buttonSet: [
-                    {
-                        text: 'Протокол',
-                        link: '#'
-                    },
-                    {
-                        text: 'Консенсус',
-                        link: '#'
-                    },
-                    {
-                        text: 'Глоссарий',
-                        link: '#'
-                    },
-                ]
             },
             node: {
                 rootLink: '#',
                 title: 'Нода',
                 caption: 'Узнайте о полном узле Waves. Как установить ноду. Конфигурация узла и API. Работа с расширениями узлов: matcher, gRPC server.',
-                buttonSet: [
-                    {
-                        text: 'Node API',
-                        link: '#',
-                    },
-                    {
-                        text: 'Matcher',
-                        link: '#',
-                    },
-                    {
-                        text: 'gRPC',
-                        link: '#',
-                    },
-                    {
-                        text: 'Leasing',
-                        link: '#',
-                    },
-                ],
             },
             ecosystemApplications: {
                 rootLink: '#',
                 title: 'Экосистема Приложений',
                 caption: 'Узнайте о экосистемных приложениях Waves.',
-                buttonSet: [
-                    {
-                        text: 'DEX',
-                        link: '#',
-                    },
-                    {
-                        text: 'Explorer',
-                        link: '#',
-                    },
-                    {
-                        text: 'Keeper',
-                        link: '#',
-                    },
-                    {
-                        text: 'Gateways',
-                        link: '#',
-                    },
-                ],
             },
             buildingBlockchainApps: {
                 rootLink: '#',
                 title: 'Создание приложений на блокчейне',
                 caption: 'Узнайте, как создать приложение блокчейн с Waves. Понимание Waves Smart Contracts. API и SDK. Инструменты разработчика.',
-                buttonSet: [
-                    {
-                        text: 'Смарт-контракты',
-                        link: '#',
-                    },
-                    {
-                        text: 'Инструменты',
-                        link: '#',
-                    },
-                    {
-                        text: 'API & SDK',
-                        link: '#',
-                    },
-                ],
             },
             rideProgrammingLanguage: {
                 rootLink: '#',
@@ -109,31 +45,11 @@ module.exports = deepmerge(technologyListMixin, {
                 rootLink: '#',
                 title: 'Дополнительные Сервисы',
                 caption: 'Работа с дополнительными сервисами, построенными на блокчейне Waves: Data Services, Oracles, Token Rating, Market Item, DappOcean, PyWaves Statistics и т. Д.',
-                buttonSet: [
-                    {
-                        text: 'Data Services',
-                        link: '#',
-                    },
-                    {
-                        text: 'Oracles',
-                        link: '#',
-                    },
-                    {
-                        text: 'Token Rating',
-                        link: '#',
-                    },
-                ],
             },
             miscellaneous: {
                 rootLink: '#',
                 title: 'Разное',
                 caption: 'Официальные ресурсы платформы Waves. Читайте статьи на различные темы, посвященные блокчейну Wave. Содействие платформе Waves.',
-                buttonSet: [
-                    {
-                        text: 'Официальные ресурсы',
-                        link: '#',
-                    },
-                ],
             }
         },
     },
@@ -164,6 +80,9 @@ module.exports = deepmerge(technologyListMixin, {
             forDevelopers: {
                 title: 'Для разработчиков',
                 links: {
+                    documentation: {
+                        title: 'Документация',
+                    },
                     gitHub: {
                         title: 'GitHub',
                     },

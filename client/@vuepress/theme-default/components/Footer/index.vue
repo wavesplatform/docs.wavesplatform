@@ -2,11 +2,11 @@
   <footer :class="$style.root">
       <WidthLimit :class="$style.root__widthLimit">
           <div :class="$style.root__cell1">
-              <div :class="$style.root__cell1__cell1">
+              <a href="https://wavesplatform.com" target="_blank" :class="$style.root__cell1__cell1">
                   <Logotype
                       :is-show-additional-text="false"
                       :class="$style.logotype"/>
-              </div>
+              </a>
               <div :class="$style.root__cell1__cell2">
                   {{ footerI18n.broughtToYouByWavesTeam }}
               </div>
@@ -14,7 +14,7 @@
                   © 2019 Waves Platform
               </div>
               <div :class="$style.root__cell1__cell4">
-                  <a :class="$style.mailto"
+                  <a :class="[$style.link, $style.mailto]"
                      href="mailto:support@wavesplatform.com">
                       support@wavesplatform.com
                   </a>
@@ -38,7 +38,7 @@
                               v-for="(categoryLink, categoryLinkKey) of resourcesCategoryI18n.links"
                               :key="categoryLinkKey"
                               :class="$style.categoryLinkWrapper">
-                              <a :class="$style.categoryLink" :href="categoryLink.link">
+                              <a :class="[$style.link, $style.categoryLink]" :href="categoryLink.link">
                                   {{categoryLink.title}}
                               </a>
                           </li>
@@ -74,8 +74,15 @@
 
 
 <style lang="stylus" module>
-    $resourcesCategoryPadding = 20px
-    $resourcesCategoryPadding_min = 10px
+    $resourcesCategoryPadding-t-b = 20px
+    $resourcesCategoryPadding-l-r = 38px
+    $resourcesCategoryPadding_min = 3px
+    .link {
+        transition .3s
+        &:hover {
+            color $color7
+        }
+    }
     .root {
         padding 64px 0
         background-color $color3
@@ -83,6 +90,9 @@
         justify-content center
         flex-wrap wrap
         align-items flex-start
+        @media screen and (max-width: 719px) {
+            padding 33px 0 64px 0
+        }
     }
     .root__widthLimit {
         display flex
@@ -94,7 +104,9 @@
     }
     .root__cell1 {
         margin-bottom 40px
-        margin-right 40px
+        /*margin-right 40px*/
+        flex-shrink 0
+        padding-right 32px
     }
     .root__cell1__cell1 {
         height 22px
@@ -112,12 +124,15 @@
     }
     .root__cell1__cell2 {
         margin-top 26px
+        @media screen and (max-width: 375px) {
+            margin-top: 32px;
+        }
     }
     .root__cell1__cell3 {
-        margin-top 8px
+        margin-top 10px
     }
     .root__cell1__cell4 {
-        margin-top 16px
+        margin-top 19px
     }
     .logotype {
         /*width 100%*/
@@ -128,21 +143,33 @@
     .root__cell2 {
         display flex
         flex-wrap wrap
-        margin -($resourcesCategoryPadding)
+        margin (- $resourcesCategoryPadding-t-b) (- $resourcesCategoryPadding-l-r)
+        width 100%
+        justify-content center
+        @media screen and (max-width: 872px) {
+            justify-content flex-start
+        }
         @media screen and (max-width: 679px) {
             margin: -($resourcesCategoryPadding_min)
+            justify-content space-between
         }
+
     }
     .resourcesCategoryI18n {
-        padding $resourcesCategoryPadding
-        width 220px
+        padding $resourcesCategoryPadding-t-b $resourcesCategoryPadding-l-r
+        /*width 220px*/
+        &:not(:first-child) {
+            /*margin-left 36px*/
+        }
+        @media screen and (max-width: 742px) {
+            width calc(50% - 10px)
+        }
         @media screen and (max-width: 679px) {
-            width 180px
             padding $resourcesCategoryPadding_min
         }
-        @media screen and (max-width: 574px) {
-            min-width 235px
-            width 50%
+        @media screen and (max-width: 320px) {
+            padding $resourcesCategoryPadding_min
+            width 110px
         }
     }
     .resourcesCategoryI18n_wrapper {
@@ -158,12 +185,18 @@
         word-break: break-word;
     }
     .categoryLinks {
-        margin-top 32px
+        margin-top 29px
+        @media screen and (max-width: 375px) {
+            margin-top 21px
+        }
     }
     .categoryLinkWrapper {
         word-break: break-all;
         &:not(:first-child) {
-            margin-top 16px
+            margin-top 9px
+            @media screen and (max-width: 375px) {
+                margin-top 6px
+            }
         }
     }
     .categoryLink {

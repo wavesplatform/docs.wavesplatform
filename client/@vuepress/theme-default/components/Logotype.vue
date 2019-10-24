@@ -16,7 +16,7 @@
                 v-if="isShowAdditionalText"
                 :class="$style.text"
                  fill="#000">
-                <tspan x="127" y="26">Docs</tspan>
+                <tspan x="120" y="24">Docs</tspan>
             </text>
         </g>
     </svg>
@@ -35,7 +35,7 @@ export default {
 
 <style lang="stylus" module>
     .text {
-        font-size 24px
-        font-weight 400
+        font-size 25px
+        font-weight 300
     }
 </style>

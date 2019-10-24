@@ -9,53 +9,124 @@ module.exports = {
     homePage: {
         technologyList: {
             learnAboutWavesPlatform: {
-                rootLink: '#123',
-                type: 'beginners',
+                rootLink: '/en/blockchain/',
+                type: 'beginner',
                 iconFilePath: getRawIcon('./images/category1.svg'),
-                buttonSet: [
-                ],
+                buttonSet: {
+                    nodeApi: {
+                        text: 'Node API',
+                        link: '/en/blockchain/token/non-fungible-token'
+                    },
+                    matcher: {
+                        text: 'Matcher',
+                        link: '/en/blockchain/token/non-fungible-token'
+                    },
+                    gRpc: {
+                        text: 'gRPC',
+                        link: '/en/blockchain/token/non-fungible-token'
+                    },
+                    leasing: {
+                        text: 'Leasing',
+                        link: '/en/blockchain/token/non-fungible-token'
+                    }
+                }
             },
             node: {
-                rootLink: '#',
+                rootLink: '/en/blockchain/',
                 type: 'advanced',
                 iconFilePath: getRawIcon('./images/category2.svg'),
-                buttonSet: [
-                ],
+                buttonSet: {
+                    dex: {
+                        text: 'DEX',
+                        link: '/en/blockchain/token/non-fungible-token',
+                    },
+                    explorer: {
+                        text: 'Explorer',
+                        link: '/en/blockchain/token/non-fungible-token',
+                    },
+                    keeper: {
+                        text: 'Keeper',
+                        link: '/en/blockchain/token/non-fungible-token',
+                    },
+                },
             },
             ecosystemApplications: {
-                rootLink: '#',
-                type: 'beginners',
+                rootLink: '/en/blockchain/',
+                type: 'beginner',
                 iconFilePath: getRawIcon('./images/category3.svg'),
-                buttonSet: [
-                ],
+                buttonSet: {
+                    smartContracts: {
+                        text: 'Smart Contracts',
+                        link: '/en/blockchain/token/non-fungible-token',
+                    },
+                    tools: {
+                        text: 'Tools',
+                        link: '/en/blockchain/token/non-fungible-token',
+                    },
+                    apiAndSdk: {
+                        text: 'API & SDK',
+                        link: '/en/blockchain/token/non-fungible-token',
+                    },
+                },
             },
             buildingBlockchainApps: {
-                rootLink: '#',
+                rootLink: '/en/blockchain/',
                 type: 'advanced',
                 iconFilePath: getRawIcon('./images/rocket.svg'),
-                buttonSet: [
-                ],
+                buttonSet: {
+                    nodeApi: {
+                        text: 'Node API',
+                        link: '/en/blockchain/token/non-fungible-token'
+                    },
+                    matcher: {
+                        text: 'Matcher',
+                        link: '/en/blockchain/token/non-fungible-token'
+                    },
+                    gRpc: {
+                        text: 'gRPC',
+                        link: '/en/blockchain/token/non-fungible-token'
+                    },
+                    leasing: {
+                        text: 'Leasing',
+                        link: '/en/blockchain/token/non-fungible-token'
+                    }
+                }
             },
             rideProgrammingLanguage: {
-                rootLink: '#',
+                rootLink: '/en/blockchain/',
                 type: 'advanced',
                 iconFilePath: getRawIcon('./images/category5.svg'),
-                buttonSet: [
-                ],
+                buttonSet: {},
             },
             additionalServices: {
-                rootLink: '#',
+                rootLink: '/en/blockchain/',
                 type: 'supplementary',
                 iconFilePath: getRawIcon('./images/category6.svg'),
-                buttonSet: [
-                ],
+                buttonSet: {
+                    dataServices: {
+                        text: 'Data Services',
+                        link: '/en/blockchain/token/non-fungible-token',
+                    },
+                    oracles: {
+                        text: 'Oracles',
+                        link: '/en/blockchain/token/non-fungible-token',
+                    },
+                    tokenRating: {
+                        text: 'Token Rating',
+                        link: '/en/blockchain/token/non-fungible-token',
+                    },
+                },
             },
             miscellaneous: {
-                rootLink: '#',
+                rootLink: '/en/blockchain/',
                 type: 'supplementary',
                 iconFilePath: getRawIcon('./images/category7.svg'),
-                buttonSet: [
-                ],
+                buttonSet: {
+                    officialResources: {
+                        text: 'Official Resources',
+                        link: '/en/blockchain/token/non-fungible-token',
+                    },
+                },
             }
         },
     },
@@ -68,36 +139,40 @@ module.exports = {
                 links: {
                     wavesWallet: {
                         title: 'Waves Wallet',
-                        link: '#',
+                        link: 'https://wavesplatform.com/technology/wallet',
                     },
                     wavesKeeper: {
                         title: 'Waves Keeper',
-                        link: '#',
+                        link: 'https://wavesplatform.com/technology/keeper',
                     },
-                    wavesBlockchain: {
-                        title: 'Waves Blockchain',
-                        link: '#',
-                    },
+                    // wavesBlockchain: {
+                    //     title: 'Waves Blockchain',
+                    //     link: '#',
+                    // },
                     WavesIde: {
                         title: 'Waves IDE',
-                        link: '#',
+                        link: 'https://ide.wavesplatform.com/',
                     },
                     wavesExplorer: {
                         title: 'Waves Explorer',
-                        link: '#',
+                        link: 'https://wavesexplorer.com/',
                     },
                 },
             },
             forDevelopers: {
                 title: 'For developers',
                 links: {
+                    documentation: {
+                        title: 'Documentation',
+                        link: 'https://docs.wavesplatform.com',
+                    },
                     gitHub: {
                         title: 'GitHub',
-                        link: '#',
+                        link: 'https://github.com/wavesplatform',
                     },
                     api: {
                         title: 'API',
-                        link: '#',
+                        link: 'https://docs.wavesplatform.com/en/waves-node/node-api.html',
                     },
                     stackOverflow: {
                         title: 'Stack Overflow',
@@ -105,7 +180,7 @@ module.exports = {
                     },
                     wavesLabs: {
                         title: 'Waves Labs',
-                        link: '#',
+                        link: 'https://waveslabs.com',
                     },
                 },
             },
@@ -135,19 +210,19 @@ module.exports = {
                 links: {
                     blog: {
                         title: 'Blog',
-                        link: '#',
+                        link: 'https://blog.wavesplatform.com',
                     },
                     twitter: {
                         title: 'Twitter',
-                        link: '#',
+                        link: 'https://twitter.com/wavesplatform',
                     },
                     telegram: {
                         title: 'Telegram',
-                        link: '#',
+                        link: 'https://t.me/WavesCommunity',
                     },
                     forum: {
                         title: 'Forum',
-                        link: '#',
+                        link: 'https://forum.wavesplatform.com',
                     },
                 },
             },

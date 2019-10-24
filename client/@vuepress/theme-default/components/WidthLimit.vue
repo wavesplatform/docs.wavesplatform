@@ -25,14 +25,14 @@ export default {
         max-width 1280px
         padding 0 32px
         @media screen and (max-width: 719px) {
-            padding 0 20px
+            padding 0 25px
         }
     }
     .root_type_2 {
         max-width 1920px
         padding 0 32px
         @media screen and (max-width: 719px) {
-            padding 0 20px
+            padding 0 25px
         }
     }
 

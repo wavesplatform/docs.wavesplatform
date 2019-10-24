@@ -123,12 +123,19 @@
         font-stretch: normal;
         font-style: normal;
         letter-spacing: normal;
+        padding-bottom 3px
         &:not(.tabsList__item_active) {
             cursor pointer
             color $color8
         }
         &:not(:first-child) {
             margin-left 40px
+            @media screen and (max-width: 719px) {
+                margin-left 35px
+            }
+        }
+        @media screen and (max-width: 719px) {
+            font-size: 14px;
         }
     }
     .tabsList__item_active {

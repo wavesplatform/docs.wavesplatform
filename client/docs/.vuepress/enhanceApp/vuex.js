@@ -9,7 +9,7 @@ export default async(context) => {
         defaultLanguage: '',
         currentLanguage: '',
         interface: {
-            layoutWidth: 0,
+            layoutWidth: 1920,
             headerHeight: 0,
         },
         navbarSubHeaders: [],

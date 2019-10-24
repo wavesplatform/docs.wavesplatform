@@ -53,8 +53,8 @@
                                 ref="categoryCards"
                                 :class="$style.categoryCards">
                                 <li
-                                    v-for="(category, index) of technologyCategoriesFiltered"
-                                    :key="index"
+                                    v-for="(category, categoryIndex) of technologyCategoriesFiltered"
+                                    :key="categoryIndex"
                                     :class="$style.categoryCardWrapper">
                                     <CategoryCard
                                         :class="$style.categoryCard"
@@ -79,7 +79,8 @@
 
                                         <template slot="buttonSet">
                                             <a
-                                                v-for="button of category.buttonSet"
+                                                v-for="(button, buttonKey) of category.buttonSet"
+                                                :key="`${categoryIndex}_${buttonKey}`"
                                                 :href="button.link"
                                                 :class="$style.categoryCard__link"
                                             >
@@ -97,7 +98,7 @@
                         </WidthLimit>
                     </div>
                 </main>
-                <Footer/>
+                <Footer :class="$style.footer"/>
             </div>
 
 
@@ -182,13 +183,13 @@
 
 
 <style lang="stylus" module>
-    $categoryCardWrapper-padding = 20px
+    $categoryCardWrapper-padding = 15px
     .root {
         display flex
         flex-direction column
         /*padding 20px*/
-        height 100vh
-        width 100vw
+        height 100%
+        width 100%
     }
     .root__cell1 {
         flex-shrink 0
@@ -242,7 +243,7 @@
     }
     .mainContentCell__row3 {
         /*margin-top 45px*/
-        padding 45px 0
+        padding 52px 0 78px 0
     }
     .mainContentCell__row3__WidthLimit {
 
@@ -252,7 +253,7 @@
         flex-direction column
         justify-content flex-start
         width 100%
-        margin-bottom 20px
+        margin-bottom 30px
     }
     .technologyCategoryCheckboxes__row1 {
         text-transform uppercase
@@ -310,7 +311,7 @@
     .categoryCards {
         display flex
         flex-wrap wrap
-        justify-content center
+        justify-content flex-start
         margin -($categoryCardWrapper-padding)
     }
     .categoryCardWrapper {
@@ -349,5 +350,9 @@
         font-style: normal;
         line-height: normal;
         letter-spacing: normal;
+        padding 4px 10px
+    }
+    .footer {
+        flex-shrink 0
     }
 </style>

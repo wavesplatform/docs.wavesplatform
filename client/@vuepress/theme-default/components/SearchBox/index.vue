@@ -1,24 +1,41 @@
 <template>
-  <div :class="$style.searchBox">
+  <form
+      :class="$style.searchBox"
+      @submit="submitForm"
+  >
       <img
           :class="$style.searchBox__icon"
           src="./search-24-basic-300.svg"
-          alt="">
+          alt=""
+          @click="submitForm"
+      >
     <input
+        type="search"
+        maxlength="1024"
+        aria-autocomplete="both"
+        aria-haspopup="false"
+        autocapitalize="off"
+        autocomplete="off"
+        autocorrect="off"
       @input="query = $event.target.value"
       aria-label="Search"
       :value="query"
       :class="[$style.input, {
             [$style.focused]: isFullSize || focused,
       }]"
-      autocomplete="off"
       spellcheck="false"
       @focus="focused = true"
       @blur="focused = false"
-      @keyup.enter="go(focusIndex)"
       @keyup.up.prevent.stop="onUp"
       @keyup.down.prevent.stop="onDown"
       :placeholder="$themeLocaleConfig.searchPlaceholderText"
+    >
+    <img
+      v-if="query"
+      :class="$style.searchBox__clearIcon"
+      src="./close-16-basic-500.svg"
+      alt=""
+      @click="query = ''"
     >
     <ul
       :class="[$style.suggestions, {
@@ -52,7 +69,7 @@
         </a>
       </li>
     </ul>
-  </div>
+  </form>
 </template>
 
 <script>
@@ -162,6 +179,12 @@ export default {
   },
 
   methods: {
+    submitForm(event) {
+      event.preventDefault();
+      this.go(this.focusIndex);
+      console.log('event:', event);
+    },
+
     getPageLocalePath (page) {
       for (const localePath in this.$site.locales || {}) {
         if (localePath !== '/' && page.path.indexOf(localePath) === 0) {
@@ -303,19 +326,34 @@ export default {
         height 100%
         align-items center
     }
-    .searchBox__icon {
+    .searchBox__icon,
+    .searchBox__clearIcon {
         position absolute
         height 80%
         z-index 1
         max-width 24px
         min-height 16px
-        margin-left 20px
+        cursor pointer
         @media screen and (max-width: 719px) {
             max-width 16px
+        }
+    }
+    .searchBox__icon {
+        left 0
+        margin-left 20px
+        @media screen and (max-width: 719px) {
             margin-left 16px
         }
     }
+    .searchBox__clearIcon {
+        right: 0;
+        margin-right 20px
+        @media screen and (max-width: 719px) {
+            margin-right 16px
+        }
+    }
     .input {
+        -webkit-appearance: none;
         height 100%
         width 100%
         cursor pointer
@@ -338,6 +376,7 @@ export default {
             font-style: normal;
             line-height: normal;
             letter-spacing: normal;
+            color $color9
         }
         &.focused {
             border-color $borderColor

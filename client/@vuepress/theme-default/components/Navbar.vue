@@ -136,11 +136,14 @@
     $navbar-horizontal-padding = 1.5rem;
 
     .root {
-        padding 20px 0
+        /*padding 20px 0*/
         display flex
         height 72px
         border-bottom 1px solid $borderColor
         justify-content center
+        @media screen and (max-width: 719px) {
+            height 57px
+        }
     }
 
     .root__wrapper {
@@ -179,7 +182,9 @@
     .logotype {
         height 100%
         min-width 164px
-
+        @media screen and (max-width: 719px) {
+            min-width 124px
+        }
     }
 
     .navLinks {

@@ -2,7 +2,7 @@
     <el-card
         :class="$style.root"
         :body-style="{
-            padding: '32px'
+            padding: layoutWidth > 719 ? '65px 32px 34px 32px' : '46px 22px 25px 22px',
         }"
     >
         <div :class="$style.root__contentWrapper">
@@ -57,7 +57,9 @@
     },
 
     computed: {
-
+      layoutWidth() {
+        return this.$store.state.interface.layoutWidth;
+      },
     },
 
     watch: {
@@ -122,14 +124,19 @@
         border none
         padding 0
         margin-top 3px
+        @media screen and (max-width: 719px) {
+            font-size 14px
+            margin-top 9px
+        }
     }
     .iconWrapper {
         display flex
         justify-content center
-        height 80px
+        height 65px
         position relative
         margin-bottom 10px
         padding-bottom 1px
+        flex-shrink: 0;
     }
     .icon {
         height auto
@@ -142,7 +149,7 @@
         font-style: normal;
         line-height: normal;
         letter-spacing: normal;
-        margin-top 56px
+        margin-top 39px
     }
     .caption {
         margin-top 16px
@@ -153,8 +160,13 @@
         line-height: 1.5;
         letter-spacing: normal;
         color $color8
+        @media screen and (max-width: 719px) {
+            font-size: 14px
+            line-height: 1.71
+            margin-top: 18px
+        }
     }
     .buttonSet {
-        margin 40px -4px -4px -4px
+        margin 24px -4px -4px -4px
     }
 </style>
