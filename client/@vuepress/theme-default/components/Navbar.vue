@@ -113,20 +113,25 @@
         },
 
         mounted() {
-            const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
-            const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'))
-            const handleLinksWrapWidth = () => {
-                if (document.documentElement.clientWidth < MOBILE_DESKTOP_BREAKPOINT) {
-                    this.linksWrapMaxWidth = null
-                } else {
-                    this.linksWrapMaxWidth = this.$el.offsetWidth - NAVBAR_VERTICAL_PADDING
-                        - (this.$refs.siteName && this.$refs.siteName.offsetWidth || 0)
-                }
-            }
-            handleLinksWrapWidth()
-            window.addEventListener('resize', handleLinksWrapWidth, false)
-
+            // const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
+            // const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'));
+            //
+            //
+            // const handleLinksWrapWidth = () => {
+            //     if (document.documentElement.clientWidth < MOBILE_DESKTOP_BREAKPOINT) {
+            //         this.linksWrapMaxWidth = null
+            //     } else {
+            //         this.linksWrapMaxWidth = this.$el.offsetWidth - NAVBAR_VERTICAL_PADDING
+            //             - (this.$refs.siteName && this.$refs.siteName.offsetWidth || 0)
+            //     }
+            // }
+            // handleLinksWrapWidth()
+            // window.addEventListener('resize', handleLinksWrapWidth, false)
             this.currentLanguage = this.$page.path;
+        },
+
+        methods: {
+
         },
     }
 </script>
@@ -139,8 +144,10 @@
         /*padding 20px 0*/
         display flex
         height 72px
-        border-bottom 1px solid $borderColor
+        border-bottom 1px solid $color3
         justify-content center
+        width 100%
+        background-color #fff
         @media screen and (max-width: 719px) {
             height 57px
         }

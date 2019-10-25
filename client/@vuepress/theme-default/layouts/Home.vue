@@ -1,108 +1,125 @@
 <template>
     <div :class="$style.root">
-        <template v-if="$themeLocaleConfig.homePage">
-            <Navbar
-                ref="navbar"
-                :class="[$style.root__cell1, $style.navbar]"
-                :is-home-page-mod="true"
-            />
-            <div :class="$style.root__cell2">
-                <main :class="$style.mainContentCell">
+<!--        <SearchFrameContent-->
+<!--            v-bind="{-->
+<!--                    searchResult: searchResultData,-->
+<!--                    query,-->
+<!--                    isShowSearchResultWindow,-->
+<!--                  }"-->
+<!--        />-->
+        <Navbar
+            ref="navbar"
+            :class="[$style.root__cell1, $style.navbar]"
+            :is-home-page-mod="true"
+        />
+        <div
+            :class="$style.root__cell2"
+            :style="{
+                    paddingTop: headerHeight + 'px'
+                }"
+        >
+            <main :class="$style.mainContentCell">
 
-                    <div :class="[$style.mainContentCell__row, $style.mainContentCell__row2]">
-                        <WidthLimit :class="$style.mainContentCell__row2__WidthLimit">
-                            <h1
-                                v-if="layoutWidth > 719"
-                                :class="$style.mainContentCell__row2__text">
-                                {{ $themeLocaleConfig.homePage.welcomeText }}
-                            </h1>
-                            <div :class="$style.searchBoxWrapper">
-                                <SearchBox
-                                    ref="searchBox"
-                                    :class="$style.searchBox"
-                                    :is-full-size="true"
-                                />
-                            </div>
-                        </WidthLimit>
-                    </div>
+                <div :class="[$style.mainContentCell__row, $style.mainContentCell__row2]">
+                    <WidthLimit :class="$style.mainContentCell__row2__WidthLimit">
+                        <h1
+                            v-if="layoutWidth > 719"
+                            :class="$style.mainContentCell__row2__text">
+                            {{ $themeLocaleConfig.homePage.welcomeText }}
+                        </h1>
+                        <div :class="$style.searchBoxWrapper">
+                            <SearchBox
+                                ref="searchBox"
+                                :class="$style.searchBox"
+                                :is-full-size="true"
+                            />
+                        </div>
+                    </WidthLimit>
+                    <Suggestions
+                        v-if="layoutWidth < 720"
+                        ref="suggestions"
+                        :class="$style.searchSuggestions"
+                        :mod="1"
+                    />
+                </div>
 
-                    <div :class="[$style.mainContentCell__row, $style.mainContentCell__row3]">
-                        <WidthLimit :class="$style.mainContentCell__row3__WidthLimit">
-                            <div :class="$style.technologyCategoryCheckboxes">
-                                <!--                <span :class="$style.technologyCategoryCheckboxes__row1">-->
-                                <!--                    {{ $themeLocaleConfig.homePage.or }}-->
-                                <!--                </span>-->
-                                <div :class="$style.technologyCategoryCheckboxes__row2">
-
-                                    <!--                    <span :class="[$style.technologyCategoryCheckboxes__row2__part, $style.technologyCategoryCheckboxes__row2__text]">-->
-                                    <!--                        {{ $themeLocaleConfig.homePage.technologyCategoriesText }}-->
-                                    <!--                    </span>-->
-                                    <TabsPanel
-                                        :class="[
+                <div :class="[$style.mainContentCell__row, $style.mainContentCell__row3]">
+                    <WidthLimit :class="$style.mainContentCell__row3__WidthLimit">
+                        <div :class="$style.technologyCategoryCheckboxes">
+                            <!--                <span :class="$style.technologyCategoryCheckboxes__row1">-->
+                            <!--                    {{ $themeLocaleConfig.homePage.or }}-->
+                            <!--                </span>-->
+                            <div :class="$style.technologyCategoryCheckboxes__row2">
+                                <!--                    <span :class="[$style.technologyCategoryCheckboxes__row2__part, $style.technologyCategoryCheckboxes__row2__text]">-->
+                                <!--                        {{ $themeLocaleConfig.homePage.technologyCategoriesText }}-->
+                                <!--                    </span>-->
+                                <TabsPanel
+                                    :class="[
                                 $style.technologyCategoryCheckboxes__row2__part,
                                 $style.technologyCategoryTags
                             ]"
-                                        :items="technologyCategories"
-                                        active-item-index="all"
-                                        @change="selectCategoryTag"
-                                    />
-                                </div>
+                                    :items="technologyCategories"
+                                    active-item-index="all"
+                                    @change="selectCategoryTag"
+                                />
                             </div>
+                        </div>
 
-                            <ul
-                                ref="categoryCards"
-                                :class="$style.categoryCards">
-                                <li
-                                    v-for="(category, categoryIndex) of technologyCategoriesFiltered"
-                                    :key="categoryIndex"
-                                    :class="$style.categoryCardWrapper">
-                                    <CategoryCard
-                                        :class="$style.categoryCard"
-                                        :root-link="category.rootLink"
-                                        :category-type="technologyCategories[category.type]"
-                                    >
-                                        <div
-                                            :class="$style.categoryCard__icon"
-                                            v-html="category.iconFilePath"
-                                            alt=""
-                                            slot="icon"
-                                        />
+                        <ul
+                            ref="categoryCards"
+                            :class="$style.categoryCards">
+                            <li
+                                v-for="(category, categoryIndex) of technologyCategoriesFiltered"
+                                :key="categoryIndex"
+                                :class="$style.categoryCardWrapper">
+                                <CategoryCard
+                                    :class="$style.categoryCard"
+                                    :root-link="category.rootLink"
+                                    :category-type="technologyCategories[category.type]"
+                                >
+                                    <div
+                                        :class="$style.categoryCard__icon"
+                                        v-html="category.iconFilePath"
+                                        alt=""
+                                        slot="icon"
+                                    />
 
-                                        <template slot="title">
-                                            {{ category.title }}
-                                        </template>
+                                    <template slot="title">
+                                        <h4 class="linkWrapper_type1">
+                                                <span :class="['linkText_type1', $style.categoryTitle]">
+                                                    {{ category.title }}
+                                                </span>
+                                        </h4>
+                                    </template>
 
-                                        <template slot="caption">
-                                            {{ category.caption }}
-                                        </template>
+                                    <template slot="caption">
+                                        {{ category.caption }}
+                                    </template>
 
 
-                                        <template slot="buttonSet">
-                                            <a
-                                                v-for="(button, buttonKey) of category.buttonSet"
-                                                :key="`${categoryIndex}_${buttonKey}`"
-                                                :href="button.link"
-                                                :class="$style.categoryCard__link"
+                                    <template slot="buttonSet">
+                                        <a
+                                            v-for="(button, buttonKey) of category.buttonSet"
+                                            :key="`${categoryIndex}_${buttonKey}`"
+                                            :href="button.link"
+                                            :class="$style.categoryCard__link"
+                                        >
+                                            <el-button
+                                                size="mini"
+                                                :class="$style.categoryCard__link__button"
                                             >
-                                                <el-button
-                                                    size="mini"
-                                                    :class="$style.categoryCard__link__button"
-                                                >
-                                                    {{ button.text }}
-                                                </el-button>
-                                            </a>
-                                        </template>
-                                    </CategoryCard>
-                                </li>
-                            </ul>
-                        </WidthLimit>
-                    </div>
-                </main>
-                <Footer :class="$style.footer"/>
-            </div>
-
-
-        </template>
+                                                {{ button.text }}
+                                            </el-button>
+                                        </a>
+                                    </template>
+                                </CategoryCard>
+                            </li>
+                        </ul>
+                    </WidthLimit>
+                </div>
+            </main>
+            <Footer :class="$style.footer"/>
+        </div>
     </div>
 </template>
 
@@ -114,12 +131,14 @@
   import Logotype from '@theme/components/Logotype'
   import Footer from '@theme/components/Footer'
   import TabsPanel from '@theme/components/TabsPanel'
-
+  import Suggestions from '@theme/components/SearchBox/Suggestions'
   import watchLayoutWidthMixin from './mixins/watchLayoutWidth'
+  import navbarResizeDetector from './mixins/navbarResizeDetector'
 
   export default {
     mixins: [
       watchLayoutWidthMixin,
+      navbarResizeDetector,
     ],
 
     components: {
@@ -130,15 +149,20 @@
       Logotype,
       Footer,
       TabsPanel,
+      Suggestions,
     },
 
     data () {
       return {
         currentTechnologyCategoryFilter: 'all',
+        test: ''
       }
     },
 
     computed: {
+      headerHeight () {
+        return this.$store.state.interface.headerHeight;
+      },
       layoutWidth () {
         return this.$store.state.interface.layoutWidth
       },
@@ -159,9 +183,7 @@
     },
 
     mounted () {
-      // window.vm = this;
       if(!this.$isServer) {
-        // window.vm = this;
         const categoryCardsRefElement = this.$refs.categoryCards;
         const searchBoxRefElement = this.$refs.searchBox.$el;
         // erd.listenTo(categoryCardsRefElement, element => {
@@ -180,7 +202,6 @@
     },
   }
 </script>
-
 
 <style lang="stylus" module>
     $categoryCardWrapper-padding = 15px
@@ -204,11 +225,16 @@
         background-color $color1
     }
     .mainContentCell {
-
+        position relative
+        display: flex;
+        flex-direction: column;
+        flex-shrink 0
+        z-index 0
     }
     .navbar {
         left 0
         z-index 2
+        position fixed
     }
     .mainContentCell__row {
         display flex
@@ -307,7 +333,12 @@
         width 100%
     }
 
-
+    .searchSuggestions {
+        position absolute
+        width 100%
+        top 100%
+        left 0
+    }
     .categoryCards {
         display flex
         flex-wrap wrap
@@ -339,8 +370,15 @@
         }
     }
     .categoryCard__link {
-        margin 4px
+        margin 3px
         display inline-flex
+    }
+    .categoryTitle {
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
     }
     .categoryCard__link__button {
         color $color8

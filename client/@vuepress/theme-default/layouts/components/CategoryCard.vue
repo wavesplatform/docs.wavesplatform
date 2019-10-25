@@ -6,7 +6,10 @@
         }"
     >
         <div :class="$style.root__contentWrapper">
-            <a :href="rootLink" :class="$style.root__row1">
+            <a
+                :href="rootLink"
+                :class="['linkTextHoverTrigger_type1', $style.root__row1]"
+            >
                 <div :class="$style.iconWrapper">
                     <slot name="icon"/>
                 </div>
@@ -84,6 +87,7 @@
 </script>
 
 <style lang="stylus" module>
+    $buttons-margin = 3px
     .root {
         width 100%
         height 100%
@@ -110,25 +114,9 @@
         flex-direction column
         height 100%
         justify-content flex-end
+        margin-top 42px
     }
-    .title {
-        text-align left
-        display flex
-        font-size: 16px;
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        color $color7
-        border none
-        padding 0
-        margin-top 3px
-        @media screen and (max-width: 719px) {
-            font-size 14px
-            margin-top 9px
-        }
-    }
+
     .iconWrapper {
         display flex
         justify-content center
@@ -149,7 +137,28 @@
         font-style: normal;
         line-height: normal;
         letter-spacing: normal;
-        margin-top 39px
+        margin-top 52px
+        @media screen and (max-width: 719px) {
+            margin-top 40px
+        }
+    }
+    .title {
+        text-align left
+        display flex
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color $color7
+        border none
+        padding 0
+        margin-top 7px
+        @media screen and (max-width: 719px) {
+            font-size 14px
+            margin-top 9px
+        }
     }
     .caption {
         margin-top 16px
@@ -167,6 +176,6 @@
         }
     }
     .buttonSet {
-        margin 24px -4px -4px -4px
+        margin - $buttons-margin
     }
 </style>

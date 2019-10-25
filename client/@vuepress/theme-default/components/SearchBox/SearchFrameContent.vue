@@ -1,12 +1,20 @@
 <template>
-    <div :class="$style.root">
+    <el-dialog
+        :class="$style.root"
+        title="Tips"
+        :visible.sync="isShowSearchResultWindow"
+        width="100%"
+        :fullscreen="true"
+        :modal="false"
+    >
         <div :class="$style.root__cell1">
-<!--            <template v-if="SearchBoxComponent">-->
-<!--                <component :is="SearchBoxComponent" :is-full-size="true"/>-->
-<!--            </template>-->
-            <span :class="$style.searchWrapper">
-                Search
-            </span>
+            <template v-if="SearchBoxComponent">
+                <component :is="SearchBoxComponent" :is-full-size="true"/>
+            </template>
+<!--            <SearchBox :is-full-size="true"/>-->
+<!--            <span :class="$style.searchWrapper">-->
+<!--                Search-->
+<!--            </span>-->
             <el-button
                 type="text"
                 :class="$style.cancelButton"
@@ -56,7 +64,7 @@
             </el-button>
 
         </div>
-    </div>
+    </el-dialog>
 </template>
 
 <script>
@@ -70,6 +78,10 @@
     },
 
     props: {
+      isShowSearchResultWindow: {
+        type: Boolean,
+        default: false,
+      },
       searchResult: {
         type: Array,
         default: () => []
@@ -105,10 +117,7 @@
 
     async mounted() {
       await this.$nextTick();
-      setTimeout(() => {
-        this.SearchBoxComponent = SearchBox;
-      }, 2000)
-
+      this.SearchBoxComponent = SearchBox;
     },
 
     methods: {
@@ -130,6 +139,7 @@
         flex-direction column
         height 100%
         overflow hidden
+        position fixed
     }
 
     .root__cell1,

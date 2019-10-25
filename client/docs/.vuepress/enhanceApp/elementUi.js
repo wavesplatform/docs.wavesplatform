@@ -14,6 +14,7 @@ import {
     MessageBox,
     RadioGroup,
     RadioButton,
+    Dialog,
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
@@ -37,6 +38,7 @@ export default async(context) => {
         Tag,
         RadioGroup,
         RadioButton,
+        Dialog,
     ].forEach(component => {
         Vue.component(component.name, component)
     });

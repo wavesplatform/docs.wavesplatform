@@ -14,6 +14,10 @@ export default async(context) => {
         },
         navbarSubHeaders: [],
         // isProcessDev: process.env.isDev,
+        search: {
+          query: '',
+
+        },
     };
 
     if(!isServer) {
@@ -41,6 +45,10 @@ export default async(context) => {
 
         setHeaderHeight (state, value) {
             state.interface.headerHeight = value;
+        },
+
+        setSearchQuery (state, value) {
+            state.search.query = value;
         },
     };
 

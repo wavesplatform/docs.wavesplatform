@@ -131,7 +131,7 @@
         &:not(:first-child) {
             margin-left 40px
             @media screen and (max-width: 719px) {
-                margin-left 35px
+                margin-left 33px
             }
         }
         @media screen and (max-width: 719px) {

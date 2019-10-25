@@ -150,7 +150,7 @@
             justify-content flex-start
         }
         @media screen and (max-width: 679px) {
-            margin: -($resourcesCategoryPadding_min)
+            margin: (- $resourcesCategoryPadding-t-b) (- $resourcesCategoryPadding_min)
             justify-content space-between
         }
 
@@ -165,10 +165,9 @@
             width calc(50% - 10px)
         }
         @media screen and (max-width: 679px) {
-            padding $resourcesCategoryPadding_min
+            padding $resourcesCategoryPadding-t-b $resourcesCategoryPadding_min
         }
         @media screen and (max-width: 320px) {
-            padding $resourcesCategoryPadding_min
             width 110px
         }
     }

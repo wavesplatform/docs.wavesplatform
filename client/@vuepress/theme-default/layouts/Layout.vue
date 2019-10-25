@@ -49,8 +49,8 @@
                 layoutWidth > 719 && $style._bigLayoutWidth,
             ]"
                 :style="{
-                minWidth: sidebarMinWidthPx + 'px',
-            }"
+                    minWidth: sidebarMinWidthPx + 'px',
+                }"
                 @toggleSidebar="toggleLeftSidebar"
             >
                 <div
@@ -133,12 +133,14 @@
   import Logotype from '@theme/components/Logotype'
   import SearchBox from '@theme/components/SearchBox/'
   import watchLayoutWidthMixin from './mixins/watchLayoutWidth'
+  import navbarResizeDetector from './mixins/navbarResizeDetector'
   import { resolveSidebarItems } from '../util'
 
   export default {
 
     mixins: [
       watchLayoutWidthMixin,
+      navbarResizeDetector,
     ],
 
     components: {
@@ -169,10 +171,6 @@
     },
 
     computed: {
-      headerHeight () {
-        return this.$store.state.interface.headerHeight;
-      },
-
       pageContainerStile () {
         const isPadding = this.layoutWidth > 719;
 
@@ -281,7 +279,11 @@
           sidebar2.isShow = true
         },
         immediate: true
-      }
+      },
+
+      headerHeight() {
+        // this.$refs.sidebar1__header.style.height = navbarHeight - 1 + 'px';
+      },
     },
 
     mounted () {
@@ -293,19 +295,10 @@
         this.resizeCallback = this.setSidebarResizeDetector('sidebar1', 'pageContentPaddingLeftPx', element => {
           this.navbarMaxWidthPx = document.body.clientWidth - element.offsetWidth - 1
         });
-
-
         this.setSidebarStateWatcher('sidebar1', 'sidebar1Show')
         this.setSidebarStateWatcher('sidebar2', 'sidebar2Show')
 
         this.setSidebarResizeDetector('sidebar2', 'pageContentPaddingRightPx')
-
-        this.elementResizeDetector.listenTo(this.$refs.navbar.$el, element => {
-            const navbarHeight = element.offsetHeight
-            this.$refs.sidebar1__header.style.height = navbarHeight - 1 + 'px';
-            this.$store.commit('setHeaderHeight', navbarHeight);
-        })
-
       }
     },
 

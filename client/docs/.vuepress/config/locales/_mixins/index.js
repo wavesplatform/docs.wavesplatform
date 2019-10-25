@@ -184,27 +184,27 @@ module.exports = {
                     },
                 },
             },
-            legal: {
-                title: 'Legal',
-                links: {
-                    privacyPolicy: {
-                        title: 'Privacy Policy',
-                        link: '#',
-                    },
-                    termsOfUse: {
-                        title: 'Terms of use',
-                        link: '#',
-                    },
-                    cookies: {
-                        title: 'Cookies',
-                        link: '#',
-                    },
-                    gdpr: {
-                        title: 'GDPR',
-                        link: '#',
-                    },
-                },
-            },
+            // legal: {
+            //     title: 'Legal',
+            //     links: {
+            //         privacyPolicy: {
+            //             title: 'Privacy Policy',
+            //             link: '#',
+            //         },
+            //         termsOfUse: {
+            //             title: 'Terms of use',
+            //             link: '#',
+            //         },
+            //         cookies: {
+            //             title: 'Cookies',
+            //             link: '#',
+            //         },
+            //         gdpr: {
+            //             title: 'GDPR',
+            //             link: '#',
+            //         },
+            //     },
+            // },
             social: {
                 title: 'Social',
                 links: {
