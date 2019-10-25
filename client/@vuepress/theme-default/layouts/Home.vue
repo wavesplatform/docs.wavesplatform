@@ -86,11 +86,11 @@
                                         />
 
                                         <template slot="title">
-                                            <h4 class="linkWrapper_type1">
+                                            <div class="linkWrapper_type1">
                                                 <span :class="['linkText_type1', $style.categoryTitle]">
                                                     {{ category.title }}
                                                 </span>
-                                            </h4>
+                                            </div>
                                         </template>
 
                                         <template slot="caption">
