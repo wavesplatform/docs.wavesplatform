@@ -1,125 +1,127 @@
 <template>
     <div :class="$style.root">
-<!--        <SearchFrameContent-->
-<!--            v-bind="{-->
-<!--                    searchResult: searchResultData,-->
-<!--                    query,-->
-<!--                    isShowSearchResultWindow,-->
-<!--                  }"-->
-<!--        />-->
-        <Navbar
-            ref="navbar"
-            :class="[$style.root__cell1, $style.navbar]"
-            :is-home-page-mod="true"
-        />
-        <div
-            :class="$style.root__cell2"
-            :style="{
+        <template v-if="$themeLocaleConfig.homePage">
+            <!--        <SearchFrameContent-->
+            <!--            v-bind="{-->
+            <!--                    searchResult: searchResultData,-->
+            <!--                    query,-->
+            <!--                    isShowSearchResultWindow,-->
+            <!--                  }"-->
+            <!--        />-->
+            <Navbar
+                ref="navbar"
+                :class="[$style.root__cell1, $style.navbar]"
+                :is-home-page-mod="true"
+            />
+            <div
+                :class="$style.root__cell2"
+                :style="{
                     paddingTop: headerHeight + 'px'
                 }"
-        >
-            <main :class="$style.mainContentCell">
+            >
+                <main :class="$style.mainContentCell">
 
-                <div :class="[$style.mainContentCell__row, $style.mainContentCell__row2]">
-                    <WidthLimit :class="$style.mainContentCell__row2__WidthLimit">
-                        <h1
-                            v-if="layoutWidth > 719"
-                            :class="$style.mainContentCell__row2__text">
-                            {{ $themeLocaleConfig.homePage.welcomeText }}
-                        </h1>
-                        <div :class="$style.searchBoxWrapper">
-                            <SearchBox
-                                ref="searchBox"
-                                :class="$style.searchBox"
-                                :is-full-size="true"
-                            />
-                        </div>
-                    </WidthLimit>
-                    <Suggestions
-                        v-if="layoutWidth < 720"
-                        ref="suggestions"
-                        :class="$style.searchSuggestions"
-                        :mod="1"
-                    />
-                </div>
+                    <div :class="[$style.mainContentCell__row, $style.mainContentCell__row2]">
+                        <WidthLimit :class="$style.mainContentCell__row2__WidthLimit">
+                            <h1
+                                v-if="layoutWidth > 719"
+                                :class="$style.mainContentCell__row2__text">
+                                {{ $themeLocaleConfig.homePage.welcomeText }}
+                            </h1>
+                            <div :class="$style.searchBoxWrapper">
+                                <SearchBox
+                                    ref="searchBox"
+                                    :class="$style.searchBox"
+                                    :is-full-size="true"
+                                />
+                            </div>
+                        </WidthLimit>
+                        <Suggestions
+                            v-if="layoutWidth < 720"
+                            ref="suggestions"
+                            :class="$style.searchSuggestions"
+                            :mod="1"
+                        />
+                    </div>
 
-                <div :class="[$style.mainContentCell__row, $style.mainContentCell__row3]">
-                    <WidthLimit :class="$style.mainContentCell__row3__WidthLimit">
-                        <div :class="$style.technologyCategoryCheckboxes">
-                            <!--                <span :class="$style.technologyCategoryCheckboxes__row1">-->
-                            <!--                    {{ $themeLocaleConfig.homePage.or }}-->
-                            <!--                </span>-->
-                            <div :class="$style.technologyCategoryCheckboxes__row2">
-                                <!--                    <span :class="[$style.technologyCategoryCheckboxes__row2__part, $style.technologyCategoryCheckboxes__row2__text]">-->
-                                <!--                        {{ $themeLocaleConfig.homePage.technologyCategoriesText }}-->
-                                <!--                    </span>-->
-                                <TabsPanel
-                                    :class="[
+                    <div :class="[$style.mainContentCell__row, $style.mainContentCell__row3]">
+                        <WidthLimit :class="$style.mainContentCell__row3__WidthLimit">
+                            <div :class="$style.technologyCategoryCheckboxes">
+                                <!--                <span :class="$style.technologyCategoryCheckboxes__row1">-->
+                                <!--                    {{ $themeLocaleConfig.homePage.or }}-->
+                                <!--                </span>-->
+                                <div :class="$style.technologyCategoryCheckboxes__row2">
+                                    <!--                    <span :class="[$style.technologyCategoryCheckboxes__row2__part, $style.technologyCategoryCheckboxes__row2__text]">-->
+                                    <!--                        {{ $themeLocaleConfig.homePage.technologyCategoriesText }}-->
+                                    <!--                    </span>-->
+                                    <TabsPanel
+                                        :class="[
                                 $style.technologyCategoryCheckboxes__row2__part,
                                 $style.technologyCategoryTags
                             ]"
-                                    :items="technologyCategories"
-                                    active-item-index="all"
-                                    @change="selectCategoryTag"
-                                />
-                            </div>
-                        </div>
-
-                        <ul
-                            ref="categoryCards"
-                            :class="$style.categoryCards">
-                            <li
-                                v-for="(category, categoryIndex) of technologyCategoriesFiltered"
-                                :key="categoryIndex"
-                                :class="$style.categoryCardWrapper">
-                                <CategoryCard
-                                    :class="$style.categoryCard"
-                                    :root-link="category.rootLink"
-                                    :category-type="technologyCategories[category.type]"
-                                >
-                                    <div
-                                        :class="$style.categoryCard__icon"
-                                        v-html="category.iconFilePath"
-                                        alt=""
-                                        slot="icon"
+                                        :items="technologyCategories"
+                                        active-item-index="all"
+                                        @change="selectCategoryTag"
                                     />
+                                </div>
+                            </div>
 
-                                    <template slot="title">
-                                        <h4 class="linkWrapper_type1">
+                            <ul
+                                ref="categoryCards"
+                                :class="$style.categoryCards">
+                                <li
+                                    v-for="(category, categoryIndex) of technologyCategoriesFiltered"
+                                    :key="categoryIndex"
+                                    :class="$style.categoryCardWrapper">
+                                    <CategoryCard
+                                        :class="$style.categoryCard"
+                                        :root-link="category.rootLink"
+                                        :category-type="technologyCategories[category.type]"
+                                    >
+                                        <div
+                                            :class="$style.categoryCard__icon"
+                                            v-html="category.iconFilePath"
+                                            alt=""
+                                            slot="icon"
+                                        />
+
+                                        <template slot="title">
+                                            <h4 class="linkWrapper_type1">
                                                 <span :class="['linkText_type1', $style.categoryTitle]">
                                                     {{ category.title }}
                                                 </span>
-                                        </h4>
-                                    </template>
+                                            </h4>
+                                        </template>
 
-                                    <template slot="caption">
-                                        {{ category.caption }}
-                                    </template>
+                                        <template slot="caption">
+                                            {{ category.caption }}
+                                        </template>
 
 
-                                    <template slot="buttonSet">
-                                        <a
-                                            v-for="(button, buttonKey) of category.buttonSet"
-                                            :key="`${categoryIndex}_${buttonKey}`"
-                                            :href="button.link"
-                                            :class="$style.categoryCard__link"
-                                        >
-                                            <el-button
-                                                size="mini"
-                                                :class="$style.categoryCard__link__button"
+                                        <template slot="buttonSet">
+                                            <a
+                                                v-for="(button, buttonKey) of category.buttonSet"
+                                                :key="`${categoryIndex}_${buttonKey}`"
+                                                :href="button.link"
+                                                :class="$style.categoryCard__link"
                                             >
-                                                {{ button.text }}
-                                            </el-button>
-                                        </a>
-                                    </template>
-                                </CategoryCard>
-                            </li>
-                        </ul>
-                    </WidthLimit>
-                </div>
-            </main>
-            <Footer :class="$style.footer"/>
-        </div>
+                                                <el-button
+                                                    size="mini"
+                                                    :class="$style.categoryCard__link__button"
+                                                >
+                                                    {{ button.text }}
+                                                </el-button>
+                                            </a>
+                                        </template>
+                                    </CategoryCard>
+                                </li>
+                            </ul>
+                        </WidthLimit>
+                    </div>
+                </main>
+                <Footer :class="$style.footer"/>
+            </div>
+        </template>
     </div>
 </template>
 
