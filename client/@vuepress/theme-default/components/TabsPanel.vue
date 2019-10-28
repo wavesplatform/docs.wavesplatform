@@ -51,18 +51,29 @@
         markerLeft: 0
       }
     },
+
+    computed: {
+      layoutWidth () {
+        return this.$store.state.interface.layoutWidth
+      },
+    },
+
     watch: {
       selectedActiveItemIndex: {
         handler (newValue) {
           this.$emit('change', newValue)
           this.updateMarkerParams();
         },
-        immediate: true
+        immediate: false
       },
       items() {
         this.updateMarkerParams();
       },
+      layoutWidth() {
+        this.updateMarkerParams();
+      },
     },
+
     async mounted() {
       await this.$nextTick();
       this.$refs.scrollbar.addEventListener('scroll', this.updateMarkerParams);

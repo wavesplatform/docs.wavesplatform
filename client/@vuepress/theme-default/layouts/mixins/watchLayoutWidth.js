@@ -1,4 +1,4 @@
-import elementResizeDetectorMaker from 'element-resize-detector'
+// import elementResizeDetectorMaker from 'element-resize-detector'
 export default {
 
     computed: {
@@ -9,6 +9,7 @@ export default {
 
     methods: {
         setInterfaceInnerWidthLayout () {
+            // console.error('test:', window.innerWidth)
             this.$store.commit('setInterfaceInnerWidthLayout', window.innerWidth)
         },
     },
@@ -17,9 +18,6 @@ export default {
 
     mounted () {
         if (!this.$isServer) {
-            this.elementResizeDetector = elementResizeDetectorMaker({
-                strategy: 'scroll'
-            })
             window.addEventListener('resize', () => {
                 this.setInterfaceInnerWidthLayout();
                 if(this.resizeCallback) {

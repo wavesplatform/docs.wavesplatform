@@ -211,7 +211,7 @@ export default {
         border-radius 4px
         cursor pointer
         &.focused {
-            background-color #f3f4f5
+            background-color $color2
             .suggestion__link {
                 color $accentColor
             }

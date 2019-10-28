@@ -106,101 +106,101 @@ module.exports = deepmerge(mixin, {
         }
     ],
     sidebar: {
-        '/en/': [
-            {
-                title: 'Getting started',
-                collapsable: true,
-                children: [
-
-                    {
-                        title: 'Getting started guide',
-                        path: '/en/waves-environment/waves-tokens'
-                    },
-                    {
-                        title: 'Custom Tokens',
-                        children: [
-                            {
-                                title: 'Test 3',
-                                path: '/en/waves-environment/custom-tokens'
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                title: 'Blockchain',
-                collapsable: true,
-                children: [
-                    {
-                        title: 'Account',
-                        path: '/en/blockchain/account'
-                    },
-                    {
-                        title: 'Account data storage',
-                        path: '/en/blockchain/account-data-storage'
-                    }
-                ]
-            },
-            {
-                title: 'Waves environment',
-                path: '/en/waves-environment',
-                collapsable: true,
-                children: [
-
-                    {
-                        title: 'Waves Tokens',
-                        path: '/en/waves-environment/waves-tokens'
-                    },
-                    {
-                        title: 'Custom Tokens',
-                        children: [
-                            {
-                                title: 'Test 3',
-                                path: '/en/waves-environment/custom-tokens'
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                title: 'Developer tools',
-                collapsable: false
-            },
-            {
-                title: 'Waves api & sdk',
-                collapsable: false
-            },
-            {
-                title: 'Smart contracts',
-                collapsable: false
-            },
-            {
-                title: 'Waves full node',
-                collapsable: false
-            },
-            {
-                title: 'Oracles developments',
-                collapsable: false
-            },
-            {
-                title: 'Waves client',
-                collapsable: false
-            },
-            {
-                title: 'Tutorials and articles',
-                collapsable: false
-                // children: [
-                //   {
-                //     title: 'Test',
-                //     path: 'developer-tools/faq'
-                //   }
-                // ]
-            },
-            {
-                title: 'Proposals',
-                collapsable: false
-            }
-        ],
+        // '/en/': [
+        //     {
+        //         title: 'Getting started',
+        //         collapsable: true,
+        //         children: [
+        //
+        //             {
+        //                 title: 'Getting started guide',
+        //                 path: '/en/waves-environment/waves-tokens'
+        //             },
+        //             {
+        //                 title: 'Custom Tokens',
+        //                 children: [
+        //                     {
+        //                         title: 'Test 3',
+        //                         path: '/en/waves-environment/custom-tokens'
+        //                     }
+        //                 ]
+        //             }
+        //         ]
+        //     },
+        //     {
+        //         title: 'Blockchain',
+        //         collapsable: true,
+        //         children: [
+        //             {
+        //                 title: 'Account',
+        //                 path: '/en/blockchain/account'
+        //             },
+        //             {
+        //                 title: 'Account data storage',
+        //                 path: '/en/blockchain/account-data-storage'
+        //             }
+        //         ]
+        //     },
+        //     {
+        //         title: 'Waves environment',
+        //         path: '/en/waves-environment',
+        //         collapsable: true,
+        //         children: [
+        //
+        //             {
+        //                 title: 'Waves Tokens',
+        //                 path: '/en/waves-environment/waves-tokens'
+        //             },
+        //             {
+        //                 title: 'Custom Tokens',
+        //                 children: [
+        //                     {
+        //                         title: 'Test 3',
+        //                         path: '/en/waves-environment/custom-tokens'
+        //                     }
+        //                 ]
+        //             }
+        //         ]
+        //     },
+        //     {
+        //         title: 'Developer tools',
+        //         collapsable: false
+        //     },
+        //     {
+        //         title: 'Waves api & sdk',
+        //         collapsable: false
+        //     },
+        //     {
+        //         title: 'Smart contracts',
+        //         collapsable: false
+        //     },
+        //     {
+        //         title: 'Waves full node',
+        //         collapsable: false
+        //     },
+        //     {
+        //         title: 'Oracles developments',
+        //         collapsable: false
+        //     },
+        //     {
+        //         title: 'Waves client',
+        //         collapsable: false
+        //     },
+        //     {
+        //         title: 'Tutorials and articles',
+        //         collapsable: false
+        //         // children: [
+        //         //   {
+        //         //     title: 'Test',
+        //         //     path: 'developer-tools/faq'
+        //         //   }
+        //         // ]
+        //     },
+        //     {
+        //         title: 'Proposals',
+        //         collapsable: false
+        //     }
+        // ],
 
         '/en/getting-started/': [
             {

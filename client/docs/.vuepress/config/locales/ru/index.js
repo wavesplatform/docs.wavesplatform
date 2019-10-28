@@ -54,6 +54,14 @@ module.exports = deepmerge(technologyListMixin, {
         },
     },
 
+    searchPopup: {
+        cancelText: 'Закрыть',
+        resultsMatchingText: 'совпадений по запросу',
+        showMoreText: 'Показать ещё',
+        limitationQueryText: 'Поисковый запрос может состоять минимум из 4 символов',
+        noSuchResults: 'Результатов не найдено',
+    },
+
     footer: {
         broughtToYouByWavesTeam: 'Сделано для вас командой Waves.',
         resourcesCategories: {
@@ -214,69 +222,69 @@ module.exports = deepmerge(technologyListMixin, {
         }
     ],
     sidebar: {
-        '/ru/': [
-            {
-                title: 'Обзор',
-                collapsable: true
-            },
-            {
-                title: 'Waves environment',
-                collapsable: true,
-                children: [
-                    {
-                        title: 'Waves Tokens',
-                        path: '/ru/waves-environment/waves-tokens'
-                    },
-                    {
-                        title: 'Custom Tokens',
-                        path: '/ru/waves-environment/custom-tokens'
-                    }
-                ]
-            },
-            {
-                title: 'Getting started',
-                collapsable: false
-            },
-            {
-                title: 'Developer tools',
-                collapsable: false
-            },
-            {
-                title: 'Waves api & sdk',
-                collapsable: false
-            },
-            {
-                title: 'Smart contracts',
-                collapsable: false
-            },
-            {
-                title: 'Waves full node',
-                collapsable: false
-            },
-            {
-                title: 'Oracles developments',
-                collapsable: false
-            },
-            {
-                title: 'Waves client',
-                collapsable: false
-            },
-            {
-                title: 'Tutorials and articles',
-
-                collapsable: false,
-                children: [
-                    {
-                        title: 'Test',
-                        path: 'developer-tools/faq'
-                    }
-                ]
-            },
-            {
-                title: 'Proposals',
-                collapsable: false
-            }
-        ],
+        // '/ru/': [
+        //     {
+        //         title: 'Обзор',
+        //         collapsable: true
+        //     },
+        //     {
+        //         title: 'Waves environment',
+        //         collapsable: true,
+        //         children: [
+        //             {
+        //                 title: 'Waves Tokens',
+        //                 path: '/ru/waves-environment/waves-tokens'
+        //             },
+        //             {
+        //                 title: 'Custom Tokens',
+        //                 path: '/ru/waves-environment/custom-tokens'
+        //             }
+        //         ]
+        //     },
+        //     {
+        //         title: 'Getting started',
+        //         collapsable: false
+        //     },
+        //     {
+        //         title: 'Developer tools',
+        //         collapsable: false
+        //     },
+        //     {
+        //         title: 'Waves api & sdk',
+        //         collapsable: false
+        //     },
+        //     {
+        //         title: 'Smart contracts',
+        //         collapsable: false
+        //     },
+        //     {
+        //         title: 'Waves full node',
+        //         collapsable: false
+        //     },
+        //     {
+        //         title: 'Oracles developments',
+        //         collapsable: false
+        //     },
+        //     {
+        //         title: 'Waves client',
+        //         collapsable: false
+        //     },
+        //     {
+        //         title: 'Tutorials and articles',
+        //
+        //         collapsable: false,
+        //         children: [
+        //             {
+        //                 title: 'Test',
+        //                 path: 'developer-tools/faq'
+        //             }
+        //         ]
+        //     },
+        //     {
+        //         title: 'Proposals',
+        //         collapsable: false
+        //     }
+        // ],
         '/ru/blockchain/': [
             {
                 title: 'Псевдоним',

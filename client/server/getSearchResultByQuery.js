@@ -24,21 +24,13 @@ const fuseOptions = {
     // ]
     // id: 'ISBN'
     keys: ['title', 'content'],
-
-    tokenize: true,
+    tokenize: /*true*/true,
     matchAllTokens: true,
-
-
-
     shouldSort: true,
-
     findAllMatches: true,
     includeScore: true,
     includeMatches: true,
-
     threshold: 0.1,
-
-
     location: 0,
     distance: 100,
     maxPatternLength: 32,
@@ -149,17 +141,17 @@ module.exports = async function() {
         const textLength = string.length;
         let textSubstringLength = textLeftRightRangeLength;
 
-        // if(side === 'left') {
-        //     // if(textSubstringLength * 2 > textLength) {
-        //     //     textSubstringLength = Math.floor(textLength / 2)
-        //     // }
-        //     string = string.substr(-textSubstringLength);
-        // } else {
-        //     // if(textSubstringLength * 2 > textLength) {
-        //     //     textSubstringLength = Math.ceil(textLength / 2)
-        //     // }
-        //     string = string.substring(0, textSubstringLength)
-        // }
+        if(side === 'left') {
+            if(textSubstringLength * 2 > textLength) {
+                textSubstringLength = Math.floor(textLength / 2)
+            }
+            string = string.substr(-textSubstringLength);
+        } else {
+            if(textSubstringLength * 2 > textLength) {
+                textSubstringLength = Math.ceil(textLength / 2)
+            }
+            string = string.substring(0, textSubstringLength)
+        }
         return string;
     };
 
@@ -180,13 +172,13 @@ module.exports = async function() {
                 group.push(element);
             } else {
                 /*left side*/
-                // if(group.length <= 1) {
-                //     textSubstring = cutStringForSide('left', textSubstring);
-                //
-                //     /*ride side*/
-                // } else {
-                //     textSubstring = cutStringForSide('right', textSubstring);
-                // }
+                if(group.length <= 1) {
+                    textSubstring = cutStringForSide('left', textSubstring);
+
+                    /*ride side*/
+                } else {
+                    textSubstring = cutStringForSide('right', textSubstring);
+                }
                 group.push(textSubstring)
             }
 
@@ -195,9 +187,9 @@ module.exports = async function() {
 
                 lastElementFromLatestGroup = element;
 
-                // if(!isElementArray) {
-                //     element = cutStringForSide('left', element);
-                // }
+                if(!isElementArray) {
+                    element = cutStringForSide('left', element);
+                }
 
                 group = [
                     element
@@ -229,7 +221,7 @@ module.exports = async function() {
             )
             if(indexNumber === indices.length - 1 && end < lastIndex) {
                 arrayWithSplitText.push(
-                    text.substring(end, textLength)
+                    text.substring(end + 1, textLength)
                 )
             }
         });
@@ -244,21 +236,26 @@ module.exports = async function() {
 
         const dataPreparedForSending = fuseSearchResult.map(page => {
 
-                // console.log('page:', page);
+
+
+
                 const matches = page.matches;
+
+
                 const titleMatches = matches.find(item => item.key === 'title');
                 const contentMatches = matches.find(item => item.key === 'content');
 
                 let titleMatchesFormattedString = '';
                 if(titleMatches) {
-                    console.log('titleMatches:', titleMatches, contentMatches);
                     titleMatchesFormattedString = textHighlightMarkup(titleMatches.value, titleMatches.indices);
+
                 }
 
                 let contentMatchesFormattedString = '';
                 if(contentMatches) {
+                    // console.log('titleMatches:', contentMatches);
                     contentMatchesFormattedString = textHighlightMarkup(contentMatches.value, contentMatches.indices);
-
+                    // console.log('titleMatchesFormattedString:', contentMatchesFormattedString);
                     contentMatchesFormattedString = formattedAndGroupSearchResults(
                         contentMatchesFormattedString
                     );
@@ -270,8 +267,6 @@ module.exports = async function() {
                 // console.log('titleMatchesFormattedString:', /*titleMatchesFormattedString,*/ contentMatchesFormattedString);
 
                 const contentMatchesFormattedStringLimited = contentMatchesFormattedString.slice(0, 1);
-
-                console.log('contentMatchesFormattedStringLimited:', contentMatchesFormattedStringLimited,titleMatchesFormattedString);
 
                 return {
                     path: page.item.path,

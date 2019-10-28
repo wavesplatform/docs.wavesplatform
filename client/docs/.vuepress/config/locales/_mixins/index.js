@@ -131,6 +131,15 @@ module.exports = {
         },
     },
 
+    searchPopup: {
+        cancelText: 'Cancel',
+        resultsMatchingText: 'results matching',
+        showMoreText: 'Show more',
+        minQueryLength: 4,
+        limitationQueryText: 'A search query can be a minimum of 4 characters',
+        noSuchResults: 'No such results',
+    },
+
     footer: {
         broughtToYouByWavesTeam: 'Brought to you by Waves Team.',
         resourcesCategories: {

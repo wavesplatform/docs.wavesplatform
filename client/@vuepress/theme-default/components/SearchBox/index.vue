@@ -11,6 +11,7 @@
       >
 
     <input
+        ref="input"
         type="search"
         maxlength="1024"
         aria-autocomplete="both"
@@ -39,14 +40,19 @@
       :class="$style.searchBox__clearIcon"
       src="./close-16-basic-500.svg"
       alt=""
-      @click="$store.commit('setSearchQuery', '')"
+      @click="clearInput"
     >
-      <Suggestions
-          ref="suggestions"
-          v-if="withSuggestions"
-          :class="$style.searchSuggestions"
-          :mod="1"
-      />
+      <div
+          v-show="withSuggestions"
+          :class="$style.searchSuggestionsWrapper"
+      >
+          <Suggestions
+              ref="suggestions"
+              :class="$style.searchSuggestions"
+              :mod="1"
+          />
+      </div>
+
   </form>
 </template>
 
@@ -85,10 +91,6 @@ export default {
       return this.$store.state.interface.layoutWidth
     },
     query() {
-      // return ''
-      // if(!this.$store.state.search) {
-      //   return ''
-      // }
       return this.$store.state.search.query;
     },
     suggestionsList() {
@@ -100,6 +102,11 @@ export default {
   },
 
   methods: {
+    clearInput() {
+        this.$store.commit('setSearchQuery', '');
+        this.$refs.input.focus();
+    },
+
     suggestionDown() {
       this.$emit('down');
       if(!this.suggestionsRef) {
@@ -125,7 +132,7 @@ export default {
   },
 
   mounted () {
-    // this.suggestionsRef = this.$refs.suggestions;
+    this.suggestionsRef = this.$refs.suggestions;
     // if(this.suggestionsRef) {
     //   const suggestionsRefSuggestions = this.suggestionsRef.suggestions;
     //   console.log()
@@ -137,9 +144,9 @@ export default {
     // console.log('this.$refs.suggestions:', this.$refs.suggestions)
   },
 
-  // updated () {
-  //   this.suggestionsRef = this.$refs.suggestions;
-  // },
+  updated () {
+    this.suggestionsRef = this.$refs.suggestions;
+  },
 }
 </script>
 
@@ -225,10 +232,15 @@ export default {
         }
     }
 
-    .searchSuggestions {
+    .searchSuggestionsWrapper {
         position absolute
         top 100%
         left 0
+        width 100%
+    }
+
+    .searchSuggestions {
+        position relative
         width 100%
     }
 </style>

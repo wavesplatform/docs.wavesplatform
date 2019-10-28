@@ -2,12 +2,13 @@
     <el-dialog
         ref="dialogComponentExemplar"
         :class="$style.root"
-        :visible.sync="isShowSearchResultWindow"
+        :visible="isShowSearchResultWindow"
         :fullscreen="layoutWidth < 720"
         :modal="true"
         :show-close="false"
         :custom-class="$style.dialog"
         top=""
+        @close="$emit('close')"
     >
         <div :class="$style.root__cell1">
             <template v-if="SearchBoxComponent">
@@ -25,16 +26,27 @@
                 type="text"
                 :class="$style.cancelButton"
                 @click="$emit('close')"
-            >Cancel</el-button>
+            >
+                {{i18nSearchPopupConfig.cancelText}}
+            </el-button>
 
         </div>
         <div :class="$style.root__cell2">
-            <span :class="$style.root__cell2__part1">
-                {{searchResult.length}} results matching
+            <span
+                v-if="currentSearchByQueryLength < minQueryLength"
+                :class="$style.minimumChartsLimitation"
+            >
+                {{i18nSearchPopupConfig.limitationQueryText}}
             </span>
-            <span :class="$style.root__cell2__part2">
-                "{{currentSearchByQuery}}"
-            </span>
+            <template v-else>
+               <span :class="$style.root__cell2__part1">
+                    {{searchResult.length}} {{i18nSearchPopupConfig.resultsMatchingText}}
+                </span>
+                <span :class="$style.root__cell2__part2">
+                    "{{currentSearchByQuery}}"
+                </span>
+            </template>
+
         </div>
 
         <div :class="$style.root__cell3">
@@ -53,8 +65,10 @@
                         />
                     </div>
                 </template>
-                <div v-else>
-                    No such results
+                <div
+                    :class="$style.noResults"
+                    v-else>
+                    {{i18nSearchPopupConfig.noSuchResults}}
                 </div>
 
 
@@ -66,7 +80,7 @@
             @click="toggleMore"
         >
             <el-button :class="$style.showMoreButton">
-                {{isHideMoreButton ? 'Less more' : 'Show more'}}
+                {{isHideMoreButton ? 'Less more' : i18nSearchPopupConfig.showMoreText}}
             </el-button>
 
         </div>
@@ -107,12 +121,21 @@
       query() {
         return this.$store.state.search.query;
       },
+      currentSearchByQueryLength() {
+        return this.currentSearchByQuery.length;
+      },
       limitedDisplaySearchResult () {
         return this.searchResult.slice(0, this.limitDisplaySearchResultNumber)
       },
       layoutWidth () {
         return this.$store.state.interface.layoutWidth
-      }
+      },
+      i18nSearchPopupConfig() {
+        return this.$themeLocaleConfig.searchPopup;
+      },
+      minQueryLength() {
+        return this.i18nSearchPopupConfig.minQueryLength;
+      },
     },
 
     watch: {
@@ -139,6 +162,10 @@
       },
 
       async showDeepSearch () {
+        this.currentSearchByQuery = this.query;
+        if(this.currentSearchByQueryLength < this.minQueryLength) {
+          return;
+        }
         this.searchResult = [];
         const searchResult = await axios.get(`${process.env.isDev ? `${location.protocol}//${location.hostname}:3000` : ''}/?search=${this.query}`)
 
@@ -149,7 +176,7 @@
         } else {
           this.searchResult = searchResultData
         }
-        this.currentSearchByQuery = this.query;
+
       }
 
     }
@@ -177,18 +204,17 @@
         }
     }
     .dialog {
-        max-width 719px
-        /*max-height 719px*/
+        max-width 850px
+        /*max-height 850px*/
         height calc(100% - 40px)
         width calc(100% - 40px)
         margin auto
         &:not(:global(.is-fullscreen)) {
-            max-height 719px
+            max-height 850px
         }
     }
     .root__cell1,
     .root__cell2,
-    .root__cell3,
     .root__cell4 {
         padding-left 24px
         padding-right 24px
@@ -230,6 +256,16 @@
         padding-top 26px
         padding-bottom 22px
         text-transform uppercase
+        border-bottom 1px solid $color3
+    }
+    .minimumChartsLimitation {
+        color $color8
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.71;
+        letter-spacing: normal;
     }
     .root__cell2__part1 {
         color $color8
@@ -254,6 +290,9 @@
         /*height: 100%;*/
         overflow: hidden;
         overflow-y: auto;
+        padding-left 19px
+        padding-right 19px
+        /*padding-top 15px*/
     }
 
     .root__cell4 {
@@ -269,9 +308,10 @@
     .resultItem {
         display flex
         flex-direction column
-
+        margin-top 10px
         &:not(:first-child) {
-            margin-top 15px
+            padding-top 4px
+            border-top 1px solid $color3
         }
     }
     .showMoreButtonWrapper {
@@ -285,5 +325,18 @@
         width 100%
         color $color6
         border-color $color6
+    }
+    .noResults {
+        text-transform uppercase
+        color $color8
+        padding 20px
+        display flex
+        justify-content center
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.71;
+        letter-spacing: normal;
     }
 </style>

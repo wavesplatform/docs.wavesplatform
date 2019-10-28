@@ -1,4 +1,4 @@
-import elementResizeDetectorMaker from 'element-resize-detector'
+// import elementResizeDetectorMaker from 'element-resize-detector'
 export default {
 
     data() {
@@ -27,17 +27,14 @@ export default {
         const navbarElement = navbarRef.$el;
         this.navbarElement = navbarElement;
         if (!this.$isServer && navbarElement) {
-            this.elementResizeDetector = elementResizeDetectorMaker({
-                strategy: 'scroll'
-            })
-            this.elementResizeDetector.listenTo(navbarElement, this.setNavbarHeight)
+            this.$elementResizeDetector.listenTo(navbarElement, this.setNavbarHeight)
             this.setNavbarHeight(navbarElement);
         }
     },
 
     beforeDestroy () {
         if(this.navbarElement) {
-            this.elementResizeDetector.removeListener(this.navbarElement, this.setNavbarHeight);
+            this.$elementResizeDetector.removeListener(this.navbarElement, this.setNavbarHeight);
         }
 
     },

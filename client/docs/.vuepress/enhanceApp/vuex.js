@@ -4,13 +4,20 @@ import VuexPersistence from 'vuex-persist'
 export default (context) => {
     const { Vue, isServer } = context
 
-    Vue.use(Vuex)
+    Vue.use(Vuex);
+
     const defaultFocusIndex = -1;
+    let layoutWidth = 1920;
+
+    if(!isServer) {
+        layoutWidth = window.innerWidth
+    }
+
     const state = {
         defaultLanguage: '',
         currentLanguage: '',
         interface: {
-            layoutWidth: 1920,
+            layoutWidth,
             headerHeight: 0
         },
         navbarSubHeaders: [],
@@ -62,20 +69,21 @@ export default (context) => {
         actions
     })
 
-    Vue.mixin({ store: store })
-
-    // async function afterEach(to, from, next) {
-    //   store.dispatch('changeLang', to.path);
-    //   await router.app.$nextTick()
-    // }
-    //
-    // router.afterEach(afterEach)
 
     if (!isServer) {
-        new VuexPersistence({
-            storage: window.localStorage
-        }).plugin(store)
+        // new VuexPersistence({
+        //     storage: window.localStorage,
+        //     reducer: (state) => ({
+        //         search: state.search,
+        //     })
+        // }).plugin(store)
     }
+
+    Vue.mixin({
+        store
+    })
+
+
 
     return store
 }

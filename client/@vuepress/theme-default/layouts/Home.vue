@@ -33,18 +33,25 @@
                                     :class="$style.searchBox"
                                     :is-full-size="true"
                                     :with-suggestions="layoutWidth > 719"
-                                    @up="suggestionsUp"
-                                    @down="suggestionsDown"
+                                    @up="layoutWidth > 719 && suggestionsUp"
+                                    @down="layoutWidth > 719 && suggestionsDown"
                                     @search="search"
                                 />
                             </div>
                         </WidthLimit>
-                        <Suggestions
-                            v-if="layoutWidth < 720"
-                            ref="suggestions"
-                            :class="$style.searchSuggestions"
-                            :mod="1"
-                        />
+
+<!--                        {{layoutWidth}}-->
+                        <div
+                            v-show="layoutWidth < 720"
+                            :class="$style.searchSuggestionsWrapper"
+                        >
+                            <Suggestions
+                                ref="suggestions"
+                                :class="$style.searchSuggestions"
+                                :mod="1"
+                            />
+                        </div>
+
                     </div>
 
                     <div :class="[$style.mainContentCell__row, $style.mainContentCell__row3]">
@@ -58,10 +65,11 @@
                                     <!--                        {{ $themeLocaleConfig.homePage.technologyCategoriesText }}-->
                                     <!--                    </span>-->
                                     <TabsPanel
+                                        ref="tabsPanelComponentExemplar"
                                         :class="[
-                                $style.technologyCategoryCheckboxes__row2__part,
-                                $style.technologyCategoryTags
-                            ]"
+                                            $style.technologyCategoryCheckboxes__row2__part,
+                                            $style.technologyCategoryTags
+                                        ]"
                                         :items="technologyCategories"
                                         active-item-index="all"
                                         @change="selectCategoryTag"
@@ -131,11 +139,11 @@
 <script>
   import WidthLimit from '@theme/components/WidthLimit'
   import Navbar from '@theme/components/Navbar.vue'
+  import TabsPanel from '@theme/components/TabsPanel'
   import SearchBox from '@theme/components/SearchBox/'
   import CategoryCard from './components/CategoryCard'
   import Logotype from '@theme/components/Logotype'
   import Footer from '@theme/components/Footer'
-  import TabsPanel from '@theme/components/TabsPanel'
   import Suggestions from '@theme/components/SearchBox/Suggestions'
   import SearchFrameContent from '@theme/components/SearchBox/SearchFrameContent'
   import watchLayoutWidthMixin from './mixins/watchLayoutWidth'
@@ -168,12 +176,6 @@
     },
 
     computed: {
-      headerHeight () {
-        return this.$store.state.interface.headerHeight;
-      },
-      layoutWidth () {
-        return this.$store.state.interface.layoutWidth
-      },
       categories() {
         return Object.values(this.$themeLocaleConfig.homePage.technologyList);
       },
@@ -188,18 +190,14 @@
           return category.type === this.currentTechnologyCategoryFilter;
         });
       },
+      focusIndex() {
+        return this.$store.state.search.focusIndex;
+      },
     },
 
     beforeCreate() {
       if(!this.$isServer) {
         window.vm = this;
-        // const categoryCardsRefElement = this.$refs.categoryCards;
-        // const searchBoxRefElement = this.$refs.searchBox.$el;
-        // erd.listenTo(categoryCardsRefElement, element => {
-        //   console.log('element:', element, searchBoxRefElement)
-        //   const searchBoxRefElementWight = searchBoxRefElement.offsetWidth;
-        //   searchBoxRefElement.style.maxWidth =
-        // });
       }
     },
 
@@ -207,13 +205,6 @@
       this.suggestionsRef = this.$refs.suggestions;
       if(!this.$isServer) {
         window.test = this;
-        // const categoryCardsRefElement = this.$refs.categoryCards;
-        // const searchBoxRefElement = this.$refs.searchBox.$el;
-        // erd.listenTo(categoryCardsRefElement, element => {
-        //   console.log('element:', element, searchBoxRefElement)
-        //   const searchBoxRefElementWight = searchBoxRefElement.offsetWidth;
-        //   searchBoxRefElement.style.maxWidth =
-        // });
       }
     },
 
@@ -223,7 +214,6 @@
 
     methods: {
       selectCategoryTag(categoryTagName) {
-        // console.log('categoryTagName:', categoryTagName);
         this.currentTechnologyCategoryFilter = categoryTagName;
       },
 
@@ -242,11 +232,14 @@
       },
 
       search() {
-        this.isShowSearchResultWindow = true
-        if(!this.suggestionsRef) {
-          return
+        if(this.focusIndex !== -1) {
+          if(!this.suggestionsRef) {
+            return
+          }
+          this.suggestionsRef.go();
+        } else {
+          this.isShowSearchResultWindow = true
         }
-        this.suggestionsRef.go();
       },
 
     },
@@ -384,11 +377,16 @@
         width 100%
     }
 
-    .searchSuggestions {
+    .searchSuggestionsWrapper {
         position absolute
         width 100%
         top 100%
         left 0
+    }
+
+    .searchSuggestions {
+        position relative
+        width 100%
     }
     .categoryCards {
         display flex

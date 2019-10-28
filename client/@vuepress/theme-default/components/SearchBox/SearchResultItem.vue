@@ -15,12 +15,13 @@
 
           <div
             :class="$style.description">
-              ...
               <div
                   v-for="(contentMatchRow, indexMatchRow) of displayedContentMatches"
                   :key="indexMatchRow"
                   :class="$style.description__cell"
               >
+
+                  {{indexMatchRow === 0 ? '...' : ''}}
                   <span
                       v-for="(contentMatch, indexMatch) of contentMatchRow"
                       :key="`${indexMatchRow}_${indexMatch}`"
@@ -29,8 +30,8 @@
                         Array.isArray(contentMatch) && $style._highlight,
                       ]"
                   >{{ Array.isArray(contentMatch) ? contentMatch[0] : contentMatch | trim }}</span>
+                  {{indexMatchRow === 0 ? '...' : ''}}
               </div>
-              ...
           </div>
       </a>
 
@@ -130,7 +131,10 @@
         }
     }
     .link {
+        padding 5px
         &:hover {
+            background-color $color2
+            border-radius 4px
             .title__text {
                 text-decoration underline
             }
