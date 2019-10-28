@@ -85,6 +85,10 @@ export default {
       return this.$store.state.interface.layoutWidth
     },
     query() {
+      // return ''
+      // if(!this.$store.state.search) {
+      //   return ''
+      // }
       return this.$store.state.search.query;
     },
     suggestionsList() {
@@ -121,7 +125,7 @@ export default {
   },
 
   mounted () {
-    this.suggestionsRef = this.$refs.suggestions;
+    // this.suggestionsRef = this.$refs.suggestions;
     // if(this.suggestionsRef) {
     //   const suggestionsRefSuggestions = this.suggestionsRef.suggestions;
     //   console.log()
@@ -133,9 +137,9 @@ export default {
     // console.log('this.$refs.suggestions:', this.$refs.suggestions)
   },
 
-  updated () {
-    this.suggestionsRef = this.$refs.suggestions;
-  },
+  // updated () {
+  //   this.suggestionsRef = this.$refs.suggestions;
+  // },
 }
 </script>
 

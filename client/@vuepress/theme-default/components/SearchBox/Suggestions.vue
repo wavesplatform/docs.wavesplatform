@@ -108,7 +108,7 @@ export default {
           }
         }
       }
-      return res
+      return res;
     },
   },
 

@@ -33,7 +33,6 @@
                                     :class="$style.searchBox"
                                     :is-full-size="true"
                                     :with-suggestions="layoutWidth > 719"
-                                    @change=""
                                     @up="suggestionsUp"
                                     @down="suggestionsDown"
                                     @search="search"
@@ -191,9 +190,23 @@
       },
     },
 
+    beforeCreate() {
+      if(!this.$isServer) {
+        window.test2 = this;
+        // const categoryCardsRefElement = this.$refs.categoryCards;
+        // const searchBoxRefElement = this.$refs.searchBox.$el;
+        // erd.listenTo(categoryCardsRefElement, element => {
+        //   console.log('element:', element, searchBoxRefElement)
+        //   const searchBoxRefElementWight = searchBoxRefElement.offsetWidth;
+        //   searchBoxRefElement.style.maxWidth =
+        // });
+      }
+    },
+
     mounted () {
       this.suggestionsRef = this.$refs.suggestions;
       if(!this.$isServer) {
+        window.test = this;
         // const categoryCardsRefElement = this.$refs.categoryCards;
         // const searchBoxRefElement = this.$refs.searchBox.$el;
         // erd.listenTo(categoryCardsRefElement, element => {

@@ -1,7 +1,7 @@
 import Vuex from 'vuex'
 import VuexPersistence from 'vuex-persist'
 
-export default async (context) => {
+export default (context) => {
     const { Vue, isServer } = context
 
     Vue.use(Vuex)

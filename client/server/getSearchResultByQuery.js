@@ -149,17 +149,17 @@ module.exports = async function() {
         const textLength = string.length;
         let textSubstringLength = textLeftRightRangeLength;
 
-        if(side === 'left') {
-            // if(textSubstringLength * 2 > textLength) {
-            //     textSubstringLength = Math.floor(textLength / 2)
-            // }
-            string = string.substr(-textSubstringLength);
-        } else {
-            // if(textSubstringLength * 2 > textLength) {
-            //     textSubstringLength = Math.ceil(textLength / 2)
-            // }
-            string = string.substring(0, textSubstringLength)
-        }
+        // if(side === 'left') {
+        //     // if(textSubstringLength * 2 > textLength) {
+        //     //     textSubstringLength = Math.floor(textLength / 2)
+        //     // }
+        //     string = string.substr(-textSubstringLength);
+        // } else {
+        //     // if(textSubstringLength * 2 > textLength) {
+        //     //     textSubstringLength = Math.ceil(textLength / 2)
+        //     // }
+        //     string = string.substring(0, textSubstringLength)
+        // }
         return string;
     };
 
@@ -180,13 +180,13 @@ module.exports = async function() {
                 group.push(element);
             } else {
                 /*left side*/
-                if(group.length <= 1) {
-                    textSubstring = cutStringForSide('left', textSubstring);
-
-                    /*ride side*/
-                } else {
-                    textSubstring = cutStringForSide('right', textSubstring);
-                }
+                // if(group.length <= 1) {
+                //     textSubstring = cutStringForSide('left', textSubstring);
+                //
+                //     /*ride side*/
+                // } else {
+                //     textSubstring = cutStringForSide('right', textSubstring);
+                // }
                 group.push(textSubstring)
             }
 
@@ -195,9 +195,9 @@ module.exports = async function() {
 
                 lastElementFromLatestGroup = element;
 
-                if(!isElementArray) {
-                    element = cutStringForSide('left', element);
-                }
+                // if(!isElementArray) {
+                //     element = cutStringForSide('left', element);
+                // }
 
                 group = [
                     element
@@ -251,7 +251,7 @@ module.exports = async function() {
 
                 let titleMatchesFormattedString = '';
                 if(titleMatches) {
-                    console.log('titleMatches:', titleMatches);
+                    console.log('titleMatches:', titleMatches, contentMatches);
                     titleMatchesFormattedString = textHighlightMarkup(titleMatches.value, titleMatches.indices);
                 }
 
