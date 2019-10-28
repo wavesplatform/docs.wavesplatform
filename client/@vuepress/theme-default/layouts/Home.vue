@@ -192,7 +192,7 @@
 
     beforeCreate() {
       if(!this.$isServer) {
-        window.test2 = this;
+        window.vm = this;
         // const categoryCardsRefElement = this.$refs.categoryCards;
         // const searchBoxRefElement = this.$refs.searchBox.$el;
         // erd.listenTo(categoryCardsRefElement, element => {
@@ -395,6 +395,9 @@
         flex-wrap wrap
         justify-content flex-start
         margin -($categoryCardWrapper-padding)
+        @media screen and (max-width: 739px) {
+            justify-content center
+        }
     }
     .categoryCardWrapper {
         width calc(100% / 3)

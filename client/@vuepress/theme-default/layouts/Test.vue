@@ -1,7 +1,6 @@
 <template>
     <div :class="$style.root">
         <Page
-            v-else
             :class="$style.page"
         />
     </div>
