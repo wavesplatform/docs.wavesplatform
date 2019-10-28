@@ -4,10 +4,10 @@ const envIsDev = processEnv.isDev;
 const serverPort = envPort ? envPort :
     envIsDev ? 3000 : 3083
 ;
-if(envIsDev) {
-    const inspector = require('inspector');
-    inspector.open(9229, '127.0.0.1');
-}
+// if(envIsDev) {
+//     const inspector = require('inspector');
+//     inspector.open(9229, '127.0.0.1');
+// }
 const path = require('path');
 const Koa = require('koa');
 const serve = require('koa-static');

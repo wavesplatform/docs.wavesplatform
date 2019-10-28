@@ -6,4 +6,4 @@ RUN rm -rf node_modules && \
     yarn run build
 
 #ENTRYPOINT yarn run production-server
-ENTRYPOINT yarn dev && yarn production-server
+ENTRYPOINT yarn dev && yarn production-server:dev
