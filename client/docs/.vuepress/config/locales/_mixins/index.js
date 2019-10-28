@@ -145,10 +145,10 @@ module.exports = {
                         title: 'Waves Keeper',
                         link: 'https://wavesplatform.com/technology/keeper',
                     },
-                    // wavesBlockchain: {
-                    //     title: 'Waves Blockchain',
-                    //     link: '#',
-                    // },
+                    wavesBlockchain: {
+                        title: 'Waves Blockchain',
+                        link: 'https://wavesplatform.com/technology',
+                    },
                     WavesIde: {
                         title: 'Waves IDE',
                         link: 'https://ide.wavesplatform.com/',
@@ -162,10 +162,10 @@ module.exports = {
             forDevelopers: {
                 title: 'For developers',
                 links: {
-                    documentation: {
-                        title: 'Documentation',
-                        link: 'https://docs.wavesplatform.com',
-                    },
+                    // documentation: {
+                    //     title: 'Documentation',
+                    //     link: 'https://docs.wavesplatform.com',
+                    // },
                     gitHub: {
                         title: 'GitHub',
                         link: 'https://github.com/wavesplatform',
@@ -176,7 +176,7 @@ module.exports = {
                     },
                     stackOverflow: {
                         title: 'Stack Overflow',
-                        link: '#',
+                        link: 'https://stackoverflow.com/questions/tagged/wavesplatform',
                     },
                     wavesLabs: {
                         title: 'Waves Labs',

@@ -1,13 +1,12 @@
 <template>
     <div :class="$style.root">
         <template v-if="$themeLocaleConfig.homePage">
-            <!--        <SearchFrameContent-->
-            <!--            v-bind="{-->
-            <!--                    searchResult: searchResultData,-->
-            <!--                    query,-->
-            <!--                    isShowSearchResultWindow,-->
-            <!--                  }"-->
-            <!--        />-->
+            <SearchFrameContent
+                v-bind="{
+                    isShowSearchResultWindow,
+                }"
+                @close="isShowSearchResultWindow = false"
+            />
             <Navbar
                 ref="navbar"
                 :class="[$style.root__cell1, $style.navbar]"
@@ -33,6 +32,11 @@
                                     ref="searchBox"
                                     :class="$style.searchBox"
                                     :is-full-size="true"
+                                    :with-suggestions="layoutWidth > 719"
+                                    @change=""
+                                    @up="suggestionsUp"
+                                    @down="suggestionsDown"
+                                    @search="search"
                                 />
                             </div>
                         </WidthLimit>
@@ -134,6 +138,7 @@
   import Footer from '@theme/components/Footer'
   import TabsPanel from '@theme/components/TabsPanel'
   import Suggestions from '@theme/components/SearchBox/Suggestions'
+  import SearchFrameContent from '@theme/components/SearchBox/SearchFrameContent'
   import watchLayoutWidthMixin from './mixins/watchLayoutWidth'
   import navbarResizeDetector from './mixins/navbarResizeDetector'
 
@@ -152,12 +157,14 @@
       Footer,
       TabsPanel,
       Suggestions,
+      SearchFrameContent,
     },
 
     data () {
       return {
         currentTechnologyCategoryFilter: 'all',
-        test: ''
+        isShowSearchResultWindow: false,
+        suggestionsRef: null,
       }
     },
 
@@ -185,9 +192,10 @@
     },
 
     mounted () {
+      this.suggestionsRef = this.$refs.suggestions;
       if(!this.$isServer) {
-        const categoryCardsRefElement = this.$refs.categoryCards;
-        const searchBoxRefElement = this.$refs.searchBox.$el;
+        // const categoryCardsRefElement = this.$refs.categoryCards;
+        // const searchBoxRefElement = this.$refs.searchBox.$el;
         // erd.listenTo(categoryCardsRefElement, element => {
         //   console.log('element:', element, searchBoxRefElement)
         //   const searchBoxRefElementWight = searchBoxRefElement.offsetWidth;
@@ -196,11 +204,38 @@
       }
     },
 
+    updated () {
+      this.suggestionsRef = this.$refs.suggestions;
+    },
+
     methods: {
       selectCategoryTag(categoryTagName) {
         // console.log('categoryTagName:', categoryTagName);
         this.currentTechnologyCategoryFilter = categoryTagName;
       },
+
+      suggestionsDown() {
+        if(!this.suggestionsRef) {
+          return
+        }
+        this.suggestionsRef.suggestionDown();
+      },
+
+      suggestionsUp() {
+        if(!this.suggestionsRef) {
+          return
+        }
+        this.suggestionsRef.suggestionUp();
+      },
+
+      search() {
+        this.isShowSearchResultWindow = true
+        if(!this.suggestionsRef) {
+          return
+        }
+        this.suggestionsRef.go();
+      },
+
     },
   }
 </script>
@@ -218,6 +253,7 @@
         flex-shrink 0
     }
     .root__cell2 {
+        position relative
         height 100%
         overflow-y auto
         overflow-x hidden

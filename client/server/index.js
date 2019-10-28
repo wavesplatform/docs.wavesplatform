@@ -50,7 +50,7 @@ const GetSearchResultByQuery = require('./getSearchResultByQuery');
         )
     );
 
-    app.listen(serverPort)
+    app.listen(serverPort, '0.0.0.0');
 
     console.log(`listening on port ${serverPort}`)
 })();

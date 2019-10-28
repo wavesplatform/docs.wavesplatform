@@ -97,23 +97,23 @@ module.exports = deepmerge(technologyListMixin, {
                     },
                 },
             },
-            legal: {
-                title: 'Legal',
-                links: {
-                    privacyPolicy: {
-                        title: 'Политика конфиденциальности',
-                    },
-                    termsOfUse: {
-                        title: 'Условия использования',
-                    },
-                    cookies: {
-                        title: 'Cookies',
-                    },
-                    gdpr: {
-                        title: 'GDPR',
-                    },
-                },
-            },
+            // legal: {
+            //     title: 'Legal',
+            //     links: {
+            //         privacyPolicy: {
+            //             title: 'Политика конфиденциальности',
+            //         },
+            //         termsOfUse: {
+            //             title: 'Условия использования',
+            //         },
+            //         cookies: {
+            //             title: 'Cookies',
+            //         },
+            //         gdpr: {
+            //             title: 'GDPR',
+            //         },
+            //     },
+            // },
             social: {
                 title: 'Social',
                 links: {

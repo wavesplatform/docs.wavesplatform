@@ -1,42 +1,43 @@
 import Vuex from 'vuex'
 import VuexPersistence from 'vuex-persist'
-export default async(context) => {
-    const { Vue, isServer } = context;
 
-    Vue.use(Vuex);
+export default async (context) => {
+    const { Vue, isServer } = context
 
+    Vue.use(Vuex)
+    const defaultFocusIndex = -1;
     const state = {
         defaultLanguage: '',
         currentLanguage: '',
         interface: {
             layoutWidth: 1920,
-            headerHeight: 0,
+            headerHeight: 0
         },
         navbarSubHeaders: [],
         // isProcessDev: process.env.isDev,
         search: {
-          query: '',
-
-        },
-    };
-
-    if(!isServer) {
-        state.defaultLanguage = navigator.language;
+            query: '',
+            defaultFocusIndex,
+            focusIndex: defaultFocusIndex,
+        }
     }
 
-    const modules = {
+    if (!isServer) {
+        state.defaultLanguage = navigator.language
+    }
 
-    };
-
+    const modules = {}
 
     const set = key => (state, val) => {
         state[key] = val
-    };
-
+    }
 
     const mutations = {
-        setInterfaceInnerWidthLayout(state, width) {
-            state.interface.layoutWidth = width;
+        setSearchSuggestionsFocusIndex (state, index) {
+            state.search.focusIndex = index
+        },
+        setInterfaceInnerWidthLayout (state, width) {
+            state.interface.layoutWidth = width
         },
 
         setNavbarSubHeaders: set('navbarSubHeaders'),
@@ -44,27 +45,24 @@ export default async(context) => {
         setCurrentLanguage: set('currentLanguage'),
 
         setHeaderHeight (state, value) {
-            state.interface.headerHeight = value;
+            state.interface.headerHeight = value
         },
 
         setSearchQuery (state, value) {
-            state.search.query = value;
-        },
-    };
+            state.search.query = value
+        }
+    }
 
-    const actions = {
-
-    };
+    const actions = {}
 
     const store = new Vuex.Store({
         state,
         modules,
         mutations,
-        actions,
-    });
+        actions
+    })
 
-    Vue.mixin({store: store});
-
+    Vue.mixin({ store: store })
 
     // async function afterEach(to, from, next) {
     //   store.dispatch('changeLang', to.path);
@@ -73,11 +71,11 @@ export default async(context) => {
     //
     // router.afterEach(afterEach)
 
-    if(!isServer) {
+    if (!isServer) {
         new VuexPersistence({
             storage: window.localStorage
-        }).plugin(store);
+        }).plugin(store)
     }
 
-    return store;
+    return store
 }

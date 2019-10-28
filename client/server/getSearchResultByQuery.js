@@ -47,7 +47,7 @@ const fuseOptions = {
 };
 
 const findItemForSendingLimit = 10;
-const textLeftRightRangeLength = 40;
+const textLeftRightRangeLength = 150;
 // const limit
 
 
@@ -150,14 +150,14 @@ module.exports = async function() {
         let textSubstringLength = textLeftRightRangeLength;
 
         if(side === 'left') {
-            if(textSubstringLength * 2 > textLength) {
-                textSubstringLength = Math.floor(textLength / 2)
-            }
+            // if(textSubstringLength * 2 > textLength) {
+            //     textSubstringLength = Math.floor(textLength / 2)
+            // }
             string = string.substr(-textSubstringLength);
         } else {
-            if(textSubstringLength * 2 > textLength) {
-                textSubstringLength = Math.ceil(textLength / 2)
-            }
+            // if(textSubstringLength * 2 > textLength) {
+            //     textSubstringLength = Math.ceil(textLength / 2)
+            // }
             string = string.substring(0, textSubstringLength)
         }
         return string;
@@ -251,6 +251,7 @@ module.exports = async function() {
 
                 let titleMatchesFormattedString = '';
                 if(titleMatches) {
+                    console.log('titleMatches:', titleMatches);
                     titleMatchesFormattedString = textHighlightMarkup(titleMatches.value, titleMatches.indices);
                 }
 
@@ -268,13 +269,17 @@ module.exports = async function() {
 
                 // console.log('titleMatchesFormattedString:', /*titleMatchesFormattedString,*/ contentMatchesFormattedString);
 
+                const contentMatchesFormattedStringLimited = contentMatchesFormattedString.slice(0, 1);
+
+                console.log('contentMatchesFormattedStringLimited:', contentMatchesFormattedStringLimited,titleMatchesFormattedString);
+
                 return {
                     path: page.item.path,
                     localePath: page.localePath,
                     allMatchesLength: fuseSearchResult.length,
                     matches: {
                         title: titleMatchesFormattedString || [page.item.title],
-                        content: contentMatchesFormattedString,
+                        content: /*contentMatchesFormattedString*/contentMatchesFormattedStringLimited,
                     },
 
 

@@ -51,15 +51,20 @@ export default {
   },
 
   data () {
-    const defaultFocusIndex = -1;
     return {
       focused: false,
-      focusIndex: defaultFocusIndex,
-      defaultFocusIndex,
     }
   },
 
   computed: {
+    defaultFocusIndex() {
+      return this.$store.state.search.defaultFocusIndex;
+    },
+
+    focusIndex() {
+      return this.$store.state.search.focusIndex;
+    },
+
     prepareSearchQuery() {
       return Object.keys(this.$options.propsData).includes('query')? this.query : this.$store.state.search.query;
     },
@@ -129,46 +134,38 @@ export default {
       }).length > 0
     },
 
-    onUp () {
-      if (this.showSuggestions) {
-        if (this.focusIndex > 0) {
-          this.focusIndex--
-        } else {
-          this.focusIndex = this.suggestions.length - 1
-        }
+    suggestionUp () {
+      if(this.focusIndex === this.defaultFocusIndex) {
+        this.$store.commit('setSearchSuggestionsFocusIndex', this.suggestions.length - 1)
+      } else if (this.focusIndex > 0) {
+        this.$store.commit('setSearchSuggestionsFocusIndex', this.focusIndex - 1)
+      } else {
+        this.$store.commit('setSearchSuggestionsFocusIndex', this.defaultFocusIndex)
       }
     },
 
-    onDown () {
-      if (this.showSuggestions) {
-        if (this.focusIndex < this.suggestions.length - 1) {
-          this.focusIndex++
-        } else {
-          this.focusIndex = 0
-        }
+    suggestionDown () {
+      if (this.focusIndex < this.suggestions.length - 1) {
+        this.$store.commit('setSearchSuggestionsFocusIndex', this.focusIndex + 1)
+      } else {
+        this.$store.commit('setSearchSuggestionsFocusIndex', this.defaultFocusIndex)
       }
     },
 
-    go (i) {
-      if(this.focusIndex < 0 && this.query) {
-        this.openDeepSearchResults();
-        return;
+    go(index) {
+      if(this.focusIndex === this.defaultFocusIndex) {
+        return
       }
-      this.$router.push(this.suggestions[i].path)
-
-
-      // this.query = ''
-
-
-      this.focusIndex = this.defaultFocusIndex;
+      this.$router.push(this.suggestions[index || this.focusIndex].path);
+      this.$store.commit('setSearchSuggestionsFocusIndex', this.defaultFocusIndex);
     },
 
-    focus (i) {
-      this.focusIndex = i
+    focus (index) {
+      this.$store.commit('setSearchSuggestionsFocusIndex', index);
     },
 
     unfocus () {
-      this.focusIndex = -1
+      this.$store.commit('setSearchSuggestionsFocusIndex', this.defaultFocusIndex);
     },
   },
 }
@@ -196,11 +193,13 @@ export default {
         position relative
         /*border 1px solid darken($borderColor, 10%)*/
         border-radius 0 0 4px 4px
-        padding 0.4rem
+        padding 20px
         list-style-type none
         box-shadow 0 2px 12px 0 rgba(0,0,0,.1)
         visibility visible
-        position relative
+        @media screen and (max-width: 719px) {
+            width 100%
+        }
         &.alignRight {
             left 0
         }
@@ -218,27 +217,46 @@ export default {
             }
         }
         .suggestion__link {
-            white-space normal
-            font-size: 18px;
-            font-weight: normal;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: 1.2;
-            letter-spacing: normal;
-            color $color7
-            .pageTitle {
-                font-weight 600
+            overflow hidden
+            @media screen and (max-width: 719px) {
+                display flex
+                flex-direction column
             }
-            .header {
-                font-size 0.9em
-                margin-left 0.25em
-                color $color8
+            .pageTitle {
                 font-size: 16px;
                 font-weight: normal;
                 font-stretch: normal;
                 font-style: normal;
                 line-height: 1.75;
                 letter-spacing: normal;
+                color $color7
+                margin-right 12px
+                @media screen and (max-width: 719px) {
+                    font-size: 14px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.14;
+                    letter-spacing: normal;
+                }
+            }
+            .header {
+                color $color8
+                font-size: 16px
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.75;
+                letter-spacing: normal
+                @media screen and (max-width: 719px) {
+                    font-size: 12px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.5;
+                    letter-spacing: normal;
+                    margin-top 4px
+                }
             }
         }
     }

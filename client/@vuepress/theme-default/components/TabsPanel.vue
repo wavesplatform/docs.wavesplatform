@@ -124,14 +124,19 @@
         font-style: normal;
         letter-spacing: normal;
         padding-bottom 3px
+        transition .3s
+
         &:not(.tabsList__item_active) {
             cursor pointer
             color $color8
+            &:hover {
+                color $color7
+            }
         }
         &:not(:first-child) {
             margin-left 40px
             @media screen and (max-width: 719px) {
-                margin-left 33px
+                margin-left 32px
             }
         }
         @media screen and (max-width: 719px) {

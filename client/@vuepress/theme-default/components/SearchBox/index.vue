@@ -1,7 +1,7 @@
 <template>
   <form
       :class="$style.searchBox"
-      @submit="submitForm"
+      @submit.prevent="submitForm"
   >
       <img
           :class="$style.searchBox__icon"
@@ -9,8 +9,7 @@
           alt=""
           @click="submitForm"
       >
-<!--      @keyup.up.prevent.stop="onUp"-->
-<!--      @keyup.down.prevent.stop="onDown"-->
+
     <input
         type="search"
         maxlength="1024"
@@ -28,6 +27,8 @@
         spellcheck="false"
         @focus="focused = true"
         @blur="focused = false"
+        @keyup.up.prevent.stop="suggestionUp"
+        @keyup.down.prevent.stop="suggestionDown"
         :placeholder="$themeLocaleConfig.searchPlaceholderText"
         :style="{
             borderRadius: (suggestionsList.length && layoutWidth > 719) ? '4px 4px 0 0' : '4px',
@@ -42,7 +43,7 @@
     >
       <Suggestions
           ref="suggestions"
-          v-if="layoutWidth > 719"
+          v-if="withSuggestions"
           :class="$style.searchSuggestions"
           :mod="1"
       />
@@ -51,14 +52,11 @@
 
 <script>
 /* global SEARCH_MAX_SUGGESTIONS, SEARCH_PATHS */
-import axios from 'axios';
-import SearchFrameContent from './SearchFrameContent';
 import Suggestions from './Suggestions'
 
 export default {
 
   components: {
-    SearchFrameContent,
     Suggestions,
   },
 
@@ -67,13 +65,14 @@ export default {
       type: Boolean,
       default: false,
     },
+    withSuggestions: {
+      type: Boolean,
+      default: true,
+    },
   },
   data () {
-    const defaultFocusIndex = -1;
     return {
       focused: false,
-      focusIndex: defaultFocusIndex,
-      defaultFocusIndex,
       currentMessageBoxKey: 1,
       searchResultData: [],
       isShowSearchResultWindow: false,
@@ -97,37 +96,28 @@ export default {
   },
 
   methods: {
-    submitForm(event) {
-      event.preventDefault();
-      this.go(this.focusIndex);
-      console.log('event:', event);
-    },
-
-    go (i) {
-      if(this.focusIndex < 0 && this.query) {
-        this.openDeepSearchResults();
+    suggestionDown() {
+      this.$emit('down');
+      if(!this.suggestionsRef) {
         return;
       }
-      this.$router.push(this.suggestions[i].path)
-      this.query = ''
-      this.focusIndex = this.defaultFocusIndex;
+      this.suggestionsRef.suggestionDown();
     },
 
-
-    async openDeepSearchResults() {
-      const searchResult = await axios.get(`${process.env.isDev ? 'http://localhost:3000' : ''}/?search=${this.query}`);
-
-      let searchResultData = searchResult.data;
-
-      // console.log('searchResultData:', searchResultData);
-      if(!searchResultData || !Array.isArray(searchResultData)) {
-        this.searchResultData = [];
-      } else {
-        this.searchResultData = searchResultData;
+    suggestionUp() {
+      this.$emit('up');
+      if(!this.suggestionsRef) {
+        return;
       }
+      this.suggestionsRef.suggestionUp();
+    },
 
-      this.isShowSearchResultWindow = true;
-    }
+    submitForm() {
+      if(!this.query) {
+        return;
+      }
+      this.$emit('search');
+    },
   },
 
   mounted () {
@@ -141,7 +131,11 @@ export default {
     //   // this.suggestionsListFromComponentExemplar = suggestionsRef.suggestions;
     // }
     // console.log('this.$refs.suggestions:', this.$refs.suggestions)
-  }
+  },
+
+  updated () {
+    this.suggestionsRef = this.$refs.suggestions;
+  },
 }
 </script>
 

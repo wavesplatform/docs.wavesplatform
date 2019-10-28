@@ -1,20 +1,26 @@
 <template>
     <el-dialog
+        ref="dialogComponentExemplar"
         :class="$style.root"
-        title="Tips"
         :visible.sync="isShowSearchResultWindow"
-        width="100%"
-        :fullscreen="true"
-        :modal="false"
+        :fullscreen="layoutWidth < 720"
+        :modal="true"
+        :show-close="false"
+        :custom-class="$style.dialog"
+        top=""
     >
         <div :class="$style.root__cell1">
             <template v-if="SearchBoxComponent">
-                <component :is="SearchBoxComponent" :is-full-size="true"/>
+                <div :class="$style.searchBoxWrapper">
+                    <component
+                        :is="SearchBoxComponent"
+                        :is-full-size="true"
+                        :with-suggestions="false"
+                        :class="$style.searchBox"
+                        @search="showDeepSearch"
+                    />
+                </div>
             </template>
-<!--            <SearchBox :is-full-size="true"/>-->
-<!--            <span :class="$style.searchWrapper">-->
-<!--                Search-->
-<!--            </span>-->
             <el-button
                 type="text"
                 :class="$style.cancelButton"
@@ -27,7 +33,7 @@
                 {{searchResult.length}} results matching
             </span>
             <span :class="$style.root__cell2__part2">
-                "{{query}}"
+                "{{currentSearchByQuery}}"
             </span>
         </div>
 
@@ -68,68 +74,85 @@
 </template>
 
 <script>
+  import axios from 'axios'
   import SearchResultItem from './SearchResultItem'
   import SearchBox from '@theme/components/SearchBox'
 
   export default {
     components: {
       SearchResultItem,
-      SearchBox,
+      SearchBox
     },
 
     props: {
       isShowSearchResultWindow: {
         type: Boolean,
-        default: false,
+        default: false
       },
-      searchResult: {
-        type: Array,
-        default: () => []
-      },
-      query: {
-        type: String,
-        default: '',
-      }
     },
 
-    data() {
-      const showMoreDisplayElementsOfOneStep = 5;
+    data () {
+      const showMoreDisplayElementsOfOneStep = 5
       return {
         limitDisplaySearchResultNumber: showMoreDisplayElementsOfOneStep,
         showMoreDisplayElementsOfOneStep,
         isHideMoreButton: false,
         SearchBoxComponent: null,
+        searchResult: [],
+        currentSearchByQuery: '',
       }
     },
 
     computed: {
-      limitedDisplaySearchResult() {
-        // console.log(`this.searchResult.slice(0, this.limitDisplaySearchResultNumber):`, this.searchResult.slice(0, this.limitDisplaySearchResultNumber))
-        return this.searchResult.slice(0, this.limitDisplaySearchResultNumber);
+      query() {
+        return this.$store.state.search.query;
+      },
+      limitedDisplaySearchResult () {
+        return this.searchResult.slice(0, this.limitDisplaySearchResultNumber)
+      },
+      layoutWidth () {
+        return this.$store.state.interface.layoutWidth
       }
     },
 
-
-    created () {
-      console.log('this.$options:', this.$options)
-      // console.log('searchResult:', this.searchResult, this.searchResult.length);
+    watch: {
+      isShowSearchResultWindow(isShow) {
+        if(isShow) {
+          this.showDeepSearch();
+        }
+      },
     },
 
-    async mounted() {
-      await this.$nextTick();
-      this.SearchBoxComponent = SearchBox;
+    async mounted () {
+      await this.$nextTick()
+      this.SearchBoxComponent = SearchBox
+      this.showDeepSearch();
     },
 
     methods: {
-      toggleMore() {
-        // console.log('toggleMore:', this.limitDisplaySearchResultNumber);
-        if(this.isHideMoreButton) {
-          this.limitDisplaySearchResultNumber = this.showMoreDisplayElementsOfOneStep;
-          return;
+      toggleMore () {
+        if (this.isHideMoreButton) {
+          this.limitDisplaySearchResultNumber = this.showMoreDisplayElementsOfOneStep
+          return
         }
-        this.limitDisplaySearchResultNumber += this.showMoreDisplayElementsOfOneStep;
+        this.limitDisplaySearchResultNumber += this.showMoreDisplayElementsOfOneStep
       },
-    },
+
+      async showDeepSearch () {
+        this.searchResult = [];
+        const searchResult = await axios.get(`${process.env.isDev ? `${location.protocol}//${location.hostname}:3000` : ''}/?search=${this.query}`)
+
+        let searchResultData = searchResult.data
+
+        if (!searchResultData || !Array.isArray(searchResultData)) {
+          this.searchResult = []
+        } else {
+          this.searchResult = searchResultData
+        }
+        this.currentSearchByQuery = this.query;
+      }
+
+    }
   }
 </script>
 
@@ -140,14 +163,36 @@
         height 100%
         overflow hidden
         position fixed
+        justify-content center
+        align-items center
+        :global(.el-dialog__header) {
+            display none
+        }
+        :global(.el-dialog__body) {
+            padding 20px 0
+            overflow: hidden;
+            height: 100%;
+            display flex
+            flex-direction column
+        }
     }
-
+    .dialog {
+        max-width 719px
+        /*max-height 719px*/
+        height calc(100% - 40px)
+        width calc(100% - 40px)
+        margin auto
+        &:not(:global(.is-fullscreen)) {
+            max-height 719px
+        }
+    }
     .root__cell1,
     .root__cell2,
     .root__cell3,
     .root__cell4 {
-        padding-left 20px
-        padding-right 20px
+        padding-left 24px
+        padding-right 24px
+        /*padding-bottom 20px*/
     }
 
     .root__cell1 {
@@ -155,11 +200,13 @@
         border-bottom 1px solid $color3
         display flex
         justify-content space-between
+        padding-bottom: 16px;
     }
 
-    .searchWrapper {
+    .searchBoxWrapper {
         display flex
         align-items center
+        width 100%
     }
 
     .searchBox {
@@ -168,12 +215,20 @@
 
     .cancelButton {
         color $color6
+        flex-shrink 0
+        margin-left 21px
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
     }
 
     .root__cell2 {
         flex-shrink 0
-        padding-top 20px
-        padding-bottom 20px
+        padding-top 26px
+        padding-bottom 22px
         text-transform uppercase
     }
     .root__cell2__part1 {

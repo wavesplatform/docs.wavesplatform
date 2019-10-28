@@ -103,6 +103,7 @@
     .root__row1 {
         display flex
         flex-direction column
+        flex-shrink 0
         &:hover {
             :global(.el-divider__text) {
                 text-decoration: underline;

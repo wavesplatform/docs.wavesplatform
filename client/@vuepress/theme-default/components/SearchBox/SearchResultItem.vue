@@ -3,6 +3,7 @@
       <a
           :href="item.path"
           :class="$style.link"
+          @click.prevent="goToPage(item.path)"
       >
           <div :class="$style.title">
               <template
@@ -14,7 +15,7 @@
 
           <div
             :class="$style.description">
-
+              ...
               <div
                   v-for="(contentMatchRow, indexMatchRow) of displayedContentMatches"
                   :key="indexMatchRow"
@@ -29,7 +30,7 @@
                       ]"
                   >{{ Array.isArray(contentMatch) ? contentMatch[0] : contentMatch | trim }}</span>
               </div>
-
+              ...
           </div>
       </a>
 
@@ -97,6 +98,10 @@
             this.displayedContentMatches = this.limitedDisplayContentMatches;
           }
         },
+        goToPage(path) {
+          this.$store.commit('setSearchQuery', '')
+          this.$router.push(path);
+        }
     },
 
     created() {
@@ -144,12 +149,14 @@
         color initial
         font-weight 100
         /*white-space pre-line*/
-        display flex
-        flex-wrap wrap
+        /*display flex*/
+        /*flex-wrap wrap*/
         margin-top 5px
     }
     .description__cell {
-        display flex
+        /*display flex*/
+        /*align-items baseline*/
+        /*flex-wrap wrap*/
         /*border 1px solid #ddd*/
         /*margin 3px*/
         padding 1px
@@ -160,9 +167,13 @@
         font-style: normal;
         line-height: 1.71;
         letter-spacing: normal;
+        display inline-block
+        & > * {
+            flex-shrink 0
+        }
     }
     .description__cell__part {
-        display flex
+        /*display flex*/
 
     }
     ._highlight {
