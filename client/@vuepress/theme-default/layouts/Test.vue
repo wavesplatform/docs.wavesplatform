@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import Navbar from '@theme/components/Navbar.vue'
+  import Navbar from '@theme/components/Navbar'
   import SearchBox from '@theme/components/SearchBox/'
   import CategoryCard from './components/CategoryCard'
   import Logotype from '@theme/components/Logotype'

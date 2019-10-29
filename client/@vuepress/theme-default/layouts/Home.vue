@@ -11,6 +11,7 @@
                 ref="navbar"
                 :class="[$style.root__cell1, $style.navbar]"
                 :is-home-page-mod="true"
+                type="home"
             />
             <div
                 :class="$style.root__cell2"
@@ -20,9 +21,14 @@
             >
                 <main :class="$style.mainContentCell">
                     <div :class="[$style.mainContentCell__row, $style.mainContentCell__row2]">
-                        <WidthLimit :class="$style.mainContentCell__row2__WidthLimit">
+                        <WidthLimit
+                            :class="[
+                                $style.mainContentCell__row2__WidthLimit,
+                                isMounted && $style.mainContentCell__row2__WidthLimit_animate,
+                            ]"
+                        >
                             <h1
-                                v-if="layoutWidth > 719"
+                                v-show="layoutWidth > 719"
                                 :class="$style.mainContentCell__row2__text">
                                 {{ $themeLocaleConfig.homePage.welcomeText }}
                             </h1>
@@ -31,7 +37,7 @@
                                     ref="searchBox"
                                     :class="$style.searchBox"
                                     :is-full-size="true"
-                                    :with-suggestions="layoutWidth > 719 && !isShowSearchResultWindow"
+                                    :with-suggestions="layoutWidth > 719 && !isShowSearchResultWindow && !isHoldHiddenSuggestions"
                                     @up="layoutWidth > 719 && suggestionsUp"
                                     @down="layoutWidth > 719 && suggestionsDown"
                                     @search="search"
@@ -39,9 +45,8 @@
                             </div>
                         </WidthLimit>
 
-<!--                        {{layoutWidth}}-->
                         <div
-                            v-show="layoutWidth < 720 && !isShowSearchResultWindow"
+                            v-show="layoutWidth < 720 && !isShowSearchResultWindow && !isHoldHiddenSuggestions"
                             :class="$style.searchSuggestionsWrapper"
                         >
                             <Suggestions
@@ -137,7 +142,7 @@
 
 <script>
   import WidthLimit from '@theme/components/WidthLimit'
-  import Navbar from '@theme/components/Navbar.vue'
+  import Navbar from '@theme/components/Navbar'
   import TabsPanel from '@theme/components/TabsPanel'
   import SearchBox from '@theme/components/SearchBox/'
   import CategoryCard from './components/CategoryCard'
@@ -171,6 +176,8 @@
         currentTechnologyCategoryFilter: 'all',
         isShowSearchResultWindow: false,
         suggestionsRef: null,
+        isMounted: false,
+        isHoldHiddenSuggestions: false,
       }
     },
 
@@ -189,6 +196,9 @@
           return category.type === this.currentTechnologyCategoryFilter;
         });
       },
+      query() {
+        return this.$store.state.search.query;
+      },
       focusIndex() {
         return this.$store.state.search.focusIndex;
       },
@@ -202,7 +212,12 @@
           if(searchBoxComponentExemplar) {
             searchBoxComponentExemplar.focus();
           }
+        } else {
+          this.isHoldHiddenSuggestions = true;
         }
+      },
+      query() {
+        this.isHoldHiddenSuggestions = false;
       },
     },
 
@@ -212,11 +227,13 @@
       }
     },
 
-    mounted () {
+    async mounted () {
       this.suggestionsRef = this.$refs.suggestions;
       if(!this.$isServer) {
         window.test = this;
       }
+      await this.$nextTick();
+      this.isMounted = true;
     },
 
     updated () {
@@ -264,7 +281,7 @@
         flex-direction column
         /*padding 20px*/
         height 100%
-        width 100%
+        width 100vw
     }
     .root__cell1 {
         flex-shrink 0
@@ -290,6 +307,7 @@
         left 0
         z-index 2
         position fixed
+        width 100vw
     }
     .mainContentCell__row {
         display flex
@@ -309,8 +327,15 @@
         }
     }
     .mainContentCell__row2__WidthLimit {
-
+        transform: translateY(-100%);
+        opacity .1
+        transition .8s
     }
+    .mainContentCell__row2__WidthLimit_animate {
+        transform: translateY(0);
+        opacity 1
+    }
+
     .mainContentCell__row2__text {
         width 100%
         font-size: 32px;

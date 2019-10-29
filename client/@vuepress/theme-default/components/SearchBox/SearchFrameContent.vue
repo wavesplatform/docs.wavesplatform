@@ -1,4 +1,5 @@
 <template>
+    <!--:destroy-on-close="true"-->
     <el-dialog
         ref="dialogComponentExemplar"
         :class="$style.root"
@@ -12,20 +13,18 @@
         :close-on-click-modal="false"
         @mousedown.native="rootMousedown"
         @mouseup.native="rootMouseup"
+        :destroy-on-close="true"
     >
         <div :class="$style.root__cell1">
-            <template v-if="SearchBoxComponent">
                 <div :class="$style.searchBoxWrapper">
-                    <component
+                    <SearchBox
                         ref="searchBoxComponentExemplar"
-                        :is="SearchBoxComponent"
                         :is-full-size="true"
                         :with-suggestions="false"
                         :class="$style.searchBox"
                         @search="showDeepSearch"
-                    />
+                    ></SearchBox>
                 </div>
-            </template>
             <el-button
                 type="text"
                 :class="$style.cancelButton"
@@ -161,6 +160,7 @@
           await this.$nextTick();
           const searchBoxComponentExemplar = this.$refs.searchBoxComponentExemplar;
           if(searchBoxComponentExemplar) {
+            searchBoxComponentExemplar.$refs.input.value = this.query;
             searchBoxComponentExemplar.focus();
           }
           this.showDeepSearch();
@@ -170,10 +170,9 @@
 
     async mounted () {
       this.mouseenterElement = null;
-      await this.$nextTick()
-      this.SearchBoxComponent = SearchBox
       this.showDeepSearch();
     },
+
 
     methods: {
       rootMousedown(event) {
@@ -186,12 +185,6 @@
         }
         this.mouseenterElement = null;
       },
-
-      // close(event) {
-      //   if(event.path[0] === this.$refs.dialogComponentExemplar.$el) {
-      //     this.$emit('close');
-      //   }
-      // },
 
       toggleMore () {
         if (this.isHideMoreButton) {
@@ -225,6 +218,42 @@
   }
 </script>
 
+<style lang="stylus">
+    .dialog-fade-enter-active {
+        animation: dialog-fade-in .8s;
+    }
+
+    .dialog-fade-leave-active {
+        animation: dialog-fade-out .8s;
+    }
+
+    @keyframes dialog-fade-in {
+        0% {
+            transform: translate3d(0, -20px, 0);
+            opacity: 0;
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes dialog-fade-out {
+        0% {
+            transform: translate3d(0, 0, 0) scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(.8);
+            opacity: .7;
+        }
+        100% {
+            transform: translate3d(0, -20px, 0) scale(1);
+            opacity: 0;
+        }
+    }
+</style>
+
 <style lang="stylus" module>
     .root {
         display flex
@@ -234,6 +263,8 @@
         position fixed
         justify-content center
         align-items center
+        width 100vw
+        /*overflow-y scroll*/
         :global(.el-dialog__header) {
             display none
         }

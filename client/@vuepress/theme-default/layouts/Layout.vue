@@ -131,7 +131,7 @@
 
 <script>
   import Home from '@theme/components/Home.vue'
-  import Navbar from '@theme/components/Navbar.vue'
+  import Navbar from '@theme/components/Navbar'
   import Page from '@theme/components/Page.vue'
   import Sidebar from '@theme/components/Sidebar/'
   import Logotype from '@theme/components/Logotype'

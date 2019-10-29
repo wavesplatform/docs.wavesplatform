@@ -18,7 +18,7 @@ export default (context) => {
         currentLanguage: '',
         interface: {
             layoutWidth,
-            headerHeight: 0
+            headerHeight: 71,
         },
         navbarSubHeaders: [],
         // isProcessDev: process.env.isDev,

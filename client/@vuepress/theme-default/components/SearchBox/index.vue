@@ -83,6 +83,7 @@ export default {
       searchResultData: [],
       isShowSearchResultWindow: false,
       suggestionsRef: null,
+      cachedInputValue: '',
     }
   },
 
@@ -98,6 +99,14 @@ export default {
         return [];
       }
       return this.suggestionsRef.suggestions || [];
+    },
+  },
+
+  watch: {
+    query(newValue, oldValue) {
+      if(newValue === '') {
+        this.cachedInputValue = oldValue;
+      }
     },
   },
 
@@ -185,6 +194,10 @@ export default {
     .searchBox__clearIcon {
         right: 0;
         margin-right 20px
+        transition transform .3s
+        &:hover {
+            transform rotate(180deg);
+        }
         @media screen and (max-width: 719px) {
             margin-right 16px
         }
@@ -206,6 +219,10 @@ export default {
         /*background #fff url(search-24-basic-300.svg) 0.6rem 0.5rem no-repeat*/
         background-color $color2
         background-size 1rem
+        &:focus {
+            box-shadow inset 0 0 0 1px $color3, 0 2px 12px 0 rgba(0, 0, 0, .1)
+            /*border 1px solid $color3*/
+        }
         &::placeholder {
             font-size: 24px;
             font-weight: normal;
@@ -215,7 +232,7 @@ export default {
             letter-spacing: normal;
             color $color9
         }
-        &.focused {
+        /*&.focused {
             border-color $borderColor
             cursor text
             left 0
@@ -226,7 +243,7 @@ export default {
         }
         &:not(.focused) {
             width 0
-        }
+        }*/
 
         @media screen and (max-width: 719px) {
             font-size: 14px;
@@ -247,6 +264,7 @@ export default {
     .searchSuggestions {
         position relative
         width 100%
+        margin-top -1px
     }
 </style>
 
