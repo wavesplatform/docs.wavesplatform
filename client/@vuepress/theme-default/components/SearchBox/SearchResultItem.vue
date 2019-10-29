@@ -9,7 +9,7 @@
               <template
                   v-for="titleMatch of titleMatches"
               >
-                  <span :class="[Array.isArray(titleMatch) && $style._highlight]">{{(Array.isArray(titleMatch)? titleMatch[0] : titleMatch) | trim}}</span>
+                  <span :class="[Array.isArray(titleMatch) && $style._highlight]">{{(Array.isArray(titleMatch)? titleMatch[0] : titleMatch) }}</span>
               </template>
           </div>
 
@@ -29,7 +29,7 @@
                         $style.description__cell__part,
                         Array.isArray(contentMatch) && $style._highlight,
                       ]"
-                  >{{ Array.isArray(contentMatch) ? contentMatch[0] : contentMatch | trim }}</span>
+                  >{{ Array.isArray(contentMatch) ? contentMatch[0] : contentMatch }}</span>
                   {{indexMatchRow === 0 ? '...' : ''}}
               </div>
           </div>
