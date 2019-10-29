@@ -38,10 +38,8 @@ const fuseOptions = {
     // caseSensitive: true,
 };
 
-const findItemForSendingLimit = 20;
+const findItemForSendingLimit = 40;
 const textLeftRightRangeLength = 150;
-// const limit
-
 
 module.exports = async function() {
     const vuepressPagesParamsListString = fs.readFileSync(`${vuepressDestPath}/documentation-files-map.json`).toString();

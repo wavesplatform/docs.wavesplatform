@@ -4,7 +4,7 @@ const deepmerge = require('deepmerge');
 const mixin = require('../_mixins');
 module.exports = deepmerge(mixin, {
     langIconRawSvg: fs.readFileSync(path.resolve(__dirname, './britain-18.svg')).toString(),
-    searchPlaceholderText: 'Search for answers',
+    searchPlaceholderText: 'Enter a term and press Return…',
     homePage: {
         welcomeText: 'Welcome to the documentation on everything about Waves platform',
         or: 'Or',

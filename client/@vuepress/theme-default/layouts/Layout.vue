@@ -34,6 +34,7 @@
             <!--        ></div>-->
 
             <Sidebar
+                v-if="false"
                 ref="sidebar1"
                 :sidebar-toggle-trigger-options="{
                 isShow: layoutWidth > 719,
@@ -91,7 +92,10 @@
                     slot="bottom"
                 />
             </Page>
+
+
             <Sidebar
+                v-if="false"
                 v-show="layoutWidth > 719"
                 ref="sidebar2"
                 :sidebar-toggle-trigger-options="{
@@ -134,6 +138,7 @@
   import SearchBox from '@theme/components/SearchBox/'
   import watchLayoutWidthMixin from './mixins/watchLayoutWidth'
   import navbarResizeDetector from './mixins/navbarResizeDetector'
+  import WidthLimit from '@theme/components/WidthLimit'
   import { resolveSidebarItems } from '../util'
 
   export default {
@@ -150,6 +155,7 @@
       Navbar,
       Logotype,
       SearchBox,
+      WidthLimit,
     },
 
     data () {
@@ -292,13 +298,13 @@
       })
 
       if (!this.$isServer) {
-        this.resizeCallback = this.setSidebarResizeDetector('sidebar1', 'pageContentPaddingLeftPx', element => {
-          this.navbarMaxWidthPx = document.body.clientWidth - element.offsetWidth - 1
-        });
-        this.setSidebarStateWatcher('sidebar1', 'sidebar1Show')
-        this.setSidebarStateWatcher('sidebar2', 'sidebar2Show')
+        // this.resizeCallback = this.setSidebarResizeDetector('sidebar1', 'pageContentPaddingLeftPx', element => {
+        //   this.navbarMaxWidthPx = document.body.clientWidth - element.offsetWidth - 1
+        // });
+        // this.setSidebarStateWatcher('sidebar1', 'sidebar1Show')
+        // this.setSidebarStateWatcher('sidebar2', 'sidebar2Show')
 
-        this.setSidebarResizeDetector('sidebar2', 'pageContentPaddingRightPx')
+        // this.setSidebarResizeDetector('sidebar2', 'pageContentPaddingRightPx')
       }
     },
 
@@ -362,27 +368,26 @@
 
 <!--<style src="../styles/theme.styl" lang="stylus"></style>-->
 <style src="prismjs/themes/prism-tomorrow.css"></style>
+
 <style lang="stylus" module>
     .root {
-        /*max-width 1000px*/
-        /*width 100%*/
         display flex
         flex-direction column
-        height 100vh
-        width 100vw
+        height 100%
+        width 100%
         overflow hidden
     }
     .root__cell1 {
 
     }
     .navbar {
+        position fixed;
         right 0
         width 100%
         justify-content space-between
         flex-shrink 0
         z-index 1
     }
-
 
     .root__cell2 {
         flex-shrink 0

@@ -102,9 +102,14 @@ export default {
   },
 
   methods: {
+
+    focus() {
+      this.$refs.input.focus();
+    },
+
     clearInput() {
         this.$store.commit('setSearchQuery', '');
-        this.$refs.input.focus();
+        this.focus();
     },
 
     suggestionDown() {

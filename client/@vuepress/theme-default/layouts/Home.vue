@@ -19,7 +19,6 @@
                 }"
             >
                 <main :class="$style.mainContentCell">
-
                     <div :class="[$style.mainContentCell__row, $style.mainContentCell__row2]">
                         <WidthLimit :class="$style.mainContentCell__row2__WidthLimit">
                             <h1
@@ -32,7 +31,7 @@
                                     ref="searchBox"
                                     :class="$style.searchBox"
                                     :is-full-size="true"
-                                    :with-suggestions="layoutWidth > 719"
+                                    :with-suggestions="layoutWidth > 719 && !isShowSearchResultWindow"
                                     @up="layoutWidth > 719 && suggestionsUp"
                                     @down="layoutWidth > 719 && suggestionsDown"
                                     @search="search"
@@ -42,7 +41,7 @@
 
 <!--                        {{layoutWidth}}-->
                         <div
-                            v-show="layoutWidth < 720"
+                            v-show="layoutWidth < 720 && !isShowSearchResultWindow"
                             :class="$style.searchSuggestionsWrapper"
                         >
                             <Suggestions
@@ -192,6 +191,18 @@
       },
       focusIndex() {
         return this.$store.state.search.focusIndex;
+      },
+    },
+
+    watch: {
+      async isShowSearchResultWindow(isShow) {
+        if(isShow === false) {
+          this.$nextTick();
+          const searchBoxComponentExemplar = this.$refs.searchBox;
+          if(searchBoxComponentExemplar) {
+            searchBoxComponentExemplar.focus();
+          }
+        }
       },
     },
 

@@ -4,24 +4,23 @@
         $style.root,
         mod && $style[`root_mod_${mod}`]
       ]"
-      v-show="suggestions && suggestions.length"
+      v-show="suggestions && suggestionsLength"
   >
+      <!--@mouseleave="unfocus"-->
     <ul
         :class="$style.suggestions"
-        @mouseleave="unfocus"
     >
+      <!--@mouseenter="focus(suggestionIndex)"-->
       <li
         :class="[$style.suggestion, {
             [$style.focused]: suggestionIndex === focusIndex,
         }]"
         v-for="(suggestion, suggestionIndex) in suggestions"
         @mousedown="go(suggestionIndex)"
-        @mouseenter="focus(suggestionIndex)"
       >
         <a
             :href="suggestion.path"
             :class="$style.suggestion__link"
-            @click.prevent
         >
           <span :class="$style.pageTitle">
               {{ suggestion.title || suggestion.path }}
@@ -72,7 +71,7 @@ export default {
     suggestions () {
       const query = this.prepareSearchQuery.trim().toLowerCase()
       if (!query) {
-        return
+        return [];
       }
       const { pages } = this.$site;
       const max = SEARCH_MAX_SUGGESTIONS
@@ -110,6 +109,23 @@ export default {
       }
       return res;
     },
+
+    suggestionsLength() {
+      return this.suggestions.length;
+    },
+
+  },
+
+  watch: {
+    // suggestionsLength(newLength) {
+    //   console.log('setSearchSuggestionsFocusIndex:', newLength)
+    //   if(newLength < this.focusIndex) {
+    //     this.$store.commit('setSearchSuggestionsFocusIndex', newLength - 1)
+    //   }
+    // },
+    prepareSearchQuery() {
+      this.$store.commit('setSearchSuggestionsFocusIndex', this.defaultFocusIndex);
+    },
   },
 
   methods: {
@@ -136,7 +152,7 @@ export default {
 
     suggestionUp () {
       if(this.focusIndex === this.defaultFocusIndex) {
-        this.$store.commit('setSearchSuggestionsFocusIndex', this.suggestions.length - 1)
+        this.$store.commit('setSearchSuggestionsFocusIndex', this.suggestionsLength - 1)
       } else if (this.focusIndex > 0) {
         this.$store.commit('setSearchSuggestionsFocusIndex', this.focusIndex - 1)
       } else {
@@ -145,7 +161,7 @@ export default {
     },
 
     suggestionDown () {
-      if (this.focusIndex < this.suggestions.length - 1) {
+      if (this.focusIndex < this.suggestionsLength - 1) {
         this.$store.commit('setSearchSuggestionsFocusIndex', this.focusIndex + 1)
       } else {
         this.$store.commit('setSearchSuggestionsFocusIndex', this.defaultFocusIndex)
@@ -210,6 +226,9 @@ export default {
         padding 0.4rem 0.6rem
         border-radius 4px
         cursor pointer
+        &:hover {
+            background-color $color1
+        }
         &.focused {
             background-color $color2
             .suggestion__link {

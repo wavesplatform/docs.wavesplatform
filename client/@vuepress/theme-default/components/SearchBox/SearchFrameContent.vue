@@ -9,11 +9,15 @@
         :custom-class="$style.dialog"
         top=""
         @close="$emit('close')"
+        :close-on-click-modal="false"
+        @mousedown.native="rootMousedown"
+        @mouseup.native="rootMouseup"
     >
         <div :class="$style.root__cell1">
             <template v-if="SearchBoxComponent">
                 <div :class="$style.searchBoxWrapper">
                     <component
+                        ref="searchBoxComponentExemplar"
                         :is="SearchBoxComponent"
                         :is-full-size="true"
                         :with-suggestions="false"
@@ -73,17 +77,30 @@
 
 
             </div>
-        </div>
-        <div
-            v-if="searchResult.length && searchResult.length > limitDisplaySearchResultNumber"
-            :class="[$style.root__cell4, $style.showMoreButtonWrapper]"
-            @click="toggleMore"
-        >
-            <el-button :class="$style.showMoreButton">
-                {{isHideMoreButton ? 'Less more' : i18nSearchPopupConfig.showMoreText}}
-            </el-button>
 
+            <div
+                v-show="searchResult.length && searchResult.length > limitDisplaySearchResultNumber"
+                :class="$style.showMoreButtonWrapper"
+            >
+                <el-button
+                    :class="$style.showMoreButton"
+                    @click="toggleMore"
+                >
+                    {{isHideMoreButton ? 'Less more' : i18nSearchPopupConfig.showMoreText}}
+                </el-button>
+
+            </div>
         </div>
+<!--        <div-->
+<!--            v-if="searchResult.length && searchResult.length > limitDisplaySearchResultNumber"-->
+<!--            :class="[$style.root__cell4, $style.showMoreButtonWrapper]"-->
+<!--            @click="toggleMore"-->
+<!--        >-->
+<!--            <el-button :class="$style.showMoreButton">-->
+<!--                {{isHideMoreButton ? 'Less more' : i18nSearchPopupConfig.showMoreText}}-->
+<!--            </el-button>-->
+
+<!--        </div>-->
     </el-dialog>
 </template>
 
@@ -106,7 +123,7 @@
     },
 
     data () {
-      const showMoreDisplayElementsOfOneStep = 5
+      const showMoreDisplayElementsOfOneStep = 10
       return {
         limitDisplaySearchResultNumber: showMoreDisplayElementsOfOneStep,
         showMoreDisplayElementsOfOneStep,
@@ -139,20 +156,43 @@
     },
 
     watch: {
-      isShowSearchResultWindow(isShow) {
+      async isShowSearchResultWindow(isShow) {
         if(isShow) {
+          await this.$nextTick();
+          const searchBoxComponentExemplar = this.$refs.searchBoxComponentExemplar;
+          if(searchBoxComponentExemplar) {
+            searchBoxComponentExemplar.focus();
+          }
           this.showDeepSearch();
         }
       },
     },
 
     async mounted () {
+      this.mouseenterElement = null;
       await this.$nextTick()
       this.SearchBoxComponent = SearchBox
       this.showDeepSearch();
     },
 
     methods: {
+      rootMousedown(event) {
+        this.mouseenterElement = event.path[0];
+      },
+
+      rootMouseup(event) {
+        if(this.$refs.dialogComponentExemplar.$el === this.mouseenterElement) {
+          this.$emit('close');
+        }
+        this.mouseenterElement = null;
+      },
+
+      // close(event) {
+      //   if(event.path[0] === this.$refs.dialogComponentExemplar.$el) {
+      //     this.$emit('close');
+      //   }
+      // },
+
       toggleMore () {
         if (this.isHideMoreButton) {
           this.limitDisplaySearchResultNumber = this.showMoreDisplayElementsOfOneStep
@@ -163,10 +203,12 @@
 
       async showDeepSearch () {
         this.currentSearchByQuery = this.query;
+        this.searchResult = [];
+        this.limitDisplaySearchResultNumber = this.showMoreDisplayElementsOfOneStep;
         if(this.currentSearchByQueryLength < this.minQueryLength) {
           return;
         }
-        this.searchResult = [];
+
         const searchResult = await axios.get(`${process.env.isDev ? `${location.protocol}//${location.hostname}:3000` : ''}/?search=${this.query}`)
 
         let searchResultData = searchResult.data
@@ -214,8 +256,8 @@
         }
     }
     .root__cell1,
-    .root__cell2,
-    .root__cell4 {
+    .root__cell2/*,
+    .root__cell4*/ {
         padding-left 24px
         padding-right 24px
         /*padding-bottom 20px*/
@@ -295,9 +337,9 @@
         /*padding-top 15px*/
     }
 
-    .root__cell4 {
+    /*.root__cell4 {
         flex-shrink 0
-    }
+    }*/
 
     .resultList {
         display flex

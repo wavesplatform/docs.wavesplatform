@@ -6,6 +6,7 @@
 @require './wrapper'
 @require './toc'
 @require './links'
+@require './styles-overlap'
 
 
 ::selection {
@@ -76,49 +77,6 @@ a {
     }
   }
 }
-
-.page
-  //padding-left $sidebarWidth
-
-//.navbar
-//  //position fixed
-//  //z-index 20
-//  //top 0
-//  width 100%
-//  height $navbarHeight
-//  background-color #fff
-//  box-sizing border-box
-//  border-bottom 1px solid $borderColor
-
-//.sidebar-mask
-//  position fixed
-//  z-index 9
-//  top 0
-//  left 0
-//  width 100vw
-//  height 100vh
-//  display none
-
-
-
-//.content:not(.custom)
-//  @extend $wrapper
-//  > *:first-child
-//    margin-top $navbarHeight
-//  a:hover
-//    text-decoration underline
-//  p.demo
-//    padding 1rem 1.5rem
-//    border 1px solid #ddd
-//    border-radius 4px
-//  img
-//    max-width 100%
-//
-//.content.custom
-//  padding 0
-//  margin 0
-//  img
-//    max-width 100%
 
 a
   font-weight 500
