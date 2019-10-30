@@ -4,17 +4,15 @@
         @touchstart="onTouchStart"
         @touchend="onTouchEnd"
     >
-<!--        <div :class="$style.root__cell1">-->
-<!--            -->
-<!--        </div>-->
+        <!--        <div :class="$style.root__cell1">-->
+        <!--            -->
+        <!--        </div>-->
+        <!--v-if="shouldShowNavbar"-->
         <Navbar
-            v-if="shouldShowNavbar"
             ref="navbar"
             :class="[$style.root__cell1, $style.navbar]"
-            :style="{
-                // maxWidth: navbarMaxWidth,
-              }"
             @toggle-sidebar="toggleSidebar"
+            type="content"
         />
 
         <div
@@ -27,7 +25,12 @@
             />
         </div>
 
-        <div :class="$style.root__cell3">
+        <div
+            :class="$style.root__cell3"
+            :style="{
+                marginTop: headerHeight + 'px',
+            }"
+        >
             <!--        <div-->
             <!--            class="sidebar-mask"-->
             <!--            @click="toggleSidebar(false)"-->
@@ -74,6 +77,7 @@
                     slot="bottom"
                 />
             </Sidebar>
+
 
             <Home v-if="$page.frontmatter.home"/>
 
@@ -187,26 +191,26 @@
           paddingLeft: this.pageContentPaddingLeftPx + 'px',
           paddingRight: this.pageContentPaddingRightPx + 'px',
         }, {
-          margin: `${this.layoutWidth > 719 ? 2 : 1}rem`,
+          // margin: `${this.layoutWidth > 719 ? 2 : 1}rem`,
         })
       },
 
-      shouldShowNavbar () {
-        const { themeConfig } = this.$site
-        const { frontmatter } = this.$page
-        if (
-          frontmatter.navbar === false
-          || themeConfig.navbar === false) {
-          return false
-        }
-        return (
-          this.$title
-          || themeConfig.logo
-          || themeConfig.repo
-          || themeConfig.nav
-          || this.$themeLocaleConfig.nav
-        )
-      },
+      // shouldShowNavbar () {
+      //   const { themeConfig } = this.$site
+      //   const { frontmatter } = this.$page
+      //   if (
+      //     frontmatter.navbar === false
+      //     || themeConfig.navbar === false) {
+      //     return false
+      //   }
+      //   return (
+      //     this.$title
+      //     || themeConfig.logo
+      //     || themeConfig.repo
+      //     || themeConfig.nav
+      //     || this.$themeLocaleConfig.nav
+      //   )
+      // },
 
       shouldShowSidebar () {
         const { frontmatter } = this.$page
@@ -237,7 +241,7 @@
         const userPageClass = this.$page.frontmatter.pageClass
         return [
           {
-            'no-navbar': !this.shouldShowNavbar,
+            // 'no-navbar': !this.shouldShowNavbar,
             'sidebar-open': this.isSidebarOpen
             // 'no-sidebar': !this.shouldShowSidebar
           },

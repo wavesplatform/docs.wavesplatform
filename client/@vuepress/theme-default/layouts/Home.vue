@@ -213,11 +213,13 @@
             searchBoxComponentExemplar.focus();
           }
         } else {
-          this.isHoldHiddenSuggestions = true;
+            this.isHoldHiddenSuggestions = true;
         }
       },
       query() {
-        this.isHoldHiddenSuggestions = false;
+        if(!this.isShowSearchResultWindow) {
+          this.isHoldHiddenSuggestions = false;
+        }
       },
     },
 
@@ -327,7 +329,7 @@
         }
     }
     .mainContentCell__row2__WidthLimit {
-        transform: translateY(-100%);
+        transform: translateY(100%);
         opacity .1
         transition .8s
     }
