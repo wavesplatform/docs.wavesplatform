@@ -4,7 +4,7 @@
         :class="$style.root">
         <div
             :class="$style.currentLangIconWrapper"
-            v-html="currentLanguageParams.langIconRawSvg"
+            v-html="$themeLocaleConfig.langIconRawSvg"
             @click="toggleLangList"
         ></div>
 
@@ -22,7 +22,7 @@
                     $style.langList__item,
                     languageItem.link === $page.path && $style.langList__item_active
                 ]"
-                    @click="languageItem.link !== $page.path && $router.push(languageItem.link)"
+                    @click="selectLanguage(languageItem)"
                 >
                     <div :class="$style.langList__item__cell1">
                         <span v-html="languageItem.langIconRawSvg"
@@ -56,9 +56,6 @@
     },
 
     computed: {
-      currentLanguageParams() {
-        return this.$site.themeConfig.locales[this.$localePath]
-      },
       languageNavDropdown() {
         const {locales} = this.$site;
         let languageDropdown = [];
@@ -120,6 +117,28 @@
         }
         this.isShowLangList = !this.isShowLangList;
       },
+
+      selectLanguage(languageItem) {
+        const languageItemLink = languageItem.link;
+
+        if(this.$themeConfig.locales[languageItemLink]) {
+          this.$notify({
+            type: 'warning',
+            title: this.$themeLocaleConfig.languageAbsenceNotification.title,
+            message: this.$themeLocaleConfig.languageAbsenceNotification.message,
+            offset: 0,
+            duration: 0,
+            customClass: this.$style.notifyCustomClass,
+          });
+          this.isShowLangList = false;
+          return;
+        }
+
+        if(languageItemLink !== this.$page.path) {
+          this.$router.push(languageItemLink)
+        }
+
+      },
     },
 
     beforeDestroy () {
@@ -130,6 +149,9 @@
 </script>
 
 <style lang="stylus" module>
+    .notifyCustomClass {
+        max-width: calc(100% - 39px);
+    }
     .root {
         display flex
         position relative
@@ -196,7 +218,7 @@
         letter-spacing: normal;
     }
     .checkMark {
-        transition .3s
+        transition $transitionS1
         width 12px
         display flex
         position relative

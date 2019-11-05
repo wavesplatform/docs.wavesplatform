@@ -78,7 +78,7 @@
     $resourcesCategoryPadding-l-r = 38px
     $resourcesCategoryPadding_min = 3px
     .link {
-        transition .3s
+        transition $transitionS1
         &:hover {
             color $color7
         }

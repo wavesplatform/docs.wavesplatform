@@ -135,7 +135,7 @@
         font-style: normal;
         letter-spacing: normal;
         padding-bottom 3px
-        transition .3s
+        transition $transitionS1
 
         &:not(.tabsList__item_active) {
             cursor pointer
@@ -159,7 +159,7 @@
         font-weight bold
     }
     .marker {
-        transition .3s
+        transition $transitionS1
         height 3px
         width 100%
         position absolute

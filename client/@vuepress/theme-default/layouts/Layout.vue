@@ -1,69 +1,44 @@
 <template>
     <div
-        :class="[$style.root, 'theme-container', pageClasses]"
+        :class="$style.root"
         @touchstart="onTouchStart"
         @touchend="onTouchEnd"
     >
-        <!--        <div :class="$style.root__cell1">-->
-        <!--            -->
-        <!--        </div>-->
-        <!--v-if="shouldShowNavbar"-->
-        <Navbar
-            ref="navbar"
-            :class="[$style.root__cell1, $style.navbar]"
-            @toggle-sidebar="toggleSidebar"
-            type="content"
-        />
 
-        <div
-            v-if="layoutWidth < 720"
-            :class="$style.root__cell2">
-            <SearchBox
-                ref="searchBox"
-                :class="$style.searchBox"
-                :is-full-size="true"
-            />
-        </div>
-
-        <div
-            :class="$style.root__cell3"
-            :style="{
-                marginTop: headerHeight + 'px',
-            }"
+        <WidthLimit
+            :type="2"
+            :class="$style.navbarWrapper"
         >
-            <!--        <div-->
-            <!--            class="sidebar-mask"-->
-            <!--            @click="toggleSidebar(false)"-->
-            <!--        ></div>-->
-
+            <!--@toggleSidebar="toggleLeftSidebar"-->
             <Sidebar
-                v-if="false"
                 ref="sidebar1"
+                side="left"
                 :sidebar-toggle-trigger-options="{
-                isShow: layoutWidth > 719,
-              }"
+                    isShow: layoutWidth > 719,
+                }"
                 :items="sidebarItems"
                 :mod="layoutWidth > 719 ? 1 : 0"
-                :is-default-show="sidebar1Show"
-                :sidebar-min-width-px="sidebarMinWidthPx"
-                :class="[
-                $style.sidebar,
-                $style.sidebar1,
-                sidebar1Show && $style._isShow,
-                layoutWidth > 719 && $style._bigLayoutWidth,
-            ]"
-                :style="{
-                    minWidth: sidebarMinWidthPx + 'px',
+                :sidebar-min-width-px="leftSidebarMinWidthPx"
+                :options="{
+                    isMobileMod: layoutWidth < 720,
                 }"
-                @toggleSidebar="toggleLeftSidebar"
+                :class="[
+                    $style.sidebar,
+                    $style.sidebar1,
+                ]"
             >
+                <!--/*isResizingRightSidebarState = $event*/-->
                 <div
                     ref="sidebar1__header"
                     :class="$style.sidebar1__header"
-                    slot="header">
+                    slot="header"
+                    :style="{
+                        height: headerHeight - 1 + 'px',
+                    }"
+                >
                     <router-link
                         :to="$localePath"
-                        class="home-link"
+                        :class="$style.logotypeLink"
                     >
                         <Logotype :class="$style.logotype"/>
                     </router-link>
@@ -78,47 +53,35 @@
                 />
             </Sidebar>
 
-
-            <Home v-if="$page.frontmatter.home"/>
-
-            <Page
-                v-else
-                :sidebar-items="sidebarItems"
-                :class="$style.page"
-                :style="pageContainerStile"
-            >
-                <slot
-                    name="page-top"
-                    slot="top"
-                />
-                <slot
-                    name="page-bottom"
-                    slot="bottom"
-                />
-            </Page>
-
+            <Navbar
+                ref="navbar"
+                :class="$style.navbar"
+                @toggle-sidebar="toggleSidebar"
+                type="content"
+                :style="{
+                    transform: (layoutWidth < 720 && isOpenLeftSidebar) ? `translateX(${leftSidebarWidth}px)` : '',
+                }"
+            />
 
             <Sidebar
-                v-if="false"
                 v-show="layoutWidth > 719"
                 ref="sidebar2"
-                :sidebar-toggle-trigger-options="{
-                isShow: /*navbarSubHeaders.length*/true,
-              }"
                 side="right"
+                :sidebar-toggle-trigger-options="{
+                    isShow: /*navbarSubHeaders.length*/true,
+                }"
                 :items="[$page]"
                 :mod="sidebar2Mod"
-                :is-default-show="sidebar2Show"
-                :sidebar-min-width-px="sidebarMinWidthPx"
+                :sidebar-min-width-px="rightSidebarMinWidthPx"
                 :class="[
                 $style.sidebar,
                 $style.sidebar2,
-                sidebar2Show && $style._isShow
               ]"
                 :style="{
-                minWidth: sidebarMinWidthPx + 'px',
-              }"
+                    height: `calc(100vh - ${headerHeight}px)`,
+                }"
                 @toggle-sidebar="toggleSidebar"
+                @isResizingState="isRightSidebarResizingState = $event"
             >
                 <slot
                     name="sidebar-top"
@@ -129,7 +92,67 @@
                     slot="bottom"
                 />
             </Sidebar>
-        </div>
+        </WidthLimit>
+
+        <WidthLimit
+            :type="2"
+            :class="[
+                $style.root__contentCell,
+            ]"
+            :style="contentCellStyles"
+            :padding-l-r="0"
+        >
+            <!--v-show="layoutWidth < 720"-->
+            <WidthLimit
+                v-show="layoutWidth < 720"
+                :class="$style.searchBoxWrapper"
+                :type="1"
+                :padding-l-r="1"
+            >
+                <SearchBox
+                    :class="$style.searchBox"
+                    :is-full-size="true"
+                    :size="1"
+                    :with-suggestions="false"
+                />
+
+                <div
+                    :class="$style.searchSuggestionsWrapper"
+                >
+                    <Suggestions
+                        ref="suggestions"
+                        :class="$style.searchSuggestions"
+                    />
+                </div>
+            </WidthLimit>
+            <WidthLimit
+                :class="$style.root__contentCell__wrapper"
+                :padding-l-r="layoutWidth > 719 ? 2 : 1"
+            >
+
+                <!--        <div-->
+                <!--            class="sidebar-mask"-->
+                <!--            @click="toggleSidebar(false)"-->
+                <!--        ></div>-->
+                <Home v-if="$page.frontmatter.home"/>
+
+                <!--:style="pageContainerStyles"-->
+                <Page
+                    v-else
+                    :sidebar-items="sidebarItems"
+                    :class="$style.page"
+                >
+                    <slot
+                        name="page-top"
+                        slot="top"
+                    />
+                    <slot
+                        name="page-bottom"
+                        slot="bottom"
+                    />
+                </Page>
+            </WidthLimit>
+        </WidthLimit>
     </div>
 </template>
 
@@ -143,6 +166,7 @@
   import watchLayoutWidthMixin from './mixins/watchLayoutWidth'
   import navbarResizeDetector from './mixins/navbarResizeDetector'
   import WidthLimit from '@theme/components/WidthLimit'
+  import Suggestions from '@theme/components/SearchBox/Suggestions'
   import { resolveSidebarItems } from '../util'
 
   export default {
@@ -160,75 +184,51 @@
       Logotype,
       SearchBox,
       WidthLimit,
+      Suggestions,
     },
 
     data () {
       return {
-        isSidebarOpen: false,
-
         sidebar1Mod: 1,
         sidebar2Mod: 2,
 
-        sidebar1Show: true,
-        sidebar2Show: true,
+        isRightSidebarResizingState: false,
 
-        pageContentPaddingLeftPx: 0,
-        pageContentPaddingRightPx: 0,
-
-        navbarMaxWidthPx: 0
-
+        rightSidebarMinWidthPx: 260,
       }
     },
 
     computed: {
-      pageContainerStile () {
-        const isPadding = this.layoutWidth > 719;
-
-        return Object.assign(isPadding && {
-          // paddingTop: this.headerHeight + 'px',
-          // paddingLeft: this.sidebar1Show ? this.pageContentPaddingLeftPx + 'px' : 0,
-          // paddingRight: this.sidebar2Show ? this.pageContentPaddingRightPx + 'px' : 0,
-          paddingLeft: this.pageContentPaddingLeftPx + 'px',
-          paddingRight: this.pageContentPaddingRightPx + 'px',
-        }, {
-          // margin: `${this.layoutWidth > 719 ? 2 : 1}rem`,
-        })
+      isOpenRightSidebar() {
+        return this.$store.state.interface.isOpenRightSidebar;
       },
 
-      // shouldShowNavbar () {
-      //   const { themeConfig } = this.$site
-      //   const { frontmatter } = this.$page
-      //   if (
-      //     frontmatter.navbar === false
-      //     || themeConfig.navbar === false) {
-      //     return false
-      //   }
-      //   return (
-      //     this.$title
-      //     || themeConfig.logo
-      //     || themeConfig.repo
-      //     || themeConfig.nav
-      //     || this.$themeLocaleConfig.nav
-      //   )
+      isOpenLeftSidebar() {
+        return this.$store.state.interface.isOpenLeftSidebar;
+      },
+
+      leftSidebarWidth() {
+        return this.$store.state.interface.leftSidebarWidth;
+      },
+
+      rightSidebarWidth() {
+        return this.$store.state.interface.rightSidebarWidth;
+      },
+
+      // pageContainerStyles () {
+      //   const isPadding = this.layoutWidth > 719;
+      //
+      //   return Object.assign(isPadding && {
+      //     // paddingTop: this.headerHeight + 'px',
+      //     // paddingLeft: this.sidebar1Show ? this.pageContentPaddingLeftPx + 'px' : 0,
+      //     // paddingRight: this.sidebar2Show ? this.pageContentPaddingRightPx + 'px' : 0,
+      //     paddingLeft: this.pageContentPaddingLeftPx + 'px',
+      //     paddingRight: this.pageContentPaddingRightPx + 'px',
+      //   }, {
+      //     // margin: `${this.layoutWidth > 719 ? 2 : 1}rem`,
+      //   })
       // },
-
-      shouldShowSidebar () {
-        const { frontmatter } = this.$page
-        return (
-          !frontmatter.home
-          && frontmatter.sidebar !== false
-          && this.sidebarItems.length
-        )
-      },
-
       sidebarItems () {
-        // console.log('this.$page,\n' +
-        //   '          this.$page.regularPath,\n' +
-        //   '          this.$site,\n' +
-        //   '          this.$localePath', this.$page,
-        //   this.$page.regularPath,
-        //   this.$site,
-        //   this.$localePath)
         return resolveSidebarItems(
           this.$page,
           this.$page.regularPath,
@@ -237,42 +237,37 @@
         )
       },
 
-      pageClasses () {
-        const userPageClass = this.$page.frontmatter.pageClass
-        return [
-          {
-            // 'no-navbar': !this.shouldShowNavbar,
-            'sidebar-open': this.isSidebarOpen
-            // 'no-sidebar': !this.shouldShowSidebar
-          },
-          userPageClass
-        ]
-      },
-
       navbarSubHeaders () {
-        // return [];
         return this.$store.state.navbarSubHeaders
       },
 
-      navbarMaxWidth () {
-        if (this.layoutWidth > 719) {
-          return this.navbarMaxWidthPx ? this.navbarMaxWidthPx + 'px' : ''
-        } else {
-          return ''
+      leftSidebarMinWidthPx () {
+        return this.layoutWidth > 719 ? 260 : 240
+      },
+
+      contentCellStyles() {
+        return {
+          marginTop: this.headerHeight + 'px',
+          paddingLeft: this.layoutWidth > 719 ? this.leftSidebarWidth + 'px' : '',
+
+          transform: (this.layoutWidth < 720 && this.isOpenLeftSidebar) ? `translateX(${this.leftSidebarWidth}px)` : '',
+
+          paddingRight: this.isOpenRightSidebar ? this.rightSidebarWidth + 'px' : '',
+          transition: !this.isRightSidebarResizingState ? 'initial' : '',
         }
       },
 
-      sidebarMinWidthPx () {
-        return this.layoutWidth > 719 ? 80 : 0
-      }
     },
 
     watch: {
       layoutWidth(newValue) {
         if(this.layoutWidth < 720) {
-          this.sidebar1Show = false;
+          this.$store.commit('setDisplayRightSidebar', false);
+          this.$store.commit('setDisplayLeftSidebar', false);
+        } else {
+          // this.$store.commit('setDisplayRightSidebar', true);
+          this.$store.commit('setDisplayLeftSidebar', true);
         }
-        // console.log('newValue:', newValue);
       },
 
       navbarSubHeaders: {
@@ -297,9 +292,9 @@
     },
 
     mounted () {
-      this.$router.afterEach(() => {
-        this.isSidebarOpen = false
-      })
+      // this.$router.afterEach(() => {
+      //   this.isSidebarOpen = false
+      // })
 
       if (!this.$isServer) {
         // this.resizeCallback = this.setSidebarResizeDetector('sidebar1', 'pageContentPaddingLeftPx', element => {
@@ -313,7 +308,7 @@
     },
 
     beforeDestroy () {
-      window.removeEventListener('resize', this.setInterfaceInnerWidthLayout);
+      // window.removeEventListener('resize', this.setInterfaceInnerWidthLayout);
     },
 
     methods: {
@@ -325,7 +320,7 @@
             callback(element)
           }
         }
-        this.elementResizeDetector.listenTo(element, resizeFunction)
+        this.$elementResizeDetector.listenTo(element, resizeFunction)
         return resizeFunction
       },
 
@@ -341,10 +336,6 @@
         const sidebar1ComponentExemplar = this.$refs.sidebar1
         sidebar1ComponentExemplar.isShow = !sidebar1ComponentExemplar.isShow
         // this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
-      },
-
-      toggleLeftSidebar () {
-        console.log('test')
       },
 
       // side swipe
@@ -378,20 +369,66 @@
         display flex
         flex-direction column
         height 100%
-        width 100%
+        width 100vw
         overflow hidden
+        align-items center
     }
-    .root__cell1 {
-
-    }
-    .navbar {
-        position fixed;
-        right 0
-        width 100%
-        justify-content space-between
-        flex-shrink 0
+    .navbarWrapper {
+        /*width: 100%;*/
+        transform: translate3d(0, 0, 0);
+        display: flex;
+        justify-content: center;
+        position fixed
         z-index 1
     }
+    .navbar {
+        /*position fixed;*/
+        right 0
+        width 100vw
+        flex-shrink 0
+        z-index 1
+        transition transform $transitionS1
+    }
+    .sidebar {
+        font-size: 16px;
+        background-color: #fff;
+        /*width: $sidebarWidth;*/
+        z-index 2
+        height 100vh
+    }
+
+    .sidebar1 {
+        top 0
+        left 0
+        width 100%
+        position fixed
+    }
+
+    .sidebar1__header {
+        width 100%
+        overflow hidden
+        display flex
+        justify-content flex-start
+        align-items center
+        padding-left $indent1
+    }
+    .logotypeLink {
+        /*height 100%*/
+        display flex
+    }
+    .logotype {
+        /*max-height 24px*/
+        /*height 100%;*/
+        min-width 164px
+    }
+
+    .sidebar2 {
+        right: 0;
+        position absolute
+        top 100%
+        z-index 0
+    }
+
 
     .root__cell2 {
         flex-shrink 0
@@ -399,67 +436,49 @@
         border-bottom 1px solid $borderColor
     }
 
+
+    .root__contentCell {
+        display flex
+        width 100%
+        justify-content flex-start
+        transform translate3d(0, 0, 0);
+        flex-direction column
+        align-items center
+        transition transform $transitionS1, padding-right $transitionS1
+        padding-right 0
+    }
+
+    .searchBoxWrapper {
+        position relative
+        padding-top 20px
+        padding-bottom 20px
+        border-bottom 1px solid $borderColor
+        z-index 1
+    }
+
     .searchBox {
+        height 40px
+    }
+
+    .searchSuggestionsWrapper {
+        position absolute
+        top 100%
+        left 0
         width 100%
     }
 
-    .root__cell3 {
-        height 100%
-        overflow auto
-    }
-    .sidebar {
-        font-size: 16px;
-        background-color: #fff;
-        width: $sidebarWidth;
-        position: fixed;
-        z-index: 10;
-        margin: 0;
-        bottom: 0;
-        box-sizing: border-box;
+    .searchSuggestions {
+
     }
 
-    .sidebar1 {
-        top: 0;
-        left: 0;
+    .root__contentCell__wrapper {
         width 100%
-        &:not(._isShow) {
-
-        }
-
-        &._isShow {
-
-        }
-
-        &:not(._bigLayoutWidth) {
-            /*top: $navbarHeight;*/
-        }
-    }
-
-    .sidebar1__header {
-        padding 0.7rem 1.5rem
-        box-sizing border-box
-        width 100%
-        overflow hidden
-    }
-    .logotype {
-        max-height 24px
-    }
-
-    .sidebar2 {
-        top: $navbarHeight;
-        right: 0;
-
-        &:not(._isShow) {
-
-        }
-
-        &._isShow {
-
-        }
+        padding-top $indent2
+        padding-bottom $indent2
     }
 
     .page {
-        transition-duration $toggleSidebarTransitionDuration
+        transition-duration $transitionS1
         /*margin 0 1rem*/
         /*padding-top 3rem*/
     }

@@ -329,8 +329,8 @@
         }
     }
     .mainContentCell__row2__WidthLimit {
-        transform: translateY(100%);
-        opacity .1
+        transform: translateY(50%);
+        opacity 0
         transition .8s
     }
     .mainContentCell__row2__WidthLimit_animate {

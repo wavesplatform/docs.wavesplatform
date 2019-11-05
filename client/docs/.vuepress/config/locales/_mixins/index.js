@@ -6,6 +6,14 @@ const getRawIcon = (relativePath) => {
 };
 
 module.exports = {
+    backToIndexButtonText: 'Back to index',
+    sidebarOnThisPageText: 'On this page',
+
+    languageAbsenceNotification: {
+        title: 'Sorry',
+        message: 'Content on this page is currently under construction.',
+    },
+
     homePage: {
         technologyList: {
             learnAboutWavesPlatform: {
@@ -130,6 +138,8 @@ module.exports = {
             }
         },
     },
+
+
 
     searchPopup: {
         cancelText: 'Cancel',

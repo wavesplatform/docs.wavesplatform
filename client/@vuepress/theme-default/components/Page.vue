@@ -1,5 +1,5 @@
 <template>
-  <main class="page">
+  <main :class="$style.page">
     <slot name="top"/>
     <!--<el-breadcrumb separator="/">-->
       <!--<el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>-->
@@ -35,36 +35,31 @@
       <!--</div>-->
     <!--</footer>-->
 
-    <!--<div class="page-nav" v-if="prev || next">
-      <p class="inner">
-        <span
-          v-if="prev"
-          class="prev"
-        >
+    <div
+        v-if="prev || next"
+        :class="$style.pageNavigations">
+      <div v-if="prev">
           ←
           <router-link
-            v-if="prev"
-            class="prev"
-            :to="prev.path"
+              :class="$style.pageNavigations__prev"
+              :to="prev.path"
           >
-            {{ prev.title || prev.path }}
+              {{ prev.title || prev.path }}
           </router-link>
-        </span>
+      </div>
 
-        <span
-          v-if="next"
-          class="next"
-        >
-          <router-link
+        <div
+            :class="$style.pageNavigations__next"
             v-if="next"
-            :to="next.path"
-          >
-            {{ next.title || next.path }}
-          </router-link>
-          →
-        </span>
-      </p>
-    </div>-->
+        >
+            <router-link
+                :to="next.path"
+            >
+                {{ next.title || next.path }}
+            </router-link>
+            →
+        </div>
+    </div>
 
     <slot name="bottom"/>
   </main>
@@ -241,57 +236,44 @@
 
 
 <style lang="stylus" module>
-  .page__header {
-    width 100%
-    display flex
-    justify-content flex-end
-    a {
-      color lighten($textColor, 25%)
+    .page {
+        display block
+        position relative
     }
-  }
+
+    .page__header {
+        width 100%
+        display flex
+        justify-content flex-end
+
+        a {
+            color lighten($textColor, 25%)
+        }
+    }
+
     .editLinkWrapper {
         display flex
         width 100%
         visibility hidden
         justify-content flex-end
+        position absolute
+        top 0
+        left 0
     }
+
     .editLink {
         visibility visible
     }
+
+    .pageNavigations {
+        display flex
+        justify-content space-between
+    }
+    .pageNavigations__prev {
+
+    }
+    .pageNavigations__next {
+
+    }
 </style>
 
-<style lang="stylus">
-@require '../styles/wrapper.styl'
-
-.page
-  padding-bottom 2rem
-  display block
-
-.page-edit
-  @extend $wrapper
-  padding-top 1rem
-  padding-bottom 1rem
-  overflow auto
-  .last-updated
-    float right
-    font-size 0.9em
-    .prefix
-      font-weight 500
-      color lighten($textColor, 25%)
-    .time
-      font-weight 400
-      color #aaa
-
-.page-nav
-  @extend $wrapper
-  padding-top 1rem
-  padding-bottom 0
-  .inner
-    min-height 2rem
-    margin-top 0
-    border-top 1px solid $borderColor
-    padding-top 1rem
-    overflow auto // clear float
-  .next
-    float right
-</style>

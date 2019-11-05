@@ -40,7 +40,7 @@ export default {
     margin 15px
     cursor pointer
     background #fff
-    transition $toggleSidebarTransitionDuration
+    transition $transitionS1
     &:hover {
     }
     &:not(._isShow) {
@@ -56,13 +56,13 @@ export default {
       }
     }
     &._side_left {
-      right 20px
+      /*right 20px*/
       .iconWrapper {
 
       }
     }
     &._side_right {
-      left 20px
+      /*left 20px*/
       .iconWrapper {
         transform rotate(-180deg)
       }
@@ -75,7 +75,7 @@ export default {
     justify-content center
     /*width $w-h
     height $w-h*/
-    transition transform .3s
+    transition transform $transitionS1
     font-size .6rem
   }
   .icon1 {

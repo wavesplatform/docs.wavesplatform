@@ -100,7 +100,7 @@
   }
 </style>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
   .sidebar-group
     .sidebar-group
       padding-left 0.5em
@@ -138,18 +138,21 @@
   .sidebar-heading
     display: flex;
     align-items: baseline;
-    color $textColor
     transition color .15s ease
     cursor pointer
-    font-size .9rem
     /*font-weight bold*/
     // text-transform uppercase
     padding 0.35rem .65rem 0.35rem .65rem
     width 100%
-    box-sizing border-box
     margin 0
-    border-left 0.25rem solid transparent
-    font-weight 400
+    /*border-left 0.25rem solid transparent*/
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color $color10
     &.open, &:hover
       color inherit
 
@@ -162,7 +165,7 @@
       &.active
         font-weight 600
         color $accentColor
-        border-left-color $accentColor
+        /*border-left-color $accentColor*/
 
       &:hover
         color $accentColor

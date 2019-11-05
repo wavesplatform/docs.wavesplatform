@@ -14,9 +14,9 @@
         'sidebar-link': true
       }
     }, [
-      h('span', {
-        class: 'dot'
-      }),
+      // h('span', {
+      //   class: 'dot'
+      // }),
       text
     ])
   }
@@ -202,30 +202,33 @@
 
 <style lang="stylus">
   .sidebar .sidebar-sub-headers
-    padding-left 1rem
+    /*padding-left 1rem*/
     font-size 0.95em
 
   a.sidebar-link
     overflow hidden
     text-overflow ellipsis
-    font-size 1em
-    font-weight 400
+
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color $color10
+
     display inline-flex
     align-items baseline
-    color $textColor
-    border-left 0.25rem solid transparent
-    padding 0.35rem 1rem 0.35rem 1.25rem
-    line-height 1.4
+    /*border-left 0.25rem solid transparent*/
     width: 100%
-    box-sizing: border-box
 
     &:hover
-      color $accentColor
+      color $color6
 
     &.active
-      font-weight 600
-      color $accentColor
-      border-left-color $accentColor
+      font-weight 500
+      color $color6
+      /*border-left-color $color6*/
 
     .sidebar-group &
       padding-left 2rem
@@ -238,7 +241,7 @@
       &.active
         font-weight 500
 
-  .dot {
+/*  .dot {
     top: -2px;
     position: relative;
     height 100%;
@@ -249,7 +252,7 @@
     margin 0px 9px 0px -5px
     opacity .7
     flex-shrink 0
-    /*border 1px solid currentColor*/
+    !*border 1px solid currentColor*!
     border-radius 50%
     &:before {
       content ''
@@ -259,5 +262,5 @@
       background currentColor
       opacity 1
     }
-  }
+  }*/
 </style>

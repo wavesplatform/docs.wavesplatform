@@ -1,20 +1,16 @@
 <template>
-    <header :class="[$style.root]">
+    <header :class="$style.root">
         <WidthLimit
-            :class="[$style.root__wrapper]"
+            :class="$style.root__wrapper"
             :type="2"
         >
             <Logotype
-                :class="[$style.logotype]"/>
-
+                :class="$style.logotype"/>
             <div
-                :class="[
-                        $style.links,
-                    ]"
+                :class="$style.links"
                 :style="{
-                        maxWidth: linksWrapMaxWidth ? linksWrapMaxWidth + 'px' : '',
-                        justifyContent: 'flex-end',
-                    }"
+                    maxWidth: linksWrapMaxWidth ? linksWrapMaxWidth + 'px' : '',
+                }"
             >
                 <!--      <NavLinks-->
                 <!--          v-if="!isHomePageMod"-->
@@ -22,10 +18,6 @@
                 <!--      />-->
                 <div
                     :class="$style.root__cell"
-                    :style="{
-                    // justifyContent: (layoutWidth > 719 && !isHomePageMod) ? 'space-between' : 'flex-end',
-                    justifyContent: 'flex-end',
-                }"
                 >
                     <SwitchLanguage :class="$style.switchLanguage"/>
                 </div>
@@ -60,7 +52,6 @@
             height 57px
         }
     }
-
 
     .root__wrapper {
         display flex

@@ -15,6 +15,7 @@ import {
     RadioGroup,
     RadioButton,
     Dialog,
+    Notification,
 } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
@@ -48,7 +49,7 @@ export default async(context) => {
     // ].forEach(component => {
     //     Vue.use(component);
     // });
-
+    Vue.prototype.$notify = Notification;
     Vue.prototype.$msgbox = MessageBox;
     Vue.prototype.$alert = MessageBox.alert;
 }

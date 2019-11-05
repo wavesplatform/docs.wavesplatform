@@ -19,6 +19,10 @@ export default (context) => {
         interface: {
             layoutWidth,
             headerHeight: 71,
+            leftSidebarWidth: 0,
+            isOpenLeftSidebar: true,
+            rightSidebarWidth: 0,
+            isOpenRightSidebar: true,
         },
         navbarSubHeaders: [],
         // isProcessDev: process.env.isDev,
@@ -40,6 +44,22 @@ export default (context) => {
     }
 
     const mutations = {
+        setDisplayRightSidebar(state, isShow) {
+            state.interface.isOpenRightSidebar = isShow
+        },
+
+        setDisplayLeftSidebar(state, isShow) {
+            state.interface.isOpenLeftSidebar = isShow
+        },
+
+        setLeftSidebarWidth(state, width) {
+            state.interface.leftSidebarWidth = width
+        },
+
+        setRightSidebarWidth(state, width) {
+            state.interface.rightSidebarWidth = width
+        },
+
         setSearchSuggestionsFocusIndex (state, index) {
             state.search.focusIndex = index
         },

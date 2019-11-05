@@ -1,6 +1,6 @@
 <template>
   <form
-      :class="$style.searchBox"
+      :class="[$style.searchBox, $style[`searchBox_size_${size}`]]"
       @submit.prevent="submitForm"
   >
       <img
@@ -74,6 +74,13 @@ export default {
     withSuggestions: {
       type: Boolean,
       default: true,
+    },
+    size: {
+      type: [Number, String],
+      default: 'default',
+      validator(value) {
+        return ['default', 1, 2].includes(value);
+      },
     },
   },
   data () {
@@ -172,6 +179,39 @@ export default {
         height 100%
         align-items center
     }
+    .searchBox_size_default {
+
+    }
+    .searchBox_size_1 {
+        .searchBox__icon,
+        .searchBox__clearIcon {
+            max-width 16px
+        }
+        .searchBox__icon {
+            margin-left 16px
+        }
+        .input {
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            /*line-height: 1.29;*/
+            letter-spacing: normal;
+            padding-left: 38px
+            &::placeholder {
+
+                font-size: 14px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                letter-spacing: normal;
+            }
+        }
+    }
+    .searchBox_size_2 {
+
+    }
+
     .searchBox__icon,
     .searchBox__clearIcon {
         position absolute
@@ -194,7 +234,7 @@ export default {
     .searchBox__clearIcon {
         right: 0;
         margin-right 20px
-        transition transform .3s
+        transition transform $transitionS1
         &:hover {
             transform rotate(180deg);
         }
@@ -220,7 +260,7 @@ export default {
         background-color $color2
         background-size 1rem
         &:focus {
-            box-shadow inset 0 0 0 1px $color3, 0 2px 12px 0 rgba(0, 0, 0, .1)
+            box-shadow inset 0 0 0 1px #EBEEF5, 0 2px 12px 0 rgba(0, 0, 0, .2)
             /*border 1px solid $color3*/
         }
         &::placeholder {
@@ -247,6 +287,11 @@ export default {
 
         @media screen and (max-width: 719px) {
             font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            /*line-height: 1.29;*/
+            letter-spacing: normal;
             padding-left: 38px
             &::placeholder {
                 font-size: 14px;

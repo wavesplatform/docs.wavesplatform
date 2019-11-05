@@ -1,19 +1,65 @@
 <template>
-    <header :class="[$style.root]">
+    <header :class="$style.root">
         <WidthLimit
-            :class="[$style.root__wrapper]"
+            :class="$style.root__wrapper"
             :type="2"
+            :style="{
+                paddingLeft: isOpenLeftSidebar ? leftSidebarWidth + 'px' : '',
+                paddingRight: isOpenRightSidebar ? rightSidebarWidth + 'px' : '',
+                marginRight: isOpenRightSidebar ? '' : '32px',
+            }"
         >
-            <div :class="$style.root__cell1">
+            <div
+                :class="$style.root__cell1"
+                :style="{
+                    // paddingLeft: `calc(100% - ${leftSidebarWidth}px)`
+                    // paddingLeft: leftSidebarWidth + 'px',
+
+                }"
+            >
+
                 <WidthLimit
+                    v-show="layoutWidth < 720"
+                    :class="$style.burgerTriggerWrapper"
+                    :type="2"
+                >
+                    <BurgerTrigger
+                        :class="$style.burgerTrigger"
+                        @click.native="$store.commit('setDisplayLeftSidebar', true)"
+                    />
+                </WidthLimit>
+
+                <WidthLimit
+                    v-show="layoutWidth > 719"
                     :class="$style.searchBoxWrapper"
                     :type="1"
                 >
                     <SearchBox
                         :class="$style.searchBox"
                         :is-full-size="true"
+                        :size="1"
                     />
+
                 </WidthLimit>
+
+                <WidthLimit
+                    v-show="layoutWidth < 720"
+                    :class="$style.logotypeWrapper"
+                    :type="1"
+                >
+                    <Logotype
+                        :class="$style.logotype"/>
+
+                </WidthLimit>
+
+                <WidthLimit
+                    :class="$style.switchLanguageWrapper"
+                    :type="2"
+                >
+                    <SwitchLanguage :class="$style.switchLanguage"/>
+                </WidthLimit>
+
+
             </div>
 
         </WidthLimit>
@@ -21,12 +67,30 @@
 </template>
 
 <script>
+  import BurgerTrigger from '@theme/components/BurgerTrigger'
   import overallMixin from './overallMixin'
+
   export default {
     mixins: [
       overallMixin
     ],
-
+    components: {
+      BurgerTrigger,
+    },
+    computed: {
+      isOpenLeftSidebar() {
+        return this.$store.state.interface.isOpenLeftSidebar;
+      },
+      isOpenRightSidebar() {
+        return this.$store.state.interface.isOpenRightSidebar;
+      },
+      leftSidebarWidth () {
+        return this.$store.state.interface.leftSidebarWidth
+      },
+      rightSidebarWidth () {
+        return this.$store.state.interface.rightSidebarWidth
+      }
+    }
   }
 </script>
 
@@ -37,11 +101,76 @@
         height 72px
         border-bottom 1px solid $color3
         justify-content center
-        width 100%
         background-color #fff
         @media screen and (max-width: 719px) {
             height 57px
         }
     }
+    .root__wrapper {
+        display flex
+        justify-content flex-end
+        padding-right 0
+        padding-left 0
+        margin-right 0
+        transition padding-right $transitionS1, margin-right $transitionS1
+    }
+    .root__cell1 {
+        width 100%
+        display flex
+        justify-content center
+        align-items center
+
+    }
+
+    .burgerTriggerWrapper,
+    .switchLanguageWrapper {
+        position absolute
+        top 0
+        left 0
+        height 100%
+        width 100%
+        display flex
+        align-items center
+        justify-content flex-start
+    }
+
+
+    .burgerTriggerWrapper {
+
+    }
+
+    .burgerTrigger {
+        cursor pointer
+    }
+
+    .searchBoxWrapper {
+        padding-right $indent2
+        height 40px
+        padding-left $indent2
+    }
+
+    .searchBox {
+
+    }
+
+    .logotypeWrapper {
+        display flex
+        justify-content center
+    }
+
+    .logotype {
+        max-width 164px
+        width 100%
+    }
+
+    .switchLanguageWrapper {
+        visibility hidden
+        z-index 1
+        justify-content flex-end
+    }
+    .switchLanguage {
+        visibility visible
+    }
+
 </style>
 
