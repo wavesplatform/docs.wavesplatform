@@ -80,11 +80,11 @@
       </div>
     </div>
     <div
-        v-if="preparedOptions.isMobileMod"
+        v-show="preparedOptions.isMobileMod"
         :class="[
             $style.closeOverlay,
-            $styleLeft.closeOverlay,
-            isShow && $styleLeft.closeOverlay_isShow,
+            $styleLeft.closeOverlayBlock,
+            isShow && $styleLeft.closeOverlayBlock_isShow,
         ]"
         :style="{
           transform: isShow ? '' : `translateX(-${leftSidebarWidth}px)`,
@@ -151,6 +151,7 @@
         justify-content center
         padding-left $indent2
         padding-right $indent2
+        flex-shrink 0
     }
     .backToIndexLink {
         display inline-flex
@@ -171,14 +172,23 @@
     .sidebarLinks__content {
         margin $indent3 0
     }
-    .closeOverlay {
+
+    .closeOverlayBlock {
+        position relative
+        z-index 1
         cursor pointer
-        &:not(.closeOverlay_isShow) {
+        display flex
+        visibility visible
+        height 100%
+        width 100%
+        background-color $color5
+        flex-shrink 0
+        transition opacity $transitionS1, transform $transitionS1
+        &:not(.closeOverlayBlock_isShow) {
             opacity 0
             pointer-events none
         }
     }
-    .closeOverlay_isShow {
 
-    }
+
 </style>

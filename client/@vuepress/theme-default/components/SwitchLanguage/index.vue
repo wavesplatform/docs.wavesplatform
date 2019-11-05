@@ -120,8 +120,8 @@
 
       selectLanguage(languageItem) {
         const languageItemLink = languageItem.link;
-
-        if(this.$themeConfig.locales[languageItemLink]) {
+        const pagePath = this.$page.path;
+        if(this.$themeConfig.locales[languageItemLink] && !this.$themeConfig.locales[pagePath]) {
           this.$notify({
             type: 'warning',
             title: this.$themeLocaleConfig.languageAbsenceNotification.title,

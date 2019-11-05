@@ -20,7 +20,7 @@ export default (context) => {
             layoutWidth,
             headerHeight: 71,
             leftSidebarWidth: 0,
-            isOpenLeftSidebar: true,
+            isOpenLeftSidebar: false,
             rightSidebarWidth: 0,
             isOpenRightSidebar: true,
         },

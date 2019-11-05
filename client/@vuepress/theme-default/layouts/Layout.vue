@@ -19,6 +19,7 @@
                 :items="sidebarItems"
                 :mod="layoutWidth > 719 ? 1 : 0"
                 :sidebar-min-width-px="leftSidebarMinWidthPx"
+                :is-resizable="layoutWidth > 719"
                 :options="{
                     isMobileMod: layoutWidth < 720,
                 }"

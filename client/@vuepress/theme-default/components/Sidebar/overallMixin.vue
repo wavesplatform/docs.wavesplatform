@@ -40,6 +40,10 @@ export default {
       type: Number,
       default: 0,
     },
+    isResizable: {
+      type: Boolean,
+      default: true,
+    },
     options: {
       type: Object,
       default: () => ({}),
@@ -350,15 +354,6 @@ export default {
         /*justify-content flex-end*/
     }
 
-    .closeOverlay {
-        display flex
-        visibility visible
-        height 100%
-        width 100%
-        background-color $color5
-        flex-shrink 0
-        transition opacity $transitionS1, transform $transitionS1
-    }
 </style>
 
 
