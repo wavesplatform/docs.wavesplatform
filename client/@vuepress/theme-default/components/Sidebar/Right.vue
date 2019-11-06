@@ -10,6 +10,7 @@
     ]"
   >
     <div
+
       ref="sidebar"
       :class="[$style.sidebarWrapper, $styleRight.sidebarWrapper]"
       :style="{
@@ -136,6 +137,7 @@
     }
     .sidebar {
         max-height 100%
+        background-color transparent
     }
     .sidebarLinks {
         border-left: 1px solid $borderColor

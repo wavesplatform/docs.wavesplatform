@@ -17,7 +17,7 @@ module.exports = {
     homePage: {
         technologyList: {
             learnAboutWavesPlatform: {
-                rootLink: '/en/blockchain/',
+                rootLink: '/en/learn-about-waves-platform/',
                 type: 'beginner',
                 iconFilePath: getRawIcon('./images/category1.svg'),
                 buttonSet: {

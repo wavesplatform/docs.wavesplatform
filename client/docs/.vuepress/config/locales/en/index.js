@@ -106,106 +106,112 @@ module.exports = deepmerge(mixin, {
         }
     ],
     sidebar: {
-        // '/en/': [
-        //     {
-        //         title: 'Getting started',
-        //         collapsable: true,
-        //         children: [
-        //
-        //             {
-        //                 title: 'Getting started guide',
-        //                 path: '/en/waves-environment/waves-tokens'
-        //             },
-        //             {
-        //                 title: 'Custom Tokens',
-        //                 children: [
-        //                     {
-        //                         title: 'Test 3',
-        //                         path: '/en/waves-environment/custom-tokens'
-        //                     }
-        //                 ]
-        //             }
-        //         ]
-        //     },
-        //     {
-        //         title: 'Blockchain',
-        //         collapsable: true,
-        //         children: [
-        //             {
-        //                 title: 'Account',
-        //                 path: '/en/blockchain/account'
-        //             },
-        //             {
-        //                 title: 'Account data storage',
-        //                 path: '/en/blockchain/account-data-storage'
-        //             }
-        //         ]
-        //     },
-        //     {
-        //         title: 'Waves environment',
-        //         path: '/en/waves-environment',
-        //         collapsable: true,
-        //         children: [
-        //
-        //             {
-        //                 title: 'Waves Tokens',
-        //                 path: '/en/waves-environment/waves-tokens'
-        //             },
-        //             {
-        //                 title: 'Custom Tokens',
-        //                 children: [
-        //                     {
-        //                         title: 'Test 3',
-        //                         path: '/en/waves-environment/custom-tokens'
-        //                     }
-        //                 ]
-        //             }
-        //         ]
-        //     },
-        //     {
-        //         title: 'Developer tools',
-        //         collapsable: false
-        //     },
-        //     {
-        //         title: 'Waves api & sdk',
-        //         collapsable: false
-        //     },
-        //     {
-        //         title: 'Smart contracts',
-        //         collapsable: false
-        //     },
-        //     {
-        //         title: 'Waves full node',
-        //         collapsable: false
-        //     },
-        //     {
-        //         title: 'Oracles developments',
-        //         collapsable: false
-        //     },
-        //     {
-        //         title: 'Waves client',
-        //         collapsable: false
-        //     },
-        //     {
-        //         title: 'Tutorials and articles',
-        //         collapsable: false
-        //         // children: [
-        //         //   {
-        //         //     title: 'Test',
-        //         //     path: 'developer-tools/faq'
-        //         //   }
-        //         // ]
-        //     },
-        //     {
-        //         title: 'Proposals',
-        //         collapsable: false
-        //     }
-        // ],
-
-        '/en/getting-started/': [
+        '/en/learn-about-waves-platform/': [
             {
-                title: 'About RIDE',
-                path: '/en/ride/about-ride'
+                title: 'What is a dApp',
+                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+            },
+            {
+                title: 'Writing dApps',
+                path: '/en/learn-about-waves-platform/writing-dapps'
+            },
+            {
+                title: 'Simple voting on the Waves',
+                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+            },
+            {
+                title: 'Smart Accounts',
+                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+            },
+            {
+                title: 'Waves Smart Contracts',
+                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+            },
+            {
+                title: 'Smart Assets',
+                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+            },
+            {
+                title: 'Tools',
+                path: '/en/learn-about-waves-platform/tools',
+                children: [
+                    {
+                        title: 'REPL',
+                        path: '/en/learn-about-waves-platform/tools/repl',
+                        children: [
+                            {
+                                title: 'Waves IDE',
+                                path: '/en/learn-about-waves-platform/tools/repl/waves-ide'
+                            },
+                        ]
+                    },
+                    {
+                        title: 'Waves IDE',
+                        path: '/en/blockchain/token/waves'
+                    },
+                ]
+            },
+            {
+                title: 'Script performance tests',
+                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+            },
+            {
+                title: 'Creating and deploying a script manually',
+                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+            },
+            {
+                title: 'Video tutorials',
+                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+            },
+            {
+                title: 'Articles on dApps',
+                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+            },
+        ],
+
+        '/en/node/': [
+            {
+                title: 'What is a dApp',
+                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+            }
+        ],
+
+        '/en/ecosystem-applications/': [
+            {
+                title: 'What is a dApp',
+                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+            }
+        ],
+
+
+
+
+
+        '/en/building-blockchain-apps/': [
+            {
+                title: 'What is a dApp',
+                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+            }
+        ],
+
+        '/en/ride-programming-language/': [
+            {
+                title: 'What is a dApp',
+                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+            }
+        ],
+
+        '/en/additional-services/': [
+            {
+                title: 'What is a dApp',
+                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+            }
+        ],
+
+        '/en/miscellaneous/': [
+            {
+                title: 'What is a dApp',
+                path: '/en/learn-about-waves-platform/what-is-a-dapp'
             }
         ],
 
@@ -348,97 +354,5 @@ module.exports = deepmerge(mixin, {
             }
 
         ],
-        '/en/ride/': [
-            {
-                title: 'About RIDE',
-                path: '/en/ride/about-ride'
-            },
-            {
-                title: 'RIDE script',
-                path: '/en/ride/ride-script'
-            },
-            {
-                title: 'RIDE script complexity',
-                path: '/en/ride/ride-script-complexity'
-            },
-            {
-                title: 'Immutable variables',
-                path: '/en/ride/immutable-variables'
-            },
-            {
-                title: 'Comments in code',
-                path: '/en/ride/comments-in-code'
-            },
-            {
-                title: 'Data types',
-                path: '/en/ride/data-types'
-            },
-            {
-                title: 'Operators',
-                path: '/en/ride/operators'
-            },
-            {
-                title: 'Structures',
-                path: '/en/ride/structures/structures',
-                children: [
-                    {
-                        title: 'Built-in structures',
-                        path: '/en/ride/structures/built-in-structures'
-                    }
-                ]
-            },
-            {
-                title: 'Functions',
-                path: '/en/ride/functions/functions'
-            },
-            {
-                title: 'Built-in functions',
-                path: '/en/ride/built-in-functions/built-in-functions',
-                children: [
-                    {
-                        title: 'Blockchain functions',
-                        path: '/en/ride/built-in-functions/blockchain-functions'
-                    },
-                    {
-                        title: 'Byte array functions',
-                        path: '/en/ride/built-in-functions/byte-array-functions'
-                    },
-                    {
-                        title: 'Converting functions',
-                        path: '/en/ride/built-in-functions/converting-functions'
-                    },
-                    {
-                        title: 'Encoding and decoding functions',
-                        path: '/en/ride/built-in-functions/encoding-and-decoding-functions'
-                    },
-                    {
-                        title: 'Exception functions',
-                        path: '/en/ride/built-in-functions/exception-functions'
-                    },
-                    {
-                        title: 'List functions',
-                        path: '/en/ride/built-in-functions/list-functions'
-                    },
-                    {
-                        title: 'Math functions',
-                        path: '/en/ride/built-in-functions/math-functions'
-                    },
-                    {
-                        title: 'String functions',
-                        path: '/en/ride/built-in-functions/string-functions'
-                    },
-                    {
-                        title: 'Verification functions',
-                        path: '/en/ride/built-in-functions/verification-functions'
-                    }
-                ]
-            },
-            {
-                title: 'Exceptions',
-                path: '/en/ride/exceptions'
-            }
-
-        ]
-
     }
 });

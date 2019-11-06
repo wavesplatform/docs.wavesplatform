@@ -6,9 +6,62 @@
             :style="{
                 paddingLeft: isOpenLeftSidebar ? leftSidebarWidth + 'px' : '',
                 paddingRight: isOpenRightSidebar ? rightSidebarWidth + 'px' : '',
-                marginRight: isOpenRightSidebar ? '' : '32px',
+                /*marginRight: isOpenRightSidebar ? '' : '32px',*/
             }"
         >
+            <WidthLimit
+                :class="$style.switchLanguageWrapper"
+                :type="2"
+            >
+                <SwitchLanguage :class="$style.switchLanguage"/>
+            </WidthLimit>
+            <!--<Sidebar
+                v-show="layoutWidth > 719"
+                ref="sidebar2"
+                side="right"
+                :sidebar-toggle-trigger-options="{
+                    isShow: /*navbarSubHeaders.length*/true,
+                }"
+                :items="[$page]"
+                :mod="sidebar2Mod"
+                :sidebar-min-width-px="rightSidebarMinWidthPx"
+                :class="[
+                        $style.sidebar,
+                        $style.sidebar2,
+                    ]"
+                :style="{
+                    height: `calc(100vh - ${headerHeight}px)`,
+                }"
+
+            >
+                <slot
+                    name="sidebar-top"
+                    slot="top"
+                />
+                <slot
+                    name="sidebar-bottom"
+                    slot="bottom"
+                />
+            </Sidebar>-->
+
+            <Sidebar
+                v-show="layoutWidth > 719"
+                ref="sidebar2"
+                side="right"
+                :sidebar-toggle-trigger-options="{
+                    isShow: true,
+                }"
+                :items="[$page]"
+                :mod="2"
+                :sidebar-min-width-px="rightSidebarMinWidthPx"
+                :class="$style.sidebar"
+                :style="{
+                    height: `calc(100vh - ${headerHeight}px)`,
+                }"
+                @toggle-sidebar="toggleSidebar"
+                @isResizingState="isRightSidebarResizingState = $event"
+            />
+
             <div
                 :class="$style.root__cell1"
                 :style="{
@@ -47,21 +100,14 @@
                     :class="$style.logotypeWrapper"
                     :type="1"
                 >
-                    <Logotype
-                        :class="$style.logotype"/>
+                    <a href="/">
+                        <Logotype
+                            :class="$style.logotype"/>
+                    </a>
+
 
                 </WidthLimit>
-
-                <WidthLimit
-                    :class="$style.switchLanguageWrapper"
-                    :type="2"
-                >
-                    <SwitchLanguage :class="$style.switchLanguage"/>
-                </WidthLimit>
-
-
             </div>
-
         </WidthLimit>
     </header>
 </template>
@@ -69,6 +115,7 @@
 <script>
   import BurgerTrigger from '@theme/components/BurgerTrigger'
   import overallMixin from './overallMixin'
+  import Sidebar from '@theme/components/Sidebar/'
 
   export default {
     mixins: [
@@ -76,8 +123,15 @@
     ],
     components: {
       BurgerTrigger,
+      Sidebar,
     },
     computed: {
+      headerHeight () {
+        return this.$store.state.interface.headerHeight;
+      },
+      rightSidebarMinWidthPx () {
+        return this.$store.state.interface.rightSidebarMinWidthPx;
+      },
       isOpenLeftSidebar() {
         return this.$store.state.interface.isOpenLeftSidebar;
       },
@@ -106,6 +160,12 @@
             height 57px
         }
     }
+    .sidebar {
+        position absolute
+        right 0
+        top 100%
+        z-index 1
+    }
     .root__wrapper {
         display flex
         justify-content flex-end
@@ -113,6 +173,7 @@
         padding-left 0
         margin-right 0
         transition padding-right $transitionS1, margin-right $transitionS1
+        position relative
     }
     .root__cell1 {
         width 100%
@@ -156,16 +217,21 @@
     .logotypeWrapper {
         display flex
         justify-content center
+        position absolute
+        height 100%
+        visibility hidden
+        align-items center
     }
 
     .logotype {
         max-width 164px
         width 100%
+        visibility visible
     }
 
     .switchLanguageWrapper {
         visibility hidden
-        z-index 1
+        z-index 2
         justify-content flex-end
     }
     .switchLanguage {

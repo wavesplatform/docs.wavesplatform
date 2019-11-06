@@ -26,6 +26,7 @@ module.exports = deepmerge(technologyListMixin, {
         },
         technologyList: {
             learnAboutWavesPlatform: {
+                rootLink: '/ru/learn-about-waves-platform/',
                 title: 'Узнайте о платформе Waves',
                 caption: 'Обзор основных функций Waves Platform. Протокол, консенсус, криптография. Понять значение, которое предлагает блокчейн.',
             },
@@ -230,6 +231,71 @@ module.exports = deepmerge(technologyListMixin, {
         }
     ],
     sidebar: {
+
+        '/ru/learn-about-waves-platform/': [
+            {
+                title: 'What is a dApp',
+                path: '/ru/learn-about-waves-platform/what-is-a-dapp'
+            },
+            // {
+            //     title: 'Writing dApps',
+            //     path: '/ru/learn-about-waves-platform/what-is-a-dapp'
+            // },
+            {
+                title: 'Simple voting on the Waves',
+                path: '/ru/learn-about-waves-platform/what-is-a-dapp'
+            },
+            {
+                title: 'Smart Accounts',
+                path: '/ru/learn-about-waves-platform/what-is-a-dapp'
+            },
+            {
+                title: 'Waves Smart Contracts',
+                path: '/ru/learn-about-waves-platform/what-is-a-dapp'
+            },
+            {
+                title: 'Smart Assets',
+                path: '/ru/learn-about-waves-platform/what-is-a-dapp'
+            },
+            {
+                title: 'Инструменты',
+                path: '/ru/learn-about-waves-platform/tools',
+                children: [
+                    {
+                        title: 'REPL',
+                        path: '/ru/learn-about-waves-platform/tools/repl',
+                        children: [
+                            {
+                                title: 'Waves IDE',
+                                path: '/ru/learn-about-waves-platform/tools/repl/waves-ide'
+                            },
+                        ]
+                    },
+                    {
+                        title: 'Waves IDE',
+                        path: '/ru/blockchain/token/waves'
+                    },
+                ]
+            },
+            {
+                title: 'Script performance tests',
+                path: '/ru/learn-about-waves-platform/what-is-a-dapp'
+            },
+            {
+                title: 'Creating and deploying a script manually',
+                path: '/ru/learn-about-waves-platform/what-is-a-dapp'
+            },
+            {
+                title: 'Video tutorials',
+                path: '/ru/learn-about-waves-platform/what-is-a-dapp'
+            },
+            {
+                title: 'Articles on dApps',
+                path: '/ru/learn-about-waves-platform/what-is-a-dapp'
+            },
+        ],
+
+
         // '/ru/': [
         //     {
         //         title: 'Обзор',
@@ -297,7 +363,11 @@ module.exports = deepmerge(technologyListMixin, {
             {
                 title: 'Псевдоним',
                 path: '/ru/blockchain/account'
-            }
+            },
+            {
+                title: 'Псевдоним',
+                path: '/ru/blockchain/account'
+            },
         ]
 
     }

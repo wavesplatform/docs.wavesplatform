@@ -322,36 +322,29 @@ export default {
         display flex
         flex-direction column
         justify-content space-between
-        /*overflow hidden*/
     }
     .sidebarHeader {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        /*border-bottom 1px solid $borderColor*/
-        /*overflow hidden*/
     }
     .sidebarLinks {
         overflow hidden
         position relative
         display flex
         flex-direction column
-        /*padding-left $indent2
-        padding-right $indent2*/
     }
     .sidebarLinks__content {
         margin-right -1px
         height 100%
         overflow-y auto
-        padding 0 $indent2
-        /*padding-top $indent2
-        padding-bottom $indent2*/
+        display inline-block
+        width 100%
     }
     .sidebarFooter {
         flex-shrink 0
         display flex
         align-items center
-        /*justify-content flex-end*/
     }
 
 </style>

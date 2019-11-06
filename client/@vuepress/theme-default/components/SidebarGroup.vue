@@ -172,9 +172,10 @@
 
 
   .sidebar-heading__title
-    overflow: hidden;
+    /*overflow: hidden;*/
     text-overflow: ellipsis;
     margin-left 5px
+    white-space nowrap
 
 
   .sidebar-group-items

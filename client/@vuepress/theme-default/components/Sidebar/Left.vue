@@ -32,6 +32,7 @@
 
         <div :class="[$style.sidebarLinks, $styleLeft.sidebarLinks]">
               <span
+                  v-show="isResizable"
                   :class="$style.resizeTrigger"
                   @mousedown.prevent.stop="resizeTriggerMousedown"
               />
@@ -48,20 +49,18 @@
 
           <div
               :class="[$style.sidebarLinks__content, $styleLeft.sidebarLinks__content]"
-              :style="{
-                transform: 'scaleX(-1)',
-              }"
           >
             <!--<NavLinks v-if="layoutWidth < 720"/>-->
             <slot name="top"/>
-            <SidebarLinks
-              :depth="0"
-              :items="items"
-              :mod="mod"
-              :style="{
-                transform: 'scaleX(-1)',
-              }"
-            />
+            <div :class="$styleLeft.sidebarLinksListWrapper">
+                <SidebarLinks
+                    :class="$styleLeft.sidebarLinksList"
+                    :depth="0"
+                    :items="items"
+                    :mod="mod"
+                />
+            </div>
+
           </div>
         </div>
 
@@ -148,7 +147,7 @@
     }
     .backToIndexWrapper {
         display flex
-        justify-content center
+        justify-content flex-start
         padding-left $indent2
         padding-right $indent2
         flex-shrink 0
@@ -170,9 +169,26 @@
         height 100%
     }
     .sidebarLinks__content {
-        margin $indent3 0
+        /*margin $indent3 0*/
+        margin-top $indent3
+        margin-bottom $indent3
+        justify-content start
+        direction: rtl;
+        overflow-x auto
     }
 
+    .sidebarLinksListWrapper {
+        position relative
+        margin-left $indent1
+        display flex
+        justify-content: flex-end;
+        direction: ltr
+        float left
+        max-width 100%
+    }
+    .sidebarLinksList {
+        position relative
+    }
     .closeOverlayBlock {
         position relative
         z-index 1

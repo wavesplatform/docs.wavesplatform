@@ -206,9 +206,8 @@
     font-size 0.95em
 
   a.sidebar-link
-    overflow hidden
+    /*overflow hidden*/
     text-overflow ellipsis
-
     font-size: 14px;
     font-weight: normal;
     font-stretch: normal;
@@ -216,6 +215,7 @@
     line-height: normal;
     letter-spacing: normal;
     color $color10
+    white-space nowrap
 
     display inline-flex
     align-items baseline

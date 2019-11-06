@@ -5,95 +5,69 @@
         @touchend="onTouchEnd"
     >
 
-        <WidthLimit
-            :type="2"
-            :class="$style.navbarWrapper"
-        >
-            <!--@toggleSidebar="toggleLeftSidebar"-->
-            <Sidebar
-                ref="sidebar1"
-                side="left"
-                :sidebar-toggle-trigger-options="{
+        <div :class="$style.navbarWrapper2">
+            <WidthLimit
+                :type="2"
+                :class="$style.navbarWrapper"
+            >
+                <!--@toggleSidebar="toggleLeftSidebar"-->
+                <Sidebar
+                    ref="sidebar1"
+                    side="left"
+                    :sidebar-toggle-trigger-options="{
                     isShow: layoutWidth > 719,
                 }"
-                :items="sidebarItems"
-                :mod="layoutWidth > 719 ? 1 : 0"
-                :sidebar-min-width-px="leftSidebarMinWidthPx"
-                :is-resizable="layoutWidth > 719"
-                :options="{
+                    :items="sidebarItems"
+                    :mod="layoutWidth > 719 ? 1 : 0"
+                    :sidebar-min-width-px="leftSidebarMinWidthPx"
+                    :is-resizable="layoutWidth > 719"
+                    :options="{
                     isMobileMod: layoutWidth < 720,
                 }"
-                :class="[
+                    :class="[
                     $style.sidebar,
                     $style.sidebar1,
                 ]"
-            >
-                <!--/*isResizingRightSidebarState = $event*/-->
-                <div
-                    ref="sidebar1__header"
-                    :class="$style.sidebar1__header"
-                    slot="header"
-                    :style="{
+                >
+                    <!--/*isResizingRightSidebarState = $event*/-->
+                    <div
+                        ref="sidebar1__header"
+                        :class="$style.sidebar1__header"
+                        slot="header"
+                        :style="{
                         height: headerHeight - 1 + 'px',
                     }"
-                >
-                    <router-link
-                        :to="$localePath"
-                        :class="$style.logotypeLink"
                     >
-                        <Logotype :class="$style.logotype"/>
-                    </router-link>
-                </div>
-                <slot
-                    name="sidebar-top"
-                    slot="top"
-                />
-                <slot
-                    name="sidebar-bottom"
-                    slot="bottom"
-                />
-            </Sidebar>
+                        <router-link
+                            :to="$localePath"
+                            :class="$style.logotypeLink"
+                        >
+                            <Logotype :class="$style.logotype"/>
+                        </router-link>
+                    </div>
+                    <slot
+                        name="sidebar-top"
+                        slot="top"
+                    />
+                    <slot
+                        name="sidebar-bottom"
+                        slot="bottom"
+                    />
+                </Sidebar>
 
-            <Navbar
-                ref="navbar"
-                :class="$style.navbar"
-                @toggle-sidebar="toggleSidebar"
-                type="content"
-                :style="{
+                <Navbar
+                    ref="navbar"
+                    :class="$style.navbar"
+                    type="content"
+                    :style="{
                     transform: (layoutWidth < 720 && isOpenLeftSidebar) ? `translateX(${leftSidebarWidth}px)` : '',
                 }"
-            />
+                />
 
-            <Sidebar
-                v-show="layoutWidth > 719"
-                ref="sidebar2"
-                side="right"
-                :sidebar-toggle-trigger-options="{
-                    isShow: /*navbarSubHeaders.length*/true,
-                }"
-                :items="[$page]"
-                :mod="sidebar2Mod"
-                :sidebar-min-width-px="rightSidebarMinWidthPx"
-                :class="[
-                $style.sidebar,
-                $style.sidebar2,
-              ]"
-                :style="{
-                    height: `calc(100vh - ${headerHeight}px)`,
-                }"
-                @toggle-sidebar="toggleSidebar"
-                @isResizingState="isRightSidebarResizingState = $event"
-            >
-                <slot
-                    name="sidebar-top"
-                    slot="top"
-                />
-                <slot
-                    name="sidebar-bottom"
-                    slot="bottom"
-                />
-            </Sidebar>
-        </WidthLimit>
+
+            </WidthLimit>
+        </div>
+
 
         <WidthLimit
             :type="2"
@@ -195,7 +169,7 @@
 
         isRightSidebarResizingState: false,
 
-        rightSidebarMinWidthPx: 260,
+        rightSidebarMinWidthPx: 160,
       }
     },
 
@@ -243,7 +217,10 @@
       },
 
       leftSidebarMinWidthPx () {
-        return this.layoutWidth > 719 ? 260 : 240
+        const leftSidebarMinWidthPx = this.$store.state.interface.leftSidebarMinWidthPx;
+
+        /*return this.layoutWidth > 719 ? 200 : leftSidebarMinWidthPx*/
+        return leftSidebarMinWidthPx;
       },
 
       contentCellStyles() {
@@ -286,30 +263,10 @@
         },
         immediate: true
       },
-
-      headerHeight() {
-        // this.$refs.sidebar1__header.style.height = navbarHeight - 1 + 'px';
-      },
     },
 
     mounted () {
-      // this.$router.afterEach(() => {
-      //   this.isSidebarOpen = false
-      // })
-
-      if (!this.$isServer) {
-        // this.resizeCallback = this.setSidebarResizeDetector('sidebar1', 'pageContentPaddingLeftPx', element => {
-        //   this.navbarMaxWidthPx = document.body.clientWidth - element.offsetWidth - 1
-        // });
-        // this.setSidebarStateWatcher('sidebar1', 'sidebar1Show')
-        // this.setSidebarStateWatcher('sidebar2', 'sidebar2Show')
-
-        // this.setSidebarResizeDetector('sidebar2', 'pageContentPaddingRightPx')
-      }
-    },
-
-    beforeDestroy () {
-      // window.removeEventListener('resize', this.setInterfaceInnerWidthLayout);
+      this.$store.commit('setDisplayLeftSidebar', true)
     },
 
     methods: {
@@ -333,30 +290,14 @@
         })
       },
 
-      toggleSidebar (/*to*/) {
-        const sidebar1ComponentExemplar = this.$refs.sidebar1
-        sidebar1ComponentExemplar.isShow = !sidebar1ComponentExemplar.isShow
-        // this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
-      },
 
       // side swipe
       onTouchStart (e) {
-        this.touchStart = {
-          x: e.changedTouches[0].clientX,
-          y: e.changedTouches[0].clientY
-        }
+
       },
 
       onTouchEnd (e) {
-        const dx = e.changedTouches[0].clientX - this.touchStart.x
-        const dy = e.changedTouches[0].clientY - this.touchStart.y
-        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-          if (dx > 0 && this.touchStart.x <= 80) {
-            this.toggleSidebar(true)
-          } else {
-            this.toggleSidebar(false)
-          }
-        }
+
       }
     }
   }
@@ -373,18 +314,28 @@
         width 100vw
         overflow hidden
         align-items center
+        min-height 100vh
     }
-    .navbarWrapper {
-        /*width: 100%;*/
-        transform: translate3d(0, 0, 0);
-        display: flex;
-        justify-content: center;
+    .navbarWrapper2 {
         position fixed
         z-index 1
+        justify-content: center;
+        display: flex;
+        width 100vw
+    }
+    .navbarWrapper {
+        transform: translate3d(0, 0, 0);
+        width: 100%;
+        justify-content: center;
+        position relative
+        display flex
+        z-index 1
+        left 0
+        top 0
     }
     .navbar {
-        /*position fixed;*/
-        right 0
+        position fixed;
+        /*left 0*/
         width 100vw
         flex-shrink 0
         z-index 1
