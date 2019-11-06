@@ -37,13 +37,14 @@ export default {
 
 <style lang="stylus" module>
   .sidebarToggleTrigger {
-    margin 15px
+    padding 9px
     cursor pointer
-    background #fff
     transition $transitionS1
     &:hover {
     }
     &:not(._isShow) {
+        /*border-radius 0 0 4px 4px
+        border-right 1px solid $borderColor*/
       &._side_left {
         .iconWrapper {
           transform rotate(-180deg)

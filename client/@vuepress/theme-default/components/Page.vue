@@ -34,34 +34,36 @@
         <!--<span class="time">{{ lastUpdated }}</span>-->
       <!--</div>-->
     <!--</footer>-->
-
-    <div
-        v-if="prev || next"
-        :class="$style.pageNavigations">
-      <div v-if="prev">
-          ←
-          <router-link
-              :class="$style.pageNavigations__prev"
-              :to="prev.path"
-          >
-              {{ prev.title || prev.path }}
-          </router-link>
-      </div>
-
-        <div
-            :class="$style.pageNavigations__next"
-            v-if="next"
-        >
-            <router-link
-                :to="next.path"
-            >
-                {{ next.title || next.path }}
-            </router-link>
-            →
-        </div>
-    </div>
-
     <slot name="bottom"/>
+      <div
+          v-if="prev || next"
+          :class="$style.pageNavigations"
+          :style="{
+            /*transform: `translateY(-${documentElementScrollTop - 71}px)`,*/
+          }"
+      >
+          <div v-if="prev">
+              ←
+              <router-link
+                  :class="$style.pageNavigations__prev"
+                  :to="prev.path"
+              >
+                  {{ prev.title || prev.path }}
+              </router-link>
+          </div>
+
+          <div
+              :class="$style.pageNavigations__next"
+              v-if="next"
+          >
+              <router-link
+                  :to="next.path"
+              >
+                  {{ next.title || next.path }}
+              </router-link>
+              →
+          </div>
+      </div>
   </main>
 </template>
 
@@ -72,6 +74,11 @@
   export default {
     props: ['sidebarItems'],
 
+    data() {
+      return {
+        documentElementScrollTop: 0,
+      }
+    },
 
     computed: {
 
@@ -156,17 +163,24 @@
     },
 
     mounted () {
+      if(!this.$isServer) {
+        window.addEventListener('scroll', event => {
+          console.log('event', event, document.documentElement.scrollTop);
+          this.documentElementScrollTop = document.documentElement.scrollTop;
+
+        })
+      }
       // this.$toasted.info('123');
 
       // console.log('bread:', this.bread);
 
       // isActive()
       // const selfActive = isActive(this.$route, item.path)
-      this.sidebarItems.forEach(item => {
-
-        // const selfActive = isActive(this.$route, item.path)
-        // console.log('selfActive:', item);
-      })
+      // this.sidebarItems.forEach(item => {
+      //
+      //   // const selfActive = isActive(this.$route, item.path)
+      //   // console.log('selfActive:', item);
+      // })
 
     },
 
@@ -268,6 +282,14 @@
     .pageNavigations {
         display flex
         justify-content space-between
+        /*background-color #0f0*/
+        /*bottom 0*/
+        top 0
+        /*position absolute*/
+        width 100%
+        padding $indent4 0
+        /*opacity .4*/
+        /*position: sticky;*/
     }
     .pageNavigations__prev {
 

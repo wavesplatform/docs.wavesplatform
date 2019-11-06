@@ -102,7 +102,7 @@
             </WidthLimit>
             <WidthLimit
                 :class="$style.root__contentCell__wrapper"
-                :padding-l-r="layoutWidth > 719 ? 2 : 1"
+                :padding-l-r="3"
             >
 
                 <!--        <div-->
@@ -307,6 +307,8 @@
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 
 <style lang="stylus" module>
+
+
     .root {
         display flex
         flex-direction column
@@ -425,8 +427,8 @@
 
     .root__contentCell__wrapper {
         width 100%
-        padding-top $indent2
-        padding-bottom $indent2
+        padding-top $indent4
+        padding-bottom $indent4
     }
 
     .page {

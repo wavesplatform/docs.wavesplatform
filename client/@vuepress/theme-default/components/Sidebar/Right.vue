@@ -10,7 +10,6 @@
     ]"
   >
     <div
-
       ref="sidebar"
       :class="[$style.sidebarWrapper, $styleRight.sidebarWrapper]"
       :style="{
@@ -20,7 +19,8 @@
     >
       <div :class="['sidebar', $style.sidebar, $styleRight.sidebar]">
         <div
-          :class="$style.sidebarHeader"
+          :class="[$style.sidebarHeader, $styleRight.sidebarHeader]"
+          @click="toggleSidebar(!isShow)"
         >
           <slot name="header"/>
           <div :class="$styleRight.toggleTriggerWrapper">
@@ -29,23 +29,21 @@
                   v-if="sidebarToggleTriggerMergedOptions.isShow"
                   side="right"
                   :is-show="isShow"
-                  @click="toggleSidebar"
               />
           </div>
-        </div>
-
-<!--          {{items}}-->
-        <div :class="[$style.sidebarLinks, $styleRight.sidebarLinks]">
             <div :class="$styleRight.onThisPageWrapper">
                 <span :class="$styleRight.onThisPage">
                     {{$themeLocaleConfig.sidebarOnThisPageText}}
                 </span>
             </div>
+        </div>
 
-            <span
-                :class="$style.resizeTrigger"
-                @mousedown.prevent.stop="resizeTriggerMousedown"
-            />
+<!--          {{items}}-->
+          <span
+              :class="$style.resizeTrigger"
+              @mousedown.prevent.stop="resizeTriggerMousedown"
+          />
+        <div :class="[$style.sidebarLinks, $styleRight.sidebarLinks]">
           <div
               :class="[$style.sidebarLinks__content, $styleRight.sidebarLinks__content]"
           >
@@ -126,31 +124,45 @@
         align-items flex-start
         overflow-x visible
     }
+
+    .sidebarHeader {
+        justify-content flex-start
+        align-items stretch
+        cursor pointer
+        padding-top $indent4
+        padding-bottom $indent4
+    }
+
     .toggleTriggerWrapper {
         display flex
         position: relative;
+
     }
     .toggleTrigger {
+        /*border-left 1px solid $borderColor*/
+        /*border-bottom 1px solid $borderColor*/
         transition left $transitionS1
         position: relative;
         left: 0;
     }
     .sidebar {
+        border-left 1px solid $borderColor
         max-height 100%
         background-color transparent
     }
     .sidebarLinks {
-        border-left: 1px solid $borderColor
         min-height 160px
         padding $indent1 0
         max-height 100%
     }
     .onThisPageWrapper {
-        display flex
-        /*justify-content center*/
+        display inline-flex
+        /*border-bottom 1px solid $borderColor*/
         width 100%
+        /*justify-content center*/
+        /*width 100%*/
         /*text-align center*/
-        padding 0 $indent2
+        /*padding 0 $indent2*/
     }
     .onThisPage {
         font-size: 16px;
@@ -159,6 +171,8 @@
         font-style: normal;
         line-height: normal;
         letter-spacing: normal;
+        display flex
+        align-items center
     }
     .sidebarLinks__content {
         margin-top $indent4

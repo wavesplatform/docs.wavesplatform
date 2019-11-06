@@ -5,7 +5,7 @@
             :type="2"
             :style="{
                 paddingLeft: isOpenLeftSidebar ? leftSidebarWidth + 'px' : '',
-                paddingRight: isOpenRightSidebar ? rightSidebarWidth + 'px' : '',
+                /*paddingRight: isOpenRightSidebar ? rightSidebarWidth + 'px' : '',*/
                 /*marginRight: isOpenRightSidebar ? '' : '32px',*/
             }"
         >
@@ -43,7 +43,7 @@
                     slot="bottom"
                 />
             </Sidebar>-->
-
+            <!--@toggle-sidebar="toggleSidebar"-->
             <Sidebar
                 v-show="layoutWidth > 719"
                 ref="sidebar2"
@@ -58,7 +58,6 @@
                 :style="{
                     height: `calc(100vh - ${headerHeight}px)`,
                 }"
-                @toggle-sidebar="toggleSidebar"
                 @isResizingState="isRightSidebarResizingState = $event"
             />
 
