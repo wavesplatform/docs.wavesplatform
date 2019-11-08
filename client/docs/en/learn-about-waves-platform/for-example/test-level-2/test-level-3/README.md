@@ -4,7 +4,7 @@ actionText: Get Started →
 actionLink: /guide/
 description: English content
 ---
-Waves IDE (En)
+waves-ide  (En)
 <!---
 your comment goes here
 and here

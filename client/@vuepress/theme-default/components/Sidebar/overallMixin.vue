@@ -133,13 +133,13 @@ export default {
     },
 
     resizeTriggerMouseup() {
-      this.$emit('isResizingState', true);
+      this.$emit('isResizingState', false);
       window.removeEventListener('mousemove', this.resizeTriggerMousemove);
       document.documentElement.style.cursor = '';
       this.setSidebarResizeDetector();
     },
     resizeTriggerMousedown(event) {
-      this.$emit('isResizingState', false);
+      this.$emit('isResizingState', true);
       this.removeSidebarResizeDetector();
       this.latestClientX = event.clientX;
       this.latestSidebarWidth = this.sidebarElement.offsetWidth;

@@ -24,7 +24,8 @@ export default (context) => {
             isOpenLeftSidebar: false,
             rightSidebarWidth: 0,
             isOpenRightSidebar: true,
-            rightSidebarMinWidthPx: 160,
+            rightSidebarMinWidthPx: 190,
+            isRightSidebarResizingState: false,
         },
         navbarSubHeaders: [],
         // isProcessDev: process.env.isDev,
@@ -46,6 +47,10 @@ export default (context) => {
     }
 
     const mutations = {
+        setRightSidebarResizingState(state, isResize) {
+            state.interface.isRightSidebarResizingState = isResize
+        },
+
         setDisplayRightSidebar(state, isShow) {
             state.interface.isOpenRightSidebar = isShow
         },

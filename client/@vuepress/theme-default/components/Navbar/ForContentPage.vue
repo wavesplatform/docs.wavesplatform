@@ -1,5 +1,7 @@
 <template>
     <header :class="$style.root">
+
+
         <WidthLimit
             :class="$style.root__wrapper"
             :type="2"
@@ -9,12 +11,27 @@
                 /*marginRight: isOpenRightSidebar ? '' : '32px',*/
             }"
         >
-            <WidthLimit
-                :class="$style.switchLanguageWrapper"
-                :type="2"
+            <div
+                v-show="layoutWidth > 719"
+                :class="$style.searchBoxWrapper2"
+                :style="{
+                    paddingLeft: leftSidebarWidth - rightSidebarWidth + 'px'
+                }"
             >
-                <SwitchLanguage :class="$style.switchLanguage"/>
-            </WidthLimit>
+                <WidthLimit
+                    :class="$style.searchBoxWrapper"
+                    :type="1"
+                    :padding-l-r="1"
+                >
+                    <SearchBox
+                        :class="$style.searchBox"
+                        :is-full-size="true"
+                        :size="1"
+                    />
+
+                </WidthLimit>
+            </div>
+
             <!--<Sidebar
                 v-show="layoutWidth > 719"
                 ref="sidebar2"
@@ -81,18 +98,7 @@
                     />
                 </WidthLimit>
 
-                <WidthLimit
-                    v-show="layoutWidth > 719"
-                    :class="$style.searchBoxWrapper"
-                    :type="1"
-                >
-                    <SearchBox
-                        :class="$style.searchBox"
-                        :is-full-size="true"
-                        :size="1"
-                    />
 
-                </WidthLimit>
 
                 <WidthLimit
                     v-show="layoutWidth < 720"
@@ -105,6 +111,12 @@
                     </a>
 
 
+                </WidthLimit>
+                <WidthLimit
+                    :class="$style.switchLanguageWrapper"
+                    :type="2"
+                >
+                    <SwitchLanguage :class="$style.switchLanguage"/>
                 </WidthLimit>
             </div>
         </WidthLimit>
@@ -173,6 +185,7 @@
         margin-right 0
         transition padding-right $transitionS1, margin-right $transitionS1
         position relative
+        align-items center
     }
     .root__cell1 {
         width 100%
@@ -203,10 +216,17 @@
         cursor pointer
     }
 
+    .searchBoxWrapper2 {
+        position absolute
+        width 100%
+        height 100%
+        display flex
+        align-items center
+        justify-content center
+    }
+
     .searchBoxWrapper {
-        padding-right $indent2
         height 40px
-        padding-left $indent2
     }
 
     .searchBox {

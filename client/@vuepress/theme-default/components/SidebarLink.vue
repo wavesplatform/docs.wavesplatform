@@ -1,91 +1,7 @@
-
-
 <script>
   import { isActive, hashRE, groupHeaders } from '../util'
-  const renderLink = (h, to, text, active) => {
-    return h('router-link', {
-      props: {
-        to,
-        activeClass: '',
-        exactActiveClass: ''
-      },
-      class: {
-        active,
-        'sidebar-link': true
-      }
-    }, [
-      // h('span', {
-      //   class: 'dot'
-      // }),
-      text
-    ])
-  }
-
-  const renderChildren = (h, { children, path, route, $store, maxDepth, depth = 1, mod }) => {
-
-
-    // if(mod === 2) {
-    //   console.log('mod:', mod, children, depth, maxDepth);
-    //
-    //   console.log('depth > maxDepth', depth > maxDepth)
-    //   return null;
-    //   // return
-    // }
-
-    if (!children) {
-      return null
-    }
-
-    if(!children || depth > maxDepth) {
-
-      return null;
-    }
-
-    if(!children && !children.length) {
-      // $store.commit('setNavbarSubHeaders', []);
-      return null;
-    }
-
-
-    // $store.commit('setNavbarSubHeaders', children);
-
-
-
-    return h('ul', { class: 'sidebar-sub-headers' }, children.map(child => {
-
-
-
-      const active = isActive(route, path + '#' + child.slug)
-
-      // console.log('child:', child, child.children);
-
-      const elements = [
-        renderLink(h, path + '#' + child.slug, child.title, active),
-
-
-        renderChildren(h, {
-          children: child.children,
-          path,
-          route,
-          $store,
-          maxDepth,
-          depth: depth + 1,
-          mod
-        })
-      ];
-
-
-
-      return h('li',
-        { class: 'sidebar-sub-header' },
-        mod === 1 ? [] : elements
-      )
-    }))
-  }
-
   export default {
-
-    functional: true,
+    /*functional: true,*/
 
     props: {
       item: {
@@ -102,32 +18,95 @@
       }
     },
 
-    render (h,
+    methods: {
+      renderLink(h, to, text, active) {
+        return h('router-link', {
+          props: {
+            to,
+            activeClass: '',
+            exactActiveClass: ''
+          },
+          class: [
+            this.$style.sidebarLink,
+            this.$style[`sidebarLink_mod${this.mod}`],
             {
-              parent: {
-                $page,
-                $site,
-                $route,
-                $store,
-                $themeConfig,
-                $themeLocaleConfig
-              },
-              props: {
-                item,
-                sidebarDepth,
-                mod
-              }
-            }) {
-      // console.log('RENDER')
-      // use custom active class matching logic
-      // due to edge case of paths ending with / + hash
+                [this.$style.sidebarLink_active]: active,
+            }
+          ],
+        }, [
+          text
+        ])
+      },
+
+      renderChildren(h, { children, path, route, $store, maxDepth, depth = 1, mod }) {
+
+        if (!children) {
+          return null
+        }
+
+        if(!children || depth > maxDepth) {
+
+          return null;
+        }
+
+        if(!children && !children.length) {
+          // $store.commit('setNavbarSubHeaders', []);
+          return null;
+        }
+
+
+        // $store.commit('setNavbarSubHeaders', children);
+
+
+
+        const listWithHeadersAnchors = h('ul', {
+          class: this.$style.sidebarSubHeaders
+        }, children.map(child => {
+          const active = isActive(route, path + '#' + child.slug)
+          const elements = [
+            this.renderLink(h, path + '#' + child.slug, child.title, active),
+            this.renderChildren(h, {
+              children: child.children,
+              path,
+              route,
+              $store,
+              maxDepth,
+              depth: depth + 1,
+              mod
+            })
+          ];
+          return h('li',
+            {
+              class: this.$style.sidebarSubHeader,
+            },
+            elements
+          )
+        }));
+
+
+        return mod === 1 ? null : listWithHeadersAnchors;
+      }
+    },
+
+    render (h) {
+      const {
+          $page,
+          $site,
+          $route,
+          $store,
+          $themeConfig,
+          $themeLocaleConfig,
+          item,
+          sidebarDepth,
+          mod
+        } = this;
+
       const selfActive = isActive($route, item.path)
-      // for sidebar: auto pages, a hash link should be active if one of its child
-      // matches
+
       const active = item.type === 'auto'
         ? selfActive || item.children.some(c => isActive($route, item.basePath + '#' + c.slug))
         : selfActive
-      const link = renderLink(h, item.path, item.title || item.path, active)
+      const link = this.renderLink(h, item.path, item.title || item.path, active)
 
       const configDepth = $page.frontmatter.sidebarDepth
         || sidebarDepth
@@ -139,12 +118,8 @@
       const displayAllHeaders = $themeLocaleConfig.displayAllHeaders
         || $themeConfig.displayAllHeaders
 
-
-
-
       if (item.type === 'auto') {
-        // console.log('1')
-        return [link, renderChildren(h, {
+        return [link, this.renderChildren(h, {
           children: item.children,
           path: item.basePath,
           route: $route,
@@ -156,12 +131,9 @@
 
       } else if ((active || displayAllHeaders) && item.headers && !hashRE.test(item.path)) {
 
-
         const children = groupHeaders(item.headers);
 
-        // console.log('children:', item, children, item.headers);
-
-        const renderedChildren = renderChildren(h, {
+        const renderedChildren = this.renderChildren(h, {
           children,
           path: item.path,
           route: $route,
@@ -178,89 +150,63 @@
 
         result.push(renderedChildren);
 
-
-
-        // console.log('result:', result)
-
-
-
-        return result;
+        return h('div', {}, result);
 
 
       } else {
 
-        // console.log('(mod === 1 || mod === 0) && link:', (mod === 1 || mod === 0) && link)
-
-
         return (mod === 1 || mod === 0) && link;
       }
-
-
     }
   }
 </script>
 
-<style lang="stylus">
-  .sidebar .sidebar-sub-headers
-    /*padding-left 1rem*/
-    font-size 0.95em
+<style lang="stylus" module>
+    .sidebarSubHeaders {
 
-  a.sidebar-link
-    /*overflow hidden*/
-    text-overflow ellipsis
-    font-size: 14px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color $color10
-    white-space nowrap
-
-    display inline-flex
-    align-items baseline
-    /*border-left 0.25rem solid transparent*/
-    width: 100%
-
-    &:hover
-      color $color6
-
-    &.active
-      font-weight 500
-      color $color6
-      /*border-left-color $color6*/
-
-    .sidebar-group &
-      padding-left 2rem
-
-    .sidebar-sub-headers &
-      padding-top 0.25rem
-      padding-bottom 0.25rem
-      border-left none
-
-      &.active
-        font-weight 500
-
-/*  .dot {
-    top: -2px;
-    position: relative;
-    height 100%;
-    display inline-flex
-    justify-content center
-    align-items center
-    vertical-align middle
-    margin 0px 9px 0px -5px
-    opacity .7
-    flex-shrink 0
-    !*border 1px solid currentColor*!
-    border-radius 50%
-    &:before {
-      content ''
-      width 4px
-      height 4px
-      border-radius 50%
-      background currentColor
-      opacity 1
     }
-  }*/
+    .sidebarLink {
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color $color10
+        /*white-space nowrap*/
+
+        display inline-flex
+        align-items baseline
+        width: 100%
+
+        &:hover {
+            color $color6
+        }
+        &.sidebarLink_active {
+            font-weight 500
+            color $color6
+        }
+    }
+
+
+    .sidebarLink_mod0 {
+        white-space nowrap
+    }
+    .sidebarLink_mod1 {
+        white-space nowrap
+    }
+    .sidebarLink_mod2 {
+        white-space pre-wrap
+        color $color8
+    }
+
+    .sidebarSubHeaders {
+        .active {
+            font-weight 500
+        }
+    }
+
+    .sidebarGroup {
+        padding-left 2rem
+    }
 </style>

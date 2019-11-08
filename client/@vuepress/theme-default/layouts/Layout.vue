@@ -1,8 +1,6 @@
 <template>
     <div
         :class="$style.root"
-        @touchstart="onTouchStart"
-        @touchend="onTouchEnd"
     >
 
         <div :class="$style.navbarWrapper2">
@@ -114,6 +112,7 @@
                 <!--:style="pageContainerStyles"-->
                 <Page
                     v-else
+                    ref="page"
                     :sidebar-items="sidebarItems"
                     :class="$style.page"
                 >
@@ -167,13 +166,15 @@
         sidebar1Mod: 1,
         sidebar2Mod: 2,
 
-        isRightSidebarResizingState: false,
 
         rightSidebarMinWidthPx: 160,
       }
     },
 
     computed: {
+      isRightSidebarResizingState() {
+        return this.$store.state.interface.isRightSidebarResizingState;
+      },
       isOpenRightSidebar() {
         return this.$store.state.interface.isOpenRightSidebar;
       },
@@ -231,7 +232,7 @@
           transform: (this.layoutWidth < 720 && this.isOpenLeftSidebar) ? `translateX(${this.leftSidebarWidth}px)` : '',
 
           paddingRight: this.isOpenRightSidebar ? this.rightSidebarWidth + 'px' : '',
-          transition: !this.isRightSidebarResizingState ? 'initial' : '',
+          transition: this.isRightSidebarResizingState ? 'initial' : '',
         }
       },
 
@@ -265,8 +266,14 @@
       },
     },
 
+    beforeMount() {
+      if(!this.$isServer) {
+        this.setRouterScrollBehavior();
+      }
+    },
+
     mounted () {
-      this.$store.commit('setDisplayLeftSidebar', true)
+      this.$store.commit('setDisplayLeftSidebar', true);
     },
 
     methods: {
@@ -282,23 +289,43 @@
         return resizeFunction
       },
 
-      setSidebarStateWatcher (sidebarName, sidebarShowPropName) {
-        this.$refs[sidebarName].$watch('isShow', newValue => {
-          this[sidebarShowPropName] = newValue
-        }, {
-          immediate: true
-        })
+      setRouterScrollBehavior() {
+        this.$router.options.scrollBehavior = (to, from, savedPosition) => {
+          if (savedPosition) {
+            return window.scrollTo({
+              top: savedPosition.y,
+              behavior: 'smooth',
+            })
+          } else if (to.hash) {
+            const targetElement = document.querySelector(to.hash)
+
+            if (targetElement) {
+              return window.scrollTo({
+                top: this.getAnchorElementPosition(targetElement).y,
+                behavior: 'smooth',
+              })
+            }
+
+            return false;
+
+          } else {
+            return window.scrollTo({
+              top: 0,
+              behavior: 'smooth',
+            })
+          }
+        }
       },
 
-
-      // side swipe
-      onTouchStart (e) {
-
+      getAnchorElementPosition(targetElement) {
+        const documentElement = document.documentElement
+        const documentRect = documentElement.getBoundingClientRect()
+        const elementRect = targetElement.getBoundingClientRect()
+        return {
+          x: elementRect.left - documentRect.left,
+          y: elementRect.top - documentRect.top - this.headerHeight,
+        }
       },
-
-      onTouchEnd (e) {
-
-      }
     }
   }
 </script>

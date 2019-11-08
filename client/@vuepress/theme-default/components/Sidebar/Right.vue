@@ -31,7 +31,11 @@
                   :is-show="isShow"
               />
           </div>
-            <div :class="$styleRight.onThisPageWrapper">
+            <div
+                :class="[
+                    $styleRight.onThisPageWrapper,
+                    isPageContentWithHeaders && $styleRight.onThisPageWrapper_withHeaders,
+                ]">
                 <span :class="$styleRight.onThisPage">
                     {{$themeLocaleConfig.sidebarOnThisPageText}}
                 </span>
@@ -95,6 +99,9 @@
       isShow() {
         return this.$store.state.interface.isOpenRightSidebar;
       },
+      isPageContentWithHeaders() {
+        return this.$page.headers && this.$page.headers.length;
+      }
     },
     methods: {
       toggleSidebar(isShow) {
@@ -102,6 +109,11 @@
         /*this.isShow = isShow;*/
         /*console.log('event', isShow);*/
       },
+    },
+    mounted () {
+      this.$on('isResizingState', isResizingState => {
+        this.$store.commit('setRightSidebarResizingState', isResizingState);
+      });
     },
   }
 </script>
@@ -131,6 +143,15 @@
         cursor pointer
         padding-top $indent4
         padding-bottom $indent4
+        margin-top 8px
+        &:hover {
+            .onThisPage {
+                /*color $color6*/
+            }
+            .toggleTrigger {
+                color $color6
+            }
+        }
     }
 
     .toggleTriggerWrapper {
@@ -152,7 +173,9 @@
     }
     .sidebarLinks {
         min-height 160px
-        padding $indent1 0
+
+        padding-bottom $indent1
+
         max-height 100%
     }
     .onThisPageWrapper {
@@ -163,6 +186,9 @@
         /*width 100%*/
         /*text-align center*/
         /*padding 0 $indent2*/
+        &:not(.onThisPageWrapper_withHeaders) {
+            color $color9
+        }
     }
     .onThisPage {
         font-size: 16px;
@@ -176,5 +202,7 @@
     }
     .sidebarLinks__content {
         margin-top $indent4
+        padding-left $indent1
+        padding-right $indent3
     }
 </style>

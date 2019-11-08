@@ -18,7 +18,17 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-            <el-button size="small" icon="el-icon-edit"/>
+            <el-button
+                size="small"
+                :class="$style.editButton"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                    <g fill="none" fill-rule="evenodd">
+                        <!--<path fill="#f00" d="M27.733 0A4.267 4.267 0 0 1 32 4.267v23.466A4.267 4.267 0 0 1 27.733 32H4.267A4.267 4.267 0 0 1 0 27.733V4.267A4.267 4.267 0 0 1 4.267 0h23.466zm0 1.067H4.267a3.2 3.2 0 0 0-3.2 3.2v23.466a3.2 3.2 0 0 0 3.2 3.2h23.466a3.2 3.2 0 0 0 3.2-3.2V4.267a3.2 3.2 0 0 0-3.2-3.2z"/>-->
+                        <path fill="#9BA6B2" fill-rule="nonzero" d="M17.82 11.026l3.037 3.052-7.69 7.727-3.035-3.052 7.687-7.727zm5.342-.737l-1.355-1.361a1.34 1.34 0 0 0-1.899 0l-1.297 1.304 3.037 3.053 1.514-1.521a1.044 1.044 0 0 0 0-1.475zM8.542 23.043c-.055.25.17.474.418.414l3.385-.825-3.036-3.053-.767 3.464z"/>
+                    </g>
+                </svg>
+            </el-button>
         </a>
       </div>
     </div>
@@ -77,10 +87,14 @@
     data() {
       return {
         documentElementScrollTop: 0,
+        pageAnchorTargetElements: [],
       }
     },
 
     computed: {
+      headerHeight () {
+        return this.$store.state.interface.headerHeight;
+      },
 
       bread () {
         const parts = this.$page.path.split('/')
@@ -164,27 +178,51 @@
 
     mounted () {
       if(!this.$isServer) {
+        this.updateListPageAnchorTargetElements();
         window.addEventListener('scroll', event => {
-          console.log('event', event, document.documentElement.scrollTop);
-          this.documentElementScrollTop = document.documentElement.scrollTop;
-
+          this.findAnchorsAndTargetsMatches();
         })
       }
-      // this.$toasted.info('123');
+    },
 
-      // console.log('bread:', this.bread);
-
-      // isActive()
-      // const selfActive = isActive(this.$route, item.path)
-      // this.sidebarItems.forEach(item => {
-      //
-      //   // const selfActive = isActive(this.$route, item.path)
-      //   // console.log('selfActive:', item);
-      // })
-
+    updated() {
+      if(!this.$isServer) {
+        this.updateListPageAnchorTargetElements();
+      }
+      console.log('updated', this.pageAnchorTargetElements);
     },
 
     methods: {
+
+      findAnchorsAndTargetsMatches() {
+        const documentElement = document.documentElement;
+        this.pageAnchorTargetElements.forEach(targetElement => {
+          const documentRect = documentElement.getBoundingClientRect();
+          const elementRect = targetElement.getBoundingClientRect();
+
+          // console.log('elementRect.top - documentRect.top - this.headerHeight:', elementRect.top - documentRect.top - this.headerHeight, documentElement.scrollTop);
+        });
+      },
+
+      updateListPageAnchorTargetElements() {
+        const documentElement = document.documentElement
+        const headers = this.$page.headers;
+        if(!headers || !headers.length) {
+          this.pageAnchorTargetElements = [];
+          return;
+        }
+        this.pageAnchorTargetElements = headers.map(header => {
+          const targetElement = document.querySelector('#' + header.slug);
+          /*const documentRect = documentElement.getBoundingClientRect()
+          const elementRect = targetElement.getBoundingClientRect()
+          return {
+            y: elementRect.top - documentRect.top - this.headerHeight,
+          }*/
+          return targetElement;
+        });
+
+      },
+
       createEditLink (repo, docsRepo, docsDir, docsBranch, path) {
         const bitbucket = /bitbucket.org/
         if (bitbucket.test(repo)) {
@@ -296,6 +334,12 @@
     }
     .pageNavigations__next {
 
+    }
+    .editButton {
+        padding 0
+        & > * {
+            display flex
+        }
     }
 </style>
 

@@ -37,31 +37,36 @@
                   @mousedown.prevent.stop="resizeTriggerMousedown"
               />
             <div :class="$styleLeft.backToIndexWrapper">
-                <a :href="$localePath" :class="$styleLeft.backToIndexLink">
+                <a
+                    :href="$localePath"
+                    :class="$styleLeft.backToIndexLink"
+                >
                     <el-button
+                        ref="backToIndexButton"
                         :class="$styleLeft.backToIndex"
                     >
                         <i class="el-icon-arrow-left"></i>
-                        {{$themeLocaleConfig.backToIndexButtonText}}
+                        {{backToIndexButtonWidth > 100 ? $themeLocaleConfig.backToIndexButtonText : ''}}
                     </el-button>
                 </a>
             </div>
 
-          <div
-              :class="[$style.sidebarLinks__content, $styleLeft.sidebarLinks__content]"
-          >
-            <!--<NavLinks v-if="layoutWidth < 720"/>-->
-            <slot name="top"/>
-            <div :class="$styleLeft.sidebarLinksListWrapper">
-                <SidebarLinks
-                    :class="$styleLeft.sidebarLinksList"
-                    :depth="0"
-                    :items="items"
-                    :mod="mod"
-                />
+            <div
+                :class="[$style.sidebarLinks__content, $styleLeft.sidebarLinks__content]"
+            >
+                <!--<NavLinks v-if="layoutWidth < 720"/>-->
+                <slot name="top"/>
+                <div :class="$styleLeft.sidebarLinksListWrapper">
+                    <SidebarLinks
+                        :class="$styleLeft.sidebarLinksList"
+                        :depth="0"
+                        :items="items"
+                        :mod="mod"
+                    />
+                </div>
             </div>
 
-          </div>
+
         </div>
 
         <div
@@ -104,13 +109,15 @@
           isMobileMod: false
         },
         widthSetterNameInStore: 'setLeftSidebarWidth',
-        sideIndexNumber: 1
+        sideIndexNumber: 1,
+        backToIndexButtonWidth: 0,
       }
     },
 
     mixins: [
       overallMixin
     ],
+
 
     computed: {
       leftSidebarWidth () {
@@ -126,10 +133,25 @@
       }
     },
 
-    methods: {},
+
+    methods: {
+      backToIndexButtonResize(element) {
+        this.backToIndexButtonWidth = element.offsetWidth;
+      },
+    },
 
     mounted () {
-      console.log('this:', this)
+      console.log('this:', this);
+
+      const backToIndexButtonRef = this.$refs.backToIndexButton;
+      if(backToIndexButtonRef) {
+        this.$elementResizeDetector.listenTo(backToIndexButtonRef.$el, this.backToIndexButtonResize);
+      }
+
+    },
+
+    beforeDestroy () {
+      this.$elementResizeDetector.removeListener(this.$refs.backToIndexButton.$el, this.backToIndexButtonResize);
     }
 
   }
@@ -148,8 +170,8 @@
     .backToIndexWrapper {
         display flex
         justify-content flex-start
-        padding-left $indent2
-        padding-right $indent2
+        padding-left $indent1
+        padding-right $indent1
         flex-shrink 0
     }
     .backToIndexLink {
@@ -168,26 +190,36 @@
     .sidebar {
         height 100%
     }
+
     .sidebarLinks__content {
         /*margin $indent3 0*/
         margin-top $indent3
         margin-bottom $indent3
         justify-content start
-        direction: rtl;
+        /*direction: rtl;*/
         overflow-x auto
+        position relative
     }
 
     .sidebarLinksListWrapper {
         position relative
-        margin-left $indent1
+        /*margin-left $indent1*/
         display flex
         justify-content: flex-end;
         direction: ltr
         float left
-        max-width 100%
+        /*max-width 100%*/
+        padding-right $indent1
+        padding-left $indent1
+
     }
     .sidebarLinksList {
         position relative
+        > :global(.sidebarLinks__link) {
+            > :global(.sidebarLinks__link__group) {
+                margin-left -20px
+            }
+        }
     }
     .closeOverlayBlock {
         position relative

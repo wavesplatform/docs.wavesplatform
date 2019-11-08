@@ -1,9 +1,12 @@
 <template>
   <ul
-    class="sidebar-links"
+    :class="$style.sidebarLinks"
     v-if="items.length"
   >
-    <li v-for="(item, index) in items" :key="index">
+    <li
+        :class="[$style.sidebarLinks__link, 'sidebarLinks__link']"
+        v-for="(item, index) in items" :key="index"
+    >
 
 <!--      <SidebarGroup-->
 <!--        v-if="item.type === 'group'"-->
@@ -29,6 +32,7 @@
             :collapsable="item.collapsable || item.collapsible"
             :depth="depth"
             :mod="mod"
+            :class="[$style.sidebarLinks__link__group, 'sidebarLinks__link__group']"
             @toggle="toggleGroup(index)"
         />
         <SidebarLink
@@ -45,6 +49,7 @@
 import SidebarGroup from '@theme/components/SidebarGroup.vue'
 import SidebarLink from '@theme/components/SidebarLink.vue'
 import { isActive } from '../util'
+
 const resolveOpenGroupIndex = (route, items) => {
   for (let i = 0; i < items.length; i++) {
     const item = items[i]
@@ -117,8 +122,21 @@ export default {
     },
 
     isActive (page) {
+      console.log('page:', page);
       return isActive(this.$route, page.regularPath)
     }
   }
 }
 </script>
+
+<style lang="stylus" module>
+    .sidebarLinks {
+        position relative
+    }
+    .sidebarLinks__link {
+        position relative
+    }
+    .sidebarLinks__link__group {
+
+    }
+</style>

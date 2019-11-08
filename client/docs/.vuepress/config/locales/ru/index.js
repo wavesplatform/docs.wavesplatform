@@ -266,8 +266,14 @@ module.exports = deepmerge(technologyListMixin, {
                         path: '/ru/learn-about-waves-platform/tools/repl',
                         children: [
                             {
-                                title: 'Waves IDE',
-                                path: '/ru/learn-about-waves-platform/tools/repl/waves-ide'
+                                title: 'Waves IDE 2',
+                                path: '/ru/learn-about-waves-platform/tools/repl/waves-ide',
+                                children: [
+                                    {
+                                        title: 'Simple voting on the Waves blockchain',
+                                        path: '/ru/learn-about-waves-platform/tools/repl/waves-ide/simple-voting-on-the-waves-blockchain'
+                                    },
+                                ]
                             },
                         ]
                     },

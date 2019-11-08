@@ -37,9 +37,11 @@ export default {
 
 <style lang="stylus" module>
   .sidebarToggleTrigger {
-    padding 9px
+    padding 0 $indent1 0 $indent4
     cursor pointer
     transition $transitionS1
+    display flex
+    align-items center
     &:hover {
     }
     &:not(._isShow) {
@@ -77,13 +79,13 @@ export default {
     /*width $w-h
     height $w-h*/
     transition transform $transitionS1
-    font-size .6rem
+    font-size 14px
   }
   .icon1 {
 
   }
   .icon2 {
-    margin-left -5px
+    margin-left -7px
   }
 
 </style>

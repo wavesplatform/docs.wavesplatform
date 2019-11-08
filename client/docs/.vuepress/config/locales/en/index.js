@@ -140,8 +140,14 @@ module.exports = deepmerge(mixin, {
                         path: '/en/learn-about-waves-platform/tools/repl',
                         children: [
                             {
-                                title: 'Waves IDE',
-                                path: '/en/learn-about-waves-platform/tools/repl/waves-ide'
+                                title: 'Waves IDE 2',
+                                path: '/en/learn-about-waves-platform/tools/repl/waves-ide',
+                                children: [
+                                    {
+                                        title: 'Simple voting on the Waves blockchain',
+                                        path: '/en/learn-about-waves-platform/tools/repl/waves-ide/simple-voting-on-the-waves-blockchain'
+                                    },
+                                ]
                             },
                         ]
                     },
@@ -158,6 +164,40 @@ module.exports = deepmerge(mixin, {
             {
                 title: 'Creating and deploying a script manually',
                 path: '/en/learn-about-waves-platform/what-is-a-dapp'
+            },
+            {
+                title: 'For example',
+                path: '/en/learn-about-waves-platform/for-example',
+                children: [
+                    {
+                        title: 'Test level 2',
+                        path: '/en/learn-about-waves-platform/for-example/test-level-2',
+                        children: [
+                            {
+                                title: 'Test level 3',
+                                path: '/en/learn-about-waves-platform/for-example/test-level-2/test-level-3',
+                                children: [
+                                    {
+                                        title: 'Level 3 element 1',
+                                        path: '/en/learn-about-waves-platform/for-example/test-level-2/test-level-3/level-3-element-1'
+                                    },
+                                    {
+                                        title: 'Level 3 element 2',
+                                        path: '/en/learn-about-waves-platform/for-example/test-level-2/test-level-3/level-3-element-2'
+                                    },
+                                    {
+                                        title: 'element 3 of level 3 example',
+                                        path: '/en/learn-about-waves-platform/for-example/test-level-2/test-level-3/element-3-of-level-3-example'
+                                    },
+                                ]
+                            },
+                        ]
+                    },
+                    {
+                        title: 'Waves IDE',
+                        path: '/en/blockchain/token/waves'
+                    },
+                ]
             },
             {
                 title: 'Video tutorials',

@@ -4,7 +4,7 @@ actionText: Get Started →
 actionLink: /guide/
 description: English content
 ---
-Writing dApps  (EN)
+Tools (En)
 <!---
 your comment goes here
 and here

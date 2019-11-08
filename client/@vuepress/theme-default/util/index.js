@@ -10,6 +10,7 @@ export function normalize (path) {
 }
 
 export function getHash (path) {
+
   const match = path.match(hashRE);
   if (match) {
     return match[0];
@@ -43,14 +44,15 @@ export function ensureExt (path) {
 }
 
 export function isActive (route, path) {
-  const routeHash = route.hash;
-  const linkHash = getHash(path);
-  if (linkHash && routeHash !== linkHash) {
-    return false;
-  }
-  const routePath = normalize(route.path);
-  const pagePath = normalize(path);
-  return routePath === pagePath;
+    const routeHash = route.hash
+    const linkHash = getHash(path)
+    if (linkHash && routeHash !== linkHash) {
+        return false
+    }
+
+    const routePath = normalize(route.path)
+    const pagePath = normalize(path)
+    return routePath === pagePath
 }
 
 export function resolvePage (pages, rawPath, base) {
@@ -218,17 +220,20 @@ function resolveItem (item, pages, base, groupDepth = 1) {
       title: item[1]
     });
   } else {
-    if (groupDepth > 3) {
-      console.error(
-        '[vuepress] detected a too deep nested sidebar group.'
-      );
-    }
+    // if (groupDepth > 3) {
+    //   console.error(
+    //     '[vuepress] detected a too deep nested sidebar group.'
+    //   );
+    // }
     const children = item.children || [];
     if (children.length === 0 && item.path) {
+
       return Object.assign(resolvePage(pages, item.path, base), {
-        title: item.title
+        title: item.title,
+        path: item.path,
       });
     }
+
     return {
       type: 'group',
       path: item.path,

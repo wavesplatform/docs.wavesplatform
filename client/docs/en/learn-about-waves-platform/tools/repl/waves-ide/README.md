@@ -4,7 +4,7 @@ actionText: Get Started →
 actionLink: /guide/
 description: English content
 ---
-Writing dApps  (EN)
+waves-ide  (En)
 <!---
 your comment goes here
 and here

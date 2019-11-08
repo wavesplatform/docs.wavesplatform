@@ -1,67 +1,84 @@
 <template>
   <section
-    class="sidebar-group"
     :class="[
-      {
-        collapsable,
-        'is-sub-group': depth !== 0
-      },
-      `depth-${depth}`
+        $style.sidebarGroup,
+        $style[`depth${depth}`],
+        {
+            [$style.collapsable]: collapsable,
+            [$style.isSubGroup]: depth !== 0,
+        },
     ]"
   >
-    <template v-if="mod === 1 || mod === 0">
-      <router-link
-        v-if="item.path"
-        class="sidebar-heading clickable"
-        :class="{
-        open,
-        'active': isActive($route, item.path)
-      }"
-        :to="item.path"
-        @click.native="$emit('toggle')"
-      >
-        <span
-          v-if="collapsable"
-          :class="[$style.arrowIcon, open ? 'el-icon-arrow-down' : 'el-icon-arrow-right']"/>
-        <span class="sidebar-heading__title">{{ item.title }}</span>
-      </router-link>
-
-      <p
-        v-else
-        class="sidebar-heading"
-        :class="{ open }"
+    <span
+        v-if="collapsable"
+        :class="[
+            $style.sidebarGroup__cell1,
+            $style.arrowIcon, open ? 'el-icon-arrow-down' : 'el-icon-arrow-right'
+        ]"
         @click="$emit('toggle')"
-      >
-        <span
-          v-if="collapsable"
-          :class="[$style.arrowIcon, open ? 'el-icon-arrow-down' : 'el-icon-arrow-right']"/>
-        <span class="sidebar-heading__title">{{ item.title }}</span>
-      </p>
-    </template>
+    />
+    <div :class="$style.sidebarGroup__cell2">
+        <template v-if="mod === 1 || mod === 0">
+            <!--{{isActive($route, item.path)}}-->
+            <router-link
+                v-if="item.path"
+                :class="[
+                    $style.sidebarHeading,
+                    $style.clickable,
+                    {
+                        [$style.open]: open,
+                        [$style.active]: isActive($route, item.path)
+                    }
+                ]"
+                :to="item.path"
+                @click.native="$emit('toggle')"
+            >
+        <span :class="$style.sidebarHeading__title">
+            {{ item.title }}
+        </span>
+            </router-link>
 
-
-    <DropdownTransition>
-      <SidebarLinks
-        class="sidebar-group-items"
-        :items="item.children"
-        v-if="open || !collapsable"
-        :sidebarDepth="item.sidebarDepth"
-        :depth="depth + 1"
-        :mod="mod"
-      />
-    </DropdownTransition>
+            <!--<p
+              v-else
+              :class="[
+                  $style.sidebarHeading,
+                  {
+                      [$style.open]: open,
+                  }
+              ]"
+              @click="$emit('toggle')"
+            >
+              <span
+                v-if="collapsable"
+                :class="[
+                  $style.arrowIcon, open ? 'el-icon-arrow-down' : 'el-icon-arrow-right'
+                ]"
+              />
+              <span class="sidebar-heading__title">
+                  {{ item.title }}
+              </span>
+            </p>-->
+        </template>
+        <DropdownTransition>
+            <SidebarLinks
+                :class="$style.sidebarGroupItems"
+                :items="item.children"
+                v-if="open || !collapsable"
+                :sidebarDepth="item.sidebarDepth"
+                :depth="depth + 1"
+                :mod="mod"
+            />
+        </DropdownTransition>
+    </div>
   </section>
 </template>
 
 <script>
   import { isActive } from '../util'
-  import DropdownTransition from '@theme/components/DropdownTransition.vue'
+  import DropdownTransition from '@theme/components/DropdownTransition'
 
   export default {
     name: 'SidebarGroup',
-    // props: [
-    //   'item', 'open', 'collapsable', 'depth'
-    // ],
 
     props: {
       item: {
@@ -85,101 +102,107 @@
         default: 0
       }
     },
-    components: { DropdownTransition },
-    // ref: https://vuejs.org/v2/guide/components-edge-cases.html#Circular-References-Between-Components
+
+
+    components: {
+      DropdownTransition
+    },
+
     beforeCreate () {
       this.$options.components.SidebarLinks = require('./SidebarLinks.vue').default
     },
+
+    mounted() {
+      //   setInterval(() => {
+      //     this.$forceUpdate()
+      // }, 3000)
+    },
+
     methods: { isActive }
   }
 </script>
 
 <style lang="stylus" module>
-  .arrowIcon {
-    /*font-size .6rem*/
-  }
+    .sidebarGroup {
+        display flex
+        &:not(.collapsable) {
+            .sidebar-heading:not(.clickable) {
+                cursor auto
+                color inherit
+            }
+        }
+    }
+
+    .sidebarGroup__cell1 {
+        display flex
+        margin-right 5px
+        align-items flex-start
+        padding-top 4px
+    }
+    .arrowIcon {
+        cursor pointer
+        &:hover {
+            color $color6
+        }
+        /*font-size .6rem*/
+    }
+
+    .sidebarGroup__cell2 {
+        display flex
+        flex-direction column
+    }
+
+    .sidebarHeading {
+        display: flex;
+        align-items: baseline;
+        transition color .15s ease
+        cursor pointer
+        padding 4px 0
+        width 100%
+        margin 0
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color $color10
+
+        &:hover {
+            color $color6
+        }
+        &.active {
+            font-weight 600
+            color $color6
+            /*border-left-color $accentColor*/
+        }
+
+        &.clickable {
+            &.active {
+                font-weight 600
+                color $color6
+                /*border-left-color $accentColor*/
+            }
+
+            &:hover {
+                color $accentColor
+            }
+        }
+
+        .arrow {
+            position relative
+            top -0.12em
+            left -.5em
+        }
+    }
+
+    .sidebarHeading__title {
+        text-overflow: ellipsis;
+        white-space nowrap
+    }
+
+    .sidebarGroupItems {
+        transition height .1s ease-out
+    }
 </style>
 
-<style lang="stylus" scoped>
-  .sidebar-group
-    .sidebar-group
-      padding-left 0.5em
-
-    &:not(.collapsable)
-      .sidebar-heading:not(.clickable)
-        cursor auto
-        color inherit
-
-    // refine styles of nested sidebar groups
-
-    &.is-sub-group
-      padding-left 0
-
-      & > .sidebar-heading
-        font-size 0.95em
-        line-height 1.4
-        font-weight normal
-        padding-left 2rem
-
-        /*&:not(.clickable)
-          opacity 0.5*/
-
-      & > .sidebar-group-items
-        padding-left 1rem
-
-        & > li > .sidebar-link
-          font-size: 0.95em;
-          border-left none
-
-    &.depth-2
-      & > .sidebar-heading
-        border-left none
-
-  .sidebar-heading
-    display: flex;
-    align-items: baseline;
-    transition color .15s ease
-    cursor pointer
-    /*font-weight bold*/
-    // text-transform uppercase
-    padding 0.35rem .65rem 0.35rem .65rem
-    width 100%
-    margin 0
-    /*border-left 0.25rem solid transparent*/
-    font-size: 14px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color $color10
-    &.open, &:hover
-      color inherit
-
-    .arrow
-      position relative
-      top -0.12em
-      left -.5em
-
-    &.clickable
-      &.active
-        font-weight 600
-        color $accentColor
-        /*border-left-color $accentColor*/
-
-      &:hover
-        color $accentColor
-
-
-  .sidebar-heading__title
-    /*overflow: hidden;*/
-    text-overflow: ellipsis;
-    margin-left 5px
-    white-space nowrap
-
-
-  .sidebar-group-items
-    transition height .1s ease-out
-    font-size 0.95em
-    overflow hidden
-</style>

@@ -42,8 +42,12 @@ body {
     font-family : 'Roboto', sans-serif;
     -webkit-font-smoothing antialiased
     -moz-osx-font-smoothing grayscale
-    font-size 15px
-    font-weight 100
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.75;
+    letter-spacing: normal;
     color $color7
     min-height 100%
 }
@@ -80,14 +84,16 @@ a {
   }
 }
 
-a
-  font-weight 500
-  color $accentColor
-  text-decoration none
+a {
+    font-weight 500
+    color $color6
+    text-decoration none
+}
+
 
 p a code
   font-weight 400
-  color $accentColor
+  color $color6
 
 kbd
   background #eee
@@ -127,13 +133,30 @@ h1, h2, h3, h4, h5, h6
   &:hover .header-anchor
     opacity: 1
 
-h1
-  font-size 1.45rem
+h1 {
+    font-size: 34px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.18;
+    letter-spacing: normal;
+    padding-bottom $indent1
+}
 
-h2
-  font-size 1.2rem
-  padding-bottom .3rem
-  border-bottom 1px solid $borderColor
+
+h2 {
+    //font-size 1.2rem
+    //padding-bottom .3rem
+    //border-bottom 1px solid $borderColor
+    font-size: 34px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.18;
+    letter-spacing: normal;
+    padding $indent1 0
+}
+
 
 h3
   font-size 1.1rem
@@ -151,8 +174,15 @@ a.header-anchor
 code, kbd, .line-number
   font-family source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace
 
-p, ul, ol
-  line-height 1.7
+p, ul, ol {
+    line-height 1.75
+    color $color8
+}
+
+p {
+
+}
+
 
 hr
   border 0
@@ -173,23 +203,5 @@ th, td
   border 1px solid #dfe2e5
   padding .6em 1em
 
-.theme-container
-  &.sidebar-open
-    .sidebar-mask
-      display: block
-  &.no-navbar
-    .content:not(.custom) > h1, h2, h3, h4, h5, h6
-      margin-top 1.5rem
-      padding-top 0
-    .sidebar
-      top 0
-
-
-@media (min-width: ($MQMobile + 1px))
-  .theme-container.no-sidebar
-    .sidebar
-      display none
-    .page
-      padding-left 0
 
 @require 'mobile.styl'
