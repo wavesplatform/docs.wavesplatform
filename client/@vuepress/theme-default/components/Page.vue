@@ -1,80 +1,97 @@
 <template>
-  <main :class="$style.page">
-    <slot name="top"/>
-    <!--<el-breadcrumb separator="/">-->
-      <!--<el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>-->
-      <!--<el-breadcrumb-item><a href="/">promotion management</a></el-breadcrumb-item>-->
-      <!--<el-breadcrumb-item>promotion list</el-breadcrumb-item>-->
-      <!--<el-breadcrumb-item>promotion detail</el-breadcrumb-item>-->
-    <!--</el-breadcrumb>-->
-    <div :class="$style.page__header">
-      <div
-          :class="$style.editLinkWrapper"
-        v-if="editLink"
+    <WidthLimit
+        ref="root"
+        :class="$style.root"
+        :padding-l-r="3"
+    >
+      <main
+          :class="$style.page"
       >
-        <a
-            :class="$style.editLink"
-          :href="editLink"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-            <el-button
-                size="small"
-                :class="$style.editButton"
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-                    <g fill="none" fill-rule="evenodd">
-                        <!--<path fill="#f00" d="M27.733 0A4.267 4.267 0 0 1 32 4.267v23.466A4.267 4.267 0 0 1 27.733 32H4.267A4.267 4.267 0 0 1 0 27.733V4.267A4.267 4.267 0 0 1 4.267 0h23.466zm0 1.067H4.267a3.2 3.2 0 0 0-3.2 3.2v23.466a3.2 3.2 0 0 0 3.2 3.2h23.466a3.2 3.2 0 0 0 3.2-3.2V4.267a3.2 3.2 0 0 0-3.2-3.2z"/>-->
-                        <path fill="#9BA6B2" fill-rule="nonzero" d="M17.82 11.026l3.037 3.052-7.69 7.727-3.035-3.052 7.687-7.727zm5.342-.737l-1.355-1.361a1.34 1.34 0 0 0-1.899 0l-1.297 1.304 3.037 3.053 1.514-1.521a1.044 1.044 0 0 0 0-1.475zM8.542 23.043c-.055.25.17.474.418.414l3.385-.825-3.036-3.053-.767 3.464z"/>
-                    </g>
-                </svg>
-            </el-button>
-        </a>
-      </div>
-    </div>
-
-    <Content/>
-
-    <!--<footer class="page-edit">-->
-      <!--<div-->
-        <!--class="last-updated"-->
-        <!--v-if="lastUpdated"-->
-      <!--&gt;-->
-        <!--<span class="prefix">{{ lastUpdatedText }}: </span>-->
-        <!--<span class="time">{{ lastUpdated }}</span>-->
-      <!--</div>-->
-    <!--</footer>-->
-    <slot name="bottom"/>
-      <div
-          v-if="prev || next"
-          :class="$style.pageNavigations"
-          :style="{
-            /*transform: `translateY(-${documentElementScrollTop - 71}px)`,*/
-          }"
-      >
-          <div v-if="prev">
-              ←
-              <router-link
-                  :class="$style.pageNavigations__prev"
-                  :to="prev.path"
-              >
-                  {{ prev.title || prev.path }}
-              </router-link>
-          </div>
-
+        <slot name="top"/>
+        <!--<el-breadcrumb separator="/">-->
+          <!--<el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>-->
+          <!--<el-breadcrumb-item><a href="/">promotion management</a></el-breadcrumb-item>-->
+          <!--<el-breadcrumb-item>promotion list</el-breadcrumb-item>-->
+          <!--<el-breadcrumb-item>promotion detail</el-breadcrumb-item>-->
+        <!--</el-breadcrumb>-->
+        <div :class="$style.page__header">
           <div
-              :class="$style.pageNavigations__next"
-              v-if="next"
+              :class="$style.editLinkWrapper"
+            v-if="editLink"
           >
-              <router-link
-                  :to="next.path"
-              >
-                  {{ next.title || next.path }}
-              </router-link>
-              →
+            <a
+                :class="$style.editLink"
+              :href="editLink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+                <el-button
+                    size="small"
+                    :class="$style.editButton"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                        <g fill="none" fill-rule="evenodd">
+                            <!--<path fill="#f00" d="M27.733 0A4.267 4.267 0 0 1 32 4.267v23.466A4.267 4.267 0 0 1 27.733 32H4.267A4.267 4.267 0 0 1 0 27.733V4.267A4.267 4.267 0 0 1 4.267 0h23.466zm0 1.067H4.267a3.2 3.2 0 0 0-3.2 3.2v23.466a3.2 3.2 0 0 0 3.2 3.2h23.466a3.2 3.2 0 0 0 3.2-3.2V4.267a3.2 3.2 0 0 0-3.2-3.2z"/>-->
+                            <path fill="#9BA6B2" fill-rule="nonzero" d="M17.82 11.026l3.037 3.052-7.69 7.727-3.035-3.052 7.687-7.727zm5.342-.737l-1.355-1.361a1.34 1.34 0 0 0-1.899 0l-1.297 1.304 3.037 3.053 1.514-1.521a1.044 1.044 0 0 0 0-1.475zM8.542 23.043c-.055.25.17.474.418.414l3.385-.825-3.036-3.053-.767 3.464z"/>
+                        </g>
+                    </svg>
+                </el-button>
+            </a>
           </div>
-      </div>
-  </main>
+        </div>
+
+        <Content/>
+
+        <!--<footer class="page-edit">-->
+          <!--<div-->
+            <!--class="last-updated"-->
+            <!--v-if="lastUpdated"-->
+          <!--&gt;-->
+            <!--<span class="prefix">{{ lastUpdatedText }}: </span>-->
+            <!--<span class="time">{{ lastUpdated }}</span>-->
+          <!--</div>-->
+        <!--</footer>-->
+        <slot name="bottom"/>
+      </main>
+        <div
+            ref="pageNavigations"
+            v-if="prev || next"
+            :class="$style.pageNavigations"
+            :style="{
+                transform: `translateY(${pageNavigationsTranslateY}px)`,
+            }"
+        >
+            <div
+                :class="[$style.pageNavigations__sideWrapper, $style.pageNavigations__prevWrapper]"
+            >
+                <router-link
+                    v-if="prev"
+                    :class="[$style.pageNavigations__side, $style.pageNavigations__prev]"
+                    :to="prev.path"
+                >
+                    <i :class="['el-icon-arrow-left', $style.pageNavigations__side__icon]"></i>
+                    <span :class="[$style.pageNavigations__side__text, $style.pageNavigations__prev__text]">
+                        {{ prev.title || prev.path }}
+                    </span>
+                </router-link>
+            </div>
+
+            <div
+                :class="[$style.pageNavigations__sideWrapper, $style.pageNavigations__nextWrapper]"
+            >
+                <router-link
+                    v-if="next"
+                    :class="[$style.pageNavigations__side, $style.pageNavigations__next]"
+                    :to="next.path"
+                >
+                    <span :class="[$style.pageNavigations__side__text, $style.pageNavigations__next__text]">
+                        {{ next.title || next.path }}
+                    </span>
+                    <i :class="['el-icon-arrow-right', $style.pageNavigations__side__icon]"></i>
+                </router-link>
+            </div>
+        </div>
+    </WidthLimit>
 </template>
 
 <script>
@@ -82,36 +99,35 @@
   import { isActive, resolvePage, outboundRE, endingSlashRE } from '../util'
 
   export default {
-    props: ['sidebarItems'],
+
+    components: {
+      WidthLimit,
+    },
+
+    props: [
+      'sidebarItems'
+    ],
 
     data() {
       return {
-        documentElementScrollTop: 0,
         pageAnchorTargetElements: [],
+        pageNavigationsTranslateY: 0,
+
+        testSize: 0,
       }
     },
 
     computed: {
-      headerHeight () {
-        return this.$store.state.interface.headerHeight;
+      documentElementScrollTop() {
+        return this.$store.state.interface.documentElementScrollTop;
       },
 
-      bread () {
-        const parts = this.$page.path.split('/')
-        if (!parts[parts.length - 1].length) {
-          parts.pop()
-        }
-        let link = ''
-        const crumbs = []
-        for (let i = 0; i < parts.length; i++) {
-          link += parts[i]
-          const page = this.$site.pages.find((el) => el.path === link || el.path === link + '/')
-          link += '/'
-          if (page != null) {
-            crumbs.push({ path: page.path, title: page.frontmatter.breadcrumb || page.title })
-          }
-        }
-        return crumbs
+      layoutHeight() {
+        return this.$store.state.interface.layoutHeight;
+      },
+
+      headerHeight () {
+        return this.$store.state.interface.headerHeight;
       },
 
       lastUpdated () {
@@ -128,26 +144,51 @@
         return 'Last Updated'
       },
 
+      flatSidebarItems() {
+        return this.getFlatSidebarItems(this.sidebarItems);
+      },
+
+      currentIndexInFlatSidebarItems() {
+        /*or $page.key*/
+        const pageRelativePath = this.$page.relativePath;
+
+        const element = this.flatSidebarItems.find(item => {
+          return item.relativePath === pageRelativePath;
+        });
+
+        return this.flatSidebarItems.indexOf(element);
+      },
+
       prev () {
-        const prev = this.$page.frontmatter.prev
-        if (prev === false) {
-          return
-        } else if (prev) {
-          return resolvePage(this.$site.pages, prev, this.$route.path)
-        } else {
-          return resolvePrev(this.$page, this.sidebarItems)
+        if(this.currentIndexInFlatSidebarItems < 1) {
+          return false;
         }
+        const prevIndex = this.currentIndexInFlatSidebarItems - 1;
+        return this.flatSidebarItems[prevIndex];
+        // const prev = this.$page.frontmatter.prev
+        // if (prev === false) {
+        //   return
+        // } else if (prev) {
+        //   return resolvePage(this.$site.pages, prev, this.$route.path)
+        // } else {
+        //   return resolvePrev(this.$page, this.sidebarItems)
+        // }
       },
 
       next () {
-        const next = this.$page.frontmatter.next
-        if (next === false) {
-          return
-        } else if (next) {
-          return resolvePage(this.$site.pages, next, this.$route.path)
-        } else {
-          return resolveNext(this.$page, this.sidebarItems)
+        if(this.currentIndexInFlatSidebarItems + 1 > this.flatSidebarItems.length - 1) {
+          return false;
         }
+        const nextIndex = this.currentIndexInFlatSidebarItems + 1;
+        return this.flatSidebarItems[nextIndex];
+        // const next = this.$page.frontmatter.next
+        // if (next === false) {
+        //   return
+        // } else if (next) {
+        //   return resolvePage(this.$site.pages, next, this.$route.path)
+        // } else {
+        //   return resolveNext(this.$page, this.sidebarItems)
+        // }
       },
 
       editLink () {
@@ -171,17 +212,29 @@
         return (
           this.$themeLocaleConfig.editLinkText
           || this.$site.themeConfig.editLinkText
-          || `Edit`
+          || 'Edit'
         )
       }
     },
 
+    watch: {
+      documentElementScrollTop() {
+        this.updatePageNavigationsTranslateY();
+      },
+      layoutHeight() {
+        this.updatePageNavigationsTranslateY();
+      },
+    },
+
     mounted () {
       if(!this.$isServer) {
+        this.$elementResizeDetector.listenTo(this.$refs.root.$el, this.updatePageNavigationsTranslateY);
         this.updateListPageAnchorTargetElements();
-        window.addEventListener('scroll', event => {
-          this.findAnchorsAndTargetsMatches();
-        })
+        this.updatePageNavigationsTranslateY();
+        window.addEventListener('resize', () => {
+          this.testSize = window.innerHeight;
+        });
+
       }
     },
 
@@ -189,10 +242,29 @@
       if(!this.$isServer) {
         this.updateListPageAnchorTargetElements();
       }
-      console.log('updated', this.pageAnchorTargetElements);
+    },
+
+    beforeDestroy() {
+      this.$elementResizeDetector.removeListener(this.$refs.root.$el, this.updatePageNavigationsTranslateY);
     },
 
     methods: {
+
+      updatePageNavigationsTranslateY() {
+        const rootRefElement = this.$refs.root.$el;
+        console.log('rootRefElement.offsetHeight - window.innerHeight + rootRefElement.offsetTop + this.headerHeight - this.documentElementScrollTop:', rootRefElement.offsetHeight, window.innerHeight, rootRefElement.offsetTop, this.headerHeight, this.documentElementScrollTop)
+        this.pageNavigationsTranslateY = -(rootRefElement.offsetHeight - window.innerHeight + rootRefElement.offsetTop + this.headerHeight - this.documentElementScrollTop)
+      },
+
+      getFlatSidebarItems(items, accumulator = []) {
+        return items.reduce((accumulator, item) => {
+          accumulator.push(item);
+          if(item.type === 'group') {
+            this.getFlatSidebarItems(item.children, accumulator);
+          }
+          return accumulator;
+        }, accumulator);
+      },
 
       findAnchorsAndTargetsMatches() {
         const documentElement = document.documentElement;
@@ -251,46 +323,21 @@
         )
       }
     }
-
   }
-
-  function resolvePrev (page, items) {
-    return find(page, items, -1)
-  }
-
-  function resolveNext (page, items) {
-    return find(page, items, 1)
-  }
-
-  function find (page, items, offset) {
-    const res = []
-    flatten(items, res)
-    for (let i = 0; i < res.length; i++) {
-      const cur = res[i]
-      if (cur.type === 'page' && cur.path === decodeURIComponent(page.path)) {
-        return res[i + offset]
-      }
-    }
-  }
-
-  function flatten (items, res) {
-    for (let i = 0, l = items.length; i < l; i++) {
-      if (items[i].type === 'group') {
-        flatten(items[i].children || [], res)
-      } else {
-        res.push(items[i])
-      }
-    }
-  }
-
 </script>
 
 
 
 <style lang="stylus" module>
+    .root {
+        padding-top $indent4
+        /*padding-bottom $indent4*/
+        margin-bottom $indent4
+    }
     .page {
         display block
         position relative
+
     }
 
     .page__header {
@@ -318,22 +365,58 @@
     }
 
     .pageNavigations {
+        will-change transform
+        z-index 1
         display flex
         justify-content space-between
-        /*background-color #0f0*/
-        /*bottom 0*/
-        top 0
-        /*position absolute*/
+        /*background-image linear-gradient(180deg, rgba(255, 255, 255, .0) 0%, rgba(255, 255, 255, .9) 30%)*/
+        background-color rgba(255, 255, 255, .9)
         width 100%
-        padding $indent4 0
-        /*opacity .4*/
-        /*position: sticky;*/
+        position relative
+        /*bottom 0*/
+        left 0
+        padding-top $indent4
+        padding-bottom $indent4
+
+        font-size: 18px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.2;
+        letter-spacing: normal;
+    }
+    .pageNavigations__side__text {
+        display flex
+    }
+    .pageNavigations__prev__text {
+        text-align left
+    }
+    .pageNavigations__next__text {
+        text-align right
+    }
+    .pageNavigations__sideWrapper {
+        display flex
+        width 50%
+    }
+    .pageNavigations__prevWrapper {
+        position relative
+        margin-right $indent4
+        justify-content flex-start
+    }
+    .pageNavigations__side {
+        display flex
+        align-items center
     }
     .pageNavigations__prev {
-
+        position relative
+    }
+    .pageNavigations__nextWrapper {
+        position relative
+        margin-left $indent4
+        justify-content flex-end
     }
     .pageNavigations__next {
-
+        position relative
     }
     .editButton {
         padding 0

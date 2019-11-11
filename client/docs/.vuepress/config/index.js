@@ -9,7 +9,6 @@ const ruLocaleConfig = require('./locales/ru');
 const destDirectory = path.join(__dirname, '../../../vuepress');
 
 module.exports = (ctx) => {
-    // console.log('ctx:', ctx);
     return {
         serviceWorker: false,
         // beforeDevServer: beforeDevServer(ctx),
@@ -50,13 +49,16 @@ module.exports = (ctx) => {
             },
             logo: '/waves-docs-logo.svg',
             repo: 'vuejs/vuepress',
-            editLinks: true,
             docsDir: 'packages/docs/docs',
             locales: {
                 '/en/': enLocaleConfig,
-
                 '/ru/': ruLocaleConfig,
-            }
+            },
+            editLinks: true,
+            // default value is true. Allows to hide next page links on all pages
+            nextLinks: true,
+            // default value is true. Allows to hide prev page links on all pages
+            prevLinks: true,
         },
         plugins: [
             '../../@vuepress/last-updated',
@@ -120,11 +122,5 @@ module.exports = (ctx) => {
         chainWebpack: (config, isServer) => {
             // console.log('chainWebpack config:', config, isServer)
         },
-
-
     }
 };
-
-// setInterval(() => {
-//
-// }, 5000);

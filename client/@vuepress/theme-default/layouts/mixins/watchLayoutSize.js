@@ -12,6 +12,10 @@ export default {
             // console.error('test:', window.innerWidth)
             this.$store.commit('setInterfaceInnerWidthLayout', window.innerWidth)
         },
+        setInterfaceInnerHeightLayout () {
+            // console.error('test:', window.innerWidth)
+            this.$store.commit('setInterfaceInnerHeightLayout', window.innerHeight)
+        },
     },
 
 
@@ -20,11 +24,10 @@ export default {
         if (!this.$isServer) {
             window.addEventListener('resize', () => {
                 this.setInterfaceInnerWidthLayout();
-                if(this.resizeCallback) {
-                    this.resizeCallback();
-                }
+                this.setInterfaceInnerHeightLayout();
             })
-            this.setInterfaceInnerWidthLayout()
+            this.setInterfaceInnerWidthLayout();
+            this.setInterfaceInnerHeightLayout();
         }
     },
 

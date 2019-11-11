@@ -98,34 +98,27 @@
                     />
                 </div>
             </WidthLimit>
-            <WidthLimit
-                :class="$style.root__contentCell__wrapper"
-                :padding-l-r="3"
+            <!--        <div-->
+            <!--            class="sidebar-mask"-->
+            <!--            @click="toggleSidebar(false)"-->
+            <!--        ></div>-->
+            <!--<Home v-if="$page.frontmatter.home"/>-->
+
+            <!--:style="pageContainerStyles"-->
+            <Page
+                ref="page"
+                :sidebar-items="sidebarItems"
+                :class="$style.page"
             >
-
-                <!--        <div-->
-                <!--            class="sidebar-mask"-->
-                <!--            @click="toggleSidebar(false)"-->
-                <!--        ></div>-->
-                <Home v-if="$page.frontmatter.home"/>
-
-                <!--:style="pageContainerStyles"-->
-                <Page
-                    v-else
-                    ref="page"
-                    :sidebar-items="sidebarItems"
-                    :class="$style.page"
-                >
-                    <slot
-                        name="page-top"
-                        slot="top"
-                    />
-                    <slot
-                        name="page-bottom"
-                        slot="bottom"
-                    />
-                </Page>
-            </WidthLimit>
+                <slot
+                    name="page-top"
+                    slot="top"
+                />
+                <slot
+                    name="page-bottom"
+                    slot="bottom"
+                />
+            </Page>
         </WidthLimit>
     </div>
 </template>
@@ -137,7 +130,7 @@
   import Sidebar from '@theme/components/Sidebar/'
   import Logotype from '@theme/components/Logotype'
   import SearchBox from '@theme/components/SearchBox/'
-  import watchLayoutWidthMixin from './mixins/watchLayoutWidth'
+  import watchLayoutSizeMixin from './mixins/watchLayoutSize'
   import navbarResizeDetector from './mixins/navbarResizeDetector'
   import WidthLimit from '@theme/components/WidthLimit'
   import Suggestions from '@theme/components/SearchBox/Suggestions'
@@ -146,7 +139,7 @@
   export default {
 
     mixins: [
-      watchLayoutWidthMixin,
+      watchLayoutSizeMixin,
       navbarResizeDetector,
     ],
 
@@ -274,9 +267,21 @@
 
     mounted () {
       this.$store.commit('setDisplayLeftSidebar', true);
+      if(!this.$isServer) {
+        window.addEventListener('scroll', this.windowScrollEventHandler);
+        this.windowScrollEventHandler();
+      }
+    },
+
+    beforeDestroy() {
+      window.removeEventListener('scroll', this.windowScrollEventHandler);
     },
 
     methods: {
+      windowScrollEventHandler(event) {
+        this.$store.commit('setDocumentElementScrollTop', document.documentElement.scrollTop);
+      },
+
       setSidebarResizeDetector (sidebarRefName, pageContentPaddingSide, callback) {
         const element = this.$refs[sidebarRefName].$el
         const resizeFunction = () => {
@@ -305,9 +310,7 @@
                 behavior: 'smooth',
               })
             }
-
             return false;
-
           } else {
             return window.scrollTo({
               top: 0,
@@ -452,15 +455,9 @@
 
     }
 
-    .root__contentCell__wrapper {
+    .page {
         width 100%
-        padding-top $indent4
-        padding-bottom $indent4
+        transition-duration $transitionS1
     }
 
-    .page {
-        transition-duration $transitionS1
-        /*margin 0 1rem*/
-        /*padding-top 3rem*/
-    }
 </style>

@@ -150,12 +150,12 @@
   import Footer from '@theme/components/Footer'
   import Suggestions from '@theme/components/SearchBox/Suggestions'
   import SearchFrameContent from '@theme/components/SearchBox/SearchFrameContent'
-  import watchLayoutWidthMixin from './mixins/watchLayoutWidth'
+  import watchLayoutSizeMixin from './mixins/watchLayoutSize'
   import navbarResizeDetector from './mixins/navbarResizeDetector'
 
   export default {
     mixins: [
-      watchLayoutWidthMixin,
+      watchLayoutSizeMixin,
       navbarResizeDetector,
     ],
 

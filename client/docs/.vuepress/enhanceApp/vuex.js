@@ -17,7 +17,9 @@ export default (context) => {
         defaultLanguage: '',
         currentLanguage: '',
         interface: {
+            documentElementScrollTop: 0,
             layoutWidth,
+            layoutHeight: 0,
             headerHeight: 71,
             leftSidebarWidth: 0,
             leftSidebarMinWidthPx: 240,
@@ -47,6 +49,13 @@ export default (context) => {
     }
 
     const mutations = {
+
+
+
+        setDocumentElementScrollTop(state, scrollTop) {
+            state.interface.documentElementScrollTop = scrollTop;
+        },
+
         setRightSidebarResizingState(state, isResize) {
             state.interface.isRightSidebarResizingState = isResize
         },
@@ -72,6 +81,10 @@ export default (context) => {
         },
         setInterfaceInnerWidthLayout (state, width) {
             state.interface.layoutWidth = width
+        },
+
+        setInterfaceInnerHeightLayout(state, height) {
+            state.interface.layoutHeight = height;
         },
 
         setNavbarSubHeaders: set('navbarSubHeaders'),
