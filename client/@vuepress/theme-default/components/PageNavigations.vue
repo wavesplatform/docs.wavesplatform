@@ -235,7 +235,8 @@
         display flex
         /*background-image linear-gradient(180deg, rgba(255, 255, 255, .0) 0%, rgba(255, 255, 255, .9) 30%)*/
         background-color rgba(255, 255, 255, 1)
-        border-top 1px solid $borderColor
+        border-top 1px solid #fff
+        box-shadow inset 0 1px 1px 0 $borderColor
         width 100vw
         padding-top $indent4
         padding-bottom $indent4

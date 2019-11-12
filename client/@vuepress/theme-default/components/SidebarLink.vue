@@ -192,7 +192,6 @@
             color $color6
         }
         &.sidebarLink_active {
-            font-weight 500
             color $color6
         }
     }
@@ -200,19 +199,25 @@
 
     .sidebarLink_mod0 {
         white-space nowrap
+        &.sidebarLink_active {
+            font-weight 500
+        }
     }
     .sidebarLink_mod1 {
         white-space nowrap
+        &.sidebarLink_active {
+            font-weight 500
+        }
     }
     .sidebarLink_mod2 {
         white-space pre-wrap
         color $color8
+        &.sidebarLink_active {
+        }
     }
 
     .sidebarSubHeaders {
-        .active {
-            font-weight 500
-        }
+
     }
 
     .sidebarGroup {

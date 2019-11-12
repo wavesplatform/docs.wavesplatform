@@ -111,7 +111,16 @@ export default {
   methods: {
 
     checkResizableState() {
-      console.log('test')
+      // this.isResizableState = false;
+      const maxWidth = this.sidebarElement.computedStyleMap().get('max-width');
+      const minWidth = this.sidebarElement.computedStyleMap().get('min-width');
+      let maxWidthValue = maxWidth.value;
+      const minWidthValue = minWidth.value;
+      if(maxWidth.unit === 'percent') {
+        maxWidthValue = this.sidebarElement.parentElement.offsetWidth / 100 * maxWidthValue;
+      }
+      this.isResizableState = maxWidthValue > minWidthValue;
+      console.log('test', maxWidthValue, minWidthValue);
     },
 
     resizeTriggerMousemove (event) {

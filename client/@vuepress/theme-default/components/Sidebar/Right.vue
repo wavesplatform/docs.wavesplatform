@@ -146,7 +146,7 @@
         align-items stretch
         cursor pointer
         /*padding-top $indent4*/
-        padding-top 40px
+        padding-top 44px
         padding-bottom $indent4
         /*margin-top 8px*/
         height 0

@@ -46,9 +46,5 @@ export default {
       }
     }
   },
-
-  mounted () {
-    console.log('this $listeners:', this)
-  }
 }
 </script>

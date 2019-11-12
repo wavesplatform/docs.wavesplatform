@@ -500,6 +500,7 @@
     .page {
         width 100%
         transition-duration $transitionS1
+        padding-top: 23px;
     }
 
     .pageNavigations {
