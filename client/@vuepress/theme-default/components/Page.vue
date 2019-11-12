@@ -2,7 +2,7 @@
     <WidthLimit
         ref="root"
         :class="$style.root"
-        :padding-l-r="3"
+        :padding-l-r="1"
     >
       <main
           :class="$style.page"
@@ -40,7 +40,7 @@
           </div>
         </div>
 
-        <Content/>
+        <Content :class="$style.pageContent"/>
 
         <!--<footer class="page-edit">-->
           <!--<div-->
@@ -53,44 +53,6 @@
         <!--</footer>-->
         <slot name="bottom"/>
       </main>
-        <div
-            ref="pageNavigations"
-            v-if="prev || next"
-            :class="$style.pageNavigations"
-            :style="{
-                transform: `translateY(${pageNavigationsTranslateY}px)`,
-            }"
-        >
-            <div
-                :class="[$style.pageNavigations__sideWrapper, $style.pageNavigations__prevWrapper]"
-            >
-                <router-link
-                    v-if="prev"
-                    :class="[$style.pageNavigations__side, $style.pageNavigations__prev]"
-                    :to="prev.path"
-                >
-                    <i :class="['el-icon-arrow-left', $style.pageNavigations__side__icon]"></i>
-                    <span :class="[$style.pageNavigations__side__text, $style.pageNavigations__prev__text]">
-                        {{ prev.title || prev.path }}
-                    </span>
-                </router-link>
-            </div>
-
-            <div
-                :class="[$style.pageNavigations__sideWrapper, $style.pageNavigations__nextWrapper]"
-            >
-                <router-link
-                    v-if="next"
-                    :class="[$style.pageNavigations__side, $style.pageNavigations__next]"
-                    :to="next.path"
-                >
-                    <span :class="[$style.pageNavigations__side__text, $style.pageNavigations__next__text]">
-                        {{ next.title || next.path }}
-                    </span>
-                    <i :class="['el-icon-arrow-right', $style.pageNavigations__side__icon]"></i>
-                </router-link>
-            </div>
-        </div>
     </WidthLimit>
 </template>
 
@@ -113,7 +75,6 @@
         pageAnchorTargetElements: [],
         pageNavigationsTranslateY: 0,
 
-        testSize: 0,
       }
     },
 
@@ -144,53 +105,6 @@
         return 'Last Updated'
       },
 
-      flatSidebarItems() {
-        return this.getFlatSidebarItems(this.sidebarItems);
-      },
-
-      currentIndexInFlatSidebarItems() {
-        /*or $page.key*/
-        const pageRelativePath = this.$page.relativePath;
-
-        const element = this.flatSidebarItems.find(item => {
-          return item.relativePath === pageRelativePath;
-        });
-
-        return this.flatSidebarItems.indexOf(element);
-      },
-
-      prev () {
-        if(this.currentIndexInFlatSidebarItems < 1) {
-          return false;
-        }
-        const prevIndex = this.currentIndexInFlatSidebarItems - 1;
-        return this.flatSidebarItems[prevIndex];
-        // const prev = this.$page.frontmatter.prev
-        // if (prev === false) {
-        //   return
-        // } else if (prev) {
-        //   return resolvePage(this.$site.pages, prev, this.$route.path)
-        // } else {
-        //   return resolvePrev(this.$page, this.sidebarItems)
-        // }
-      },
-
-      next () {
-        if(this.currentIndexInFlatSidebarItems + 1 > this.flatSidebarItems.length - 1) {
-          return false;
-        }
-        const nextIndex = this.currentIndexInFlatSidebarItems + 1;
-        return this.flatSidebarItems[nextIndex];
-        // const next = this.$page.frontmatter.next
-        // if (next === false) {
-        //   return
-        // } else if (next) {
-        //   return resolvePage(this.$site.pages, next, this.$route.path)
-        // } else {
-        //   return resolveNext(this.$page, this.sidebarItems)
-        // }
-      },
-
       editLink () {
         if (this.$page.frontmatter.editLink === false) {
           return
@@ -218,23 +132,18 @@
     },
 
     watch: {
-      documentElementScrollTop() {
-        this.updatePageNavigationsTranslateY();
-      },
-      layoutHeight() {
-        this.updatePageNavigationsTranslateY();
-      },
+      // documentElementScrollTop() {
+      //   this.updatePageNavigationsTranslateY();
+      // },
+      // layoutHeight() {
+      //   this.updatePageNavigationsTranslateY();
+      // },
     },
 
     mounted () {
       if(!this.$isServer) {
-        this.$elementResizeDetector.listenTo(this.$refs.root.$el, this.updatePageNavigationsTranslateY);
+        // this.$elementResizeDetector.listenTo(this.$refs.root.$el, this.updatePageNavigationsTranslateY);
         this.updateListPageAnchorTargetElements();
-        this.updatePageNavigationsTranslateY();
-        window.addEventListener('resize', () => {
-          this.testSize = window.innerHeight;
-        });
-
       }
     },
 
@@ -245,16 +154,10 @@
     },
 
     beforeDestroy() {
-      this.$elementResizeDetector.removeListener(this.$refs.root.$el, this.updatePageNavigationsTranslateY);
+      /*this.$elementResizeDetector.removeListener(this.$refs.root.$el, this.updatePageNavigationsTranslateY);*/
     },
 
     methods: {
-
-      updatePageNavigationsTranslateY() {
-        const rootRefElement = this.$refs.root.$el;
-        console.log('rootRefElement.offsetHeight - window.innerHeight + rootRefElement.offsetTop + this.headerHeight - this.documentElementScrollTop:', rootRefElement.offsetHeight, window.innerHeight, rootRefElement.offsetTop, this.headerHeight, this.documentElementScrollTop)
-        this.pageNavigationsTranslateY = -(rootRefElement.offsetHeight - window.innerHeight + rootRefElement.offsetTop + this.headerHeight - this.documentElementScrollTop)
-      },
 
       getFlatSidebarItems(items, accumulator = []) {
         return items.reduce((accumulator, item) => {
@@ -330,9 +233,9 @@
 
 <style lang="stylus" module>
     .root {
-        padding-top $indent4
+        padding-top $indent1
         /*padding-bottom $indent4*/
-        margin-bottom $indent4
+        padding-bottom $indent6
     }
     .page {
         display block
@@ -370,7 +273,8 @@
         display flex
         justify-content space-between
         /*background-image linear-gradient(180deg, rgba(255, 255, 255, .0) 0%, rgba(255, 255, 255, .9) 30%)*/
-        background-color rgba(255, 255, 255, .9)
+        background-color rgba(255, 255, 255, 1)
+        border-top 1px solid $borderColor
         width 100%
         position relative
         /*bottom 0*/
@@ -422,6 +326,11 @@
         padding 0
         & > * {
             display flex
+        }
+    }
+    .pageContent {
+        :global(h1:first-of-type) {
+            padding-right $indent2
         }
     }
 </style>

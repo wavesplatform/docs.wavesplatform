@@ -15,6 +15,7 @@
       :style="{
           width: sidebarElementWidthPx + 'px',
           minWidth: sidebarMinWidthPx + 'px',
+          transform: isShow ? '' : `translateX(calc(100% - ${rightSidebarAlwaysVisiblePartWidth}px))`,
       }"
     >
       <div :class="['sidebar', $style.sidebar, $styleRight.sidebar]">
@@ -32,6 +33,7 @@
               />
           </div>
             <div
+                v-if="isShow"
                 :class="[
                     $styleRight.onThisPageWrapper,
                     isPageContentWithHeaders && $styleRight.onThisPageWrapper_withHeaders,
@@ -42,8 +44,8 @@
             </div>
         </div>
 
-<!--          {{items}}-->
           <span
+              v-if="isResizableComputed"
               :class="$style.resizeTrigger"
               @mousedown.prevent.stop="resizeTriggerMousedown"
           />
@@ -51,13 +53,15 @@
           <div
               :class="[$style.sidebarLinks__content, $styleRight.sidebarLinks__content]"
           >
-            <NavLinks v-if="layoutWidth < 720"/>
-            <slot name="top"/>
-            <SidebarLinks
-              :depth="0"
-              :items="items"
-              :mod="mod"
-            />
+              <template v-if="isShow">
+                  <NavLinks v-if="layoutWidth < 720"/>
+                  <slot name="top"/>
+                  <SidebarLinks
+                      :depth="0"
+                      :items="items"
+                      :mod="mod"
+                  />
+              </template>
           </div>
         </div>
 
@@ -93,6 +97,9 @@
       }
     },
     computed: {
+      rightSidebarAlwaysVisiblePartWidth() {
+        return this.$store.state.interface.rightSidebarAlwaysVisiblePartWidth;
+      },
       sidebarElementWidthPx() {
         return this.$store.state.interface.rightSidebarWidth;
       },
@@ -121,13 +128,7 @@
 <style lang="stylus" module="$styleRight">
     .root {
         &:not(.root_isShow) {
-            .sidebarWrapper {
-                transform translateX(100%)
-            }
-            .toggleTrigger {
-                /*transform translateX(-100%)*/
-                left: -100%;
-            }
+
         }
     }
 
@@ -135,15 +136,20 @@
         transition transform $transitionS1
         align-items flex-start
         overflow-x visible
+        will-change transform
+        background-color #fff
+        margin-top 1px
     }
 
     .sidebarHeader {
         justify-content flex-start
         align-items stretch
         cursor pointer
-        padding-top $indent4
+        /*padding-top $indent4*/
+        padding-top 40px
         padding-bottom $indent4
-        margin-top 8px
+        /*margin-top 8px*/
+        height 0
         &:hover {
             .onThisPage {
                 /*color $color6*/
@@ -157,7 +163,8 @@
     .toggleTriggerWrapper {
         display flex
         position: relative;
-
+        padding-left 4px
+        padding-right 4px
     }
     .toggleTrigger {
         /*border-left 1px solid $borderColor*/
@@ -201,8 +208,8 @@
         align-items center
     }
     .sidebarLinks__content {
-        margin-top $indent4
-        padding-left $indent1
+        /*margin-top $indent4*/
+        padding-left $indent3
         padding-right $indent3
     }
 </style>

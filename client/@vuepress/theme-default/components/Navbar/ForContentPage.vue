@@ -7,22 +7,22 @@
             :type="2"
             :style="{
                 paddingLeft: isOpenLeftSidebar ? leftSidebarWidth + 'px' : '',
-                /*paddingRight: isOpenRightSidebar ? rightSidebarWidth + 'px' : '',*/
-                /*marginRight: isOpenRightSidebar ? '' : '32px',*/
             }"
         >
             <div
-                v-show="layoutWidth > 719"
                 :class="$style.searchBoxWrapper2"
                 :style="{
-                    paddingLeft: leftSidebarWidth - rightSidebarWidth + 'px'
+                    paddingLeft: mainContentPositionLeft + 'px',
+                    justifyContent: layoutWidth > 719 ? 'space-between' : 'flex-end',
                 }"
             >
                 <WidthLimit
+                    v-show="layoutWidth > 719"
                     :class="$style.searchBoxWrapper"
                     :type="1"
                     :padding-l-r="1"
                 >
+
                     <SearchBox
                         :class="$style.searchBox"
                         :is-full-size="true"
@@ -30,37 +30,9 @@
                     />
 
                 </WidthLimit>
+                <SwitchLanguage :class="$style.switchLanguage"/>
             </div>
 
-            <!--<Sidebar
-                v-show="layoutWidth > 719"
-                ref="sidebar2"
-                side="right"
-                :sidebar-toggle-trigger-options="{
-                    isShow: /*navbarSubHeaders.length*/true,
-                }"
-                :items="[$page]"
-                :mod="sidebar2Mod"
-                :sidebar-min-width-px="rightSidebarMinWidthPx"
-                :class="[
-                        $style.sidebar,
-                        $style.sidebar2,
-                    ]"
-                :style="{
-                    height: `calc(100vh - ${headerHeight}px)`,
-                }"
-
-            >
-                <slot
-                    name="sidebar-top"
-                    slot="top"
-                />
-                <slot
-                    name="sidebar-bottom"
-                    slot="bottom"
-                />
-            </Sidebar>-->
-            <!--@toggle-sidebar="toggleSidebar"-->
             <Sidebar
                 v-show="layoutWidth > 719"
                 ref="sidebar2"
@@ -112,12 +84,12 @@
 
 
                 </WidthLimit>
-                <WidthLimit
+                <!--<WidthLimit
                     :class="$style.switchLanguageWrapper"
                     :type="2"
                 >
                     <SwitchLanguage :class="$style.switchLanguage"/>
-                </WidthLimit>
+                </WidthLimit>-->
             </div>
         </WidthLimit>
     </header>
@@ -137,6 +109,9 @@
       Sidebar,
     },
     computed: {
+      mainContentPositionLeft() {
+        return this.$store.state.interface.mainContentPositionLeft;
+      },
       headerHeight () {
         return this.$store.state.interface.headerHeight;
       },
@@ -222,7 +197,11 @@
         height 100%
         display flex
         align-items center
-        justify-content center
+        /*justify-content center*/
+        justify-content space-between
+        z-index 2
+        visibility hidden
+        /*transition padding-left $transitionS1*/
     }
 
     .searchBoxWrapper {
@@ -230,7 +209,7 @@
     }
 
     .searchBox {
-
+        visibility visible
     }
 
     .logotypeWrapper {
@@ -255,6 +234,7 @@
     }
     .switchLanguage {
         visibility visible
+        margin-right $indent3
     }
 
 </style>

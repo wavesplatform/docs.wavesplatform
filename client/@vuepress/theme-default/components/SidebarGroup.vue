@@ -31,7 +31,7 @@
                     }
                 ]"
                 :to="item.path"
-                @click.native="$emit('toggle')"
+                @click.native="$emit('open')"
             >
         <span :class="$style.sidebarHeading__title">
             {{ item.title }}
@@ -137,7 +137,7 @@
         display flex
         margin-right 5px
         align-items flex-start
-        padding-top 4px
+        /*padding-top 4px*/
     }
     .arrowIcon {
         cursor pointer
@@ -150,6 +150,7 @@
     .sidebarGroup__cell2 {
         display flex
         flex-direction column
+        overflow hidden
     }
 
     .sidebarHeading {
@@ -157,7 +158,7 @@
         align-items: baseline;
         transition color .15s ease
         cursor pointer
-        padding 4px 0
+        /*padding 4px 0*/
         width 100%
         margin 0
         font-size: 14px;

@@ -25,9 +25,12 @@ export default (context) => {
             leftSidebarMinWidthPx: 240,
             isOpenLeftSidebar: false,
             rightSidebarWidth: 0,
+            rightSidebarAlwaysVisiblePartWidth: 50,
             isOpenRightSidebar: true,
             rightSidebarMinWidthPx: 190,
             isRightSidebarResizingState: false,
+            mainContentPositionLeft: 0,
+            mainContentHeight: 0,
         },
         navbarSubHeaders: [],
         // isProcessDev: process.env.isDev,
@@ -50,7 +53,13 @@ export default (context) => {
 
     const mutations = {
 
+        setMainContentHeight(state, height) {
+            state.interface.mainContentHeight = height;
+        },
 
+        setMainContentPositionLeft(state, left) {
+            state.interface.mainContentPositionLeft = left;
+        },
 
         setDocumentElementScrollTop(state, scrollTop) {
             state.interface.documentElementScrollTop = scrollTop;

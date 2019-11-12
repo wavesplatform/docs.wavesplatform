@@ -34,6 +34,11 @@
             :mod="mod"
             :class="[$style.sidebarLinks__link__group, 'sidebarLinks__link__group']"
             @toggle="toggleGroup(index)"
+            @open="openGroup(index)"
+        />
+        <span
+            v-if="depth > 0 && item.type !== 'group'"
+            :class="['el-icon-arrow-right', $style.sidebarLinkWrapper__icon]"
         />
         <SidebarLink
             v-if="item.type !== 'group'"
@@ -41,6 +46,7 @@
             :item="item"
             :mod="mod"
         />
+
     </li>
   </ul>
 </template>
@@ -111,12 +117,23 @@ export default {
       }
     },
 
-    toggleGroup (index) {
+    openGroup(index) {
+
+      this.openGroups.push(index);
+
+    },
+
+    closeGroup(index) {
+      const activeGroupIndex = this.openGroups.indexOf(index);
+      this.openGroups.splice(activeGroupIndex, 1);
+    },
+
+    toggleGroup(index) {
       const activeGroupIndex = this.openGroups.indexOf(index);
       if(activeGroupIndex > -1) {
-        this.openGroups.splice(activeGroupIndex, 1);
+        this.closeGroup(index);
       } else {
-        this.openGroups.push(index);
+        this.openGroup(index);
       }
       // this.openGroupIndex = index === this.openGroupIndex ? -1 : index
     },
@@ -133,8 +150,17 @@ export default {
     .sidebarLinks {
         position relative
     }
+    .sidebarLinkWrapper {
+        display flex
+    }
+    .sidebarLinkWrapper__icon {
+        visibility hidden
+        margin-right 5px
+    }
     .sidebarLinks__link {
         position relative
+        display flex
+        padding-top 10px
     }
     .sidebarLinks__link__group {
 

@@ -27,7 +27,6 @@
                     $style.sidebar1,
                 ]"
                 >
-                    <!--/*isResizingRightSidebarState = $event*/-->
                     <div
                         ref="sidebar1__header"
                         :class="$style.sidebar1__header"
@@ -58,8 +57,8 @@
                     :class="$style.navbar"
                     type="content"
                     :style="{
-                    transform: (layoutWidth < 720 && isOpenLeftSidebar) ? `translateX(${leftSidebarWidth}px)` : '',
-                }"
+                        transform: (layoutWidth < 720 && isOpenLeftSidebar) ? `translateX(${leftSidebarWidth}px)` : '',
+                    }"
                 />
 
 
@@ -68,6 +67,7 @@
 
 
         <WidthLimit
+            ref="root__contentCell"
             :type="2"
             :class="[
                 $style.root__contentCell,
@@ -104,7 +104,6 @@
             <!--        ></div>-->
             <!--<Home v-if="$page.frontmatter.home"/>-->
 
-            <!--:style="pageContainerStyles"-->
             <Page
                 ref="page"
                 :sidebar-items="sidebarItems"
@@ -120,6 +119,14 @@
                 />
             </Page>
         </WidthLimit>
+        <PageNavigations
+            :sidebar-items="sidebarItems"
+            :class="$style.pageNavigations"
+            :style="{
+                transform: `translateY(${pageNavigationsTranslateY}px)`,
+                /*transition: pageNavigationsTranslateY === 0 ? '' : 'transform .3s',*/
+            }"
+        />
     </div>
 </template>
 
@@ -134,6 +141,7 @@
   import navbarResizeDetector from './mixins/navbarResizeDetector'
   import WidthLimit from '@theme/components/WidthLimit'
   import Suggestions from '@theme/components/SearchBox/Suggestions'
+  import PageNavigations from '@theme/components/PageNavigations'
   import { resolveSidebarItems } from '../util'
 
   export default {
@@ -152,51 +160,46 @@
       SearchBox,
       WidthLimit,
       Suggestions,
+      PageNavigations,
     },
 
     data () {
       return {
         sidebar1Mod: 1,
         sidebar2Mod: 2,
-
-
         rightSidebarMinWidthPx: 160,
+        pageNavigationsTranslateY: 0,
       }
     },
 
     computed: {
+      rightSidebarAlwaysVisiblePartWidth() {
+        return this.$store.state.interface.rightSidebarAlwaysVisiblePartWidth;
+      },
       isRightSidebarResizingState() {
         return this.$store.state.interface.isRightSidebarResizingState;
       },
       isOpenRightSidebar() {
         return this.$store.state.interface.isOpenRightSidebar;
       },
-
       isOpenLeftSidebar() {
         return this.$store.state.interface.isOpenLeftSidebar;
       },
-
       leftSidebarWidth() {
         return this.$store.state.interface.leftSidebarWidth;
       },
-
       rightSidebarWidth() {
         return this.$store.state.interface.rightSidebarWidth;
       },
-
-      // pageContainerStyles () {
-      //   const isPadding = this.layoutWidth > 719;
-      //
-      //   return Object.assign(isPadding && {
-      //     // paddingTop: this.headerHeight + 'px',
-      //     // paddingLeft: this.sidebar1Show ? this.pageContentPaddingLeftPx + 'px' : 0,
-      //     // paddingRight: this.sidebar2Show ? this.pageContentPaddingRightPx + 'px' : 0,
-      //     paddingLeft: this.pageContentPaddingLeftPx + 'px',
-      //     paddingRight: this.pageContentPaddingRightPx + 'px',
-      //   }, {
-      //     // margin: `${this.layoutWidth > 719 ? 2 : 1}rem`,
-      //   })
-      // },
+      leftSidebarMinWidthPx () {
+        return this.$store.state.interface.leftSidebarMinWidthPx;
+      },
+      layoutHeight() {
+        return this.$store.state.interface.layoutHeight;
+      },
+      mainContentHeight() {
+        return this.$store.state.interface.mainContentHeight;
+      },
       sidebarItems () {
         return resolveSidebarItems(
           this.$page,
@@ -205,18 +208,6 @@
           this.$localePath
         )
       },
-
-      navbarSubHeaders () {
-        return this.$store.state.navbarSubHeaders
-      },
-
-      leftSidebarMinWidthPx () {
-        const leftSidebarMinWidthPx = this.$store.state.interface.leftSidebarMinWidthPx;
-
-        /*return this.layoutWidth > 719 ? 200 : leftSidebarMinWidthPx*/
-        return leftSidebarMinWidthPx;
-      },
-
       contentCellStyles() {
         return {
           marginTop: this.headerHeight + 'px',
@@ -224,7 +215,10 @@
 
           transform: (this.layoutWidth < 720 && this.isOpenLeftSidebar) ? `translateX(${this.leftSidebarWidth}px)` : '',
 
-          paddingRight: this.isOpenRightSidebar ? this.rightSidebarWidth + 'px' : '',
+          paddingRight: this.isOpenRightSidebar ?
+            this.rightSidebarWidth + 'px' :
+            (this.layoutWidth > 719 ? this.rightSidebarAlwaysVisiblePartWidth + 'px' : 0),
+
           transition: this.isRightSidebarResizingState ? 'initial' : '',
         }
       },
@@ -233,29 +227,35 @@
 
     watch: {
       layoutWidth(newValue) {
+        this.computedAndSetMainContentPositionLeft();
+        this.computedPageNavigationsTranslateY();
         if(this.layoutWidth < 720) {
           this.$store.commit('setDisplayRightSidebar', false);
           this.$store.commit('setDisplayLeftSidebar', false);
         } else {
-          // this.$store.commit('setDisplayRightSidebar', true);
           this.$store.commit('setDisplayLeftSidebar', true);
         }
       },
+      layoutHeight() {
+        this.computedPageNavigationsTranslateY();
+      },
+      leftSidebarWidth() {
+        this.computedAndSetMainContentPositionLeft();
+      },
 
-      navbarSubHeaders: {
-        async handler (newValue) {
-          await this.$nextTick()
-          const sidebar2 = this.$refs.sidebar2
-          if (!sidebar2) {
-            return
-          }
-          if (!newValue.length) {
-            sidebar2.isShow = false
-            return
-          }
-          sidebar2.isShow = true
-        },
-        immediate: true
+      rightSidebarWidth() {
+        this.computedAndSetMainContentPositionLeft();
+      },
+
+      isOpenRightSidebar() {
+        this.computedAndSetMainContentPositionLeft();
+      },
+
+      isOpenLeftSidebar() {
+        this.computedAndSetMainContentPositionLeft();
+      },
+      mainContentHeight() {
+        this.computedPageNavigationsTranslateY();
       },
     },
 
@@ -266,18 +266,62 @@
     },
 
     mounted () {
-      this.$store.commit('setDisplayLeftSidebar', true);
+      this.root__contentCellElement = this.$refs.root__contentCell.$el;
+      this.interval1 = null;
+      if(this.layoutWidth > 719) {
+        this.$store.commit('setDisplayLeftSidebar', true);
+      }
+
       if(!this.$isServer) {
         window.addEventListener('scroll', this.windowScrollEventHandler);
+
+        this.root__contentCellElement.addEventListener('transitionstart', this.transitionstartHandler, false);
+        this.root__contentCellElement.addEventListener('transitionend', this.transitionendHandler, false);
+
         this.windowScrollEventHandler();
+        this.computedAndSetMainContentPositionLeft();
+
+        this.$elementResizeDetector.listenTo(this.$refs.page.$el, this.setMainContentHeightInStore);
+
+        this.computedPageNavigationsTranslateY();
       }
     },
 
     beforeDestroy() {
       window.removeEventListener('scroll', this.windowScrollEventHandler);
+      this.root__contentCellElement.removeEventListener('transitionstart', this.transitionstartHandler, false);
+      this.root__contentCellElement.removeEventListener('transitionend', this.transitionendHandler, false);
+      this.$elementResizeDetector.removeListener(this.$refs.page.$el, this.setMainContentHeightInStore);
     },
 
     methods: {
+
+      computedPageNavigationsTranslateY() {
+        const heightDifference = this.layoutHeight - this.mainContentHeight - this.headerHeight;
+        if(heightDifference < 0) {
+          this.pageNavigationsTranslateY = 0;
+          return;
+        }
+        this.pageNavigationsTranslateY = -heightDifference + this.mainContentHeight;
+      },
+
+      setMainContentHeightInStore(element) {
+        this.$store.commit('setMainContentHeight', element.offsetHeight);
+      },
+
+      transitionstartHandler() {
+        this.interval1 = setInterval(this.computedAndSetMainContentPositionLeft, 0);
+      },
+
+      transitionendHandler() {
+        clearInterval(this.interval1);
+      },
+
+      async computedAndSetMainContentPositionLeft() {
+        await this.$nextTick()
+        this.$store.commit('setMainContentPositionLeft', this.$refs.page.$el.offsetLeft);
+      },
+
       windowScrollEventHandler(event) {
         this.$store.commit('setDocumentElementScrollTop', document.documentElement.scrollTop);
       },
@@ -337,8 +381,6 @@
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 
 <style lang="stylus" module>
-
-
     .root {
         display flex
         flex-direction column
@@ -458,6 +500,14 @@
     .page {
         width 100%
         transition-duration $transitionS1
+    }
+
+    .pageNavigations {
+        position fixed
+        bottom 0
+        z-index 0
+        transition transform $transitionS1
+        will-change transform
     }
 
 </style>

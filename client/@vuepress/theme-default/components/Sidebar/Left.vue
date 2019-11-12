@@ -32,7 +32,7 @@
 
         <div :class="[$style.sidebarLinks, $styleLeft.sidebarLinks]">
               <span
-                  v-show="isResizable"
+                  v-show="isResizableComputed"
                   :class="$style.resizeTrigger"
                   @mousedown.prevent.stop="resizeTriggerMousedown"
               />
@@ -163,7 +163,7 @@
         transition transform $transitionS1
     }
     .sidebarLinks {
-        padding-top $indent2
+        padding-top 24px
         height 100%
         border-top 1px solid $borderColor
     }
@@ -185,6 +185,11 @@
         text-overflow: ellipsis;
         color $color6
         border-color $color6
+        height 42px
+        align-items center
+        display flex
+        padding 0
+        justify-content center
 
     }
     .sidebar {
@@ -215,11 +220,11 @@
     }
     .sidebarLinksList {
         position relative
-        > :global(.sidebarLinks__link) {
+        /*> :global(.sidebarLinks__link) {
             > :global(.sidebarLinks__link__group) {
                 margin-left -20px
             }
-        }
+        }*/
     }
     .closeOverlayBlock {
         position relative

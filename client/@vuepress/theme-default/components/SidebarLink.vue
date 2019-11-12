@@ -15,7 +15,7 @@
       mod: {
         type: Number,
         default: 0
-      }
+      },
     },
 
     methods: {
@@ -150,7 +150,9 @@
 
         result.push(renderedChildren);
 
-        return h('div', {}, result);
+        return h('div', {
+          class: this.$style.sidebarLinkWrapper,
+        }, result);
 
 
       } else {
@@ -164,6 +166,13 @@
 <style lang="stylus" module>
     .sidebarSubHeaders {
 
+    }
+    .sidebarSubHeader {
+        display flex
+        padding-top 10px
+    }
+    .sidebarLinkWrapper {
+        display flex
     }
     .sidebarLink {
         font-size: 14px;

@@ -37,7 +37,7 @@ export default {
 
 <style lang="stylus" module>
   .sidebarToggleTrigger {
-    padding 0 $indent1 0 $indent4
+    padding 0 0px 0 2px
     cursor pointer
     transition $transitionS1
     display flex

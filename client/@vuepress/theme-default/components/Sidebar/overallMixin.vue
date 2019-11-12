@@ -63,10 +63,14 @@ export default {
       latestSidebarWidth: 0,
       lastSidebarElementWidthPx: 0,
       sideIndexNumber: 1,
+      isResizableState: true,
     };
   },
 
   computed: {
+    isResizableComputed() {
+      return this.isShow && this.isResizable && this.isResizableState;
+    },
     preparedOptions() {
       return Object.assign({}, this.defaultOptions, this.options);
     },
@@ -81,6 +85,11 @@ export default {
     },
   },
 
+  watch: {
+    layoutWidth() {
+      this.checkResizableState();
+    },
+  },
 
   beforeDestroy() {
     this.$emit('isResizingState', false);
@@ -100,6 +109,10 @@ export default {
   },
 
   methods: {
+
+    checkResizableState() {
+      console.log('test')
+    },
 
     resizeTriggerMousemove (event) {
       const maxWidth = this.sidebarElement.computedStyleMap().get('max-width');
