@@ -6,6 +6,9 @@
       $style.root_side_left,
       isShow && $style.root_isShow
     ]"
+    :style="{
+        maxHeight: layoutHeight + 'px'
+    }"
   >
     <div
       ref="sidebar"
@@ -52,7 +55,10 @@
             </div>
 
             <div
-                :class="[$style.sidebarLinks__content, $styleLeft.sidebarLinks__content]"
+                :class="[
+                    $style.sidebarLinks__content,
+                    $styleLeft.sidebarLinks__content
+                ]"
             >
                 <!--<NavLinks v-if="layoutWidth < 720"/>-->
                 <slot name="top"/>
@@ -120,6 +126,9 @@
 
 
     computed: {
+      layoutHeight() {
+        return this.$store.state.interface.layoutHeight;
+      },
       leftSidebarWidth () {
         return this.$store.state.interface.leftSidebarWidth
       },
@@ -127,7 +136,6 @@
       sidebarElementWidthPx () {
         return this.$store.state.interface.leftSidebarWidth
       },
-
       isShow () {
         return this.$store.state.interface.isOpenLeftSidebar
       }
@@ -199,7 +207,7 @@
     .sidebarLinks__content {
         /*margin $indent3 0*/
         margin-top $indent3
-        margin-bottom $indent3
+        padding-bottom $indent2
         justify-content start
         /*direction: rtl;*/
         overflow-x auto

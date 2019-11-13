@@ -3,41 +3,41 @@
     :class="[
         $style.sidebarGroup,
         $style[`depth${depth}`],
-        {
-            [$style.collapsable]: collapsable,
-            [$style.isSubGroup]: depth !== 0,
-        },
+        isActiveItem && $style.sidebarGroup_active,
+        collapsable && $style.sidebarGroup_collapsable,
+        depth !== 0 && $style.sidebarGroup_isSubGroup,
     ]"
   >
     <span
         v-if="collapsable"
         :class="[
             $style.sidebarGroup__cell1,
-            $style.arrowIcon, open ? 'el-icon-arrow-down' : 'el-icon-arrow-right'
+            $style.arrowIcon,
+            open ? 'el-icon-arrow-down' : 'el-icon-arrow-right',
         ]"
-        @click="$emit('toggle')"
+        @click="clickToggleTrigger"
     />
     <div :class="$style.sidebarGroup__cell2">
         <template v-if="mod === 1 || mod === 0">
-            <!--{{isActive($route, item.path)}}-->
+            <!--ref="routerLink"-->
             <router-link
                 v-if="item.path"
                 :class="[
                     $style.sidebarHeading,
-                    $style.clickable,
-                    {
-                        [$style.open]: open,
-                        [$style.active]: isActive($route, item.path)
-                    }
+                    $style.sidebarHeading_clickable,
+                    open && $style.sidebarHeading_open,
+                    isActiveItem && $style.sidebarHeading_active,
+                    withActiveStateItem && $style.sidebarHeading_withActive,
                 ]"
                 :to="item.path"
-                @click.native="$emit('open')"
+                @click.native.prevent.stop="clickOnLink($event)"
             >
-        <span :class="$style.sidebarHeading__title">
-            {{ item.title }}
-        </span>
+                <span
+                    :class="$style.sidebarHeading__title"
+                >
+                    {{ item.title }}
+                </span>
             </router-link>
-
             <!--<p
               v-else
               :class="[
@@ -63,7 +63,7 @@
             <SidebarLinks
                 :class="$style.sidebarGroupItems"
                 :items="item.children"
-                v-if="open || !collapsable"
+                v-show="open || !collapsable"
                 :sidebarDepth="item.sidebarDepth"
                 :depth="depth + 1"
                 :mod="mod"
@@ -74,9 +74,9 @@
 </template>
 
 <script>
-  import { isActive } from '../util'
+  import { normalize } from '../util'
   import DropdownTransition from '@theme/components/DropdownTransition'
-
+  import SidebarLinks from './SidebarLinks'
   export default {
     name: 'SidebarGroup',
 
@@ -103,36 +103,112 @@
       }
     },
 
-
     components: {
-      DropdownTransition
+      DropdownTransition,
+    },
+
+    data() {
+      return {
+        isInsensitivity: true,
+      };
+    },
+
+    computed: {
+      normalizePagePath() {
+        return this.normalizePath(this.$page.path);
+      },
+      isActiveItem() {
+        return this.checkActiveState();
+      },
+      withActiveStateItem() {
+        return this.checkWithActiveState();
+      }
+    },
+
+    watch: {
+
     },
 
     beforeCreate () {
-      this.$options.components.SidebarLinks = require('./SidebarLinks.vue').default
+      this.$options.components.SidebarLinks = SidebarLinks
     },
 
     mounted() {
-      //   setInterval(() => {
-      //     this.$forceUpdate()
-      // }, 3000)
+      if(this.withActiveStateItem) {
+        this.$emit('open');
+      }
+      // this.$router.beforeEach((to, from, next) => {
+      //   const routerLinkRef = this.$refs.routerLink;
+      //   if(!routerLinkRef) {
+      //     next();
+      //     return
+      //   }
+      //   if (this.normalizePath(routerLinkRef.to) === this.normalizePath(to.path)) {
+      //
+      //     if(!this.isActiveItem) {
+      //       this.$emit('open');
+      //       // this.isInsensitivity = false;
+      //
+      //     }
+      //   }
+      //   next();
+      // });
     },
 
-    methods: { isActive }
+    methods: {
+      async clickOnLink() {
+        // console.log('test clickOnLink')
+        this.$emit('open');
+      },
+      clickToggleTrigger() {
+        if(this.open) {
+          this.$emit('close');
+          return;
+        }
+        this.$emit('open');
+      },
+      normalizePath(path) {
+        let normalizePath = normalize(path);
+        if(normalizePath.slice(-1) === '/') {
+          normalizePath = normalizePath.slice(0, -1);
+        }
+        return normalizePath;
+      },
+      checkActiveState() {
+        return this.normalizePagePath === this.normalizePath(this.item.path);
+      },
+      checkWithActiveState() {
+        if(this.checkActiveState(this.item)) {
+          return false;
+        }
+
+        return this.normalizePagePath.includes(this.normalizePath(this.item.path));
+      },
+    },
+
   }
 </script>
 
 <style lang="stylus" module>
     .sidebarGroup {
         display flex
-        &:not(.collapsable) {
-            .sidebar-heading:not(.clickable) {
-                cursor auto
-                color inherit
+        &:not(.sidebarGroup_collapsable) {
+
+        }
+    }
+    .sidebarGroup_active {
+        &:hover {
+            & > .arrowIcon {
+                color $color6
             }
         }
     }
-
+    .sidebarGroup_collapsable {
+        position relative
+    }
+    .sidebarGroup_isSubGroup {
+        position relative
+    }
     .sidebarGroup__cell1 {
         display flex
         margin-right 5px
@@ -157,8 +233,6 @@
         display: flex;
         align-items: baseline;
         transition color .15s ease
-        cursor pointer
-        /*padding 4px 0*/
         width 100%
         margin 0
         font-size: 14px;
@@ -168,33 +242,41 @@
         line-height: normal;
         letter-spacing: normal;
         color $color10
-
-        &:hover {
-            color $color6
+        &:not(.sidebarHeading_active) {
+            cursor pointer
+            &:hover {
+                color $color6
+            }
         }
-        &.active {
-            font-weight 600
+    }
+
+    .sidebarHeading_clickable {
+        &:not(.sidebarHeading_active) {
+
+        }
+        &.sidebarHeading_active {
+            font-weight 500
             color $color6
             /*border-left-color $accentColor*/
         }
 
-        &.clickable {
-            &.active {
-                font-weight 600
-                color $color6
-                /*border-left-color $accentColor*/
-            }
-
-            &:hover {
-                color $accentColor
-            }
+        &:hover {
+            color $accentColor
         }
+    }
 
-        .arrow {
-            position relative
-            top -0.12em
-            left -.5em
-        }
+    .sidebarHeading_withActive {
+        font-weight 500
+    }
+
+    .sidebarHeading_active {
+        font-weight 500
+        color $color6
+        /*border-left-color $accentColor*/
+    }
+
+    .sidebarHeading_open {
+        position relative
     }
 
     .sidebarHeading__title {

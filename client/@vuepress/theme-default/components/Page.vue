@@ -2,7 +2,7 @@
     <WidthLimit
         ref="root"
         :class="$style.root"
-        :padding-l-r="1"
+        :padding-l-r="layoutWidth > 719 ? 3 : 1"
     >
       <main
           :class="$style.page"
@@ -82,19 +82,18 @@
       documentElementScrollTop() {
         return this.$store.state.interface.documentElementScrollTop;
       },
-
-      layoutHeight() {
+      setMainContentPositionLeftight() {
         return this.$store.state.interface.layoutHeight;
       },
-
+      layoutWidth() {
+        return this.$store.state.interface.layoutWidth;
+      },
       headerHeight () {
         return this.$store.state.interface.headerHeight;
       },
-
       lastUpdated () {
         return this.$page.lastUpdated
       },
-
       lastUpdatedText () {
         if (typeof this.$themeLocaleConfig.lastUpdated === 'string') {
           return this.$themeLocaleConfig.lastUpdated
@@ -268,61 +267,7 @@
         visibility visible
     }
 
-    .pageNavigations {
-        will-change transform
-        z-index 1
-        display flex
-        justify-content space-between
-        /*background-image linear-gradient(180deg, rgba(255, 255, 255, .0) 0%, rgba(255, 255, 255, .9) 30%)*/
-        background-color rgba(255, 255, 255, 1)
-        border-top 1px solid $borderColor
-        width 100%
-        position relative
-        /*bottom 0*/
-        left 0
-        padding-top $indent4
-        padding-bottom $indent4
 
-        font-size: 18px;
-        font-weight: 500;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.2;
-        letter-spacing: normal;
-    }
-    .pageNavigations__side__text {
-        display flex
-    }
-    .pageNavigations__prev__text {
-        text-align left
-    }
-    .pageNavigations__next__text {
-        text-align right
-    }
-    .pageNavigations__sideWrapper {
-        display flex
-        width 50%
-    }
-    .pageNavigations__prevWrapper {
-        position relative
-        margin-right $indent4
-        justify-content flex-start
-    }
-    .pageNavigations__side {
-        display flex
-        align-items center
-    }
-    .pageNavigations__prev {
-        position relative
-    }
-    .pageNavigations__nextWrapper {
-        position relative
-        margin-left $indent4
-        justify-content flex-end
-    }
-    .pageNavigations__next {
-        position relative
-    }
     .editButton {
         padding 0
         & > * {

@@ -23,9 +23,9 @@
                     isMobileMod: layoutWidth < 720,
                 }"
                     :class="[
-                    $style.sidebar,
-                    $style.sidebar1,
-                ]"
+                        $style.sidebar,
+                        $style.sidebar1,
+                    ]"
                 >
                     <div
                         ref="sidebar1__header"

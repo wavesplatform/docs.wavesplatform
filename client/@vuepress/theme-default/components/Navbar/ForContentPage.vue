@@ -20,7 +20,7 @@
                     v-show="layoutWidth > 719"
                     :class="$style.searchBoxWrapper"
                     :type="1"
-                    :padding-l-r="1"
+                    :padding-l-r="3"
                 >
 
                     <SearchBox

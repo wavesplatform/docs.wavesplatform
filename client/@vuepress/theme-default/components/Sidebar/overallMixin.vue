@@ -120,7 +120,6 @@ export default {
         maxWidthValue = this.sidebarElement.parentElement.offsetWidth / 100 * maxWidthValue;
       }
       this.isResizableState = maxWidthValue > minWidthValue;
-      console.log('test', maxWidthValue, minWidthValue);
     },
 
     resizeTriggerMousemove (event) {
@@ -343,7 +342,7 @@ export default {
         background #fff
         display flex
         flex-direction column
-        justify-content space-between
+        justify-content flex-start
     }
     .sidebarHeader {
         display: flex;

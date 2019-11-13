@@ -15,7 +15,8 @@
         <WidthLimit
             ref="root"
             :class="$style.pageNavigations__widthLimit"
-            :padding-l-r="1"
+            :padding-l-r="this.layoutWidth > 719 ? 0 : 1"
+            :style="widthLimitStyle"
         >
             <div
                 :class="[$style.pageNavigations__sideWrapper, $style.pageNavigations__prevWrapper]"
@@ -145,6 +146,14 @@
         //   return resolveNext(this.$page, this.sidebarItems)
         // }
       },
+      widthLimitStyle() {
+        const marginLR = this.layoutWidth > 719 ? '32px' : '';
+
+        return {
+          marginLeft: marginLR,
+          marginRight: marginLR,
+        }
+      },
     },
 
     watch: {
@@ -234,12 +243,11 @@
     .pageNavigations {
         display flex
         /*background-image linear-gradient(180deg, rgba(255, 255, 255, .0) 0%, rgba(255, 255, 255, .9) 30%)*/
-        background-color rgba(255, 255, 255, 1)
-        border-top 1px solid #fff
-        box-shadow inset 0 1px 1px 0 $borderColor
         width 100vw
-        padding-top $indent4
-        padding-bottom $indent4
+        /*padding-top $indent4
+        padding-bottom $indent4*/
+        padding-left 0
+        padding-right 0
 
         font-size: 18px;
         font-weight: 500;
@@ -248,10 +256,18 @@
         line-height: 1.2;
         letter-spacing: normal;
         justify-content center
+        @media screen and (max-width: 719px) {
+            font-size: 14px;
+        }
     }
     .pageNavigations__widthLimit {
         display flex
         justify-content space-between
+        padding-top $indent4
+        padding-bottom $indent4
+        background-color rgba(255, 255, 255, 1)
+        border-top 1px solid #fff
+        box-shadow inset 0 1px 1px 0 $borderColor
     }
     .pageNavigations__side__text {
         display flex
@@ -264,11 +280,12 @@
     }
     .pageNavigations__sideWrapper {
         display flex
-        width 50%
+        width 100%
+        min-width 50%
     }
     .pageNavigations__prevWrapper {
         position relative
-        margin-right $indent4
+        padding-right $indent4
         justify-content flex-start
     }
     .pageNavigations__side {
@@ -280,7 +297,7 @@
     }
     .pageNavigations__nextWrapper {
         position relative
-        margin-left $indent4
+        padding-left $indent4
         justify-content flex-end
     }
     .pageNavigations__next {

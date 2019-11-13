@@ -7,46 +7,31 @@
         :class="[$style.sidebarLinks__link, 'sidebarLinks__link']"
         v-for="(item, index) in items" :key="index"
     >
-
-<!--      <SidebarGroup-->
-<!--        v-if="item.type === 'group'"-->
-<!--        :item="item"-->
-<!--        :open="openGroups.includes(index)"-->
-<!--        :collapsable="item.collapsable || item.collapsible"-->
-<!--        :depth="depth"-->
-<!--        :mod="mod"-->
-<!--        @toggle="toggleGroup(index)"-->
-<!--      />-->
-<!--      <SidebarLink-->
-<!--        v-else-->
-<!--        :sidebarDepth="sidebarDepth"-->
-<!--        :item="item"-->
-<!--        :mod="mod"-->
-<!--      />-->
-
-
+        <!--@toggle="toggleGroup(item.path)"-->
         <SidebarGroup
-            v-if="item.type === 'group'"
+            v-show="item.type === 'group'"
             :item="item"
-            :open="openGroups.includes(index)"
+            :open="leftSidebarOpenedGroups.includes(item.path)"
             :collapsable="item.collapsable || item.collapsible"
             :depth="depth"
             :mod="mod"
-            :class="[$style.sidebarLinks__link__group, 'sidebarLinks__link__group']"
-            @toggle="toggleGroup(index)"
-            @open="openGroup(index)"
+            :class="[
+                $style.sidebarLinks__link__group,
+                'sidebarLinks__link__group'
+            ]"
+            @open="openGroup(item.path)"
+            @close="closeGroup(item.path)"
         />
         <span
             v-if="depth > 0 && item.type !== 'group'"
             :class="['el-icon-arrow-right', $style.sidebarLinkWrapper__icon]"
         />
         <SidebarLink
-            v-if="item.type !== 'group'"
+            v-show="item.type !== 'group'"
             :sidebarDepth="sidebarDepth"
             :item="item"
             :mod="mod"
         />
-
     </li>
   </ul>
 </template>
@@ -56,15 +41,6 @@ import SidebarGroup from '@theme/components/SidebarGroup.vue'
 import SidebarLink from '@theme/components/SidebarLink.vue'
 import { isActive } from '../util'
 
-const resolveOpenGroupIndex = (route, items) => {
-  for (let i = 0; i < items.length; i++) {
-    const item = items[i]
-    if (item.type === 'group' && item.children.some(c => c.type === 'page' && isActive(route, c.path))) {
-      return i
-    }
-  }
-  return -1
-}
 export default {
   name: 'SidebarLinks',
 
@@ -92,56 +68,76 @@ export default {
   data () {
     return {
       openGroupIndex: 0,
-      openGroups: [],
     }
   },
 
-  created () {
-    this.refreshIndex()
+  computed: {
+    leftSidebarOpenedGroups() {
+      return this.$store.state.leftSidebarOpenedGroups;
+    },
   },
 
   watch: {
     '$route' () {
-      this.refreshIndex();
+      // this.refreshIndex();
     }
   },
 
+  created () {
+    // this.refreshIndex()
+  },
+
   methods: {
-    refreshIndex () {
-      const index = resolveOpenGroupIndex(
-        this.$route,
-        this.items
-      )
-      if (index > -1) {
-        this.openGroupIndex = index
-      }
+    // resolveOpenGroupIndex(route, items) {
+    //   for (let i = 0; i < items.length; i++) {
+    //     const item = items[i]
+    //     if (item.type === 'group' && item.children.some(c => c.type === 'page' && isActive(this.$route, this.$page.regularPath))) {
+    //       return i
+    //     }
+    //   }
+    //   return -1
+    // },
+
+    // refreshIndex () {
+    //   const index = this.resolveOpenGroupIndex(
+    //     this.$route,
+    //     this.items
+    //   )
+    //   if (index > -1) {
+    //     this.openGroupIndex = index
+    //   }
+    // },
+
+    openGroup(itemPath) {
+      this.$store.commit('setLeftSidebarOpenedGroups', [...this.leftSidebarOpenedGroups, itemPath])
+      console.warn('this.leftSidebarOpenedGroups:', this.leftSidebarOpenedGroups, itemPath)
     },
 
-    openGroup(index) {
+    closeGroup(itemPath) {
+      const activeGroupIndex = this.leftSidebarOpenedGroups.indexOf(itemPath);
 
-      this.openGroups.push(index);
-
-    },
-
-    closeGroup(index) {
-      const activeGroupIndex = this.openGroups.indexOf(index);
-      this.openGroups.splice(activeGroupIndex, 1);
-    },
-
-    toggleGroup(index) {
-      const activeGroupIndex = this.openGroups.indexOf(index);
       if(activeGroupIndex > -1) {
-        this.closeGroup(index);
-      } else {
-        this.openGroup(index);
+
+        console.log('this.leftSidebarOpenedGroups:', this.leftSidebarOpenedGroups, itemPath, activeGroupIndex, [...this.leftSidebarOpenedGroups, ...this.leftSidebarOpenedGroups.slice().splice(activeGroupIndex,1)])
+
+        // this.$store.commit('setLeftSidebarOpenedGroups', [...this.leftSidebarOpenedGroups, ...this.leftSidebarOpenedGroups.slice().splice(activeGroupIndex,1)])
+
+
+        this.$store.commit('setLeftSidebarOpenedGroups', ...this.leftSidebarOpenedGroups.slice().splice(activeGroupIndex,1))
       }
-      // this.openGroupIndex = index === this.openGroupIndex ? -1 : index
+
     },
 
-    isActive (page) {
-      console.log('page:', page);
-      return isActive(this.$route, page.regularPath)
-    }
+    // toggleGroup(itemPath) {
+    //   const activeGroupIndex = this.leftSidebarOpenedGroups.indexOf(itemPath);
+    //   if(activeGroupIndex > -1) {
+    //     this.closeGroup(itemPath);
+    //   } else {
+    //     this.openGroup(itemPath);
+    //   }
+      // this.openGroupIndex = index === this.openGroupIndex ? -1 : index
+    // },
+
   }
 }
 </script>
@@ -160,7 +156,7 @@ export default {
     .sidebarLinks__link {
         position relative
         display flex
-        padding-top 10px
+        padding-top 20px
     }
     .sidebarLinks__link__group {
 

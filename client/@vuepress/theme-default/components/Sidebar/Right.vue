@@ -177,6 +177,7 @@
         border-left 1px solid $borderColor
         max-height 100%
         background-color transparent
+        height 100%
     }
     .sidebarLinks {
         min-height 160px

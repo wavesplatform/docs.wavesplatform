@@ -38,7 +38,8 @@ export default (context) => {
             query: '',
             defaultFocusIndex,
             focusIndex: defaultFocusIndex,
-        }
+        },
+        leftSidebarOpenedGroups: [],
     }
 
     if (!isServer) {
@@ -99,6 +100,8 @@ export default (context) => {
         setNavbarSubHeaders: set('navbarSubHeaders'),
 
         setCurrentLanguage: set('currentLanguage'),
+
+        setLeftSidebarOpenedGroups: set('leftSidebarOpenedGroups'),
 
         setHeaderHeight (state, value) {
             state.interface.headerHeight = value
