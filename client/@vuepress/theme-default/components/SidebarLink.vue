@@ -39,6 +39,9 @@
                 [this.$style.sidebarLink_active]: active,
             }
           ],
+            attrs: {
+              'data-text': text,
+            }
         }, [
           text
         ])

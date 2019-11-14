@@ -34,6 +34,7 @@
             >
                 <span
                     :class="$style.sidebarHeading__title"
+                    :data-text="item.title"
                 >
                     {{ item.title }}
                 </span>
@@ -277,7 +278,11 @@
     }
 
     .sidebarHeading_withActive {
-        font-weight 500
+        .sidebarHeading__title {
+            &:before {
+                font-weight 500
+            }
+        }
     }
 
     .sidebarHeading_active {
@@ -293,6 +298,15 @@
     .sidebarHeading__title {
         text-overflow: ellipsis;
         white-space nowrap
+        position relative
+        visibility hidden
+        &:before {
+            content attr(data-text)
+            position absolute
+            top 0
+            left 0
+            visibility visible
+        }
     }
 
     .sidebarGroupItems {
