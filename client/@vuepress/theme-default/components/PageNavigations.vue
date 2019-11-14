@@ -5,7 +5,7 @@
         :type="2"
         :class="$style.pageNavigations"
         :style="{
-            transform: `translateY(${pageNavigationsTranslateY}px)`,
+            // transform: `translateY(${pageNavigationsTranslateY}px)`,
             paddingLeft: layoutWidth > 719 ? leftSidebarWidth + 'px' : '',
             paddingRight: isOpenRightSidebar ?
                 rightSidebarWidth + 'px' :
@@ -19,25 +19,25 @@
             :style="widthLimitStyle"
         >
             <div
+                v-if="prev"
                 :class="[$style.pageNavigations__sideWrapper, $style.pageNavigations__prevWrapper]"
             >
                 <router-link
-                    v-if="prev"
                     :class="[$style.pageNavigations__side, $style.pageNavigations__prev]"
                     :to="prev.path"
                 >
                     <i :class="['el-icon-arrow-left', $style.pageNavigations__side__icon]"></i>
                     <span :class="[$style.pageNavigations__side__text, $style.pageNavigations__prev__text]">
-                            {{ prev.title || prev.path }}
-                        </span>
+                        {{ prev.title || prev.path }}
+                    </span>
                 </router-link>
             </div>
 
             <div
+                v-if="next"
                 :class="[$style.pageNavigations__sideWrapper, $style.pageNavigations__nextWrapper]"
             >
                 <router-link
-                    v-if="next"
                     :class="[$style.pageNavigations__side, $style.pageNavigations__next]"
                     :to="next.path"
                 >
@@ -267,7 +267,7 @@
         padding-bottom $indent4
         background-color rgba(255, 255, 255, 1)
         border-top 1px solid #fff
-        box-shadow inset 0 1px 1px 0 $borderColor
+        box-shadow inset 0 1px 0 0 $borderColor
     }
     .pageNavigations__side__text {
         display flex

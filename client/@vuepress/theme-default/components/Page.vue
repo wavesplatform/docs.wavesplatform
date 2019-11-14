@@ -74,6 +74,10 @@
       return {
         pageAnchorTargetElements: [],
         pageNavigationsTranslateY: 0,
+        headersElements: [],
+        intersectionObserverOptions: {
+            threshold: 0.55
+        },
 
       }
     },
@@ -82,7 +86,7 @@
       documentElementScrollTop() {
         return this.$store.state.interface.documentElementScrollTop;
       },
-      setMainContentPositionLeftight() {
+        layoutHeight() {
         return this.$store.state.interface.layoutHeight;
       },
       layoutWidth() {
@@ -140,7 +144,9 @@
     },
 
     mounted () {
+        this.interactionObserver = new IntersectionObserver(this.intersectionObserverCallback, this.intersectionObserverOptions);
       if(!this.$isServer) {
+          this.updateHeadersElements();
         // this.$elementResizeDetector.listenTo(this.$refs.root.$el, this.updatePageNavigationsTranslateY);
         this.updateListPageAnchorTargetElements();
       }
@@ -148,6 +154,7 @@
 
     updated() {
       if(!this.$isServer) {
+          this.updateHeadersElements();
         this.updateListPageAnchorTargetElements();
       }
     },
@@ -157,6 +164,26 @@
     },
 
     methods: {
+        intersectionObserverCallback(entries, observer) {
+          console.log('test:', entries);
+        },
+        updateHeadersElements() {
+
+            this.headersElements = this.$page.headers.map(header => {
+                return document.querySelector(`#${header.slug}`);
+            });
+
+            this.headersElements.forEach(headersElement => {
+                this.interactionObserver.observe(headersElement);
+            });
+        },
+
+        updatePageNavigationsTranslateY() {
+            this.headersElements.map()
+          console.log('updatePageNavigationsTranslateY:', this.documentElementScrollTop)
+            /*this.$page.headers*/
+
+        },
 
       getFlatSidebarItems(items, accumulator = []) {
         return items.reduce((accumulator, item) => {

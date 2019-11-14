@@ -88,56 +88,22 @@ export default {
   },
 
   methods: {
-    // resolveOpenGroupIndex(route, items) {
-    //   for (let i = 0; i < items.length; i++) {
-    //     const item = items[i]
-    //     if (item.type === 'group' && item.children.some(c => c.type === 'page' && isActive(this.$route, this.$page.regularPath))) {
-    //       return i
-    //     }
-    //   }
-    //   return -1
-    // },
-
-    // refreshIndex () {
-    //   const index = this.resolveOpenGroupIndex(
-    //     this.$route,
-    //     this.items
-    //   )
-    //   if (index > -1) {
-    //     this.openGroupIndex = index
-    //   }
-    // },
-
     openGroup(itemPath) {
-      this.$store.commit('setLeftSidebarOpenedGroups', [...this.leftSidebarOpenedGroups, itemPath])
-      console.warn('this.leftSidebarOpenedGroups:', this.leftSidebarOpenedGroups, itemPath)
+        if(this.leftSidebarOpenedGroups.includes(itemPath)) {
+            return;
+        }
+      this.$store.commit('setLeftSidebarOpenedGroups', [...this.leftSidebarOpenedGroups, itemPath]);
     },
 
     closeGroup(itemPath) {
       const activeGroupIndex = this.leftSidebarOpenedGroups.indexOf(itemPath);
-
-      if(activeGroupIndex > -1) {
-
-        console.log('this.leftSidebarOpenedGroups:', this.leftSidebarOpenedGroups, itemPath, activeGroupIndex, [...this.leftSidebarOpenedGroups, ...this.leftSidebarOpenedGroups.slice().splice(activeGroupIndex,1)])
-
-        // this.$store.commit('setLeftSidebarOpenedGroups', [...this.leftSidebarOpenedGroups, ...this.leftSidebarOpenedGroups.slice().splice(activeGroupIndex,1)])
-
-
-        this.$store.commit('setLeftSidebarOpenedGroups', ...this.leftSidebarOpenedGroups.slice().splice(activeGroupIndex,1))
+      if(activeGroupIndex < 0) {
+          return
       }
-
+        const leftSidebarOpenedGroupsClone = this.leftSidebarOpenedGroups.slice();
+        leftSidebarOpenedGroupsClone.splice(activeGroupIndex, 1);
+        this.$store.commit('setLeftSidebarOpenedGroups', leftSidebarOpenedGroupsClone)
     },
-
-    // toggleGroup(itemPath) {
-    //   const activeGroupIndex = this.leftSidebarOpenedGroups.indexOf(itemPath);
-    //   if(activeGroupIndex > -1) {
-    //     this.closeGroup(itemPath);
-    //   } else {
-    //     this.openGroup(itemPath);
-    //   }
-      // this.openGroupIndex = index === this.openGroupIndex ? -1 : index
-    // },
-
   }
 }
 </script>

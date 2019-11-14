@@ -32,6 +32,7 @@ export default (context) => {
             mainContentPositionLeft: 0,
             mainContentHeight: 0,
         },
+        currentActiveHeaderSlug: '',
         navbarSubHeaders: [],
         // isProcessDev: process.env.isDev,
         search: {

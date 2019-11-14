@@ -2,7 +2,6 @@
     <div
         :class="$style.root"
     >
-
         <div :class="$style.navbarWrapper2">
             <WidthLimit
                 :type="2"
@@ -51,7 +50,6 @@
                         slot="bottom"
                     />
                 </Sidebar>
-
                 <Navbar
                     ref="navbar"
                     :class="$style.navbar"
@@ -60,8 +58,6 @@
                         transform: (layoutWidth < 720 && isOpenLeftSidebar) ? `translateX(${leftSidebarWidth}px)` : '',
                     }"
                 />
-
-
             </WidthLimit>
         </div>
 
@@ -88,7 +84,6 @@
                     :size="1"
                     :with-suggestions="false"
                 />
-
                 <div
                     :class="$style.searchSuggestionsWrapper"
                 >
@@ -103,7 +98,6 @@
             <!--            @click="toggleSidebar(false)"-->
             <!--        ></div>-->
             <!--<Home v-if="$page.frontmatter.home"/>-->
-
             <Page
                 ref="page"
                 :sidebar-items="sidebarItems"
@@ -297,12 +291,12 @@
     methods: {
 
       computedPageNavigationsTranslateY() {
-        const heightDifference = this.layoutHeight - this.mainContentHeight - this.headerHeight;
-        if(heightDifference < 0) {
+        const heightDifference = this.mainContentHeight - this.layoutHeight - this.headerHeight;
+        if(heightDifference > 0) {
           this.pageNavigationsTranslateY = 0;
           return;
         }
-        this.pageNavigationsTranslateY = -heightDifference + this.mainContentHeight;
+        this.pageNavigationsTranslateY = -(this.layoutHeight - this.mainContentHeight - this.headerHeight);
       },
 
       setMainContentHeightInStore(element) {

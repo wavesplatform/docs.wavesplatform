@@ -122,7 +122,10 @@
       },
       withActiveStateItem() {
         return this.checkWithActiveState();
-      }
+      },
+      leftSidebarOpenedGroups() {
+        return this.$store.state.leftSidebarOpenedGroups;
+      },
     },
 
     watch: {
@@ -153,6 +156,14 @@
       //   }
       //   next();
       // });
+    },
+
+    updated() {
+
+        if(this.leftSidebarOpenedGroups.includes(this.item.path)) {
+            /*this.$emit('open');*/
+            console.log('this.leftSidebarOpenedGroups.includes(this.item.path)', this.item.path)
+        }
     },
 
     methods: {

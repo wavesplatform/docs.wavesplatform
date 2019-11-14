@@ -18,6 +18,12 @@
       },
     },
 
+    computed: {
+        currentActiveHeaderSlug() {
+            this.$store.state.currentActiveHeaderSlug;
+        }
+    },
+
     methods: {
       renderLink(h, to, text, active) {
         return h('router-link', {
@@ -62,7 +68,8 @@
         const listWithHeadersAnchors = h('ul', {
           class: this.$style.sidebarSubHeaders
         }, children.map(child => {
-          const active = isActive(route, path + '#' + child.slug)
+            console.log('child:', child);
+          const active = isActive(route, path + '#' + child.slug) || this.currentActiveHeaderSlug === child.slug;
           const elements = [
             this.renderLink(h, path + '#' + child.slug, child.title, active),
             this.renderChildren(h, {
