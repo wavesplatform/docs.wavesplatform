@@ -6,10 +6,6 @@
         :class="$style.pageNavigations"
         :style="{
             // transform: `translateY(${pageNavigationsTranslateY}px)`,
-            paddingLeft: layoutWidth > 719 ? leftSidebarWidth + 'px' : '',
-            paddingRight: isOpenRightSidebar ?
-                rightSidebarWidth + 'px' :
-                (layoutWidth > 719 ? rightSidebarAlwaysVisiblePartWidth + 'px' : 0)
         }"
     >
         <WidthLimit
@@ -156,44 +152,19 @@
       },
     },
 
-    watch: {
-      // documentElementScrollTop() {
-      //   this.updatePageNavigationsTranslateY();
-      // },
-      // layoutHeight() {
-      //   this.updatePageNavigationsTranslateY();
-      // },
-    },
-
     mounted () {
-      // if(!this.$isServer) {
-      //   this.$elementResizeDetector.listenTo(this.$refs.root.$el, this.updatePageNavigationsTranslateY);
-      //   this.updateListPageAnchorTargetElements();
-      //   this.updatePageNavigationsTranslateY();
-      //   window.addEventListener('resize', () => {
-      //     this.testSize = window.innerHeight;
-      //   });
-      //
-      // }
+
     },
 
     updated() {
-      // if(!this.$isServer) {
-      //   this.updateListPageAnchorTargetElements();
-      // }
+
     },
 
     beforeDestroy() {
-      // this.$elementResizeDetector.removeListener(this.$refs.root.$el, this.updatePageNavigationsTranslateY);
+
     },
 
     methods: {
-
-      // updatePageNavigationsTranslateY() {
-      //   const rootRefElement = this.$refs.root.$el;
-      //   console.log('rootRefElement.offsetHeight - window.innerHeight + rootRefElement.offsetTop + this.headerHeight - this.documentElementScrollTop:', rootRefElement.offsetHeight, window.innerHeight, rootRefElement.offsetTop, this.headerHeight, this.documentElementScrollTop)
-      //   this.pageNavigationsTranslateY = -(rootRefElement.offsetHeight - window.innerHeight + rootRefElement.offsetTop + this.headerHeight - this.documentElementScrollTop)
-      // },
 
       getFlatSidebarItems(items, accumulator = []) {
         return items.reduce((accumulator, item) => {
@@ -204,35 +175,6 @@
           return accumulator;
         }, accumulator);
       },
-
-      findAnchorsAndTargetsMatches() {
-        const documentElement = document.documentElement;
-        this.pageAnchorTargetElements.forEach(targetElement => {
-          const documentRect = documentElement.getBoundingClientRect();
-          const elementRect = targetElement.getBoundingClientRect();
-
-          // console.log('elementRect.top - documentRect.top - this.headerHeight:', elementRect.top - documentRect.top - this.headerHeight, documentElement.scrollTop);
-        });
-      },
-
-      updateListPageAnchorTargetElements() {
-        const documentElement = document.documentElement
-        const headers = this.$page.headers;
-        if(!headers || !headers.length) {
-          this.pageAnchorTargetElements = [];
-          return;
-        }
-        this.pageAnchorTargetElements = headers.map(header => {
-          const targetElement = document.querySelector('#' + header.slug);
-          /*const documentRect = documentElement.getBoundingClientRect()
-          const elementRect = targetElement.getBoundingClientRect()
-          return {
-            y: elementRect.top - documentRect.top - this.headerHeight,
-          }*/
-          return targetElement;
-        });
-      },
-
     }
   }
 </script>

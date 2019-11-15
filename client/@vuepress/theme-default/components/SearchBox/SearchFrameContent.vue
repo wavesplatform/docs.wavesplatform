@@ -282,6 +282,7 @@
         height calc(100% - 40px)
         width calc(100% - 40px)
         margin auto
+        border-radius 6px
         &:not(:global(.is-fullscreen)) {
             max-height 850px
         }

@@ -8,12 +8,6 @@
           :class="$style.page"
       >
         <slot name="top"/>
-        <!--<el-breadcrumb separator="/">-->
-          <!--<el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>-->
-          <!--<el-breadcrumb-item><a href="/">promotion management</a></el-breadcrumb-item>-->
-          <!--<el-breadcrumb-item>promotion list</el-breadcrumb-item>-->
-          <!--<el-breadcrumb-item>promotion detail</el-breadcrumb-item>-->
-        <!--</el-breadcrumb>-->
         <div :class="$style.page__header">
           <div
               :class="$style.editLinkWrapper"
@@ -39,19 +33,7 @@
             </a>
           </div>
         </div>
-
         <Content :class="$style.pageContent"/>
-
-        <!--<footer class="page-edit">-->
-          <!--<div-->
-            <!--class="last-updated"-->
-            <!--v-if="lastUpdated"-->
-          <!--&gt;-->
-            <!--<span class="prefix">{{ lastUpdatedText }}: </span>-->
-            <!--<span class="time">{{ lastUpdated }}</span>-->
-          <!--</div>-->
-        <!--</footer>-->
-        <slot name="bottom"/>
       </main>
     </WidthLimit>
 </template>
@@ -76,17 +58,24 @@
         pageNavigationsTranslateY: 0,
         headersElements: [],
         intersectionObserverOptions: {
-            threshold: 0.55
+            threshold: 0.0,
+            rootMargin: '0% 0px',
         },
 
       }
     },
 
     computed: {
+      isScrollTopState() {
+        return this.$store.state.interface.isScrollTopState;
+      },
       documentElementScrollTop() {
         return this.$store.state.interface.documentElementScrollTop;
       },
-        layoutHeight() {
+      mainContentHeight() {
+        return this.$store.state.interface.mainContentHeight;
+      },
+      layoutHeight() {
         return this.$store.state.interface.layoutHeight;
       },
       layoutWidth() {
@@ -135,55 +124,98 @@
     },
 
     watch: {
-      // documentElementScrollTop() {
-      //   this.updatePageNavigationsTranslateY();
-      // },
-      // layoutHeight() {
-      //   this.updatePageNavigationsTranslateY();
-      // },
+      documentElementScrollTop() {
+        this.setCurrentActiveHeaderId();
+      },
+      mainContentHeight() {
+        this.setCurrentActiveHeaderId();
+      },
     },
 
     mounted () {
-        this.interactionObserver = new IntersectionObserver(this.intersectionObserverCallback, this.intersectionObserverOptions);
+
+      // console.log('this.$router', this.$router, this.$route.hash);
+      //   this.interactionObserver = new IntersectionObserver(this.intersectionObserverCallback, this.intersectionObserverOptions);
+
       if(!this.$isServer) {
-          this.updateHeadersElements();
-        // this.$elementResizeDetector.listenTo(this.$refs.root.$el, this.updatePageNavigationsTranslateY);
+        this.setCurrentActiveHeaderIdTimeout = null;
+        this.updateHeadersElements();
         this.updateListPageAnchorTargetElements();
       }
+
     },
 
-    updated() {
-      if(!this.$isServer) {
-          this.updateHeadersElements();
-        this.updateListPageAnchorTargetElements();
+    updated () {
+      if (!this.$isServer) {
+        this.updateHeadersElements()
+        this.updateListPageAnchorTargetElements()
       }
-    },
-
-    beforeDestroy() {
-      /*this.$elementResizeDetector.removeListener(this.$refs.root.$el, this.updatePageNavigationsTranslateY);*/
     },
 
     methods: {
-        intersectionObserverCallback(entries, observer) {
-          console.log('test:', entries);
-        },
-        updateHeadersElements() {
+      setCurrentActiveHeaderId() {
+        if(this.setCurrentActiveHeaderIdTimeout) {
+          return;
+        }
+        this.setCurrentActiveHeaderIdTimeout = setTimeout(() => {
+          if(this.isScrollTopState) {
+            return;
+          }
+          const currentActiveHeaderId = this.getCurrentActiveHeaderId();
+          if(decodeURIComponent(this.$route.hash).slice(1) !== currentActiveHeaderId) {
+            this.$router.push({hash: currentActiveHeaderId})
+          }
+          this.setCurrentActiveHeaderIdTimeout = null;
+        }, 0);
+      },
 
-            this.headersElements = this.$page.headers.map(header => {
-                return document.querySelector(`#${header.slug}`);
-            });
+      getCurrentActiveHeaderId() {
+        const idsValues = this.headersElements.reduce((accumulator, headerElement) => {
+          let value = headerElement.offsetTop - this.documentElementScrollTop;
+          if(value < 0) {
+            value = value * -1;
+          }
+          accumulator[headerElement.id] = value;
+          return accumulator;
+        }, {});
+        const values = Object.values(idsValues);
+        const keys = Object.keys(idsValues);
+        const minValue = Math.min(...values);
+        const minValueIndex = values.indexOf(minValue);
+        return keys[minValueIndex];
+      },
 
-            this.headersElements.forEach(headersElement => {
-                this.interactionObserver.observe(headersElement);
-            });
-        },
+      // intersectionObserverCallback (entries, observer) {
+      //
+      //   entries.forEach(entry => {
+      //     if(entry.isIntersecting) {
+      //       console.log('test:', entry.target.id, entry);
+      //       // location.hash = entry.target.id;
+      //       this.$router.push({
+      //         hash: entry.target.id,
+      //       });
+      //     }
+      //   });
+      // },
 
-        updatePageNavigationsTranslateY() {
-            this.headersElements.map()
-          console.log('updatePageNavigationsTranslateY:', this.documentElementScrollTop)
-            /*this.$page.headers*/
+      updateHeadersElements () {
+        const headers = this.$page.headers
+        // console.log('updateHeadersElements:', headers)
+        // this.headersElements.forEach(headersElement => {
+        //   this.interactionObserver.unobserve(headersElement);
+        // });
 
-        },
+        if (!headers || !headers.length) {
+          return
+        }
+
+        this.headersElements = headers.map(header => {
+          const headerElement = document.querySelector(`#${header.slug}`);
+          // this.interactionObserver.observe(headerElement);
+          return headerElement;
+        });
+      },
+
 
       getFlatSidebarItems(items, accumulator = []) {
         return items.reduce((accumulator, item) => {
@@ -193,16 +225,6 @@
           }
           return accumulator;
         }, accumulator);
-      },
-
-      findAnchorsAndTargetsMatches() {
-        const documentElement = document.documentElement;
-        this.pageAnchorTargetElements.forEach(targetElement => {
-          const documentRect = documentElement.getBoundingClientRect();
-          const elementRect = targetElement.getBoundingClientRect();
-
-          // console.log('elementRect.top - documentRect.top - this.headerHeight:', elementRect.top - documentRect.top - this.headerHeight, documentElement.scrollTop);
-        });
       },
 
       updateListPageAnchorTargetElements() {
@@ -261,7 +283,7 @@
     .root {
         padding-top $indent1
         /*padding-bottom $indent4*/
-        padding-bottom $indent6
+        padding-bottom $indent1
     }
     .page {
         display block

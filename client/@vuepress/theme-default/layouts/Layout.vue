@@ -2,6 +2,10 @@
     <div
         :class="$style.root"
     >
+        <LanguageNotification
+            :is-show="isShowLanguageNotification"
+            @close="$store.commit('setDisplayShowLanguageNotification', false)"
+        />
         <div :class="$style.navbarWrapper2">
             <WidthLimit
                 :type="2"
@@ -103,22 +107,32 @@
                 :sidebar-items="sidebarItems"
                 :class="$style.page"
             >
-                <slot
+                <!--<slot
                     name="page-top"
                     slot="top"
-                />
-                <slot
+                />-->
+                <!--<slot
                     name="page-bottom"
                     slot="bottom"
-                />
+                />-->
             </Page>
+            <PageNavigations
+                :sidebar-items="sidebarItems"
+                :class="$style.pageNavigations1"
+                :style="{
+                    visibility: pageNavigationsTranslateY === 0 ? 'hidden' : ''
+                }"
+            />
         </WidthLimit>
         <PageNavigations
             :sidebar-items="sidebarItems"
-            :class="$style.pageNavigations"
+            :class="$style.pageNavigations2"
             :style="{
-                transform: `translateY(${pageNavigationsTranslateY}px)`,
-                /*transition: pageNavigationsTranslateY === 0 ? '' : 'transform .3s',*/
+                paddingLeft: layoutWidth > 719 ? leftSidebarWidth + 'px' : '',
+                paddingRight: isOpenRightSidebar ?
+                rightSidebarWidth + 'px' :
+                (layoutWidth > 719 ? rightSidebarAlwaysVisiblePartWidth + 'px' : 0),
+                visibility: pageNavigationsTranslateY === 0 ? '' : 'hidden'
             }"
         />
     </div>
@@ -136,6 +150,7 @@
   import WidthLimit from '@theme/components/WidthLimit'
   import Suggestions from '@theme/components/SearchBox/Suggestions'
   import PageNavigations from '@theme/components/PageNavigations'
+  import LanguageNotification from '@theme/components/LanguageNotification'
   import { resolveSidebarItems } from '../util'
 
   export default {
@@ -155,6 +170,7 @@
       WidthLimit,
       Suggestions,
       PageNavigations,
+      LanguageNotification,
     },
 
     data () {
@@ -163,10 +179,17 @@
         sidebar2Mod: 2,
         rightSidebarMinWidthPx: 160,
         pageNavigationsTranslateY: 0,
+        isShowPageNavigations2: false,
       }
     },
 
     computed: {
+      documentElementScrollTop() {
+        return this.$store.state.interface.documentElementScrollTop;
+      },
+      isShowLanguageNotification() {
+        return this.$store.state.isShowLanguageNotification;
+      },
       rightSidebarAlwaysVisiblePartWidth() {
         return this.$store.state.interface.rightSidebarAlwaysVisiblePartWidth;
       },
@@ -216,14 +239,13 @@
           transition: this.isRightSidebarResizingState ? 'initial' : '',
         }
       },
-
     },
 
     watch: {
       layoutWidth(newValue) {
         this.computedAndSetMainContentPositionLeft();
         this.computedPageNavigationsTranslateY();
-        if(this.layoutWidth < 720) {
+        if(newValue < 720) {
           this.$store.commit('setDisplayRightSidebar', false);
           this.$store.commit('setDisplayLeftSidebar', false);
         } else {
@@ -261,12 +283,16 @@
 
     mounted () {
       this.root__contentCellElement = this.$refs.root__contentCell.$el;
+      console.log('this.root__contentCellElement:', this.root__contentCellElement, this, this.layoutHeight, this.mainContentHeight, this.headerHeight);
       this.interval1 = null;
       if(this.layoutWidth > 719) {
         this.$store.commit('setDisplayLeftSidebar', true);
       }
 
       if(!this.$isServer) {
+
+
+
         window.addEventListener('scroll', this.windowScrollEventHandler);
 
         this.root__contentCellElement.addEventListener('transitionstart', this.transitionstartHandler, false);
@@ -275,7 +301,7 @@
         this.windowScrollEventHandler();
         this.computedAndSetMainContentPositionLeft();
 
-        this.$elementResizeDetector.listenTo(this.$refs.page.$el, this.setMainContentHeightInStore);
+        this.$elementResizeDetector.listenTo(this.$refs.root__contentCell.$el, this.setMainContentHeightInStore);
 
         this.computedPageNavigationsTranslateY();
       }
@@ -296,7 +322,7 @@
           this.pageNavigationsTranslateY = 0;
           return;
         }
-        this.pageNavigationsTranslateY = -(this.layoutHeight - this.mainContentHeight - this.headerHeight);
+        this.pageNavigationsTranslateY = -(this.layoutHeight - this.mainContentHeight - this.headerHeight) /*- this.documentElementScrollTop*/;
       },
 
       setMainContentHeightInStore(element) {
@@ -332,30 +358,33 @@
         return resizeFunction
       },
 
-      setRouterScrollBehavior() {
-        this.$router.options.scrollBehavior = (to, from, savedPosition) => {
-          if (savedPosition) {
-            return window.scrollTo({
-              top: savedPosition.y,
-              behavior: 'smooth',
-            })
-          } else if (to.hash) {
-            const targetElement = document.querySelector(to.hash)
+      scrollBehavior(to, from, savedPosition) {
+        this.$store.commit('setScrollTopState', true);
+        if (savedPosition) {
+          return window.scrollTo({
+            top: savedPosition.y,
+            behavior: 'smooth',
+          }, () => this.$store.commit('setScrollTopState', false))
+        } else if (to.hash) {
+          const targetElement = document.querySelector(decodeURIComponent(to.hash))
 
-            if (targetElement) {
-              return window.scrollTo({
-                top: this.getAnchorElementPosition(targetElement).y,
-                behavior: 'smooth',
-              })
-            }
-            return false;
-          } else {
+          if (targetElement) {
             return window.scrollTo({
-              top: 0,
+              top: this.getAnchorElementPosition(targetElement).y,
               behavior: 'smooth',
-            })
+            }, () => this.$store.commit('setScrollTopState', false))
           }
+          return false;
+        } else {
+          return window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+          }, () => this.$store.commit('setScrollTopState', false))
         }
+      },
+
+      setRouterScrollBehavior() {
+        this.$router.options.scrollBehavior = this.scrollBehavior
       },
 
       getAnchorElementPosition(targetElement) {
@@ -371,7 +400,6 @@
   }
 </script>
 
-<!--<style src="../styles/theme.styl" lang="stylus"></style>-->
 <style src="prismjs/themes/prism-tomorrow.css"></style>
 
 <style lang="stylus" module>
@@ -449,13 +477,11 @@
         z-index 0
     }
 
-
     .root__cell2 {
         flex-shrink 0
         padding 15px 20px
         border-bottom 1px solid $borderColor
     }
-
 
     .root__contentCell {
         display flex
@@ -496,8 +522,12 @@
         transition-duration $transitionS1
         padding-top: 23px;
     }
+    .pageNavigations1 {
+        position relative
+        width 100%
+    }
 
-    .pageNavigations {
+    .pageNavigations2 {
         position fixed
         bottom 0
         z-index 0

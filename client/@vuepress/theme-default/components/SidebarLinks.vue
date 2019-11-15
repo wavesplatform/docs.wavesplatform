@@ -5,7 +5,8 @@
   >
     <li
         :class="[$style.sidebarLinks__link, 'sidebarLinks__link']"
-        v-for="(item, index) in items" :key="index"
+        v-for="(item, index) in items"
+        :key="`${item.key}_${index}`"
     >
         <!--@toggle="toggleGroup(item.path)"-->
         <SidebarGroup
@@ -65,12 +66,6 @@ export default {
     },
   },
 
-  data () {
-    return {
-      openGroupIndex: 0,
-    }
-  },
-
   computed: {
     leftSidebarOpenedGroups() {
       return this.$store.state.leftSidebarOpenedGroups;
@@ -80,7 +75,7 @@ export default {
   watch: {
     '$route' () {
       // this.refreshIndex();
-    }
+    },
   },
 
   created () {

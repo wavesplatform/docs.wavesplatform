@@ -17,6 +17,7 @@ export default (context) => {
         defaultLanguage: '',
         currentLanguage: '',
         interface: {
+            isScrollTopState: false,
             documentElementScrollTop: 0,
             layoutWidth,
             layoutHeight: 0,
@@ -32,6 +33,7 @@ export default (context) => {
             mainContentPositionLeft: 0,
             mainContentHeight: 0,
         },
+        isShowLanguageNotification: false,
         currentActiveHeaderSlug: '',
         navbarSubHeaders: [],
         // isProcessDev: process.env.isDev,
@@ -54,6 +56,9 @@ export default (context) => {
     }
 
     const mutations = {
+        setScrollTopState(state, isScrollTopState) {
+            state.interface.isScrollTopState = isScrollTopState;
+        },
 
         setMainContentHeight(state, height) {
             state.interface.mainContentHeight = height;
@@ -103,6 +108,8 @@ export default (context) => {
         setCurrentLanguage: set('currentLanguage'),
 
         setLeftSidebarOpenedGroups: set('leftSidebarOpenedGroups'),
+
+        setDisplayShowLanguageNotification: set('isShowLanguageNotification'),
 
         setHeaderHeight (state, value) {
             state.interface.headerHeight = value

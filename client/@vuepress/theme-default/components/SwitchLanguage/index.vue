@@ -122,14 +122,15 @@
         const languageItemLink = languageItem.link;
         const pagePath = this.$page.path;
         if(this.$themeConfig.locales[languageItemLink] && !this.$themeConfig.locales[pagePath]) {
-          this.$notify({
-            type: 'warning',
-            title: this.$themeLocaleConfig.languageAbsenceNotification.title,
-            message: this.$themeLocaleConfig.languageAbsenceNotification.message,
-            offset: 0,
-            duration: 0,
-            customClass: this.$style.notifyCustomClass,
-          });
+          this.$store.commit('setDisplayShowLanguageNotification', true);
+          // this.$notify({
+          //   type: 'warning',
+          //   title: this.$themeLocaleConfig.languageAbsenceNotification.title,
+          //   message: this.$themeLocaleConfig.languageAbsenceNotification.message,
+          //   offset: 0,
+          //   duration: 0,
+          //   customClass: this.$style.notifyCustomClass,
+          // });
           this.isShowLangList = false;
           return;
         }

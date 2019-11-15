@@ -161,10 +161,10 @@
 
     updated() {
 
-        if(this.leftSidebarOpenedGroups.includes(this.item.path)) {
-            /*this.$emit('open');*/
-            console.log('this.leftSidebarOpenedGroups.includes(this.item.path)', this.item.path)
-        }
+        // if(this.leftSidebarOpenedGroups.includes(this.item.path)) {
+        //     /*this.$emit('open');*/
+        //     console.log('this.leftSidebarOpenedGroups.includes(this.item.path)', this.item.path)
+        // }
     },
 
     methods: {
