@@ -227,6 +227,11 @@
             left 0;
             right auto
         }
+        :global(.ps__thumb-y) {
+            left 2px;
+            right auto
+        }
+
     }
 
     .sidebarLinksListWrapper {
