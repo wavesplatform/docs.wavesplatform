@@ -88,13 +88,15 @@ export default {
       focused: false,
       currentMessageBoxKey: 1,
       searchResultData: [],
-      isShowSearchResultWindow: false,
       suggestionsRef: null,
       cachedInputValue: '',
     }
   },
 
   computed: {
+    isShowSearchResultWindow() {
+      return this.$store.state.interface.isShowSearchResultWindow;
+    },
     layoutWidth () {
       return this.$store.state.interface.layoutWidth
     },

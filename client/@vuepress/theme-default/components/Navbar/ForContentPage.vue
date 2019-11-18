@@ -27,9 +27,27 @@
                         :class="$style.searchBox"
                         :is-full-size="true"
                         :size="1"
+                        :with-suggestions="false"
+                        @up="layoutWidth > 719 && suggestionsUp"
+                        @down="layoutWidth > 719 && suggestionsDown"
+                        @search="search"
                     />
-
+                    <WidthLimit
+                        :class="$style.searchSuggestionsWrapper"
+                        :type="1"
+                        :padding-l-r="3"
+                    >
+                        <Suggestions
+                            ref="suggestions"
+                            :class="$style.searchSuggestions"
+                            :style="{
+                                // marginLeft: mainContentPositionLeft + 'px',
+                            }"
+                        />
+                    </WidthLimit>
                 </WidthLimit>
+
+
                 <SwitchLanguage :class="$style.switchLanguage"/>
             </div>
 
@@ -99,14 +117,18 @@
   import BurgerTrigger from '@theme/components/BurgerTrigger'
   import overallMixin from './overallMixin'
   import Sidebar from '@theme/components/Sidebar/'
+  import Suggestions from '@theme/components/SearchBox/Suggestions'
+  import searchMixin from '@theme/mixins/search'
 
   export default {
     mixins: [
-      overallMixin
+      overallMixin,
+      searchMixin,
     ],
     components: {
       BurgerTrigger,
       Sidebar,
+      Suggestions,
     },
     computed: {
       mainContentPositionLeft() {
@@ -205,13 +227,25 @@
     }
 
     .searchBoxWrapper {
-        height 40px
+        /*height 40px*/
+        height 100%
+        position relative
+        display flex
+        align-items center
     }
-
     .searchBox {
         visibility visible
+        height 40px
     }
-
+    .searchSuggestionsWrapper {
+        position absolute
+        top 100%
+        left 0
+        width 100%
+    }
+    .searchSuggestions {
+        margin 0
+    }
     .logotypeWrapper {
         display flex
         justify-content center

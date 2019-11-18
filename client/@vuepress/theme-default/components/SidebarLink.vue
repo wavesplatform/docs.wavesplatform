@@ -1,9 +1,6 @@
 <script>
   import { isActive, hashRE, groupHeaders } from '../util'
-
   export default {
-    /*functional: true,*/
-
     props: {
       item: {
         type: Object,

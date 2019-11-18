@@ -54,11 +54,15 @@
                 </a>
             </div>
 
-            <div
+            <VueScrollbar
                 :class="[
                     $style.sidebarLinks__content,
                     $styleLeft.sidebarLinks__content
                 ]"
+                :settings="{
+                    /*useBothWheelAxes: true,*/
+                    wheelPropagation: false,
+                }"
             >
                 <!--<NavLinks v-if="layoutWidth < 720"/>-->
                 <slot name="top"/>
@@ -70,7 +74,7 @@
                         :mod="mod"
                     />
                 </div>
-            </div>
+            </VueScrollbar>
 
 
         </div>
@@ -107,8 +111,18 @@
 
 <script>
   import overallMixin from './overallMixin'
+  import VueScrollbar from '@theme/components/VueScrollbar'
 
   export default {
+
+    mixins: [
+      overallMixin
+    ],
+
+    components: {
+      VueScrollbar,
+    },
+
     data () {
       return {
         defaultOptions: {
@@ -120,9 +134,6 @@
       }
     },
 
-    mixins: [
-      overallMixin
-    ],
 
 
     computed: {
@@ -212,6 +223,10 @@
         /*direction: rtl;*/
         overflow-x auto
         position relative
+        :global(.ps__rail-y) {
+            left 0;
+            right auto
+        }
     }
 
     .sidebarLinksListWrapper {

@@ -13,7 +13,16 @@ module.exports = {
         title: 'Sorry',
         message: 'Content on this page is currently under construction.',
     },
-
+    nav: [
+        // {
+        //     text: 'Home',
+        //     link: '/en/'
+        // },
+        // {
+        //     text: 'Blockchain',
+        //     link: '/en/blockchain/'
+        // },
+    ],
     homePage: {
         technologyList: {
             learnAboutWavesPlatform: {
@@ -138,8 +147,6 @@ module.exports = {
             }
         },
     },
-
-
 
     searchPopup: {
         cancelText: 'Cancel',

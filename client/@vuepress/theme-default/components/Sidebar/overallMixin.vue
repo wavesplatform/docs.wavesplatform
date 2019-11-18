@@ -1,6 +1,6 @@
 <script>
-import SidebarLinks from '@theme/components/SidebarLinks.vue'
-import NavLinks from '@theme/components/NavLinks.vue'
+import SidebarLinks from '@theme/components/SidebarLinks'
+// import NavLinks from '@theme/components/NavLinks'
 import ToggleTrigger from './ToggleTrigger'
 
 export default {
@@ -8,7 +8,7 @@ export default {
 
   components: {
     SidebarLinks,
-    NavLinks,
+    // NavLinks,
     ToggleTrigger,
   },
 
@@ -212,6 +212,9 @@ export default {
         justify-content: flex-start;
         .sidebarWrapper {
             max-width 30%
+            @media screen and (max-width: 719px) {
+                max-width calc(100vw - 40px)
+            }
         }
         .resizeTrigger {
             left calc(100% - 7px)

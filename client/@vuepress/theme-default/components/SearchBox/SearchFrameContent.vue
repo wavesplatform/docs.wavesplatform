@@ -28,7 +28,7 @@
             <el-button
                 type="text"
                 :class="$style.cancelButton"
-                @click="$emit('close')"
+                @click="close"
             >
                 {{i18nSearchPopupConfig.cancelText}}
             </el-button>
@@ -114,13 +114,6 @@
       SearchBox
     },
 
-    props: {
-      isShowSearchResultWindow: {
-        type: Boolean,
-        default: false
-      },
-    },
-
     data () {
       const showMoreDisplayElementsOfOneStep = 10
       return {
@@ -134,6 +127,9 @@
     },
 
     computed: {
+      isShowSearchResultWindow() {
+        return this.$store.state.interface.isShowSearchResultWindow;
+      },
       query() {
         return this.$store.state.search.query;
       },
@@ -175,13 +171,17 @@
 
 
     methods: {
+      close() {
+        this.$store.commit('setDisplaySearchResultWindow', false);
+        this.$emit('close');
+      },
       rootMousedown(event) {
         this.mouseenterElement = event.path[0];
       },
 
       rootMouseup(event) {
         if(this.$refs.dialogComponentExemplar.$el === this.mouseenterElement) {
-          this.$emit('close');
+          this.close();
         }
         this.mouseenterElement = null;
       },

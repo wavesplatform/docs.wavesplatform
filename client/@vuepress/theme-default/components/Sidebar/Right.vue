@@ -54,7 +54,7 @@
               :class="[$style.sidebarLinks__content, $styleRight.sidebarLinks__content]"
           >
               <template v-if="isShow">
-                  <NavLinks v-if="layoutWidth < 720"/>
+                  <!--<NavLinks v-if="layoutWidth < 720"/>-->
                   <slot name="top"/>
                   <SidebarLinks
                       :depth="0"

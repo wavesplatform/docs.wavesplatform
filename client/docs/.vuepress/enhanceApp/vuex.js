@@ -32,6 +32,7 @@ export default (context) => {
             isRightSidebarResizingState: false,
             mainContentPositionLeft: 0,
             mainContentHeight: 0,
+            isShowSearchResultWindow: false,
         },
         isShowLanguageNotification: false,
         currentActiveHeaderSlug: '',
@@ -56,6 +57,9 @@ export default (context) => {
     }
 
     const mutations = {
+        setDisplaySearchResultWindow(state, isShow) {
+            state.interface.isShowSearchResultWindow = isShow;
+        },
         setScrollTopState(state, isScrollTopState) {
             state.interface.isScrollTopState = isScrollTopState;
         },

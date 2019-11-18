@@ -51,60 +51,6 @@ module.exports = deepmerge(mixin, {
     selectText: 'Languages',
     editLinkText: 'Edit on GitHub',
     lastUpdated: 'Last Updated',
-    nav: [
-        {
-            text: 'Home',
-            link: '/en/'
-        },
-        {
-            text: 'Blockchain',
-            link: '/en/blockchain/'
-        },
-        {
-            text: 'Client',
-            link: '/en/client/'
-        },
-        {
-            text: 'DEX',
-            link: '/en/dex/'
-        },
-        {
-            text: 'Explorer',
-            link: '/en/explorer/'
-        },
-        {
-            text: 'Keeper',
-            link: '/en/keeper/'
-        },
-        {
-            text: 'RIDE',
-            link: '/en/ride/'
-        },
-        {
-            text: 'Smart contract',
-            link: '/en/smart-contracts/'
-        },
-        {
-            text: 'Node',
-            link: '/en/node/'
-        },
-        {
-            text: 'Developer tools',
-            link: '/en/developer-tools/'
-        },
-        {
-            text: 'API & SDK',
-            link: '/en/api-and-sdk/'
-        },
-        {
-            text: 'Oracles',
-            link: '/en/oracles/'
-        },
-        {
-            text: 'Token Rating',
-            link: '/en/token-rating/'
-        }
-    ],
     sidebar: {
         '/en/learn-about-waves-platform/': [
             {
@@ -209,190 +155,186 @@ module.exports = deepmerge(mixin, {
             },
         ],
 
-        '/en/node/': [
-            {
-                title: 'What is a dApp',
-                path: '/en/learn-about-waves-platform/what-is-a-dapp'
-            }
-        ],
-
-        '/en/ecosystem-applications/': [
-            {
-                title: 'What is a dApp',
-                path: '/en/learn-about-waves-platform/what-is-a-dapp'
-            }
-        ],
-
-
-
-
-
-        '/en/building-blockchain-apps/': [
-            {
-                title: 'What is a dApp',
-                path: '/en/learn-about-waves-platform/what-is-a-dapp'
-            }
-        ],
-
-        '/en/ride-programming-language/': [
-            {
-                title: 'What is a dApp',
-                path: '/en/learn-about-waves-platform/what-is-a-dapp'
-            }
-        ],
-
-        '/en/additional-services/': [
-            {
-                title: 'What is a dApp',
-                path: '/en/learn-about-waves-platform/what-is-a-dapp'
-            }
-        ],
-
-        '/en/miscellaneous/': [
-            {
-                title: 'What is a dApp',
-                path: '/en/learn-about-waves-platform/what-is-a-dapp'
-            }
-        ],
-
-        '/en/blockchain/': [
-            {
-                title: 'Account',
-                path: '/en/blockchain/account'
-            },
-            {
-                title: 'Account data storage',
-                path: '/en/blockchain/account-data-storage'
-            },
-            {
-                title: 'Account script',
-                path: '/en/blockchain/account-script'
-            },
-            {
-                title: 'Address',
-                path: '/en/blockchain/address'
-            },
-            {
-                title: 'Alias',
-                path: '/en/blockchain/alias'
-            },
-            {
-                title: 'Asset',
-                path: '/en/blockchain/asset'
-            },
-            {
-                title: 'Asset Script',
-                path: '/en/blockchain/asset-script'
-            },
-            {
-                title: 'Block',
-                path: '/en/blockchain/block'
-            },
-            {
-                title: 'Block height',
-                path: '/en/blockchain/block-height'
-            },
-            {
-                title: 'Blockchain',
-                path: '/en/blockchain/blockchain'
-            },
-            {
-                title: 'Blockchain height',
-                path: '/en/blockchain/blockchain-height'
-            },
-            {
-                title: 'dApp',
-                path: '/en/blockchain/dapp'
-            },
-            {
-                title: 'dApp Script',
-                path: '/en/blockchain/dapp-script'
-            },
-            {
-                title: 'Mainnet',
-                path: '/en/blockchain/mainnet'
-            },
-            {
-                title: 'Node',
-                path: '/en/blockchain/node'
-            },
-            {
-                title: 'Smart account',
-                path: '/en/blockchain/smart-account'
-            },
-            {
-                title: 'Smart asset',
-                path: '/en/blockchain/smart-asset'
-            },
-            {
-                title: 'Test network',
-                path: '/en/blockchain/test-network'
-            },
-            {
-                title: 'Token',
-                path: '/en/blockchain/token',
-                children: [
-                    {
-                        title: 'Non-fungible token',
-                        path: '/en/blockchain/token/non-fungible-token'
-                    },
-                    {
-                        title: 'WAVES',
-                        path: '/en/blockchain/token/waves'
-                    },
-                    {
-                        title: 'WAVELET',
-                        path: '/en/blockchain/token/wavelet'
-                    },
-                    {
-                        title: 'WCT',
-                        path: '/en/blockchain/token/wct'
-                    }
-                ]
-            },
-            {
-                title: 'Transaction',
-                path: '/en/blockchain/transaction'
-            },
-            {
-                title: 'Transaction data structure',
-                path: '/en/blockchain/transaction-data-structure'
-            },
-            {
-                title: 'Transaction fee',
-                path: '/en/blockchain/transaction-fee'
-            },
-            {
-                title: 'Transaction proof',
-                path: '/en/blockchain/transaction-proof'
-            },
-            {
-                title: 'Transaction signature',
-                path: '/en/blockchain/transaction-signature'
-            },
-            {
-                title: 'Transaction type',
-                path: '/en/blockchain/transaction-type',
-                children: [
-                    {
-                        title: 'Alias transaction',
-                        path: '/en/blockchain/transaction-type/alias-transaction'
-                    },
-                    {
-                        title: 'Burn transaction',
-                        path: '/en/blockchain/transaction-type/burn-transaction'
-                    },
-                    {
-                        title: 'Data transaction',
-                        path: '/en/blockchain/transaction-type/data-transaction'
-                    }
-                ]
-            },
-            {
-                title: 'Transaction validation',
-                path: '/en/blockchain/transaction-validation'
-            }
-
-        ],
+        // '/en/node/': [
+        //     {
+        //         title: 'What is a dApp',
+        //         path: '/en/learn-about-waves-platform/what-is-a-dapp'
+        //     }
+        // ],
+        //
+        // '/en/ecosystem-applications/': [
+        //     {
+        //         title: 'What is a dApp',
+        //         path: '/en/learn-about-waves-platform/what-is-a-dapp'
+        //     }
+        // ],
+        //
+        // '/en/building-blockchain-apps/': [
+        //     {
+        //         title: 'What is a dApp',
+        //         path: '/en/learn-about-waves-platform/what-is-a-dapp'
+        //     }
+        // ],
+        //
+        // '/en/ride-programming-language/': [
+        //     {
+        //         title: 'What is a dApp',
+        //         path: '/en/learn-about-waves-platform/what-is-a-dapp'
+        //     }
+        // ],
+        //
+        // '/en/additional-services/': [
+        //     {
+        //         title: 'What is a dApp',
+        //         path: '/en/learn-about-waves-platform/what-is-a-dapp'
+        //     }
+        // ],
+        //
+        // '/en/miscellaneous/': [
+        //     {
+        //         title: 'What is a dApp',
+        //         path: '/en/learn-about-waves-platform/what-is-a-dapp'
+        //     }
+        // ],
+        //
+        // '/en/blockchain/': [
+        //     {
+        //         title: 'Account',
+        //         path: '/en/blockchain/account'
+        //     },
+        //     {
+        //         title: 'Account data storage',
+        //         path: '/en/blockchain/account-data-storage'
+        //     },
+        //     {
+        //         title: 'Account script',
+        //         path: '/en/blockchain/account-script'
+        //     },
+        //     {
+        //         title: 'Address',
+        //         path: '/en/blockchain/address'
+        //     },
+        //     {
+        //         title: 'Alias',
+        //         path: '/en/blockchain/alias'
+        //     },
+        //     {
+        //         title: 'Asset',
+        //         path: '/en/blockchain/asset'
+        //     },
+        //     {
+        //         title: 'Asset Script',
+        //         path: '/en/blockchain/asset-script'
+        //     },
+        //     {
+        //         title: 'Block',
+        //         path: '/en/blockchain/block'
+        //     },
+        //     {
+        //         title: 'Block height',
+        //         path: '/en/blockchain/block-height'
+        //     },
+        //     {
+        //         title: 'Blockchain',
+        //         path: '/en/blockchain/blockchain'
+        //     },
+        //     {
+        //         title: 'Blockchain height',
+        //         path: '/en/blockchain/blockchain-height'
+        //     },
+        //     {
+        //         title: 'dApp',
+        //         path: '/en/blockchain/dapp'
+        //     },
+        //     {
+        //         title: 'dApp Script',
+        //         path: '/en/blockchain/dapp-script'
+        //     },
+        //     {
+        //         title: 'Mainnet',
+        //         path: '/en/blockchain/mainnet'
+        //     },
+        //     {
+        //         title: 'Node',
+        //         path: '/en/blockchain/node'
+        //     },
+        //     {
+        //         title: 'Smart account',
+        //         path: '/en/blockchain/smart-account'
+        //     },
+        //     {
+        //         title: 'Smart asset',
+        //         path: '/en/blockchain/smart-asset'
+        //     },
+        //     {
+        //         title: 'Test network',
+        //         path: '/en/blockchain/test-network'
+        //     },
+        //     {
+        //         title: 'Token',
+        //         path: '/en/blockchain/token',
+        //         children: [
+        //             {
+        //                 title: 'Non-fungible token',
+        //                 path: '/en/blockchain/token/non-fungible-token'
+        //             },
+        //             {
+        //                 title: 'WAVES',
+        //                 path: '/en/blockchain/token/waves'
+        //             },
+        //             {
+        //                 title: 'WAVELET',
+        //                 path: '/en/blockchain/token/wavelet'
+        //             },
+        //             {
+        //                 title: 'WCT',
+        //                 path: '/en/blockchain/token/wct'
+        //             }
+        //         ]
+        //     },
+        //     {
+        //         title: 'Transaction',
+        //         path: '/en/blockchain/transaction'
+        //     },
+        //     {
+        //         title: 'Transaction data structure',
+        //         path: '/en/blockchain/transaction-data-structure'
+        //     },
+        //     {
+        //         title: 'Transaction fee',
+        //         path: '/en/blockchain/transaction-fee'
+        //     },
+        //     {
+        //         title: 'Transaction proof',
+        //         path: '/en/blockchain/transaction-proof'
+        //     },
+        //     {
+        //         title: 'Transaction signature',
+        //         path: '/en/blockchain/transaction-signature'
+        //     },
+        //     {
+        //         title: 'Transaction type',
+        //         path: '/en/blockchain/transaction-type',
+        //         children: [
+        //             {
+        //                 title: 'Alias transaction',
+        //                 path: '/en/blockchain/transaction-type/alias-transaction'
+        //             },
+        //             {
+        //                 title: 'Burn transaction',
+        //                 path: '/en/blockchain/transaction-type/burn-transaction'
+        //             },
+        //             {
+        //                 title: 'Data transaction',
+        //                 path: '/en/blockchain/transaction-type/data-transaction'
+        //             }
+        //         ]
+        //     },
+        //     {
+        //         title: 'Transaction validation',
+        //         path: '/en/blockchain/transaction-validation'
+        //     }
+        //
+        // ],
     }
 });

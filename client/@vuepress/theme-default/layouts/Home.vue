@@ -2,10 +2,7 @@
     <div :class="$style.root">
         <template v-if="$themeLocaleConfig.homePage">
             <SearchFrameContent
-                v-bind="{
-                    isShowSearchResultWindow,
-                }"
-                @close="isShowSearchResultWindow = false"
+                @close="$store.commit('setDisplaySearchResultWindow', false)"
             />
             <Navbar
                 ref="navbar"
@@ -144,37 +141,33 @@
   import WidthLimit from '@theme/components/WidthLimit'
   import Navbar from '@theme/components/Navbar'
   import TabsPanel from '@theme/components/TabsPanel'
-  import SearchBox from '@theme/components/SearchBox/'
   import CategoryCard from './components/CategoryCard'
   import Logotype from '@theme/components/Logotype'
   import Footer from '@theme/components/Footer'
-  import Suggestions from '@theme/components/SearchBox/Suggestions'
-  import SearchFrameContent from '@theme/components/SearchBox/SearchFrameContent'
+
   import watchLayoutSizeMixin from './mixins/watchLayoutSize'
-  import navbarResizeDetector from './mixins/navbarResizeDetector'
+  import navbarResizeDetectorMixin from './mixins/navbarResizeDetector'
+  import searchMixin from '@theme/mixins/search'
 
   export default {
     mixins: [
       watchLayoutSizeMixin,
-      navbarResizeDetector,
+      navbarResizeDetectorMixin,
+      searchMixin,
     ],
 
     components: {
       WidthLimit,
       Navbar,
-      SearchBox,
       CategoryCard,
       Logotype,
       Footer,
       TabsPanel,
-      Suggestions,
-      SearchFrameContent,
     },
 
     data () {
       return {
         currentTechnologyCategoryFilter: 'all',
-        isShowSearchResultWindow: false,
         suggestionsRef: null,
         isMounted: false,
         isHoldHiddenSuggestions: false,
@@ -182,6 +175,9 @@
     },
 
     computed: {
+      isShowSearchResultWindow() {
+        return this.$store.state.interface.isShowSearchResultWindow;
+      },
       categories() {
         return Object.values(this.$themeLocaleConfig.homePage.technologyList);
       },
@@ -196,31 +192,6 @@
           return category.type === this.currentTechnologyCategoryFilter;
         });
       },
-      query() {
-        return this.$store.state.search.query;
-      },
-      focusIndex() {
-        return this.$store.state.search.focusIndex;
-      },
-    },
-
-    watch: {
-      async isShowSearchResultWindow(isShow) {
-        if(isShow === false) {
-          this.$nextTick();
-          const searchBoxComponentExemplar = this.$refs.searchBox;
-          if(searchBoxComponentExemplar) {
-            searchBoxComponentExemplar.focus();
-          }
-        } else {
-            this.isHoldHiddenSuggestions = true;
-        }
-      },
-      query() {
-        if(!this.isShowSearchResultWindow) {
-          this.isHoldHiddenSuggestions = false;
-        }
-      },
     },
 
     beforeCreate() {
@@ -230,10 +201,6 @@
     },
 
     async mounted () {
-      this.suggestionsRef = this.$refs.suggestions;
-      if(!this.$isServer) {
-        window.test = this;
-      }
       await this.$nextTick();
       this.isMounted = true;
     },
@@ -246,32 +213,6 @@
       selectCategoryTag(categoryTagName) {
         this.currentTechnologyCategoryFilter = categoryTagName;
       },
-
-      suggestionsDown() {
-        if(!this.suggestionsRef) {
-          return
-        }
-        this.suggestionsRef.suggestionDown();
-      },
-
-      suggestionsUp() {
-        if(!this.suggestionsRef) {
-          return
-        }
-        this.suggestionsRef.suggestionUp();
-      },
-
-      search() {
-        if(this.focusIndex !== -1) {
-          if(!this.suggestionsRef) {
-            return
-          }
-          this.suggestionsRef.go();
-        } else {
-          this.isShowSearchResultWindow = true
-        }
-      },
-
     },
   }
 </script>

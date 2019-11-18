@@ -2,6 +2,7 @@
     <div
         :class="$style.root"
     >
+        <SearchFrameContent/>
         <LanguageNotification
             :is-show="isShowLanguageNotification"
             @close="$store.commit('setDisplayShowLanguageNotification', false)"
@@ -20,7 +21,7 @@
                 }"
                     :items="sidebarItems"
                     :mod="layoutWidth > 719 ? 1 : 0"
-                    :sidebar-min-width-px="leftSidebarMinWidthPx"
+                    :sidebar-min-width-px="leftSidebarMinWidthPxPrepare"
                     :is-resizable="layoutWidth > 719"
                     :options="{
                     isMobileMod: layoutWidth < 720,
@@ -87,6 +88,9 @@
                     :is-full-size="true"
                     :size="1"
                     :with-suggestions="false"
+                    @up="layoutWidth < 720 && suggestionsUp"
+                    @down="layoutWidth < 720 && suggestionsDown"
+                    @search="search"
                 />
                 <div
                     :class="$style.searchSuggestionsWrapper"
@@ -144,20 +148,21 @@
   import Page from '@theme/components/Page.vue'
   import Sidebar from '@theme/components/Sidebar/'
   import Logotype from '@theme/components/Logotype'
-  import SearchBox from '@theme/components/SearchBox/'
-  import watchLayoutSizeMixin from './mixins/watchLayoutSize'
-  import navbarResizeDetector from './mixins/navbarResizeDetector'
   import WidthLimit from '@theme/components/WidthLimit'
-  import Suggestions from '@theme/components/SearchBox/Suggestions'
   import PageNavigations from '@theme/components/PageNavigations'
   import LanguageNotification from '@theme/components/LanguageNotification'
+
+  import watchLayoutSizeMixin from './mixins/watchLayoutSize'
+  import navbarResizeDetectorMixin from './mixins/navbarResizeDetector'
+  import searchMixin from '@theme/mixins/search'
+
   import { resolveSidebarItems } from '../util'
 
   export default {
-
     mixins: [
       watchLayoutSizeMixin,
-      navbarResizeDetector,
+      navbarResizeDetectorMixin,
+      searchMixin,
     ],
 
     components: {
@@ -166,9 +171,7 @@
       Sidebar,
       Navbar,
       Logotype,
-      SearchBox,
       WidthLimit,
-      Suggestions,
       PageNavigations,
       LanguageNotification,
     },
@@ -210,6 +213,9 @@
       },
       leftSidebarMinWidthPx () {
         return this.$store.state.interface.leftSidebarMinWidthPx;
+      },
+      leftSidebarMinWidthPxPrepare() {
+        return this.layoutWidth > 719 ? this.leftSidebarMinWidthPx : 260;
       },
       layoutHeight() {
         return this.$store.state.interface.layoutHeight;
@@ -283,16 +289,11 @@
 
     mounted () {
       this.root__contentCellElement = this.$refs.root__contentCell.$el;
-      console.log('this.root__contentCellElement:', this.root__contentCellElement, this, this.layoutHeight, this.mainContentHeight, this.headerHeight);
       this.interval1 = null;
       if(this.layoutWidth > 719) {
         this.$store.commit('setDisplayLeftSidebar', true);
       }
-
       if(!this.$isServer) {
-
-
-
         window.addEventListener('scroll', this.windowScrollEventHandler);
 
         this.root__contentCellElement.addEventListener('transitionstart', this.transitionstartHandler, false);
@@ -315,7 +316,6 @@
     },
 
     methods: {
-
       computedPageNavigationsTranslateY() {
         const heightDifference = this.mainContentHeight - this.layoutHeight - this.headerHeight;
         if(heightDifference > 0) {
@@ -399,8 +399,6 @@
     }
   }
 </script>
-
-<style src="prismjs/themes/prism-tomorrow.css"></style>
 
 <style lang="stylus" module>
     .root {

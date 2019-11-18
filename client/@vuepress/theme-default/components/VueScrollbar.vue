@@ -13,7 +13,9 @@
     @ps-y-reach-end="scrollHandle"
     @ps-x-reach-start="scrollHandle"
     @ps-x-reach-end="scrollHandle">
-    <div ref="content">
+    <div
+        :class="$style.content"
+        ref="content">
       <slot/>
     </div>
   </div>
@@ -21,7 +23,6 @@
 
 <script>
 import PerfectScrollbar from 'perfect-scrollbar'
-// import elementResizeDetectorMaker from 'element-resize-detector'
 export default {
   name:'vue-scrollbar',
   props: {
@@ -64,12 +65,15 @@ export default {
     }
   },
   mounted() {
-    // for support ssr
+    /*for support ssr*/
     if (!this.$isServer) {
+      this.elementResizeDetector = null;
       this.__init();
-      this.$elementResizeDetector.listenTo(this.$refs.content, () => {
-        this.ps.update();
+      // this.$elementResizeDetector.listenTo(this.$refs.content, this.update);
+      this.elementResizeDetector = this.$elementResizeDetectorMaker({
+        strategy: 'scroll'
       });
+      this.elementResizeDetector.listenTo(this.$refs.content, this.update);
     }
   },
   updated() {
@@ -104,6 +108,7 @@ export default {
       }
     },
     __uninit() {
+      this.elementResizeDetector.removeListener(this.$refs.content, this.update);
       if (this.ps) {
         this.ps.destroy()
         this.ps = null
@@ -113,6 +118,12 @@ export default {
   },
 }
 </script>
+
+<style lang="stylus" module>
+    .content {
+        display flex
+    }
+</style>
 
 <style lang="stylus">
   /*
@@ -148,7 +159,7 @@ export default {
     -webkit-transition: background-color .2s linear, opacity .2s linear;
     width: 15px;
     /* there must be 'right' or 'left' for ps__rail-y */
-    right: 0;
+    /*right: 0;*/
     /* please don't change 'position' */
     position: absolute;
   }

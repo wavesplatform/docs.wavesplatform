@@ -156,82 +156,7 @@ module.exports = deepmerge(technologyListMixin, {
     editLinkText: 'Изменить эту страницу на GitHub',
     lastUpdated: 'Последние изменения',
 
-    nav: [
-        {
-            text: 'Главная',
-            link: '/ru/'
-        },
-        {
-            text: 'Блокчейн',
-            link: '/ru/blockchain/'
-        },
-        {
-            text: 'Waves протокол',
-            link: '/waves-protocol/'
-        },
-        {
-            text: 'Для разработчиков',
-            link: '/for-developers/'
-        },
-        {
-            text: 'Waves приложения',
-            items: [
-                {
-                    text: 'API',
-                    items: [
-                        {
-                            text: 'CLI',
-                            link: '/api/cli.html'
-                        },
-                        {
-                            text: 'Node',
-                            link: '/api/node.html'
-                        }
-                    ]
-                },
-                {
-                    text: 'Contributing Guide',
-                    items: [
-                        {
-                            text: 'Design Concepts',
-                            link: '/miscellaneous/design-concepts.html'
-                        },
-                        {
-                            text: 'FAQ',
-                            link: '/faq/'
-                        },
-                        {
-                            text: 'Glossary',
-                            link: '/miscellaneous/glossary.html'
-                        }
-                    ]
-                },
-                {
-                    text: 'Miscellaneous',
-                    items: [
-                        {
-                            text: 'Migrate from 0.x',
-                            link: '/miscellaneous/migration-guide.html'
-                        },
-                        {
-                            text: 'Changelog',
-                            link: 'https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md'
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            text: 'Проекты сообщества',
-            link: '/community-projects/'
-        },
-        {
-            text: 'Поддержка',
-            link: '/support/'
-        }
-    ],
     sidebar: {
-
         '/ru/learn-about-waves-platform/': [
             {
                 title: 'What is a dApp',
@@ -301,80 +226,16 @@ module.exports = deepmerge(technologyListMixin, {
             },
         ],
 
-
-        // '/ru/': [
+        // '/ru/blockchain/': [
         //     {
-        //         title: 'Обзор',
-        //         collapsable: true
+        //         title: 'Псевдоним',
+        //         path: '/ru/blockchain/account'
         //     },
         //     {
-        //         title: 'Waves environment',
-        //         collapsable: true,
-        //         children: [
-        //             {
-        //                 title: 'Waves Tokens',
-        //                 path: '/ru/waves-environment/waves-tokens'
-        //             },
-        //             {
-        //                 title: 'Custom Tokens',
-        //                 path: '/ru/waves-environment/custom-tokens'
-        //             }
-        //         ]
+        //         title: 'Псевдоним',
+        //         path: '/ru/blockchain/account'
         //     },
-        //     {
-        //         title: 'Getting started',
-        //         collapsable: false
-        //     },
-        //     {
-        //         title: 'Developer tools',
-        //         collapsable: false
-        //     },
-        //     {
-        //         title: 'Waves api & sdk',
-        //         collapsable: false
-        //     },
-        //     {
-        //         title: 'Smart contracts',
-        //         collapsable: false
-        //     },
-        //     {
-        //         title: 'Waves full node',
-        //         collapsable: false
-        //     },
-        //     {
-        //         title: 'Oracles developments',
-        //         collapsable: false
-        //     },
-        //     {
-        //         title: 'Waves client',
-        //         collapsable: false
-        //     },
-        //     {
-        //         title: 'Tutorials and articles',
-        //
-        //         collapsable: false,
-        //         children: [
-        //             {
-        //                 title: 'Test',
-        //                 path: 'developer-tools/faq'
-        //             }
-        //         ]
-        //     },
-        //     {
-        //         title: 'Proposals',
-        //         collapsable: false
-        //     }
-        // ],
-        '/ru/blockchain/': [
-            {
-                title: 'Псевдоним',
-                path: '/ru/blockchain/account'
-            },
-            {
-                title: 'Псевдоним',
-                path: '/ru/blockchain/account'
-            },
-        ]
+        // ]
 
     }
 });

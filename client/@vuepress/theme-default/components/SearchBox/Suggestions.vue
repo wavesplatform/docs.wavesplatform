@@ -21,6 +21,7 @@
         <a
             :href="suggestion.path"
             :class="$style.suggestion__link"
+            @click.prevent="clickOnLink(suggestionIndex)"
         >
           <span :class="$style.pageTitle">
               {{ suggestion.title || suggestion.path }}
@@ -129,6 +130,13 @@ export default {
   },
 
   methods: {
+
+    clickOnLink(suggestionIndex) {
+      this.$store.commit('setSearchSuggestionsFocusIndex', suggestionIndex);
+      this.go(suggestionIndex);
+      this.$store.commit('setSearchQuery', '');
+    },
+
     getPageLocalePath (page) {
       for (const localePath in this.$site.locales || {}) {
         if (localePath !== '/' && page.path.indexOf(localePath) === 0) {
