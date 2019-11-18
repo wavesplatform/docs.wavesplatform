@@ -137,7 +137,7 @@
         align-items flex-start
         overflow-x visible
         will-change transform
-        background-color #fff
+        background-color var(--color11)
         margin-top 1px
     }
 

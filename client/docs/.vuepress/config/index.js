@@ -5,7 +5,7 @@ const webpack = require('webpack');
 
 const enLocaleConfig = require('./locales/en');
 const ruLocaleConfig = require('./locales/ru');
-
+const colorationConfig = require('./colouration')
 const destDirectory = path.join(__dirname, '../../../vuepress');
 
 module.exports = (ctx) => {
@@ -43,6 +43,8 @@ module.exports = (ctx) => {
         ],
         theme: '../../../@vuepress/theme-default',
         themeConfig: {
+            activeColouration: 'dark',
+            colouration: colorationConfig,
             buildDate: new Date(),
             env: {
                 adminServerUrl: process.env.adminServerUrl

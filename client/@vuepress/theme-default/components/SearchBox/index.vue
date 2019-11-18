@@ -258,7 +258,7 @@ export default {
         outline none
         position relative
         transition all .2s ease
-        /*background #fff url(search-24-basic-300.svg) 0.6rem 0.5rem no-repeat*/
+        /*background var(--color11) url(search-24-basic-300.svg) 0.6rem 0.5rem no-repeat*/
         background-color $color2
         background-size 1rem
         &:focus {

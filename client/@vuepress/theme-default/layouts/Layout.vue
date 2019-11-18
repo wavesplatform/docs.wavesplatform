@@ -2,6 +2,7 @@
     <div
         :class="$style.root"
     >
+        <ThemeControl/>
         <SearchFrameContent/>
         <LanguageNotification
             :is-show="isShowLanguageNotification"
@@ -151,6 +152,7 @@
   import WidthLimit from '@theme/components/WidthLimit'
   import PageNavigations from '@theme/components/PageNavigations'
   import LanguageNotification from '@theme/components/LanguageNotification'
+  import ThemeControl from '@theme/components/ThemeControl'
 
   import watchLayoutSizeMixin from './mixins/watchLayoutSize'
   import navbarResizeDetectorMixin from './mixins/navbarResizeDetector'
@@ -174,6 +176,7 @@
       WidthLimit,
       PageNavigations,
       LanguageNotification,
+      ThemeControl,
     },
 
     data () {
@@ -437,7 +440,7 @@
     }
     .sidebar {
         font-size: 16px;
-        background-color: #fff;
+        background-color: var(--color11);
         /*width: $sidebarWidth;*/
         z-index 2
         height 100vh

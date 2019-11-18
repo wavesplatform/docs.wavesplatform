@@ -212,7 +212,7 @@ export default {
         }
     }
     .suggestions {
-        background #fff
+        background var(--color11)
         width 'calc(100% + %s)' % ($shadowWidth * 2)
         position relative
         /*border 1px solid darken($borderColor, 10%)*/

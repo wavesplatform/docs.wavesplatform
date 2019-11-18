@@ -201,7 +201,7 @@ export default {
     outline none
     position relative
     transition all .2s ease
-    background #fff url(search.svg) 0.6rem 0.5rem no-repeat
+    background var(--color11) url(search.svg) 0.6rem 0.5rem no-repeat
     background-size 1rem
     &:focus
       border-color $accentColor
@@ -209,7 +209,7 @@ export default {
       left 0
       width 12rem
   .suggestions
-    background #fff
+    background var(--color11)
     width 100%
     position absolute
     top 1.5rem

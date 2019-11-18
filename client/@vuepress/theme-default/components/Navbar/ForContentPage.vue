@@ -163,7 +163,7 @@
         height 72px
         border-bottom 1px solid $color3
         justify-content center
-        background-color #fff
+        background-color var(--color11)
         @media screen and (max-width: 719px) {
             height 57px
         }

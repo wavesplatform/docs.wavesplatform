@@ -262,7 +262,7 @@
     }
     .mainContentCell__row2 {
         z-index 1
-        background-color #fff
+        background-color var(--color11)
         padding 88px 0
         position relative
         @media screen and (max-width: 719px) {

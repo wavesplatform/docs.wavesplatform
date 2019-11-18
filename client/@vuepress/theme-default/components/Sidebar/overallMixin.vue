@@ -294,7 +294,7 @@ export default {
     .sidebarToggleTrigger {
         margin 15px
         cursor pointer
-        background #fff
+        background-color var(--color11)
         /*transition $transitionS1*/
         &:hover {
         }
@@ -342,7 +342,7 @@ export default {
     .sidebar {
         width 100%
         position relative
-        background #fff
+        background var(--color11)
         display flex
         flex-direction column
         justify-content flex-start

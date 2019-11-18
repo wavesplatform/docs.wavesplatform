@@ -319,6 +319,7 @@
 
     .editButton {
         padding 0
+        background-color var(--color11)
         & > * {
             display flex
         }

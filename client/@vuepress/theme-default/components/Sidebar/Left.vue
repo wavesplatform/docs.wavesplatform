@@ -209,7 +209,7 @@
         display flex
         padding 0
         justify-content center
-
+        background-color var(--color11)
     }
     .sidebar {
         height 100%

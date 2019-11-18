@@ -207,8 +207,8 @@
         justify-content space-between
         padding-top $indent4
         padding-bottom $indent4
-        background-color rgba(255, 255, 255, 1)
-        border-top 1px solid #fff
+        background-color var(--color11)
+        border-top 1px solid var(--color11)
         box-shadow inset 0 1px 0 0 $borderColor
     }
     .pageNavigations__side__text {

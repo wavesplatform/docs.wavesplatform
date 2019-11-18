@@ -47,7 +47,7 @@
         border-bottom 1px solid $color3
         justify-content center
         width 100%
-        background-color #fff
+        background-color var(--color11)
         @media screen and (max-width: 719px) {
             height 57px
         }
@@ -142,7 +142,7 @@
                 &:after {
                     border-left: $triangleSize solid transparent;
                     border-right: $triangleSize solid transparent;
-                    border-bottom: $triangleSize solid #fff;
+                    border-bottom: $triangleSize solid var(--color11);
                     margin-top 1px
                 }
             }
