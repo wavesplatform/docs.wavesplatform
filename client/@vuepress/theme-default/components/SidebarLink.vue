@@ -1,5 +1,6 @@
 <script>
   import { isActive, hashRE, groupHeaders } from '../util'
+
   export default {
     /*functional: true,*/
 
@@ -15,17 +16,17 @@
       mod: {
         type: Number,
         default: 0
-      },
+      }
     },
 
     computed: {
-        currentActiveHeaderSlug() {
-            this.$store.state.currentActiveHeaderSlug;
-        }
+      currentActiveHeaderSlug () {
+        this.$store.state.currentActiveHeaderSlug
+      }
     },
 
     methods: {
-      renderLink(h, to, text, active) {
+      renderLink (h, to, text, active) {
         return h('router-link', {
           props: {
             to,
@@ -36,42 +37,31 @@
             this.$style.sidebarLink,
             this.$style[`sidebarLink_mod${this.mod}`],
             {
-                [this.$style.sidebarLink_active]: active,
+              [this.$style.sidebarLink_active]: active
             }
           ],
-            attrs: {
-              'data-text': text,
-            }
+          attrs: {
+            'data-text': text
+          }
         }, [
           text
         ])
       },
 
-      renderChildren(h, { children, path, route, $store, maxDepth, depth = 1, mod }) {
-
+      renderChildren (h, { children, path, route, $store, maxDepth, depth = 1, mod }) {
         if (!children) {
           return null
         }
-
-        if(!children || depth > maxDepth) {
-
-          return null;
+        if (!children || depth > maxDepth) {
+          return null
         }
-
-        if(!children && !children.length) {
-          // $store.commit('setNavbarSubHeaders', []);
-          return null;
+        if (!children && !children.length) {
+          return null
         }
-
-
-        // $store.commit('setNavbarSubHeaders', children);
-
-
-
         const listWithHeadersAnchors = h('ul', {
           class: this.$style.sidebarSubHeaders
         }, children.map(child => {
-          const active = isActive(route, path + '#' + child.slug) || this.currentActiveHeaderSlug === child.slug;
+          const active = isActive(route, path + '#' + child.slug) || this.currentActiveHeaderSlug === child.slug
           const elements = [
             this.renderLink(h, path + '#' + child.slug, child.title, active),
             this.renderChildren(h, {
@@ -83,32 +73,30 @@
               depth: depth + 1,
               mod
             })
-          ];
+          ]
           return h('li',
             {
-              class: this.$style.sidebarSubHeader,
+              class: this.$style.sidebarSubHeader
             },
             elements
           )
-        }));
-
-
-        return mod === 1 ? null : listWithHeadersAnchors;
+        }))
+        return mod === 1 ? null : listWithHeadersAnchors
       }
     },
 
     render (h) {
       const {
-          $page,
-          $site,
-          $route,
-          $store,
-          $themeConfig,
-          $themeLocaleConfig,
-          item,
-          sidebarDepth,
-          mod
-        } = this;
+        $page,
+        $site,
+        $route,
+        $store,
+        $themeConfig,
+        $themeLocaleConfig,
+        item,
+        sidebarDepth,
+        mod
+      } = this
 
       const selfActive = isActive($route, item.path)
 
@@ -128,19 +116,20 @@
         || $themeConfig.displayAllHeaders
 
       if (item.type === 'auto') {
-        return [link, this.renderChildren(h, {
+        return h('div', {
+          class: this.$style.sidebarLinkWrapper
+        }, [link, this.renderChildren(h, {
           children: item.children,
           path: item.basePath,
           route: $route,
           $store,
           maxDepth,
           mod
-        })]
-
+        })])
 
       } else if ((active || displayAllHeaders) && item.headers && !hashRE.test(item.path)) {
 
-        const children = groupHeaders(item.headers);
+        const children = groupHeaders(item.headers)
 
         const renderedChildren = this.renderChildren(h, {
           children,
@@ -149,24 +138,23 @@
           $store,
           maxDepth,
           mod
-        });
+        })
 
-        let result = [];
+        let result = []
 
-        if(mod === 1) {
-          result = [link];
+        if (mod === 1) {
+          result = [link]
         }
 
-        result.push(renderedChildren);
+        result.push(renderedChildren)
 
         return h('div', {
-          class: this.$style.sidebarLinkWrapper,
-        }, result);
-
+          class: this.$style.sidebarLinkWrapper
+        }, result)
 
       } else {
 
-        return (mod === 1 || mod === 0) && link;
+        return (mod === 1 || mod === 0) && link
       }
     }
   }

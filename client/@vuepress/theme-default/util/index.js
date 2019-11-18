@@ -10,7 +10,9 @@ export function normalize (path) {
 }
 
 export function getHash (path) {
-
+    if(!path) {
+        return
+    }
   const match = path.match(hashRE);
   if (match) {
     return match[0];

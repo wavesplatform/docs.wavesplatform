@@ -1,1 +1,0 @@
-RIDE MAIN PAGE
