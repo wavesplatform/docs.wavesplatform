@@ -227,10 +227,10 @@ export default {
             }
         }
         :global(.sidebar) {
-            /*border-right: 1px solid $borderColor;*/
+            /*border-right: 1px solid var(--color3);*/
         }
         .sidebarLinks {
-            border-right: 1px solid $borderColor;
+            border-right: 1px solid var(--color3);
         }
         .sidebarFooter {
             justify-content flex-end
@@ -252,7 +252,7 @@ export default {
             }
         }
         :global(.sidebar) {
-            /*border-left: 1px solid $borderColor;*/
+            /*border-left: 1px solid var(--color3);*/
         }
         .sidebarFooter {
             justify-content flex-start

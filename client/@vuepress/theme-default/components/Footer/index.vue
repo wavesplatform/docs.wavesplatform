@@ -80,12 +80,12 @@
     .link {
         transition $transitionS1
         &:hover {
-            color $color7
+            color var(--color7)
         }
     }
     .root {
         padding 64px 0
-        background-color $color3
+        background-color var(--color3)
         display flex
         justify-content center
         flex-wrap wrap

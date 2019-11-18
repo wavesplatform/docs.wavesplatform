@@ -208,14 +208,14 @@ export default {
         overflow hidden
         padding 0 $shadowWidth $shadowWidth $shadowWidth
         .suggestions {
-            border-top 1px solid $color3
+            border-top 1px solid var(--color3)
         }
     }
     .suggestions {
         background var(--color11)
         width 'calc(100% + %s)' % ($shadowWidth * 2)
         position relative
-        /*border 1px solid darken($borderColor, 10%)*/
+        /*border 1px solid darken(var(--color3), 10%)*/
         border-radius 0 0 4px 4px
         padding 20px
         list-style-type none
@@ -235,10 +235,10 @@ export default {
         border-radius 4px
         cursor pointer
         &:hover {
-            background-color $color1
+            background-color var(--color1)
         }
         &.focused {
-            background-color $color2
+            background-color var(--color2)
             .suggestion__link {
                 color $accentColor
             }
@@ -256,7 +256,7 @@ export default {
                 font-style: normal;
                 line-height: 1.75;
                 letter-spacing: normal;
-                color $color7
+                color var(--color7)
                 margin-right 12px
                 @media screen and (max-width: 719px) {
                     font-size: 14px;

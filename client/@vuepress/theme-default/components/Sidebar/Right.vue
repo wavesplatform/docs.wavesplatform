@@ -167,14 +167,14 @@
         padding-right 4px
     }
     .toggleTrigger {
-        /*border-left 1px solid $borderColor*/
-        /*border-bottom 1px solid $borderColor*/
+        /*border-left 1px solid var(--color3)*/
+        /*border-bottom 1px solid var(--color3)*/
         transition left $transitionS1
         position: relative;
         left: 0;
     }
     .sidebar {
-        border-left 1px solid $borderColor
+        border-left 1px solid var(--color3)
         max-height 100%
         background-color transparent
         height 100%
@@ -188,7 +188,7 @@
     }
     .onThisPageWrapper {
         display inline-flex
-        /*border-bottom 1px solid $borderColor*/
+        /*border-bottom 1px solid var(--color3)*/
         width 100%
         /*justify-content center*/
         /*width 100%*/

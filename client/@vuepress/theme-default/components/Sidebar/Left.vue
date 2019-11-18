@@ -184,7 +184,7 @@
     .sidebarLinks {
         padding-top 24px
         height 100%
-        border-top 1px solid $borderColor
+        border-top 1px solid var(--color3)
     }
     .backToIndexWrapper {
         display flex

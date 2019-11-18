@@ -133,7 +133,7 @@
     .link {
         padding 5px
         &:hover {
-            background-color $color2
+            background-color var(--color2)
             border-radius 4px
             .title__text {
                 text-decoration underline
@@ -164,7 +164,7 @@
         /*border 1px solid #ddd*/
         /*margin 3px*/
         padding 1px
-        color $color7
+        color var(--color7)
         font-size: 14px;
         font-weight: normal;
         font-stretch: normal;

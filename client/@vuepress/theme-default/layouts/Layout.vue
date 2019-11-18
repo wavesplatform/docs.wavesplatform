@@ -481,7 +481,7 @@
     .root__cell2 {
         flex-shrink 0
         padding 15px 20px
-        border-bottom 1px solid $borderColor
+        border-bottom 1px solid var(--color3)
     }
 
     .root__contentCell {
@@ -499,7 +499,7 @@
         position relative
         padding-top 20px
         padding-bottom 20px
-        border-bottom 1px solid $borderColor
+        border-bottom 1px solid var(--color3)
         z-index 1
     }
 

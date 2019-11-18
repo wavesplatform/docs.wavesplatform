@@ -283,6 +283,7 @@
         width calc(100% - 40px)
         margin auto
         border-radius 6px
+        background-color var(--color11)
         &:not(:global(.is-fullscreen)) {
             max-height 850px
         }
@@ -297,7 +298,7 @@
 
     .root__cell1 {
         flex-shrink 0
-        border-bottom 1px solid $color3
+        border-bottom 1px solid var(--color3)
         display flex
         justify-content space-between
         padding-bottom: 16px;
@@ -330,7 +331,7 @@
         padding-top 26px
         padding-bottom 22px
         text-transform uppercase
-        border-bottom 1px solid $color3
+        border-bottom 1px solid var(--color3)
     }
     .minimumChartsLimitation {
         color $color8
@@ -351,7 +352,7 @@
         letter-spacing: normal;
     }
     .root__cell2__part2 {
-        color $color7
+        color var(--color7)
         margin-left 5px
         font-size: 16px;
         font-weight: normal;
@@ -385,7 +386,7 @@
         margin-top 10px
         &:not(:first-child) {
             padding-top 4px
-            border-top 1px solid $color3
+            border-top 1px solid var(--color3)
         }
     }
     .showMoreButtonWrapper {

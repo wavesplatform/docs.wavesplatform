@@ -93,6 +93,7 @@
         height 100%
         display flex
         position relative
+        background-color var(--color11)
     }
     .root__contentWrapper {
         display flex
@@ -152,7 +153,7 @@
         font-style: normal;
         line-height: normal;
         letter-spacing: normal;
-        color $color7
+        color var(--color7)
         border none
         padding 0
         margin-top 7px

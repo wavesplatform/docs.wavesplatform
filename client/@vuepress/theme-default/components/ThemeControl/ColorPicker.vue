@@ -43,6 +43,7 @@
     }
     .name {
         background-color #fff
+        color #000
     }
     .value {
         margin-left 10px

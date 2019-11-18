@@ -1,5 +1,6 @@
 <template>
     <div :class="$style.root">
+        <ThemeControl/>
         <template v-if="$themeLocaleConfig.homePage">
             <SearchFrameContent
                 @close="$store.commit('setDisplaySearchResultWindow', false)"
@@ -141,7 +142,7 @@
   import WidthLimit from '@theme/components/WidthLimit'
   import Navbar from '@theme/components/Navbar'
   import TabsPanel from '@theme/components/TabsPanel'
-  import CategoryCard from './components/CategoryCard'
+  import CategoryCard from '@theme/components/CategoryCard'
   import Logotype from '@theme/components/Logotype'
   import Footer from '@theme/components/Footer'
 
@@ -237,7 +238,7 @@
         display flex
         flex-direction column
         justify-content space-between
-        background-color $color1
+        background-color var(--color1)
     }
     .mainContentCell {
         position relative

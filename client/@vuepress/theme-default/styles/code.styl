@@ -17,7 +17,7 @@
     line-height 1.4
     padding 1.25rem 1.5rem
     margin 0.85rem 0
-    background-color $color1
+    background-color var(--color1)
     border-radius 6px
     overflow auto
     code
@@ -28,7 +28,7 @@
 
 div[class*="language-"]
   position relative
-  background-color $color1
+  background-color var(--color1)
   border-radius 6px
   .highlight-lines
     user-select none
@@ -95,7 +95,7 @@ div[class*="language-"]
       height 100%
       border-radius 6px 0 0 6px
       border-right 1px solid rgba(0, 0, 0, 66%)
-      background-color $color1
+      background-color var(--color1)
 
 
 for lang in $codeLang
@@ -144,7 +144,7 @@ div[class~="language-php"]:before
 
 code[class*="language-"],
 pre[class*="language-"] {
-    color: $color10;
+    color: var(--color10);
     background: none;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     font-size: 1em;

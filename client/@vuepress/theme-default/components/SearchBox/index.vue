@@ -259,11 +259,11 @@ export default {
         position relative
         transition all .2s ease
         /*background var(--color11) url(search-24-basic-300.svg) 0.6rem 0.5rem no-repeat*/
-        background-color $color2
+        background-color var(--color2)
         background-size 1rem
         &:focus {
             box-shadow inset 0 0 0 1px #EBEEF5, 0 2px 12px 0 rgba(0, 0, 0, .2)
-            /*border 1px solid $color3*/
+            /*border 1px solid var(--color3)*/
         }
         &::placeholder {
             font-size: 24px;
@@ -275,7 +275,7 @@ export default {
             color $color9
         }
         /*&.focused {
-            border-color $borderColor
+            border-color var(--color3)
             cursor text
             left 0
             width 100%

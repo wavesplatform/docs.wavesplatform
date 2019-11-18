@@ -181,7 +181,7 @@ export default {
     height: 2rem
     color lighten($textColor, 25%)
     display inline-block
-    border 1px solid darken($borderColor, 10%)
+    border 1px solid darken(var(--color3), 10%)
     border-radius 2rem
     font-size 0.9rem
     line-height 2rem
@@ -213,7 +213,7 @@ export default {
     width 100%
     position absolute
     top 1.5rem
-    border 1px solid darken($borderColor, 10%)
+    border 1px solid darken(var(--color3), 10%)
     border-radius 6px
     padding 0.4rem
     list-style-type none

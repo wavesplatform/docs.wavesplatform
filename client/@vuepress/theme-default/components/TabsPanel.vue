@@ -141,7 +141,7 @@
             cursor pointer
             color $color8
             &:hover {
-                color $color7
+                color var(--color7)
             }
         }
         &:not(:first-child) {

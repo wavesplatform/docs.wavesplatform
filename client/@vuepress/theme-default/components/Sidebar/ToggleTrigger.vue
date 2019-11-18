@@ -46,7 +46,7 @@ export default {
     }
     &:not(._isShow) {
         /*border-radius 0 0 4px 4px
-        border-right 1px solid $borderColor*/
+        border-right 1px solid var(--color3)*/
       &._side_left {
         .iconWrapper {
           transform rotate(-180deg)

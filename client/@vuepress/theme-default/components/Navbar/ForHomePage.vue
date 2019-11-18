@@ -44,7 +44,7 @@
         /*padding 20px 0*/
         display flex
         height 72px
-        border-bottom 1px solid $color3
+        border-bottom 1px solid var(--color3)
         justify-content center
         width 100%
         background-color var(--color11)
@@ -136,7 +136,7 @@
                 &:before {
                     border-left: $triangleSize solid transparent;
                     border-right: $triangleSize solid transparent;
-                    border-bottom: $triangleSize solid $borderColor;
+                    border-bottom: $triangleSize solid var(--color3);
                 }
 
                 &:after {

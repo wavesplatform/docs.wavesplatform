@@ -50,7 +50,7 @@
         if(!this.currentColorationName) {
           return
         }
-        return Object.entries(this.$themeConfig.colouration[this.currentColorationName]).reduce((accumulator, elementEntry) => {
+        return Object.entries(this.$themeConfig.colouration[this.currentColorationName].colors).reduce((accumulator, elementEntry) => {
           accumulator[elementEntry[0]] = elementEntry[1];
           return accumulator;
         }, {});
@@ -103,6 +103,7 @@
         border 1px solid #f00
         padding 20px
         visibility hidden
+        color #000
     }
     .visibilityCheckbox {
         visibility visible

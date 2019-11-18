@@ -161,7 +161,7 @@
         /*padding 20px 0*/
         display flex
         height 72px
-        border-bottom 1px solid $color3
+        border-bottom 1px solid var(--color3)
         justify-content center
         background-color var(--color11)
         @media screen and (max-width: 719px) {

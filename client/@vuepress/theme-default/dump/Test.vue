@@ -15,7 +15,7 @@
   import Footer from '@theme/components/Footer'
   import Page from '@theme/components/Page.vue'
 
-  import watchLayoutSizeMixin from './mixins/watchLayoutSize'
+  import watchLayoutSizeMixin from '../layouts/mixins/watchLayoutSize'
 
   export default {
 

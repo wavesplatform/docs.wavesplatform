@@ -181,7 +181,7 @@
         align-items center
         justify-content space-between
         &:hover {
-            background-color $color1
+            background-color var(--color1)
         }
         &:not(.langList__item_active) {
             cursor pointer
