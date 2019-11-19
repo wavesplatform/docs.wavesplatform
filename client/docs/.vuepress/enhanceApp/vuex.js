@@ -35,7 +35,6 @@ export default (context) => {
             isShowSearchResultWindow: false,
         },
         isShowLanguageNotification: false,
-        navbarSubHeaders: [],
         // isProcessDev: process.env.isDev,
         search: {
             query: '',
@@ -115,8 +114,6 @@ export default (context) => {
             state.interface.layoutHeight = height;
         },
 
-        setNavbarSubHeaders: set('navbarSubHeaders'),
-
         setCurrentLanguage: set('currentLanguage'),
 
         setLeftSidebarOpenedGroups: set('leftSidebarOpenedGroups'),
@@ -137,7 +134,28 @@ export default (context) => {
     let vuexPersistence = null;
     if (!isServer) {
         vuexPersistence = new VuexPersistence({
-            storage: window.localStorage
+            storage: window.localStorage,
+            reducer: (state) => {
+                const {
+                    // documentElementScrollTop,
+                    // layoutWidth,
+                    // layoutHeight,
+                    // headerHeight,
+                    leftSidebarWidth,
+                    isOpenLeftSidebar,
+                    rightSidebarWidth,
+                    isOpenRightSidebar,
+                    // isShowSearchResultWindow
+                } = state.interface;
+                return {
+                    interface: {
+                        leftSidebarWidth,
+                        isOpenLeftSidebar,
+                        rightSidebarWidth,
+                        isOpenRightSidebar,
+                    },
+                }
+            },
         });
     }
 
@@ -148,7 +166,7 @@ export default (context) => {
         modules,
         mutations,
         actions,
-        // plugins: vuexPersistence ? [vuexPersistence.plugin] : [],
+        plugins: vuexPersistence ? [vuexPersistence.plugin] : [],
     })
 
     // if (!isServer) {
