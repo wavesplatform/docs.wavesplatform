@@ -17,6 +17,7 @@ export default (context) => {
         defaultLanguage: '',
         currentLanguage: '',
         interface: {
+            isUserNaturalScrollState: false,
             isScrollTopState: false,
             documentElementScrollTop: 0,
             layoutWidth,
@@ -57,6 +58,11 @@ export default (context) => {
     }
 
     const mutations = {
+
+        setUserNaturalScrollState(state, isUserNaturalScrollState) {
+            state.interface.isUserNaturalScrollState = isUserNaturalScrollState
+        },
+
         setActiveColoration(state, colorationName) {
             state.themeConfig.activeColouration = colorationName;
         },

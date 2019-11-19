@@ -40,7 +40,7 @@
 
 <script>
   import WidthLimit from '@theme/components/WidthLimit'
-  import { isActive, resolvePage, outboundRE, endingSlashRE } from '../util'
+  import { outboundRE, endingSlashRE } from '../util'
 
   export default {
 
@@ -54,14 +54,12 @@
 
     data() {
       return {
-        pageAnchorTargetElements: [],
         pageNavigationsTranslateY: 0,
         headersElements: [],
-        intersectionObserverOptions: {
-            threshold: 0.0,
-            rootMargin: '0% 0px',
-        },
-
+        // intersectionObserverOptions: {
+        //     threshold: 0.0,
+        //     rootMargin: '0% 0px',
+        // },
       }
     },
 
@@ -133,40 +131,30 @@
     },
 
     mounted () {
-
-      // console.log('this.$router', this.$router, this.$route.hash);
       //   this.interactionObserver = new IntersectionObserver(this.intersectionObserverCallback, this.intersectionObserverOptions);
-
       if(!this.$isServer) {
-        this.setCurrentActiveHeaderIdTimeout = null;
+        console.log('this:', this);
         this.updateHeadersElements();
-        this.updateListPageAnchorTargetElements();
       }
-
     },
 
     updated () {
       if (!this.$isServer) {
         this.updateHeadersElements()
-        this.updateListPageAnchorTargetElements()
       }
     },
 
     methods: {
       setCurrentActiveHeaderId() {
-        if(this.setCurrentActiveHeaderIdTimeout) {
+        if(this.isScrollTopState) {
           return;
         }
-        this.setCurrentActiveHeaderIdTimeout = setTimeout(() => {
-          if(this.isScrollTopState) {
-            return;
-          }
-          const currentActiveHeaderId = this.getCurrentActiveHeaderId();
-          if(decodeURIComponent(this.$route.hash).slice(1) !== currentActiveHeaderId) {
-            this.$router.push({hash: currentActiveHeaderId})
-          }
-          this.setCurrentActiveHeaderIdTimeout = null;
-        }, 0);
+        const currentActiveHeaderId = this.getCurrentActiveHeaderId();
+        if(decodeURIComponent(this.$route.hash).slice(1) !== currentActiveHeaderId) {
+          this.$store.commit('setUserNaturalScrollState', true);
+          this.$router.push({hash: currentActiveHeaderId})
+          setTimeout(() => this.$store.commit('setUserNaturalScrollState', false), 0)
+        }
       },
 
       getCurrentActiveHeaderId() {
@@ -186,7 +174,6 @@
       },
 
       // intersectionObserverCallback (entries, observer) {
-      //
       //   entries.forEach(entry => {
       //     if(entry.isIntersecting) {
       //       console.log('test:', entry.target.id, entry);
@@ -200,22 +187,18 @@
 
       updateHeadersElements () {
         const headers = this.$page.headers
-        // console.log('updateHeadersElements:', headers)
         // this.headersElements.forEach(headersElement => {
         //   this.interactionObserver.unobserve(headersElement);
         // });
-
         if (!headers || !headers.length) {
           return
         }
-
         this.headersElements = headers.map(header => {
           const headerElement = document.querySelector(`#${header.slug}`);
           // this.interactionObserver.observe(headerElement);
           return headerElement;
         });
       },
-
 
       getFlatSidebarItems(items, accumulator = []) {
         return items.reduce((accumulator, item) => {
@@ -227,24 +210,6 @@
         }, accumulator);
       },
 
-      updateListPageAnchorTargetElements() {
-        const documentElement = document.documentElement
-        const headers = this.$page.headers;
-        if(!headers || !headers.length) {
-          this.pageAnchorTargetElements = [];
-          return;
-        }
-        this.pageAnchorTargetElements = headers.map(header => {
-          const targetElement = document.querySelector('#' + header.slug);
-          /*const documentRect = documentElement.getBoundingClientRect()
-          const elementRect = targetElement.getBoundingClientRect()
-          return {
-            y: elementRect.top - documentRect.top - this.headerHeight,
-          }*/
-          return targetElement;
-        });
-
-      },
 
       createEditLink (repo, docsRepo, docsDir, docsBranch, path) {
         const bitbucket = /bitbucket.org/
@@ -316,7 +281,6 @@
         visibility visible
     }
 
-
     .editButton {
         padding 0
         background-color var(--color11)
@@ -324,6 +288,7 @@
             display flex
         }
     }
+
     .pageContent {
         :global(h1:first-of-type) {
             padding-right $indent2

@@ -190,6 +190,9 @@
     },
 
     computed: {
+      isUserNaturalScrollState() {
+        return this.$store.state.interface.isUserNaturalScrollState;
+      },
       documentElementScrollTop() {
         return this.$store.state.interface.documentElementScrollTop;
       },
@@ -311,6 +314,8 @@
         this.elementResizeDetector.listenTo(this.$refs.root__contentCell.$el, this.setMainContentHeightInStore);
 
         this.computedPageNavigationsTranslateY();
+
+        this.scrollBehavior(this.$route);
       }
     },
 
@@ -365,6 +370,9 @@
       },
 
       scrollBehavior(to, from, savedPosition) {
+        if(this.isUserNaturalScrollState) {
+          return
+        }
         this.$store.commit('setScrollTopState', true);
         if (savedPosition) {
           return window.scrollTo({

@@ -145,6 +145,7 @@
   import CategoryCard from '@theme/components/CategoryCard'
   import Logotype from '@theme/components/Logotype'
   import Footer from '@theme/components/Footer'
+  import ThemeControl from '@theme/components/ThemeControl'
 
   import watchLayoutSizeMixin from './mixins/watchLayoutSize'
   import navbarResizeDetectorMixin from './mixins/navbarResizeDetector'
@@ -164,6 +165,7 @@
       Logotype,
       Footer,
       TabsPanel,
+      ThemeControl,
     },
 
     data () {
