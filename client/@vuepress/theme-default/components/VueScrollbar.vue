@@ -69,7 +69,6 @@ export default {
     if (!this.$isServer) {
       this.elementResizeDetector = null;
       this.__init();
-      // this.$elementResizeDetector.listenTo(this.$refs.content, this.update);
       this.elementResizeDetector = this.$elementResizeDetectorMaker({
         strategy: 'scroll'
       });

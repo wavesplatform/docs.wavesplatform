@@ -6,8 +6,8 @@ export default (context) => {
 
     if (!isServer) {
         Vue.prototype.$elementResizeDetectorMaker = elementResizeDetectorMaker;
-        Vue.prototype.$elementResizeDetector = elementResizeDetectorMaker({
-            strategy: 'scroll'
-        });
+        // Vue.prototype.$elementResizeDetector = elementResizeDetectorMaker({
+        //     strategy: 'scroll'
+        // });
     }
 }

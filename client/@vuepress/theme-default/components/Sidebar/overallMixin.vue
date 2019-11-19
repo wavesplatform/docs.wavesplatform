@@ -100,8 +100,13 @@ export default {
 
   async mounted() {
     this.sidebarElement = this.$refs.sidebar;
-    await this.$nextTick();
-    this.setSidebarResizeDetector();
+    if(!this.$isServer) {
+      this.elementResizeDetector = this.$elementResizeDetectorMaker({
+        strategy: 'scroll'
+      });
+      await this.$nextTick();
+      this.setSidebarResizeDetector();
+    }
   },
 
   updated() {
@@ -146,11 +151,11 @@ export default {
     },
 
     setSidebarResizeDetector() {
-      this.$elementResizeDetector.listenTo(this.sidebarElement, this.sidebarResizeDetectorHandler);
+      this.elementResizeDetector.listenTo(this.sidebarElement, this.sidebarResizeDetectorHandler);
     },
 
     removeSidebarResizeDetector() {
-      this.$elementResizeDetector.removeListener(this.sidebarElement, this.sidebarResizeDetectorHandler);
+      this.elementResizeDetector.removeListener(this.sidebarElement, this.sidebarResizeDetectorHandler);
     },
 
     resizeTriggerMouseup() {

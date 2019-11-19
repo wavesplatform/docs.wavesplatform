@@ -297,6 +297,9 @@
         this.$store.commit('setDisplayLeftSidebar', true);
       }
       if(!this.$isServer) {
+        this.elementResizeDetector = this.$elementResizeDetectorMaker({
+          strategy: 'scroll'
+        });
         window.addEventListener('scroll', this.windowScrollEventHandler);
 
         this.root__contentCellElement.addEventListener('transitionstart', this.transitionstartHandler, false);
@@ -305,7 +308,7 @@
         this.windowScrollEventHandler();
         this.computedAndSetMainContentPositionLeft();
 
-        this.$elementResizeDetector.listenTo(this.$refs.root__contentCell.$el, this.setMainContentHeightInStore);
+        this.elementResizeDetector.listenTo(this.$refs.root__contentCell.$el, this.setMainContentHeightInStore);
 
         this.computedPageNavigationsTranslateY();
       }
@@ -315,7 +318,7 @@
       window.removeEventListener('scroll', this.windowScrollEventHandler);
       this.root__contentCellElement.removeEventListener('transitionstart', this.transitionstartHandler, false);
       this.root__contentCellElement.removeEventListener('transitionend', this.transitionendHandler, false);
-      this.$elementResizeDetector.removeListener(this.$refs.page.$el, this.setMainContentHeightInStore);
+      this.elementResizeDetector.removeListener(this.$refs.page.$el, this.setMainContentHeightInStore);
     },
 
     methods: {
@@ -357,7 +360,7 @@
             callback(element)
           }
         }
-        this.$elementResizeDetector.listenTo(element, resizeFunction)
+        this.elementResizeDetector.listenTo(element, resizeFunction)
         return resizeFunction
       },
 

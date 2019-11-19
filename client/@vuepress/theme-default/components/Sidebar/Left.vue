@@ -49,7 +49,8 @@
                         :class="$styleLeft.backToIndex"
                     >
                         <i class="el-icon-arrow-left"></i>
-                        {{backToIndexButtonWidth > 100 ? $themeLocaleConfig.backToIndexButtonText : ''}}
+                        <!--{{backToIndexButtonWidth > 100 ? $themeLocaleConfig.backToIndexButtonText : ''}}-->
+                        {{$themeLocaleConfig.backToIndexButtonText}}
                     </el-button>
                 </a>
             </div>
@@ -160,17 +161,14 @@
     },
 
     mounted () {
-      console.log('this:', this);
-
-      const backToIndexButtonRef = this.$refs.backToIndexButton;
-      if(backToIndexButtonRef) {
-        this.$elementResizeDetector.listenTo(backToIndexButtonRef.$el, this.backToIndexButtonResize);
-      }
-
+      // const backToIndexButtonRef = this.$refs.backToIndexButton;
+      // if(backToIndexButtonRef) {
+      //   this.$elementResizeDetector.listenTo(backToIndexButtonRef.$el, this.backToIndexButtonResize);
+      // }
     },
 
     beforeDestroy () {
-      this.$elementResizeDetector.removeListener(this.$refs.backToIndexButton.$el, this.backToIndexButtonResize);
+      // this.$elementResizeDetector.removeListener(this.$refs.backToIndexButton.$el, this.backToIndexButtonResize);
     }
 
   }

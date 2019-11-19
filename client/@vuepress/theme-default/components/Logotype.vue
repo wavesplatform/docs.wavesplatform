@@ -39,7 +39,6 @@ export default {
     },
     computed: {
       logoSvg() {
-        console.log('this.$themeConfig.colouration:', this.$themeConfig.colouration, this.$themeConfig.activeColouration);
         return this.$themeConfig.colouration[this.$themeConfig.activeColouration].logoSvg;
       },
     },
@@ -47,6 +46,14 @@ export default {
 </script>
 
 <style lang="stylus" module>
+    .root {
+        display flex
+        align-items center
+        justify-content center
+        & > :global(svg) {
+            width 100%
+        }
+    }
     .text {
         font-size 25px
         font-weight 300

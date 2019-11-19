@@ -66,14 +66,14 @@
     },
 
     watch: {
-      currentColorationName() {
+      currentColorationName(newValue) {
+        this.$store.commit('setActiveColoration', newValue);
         this.setActiveTheme();
       },
     },
 
     mounted () {
       this.currentColorationName = this.$themeConfig.activeColouration;
-      this.color11 = document.documentElement.style.getPropertyValue('--color11');
       this.setActiveTheme();
     },
 

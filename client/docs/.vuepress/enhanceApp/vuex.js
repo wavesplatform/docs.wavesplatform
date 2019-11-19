@@ -5,7 +5,6 @@ export default (context) => {
     const { Vue, isServer } = context
 
     Vue.use(Vuex);
-
     const defaultFocusIndex = -1;
     let layoutWidth = 1920;
 
@@ -14,6 +13,7 @@ export default (context) => {
     }
 
     const state = {
+        themeConfig: context.siteData.themeConfig,
         defaultLanguage: '',
         currentLanguage: '',
         interface: {
@@ -57,6 +57,10 @@ export default (context) => {
     }
 
     const mutations = {
+        setActiveColoration(state, colorationName) {
+            state.themeConfig.activeColouration = colorationName;
+        },
+
         setDisplaySearchResultWindow(state, isShow) {
             state.interface.isShowSearchResultWindow = isShow;
         },

@@ -158,7 +158,6 @@ export default {
     this.suggestionsRef = this.$refs.suggestions;
     // if(this.suggestionsRef) {
     //   const suggestionsRefSuggestions = this.suggestionsRef.suggestions;
-    //   console.log()
     //   this.suggestionsRef.$watch('suggestions', () => {
     //     console.log('test:')
     //   })
