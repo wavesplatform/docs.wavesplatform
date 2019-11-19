@@ -41,7 +41,7 @@ module.exports = (ctx) => {
             ['meta', { name: 'msapplication-TileImage', content: '/icons/msapplication-icon-144x144.png' }],
             ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
         ],
-        theme: '../../../@vuepress/theme-default',
+        theme: path.join(__dirname, '../theme-default'),
         themeConfig: {
             activeColouration: 'dark',
             colouration: colorationConfig,
@@ -63,14 +63,14 @@ module.exports = (ctx) => {
             prevLinks: true,
         },
         plugins: [
-            '../../@vuepress/last-updated',
-            ['../../@vuepress/back-to-top', true],
-            // ['../../@vuepress/pwa', {
+            // '../../last-updated',
+            // ['../../back-to-top', true],
+            // ['../../pwa', {
             //     serviceWorker: true,
             //     updatePopup: true
             // }],
-            ['../../@vuepress/medium-zoom', true],
-            // ['../../@vuepress/google-analytics', {
+            // ['../../medium-zoom', true],
+            // ['../../google-analytics', {
             //     ga: 'UA-128189152-1'
             // }],
             ['container', {
