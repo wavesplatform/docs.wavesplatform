@@ -88,8 +88,6 @@ module.exports = (ctx) => {
         //     '.vuepress/locales/**',
         // ],
         configureWebpack(config, isServer) {
-            // console.log('configureWebpack config:', config, isServer)
-
             if (!isServer) {
                 config.plugins.push({
                     apply: (compiler) => {
@@ -97,7 +95,6 @@ module.exports = (ctx) => {
 
                             const pageListJson = JSON.stringify(
                                 ctx.pages.map(page => {
-                                    // console.log(page);
                                     return {
                                         title: page.title,
                                         regularPath: page.regularPath,

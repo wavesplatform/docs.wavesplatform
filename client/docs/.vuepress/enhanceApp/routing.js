@@ -19,10 +19,6 @@ export default async(context, store) => {
         }
     };
 
-
-    // console.log('currentLanguage:', currentLanguage, defaultLanguage, Vue, store, context)
-
-
     store.watch(
         (state, getters) => {
             return state.currentLanguage;
@@ -31,9 +27,6 @@ export default async(context, store) => {
             goToLocalePage(newValue);
         },
     );
-
-    // store.commit('setCurrentLanguage', new Date())
-
 
     if(!isServer) {
         if(window.location.pathname === '/') {
@@ -46,7 +39,6 @@ export default async(context, store) => {
         }
     }
 
-    // console.log('router:', router);
     // router.addRoutes([
     //   // { path: 'http://localhost:3083', redirect: '/en/' },
     //   // { path: '/bar/', redirect: '/' }
@@ -65,7 +57,6 @@ export default async(context, store) => {
     //     // } else {
     //     //     next();
     //     // }
-    //     console.log('to:', to, from);
     //     next();
     //
     // })

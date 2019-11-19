@@ -115,9 +115,6 @@ export default {
       return 'Source'
     }
   },
-  mounted () {
-    // console.log('userLinks:', this.userLinks);
-  }
 }
 </script>
 

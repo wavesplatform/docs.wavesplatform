@@ -163,7 +163,6 @@ export default {
     //   })
     //   // this.suggestionsListFromComponentExemplar = suggestionsRef.suggestions;
     // }
-    // console.log('this.$refs.suggestions:', this.$refs.suggestions)
   },
 
   updated () {

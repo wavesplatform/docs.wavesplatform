@@ -176,7 +176,6 @@
       // intersectionObserverCallback (entries, observer) {
       //   entries.forEach(entry => {
       //     if(entry.isIntersecting) {
-      //       console.log('test:', entry.target.id, entry);
       //       // location.hash = entry.target.id;
       //       this.$router.push({
       //         hash: entry.target.id,
