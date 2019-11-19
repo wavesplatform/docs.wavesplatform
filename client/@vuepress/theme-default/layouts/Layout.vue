@@ -157,6 +157,7 @@
   import watchLayoutSizeMixin from './mixins/watchLayoutSize'
   import navbarResizeDetectorMixin from './mixins/navbarResizeDetector'
   import searchMixin from '@theme/mixins/search'
+  import setGlobalVm from './mixins/setGlobalVm'
 
   import { resolveSidebarItems } from '../util'
 
@@ -165,6 +166,7 @@
       watchLayoutSizeMixin,
       navbarResizeDetectorMixin,
       searchMixin,
+      setGlobalVm,
     ],
 
     components: {

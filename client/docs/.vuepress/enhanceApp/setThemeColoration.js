@@ -6,6 +6,5 @@ export default (context) => {
         Object.entries(currentColorationConfig.colors).forEach(colorationPropEntry => {
             document.documentElement.style.setProperty(`--${colorationPropEntry[0]}`, colorationPropEntry[1]);
         });
-        console.log('context:', context, currentColorationConfig)
     }
 };

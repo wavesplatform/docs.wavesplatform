@@ -133,7 +133,6 @@
     mounted () {
       //   this.interactionObserver = new IntersectionObserver(this.intersectionObserverCallback, this.intersectionObserverOptions);
       if(!this.$isServer) {
-        console.log('this:', this);
         this.updateHeadersElements();
       }
     },

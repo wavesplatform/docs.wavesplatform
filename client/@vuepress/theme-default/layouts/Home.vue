@@ -150,12 +150,14 @@
   import watchLayoutSizeMixin from './mixins/watchLayoutSize'
   import navbarResizeDetectorMixin from './mixins/navbarResizeDetector'
   import searchMixin from '@theme/mixins/search'
+  import setGlobalVm from './mixins/setGlobalVm'
 
   export default {
     mixins: [
       watchLayoutSizeMixin,
       navbarResizeDetectorMixin,
       searchMixin,
+      setGlobalVm,
     ],
 
     components: {
@@ -195,12 +197,6 @@
           return category.type === this.currentTechnologyCategoryFilter;
         });
       },
-    },
-
-    beforeCreate() {
-      if(!this.$isServer) {
-        window.vm = this;
-      }
     },
 
     async mounted () {
