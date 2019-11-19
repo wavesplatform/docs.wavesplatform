@@ -182,7 +182,9 @@
     .sidebarLinks {
         padding-top 24px
         height 100%
-        border-top 1px solid var(--color3)
+        @media screen and (min-width: 720px) {
+            border-top 1px solid var(--color3)
+        }
     }
     .backToIndexWrapper {
         display flex

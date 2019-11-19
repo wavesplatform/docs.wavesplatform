@@ -79,9 +79,10 @@
 
     .logotype {
         height 100%
-        min-width 164px
+        max-width 164px
+        width 100%
         @media screen and (max-width: 719px) {
-            min-width 124px
+            max-width 124px
         }
     }
 

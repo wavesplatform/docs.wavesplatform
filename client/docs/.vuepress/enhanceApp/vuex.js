@@ -2,9 +2,8 @@ import Vuex from 'vuex'
 import VuexPersistence from 'vuex-persist'
 
 export default (context) => {
-    const { Vue, isServer } = context
+    const { Vue, isServer } = context;
 
-    Vue.use(Vuex);
     const defaultFocusIndex = -1;
     let layoutWidth = 1920;
 
@@ -36,7 +35,6 @@ export default (context) => {
             isShowSearchResultWindow: false,
         },
         isShowLanguageNotification: false,
-        currentActiveHeaderSlug: '',
         navbarSubHeaders: [],
         // isProcessDev: process.env.isDev,
         search: {
@@ -134,30 +132,37 @@ export default (context) => {
         }
     }
 
-    const actions = {}
+    const actions = {};
+
+    let vuexPersistence = null;
+    if (!isServer) {
+        vuexPersistence = new VuexPersistence({
+            storage: window.localStorage
+        });
+    }
+
+    Vue.use(Vuex);
 
     const store = new Vuex.Store({
         state,
         modules,
         mutations,
-        actions
+        actions,
+        // plugins: vuexPersistence ? [vuexPersistence.plugin] : [],
     })
 
-
-    if (!isServer) {
-        // new VuexPersistence({
-        //     storage: window.localStorage,
-        //     reducer: (state) => ({
-        //         search: state.search,
-        //     })
-        // }).plugin(store)
-    }
+    // if (!isServer) {
+    //     // new VuexPersistence({
+    //     //     storage: window.localStorage,
+    //     //     reducer: (state) => ({
+    //     //         search: state.search,
+    //     //     })
+    //     // }).plugin(store)
+    // }
 
     Vue.mixin({
         store
-    })
-
-
+    });
 
     return store
 }

@@ -256,7 +256,7 @@
     }
 
     .logotype {
-        max-width 164px
+        max-width 124px
         width 100%
         visibility visible
     }

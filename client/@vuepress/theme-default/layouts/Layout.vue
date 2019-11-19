@@ -293,8 +293,8 @@
       }
     },
 
-    mounted () {
-      this.root__contentCellElement = this.$refs.root__contentCell.$el;
+    async mounted () {
+      this._prepare();
       this.interval1 = null;
       if(this.layoutWidth > 719) {
         this.$store.commit('setDisplayLeftSidebar', true);
@@ -311,22 +311,33 @@
         this.windowScrollEventHandler();
         this.computedAndSetMainContentPositionLeft();
 
-        this.elementResizeDetector.listenTo(this.$refs.root__contentCell.$el, this.setMainContentHeightInStore);
+        this.elementResizeDetector.listenTo(this.root__contentCellElement, this.setMainContentHeightInStore);
 
         this.computedPageNavigationsTranslateY();
 
-        this.scrollBehavior(this.$route);
+        // const hash = this.$route.hash
+        // await this.$nextTick();
+        // this.scrollBehavior({hash});
       }
+    },
+
+    updated() {
+      this._prepare();
     },
 
     beforeDestroy() {
       window.removeEventListener('scroll', this.windowScrollEventHandler);
       this.root__contentCellElement.removeEventListener('transitionstart', this.transitionstartHandler, false);
       this.root__contentCellElement.removeEventListener('transitionend', this.transitionendHandler, false);
-      this.elementResizeDetector.removeListener(this.$refs.page.$el, this.setMainContentHeightInStore);
+      this.elementResizeDetector.removeListener(this.pageElement, this.setMainContentHeightInStore);
     },
 
     methods: {
+      _prepare() {
+        this.root__contentCellElement = this.$refs.root__contentCell.$el;
+        this.pageElement = this.$refs.page.$el;
+      },
+
       computedPageNavigationsTranslateY() {
         const heightDifference = this.mainContentHeight - this.layoutHeight - this.headerHeight;
         if(heightDifference > 0) {
@@ -350,7 +361,7 @@
 
       async computedAndSetMainContentPositionLeft() {
         await this.$nextTick()
-        this.$store.commit('setMainContentPositionLeft', this.$refs.page.$el.offsetLeft);
+        this.$store.commit('setMainContentPositionLeft', this.pageElement.offsetLeft);
       },
 
       windowScrollEventHandler(event) {
@@ -477,9 +488,8 @@
         display flex
     }
     .logotype {
-        /*max-height 24px*/
-        /*height 100%;*/
-        min-width 164px
+        max-width 164px
+        width 100%
     }
 
     .sidebar2 {

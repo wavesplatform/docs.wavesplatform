@@ -97,7 +97,7 @@
 <style lang="stylus" module>
     .root {
         position fixed
-        z-index 2
+        z-index 3
         top 0
         left 0
         border 1px solid #f00

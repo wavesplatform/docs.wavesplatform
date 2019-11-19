@@ -343,10 +343,6 @@
     .technologyCategoryCheckboxes__row2__group {
         margin-left 30px
     }
-    .logotype {
-        max-width 400px
-        width 100%
-    }
     .searchBoxWrapper {
         /*max-width 600px*/
         width 100%
