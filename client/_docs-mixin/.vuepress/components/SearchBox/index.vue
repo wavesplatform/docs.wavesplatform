@@ -5,7 +5,7 @@
   >
       <img
           :class="$style.searchBox__icon"
-          src="search-24-basic-300.svg"
+          src="./search-24-basic-300.svg"
           alt=""
           @click="submitForm"
       >
@@ -38,7 +38,7 @@
     <img
       v-if="query"
       :class="$style.searchBox__clearIcon"
-      src="close-16-basic-500.svg"
+      src="./close-16-basic-500.svg"
       alt=""
       @click="clearInput"
     >
@@ -57,7 +57,6 @@
 </template>
 
 <script>
-/* global SEARCH_MAX_SUGGESTIONS, SEARCH_PATHS */
 import Suggestions from './Suggestions'
 
 export default {

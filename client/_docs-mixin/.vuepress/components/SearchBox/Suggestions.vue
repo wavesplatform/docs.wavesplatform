@@ -75,7 +75,7 @@ export default {
         return [];
       }
       const { pages } = this.$site;
-      const max = SEARCH_MAX_SUGGESTIONS
+      const max = /*SEARCH_MAX_SUGGESTIONS*/8
       const localePath = this.$localePath
       const matches = item => (
         item.title
@@ -147,7 +147,7 @@ export default {
     },
 
     isSearchable(page) {
-      let searchPaths = SEARCH_PATHS
+      let searchPaths = /*SEARCH_PATHS*/null
       // all paths searchables
       if (searchPaths === null) { return true }
 
