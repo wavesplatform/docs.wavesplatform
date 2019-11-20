@@ -4,9 +4,13 @@ export const endingSlashRE = /\/$/;
 export const outboundRE = /^(https?:|mailto:|tel:)/;
 
 export function normalize (path) {
-  return decodeURI(path)
-    .replace(hashRE, '')
-    .replace(extRE, '');
+    let normalizePath = decodeURI(path)
+        .replace(hashRE, '')
+        .replace(extRE, '');
+    if(normalizePath.slice(-1) === '/') {
+        normalizePath = normalizePath.slice(0, -1);
+    }
+  return normalizePath;
 }
 
 export function getHash (path) {
@@ -62,6 +66,9 @@ export function resolvePage (pages, rawPath, base) {
     rawPath = resolvePath(rawPath, base);
   }
   const path = normalize(rawPath);
+
+
+
   for (let i = 0; i < pages.length; i++) {
     if (normalize(pages[i].regularPath) === path) {
       return Object.assign({}, pages[i], {

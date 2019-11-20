@@ -2,9 +2,6 @@ const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
 // const beforeDevServer = require('./beforeDevServer/');
-
-const enLocaleConfig = require('./locales/en');
-const ruLocaleConfig = require('./locales/ru');
 const colorationConfig = require('./colouration')
 const destDirectory = path.join(__dirname, '../../../dist');
 
@@ -57,8 +54,6 @@ module.exports = (ctx) => {
             repo: 'vuejs/vuepress',
             docsDir: 'packages/docs/docs',
             locales: {
-                '/en/': enLocaleConfig,
-                '/ru/': ruLocaleConfig,
             },
             // editLinks: true,
             // nextLinks: true,

@@ -63,24 +63,28 @@ module.exports = deepmerge(mixin, {
             },
             {
                 title: 'Simple voting on the Waves',
-                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+                path: '/en/learn-about-waves-platform/level-1-test-page-1'
             },
             {
                 title: 'Smart Accounts',
-                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+                path: '/en/learn-about-waves-platform/level-1-test-page-2'
             },
             {
                 title: 'Waves Smart Contracts',
-                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+                path: '/en/learn-about-waves-platform/level-1-test-page-3'
             },
             {
                 title: 'Smart Assets',
-                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+                path: '/en/learn-about-waves-platform/level-1-test-page-4'
             },
             {
                 title: 'Tools',
                 path: '/en/learn-about-waves-platform/tools',
                 children: [
+                    {
+                        title: 'Test Level level Waves New',
+                        path: '/en/learn-about-waves-platform/tools/test-level-level-waves-new'
+                    },
                     {
                         title: 'REPL',
                         path: '/en/learn-about-waves-platform/tools/repl',
@@ -98,8 +102,12 @@ module.exports = deepmerge(mixin, {
                         ]
                     },
                     {
-                        title: 'Waves IDE',
-                        path: '/en/blockchain/token/waves'
+                        title: 'Test Waves IDE new',
+                        path: '/en/learn-about-waves-platform/tools/test-waves-ide-new'
+                    },
+                    {
+                        title: 'trezor-hardware-wallet-integration-specification',
+                        path: '/en/learn-about-waves-platform/tools/trezor-hardware-wallet-integration-specification'
                     },
                 ]
             },

@@ -291,6 +291,9 @@
         :global(h1:first-of-type) {
             padding-right $indent2
         }
+        :global(img) {
+            max-width 100%
+        }
     }
 </style>
 

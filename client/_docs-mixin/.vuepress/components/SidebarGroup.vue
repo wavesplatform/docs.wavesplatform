@@ -116,7 +116,7 @@
 
     computed: {
       normalizePagePath() {
-        return this.normalizePath(this.$page.path);
+        return normalize(this.$page.path);
       },
       isActiveItem() {
         return this.checkActiveState();
@@ -147,7 +147,7 @@
       //     next();
       //     return
       //   }
-      //   if (this.normalizePath(routerLinkRef.to) === this.normalizePath(to.path)) {
+      //   if (normalize(routerLinkRef.to) === normalize(to.path)) {
       //
       //     if(!this.isActiveItem) {
       //       this.$emit('open');
@@ -169,7 +169,6 @@
 
     methods: {
       async clickOnLink() {
-        // console.log('test clickOnLink')
         this.$emit('open');
       },
       clickToggleTrigger() {
@@ -179,22 +178,15 @@
         }
         this.$emit('open');
       },
-      normalizePath(path) {
-        let normalizePath = normalize(path);
-        if(normalizePath.slice(-1) === '/') {
-          normalizePath = normalizePath.slice(0, -1);
-        }
-        return normalizePath;
-      },
       checkActiveState() {
-        return this.normalizePagePath === this.normalizePath(this.item.path);
+        return this.normalizePagePath === normalize(this.item.path);
       },
       checkWithActiveState() {
         if(this.checkActiveState(this.item)) {
           return false;
         }
 
-        return this.normalizePagePath.includes(this.normalizePath(this.item.path));
+        return this.normalizePagePath.includes(normalize(this.item.path));
       },
     },
 

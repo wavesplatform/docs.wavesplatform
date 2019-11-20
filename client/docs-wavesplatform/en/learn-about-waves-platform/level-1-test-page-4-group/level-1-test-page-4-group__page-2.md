@@ -9,4 +9,3 @@ Keep up with the latest news and articles, and find out all about events happeni
 * [_**Support**_](https://support.wavesplatform.com/)
 
 _Please see the docs _[_**issues**_](https://github.com/wavesplatform/waves-documentation/issues)_ section to report any bugs or feature requests and to see the list of known issues._
-

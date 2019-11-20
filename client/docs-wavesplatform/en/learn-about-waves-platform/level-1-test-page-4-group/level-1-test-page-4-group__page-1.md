@@ -116,7 +116,7 @@ Table 2. Parameters for the provider description
 | data_provider_name | true | Provider's name | 
 | data_provider_link | true | A link to the provider's website |
 | data_provider_email | false | Contact email | 
-| data_provider_description_<!--<language>--> | true | Provider service Information in a language from "data_provider_lang_list"|
+| data_provider_description_<language> | true | Provider service Information in a language from "data_provider_lang_list"|
 | data_provider_lang_list | true | A list of available language which can be added to the provider and its tokens in comma separated format|
 | data_provider_logo | false | Provider's logo in any format in base64, must be accompanied by a correctly filled "data_provider_logo_meta" field |
 | data_provider_logo_meta | true | A logo format description | 
@@ -128,7 +128,7 @@ Table 3. Parameters to describe the token
 | status_id_<ASSET_ID> | true | Status |
 | link_<ASSET_ID> | false | A link to the project’s website |
 | email_<ASSET_ID> | false | Project contact email |
-| description_<!--<LANG>-->_<ASSET_ID> | false | Description of the project in one of "data_provider_lang_list" language |
+| description_<LANG>_<ASSET_ID> | false | Description of the project in one of "data_provider_lang_list" language |
 | ticker_<ASSET_ID> | false | Assigned project ticker |
 | logo_<ASSET_ID> | false |  Provider's logo in any format in base64, must be accompanied by a correctly filled "logo_meta_<ASSET_ID>" field  |
 | logo_meta_<ASSET_ID> | false | A logo format description |
