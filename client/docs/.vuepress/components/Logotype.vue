@@ -8,8 +8,12 @@
 <script>
 export default {
     computed: {
+      themeConfig() {
+        return this.$store.state.themeConfig;
+      },
       logoSvg() {
-        return this.$themeConfig.colouration[this.$themeConfig.activeColouration].logoSvg;
+        console.log('this.themeConfig.activeColouration:', this.themeConfig.activeColouration);
+        return this.themeConfig.colouration[this.themeConfig.activeColouration].logoSvg;
       },
     },
 }

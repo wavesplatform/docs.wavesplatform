@@ -5,11 +5,13 @@
             visibility: isVisible ? 'visible' : '',
         }"
     >
-        <select v-model="currentColorationName">
+        <select @change="changeColoration">
             <option
                 v-for="(colorationName, index) of colorationNames"
                 :key="index"
-                :value="colorationName">{{colorationName}}</option>
+                :value="colorationName"
+                :selected="colorationName === activeColouration"
+            >{{colorationName}}</option>
         </select>
         <input
             type="checkbox"
@@ -38,19 +40,24 @@
 
       return {
         isVisible: false,
-        currentColorationName: '',
       }
     },
 
     computed: {
+      themeConfig() {
+        return this.$store.state.themeConfig;
+      },
+      activeColouration() {
+        return this.themeConfig.activeColouration;
+      },
       colorationNames() {
-        return Object.keys(this.$themeConfig.colouration);
+        return Object.keys(this.themeConfig.colouration);
       },
       activeColorationConfig() {
-        if(!this.currentColorationName) {
+        if(!this.activeColouration) {
           return
         }
-        return Object.entries(this.$themeConfig.colouration[this.currentColorationName].colors).reduce((accumulator, elementEntry) => {
+        return Object.entries(this.themeConfig.colouration[this.activeColouration].colors).reduce((accumulator, elementEntry) => {
           accumulator[elementEntry[0]] = elementEntry[1];
           return accumulator;
         }, {});
@@ -65,23 +72,15 @@
       }
     },
 
-    watch: {
-      currentColorationName(newValue) {
-        this.$store.commit('setActiveColoration', newValue);
-        this.setActiveTheme();
-      },
-    },
-
     mounted () {
-      this.currentColorationName = this.$themeConfig.activeColouration;
       this.setActiveTheme();
     },
 
-    updated () {
-
-    },
-
     methods: {
+      changeColoration(event) {
+        this.$store.commit('setActiveColoration', event.target.value);
+        this.setActiveTheme();
+      },
       changeValue(event, activeColorationProp) {
         activeColorationProp.value = event.target.value;
       },
