@@ -1,17 +1,14 @@
 {
     "private": true,
-    "workspaces": [
-        "@vuepress/*",
-        "vuepress",
-        "docs"
-    ],
     "description": "Minimalistic doc generator with Vue component based layout system",
     "scripts": {
-        "dev": "isDev=true vuepress dev docs --temp .temp",
-        "build": "vuepress build docs --temp .temp",
+        "devW": "isDev=true vuepress dev docs-wavesplatform",
+        "devE": "isDev=true vuepress dev docs-exchange",
+        "buildW": "vuepress build docs-wavesplatform",
+        "buildE": "vuepress build docs-exchange",
         "build:dev": "isDev=true yarn build",
         "building-and-serve": "yarn build:dev && yarn production-server",
-        "view-info": "vuepress view-info --temp .temp",
+        "view-info": "vuepress view-info",
         "show-help": "vuepress --help",
         "production-server": "node ./server/ ",
         "production-server:dev": "isDev=true port=3000 yarn production-server",
@@ -73,11 +70,11 @@
         "raw-loader": "^3.1.0",
         "strapi-sdk-javascript": "^0.3.1",
         "vue-toasted": "^1.1.25",
-        "vuepress": "^1.2.0",
         "vuepress-plugin-flowchart": "^1.4.2",
         "vuepress-plugin-redirect": "^1.1.2",
         "vuepress-plugin-serve": "^1.1.0",
         "vuex": "^3.1.1",
-        "vuex-persist": "^2.1.0"
+        "vuex-persist": "^2.1.0",
+        "webpack": "^4.41.2"
     }
 }

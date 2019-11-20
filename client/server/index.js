@@ -14,6 +14,8 @@ const serve = require('koa-static');
 const app = new Koa();
 const GetSearchResultByQuery = require('./getSearchResultByQuery');
 
+const vuepressDestPath = path.join(__dirname, '../dist');
+
 (async() => {
 
     const getSearchResultByQuery = await GetSearchResultByQuery();
@@ -46,7 +48,7 @@ const GetSearchResultByQuery = require('./getSearchResultByQuery');
 
     app.use(
         serve(
-            path.join(__dirname, '../vuepress')
+            vuepressDestPath
         )
     );
 

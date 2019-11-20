@@ -4,6 +4,6 @@ COPY ./ /app
 RUN rm -rf node_modules && \
     yarn global add vuepress && \
     yarn && \
-    yarn run build
+    yarn run buildW
 
 ENTRYPOINT yarn run production-server

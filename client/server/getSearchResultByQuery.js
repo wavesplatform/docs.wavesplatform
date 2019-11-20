@@ -6,7 +6,7 @@ const { promisify } = require('util');
 const Fuse = require('fuse.js');
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
-const vuepressDestPath = path.join(__dirname, '../vuepress');
+const vuepressDestPath = path.join(__dirname, '../dist');
 const readFileAsync = promisify(fs.readFile);
 
 const fuseOptions = {
