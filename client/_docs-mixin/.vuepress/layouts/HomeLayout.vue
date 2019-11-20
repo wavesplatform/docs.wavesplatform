@@ -1,7 +1,7 @@
 <template>
     <div :class="$style.root">
-        <ThemeControl/>
-        <template v-if="$themeLocaleConfig.homePage">
+        <template v-if="$page.path !== '/'">
+            <ThemeControl/>
             <SearchFrameContent
                 @close="$store.commit('setDisplaySearchResultWindow', false)"
             />
@@ -147,10 +147,10 @@
   import Footer from '@theme/components/Footer'
   import ThemeControl from '@theme/components/ThemeControl'
 
-  import watchLayoutSizeMixin from './mixins/watchLayoutSize'
-  import navbarResizeDetectorMixin from './mixins/navbarResizeDetector'
-  import searchMixin from '@theme/components/mixins/search'
-  import setGlobalVm from './mixins/setGlobalVm'
+  import watchLayoutSizeMixin from '@theme/components/_mixins/watchLayoutSize'
+  import navbarResizeDetectorMixin from '@theme/components/_mixins/navbarResizeDetector'
+  import searchMixin from '@theme/components/_mixins/search'
+  import setGlobalVm from '@theme/components/_mixins/setGlobalVm'
 
   export default {
     mixins: [

@@ -114,7 +114,7 @@
   import overallMixin from './overallMixin'
   import Sidebar from '@theme/components/Sidebar/'
   import Suggestions from '@theme/components/SearchBox/Suggestions'
-  import searchMixin from '@theme/components/mixins/search'
+  import searchMixin from '@theme/components/_mixins/search'
 
   export default {
     mixins: [

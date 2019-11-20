@@ -2,144 +2,147 @@
     <div
         :class="$style.root"
     >
-        <ThemeControl/>
-        <SearchFrameContent/>
-        <LanguageNotification
-            :is-show="isShowLanguageNotification"
-            @close="$store.commit('setDisplayShowLanguageNotification', false)"
-        />
-        <div :class="$style.navbarWrapper2">
-            <WidthLimit
-                :type="2"
-                :class="$style.navbarWrapper"
-            >
-                <!--@toggleSidebar="toggleLeftSidebar"-->
-                <Sidebar
-                    ref="sidebar1"
-                    side="left"
-                    :sidebar-toggle-trigger-options="{
+        <template v-if="$page.path !== '/'">
+            <ThemeControl/>
+            <SearchFrameContent/>
+            <LanguageNotification
+                :is-show="isShowLanguageNotification"
+                @close="$store.commit('setDisplayShowLanguageNotification', false)"
+            />
+            <div :class="$style.navbarWrapper2">
+                <WidthLimit
+                    :type="2"
+                    :class="$style.navbarWrapper"
+                >
+                    <!--@toggleSidebar="toggleLeftSidebar"-->
+                    <Sidebar
+                        ref="sidebar1"
+                        side="left"
+                        :sidebar-toggle-trigger-options="{
                     isShow: layoutWidth > 719,
                 }"
-                    :items="sidebarItems"
-                    :mod="layoutWidth > 719 ? 1 : 0"
-                    :sidebar-min-width-px="leftSidebarMinWidthPxPrepare"
-                    :is-resizable="layoutWidth > 719"
-                    :options="{
+                        :items="sidebarItems"
+                        :mod="layoutWidth > 719 ? 1 : 0"
+                        :sidebar-min-width-px="leftSidebarMinWidthPxPrepare"
+                        :is-resizable="layoutWidth > 719"
+                        :options="{
                     isMobileMod: layoutWidth < 720,
                 }"
-                    :class="[
+                        :class="[
                         $style.sidebar,
                         $style.sidebar1,
                     ]"
-                >
-                    <div
-                        ref="sidebar1__header"
-                        :class="$style.sidebar1__header"
-                        slot="header"
-                        :style="{
+                    >
+                        <div
+                            ref="sidebar1__header"
+                            :class="$style.sidebar1__header"
+                            slot="header"
+                            :style="{
                         height: headerHeight - 1 + 'px',
                     }"
-                    >
-                        <router-link
-                            :to="$localePath"
-                            :class="$style.logotypeLink"
                         >
-                            <Logotype :class="$style.logotype"/>
-                        </router-link>
-                    </div>
-                    <slot
-                        name="sidebar-top"
-                        slot="top"
-                    />
-                    <slot
-                        name="sidebar-bottom"
-                        slot="bottom"
-                    />
-                </Sidebar>
-                <Navbar
-                    ref="navbar"
-                    :class="$style.navbar"
-                    type="content"
-                    :style="{
+                            <router-link
+                                :to="$localePath"
+                                :class="$style.logotypeLink"
+                            >
+                                <Logotype :class="$style.logotype"/>
+                            </router-link>
+                        </div>
+                        <slot
+                            name="sidebar-top"
+                            slot="top"
+                        />
+                        <slot
+                            name="sidebar-bottom"
+                            slot="bottom"
+                        />
+                    </Sidebar>
+                    <Navbar
+                        ref="navbar"
+                        :class="$style.navbar"
+                        type="content"
+                        :style="{
                         transform: (layoutWidth < 720 && isOpenLeftSidebar) ? `translateX(${leftSidebarWidth}px)` : '',
                     }"
-                />
-            </WidthLimit>
-        </div>
+                    />
+                </WidthLimit>
+            </div>
 
 
-        <WidthLimit
-            ref="root__contentCell"
-            :type="2"
-            :class="[
+            <WidthLimit
+                ref="root__contentCell"
+                :type="2"
+                :class="[
                 $style.root__contentCell,
             ]"
-            :style="contentCellStyles"
-            :padding-l-r="0"
-        >
-            <!--v-show="layoutWidth < 720"-->
-            <WidthLimit
-                v-show="layoutWidth < 720"
-                :class="$style.searchBoxWrapper"
-                :type="1"
-                :padding-l-r="1"
+                :style="contentCellStyles"
+                :padding-l-r="0"
             >
-                <SearchBox
-                    :class="$style.searchBox"
-                    :is-full-size="true"
-                    :size="1"
-                    :with-suggestions="false"
-                    @up="layoutWidth < 720 && suggestionsUp"
-                    @down="layoutWidth < 720 && suggestionsDown"
-                    @search="search"
-                />
-                <div
-                    :class="$style.searchSuggestionsWrapper"
+                <!--v-show="layoutWidth < 720"-->
+                <WidthLimit
+                    v-show="layoutWidth < 720"
+                    :class="$style.searchBoxWrapper"
+                    :type="1"
+                    :padding-l-r="1"
                 >
-                    <Suggestions
-                        ref="suggestions"
-                        :class="$style.searchSuggestions"
+                    <SearchBox
+                        :class="$style.searchBox"
+                        :is-full-size="true"
+                        :size="1"
+                        :with-suggestions="false"
+                        @up="layoutWidth < 720 && suggestionsUp"
+                        @down="layoutWidth < 720 && suggestionsDown"
+                        @search="search"
                     />
-                </div>
-            </WidthLimit>
-            <!--        <div-->
-            <!--            class="sidebar-mask"-->
-            <!--            @click="toggleSidebar(false)"-->
-            <!--        ></div>-->
-            <!--<Home v-if="$page.frontmatter.home"/>-->
-            <Page
-                ref="page"
-                :sidebar-items="sidebarItems"
-                :class="$style.page"
-            >
-                <!--<slot
-                    name="page-top"
-                    slot="top"
-                />-->
-                <!--<slot
-                    name="page-bottom"
-                    slot="bottom"
-                />-->
-            </Page>
-            <PageNavigations
-                :sidebar-items="sidebarItems"
-                :class="$style.pageNavigations1"
-                :style="{
+                    <div
+                        :class="$style.searchSuggestionsWrapper"
+                    >
+                        <Suggestions
+                            ref="suggestions"
+                            :class="$style.searchSuggestions"
+                        />
+                    </div>
+                </WidthLimit>
+                <!--        <div-->
+                <!--            class="sidebar-mask"-->
+                <!--            @click="toggleSidebar(false)"-->
+                <!--        ></div>-->
+                <!--<Home v-if="$page.frontmatter.home"/>-->
+                <Page
+                    ref="page"
+                    :sidebar-items="sidebarItems"
+                    :class="$style.page"
+                >
+                    <!--<slot
+                        name="page-top"
+                        slot="top"
+                    />-->
+                    <!--<slot
+                        name="page-bottom"
+                        slot="bottom"
+                    />-->
+                </Page>
+                <PageNavigations
+                    :sidebar-items="sidebarItems"
+                    :class="$style.pageNavigations1"
+                    :style="{
                     visibility: pageNavigationsTranslateY === 0 ? 'hidden' : ''
                 }"
-            />
-        </WidthLimit>
-        <PageNavigations
-            :sidebar-items="sidebarItems"
-            :class="$style.pageNavigations2"
-            :style="{
+                />
+            </WidthLimit>
+            <PageNavigations
+                :sidebar-items="sidebarItems"
+                :class="$style.pageNavigations2"
+                :style="{
                 paddingLeft: layoutWidth > 719 ? leftSidebarWidth + 'px' : '',
                 paddingRight: isOpenRightSidebar ?
                 rightSidebarWidth + 'px' :
                 (layoutWidth > 719 ? rightSidebarAlwaysVisiblePartWidth + 'px' : 0),
                 visibility: pageNavigationsTranslateY === 0 ? '' : 'hidden'
             }"
-        />
+            />
+        </template>
+
     </div>
 </template>
 
@@ -153,10 +156,10 @@
   import LanguageNotification from '@theme/components/LanguageNotification'
   import ThemeControl from '@theme/components/ThemeControl'
 
-  import watchLayoutSizeMixin from '@theme/components/mixins/watchLayoutSize'
-  import navbarResizeDetectorMixin from '@theme/components/mixins/navbarResizeDetector'
-  import searchMixin from '@theme/components/mixins/search'
-  import setGlobalVm from '../components/mixins/setGlobalVm'
+  import watchLayoutSizeMixin from '@theme/components/_mixins/watchLayoutSize'
+  import navbarResizeDetectorMixin from '@theme/components/_mixins/navbarResizeDetector'
+  import searchMixin from '@theme/components/_mixins/search'
+  import setGlobalVm from '@theme/components/_mixins/setGlobalVm'
 
   import { resolveSidebarItems } from '../util'
 
