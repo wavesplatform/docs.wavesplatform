@@ -146,14 +146,18 @@ code[class*="language-"],
 pre[class*="language-"] {
     color: var(--color10);
     background: none;
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-    font-size: 1em;
+    /*font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;*/
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.75;
+    letter-spacing: normal;
     text-align: left;
     white-space: pre;
     word-spacing: normal;
     word-break: normal;
     word-wrap: normal;
-    line-height: 1.5;
 
     -moz-tab-size: 4;
     -o-tab-size: 4;
@@ -168,8 +172,8 @@ pre[class*="language-"] {
 
 /* Code blocks */
 pre[class*="language-"] {
-    padding: 1em;
-    margin: .5em 0;
+    padding: $indent4 $indent1;
+    margin: $indent4 0 $indent7 0;
     overflow: auto;
 }
 

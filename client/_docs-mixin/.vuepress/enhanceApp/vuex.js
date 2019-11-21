@@ -1,16 +1,12 @@
 import Vuex from 'vuex'
 import VuexPersistence from 'vuex-persist'
-
 export default (context) => {
     const { Vue, isServer } = context;
-
     const defaultFocusIndex = -1;
     let layoutWidth = 1920;
-
     if(!isServer) {
         layoutWidth = window.innerWidth
     }
-
     const state = {
         themeConfig: context.siteData.themeConfig,
         defaultLanguage: '',
@@ -43,17 +39,13 @@ export default (context) => {
         },
         leftSidebarOpenedGroups: [],
     }
-
     if (!isServer) {
         state.defaultLanguage = navigator.language
     }
-
     const modules = {}
-
     const set = key => (state, val) => {
         state[key] = val
     }
-
     const mutations = {
 
         setUserNaturalScrollState(state, isUserNaturalScrollState) {
@@ -137,30 +129,36 @@ export default (context) => {
             storage: window.localStorage,
             reducer: (state) => {
                 const {
-                    // documentElementScrollTop,
-                    // layoutWidth,
-                    // layoutHeight,
-                    // headerHeight,
-                    leftSidebarWidth,
-                    isOpenLeftSidebar,
-                    rightSidebarWidth,
-                    isOpenRightSidebar,
-                    // isShowSearchResultWindow
-                } = state.interface;
+                    themeConfig: {
+                        activeColouration,
+                    },
+                    interface: {
+                        // documentElementScrollTop,
+                        // layoutWidth,
+                        // layoutHeight,
+                        // headerHeight,
+                        leftSidebarWidth,
+                        isOpenLeftSidebar,
+                        rightSidebarWidth,
+                        isOpenRightSidebar,
+                        // isShowSearchResultWindow,
+                    },
+                } = state;
                 return {
+                    themeConfig: {
+                        activeColouration,
+                    },
                     interface: {
                         leftSidebarWidth,
                         isOpenLeftSidebar,
                         rightSidebarWidth,
                         isOpenRightSidebar,
                     },
-                }
+                };
             },
         });
-    }
-
+    };
     Vue.use(Vuex);
-
     const store = new Vuex.Store({
         state,
         modules,
@@ -168,7 +166,6 @@ export default (context) => {
         actions,
         plugins: vuexPersistence ? [vuexPersistence.plugin] : [],
     })
-
     // if (!isServer) {
     //     // new VuexPersistence({
     //     //     storage: window.localStorage,
@@ -177,10 +174,8 @@ export default (context) => {
     //     //     })
     //     // }).plugin(store)
     // }
-
     Vue.mixin({
         store
     });
-
     return store
 }

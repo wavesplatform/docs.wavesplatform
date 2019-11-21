@@ -288,11 +288,229 @@
     }
 
     .pageContent {
-        :global(h1:first-of-type) {
-            padding-right $indent2
-        }
-        :global(img) {
-            max-width 100%
+        :global {
+            img {
+                max-width 100%
+            }
+            //pre.vue-container
+            //    border-left-width: .5rem;
+            //    border-left-style: solid;
+            //    border-color: #42b983;
+            //    border-radius: 0px;
+            //    & > code
+            //        font-size: 14px !important;
+            //        & > p
+            //            margin: -5px 0 -20px 0;
+            //        code
+            //            background-color: #42b983 !important;
+            //            padding: 3px 5px;
+            //            border-radius: 3px;
+            //            color #000
+            //        em
+            //            color #808080
+            //            font-weight light
+
+            a {
+                &[href*='http'] {
+                    &:after {
+                        //background-image url("data:image/svg+xml;utf8,<svg x="0" y="0" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" viewBox="0 0 100 100" width="15" height="15"><path fill="currentColor" d="M18.8 85.1h56c2.2 0 4-1.8 4-4v-32h-8v28h-48v-48h28v-8h-32c-2.2 0-4 1.8-4 4v56c0 2.2 1.8 4 4 4z"/><path fill="currentColor" d="M45.7 48.7l5.6 5.6 25.9-25.8v8.7h8V14.9H62.8v8h8.7z"/></svg>")
+                    }
+                }
+            }
+
+            p a code {
+                font-weight 400
+                color $color6
+            }
+
+            kbd {
+                background #eee
+                border solid 0.15rem #ddd
+                border-bottom solid 0.25rem #ddd
+                border-radius 0.15rem
+                padding 0 0.15em
+            }
+
+            blockquote {
+                font-size .9rem
+                color #999
+                border-left .5rem solid #dfe2e5
+                margin 0.5rem 0
+                padding .25rem 0 .25rem 1rem
+                & > p {
+                    margin 0
+                }
+            }
+
+            ul, ol {
+                margin-top $indent1
+            }
+
+
+            li {
+                /*display flex*/
+                align-items baseline
+                padding-left 20px
+                position relative
+                &:hover {
+                    &:before {
+                        background-color $color6
+                    }
+                }
+                &:not(:first-child) {
+                    margin-top 8px
+                }
+                &:before {
+                    position absolute
+                    top 10px
+                    left 0
+                    display flex
+                    content ''
+                    width 6px
+                    height 6px
+                    background-color var(--color10)
+                    border-radius 50%
+                    flex-shrink 0
+                }
+            }
+
+            strong {
+                font-weight 600
+            }
+
+
+            h1, h2, h3, h4, h5, h6 {
+                font-weight 600
+                line-height 1.25
+                .content:not(.custom) > & {
+                    margin-top (0.5rem - $navbarHeight)
+                    padding-top ($navbarHeight + 1rem)
+                    margin-bottom 0
+                    &:first-child {
+                        margin-top -1.5rem
+                        margin-bottom 1rem
+                        + p, + pre, + .custom-block {
+                            margin-top 2rem
+                        }
+                    }
+                }
+                &:hover .header-anchor {
+                    opacity: 1
+                }
+            }
+
+
+            .header-anchor {
+                display none
+            }
+            h1 {
+                font-size: 34px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.18;
+                letter-spacing: normal;
+                padding-bottom $indent1
+                &:not(:first-child) {
+                    margin-top $indent1
+                }
+            }
+
+
+            h2 {
+                //font-size 1.2rem
+                //padding-bottom .3rem
+                //border-bottom 1px solid var(--color3)
+                font-size: 34px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.18;
+                letter-spacing: normal;
+                padding $indent1 0
+                &:first-child {
+                    padding-top 0
+                }
+            }
+
+            /*.h1:first-of-type {
+                padding-right $indent2
+            }*/
+
+
+            h3 {
+                font-size: 24px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.67;
+                letter-spacing: normal;
+                margin-top $indent4
+            }
+
+            h4 {
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.67;
+                letter-spacing: normal;
+                margin-top $indent4
+            }
+
+
+            a.header-anchor {
+                font-size 0.85em
+                float left
+                margin-left -0.87em
+                padding-right 0.23em
+                margin-top 0.125em
+                opacity 0
+                &:hover {
+                    text-decoration none
+                }
+
+            }
+
+            code, kbd, .line-number {
+                /*font-family source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace*/
+                font-family : 'Roboto', sans-serif;
+            }
+
+            p, ul, ol {
+                font-size: 16px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.75;
+                color $color8
+            }
+
+            hr {
+                border 0
+                border-top 1px solid var(--color3)
+            }
+
+            table {
+                border-collapse collapse
+                margin 1rem 0
+                display: block
+                overflow-x: auto
+            }
+
+            tr {
+                border-top 1px solid #dfe2e5
+                &:nth-child(2n) {
+                    background-color #f6f8fa
+                }
+
+            }
+
+            th, td {
+                border 1px solid #dfe2e5
+                padding .6em 1em
+            }
+
         }
     }
 </style>

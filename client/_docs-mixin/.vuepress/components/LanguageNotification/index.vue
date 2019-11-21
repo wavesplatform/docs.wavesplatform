@@ -28,7 +28,7 @@
         <div :class="$style.root__body">
             <div :class="$style.stateIconWrapper">
                 <img
-                    src="warning-80-mix-sunset.svg"
+                    src="./warning-80-mix-sunset.svg"
                     :class="$style.stateIcon"
                     alt=""
                 >
@@ -218,16 +218,20 @@
         margin-left -14px
     }
     .root__body {
-
+        position relative
+        display flex
+        flex-direction column
     }
     .stateIconWrapper {
-        max-height 80px
+        /*max-height 80px*/
         display flex
         justify-content center
         position relative
-        height 100%
+        /*height 100%*/
+        height 80px
         @media screen and (max-width: 719px) {
-            max-height 50px
+            /*max-height 50px*/
+            height 50px
         }
     }
     .stateIcon {

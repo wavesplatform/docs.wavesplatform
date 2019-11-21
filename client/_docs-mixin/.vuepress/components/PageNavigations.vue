@@ -48,6 +48,7 @@
 </template>
 
 <script>
+  import { normalize } from '../util'
   import WidthLimit from '@theme/components/WidthLimit'
   export default {
     components: {
@@ -92,10 +93,9 @@
         return this.getFlatSidebarItems(this.sidebarItems);
       },
       currentIndexInFlatSidebarItems() {
-        /*or $page.key*/
-        const pageRelativePath = this.$page.relativePath;
+        const routeNormalizePath = normalize(this.$route.path);
         const element = this.flatSidebarItems.find(item => {
-          return item.relativePath === pageRelativePath;
+          return normalize(item.path) === routeNormalizePath;
         });
         return this.flatSidebarItems.indexOf(element);
       },
@@ -152,8 +152,6 @@
     }
   }
 </script>
-
-
 
 <style lang="stylus" module>
     .pageNavigations {

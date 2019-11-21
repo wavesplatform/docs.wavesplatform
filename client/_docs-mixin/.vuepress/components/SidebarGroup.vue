@@ -130,7 +130,16 @@
     },
 
     watch: {
-
+      isActiveItem(isActive) {
+        if (isActive) {
+          this.$emit('open');
+        }
+      },
+      withActiveStateItem(withActiveItem) {
+        if (withActiveItem) {
+          this.$emit('open');
+        }
+      },
     },
 
     beforeCreate () {
