@@ -73,7 +73,7 @@
                 }"
             >
 
-                <WidthLimit
+                <!--<WidthLimit
                     v-show="layoutWidth < 720"
                     :class="$style.burgerTriggerWrapper"
                     :type="2"
@@ -83,7 +83,7 @@
                         @click.native="$store.commit('setDisplayLeftSidebar', true)"
                     />
                 </WidthLimit>
-
+-->
 
 
                 <WidthLimit

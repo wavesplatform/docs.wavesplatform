@@ -276,7 +276,7 @@ export default {
     }
 
     .resizeTrigger {
-        z-index 1
+        z-index 2
         height 100%
         display flex
         position absolute

@@ -13,6 +13,7 @@
     @ps-y-reach-end="scrollHandle"
     @ps-x-reach-start="scrollHandle"
     @ps-x-reach-end="scrollHandle">
+      <slot name="beforeContent"/>
     <div
         :class="$style.content"
         ref="content">
@@ -146,9 +147,10 @@ export default {
     -webkit-transition: background-color .2s linear, opacity .2s linear;
     height: 15px;
     /* there must be 'bottom' or 'top' for ps__rail-x */
-    bottom: 0px;
+    bottom: 0;
     /* please don't change 'position' */
     position: absolute;
+    z-index 2
   }
 
   .ps__rail-y {
@@ -161,6 +163,7 @@ export default {
     /*right: 0;*/
     /* please don't change 'position' */
     position: absolute;
+    z-index 2
   }
 
   .ps--active-x > .ps__rail-x,

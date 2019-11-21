@@ -10,8 +10,8 @@ module.exports = {
     sidebarOnThisPageText: 'On this page',
 
     languageAbsenceNotification: {
-        title: 'Sorry',
-        message: 'Content on this page is currently under construction.',
+        title: 'Oops…',
+        message: 'The content of this page is currently unavailable. Sorry for the inconvenience!',
     },
     nav: [
         // {
@@ -32,19 +32,19 @@ module.exports = {
                 buttonSet: {
                     nodeApi: {
                         text: 'Node API',
-                        link: '/en/blockchain/token/non-fungible-token'
+                        link: '/en/learn-about-waves-platform/tools/test-waves-ide-new.html#specification'
                     },
                     matcher: {
                         text: 'Matcher',
-                        link: '/en/blockchain/token/non-fungible-token'
+                        link: '/en/learn-about-waves-platform/for-example/test-level-2/test-level-3/level-3-element-1'
                     },
                     gRpc: {
                         text: 'gRPC',
-                        link: '/en/blockchain/token/non-fungible-token'
+                        link: '/en/learn-about-waves-platform/level-1-test-page-4/'
                     },
                     leasing: {
                         text: 'Leasing',
-                        link: '/en/blockchain/token/non-fungible-token'
+                        link: 'http://localhost:3083/en/learn-about-waves-platform/tools/repl/waves-ide/simple-voting-on-the-waves-blockchain#roadmap'
                     }
                 }
             },

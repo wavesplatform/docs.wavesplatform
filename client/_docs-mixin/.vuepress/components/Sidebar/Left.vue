@@ -55,27 +55,39 @@
                 </a>
             </div>
 
-            <VueScrollbar
-                :class="[
+            <div :class="$styleLeft.sidebarLinks__contentWrapper">
+                <div :class="$styleLeft.foggingContainer">
+                    <div :class="[$styleLeft.foggingElement, $styleLeft.foggingElement_vertical, $styleLeft.foggingElement_vertical_left]"/>
+                    <div :class="[$styleLeft.foggingElement, $styleLeft.foggingElement_vertical, $styleLeft.foggingElement_vertical_right]"/>
+                    <div :class="[$styleLeft.foggingElement, $styleLeft.foggingElement_horizontal, $styleLeft.foggingElement_horizontal_top]"/>
+                    <div :class="[$styleLeft.foggingElement, $styleLeft.foggingElement_horizontal, $styleLeft.foggingElement_horizontal_bottom]"/>
+                </div>
+                <VueScrollbar
+                    :class="[
                     $style.sidebarLinks__content,
                     $styleLeft.sidebarLinks__content
                 ]"
-                :settings="{
+                    :settings="{
                     /*useBothWheelAxes: true,*/
                     wheelPropagation: false,
                 }"
-            >
-                <!--<NavLinks v-if="layoutWidth < 720"/>-->
-                <slot name="top"/>
-                <div :class="$styleLeft.sidebarLinksListWrapper">
-                    <SidebarLinks
-                        :class="$styleLeft.sidebarLinksList"
-                        :depth="0"
-                        :items="items"
-                        :mod="mod"
-                    />
-                </div>
-            </VueScrollbar>
+                >
+                    <div :class="$styleLeft.sidebarLinksListWrapper2">
+                        <!--<NavLinks v-if="layoutWidth < 720"/>-->
+                        <!--<slot name="top"/>-->
+                        <div :class="$styleLeft.sidebarLinksListWrapper">
+                            <SidebarLinks
+                                :class="$styleLeft.sidebarLinksList"
+                                :depth="0"
+                                :items="items"
+                                :mod="mod"
+                            />
+                        </div>
+                    </div>
+
+                </VueScrollbar>
+            </div>
+
 
 
         </div>
@@ -95,17 +107,33 @@
       </div>
     </div>
     <div
-        v-show="preparedOptions.isMobileMod"
-        :class="[
-            $style.closeOverlay,
-            $styleLeft.closeOverlayBlock,
-            isShow && $styleLeft.closeOverlayBlock_isShow,
-        ]"
+        :class="$styleLeft.closeOverlayBlock"
         :style="{
           transform: isShow ? '' : `translateX(-${leftSidebarWidth}px)`,
         }"
-        @click="$store.commit('setDisplayLeftSidebar', false)"
     >
+        <WidthLimit
+            v-show="layoutWidth < 720"
+            :class="$styleLeft.burgerTriggerWrapper"
+            :type="2"
+            :style="{
+                height: headerHeight + 'px',
+            }"
+        >
+            <BurgerTrigger
+                :class="$styleLeft.burgerTrigger"
+                :is-open="isShow"
+                @change="$store.commit('setDisplayLeftSidebar', $event)"
+            />
+        </WidthLimit>
+        <div
+            v-show="preparedOptions.isMobileMod"
+            :class="[
+                $styleLeft.closeOverlay,
+                isShow && $styleLeft.closeOverlay_isShow,
+            ]"
+            @click="$store.commit('setDisplayLeftSidebar', false)"
+        />
     </div>
   </aside>
 </template>
@@ -114,14 +142,18 @@
   import overallMixin from './overallMixin'
   import VueScrollbar from '@theme/components/VueScrollbar'
 
+  import BurgerTrigger from '@theme/components/BurgerTrigger'
+  import WidthLimit from '@theme/components/WidthLimit'
   export default {
 
     mixins: [
-      overallMixin
+      overallMixin,
     ],
 
     components: {
       VueScrollbar,
+      BurgerTrigger,
+      WidthLimit
     },
 
     data () {
@@ -138,6 +170,9 @@
 
 
     computed: {
+      headerHeight () {
+        return this.$store.state.interface.headerHeight;
+      },
       layoutHeight() {
         return this.$store.state.interface.layoutHeight;
       },
@@ -155,9 +190,9 @@
 
 
     methods: {
-      backToIndexButtonResize(element) {
-        this.backToIndexButtonWidth = element.offsetWidth;
-      },
+      // backToIndexButtonResize(element) {
+      //   this.backToIndexButtonWidth = element.offsetWidth;
+      // },
     },
 
     mounted () {
@@ -175,6 +210,7 @@
 </script>
 
 <style lang="stylus" module="$styleLeft">
+    $foggingElementSize = 15px;
     .sidebarWrapper {
         flex-shrink 0
         transition transform $transitionS1
@@ -215,13 +251,61 @@
         height 100%
     }
 
-    .sidebarLinks__content {
-        /*margin $indent3 0*/
+    .sidebarLinks__contentWrapper {
+        display flex
+        flex-direction column
         margin-top $indent3
-        padding-bottom $indent2
-        justify-content start
-        /*direction: rtl;*/
-        overflow-x auto
+        overflow hidden
+        position relative
+        height 100%
+    }
+
+    .foggingContainer {
+        position absolute
+        width 100%
+        height 100%
+        z-index 1
+        visibility hidden
+    }
+    .foggingElement {
+        position absolute
+        visibility visible
+        pointer-events none
+    }
+    .foggingElement_vertical {
+        width $foggingElementSize
+        height 100%
+        top 0
+    }
+    .foggingElement_vertical_left {
+        left 0
+        background-image linear-gradient(to right, var(--color11) 10%, rgba(255, 255, 255, 0));
+        background-color transparent
+    }
+    .foggingElement_vertical_right {
+        right 0
+        background-image linear-gradient(to left, var(--color11) 10%, rgba(255, 255, 255, 0));
+    }
+    .foggingElement_horizontal {
+        height $foggingElementSize
+        width 100%
+        left 0
+    }
+    .foggingElement_horizontal_top {
+        top 0
+        background-image linear-gradient(to bottom, var(--color11) 10%, rgba(255, 255, 255, 0));
+    }
+    .foggingElement_horizontal_bottom {
+        bottom 0
+        background-image linear-gradient(to top, var(--color11) 10%, rgba(255, 255, 255, 0));
+    }
+
+    .sidebarLinks__content {
+        /*height 100%*/
+        /*margin $indent3 0*/
+        /*padding-bottom $indent2*/
+        /*justify-content start*/
+        display flex
         position relative
         :global(.ps__rail-y) {
             left 0;
@@ -231,6 +315,8 @@
             left 2px;
             right auto
         }
+    }
+    .sidebarLinksListWrapper2 {
 
     }
 
@@ -244,7 +330,7 @@
         /*max-width 100%*/
         padding-right $indent1
         padding-left $indent1
-
+        padding-bottom $indent1
     }
     .sidebarLinksList {
         position relative
@@ -257,19 +343,38 @@
     .closeOverlayBlock {
         position relative
         z-index 1
-        cursor pointer
         display flex
+        visibility hidden
+        height 100%
+        width 100vw
+
+    }
+    .closeOverlay {
+        flex-shrink 0
         visibility visible
         height 100%
-        width 100%
+        width 100vw
         background-color $color5
         flex-shrink 0
         transition opacity $transitionS1, transform $transitionS1
-        &:not(.closeOverlayBlock_isShow) {
+        cursor pointer
+        position absolute
+        top 0
+        left 0
+        &:not(.closeOverlay_isShow) {
             opacity 0
             pointer-events none
         }
     }
 
-
+    .burgerTriggerWrapper {
+        display flex
+        align-items center
+        z-index 1
+        justify-content flex-start
+    }
+    .burgerTrigger {
+        cursor pointer
+        visibility visible
+    }
 </style>

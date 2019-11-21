@@ -10,8 +10,8 @@ module.exports = deepmerge(technologyListMixin, {
     sidebarOnThisPageText: 'На этой странице',
 
     languageAbsenceNotification: {
-        title: 'Извините',
-        message: 'В данный момент контент этой странице находиться в разработке.',
+        title: 'Ой…',
+        message: 'Содержимое этой страницы временно недоступно. Приносим извинения за неудобства!',
     },
 
     homePage: {

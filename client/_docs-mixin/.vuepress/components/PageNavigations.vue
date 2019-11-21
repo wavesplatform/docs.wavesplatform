@@ -192,6 +192,9 @@
     .pageNavigations__next__text {
         text-align right
     }
+    .pageNavigations__side__icon {
+        font-weight bold
+    }
     .pageNavigations__sideWrapper {
         display flex
         width 100%
