@@ -33,29 +33,29 @@
                         $style.sidebar1,
                     ]"
                     >
-                        <div
-                            ref="sidebar1__header"
-                            :class="$style.sidebar1__header"
-                            slot="header"
-                            :style="{
-                        height: headerHeight - 1 + 'px',
-                    }"
-                        >
-                            <router-link
-                                :to="$localePath"
-                                :class="$style.logotypeLink"
-                            >
-                                <Logotype :class="$style.logotype"/>
-                            </router-link>
-                        </div>
-                        <slot
-                            name="sidebar-top"
-                            slot="top"
-                        />
-                        <slot
-                            name="sidebar-bottom"
-                            slot="bottom"
-                        />
+<!--                        <div-->
+<!--                            ref="sidebar1__header"-->
+<!--                            :class="$style.sidebar1__header"-->
+<!--                            slot="header"-->
+<!--                            :style="{-->
+<!--                        height: headerHeight - 1 + 'px',-->
+<!--                    }"-->
+<!--                        >-->
+<!--                            <router-link-->
+<!--                                :to="$localePath"-->
+<!--                                :class="$style.logotypeLink"-->
+<!--                            >-->
+<!--                                <Logotype :class="$style.logotype"/>-->
+<!--                            </router-link>-->
+<!--                        </div>-->
+<!--                        <slot-->
+<!--                            name="sidebar-top"-->
+<!--                            slot="top"-->
+<!--                        />-->
+<!--                        <slot-->
+<!--                            name="sidebar-bottom"-->
+<!--                            slot="bottom"-->
+<!--                        />-->
                     </Sidebar>
                     <Navbar
                         ref="navbar"
@@ -150,7 +150,6 @@
   import Navbar from '@theme/components/Navbar'
   import Page from '@theme/components/Page.vue'
   import Sidebar from '@theme/components/Sidebar/'
-  import Logotype from '@theme/components/Logotype'
   import WidthLimit from '@theme/components/WidthLimit'
   import PageNavigations from '@theme/components/PageNavigations'
   import LanguageNotification from '@theme/components/LanguageNotification'
@@ -175,7 +174,6 @@
       Page,
       Sidebar,
       Navbar,
-      Logotype,
       WidthLimit,
       PageNavigations,
       LanguageNotification,
@@ -478,22 +476,7 @@
         position fixed
     }
 
-    .sidebar1__header {
-        width 100%
-        overflow hidden
-        display flex
-        justify-content flex-start
-        align-items center
-        padding-left $indent1
-    }
-    .logotypeLink {
-        /*height 100%*/
-        display flex
-    }
-    .logotype {
-        max-width 164px
-        width 100%
-    }
+
 
     .sidebar2 {
         right: 0;

@@ -24,7 +24,22 @@
             v-show="layoutWidth > 719"
           :class="$style.sidebarHeader"
         >
-          <slot name="header"/>
+          <!--<slot name="header"/>-->
+            <div
+                ref="sidebar1__header"
+                :class="$styleLeft.sidebar__header"
+                slot="header"
+                :style="{
+                    height: headerHeight - 1 + 'px',
+                }"
+            >
+                <router-link
+                    :to="$localePath"
+                    :class="$styleLeft.logotypeLink"
+                >
+                    <Logotype :class="$styleLeft.logotype"/>
+                </router-link>
+            </div>
           <!--<ToggleTrigger
             v-if="sidebarToggleTriggerMergedOptions.isShow"
             :side="side"
@@ -141,7 +156,7 @@
 <script>
   import overallMixin from './overallMixin'
   import VueScrollbar from '@theme/components/VueScrollbar'
-
+  import Logotype from '@theme/components/Logotype'
   import BurgerTrigger from '@theme/components/BurgerTrigger'
   import WidthLimit from '@theme/components/WidthLimit'
   export default {
@@ -153,7 +168,8 @@
     components: {
       VueScrollbar,
       BurgerTrigger,
-      WidthLimit
+      WidthLimit,
+      Logotype,
     },
 
     data () {
@@ -215,6 +231,22 @@
         flex-shrink 0
         transition transform $transitionS1
     }
+    .sidebar__header {
+        width 100%
+        overflow hidden
+        display flex
+        justify-content flex-start
+        align-items center
+        padding-left $indent1
+    }
+    .logotypeLink {
+        /*height 100%*/
+        display flex
+    }
+    .logotype {
+        max-width 164px
+        width 100%
+    }
     .sidebarLinks {
         padding-top 24px
         height 100%
@@ -271,6 +303,7 @@
         position absolute
         visibility visible
         pointer-events none
+        /*background-color rgba(255, 255, 255, 0)*/
     }
     .foggingElement_vertical {
         width $foggingElementSize
@@ -279,12 +312,11 @@
     }
     .foggingElement_vertical_left {
         left 0
-        background-image linear-gradient(to right, var(--color11) 10%, rgba(255, 255, 255, 0));
-        background-color transparent
+        background-image linear-gradient(to right, #f00 10%, rgba(255, 255, 255, 0.0) 100%);
     }
     .foggingElement_vertical_right {
         right 0
-        background-image linear-gradient(to left, var(--color11) 10%, rgba(255, 255, 255, 0));
+        background-image linear-gradient(to left, var(--color11) 10%, rgba(255, 0, 255, 0.01));
     }
     .foggingElement_horizontal {
         height $foggingElementSize

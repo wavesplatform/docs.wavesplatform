@@ -258,9 +258,15 @@ export default {
             font-weight: normal;
             font-stretch: normal;
             font-style: normal;
-            line-height: normal;
             letter-spacing: normal;
+            /*line-height: 64px;*/
             color $color9
+        }
+        /*&:-moz-placeholder { !* Firefox 18- *!
+            line-height: 64px;
+        }*/
+        &::-moz-placeholder {  /* Firefox 19+ */
+            line-height: 64px;
         }
         /*&.focused {
             border-color var(--color3)
@@ -285,6 +291,13 @@ export default {
             padding-left: 38px
             &::placeholder {
                 font-size: 14px;
+                /*line-height: 38px;*/
+            }
+            /*&:-moz-placeholder { !* Firefox 18- *!
+                line-height: 38px;
+            }*/
+            &::-moz-placeholder {  /* Firefox 19+ */
+                line-height: 38px;
             }
         }
     }

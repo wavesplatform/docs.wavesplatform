@@ -117,8 +117,12 @@ export default {
 
     checkResizableState() {
       // this.isResizableState = false;
-      const maxWidth = this.sidebarElement.computedStyleMap().get('max-width');
-      const minWidth = this.sidebarElement.computedStyleMap().get('min-width');
+
+      // const maxWidth = this.sidebarElement.computedStyleMap().get('max-width');
+      // const minWidth = this.sidebarElement.computedStyleMap().get('min-width');
+      const sidebarElementComputedStyle = getComputedStyle(this.sidebarElement, null);
+      const maxWidth = sidebarElementComputedStyle.getPropertyValue('max-width');
+      const minWidth = sidebarElementComputedStyle.getPropertyValue('min-width');
       let maxWidthValue = maxWidth.value;
       const minWidthValue = minWidth.value;
       if(maxWidth.unit === 'percent') {
@@ -127,9 +131,21 @@ export default {
       this.isResizableState = maxWidthValue > minWidthValue;
     },
 
+    getPreparePropertyValue(element, propName) {
+      const percentUnit = '%';
+      const pixelUnit = 'px';
+      const fullValue = element.getPropertyValue(propName);
+      const unit = fullValue.includes(percentUnit) ? 'percent' : 'px';
+      return {
+        value: fullValue.replace(percentUnit, '').replace(pixelUnit, ''),
+        unit,
+      }
+    },
+
     resizeTriggerMousemove (event) {
-      const maxWidth = this.sidebarElement.computedStyleMap().get('max-width');
-      const minWidth = this.sidebarElement.computedStyleMap().get('min-width');
+      const sidebarElementComputedStyle = getComputedStyle(this.sidebarElement, null);
+      const maxWidth = this.getPreparePropertyValue(sidebarElementComputedStyle, 'max-width');
+      const minWidth = this.getPreparePropertyValue(sidebarElementComputedStyle, 'min-width');
 
       let maxWidthValue = maxWidth.value;
       if(maxWidth.unit === 'percent') {
@@ -138,6 +154,8 @@ export default {
       let minWidthValue = minWidth.value;
 
       let computedWidth = this.latestSidebarWidth - (this.latestClientX - event.clientX) * this.sideIndexNumber;
+
+
       if (computedWidth > maxWidthValue) {
         computedWidth = maxWidthValue
       }
@@ -356,6 +374,7 @@ export default {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-shrink 0
     }
     .sidebarLinks {
         overflow hidden
