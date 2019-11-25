@@ -32,19 +32,9 @@ export default {
         default: false,
       },
     },
-    data() {
-      return {
-        isOpenAcquired: this.isOpen,
-      }
-    },
-    watch: {
-      isOpenAcquired(isOpen) {
-        this.$emit('change', isOpen);
-      }
-    },
     methods: {
       toggle() {
-        this.isOpenAcquired = !this.isOpenAcquired;
+        this.$emit('change', !this.isOpen);
       },
     },
 }
