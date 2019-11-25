@@ -216,7 +216,9 @@
         immediate: true,
       },
       $route() {
-        this.$store.commit('setDisplayLeftSidebar', false);
+        if(this.preparedOptions.isMobileMod) {
+          this.$store.commit('setDisplayLeftSidebar', false);
+        }
       },
     },
 
