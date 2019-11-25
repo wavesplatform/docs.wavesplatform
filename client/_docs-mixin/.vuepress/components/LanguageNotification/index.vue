@@ -199,14 +199,20 @@
     }
     .closeTrigger {
         cursor pointer
+        transition transform $transitionS1
+        display: flex;
+        align-items: center;
+        justify-content: center;
         &:hover {
+            transform rotate(180deg)
             .closeTrigger__part {
                 color $color6
-                transform rotate(360deg)
+                /*transform rotate(360deg)*/
             }
         }
     }
     .closeTrigger__part {
+        flex-shrink 0
         transition color $transitionS1, transform $transitionS1
         font-size 18px
         color $color9
@@ -215,7 +221,7 @@
 
     }
     .closeTrigger__part2 {
-        margin-left -14px
+        margin-left -11px
     }
     .root__body {
         position relative

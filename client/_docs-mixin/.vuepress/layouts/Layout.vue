@@ -2,6 +2,15 @@
     <div
         :class="$style.root"
     >
+        <!--<template id="medium-zoom-template">
+            <div>
+                <header>My image zoom template</header>
+                <div id="medium-zoom-container"></div>
+                <aside>Comment on my image</aside>
+            </div>
+        </template>-->
+        <div class="medium-zoom-container"></div>
+
         <template v-if="$page.path !== '/'">
             <ThemeControl/>
             <SearchFrameContent/>
@@ -111,7 +120,7 @@
                 <Page
                     ref="page"
                     :sidebar-items="sidebarItems"
-                    :class="$style.page"
+                    :class="['pageContent', $style.page]"
                 >
                     <!--<slot
                         name="page-top"
@@ -425,6 +434,22 @@
     }
   }
 </script>
+
+<style lang="stylus">
+    .medium-zoom-container {
+        position fixed
+        z-index 2
+        width 100vw
+        height 100vh
+        visibility hidden
+    }
+    .medium-zoom-overlay {
+        z-index 1
+    }
+    .medium-zoom-image--opened {
+        z-index 2
+    }
+</style>
 
 <style lang="stylus" module>
     .root {

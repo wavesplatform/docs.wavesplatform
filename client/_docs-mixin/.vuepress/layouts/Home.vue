@@ -112,11 +112,11 @@
 
 
                                         <template slot="buttonSet">
-                                            <a
+                                            <router-link
                                                 v-for="(button, buttonKey) of category.buttonSet"
                                                 :key="`${categoryIndex}_${buttonKey}`"
-                                                :href="button.link"
                                                 :class="$style.categoryCard__link"
+                                                :to="button.link"
                                             >
                                                 <el-button
                                                     size="mini"
@@ -124,7 +124,7 @@
                                                 >
                                                     {{ button.text }}
                                                 </el-button>
-                                            </a>
+                                            </router-link>
                                         </template>
                                     </CategoryCard>
                                 </li>

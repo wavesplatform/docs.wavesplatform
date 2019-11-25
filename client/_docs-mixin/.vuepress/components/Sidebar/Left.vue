@@ -55,8 +55,8 @@
                   @mousedown.prevent.stop="resizeTriggerMousedown"
               />
             <div :class="$styleLeft.backToIndexWrapper">
-                <a
-                    :href="$localePath"
+                <router-link
+                    :to="$localePath"
                     :class="$styleLeft.backToIndexLink"
                 >
                     <el-button
@@ -67,7 +67,7 @@
                         <!--{{backToIndexButtonWidth > 100 ? $themeLocaleConfig.backToIndexButtonText : ''}}-->
                         {{$themeLocaleConfig.backToIndexButtonText}}
                     </el-button>
-                </a>
+                </router-link>
             </div>
 
             <div :class="$styleLeft.sidebarLinks__contentWrapper">
@@ -183,8 +183,6 @@
       }
     },
 
-
-
     computed: {
       headerHeight () {
         return this.$store.state.interface.headerHeight;
@@ -195,7 +193,6 @@
       leftSidebarWidth () {
         return this.$store.state.interface.leftSidebarWidth
       },
-
       sidebarElementWidthPx () {
         return this.$store.state.interface.leftSidebarWidth
       },
@@ -204,6 +201,24 @@
       }
     },
 
+    watch: {
+      isShow: {
+        handler(isShow) {
+          if(!this.$isServer) {
+            const bodyStyle = document.body.style;
+            if(isShow && this.preparedOptions.isMobileMod) {
+              bodyStyle.overflow = 'hidden';
+              return;
+            }
+            bodyStyle.overflow = '';
+          }
+        },
+        immediate: true,
+      },
+      $route() {
+        this.$store.commit('setDisplayLeftSidebar', false);
+      },
+    },
 
     methods: {
       // backToIndexButtonResize(element) {
@@ -219,6 +234,8 @@
     },
 
     beforeDestroy () {
+      document.body.style.overflow = '';
+      this.$store.commit('setDisplayLeftSidebar', false);
       // this.$elementResizeDetector.removeListener(this.$refs.backToIndexButton.$el, this.backToIndexButtonResize);
     }
 
@@ -364,6 +381,7 @@
         padding-left $indent1
         padding-bottom $indent1
     }
+
     .sidebarLinksList {
         position relative
         /*> :global(.sidebarLinks__link) {
@@ -372,6 +390,7 @@
             }
         }*/
     }
+
     .closeOverlayBlock {
         position relative
         z-index 1
@@ -379,15 +398,14 @@
         visibility hidden
         height 100%
         width 100vw
-
     }
+
     .closeOverlay {
         flex-shrink 0
         visibility visible
         height 100%
         width 100vw
-        background-color $color5
-        flex-shrink 0
+        background-color var(--color7_alpha1)
         transition opacity $transitionS1, transform $transitionS1
         cursor pointer
         position absolute

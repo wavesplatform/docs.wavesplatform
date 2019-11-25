@@ -42,7 +42,9 @@ export default (context) => {
     if (!isServer) {
         state.defaultLanguage = navigator.language
     }
+
     const modules = {}
+
     const set = key => (state, val) => {
         state[key] = val
     }
@@ -98,6 +100,7 @@ export default (context) => {
         setSearchSuggestionsFocusIndex (state, index) {
             state.search.focusIndex = index
         },
+
         setInterfaceInnerWidthLayout (state, width) {
             state.interface.layoutWidth = width
         },
@@ -118,7 +121,8 @@ export default (context) => {
 
         setSearchQuery (state, value) {
             state.search.query = value
-        }
+        },
+
     }
 
     const actions = {};
@@ -158,12 +162,23 @@ export default (context) => {
             },
         });
     };
+
+    const getters = {
+        activeColorationConfig: state => {
+            const themeConfig = state.themeConfig;
+            return themeConfig.colouration[themeConfig.activeColouration]
+        },
+        activeColorationConfigColors(state) {
+            return getters.activeColorationConfig(state).colors;
+        },
+    }
     Vue.use(Vuex);
     const store = new Vuex.Store({
         state,
         modules,
         mutations,
         actions,
+        getters,
         plugins: vuexPersistence ? [vuexPersistence.plugin] : [],
     })
     // if (!isServer) {

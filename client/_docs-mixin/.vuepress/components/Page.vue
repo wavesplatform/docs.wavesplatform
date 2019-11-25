@@ -33,15 +33,17 @@
             </a>
           </div>
         </div>
-        <Content :class="$style.pageContent"/>
+        <Content
+            ref="content"
+            :class="$style.pageContent"/>
       </main>
     </WidthLimit>
 </template>
 
 <script>
+  import mediumZoom from 'medium-zoom'
   import WidthLimit from '@theme/components/WidthLimit'
   import { outboundRE, endingSlashRE } from '../util'
-
   export default {
 
     components: {
@@ -64,6 +66,9 @@
     },
 
     computed: {
+      activeColorationConfigColors() {
+        return this.$store.getters.activeColorationConfigColors;
+      },
       isScrollTopState() {
         return this.$store.state.interface.isScrollTopState;
       },
@@ -134,16 +139,27 @@
       //   this.interactionObserver = new IntersectionObserver(this.intersectionObserverCallback, this.intersectionObserverOptions);
       if(!this.$isServer) {
         this.updateHeadersElements();
+        this.initMediumZoom();
       }
     },
 
     updated () {
       if (!this.$isServer) {
-        this.updateHeadersElements()
+        this.updateHeadersElements();
+        this.initMediumZoom();
       }
     },
 
     methods: {
+      initMediumZoom() {
+        mediumZoom(this.$refs.content.$el.querySelectorAll('img'), {
+          margin: 20,
+          background: this.activeColorationConfigColors.color7_alpha1,
+          scrollOffset: 0,
+          container: '.medium-zoom-container',
+          // template: '.medium-zoom-template',
+        });
+      },
       setCurrentActiveHeaderId() {
         if(this.isScrollTopState) {
           return;
@@ -163,8 +179,6 @@
         const idsValues = this.headersElements.reduce((accumulator, headerElement) => {
           let value = headerElement.offsetTop - this.documentElementScrollTop + this.headerHeight - headerElement.offsetHeight;
 
-          // console.log('value:', value, this.headerHeight);
-
           // if(value < 0) {
           //   value = value * -1;
           // }
@@ -176,7 +190,6 @@
           return accumulator;
         }, {});
 
-        console.log('idsValues:', idsValues)
         const values = Object.values(idsValues);
         const keys = Object.keys(idsValues);
         const minValue = Math.max(...values);
@@ -185,15 +198,16 @@
       },
 
       updateHeadersElements () {
-        const headers = this.$page.headers.filter(header => {
-          return header.level < 3;
-        });
+        let headers = this.$page.headers
         // this.headersElements.forEach(headersElement => {
         //   this.interactionObserver.unobserve(headersElement);
         // });
         if (!headers || !headers.length) {
           return
         }
+        headers = headers.filter(header => {
+          return header.level < 3;
+        });
         this.headersElements = headers.map(header => {
           const headerElement = document.querySelector(`#${header.slug}`);
           // this.interactionObserver.observe(headerElement);

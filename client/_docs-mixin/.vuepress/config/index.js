@@ -59,28 +59,46 @@ module.exports = (ctx) => {
             // nextLinks: true,
             // prevLinks: true,
         },
-        plugins: [
-            // '../../last-updated',
-            // ['../../back-to-top', true],
-            // ['../../pwa', {
-            //     serviceWorker: true,
-            //     updatePopup: true
-            // }],
-            // ['../../medium-zoom', true],
-            // ['../../google-analytics', {
-            //     ga: 'UA-128189152-1'
-            // }],
-            ['container', {
-                type: 'vue',
-                before: '<pre class="vue-container"><code>',
-                after: '</code></pre>'
-            }],
-            ['container', {
-                type: 'upgrade',
-                before: info => `<UpgradePath title="${info}">`,
-                after: '</UpgradePath>'
-            }],
-        ],
+        // plugins: [
+        //     ['@vuepress/medium-zoom', {
+        //         selector: 'body img',
+        //         // medium-zoom options here
+        //         // See: https://github.com/francoischalifour/medium-zoom#options
+        //         options: {
+        //             margin: 16
+        //         }
+        //     }],
+        //     // '../../last-updated',
+        //     // ['../../back-to-top', true],
+        //     // ['../../pwa', {
+        //     //     serviceWorker: true,
+        //     //     updatePopup: true
+        //     // }],
+        //     // ['../../google-analytics', {
+        //     //     ga: 'UA-128189152-1'
+        //     // }],
+        //     // ['container', {
+        //     //     type: 'vue',
+        //     //     before: '<pre class="vue-container"><code>',
+        //     //     after: '</code></pre>'
+        //     // }],
+        //     // ['container', {
+        //     //     type: 'upgrade',
+        //     //     before: info => `<UpgradePath title="${info}">`,
+        //     //     after: '</UpgradePath>'
+        //     // }],
+        //
+        // ],
+        plugins: {
+            '@vuepress/medium-zoom': {
+                selector: '.pageContent img',
+                // medium-zoom options here
+                // See: https://github.com/francoischalifour/medium-zoom#options
+                options: {
+                    margin: 16
+                }
+            }
+        },
         // extraWatchFiles: [
         //     '.vuepress/locales/**',
         // ],

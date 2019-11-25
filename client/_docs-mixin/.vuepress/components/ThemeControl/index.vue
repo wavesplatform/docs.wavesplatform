@@ -18,7 +18,7 @@
             :class="$style.visibilityCheckbox"
             v-model="isVisible"
         >
-        <template v-if="activeColorationConfig">
+        <template v-if="activeColorationConfigColors">
             <ColorPicker
                 v-for="activeColorationProp of activeColorationConfigPropsPrepare"
                 :item="activeColorationProp"
@@ -57,13 +57,13 @@
         if(!this.activeColouration) {
           return
         }
-        return Object.entries(this.themeConfig.colouration[this.activeColouration].colors).reduce((accumulator, elementEntry) => {
-          accumulator[elementEntry[0]] = elementEntry[1];
-          return accumulator;
-        }, {});
+        return this.$store.getters.activeColorationConfig;
+      },
+      activeColorationConfigColors() {
+        return this.$store.getters.activeColorationConfigColors;
       },
       activeColorationConfigPropsPrepare() {
-        return Object.entries(this.activeColorationConfig).map(elementEntry => {
+        return Object.entries(this.activeColorationConfigColors).map(elementEntry => {
           return {
             name: elementEntry[0],
             value: elementEntry[1],
@@ -85,7 +85,7 @@
         activeColorationProp.value = event.target.value;
       },
       setActiveTheme() {
-        Object.entries(this.activeColorationConfig).forEach(colorationPropEntry => {
+        Object.entries(this.activeColorationConfigColors).forEach(colorationPropEntry => {
           document.documentElement.style.setProperty(`--${colorationPropEntry[0]}`, colorationPropEntry[1]);
         });
       },

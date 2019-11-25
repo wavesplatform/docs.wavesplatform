@@ -4,6 +4,12 @@ export default (context) => {
         const originalScrollTo = window.scrollTo;
         window.scrollTo = function(options, callback) {
             const onScroll = () => {
+                if(!Object.prototype.toString.call(options).includes('Object')) {
+                    originalScrollTo({
+                        top: options,
+                    });
+                    return;
+                }
                 const optionsTop = options.top;
                 const scrollHeight = document.documentElement.scrollHeight;
                 const scrollHeightArea = scrollHeight - window.innerHeight;

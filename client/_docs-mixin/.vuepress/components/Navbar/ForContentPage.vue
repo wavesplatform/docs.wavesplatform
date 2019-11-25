@@ -91,10 +91,10 @@
                     :class="$style.logotypeWrapper"
                     :type="1"
                 >
-                    <a href="/">
+                    <router-link :to="$localePath">
                         <Logotype
                             :class="$style.logotype"/>
-                    </a>
+                    </router-link>
 
 
                 </WidthLimit>

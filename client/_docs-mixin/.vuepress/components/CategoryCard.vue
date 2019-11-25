@@ -6,8 +6,8 @@
         }"
     >
         <div :class="$style.root__contentWrapper">
-            <a
-                :href="rootLink"
+            <router-link
+                :to="rootLink"
                 :class="['linkTextHoverTrigger_type1', $style.root__row1]"
             >
                 <div :class="$style.iconWrapper">
@@ -24,8 +24,7 @@
                 <div :class="$style.caption">
                     <slot name="caption"/>
                 </div>
-            </a>
-
+            </router-link>
             <div :class="$style.root__row2">
                 <div :class="$style.buttonSet">
                     <slot name="buttonSet"/>
