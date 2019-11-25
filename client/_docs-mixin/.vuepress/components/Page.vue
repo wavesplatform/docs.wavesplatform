@@ -149,6 +149,9 @@
           return;
         }
         const currentActiveHeaderId = this.getCurrentActiveHeaderId();
+        if(!currentActiveHeaderId) {
+          return;
+        }
         if(decodeURIComponent(this.$route.hash).slice(1) !== currentActiveHeaderId) {
           this.$store.commit('setUserNaturalScrollState', true);
           this.$router.push({hash: currentActiveHeaderId})
@@ -158,33 +161,33 @@
 
       getCurrentActiveHeaderId() {
         const idsValues = this.headersElements.reduce((accumulator, headerElement) => {
-          let value = headerElement.offsetTop - this.documentElementScrollTop;
+          let value = headerElement.offsetTop - this.documentElementScrollTop + this.headerHeight - headerElement.offsetHeight;
+
+          // console.log('value:', value, this.headerHeight);
+
+          // if(value < 0) {
+          //   value = value * -1;
+          // }
+          // accumulator[headerElement.id] = value;
+
           if(value < 0) {
-            value = value * -1;
+            accumulator[headerElement.id] = value;
           }
-          accumulator[headerElement.id] = value;
           return accumulator;
         }, {});
+
+        console.log('idsValues:', idsValues)
         const values = Object.values(idsValues);
         const keys = Object.keys(idsValues);
-        const minValue = Math.min(...values);
+        const minValue = Math.max(...values);
         const minValueIndex = values.indexOf(minValue);
         return keys[minValueIndex];
       },
 
-      // intersectionObserverCallback (entries, observer) {
-      //   entries.forEach(entry => {
-      //     if(entry.isIntersecting) {
-      //       // location.hash = entry.target.id;
-      //       this.$router.push({
-      //         hash: entry.target.id,
-      //       });
-      //     }
-      //   });
-      // },
-
       updateHeadersElements () {
-        const headers = this.$page.headers
+        const headers = this.$page.headers.filter(header => {
+          return header.level < 3;
+        });
         // this.headersElements.forEach(headersElement => {
         //   this.interactionObserver.unobserve(headersElement);
         // });
@@ -197,17 +200,6 @@
           return headerElement;
         });
       },
-
-      getFlatSidebarItems(items, accumulator = []) {
-        return items.reduce((accumulator, item) => {
-          accumulator.push(item);
-          if(item.type === 'group') {
-            this.getFlatSidebarItems(item.children, accumulator);
-          }
-          return accumulator;
-        }, accumulator);
-      },
-
 
       createEditLink (repo, docsRepo, docsDir, docsBranch, path) {
         const bitbucket = /bitbucket.org/
@@ -345,7 +337,6 @@
             ul, ol {
                 margin-top $indent1
             }
-
 
             li {
                 /*display flex*/
