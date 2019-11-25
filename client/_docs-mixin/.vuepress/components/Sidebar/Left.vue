@@ -312,11 +312,11 @@
     }
     .foggingElement_vertical_left {
         left 0
-        background-image linear-gradient(to right, #f00 10%, rgba(255, 255, 255, 0.0) 100%);
+        background-image linear-gradient(to right, var(--color11) 10%, var(--color11_alpha1));
     }
     .foggingElement_vertical_right {
         right 0
-        background-image linear-gradient(to left, var(--color11) 10%, rgba(255, 0, 255, 0.01));
+        background-image linear-gradient(to left, var(--color11) 10%, var(--color11_alpha1));
     }
     .foggingElement_horizontal {
         height $foggingElementSize
@@ -325,11 +325,11 @@
     }
     .foggingElement_horizontal_top {
         top 0
-        background-image linear-gradient(to bottom, var(--color11) 10%, rgba(255, 255, 255, 0));
+        background-image linear-gradient(to bottom, var(--color11) 10%, var(--color11_alpha1));
     }
     .foggingElement_horizontal_bottom {
         bottom 0
-        background-image linear-gradient(to top, var(--color11) 10%, rgba(255, 255, 255, 0));
+        background-image linear-gradient(to top, var(--color11) 10%, var(--color11_alpha1));
     }
 
     .sidebarLinks__content {

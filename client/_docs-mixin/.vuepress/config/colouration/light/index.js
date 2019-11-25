@@ -11,5 +11,6 @@ module.exports = deepmerge(colorationMixin, {
         color7: '#263241',
         color10: '#4e5c6e',
         color11: '#ffffff',
+        color11_alpha1: 'rgba(255, 255, 255, 0)',
     },
 });
