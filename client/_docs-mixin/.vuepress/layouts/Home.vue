@@ -217,7 +217,10 @@
 </script>
 
 <style lang="stylus" module>
+    @import '~@themeExtend/layouts/Home';
+
     $categoryCardWrapper-padding = 15px
+
     .root {
         display flex
         flex-direction column

@@ -12,7 +12,14 @@ const getConfig = require('../../_docs-mixin/.vuepress/config/');
 const enLocaleConfig = require('./locales/en');
 const ruLocaleConfig = require('./locales/ru');
 module.exports = (ctx) => {
-    return deepmerge(getConfig(ctx), {
+    const vuepressConfig = getConfig(ctx);
+    const configureWebpackOriginal = vuepressConfig.configureWebpack;
+
+    vuepressConfig.configureWebpack = (webpackConfig, isServer) => {
+        webpackConfig.resolve.alias['@themeExtend'] = __dirname;
+        configureWebpackOriginal(webpackConfig, isServer);
+    };
+    return deepmerge(vuepressConfig, {
         themeConfig: {
             locales: {
                 '/en/': enLocaleConfig,

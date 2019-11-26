@@ -54,7 +54,6 @@
     "dependencies": {
         "@koa/cors": "^3.0.0",
         "@vuepress/plugin-google-analytics": "^1.2.0",
-        "@vuepress/plugin-medium-zoom": "^1.2.0",
         "@vuepress/plugin-pwa": "^1.2.0",
         "axios": "^0.19.0",
         "element-resize-detector": "^1.1.15",

@@ -387,18 +387,6 @@
             h1, h2, h3, h4, h5, h6 {
                 font-weight 600
                 line-height 1.25
-                .content:not(.custom) > & {
-                    margin-top (0.5rem - $navbarHeight)
-                    padding-top ($navbarHeight + 1rem)
-                    margin-bottom 0
-                    &:first-child {
-                        margin-top -1.5rem
-                        margin-bottom 1rem
-                        + p, + pre, + .custom-block {
-                            margin-top 2rem
-                        }
-                    }
-                }
                 &:hover .header-anchor {
                     opacity: 1
                 }
@@ -425,7 +413,7 @@
             h2 {
                 //font-size 1.2rem
                 //padding-bottom .3rem
-                //border-bottom 1px solid var(--color3)
+                //border-bottom 1px solid var(--borderColor)
                 font-size: 34px;
                 font-weight: normal;
                 font-stretch: normal;
@@ -493,7 +481,7 @@
 
             hr {
                 border 0
-                border-top 1px solid var(--color3)
+                border-top 1px solid var(--borderColor)
             }
 
             table {

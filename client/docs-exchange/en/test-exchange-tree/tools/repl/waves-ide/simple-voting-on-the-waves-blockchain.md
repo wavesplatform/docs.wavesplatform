@@ -4,9 +4,9 @@ actionText: Get Started →
 actionLink: /guide/
 description: English content
 ---
-# Simple voting on the Waves blockchain11
+# Exchange Exchange Exchange TITLE
 
-The head of the HOA (homeowners association) asks the tenants of the building: "Dear residents, do you agree with the construction of the kids' playground in the yard of your building?".
+Exchange Exchange Exchange Test description, The head of the HOA (homeowners association) asks the tenants of the building: "Dear residents, do you agree with the construction of the kids' playground in the yard of your building?".
 
 Objective: implement such voting among tenants on the Waves blockchain.
 

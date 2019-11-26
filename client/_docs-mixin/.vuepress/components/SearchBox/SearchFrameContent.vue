@@ -298,7 +298,7 @@
 
     .root__cell1 {
         flex-shrink 0
-        border-bottom 1px solid var(--color3)
+        border-bottom 1px solid var(--borderColor)
         display flex
         justify-content space-between
         padding-bottom: 16px;
@@ -331,7 +331,7 @@
         padding-top 26px
         padding-bottom 22px
         text-transform uppercase
-        border-bottom 1px solid var(--color3)
+        border-bottom 1px solid var(--borderColor)
     }
     .minimumChartsLimitation {
         color $color8
@@ -386,7 +386,7 @@
         margin-top 10px
         &:not(:first-child) {
             padding-top 4px
-            border-top 1px solid var(--color3)
+            border-top 1px solid var(--borderColor)
         }
     }
     .showMoreButtonWrapper {

@@ -54,48 +54,24 @@ module.exports = deepmerge(mixin, {
     sidebar: {
         '/en/test-exchange-tree/': [
             {
-                title: 'What is a dApp',
-                path: '/en/learn-about-waves-platform/what-is-a-dapp'
-            },
-            {
-                title: 'Writing dApps',
-                path: '/en/learn-about-waves-platform/writing-dapps'
-            },
-            {
-                title: 'Simple voting on the Waves',
-                path: '/en/learn-about-waves-platform/level-1-test-page-1'
-            },
-            {
-                title: 'Smart Accounts',
-                path: '/en/learn-about-waves-platform/level-1-test-page-2'
-            },
-            {
-                title: 'Waves Smart Contracts',
-                path: '/en/learn-about-waves-platform/level-1-test-page-3'
-            },
-            {
-                title: 'Smart Assets',
-                path: '/en/learn-about-waves-platform/level-1-test-page-4'
-            },
-            {
-                title: 'Tools',
-                path: '/en/learn-about-waves-platform/tools',
+                title: 'Special for Exchange 1',
+                path: '/en/test-exchange-tree/tools',
                 children: [
                     {
                         title: 'Test Level level Waves New',
-                        path: '/en/learn-about-waves-platform/tools/test-level-level-waves-new'
+                        path: '/en/test-exchange-tree/tools/test-level-level-waves-new'
                     },
                     {
-                        title: 'REPL',
-                        path: '/en/learn-about-waves-platform/tools/repl',
+                        title: 'Exchange REPL',
+                        path: '/en/test-exchange-tree/tools/repl',
                         children: [
                             {
-                                title: 'Waves IDE 2',
-                                path: '/en/learn-about-waves-platform/tools/repl/waves-ide',
+                                title: 'Exchange Waves IDE 2',
+                                path: '/en/test-exchange-tree/tools/repl/waves-ide',
                                 children: [
                                     {
-                                        title: 'Simple voting on the Waves blockchain',
-                                        path: '/en/learn-about-waves-platform/tools/repl/waves-ide/simple-voting-on-the-waves-blockchain'
+                                        title: 'Simple Exchange Level 4',
+                                        path: '/en/test-exchange-tree/tools/repl/waves-ide/simple-voting-on-the-waves-blockchain'
                                     },
                                 ]
                             },
@@ -103,45 +79,49 @@ module.exports = deepmerge(mixin, {
                     },
                     {
                         title: 'Test Waves IDE new',
-                        path: '/en/learn-about-waves-platform/tools/test-waves-ide-new'
+                        path: '/en/test-exchange-tree/tools/test-waves-ide-new'
                     },
                     {
                         title: 'trezor-hardware-wallet-integration-specification',
-                        path: '/en/learn-about-waves-platform/tools/trezor-hardware-wallet-integration-specification'
+                        path: '/en/test-exchange-tree/tools/trezor-hardware-wallet-integration-specification'
                     },
                 ]
             },
             {
-                title: 'Script performance tests',
-                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+                title: 'Special for Exchange 2',
+                path: '/en/test-exchange-tree/what-is-a-dapp'
             },
             {
-                title: 'Creating and deploying a script manually',
-                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+                title: 'Special for Exchange 3',
+                path: '/en/test-exchange-tree/writing-dapps'
             },
             {
-                title: 'For example',
-                path: '/en/learn-about-waves-platform/for-example',
+                title: 'Special for Exchange 4',
+                path: '/en/test-exchange-tree/level-1-test-page-1'
+            },
+            {
+                title: 'Group test special for Exchange 4',
+                path: '/en/test-exchange-tree/for-example',
                 children: [
                     {
                         title: 'Test level 2',
-                        path: '/en/learn-about-waves-platform/for-example/test-level-2',
+                        path: '/en/test-exchange-tree/for-example/test-level-2',
                         children: [
                             {
                                 title: 'Test level 3',
-                                path: '/en/learn-about-waves-platform/for-example/test-level-2/test-level-3',
+                                path: '/en/test-exchange-tree/for-example/test-level-2/test-level-3',
                                 children: [
                                     {
                                         title: 'Level 3 element 1',
-                                        path: '/en/learn-about-waves-platform/for-example/test-level-2/test-level-3/level-3-element-1'
+                                        path: '/en/test-exchange-tree/for-example/test-level-2/test-level-3/level-3-element-1'
                                     },
                                     {
                                         title: 'Level 3 element 2',
-                                        path: '/en/learn-about-waves-platform/for-example/test-level-2/test-level-3/level-3-element-2'
+                                        path: '/en/test-exchange-tree/for-example/test-level-2/test-level-3/level-3-element-2'
                                     },
                                     {
                                         title: 'element 3 of level 3 example',
-                                        path: '/en/learn-about-waves-platform/for-example/test-level-2/test-level-3/element-3-of-level-3-example'
+                                        path: '/en/test-exchange-tree/for-example/test-level-2/test-level-3/element-3-of-level-3-example'
                                     },
                                 ]
                             },
@@ -155,53 +135,53 @@ module.exports = deepmerge(mixin, {
             },
             {
                 title: 'Video tutorials',
-                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+                path: '/en/test-exchange-tree/what-is-a-dapp'
             },
             {
                 title: 'Articles on dApps',
-                path: '/en/learn-about-waves-platform/what-is-a-dapp'
+                path: '/en/test-exchange-tree/what-is-a-dapp'
             },
         ],
 
         // '/en/node/': [
         //     {
         //         title: 'What is a dApp',
-        //         path: '/en/learn-about-waves-platform/what-is-a-dapp'
+        //         path: '/en/test-exchange-tree/what-is-a-dapp'
         //     }
         // ],
         //
         // '/en/ecosystem-applications/': [
         //     {
         //         title: 'What is a dApp',
-        //         path: '/en/learn-about-waves-platform/what-is-a-dapp'
+        //         path: '/en/test-exchange-tree/what-is-a-dapp'
         //     }
         // ],
         //
         // '/en/building-blockchain-apps/': [
         //     {
         //         title: 'What is a dApp',
-        //         path: '/en/learn-about-waves-platform/what-is-a-dapp'
+        //         path: '/en/test-exchange-tree/what-is-a-dapp'
         //     }
         // ],
         //
         // '/en/ride-programming-language/': [
         //     {
         //         title: 'What is a dApp',
-        //         path: '/en/learn-about-waves-platform/what-is-a-dapp'
+        //         path: '/en/test-exchange-tree/what-is-a-dapp'
         //     }
         // ],
         //
         // '/en/additional-services/': [
         //     {
         //         title: 'What is a dApp',
-        //         path: '/en/learn-about-waves-platform/what-is-a-dapp'
+        //         path: '/en/test-exchange-tree/what-is-a-dapp'
         //     }
         // ],
         //
         // '/en/miscellaneous/': [
         //     {
         //         title: 'What is a dApp',
-        //         path: '/en/learn-about-waves-platform/what-is-a-dapp'
+        //         path: '/en/test-exchange-tree/what-is-a-dapp'
         //     }
         // ],
         //

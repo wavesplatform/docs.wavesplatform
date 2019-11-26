@@ -86,13 +86,14 @@
 </script>
 
 <style lang="stylus" module>
+    @import '~@themeExtend/components/CategoryCard';
+
     $buttons-margin = 3px
     .root {
         width 100%
         height 100%
         display flex
         position relative
-        background-color var(--color11)
     }
     .root__contentWrapper {
         display flex
@@ -169,7 +170,7 @@
         font-style: normal;
         line-height: 1.5;
         letter-spacing: normal;
-        color $color8
+        color var(--color8)
         @media screen and (max-width: 719px) {
             font-size: 14px
             line-height: 1.71

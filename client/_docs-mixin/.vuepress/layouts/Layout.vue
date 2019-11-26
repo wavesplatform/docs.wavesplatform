@@ -489,7 +489,6 @@
     .sidebar {
         font-size: 16px;
         background-color: var(--color11);
-        /*width: $sidebarWidth;*/
         z-index 2
         height 100vh
     }
@@ -513,7 +512,7 @@
     .root__cell2 {
         flex-shrink 0
         padding 15px 20px
-        border-bottom 1px solid var(--color3)
+        border-bottom 1px solid var(--borderColor)
     }
 
     .root__contentCell {
@@ -531,7 +530,7 @@
         position relative
         padding-top 20px
         padding-bottom 20px
-        border-bottom 1px solid var(--color3)
+        border-bottom 1px solid var(--borderColor)
         z-index 1
     }
 

@@ -251,7 +251,7 @@ export default {
         background-size 1rem
         &:focus {
             box-shadow inset 0 0 0 1px #EBEEF5, 0 2px 12px 0 rgba(0, 0, 0, .2)
-            /*border 1px solid var(--color3)*/
+            /*border 1px solid var(--borderColor)*/
         }
         &::placeholder {
             font-size: 24px;
@@ -269,7 +269,7 @@ export default {
             line-height: 64px;
         }
         /*&.focused {
-            border-color var(--color3)
+            border-color var(--borderColor)
             cursor text
             left 0
             width 100%

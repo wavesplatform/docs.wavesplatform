@@ -1,5 +1,7 @@
 <template>
-    <component :is="componentName"></component>
+    <component
+        :class="$style.root"
+        :is="componentName"/>
 </template>
 
 <script>
@@ -36,7 +38,15 @@
 
 <style lang="stylus" module>
     .root {
-
+        display flex
+        height 72px
+        border-bottom 1px solid var(--borderColor)
+        justify-content center
+        width 100%
+        background-color var(--color11)
+        @media screen and (max-width: 719px) {
+            height 57px
+        }
     }
 </style>
 

@@ -181,7 +181,7 @@
         padding-bottom $indent4
         background-color var(--color11)
         border-top 1px solid var(--color11)
-        box-shadow inset 0 1px 0 0 var(--color3)
+        box-shadow inset 0 1px 0 0 var(--borderColor)
     }
     .pageNavigations__side__text {
         display flex

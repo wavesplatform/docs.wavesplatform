@@ -174,7 +174,7 @@
         font-style: normal;
         line-height: normal;
         letter-spacing: normal;
-        color var(--color10)
+        color var(--color12)
         /*white-space nowrap*/
 
         display inline-flex

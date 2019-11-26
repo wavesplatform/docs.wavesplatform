@@ -208,14 +208,14 @@ export default {
         overflow hidden
         padding 0 $shadowWidth $shadowWidth $shadowWidth
         .suggestions {
-            border-top 1px solid var(--color3)
+            border-top 1px solid var(--borderColor)
         }
     }
     .suggestions {
         background var(--color11)
         width 'calc(100% + %s)' % ($shadowWidth * 2)
         position relative
-        /*border 1px solid darken(var(--color3), 10%)*/
+        /*border 1px solid darken(var(--borderColor), 10%)*/
         /*border-radius 0 0 4px 4px*/
         border-radius 4px
         padding 20px

@@ -156,16 +156,10 @@
 </script>
 
 <style lang="stylus" module>
+    @import '~@themeExtend/components/Navbar/ForContentPage';
+
     .root {
-        /*padding 20px 0*/
-        display flex
-        height 72px
-        border-bottom 1px solid var(--color3)
-        justify-content center
-        background-color var(--color11)
-        @media screen and (max-width: 719px) {
-            height 57px
-        }
+
     }
     .sidebar {
         position absolute
@@ -256,7 +250,6 @@
     }
 
     .logotype {
-        max-width 124px
         width 100%
         visibility visible
     }

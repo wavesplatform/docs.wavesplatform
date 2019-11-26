@@ -254,7 +254,7 @@
         font-style: normal;
         line-height: normal;
         letter-spacing: normal;
-        color var(--color10)
+        color var(--color12)
         &:not(.sidebarHeading_active) {
             cursor pointer
             &:hover {

@@ -37,20 +37,13 @@
 </script>
 
 <style lang="stylus" module>
+    @import '~@themeExtend/components/Navbar/ForHomePage';
+
     $navbar-vertical-padding = 0.7rem;
     $navbar-horizontal-padding = 1.5rem;
 
     .root {
-        /*padding 20px 0*/
-        display flex
-        height 72px
-        border-bottom 1px solid var(--color3)
-        justify-content center
-        width 100%
-        background-color var(--color11)
-        @media screen and (max-width: 719px) {
-            height 57px
-        }
+
     }
 
     .root__wrapper {
@@ -79,11 +72,7 @@
 
     .logotype {
         height 100%
-        max-width 164px
         width 100%
-        @media screen and (max-width: 719px) {
-            max-width 124px
-        }
     }
 
     .navLinks {
@@ -137,7 +126,7 @@
                 &:before {
                     border-left: $triangleSize solid transparent;
                     border-right: $triangleSize solid transparent;
-                    border-bottom: $triangleSize solid var(--color3);
+                    border-bottom: $triangleSize solid var(--borderColor);
                 }
 
                 &:after {

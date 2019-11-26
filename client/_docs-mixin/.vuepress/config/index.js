@@ -89,16 +89,6 @@ module.exports = (ctx) => {
         //     // }],
         //
         // ],
-        plugins: {
-            '@vuepress/medium-zoom': {
-                selector: '.pageContent img',
-                // medium-zoom options here
-                // See: https://github.com/francoischalifour/medium-zoom#options
-                options: {
-                    margin: 16
-                }
-            }
-        },
         // extraWatchFiles: [
         //     '.vuepress/locales/**',
         // ],
@@ -130,8 +120,8 @@ module.exports = (ctx) => {
                 );
             }
         },
-        chainWebpack: (config, isServer) => {
-            // console.log('chainWebpack config:', config, isServer)
-        },
+        // chainWebpack: (config, isServer) => {
+        //     // console.log('chainWebpack config:', config, isServer)
+        // },
     }
 };

@@ -250,10 +250,10 @@ export default {
             }
         }
         :global(.sidebar) {
-            /*border-right: 1px solid var(--color3);*/
+            /*border-right: 1px solid var(--borderColor);*/
         }
         .sidebarLinks {
-            border-right: 1px solid var(--color3);
+            border-right: 1px solid var(--borderColor);
         }
         .sidebarFooter {
             justify-content flex-end
@@ -275,7 +275,7 @@ export default {
             }
         }
         :global(.sidebar) {
-            /*border-left: 1px solid var(--color3);*/
+            /*border-left: 1px solid var(--borderColor);*/
         }
         .sidebarFooter {
             justify-content flex-start

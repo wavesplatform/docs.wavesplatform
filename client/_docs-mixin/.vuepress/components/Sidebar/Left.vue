@@ -270,7 +270,7 @@
         padding-top 24px
         height 100%
         @media screen and (min-width: 720px) {
-            border-top 1px solid var(--color3)
+            border-top 1px solid var(--borderColor)
         }
     }
     .backToIndexWrapper {
