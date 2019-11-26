@@ -1,5 +1,15 @@
 {
-  "dependencies": {
-    "eslint": "^6.1.0"
-  }
+    "description": "Minimalistic doc Waves Exchange",
+    "scripts": {
+        "dev": "isDev=true vuepress dev docs",
+        "build": "vuepress build docs",
+        "server": "node docs/.vuepress/runServer"
+    },
+    "dependencies": {
+        "core.docs.wavesplatform": "https://github.com/wavesplatform/core.docs.wavesplatform.git",
+        "vuepress": "^1.2.0",
+        "webpack": "^4.41.2"
+    }
 }
+
+
