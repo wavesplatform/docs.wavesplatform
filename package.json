@@ -1,9 +1,11 @@
 {
     "description": "Minimalistic doc Waves Exchange",
     "scripts": {
-        "dev": "isDev=true vuepress dev docs",
+        "dev": "isDev=true corePath=$PWD/../core.docs.wavesplatform port=3084 vuepress dev docs",
         "build": "vuepress build docs",
-        "server": "node docs/.vuepress/runServer"
+        "build:dev": "corePath=$PWD/../core.docs.wavesplatform yarn build",
+        "server": "node docs/.vuepress/runServer",
+        "server:dev": "corePath=$PWD/../core.docs.wavesplatform port=3084 yarn server"
     },
     "dependencies": {
         "core.docs.wavesplatform": "https://github.com/wavesplatform/core.docs.wavesplatform.git",

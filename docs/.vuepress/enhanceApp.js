@@ -1,2 +1,2 @@
-import enhanceAppMixin from '../../_docs-mixin/.vuepress/enhanceApp';
+import enhanceAppMixin from 'core.docs.wavesplatform/.vuepress/enhanceApp';
 export default enhanceAppMixin;
