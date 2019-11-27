@@ -11,6 +11,7 @@ const coreDocsWavesplatform = require('core.docs.wavesplatform');
 const getVuepressConfig = coreDocsWavesplatform.getVuepressConfig;
 const enLocaleConfig = require('./locales/en');
 const ruLocaleConfig = require('./locales/ru');
+const colorationConfig = require('./colouration');
 module.exports = (ctx) => {
     const vuepressConfig = getVuepressConfig(ctx);
 
@@ -23,6 +24,8 @@ module.exports = (ctx) => {
 
     return deepmerge(vuepressConfig, {
         themeConfig: {
+            // activeColouration: 'default',
+            colouration: colorationConfig,
             locales: {
                 '/en/': enLocaleConfig,
                 '/ru/': ruLocaleConfig
