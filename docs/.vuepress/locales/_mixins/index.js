@@ -13,6 +13,7 @@ module.exports = {
         title: 'Oops…',
         message: 'The content of this page is currently unavailable. Sorry for the inconvenience!',
     },
+
     nav: [
         // {
         //     text: 'Home',
@@ -188,10 +189,6 @@ module.exports = {
             forDevelopers: {
                 title: 'For developers',
                 links: {
-                    // documentation: {
-                    //     title: 'Documentation',
-                    //     link: 'https://docs.wavesplatform.com',
-                    // },
                     gitHub: {
                         title: 'GitHub',
                         link: 'https://github.com/wavesplatform',

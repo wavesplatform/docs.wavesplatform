@@ -97,9 +97,6 @@ module.exports = deepmerge(technologyListMixin, {
             forDevelopers: {
                 title: 'Для разработчиков',
                 links: {
-                    documentation: {
-                        title: 'Документация',
-                    },
                     gitHub: {
                         title: 'GitHub',
                     },
