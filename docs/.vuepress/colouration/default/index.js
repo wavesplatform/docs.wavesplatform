@@ -11,6 +11,7 @@ module.exports = deepmerge(colorationMixin, {
     logoSvg: fs.readFileSync(path.resolve(__dirname, './logo.svg')).toString(),
     colors: {
         color1: '#f8f9fb',
+        color1_alpha1: 'rgba(248, 249, 251, .5)',
         color2: '#f4f5f8',
         color3: '#eef0f4',
         color7,
