@@ -1,5 +1,5 @@
 {
-    "description": "Minimalistic doc Waves Exchange",
+    "description": "Wavesplatform documentation",
     "scripts": {
         "dev": "vuepress dev docs",
         "dev:dev": "isDev=true corePath=$PWD/../core.docs.wavesplatform port=3084 yarn dev",
@@ -14,5 +14,3 @@
         "webpack": "^4.41.2"
     }
 }
-
-
