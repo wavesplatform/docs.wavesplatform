@@ -2,6 +2,16 @@ const fs = require('fs');
 const path = require('path');
 const deepmerge = require('deepmerge');
 const mixin = require('../_mixins');
+
+const rootPath = ''
+const localePath = '/en/';
+const blockchainPath = rootPath + localePath + 'blockchain/';
+const nodePath = rootPath + localePath + 'waves-node/';
+const programmingPath = rootPath + localePath + 'smart-contracts/';
+const ridePath = rootPath + localePath + 'ride';
+const sdkPath = rootPath + localePath + 'waves-api-and-sdk/';
+const ending = '.html';
+
 module.exports = deepmerge(mixin, {
     langIconRawSvg: fs.readFileSync(path.resolve(__dirname, './britain-18.svg')).toString(),
     searchPlaceholderText: 'Enter a term and press Return…',
@@ -53,115 +63,461 @@ module.exports = deepmerge(mixin, {
     lastUpdated: 'Last Updated',
     sidebar: {
         '/en/learn-about-waves-platform/': [
-            {
-                title: 'What is a dApp',
-                path: '/en/learn-about-waves-platform/what-is-a-dapp'
-            },
-            {
-                title: 'Writing dApps',
-                path: '/en/learn-about-waves-platform/writing-dapps'
-            },
-            {
-                title: 'Simple voting on the Waves',
-                path: '/en/learn-about-waves-platform/level-1-test-page-1'
-            },
-            {
-                title: 'Smart Accounts',
-                path: '/en/learn-about-waves-platform/level-1-test-page-2'
-            },
-            {
-                title: 'Waves Smart Contracts',
-                path: '/en/learn-about-waves-platform/level-1-test-page-3'
-            },
-            {
-                title: 'Smart Assets',
-                path: '/en/learn-about-waves-platform/level-1-test-page-4'
-            },
-            {
-                title: 'Tools',
-                path: '/en/learn-about-waves-platform/tools',
-                children: [
-                    {
-                        title: 'Test Level level Waves New',
-                        path: '/en/learn-about-waves-platform/tools/test-level-level-waves-new'
-                    },
-                    {
-                        title: 'REPL',
-                        path: '/en/learn-about-waves-platform/tools/repl',
-                        children: [
-                            {
-                                title: 'Waves IDE 2',
-                                path: '/en/learn-about-waves-platform/tools/repl/waves-ide',
-                                children: [
-                                    {
-                                        title: 'Simple voting on the Waves blockchain',
-                                        path: '/en/learn-about-waves-platform/tools/repl/waves-ide/simple-voting-on-the-waves-blockchain'
-                                    },
-                                ]
-                            },
-                        ]
-                    },
-                    {
-                        title: 'Test Waves IDE new',
-                        path: '/en/learn-about-waves-platform/tools/test-waves-ide-new'
-                    },
-                    {
-                        title: 'trezor-hardware-wallet-integration-specification',
-                        path: '/en/learn-about-waves-platform/tools/trezor-hardware-wallet-integration-specification'
-                    },
-                ]
-            },
-            {
-                title: 'Script performance tests',
-                path: '/en/learn-about-waves-platform/what-is-a-dapp'
-            },
-            {
-                title: 'Creating and deploying a script manually',
-                path: '/en/learn-about-waves-platform/what-is-a-dapp'
-            },
-            {
-                title: 'For example',
-                path: '/en/learn-about-waves-platform/for-example',
-                children: [
-                    {
-                        title: 'Test level 2',
-                        path: '/en/learn-about-waves-platform/for-example/test-level-2',
-                        children: [
-                            {
-                                title: 'Test level 3',
-                                path: '/en/learn-about-waves-platform/for-example/test-level-2/test-level-3',
-                                children: [
-                                    {
-                                        title: 'Level 3 element 1',
-                                        path: '/en/learn-about-waves-platform/for-example/test-level-2/test-level-3/level-3-element-1'
-                                    },
-                                    {
-                                        title: 'Level 3 element 2',
-                                        path: '/en/learn-about-waves-platform/for-example/test-level-2/test-level-3/level-3-element-2'
-                                    },
-                                    {
-                                        title: 'element 3 of level 3 example',
-                                        path: '/en/learn-about-waves-platform/for-example/test-level-2/test-level-3/element-3-of-level-3-example'
-                                    },
-                                ]
-                            },
-                        ]
-                    },
-                    {
-                        title: 'Waves IDE',
-                        path: '/en/blockchain/token/waves'
-                    },
-                ]
-            },
-            {
-                title: 'Video tutorials',
-                path: '/en/learn-about-waves-platform/what-is-a-dapp'
-            },
-            {
-                title: 'Articles on dApps',
-                path: '/en/learn-about-waves-platform/what-is-a-dapp'
-            },
-        ],
+		{
+			title: 'Understanding Waves Blockchain',
+			path: blockchainPath,
+			children: [
+				{
+					title: 'Account',
+					path: blockchainPath + 'account',
+					children: [
+						{
+							title: 'Account balance',
+							path: blockchainPath + 'account/account-balance',
+						},
+						{
+							title: 'Account data storage',
+							path: blockchainPath + 'account/account-data-storage',
+						},
+						{
+							title: 'Address',
+							path: blockchainPath + 'account/address',
+						},
+						{
+							title: 'Alias',
+							path: blockchainPath + 'account/alias',
+						},
+						{
+							title: 'dApp',
+							path: blockchainPath + 'account/dapp',
+						},
+						{
+							title: 'Smart account',
+							path: blockchainPath + 'account/smart-account',
+						}
+					],
+				},
+				{
+					title: 'Binary format',
+					path: blockchainPath + 'binary-format',
+					children: [
+						{
+							title: 'Address binary format',
+							path: blockchainPath + 'binary-format/address-binary-format',
+						},
+						{
+							title: 'Alias binary format',
+							path: blockchainPath + 'binary-format/alias-binary-format',
+						},
+						{
+							title: 'Block binary format',
+							path: blockchainPath + 'binary-format/block-binary-format',
+						},
+						{
+							title: 'Network message binary format',
+							path: blockchainPath + 'binary-format/network-message-binary-format',
+							children: [
+								{
+									title: 'Block message binary format',
+									path: blockchainPath + 'binary-format/network-message-binary-format/block-message-binary-format',
+								},
+								{
+									title: 'Checkpoint message binary format',
+									path: blockchainPath + 'binary-format/network-message-binary-format/checkpoint-message-binary-format',
+								},
+								{
+									title: 'Get block message binary format',
+									path: blockchainPath + 'binary-format/network-message-binary-format/get-block-message-binary-format',
+								},
+								{
+									title: 'Get peers message binary format',
+									path: blockchainPath + 'binary-format/network-message-binary-format/get-peers-message-binary-format',
+								},
+								{
+									title: 'Get signatures message binary format',
+									path: blockchainPath + 'binary-format/network-message-binary-format/get-signatures-message-binary-format',
+								},
+								{
+									title: 'Handshake message binary format',
+									path: blockchainPath + 'binary-format/network-message-binary-format/handshake-message-binary-format',
+								},
+								{
+									title: 'Peers message binary format',
+									path: blockchainPath + 'binary-format/network-message-binary-format/peers-message-binary-format',
+								},
+								{
+									title: 'Score message binary format',
+									path: blockchainPath + 'binary-format/network-message-binary-format/score-message-binary-format',
+								},
+								{
+									title: 'Signatures message binary format',
+									path: blockchainPath + 'binary-format/network-message-binary-format/signatures-message-binary-format',
+								},
+								{
+									title: 'Transaction message binary format',
+									path: blockchainPath + 'binary-format/network-message-binary-format/transaction-message-binary-format',
+								},
+							]
+						},
+						{
+							title: 'Order binary format',
+							path: blockchainPath + 'binary-format/order-binary-format',
+						},
+						{
+							title: 'Transaction binary format',
+							path: blockchainPath + 'binary-format/transaction-binary-format',
+							children: [
+								{
+									title: 'Alias transaction binary format',
+									path: blockchainPath + 'binary-format/transaction-binary-format/alias-transaction-binary-format',
+								},
+								{
+									title: 'Burn transaction binary format',
+									path: blockchainPath + 'binary-format/transaction-binary-format/burn-transaction-binary-format',
+								},
+								{
+									title: 'Data transaction binary format',
+									path: blockchainPath + 'binary-format/transaction-binary-format/data-transaction-binary-format',
+								},
+								{
+									title: 'Exchange transaction binary format',
+									path: blockchainPath + 'binary-format/transaction-binary-format/exchange-transaction-binary-format',
+								},
+								{
+									title: 'Genesis transaction binary format',
+									path: blockchainPath + 'binary-format/transaction-binary-format/genesis-transaction-binary-format',
+								},
+								{
+									title: 'Invoke script binary format',
+									path: blockchainPath + 'binary-format/transaction-binary-format/invoke-script-transaction-binary-format',
+								},
+								{
+									title: 'Issue transaction binary format',
+									path: blockchainPath + 'binary-format/transaction-binary-format/issue-transaction-binary-format',
+								},
+								{
+									title: 'Lease cancel transaction binary format',
+									path: blockchainPath + 'binary-format/transaction-binary-format/lease-cancel-transaction-binary-format',
+								},
+								{
+									title: 'Lease transaction binary format',
+									path: blockchainPath + 'binary-format/transaction-binary-format/lease-transaction-binary-format',
+								},
+								{
+									title: 'Mass transfer transaction binary format',
+									path: blockchainPath + 'binary-format/transaction-binary-format/mass-transfer-transaction-binary-format',
+								},
+								{
+									title: 'Reissue transaction binary format',
+									path: blockchainPath + 'binary-format/transaction-binary-format/reissue-transaction-binary-format',
+								},
+								{
+									title: 'Set asset script transaction binary format',
+									path: blockchainPath + 'binary-format/transaction-binary-format/set-asset-script-transaction-binary-format',
+								},
+								{
+									title: 'Set script transaction binary format',
+									path: blockchainPath + 'binary-format/transaction-binary-format/set-script-transaction-binary-format',
+								},
+								{
+									title: 'Sponsorship transaction binary format',
+									path: blockchainPath + 'binary-format/transaction-binary-format/sponsorship-transaction-binary-format',
+								},
+								{
+									title: 'Transfer transaction binary format',
+									path: blockchainPath + 'binary-format/transaction-binary-format/transfer-transaction-binary-format',
+								},
+							],
+						},
+						{
+							title: 'Transaction proof binary format',
+							path: blockchainPath + 'binary-format/transaction-proof-binary-format',
+						},
+					],
+				},
+				{
+					title: 'Block',
+					path: blockchainPath + 'block',
+					children: [
+						{
+							title: 'Block generation',
+							path: blockchainPath + 'block/block-generation',
+							children: [
+								{
+									title: 'Base target',
+									path: blockchainPath + 'block/block-generation/base-target',
+								},
+							],
+						},
+						{
+							title: 'Block height',
+							path: blockchainPath + 'block/block-height',
+						},
+						{
+							title: 'Block signature',
+							path: blockchainPath + 'block/block-signature',
+						},
+						{
+							title: 'Block timestamp',
+							path: blockchainPath + 'block/block-timestamp',
+						},
+						{
+							title: 'Genesis block',
+							path: blockchainPath + 'block/genesis-block',
+						},
+					]
+				},
+				{
+					title: 'Blockchain',
+					path: blockchainPath + 'blockchain',
+					children: [
+						{
+							title: 'Blockchain data types',
+							path: blockchainPath + 'blockchain/blockchain-data-types',
+						},
+						{
+							title: 'Blockchain height',
+							path: blockchainPath + 'blockchain/blockchain-height',
+						},
+					],
+				},
+				{
+					title: 'Blockchain network',
+					path: blockchainPath + 'blockchain-network',
+					children: [
+						{
+							title: 'Chain ID',
+							path: blockchainPath + 'blockchain-network/chain-id',
+						},
+						{
+							title: 'Main network',
+							path: blockchainPath + 'blockchain-network/main-network',
+						},
+						{
+							title: 'Test network',
+							path: blockchainPath + 'blockchain-network/test-network',
+						},
+					],
+				},
+				{
+					title: 'Leasing Proof of Stake',
+					path: blockchainPath + 'leasing',
+				},
+				{
+					title: 'Mining',
+					path: blockchainPath + 'mining',
+					children: [
+						{
+							title: 'Miner',
+							path: blockchainPath + 'mining/miner',
+						},
+						{
+							title: 'Mining account',
+							path: blockchainPath + 'mining/mining-account',
+						},
+						{
+							title: 'Mining reward',
+							path: blockchainPath + 'mining/mining-reward',
+						},
+					],
+				},
+				{
+				title: 'Matcher fee',
+				path: blockchainPath + 'matcher-fee',
+				},
+				{
+					title: 'Node',
+					path: blockchainPath + 'node',
+					children: [
+						{
+							title: 'Mining node',
+							path: blockchainPath + 'node/mining-node',
+						},
+						{
+							title: 'Validating node',
+							path: blockchainPath + 'node/validating-node',
+						},
+					],
+				},
+				{
+					title: 'Oracle',
+					path: blockchainPath + 'oracle',
+				},
+				{
+					title: 'Order',
+					path: blockchainPath + 'order',
+				},
+				{
+					title: 'Token',
+					path: blockchainPath + 'token',
+					children: [
+						{
+							title: 'Non-fungible token',
+							path: blockchainPath + 'token/non-fungible-token',
+						},
+						{
+							title: 'Smart asset',
+							path: blockchainPath + 'token/smart-asset',
+						},
+						{
+							title: 'Token ID',
+							path: blockchainPath + 'token/token-id',
+						},
+						{
+							title: 'WAVES',
+							path: blockchainPath + 'token/waves',
+						},
+						{
+							title: 'WAVELET',
+							path: blockchainPath + 'token/wavelet',
+						},
+						{
+							title: 'WCT',
+							path: blockchainPath + 'token/wct',
+						},
+					],
+				},
+				{
+					title: 'Transaction',
+					path: blockchainPath + 'transaction',
+					children: [
+						{
+							title: 'Transaction ID',
+							path: blockchainPath + 'transaction/transaction-id',
+						},
+						{
+							title: 'Transaction body bytes',
+							path: blockchainPath + 'transaction/transaction-body-bytes',
+						},
+						{
+							title: 'Transaction fee',
+							path: blockchainPath + 'transaction/transaction-fee',
+						},
+						{
+							title: 'Transaction proof',
+							path: blockchainPath + 'transaction/transaction-proof',
+						},
+						{
+							title: 'Transaction signature',
+							path: blockchainPath + 'transaction/transaction-signature',
+						},
+						{
+							title: 'Transaction timestamp',
+							path: blockchainPath + 'transaction/transaction-timestamp',
+						},
+						{
+							title: 'Transaction validation',
+							path: blockchainPath + 'transaction/transaction-validation',
+						},
+						{
+							title: 'Transaction version',
+							path: blockchainPath + 'transaction/transaction-version',
+						},
+					]
+				},
+				{
+					title: 'Transaction type',
+					path: blockchainPath + 'transaction-type',
+					children: [
+						{
+							title: 'Alias transaction',
+							path: blockchainPath + 'transaction-type/alias-transaction',
+						},
+						{
+							title: 'Burn transaction',
+							path: blockchainPath + 'transaction-type/burn-transaction',
+						},
+						{
+							title: 'Data transaction',
+							path: blockchainPath + 'transaction-type/data-transaction',
+						},
+						{
+							title: 'Exchange transaction',
+							path: blockchainPath + 'transaction-type/exchange-transaction',
+						},
+						{
+							title: 'Genesis transaction',
+							path: blockchainPath + 'transaction-type/genesis-transaction',
+						},
+						{
+							title: 'Invoke script transaction',
+							path: blockchainPath + 'transaction-type/invoke-script-transaction',
+						},
+						{
+							title: 'Issue transaction',
+							path: blockchainPath + 'transaction-type/issue-transaction',
+						},
+						{
+							title: 'Lease cancel transaction',
+							path: blockchainPath + 'transaction-type/lease-cancel-transaction',
+						},
+						{
+							title: 'Lease transaction',
+							path: blockchainPath + 'transaction-type/lease-transaction',
+						},
+						{
+							title: 'Mass transfer transaction',
+							path: blockchainPath + 'transaction-type/mass-transfer-transaction',
+						},
+						{
+							title: 'Reissue transaction',
+							path: blockchainPath + 'transaction-type/reissue-transaction',
+						},
+						{
+							title: 'Set asset script transaction',
+							path: blockchainPath + 'transaction-type/set-asset-script-transaction',
+						},
+						{
+							title: 'Set script transaction',
+							path: blockchainPath + 'transaction-type/set-script-transaction',
+						},
+						{
+							title: 'Transfer transaction',
+							path: blockchainPath + 'transaction-type/transfer-transaction',
+						},
+					]
+				},
+				{
+					title: 'Waves protocol',
+					path: blockchainPath + 'waves-protocol',
+					children: [
+						{
+							title: 'Cryptographic practical details',
+							path: blockchainPath + 'waves-protocol/cryptographic-practical-details',
+						},
+						{
+							title: 'Validation rules',
+							path: blockchainPath + 'waves-protocol/validation-rules',
+						},
+						{
+							title: 'Waves-NG solution',
+							path: blockchainPath + 'waves-protocol/waves-ng-solution',
+						},
+						{
+							title: 'Sponsored fee',
+							path: blockchainPath + 'waves-protocol/sponsored-fee',
+						},
+						{
+							title: 'Fair Proof of Stake',
+							path: blockchainPath + 'waves-protocol/fair-pos',
+						},
+						{
+							title: 'Waves-NG protocol',
+							path: blockchainPath + 'waves-protocol/waves-ng-protocol',
+						},
+						{
+							title: 'Activation protocol',
+							path: blockchainPath + 'waves-protocol/activation-protocol',
+						},
+					]
+				},
+				{
+					title: 'Glossary',
+					path: rootPath + localePath + '/en/glossary/glossary',
+				},
+			],
+		},
+	]
 
         // '/en/node/': [
         //     {
