@@ -2,17 +2,14 @@ const rootPath = 'https://docs.wavesplatform.com/'
 const localePath = 'en/';
 const blockchainPath = rootPath + localePath + 'blockchain/';
 const nodePath = rootPath + localePath + 'waves-node/';
-const programmingPath = rootPath + localePath + 'smart-contracts/';
+const buildingApps = rootPath + localePath + 'smart-contracts/';
 const ridePath = rootPath + localePath + 'ride';
 const sdkPath = rootPath + localePath + 'waves-api-and-sdk/';
+const ecosystemPath = rootPath + localePath + 'ecosystem/';
 const ending = '.html';
 
 module.exports = {
 	[blockchainPath]: [
-		{
-			title: 'Understanding Waves Blockchain',
-			path: blockchainPath,
-			children: [
 				{
 					title: 'Account',
 					path: blockchainPath + 'account',
@@ -462,8 +459,6 @@ module.exports = {
 					path: rootPath + localePath + '/en/glossary/glossary',
 				},
 			],
-		},
-	],
 			
 	[nodePath]: [
 		title: 'Node',
@@ -663,8 +658,615 @@ module.exports = {
 				title: 'API limitations of the pool of public nodes';
 				path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
 			},
-		]
-	]
+		],
+	],
+	[ridePath]: [
+		title: 'RIDE Programming Language',
+		children: [
+			{
+				title: 'Base concepts',
+				path: ridePath + 'base-concepts',
+				children: [
+					{
+						title: 'Complexity',
+						path: ridePath + 'base-concepts/complexity',
+					},
+					{
+						title: 'Definition',
+						path: ridePath + 'base-concepts/definition',
+					},
+					{
+						title: 'Expression',
+						path: ridePath + 'base-concepts/expression',
+					},
+				],
+			},
+			{
+				title: 'Comments',
+				path: ridePath + 'comments',
+			},
+			{
+				title: 'Constants',
+				path: ridePath + 'constants',
+			},
+			{
+				title: 'Data types',
+				path: ridePath + 'data-types',
+				children: [
+					{
+						title: 'Boolean',
+						path: ridePath + 'data-types/boolean',
+					},
+					{
+						title: 'ByteVector',
+						path: ridePath + 'data-types/byte-vector',
+					},
+					{
+						title: 'Int',
+						path: ridePath + 'data-types/int',
+					},
+					{
+						title: 'List',
+						path: ridePath + 'data-types/list',
+					},
+					{
+						title: 'String',
+						path: ridePath + 'data-types/string',
+					},
+					{
+						title: 'Unit',
+						path: ridePath + 'data-types/unit',
+					},
+					{
+						title: 'Union',
+						path: ridePath + 'data-types/union',
+					},
+				],
+			},
+			{
+				title: 'Exceptions',
+				path: ridePath + 'exceptions',
+			},
+			{
+				title: 'Functions',
+				path: ridePath + 'functions',
+				children: [
+					{
+						title: 'Annotations',
+						path: ridePath + 'functions/annotations',
+					},
+					{
+						title: 'Built-in functions',
+						path: ridePath + 'functions/built-in-functions',
+						children: [
+							{
+								title: 'Account data storage functions',
+								path: ridePath + 'functions/built-in-functions/account-data-storage-functions',
+									},
+									{
+										title: 'Blockchain functions',
+										path: ridePath + 'functions/built-in-functions/blockchain-functions',
+									},
+									{
+										title: 'Byte array functions',
+										path: ridePath + 'functions/built-in-functions/byte-array-functions',
+									},
+									{
+										title: 'Converting functions',
+										path: ridePath + 'functions/built-in-functions/converting-functions',
+									},
+									{
+										title: 'Data transaction functions',
+										path: ridePath + 'functions/built-in-functions/data-transaction-functions',
+							},
+							{
+								title: 'Decoding functions',
+								path: ridePath + 'functions/built-in-functions/decoding-functions',
+							},
+							{
+								title: 'Encoding functions',
+								path: ridePath + 'functions/built-in-functions/encoding-functions',
+							},
+							{
+								title: 'Exception functions',
+								path: ridePath + 'functions/built-in-functions/exception-functions',
+							},
+							{
+								title: 'Hashing functions',
+								path: ridePath + 'functions/built-in-functions/hashing-functions',
+							},
+							{
+								title: 'List functions',
+								path: ridePath + 'functions/built-in-functions/list-functions',
+							},
+							{
+								title: 'Math functions',
+								path: ridePath + 'functions/built-in-functions/math-functions',
+							},
+							{
+								title: 'String functions',
+								path: ridePath + 'functions/built-in-functions/string-functions',
+							},
+							{
+								title: 'Union functions',
+								path: ridePath + 'functions/built-in-functions/union-functions',
+							},
+							{
+								title: 'Verification functions',
+								path: ridePath + 'functions/built-in-functions/verification-functions',
+							},
+						],
+					},
+					{
+						title: 'Callable function',
+						path: ridePath + 'functions/callable-function',
+					},
+					{
+						title: 'Verifier function',
+						path: ridePath + 'functions/verifier-function',
+					},
+				],
+			},
+			{
+				title: 'Operators',
+				path: ridePath + 'operators',
+			},
+			{
+				title: 'Script',
+				path: ridePath + 'script',
+				children: [
+					{
+						title: 'Directives',
+						path: ridePath + 'script/directives',
+					},
+					{
+						title: 'Script body',
+						path: ridePath + 'script/script-body',
+					},
+					{
+						title: 'Script context',
+						path: ridePath + 'script/script-context',
+					},
+					{
+						title: 'Script types',
+						path: ridePath + 'script/script-types',
+						children: [
+							{
+								title: 'Account script',
+								path: ridePath + 'script/script-types/account-script',
+							},
+							{
+								title: 'Asset script',
+								path: ridePath + 'script/script-types/asset-script',
+							},
+							{
+								title: 'dApp script',
+								path: ridePath + 'script/script-types/dapp-script',
+							},
+						],
+					},
+					{
+						title: 'Standard Library',
+						path: ridePath + 'script/standard-library',
+					},
+				],
+			},
+			{
+				title: 'Structures',
+				path: ridePath + 'structures',
+				children: [
+					{
+						title: 'Common structures',
+						path: ridePath + 'structures/common-structures',
+						children: [
+							{
+								title: 'Address',
+								path: ridePath + 'structures/common-structures/address',
+							},
+							{
+								title: 'Alias',
+								path: ridePath + 'structures/common-structures/alias',
+							},
+							{
+								title: 'Asset',
+								path: ridePath + 'structures/common-structures/asset',
+							},
+							{
+								title: 'AssetPair',
+								path: ridePath + 'structures/common-structures/asset-pair',
+							},
+							{
+								title: 'AttachedPayment',
+								path: ridePath + 'structures/common-structures/attached-payment',
+							},
+							{
+								title: 'BlockInfo',
+								path: ridePath + 'structures/common-structures/block-info',
+							},
+							{
+								title: 'DataEntry',
+								path: ridePath + 'structures/common-structures/data-entry',
+							},
+							{
+								title: 'Invocation',
+								path: ridePath + 'structures/common-structures/invocation',
+							},
+							{
+								title: 'Order',
+								path: ridePath + 'structures/common-structures/order',
+							},
+							{
+								title: 'ScriptResult',
+								path: ridePath + 'structures/common-structures/script-result',
+							},
+							{
+								title: 'ScriptTransfer',
+								path: ridePath + 'structures/common-structures/script-transfer',
+							},
+							{
+								title: 'Transfer',
+								path: ridePath + 'structures/common-structures/transfer',
+							},
+							{
+								title: 'TransferSet',
+								path: ridePath + 'structures/common-structures/transfer-set',
+							},
+							{
+								title: 'WriteSet',
+								path: ridePath + 'structures/common-structures/write-set',
+							},
+						],
+					},
+					{
+						title: 'Transaction structures',
+						path: ridePath + 'structures/transaction-structures',
+						children: [
+							{
+								title: 'BurnTransaction',
+								path: ridePath + 'structures/transaction-structures/burn-transaction',
+							},
+							{
+								title: 'CreateAliasTransaction',
+								path: ridePath + 'structures/transaction-structures/create-alias-transaction',
+							},
+							{
+								title: 'DataTransaction',
+								path: ridePath + 'structures/transaction-structures/data-transaction',
+							},
+							{
+								title: 'ExchangeTransaction',
+								path: ridePath + 'structures/transaction-structures/exchange-transaction',
+							},
+							{
+								title: 'FeeSponsoringTransaction',
+								path: ridePath + 'structures/transaction-structures/fee-sponsoring-transaction',
+							},
+							{
+								title: 'GenesisTransaction',
+								path: ridePath + 'structures/transaction-structures/genesis-transaction',
+							},
+							{
+								title: 'InvokeScriptTransaction',
+								path: ridePath + 'structures/transaction-structures/invoke-script-transaction',
+							},
+							{
+								title: 'IssueTransaction',
+								path: ridePath + 'structures/transaction-structures/issue-transaction',
+							},
+							{
+								title: 'LeaseCancelTransaction',
+								path: ridePath + 'structures/transaction-structures/lease-cancel-transaction',
+							},
+							{
+								title: 'LeaseTransaction',
+								path: ridePath + 'structures/transaction-structures/lease-transaction',
+							},
+							{
+								title: 'MassTransferTransaction',
+								path: ridePath + 'structures/transaction-structures/mass-transfer-transaction',
+							},
+							{
+								title: 'ReissueTransaction',
+								path: ridePath + 'structures/transaction-structures/reissue-transaction',
+							},
+							{
+								title: 'SetAssetScriptTransaction',
+								path: ridePath + 'structures/transaction-structures/set-asset-script-transaction',
+							},
+							{
+								title: 'SetScriptTransaction',
+								path: ridePath + 'structures/transaction-structures/set-script-transaction',
+							},
+							{
+								title: 'TransferTransaction',
+								path: ridePath + 'structures/transaction-structures/transfer-transaction',
+							},
+						],
+					},
+				],
+			},
+			{
+				title: 'Variables',
+				path: ridePath + 'variables',
+				children: [
+					{
+						title: 'Built-in variables',
+						path: ridePath + 'variables/built-in-variables',
+		},
+		{
+			title: '
+					},
+				],
+			},
+		],
+	], 
+	[buildingAppsPath]: [
+		{
+			title: 'Developer guide',
+			path: buildingAppsPath,
+			children: [
+				{
+					title: 'Waves Smart Contracts',
+					path: buildingAppsPath + 'waves-smart-contracts-overview',
+				},
+				{
+					title: 'Smart Accounts',
+					path: buildingAppsPath + 'smart-accounts',
+					children: [
+						{
+							title: 'What is a Smart Account',
+							path: buildingAppsPath + 'what-is-smart-account',
+						},
+						{
+							title: 'Creating smart account',
+							path: buildingAppsPath + 'how-to-create-smart-account',
+						},
+						{
+							title: 'Creating and deploying a script manually',
+							path: buildingAppsPath + 'creating-and-deploying-a-script-manually',
+						},
+						{
+							title: 'Video tutorials',
+							path: buildingAppsPath + 'smart-contracts/video-tutorials',
+							children: [
+								{
+									title: 'Introduction to the Waves blockchain, Waves Smart Accounts and Waves Smart Assets',
+									path: buildingAppsPath + 'video-tutorials/introduction-to-the-waves-blockchain-waves-smart-accounts-and-waves-smart-assets',
+								},
+								{
+									title: 'Waves Smart Account with multisignature',
+									path: buildingAppsPath + 'video-tutorials/waves-smart-account-with-multisignature',
+								},
+								{
+									title: 'Waves Smart Account with escrow service',
+									path: buildingAppsPath + 'video-tutorials/waves-smart-account-with-escrow-service',
+								},
+								{
+									title: 'Creating multisignature account via Waves IDE tools',
+									path: buildingAppsPath + 'video-tutorials/creating-multisignature-account-via-waves-ide-tools',
+								},
+								{
+									title: 'Creating multisignature account via Waves Client',
+									path: buildingAppsPath + 'video-tutorials/creating-multisignature-account-via-waves-client',
+								},
+								{
+									title: 'Waves console explained',
+									path: buildingAppsPath + 'video-tutorials/waves-console-explained',
+								},
+							],
+						},
+					],
+				},
+				{
+					title: 'Smart Assets',
+					path: buildingAppsPath + 'smart-assets',
+					children: [
+						{
+							title: 'What is a Smart Asset',
+							path: buildingAppsPath + 'what-is-smart-asset',
+						},
+					],
+				},
+				{
+					title: 'What is a dApp',
+					path: buildingAppsPath + 'what-is-a-dapp',
+					children: [
+						{
+							title: 'Writing dApps',
+							path: buildingAppsPath + 'writing-dapps',
+						},
+						{
+							title: 'Developer guide',
+							path: localePath + 'getting-started/getting-started-for-developers',
+						},
+						{
+							title: 'How-to guides',
+							path: sdkPath + 'examples',
+							children: [
+								{
+									title: 'Simple voting on the Waves blockchain',
+									path: buildingAppsPath + 'simple-voting-on-the-waves-blockchain',
+								},
+								{
+									title: 'Create your first crypto trading Bot', 
+									path: sdkPath + 'waves-api-and-sdk/examples/trading-bot',
+								},
+							],
+						},
+						{
+							title: 'Articles on dApps',
+							path: buildingAppsPath + 'articles-on-dapps',
+						},
+					],
+				},
+				{
+					title: 'Tools',
+					path: buildingAppsPath + 'tools',
+					children: [
+						{
+							title: 'Waves IDE',
+							path: buildingAppsPath + 'tools/waves-ide',
+						},
+						{
+							title: 'REPL',
+							path: buildingAppsPath + 'tools/repl',
+						},
+					],
+				},
+				{
+					title: 'API & SDK',
+					path: sdkPath,
+					children: [
+						{
+							title: 'Waves data service API',
+							path: sdkPath + 'waves-data-service-api',
+						},
+						{
+							title: 'Client libraries',
+							path: sdkPath + 'client-libraries',
+							children: [
+								{
+									title: 'PyWaves',
+									path: sdkPath + 'client-libraries/pywaves',
+								},
+								{
+									title: 'WavesJ',
+									path: sdkPath + 'client-libraries/wavesj',
+								},
+								{
+									title: 'WavesCS',
+									path: sdkPath + 'client-libraries/wavescs',
+								},
+								{
+									title: 'WavesC',
+									path: sdkPath + 'client-libraries/waves-c',
+								},
+								{
+									title: 'GoWaves',
+									path: sdkPath + 'client-libraries/gowaves',
+								},
+								{
+									title: 'WavesRS',
+									path: sdkPath + 'client-libraries/wavesrs',
+								},
+								{
+									title: 'Waves signature adapter',
+									path: sdkPath + 'client-libraries/waves-signature-adapter',
+								},
+								{
+									title: 'Waves transactions',
+									path: sdkPath + 'client-libraries/waves-transactions',
+								},
+								{
+									title: 'Community libraries',
+									path: sdkPath + 'client-libraries/unofficial-libraries',
+								},
+							],
+						},
+						{
+							title: 'Waves Games',
+							path: sdkPath + 'waves-gaming-api',
+							children: [
+								{
+									title: 'Waves Games API',
+									path: sdkPath + 'waves-gaming-api/waves-games-api',
+								},
+								{
+									title: 'Examples',
+									path: sdkPath + 'waves-gaming-api/examples',
+								},
+							],
+						},
+					],
+				},
+				{
+					title: 'Script performance tests',
+					path: buildingAppsPath + 'script-performance-tests',
+				},
+			],
+		},
+	],
+
+	[ecosystemPath]: [
+		{
+			title: 'EcosystemApps',
+			path: ecosystemPath,
+			children: [
+				{
+					title: 'Waves Explorer',
+					path: localePath + 'waves-explorer/about-waves-explorer',
+				},
+				{
+					title 'Account balance top up in the test network,
+					path: localePath + 'waves-explorer/account-balance-top-up-in-the-test-network',
+				},
+				{
+					title: 'Oracles',
+					path: localePath + 'waves-oracles/about-waves-oraclesэб
+					chlidren: [
+						{
+							title: 'Create an oracle card with Waves Oracle',
+							path: localePath + 'waves-oracles/create-an-oracle-card-with-waves-oracle',
+						},
+						{
+							title: 'Create an oracle card with a data transaction',
+							path: localePath + 'waves-oracles/create-an-oracle-card-with-a-data-transaction',
+						},
+						{
+							title: 'Oracle card',
+							path: localePath + 'waves-oracles/oracle-card',
+						},
+						{
+							title: 'Updating oracle card',
+							path: localePath + 'waves-oracles/updating-oracle-card',
+						},
+						{
+							title: 'Data transaction tool',
+							path: localePath + 'waves-oracles/data-transaction-tool',
+						},
+						{
+							title: 'How to create an oracle',
+							path: localePath + 'waves-oracles/how-to-create-an-oracle',
+						},
+					],
+				},
+				{
+					title: 'Token Rating',
+					path: localePath + 'waves-token-rating/about-waves-token-ratingэб
+					children: [
+						{
+							title: 'User interface',
+							path: localePath + 'waves-token-rating/user-interface',
+						},
+						{
+							title: 'Rating formula',
+							path: localePath + 'waves-token-rating/rating-formula',
+						},
+						{
+							title: 'Data transaction with user\'s rate',
+							path: localePath + 'waves-token-rating/data-transaction-with-user-s-rate',
+						},
+						{
+							title: 'Data transaction of the Token Rating oracle',
+							path: localePath + 'waves-token-rating/data-transaction-of-the-token-rating-oracle',
+						},
+						{
+							title: 'Token management',
+							path: localePath + 'waves-token-rating/token-management',
+						},
+					],
+				},
+			],
+		},
+	],
+
+
+	[keepInTouchPath]: [
+		{
+		},
+	], 
+
+
 
 
 };
