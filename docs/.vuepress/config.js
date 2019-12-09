@@ -22,12 +22,12 @@ module.exports = (ctx) => {
         locales: {
             '/en/': {
                 lang: 'en-US',
-                title: 'Wavesplatform Docs',
+                title: 'Waves documentation',
                 description: 'Waves documentation in English'
             },
             '/ru/': {
                 lang: 'ru-RU',
-                title: 'Wavesplatform Документация',
+                title: 'Документация Waves',
                 description: 'Документация Waves на русском',
             }
         },
