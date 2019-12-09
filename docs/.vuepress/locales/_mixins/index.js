@@ -160,6 +160,8 @@ module.exports = {
 
     footer: {
         broughtToYouByWavesTeam: 'Brought to you by Waves Team.',
+        copyright: '© 2019 Waves Platform',
+        email: 'support@wavesplatform.com',
         resourcesCategories: {
             productsAndTools: {
                 title: 'Products & tools',

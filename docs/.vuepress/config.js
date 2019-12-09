@@ -16,6 +16,18 @@ const colorationConfig = require('./colouration');
 module.exports = (ctx) => {
     const vuepressComputedConfig = getVuepressConfig(ctx, {
         dest: path.join(rootDir, 'dist'),
+        locales: {
+            '/en/': {
+                lang: 'en-US',
+                title: 'Waves documentation',
+                description: 'Waves documentation in English'
+            },
+            '/ru/': {
+                lang: 'ru-RU',
+                title: 'Документация Waves',
+                description: 'Документация Waves на русском',
+            }
+        },
         themeConfig: {
             // activeColouration: 'default',
             colouration: colorationConfig,
