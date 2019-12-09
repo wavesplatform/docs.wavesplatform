@@ -1,7 +1,8 @@
 {
-    "description": "Minimalistic doc Waves Exchange",
+    "description": "Wavesplatform documentation",
     "scripts": {
-        "dev": "isDev=true corePath=$PWD/../core.docs.wavesplatform port=3084 vuepress dev docs",
+        "dev": "vuepress dev docs",
+        "dev:dev": "isDev=true corePath=$PWD/../core.docs.wavesplatform port=3084 yarn dev",
         "build": "vuepress build docs",
         "build:dev": "corePath=$PWD/../core.docs.wavesplatform yarn build",
         "server": "node docs/.vuepress/runServer",
@@ -13,5 +14,3 @@
         "webpack": "^4.41.2"
     }
 }
-
-

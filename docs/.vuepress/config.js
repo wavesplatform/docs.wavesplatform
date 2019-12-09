@@ -1,6 +1,7 @@
 const processEnv = process.env;
 const envIsDev = processEnv.isDev;
 const corePath = processEnv.corePath || 'core.docs.wavesplatform';
+const envHost = processEnv.host || '127.0.0.1';
 if(envIsDev) {
     const inspector = require('inspector');
     inspector.open(9229, '127.0.0.1');
@@ -13,8 +14,10 @@ const getVuepressConfig = coreDocsWavesplatform.getVuepressConfig;
 const enLocaleConfig = require('./locales/en');
 const ruLocaleConfig = require('./locales/ru');
 const colorationConfig = require('./colouration');
+
 module.exports = (ctx) => {
     const vuepressComputedConfig = getVuepressConfig(ctx, {
+        host: envHost,
         dest: path.join(rootDir, 'dist'),
         locales: {
             '/en/': {
@@ -29,6 +32,8 @@ module.exports = (ctx) => {
             }
         },
         themeConfig: {
+            logo: '/waves-docs-logo.svg',
+            repo: 'https://github.com/wavesplatform/docs.wavesplatform',
             // activeColouration: 'default',
             colouration: colorationConfig,
             locales: {

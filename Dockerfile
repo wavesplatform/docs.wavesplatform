@@ -7,3 +7,4 @@ RUN yarn && \
     yarn build
 
 ENTRYPOINT yarn server
+
