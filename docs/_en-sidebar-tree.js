@@ -1,4 +1,4 @@
-const rootPath = 'https://docs.wavesplatform.com/'
+const rootPath = 'https://docs.wavesplatform.com/';
 const localePath = 'en/';
 const blockchainPath = rootPath + localePath + 'blockchain/';
 const nodePath = rootPath + localePath + 'waves-node/';
@@ -478,81 +478,81 @@ module.exports = {
 				]
 			},
 			{
-				title: 'How To install a node';
+				title: 'How To install a node',
 				path: nodePath + 'how-to-install-a-node/how-to-install-a-node',
 				children: [
 					{
-						title: 'On Mac';
+						title: 'On Mac',
 						path: nodePath + 'how-to-install-a-node/on-mac',
 					},
 					{
-						title: 'On Windows';
+						title: 'On Windows',
 						path: nodePath + 'how-to-install-a-node/on-windows',
 					},
 					{
-						title: 'On Ubuntu';
+						title: 'On Ubuntu',
 						path: nodePath + 'how-to-install-a-node/on-ubuntu',
 					}
 				],
 			},
 			{
-				title: 'How to build and test a node';
+				title: 'How to build and test a node',
 				path: nodePath + 'how-to-build-and-test-a-node',
 			},
 			{
-				title: 'Options for getting actual blockchain';
+				title: 'Options for getting actual blockchain',
 				path: nodePath + 'options-for-getting-actual-blockchain',
 				children: [
 					{
-						title: 'State downloading and applying';
+						title: 'State downloading and applying',
 						path: nodePath + 'options-for-getting-actual-blockchain/state-downloading-and-applying',
 					},
 					{
-						title: 'Import from the blockchain';
+						title: 'Import from the blockchain',
 						path: nodePath + 'options-for-getting-actual-blockchain/import-from-the-blockchain',
 					},
 					{
-						title: 'Export to the blockchain';
+						title: 'Export to the blockchain',
 						path: nodePath + 'options-for-getting-actual-blockchain/export-and-import-from-the-blockchain',
 					},
 				],
 			},
 			{
-				title: 'Upgrading Waves Node';
+				title: 'Upgrading Waves Node',
 				path: nodePath + 'upgrading',
 			},
 			{
-				title: 'How to rollback a node';
+				title: 'How to rollback a node',
 				path: nodePath + 'how-to-rollback-a-node',
 			},
 			{
-				title: 'Waves node in Docker';
+				title: 'Waves node in Docker',
 				path: nodePath + 'waves-node-in-docker',
 			},
 			{
-				title: 'Joining testnet';
+				title: 'Joining testnet',
 				path: nodePath + 'joining-testnet',
 			},
 			{
-				title: 'Private Waves network';
+				title: 'Private Waves network',
 				path: nodePath + 'private-waves-network',
 			},
 			{
-				title: 'Extensions';
+				title: 'Extensions',
 				path: nodePath + 'extensions',
 				children: [
 					{
-						title: 'gRPC Server';
+						title: 'gRPC Server',
 						path: nodePath + 'extensions/grpc-server',
 						children: [
 							{
-								title: 'gRPC Server installation';
+								title: 'gRPC Server installation',
 								path: nodePath + 'extensions/grpc-server/grpc-server-installation',
 							},
 						],
 					},
 					{
-						title: 'Matcher';
+						title: 'Matcher',
 						path: nodePath + 'extensions/matcher',
 						children: [
 							{
@@ -568,93 +568,93 @@ module.exports = {
 				]
 			},
 			{
-				title: 'Features';
+				title: 'Features',
 				path: nodePath + 'features/features',
 				children: [
 					{
-						title: 'Feature';
+						title: 'Feature',
 						path: nodePath + 'features/feature',
 					},
 					{
-						title: 'Feature activation protocol';
+						title: 'Feature activation protocol',
 						path: nodePath + 'features/feature-activation-protocol',
 					}
 				],
 			},
 			{
-				title: 'Node configuration file';
+				title: 'Node configuration file',
 				path: nodePath + 'node-configuration-file',
 			},
 			{
-				title: 'Node configuration';
+				title: 'Node configuration',
 				path: nodePath + 'node-configuration',
 			},
 			{
-				title: 'Logging configuration';
+				title: 'Logging configuration',
 				path: nodePath + 'logging-configuration',
 			},
 			{
-				title: 'Node API';
+				title: 'Node API',
 				path: nodePath + 'node-api',
 				children: [
 					{
-						title: 'Address';
+						title: 'Address',
 						path: nodePath + 'node-api/address',
 					},
 					{
-						title: 'Lease Transactions';
+						title: 'Lease Transactions',
 						path: nodePath + 'node-api/lease-transactions',
 					},
 					{
-						title: 'Assets';
+						title: 'Assets',
 						path: nodePath + 'node-api/asset-transactions',
 						children: [
 							{
-								title: 'Public Functions';
+								title: 'Public Functions',
 								path: nodePath + 'node-api/asset-transactions/public-functions',
 							},
 							{
-								title: 'Private Functions';
+								title: 'Private Functions',
 								path: nodePath + 'node-api/asset-transactions/private-functions',
 							},
 							{
-								title: 'Distribution Methods';
+								title: 'Distribution Methods',
 								path: nodePath + 'node-api/asset-transactions/distribution-methods',
 							}
 						],
 					},
 					{
-						title: 'Alias Transaction';
+						title: 'Alias Transaction',
 						path: nodePath + 'node-api/alias-transaction',
 					},
 					{
-						title: 'Transactions';
+						title: 'Transactions',
 						path: nodePath + 'node-api/transactions',
 					},
 					{
-						title: 'Peers';
+						title: 'Peers',
 						path: nodePath + 'node-api/peers',
 					},
 					{
-						title: 'Blocks';
+						title: 'Blocks',
 						path: nodePath + 'node-api/blocks',
 					},
 					{
-						title: 'Utils';
+						title: 'Utils',
 						path: nodePath + 'node-api/utils',
 					},
 					{
-						title: 'Examples of transactions';
+						title: 'Examples of transactions',
 						path: nodePath + 'node-api/example-transactions',
 					}
 				],
 			},
 			{
-				title: 'Running Waves Node in Yandex.Cloud';
+				title: 'Running Waves Node in Yandex.Cloud',
 				path: nodePath + 'running-waves-node-in-yandex-cloud',
 			},
 			{
-				title: 'API limitations of the pool of public nodes';
+				title: 'API limitations of the pool of public nodes',
 				path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
 			},
 		],
