@@ -50,7 +50,7 @@ module.exports = {
                 }
             },
             node: {
-                rootLink: '/en/node/',
+                rootLink: '/en/waves-node/',
                 type: 'advanced',
                 iconFilePath: getRawIcon('./images/category2.svg'),
                 buttonSet: {
@@ -69,7 +69,7 @@ module.exports = {
                 },
             },
             ecosystemApplications: {
-                rootLink: '/en/blockchain/',
+                rootLink: '/en/ecosystem/',
                 type: 'beginner',
                 iconFilePath: getRawIcon('./images/category3.svg'),
                 buttonSet: {
@@ -92,57 +92,33 @@ module.exports = {
                 },
             },
             buildingBlockchainApps: {
-                rootLink: '/en/blockchain/',
+                rootLink: '/en/building-apps/',
                 type: 'advanced',
                 iconFilePath: getRawIcon('./images/rocket.svg'),
                 buttonSet: {
-                    nodeApi: {
-                        text: 'Node API',
-                        link: '/en/blockchain/token/non-fungible-token'
+                    smartAccount: {
+                        text: 'Smart accounts',
+                        link: '/en/smart-contracts/smart-accounts'
                     },
-                    matcher: {
-                        text: 'Matcher',
-                        link: '/en/blockchain/token/non-fungible-token'
+                    smartAsset: {
+                        text: 'Smart assets',
+                        link: '/en/smart-contracts/smart-assets'
                     },
-                    gRpc: {
-                        text: 'gRPC',
-                        link: '/en/blockchain/token/non-fungible-token'
-                    },
-                    leasing: {
-                        text: 'Leasing',
-                        link: '/en/blockchain/token/non-fungible-token'
+                    dapp: {
+                        text: 'dApps',
+                        link: '/en/smart-contracts/what-is-a-dapp'
                     }
                 }
             },
             rideProgrammingLanguage: {
-                rootLink: '/en/blockchain/',
+                rootLink: '/en/ride/about-ride',
                 type: 'advanced',
                 iconFilePath: getRawIcon('./images/category5.svg'),
                 buttonSet: {
-                    Developer 
-                },
-            },
-            additionalServices: {
-                rootLink: '/en/blockchain/',
-                type: 'supplementary',
-                iconFilePath: getRawIcon('./images/category6.svg'),
-                buttonSet: {
-                    dataServices: {
-                        text: 'Data Services',
-                        link: '/en/blockchain/token/non-fungible-token',
-                    },
-                    oracles: {
-                        text: 'Oracles',
-                        link: '/en/blockchain/token/non-fungible-token',
-                    },
-                    tokenRating: {
-                        text: 'Token Rating',
-                        link: '/en/blockchain/token/non-fungible-token',
-                    },
                 },
             },
             miscellaneous: {
-                rootLink: '/en/blockchain/',
+                rootLink: '/en/keep-in-touch/',
                 type: 'supplementary',
                 iconFilePath: getRawIcon('./images/category7.svg'),
                 buttonSet: {

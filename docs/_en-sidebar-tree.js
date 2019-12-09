@@ -3,6 +3,7 @@ const localePath = 'en/';
 const blockchainPath = rootPath + localePath + 'blockchain/';
 const nodePath = rootPath + localePath + 'waves-node/';
 const programmingPath = rootPath + localePath + 'smart-contracts/';
+const buildingAppsPath = rootPath + localePath + 'smart-contracts/';
 const ridePath = rootPath + localePath + 'ride';
 const sdkPath = rootPath + localePath + 'waves-api-and-sdk/';
 const ecosystemPath = rootPath + localePath + 'ecosystem/';
@@ -11,7 +12,6 @@ module.exports = {
 	[blockchainPath]: [
 				{	title: 'About Waves blockchain',
 					path: blockchainPath,
-
 				},
 				{
 					title: 'Account',
@@ -462,11 +462,10 @@ module.exports = {
 					path: rootPath + localePath + '/en/glossary/glossary',
 				},
 			],
-
 	[nodePath]: [
-		title: 'Node',
-		path: rootPath + localePath + 'getting-started/getting-started-for-node-owners',
-		children: [
+			{	title: 'Node owner guide',
+				path: rootPath + localePath + 'getting-started/getting-started-for-node-owners',
+			}
 			{
 				title: 'What is Waves full node',
 				path: nodePath + 'what-is-a-full-node',
@@ -662,10 +661,11 @@ module.exports = {
 				path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
 			},
 		],
-	],
 	[ridePath]: [
-		title: 'RIDE Programming Language',
-		children: [
+			{
+				title: 'RIDE Programming Language',
+				path: '/en/ride/about-ride',
+			},
 			{
 				title: 'Base concepts',
 				path: ridePath + 'base-concepts',
@@ -995,19 +995,15 @@ module.exports = {
 					{
 						title: 'Built-in variables',
 						path: ridePath + 'variables/built-in-variables',
-		},
-		{
-			title: '
 					},
 				],
 			},
 		],
-	],
 	[buildingAppsPath]: [
-		{
-			title: 'Developer guide',
-			path: programmingPath,
-			children: [
+				{
+					title: 'Developer guide',
+					path: programmingPath,
+				},
 				{
 					title: 'Waves Smart Contracts',
 					path: programmingPath + 'waves-smart-contracts-overview',
@@ -1187,14 +1183,13 @@ module.exports = {
 					path: programmingPath + 'script-performance-tests',
 				},
 			],
-		},
-	],
+
 
 	[ecosystemPath]: [
-		{
-			title: 'EcosystemApps',
-			path: ecosystemPath,
-			children: [
+				{
+					title: 'EcosystemApps',
+					path: ecosystemPath,
+				},
 				{
 					title: 'Waves Explorer',
 					path: localePath + 'waves-explorer/about-waves-explorer',
@@ -1260,8 +1255,6 @@ module.exports = {
 					],
 				},
 			],
-		},
-	],
 
 
 	[keepInTouchPath]: [

@@ -1,0 +1,2 @@
+/en/getting-started/getting-started-for-node-owners.html -> /en/waves-node
+/en/getting-started/getting-started-for-developers.html -> /en/building-apps

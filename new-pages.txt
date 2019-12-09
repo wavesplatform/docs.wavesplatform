@@ -1,2 +1,5 @@
 /blockchain/readme.md
 /ecosystem/readme.md
+/waves-node/readme.md
+/building-apps/readme.md
+/keep-it-touch/readme.md
