@@ -27,44 +27,44 @@ module.exports = {
     homePage: {
         technologyList: {
             learnAboutWavesPlatform: {
-                rootLink: '/en//',
+                rootLink: '/en/blockchain/',
                 type: 'beginner',
                 iconFilePath: getRawIcon('./images/category1.svg'),
                 buttonSet: {
-                    nodeApi: {
-                        text: 'Node API',
-                        link: '/en/learn-about-waves-platform/tools/test-waves-ide-new.html#specification'
+                    account: {
+                        text: 'Account',
+                        link: '/en/blockchain/account'
                     },
-                    matcher: {
-                        text: 'Matcher',
-                        link: '/en/learn-about-waves-platform/for-example/test-level-2/test-level-3/level-3-element-1'
+                    token: {
+                        text: 'Tokens',
+                        link: '/en/blockchain/token'
                     },
-                    gRpc: {
-                        text: 'gRPC',
-                        link: '/en/learn-about-waves-platform/level-1-test-page-4/'
+                    mining: {
+                        text: 'Mining',
+                        link: '/en/blockchain/token'
                     },
-                    leasing: {
-                        text: 'Leasing',
-                        link: 'http://localhost:3083/en/learn-about-waves-platform/tools/repl/waves-ide/simple-voting-on-the-waves-blockchain#roadmap'
+                    transaction: {
+                        text: 'Transactions',
+                        link: '/en/blockchain/transaction'
                     }
                 }
             },
             node: {
-                rootLink: '/en/blockchain/',
+                rootLink: '/en/node/',
                 type: 'advanced',
                 iconFilePath: getRawIcon('./images/category2.svg'),
                 buttonSet: {
-                    dex: {
-                        text: 'DEX',
-                        link: '/en/blockchain/token/non-fungible-token',
+                    launch: {
+                        text: 'Launch a node',
+                        link: 'en/waves-node/waves-node-in-docker',
                     },
-                    explorer: {
-                        text: 'Explorer',
-                        link: '/en/blockchain/token/non-fungible-token',
+                    grpc: {
+                        text: 'gRPC server',
+                        link: '/en/waves-node/extensions/grpc-server',
                     },
-                    keeper: {
-                        text: 'Keeper',
-                        link: '/en/blockchain/token/non-fungible-token',
+                    nodeApi: {
+                        text: 'Node REST API',
+                        link: '/en/waves-node/node-api',
                     },
                 },
             },
@@ -73,17 +73,21 @@ module.exports = {
                 type: 'beginner',
                 iconFilePath: getRawIcon('./images/category3.svg'),
                 buttonSet: {
-                    smartContracts: {
-                        text: 'Smart Contracts',
+                    explorer: {
+                        text: 'Explorer',
+                        link: '/en/waves-explorer/about-waves-explorer',
+                    },
+                    faucet: {
+                        text: 'Free Waves on Testnet',
+                        link: '/en/waves-explorer/account-balance-top-up-in-the-test-network',
+                    },
+                    oracles: {
+                        text: 'Oracles',
                         link: '/en/blockchain/token/non-fungible-token',
                     },
-                    tools: {
-                        text: 'Tools',
-                        link: '/en/blockchain/token/non-fungible-token',
-                    },
-                    apiAndSdk: {
-                        text: 'API & SDK',
-                        link: '/en/blockchain/token/non-fungible-token',
+                    torenRating: {
+                        text: 'Token Rating',
+                        link: '/en/waves-token-rating/about-waves-token-rating',
                     },
                 },
             },
@@ -114,7 +118,9 @@ module.exports = {
                 rootLink: '/en/blockchain/',
                 type: 'advanced',
                 iconFilePath: getRawIcon('./images/category5.svg'),
-                buttonSet: {},
+                buttonSet: {
+                    Developer 
+                },
             },
             additionalServices: {
                 rootLink: '/en/blockchain/',

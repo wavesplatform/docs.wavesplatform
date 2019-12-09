@@ -27,32 +27,28 @@ module.exports = deepmerge(mixin, {
         },
         technologyList: {
             learnAboutWavesPlatform: {
-                title: 'Learn about Waves Platform',
-                caption: 'Overview of the Waves Platform main features. Protocol, consensus, cryptography. Understand the value a blockchain offers.',
+                title: 'Waves Blockchain',
+                caption: 'Overview of the Waves blockchain main features. Protocol, consensus, cryptography. Mining, transaction types and fees.',
             },
             node: {
                 title: 'Node',
-                caption: 'Learn about Waves full node. How to install a node. Node configuration and API. Work with node extensions: matcher, gRPC server.',
+                caption: 'Waves full node. Configuring and running a node. Getting actual blockchain. Activating new features.',
             },
             ecosystemApplications: {
-                title: 'Ecosystem Applications',
-                caption: 'Learn about the Waves blockchain ecosystem applications.',
+                title: 'Ecosystem Apps',
+                caption: 'Useful applications and services built on the Waves blockchain.',
             },
             buildingBlockchainApps: {
-                title: 'Building Blockchain Apps',
-                caption: 'Learn how to build a blockchain application with Waves. Understanding Waves Smart Contracts. API & SDK. Developer Tools.',
+                title: 'Building Apps',
+                caption: 'Creating smart contract and distributed applications with Waves. Developer tools, APIs and SDKs.',
             },
             rideProgrammingLanguage: {
-                title: 'Ride Programming Language',
-                caption: 'Learn the syntax of new Ride programming language that allows building dApps. Examples of use.',
-            },
-            additionalServices: {
-                title: 'Additional Services',
-                caption: 'Work with additional services built on the Waves blockchain: Data Services, Oracles, Token Rating, Item Market, DappOcean, PyWaves Statistics, etc.',
+                title: 'RIDE Programming Language',
+                caption: 'Syntax of RIDE. Script types. Build-in functions, operators and structures.',
             },
             miscellaneous: {
-                title: 'Miscellaneous',
-                caption: 'Waves Platform official resources. Read articles on various topics dedicated to Wave blockchain. Contributing to Waves platform.',
+                title: 'Keep in Touch',
+                caption: 'Join the community, keep up with the latest news and articles, and find out all about events happening on the Waves Platform.',
             }
         },
     },

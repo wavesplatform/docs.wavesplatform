@@ -2,7 +2,7 @@ const rootPath = 'https://docs.wavesplatform.com/';
 const localePath = 'en/';
 const blockchainPath = rootPath + localePath + 'blockchain/';
 const nodePath = rootPath + localePath + 'waves-node/';
-const buildingApps = rootPath + localePath + 'smart-contracts/';
+const programmingPath = rootPath + localePath + 'smart-contracts/';
 const ridePath = rootPath + localePath + 'ride';
 const sdkPath = rootPath + localePath + 'waves-api-and-sdk/';
 const ecosystemPath = rootPath + localePath + 'ecosystem/';
@@ -10,6 +10,10 @@ const ending = '.html';
 
 module.exports = {
 	[blockchainPath]: [
+				{	title: 'About Waves blockchain',
+					path: blockchainPath,
+
+				},
 				{
 					title: 'Account',
 					path: blockchainPath + 'account',
@@ -1000,58 +1004,58 @@ module.exports = {
 			},
 		],
 	], 
-	[buildingAppsPath]: [
+	[programmingPath]: [
 		{
 			title: 'Developer guide',
-			path: buildingAppsPath,
+			path: programmingPath,
 			children: [
 				{
 					title: 'Waves Smart Contracts',
-					path: buildingAppsPath + 'waves-smart-contracts-overview',
+					path: programmingPath + 'waves-smart-contracts-overview',
 				},
 				{
 					title: 'Smart Accounts',
-					path: buildingAppsPath + 'smart-accounts',
+					path: programmingPath + 'smart-accounts',
 					children: [
 						{
 							title: 'What is a Smart Account',
-							path: buildingAppsPath + 'what-is-smart-account',
+							path: programmingPath + 'what-is-smart-account',
 						},
 						{
 							title: 'Creating smart account',
-							path: buildingAppsPath + 'how-to-create-smart-account',
+							path: programmingPath + 'how-to-create-smart-account',
 						},
 						{
 							title: 'Creating and deploying a script manually',
-							path: buildingAppsPath + 'creating-and-deploying-a-script-manually',
+							path: programmingPath + 'creating-and-deploying-a-script-manually',
 						},
 						{
 							title: 'Video tutorials',
-							path: buildingAppsPath + 'smart-contracts/video-tutorials',
+							path: programmingPath + 'smart-contracts/video-tutorials',
 							children: [
 								{
 									title: 'Introduction to the Waves blockchain, Waves Smart Accounts and Waves Smart Assets',
-									path: buildingAppsPath + 'video-tutorials/introduction-to-the-waves-blockchain-waves-smart-accounts-and-waves-smart-assets',
+									path: programmingPath + 'video-tutorials/introduction-to-the-waves-blockchain-waves-smart-accounts-and-waves-smart-assets',
 								},
 								{
 									title: 'Waves Smart Account with multisignature',
-									path: buildingAppsPath + 'video-tutorials/waves-smart-account-with-multisignature',
+									path: programmingPath + 'video-tutorials/waves-smart-account-with-multisignature',
 								},
 								{
 									title: 'Waves Smart Account with escrow service',
-									path: buildingAppsPath + 'video-tutorials/waves-smart-account-with-escrow-service',
+									path: programmingPath + 'video-tutorials/waves-smart-account-with-escrow-service',
 								},
 								{
 									title: 'Creating multisignature account via Waves IDE tools',
-									path: buildingAppsPath + 'video-tutorials/creating-multisignature-account-via-waves-ide-tools',
+									path: programmingPath + 'video-tutorials/creating-multisignature-account-via-waves-ide-tools',
 								},
 								{
 									title: 'Creating multisignature account via Waves Client',
-									path: buildingAppsPath + 'video-tutorials/creating-multisignature-account-via-waves-client',
+									path: programmingPath + 'video-tutorials/creating-multisignature-account-via-waves-client',
 								},
 								{
 									title: 'Waves console explained',
-									path: buildingAppsPath + 'video-tutorials/waves-console-explained',
+									path: programmingPath + 'video-tutorials/waves-console-explained',
 								},
 							],
 						},
@@ -1059,21 +1063,21 @@ module.exports = {
 				},
 				{
 					title: 'Smart Assets',
-					path: buildingAppsPath + 'smart-assets',
+					path: programmingPath + 'smart-assets',
 					children: [
 						{
 							title: 'What is a Smart Asset',
-							path: buildingAppsPath + 'what-is-smart-asset',
+							path: programmingPath + 'what-is-smart-asset',
 						},
 					],
 				},
 				{
 					title: 'What is a dApp',
-					path: buildingAppsPath + 'what-is-a-dapp',
+					path: programmingPath + 'what-is-a-dapp',
 					children: [
 						{
 							title: 'Writing dApps',
-							path: buildingAppsPath + 'writing-dapps',
+							path: programmingPath + 'writing-dapps',
 						},
 						{
 							title: 'Developer guide',
@@ -1085,7 +1089,7 @@ module.exports = {
 							children: [
 								{
 									title: 'Simple voting on the Waves blockchain',
-									path: buildingAppsPath + 'simple-voting-on-the-waves-blockchain',
+									path: programmingPath + 'simple-voting-on-the-waves-blockchain',
 								},
 								{
 									title: 'Create your first crypto trading Bot', 
@@ -1095,21 +1099,21 @@ module.exports = {
 						},
 						{
 							title: 'Articles on dApps',
-							path: buildingAppsPath + 'articles-on-dapps',
+							path: programmingPath + 'articles-on-dapps',
 						},
 					],
 				},
 				{
 					title: 'Tools',
-					path: buildingAppsPath + 'tools',
+					path: programmingPath + 'tools',
 					children: [
 						{
 							title: 'Waves IDE',
-							path: buildingAppsPath + 'tools/waves-ide',
+							path: programmingPath + 'tools/waves-ide',
 						},
 						{
 							title: 'REPL',
-							path: buildingAppsPath + 'tools/repl',
+							path: programmingPath + 'tools/repl',
 						},
 					],
 				},
@@ -1181,7 +1185,7 @@ module.exports = {
 				},
 				{
 					title: 'Script performance tests',
-					path: buildingAppsPath + 'script-performance-tests',
+					path: programmingPath + 'script-performance-tests',
 				},
 			],
 		},
