@@ -6,7 +6,6 @@ const programmingPath = rootPath + localePath + 'smart-contracts/';
 const ridePath = rootPath + localePath + 'ride';
 const sdkPath = rootPath + localePath + 'waves-api-and-sdk/';
 const ecosystemPath = rootPath + localePath + 'ecosystem/';
-const ending = '.html';
 
 module.exports = {
 	[blockchainPath]: [
@@ -463,7 +462,7 @@ module.exports = {
 					path: rootPath + localePath + '/en/glossary/glossary',
 				},
 			],
-			
+
 	[nodePath]: [
 		title: 'Node',
 		path: rootPath + localePath + 'getting-started/getting-started-for-node-owners',
@@ -1003,8 +1002,8 @@ module.exports = {
 				],
 			},
 		],
-	], 
-	[programmingPath]: [
+	],
+	[buildingAppsPath]: [
 		{
 			title: 'Developer guide',
 			path: programmingPath,
@@ -1092,7 +1091,7 @@ module.exports = {
 									path: programmingPath + 'simple-voting-on-the-waves-blockchain',
 								},
 								{
-									title: 'Create your first crypto trading Bot', 
+									title: 'Create your first crypto trading Bot',
 									path: sdkPath + 'waves-api-and-sdk/examples/trading-bot',
 								},
 							],
@@ -1268,7 +1267,7 @@ module.exports = {
 	[keepInTouchPath]: [
 		{
 		},
-	], 
+	],
 
 
 
