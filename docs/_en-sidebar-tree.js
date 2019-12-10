@@ -1,4 +1,4 @@
-const rootPath = 'https://docs.wavesplatform.com/';
+const rootPath = '';
 const localePath = 'en/';
 const blockchainPath = rootPath + localePath + 'blockchain/';
 const nodePath = rootPath + localePath + 'waves-node/';
@@ -1077,7 +1077,7 @@ module.exports = {
 						},
 						{
 							title: 'Developer guide',
-							path: localePath + 'getting-started/getting-started-for-developers',
+							path: rootPath + localePath + 'getting-started/getting-started-for-developers',
 						},
 						{
 							title: 'How-to guides',
@@ -1193,65 +1193,65 @@ module.exports = {
 				},
 				{
 					title: 'Waves Explorer',
-					path: localePath + 'waves-explorer/about-waves-explorer',
+					path: rootPath + localePath + 'waves-explorer/about-waves-explorer',
 				},
 				{
 					title: 'Account balance top up in the test network',
-					path: localePath + 'waves-explorer/account-balance-top-up-in-the-test-network',
+					path: rootPath + localePath + 'waves-explorer/account-balance-top-up-in-the-test-network',
 				},
 				{
 					title: 'Oracles',
-					path: localePath + 'waves-oracles/about-waves-oracles',
+					path: rootPath + localePath + 'waves-oracles/about-waves-oracles',
 					children: [
 						{
 							title: 'Create an oracle card with Waves Oracle',
-							path: localePath + 'waves-oracles/create-an-oracle-card-with-waves-oracle',
+							path: rootPath + localePath + 'waves-oracles/create-an-oracle-card-with-waves-oracle',
 						},
 						{
 							title: 'Create an oracle card with a data transaction',
-							path: localePath + 'waves-oracles/create-an-oracle-card-with-a-data-transaction',
+							path: rootPath + localePath + 'waves-oracles/create-an-oracle-card-with-a-data-transaction',
 						},
 						{
 							title: 'Oracle card',
-							path: localePath + 'waves-oracles/oracle-card',
+							path: rootPath + localePath + 'waves-oracles/oracle-card',
 						},
 						{
 							title: 'Updating oracle card',
-							path: localePath + 'waves-oracles/updating-oracle-card',
+							path: rootPath + localePath + 'waves-oracles/updating-oracle-card',
 						},
 						{
 							title: 'Data transaction tool',
-							path: localePath + 'waves-oracles/data-transaction-tool',
+							path: rootPath + localePath + 'waves-oracles/data-transaction-tool',
 						},
 						{
 							title: 'How to create an oracle',
-							path: localePath + 'waves-oracles/how-to-create-an-oracle',
+							path: rootPath + localePath + 'waves-oracles/how-to-create-an-oracle',
 						},
 					],
 				},
 				{
 					title: 'Token Rating',
-					path: localePath + 'waves-token-rating/about-waves-token-rating',
+					path: rootPath + localePath + 'waves-token-rating/about-waves-token-rating',
 					children: [
 						{
 							title: 'User interface',
-							path: localePath + 'waves-token-rating/user-interface',
+							path: rootPath + localePath + 'waves-token-rating/user-interface',
 						},
 						{
 							title: 'Rating formula',
-							path: localePath + 'waves-token-rating/rating-formula',
+							path: rootPath + localePath + 'waves-token-rating/rating-formula',
 						},
 						{
 							title: 'Data transaction with user\'s rate',
-							path: localePath + 'waves-token-rating/data-transaction-with-user-s-rate',
+							path: rootPath + localePath + 'waves-token-rating/data-transaction-with-user-s-rate',
 						},
 						{
 							title: 'Data transaction of the Token Rating oracle',
-							path: localePath + 'waves-token-rating/data-transaction-of-the-token-rating-oracle',
+							path: rootPath + localePath + 'waves-token-rating/data-transaction-of-the-token-rating-oracle',
 						},
 						{
 							title: 'Token management',
-							path: localePath + 'waves-token-rating/token-management',
+							path: rootPath + localePath + 'waves-token-rating/token-management',
 						},
 					],
 				},
@@ -1260,7 +1260,31 @@ module.exports = {
 
 	[keepInTouchPath]: [
 		{
+            title: 'Keep in Touch',
+            path: keepInTouchPath,
 		},
+		{
+            title: 'Documentation Updates',
+            path: keepInTouchPath + 'docs-update',
+		},
+        {
+             title: 'Proposals',
+             path: rootPath + rootPath + 'resources/proposals',
+             children: [
+                {
+                    title: 'Asset verification protocol',
+                    path: rootPath + rootPath + 'resources/asset-verification-protocol',
+                },
+                {
+                    title: 'Trezor hardware wallet integration specification',
+                    path: rootPath + rootPath + 'resources/trezor-hardware-wallet-integration-specification',
+                },
+                {
+                    title: 'Sponsored transactions',
+                    path: rootPath + rootPath + 'resources/sponsored-transactions',
+                },
+            ],
+        }
 	],
 
 
