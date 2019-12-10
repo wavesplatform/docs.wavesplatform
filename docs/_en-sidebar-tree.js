@@ -7,6 +7,7 @@ const buildingAppsPath = rootPath + localePath + 'smart-contracts/';
 const ridePath = rootPath + localePath + 'ride';
 const sdkPath = rootPath + localePath + 'waves-api-and-sdk/';
 const ecosystemPath = rootPath + localePath + 'ecosystem/';
+const keepInTouchPath = rootPath + localePath + 'keep-in-touch/';
 
 module.exports = {
 	[blockchainPath]: [
@@ -455,7 +456,7 @@ module.exports = {
 							title: 'Activation protocol',
 							path: blockchainPath + 'waves-protocol/activation-protocol',
 						},
-					]
+					],
 				},
 				{
 					title: 'Glossary',
@@ -465,7 +466,7 @@ module.exports = {
 	[nodePath]: [
 			{	title: 'Node owner guide',
 				path: rootPath + localePath + 'getting-started/getting-started-for-node-owners',
-			}
+			},
 			{
 				title: 'What is Waves full node',
 				path: nodePath + 'what-is-a-full-node',
@@ -477,8 +478,8 @@ module.exports = {
 					{
 						title: 'Hardware requirements',
 						path: nodePath + 'prerequisites/hardware-requirements',
-					}
-				]
+					},
+				],
 			},
 			{
 				title: 'How To install a node',
@@ -560,11 +561,11 @@ module.exports = {
 						children: [
 							{
 								title: 'Installing matcher on Ubuntu from deb-package',
-								path: nodepath + 'waves-node/extensions/matcher/matcher-install-ubuntu-deb',
+								path: nodePath + 'waves-node/extensions/matcher/matcher-install-ubuntu-deb',
 							},
 							{
 								title: 'Matcher settings',
-								path: nodepath + 'waves-node/extensions/matcher/matcher-settings',
+								path: nodePath + 'waves-node/extensions/matcher/matcher-settings',
 							}
 						]
 					},
@@ -1195,13 +1196,13 @@ module.exports = {
 					path: localePath + 'waves-explorer/about-waves-explorer',
 				},
 				{
-					title 'Account balance top up in the test network,
+					title: 'Account balance top up in the test network',
 					path: localePath + 'waves-explorer/account-balance-top-up-in-the-test-network',
 				},
 				{
 					title: 'Oracles',
-					path: localePath + 'waves-oracles/about-waves-oraclesэб
-					chlidren: [
+					path: localePath + 'waves-oracles/about-waves-oracles',
+					children: [
 						{
 							title: 'Create an oracle card with Waves Oracle',
 							path: localePath + 'waves-oracles/create-an-oracle-card-with-waves-oracle',
@@ -1230,7 +1231,7 @@ module.exports = {
 				},
 				{
 					title: 'Token Rating',
-					path: localePath + 'waves-token-rating/about-waves-token-ratingэб
+					path: localePath + 'waves-token-rating/about-waves-token-rating',
 					children: [
 						{
 							title: 'User interface',
