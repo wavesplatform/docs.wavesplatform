@@ -1260,10 +1260,30 @@ module.exports = {
 
 	[keepInTouchPath]: [
 		{
+            title: 'Keep in Touch',
+            path: keepInTouchPath,
 		},
+		{
+            title: 'Documentation Updates',
+            path: keepInTouchPath + 'docs-update',
+		},
+        {
+             title: 'Proposals',
+             path: rootPath + rootPath + 'resources/proposals',
+             children: [
+                {
+                    title: 'Asset verification protocol',
+                    path: rootPath + rootPath + 'resources/asset-verification-protocol',
+                },
+                {
+                    title: 'Trezor hardware wallet integration specification',
+                    path: rootPath + rootPath + 'resources/trezor-hardware-wallet-integration-specification',
+                },
+                {
+                    title: 'Sponsored transactions',
+                    path: rootPath + rootPath + 'resources/sponsored-transactions',
+                },
+            ],
+        }
 	],
-
-
-
-
 };

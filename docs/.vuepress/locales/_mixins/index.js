@@ -122,10 +122,18 @@ module.exports = {
                 type: 'supplementary',
                 iconFilePath: getRawIcon('./images/category7.svg'),
                 buttonSet: {
-                    officialResources: {
-                        text: 'Official Resources',
-                        link: '/en/blockchain/token/non-fungible-token',
+                    blog: {
+                        text: 'Official blog',
+                        link: 'https://blog.wavesplatform.com/',
                     },
+                    forum: {
+                        text: 'Forum',
+                        link: 'https://forum.wavesplatform.com/',
+                    },
+                    chat: {
+                        text: 'Developer chat',
+                        link: 'https://t.me/waves_ride_dapps_dev'
+                    }
                 },
             }
         },

@@ -3,3 +3,4 @@
 /waves-node/readme.md
 /building-apps/readme.md
 /keep-it-touch/readme.md
+/keep-it-touch/docs-update.md
