@@ -41,7 +41,7 @@ module.exports = {
                     },
                     mining: {
                         text: 'Mining',
-                        link: '/en/blockchain/token'
+                        link: '/en/blockchain/mining'
                     },
                     transaction: {
                         text: 'Transactions',
@@ -56,7 +56,7 @@ module.exports = {
                 buttonSet: {
                     launch: {
                         text: 'Launch a node',
-                        link: 'en/waves-node/waves-node-in-docker',
+                        link: '/en/waves-node/waves-node-in-docker',
                     },
                     grpc: {
                         text: 'gRPC server',
@@ -75,19 +75,19 @@ module.exports = {
                 buttonSet: {
                     explorer: {
                         text: 'Explorer',
-                        link: '/en/waves-explorer/about-waves-explorer',
+                        link: '/en/ecosystem/waves-explorer/about-waves-explorer',
                     },
                     faucet: {
                         text: 'Free Waves on Testnet',
-                        link: '/en/waves-explorer/account-balance-top-up-in-the-test-network',
+                        link: '/en/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network',
                     },
                     oracles: {
                         text: 'Oracles',
-                        link: '/en/blockchain/token/non-fungible-token',
+                        link: '/en/ecosystem/waves-oracles/about-waves-oracles',
                     },
                     torenRating: {
                         text: 'Token Rating',
-                        link: '/en/waves-token-rating/about-waves-token-rating',
+                        link: '/en/ecosystem/waves-token-rating/about-waves-token-rating',
                     },
                 },
             },
@@ -98,23 +98,27 @@ module.exports = {
                 buttonSet: {
                     smartAccount: {
                         text: 'Smart accounts',
-                        link: '/en/smart-contracts/smart-accounts'
+                        link: '/en/building-apps/smart-contracts/smart-accounts'
                     },
                     smartAsset: {
                         text: 'Smart assets',
-                        link: '/en/smart-contracts/smart-assets'
+                        link: '/en/building-apps/smart-contracts/smart-assets'
                     },
                     dapp: {
                         text: 'dApps',
-                        link: '/en/smart-contracts/what-is-a-dapp'
+                        link: '/en/building-apps/smart-contracts/what-is-a-dapp'
                     }
                 }
             },
             rideProgrammingLanguage: {
-                rootLink: '/en/ride/about-ride',
+                rootLink: '/en/ride/',
                 type: 'advanced',
                 iconFilePath: getRawIcon('./images/category5.svg'),
                 buttonSet: {
+                    gettingStarted: {
+                        text: 'Getting started',
+                        link: '/en/ride/getting-started'
+                    }
                 },
             },
             miscellaneous: {
