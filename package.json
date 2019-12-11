@@ -7,7 +7,7 @@
         "build:dev": "corePath=$PWD/../core.docs.wavesplatform yarn build",
         "server": "node docs/.vuepress/runServer",
         "server:dev": "corePath=$PWD/../core.docs.wavesplatform port=3084 yarn server",
-        "production": "yarn upgrade core.docs.wavesplatform && port=3084 yarn build && yarn server"
+        "production": "yarn upgrade core.docs.wavesplatform && yarn build && yarn server"
     },
     "dependencies": {
         "core.docs.wavesplatform": "https://github.com/wavesplatform/core.docs.wavesplatform.git",
