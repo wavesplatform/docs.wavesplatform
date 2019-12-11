@@ -4,7 +4,7 @@ const blockchainPath = localePath + 'blockchain/';
 const nodePath = localePath + 'waves-node/';
 const buildingAppsPath = localePath + 'building-apps/';
 const programmingPath = buildingAppsPath + 'smart-contracts/';
-const sdkPath = 'waves-api-and-sdk/';
+const sdkPath = buildingAppsPath + 'waves-api-and-sdk/';
 const ridePath = localePath + 'ride/';
 const ecosystemPath = localePath + 'ecosystem/';
 const keepInTouchPath = localePath + 'keep-in-touch/';
@@ -194,6 +194,10 @@ module.exports = {
             {
               title: 'Base target',
               path: blockchainPath + 'block/block-generation/base-target',
+            },
+            {
+              title: 'Generation signature',
+              path: blockchainPath + 'block/block-generation/generation-signature',
             },
           ],
         },
@@ -1080,7 +1084,7 @@ module.exports = {
             },
             {
               title: 'Create your first crypto trading Bot',
-              path: sdkPath + 'waves-api-and-sdk/examples/trading-bot',
+              path: sdkPath + 'examples/trading-bot',
             },
           ],
         },

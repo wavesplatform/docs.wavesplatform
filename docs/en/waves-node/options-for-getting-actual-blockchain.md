@@ -46,7 +46,7 @@ In this case, the longest operation is to download the archive. Then it is enoug
 
 Block verification is not a linear operation, “heavy” blocks are verified longer. The ”heaviness" of a block is determined by the number and type of transactions it contains.  So the first blocks \(for example, the first 200.000\) are empty and verified much faster than the same number of blocks after the million.  On the chart it looks as follows:
 
-![](../_assets/statistics_blocks_receiving.png)
+![](./_assets/statistics_blocks_receiving.png)
 
 The time to reach the block 1220000 on different CPUs \(number of cores and frequencies\) in numbers:
 

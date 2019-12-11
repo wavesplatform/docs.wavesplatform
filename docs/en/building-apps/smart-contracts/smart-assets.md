@@ -213,13 +213,12 @@ match tx {
 
 Let’s consider an exchange of two smart assets:
 
-<!-- ![](../_assets/1.png)
+![](./_assets/1.png)
 
 Alice and Bob \(both have smart accounts\) place their orders to the matcher \(the matcher has its own script\). When the two orders have matched, the matcher creates an ExchangeTransaction and tries to put it into the blockchain.
 
 ![](../_assets/2.png)
 
--->
 
 In this case, the following validations are performed:
 

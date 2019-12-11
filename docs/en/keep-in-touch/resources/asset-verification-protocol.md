@@ -18,7 +18,7 @@ Our protocol is supposed to serve as an interaction between providers and the bl
 
 Each provider has its own Waves address. It can be created specially for the purpose of asset verification or used for other goals as well. 
 
-![](/_assets/waves_ticker_1.png)
+![](./_assets/waves_ticker_1.png)
 
 Before starting to supply information about tokens, providers must fill information about itself as one data entry of DataTransaction. Then, for each token, the provider fills another data entry in the same DataTransaction, with status and detailed information. DataTransaction is sent to smart account address and could be read then as account state. Example of such transaction in JSON format:
 

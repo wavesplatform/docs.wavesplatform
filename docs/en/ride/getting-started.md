@@ -478,6 +478,7 @@ func giveAway(age: Int) = {
 
 Every caller of `giveAway` function will receive as many WAVES as his age and the dApp will store information about the fact of the transfer in its state.
 
+<!--
 
 #### Actions
 
@@ -551,3 +552,4 @@ Waves also runs developer workshops and hackathons in different locations around
 
 We hope to meet you online or offline soon!
 
+-->

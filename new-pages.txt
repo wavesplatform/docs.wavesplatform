@@ -4,3 +4,18 @@
 /building-apps/readme.md
 /keep-it-touch/readme.md
 /keep-it-touch/docs-update.md
+
+
+Замены 
+
+\!\[(.*?)\]\(/_assets
+на 
+\!\[\1\]\(\./_assets
+
+\!\[(.*?)\]\(/smart-contracts/img
+
+\!\[(.*?)\]\(/waves-oracles/img
+
+\!\[(.*?)\]\(/waves-token-rating/img
+
+Переложить account в account 
