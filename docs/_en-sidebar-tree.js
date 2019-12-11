@@ -1,13 +1,13 @@
 // const rootPath = 'https://docs.wavesplatform.com/';
 const localePath = '/en/';
-const blockchainPath = /*rootPath + */localePath + 'blockchain/';
-const nodePath = /*rootPath + */localePath + 'waves-node/';
-const programmingPath = /*rootPath + */localePath + 'smart-contracts/';
-const buildingAppsPath = /*rootPath + */localePath + 'smart-contracts/';
-const ridePath = /*rootPath + */localePath + 'ride';
-const sdkPath = /*rootPath + */localePath + 'waves-api-and-sdk/';
-const ecosystemPath = /*rootPath + */localePath + 'ecosystem/';
-const keepInTouchPath = /*rootPath + */localePath + 'keep-in-touch/';
+const blockchainPath = localePath + 'blockchain/';
+const nodePath = localePath + 'waves-node/';
+const buildingAppsPath = localePath + 'building-apps/';
+const programmingPath = buildingAppsPath + 'smart-contracts/';
+const sdkPath = 'waves-api-and-sdk/';
+const ridePath = localePath + 'ride/';
+const ecosystemPath = localePath + 'ecosystem/';
+const keepInTouchPath = localePath + 'keep-in-touch/';
 
 module.exports = {
   [blockchainPath]: [
@@ -461,14 +461,14 @@ module.exports = {
     },
     {
       title: 'Glossary',
-      path: '/en/glossary/glossary',
+      path: '/en/blockchain/glossary',
     },
   ],
 
   [nodePath]: [
     {
       title: 'Node owner guide',
-      path: nodePath + '/getting-started/getting-started-for-node-owners',
+      path: nodePath,
     },
     {
       title: 'What is Waves full node',
@@ -557,20 +557,6 @@ module.exports = {
               path: nodePath + 'extensions/grpc-server/grpc-server-installation',
             },
           ],
-        },
-        {
-          title: 'Matcher',
-          path: nodePath + 'extensions/matcher',
-          children: [
-            {
-              title: 'Installing matcher on Ubuntu from deb-package',
-              path: nodePath + 'waves-node/extensions/matcher/matcher-install-ubuntu-deb',
-            },
-            {
-              title: 'Matcher settings',
-              path: nodePath + 'waves-node/extensions/matcher/matcher-settings',
-            }
-          ]
         },
       ]
     },
@@ -669,7 +655,11 @@ module.exports = {
   [ridePath]: [
     {
       title: 'RIDE Programming Language',
-      path: '/en/ride/about-ride',
+      path: ridePath,
+    },
+    {
+      title: 'Getting started',
+      path: ridePath + 'getting-started',
     },
     {
       title: 'Base concepts',
@@ -1008,7 +998,7 @@ module.exports = {
   [buildingAppsPath]: [
     {
       title: 'Developer guide',
-      path: programmingPath,
+      path: buildingAppsPath,
     },
     {
       title: 'Waves Smart Contracts',
@@ -1079,10 +1069,6 @@ module.exports = {
         {
           title: 'Writing dApps',
           path: programmingPath + 'writing-dapps',
-        },
-        {
-          title: 'Developer guide',
-          path: localePath + 'getting-started/getting-started-for-developers',
         },
         {
           title: 'How-to guides',
@@ -1197,65 +1183,65 @@ module.exports = {
     },
     {
       title: 'Waves Explorer',
-      path: localePath + 'waves-explorer/about-waves-explorer',
+      path: ecosystemPath + 'waves-explorer/about-waves-explorer',
     },
     {
       title: 'Account balance top up in the test network',
-      path: localePath + 'waves-explorer/account-balance-top-up-in-the-test-network',
+      path: ecosystemPath + 'waves-explorer/account-balance-top-up-in-the-test-network',
     },
     {
       title: 'Oracles',
-      path: localePath + 'waves-oracles/about-waves-oracles',
+      path: ecosystemPath + 'waves-oracles/about-waves-oracles',
       children: [
         {
           title: 'Create an oracle card with Waves Oracle',
-          path: localePath + 'waves-oracles/create-an-oracle-card-with-waves-oracle',
+          path: ecosystemPath + 'waves-oracles/create-an-oracle-card-with-waves-oracle',
         },
         {
           title: 'Create an oracle card with a data transaction',
-          path: localePath + 'waves-oracles/create-an-oracle-card-with-a-data-transaction',
+          path: ecosystemPath + 'waves-oracles/create-an-oracle-card-with-a-data-transaction',
         },
         {
           title: 'Oracle card',
-          path: localePath + 'waves-oracles/oracle-card',
+          path: ecosystemPath + 'waves-oracles/oracle-card',
         },
         {
           title: 'Updating oracle card',
-          path: localePath + 'waves-oracles/updating-oracle-card',
+          path: ecosystemPath + 'waves-oracles/updating-oracle-card',
         },
         {
           title: 'Data transaction tool',
-          path: localePath + 'waves-oracles/data-transaction-tool',
+          path: ecosystemPath + 'waves-oracles/data-transaction-tool',
         },
         {
           title: 'How to create an oracle',
-          path: localePath + 'waves-oracles/how-to-create-an-oracle',
+          path: ecosystemPath + 'waves-oracles/how-to-create-an-oracle',
         },
       ],
     },
     {
       title: 'Token Rating',
-      path: localePath + 'waves-token-rating/about-waves-token-rating',
+      path: ecosystemPath + 'waves-token-rating/about-waves-token-rating',
       children: [
         {
           title: 'User interface',
-          path: localePath + 'waves-token-rating/user-interface',
+          path: ecosystemPath + 'waves-token-rating/user-interface',
         },
         {
           title: 'Rating formula',
-          path: localePath + 'waves-token-rating/rating-formula',
+          path: ecosystemPath + 'waves-token-rating/rating-formula',
         },
         {
           title: 'Data transaction with user\'s rate',
-          path: localePath + 'waves-token-rating/data-transaction-with-user-s-rate',
+          path: ecosystemPath + 'waves-token-rating/data-transaction-with-user-s-rate',
         },
         {
           title: 'Data transaction of the Token Rating oracle',
-          path: localePath + 'waves-token-rating/data-transaction-of-the-token-rating-oracle',
+          path: ecosystemPath + 'waves-token-rating/data-transaction-of-the-token-rating-oracle',
         },
         {
           title: 'Token management',
-          path: localePath + 'waves-token-rating/token-management',
+          path: ecosystemPath + 'waves-token-rating/token-management',
         },
       ],
     },

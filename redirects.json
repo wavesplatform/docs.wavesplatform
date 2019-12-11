@@ -8,9 +8,9 @@
     {
       "===============================  Blockchain  =====================================": null,
       "to": "/en/blockchain/account/address.md",
-      "from": "/en/blockchain/account/address.md",
-      "to": "/ru/blockchain/account/address.md",
-      "from": "/ru/blockchain/account/address.md",      
+      "from": "/en/blockchain/account/address.md"
+    },
+    {
       "to": "/en/blockchain/transaction-type/data-transaction.html",
       "from": "/en/waves-environment/waves-protocol/data-transaction.html"
     },
@@ -200,94 +200,47 @@
     },
     {
       "===============================  Client  =====================================": null,
-      "to": "/ru/waves-dex/start-trading-on-the-waves-dex.html",
-      "from": "/ru/waves-client/waves-dex/start-trading-on-the-waves-dex.html"
+      "from": "/ru/waves-client/%",
+      "to": "https://docs.waves.exchange/ru/"
     },
     {
-      "to": "/en/waves-client/mobile-apps/android/account-management/restore-an-account.html",
-      "from": "/en/mobile-apps/android/account-managment/restore-an-account.html"
-    },
-    {
-      "to": "/en/waves-client/transfers-and-gateways/waves-transfers.html",
-      "from": "/en/waves-client/transfers-and-gateways/transfers-and-gateways/waves-transfers.html"
-    },
-    {
-      "to": "/en/waves-client/security-notes.html",
-      "from": "/en/waves-client/security/safe-place.html"
-    },
-    {
-      "to": "/en/waves-client/security-notes.html",
-      "from": "/en/overview/security-notes.html"
-    },
-    {
-      "to": "/en/waves-client/frequently-asked-questions-faq/waves-dex/asset-id.html",
-      "from": "/en/frequently-asked-questions-faq/waves-dex/asset-id.html"
-    },
-    {
-      "to": "/ru/waves-client/security-notes.html",
-      "from": "/ru/waves-client/security/safe-place.html"
-    },
-    {
-      "to": "/en/waves-client/transfers-and-gateways/buying-waves-using-card.html",
-      "from": "/en/waves-client/transfers-and-gateways/buying-bitcoin-using-card.html"
-    },
-    {
-      "to": "/en/waves-client/transfers-and-gateways/litecoin-transfers.html",
-      "from": "/en/waves-client/transfers-and-gateways/transfers-and-gateways/litecoin-transfers.html"
-    },
-    {
-      "to": "/en/waves-client/account-management/restore-an-account.html",
-      "from": "/en/waves-clientx7f5zp0e/account-management/restore-an-account.html"
-    },
-    {
-      "to": "/en/waves-client/frequently-asked-questions-faq/waves-dex/asset-id.html",
-      "from": "/en/waves-dex/how-can-i-find-asset-on-the-dex-using-asset-id.html"
-    },
-    {
-      "to": "/en/waves-client/account-management.html",
-      "from": "/en/waves-client/account-management/account-migration.html"
-    },
-    {
-      "to": "/en/waves-client/account-management/creating-an-account.html",
-      "from": "/en/getting-started/waves-api-and-sdk/waves-api-and-sdk/waves-client/account-management/creating-an-account.html"
-    },
-    {
-      "to": "/en/waves-client/account-management.html",
-      "from": "/en/getting-started/waves-api-and-sdk/waves-api-and-sdk/waves-client/account-management.html"
-    },
-    {
-      "to": "/en/waves-client/onlinedesktop-apps.html",
-      "from": "/en/getting-started/waves-api-and-sdk/waves-api-and-sdk/waves-client/onlinedesktop-apps.html"
-    },
-    {
-      "to": "/en/waves-client/mobile-apps/android.html",
-      "from": "/en/waves-client/mobile-apps/android/android.html"
-    },
-    {
-      "to": "/en/waves-client/faq.html",
-      "from": "/en/waves-client/frequently-asked-questions-faq/account-management-faq.html"
+      "from": "/en/waves-client/%",
+      "to": "https://docs.waves.exchange/en/"
     },
     {
       "===============================  DEX  =====================================": null,
-      "to": "/ru/waves-dex/start-trading-on-the-waves-dex.html",
-      "from": "/ru/waves-client/waves-dex/start-trading-on-the-waves-dex.html"
+      "from": "/ru/waves-dex/%",
+      "to": "https://docs.waves.exchange/ru/"
     },
     {
-      "to": "/en/waves-dex/start-trading-on-the-waves-dex.html",
-      "from": "/en/waves-client/waves-dex/start-trading-on-the-waves-dex.html"
-    },
-    {
-      "to": "/ru/waves-dex/start-trading-on-the-waves-dex.html",
-      "from": "/ru/waves-client/waves-dex/start-trading-using-the-waves-dex.html"
+      "from": "/en/waves-dex/%",
+      "to": "https://docs.waves.exchange/en/"
     },
     {
       "===============================  Keeper  =====================================": null,
-      "to": "/en/waves-keeper/how-to-use-waves-keeper.html",
-      "from": "/en/waves-client/account-management/waves-keeper.html"
+      "from": "/en/waves-keeper/%",
+      "to": "https://docs.waves.exchange/en/waves-keeper"
     },
     {
-      "to": "/en/waves-keeper/about-waves-keeper.html",
-      "from": "/en/development-and-api/waves-keeper-api/overview.html"
+      "from": "/ru/waves-keeper/%",
+      "to": "https://docs.waves.exchange/ru/waves-keeper/"
+    },
+    {
+      "===============================  Matcher  =====================================": null,
+      "from": "/en/waves-api-and-sdk/dex-api/matcher.html",
+      "to": "/en/waves-matcher/matcher-api"
+    },
+    {
+      "from": "/en/waves-node/extensions/matcher.html",
+      "to": "https://docs.waves.exchange/en/waves-matcher/"
+    },
+    {
+      "from": "/en/waves-node/extensions/matcher/matcher-install-ubuntu-deb.html",
+      "to": "https://docs.waves.exchange/en/waves-matcher/installing-matcher-on-ubuntu-deb"
+    },
+    {
+      "from": "/en/waves-node/extensions/matcher/matcher-settings.html",
+      "to": "https://docs.waves.exchange/en/waves-matcher/matcher-settings"
     },
     {
       "===============================  RIDE  =====================================": null,
@@ -563,16 +516,6 @@
       "from": "/en/waves-node/how-to-configure-a-node.html"
     },
     {
-      "===============================  Oracles  =====================================": null,
-      "to": "/en/waves-oracles/about-waves-oracles.html",
-      "from": "/en/oracels-developments/what-is-a-data-oracle.html"
-    },
-    {
-      "===============================  Resources  ===================================": null,
-      "to": "/en/resources/contributing.html",
-      "from": "/en/contributing.html"
-    },
-    {
       "===============================  Waves protocol  ===================================": null,
       "to": "/en/blockchain/waves-protocol/cryptographic-practical-details.html",
       "from": "/en/miscellaneous/waves-protocol/cryptographic-practical-details.html"
@@ -600,6 +543,69 @@
     {
       "to": "/en/blockchain/waves-protocol/activation-protocol.html",
       "from": "/en/miscellaneous/waves-protocol/activation-protocol.html"
-    }    
+    },
+    {
+      "=============================== !!! New Structure !!! =====================================": null,
+      "from": "/en/getting-started/getting-started-for-users.html",
+      "to": "http://docs.waves.exchange/en/"
+    },
+    {
+      "from": "/en/getting-started/getting-started-for-node-owners.html",
+      "to": "/en/waves-node"
+    },
+    {
+      "from": "/en/getting-started/getting-started-for-developers.html",
+      "to": "/en/building-apps"
+    },
+    {
+      "from": "/en/resources/contributing.html",
+      "to": "/en/keep-in-touch/"
+    },
+    {
+      "from": "/en/glossary/glossary.html",
+      "to": "/en/blockchain/glossary.html"
+    },
+    {
+      "from": "/en/ride/about-ride",
+      "to": "/en/ride/"
+    },
+    {
+      "from": "/en/smart-contracts/%",
+      "to": "/en/building-apps/smart-contracts/$1"
+    },
+    {
+      "from": "/en/waves-api-and-sdk/%",
+      "to": "/en/building-apps/waves-api-and-sdk/$1"
+    },
+    {
+      "from": "/en/waves-explorer/%",
+      "to": "en/ecosystem/waves-explorer/$1"
+    },
+    {
+      "from": "/en/waves-oracles/%",
+      "to": "/en/ecosystem/waves-oracles/$1"
+    },
+    {
+      "from": "/en/waves-token-rating/%",
+      "to": "en/ecosystem/waves-token-rating/$1"
+    },
+    {
+      "from": "/en/recources/%",
+      "to": "en/keep-in-touch/resources/$1"
+    },
+    {
+      "from": "/en/miscellaneous/news-archive",
+      "to": "/en/keep-in-touch/docs-update"
+    },
+    {
+      "===============================  Oracles  =====================================": null,
+      "to": "/en/ecosystem/waves-oracles/about-waves-oracles.html",
+      "from": "/en/oracels-developments/what-is-a-data-oracle.html"
+    },
+    {
+      "===============================  Resources  ===================================": null,
+      "to": "/en/keep-in-touch/resources/contributing.html",
+      "from": "/en/contributing.html"
+    }
   ]
 }
