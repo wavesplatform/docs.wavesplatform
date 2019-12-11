@@ -1026,11 +1026,11 @@ module.exports = {
         },
         {
           title: 'Video tutorials',
-          path: programmingPath + 'smart-contracts/video-tutorials',
+          path: programmingPath + 'video-tutorials',
           children: [
             {
               title: 'Introduction to the Waves blockchain, Waves Smart Accounts and Waves Smart Assets',
-              path: programmingPath + 'video-tutorials/introduction-to-the-waves-blockchain-waves-smart-accounts-and-waves-smart-assets',
+              path: programmingPath + 'video-tutorials/introduction-waves-smart-accounts-assets',
             },
             {
               title: 'Waves Smart Account with multisignature',

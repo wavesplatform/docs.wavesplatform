@@ -1,0 +1,453 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20191211.185542.17316.0.001.json",
+    "dumpEventTime": "2019-12-11T18:55:42Z",
+    "dumpEventTimeStamp": "1576079742668",
+    "processId": 17316,
+    "cwd": "C:\\Docs\\docs.wavesplatform",
+    "commandLine": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Docs\\docs.wavesplatform\\node_modules\\.bin\\\\..\\vuepress\\cli.js",
+      "build",
+      "docs"
+    ],
+    "nodejsVersion": "v12.13.1",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "12.13.1",
+      "v8": "7.7.299.13-node.16",
+      "uv": "1.33.1",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.39.2",
+      "napi": "5",
+      "llhttp": "1.1.4",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019c",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Erbium",
+      "headersUrl": "https://nodejs.org/download/release/v12.13.1/node-v12.13.1-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.13.1/node-v12.13.1.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v12.13.1/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.18362",
+    "osVersion": "Windows 10 Pro",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz",
+        "speed": 1800,
+        "user": 38771250,
+        "nice": 0,
+        "sys": 38094875,
+        "idle": 332609859,
+        "irq": 14208750
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz",
+        "speed": 1800,
+        "user": 34519484,
+        "nice": 0,
+        "sys": 12874703,
+        "idle": 362081328,
+        "irq": 459109
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz",
+        "speed": 1800,
+        "user": 55679578,
+        "nice": 0,
+        "sys": 23621406,
+        "idle": 330174515,
+        "irq": 549609
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz",
+        "speed": 1800,
+        "user": 24557187,
+        "nice": 0,
+        "sys": 10581500,
+        "idle": 374336828,
+        "irq": 222312
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz",
+        "speed": 1800,
+        "user": 39761984,
+        "nice": 0,
+        "sys": 17776562,
+        "idle": 351936968,
+        "irq": 437984
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz",
+        "speed": 1800,
+        "user": 23028046,
+        "nice": 0,
+        "sys": 10390609,
+        "idle": 376056843,
+        "irq": 298984
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz",
+        "speed": 1800,
+        "user": 36643781,
+        "nice": 0,
+        "sys": 16649203,
+        "idle": 356182515,
+        "irq": 419703
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz",
+        "speed": 1800,
+        "user": 23205890,
+        "nice": 0,
+        "sys": 15975703,
+        "idle": 370293906,
+        "irq": 437906
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "Беспроводная сеть",
+        "internal": false,
+        "mac": "84:fd:d1:de:c5:01",
+        "address": "2a00:1370:8117:a4f9:4221:6b8b:687f:1930",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Беспроводная сеть",
+        "internal": false,
+        "mac": "84:fd:d1:de:c5:01",
+        "address": "fe80::94ac:f005:dda5:a9ca",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 16
+      },
+      {
+        "name": "Беспроводная сеть",
+        "internal": false,
+        "mac": "84:fd:d1:de:c5:01",
+        "address": "10.56.1.191",
+        "netmask": "255.255.254.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      }
+    ],
+    "host": "wv00476"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x00007ff79baf1729",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+10873"
+    },
+    {
+      "pc": "0x00007ff79baf5b4c",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+28316"
+    },
+    {
+      "pc": "0x00007ff79baf4b08",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+24152"
+    },
+    {
+      "pc": "0x00007ff79bbe369b",
+      "symbol": "v8::base::CPU::has_sse+37723"
+    },
+    {
+      "pc": "0x00007ff79c3e82de",
+      "symbol": "v8::Isolate::ReportExternalAllocationLimitReached+94"
+    },
+    {
+      "pc": "0x00007ff79c3d0321",
+      "symbol": "v8::SharedArrayBuffer::Externalize+833"
+    },
+    {
+      "pc": "0x00007ff79c29dbec",
+      "symbol": "v8::internal::Heap::EphemeronKeyWriteBarrierFromCode+1436"
+    },
+    {
+      "pc": "0x00007ff79c2a8f90",
+      "symbol": "v8::internal::Heap::ProtectUnprotectedMemoryChunks+1312"
+    },
+    {
+      "pc": "0x00007ff79c2a5ac4",
+      "symbol": "v8::internal::Heap::PageFlagsAreConsistent+3204"
+    },
+    {
+      "pc": "0x00007ff79c29b353",
+      "symbol": "v8::internal::Heap::CollectGarbage+1283"
+    },
+    {
+      "pc": "0x00007ff79c299b24",
+      "symbol": "v8::internal::Heap::AddRetainedMap+2356"
+    },
+    {
+      "pc": "0x00007ff79c2badf5",
+      "symbol": "v8::internal::Factory::NewFillerObject+53"
+    },
+    {
+      "pc": "0x00007ff79c026e19",
+      "symbol": "v8::internal::interpreter::JumpTableTargetOffsets::iterator::operator=+4057"
+    },
+    {
+      "pc": "0x00007ff79c81404d",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+567949"
+    },
+    {
+      "pc": "0x000001ec097f5406",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2184593408,
+    "totalCommittedMemory": 2184593408,
+    "usedMemory": 2100003552,
+    "availableMemory": 58153920,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 262144,
+        "capacity": 261872,
+        "used": 32296,
+        "available": 229576
+      },
+      "new_space": {
+        "memorySize": 33554432,
+        "committedMemory": 33554432,
+        "capacity": 16759808,
+        "used": 3180664,
+        "available": 13579144
+      },
+      "old_space": {
+        "memorySize": 2034872320,
+        "committedMemory": 2034872320,
+        "capacity": 1998626672,
+        "used": 1984263168,
+        "available": 14363504
+      },
+      "code_space": {
+        "memorySize": 12484608,
+        "committedMemory": 12484608,
+        "capacity": 11655008,
+        "used": 11655008,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 17043456,
+        "committedMemory": 17043456,
+        "capacity": 14918960,
+        "used": 14918960,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 83763200,
+        "committedMemory": 83763200,
+        "capacity": 83527376,
+        "used": 83527376,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 2613248,
+        "committedMemory": 2613248,
+        "capacity": 2426080,
+        "used": 2426080,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 16759808,
+        "used": 0,
+        "available": 16759808
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 208.265,
+    "kernelCpuSeconds": 14.5,
+    "cpuConsumptionPercent": 135.009,
+    "maxRss": 2313535488,
+    "pageFaults": {
+      "IORequired": 1005964,
+      "IONotRequired": 0
+    },
+    "fsActivity": {
+      "reads": 11913,
+      "writes": 3370
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "=C:": "C:\\Docs\\docs.wavesplatform",
+    "=ExitCode": "00000000",
+    "ALLUSERSPROFILE": "C:\\ProgramData",
+    "APPDATA": "C:\\Users\\eilicheva\\AppData\\Roaming",
+    "CommonProgramFiles": "C:\\Program Files\\Common Files",
+    "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "CommonProgramW6432": "C:\\Program Files\\Common Files",
+    "COMPUTERNAME": "WV00476",
+    "ComSpec": "C:\\Windows\\system32\\cmd.exe",
+    "DriverData": "C:\\Windows\\System32\\Drivers\\DriverData",
+    "HOMEDRIVE": "C:",
+    "HOMEPATH": "\\Users\\eilicheva",
+    "INIT_CWD": "C:\\Docs\\docs.wavesplatform",
+    "LOCALAPPDATA": "C:\\Users\\eilicheva\\AppData\\Local",
+    "LOGONSERVER": "\\\\AD1",
+    "NODE": "C:\\Program Files\\nodejs\\node.exe",
+    "NODE_ENV": "production",
+    "npm_config_argv": "{\"remain\":[],\"cooked\":[\"run\",\"production\"],\"original\":[\"production\"]}",
+    "npm_config_bin_links": "true",
+    "npm_config_ignore_optional": "",
+    "npm_config_ignore_scripts": "",
+    "npm_config_init_license": "MIT",
+    "npm_config_init_version": "1.0.0",
+    "npm_config_registry": "https://registry.yarnpkg.com",
+    "npm_config_save_prefix": "^",
+    "npm_config_strict_ssl": "true",
+    "npm_config_user_agent": "yarn/1.19.2 npm/? node/v12.13.1 win32 x64",
+    "npm_config_version_commit_hooks": "true",
+    "npm_config_version_git_message": "v%s",
+    "npm_config_version_git_sign": "",
+    "npm_config_version_git_tag": "true",
+    "npm_config_version_tag_prefix": "v",
+    "npm_config_wrap_output": "",
+    "npm_execpath": "C:\\Program Files (x86)\\Yarn\\bin\\yarn.js",
+    "npm_lifecycle_event": "build",
+    "npm_lifecycle_script": "yarn upgrade core.docs.wavesplatform && vuepress build docs",
+    "npm_node_execpath": "C:\\Program Files\\nodejs\\node.exe",
+    "npm_package_dependencies_core_docs_wavesplatform": "https://github.com/wavesplatform/core.docs.wavesplatform.git",
+    "npm_package_dependencies_vuepress": "^1.2.0",
+    "npm_package_dependencies_webpack": "^4.41.2",
+    "npm_package_description": "Wavesplatform documentation",
+    "npm_package_devDependencies_node_sass": "^4.13.0",
+    "npm_package_devDependencies_sass_loader": "^8.0.0",
+    "npm_package_name": "",
+    "npm_package_readmeFilename": "README.md",
+    "npm_package_scripts_build": "yarn upgrade core.docs.wavesplatform && vuepress build docs",
+    "npm_package_scripts_build_dev": "corePath=$PWD/../core.docs.wavesplatform yarn build",
+    "npm_package_scripts_dev": "vuepress dev docs",
+    "npm_package_scripts_dev_dev": "isDev=true corePath=$PWD/../core.docs.wavesplatform port=3084 yarn dev",
+    "npm_package_scripts_production": "yarn upgrade core.docs.wavesplatform && yarn build && yarn server",
+    "npm_package_scripts_server": "node docs/.vuepress/runServer",
+    "npm_package_scripts_server_dev": "corePath=$PWD/../core.docs.wavesplatform port=3084 yarn server",
+    "npm_package_version": "",
+    "NUMBER_OF_PROCESSORS": "8",
+    "OneDrive": "C:\\Users\\eilicheva\\OneDrive",
+    "OS": "Windows_NT",
+    "Path": "C:\\Users\\EILICH~1\\AppData\\Local\\Temp\\yarn--1576079565812-0.6269749632785797;C:\\Docs\\docs.wavesplatform\\node_modules\\.bin;C:\\Users\\eilicheva\\AppData\\Local\\Yarn\\Data\\link\\node_modules\\.bin;C:\\Program Files\\libexec\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Users\\EILICH~1\\AppData\\Local\\Temp\\yarn--1576079552265-0.2875820622320149;C:\\Docs\\docs.wavesplatform\\node_modules\\.bin;C:\\Users\\eilicheva\\AppData\\Local\\Yarn\\Data\\link\\node_modules\\.bin;C:\\Program Files\\libexec\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\lib\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\node-gyp-bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\Yarn\\bin\\;C:\\Users\\eilicheva\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\eilicheva\\AppData\\Local\\GitHubDesktop\\bin;C:\\Users\\eilicheva\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\eilicheva\\AppData\\Local\\Programs\\Git\\cmd;C:\\Users\\eilicheva\\AppData\\Roaming\\npm;C:\\Users\\eilicheva\\AppData\\Local\\Yarn\\bin",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JSE;.WSF;.WSH;.MSC;.CPL",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 142 Stepping 12, GenuineIntel",
+    "PROCESSOR_LEVEL": "6",
+    "PROCESSOR_REVISION": "8e0c",
+    "ProgramData": "C:\\ProgramData",
+    "ProgramFiles": "C:\\Program Files",
+    "ProgramFiles(x86)": "C:\\Program Files (x86)",
+    "ProgramW6432": "C:\\Program Files",
+    "PROMPT": "$P$G",
+    "PSModulePath": "C:\\Users\\eilicheva\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules",
+    "PUBLIC": "C:\\Users\\Public",
+    "SESSIONNAME": "Console",
+    "SystemDrive": "C:",
+    "SystemRoot": "C:\\Windows",
+    "TEMP": "C:\\Users\\EILICH~1\\AppData\\Local\\Temp",
+    "TMP": "C:\\Users\\EILICH~1\\AppData\\Local\\Temp",
+    "USERDNSDOMAIN": "WAVES.WORK",
+    "USERDOMAIN": "WAVES",
+    "USERDOMAIN_ROAMINGPROFILE": "WAVES",
+    "USERNAME": "eilicheva",
+    "USERPROFILE": "C:\\Users\\eilicheva",
+    "VUE_ENV": "server",
+    "WEBPACK_DEV_SERVER": "true",
+    "windir": "C:\\Windows",
+    "YARN_WRAP_OUTPUT": "false"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Windows\\SYSTEM32\\ntdll.dll",
+    "C:\\Windows\\System32\\KERNEL32.DLL",
+    "C:\\Windows\\System32\\KERNELBASE.dll",
+    "C:\\Windows\\System32\\WS2_32.dll",
+    "C:\\Windows\\System32\\RPCRT4.dll",
+    "C:\\Windows\\System32\\ADVAPI32.dll",
+    "C:\\Windows\\SYSTEM32\\dbghelp.dll",
+    "C:\\Windows\\System32\\msvcrt.dll",
+    "C:\\Windows\\System32\\ucrtbase.dll",
+    "C:\\Windows\\System32\\sechost.dll",
+    "C:\\Windows\\System32\\USER32.dll",
+    "C:\\Windows\\System32\\win32u.dll",
+    "C:\\Windows\\System32\\GDI32.dll",
+    "C:\\Windows\\System32\\gdi32full.dll",
+    "C:\\Windows\\System32\\msvcp_win.dll",
+    "C:\\Windows\\System32\\PSAPI.DLL",
+    "C:\\Windows\\System32\\CRYPT32.dll",
+    "C:\\Windows\\System32\\MSASN1.dll",
+    "C:\\Windows\\System32\\bcrypt.dll",
+    "C:\\Windows\\SYSTEM32\\USERENV.dll",
+    "C:\\Windows\\SYSTEM32\\IPHLPAPI.DLL",
+    "C:\\Windows\\SYSTEM32\\WINMM.dll",
+    "C:\\Windows\\System32\\profapi.dll",
+    "C:\\Windows\\SYSTEM32\\winmmbase.dll",
+    "C:\\Windows\\System32\\cfgmgr32.dll",
+    "C:\\Windows\\System32\\bcryptPrimitives.dll",
+    "C:\\Windows\\System32\\IMM32.DLL",
+    "C:\\Windows\\System32\\powrprof.dll",
+    "C:\\Windows\\System32\\UMPDC.dll",
+    "C:\\Windows\\SYSTEM32\\CRYPTBASE.DLL",
+    "C:\\Windows\\system32\\uxtheme.dll",
+    "C:\\Windows\\System32\\combase.dll",
+    "C:\\Windows\\system32\\mswsock.dll",
+    "C:\\Windows\\System32\\kernel.appcore.dll",
+    "\\\\?\\C:\\Docs\\docs.wavesplatform\\node_modules\\node-sass\\vendor\\win32-x64-72\\binding.node",
+    "C:\\Windows\\System32\\NSI.dll",
+    "C:\\Windows\\SYSTEM32\\dhcpcsvc6.DLL",
+    "C:\\Windows\\SYSTEM32\\dhcpcsvc.DLL",
+    "C:\\Windows\\SYSTEM32\\DNSAPI.dll",
+    "C:\\Windows\\system32\\napinsp.dll",
+    "C:\\Windows\\system32\\pnrpnsp.dll",
+    "C:\\Windows\\System32\\winrnr.dll",
+    "C:\\Windows\\system32\\NLAapi.dll",
+    "C:\\Windows\\system32\\wshbth.dll"
+  ]
+}
