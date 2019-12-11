@@ -1,13 +1,13 @@
 const rootPath = 'https://docs.wavesplatform.com/';
-const localePath = 'en/';
-const blockchainPath = rootPath + localePath + 'blockchain/';
-const nodePath = rootPath + localePath + 'waves-node/';
-const programmingPath = rootPath + localePath + 'smart-contracts/';
-const buildingAppsPath = rootPath + localePath + 'smart-contracts/';
-const ridePath = rootPath + localePath + 'ride';
-const sdkPath = rootPath + localePath + 'waves-api-and-sdk/';
-const ecosystemPath = rootPath + localePath + 'ecosystem/';
-const keepInTouchPath = rootPath + localePath + 'keep-in-touch/';
+const localePath = '/en/';
+const blockchainPath = /*rootPath + */localePath + 'blockchain/';
+const nodePath = /*rootPath + */localePath + 'waves-node/';
+const programmingPath = /*rootPath + */localePath + 'smart-contracts/';
+const buildingAppsPath = /*rootPath + */localePath + 'smart-contracts/';
+const ridePath = /*rootPath + */localePath + 'ride';
+const sdkPath = /*rootPath + */localePath + 'waves-api-and-sdk/';
+const ecosystemPath = /*rootPath + */localePath + 'ecosystem/';
+const keepInTouchPath = /*rootPath + */localePath + 'keep-in-touch/';
 
 module.exports = {
 	[blockchainPath]: [

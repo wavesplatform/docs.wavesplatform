@@ -2,19 +2,12 @@ const fs = require('fs');
 const path = require('path');
 const deepmerge = require('deepmerge');
 const mixin = require('../_mixins');
-
-const rootPath = ''
-const localePath = '/en/';
-const blockchainPath = rootPath + localePath + 'blockchain/';
-const nodePath = rootPath + localePath + 'waves-node/';
-const programmingPath = rootPath + localePath + 'smart-contracts/';
-const ridePath = rootPath + localePath + 'ride';
-const sdkPath = rootPath + localePath + 'waves-api-and-sdk/';
-const ending = '.html';
+const sidebarConfig = require(path.join(process.cwd(), 'docs/_en-sidebar-tree'));
 
 module.exports = deepmerge(mixin, {
     langIconRawSvg: fs.readFileSync(path.resolve(__dirname, './britain-18.svg')).toString(),
     searchPlaceholderText: 'Enter a term and press Return…',
+    sidebar: sidebarConfig,
     homePage: {
         welcomeText: 'Welcome to the documentation on everything about Waves platform',
         or: 'Or',
