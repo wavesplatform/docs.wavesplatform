@@ -21,6 +21,7 @@
 Переложить account в account 
 ride4dapps
 tools
+video-tutorials
 
 transaction-id
 https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29

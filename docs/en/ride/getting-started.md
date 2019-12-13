@@ -1,4 +1,4 @@
-# Getting started 
+# Getting started
 
 A smart contract language for Waves Platform
 
@@ -22,8 +22,6 @@ Ride is simple and concise. It will take around an hour to read this brochure, a
 
 Ride Standard Library (STDLIB) is under active development. At the time of publication, the most up-to-date version is STDLIB_VERSION 3, with STDLIB_VERSION 4 on the way. The brochure covers most of the projected features too. Those which are not part of STDLIB_VERSION 3 are marked with (*).
 
-
-
 ## “Hello world!”
 
 Let’s start with a familiar example:
@@ -35,7 +33,6 @@ func say() = {
 ```
 
 Functions in Ride are declared with `func` (see further below). Functions do have return types, this is inferred automatically by the compiler, so you don't have to declare them. In the case above the function say returns the string `Hello World!`. There is no `return` statement in the language because Ride is expression-based (everything is an expression), and the last statement is a result of the function.
-
 
 ## Blockchain
 
@@ -69,7 +66,6 @@ Every Ride script should start with directives for the compiler. At the time of 
 
 `CONTENT_TYPE` sets the type of the file you're working on. There are different content types, `DAPP` and `EXPRESSION`. The `DAPP` type allows you to define functions and finish execution with certain transactions (changes to the blockchain), as well as using annotations. The `EXPRESSION` type should always return a boolean value, since it’s used as a predicate for transaction validation.
 
-
 `SCRIPT_TYPE` sets the entity type we want to add to the script to change its default behavior. Ride scripts can be attached to either an `ACCOUNT` or `ASSET`.
 
 Not all combinations of directives are correct. The example below won’t work, because `DAPP` content type is allowed only for accounts, while `EXPRESSION` type is allowed for assets and accounts.
@@ -83,7 +79,6 @@ Not all combinations of directives are correct. The example below won’t work, 
 ## Variables
 
 Variables are declared and initialized with the `let` keyword. This is the only way to declare variables in Ride.
-
 
 ```scala
 let a = "Bob"
@@ -123,6 +118,7 @@ func add(a: Int, b: Int) = {
   m(a) + b
 }
 ```
+
 The type (`Int`, `String`, etc) comes after the argument’s name.
 
 As in many other languages, functions should not be overloaded. It helps to keep the code simple, readable and maintainable.
@@ -140,7 +136,7 @@ func do() = {
 
 The `callable` function will not be called either, because variable a is unused.
 
-Unlike most languages, variable shadowing is not allowed. Declaring a variable with a name that is already used in a parent scope will result in a compilation error. 
+Unlike most languages, variable shadowing is not allowed. Declaring a variable with a name that is already used in a parent scope will result in a compilation error.
 
 Functions should be defined before they are used.
 
@@ -154,8 +150,8 @@ let a2 = size(list)
 let b1 = getInteger(this, “key”)
 let b2 = this.getInteger(“key”)
 ```
-In these examples `a1` is the same as `a2` and `b1` is the same as `b2`. 
 
+In these examples `a1` is the same as `a2` and `b1` is the same as `b2`. 
 
 ## Basic types
 
@@ -167,6 +163,7 @@ String     #   "Hey"
 Int        #   1610
 ByteVector #   base58'...', base64'...', base16'...', fromBase58String("...") etc.
 ```
+
 We will explore Strings and special types further below.
 
 ### Strings
@@ -214,9 +211,9 @@ Nothing is the 'bottom type' of Ride’s type system. No value can be of type No
 
 ```scala
 2 + throw() # the expression compiles because
- 	    # there's a defined function +(Int, Int).
- 	    # The type of the second operand is Nothing, 
- 	    # which complies to any required type.
+    # there's a defined function +(Int, Int).
+      # The type of the second operand is Nothing, 
+      # which complies to any required type.
 ```
 
 ### List
@@ -225,7 +222,6 @@ Nothing is the 'bottom type' of Ride’s type system. No value can be of type No
 let list = [16, 10, 1997, "birthday"]       # can contain different data types
 
 let second = list[1]                        # 10 - read second value from the list
-
 ```
 
 `List` doesn't have any fields, but there are functions in the standard library that make it easier to work with fields.
@@ -252,7 +248,6 @@ let newList2 = [4, 8, 15, 16] ++ [23, 42]     # [4 8 15 16 23 42](*)
 - To append an element, use the :+ operator (*)
 - To concatenate 2 lists, use the ++ operator (*)
 
-
 ### Union types & Type Matching
 
 ```scala
@@ -269,10 +264,13 @@ type Cat : {name: String, age: Int }
 ```
 
 `Union(Human | Cat)` is an object with one field, `age`, but we can use pattern matching:
+
 ```scala
 Human | Cat => { age: Int }
 ```
+
 Pattern matching is designed to check a value against value type:
+
 ```scala
   let t = ...               # Cat | Human
   t.age                     # OK
@@ -304,11 +302,9 @@ let readOrZero = match getInteger(this, "someKey") { # reading data from state
 }
 
 readOrZero + 1
-
 ```
 
 `getString` returns `Union(String | Unit)` because while reading data from the blockchain (the key-value state of accounts) some key-value pairs may not exist.
-
 
 ```scala
 let v = getInteger("3PHHD7dsVqBFnZfUuDPLwbayJiQudQJ9Ngf", "someKey")
@@ -317,11 +313,9 @@ v + 1    # doesn’t compile, forcing a developer to foresee the possibility of 
 v.valueOrErrorMessage(“oops”) +  1 # compiles and executes
 
 let realStringValue2 = getStringValue(this, "someKey")
-
 ```
 
 To get the real type and value from Union use the `extract` function, which will terminate the script in case of `Unit` value. Another option is to use specialized functions like `getStringValue`, `getIntegerValue`, etc.
-
 
 ## If
 
@@ -349,14 +343,12 @@ The `throw` function will terminate script execution immediately, with the provi
 
 The idea of `throw` is to stop execution and send useful feedback to the user.
 
-
 ```scala
 let a = 12
 if (a != 100) then
   throw ("a is not 100, actual value is " + a.toString())
   else throw("A is 100")
 ```
-
 
 ## Predefined data structures
 
@@ -373,11 +365,12 @@ For example, `DataEntry` is a data structure which describes a key-value pair, e
 ```scala
 let transferSet = TransferSet([ScriptTransfer("3P23fi1qfVw6RVDn4CH2a5nNouEtWNQ4THs", amount, unit)])
 ```
+
 All data structures can be used for type checking, pattern matching and their constructors as well.
 
-## Loops with FOLD<N>
+## Loops with FOLD\<N\>
 
-Since Ride’s virtual machine doesn’t have any concept of loops, they are implemented at compiler level via the FOLD<N> macro. The macro behaves like the ‘fold’ function in other programming languages, taking the input arguments: collection for iteration, starting values of the accumulator and folding function.
+Since Ride’s virtual machine doesn’t have any concept of loops, they are implemented at compiler level via the FOLD\<N\> macro. The macro behaves like the ‘fold’ function in other programming languages, taking the input arguments: collection for iteration, starting values of the accumulator and folding function.
 
 The important aspect is N - the maximum amount of interactions over collections. This is necessary for maintaining predictable computation costs.
 
@@ -389,7 +382,7 @@ func foldFunc(acc: Int, e: Int) = acc + e
 FOLD<5>(a, 0, foldFunc) # returns 15
 ```
 
-`FOLD<N>` can also be used for filtering, mapping, and other operations. Here’s an example for map with reverse:
+`FOLD\<N\>` can also be used for filtering, mapping, and other operations. Here’s an example for map with reverse:
 
 ```scala
 let a = [1, 2, 3, 4, 5]
@@ -407,7 +400,7 @@ func getPayment(i: Invocation) = {
   if (isDefined(pmt.assetId)) then 
     throw("This function accepts waves tokens only")
   else
-  	pmt.amount
+    pmt.amount
 }
 
 @Callable(i)
@@ -448,7 +441,6 @@ A function with the `@Verifier` annotation sets the rules for outgoing transacti
 Verifier functions should always return a `Boolean` value as a result, depending on which a transaction will be recorded to the blockchain or not.
 
 Expression scripts (with directive `{-# CONTENT_TYPE EXPRESSION #-}`) along with functions annotated by @Verifier should always return a boolean value. Depending on that value the transaction will be accepted (in case of `true`) or rejected (in case of `false`) by the blockchain.
-
 
 ```scala
 @Verifier(tx)
