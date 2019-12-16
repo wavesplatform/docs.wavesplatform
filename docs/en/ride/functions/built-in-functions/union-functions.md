@@ -7,7 +7,7 @@
 | 3 | [value(T&#124;Unit): T](#value) | Gets a data type from a [union](/ride/data-types/union.md) | 13 |
 | 4 | [valueOrErrorMessage(T&#124;Unit, String): T](#value-error) | Gets a data type from a [union](/ride/data-types/union.md). Throws an exception if there is no data | 13 |
 
-## extract(T|Unit): T<a id="extract"></a>
+## extract(T|Unit): T
 
 Gets a data type from a [union](/ride/data-types/union.md).
 
@@ -21,7 +21,7 @@ extract(T|Unit): T
 
 The argument.
 
-## isDefined(List[T]|Unit): Boolean<a id="is-defined"></a>
+## isDefined(List[T]|Unit): Boolean
 
 Checks if a value is not `Unit`.
 
@@ -36,7 +36,7 @@ isDefined(a: List[T]|Unit): Boolean
 The argument.
 
 
-## value(T|Unit): T<a id="value"></a>
+## value(T|Unit): T
 
 Gets a data type from a [union](/ride/data-types/union.md).
 
@@ -50,7 +50,7 @@ value(a: T|Unit): T
 
 Value from an option.
 
-## valueOrErrorMessage(T|Unit, String): T<a id="value-error"></a>
+## valueOrErrorMessage(T|Unit, String): T
 
 Gets a data type from a [union](/ride/data-types/union.md). Throws an exception if there is no data.
 

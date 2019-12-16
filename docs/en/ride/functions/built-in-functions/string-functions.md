@@ -11,7 +11,7 @@
 | 7 | [take(String, Int): String](#take) | Takes the first `n` characters from a string | 1 |
 | 8 | [takeRight(String, Int): String](#take-right) | Takes the last `n` characters from a string | 19 |
 
-## drop(String, Int): Str<a id="drop"></a>
+## drop(String, Int): Str
 
 Drops the first `n` characters of a string.
 
@@ -39,7 +39,7 @@ drop("Apple", 5) # Returns an empty string
 drop("Apple", 15) # Returns an empty string
 ```
 
-## dropRight(String, Int): String<a id="drop-right"></a>
+## dropRight(String, Int): String
 
 Drops the last `n` characters of a string.
 
@@ -67,7 +67,7 @@ dropRight("Apple", 5) # Returns an empty string
 dropRight("Apple", 15) # Returns an empty string
 ```
 
-## indexOf(String, String): Int|Unit<a id="index-of-string"></a>
+## indexOf(String, String): Int|Unit
 
 Returns the index of the first occurrence of a substring.
 
@@ -93,7 +93,7 @@ indexOf("Apple","le") # Returns 4
 indexOf("Apple","e") # Returns 5
 ```
 
-## indexOf(String, String, Int): Int|Unit<a id="index-of-string-int"></a>
+## indexOf(String, String, Int): Int|Unit
 
 Returns the index of the first occurrence of a substring after a certain index.
 
@@ -145,7 +145,7 @@ size("Appl") # Returns 4
 size("Apple") # Returns 5
 ```
 
-## split(String, String): List[String]<a id="split"></a>
+## split(String, String): List[String]
 
 Splits a string delimited by a separator into a list of substrings.
 
@@ -172,7 +172,7 @@ split("Apple", "") # Returns ["A", "p", "p", "l", "e"]
 split("Ap.ple", ".") # Returns ["Ap","ple"]
 ```
 
-## take(String, Int): String<a id="take"></a>
+## take(String, Int): String
 
 Takes the first `n` characters from a string.
 
@@ -201,7 +201,7 @@ take("Apple", 15) # Returns "Apple"
 take("Apple", -10) # Returns an empty string
 ```
 
-## takeRight(String, Int): String<a id="take-right"></a>
+## takeRight(String, Int): String
 
 Takes the last `n` characters from a string.
 

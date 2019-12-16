@@ -5,17 +5,15 @@
 | 1 | [throw()](#throw) | Raises an exception | 1 |
 | 2 | [throw(String)](#throw-string) | Raises an exception with a message | 1 |
 
-
-
-## throw()<a id="throw"></a>
+## throw()
 
 Raises an exception.
 
-### throw(String)<a id="throw-string"></a>
+### throw(String)
 
 Raises an exception with a message.
 
-```
+```scala
 throw(err: String)
 ```
 

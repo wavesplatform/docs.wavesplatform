@@ -6,7 +6,7 @@
 | 2 | [cons(T, List[T]): List[T]](#cons) | Inserts element to the beginning of the [list](/ride/data-types/list.md) | 2 |
 | 3 | [size(List[T]): Int](#size) | Returns the size of the [list](/ride/data-types/list.md) | 2 |
 
-## getElement(List[T], Int): T <a id="get-element"></a>
+## getElement(List[T], Int): T 
 
 Gets element from the [list](/ride/data-types/list.md) by index.
 
@@ -31,7 +31,7 @@ getElement(["Ride", "on", "Waves"], 0)  # Returns "Ride"
 getElement([false, true], 1) # Returns true
 ```
 
-## cons(T, List[T]): List[T] <a id="cons"></a>
+## <a id="cons"></a>cons(T, List[T]): List[T] 
 
 Inserts element to the beginning of the [list](/ride/data-types/list.md).
 
@@ -56,7 +56,7 @@ cons("Ride", ["on", "Waves"]) # Returns ["Ride", "on", "Waves"]
 cons(1, [2, 3, 4, 5]) # Returns [1, 2, 3, 4, 5]
 ```
 
-## size(List[T]): Int <a id="size"></a>
+## <a id="size"></a>size(List[T]): Int
 
 Returns the size of the [list](/ride/data-types/list.md).
 

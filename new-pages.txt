@@ -5,6 +5,7 @@
 /keep-it-touch/readme.md
 /keep-it-touch/docs-update.md
 /ride/getting-started.md
+/building-apps/waves-api-and-sdk/readme.md
 
 Замены 
 
@@ -25,3 +26,5 @@ video-tutorials
 
 transaction-id
 https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29
+
+якоря в hashing-functions

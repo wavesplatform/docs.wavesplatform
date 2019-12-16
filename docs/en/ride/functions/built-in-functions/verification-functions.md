@@ -6,7 +6,7 @@
 | 2 | [rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean](#rsa-verify) | Checks that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29) digital signature is valid, i.e. it was created by the owner of the public key | 300 |
 | 3 | [sigVerify(ByteVector, ByteVector, ByteVector): Boolean](#sig-verify) | Checks that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid, i.e. it was created by the owner of the public key | 100 |
 
-## checkMerkleProof(ByteVector, ByteVector, ByteVector): Boolean<a id="check-merkle-proof"></a>
+## checkMerkleProof(ByteVector, ByteVector, ByteVector): Boolean
 
 Checks that the data is part of the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree).
 
@@ -30,7 +30,7 @@ Array of hashes.
 
 Data to check.
 
-## rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean<a id="rsa-verify"></a>
+## rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean
 
 Checks that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29) digital signature is valid, i.e. it was created by the owner of the public key.
 
@@ -72,7 +72,7 @@ Digital signature.
 
 Public key.
 
-## sigVerify(ByteVector, ByteVector, ByteVector): Boolean<a id="sig-verify"></a>
+## sigVerify(ByteVector, ByteVector, ByteVector): Boolean
 
 Checks that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid, i.e. it was created by the owner of the public key.
 
