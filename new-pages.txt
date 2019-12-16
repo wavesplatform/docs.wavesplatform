@@ -4,7 +4,7 @@
 /building-apps/readme.md
 /keep-it-touch/readme.md
 /keep-it-touch/docs-update.md
-
+/ride/getting-started.md
 
 Замены 
 
@@ -19,3 +19,9 @@
 \!\[(.*?)\]\(/waves-token-rating/img
 
 Переложить account в account 
+ride4dapps
+tools
+video-tutorials
+
+transaction-id
+https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29
