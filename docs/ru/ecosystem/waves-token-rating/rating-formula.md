@@ -93,4 +93,4 @@ R = (5 × 4,157 + 4 × 70) / (4,157 + 70) = 4,983 (rounded to 5.0)
 
 4.157 WCT rated token with 5 stars, 70 — with 4, and total WCT weight is 4,227:
 
-<img src="img/rating.png" alt="faucet" width="550"/>
+![](./_assets/rating.png" alt="faucet" width="550"/>

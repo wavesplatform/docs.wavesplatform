@@ -833,7 +833,7 @@ module.exports = {
       path: buildingAppsPath,
     },
     {
-      title: 'Что такое смарт-аккаунт',
+      title: 'Cмарт-аккаунт',
       path: programmingPath + 'what-is-smart-account',
       children: [
         {
@@ -843,11 +843,11 @@ module.exports = {
       ],
     },
     {
-      title: 'Что такое смарт-ассет',
+      title: 'Cмарт-ассет',
       path: programmingPath + 'what-is-smart-asset',
     },
     {
-      title: 'Что такое dApp',
+      title: 'dApp',
       path: programmingPath + 'what-is-a-dapp',
       children: [
         {

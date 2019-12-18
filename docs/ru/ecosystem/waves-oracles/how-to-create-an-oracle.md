@@ -155,7 +155,7 @@ $ npm run start
 
 In [Waves Explorer](/waves-explorer/about-waves-explorer.md) we can see the data transaction with exchange rates in the format that we wanted (fig. 1):
 
-<img src="img/5_transaction_in_explorer.png" width="700"/>
+![](./_assets/5_transaction_in_explorer
 
 _Figure 1_.
 
@@ -169,7 +169,7 @@ To create an oracle card, use the same account you used to sign transactions in 
 
 Open Waves Oracles, log in with Waves Keeper and hit the Create an oracle on the sidebar menu (fig.2).
 
-<img src="img/1_create_an_oracle.png" width="700"/>
+![](./_assets/1_create_an_oracle
 
 _Figure 2_.
 
@@ -179,7 +179,7 @@ Let's call our oracle "WAVES/USD and WAVES/BTC", select the category "Market dat
 
 The up part of the form is shown in fig. 3.
 
-<img src="img/2_create_an_oracle_popup_form_fill.png" width="700"/>
+![](./_assets/2_create_an_oracle_popup_form_fill
 
 _Figure 3_.
 
@@ -191,13 +191,13 @@ Here we need some explanations: dApp on [RIDE](/ride/about-ride.md) cannot use f
 
 The key like this is not unique and the [account data storage](/blockchain/account/account-data-storage.md) will always retain the last value. You can add a timestamp to make the key unique and save historical values.
 
-<img src="img/3_create_an_oracle_popup_form_fill_specification.png" width="700"/>
+![](./_assets/3_create_an_oracle_popup_form_fill_specification
 
 _Figure 4_.
 
 After the form is filled, Approve the data transaction for the creation of the oracle card with Waves Keeper. Once we did so, the new oracle card is successfully registered in Waves Oracles. We can see the oracle card protocol in Waves Explorer, as shown in fig. 5. After a while, the card will appear in the Waves Oracles interface.
 
-<img src="img/4_oracle_card_explorer.png" width="700"/>
+![](./_assets/4_oracle_card_explorer
 
 _Figure 5_.
 

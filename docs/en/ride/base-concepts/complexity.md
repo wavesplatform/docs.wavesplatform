@@ -6,4 +6,4 @@ The complexity of a script is estimated based on complexities of all the [operat
 
 The complexity of a script can be seen in the [Waves IDE](https://ide.wavesplatform.com); it is currently limited to 4000:
 
-<img src="img/complexity.png" width="700"/>
+![](./_assets/complexity.png" width="700"/>

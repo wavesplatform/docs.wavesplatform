@@ -4,11 +4,12 @@ const deepmerge = require('deepmerge');
 const mixin = require('../_mixins');
 const sidebarConfig = require(path.join(process.cwd(), 'docs/_ru-sidebar-tree'));
 
-module.exports = deepmerge(technologyListMixin, {
+module.exports = deepmerge(mixin, {
     langIconRawSvg: fs.readFileSync(path.resolve(__dirname, './russia-18.svg')).toString(),
     searchPlaceholderText: 'Введите запрос и нажмите Return…',
     backToIndexButtonText: 'Вернуться к разделам',
     sidebarOnThisPageText: 'На этой странице',
+    sidebar: sidebarConfig,
 
     languageAbsenceNotification: {
         title: 'Ой…',
@@ -27,9 +28,9 @@ module.exports = deepmerge(technologyListMixin, {
         },
         technologyList: {
             learnAboutWavesPlatform: {
-                rootLink: '/en/blockchain/',
+                rootLink: '/ru/blockchain/',
                 title: 'Блокчейн Waves',
-                caption: 'Обзор основных возможностей блокчейна Waves. Протокол, консенсус, криптография. Майнинг, типы транзакций и комиссии.',
+                caption: 'Обзор возможностей Waves. Протокол, консенсус, криптография. Майнинг, типы транзакций и комиссии.',
                 buttonSet: {
                     account: {
                         text: 'Аккаунт',
@@ -50,7 +51,7 @@ module.exports = deepmerge(technologyListMixin, {
                 }
             },
             node: {
-                rootLink: '/ru/waves-node/'
+                rootLink: '/ru/waves-node/',
                 title: 'Нода Waves',
                 caption: 'Настройка и запуск ноды. Конфигурация ноды. Активация новых функций.',
                 buttonSet: {
@@ -78,7 +79,7 @@ module.exports = deepmerge(technologyListMixin, {
                         link: '/ru/ecosystem/waves-explorer/about-waves-explorer',
                     },
                     faucet: {
-                        text: 'Free Waves on Testnet',
+                        text: 'Бесплатнге WAVES в Testnet',
                         link: '/ru/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network',
                     },
                     oracles: {
@@ -89,25 +90,26 @@ module.exports = deepmerge(technologyListMixin, {
                         text: 'Token Rating',
                         link: '/ru/ecosystem/waves-token-rating/about-waves-token-rating',
                     },
+                },
             },
             buildingBlockchainApps: {
                 rootLink: '/ru/building-apps/',
                 title: 'Разработка приложений на блокчейне',
-                caption: 'Создание смарт-контрактов и децентрализованных приложений на платформе Waves. Инструменты разработчика, API иSDK',
+                caption: 'Создание смарт-контрактов и децентрализованных приложений на платформе Waves. Инструменты разработчика, API и SDK.',
                 buttonSet: {
                     smartAccount: {
                         text: 'Смарт-аккаунты',
-                        link: '/ru/building-apps/smart-contracts/smart-accounts'
+                        link: '/ru/building-apps/smart-contracts/smart-accounts',
                     },
                     smartAsset: {
                         text: 'Смарт-ассеты',
-                        link: '/ru/building-apps/smart-contracts/smart-assets'
+                        link: '/ru/building-apps/smart-contracts/smart-assets',
                     },
                     dapp: {
                         text: 'dApps',
-                        link: '/ru/building-apps/smart-contracts/what-is-a-dapp'
-                    }
-                }
+                        link: '/ru/building-apps/smart-contracts/what-is-a-dapp',
+                    },
+                },
             },
             rideProgrammingLanguage: {
                 rootLink: '/ru/building-apps/',
@@ -137,4 +139,4 @@ module.exports = deepmerge(technologyListMixin, {
         },
     },
   }
-});
+);

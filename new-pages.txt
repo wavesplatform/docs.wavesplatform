@@ -28,12 +28,24 @@
 
 \!\[(.*?)\]\(/waves-token-rating/img
 
+-----------------------------
+.png" width="[0-9]*"/> 
+
+на .png)
+
+не регулярки:
+
+<img src="img/ на ![](./_assets/
+
+
+
 Переложить account в account 
 ride4dapps
 tools
 video-tutorials
 
 transaction-id
+
 https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29
 
 якоря в hashing-functions

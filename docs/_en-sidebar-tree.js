@@ -1057,7 +1057,7 @@ module.exports = {
       path: programmingPath + 'waves-smart-contracts-overview',
     },
     {
-      title: 'Smart Accounts',
+      title: 'Smart Account',
       path: programmingPath + 'smart-accounts',
       children: [
         {
@@ -1105,7 +1105,7 @@ module.exports = {
       ],
     },
     {
-      title: 'Smart Assets',
+      title: 'Smart Asset',
       path: programmingPath + 'smart-assets',
       children: [
         {
@@ -1115,7 +1115,7 @@ module.exports = {
       ],
     },
     {
-      title: 'What is a dApp',
+      title: 'dApp',
       path: programmingPath + 'what-is-a-dapp',
       children: [
         {
