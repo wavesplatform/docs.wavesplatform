@@ -451,6 +451,10 @@ module.exports = {
       path: nodePath + 'upgrading',
     },
     {
+      title: 'Конфигурация ноды',
+      path: nodePath + 'node-configuration',
+    },
+    {
       title: 'Ограничения API пула публичных нод',
       path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
     },
