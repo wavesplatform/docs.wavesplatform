@@ -79,7 +79,7 @@ module.exports = deepmerge(mixin, {
                         link: '/ru/ecosystem/waves-explorer/about-waves-explorer',
                     },
                     faucet: {
-                        text: 'Бесплатнге WAVES в Testnet',
+                        text: 'Бесплатные WAVES в Testnet',
                         link: '/ru/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network',
                     },
                     oracles: {

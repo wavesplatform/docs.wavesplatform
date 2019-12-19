@@ -1,7 +1,19 @@
-# Waves Ecosystem Apps
+# Экосистема приложений Waves
 
-Here are some useful applications based on Waves Platform.
-* [Explorer](/en/waves-explorer/about-waves-explorer)
-* [Free Waves on Testnet](/en/waves-explorer/account-balance-top-up-in-the-test-network)
-* [Waves Oracles](/en/waves-oracles/about-waves-oracles)
-* [Wavws token rating](/en/waves-token-rating/about-waves-token-rating)
+Обратите внимание на полезные приложения для работы с Waves:
+
+* [Waves Explorer](/ru/waves-explorer/about-waves-explorer)
+
+   Отображает данные блокчейна в понятном для человека виде.
+
+* [Бесплатные WAVES в Testnet](/ru/waves-explorer/account-balance-top-up-in-the-test-network)
+
+   Пополняет баланс аккаунта в тестовой сети фиксированной суммой в 10 WAVES.
+
+* [Waves Oracles](/ru/waves-oracles/about-waves-oracles)
+
+   Предназначен для поиска оракулов и создания карточек оракулов.
+
+* [Waves Token Rating](/ru/waves-token-rating/about-waves-token-rating)
+
+   Показывает рейтинги токенов (проектов), выпущенных на платформе Waves.
