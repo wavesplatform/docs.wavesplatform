@@ -249,6 +249,10 @@ module.exports = {
           title: 'Test network',
           path: blockchainPath + 'blockchain-network/test-network',
         },
+        {
+          title: 'Stage network',
+          path: blockchainPath + 'blockchain-network/stage-network',
+        },
       ],
     },
     {
@@ -427,6 +431,10 @@ module.exports = {
           title: 'Transfer transaction',
           path: blockchainPath + 'transaction-type/transfer-transaction',
         },
+        {
+          title: 'Update asset info transaction',
+          path: blockchainPath + 'transaction-type/update-asset-info-transaction',
+        },
       ]
     },
     {
@@ -465,7 +473,7 @@ module.exports = {
     },
     {
       title: 'Glossary',
-      path: '/en/blockchain/glossary',
+      path: blockchainPath + 'glossary',
     },
   ],
 
@@ -489,7 +497,7 @@ module.exports = {
       ],
     },
     {
-      title: 'How To install a node',
+      title: 'How to install a node',
       path: nodePath + 'how-to-install-a-node/how-to-install-a-node',
       children: [
         {
@@ -882,20 +890,48 @@ module.exports = {
               path: ridePath + 'structures/common-structures/attached-payment',
             },
             {
+              title: 'BinaryEntry',
+              path: ridePath + 'structures/common-structures/binary-entry',
+            },
+            {
               title: 'BlockInfo',
               path: ridePath + 'structures/common-structures/block-info',
+            },
+            {
+              title: 'BooleanEntry',
+              path: ridePath + 'structures/common-structures/boolean-entry',
+            },
+            {
+              title: 'Burn',
+              path: ridePath + 'structures/common-structures/burn',
             },
             {
               title: 'DataEntry',
               path: ridePath + 'structures/common-structures/data-entry',
             },
             {
+              title: 'DeleteKey',
+              path: ridePath + 'structures/common-structures/delete-key',
+            },
+            {
+              title: 'IntEntry',
+              path: ridePath + 'structures/common-structures/int-entry',
+            },
+            {
               title: 'Invocation',
               path: ridePath + 'structures/common-structures/invocation',
             },
             {
+              title: 'Issue',
+              path: ridePath + 'structures/common-structures/issue',
+            },
+            {
               title: 'Order',
               path: ridePath + 'structures/common-structures/order',
+            },
+            {
+              title: 'Reissue',
+              path: ridePath + 'structures/common-structures/reissue',
             },
             {
               title: 'ScriptResult',
@@ -904,6 +940,10 @@ module.exports = {
             {
               title: 'ScriptTransfer',
               path: ridePath + 'structures/common-structures/script-transfer',
+            },
+            {
+              title: 'StringEntry',
+              path: ridePath + 'structures/common-structures/string-entry',
             },
             {
               title: 'Transfer',
@@ -983,6 +1023,10 @@ module.exports = {
               title: 'TransferTransaction',
               path: ridePath + 'structures/transaction-structures/transfer-transaction',
             },
+            {
+              title: 'UpdateAssetInfoTransaction',
+              path: ridePath + 'structures/transaction-structures/update-asset-info-transaction',
+            },
           ],
         },
       ],
@@ -997,6 +1041,10 @@ module.exports = {
         },
       ],
     },
+    {
+      title: 'Script performance tests',
+      path: ridePath + 'script-performance-tests',
+    },
   ],
 
   [buildingAppsPath]: [
@@ -1009,7 +1057,7 @@ module.exports = {
       path: programmingPath + 'waves-smart-contracts-overview',
     },
     {
-      title: 'Smart Accounts',
+      title: 'Smart Account',
       path: programmingPath + 'smart-accounts',
       children: [
         {
@@ -1057,7 +1105,7 @@ module.exports = {
       ],
     },
     {
-      title: 'Smart Assets',
+      title: 'Smart Asset',
       path: programmingPath + 'smart-assets',
       children: [
         {
@@ -1067,7 +1115,7 @@ module.exports = {
       ],
     },
     {
-      title: 'What is a dApp',
+      title: 'dApp',
       path: programmingPath + 'what-is-a-dapp',
       children: [
         {
@@ -1174,15 +1222,11 @@ module.exports = {
         },
       ],
     },
-    {
-      title: 'Script performance tests',
-      path: programmingPath + 'script-performance-tests',
-    },
   ],
 
   [ecosystemPath]: [
     {
-      title: 'EcosystemApps',
+      title: 'Ecosystem Apps',
       path: ecosystemPath,
     },
     {
@@ -1260,23 +1304,5 @@ module.exports = {
       title: 'Documentation Updates',
       path: keepInTouchPath + 'docs-update',
     },
-    {
-      title: 'Proposals',
-      path: keepInTouchPath + '/resources/proposals',
-      children: [
-        {
-          title: 'Asset verification protocol',
-          path: keepInTouchPath + 'resources/asset-verification-protocol',
-        },
-        {
-          title: 'Trezor hardware wallet integration specification',
-          path: keepInTouchPath + 'resources/trezor-hardware-wallet-integration-specification',
-        },
-        {
-          title: 'Sponsored transactions',
-          path: keepInTouchPath + 'resources/sponsored-transactions',
-        },
-      ],
-    }
   ],
 };

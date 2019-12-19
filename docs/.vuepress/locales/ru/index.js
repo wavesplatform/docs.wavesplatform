@@ -1,13 +1,15 @@
 const fs = require('fs');
 const path = require('path');
-
 const deepmerge = require('deepmerge');
-const technologyListMixin = require('../_mixins');
-module.exports = deepmerge(technologyListMixin, {
+const mixin = require('../_mixins');
+const sidebarConfig = require(path.join(process.cwd(), 'docs/_ru-sidebar-tree'));
+
+module.exports = deepmerge(mixin, {
     langIconRawSvg: fs.readFileSync(path.resolve(__dirname, './russia-18.svg')).toString(),
     searchPlaceholderText: 'Введите запрос и нажмите Return…',
     backToIndexButtonText: 'Вернуться к разделам',
     sidebarOnThisPageText: 'На этой странице',
+    sidebar: sidebarConfig,
 
     languageAbsenceNotification: {
         title: 'Ой…',
@@ -15,7 +17,7 @@ module.exports = deepmerge(technologyListMixin, {
     },
 
     homePage: {
-        welcomeText: 'Добро пожаловать в документацию о всей платформе Waves',
+        welcomeText: 'Добро пожаловать в документацию платформы Waves',
         or: 'Или',
         technologyCategoriesText: 'Обзор по теме или категории технологии',
         technologyCategories: {
@@ -26,213 +28,115 @@ module.exports = deepmerge(technologyListMixin, {
         },
         technologyList: {
             learnAboutWavesPlatform: {
-                rootLink: '/ru/learn-about-waves-platform/',
-                title: 'Узнайте о платформе Waves',
-                caption: 'Обзор основных функций Waves Platform. Протокол, консенсус, криптография. Понять значение, которое предлагает блокчейн.',
+                rootLink: '/ru/blockchain/',
+                title: 'Блокчейн Waves',
+                caption: 'Обзор возможностей Waves. Протокол, консенсус, криптография. Майнинг, типы транзакций и комиссии.',
+                buttonSet: {
+                    account: {
+                        text: 'Аккаунт',
+                        link: '/ru/blockchain/account'
+                    },
+                    token: {
+                        text: 'Токены',
+                        link: '/ru/blockchain/token'
+                    },
+                    mining: {
+                        text: 'Майнинг',
+                        link: '/ru/blockchain/mining'
+                    },
+                    transaction: {
+                        text: 'Транзакции',
+                        link: '/ru/blockchain/transaction'
+                    }
+                }
             },
             node: {
-                rootLink: '#',
-                title: 'Нода',
-                caption: 'Узнайте о полном узле Waves. Как установить ноду. Конфигурация узла и API. Работа с расширениями узлов: matcher, gRPC server.',
+                rootLink: '/ru/waves-node/',
+                title: 'Нода Waves',
+                caption: 'Настройка и запуск ноды. Конфигурация ноды. Активация новых функций.',
+                buttonSet: {
+                    launch: {
+                        text: 'Запуск ноды',
+                        link: '/ru/waves-node/running-waves-node-in-yandex-cloud',
+                    },
+                    grpc: {
+                        text: 'gRPC server',
+                        link: '/ru/waves-node/extensions/grpc-server',
+                    },
+                    nodeApi: {
+                        text: 'Node REST API',
+                        link: '/ru/waves-node/node-api',
+                    },
+                },
             },
             ecosystemApplications: {
-                rootLink: '#',
-                title: 'Экосистема Приложений',
-                caption: 'Узнайте о экосистемных приложениях Waves.',
+                rootLink: '/ru/ecosystem/',
+                title: 'Экосистема приложений',
+                caption: 'Полезные приложения на платформе Waves.',
+                buttonSet: {
+                    explorer: {
+                        text: 'Explorer',
+                        link: '/ru/ecosystem/waves-explorer/about-waves-explorer',
+                    },
+                    faucet: {
+                        text: 'Бесплатные WAVES в Testnet',
+                        link: '/ru/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network',
+                    },
+                    oracles: {
+                        text: 'Oracles',
+                        link: '/ru/ecosystem/waves-oracles/about-waves-oracles',
+                    },
+                    torenRating: {
+                        text: 'Token Rating',
+                        link: '/ru/ecosystem/waves-token-rating/about-waves-token-rating',
+                    },
+                },
             },
             buildingBlockchainApps: {
-                rootLink: '#',
-                title: 'Создание приложений на блокчейне',
-                caption: 'Узнайте, как создать приложение блокчейн с Waves. Понимание Waves Smart Contracts. API и SDK. Инструменты разработчика.',
+                rootLink: '/ru/building-apps/',
+                title: 'Разработка приложений на блокчейне',
+                caption: 'Создание смарт-контрактов и децентрализованных приложений на платформе Waves. Инструменты разработчика, API и SDK.',
+                buttonSet: {
+                    smartAccount: {
+                        text: 'Смарт-аккаунты',
+                        link: '/ru/building-apps/smart-contracts/smart-accounts',
+                    },
+                    smartAsset: {
+                        text: 'Смарт-ассеты',
+                        link: '/ru/building-apps/smart-contracts/smart-assets',
+                    },
+                    dapp: {
+                        text: 'dApps',
+                        link: '/ru/building-apps/smart-contracts/what-is-a-dapp',
+                    },
+                },
             },
             rideProgrammingLanguage: {
-                rootLink: '#',
-                title: 'Язык программирования Ride',
-                caption: 'Изучите синтаксис нового языка программирования Ride, который позволяет создавать dApps. Примеры использования.'
-            },
-            additionalServices: {
-                rootLink: '#',
-                title: 'Дополнительные Сервисы',
-                caption: 'Работа с дополнительными сервисами, построенными на блокчейне Waves: Data Services, Oracles, Token Rating, Market Item, DappOcean, PyWaves Statistics и т. Д.',
+                rootLink: '/ru/building-apps/',
+                title: 'Язык программирования RIDE',
+                caption: 'Cинтаксис RIDE. Типы скриптов. Встроенные функции, операторы и структуры.',
             },
             miscellaneous: {
-                rootLink: '#',
-                title: 'Разное',
-                caption: 'Официальные ресурсы платформы Waves. Читайте статьи на различные темы, посвященные блокчейну Wave. Содействие платформе Waves.',
+                rootLink: '/ru/keep-in-touch/',
+                title: 'Будьте в курсе',
+                caption: 'Присоединяйтесь к сообществу Waves, следите за обновлениями в блоге и узнайте всё о событиях на платформе Waves.',
+                buttonSet: {
+                    blog: {
+                        text: 'Блог',
+                        link: 'https://blog.wavesplatform.com/',
+                    },
+                    forum: {
+                        text: 'Форум',
+                        link: 'https://forum.wavesplatform.com/',
+                    },
+                    chat: {
+                        text: 'Чат разработчиков',
+                        link: 'https://t.me/waves_ride_dapps_dev'
+                    }
+                },
+
             }
         },
     },
-
-    searchPopup: {
-        cancelText: 'Закрыть',
-        resultsMatchingText: 'совпадений по запросу',
-        showMoreText: 'Показать ещё',
-        limitationQueryText: 'Поисковый запрос может состоять минимум из 4 символов',
-        noSuchResults: 'Результатов не найдено',
-    },
-
-    footer: {
-        broughtToYouByWavesTeam: 'Сделано для вас командой Waves.',
-        resourcesCategories: {
-            productsAndTools: {
-                title: 'Продукты & инструменты',
-                links: {
-                    wavesWallet: {
-                        title: 'Waves Wallet',
-                    },
-                    wavesKeeper: {
-                        title: 'Waves Keeper',
-                    },
-                    wavesBlockchain: {
-                        title: 'Waves Blockchain',
-                    },
-                    WavesIde: {
-                        title: 'Waves IDE',
-                    },
-                    wavesExplorer: {
-                        title: 'Waves Explorer',
-                    },
-                },
-            },
-            forDevelopers: {
-                title: 'Для разработчиков',
-                links: {
-                    gitHub: {
-                        title: 'GitHub',
-                    },
-                    api: {
-                        title: 'API',
-                    },
-                    stackOverflow: {
-                        title: 'Stack Overflow',
-                    },
-                    wavesLabs: {
-                        title: 'Waves Labs',
-                    },
-                },
-            },
-            // legal: {
-            //     title: 'Legal',
-            //     links: {
-            //         privacyPolicy: {
-            //             title: 'Политика конфиденциальности',
-            //         },
-            //         termsOfUse: {
-            //             title: 'Условия использования',
-            //         },
-            //         cookies: {
-            //             title: 'Cookies',
-            //         },
-            //         gdpr: {
-            //             title: 'GDPR',
-            //         },
-            //     },
-            // },
-            social: {
-                title: 'Social',
-                links: {
-                    blog: {
-                        title: 'Блог',
-                    },
-                    twitter: {
-                        title: 'Twitter',
-                    },
-                    telegram: {
-                        title: 'Telegram',
-                    },
-                    forum: {
-                        title: 'Форум',
-                    },
-                },
-            },
-        },
-    },
-
-    label: 'Русский',
-    selectText: 'Язык',
-    editLinkText: 'Изменить эту страницу на GitHub',
-    lastUpdated: 'Последние изменения',
-
-    sidebar: {
-        '/ru/learn-about-waves-platform/': [
-            {
-                title: 'What is a dApp',
-                path: '/ru/learn-about-waves-platform/what-is-a-dapp'
-            },
-            // {
-            //     title: 'Writing dApps',
-            //     path: '/ru/learn-about-waves-platform/what-is-a-dapp'
-            // },
-            {
-                title: 'Simple voting on the Waves',
-                path: '/ru/learn-about-waves-platform/what-is-a-dapp'
-            },
-            {
-                title: 'Smart Accounts',
-                path: '/ru/learn-about-waves-platform/what-is-a-dapp'
-            },
-            {
-                title: 'Waves Smart Contracts',
-                path: '/ru/learn-about-waves-platform/what-is-a-dapp'
-            },
-            {
-                title: 'Smart Assets',
-                path: '/ru/learn-about-waves-platform/what-is-a-dapp'
-            },
-            {
-                title: 'Инструменты',
-                path: '/ru/learn-about-waves-platform/tools',
-                children: [
-                    {
-                        title: 'REPL',
-                        path: '/ru/learn-about-waves-platform/tools/repl',
-                        children: [
-                            {
-                                title: 'Waves IDE 2',
-                                path: '/ru/learn-about-waves-platform/tools/repl/waves-ide',
-                                children: [
-                                    {
-                                        title: 'Simple voting on the Waves blockchain',
-                                        path: '/ru/learn-about-waves-platform/tools/repl/waves-ide/simple-voting-on-the-waves-blockchain'
-                                    },
-                                ]
-                            },
-                        ]
-                    },
-                    {
-                        title: 'Waves IDE',
-                        path: '/ru/blockchain/token/waves'
-                    },
-                ]
-            },
-            {
-                title: 'Script performance tests',
-                path: '/ru/learn-about-waves-platform/what-is-a-dapp'
-            },
-            {
-                title: 'Creating and deploying a script manually',
-                path: '/ru/learn-about-waves-platform/what-is-a-dapp'
-            },
-            {
-                title: 'Video tutorials',
-                path: '/ru/learn-about-waves-platform/what-is-a-dapp'
-            },
-            {
-                title: 'Articles on dApps',
-                path: '/ru/learn-about-waves-platform/what-is-a-dapp'
-            },
-        ],
-
-        // '/ru/blockchain/': [
-        //     {
-        //         title: 'Псевдоним',
-        //         path: '/ru/blockchain/account'
-        //     },
-        //     {
-        //         title: 'Псевдоним',
-        //         path: '/ru/blockchain/account'
-        //     },
-        // ]
-
-    }
-});
+  }
+);

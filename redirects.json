@@ -558,36 +558,76 @@
       "to": "/en/building-apps"
     },
     {
+      "from": "/ru/getting-started/getting-started-for-developers.html",
+      "to": "/ru/building-apps"
+    },
+    {
       "from": "/en/resources/contributing.html",
       "to": "/en/keep-in-touch/"
+    },
+    {
+      "from": "ru/overview/waves-official-resources.html",
+      "to": "/ru/keep-in-touch/"
     },
     {
       "from": "/en/glossary/glossary.html",
       "to": "/en/blockchain/glossary.html"
     },
     {
+      "from": "/ru/glossary/glossary.html",
+      "to": "/ru/blockchain/glossary.html"
+    },
+    {
       "from": "/en/ride/about-ride",
       "to": "/en/ride/"
+    },
+    {
+      "from": "/ru/ride/about-ride",
+      "to": "/ru/ride/"
+    },
+    {
+      "from": "/en/smart-contracts/script-performance-tests",
+      "to": "/en/ride//script-performance-tests"
     },
     {
       "from": "/en/smart-contracts/%",
       "to": "/en/building-apps/smart-contracts/$1"
     },
     {
+      "from": "/ru/smart-contracts/%",
+      "to": "/ru/building-apps/smart-contracts/$1"
+    },
+    {
       "from": "/en/waves-api-and-sdk/%",
       "to": "/en/building-apps/waves-api-and-sdk/$1"
+    },
+    {
+      "from": "/ru/waves-api-and-sdk/%",
+      "to": "/ru/building-apps/waves-api-and-sdk/$1"
     },
     {
       "from": "/en/waves-explorer/%",
       "to": "en/ecosystem/waves-explorer/$1"
     },
     {
+      "from": "/ru/waves-explorer/%",
+      "to": "ru/ecosystem/waves-explorer/$1"
+    },
+    {
       "from": "/en/waves-oracles/%",
       "to": "/en/ecosystem/waves-oracles/$1"
     },
     {
+      "from": "/ru/waves-oracles/%",
+      "to": "/ru/ecosystem/waves-oracles/$1"
+    },
+    {
       "from": "/en/waves-token-rating/%",
       "to": "en/ecosystem/waves-token-rating/$1"
+    },
+    {
+      "from": "/ru/waves-token-rating/%",
+      "to": "ru/ecosystem/waves-token-rating/$1"
     },
     {
       "from": "/en/recources/%",
@@ -596,6 +636,22 @@
     {
       "from": "/en/miscellaneous/news-archive",
       "to": "/en/keep-in-touch/docs-update"
+    },
+    {
+      "from": "/ru/miscellaneous/news-archive",
+      "to": "/ru/keep-in-touch/docs-update"
+    },
+    {
+      "from": "/ru/platform-features/fair-pos.html",
+      "to": "/ru/blockchain/waves-protocol/fair-pos"
+    },
+    {
+      "from": "/ru/platform-features/activation-protocol.html",
+      "to": "/ru/blockchain/waves-protocol/activation-protocol"
+    },
+    {
+      "from": "/ru/platform-features/leased-proof-of-stake-lpos.html",
+      "to": "/ru/blockchain/waves-protocol/leased-proof-of-stake-lpos"
     },
     {
       "===============================  Oracles  =====================================": null,

@@ -17,39 +17,39 @@
 
 Зайдите в настройки [Waves IDE](https://ide.wavesplatform.com/).
 
-<img src="img/voting/account-settings.png" width="300"/>
+![](./_assets/voting/account-settings
 
 Убедитесь, что выбрана [тестовая сеть](/blockchain/blockchain-network/test-network.md).
 
-<img src="img/voting/account-settings-test.png" width="540"/>
+![](./_assets/voting/account-settings-test
 
 Создайте аккаунт главы ТСЖ, выбрав  **Generate new account**.
 
-<img src="img/voting/account-new.png" width="240"/>
+![](./_assets/voting/account-new
 
 Переименуйте созданный аккаунт в "Глава ТСЖ".
 
-<img src="img/voting/account-chief.png" width="245"/>
+![](./_assets/voting/account-chief
 
 Скопируйте [адрес](/blockchain/account/address.md) главы ТСЖ и [с помощью Faucet](/waves-explorer/account-balance-top-up-in-the-test-network.md) пополните его баланс на 10 [WAVES](/blockchain/token/waves.md). [Токены](/blockchain/token.md) понадобятся главе ТСЖ для оплаты [комиссии](/blockchain/transaction/transaction-fee.md) за [транзакцию установки скрипта](/blockchain/transaction-type/set-script-transaction.md), когда он будет привязывать [dApp-скрипт](/ride/script/script-types/dapp-script.md) к своему аккаунту.
 
-<img src="img/voting/account-chief-balance.png" width="250"/>
+![](./_assets/voting/account-chief-balance
 
 ## 2. Создание аккаунтов жильцов дома
 
 Аналогично создайте аккаунты жильцов дома Алексея и Анны и пополните их балансы на 10 WAVES. Токены им понадобятся для оплаты комиссии за [транзакцию вызова скрипта](/blockchain/transaction-type/invoke-script-transaction.md), когда они будут голосовать, вызывая метод `vote` dApp.
 
-<img src="img/voting/accounts-residents.png" width="250"/>
+![](./_assets/voting/accounts-residents
 
 ## 3. Создание dApp-скрипта
 
 Создайте [dApp-скрипт](/ride/script/script-types/dapp-script.md), выбрав в выпадающем списке **DApp**.
 
-<img src="img/voting/new-dapp-script.png" width="870"/>
+![](./_assets/voting/new-dapp-script
 
 Переименуйте скрипт в "Голосование главы ТСЖ".
 
-<img src="img/voting/dapp-script-rename.png" width="870"/>
+![](./_assets/voting/dapp-script-rename
 
 Замените автоматически сгенерированный код на следующий:
 
@@ -107,7 +107,7 @@ func vote(theVote: Int) = {
 
 Значения открытых ключей `alekseiPubKey` и `annaPubKey` возьмите из карточек аккаунтов Алексея и Анны.
 
-<img src="img/voting/public-key.png" width="240"/>
+![](./_assets/voting/public-key
 
 #### Функция `getInteger`
 
@@ -119,35 +119,35 @@ let dataFromStorage = this.getInteger(i.callerPublicKey.toBase58String())
 
 Размер и [сложность](/ride/base-concepts/complexity.md) скрипта отображаются в панели под редактором скрипта.
 
-<img src="img/voting/script-complexity.png" width="450"/>
+![](./_assets/voting/script-complexity
 
 ## 4. Привязка dApp-скрипта к аккаунту главы ТСЖ
 
 Нажмите на кнопку **Deploy dAppscript**.
 
-<img src="img/voting/deploy-dapp-script.png" width="940"/>
+![](./_assets/voting/deploy-dapp-script
 
 В открывшемся окне, в комбинированном списке **Account**, выберите значение "Глава ТСЖ". Подпишите транзакцию, нажав **Add sign**.
 
-<img src="img/voting/add-sign.png" width="900"/>
+![](./_assets/voting/add-sign
 
 Отметим, что подписать транзакцию можно также секретной фразой или с помощью [Waves Keeper](/waves-keeper/about-waves-keeper.md).
 
-<img src="img/voting/seed-and-waves-keeper.png" width="300"/>
+![](./_assets/voting/seed-and-waves-keeper
 
 Отправьте с аккаунта главы ТСЖ транзакцию установки скрипта, нажав **Publish**.
 
-<img src="img/voting/publish.png" width="880"/>
+![](./_assets/voting/publish
 
 Таким образом, вы только что создали [dApp](/blockchain/account/dapp.md).
 
 В [Waves Explorer](https://wavesexplorer.com/testnet), _в тестовой сети_, найдите информацию об активности на адресе главы ТСЖ. Для этого введите адрес главы ТСЖ в строку поиска и нажмите **Enter**.
 
-<img src="img/voting/testnet-address.png" width="800"/>
+![](./_assets/voting/testnet-address
 
 По адресу главы ТСЖ отображаются две транзакции: [транзакция перевода](/blockchain/transaction-type/transfer-transaction.md) (пополнение баланса на 10 WAVES с помощью faucet) и отправка транзакции установки скрипта. Отметим, что с баланса аккаунта главы ТСЖ списали комиссию за транзакцию установки скрипта в 0,001 WAVES.
 
-<img src="img/voting/waves-explorer-chief-transactions.png" width="900"/>
+![](./_assets/voting/waves-explorer-chief-transactions
 
 ## 5. Голосование
 
@@ -155,7 +155,7 @@ let dataFromStorage = this.getInteger(i.callerPublicKey.toBase58String())
 
 Отправьте транзакцию вызова скрипта с аккаунта Алексея с помощью [REPL](/smart-contracts/tools/repl.md). Для этого в Waves IDE _выберите аккаунт Алексея_.
 
-<img src="img/voting/account-aleksei.png" width="320"/>
+![](./_assets/voting/account-aleksei
 
 Далее в REPL выполните следующую команду:
 
@@ -167,7 +167,7 @@ broadcast(invokeScript({dApp: "3Mz2X8c4Gpf8uporPrkEHA5TH73pYDYg6vL", call: {func
 
 Если все прошло успешно, то вы увидите следующий результат (разверните объект `Promise` в консоли):
 
-<img src="img/voting/repl-success.png" width="650"/>
+![](./_assets/voting/repl-success
 
 Аналогично проголосуйте с аккаунта Анны, _предварительно выбрав аккаунт Анны_ в Waves IDE:
 
@@ -177,14 +177,14 @@ broadcast(invokeScript({dApp: "3Mz2X8c4Gpf8uporPrkEHA5TH73pYDYg6vL", call: {func
 
 Если вы попробуете повторно проголосовать с аккаунтов Алексея или Анны, то вы увидите ошибку:
 
-<img src="img/voting/repl-error-1.png" width="900"/>
+![](./_assets/voting/repl-error-1
 
 Если вы попробуете проголосовать с аккаунта главы ТСЖ, то вы увидите ошибку:
 
-<img src="img/voting/repl-error-2.png" width="900"/>
+![](./_assets/voting/repl-error-2
 
 ## 6. Просмотр результатов голосования
 
 На вкладке **Data** в Waves Explorer просмотрите содержимое хранилища данных аккаунта главы ТСЖ — в хранилище данных содержатся две записи.
 
-<img src="img/voting/voting-results.png" width="880"/>
+![](./_assets/voting/voting-results
