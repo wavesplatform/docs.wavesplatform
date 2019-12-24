@@ -13,7 +13,7 @@ module.exports = deepmerge(mixin, {
 
     languageAbsenceNotification: {
         title: 'Ой…',
-        message: 'Содержимое этой страницы временно недоступно. Приносим извинения за неудобства!',
+        message: 'Содержимое этой страницы временно недоступно.<br>Приносим извинения за неудобства!',
     },
 
     homePage: {
