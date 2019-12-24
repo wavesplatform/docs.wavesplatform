@@ -200,29 +200,29 @@
     },
     {
       "===============================  Client  =====================================": null,
-      "from": "/ru/waves-client/%",
+      "from": "/ru/waves-client/(.)",
       "to": "https://docs.waves.exchange/ru/"
     },
     {
-      "from": "/en/waves-client/%",
+      "from": "/en/waves-client/(.)",
       "to": "https://docs.waves.exchange/en/"
     },
     {
       "===============================  DEX  =====================================": null,
-      "from": "/ru/waves-dex/%",
+      "from": "/ru/waves-dex/(.)",
       "to": "https://docs.waves.exchange/ru/"
     },
     {
-      "from": "/en/waves-dex/%",
+      "from": "/en/waves-dex/(.)",
       "to": "https://docs.waves.exchange/en/"
     },
     {
       "===============================  Keeper  =====================================": null,
-      "from": "/en/waves-keeper/%",
+      "from": "/en/waves-keeper/(.)",
       "to": "https://docs.waves.exchange/en/waves-keeper"
     },
     {
-      "from": "/ru/waves-keeper/%",
+      "from": "/ru/waves-keeper/(.)",
       "to": "https://docs.waves.exchange/ru/waves-keeper/"
     },
     {
@@ -590,47 +590,47 @@
       "to": "/en/ride//script-performance-tests"
     },
     {
-      "from": "/en/smart-contracts/%",
+      "from": "/en/smart-contracts/(.)",
       "to": "/en/building-apps/smart-contracts/$1"
     },
     {
-      "from": "/ru/smart-contracts/%",
+      "from": "/ru/smart-contracts/(.)",
       "to": "/ru/building-apps/smart-contracts/$1"
     },
     {
-      "from": "/en/waves-api-and-sdk/%",
+      "from": "/en/waves-api-and-sdk/(.)",
       "to": "/en/building-apps/waves-api-and-sdk/$1"
     },
     {
-      "from": "/ru/waves-api-and-sdk/%",
+      "from": "/ru/waves-api-and-sdk/(.)",
       "to": "/ru/building-apps/waves-api-and-sdk/$1"
     },
     {
-      "from": "/en/waves-explorer/%",
+      "from": "/en/waves-explorer/(.)",
       "to": "en/ecosystem/waves-explorer/$1"
     },
     {
-      "from": "/ru/waves-explorer/%",
+      "from": "/ru/waves-explorer/(.)",
       "to": "ru/ecosystem/waves-explorer/$1"
     },
     {
-      "from": "/en/waves-oracles/%",
+      "from": "/en/waves-oracles/(.)",
       "to": "/en/ecosystem/waves-oracles/$1"
     },
     {
-      "from": "/ru/waves-oracles/%",
+      "from": "/ru/waves-oracles/(.)",
       "to": "/ru/ecosystem/waves-oracles/$1"
     },
     {
-      "from": "/en/waves-token-rating/%",
+      "from": "/en/waves-token-rating/(.)",
       "to": "en/ecosystem/waves-token-rating/$1"
     },
     {
-      "from": "/ru/waves-token-rating/%",
+      "from": "/ru/waves-token-rating/(.)",
       "to": "ru/ecosystem/waves-token-rating/$1"
     },
     {
-      "from": "/en/recources/%",
+      "from": "/en/recources/(.)",
       "to": "en/keep-in-touch/resources/$1"
     },
     {
