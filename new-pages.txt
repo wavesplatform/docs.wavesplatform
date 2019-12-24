@@ -50,4 +50,4 @@ https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29
 
 якоря в hashing-functions
 
-
+Исправить {%youtube%} и {%prettylink%}
