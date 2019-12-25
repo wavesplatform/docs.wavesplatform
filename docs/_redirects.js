@@ -3,7 +3,7 @@ module.exports = [
   'redirects': [
     {
       '===============================  Getting started  =====================================': null,
-      to: '/en//en/building-apps',
+      to: '/en/building-apps',
       from: '/en/getting-started/as-a-developer.html',
     },
     {
