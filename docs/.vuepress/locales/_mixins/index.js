@@ -11,7 +11,7 @@ module.exports = {
 
     languageAbsenceNotification: {
         title: 'Oops…',
-        message: 'The content of this page is currently unavailable. Sorry for the inconvenience!',
+        message: 'The content of this page is currently unavailable.<br>Sorry for the inconvenience!',
     },
 
     nav: [
