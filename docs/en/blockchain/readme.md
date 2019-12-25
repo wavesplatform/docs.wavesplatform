@@ -7,4 +7,4 @@ The main objects of blockchain:
 * [Account](/en/blockchain/account)
 * [Transaction](/en/blockchain/transaction)
 * [Block](/en/blockchain/block)
-* [Node] (/en/blockchain/node)
+* [Node](/en/blockchain/node)

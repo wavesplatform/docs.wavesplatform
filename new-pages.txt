@@ -1,5 +1,5 @@
-/blockchain/readme.md
-/ecosystem/readme.md
+/blockchain/readme.md + 
+/ecosystem/readme.md +
 /waves-node/readme.md
 /building-apps/readme.md
 /keep-it-touch/readme.md
@@ -37,6 +37,9 @@
 
 <img src="img/ на ![](./_assets/
 
+{% prettylink 
+
+{%youtube%} на 
 
 
 Переложить account в account 
@@ -51,3 +54,6 @@ https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29
 якоря в hashing-functions
 
 Исправить {%youtube%} и {%prettylink%}
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OIQoheOYJw8?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
