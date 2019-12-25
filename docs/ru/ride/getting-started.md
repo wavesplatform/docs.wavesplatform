@@ -1,18 +1,17 @@
-# Getting started
+# Начало работы
 
-A smart contract language for Waves Platform
+## Введение
 
-## Introduction
+RIDE — простой и функциональный язык для разработки смарт-контрактов и децентрализованных приложений (dApps) на платформе Waves. В нем устранены многие серьезные недостатки других популярных языков смарт-контрактов.
 
-Ride is Waves Platform’s purpose-designed programming language for smart contracts. It was created to address many of the most serious shortcomings of other popular smart contract languages. The overall idea was to offer a straightforward functional language for dApp development on the Waves blockchain. 
+Этот раздел содержит введение в RIDE, примеры, описание дополнительных инструментов и ресурсов.
 
-Ride is easy to learn, especially for beginning developers. This brochure gives a comprehensive introduction to Ride, along with examples and further tools and resources.
+## Общие сведения
 
-## Overview
+RIDE — это статически типизированный, ленивый, функциональный компилируемый язык программирования на основе выражений. Он является неполным по Тьюрингу, поскольку не имеет циклов и рекурсий. Для 
 
-Ride is a statically-typed, lazy, functional, expression-based compiled programming language. It is designed for building developer-friendly decentralized applications (dApps).
 
-Ride is not Turing Complete and its execution engine (virtual machine) doesn’t have any concept of loops or possibility for recursions. Also, there are a number of limitations by design, helping to ensure execution is secure and straightforward. However, we recognize that iterations are necessary and have implemented them as FOLD macros (see below). One of the key features is that the execution cost is always predictable and known in advance, so all code executes as intended with no failed transactions recorded on-chain – removing a significant source of frustration.
+Also, there are a number of limitations by design, helping to ensure execution is secure and straightforward. However, we recognize that iterations are necessary and have implemented them as FOLD macros (see below). One of the key features is that the execution cost is always predictable and known in advance, so all code executes as intended with no failed transactions recorded on-chain – removing a significant source of frustration.
 
 Despite being simple to use, however, Ride is powerful and offers wide-ranging functionality to developers. It’s broadly based on Scala and is also influenced by F# and the functional paradigm.
 

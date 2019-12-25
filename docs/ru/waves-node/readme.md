@@ -1,47 +1,40 @@
-# Node owner guide
+# Руководство владельца ноды
 
-[Get to understand what is a Waves full node](/waves-node/what-is-a-full-node.md). Nodes are a critical part of Waves ecosystem. By Running a Waves node, you help in processing transactions and you will increase your profit for securing the network if users [start leasing](/waves-client/account-management/waves-leasing.md) their funds to your node \(The more WAVES you lease to a node, the more rewards you will receive, you can lease any sum from 0.002 WAVES\).
+Ноды — важнейшая часть экосистемы Waves. Запустив ноду, вы помогаете в обработке транзакций и обеспечении безопасности сети.
 
-The WAVES you own \(or that have been leased to you\) reflect your mining power, the more you own, the higher your chances of processing the next block and receiving the transaction fees as a reward. The final amount will also depend on overall network activity and the level of fees generated.
+Вы можете увеличить свое вознаграждение, получая WAVES в [лизинг](/ru/blockchain/leasing) от пользователей (минимальная сумма лизинга — 0,002 WAVES). Чем больше WAVES у вашей ноды, включая полученные в лизинг, тем выше шанс на генерацию следующего блока и получение комиссий за транзакции. Окончательная сумма зависит также от общей сетевой активности и уровня комиссий.
 
-The Waves full node serves **two critical roles**:
+Полная нода Waves выполняет две ключевые задачи:
 
-1. To relay blocks and transactions to miners
-2. To answer queries for end users about the state of the blockchain.
+* Ретранслирует блоки и транзакции майнерам.
+* Отвечает на запросы конечных пользователей о состоянии блокчейна.
 
-## Running a Node
+## Запуск ноды
 
-There're different options when you want to deal with Waves full node and you will need to [check the node configuration](/waves-node/node-configuration.md) before following any option. The balance of the node can be empty until there are enough people wishing to lease to it by reaching together the generating balance of **1000 WAVES** (the minimum balance) and create together a pool.
+Перед запуском проверьте [конфигурацию ноды](/waves-node/node-configuration.md) и скорректируйте настройки. При запуске ноды баланс WAVES может быть нулевым. Когда генерирующий баланс WAVES с учетом лизинга достигает **1000 WAVES**, нода получает право на создание блока.
 
-### Installing a node
+### Установка ноды
 
-* The easiest way to run a Waves Node is by using the new [Waves Docker container](/waves-node/waves-node-in-docker.md). It requires just one command to enable everything or to change the settings of the node.
-* The another way is to [download the latest version](https://github.com/wavesplatform/Waves/releases) of `waves.jar` and the required `.conf` configuration file \(for mainnet or testnet\) to any folder, for example `~/waves`. You can [follow these steps](/waves-node/how-to-install-a-node/how-to-install-a-node.md) of installing a node depending on your operating system.
+* Наиболее просто способ запустить ноду — использовать [Waves Docker container](en/waves-node/waves-node-in-docker.md). Достаточно одной команды, чтобы включить все или изменить настройки ноды.
+* Другой способ — скачать [последнюю версию](https://github.com/wavesplatform/Waves/releases) `waves.jar` и конфигурационный файл для Mainnet или Testnet в любую папку, например `~/waves`. Воспользуйтесь [инструкцией по установке ноды](en/waves-node/how-to-install-a-node/how-to-install-a-node.md) для вашей операционной системы.
 
-{% prettyhint type="info" %} Please check <a href="/waves-node/how-to-install-a-node/how-to-install-a-node.md"> &nbsp;The Activation Process of New features. </a> {% endprettyhint %}
+> Ознакомьтесь с [порядком активации](en/waves-node/how-to-install-a-node/how-to-install-a-node.md) новых функциональностей.
 
+### **Получение актуального блокчейна**
 
-### **Getting actual blockchain**
+После установки ноды [получите актуальный блокчейн](/waves-node/options-for-getting-actual-blockchain.md).
 
-After installing a node, you will have different ways to get the blockchain. follow the [getting blockchain guide](/waves-node/options-for-getting-actual-blockchain.md).
+## Владельцам действующей ноды
 
-## Already a node owner
+Если вы владелец уже действующей ноды, проверьте наличие обновлений.
 
-If you're already a node owner, you will need to check the new updates and then go for one of these two options:
+### Обновление ноды
 
-### Upgrade your node
+Следуйте [инструкции по обновлению](/waves-node/upgrading.md).
 
-Basically, the node should be upgraded by following the [upgrading instructions](/waves-node/upgrading.md).
+### Работа с форками
 
-### Dealing with Forks
+Проверьте высоту блокчейна или подписи 100 последних блоков, чтобы понять, работаете вы с основныи блокчейном или с форком. Вы можете использовать утилиту [chaincmp](https://github.com/wavesplatform/gowaves/releases/tag/v0.1.2), чтобы сравнить блокчейн на своей ноде и на других.
 
-You can check the blockchain height or the last 100 signatures of blocks to understand if your node is on fork or not. You can use [chaincmp](https://github.com/wavesplatform/gowaves/releases/tag/v0.1.2) utility to compare blockchains on the node and reference nodes.
-
-
-Your node can be in one of two possibilities:
-* your node on fork with height **less** than 2000 blocks or **more** than 2000 blocks.
-In case that your node is on fork with a height less than 2000 blocks, here you can implement rollback through [rollback instructions](/waves-node/how-to-rollback-a-node.md). 
-
-* Otherwise, you need to choose an [option for Getting Actual Blockchain](/waves-node/options-for-getting-actual-blockchain.md).
-
-{% prettyhint type="info" %} If you're interested in joining the Testnet, you will need to follow these steps for<a href="/waves-node/joining-testnet.md">&nbsp;Joining The Testnet. </a> {% endprettyhint %}
+* Если высота форка менее 2000 блоков, вы можете [выполнить откат](en/waves-node/how-to-rollback-a-node.md).
+* Если высота форка более 2000 блоков, получите [актуальный блокчейн](/waves-node/options-for-getting-actual-blockchain.md).
