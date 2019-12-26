@@ -2,20 +2,13 @@
 
 ## Введение
 
-RIDE — простой и функциональный язык для разработки смарт-контрактов и децентрализованных приложений (dApps) на платформе Waves. В нем устранены многие серьезные недостатки других популярных языков смарт-контрактов.
+Ride — простой, лаконичный и дружественный язык для разработки смарт-контрактов и децентрализованных приложений (dApps) на платформе Waves. В нем устранены многие серьезные недостатки других популярных языков смарт-контрактов.
 
-Этот раздел содержит введение в RIDE, примеры, описание дополнительных инструментов и ресурсов.
+Этот раздел содержит введение в Ride, примеры, описание дополнительных инструментов и ресурсов. Его изучение займет около часа.
 
 ## Общие сведения
 
-RIDE — это статически типизированный, ленивый, функциональный компилируемый язык программирования на основе выражений. Он является неполным по Тьюрингу, поскольку не имеет циклов и рекурсий. Для 
-
-
-Also, there are a number of limitations by design, helping to ensure execution is secure and straightforward. However, we recognize that iterations are necessary and have implemented them as FOLD macros (see below). One of the key features is that the execution cost is always predictable and known in advance, so all code executes as intended with no failed transactions recorded on-chain – removing a significant source of frustration.
-
-Despite being simple to use, however, Ride is powerful and offers wide-ranging functionality to developers. It’s broadly based on Scala and is also influenced by F# and the functional paradigm.
-
-Ride is simple and concise. It will take around an hour to read this brochure, after which you will know everything about the Ride and opportunities that it gives for dApps development.
+RIDE — это статически типизированный, ленивый, функциональный компилируемый язык программирования на основе выражений. Он является неполным по Тьюрингу, поскольку не имеет циклов и рекурсий (итерации можно реализовать с помощью макроса `FOLD`, см. ниже). Благодаря этому стоимость выполнения скрипта всегда известна заранее и код выполняется как задумано, без риска неудачных транзакций.
 
 ## Disclaimer
 
