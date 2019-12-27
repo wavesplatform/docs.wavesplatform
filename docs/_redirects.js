@@ -195,29 +195,29 @@ module.exports = [
   },
   {
     /*===============================  Client  =====================================*/
-    from: '/ru/waves-client/(.)',
+    from: '/ru/waves-client(.)',
     to: 'https://docs.waves.exchange/ru/',
   },
   {
-    from: '/en/waves-client/(.)',
+    from: '/en/waves-client(.)',
     to: 'https://docs.waves.exchange/en/',
   },
   {
     /*===============================  DEX  =====================================*/
-    from: '/ru/waves-dex/(.)',
+    from: '/ru/waves-dex(.)',
     to: 'https://docs.waves.exchange/ru/',
   },
   {
-    from: '/en/waves-dex/(.)',
+    from: '/en/waves-dex(.)',
     to: 'https://docs.waves.exchange/en/',
   },
   {
     /*===============================  Keeper  =====================================*/
-    from: '/en/waves-keeper/(.)',
+    from: '/en/waves-keeper(.)',
     to: 'https://docs.waves.exchange/en/waves-keeper',
   },
   {
-    from: '/ru/waves-keeper/(.)',
+    from: '/ru/waves-keeper(.)',
     to: 'https://docs.waves.exchange/ru/waves-keeper',
   },
   {
