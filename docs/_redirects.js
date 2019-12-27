@@ -222,10 +222,6 @@ module.exports = [
   },
   {
     /*===============================  Matcher  =====================================*/
-    from: '/en/waves-api-and-sdk/dex-api/matcher.html',
-    to: 'https://docs.waves.exchange/en/waves-matcher/matcher-api',
-  },
-  {
     from: '/en/waves-node/extensions/matcher.html',
     to: 'https://docs.waves.exchange/en/waves-matcher',
   },
@@ -445,7 +441,7 @@ module.exports = [
     from: '/en/waves-full-node/how-to-rollback-a-node.html',
   },
   {
-    to: '/en/waves-node/configuration-parameters',
+    to: '/en/waves-node/node-configuration',
     from: '/en/waves-full-node/configuration-parameters.html',
   },
   {
@@ -473,12 +469,12 @@ module.exports = [
     from: '/en/waves-node/configuration-parameters.html',
   },
   {
-    '=============================== Developer tools  =====================================': null,
+    /*=============================== Developer tools  =====================================*/
     to: '/en/building-apps/smart-contracts/tools/repl',
     from: '/en/developer-tools/waves-console/waves-console-examples.html',
   },
   {
-    to: '/en//building-apps/smart-contracts/tools/waves-ide',
+    to: '/en/building-apps/smart-contracts/tools/waves-ide',
     from: '/en/developer-tools/waves-ide.html',
   },
   {
@@ -490,11 +486,11 @@ module.exports = [
     from: '/ru/developer-tools/waves-ide.html',
   },
   {
-    to: '/ru//building-apps/smart-contracts/tools/waves-ide',
+    to: '/ru/building-apps/smart-contracts/tools/waves-ide',
     from: '/ru/developer-tools/repl.html',
   },
   {
-    '===============================  API & SDK  =====================================': null,
+    /*===============================  API & SDK  =====================================*/
     to: 'https://docs.waves.exchange/en/waves-matcher/matcher-api',
     from: '/en/blockchain/node/matcher.html',
   },
@@ -511,7 +507,7 @@ module.exports = [
     from: '/en/waves-node/how-to-configure-a-node.html',
   },
   {
-    '===============================  Waves protocol  ===================================': null,
+    /*===============================  Waves protocol  ===================================*/
     to: '/en/blockchain/waves-protocol/cryptographic-practical-details',
     from: '/en/miscellaneous/waves-protocol/cryptographic-practical-details.html',
   },
@@ -540,7 +536,7 @@ module.exports = [
     from: '/en/miscellaneous/waves-protocol/activation-protocol.html',
   },
   {
-    '=============================== !!! New Structure !!! =====================================': null,
+    /*=============================== !!! New Structure !!! =====================================*/
     from: '/en/getting-started/getting-started-for-users.html',
     to: 'http://docs.waves.exchange/en/',
   },
@@ -561,7 +557,7 @@ module.exports = [
     to: '/en/keep-in-touch/',
   },
   {
-    from: 'ru/overview/waves-official-resources.html',
+    from: '/ru/overview/waves-official-resources.html',
     to: '/ru/keep-in-touch/',
   },
   {
@@ -585,48 +581,76 @@ module.exports = [
     to: '/en/ride/script-performance-tests',
   },
   {
-    from: '/en/smart-contracts/(.)',
-    to: '/en/building-apps/smart-contracts/$1',
+    from: '/en/smart-contracts(.)',
+    to: '/en/building-apps/smart-contracts$1',
   },
   {
-    from: '/ru/smart-contracts/(.)',
-    to: '/ru/building-apps/smart-contracts/$1',
+    from: '/ru/smart-contracts(.)',
+    to: '/ru/building-apps/smart-contracts$1',
   },
   {
-    from: '/en/waves-api-and-sdk/(.)',
-    to: '/en/building-apps/waves-api-and-sdk/$1',
+    from: '/en/waves-api-and-sdk/en/waves-api-and-sdk/dex-api.html',
+    to: 'https://docs.waves.exchange/en/waves-matcher/matcher-api',
   },
   {
-    from: '/ru/waves-api-and-sdk/(.)',
-    to: '/ru/building-apps/waves-api-and-sdk/$1',
+    from: '/en/waves-api-and-sdk/dex-api/matcher.html',
+    to: 'https://docs.waves.exchange/en/waves-matcher/matcher-api',
   },
   {
-    from: '/en/waves-explorer/(.)',
-    to: '/en/ecosystem/waves-explorer/$1',
+    from: '/en/waves-api-and-sdk/client-api(.)',
+    to: 'https://docs.waves.exchange/en/waves-exchange/waves-exchange-client-api/',
   },
   {
-    from: '/ru/waves-explorer/(.)',
-    to: '/ru/ecosystem/waves-explorer/$1',
+    from: '/en/waves-api-and-sdk/waves-keeper-api.html',
+    to: 'https://docs.waves.exchange/en/waves-keeper/waves-keeper-api',
   },
   {
-    from: '/en/waves-oracles/(.)',
-    to: '/en/ecosystem/waves-oracles/$1',
+    from: '/en/waves-api-and-sdk/waves-data-service-api.html',
+    to: '/en/building-apps/waves-api-and-sdk/waves-data-service-api',
   },
   {
-    from: '/ru/waves-oracles/(.)',
-    to: '/ru/ecosystem/waves-oracles/$1',
+    from: '/en/waves-api-and-sdk/waves-gaming-api(.)',
+    to: '/en/building-apps/waves-api-and-sdk/waves-gaming-api$1',
   },
   {
-    from: '/en/waves-token-rating/(.)',
-    to: '/en/ecosystem/waves-token-rating/$1',
+    from: '/en/waves-api-and-sdk/client-libraries(.)',
+    to: '/en/building-apps/waves-api-and-sdk/client-libraries$1',
   },
   {
-    from: '/ru/waves-token-rating/(.)',
-    to: '/ru/ecosystem/waves-token-rating/$1',
+    from: '/en/waves-api-and-sdk/examples(.)',
+    to: '/en/building-apps/waves-api-and-sdk/examples$1',
   },
   {
-    from: '/en/recources/(.)',
-    to: '/en/keep-in-touch/resources/$1',
+    from: '/ru/waves-api-and-sdk(.)',
+    to: '/ru/building-apps/waves-api-and-sdk$1',
+  },
+  {
+    from: '/en/waves-explorer(.)',
+    to: '/en/ecosystem/waves-explorer$1',
+  },
+  {
+    from: '/ru/waves-explorer(.)',
+    to: '/ru/ecosystem/waves-explorer$1',
+  },
+  {
+    from: '/en/waves-oracles(.)',
+    to: '/en/ecosystem/waves-oracles$1',
+  },
+  {
+    from: '/ru/waves-oracles(.)',
+    to: '/ru/ecosystem/waves-oracles$1',
+  },
+  {
+    from: '/en/waves-token-rating(.)',
+    to: '/en/ecosystem/waves-token-rating$1',
+  },
+  {
+    from: '/ru/waves-token-rating(.)',
+    to: '/ru/ecosystem/waves-token-rating$1',
+  },
+  {
+    from: '/en/recources(.)',
+    to: '/en/keep-in-touch',
   },
   {
     from: '/en/miscellaneous/news-archive.html',
@@ -655,7 +679,7 @@ module.exports = [
   },
   {
     '===============================  Resources  ===================================': null,
-    to: '/en/keep-in-touch/resources/contributing',
+    to: '/en/keep-in-touch',
     from: '/en/contributing.html',
   }
 ];
