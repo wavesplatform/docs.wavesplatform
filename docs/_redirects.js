@@ -570,7 +570,7 @@ module.exports = [
   },
   {
     from: '/en/ride/about-ride.html',
-    to: '/en/ride,
+    to: '/en/ride',
   },
   {
     from: '/ru/ride/about-ride.html',
