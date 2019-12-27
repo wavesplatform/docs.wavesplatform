@@ -196,20 +196,20 @@ module.exports = [
   {
     /*===============================  Client  =====================================*/
     from: '/ru/waves-client(.)',
-    to: 'https://docs.waves.exchange/ru/',
+    to: 'https://docs.waves.exchange/ru',
   },
   {
     from: '/en/waves-client(.)',
-    to: 'https://docs.waves.exchange/en/',
+    to: 'https://docs.waves.exchange/en',
   },
   {
     /*===============================  DEX  =====================================*/
     from: '/ru/waves-dex(.)',
-    to: 'https://docs.waves.exchange/ru/',
+    to: 'https://docs.waves.exchange/ru',
   },
   {
     from: '/en/waves-dex(.)',
-    to: 'https://docs.waves.exchange/en/',
+    to: 'https://docs.waves.exchange/en',
   },
   {
     /*===============================  Keeper  =====================================*/
@@ -235,7 +235,7 @@ module.exports = [
   },
   {
     /*===============================  RIDE  =====================================*/
-    to: '/en/ride/',
+    to: '/en/ride',
     from: '/en/smart-contracts/ride-language/ride-language.html',
   },
   {
@@ -275,31 +275,31 @@ module.exports = [
     from: '/en/ride/ride-script-complexity.html',
   },
   {
-    to: '/en/ride/',
+    to: '/en/ride',
     from: '/en/technical-details/ride-language.html',
   },
   {
-    to: '/en/ride/',
+    to: '/en/ride',
     from: '/en/technical-details/waves-contracts-language-description.html',
   },
   {
-    to: '/en/ride/',
+    to: '/en/ride',
     from: '/en/technical-details/waves-contracts-language-description/approach-and-capabilities.html',
   },
   {
-    to: '/en/ride/',
+    to: '/en/ride',
     from: '/en/ride/effective-ride-examples.html',
   },
   {
-    to: '/en/ride/',
+    to: '/en/ride',
     from: '/en/technical-details/waves-contracts-language-description/language-description.html',
   },
   {
-    to: '/en/ride/',
+    to: '/en/ride',
     from:'/en/technical-details/waves-contracts-language-description/standard-library.html',
   },
   {
-    to: '/en/ride/',
+    to: '/en/ride',
     from: '/en/blockchain/script.html',
   },
   {
@@ -538,7 +538,7 @@ module.exports = [
   {
     /*=============================== !!! New Structure !!! =====================================*/
     from: '/en/getting-started/getting-started-for-users.html',
-    to: 'http://docs.waves.exchange/en/',
+    to: 'http://docs.waves.exchange/en',
   },
   {
     from: '/en/getting-started/getting-started-for-node-owners.html',
@@ -554,11 +554,11 @@ module.exports = [
   },
   {
     from: '/en/resources/contributing.html',
-    to: '/en/keep-in-touch/',
+    to: '/en/keep-in-touch',
   },
   {
     from: '/ru/overview/waves-official-resources.html',
-    to: '/ru/keep-in-touch/',
+    to: '/ru/keep-in-touch',
   },
   {
     from: '/en/glossary/glossary.html',
@@ -570,11 +570,11 @@ module.exports = [
   },
   {
     from: '/en/ride/about-ride.html',
-    to: '/en/ride/',
+    to: '/en/ride,
   },
   {
     from: '/ru/ride/about-ride.html',
-    to: '/ru/ride/',
+    to: '/ru/ride',
   },
   {
     from: '/en/smart-contracts/script-performance-tests.html',
@@ -598,7 +598,7 @@ module.exports = [
   },
   {
     from: '/en/waves-api-and-sdk/client-api(.)',
-    to: 'https://docs.waves.exchange/en/waves-exchange/waves-exchange-client-api/',
+    to: 'https://docs.waves.exchange/en/waves-exchange/waves-exchange-client-api',
   },
   {
     from: '/en/waves-api-and-sdk/waves-keeper-api.html',
