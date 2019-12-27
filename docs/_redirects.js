@@ -5,7 +5,7 @@ module.exports = [
     from: '/en/getting-started/as-a-developer.html',
   },
   {
-    '===============================  Blockchain  =====================================': null,
+    /*===============================  Blockchain  ==========================================*/
     to: '/en/blockchain/transaction-type/data-transaction',
     from: '/en/waves-environment/waves-protocol/data-transaction.html',
   },
@@ -14,16 +14,16 @@ module.exports = [
     from: '/en/blockchain/blockchain-height.html',
   },
   {
+    to: '/ru/blockchain/blockchain/blockchain-height',
+    from: '/ru/blockchain/blockchain-height.html',
+  },
+  {
     to: '/en/blockchain/transaction/transaction-validation',
     from: '/en/blockchain/transaction-validation.html',
   },
   {
     to: '/ru/blockchain/transaction/transaction-validation',
     from: '/ru/blockchain/transaction-validation.html',
-  },
-  {
-    to: '/en/blockchain/blockchain/blockchain-height',
-    from: '/en/blockchain/blockchain-height.html',
   },
   {
     to: '/en/blockchain/account/account-data-storage',
@@ -130,7 +130,7 @@ module.exports = [
     from: '/en/blockchain/waves-protocol/transactions-structure.html',
   },
   {
-    to: '/en/blockchain/transaction-data-structure',
+    to: '/en/blockchain/binary-format/transaction-binary-format',
     from: '/en/blockchain/transaction-type-data-structure.html',
   },
   {
@@ -158,7 +158,7 @@ module.exports = [
     from: '/en/blockchain/asset.html',
   },
   {
-    to:'/ru/blockchain/token.html',
+    to:'/ru/blockchain/token',
     from: '/ru/blockchain/asset.html',
   },
   {
@@ -174,15 +174,15 @@ module.exports = [
     from: '/ru/overview/waves-tokens.html',
   },
   {
-    to: '/en/blockchain/test-network',
+    to: '/en/blockchain/blockchain-network/test-network',
     from: '/en/blockchain/testnet.html',
   },
   {
-    to: '/en/blockchain/test-network',
+    to: '/en/blockchain/blockchain-network/test-network',
     from: '/en/blockchain/waves-testnet.html',
   },
   {
-    to: '/en/blockchain/transaction-fee',
+    to: '/en/blockchain/transaction/transaction-fee',
     from: '/en/blockchain/transaction/transactions-fees.html',
   },
   {
@@ -194,7 +194,7 @@ module.exports = [
     from: '/en/technical-details/data-transaction.html',
   },
   {
-    '===============================  Client  =====================================': null,
+    /*===============================  Client  =====================================*/
     from: '/ru/waves-client/(.)',
     to: 'https://docs.waves.exchange/ru/',
   },
@@ -203,7 +203,7 @@ module.exports = [
     to: 'https://docs.waves.exchange/en/',
   },
   {
-    '===============================  DEX  =====================================': null,
+    /*===============================  DEX  =====================================*/
     from: '/ru/waves-dex/(.)',
     to: 'https://docs.waves.exchange/ru/',
   },
@@ -212,7 +212,7 @@ module.exports = [
     to: 'https://docs.waves.exchange/en/',
   },
   {
-    '===============================  Keeper  =====================================': null,
+    /*===============================  Keeper  =====================================*/
     from: '/en/waves-keeper/(.)',
     to: 'https://docs.waves.exchange/en/waves-keeper',
   },
@@ -221,9 +221,9 @@ module.exports = [
     to: 'https://docs.waves.exchange/ru/waves-keeper',
   },
   {
-    '===============================  Matcher  =====================================': null,
+    /*===============================  Matcher  =====================================*/
     from: '/en/waves-api-and-sdk/dex-api/matcher.html',
-    to: '/en/waves-matcher/matcher-api',
+    to: 'https://docs.waves.exchange/en/waves-matcher/matcher-api',
   },
   {
     from: '/en/waves-node/extensions/matcher.html',
@@ -238,45 +238,45 @@ module.exports = [
     to: 'https://docs.waves.exchange/en/waves-matcher/matcher-settings',
   },
   {
-    '===============================  RIDE  =====================================': null,
+    /*===============================  RIDE  =====================================*/
     to: '/en/ride/',
     from: '/en/smart-contracts/ride-language/ride-language.html',
   },
   {
     to: '/en/ride/functions/annotations',
-    from: 'en/ride/annotations.html',
+    from: '/en/ride/annotations.html',
   },
   {
     to: '/ru/ride/functions/annotations',
-    from: 'ru/ride/annotations.html',
+    from: '/ru/ride/annotations.html',
   },
   {
     to: '/en/ride/structures',
-    from: 'en/ride/structures/built-in-structures.html',
+    from: '/en/ride/structures/built-in-structures.html',
   },
   {
     to: '/ru/ride/base-concepts/expression',
-    from: 'ru/ride/expression.html',
+    from: '/ru/ride/expression.html',
   },
   {
     to: '/ru/ride/base-concepts/definition',
-    from: 'ru/ride/definition.html',
+    from: '/ru/ride/definition.html',
   },
   {
     to: '/ru/ride/base-concepts/complexity',
-    from: 'ru/ride/ride-script-complexity.html',
+    from: '/ru/ride/ride-script-complexity.html',
   },
   {
     to: '/en/ride/base-concepts/expression',
-    from: 'en/ride/expression.html',
+    from: '/en/ride/expression.html',
   },
   {
     to: '/en/ride/base-concepts/definition',
-    from: 'en/ride/definition.html',
+    from: '/en/ride/definition.html',
   },
   {
     to: '/en/ride/base-concepts/complexity',
-    from: 'en/ride/ride-script-complexity.html',
+    from: '/en/ride/ride-script-complexity.html',
   },
   {
     to: '/en/ride/',
@@ -312,7 +312,7 @@ module.exports = [
   },
   {
     to: '/en/ride/functions/built-in-functions/converting-functions',
-    from:'/en/converting-functions.html',
+    from: '/en/converting-functions.html',
   },
   {
     to: '/ru/ride/functions/built-in-functions/math-functions',
@@ -356,30 +356,30 @@ module.exports = [
   },
   {
     to: '/en/ride/script/script-types/dapp-script',
-    from: '/en/ride/dapp-script.md',
+    from: '/en/ride/dapp-script.html',
   },
   {
     to: '/ru/ride/script/script-types/dapp-script',
-    from: '/ru/ride/ride-script/dapp-script.md',
+    from: '/ru/ride/ride-script/dapp-script.html',
   },
   {
     to: '/en/ride/script/script-types/account-script',
-    from: '/en/ride/ride-script/account-script.md',
+    from: '/en/ride/ride-script/account-script.html',
   },
   {
     to: '/ru/ride/script/script-types/account-script',
-    from: '/ru/ride/ride-script/account-script.md',
+    from: '/ru/ride/ride-script/account-script.html',
   },
   {
     to: '/ru/ride/script/script-types/asset-script',
-    from: '/ru/ride/ride-script/asset-script.md',
+    from: '/ru/ride/ride-script/asset-script.html',
   },
   {
     to: '/en/ride/script/script-types/asset-script',
-    from: '/en/ride/ride-script/asset-script.md',
+    from: '/en/ride/ride-script/asset-script.html',
   },
   {
-    '===============================  Smart contracts  =====================================': null,
+    /*===============================  Smart contracts  =====================================*/
     to:'/en/smart-contracts/what-is-a-dapp',
     from: '/en/smart-contracts/ride4dapps/overview.html',
   },
@@ -396,7 +396,7 @@ module.exports = [
     from: '/en/technical-details/smart-assets.html',
   },
   {
-    '===============================  Node  =====================================': null,
+    /*===============================  Node  =====================================*/
     to: '/en/waves-node/what-is-a-full-node',
     from: '/en/waves-full-node/what-is-a-full-node.html',
   },

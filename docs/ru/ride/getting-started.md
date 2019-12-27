@@ -10,13 +10,13 @@ Ride — простой, лаконичный и дружественный яз
 
 RIDE — это статически типизированный, ленивый, функциональный компилируемый язык программирования на основе выражений. Он является неполным по Тьюрингу, поскольку не имеет циклов и рекурсий (итерации можно реализовать с помощью макроса `FOLD`, см. ниже). Благодаря этому стоимость выполнения скрипта всегда известна заранее и код выполняется как задумано, без риска неудачных транзакций.
 
-## Disclaimer
+## Предупреждение
 
-Ride Standard Library (STDLIB) is under active development. At the time of publication, the most up-to-date version is STDLIB_VERSION 3, with STDLIB_VERSION 4 on the way. The brochure covers most of the projected features too. Those which are not part of STDLIB_VERSION 3 are marked with (*).
+Стандартная библиотека Ride (STDLIB) находится в стадии активной разработки. На момент публикации наиболее актуальной версией является STDLIB _VERSION 3, на подходе версия STDLIB_VERSION 4. Те объекты, которые появятся только в STDLIB_VERSION 4, ниже отмечены знаком (*).
 
 ## “Hello world!”
 
-Let’s start with a familiar example:
+Начнем со знакомого примера:
 
 ```scala
 func say() = {
@@ -24,9 +24,11 @@ func say() = {
 }
 ```
 
+Функции в Ride объявляются с помощью `func` (см. Далее ниже). Тип возвращаемого значения автоматически определяется компилятором, и объявлять его не нужно. В приведенном выше примере `say` возвращает строку `Hello World!`. В языке нет оператора `return`, потому что Ride основан на выражениях (все является выражением), а последний оператор является результатом функции.
+
 Functions in Ride are declared with `func` (see further below). Functions do have return types, this is inferred automatically by the compiler, so you don't have to declare them. In the case above the function say returns the string `Hello World!`. There is no `return` statement in the language because Ride is expression-based (everything is an expression), and the last statement is a result of the function.
 
-## Blockchain
+## Блокчейн
 
 Ride was created specifically for execution within a blockchain environment and is optimised for this purpose. Because the blockchain is a shared ledger, located on many computers all around the world, it works a little differently to conventional programming languages.
 
