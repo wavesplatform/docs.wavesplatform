@@ -181,6 +181,16 @@ module.exports = {
           title: 'Transaction proof binary format',
           path: blockchainPath + 'binary-format/transaction-proof-binary-format',
         },
+        {
+          title: 'Transaction protobuf scheme',
+          path: blockchainPath + 'binary-format/transaction-protobuf-scheme',
+          children: [
+            {
+              title: 'Update asset info transaction protobuf scheme',
+              path: blockchainPath + 'binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme',
+            }
+          ]
+        },
       ],
     },
     {
@@ -603,6 +613,10 @@ module.exports = {
       path: nodePath + 'node-api',
       children: [
         {
+          title: 'Request headers',
+          path: nodePath + 'node-api/headers',
+        },
+        {
           title: 'Address',
           path: nodePath + 'node-api/address',
         },
@@ -666,7 +680,7 @@ module.exports = {
 
   [ridePath]: [
     {
-      title: 'RIDE Programming Language',
+      title: 'Ride Programming Language',
       path: ridePath,
     },
     {
@@ -817,6 +831,11 @@ module.exports = {
         },
       ],
     },
+    {
+      title: 'FOLD<N> Macro',
+      path: ridePath + 'fold-macro',
+    },
+
     {
       title: 'Operators',
       path: ridePath + 'operators',
@@ -1193,8 +1212,8 @@ module.exports = {
               path: sdkPath + 'client-libraries/wavesrs',
             },
             {
-              title: 'Waves signature adapter',
-              path: sdkPath + 'client-libraries/waves-signature-adapter',
+              title: 'Waves Signer',
+              path: sdkPath + 'client-libraries/signer',
             },
             {
               title: 'Waves transactions',

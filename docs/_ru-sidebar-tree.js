@@ -127,6 +127,16 @@ module.exports = {
             },
           ],
         },
+        {
+          title: 'Protobuf-схема транзакции',
+          path: blockchainPath + 'binary-format/transaction-protobuf-scheme',
+          children: [
+             {
+               title: 'Protobuf-схема транзакции обновления информации ассета',
+               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme',
+             }
+          ],
+        },
       ],
     },
     {
@@ -462,7 +472,7 @@ module.exports = {
 
   [ridePath]: [
     {
-      title: 'O RIDE',
+      title: 'O Ride',
       path: ridePath,
     },
     {
@@ -490,6 +500,10 @@ module.exports = {
     {
       title: 'Константы',
       path: ridePath + 'constants',
+    },
+    {
+      title: 'Макрос FOLD<N>',
+      path: ridePath + 'fold-macro',
     },
     {
       title: 'Типы данных',

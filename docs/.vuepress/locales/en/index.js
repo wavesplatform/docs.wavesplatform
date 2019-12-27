@@ -36,8 +36,8 @@ module.exports = deepmerge(mixin, {
                 caption: 'Creating smart contract and distributed applications with Waves. Developer tools, APIs and SDKs.',
             },
             rideProgrammingLanguage: {
-                title: 'RIDE Programming Language',
-                caption: 'Syntax of RIDE. Script types. Build-in functions, operators and structures.',
+                title: 'Ride Programming Language',
+                caption: 'Syntax of Ride. Script types. Build-in functions, operators and structures.',
             },
             miscellaneous: {
                 title: 'Keep in Touch',

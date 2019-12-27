@@ -113,8 +113,8 @@ module.exports = deepmerge(mixin, {
             },
             rideProgrammingLanguage: {
                 rootLink: '/ru/building-apps/',
-                title: 'Язык программирования RIDE',
-                caption: 'Cинтаксис RIDE. Типы скриптов. Встроенные функции, операторы и структуры.',
+                title: 'Язык программирования Ride',
+                caption: 'Cинтаксис Ride. Типы скриптов. Встроенные функции, операторы и структуры.',
             },
             miscellaneous: {
                 rootLink: '/ru/keep-in-touch/',
