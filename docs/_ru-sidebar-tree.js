@@ -1039,7 +1039,7 @@ module.exports = {
       path: keepInTouchPath,
     },
     {
-      title: 'Обновления в&#0160;документации',
+      title: 'Обновления в документации',
       path: keepInTouchPath + 'docs-update',
     },
   ],

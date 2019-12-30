@@ -195,7 +195,7 @@ module.exports = {
               },
               {
                   title: 'Data transaction protobuf scheme',
-                  path: blockchainPath + 'inary-format/transaction-protobuf-scheme/data-transaction-protobuf-scheme',
+                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/data-transaction-protobuf-scheme',
               },
               {
                   title: 'Exchange transaction protobuf scheme',
@@ -234,9 +234,9 @@ module.exports = {
                   path: blockchainPath + 'binary-format/transaction-protobuf-scheme/transfer-transaction-protobuf-scheme',
               },
               {
-                title: 'Update asset info transaction protobuf scheme',
-                path: blockchainPath + 'binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme',
-              }
+                  title: 'Update asset info transaction protobuf scheme',
+                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme',
+              },
           ]
         },
       ],
