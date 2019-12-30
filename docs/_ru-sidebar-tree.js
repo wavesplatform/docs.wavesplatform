@@ -987,11 +987,11 @@ module.exports = {
 
   [keepInTouchPath]: [
     {
-      title: 'Keep in Touch',
+      title: 'Будьте в курсе',
       path: keepInTouchPath,
     },
     {
-      title: 'Documentation Updates',
+      title: 'Обновления в&#0160;документации',
       path: keepInTouchPath + 'docs-update',
     },
   ],

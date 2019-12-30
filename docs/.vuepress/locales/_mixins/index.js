@@ -114,12 +114,6 @@ module.exports = {
                 rootLink: '/en/ride/',
                 type: 'advanced',
                 iconFilePath: getRawIcon('./images/category5.svg'),
-                buttonSet: {
-                    gettingStarted: {
-                        text: 'Getting started',
-                        link: '/en/ride/getting-started'
-                    }
-                },
             },
             miscellaneous: {
                 rootLink: '/en/keep-in-touch/',

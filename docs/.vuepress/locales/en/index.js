@@ -38,6 +38,12 @@ module.exports = deepmerge(mixin, {
             rideProgrammingLanguage: {
                 title: 'Ride Programming Language',
                 caption: 'Syntax of Ride. Script types. Build-in functions, operators and structures.',
+                buttonSet: {
+                    gettingStarted: {
+                        text: 'Getting started',
+                        link: '/en/ride/getting-started'
+                    }
+                },
             },
             miscellaneous: {
                 title: 'Keep in Touch',

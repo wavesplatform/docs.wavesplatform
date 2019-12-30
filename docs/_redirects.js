@@ -134,7 +134,7 @@ module.exports = [
     from: '/en/blockchain/transaction-type-data-structure.html',
   },
   {
-    to: '/en/blockchain/waves-protocol/leased-proof-of-stake-lpos',
+    to: '/en/blockchain/leasing',
     from: '/en/waves-environment/waves-protocol/leased-proof-of-stake-lpos.html',
   },
   {
@@ -589,7 +589,7 @@ module.exports = [
     to: '/ru/building-apps/smart-contracts$1',
   },
   {
-    from: '/en/waves-api-and-sdk/en/waves-api-and-sdk/dex-api.html',
+    from: '/en/waves-api-and-sdk/dex-api.html',
     to: 'https://docs.waves.exchange/en/waves-matcher/matcher-api',
   },
   {

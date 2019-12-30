@@ -2,21 +2,23 @@
 
 ## Введение
 
-Ride — простой, лаконичный и дружественный язык для разработки смарт-контрактов и децентрализованных приложений (dApps) на платформе Waves. В нем устранены многие серьезные недостатки других популярных языков смарт-контрактов.
+Ride — лаконичный и дружественный язык для разработки смарт-контрактов и децентрализованных приложений (dApps) на платформе Waves. В нем устранены многие серьезные недостатки других популярных языков смарт-контрактов.
 
 Этот раздел содержит введение в Ride, примеры, описание дополнительных инструментов и ресурсов. Его изучение займет около часа.
 
 ## Общие сведения
 
-RIDE — это статически типизированный, ленивый, функциональный компилируемый язык программирования на основе выражений. Он является неполным по Тьюрингу, поскольку не имеет циклов и рекурсий (итерации можно реализовать с помощью макроса `FOLD`, см. ниже). Благодаря этому стоимость выполнения скрипта всегда известна заранее и код выполняется как задумано, без риска неудачных транзакций.
+RIDE — это компилируемый, функциональный, статически типизированный язык программирования на основе выражений. Он является неполным по Тьюрингу, поскольку не имеет циклов и рекурсий (итерации можно реализовать с помощью макроса `FOLD\<N\>`, см. ниже). Благодаря этому сложность скрипта известна заранее и комиссия за выполнение предсказуема, что позволяет предотвратить неудачные вызовы.
+
+Несмотря на простой синтаксис, Ride предоставляет множество возможностей разработчикам. Он во многом похож на Scala и отчасти на F#.
 
 ## Предупреждение
 
-Стандартная библиотека Ride (STDLIB) находится в стадии активной разработки. На момент публикации наиболее актуальной версией является STDLIB _VERSION 3, на подходе версия STDLIB_VERSION 4. Те объекты, которые появятся только в STDLIB_VERSION 4, ниже отмечены знаком (*).
+Стандартная библиотека Ride (STDLIB) находится в стадии активной разработки. На момент публикации наиболее актуальной версией является STDLIB_VERSION 3, на подходе версия STDLIB_VERSION 4. Те объекты, которые появятся только в STDLIB_VERSION 4, ниже отмечены знаком (*).
 
 ## “Hello world!”
 
-Начнем со знакомого примера:
+Начнем с базового примера:
 
 ```scala
 func say() = {
@@ -24,31 +26,27 @@ func say() = {
 }
 ```
 
-Функции в Ride объявляются с помощью `func` (см. Далее ниже). Тип возвращаемого значения автоматически определяется компилятором, и объявлять его не нужно. В приведенном выше примере `say` возвращает строку `Hello World!`. В языке нет оператора `return`, потому что Ride основан на выражениях (все является выражением), а последний оператор является результатом функции.
-
-Functions in Ride are declared with `func` (see further below). Functions do have return types, this is inferred automatically by the compiler, so you don't have to declare them. In the case above the function say returns the string `Hello World!`. There is no `return` statement in the language because Ride is expression-based (everything is an expression), and the last statement is a result of the function.
+Для объявления функций в Ride используется ключевое слово `func` (см. ниже). Тип возвращаемого значения автоматически определяется компилятором, и объявлять его не нужно. В приведенном выше примере `say` возвращает строку `Hello World!`. В языке нет оператора `return`, потому что Ride основан на выражениях (всё является выражением), а последний оператор является результатом функции.
 
 ## Блокчейн
 
-Ride was created specifically for execution within a blockchain environment and is optimised for this purpose. Because the blockchain is a shared ledger, located on many computers all around the world, it works a little differently to conventional programming languages.
+Ride разработан для выполнения на блокчейне и оптимизирован для этой цели. Поскольку блокчейн — это распределенный реестр, который хранится на множестве серверов по всему миру, функции Ride не могут обратиться к файловой системе или отобразить что-либо в консоли. Вместо этого функции Ride могут читать данные из блокчейна и возвращать транзакции, которые будут записаны в блокчейн.
 
-Since Ride is designed to be used inside the blockchain, there is no way to access the filesystem or display anything in the console. Instead, Ride functions can read data from the blockchain and return actions as a result, which can then be applied to the blockchain.
+## Комментарии
 
-## Comments
-
-You can add comments to your code much as you can with other languages such as Python:
+Комментарии в Ride похожи на комментарии в Python:
 
 ```scala
-# This is a comment line
+# Это комментарий
 
-# And there is no multiline comments
+# Многострочные комментарии не предусмотрены
 
-"Hello world!" # You can write comments like here
+"Hello world!" # Комментировать можно и так
 ```
 
-## Directives
+## Директивы
 
-Every Ride script should start with directives for the compiler. At the time of publication, there are three types of directive, with different possible values.
+Каждый скрипт на Ride должен начинаться с директив для компилятора. Предусмотрено три типа директив с различными возможными значениями.
 
 ```scala
 {-# STDLIB_VERSION 3 #-}
@@ -56,51 +54,53 @@ Every Ride script should start with directives for the compiler. At the time of 
 {-# SCRIPT_TYPE ACCOUNT #-}
 ```
 
-`STDLIB_VERSION` sets the version of the standard library. The latest version currently in production is 3.
+`STDLIB_VERSION` задает версию стандартной библиотеки. Последняя версия, доступная в Mainnet, — 3.
 
-`CONTENT_TYPE` sets the type of the file you're working on. There are different content types, `DAPP` and `EXPRESSION`. The `DAPP` type allows you to define functions and finish execution with certain transactions (changes to the blockchain), as well as using annotations. The `EXPRESSION` type should always return a boolean value, since it’s used as a predicate for transaction validation.
+`CONTENT_TYPE` определяет содержание скрипта:
+* Тип `DAPP` позволяет объявлять функции и в завершение выполнения скрипта записывать в блокчейн транзакции некоторых типов.
+* Тип `EXPRESSION` представляет собой логическое выражение и используется для валидации транзакций.
 
-`SCRIPT_TYPE` sets the entity type we want to add to the script to change its default behavior. Ride scripts can be attached to either an `ACCOUNT` or `ASSET`.
+`SCRIPT_TYPE` определяет тип объекта, к которому прикреплен скрипт: `ACCOUNT` or `ASSET`.
 
-Not all combinations of directives are correct. The example below won’t work, because `DAPP` content type is allowed only for accounts, while `EXPRESSION` type is allowed for assets and accounts.
+Не все комбинации директив допустимы. Следующий пример не будет работать, поскольку тип содержания `DAPP` допустим только для аккаунтов. Тип `EXPRESSION` применим как для аккаунтов, так и ассетов.
 
 ```scala
 {-# STDLIB_VERSION 3 #-}
 {-# CONTENT_TYPE DAPP #-}
-{-# SCRIPT_TYPE ASSET #-} # dApp content type is not allowed for an asset
+{-# SCRIPT_TYPE ASSET #-} # тип содержания dApp недопустим для ассетов
 ```
 
-## Variables
+## Переменные
 
-Variables are declared and initialized with the `let` keyword. This is the only way to declare variables in Ride.
+Для объявления переменных используется ключевое слово `let`, и это единственный способ объявить переменную.
 
 ```scala
 let a = "Bob"
 let b = 1
 ```
 
-All variables in Ride are immutable. This means you cannot change the value of a variable after declaration.
+Значения переменных в Ride недоступны для изменения.
 
-Ride is strongly typed and the variable's type is inferred from the value on the right hand side. 
+Ride строго типизирован, а тип переменной определяется исходя из значения.
 
-Ride allows you to define variables globally, inside any function, or even inside a variable definition.
+Ride позволяет вам определять переменные глобально, внутри любой функции или даже внутри определения переменной.
 
 ```scala
 func lazyIsGood() = {
   let a = "Bob"
   let b = {
      let x = 1
-     “Alice”
+     "Alice"
     }  
   true
 }
 ```
 
-The function above will compile and return true as a result, but variable `a` won't be initialized because Ride is lazy, meaning that any unused variables will not be calculated.
+Функция, определенная выше, возвращает значение `true`, но переменная `a` не будет инициализирована, поскольку в Ride ленивая инициализация: значения неиспользнуемых переменных не вычисляются.
 
-## Functions
+## Функции
 
-Functions in Ride can only be used after they are declared.
+Функции в Ride можно использовать только после их объявления.
 
 ```scala
 func greet(name: String) = {
@@ -113,26 +113,24 @@ func add(a: Int, b: Int) = {
 }
 ```
 
-The type (`Int`, `String`, etc) comes after the argument’s name.
+Тип аргумента (`Int`, `String`) указывается после имени.
 
-As in many other languages, functions should not be overloaded. It helps to keep the code simple, readable and maintainable.
+Как и во многих других языках, функции не могут быть перегружены. Это помогает сохранить код удобным для понимания и поддержки.
 
 ```scala
 func calc() = {
   42
 }
 
-func do() = { 
+func do() = {
   let a = calc()
   true
 }
 ```
 
-The `callable` function will not be called either, because variable a is unused.
+The `calс` не будет вызвана, так как переменная `a` не используется.
 
-Unlike most languages, variable shadowing is not allowed. Declaring a variable with a name that is already used in a parent scope will result in a compilation error.
-
-Functions should be defined before they are used.
+В отличие от большинства языков, переопределение переменных не допускается. Объявление переменной с именем, которое уже используется в родительской области видимости, приведет к ошибке компиляции.
 
 Functions can be invoked in prefix and postfix order:
 
@@ -141,15 +139,15 @@ let list = [1, 2, 3]
 let a1 = list.size()
 let a2 = size(list)
 
-let b1 = getInteger(this, “key”)
-let b2 = this.getInteger(“key”)
+let b1 = getInteger(this, "key")
+let b2 = this.getInteger("key")
 ```
 
 In these examples `a1` is the same as `a2` and `b1` is the same as `b2`. 
 
-## Basic types
+## Базовые типы
 
-The main basic types and examples are listed below:
+Основные базовые типы:
 
 ```scala
 Boolean    #   true
@@ -158,18 +156,20 @@ Int        #   1610
 ByteVector #   base58'...', base64'...', base16'...', fromBase58String("...") etc.
 ```
 
-We will explore Strings and special types further below.
+Мы рассмотрим строки и специальные типы.
 
-### Strings
+### Строки
 
 ```scala
 let name = "Bob"   # use "double" quotes only
-let coolName = name + " is cool!" # string concatenation by + sign
+let coolName = name + " is cool!" # для конкатенации строк используется +
 
 name.indexOf("o")  # 1
 ```
 
-Like other data structures in Ride, strings are immutable. String data is encoded using UTF-8.
+Как и другие типы данных в Ride, строки недоступны для изменения. Это означает, что ф`substring` function is very efficient: no copying is performed and no extra allocations are required.
+
+В строковых данных используется кодировка UTF-8.
 
 Only double quotes can be used to denote strings. Strings are immutable, just like all other types. This means that the `substring` function is very efficient: no copying is performed and no extra allocations are required.
 
