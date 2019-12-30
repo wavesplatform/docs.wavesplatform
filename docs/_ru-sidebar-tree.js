@@ -131,10 +131,58 @@ module.exports = {
           title: 'Protobuf-схема транзакции',
           path: blockchainPath + 'binary-format/transaction-protobuf-scheme',
           children: [
-             {
+            {
+               title: 'Protobuf-схема транзакции создания псевдонима',
+               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/alias-transaction-protobuf-scheme',
+            },
+            {
+               title: 'Protobuf-схема транзакции сжигания токена',
+               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/burn-transaction-protobuf-scheme',
+            },
+            {
+               title: 'Protobuf-схема транзакции данных',
+               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/data-transaction-protobuf-scheme',
+            },
+            {
+               title: 'Protobuf-схема транзакции обмена',
+               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/exchange-transaction-protobuf-scheme',
+            },
+            {
+               title: 'Protobuf-схема транзакции генезиса',
+               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/genesis-transaction-protobuf-scheme',
+            },
+            {
+               title: 'Protobuf-схема транзакции вызова скрипта',
+               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/invoke-script-transaction-protobuf-scheme',
+            },
+            {
+               title: 'Protobuf-схема транзакции выпуска',
+               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/issue-transaction-protobuf-scheme',
+            },
+            {
+               title: 'Protobuf-схема транзакции отмены лизинга',
+               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/lease-cancel-transaction-protobuf-scheme',
+            },
+            {
+               title: 'Protobuf-схема транзакции массового перевода',
+               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/mass-transfer-transaction-protobuf-scheme',
+            },
+            {
+               title: 'Protobuf-схема транзакции установки скрипта ассета',
+               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/set-asset-script-transaction-protobuf-scheme',
+            },
+            {
+               title: 'Protobuf-схема транзакции спонсирования',
+               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/sponsor-fee-transaction-protobuf-scheme',
+            },
+            {
+               title: 'Protobuf-схема транзакции перевода',
+               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/transfer-transaction-protobuf-scheme',
+            },
+            {
                title: 'Protobuf-схема транзакции обновления информации ассета',
                path: blockchainPath + 'binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme',
-             }
+             },
           ],
         },
       ],
@@ -882,11 +930,11 @@ module.exports = {
             },
           ],
         },
-        {
-          title: 'Статьи о dApps',
-          path: programmingPath + 'articles-on-dapps',
-        },
       ],
+    },
+    {
+      title: 'Статьи о dApps',
+      path: programmingPath + 'articles-on-dapps',
     },
     {
       title: 'Инструменты',

@@ -185,10 +185,58 @@ module.exports = {
           title: 'Transaction protobuf scheme',
           path: blockchainPath + 'binary-format/transaction-protobuf-scheme',
           children: [
-            {
-              title: 'Update asset info transaction protobuf scheme',
-              path: blockchainPath + 'binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme',
-            }
+              {
+                  title: 'Аlias transaction protobuf scheme',
+                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/alias-transaction-protobuf-scheme',
+              },
+              {
+                  title: 'Burn transaction protobuf scheme',
+                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/burn-transaction-protobuf-scheme',
+              },
+              {
+                  title: 'Data transaction protobuf scheme',
+                  path: blockchainPath + 'inary-format/transaction-protobuf-scheme/data-transaction-protobuf-scheme',
+              },
+              {
+                  title: 'Exchange transaction protobuf scheme',
+                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/exchange-transaction-protobuf-scheme',
+              },
+              {
+                  title: 'Genesis transaction protobuf scheme',
+                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/genesis-transaction-protobuf-scheme',
+              },
+              {
+                  title: 'Invoke script transaction protobuf scheme',
+                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/invoke-script-transaction-protobuf-scheme',
+              },
+              {
+                  title: 'Issue transaction protobuf scheme',
+                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/issue-transaction-protobuf-scheme',
+              },
+              {
+                  title: 'Lease cancel transaction protobuf scheme',
+                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/lease-cancel-transaction-protobuf-scheme',
+              },
+              {
+                  title: 'Mass transfer transaction protobuf scheme',
+                path: blockchainPath + 'binary-format/transaction-protobuf-scheme/mass-transfer-transaction-protobuf-scheme',
+              },
+              {
+                  title: 'Set asset script transaction protobuf scheme',
+                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/set-asset-script-transaction-protobuf-scheme',
+              },
+              {
+                  title: 'Sponsor fee transaction protobuf scheme',
+                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/sponsor-fee-transaction-protobuf-scheme',
+              },
+              {
+                  title: 'Transfer transaction protobuf scheme',
+                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/transfer-transaction-protobuf-scheme',
+              },
+              {
+                title: 'Update asset info transaction protobuf scheme',
+                path: blockchainPath + 'binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme',
+              }
           ]
         },
       ],
@@ -537,11 +585,11 @@ module.exports = {
           path: nodePath + 'options-for-getting-actual-blockchain/state-downloading-and-applying',
         },
         {
-          title: 'Import from the blockchain',
+          title: 'Import blockchain',
           path: nodePath + 'options-for-getting-actual-blockchain/import-from-the-blockchain',
         },
         {
-          title: 'Export to the blockchain',
+          title: 'Export blockchain',
           path: nodePath + 'options-for-getting-actual-blockchain/export-and-import-from-the-blockchain',
         },
       ],
@@ -1155,11 +1203,11 @@ module.exports = {
             },
           ],
         },
-        {
-          title: 'Articles on dApps',
-          path: programmingPath + 'articles-on-dapps',
-        },
       ],
+    },
+    {
+      title: 'Articles on Smart Contracts',
+      path: programmingPath + 'articles-on-dapps',
     },
     {
       title: 'Tools',

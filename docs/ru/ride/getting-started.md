@@ -132,7 +132,7 @@ The `calс` не будет вызвана, так как переменная `
 
 В отличие от большинства языков, переопределение переменных не допускается. Объявление переменной с именем, которое уже используется в родительской области видимости, приведет к ошибке компиляции.
 
-Functions can be invoked in prefix and postfix order:
+Вызовы функции могут быть префиксные или постфиксные:
 
 ```scala
 let list = [1, 2, 3]
@@ -143,7 +143,7 @@ let b1 = getInteger(this, "key")
 let b2 = this.getInteger("key")
 ```
 
-In these examples `a1` is the same as `a2` and `b1` is the same as `b2`. 
+В этом примере `a1` — то же самое, что и `a2`, а `b1` — то же самое, что и `b2`.
 
 ## Базовые типы
 
@@ -153,7 +153,7 @@ In these examples `a1` is the same as `a2` and `b1` is the same as `b2`.
 Boolean    #   true
 String     #   "Hey"
 Int        #   1610
-ByteVector #   base58'...', base64'...', base16'...', fromBase58String("...") etc.
+ByteVector #   base58'...', base64'...', base16'...', fromBase58String("...") и т. д.
 ```
 
 Мы рассмотрим строки и специальные типы.
@@ -162,135 +162,133 @@ ByteVector #   base58'...', base64'...', base16'...', fromBase58String("...") et
 
 ```scala
 let name = "Bob"   # use "double" quotes only
-let coolName = name + " is cool!" # для конкатенации строк используется +
+let coolName = name + " is cool!" # для конкатенации строк используется знак +
 
 name.indexOf("o")  # 1
 ```
 
-Как и другие типы данных в Ride, строки недоступны для изменения. Это означает, что ф`substring` function is very efficient: no copying is performed and no extra allocations are required.
+Как и другие типы данных в Ride, строки недоступны для изменения. Поэтому функция `substring` очень эффективна: не нужно ни копировать данные, ни выделять дополнительную память.
 
-В строковых данных используется кодировка UTF-8.
+В строковых данных используется кодировка UTF-8. Для обозначения строк используйте только двойные кавычки.
 
-Only double quotes can be used to denote strings. Strings are immutable, just like all other types. This means that the `substring` function is very efficient: no copying is performed and no extra allocations are required.
-
-All operators in Ride must have values of the same type on both sides. The following code will not compile because `age` is an `int`:
+С обеих сторон оператора в Ride должны быть указаны значения одного типа. Следующий код не компилируется, потому что `age` — целое число:
 
 ```scala
 let age = 21
 "Bob is " + age # won't compile
 ```
 
-To make it work we have to convert `age` to `string`:
+Чтобы исправить это, нужно преобразовать `age` в строку:
 
 ```scala
 let age = 21
 "Alice is " + age.toString() # will work!
 ```
 
-## Special types
+## Специальные типы
 
-Ride has few core types, which operate much as they do in Scala.
+В Ride есть несколько основных типов, которые работают так же, как и в Scala.
 
 ### Unit
 
-There is no `null` in Ride, as is the case in many other languages. Usually, built-in functions return unit value of type `unit` instead of `null`.
+В Ride нет типа `null`, как во многих других языках. Многие встроенные функции возвращают заначение типа `unit` вместо `null`.
 
 ```scala
 "String".indexOf("substring") == unit # true
 ```
 
-### Nothing
+### Ничто
 
-Nothing is the 'bottom type' of Ride’s type system. No value can be of type Nothing, but an expression of type Nothing can be used everywhere. In functional languages, this is essential for support for throwing an exception:
-
-```scala
-2 + throw() # the expression compiles because
-    # there's a defined function +(Int, Int).
-      # The type of the second operand is Nothing, 
-      # which complies to any required type.
-```
-
-### List
+Ничто — тривиальный тип в системе типов Ride. Ни одно значение не может быть типа «ничто», но выражение с типом «ничто» может использоваться где угодно. В функциональных языках это необходимо для поддержки исключений:
 
 ```scala
-let list = [16, 10, 1997, "birthday"]       # can contain different data types
-
-let second = list[1]                        # 10 - read second value from the list
+2 + throw() # это выражение компилируется, 
+    # поскольку определена функция +(Int, Int).
+      # Тип второго операнда — «ничто»,
+      # которое совместимо с любым другим типом.
 ```
 
-`List` doesn't have any fields, but there are functions in the standard library that make it easier to work with fields.
+### Список
+
+```scala
+let list = [16, 10, 1997, "birthday"]       # может содержать данные различных типов
+
+let second = list[1]                        # 10 — второе значение в списке
+```
+
+У списков нет полей, но функции стандартной библиотеки упрощают работу с ними.
 
 ```scala
 let list = [16, 10, 1997, "birthday"]
 
-let last = list[(list.size() - 1)] # "birthday", postfix call of size() function
+let last = list[(list.size() - 1)] # "birthday", постфиксный вызов функции size()
 
-let lastAgain = getElement(collection, size(collection) - 1) # the same as above
+let lastAgain = getElement(collection, size(collection) - 1) # то же самое
 ```
 
-`.size()` function returns the length of a list. Note that it's a read-only value, and it cannot be modified by the user. (Note also that `last` could be of more than one type, but this is only inferred when the variable is set.)
+Функция `.size()` возвращает длину списка. Обратите внимание: это значение доступно только для чтения и не может быть изменено. Кстати, `last` может быть разного типа: тип определяется только после того, как вычислено значение.
 
 ```scala
 let initList = [16, 10]                   # init value
 let newList = cons(1997, initList)        # [1997, 16, 10]
 let newList2 = 1997 :: initList           # [1997, 16, 10]
-let newList2 = initList :+ 1              # [16, 10, 1](* Available in STDLIB_VERSION 4)
+let newList2 = initList :+ 1              # [16, 10, 1](* Доступно в STDLIB_VERSION 4)
 let newList2 = [4, 8, 15, 16] ++ [23, 42]     # [4 8 15 16 23 42](*)
 ```
 
-- To prepend an element to an existing list, use the cons function or :: operator 
-- To append an element, use the :+ operator (*)
-- To concatenate 2 lists, use the ++ operator (*)
+- Чтобы добавить элемент в начало списка, используйте функцию `cons` или оператор `::`.
+- Чтобы добавить элемент в конец списка, используйте оператор `:+` (*)
+- Чтобы объединить два списка, используйте оператор `++` (*)
 
-### Union types & Type Matching
+### Union-типы. Сравнение типов
 
 ```scala
 let valueFromBlockchain = getString("3PHHD7dsVqBFnZfUuDPLwbayJiQudQJ9Ngf", "someKey") # Union(String | Unit)
 ```
 
-Union types are a very convenient way to work with abstractions. `Union(String | Unit)` shows that the value is an intersection of these types.
+Union-типы — это удобный способ работы с абстракциями. `Union(String | Unit)` означает, что результат представляет собой пресечение этих типов.
 
-The simplest example of `Union` types is given below (please bear in mind that defining custom user types in dApp code will be supported in future versions):
+Простой пример (пожалуйста, имейте в виду, что определение пользовательских типов будет поддерживаться в следующих версиях Ride):
 
 ```scala
 type Human : { firstName: String, lastName: String, age: Int}
 type Cat : {name: String, age: Int }
 ```
 
-`Union(Human | Cat)` is an object with one field, `age`, but we can use pattern matching:
+`Union(Human | Cat)` — объект с одним полем `age`:
 
 ```scala
 Human | Cat => { age: Int }
 ```
 
-Pattern matching is designed to check a value against value type:
+Сравнение типов:
 
 ```scala
   let t = ...               # Cat | Human
   t.age                     # OK
-  t.name                    # Compiler error
+  t.name                    # Ошибка компиляции
   let name = match t {      # OK
     case h: Human => h.firstName
     case c: Cat   => c.name
   }
 ```
 
-Type matching is a mechanism for:
+Механизм сравнения типов используется для работы с транзакциями:
 
 ```scala
-let amount = match tx {              # tx is a current outgoing transaction
+let amount = match tx {              # tx — исходящая транзакция
   case t: TransferTransaction => t.amount
   case m: MassTransferTransaction => m.totalAmount
   case _ => 0
 }
 ```
 
-The code above shows an example of type matching. There are different types of transactions in Waves, and depending on the type, the real amount of transferred tokens can be stored in different fields. If a transaction is `TransferTransaction` or `MassTransferTransaction` we use the corresponding field, while in all other cases, we will get 0.
+В Waves есть несколько типов транзакций, и в зависимости от типа количество переводимых токенов может быть указано в разных полях. Для транзакций перевода и массового перевода используется значение соответствующего поля, а в остальных случаях — 0.
 
-## State reader functions
+## Функции чтения состояния
 
 ```scala
-let readOrZero = match getInteger(this, "someKey") { # reading data from state
+let readOrZero = match getInteger(this, "someKey") { # чтение данных состояния
     case a:Int => a
     case _ => 0
 }
@@ -298,44 +296,42 @@ let readOrZero = match getInteger(this, "someKey") { # reading data from state
 readOrZero + 1
 ```
 
-`getString` returns `Union(String | Unit)` because while reading data from the blockchain (the key-value state of accounts) some key-value pairs may not exist.
+`getString` возвращает `Union(String | Unit)`, поскольку при чтении данных блокчейна (состояние аккаунтов в виде ключ-значение) некоторые пары ключ-значение могут не существовать.
 
 ```scala
 let v = getInteger("3PHHD7dsVqBFnZfUuDPLwbayJiQudQJ9Ngf", "someKey")
-v + 1    # doesn’t compile, forcing a developer to foresee the possibility of non-existing value for the key
+v + 1    # приведет к ошибке компиляции, нужно предусмотреть возможность отсутствия значения по этому ключу
 
-v.valueOrErrorMessage(“oops”) +  1 # compiles and executes
+v.valueOrErrorMessage(“oops”) +  1 # компилируется и выполняется
 
 let realStringValue2 = getStringValue(this, "someKey")
 ```
 
-To get the real type and value from Union use the `extract` function, which will terminate the script in case of `Unit` value. Another option is to use specialized functions like `getStringValue`, `getIntegerValue`, etc.
+Чтобы получить реальный тип и значение из Union-типа, используйте функцию `extract`, которая прервет выполнение скрипта в случае значения `Unit`. Другой вариант — используйте специализированные функции, такие как `getStringValue`, `getIntegerValue` и др.
 
 ## If
 
 ```scala
 let amount = 1610
-if (amount > 42) then "I claim that amount is bigger than 42"
-  else if (amount > 100500) then "Too big!"
-  else "I claim something else"
+if (amount > 42) then "Сумма больше 42"
+  else if (amount > 100500) then "Сумма слишком большая"
+  else "Что-то еще"
 ```
 
-`if` statements are pretty straightforward and similar to most other languages, with an important difference from some: `if` is an expression, so it must have an `else` clause (the result is assignable to a variable).
+Инструкция `if` довольно проста и похожа на большинство других языков, с двумя исключениями: `if` — это выражение (результат можно присвоить переменной), поэтому инструкция `else` обязательна.
 
 ```scala
 let a = 16
 let result = if (a > 0) then a / 10 else 0 #
 ```
 
-## Exceptions
+## Исключения
 
 ```scala
 throw("Here is exception text")
 ```
 
-The `throw` function will terminate script execution immediately, with the provided text. There is no way to catch thrown exceptions.
-
-The idea of `throw` is to stop execution and send useful feedback to the user.
+Фнкция `throw` прерывает выполнение скрипта немедленно, с указанным текстом. Возможность перехватывать и обрабатывать исключения отсутствует. Идея в том, чтобы остановить выполнение и предоставить полезную обратную связь пользователю.
 
 ```scala
 let a = 12
@@ -344,31 +340,31 @@ if (a != 100) then
   else throw("A is 100")
 ```
 
-## Predefined data structures
+## Предопределенные структуры данных
 
 \#**LET THE HOLY WAR BEGIN**
 
-Ride has many predefined data structures specific to the Waves blockchain, such as: `Address`, `Alias`, `DataEntry`, `ScriptResult`, `Invocation`, `ScriptTransfer`, `TransferSet`, `WriteSet`, `AssetInfo`, `BlockInfo`.
+В Ride есть много предопределенных структур данных, характерных для блокчейна Waves, например: `Address`, `Alias`, `DataEntry`, `ScriptResult`, `Invocation`, `ScriptTransfer`, `TransferSet`, `WriteSet`, `AssetInfo`, `BlockInfo`.
 
 ```scala
 let keyValuePair = DataEntry("someKey", "someStringValue")
 ```
 
-For example, `DataEntry` is a data structure which describes a key-value pair, e.g. for account storage.
+Например, `DataEntry` — это структура, которая описывает пару ключ-значение, например, для хранилища данных аккаунта.
 
 ```scala
 let transferSet = TransferSet([ScriptTransfer("3P23fi1qfVw6RVDn4CH2a5nNouEtWNQ4THs", amount, unit)])
 ```
 
-All data structures can be used for type checking, pattern matching and their constructors as well.
+Все структуры данных могут использоваться для сравнения типов, а также как конструкторы.
 
-## Loops with FOLD\<N\>
+## Итерации с макросом FOLD\<N\>
 
-Since Ride’s virtual machine doesn’t have any concept of loops, they are implemented at compiler level via the FOLD\<N\> macro. The macro behaves like the ‘fold’ function in other programming languages, taking the input arguments: collection for iteration, starting values of the accumulator and folding function.
+Поскольку в виртуальной машине Ride не предусмотрены циклы, они реализованы на уровне компилятора с помощью макроса FOLD\<N\>. Этот макрос ведет себя как функция свертки `fold` в других языках программирования, принимая на вход количество итераций, начальные значения и сворачиваемую функцию.
 
-The important aspect is N - the maximum amount of interactions over collections. This is necessary for maintaining predictable computation costs.
+Важный момент: `N` задает максимальное количество выполняемых итераций. Это необходимо для поддержания предсказуемой стоимости вычислений.
 
-This code sums the numbers of the array:
+Следующий код подсчитывает сумму числе в массиве:
 
 ```scala
 let a = [1, 2, 3, 4, 5]
@@ -376,23 +372,23 @@ func foldFunc(acc: Int, e: Int) = acc + e
 FOLD<5>(a, 0, foldFunc) # returns 15
 ```
 
-`FOLD\<N\>` can also be used for filtering, mapping, and other operations. Here’s an example for map with reverse:
+`FOLD\<N\>` также может использоваться для фильтрации и преобразования данных. Вот пример инвертирования списка:
 
 ```scala
 let a = [1, 2, 3, 4, 5]
 func foldFunc(acc: List[Int], e: Int) = (e + 1) :: acc
-FOLD<5>(a, [], foldFunc) # returns [6, 5, 4, 3, 2]
+FOLD<5>(a, [], foldFunc) # возврашает [6, 5, 4, 3, 2]
 ```
 
-## Annotations
+## Аннотации
 
-Functions can be without annotations, or with `@Callable` or `@Verifier` annotations.
+Функции могут быть объявлены без аннотаций либо с аннотацией `@Callable` или `@Verifier`.
 
 ```scala
 func getPayment(i: Invocation) = {
-  let pmt = i.payment.valueOrErrorMessage(“Payment must be attached”)
+  let pmt = i.payment.valueOrErrorMessage(“Необходимо прикрепить платеж”)
   if (isDefined(pmt.assetId)) then 
-    throw("This function accepts waves tokens only")
+    throw("Эта функция принимает только WAVES")
   else
     pmt.amount
 }
@@ -404,21 +400,9 @@ func pay() = {
 }
 ```
 
-Annotations can bind some values to the function. In the example above, variable `i` was bound to the function `pay` and stored all the information about the fact of invocation (the caller’s public key, address, payment attached to the transaction, fee, transactionId etc.).
+Аннотации могут привязывать к функции некоторые значения. В примере выше переменная `i` привязана к функции `pay` и хранит всю информацию о вызове функции: публичный ключ и адрес аккаунта, вызвавшего функцию; платеж, прикрепленный к транзакции вызова; комиссия; идентификатор транзакции и др.
 
-Functions without annotations are not available from the outside. You can call them only inside other functions.
-
-```scala
-@Verifier(tx)
-func verifier() = {
-  match tx {
-    case m: TransferTransaction => tx.amount <= 100 # can send up to 100 tokens
-    case _ => false
-  }
-}
-```
-
-### @Verifier annotation
+Функции без аннотаций недоступны извне. Вызвать их можно только из других функций скрипта.
 
 ```scala
 @Verifier(tx)
@@ -430,11 +414,23 @@ func verifier() = {
 }
 ```
 
-A function with the `@Verifier` annotation sets the rules for outgoing transactions of a decentralized application (dApp). Verifier functions cannot be called from the outside, but they are executed every time an attempt is made to send a transaction from a dApp.
+### Аннотация @Verifier
 
-Verifier functions should always return a `Boolean` value as a result, depending on which a transaction will be recorded to the blockchain or not.
+```scala
+@Verifier(tx)
+func verifier() = {
+  match tx {
+    case m: TransferTransaction => tx.amount <= 100 # можно отправить до 100 токенов
+    case _ => false
+  }
+}
+```
 
-Expression scripts (with directive `{-# CONTENT_TYPE EXPRESSION #-}`) along with functions annotated by @Verifier should always return a boolean value. Depending on that value the transaction will be accepted (in case of `true`) or rejected (in case of `false`) by the blockchain.
+Функция с аннотацией `@Verifier` устанавливает правила валидации исходящих транзакций (dApp). Функция верификации не может быть вызвана извне, однако она выполняется при каждой попытке отправить транзакцию из dApp.
+
+Функция верификации должна возвращать логическое значение: разрешено отправить транзакцию в блокчейн или нет.
+
+Скрипты-выражения с директивой `{-# CONTENT_TYPE EXPRESSION #-}` и функции верификации с аннотацией `@Verifier` всегда должны возвращать только логические значения. В зависимости от этого значения транзакция будет принята (если `true`) или отклонена (если `false`).
 
 ```scala
 @Verifier(tx)
@@ -444,13 +440,13 @@ func verifier() = {
 }
 ```
 
-The Verifier function binds variable `tx`, which is an object with all fields of the current outgoing transaction.
+С функцией верификации связана переменная `tx`, которая представляет собой объект с с полями текущей исходящей транзакции.
 
-A maximum of one `@Verifier()` function can be defined in each dApp script.
+В dApp-скрипте может быть только одна функция верификации.
 
-### @Callable annotation
+### Аннотация @Callable
 
-Functions with the `@Callable` annotation can be called (or invoked) from outside of the blockchain. To call a callable function you have to send `InvokeScriptTransaction`.
+Функция с аннотацией `@Callable` может быть вызвана извне блокчейна. Чтобы вызвать функцию, нужно создать транзакцию вызова скрипта.
 
 ```scala
 @Callable(i)
@@ -462,7 +458,7 @@ func giveAway(age: Int) = {
 }
 ```
 
-Every caller of `giveAway` function will receive as many WAVES as his age and the dApp will store information about the fact of the transfer in its state.
+Каждый аккаунт, вызвавший функцию `giveAway`, получит столько WAVES, сколько ему лет, и dApp сохранит информацию об это в своем хранилище данных.
 
 <!--
 
