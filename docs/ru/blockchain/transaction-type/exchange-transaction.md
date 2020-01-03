@@ -1,7 +1,7 @@
-# Exchange transaction
+# Транзакция обмена
 
-An **exchange transaction** is a [transaction](/blockchain/transaction.md) that exchanges two different [tokens](/blockchain/token.md) among two [accounts](/blockchain/account.md).
+**Транзакция обмена** — [транзакция](/blockchain/transaction.md), которая обменивает два различных [токена](/blockchain/token.md) между двумя [аккаунтами](/blockchain/account.md).
 
-## Binary format
+## Бинарный формат
 
-See the page [Exchange transaction binary format](/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format.md).
+Смотрите страницу [Бинарный формат транзакции обмена](/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format.md).

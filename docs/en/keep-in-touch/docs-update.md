@@ -1,6 +1,52 @@
-# Documentation updates
+# News
+
+## December articles
+
+### Blockchain network
+
+* [Stage network](blockchain/blockchain-network/stage-network.md)
+
+### Blockchain
+
+* Block
+  * Block generation
+    * [Generation signature](blockchain/block/block-generation/generation-signature.md)
+
+* Transaction type
+  * [Update asset info transaction](blockchain/transaction-type/update-asset-info-transaction.md)
+
+* Binary format
+  * Transaction protobuf scheme
+    * [Asset info update transaction protobuf scheme](blockchain/binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme.md)
+
+### Ride
+
+* [FOLD<N> Macro](ride/fold-macro.md)
+* Structures
+  * Common structures
+    * [BinaryEntry](ride/structures/common-structures/binary-entry.md)
+    * [BooleanEntry](ride/structures/common-structures/boolean-entry.md)
+    * [Burn](ride/structures/common-structures/burn.md)
+    * [DeleteKey](ride/structures/common-structures/delete-key.md)
+    * [IntEntry](ride/structures/common-structures/int-entry.md)\
+    * [Issue](ride/structures/common-structures/issue.md)
+    * [Reissue](ride/structures/common-structures/reissue.md)
+    * [StringEntry](ride/structures/common-structures/string-entry.md)
+
+  * Transaction structures
+    * [UpdateAssetInfoTransaction](ride/structures/transaction-structures/update-asset-info-transaction.md)
+
+### Node API
+
+* [Request headers](waves-node/node-api/headers.md)
+
+### API & SDK
+
+* [Signer](/waves-api-and-sdk/client-libraries/signer.md)
 
 ## November articles
+
+### Smart contracts
 
 * [What is a Smart Account](smart-contracts/what-is-smart-account.md)
 * [Creating smart account](smart-contracts/how-to-create-smart-account.md)

@@ -1,33 +1,31 @@
-# Token management
+# Управление токеном
 
-Open the token dashboard by hitting **My tokens** at the top-right menu.
+Откройте панель управления токенами, выбрав **Мои токены** в правом верхнем углу экрана.
 
-![](./_assets/dashboard_en.png)
+![](/waves-token-rating/img/dashboard_ru.png)
 
-Available options for token:
+Для управления токеном доступны следующие действия:
 
-* [Add ticker](#ticker)
-* [Add link to the website](#website)
-* [Add additional information](#additional)
+* Добавить тикер
+* Добавить ссылку на сайт
+* Ввести дополнительное описание
 
-## Add ticker <a id="ticker"></a>
+## Добавить тикер <a id="ticker"></a>
 
-A ticker is a token’s unique identifier, used by exchanges and users as a currency code.
+Тикер — уникальный идентификатор токена, который используется на биржах.
 
-If the token has a ticker, it is easier to remember, easier to find and more readable to display on the exchange. Without the ticker, the trade pair string may not be displayed  properly, for example:
+Если у токена есть тикер, то его легче запомнить, проще найти и он удобнее отображается на бирже. Без тикера не всегда можно видеть строку торговой пары, например:
 
-![](./_assets/with_or_without_ticker.png)
+![](/waves-token-rating/img/with_or_without_ticker.png)
 
-If your token has a high rating, WCT weight, and votes sum, you can create a ticker for that token for the exchange. The ticker should be unique within the Waves ecosystem and consist of up to six uppercase characters. After adding a ticker, it is not possible to edit or change it. The created ticker can not be used for other tokens.
+Если ваш токен имеет высокий рейтинг, общий вес и большое количество голосов, то вы также можете создать для него свой биржевой тикер. Тикер должен быть уникальным в рамках экосистемы Waves и состоять максимум из 6 заглавных латинских букв. После того как тикер добавлен, изменить или удалить его невозможно. Данный тикер больше нельзя будет использовать для других токенов.
 
-## Add link to the website <a id="website"></a>
+## Добавить ссылку на сайт <a id="website"></a>
 
-You can add a link to the website of your token or project.
+Вы можете добавить ссылку на сайт вашего проекта или токена.
 
-This information will only be displayed on the Token Rating token card. You can always change the link.
+Ссылка на сайт отображается только в рамках Token Rating на карточке токена. Вы всегда можете поменять ссылку на сайт при необходимости.
 
-## Add additional information <a id="additional"></a>
+## Ввести дополнительное описание <a id="additional"></a>
 
-If the description you specified when issued the token is obsolete, or if you want to extend it by specifying additional information about your token or project, you can add an additional description.
-
-This information will only be displayed on the Token Rating token card, along with a description from the token issue transaction. You can always change this information.
+Если описание, которое вы указали при выпуске токена, уже неактуально, или вы просто хотите расширить его, указав дополнительные сведения о вашем проекте или токене, то вы можете внести дополнительное описание. Эта информация отображается только в рамках Token Rating на карточке токена, наряду с описанием из транзакции выпуска токена. Вы всегда можете обновить эту информацию.

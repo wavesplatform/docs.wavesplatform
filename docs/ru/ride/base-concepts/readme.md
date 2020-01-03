@@ -1,5 +1,5 @@
-# Base concepts
+# Базовые понятия
 
-* [Complexity](/ride/base-concepts/complexity.md)
-* [Definition](/ride/base-concepts/definition.md)
-* [Expression](/ride/base-concepts/expression.md)
+* [Выражение](/ride/base-concepts/expression.md)
+* [Определение](/ride/base-concepts/definition.md)
+* [Сложность](/ride/base-concepts/complexity.md)

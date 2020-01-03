@@ -1,61 +1,61 @@
-# Operators
+# Операторы
 
-## Arithmetic operators
+## Арифметические операторы
 
-| # | Symbol | Operator |
+| № | Символ | Оператор |
 | :--- | :---: | :--- |
-| 1 | + | Addition |
-| 2 | - | Subtraction |
-| 3 | \* | Multiplication |
-| 4 | / | Division |
-| 5 | % | Remainder |
+| 1 | + | Оператор сложения |
+| 2 | - | Оператор вычитания |
+| 3 | * | Оператор умножения |
+| 4 | / | Оператор деления |
+| 5 | % | Оператор нахождения остатка от деления |
 
-## Comparison operators
+## Операторы сравнения
 
-| # | Symbol | Operator |
+| № | Символ | Оператор |
 | :--- | :---: | :--- |
-| 1 | &lt; | Less than |
-| 2 | &gt; | Greater than |
-| 3 | &lt;= | Less than or equal |
-| 4 | &gt;= | Greater than or equal |
+| 1 | < | Меньше чем |
+| 2 | > | Больше чем |
+| 3 | <= | Меньше или равно |
+| 4 | >= | Больше или равно |
 
-## Equality operators
+## Операторы равенства
 
-| # | Symbol | Operator |
+| № | Символ | Оператор |
 | :--- | :---: | :--- |
-| 1 | == | Equality |
-| 2 | != | Inequality |
+| 1 | == | Равенства |
+| 2 | != | Неравенства |
 
-## Local definition operators
+## Операторы локального определения
 
-| # | Keyword | Operator |
+| № | Ключевое слово | Оператор |
 | :--- | :---: | :--- |
-| 1 | let | Variable local definition operator |
-| 2 | func | Function local definition operator |
+| 1 | let | Локального определения переменной |
+| 2 | func | Локального определения функции |
 
-## Conditional operators
+## Операторы выбора
 
-| # | Keyword | Operator |
+| № | Ключевое слово | Оператор |
 | :--- | :---: | :--- |
 | 1 | if-then-else | if-then-else |
 | 2 | match-case | match-case |
 
-## List constructor operator
+## Оператор конструктора списка
 
-| # | Symbol | Operator |
+| № | Символ | Оператор |
 | :--- | :---: | :--- |
-| 1 | :: | List constructor operator |
+| 1 | :: | Конструктора списка |
 
-## Unary operators
+## Унарные операторы
 
-| # | Symbol | Operator |
+| № | Символ | Оператор |
 | :--- | :---: | :--- |
-| 1 | - | Unary minus |
-| 2 | ! | Logical negation |
+| 1 | - | Унарный минус |
+| 2 | ! | Логическое отрицание |
 
-## Logical operators
+## Логические операторы
 
-| # | Symbol | Operator |
+| № | Символ | Оператор |
 | :--- | :---: | :--- |
-| 1 | && | Logical AND |
-| 2 | &#124;&#124; | Logical OR |
+| 1 | && | Логическое И |
+| 2 | &#124;&#124; | Логическое ИЛИ |

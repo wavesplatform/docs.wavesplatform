@@ -2,16 +2,46 @@
 
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
-| 1 | [drop(String, Int): String](#drop) | Drops the first `n` characters of a string | 1 |
-| 2 | [dropRight(String, Int): String](#drop-right) | Drops the last `n` characters of a string | 19 |
-| 3 | [indexOf(String, String): Int&#124;Unit](#index-of-string) | Returns the index of the first occurrence of a substring | 20 |
-| 4 | [indexOf(String, String, Int): Int&#124;Unit](#index-of-string-int) | Returns the index of the first occurrence of a substring after a certain index | 20 |
-| 5 | [size(String): Int](#size) | Returns the size of a string | 1 |
-| 6 | [split(String, String): List[String]](#split) | Splits a string delimited by a separator into a list of substrings | 100 |
-| 7 | [take(String, Int): String](#take) | Takes the first `n` characters from a string | 1 |
-| 8 | [takeRight(String, Int): String](#take-right) | Takes the last `n` characters from a string | 19 |
+| 1 | [contains(String, String): Boolean](#contains) | Checks whether the string contains substring | 20 |
+| 2 | [drop(String, Int): String](#drop) | Drops the first `n` characters of a string | 1 |
+| 3 | [dropRight(String, Int): String](#drop-right) | Drops the last `n` characters of a string | 19 |
+| 4 | [indexOf(String, String): Int&#124;Unit](#index-of-string) | Returns the index of the first occurrence of a substring | 20 |
+| 5 | [indexOf(String, String, Int): Int&#124;Unit](#index-of-string-int) | Returns the index of the first occurrence of a substring after a certain index | 20 |
+| 6 | [size(String): Int](#size) | Returns the size of a string | 1 |
+| 7 | [split(String, String): List[String]](#split) | Splits a string delimited by a separator into a list of substrings | 100 |
+| 8 | [take(String, Int): String](#take) | Takes the first `n` characters from a string | 1 |
+| 9 | [takeRight(String, Int): String](#take-right) | Takes the last `n` characters from a string | 19 |
 
-## drop(String, Int): Str
+## contains(String, String): Boolean<a id="contains"></a>
+
+Checks whether the string contains substring.
+
+``` ride
+drop(haystack: String, needle: String): Boolean
+```
+
+### Parameters
+
+#### `haystack`: String
+
+String to search in.
+
+#### `needle`: String
+
+String to search for.
+
+### Examples
+
+```ride
+{-# STDLIB_VERSION 4 #-}
+{-# CONTENT_TYPE DAPP #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+  
+"hello".contains("hell") # Возвращает true
+"hello".contains("world") # Возвращает false
+```
+
+## drop(String, Int): Str<a id="drop"></a>
 
 Drops the first `n` characters of a string.
 
@@ -39,7 +69,7 @@ drop("Apple", 5) # Returns an empty string
 drop("Apple", 15) # Returns an empty string
 ```
 
-## dropRight(String, Int): String
+## dropRight(String, Int): String<a id="drop-right"></a>
 
 Drops the last `n` characters of a string.
 
@@ -67,7 +97,7 @@ dropRight("Apple", 5) # Returns an empty string
 dropRight("Apple", 15) # Returns an empty string
 ```
 
-## indexOf(String, String): Int|Unit
+## indexOf(String, String): Int|Unit<a id="index-of-string"></a>
 
 Returns the index of the first occurrence of a substring.
 
@@ -93,7 +123,7 @@ indexOf("Apple","le") # Returns 4
 indexOf("Apple","e") # Returns 5
 ```
 
-## indexOf(String, String, Int): Int|Unit
+## indexOf(String, String, Int): Int|Unit<a id="index-of-string-int"></a>
 
 Returns the index of the first occurrence of a substring after a certain index.
 
@@ -145,7 +175,7 @@ size("Appl") # Returns 4
 size("Apple") # Returns 5
 ```
 
-## split(String, String): List[String]
+## split(String, String): List[String]<a id="split"></a>
 
 Splits a string delimited by a separator into a list of substrings.
 
@@ -172,7 +202,7 @@ split("Apple", "") # Returns ["A", "p", "p", "l", "e"]
 split("Ap.ple", ".") # Returns ["Ap","ple"]
 ```
 
-## take(String, Int): String
+## take(String, Int): String<a id="take"></a>
 
 Takes the first `n` characters from a string.
 
@@ -201,7 +231,7 @@ take("Apple", 15) # Returns "Apple"
 take("Apple", -10) # Returns an empty string
 ```
 
-## takeRight(String, Int): String
+## takeRight(String, Int): String<a id="take-right"></a>
 
 Takes the last `n` characters from a string.
 

@@ -1,20 +1,20 @@
 # Reissue
 
 > [!WARNING]
-> The structure is introduced in Standard library **version 4** that is currenlty available on [Stagenet](/blockchain/blockchain-network/stage-network.md) only.
+> Структура Reissue представлена в [Стандартной библиотеке](/ride/script/standard-library.md) **версии 4**, которая в настоящее время доступна только на [Stagenet](/blockchain/blockchain-network/stage-network.md).
 
-Structure of a [token reissue](/blockchain/transaction-type/reissue-transaction.md).
+Структура [довыпуска токена](/blockchain/transaction-type/reissue-transaction.md).
 
-## Constructor
+## Конструктор
 
 ```ride
 Reissuen(assetId: ByteVector, isReissuable: Boolean, quantity: Int)
 ```
 
-## Fields
+## Поля
 
-| # | Name | Data type | Description |
+| # | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | assetId | [ByteVector](/ride/data-types/byte-vector.md) | [ID of the token](/blockchain/token/token-id.md) to reissue |
-| 2 | isReissuable | [Boolean](/ride/data-types/boolean.md) | Reissue ability flag |
-| 3 | quantity | [Int](/ride/data-types/int.md) | Amount of the token |
+| 1 | assetId | [ByteVector](/ride/data-types/byte-vector.md) | [ID токена](/blockchain/token/token-id.md) для довыпуска |
+| 2 | isReissuable | [Boolean](/ride/data-types/boolean.md) | Флаг возможности довыпуска |
+| 3 | quantity | [Int](/ride/data-types/int.md) | Количество токена |

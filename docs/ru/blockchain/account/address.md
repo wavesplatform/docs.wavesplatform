@@ -1,14 +1,11 @@
-# Address
+# Адрес
 
-An **address** is a unique identifier of an [account](/blockchain/account.md).
+**Адрес** — уникальный идентификатор [аккаунта](/blockchain/account.md).
 
-The address allows a user to view account balance. [Tokens](/blockchain/token.md) can be sent to the address.
+Адрес позволяет пользователю просматривать баланс аккаунта. На адрес можно отправлять [токены](/blockchain/token.md).
 
-An address can be represented as an alphanumeric string or a scanned QR code.
+Адрес может быть представлен в виде буквенно-цифровой строки или сканируемого QR-кода.
 
-Each account has a _single_ address.
+У каждого аккаунта есть _единственный_ адрес.
 
-One address can have several [aliases](/blockchain/account/alias.md).
-
-## Binary format
-See the page [Address binary format](/blockchain/binary-format/address-binary-format.md).
+У одного адреса может быть несколько [псевдонимов](/blockchain/account/alias.md).

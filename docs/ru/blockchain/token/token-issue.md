@@ -1,5 +1,5 @@
-# Token issue
+# Выпуск токена
 
-A **token issue** is a creation of a new [token](/blockchain/token.md) on the [blockchain](/blockchain/blockchain.md).
+**Выпуск токена** — создание нового [токена](/blockchain/token.md) на [блокчейне](/blockchain/blockchain.md).
 
-Tokens are issued using the [issue transaction](/blockchain/transaction-type/issue-transaction.md).
+Токены выпускаются с помощью [транзакции выпуска](/blockchain/transaction-type/issue-transaction.md).

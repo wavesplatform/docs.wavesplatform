@@ -1,128 +1,127 @@
-# Leased Proof of Stake \(LPoS\)
+# Обзор
 
-# Overview
+Любой блокчейн должен обладать механизмом, позволяющим решить, какая цепочка блоков является главной, и гарантировать, что в ней не происходит двойной траты средств \(например, отправка одних и тех же денег различным сторонам в разных цепочках\). Существует несколько подходов к достижению этой цели.
+Waves использует так называемый Proof-of-Stake алгоритм консенсуса (доказательство доли владения). Мы опишем его и сравним с широко используемым алгоритмом Proof-of-Work, который используется, например, в биткойне.
 
-Any blockchain requires a mechanism allowing to decide which chain of blocks is valid and to ensure there are no double-spending \(e.g. sending same money to different parties in separate chains\). There are several approaches to achieve this.  
-Waves use so-called Proof-of-Stake consensus algorithm. Here we'll describe it and compare with widely used Proof-of-Work algorithm which used, for example, in Bitcoin.
+Так как каждый блокчейн представляет собой систему децентрализованных «нод» \(или компьютеров, подтверждающих транзакции, происходящие в сети, и поддерживающих децентрализованный консенсус всей системы\), наличие нод, или «майнеров» в Proof-of-Work или «валидаторов» в Proof-of-Stake (мы часто также используем слово понятие «майнеры», для отсутствия путаницы у участников), является важным для сохранения транзакций. Способ, которым ноды «майнеры» или «валидаторы» подтверждают транзакции и система поощрения нод - основные различия между Proof-of-Work и Proof-of-Stake.
 
-Since each Blockchain is a system of decentralized “nodes” \(or computers confirming transactions occurring on the network and maintaining a decentralized consensus across the system\) it is important for these nodes, also known as “miners” in the Proof-of-Work system, or “validators” in the Proof-of-Stake system, to be incentivized to keep confirming transactions. The way in which “miner” or “validator” nodes confirm transactions and how those nodes are incentivized to do so - is the main distinction between Proof-of-Work and Proof-of-Stake.
 
 # 1. Proof-of-Work \(PoW\) 
 
-Proof-of-Work is a consensus algorithm which requires a block generator to perform an expensive computer calculation, also called mining, that needs to be performed in order to create a new group of trustless transactions \(the so-called block\) on a distributed ledger called blockchain.
+Proof-of-Work - алгоритм консенсуса, который требует для генерации блока выполнить трудозатратное вычисление (то есть произвести майнинг), чтобы создать новую группу доверенных транзакций \(так называемый блок\) в блокчейн.
 
-Mining serves have two purposes:
+Майнинг преследует две цели:
 
-1. To generate a chain of blocks which can be considered as the only one main chain \(since it's too resource-consuming to create alternative one\)
+1. Создание цепочки блоков, которая может рассматриваться, как главная цепочка \(так как создание альтернативной цепочки является слишком ресурсозатратным\)
 
-2. To create new coins \(increasing total supply\) by rewarding miners for performing the previous task.
+2. Майнинг новых монет \(повышение общего количества денежных средств в сети\) путем выдачи награды майнерам за выполнение задания.
 
-**When you want to set a transaction this is what happens behind the scenes:**
+**Когда вы хотите добавить транзакцию в блокчейн, вот что происходит за кадром:**
 
-* Transactions are bundled together into a block.
+* Транзакции объединяются в блок.
 
-* Miners verify that transactions within each block are valid.
+* Майнеры подтверждают, что транзакции в блоке являются валидными.
 
-* Then miners should solve a mathematical puzzle to generate a valid block.
+* Майнеры должны решить некоторую трудоемкую математическую задачку, чтобы сгенерировать валидный блок (например, сгенерировать число, хэш от которого будет начинаться с конкретного числа нулей).
 
-* Block with solved puzzle considered as valid and broadcasted to all nodes in the network and stored in the public blockchain
+* Блок, появившийся в результате решения задачки признается валидным и транслируется на все ноды сети и отправляется в публичный блокчейн.
 
-* A reward is given to the first miner who solves each blocks problem.
+* Майнеру, который сумел первым сгенерировать такой блок, выдется награда за потраченные на решение задачки ресурсы.
 
-This “mathematical puzzle” has a key feature: asymmetry. The work, in fact, must be moderately hard on the requester side but easy to check for the network. This idea is also known as a CPU cost function, client puzzle, computational puzzle or CPU pricing function. All the network miners compete to be the first to find a solution for the mathematical problem that concerns the candidate block, a problem that cannot be solved in other ways than through brute force so that essentially requires a huge number of attempts. When a miner finally finds the right solution, he/she announces it to the whole network at the same time, receiving a cryptocurrency prize \(the reward\) provided by the protocol.
+Такая "математическая задачка" имеет ключевое требование: ассиметричность затрат на решение и проверку выполненной работы. Производимая работа должна быть достаточно сложной на стороне майнеров, но легко проверяться сетью. Эта идея также известна как функция клиентской головоломки, вычислительная головоломка или функция ценообразования CPU. Все майнеры сети конкурируют за первенство в решении математической задачи, которую необходимо решить для того чтобы быть кандидатом на генерацию блока и которая не может быть решена другими способами, кроме как с помощью "грубой силы" перебора. Когда майнер, находит правильное решение, он одновременно объявляет его всей сети, получая при этом криптовалютное вознаграждение, предоставляемое по протоколу.
 
-'51% attack' refers to an attack on a blockchain system. By controlling the majority of the computing power on the network, an attacker can release his new fork and regains his coins by executing a "double spend" attack which will allow his own coins to be spent multiple times. The attacker could spend coins in one place, allow the coins to enter the blockchain as normal until the required confirmations are met, then fire up their 51% of the miners to craft a fraudulent fork of the blockchain in which those coins were never spent, allowing them to re-spend the coins. This could theoretically be repeated for as long as the attacker maintained control of 51%.
+«Атака 51%» относится к атакам на блокчейн и заключается в следующем: контролируя бОльшую часть вычислительной мощности сети, злоумышленник может создать форк и восстановить свои монеты, выполнив атаку «двойной траты», которая позволит проводить операции над его монетами по несколько раз. Нападавший может тратить монеты в одном месте, позволяя монетам входить в блокчейн как обычно до тех пор, пока не будут получены необходимые подтверждения, а затем запустит 51% майнеров для создания мошеннического форка, в котором эти монеты никогда не участвовали в операциях. Такую процедуру теоретически можно повторять до тех пор, пока атакующий хранит под своим контролем 51% вычислительной мощности сети.
 
-The advantage of a Proof-of-Work network is that the majority of voting power when implementing important changes to the system is divided among miners, developers and other crucial members of the community. Meanwhile, in a Proof-of-Stake network, major stakeholders have a technical ability to make any changes they like without considering the will of the community, businesses, miners, and developers.
+Преимущество протокола Proof-of-Work заключается в том, что большая часть голосов при осуществлении важных изменений в системе делится между майнерами, разработчиками и другими значимыми членами сообщества. В то время, как в сети Proof-of-Stake, наиболее влиятельные игроки, с наибольшим количеством монет, имеют техническую возможность делать любые изменения, которые им нравятся, без учета мнения сообщества, бизнеса, майнеров и разработчиков.
 
-This centralization of voting power and, essentially, control of the network defeats the purpose of a distributed ledger-based cryptocurrency since it contradicts its entire principle of distributing all elements within the network to avoid the presence of a central authority.
+Такая централизация полномочий в голосовании и контроль над сетью, казалось бы, нарушают цель распределенной криптовалюты на блокчейне, поскольку централизация противоречит принципу распределения всех элементов внутри сети.
 
-## 1.1 Proof-of-Work downsides 
+## 1.1 Недостатки Proof-of-Work 
 
-* Requires more electric power which in turn costs the miner.
-* High computing power hardware which is expensive.
-* Possibility of miners moving their hardware to mine a different coin if the reward is better there \(loyalty\).
-* With more and more coins \(like more count of bitcoins\) getting released, miner’s reward would come down as the coin becomes scarce to mine.
+* Требуется больше электроэнергии, что, в свою очередь, приносит майнерам убытки.
+* Оборудование с высокой вычислительной мощностью является дорогостоящим.
+* Возможности майнеров перемещаться на другие монеты, если там их вычислительная мощность может принести им больше средств \(лояльности к конкретной монете в зависимость от типа требуемой работы\).
+* С увеличением числа монет, вознаграждение майнера будет уменьшаться, так как монета становится скудной для осуществления майнинга.
 
 # 2. Proof-of-Stake \(PoS\) 
 
-Proof-of-Stake is a different way to validate transactions based and achieve the distributed consensus. The purpose is the same of the proof of work, but the process to reach the goal is quite different.
+Proof-of-Stake - это другой способ валидирования транзакций, основанный на распределенном консенсусе. Цель является такой же, как и у Proof-of-Work, но достигается совершенно иначе.
 
-In PoW number of miner's blocks is proportional to the amount of hardware resources and energy he invested. In contrast, in PoSa person can mine or validate block transactions according to the amount of coins he or she holds. So unlike the Proof-of-Work, the creator of a new block is selected in a practically random manner, with greater amounts of stake increasing the likelihood of adding a block to the chain.
+В PoW количество блоков майнера пропорционально количеству аппаратных мощностей и энергии, которые он вложил. В PoS-е же майнер может майнить или валидировать транзакции в блоке в соответствии с количеством монет, которые он держит. Таким образом, в отличие от Proof-of-Work, создатель нового блока выбирается практически случайным образом, при этом большее количество монет увеличивает вероятность майнера добавить блок в блокчейн.
 
-Usually, in the PoS system, there is no block reward, so, the miners take the transaction fees. That's why miners are often called block forgers or generators, instead, Figure 1.
+Обычно в системе PoS нет вознаграждения за блок, поэтому майнеры берут комиссию за транзакции. Вот почему майнеров часто называют генераторами блоков, Рисунок 1.
 
-With a PoS, the attacker would need to obtain 51% of the cryptocurrency to carry out a 51% attack. The proof of stake avoids this ‘tragedy’ by making it disadvantageous for a miner with a 51% stake in a cryptocurrency to attack the network. Although it would be difficult and expensive to accumulate 51% of a reputable digital coin, a miner with 51% stake in the coin would not have it in his best interest to attack a network which he holds a majority share. If the value of the cryptocurrency falls, this means that the value of his holdings would also fall, and so the majority stake owner would be more incentivized to maintain a secure network.
+При использовании PoS злоумышленнику необходимо будет получить 51% монет системы для атаки 51%. Доказательство владения избегает такой неприятной ситуации, делая ее невыгодной для майнера с 51%-ной долей. Хотя было бы сложно и дорого накапливать 51% цифровой монеты, майнер с 51%-ной долей монет системы не был бы заинтересован в атаке на сеть. Если ценность криптовалюты падает, это означает, что стоимость его вкладов также упадет, и поэтому владелец большинства монет будет скорее заинтересован в поддержания безопасности сети.
 
-PoS has to constraints to avoid some kinds of attacks:
+PoS содержит ограничения, для того, чтобы избежать некоторые виды атак:
 
-* Minimum amount of WAVES to generate is 1000 WAVES
-* When a balance is increased generating balance will be increased after 1000 blocks.
+* Минимальное количество WAVES для генерации - 1000 WAVES
+* Когда баланс возрастает, генерирующий баланс возрастает только после 1000 блоков.
 
-## 2.1 Why we use Proof-of-Stake 
+## 2.1 Почему мы используем Proof-of-Stake 
 
-* Significant advantages of Poof-of-Stake include energy efficiency
-* Waves Implement the Proof-of-Stake method for a more greener and cheaper distributed form of consensus.
-* In Proof-of-Stake, forgers are always those who own the coins minted.
+* Существенное преимущество Poof-of-Stake - отсутствие растраты энергии
+* Waves реализует Proof-of-Stake метод для наиболее экологичного и дешевого способа организации распределенной системы.
+* В Proof-of-Stake, те, кто генерирует блоки - всегда те, кто майнит монеты.
 
-![](./_assets/PoW.png)Figure 1, PoW vs PoS
+![](/_assets/PoW.png)Рисунок 1, PoW vs PoS
 
 # 3. Leased Proof-of-Stake \(LPoS\) 
 
-LPoS is an enhanced version of Proof-of-Stake. In a regular Proof-of-Stake system, each node that holds a certain amount of cryptocurrency is eligible to add the next block to the blockchain but in the LPoS system, on the Waves Platform, users can lease their balance to full nodes. With LPoS, the user will have the ability to Lease WAVES from the wallet to different contractors which can pay a percentage as a reward. The larger the amount that is leased to a full node, the higher the chances of that full node being selected to produce the next block. If that full node is selected to produce the next block, the leaser will then receive a percentage of the transaction fee that is collected by the full node.
+LPoS (дословно -  арендованное доказательство доли владения) - это улучшенная версия Proof-of-Stake. В обычной версии Proof-of-Stake,  каждая нода держит некоторое количество монет, чтобы иметь право сгенерировать следующий блок в блокчейне, но в LPoS системе Waves Platform, пользователи могут сдавать свои балансы в лизинг full-нодам. LPoS предоставляет пользователю возможность сдать WAVES в лизинг
+формируя кошелек для других майнеров, которые могут выплачивать проценты от майнинга в качестве вознаграждения. Чем больше сумма, сдаваемая в аренду на full-ноду, тем выше вероятность того, что эта full-нода будет выбрана для создания следующего блока. Если эта full-нода выбрана для создания следующего блока, тогда лизингодатель получит процент от суммы транзакции, собираемой full-нодой.
 
-In a Leased Proof-of-Stake environment, users can choose between running a full node or leasing their stake to a full node with receiving rewards. This system allows anyone to participate in the Waves network maintenance.
+В Leased Proof-of-Stake окружении, пользователи могут выбирать между запуском full-ноды и сдачей своих монет в лизинг другим full-нодам для получения вознаграждения. Эта система позволяет любому поучаствовать в поддержке сети Waves.
 
-User can lease his WAVES through leasing on any computer or mobile device that has an internet browser since Waves provides a lite client solution that does not require "Miners", that are leasing their balance to store the whole Blockchain or to have the wallet running, Figure 2.
+Пользователь может сдать свои средства в лизинг с компьютера или с мобильного девайса, для этого достаточно просто иметь браузер, так как Waves предоставляет легкую версию своего клиента, которая не требует у майнеров скачивания и хранения у себя всего блокчейна или запуска кошелька, Рисунок 2.
 
-![](./_assets/Webp.net-resizeimage-2.jpg)  
-Figure 2, LPOS System
+![](/_assets/Webp.net-resizeimage-2.jpg)  
+Рисунок 2, LPOS система
 
-## 3.1 Benefits of leasing your WAVES 
+## 3.1 Преимущества лизинга WAVES 
 
-Safety \(your WAVES never leave your wallet\):
+Безопасность \(ваши WAVES никогда не покидают ваш кошелёк\):
 
-* Node operators can use your mining power to generate blocks without the user even having to send their WAVES at all.
-* Leasing is safe as the coins never actually leave your wallet.
-* The users can discontinue leasing with a click of a button and just wait for the cancel lease transaction to go through, Figure 2.
-* The only thing to consider when leasing is choosing the right node operator, as operator's node may work with different efficiency and send back different percentage of income.
+* Ноды используют ваши ресурсы для генерации блоков, не требуя перевода средств на свой баланс.
+* Лизинг безопасен: ваши средства никогда не покидают ваш кошелёк.
+* Пользователи могут прервать лизинг в одностороннем порядке, просто нажав кнопку и подождав отмены лизинга, Рисунок 2.
+* Единственная вещь, которую стоит принять во внимание для успешного осуществления лизинга - выбор ноды оператора, так как все ноды имеют разную эффективность и от этого зависит доход от лизинга.
 
-Minimum Balance Required to Run a Node:
+Минимальный баланс для запуска ноды:
 
-* Operators don't need to put down a lot of capital to be able to operate a node.
-* The balance of the node can be empty until there are enough people wishing to lease to it by reaching together the generating balance of 1000 WAVES and create together a pool.
+* Операторы не должны иметь какой-то определенный, ограниченный снизу баланс для того чтобы стать оператором ноды.
+* Баланс ноды может быть пустым до того, как люди захотят сдавать ей монеты в лизинг, главное совместно достичь генерирующего баланса в  1000 WAVES и создать совместный пулл.
 
-Get Rewards:
+Получение награды:
 
-* Miner may send leaser a part of rewards according to his conditions.
-* The more transactions that are made on the network, the more rewards leasers get.
-* These rewards mostly come in the form of WAVES but also can come in the form of different tokens with the unique Waves feature where different tokens can be accepted as a fee.
+* Майнеры могут присылать лизингодателю часть награды за майнинг, согласно указанным ими условиям.
+* Чем больше транзакций произошло в сети, тем большую награду получит лизингодатель.
+* Награда обычно приходит в виде WAVES, но также может прийти в других токенах (до тех пор, пока действительна комиссия в токенах).
 
-# 3.2 Leasing Transactions 
+# 3.2 Транзакции лизинга 
 
-## 3.2.1 Create Leasing Transaction 
+## 3.2.1 Транзакция создания лизинга 
 
-```css
-id: '9q7X84wFuVvKqRdDQeWbtBmpsHt9SXFbvPPtUuKBVxxr' ,
-sender : '3HgqG68qfeVz5dqbyvqnxQceFaH49xmGvUS' ,
-fee : 0.001,
-amount : 10,
-recipientAddress : '3HQanDJhZSsSLbCjTCsMYpPvuj2ieGwKwQ9'
-timestamp :46305781705234713
+```
+"Id": 9q7X84wFuVvKqRdDQeWbtBmpsHt9SXFbvPPtUuKBVxxr ,
+"sender" : 3HgqG68qfeVz5dqbyvqnxQceFaH49xmGvUS ,
+"fee" : 0.001,
+"amount" : 10,
+"recipient address" : 3HQanDJhZSsSLbCjTCsMYpPvuj2ieGwKwQ9"
+"timestamp":46305781705234713
 ```
 
-## 3.2.2 Cancel Leasing Transaction 
+## 3.2.2 Транзакция отмены лизинга 
 
-```css
-sender : '3HgqG68qfeVz5dqbyvqnxQceFaH49xmGvUS' ,
-leaseId: '9q7X84wFuVvKqRdDQeWbtBmpsHt9SXFbvPPtUuKBVxxr'
+```
+"sender" : 3HgqG68qfeVz5dqbyvqnxQceFaH49xmGvUS ,
+"leaseId": 9q7X84wFuVvKqRdDQeWbtBmpsHt9SXFbvPPtUuKBVxxr
 ```
 
-# 3.2.3 Useful links for leasing 
+# 3.2.3 Полезные ссылки для лизинга 
 
-For Step-by-Step guide to lease your waves, click [here](/en/waves-client/account-management/waves-leasing.md).
+Пошаговое руководство по сдаче средств в лизинг [здесь](/waves-client/account-management/waves-leasing.md).
 
-For the List of generators click [here](http://dev.pywaves.org/generators/).
+Список нод генераторов [здесь](http://dev.pywaves.org/generators/).
 
-For Waves Nodes click [here](https://wavesplatform.com/leasing#nodes).
-
+Waves-ноды [здесь](https://wavesplatform.com/leasing#nodes).

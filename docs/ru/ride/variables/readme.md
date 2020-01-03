@@ -1,28 +1,28 @@
-# Variables
+# Переменные
 
-All variables in RIDE are _immutable_. After definition, the value of the variable does not change.
+В RIDE все переменные являются _неизменяемыми_. После определения значение переменной не меняется.
 
-Definition and simultaneous initialization of the variable are performed with the help of the `let` [operator](/ride/operators.md).
+Определение и одновременная инициализация переменной производятся с помощью [оператора](/ride/operators.md) `let`.
 
-You cannot declare a variable without initialization.
+Нельзя объявить переменную без инициализации.
 
-During the variable assignment at the right side of the "=" sign must be an [expression](/ride/base-concepts/expression.md). The value of the variable is the [expression result](/ride/base-concepts/expression.md#expression-result).
+Во время присваивания значения переменной справа от знака "=" должно находиться [выражение](/ride/base-concepts/expression.md). Значение переменной — [результат выражения](/ride/base-concepts/expression.md#expression-result).
 
-## Examples
+## Примеры
 
-Definition of the integer variable.
+Объявление целочисленной переменной.
 
 ``` ride
 let size = 5
 ```
 
-Definition of the string variable.
+Объявление строковой переменной.
 
 ``` ride
 let season = "Spring"
 ```
 
-Since a [function](/ride/functions.md) is a [definition](/ride/base-concepts/definition.md) and not an [expression](/ride/base-concepts/expression.md), you can assign a function value to a variable but not the function itself.
+Так как [функция](/ride/functions.md) является [определением](/ride/base-concepts/definition.md), а не [выражением](/ride/base-concepts/expression.md), то переменной можно присвоить значение функции, но не саму функцию.
 
 ``` ride
 func f() = {
@@ -31,10 +31,10 @@ func f() = {
 let result = f()
 ```
 
-## Laziness
+## Ленивость
 
-RIDE has the lazy variable initialization, so the value of the variable is calculated only at the first call to it.
+В RIDE ленивая инициализация переменных, поэтому значение переменной вычисляется только при первом обращении к ней.
 
-## Variables built into the script
+## Встроенные в скрипт переменные
 
-The [script](/ride/script.md) has [built-in variables](/ride/variables/built-in-variables.md).
+У [скрипта](/ride/script.md) есть [встроенные переменные](/ride/variables/built-in-variables.md).

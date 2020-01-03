@@ -1,6 +1,6 @@
-# Exceptions
+# Исключения
 
-You can throw exceptions using `throw` function:
+Исключения выбрасываются с помощью функции `throw`:
 
 ```ride
 func main(amount: Int) = {
@@ -12,6 +12,6 @@ func main(amount: Int) = {
 }
 ```
 
-The return type of `throw` is [Nothing](/ride/data-types.md).
+Функция `throw` имеет возвращаемый тип [Nothing](/ride/data-types.md).
 
-There is no exception handling in RIDE — after an exception has been thrown, the script will stop its execution; the transaction will be considered as failed and will not be included in the block.
+В RIDE нет обработки исключений. После того как исключение было выброшено, скрипт прекратит свое выполнение. Транзакция при этом будет считаться неудавшейся и не будет включена в блок.

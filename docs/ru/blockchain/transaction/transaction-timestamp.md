@@ -1,7 +1,7 @@
-# Transaction timestamp
+# Временная метка транзакции
 
-**Transaction timestamp** is a time specified by the sender when the transaction was sent to the [blockchain network](/blockchain/blockchain-network.md).
+**Временна́я метка транзакции** — время отправки транзакции в [сеть блокчейна](/blockchain/blockchain-network.md), которое указал отправитель.
 
-The actual time differs from the timestamp value by no more than 2 hours back and 1.5 hours forward.
+Фактическое время отличается от временной метки не более чем на 2 часа назад и 1,5 часа вперед.
 
-The time is specified in _milliseconds_ that have passed since the beginning of the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time).
+Время указано в _миллисекундах_, которые прошли с начала [эпохи Unix](https://ru.wikipedia.org/wiki/Unix-время).

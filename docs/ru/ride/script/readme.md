@@ -1,19 +1,19 @@
-# Script
+# Скрипт
 
-A **script** is a source code in [RIDE](/ride/about-ride.md) language.
+**Скрипт** — исходный код на языке [RIDE](/ride/about-ride.md).
 
-## Script types
+## Типы скриптов
 
-There are three types of scripts:
+Существует три типа скриптов:
 
-* [dApp scripts](/ride/script/script-types/dapp-script.md)
-* [account scripts](/ride/script/script-types/account-script.md)
-* [asset scripts](/ride/script/script-types/asset-script.md)
+* [dApp-скрипты](/ride/script/script-types/dapp-script.md)
+* [скрипты аккаунтов](/ride/script/script-types/account-script.md)
+* [скрипты ассетов](/ride/script/script-types/asset-script.md)
 
-## Script complexity
+## Сложность скрипта
 
-See the page [Complexity](/ride/base-concepts/complexity.md).
+Смотрите страницу [Сложность](/ride/base-concepts/complexity.md).
 
 ## IDE
 
-Use [Waves IDE](https://ide.wavesplatform.com) or Visual Studio Code with [RIDE extension](https://marketplace.visualstudio.com/items?itemName=wavesplatform.waves-ride) for writing scripts.
+Для написания скриптов используйте [Waves IDE](/smart-contracts/tools/waves-ide.md) или Visual Studio Code с [расширением RIDE](https://marketplace.visualstudio.com/items?itemName=wavesplatform.waves-ride).

@@ -1,3 +1,5 @@
 # String
 
-The **String** is a keyword of the string data type.
+**String** — ключевое слово строкового типа данных.
+
+Строки имеют кодировку [UTF-8](https://ru.wikipedia.org/wiki/UTF-8).

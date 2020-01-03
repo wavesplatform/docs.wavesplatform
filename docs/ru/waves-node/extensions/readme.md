@@ -1,8 +1,8 @@
-# Extensions
+# Расширения
 
-A **node extension** is a software module that can be installed on a [node](/blockchain/node.md).
+**Расширение ноды** — программный модуль, который устанавливается на [ноду](/blockchain/node.md).
 
-The list of available extensions:
+Список доступных расширений:
 
-* [gRPC](/waves-node/extensions/grpc-server.md)
-* [Matcher](/waves-node/extensions/matcher.md)
+* [gRPC server](/waves-node/extensions/grpc-server.md)
+* [Матчер](/waves-node/extensions/matcher.md)

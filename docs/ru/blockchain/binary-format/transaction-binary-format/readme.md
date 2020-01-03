@@ -1,21 +1,21 @@
-# Transaction binary format
+# Бинарный формат транзакции
 
-A **transaction binary format** is a set of fields of a [transaction](/blockchain/transaction.md).
+**Бинарный формат транзакции** — набор полей [транзакции](/blockchain/transaction.md).
 
-Transactions of different [types](/blockchain/transaction-type.md) have different binary formats. Transactions of the same type, but of different [versions](/blockchain/transaction/transaction-version.md), also have different binary formats.
+Транзакции разных [типов](/blockchain/transaction-type.md) имеют разные бинарные форматы. Транзакции одного типа, но разных [версий](/blockchain/transaction/transaction-version.md), также имеют разные бинарные форматы.
 
-* [Alias transaction binary format](/blockchain/binary-format/transaction-binary-format/alias-transaction-binary-format.md)
-* [Burn transaction binary format](/blockchain/binary-format/transaction-binary-format/burn-transaction-binary-format.md)
-* [Data transaction binary format](/blockchain/binary-format/transaction-binary-format/data-transaction-binary-format.md)
-* [Exchange transaction binary format](/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format.md)
-* [Genesis transaction binary format](/blockchain/binary-format/transaction-binary-format/genesis-transaction-binary-format.md)
-* [Invoke script transaction binary format](/blockchain/binary-format/transaction-binary-format/invoke-script-transaction-binary-format.md)
-* [Issue transaction binary format](/blockchain/binary-format/transaction-binary-format/issue-transaction-binary-format.md)
-* [Lease cancel transaction binary format](/blockchain/binary-format/transaction-binary-format/lease-cancel-transaction-binary-format.md)
-* [Lease transaction binary format](/blockchain/binary-format/transaction-binary-format/lease-transaction-binary-format.md)
-* [Mass transfer transaction binary format](/blockchain/binary-format/transaction-binary-format/mass-transfer-transaction-binary-format.md)
-* [Reissue transaction binary format](/blockchain/binary-format/transaction-binary-format/reissue-transaction-binary-format.md)
-* [Set asset script transaction binary format](/blockchain/binary-format/transaction-binary-format/set-asset-script-transaction-binary-format.md)
-* [Set script transaction binary format](/blockchain/binary-format/transaction-binary-format/set-script-transaction-binary-format.md)
-* [Sponsor fee transaction binary format](/blockchain/binary-format/transaction-binary-format/sponsorship-transaction-binary-format.md)
-* [Transfer transaction binary format](/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format.md)
+* [Бинарный формат транзакции вызова скрипта](/blockchain/binary-format/transaction-binary-format/invoke-script-transaction-binary-format.md)
+* [Бинарный формат транзакции выпуска](/blockchain/binary-format/transaction-binary-format/issue-transaction-binary-format.md)
+* [Бинарный формат транзакции генезиса](/blockchain/binary-format/transaction-binary-format/genesis-transaction-binary-format.md)
+* [Бинарный формат транзакции данных](/blockchain/binary-format/transaction-binary-format/data-transaction-binary-format.md)
+* [Бинарный формат транзакции довыпуска](/blockchain/binary-format/transaction-binary-format/reissue-transaction-binary-format.md)
+* [Бинарный формат транзакции закрытия лизинга](/blockchain/binary-format/transaction-binary-format/lease-cancel-transaction-binary-format.md)
+* [Бинарный формат транзакции лизинга](/blockchain/binary-format/transaction-binary-format/lease-transaction-binary-format.md)
+* [Бинарный формат транзакции массового перевода](/blockchain/binary-format/transaction-binary-format/mass-transfer-transaction-binary-format.md)
+* [Бинарный формат транзакции обмена](/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format.md)
+* [Бинарный формат транзакции перевода](/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format.md)
+* [Бинарный формат транзакции сжигания токена](/blockchain/binary-format/transaction-binary-format/burn-transaction-binary-format.md)
+* [Бинарный формат транзакции создания псевдонима](/blockchain/binary-format/transaction-binary-format/alias-transaction-binary-format.md)
+* [Бинарный формат транзакции спонсирования](/blockchain/binary-format/transaction-binary-format/sponsor-fee-transaction-binary-format.md)
+* [Бинарный формат транзакции установки скрипта](/blockchain/binary-format/transaction-binary-format/set-script-transaction-binary-format.md)
+* [Бинарный формат транзакции установки скрипта ассета](/blockchain/binary-format/transaction-binary-format/set-asset-script-transaction-binary-format.md)

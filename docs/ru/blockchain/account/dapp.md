@@ -1,3 +1,3 @@
 # dApp
 
-A **dApp** is an [account](/blockchain/account.md) that has a [dApp script](/ride/script/script-types/dapp-script.md) attached to it.
+**dApp** — [аккаунт](/blockchain/account.md), к которому прикреплен [dApp-скрипт](/ride/script/script-types/dapp-script.md).

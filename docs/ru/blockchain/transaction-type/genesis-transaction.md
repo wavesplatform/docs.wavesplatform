@@ -1,9 +1,9 @@
-# Genesis transaction
+# Транзакция генезиса
 
-A **genesis transaction** is a [transaction](/blockchain/transaction.md) of the [genesis block](/blockchain/block/genesis-block.md) that assigns [WAVES](/blockchain/token/waves.md) to the [account](/blockchain/account.md).
+**Транзакция генезиса** — [транзакция](/blockchain/transaction.md) [блока генезиса](/blockchain/block/genesis-block.md), которая начисляет [WAVES](/blockchain/token/waves.md) на [аккаунт](/blockchain/account.md).
 
-Genesis transactions are responsible for the initial distribution of WAVES between accounts during the creation of the [blockchain](/blockchain/blockchain.md).
+Транзакции генезиса отвечают за первоначальное распределение WAVES между аккаунтами во время создания [блокчейна](/blockchain/blockchain.md).
 
-## Binary format
+## Бинарный формат
 
-See the page [Genesis transaction binary format](/blockchain/binary-format/transaction-binary-format/genesis-transaction-binary-format.md).
+Смотрите страницу [Бинарный формат транзакции генезиса](/blockchain/binary-format/transaction-binary-format/genesis-transaction-binary-format.md).

@@ -1,3 +1,3 @@
-# Base target
+# Базовая цель
 
-The **base target** is the variable in the average block generation time formula that adjusts [block generation](/blockchain/block/block-generation.md) time to 60 seconds.
+**Базовая цель** —  переменная в формуле среднего времени генерации блока, которая подгоняет время [генерации блока](/blockchain/block/block-generation.md) к 60 секундам.

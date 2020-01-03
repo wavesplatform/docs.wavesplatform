@@ -6,11 +6,63 @@ A dApp script may have several callable functions.
 
 A callable function of a [dApp](/blockchain/account/dapp.md) can be invoked by the [invoke script transaction](/blockchain/transaction-type/invoke-script-transaction.md).
 
-## Example
+## Example for Standard Library version 3
 
-``` ride
+```ride
 @Callable(inv)
 func rate(name: String, rating: Int) = {
     WriteSet([DataEntry(inv.caller.toString(), name + rating.toString()])
+}
+```
+
+> [!WARNING]
+> [Standard Library](/ride/script/standard-library.md) Version 4 becomes available from node version 1.2.0, after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature. See [Activation Protocol](/blockchain/waves-protocol/activation-protocol.md).
+
+## Example for Standard Library version 4
+
+> [!INFO]
+> Starting from [Standard library]() version 4, the list of primitive data types values can be passed to the annotated function. Maximum list size - 1000 elements
+
+```ride
+{-# STDLIB_VERSION 4 #-}
+{-# CONTENT_TYPE DAPP #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+  
+@Callable(i)
+func f(args: List[String]) = [
+    StringEntry("entry1", args[0]),
+    StringEntry("entry1", args[1])
+]
+```
+
+## Example 1
+
+```ride
+{-# STDLIB_VERSION 4 #-}
+{-# CONTENT_TYPE DAPP #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+  
+@Callable(i)
+func f(args: List[String]) = [
+    StringEntry("entry1", args[0]),
+    StringEntry("entry1", args[1])
+]
+```
+
+## Example 2
+
+```ride
+{-# STDLIB_VERSION 4 #-}
+{-# CONTENT_TYPE DAPP #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+ 
+@Callable(i)
+func f(a: String, args: List[String]) = {
+    let s = size(args)
+    if s == 1 then
+        BooleanEntry("result", a == args[0])
+    else s > 1 then
+        BooleanEntry ("result", a == args[1])
+    else throw("args is empty")
 }
 ```

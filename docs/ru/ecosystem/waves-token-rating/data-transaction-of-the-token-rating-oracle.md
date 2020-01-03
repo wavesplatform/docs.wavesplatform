@@ -1,12 +1,12 @@
-# Data transaction of the Token Rating oracle
+# Транзакция данных оракула Token Rating
 
-Once a day, the [Token Rating](https://oracles.wavesexplorer.com/oracle/3P2eDV4pWJGmPjLGLrW4dsMA53te4gzkwnH) [oracle](/waves-oracles/oracle.md) sends to the blockchain a [data transaction](/blockchain/transaction-type/data-transaction.md) with [ratings and rates](/waves-token-rating/rating-formula.md) of tokens.
+Раз в сутки [оракул](/waves-oracles/oracle.md) [Token Rating](https://oracles.wavesexplorer.com/oracle/3P2eDV4pWJGmPjLGLrW4dsMA53te4gzkwnH) отправляет в блокчейн [транзакцию данных](/blockchain/transaction-type/data-transaction.md) с [рейтингами и оценками](/waves-token-rating/rating-formula.md) токенов.
 
-A data transaction contains the information about tokens, that have been rated in the past 24 hours.
+Транзакция данных содержит информацию о токенах, которые за прошедшие 24 часа были оценены.
 
-A single transaction contains the information about no more than 25 tokens —  if there are more rated tokens, then several transactions will be sent.
+Одна транзакция содержит информацию не более чем о 25 токенах — если оцененных токенов будет больше, то будет отправлено несколько транзакций.
 
-An example of a [data array](/blockchain/transaction-type/data-transaction.md) of such a transaction:
+Пример [массива данных](/blockchain/transaction-type/data-transaction.md) такой транзакции:
 
 ``` js
 "data": [
@@ -49,27 +49,28 @@ An example of a [data array](/blockchain/transaction-type/data-transaction.md) o
 ]
 ```
 
-The key field is formed by [concatenating](https://en.wikipedia.org/wiki/Concatenation) a string that describes the parameter and a string with the ID of a token.
+Поле `key` формируется с помощью [конкатенации](https://ru.wikipedia.org/wiki/Конкатенация) строки, характеризующей параметр, и строки с ID токена.
 
-| Key | Type | Description |
+| Ключ | Тип | Описание |
 | :--- | :--- | :--- |
-| assetRating_assetId_1 | integer | Rating of the token (multiplied by 10) |
-| assetWeight_assetId | integer | WCT weight of the token |
-| assetVotes_assetId | integer | Votes sum of the token |
-| scoreBoard_assetId | string | The value the field contains an [escaped string](https://en.wikipedia.org/wiki/Escape_character) with rates. |
-| tickerRating_1 | integer | Service parameter, which contains the value of the Rating (multiplied by 10), which must be at the token in order for the ticker to be set by its issuer |
-| tickerWeight | integer | Service parameter, which contains the value of the WCT weight, which must be at the token in order for the ticker to be set by its issuer |
-| tickerVotes | integer | Service parameter, which contains the value of the Votes sum, which must be at the token in order for the ticker to be set by its issuer |
+| assetRating_assetId_1 | Целое число | Рейтинг токена (значение умножено на 10) |
+| assetWeight_assetId | Целое число | Вес WCT токена |
+| assetVotes_assetId | Целое число | Количество оценок токена |
+| scoreBoard_assetId | Строка | Поле value содержит [экранированную](https://ru.wikipedia.org/wiki/Экранирование_символов) строку с оценками |
+| tickerRating_1 | Целое число | Сервисный параметр, который отражает значение рейтинга (умноженное на 10), которое должно быть у токена, чтобы его владелец самостоятельно задать ему тикер |
+| tickerWeight | Целое число | Сервисный параметр, который отражает значение веса WCT, которое должно быть у токена, чтобы его владелец самостоятельно задать ему тикер |
+| tickerVotes | Целое число | Сервисный параметр, который отражает значение количества оценок, которое должно быть у токена, чтобы его владелец самостоятельно задать ему тикер |
 
-## An example escaped string with rates
 
-Let's say we have an escaped string with rates:
+## Пример экранированной строки с оценками
 
-``` js
-"{\"1\":{\"votes\":0,\"tokens\":0},\"2\":{\"votes\":0,\"tokens\":0},\"3\":{\"votes\":3,\"tokens\":545},\"4\":{\"votes\":0,\"tokens\":0},\"5\":{\"votes\":2,\"tokens\":3827}}"
-```
+Предположим, имеется экранированная строка с оценками:
 
-Let's unescape that string:
+ ``` js
+ "{\"1\":{\"votes\":0,\"tokens\":0},\"2\":{\"votes\":0,\"tokens\":0},\"3\":{\"votes\":3,\"tokens\":545},\"4\":{\"votes\":0,\"tokens\":0},\"5\":{\"votes\":2,\"tokens\":3827}}"
+ ```
+
+Разэкранируем данную строку:
 
 ``` js
 {
@@ -93,11 +94,10 @@ Let's unescape that string:
     "votes": 2,
     "tokens": 3827
   }
-}
 ```
 
-It follows from the string that no one rated the token with one, two or four stars.
+Из строки следует, что никто не оценил токен одной, двумя или четырьмя звездами.
 
-Three users rated the token with three stars. The sum of the weights [W<sub>n</sub>](/waves-token-rating/rating-formula.md) of those rates is 545.
+Три пользователя оценили токен тремя звездами. Сумма [весов W<sub>n</sub>](/waves-token-rating/rating-formula.md) этих оценок равна 545.
 
-Two users rated the token with five stars. The sum of the weights W<sub>n</sub> of those rates is 3827.
+Два пользователя оценили токен пятью звездами. Сумма весов Wn этих оценок равна 3827.

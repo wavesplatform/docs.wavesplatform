@@ -1,15 +1,18 @@
-# WriteSet
+# WriteSet (доступно в Стандартной библиотеке версии 3)
 
-Structure of a list of data records of an [account data storage](/blockchain/account/account-data-storage.md).
+> [!WARNING]
+> Структура WriteSet не входит в [Стандартную библиотеку](/ride/script/standard-library.md) версии 4. Используйте `BinaryEntry`, `BooleanEntry`, `IntEntry` и `StringEntry` в `ScriptResult`.
 
-## Constructor
+Структура списка записей [хранилища данных аккаунта](/blockchain/account/account-data-storage.md).
+
+## Конструктор
 
 ``` ride
 WriteSet(data: List[DataEntry])
 ```
 
-## Fields
+## Поля
 
-|   #   | Name | Data type | Description |
+|   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | data | [List](/ride/data-types/list.md)[[DataEntry](/ride/structures/common-structures/data-entry.md)] | List of data records of an account data storage |
+| 1 | data | [List](/ride/data-types/list.md)[[DataEntry](/ride/structures/common-structures/data-entry.md)] | Список записей хранилища данных аккаунта |

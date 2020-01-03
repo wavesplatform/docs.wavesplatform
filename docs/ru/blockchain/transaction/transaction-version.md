@@ -1,25 +1,25 @@
-# Transaction version
+# Версия транзакции
 
-All [transactions](/blockchain/transaction.md), with the exception of the [genesis transaction](/blockchain/transaction-type/genesis-transaction.md), have versions.
+У всех [транзакций](/blockchain/transaction.md), за исключением [транзакции генезиса](/blockchain/transaction-type/genesis-transaction.md), есть версии.
 
-Transactions of the same [type](/blockchain/transaction-type.md), but of different versions, have different [binary formats](/blockchain/binary-format/transaction-binary-format.md).
+Транзакции одного [типа](/blockchain/transaction-type.md), но разных версий, имеют разные [бинарные форматы](/blockchain/binary-format/transaction-binary-format.md).
 
-When developing applications, it is recommended to use transactions of the latest versions.
+При разработке приложений рекомендуется использовать транзакции последних версий.
 
-| # | Transaction type | Available versions |
+| # | Тип транзакции | Доступные версии |
 | :--- | :--- | :--- |
-| 1 | [Alias transaction](/blockchain/transaction-type/alias-transaction.md) | 1, 2 |
-| 2 | [Burn transaction](/blockchain/transaction-type/burn-transaction.md) | 1, 2 |
-| 3 | [Data transaction](/blockchain/transaction-type/data-transaction.md) | 1 |
-| 4 | [Exchange transaction](/blockchain/transaction-type/exchange-transaction.md) | 1, 2 |
-| 5 | [Genesis transaction](/blockchain/transaction-type/genesis-transaction.md) | Has no version |
-| 6 | [Invoke script transaction](/blockchain/transaction-type/invoke-script-transaction.md) | 1 |
-| 7 | [Issue transaction](/blockchain/transaction-type/issue-transaction.md) | 1, 2 |
-| 8 | [Lease cancel transaction](/blockchain/transaction-type/lease-cancel-transaction.md) | 1, 2 |
-| 9 | [Lease transaction](/blockchain/transaction-type/lease-transaction.md) | 1, 2 |
-| 10 | [Mass transfer transaction](/blockchain/transaction-type/mass-transfer-transaction.md) | 1 |
-| 11 | [Reissue transaction](/blockchain/transaction-type/reissue-transaction.md) | 1, 2 |
-| 12 | [Set asset script transaction](/blockchain/transaction-type/set-asset-script-transaction.md) | 1 |
-| 13 | [Set script transaction](/blockchain/transaction-type/set-script-transaction.md) | 1 |
-| 14 | Sponsor fee transaction | 1 |
-| 15 | [Transfer transaction](/blockchain/transaction-type/transfer-transaction.md) | 1, 2 |
+| 1 | [Транзакция вызова скрипта](/blockchain/transaction-type/invoke-script-transaction.md) | 1 |
+| 2 | [Транзакция выпуска](/blockchain/transaction-type/issue-transaction.md) | 1, 2 |
+| 3 | [Транзакция генезиса](/blockchain/transaction-type/genesis-transaction.md) | Нет версии |
+| 4 | [Транзакция данных](/blockchain/transaction-type/data-transaction.md) | 1 |
+| 5 | [Транзакция довыпуска](/blockchain/transaction-type/reissue-transaction.md) | 1, 2 |
+| 6 | [Транзакция закрытия лизинга](/blockchain/transaction-type/lease-cancel-transaction.md) | 1, 2 |
+| 7 | [Транзакция лизинга](/blockchain/transaction-type/lease-transaction.md) | 1, 2 |
+| 8 | [Транзакция массового перевода](/blockchain/transaction-type/mass-transfer-transaction.md) | 1 |
+| 9 | [Транзакция обмена](/blockchain/transaction-type/exchange-transaction.md) | 1, 2 |
+| 10 | [Транзакция перевода](/blockchain/transaction-type/transfer-transaction.md) | 1, 2 |
+| 11 | [Транзакция сжигания токена](/blockchain/transaction-type/burn-transaction.md) | 1, 2 |
+| 12 | [Транзакция создания псевдонима](/blockchain/transaction-type/alias-transaction.md) | 1, 2 |
+| 13 | Транзакция спонсирования | 1 |
+| 14 | [Транзакция установки скрипта](/blockchain/transaction-type/set-script-transaction.md) | 1 |
+| 15 | [Транзакция установки скрипта ассета](/blockchain/transaction-type/set-asset-script-transaction.md) | 1 |

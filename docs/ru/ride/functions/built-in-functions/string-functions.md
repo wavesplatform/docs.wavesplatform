@@ -1,230 +1,260 @@
-# String functions
+# Функции строки
 
-| # | Name | Description | Complexity |
+| # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
-| 1 | [drop(String, Int): String](#drop) | Drops the first `n` characters of a string | 1 |
-| 2 | [dropRight(String, Int): String](#drop-right) | Drops the last `n` characters of a string | 19 |
-| 3 | [indexOf(String, String): Int&#124;Unit](#index-of-string) | Returns the index of the first occurrence of a substring | 20 |
-| 4 | [indexOf(String, String, Int): Int&#124;Unit](#index-of-string-int) | Returns the index of the first occurrence of a substring after a certain index | 20 |
-| 5 | [size(String): Int](#size) | Returns the size of a string | 1 |
-| 6 | [split(String, String): List[String]](#split) | Splits a string delimited by a separator into a list of substrings | 100 |
-| 7 | [take(String, Int): String](#take) | Takes the first `n` characters from a string | 1 |
-| 8 | [takeRight(String, Int): String](#take-right) | Takes the last `n` characters from a string | 19 |
+| 1 | [contains(String, String): Boolean](#contains) | Проверяет, содержится ли строка в строке  | 20 |
+| 2 | [drop(String, Int): String](#drop)  | Удаляет первые `n` символов строки | 1 |
+| 3 | [dropRight(String, Int): String](#drop-right)  | Удаляет последние `n` символов строки | 19 |
+| 4 | [indexOf(String, String): Int&#124;Unit](#index-of-first)  | Возвращает индекс первого вхождения подстроки  | 20 |
+| 5 | [indexOf(String, String, Int): Int&#124;Unit](#index-after-index)  | Возвращает индекс первого вхождения подстроки после указанного индекса | 20 |
+| 6 | [size(String): Int](#size)  | Возвращает длину строки | 1 |
+| 7 | [split(String, String): List[String]](#split)  | Разбивает строку на список подстрок, используя разделитель | 100 |
+| 8 | [take(String, Int): String](#take)  | Возвращает первые `n` символов строки | 1 |
+| 9 | [takeRight(String, Int): String](#take-right)  | Возвращает последние `n` символов строки | 19 |
 
-## drop(String, Int): Str
+## contains(String, String): Boolean<a id=contains></a>
 
-Drops the first `n` characters of a string.
+Проверяет, содержится ли строка в строке.
+
+``` ride
+contains(haystack: String, needle: String): Boolean
+```
+
+### Параметры
+
+#### `haystack`: String
+
+Строка, в которой осуществляется поиск.
+
+#### `needle`: String
+
+Искомая строка.
+
+### Примеры
+
+```ride
+{-# STDLIB_VERSION 4 #-}
+{-# CONTENT_TYPE DAPP #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+ 
+"hello".contains("hell") # Возвращает true
+"hello".contains("world") # Возвращает false
+```
+
+## drop(String, Int): String<a id=drop></a>
+
+Удаляет первые `n` символов строки.
 
 ``` ride
 drop(xs: String, number: Int): String
 ```
 
-### Parameters
+### Параметры
 
 #### `xs`: String
 
-The string.
+Строка.
 
 #### `number`: Int
 
-The number `n`.
+Число `n`.
 
-### Examples
+### Примеры
 
 ```ride
-drop("Apple", 0) # Returns "Apple"
-drop("Apple", 1) # Returns "pple"
-drop("Apple", 3) # Returns "le"
-drop("Apple", 5) # Returns an empty string
-drop("Apple", 15) # Returns an empty string
+drop("Apple", 0) # Возвращает "Apple"
+drop("Apple", 1) # Возвращает "pple"
+drop("Apple", 3) # Возвращает "le"
+drop("Apple", 5) # Возвращает пустую строку
+drop("Apple", 15) # Возвращает пустую строку
 ```
 
-## dropRight(String, Int): String
+## dropRight(String, Int): String<a id=drop-right></a>
 
-Drops the last `n` characters of a string.
+Удаляет последние `n` символов строки.
 
 ``` ride
 dropRight(xs: String, number: Int): String
 ```
 
-### Parameters
+### Параметры
 
 #### `xs`: String
 
-The string.
+Строка.
 
 #### `number`: Int
 
-The number `n`.
+Число `n`.
 
-### Examples
+### Примеры
 
 ```ride
-dropRight("Apple", 0) # Returns "Apple"
-dropRight("Apple", 1) # Returns "Appl"
-dropRight("Apple", 3) # Returns "Ap"
-dropRight("Apple", 5) # Returns an empty string
-dropRight("Apple", 15) # Returns an empty string
+dropRight("Apple", 0) # Возвращает "Apple"
+dropRight("Apple", 1) # Возвращает "Appl"
+dropRight("Apple", 3) # Возвращает "Ap"
+dropRight("Apple", 5) # Возвращает пустую строку
+dropRight("Apple", 15) # Возвращает пустую строку
 ```
 
-## indexOf(String, String): Int|Unit
+## indexOf(String, String): Int&#124;Unit<a id=index-of></a>
 
-Returns the index of the first occurrence of a substring.
+Возвращает индекс первого вхождения подстроки.
 
 ``` ride
 indexOf(str: String, substr: String): Int|Unit
 ```
 
-### Parameters
+### Параметры
 
 #### `str`: String
 
-The string.
+Строка.
 
 #### `substr`: String
 
-The substring.
+Подстрока.
 
-### Examples
+### Примеры
 
 ```ride
-indexOf("Apple","ple") # Returns 3
-indexOf("Apple","le") # Returns 4
-indexOf("Apple","e") # Returns 5
+indexOf("Apple","ple") # Возвращает 3
+indexOf("Apple","le") # Возвращает 4
+indexOf("Apple","e") # Возвращает 5
 ```
 
-## indexOf(String, String, Int): Int|Unit
+## indexOf(String, String, Int): Int&#124;Unit<a id=index-of></a>
 
-Returns the index of the first occurrence of a substring after a certain index.
+Возвращает индекс первого вхождения подстроки после указанного индекса.
 
 ``` ride
 indexOf(str: String, substr: String, offset: Int): Int|Unit
 ```
 
-### Parameters
+### Параметры
 
 #### `str`: String
 
-The string.
+Строка.
 
 #### `substr`: String
 
-The substring.
+Подстрока.
 
 #### `offset`: Int
 
-The index.
+Индекс.
 
-### Examples
+### Примеры
 
 ```ride
-indexOf("Apple","ple", 1) # Returns 2
-indexOf("Apple","le", 2) # Returns 3
-indexOf("Apple","e", 3) # Returns 4
+indexOf("Apple","ple", 1) # Возвращает 2
+indexOf("Apple","le", 2) # Возвращает 3
+indexOf("Apple","e", 3) # Возвращает 4
 ```
 
-## size(String): Int<a id="size"></a>
+## size(String): Int<a id=size></a>
 
-Returns the size of a string.
+Возвращает длину строки.
 
 ``` ride
 size(xs: String): Int
 ```
 
-### Parameters
+### Параметры
 
 #### `xs`: String
 
-The string.
+Строка.
 
-### Examples
+### Примеры
 
 ```ride
-size("Ap") # Returns 2
-size("Appl") # Returns 4
-size("Apple") # Returns 5
+size("Ap") # Возвращает 2
+size("Appl") # Возвращает 4
+size("Apple") # Возвращает 5
 ```
 
-## split(String, String): List[String]
+## split(String, String): List[String]<a id=split></a>
 
-Splits a string delimited by a separator into a list of substrings.
+Разбивает строку на список подстрок, используя разделитель.
 
 ``` ride
 split(str: String, separator: String): List[String]
 ```
 
-### Parameters
+### Параметры
 
 #### `str`: String
 
-The string.
+Строка.
 
 #### `separator`: Int
 
-The separator.
+Разделитель.
 
-### Examples
+### Примеры
 
 ```ride
-split("A.p.p.l.e", ".") # Returns ["A", "p", "p", "l", "e"]
-split("Apple", ".") # Returns ["Apple"]
-split("Apple", "") # Returns ["A", "p", "p", "l", "e"]
-split("Ap.ple", ".") # Returns ["Ap","ple"]
+split("A.p.p.l.e", ".") # Возвращает ["A", "p", "p", "l", "e"]
+split("Apple", ".") # Возвращает ["Apple"]
+split("Apple", "") # Возвращает ["A", "p", "p", "l", "e"]
+split("Ap.ple", ".") # Возвращает ["Ap","ple"]
 ```
 
-## take(String, Int): String
+## take(String, Int): String<a id=take></a>
 
-Takes the first `n` characters from a string.
+Возвращает первые n символов строки.
 
 ``` ride
 take(xs: String, number: Int): String
 ```
 
-### Parameters
+### Параметры
 
 #### `xs`: String
 
-The string.
+Строка.
 
 #### `number`: Int
 
-The number `n`.
+Число `n`.
 
-### Examples
+### Примеры
 
 ```ride
-take("Apple", 0) # Returns an empty string
-take("Apple", 1) # Returns "A"
-take("Apple", 3) # Returns "App"
-take("Apple", 5) # Returns "Apple"
-take("Apple", 15) # Returns "Apple"
-take("Apple", -10) # Returns an empty string
+take("Apple", 0) # Возвращает пустую строку
+take("Apple", 1) # Возвращает "A"
+take("Apple", 3) # Возвращает "App"
+take("Apple", 5) # Возвращает "Apple"
+take("Apple", 15) # Возвращает "Apple"
+take("Apple", -10) # Возвращает ""
 ```
 
-## takeRight(String, Int): String
+## takeRight(String, Int): String<a id=take-right></a>
 
-Takes the last `n` characters from a string.
+Возвращает последние `n` символов строки.
 
 ``` ride
 takeRight(xs: String, number: Int): String
 ```
 
-### Parameters
+### Параметры
 
 #### `xs`: String
 
-The string.
+Строка.
 
 #### `number`: Int
 
-The number `n`.
+Число `n`.
 
-### Examples
+### Примеры
 
 ```ride
-takeRight("Apple", 0) # Returns an empty string
-takeRight("Apple", 1) # Returns "A"
-takeRight("Apple", 3) # Returns "ple"
-takeRight("Apple", 5) # Returns "Apple"
-takeRight("Apple", 15) # Returns "Apple"
+takeRight("Apple", 0) # Возвращает пустую строку
+takeRight("Apple", 1) # Возвращает "A"
+takeRight("Apple", 3) # Возвращает "ple"
+takeRight("Apple", 5) # Возвращает "Apple"
+takeRight("Apple", 15) # Возвращает "Apple"
 ```

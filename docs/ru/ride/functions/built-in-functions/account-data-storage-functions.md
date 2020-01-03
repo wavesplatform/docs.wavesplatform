@@ -1,192 +1,192 @@
-# Account data storage functions
+# Функции хранилища данных аккаунта
 
-> Learn more about [account data storage](/blockchain/account/account-data-storage.md)
+> Подробнее о [хранилище данных аккаунта](/blockchain/account/account-data-storage.md)
 
-| # | Name | Description | Complexity |
+| # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
-| 1 | [assetBalancе(Address&#124;Alias, ByteVector): Int](#asset-balance) | Gets account balance by token ID | 100 |
-| 2 | [getBinary(Address&#124;Alias, String): ByteVector&#124;Unit](#get-binary) | Gets an array of bytes by key | 100 |
-| 3 | [getBinaryValue(Address&#124;Alias, String): ByteVector](#get-binary-value) | Gets an array of bytes by key. Throws an exception if there is no data | 100 |
-| 4 | [getBoolean(Address&#124;Alias, String): Boolean&#124;Unit](#get-boolean) | Gets a boolean value by key | 100 |
-| 5 | [getBooleanValue(Address&#124;Alias, String): Boolean](#get-boolean-value) | Gets a boolean value by key. Throws an exception if there is no data | 100 |
-| 6 | [getInteger(Address&#124;Alias, String): Int&#124;Unit](#get-integer) | Gets an integer by key | 100 |
-| 7 | [getIntegerValue(Address&#124;Alias, String): Int](#get-integer-value) | Gets an integer by key. Throws an exception if there is no data | 100 |
-| 8 | [getString(Address&#124;Alias, String): String&#124;Unit](#get-string) | Gets a string by key | 100 |
-| 9 | [getStringValue(Address&#124;Alias, String): String](#get-string-value) | Gets a string by key. Throws an exception if there is no data | 100 |
-| 10 | [wavesBalance(Address&#124;Alias): Int](#waves-balance) | Gets account balance in [WAVES](/blockchain/token/waves.md) | 109 |
+| 1 | [assetBalancе(Address&#124;Alias, ByteVector): Int](#asset-balance)  | Получает баланс аккаунта по ID токена | 100 |
+| 2 | [getBinary(Address&#124;Alias, String): ByteVector&#124;Unit](#get-binary)  | Получает массив байтов по ключу | 100 |
+| 3 | [getBinaryValue(Address&#124;Alias, String): ByteVector](#get-binary-value)  | Получает массив байтов по ключу. Выбрасывает исключение, если данных нет | 100 |
+| 4 | [getBoolean(Address&#124;Alias, String): Boolean&#124;Unit](#get-boolean)  | Получает логическое значение по ключу | 100 |
+| 5 | [getBooleanValue(Address&#124;Alias, String): Boolean](#get-boolean-value)  | Получает логическое значение по ключу. Выбрасывает исключение, если данных нет | 100 |
+| 6 | [getInteger(Address&#124;Alias, String): Int&#124;Unit](#get-integer)  | Получает целое число по ключу | 100 |
+| 7 | [getIntegerValue(Address&#124;Alias, String): Int](#get-integer-value)  | Получает целое число по ключу. Выбрасывает исключение, если данных нет | 100 |
+| 8 | [getString(Address&#124;Alias, String): String&#124;Unit](#get-string)  | Получает строку по ключу | 100 |
+| 9 | [getStringValue(Address&#124;Alias, String): String](#get-string-value)  | Получает строку по ключу. Выбрасывает исключение, если данных нет | 100 |
+| 10 | [wavesBalance(Address&#124;Alias): Int](#waves-balance)  | Получает баланс аккаунта в [WAVES](/blockchain/token/waves.md) | 100 |
 
 ## assetBalance(Address|Alias, ByteVector): Int<a id="asset-balance"></a>
 
-Gets account balance by token ID.
+Получает баланс аккаунта по ID токена.
 
 ``` ride
 assetBalance(addressOrAlias: Address|Alias, assetId: ByteVector): Int
 ```
 
-### Parameters
-
-#### `addressOrAlias`: Address|Alias
-
-[Address](/blockchain/account/address.md) or [alias](/blockchain/account/alias.md) of the account.
-
-#### `assetId`: ByteVector
-
-Token ID.
-
-## getBinary(Address|Alias, String): ByteVector|Unit<a id="get-binary"></a>
-
-Gets an array of bytes by key.
-
-``` ride
-getBinary(addressOrAlias: Address|Alias, key: String): ByteVector|Unit
-```
-
-### Parameters
-
-#### `addressOrAlias`: Address|Alias
-
-[Address](/blockchain/account/address.md) or [alias](/blockchain/account/alias.md) of the account.
-
-#### `key`: String
-
-The key.
-
-## getBinaryValue(Address|Alias, String): ByteVector<a id="get-binary-value"></a>
-
-Gets an array of bytes by key. Throws an exception if there is no data.
-
-``` ride
-getBinaryValue(addressOrAlias: Address|Alias, key: String): ByteVector
-```
-
-### Parameters
-
-#### `addressOrAlias`: Address|Alias
-
-[Address](/blockchain/account/address.md) or [alias](/blockchain/account/alias.md) of the account.
-
-#### `key`: String
-
-The key.
-
-## getBoolean(Address|Alias, String): Boolean|Unit<a id="get-boolean"></a>
-
-Gets a boolean value by key.
-
-``` ride
-getBoolean(addressOrAlias: Address|Alias, key: String): Boolean|Unit
-```
-
-### Parameters
-
-#### `addressOrAlias`: Address|Alias
-
-[Address](/blockchain/account/address.md) or [alias](/blockchain/account/alias.md) of the account.
-
-#### key: String
-
-The key.
-
-## getBooleanValue(Address|Alias, String): Boolean<a id="get-boolean-value"></a>
-
-Gets a boolean value by key. Throws an exception if there is no data.
-
-``` ride
-getBooleanValue(addressOrAlias: Address|Alias, key: String): Boolean
-```
-
-### Parameters
+### Параметры
 
 #### addressOrAlias: Address|Alias
 
-[Address](/blockchain/account/address.md) or [alias](/blockchain/account/alias.md) of the account.
+[Адрес](/blockchain/account/address.md) или [псевдоним](/blockchain/account/alias.md) аккаунта.
+
+#### assetId: ByteVector
+
+ID токена.
+
+## getBinary(Address|Alias, String): ByteVector|Unit<a id="get-binary"></a>
+
+Получает массив байтов по ключу.
+
+``` ride
+getBinary(addressOrAlias: Address|Alias, key: String): ByteVector|Unit
+```
+
+### Параметры
+
+#### addressOrAlias: Address|Alias
+
+[Адрес](/blockchain/account/address.md) или [псевдоним](/blockchain/account/alias.md) аккаунта.
 
 #### key: String
 
-The key.
+Ключ.
 
-## getInteger(Address|Alias, String): Int|Unit<a id="get-integer"></a>
+## getBinaryValue(Address|Alias, String): ByteVector<a id="get-binary-value"></a>
 
-Gets an integer by key.
+Получает массив байтов по ключу. Выбрасывает исключение, если данных нет.
+
+``` ride
+getBinaryValue(addressOrAlias: Address|Alias, key: String): ByteVector
+```
+
+### Параметры
+
+#### addressOrAlias: Address|Alias
+
+[Адрес](/blockchain/account/address.md) или [псевдоним](/blockchain/account/alias.md) аккаунта.
+
+#### key: String
+
+Ключ.
+
+## getBoolean(Address|Alias, String): Boolean|Unit<a id="get-boolean"></a>
+
+Получает логическое значение по ключу.
+
+``` ride
+getBoolean(addressOrAlias: Address|Alias, key: String): Boolean|Unit
+```
+
+### Параметры
+
+#### addressOrAlias: Address|Alias
+
+[Адрес](/blockchain/account/address.md) или [псевдоним](/blockchain/account/alias.md) аккаунта.
+
+#### key: String
+
+Ключ.
+
+## getBooleanValue(Address|Alias, String): Boolean<a id="get-boolean-value"></a>
+
+Получает логическое значение по ключу. Выбрасывает исключение, если данных нет.
+
+``` ride
+getBooleanValue(addressOrAlias: Address|Alias, key: String): Boolean
+```
+
+### Параметры
+
+#### addressOrAlias: Address|Alias
+
+[Адрес](/blockchain/account/address.md) или [псевдоним](/blockchain/account/alias.md) аккаунта.
+
+#### key: String
+
+Ключ.
+
+## getInteger(Address|Alias, String): Int|Unit<a id="get-integer"></a>
+
+Получает целое число по ключу.
 
 ``` ride
 getInteger(addressOrAlias: Address|Alias, key: String): Int|Unit
 ```
 
-### Parameters
+### Параметры
 
 #### addressOrAlias: Address|Alias
 
-[Address](/blockchain/account/address.md) or [alias](/blockchain/account/alias.md) of the account.
+[Адрес](/blockchain/account/address.md) или [псевдоним](/blockchain/account/alias.md) аккаунта.
 
 #### key: String
 
-The key.
+Ключ.
 
-## getIntegerValue(Address|Alias, String): Int<a id="get-integer-value"></a>
+## getIntegerValue(Address|Alias, String): Int<a id="get-integer-value"></a>
 
-Gets an integer by key. Throws an exception if there is no data.
+Получает целое число по ключу. Выбрасывает исключение, если данных нет.
 
 ``` ride
-getIntegerValue(addressOrAlias: Address|Alias, key: String): Int
+getIntegerValue(addressOrAlias: Address|Alias, key: String): Int
 ```
 
-### Parameters
+### Параметры
 
 #### addressOrAlias: Address|Alias
 
-[Address](/blockchain/account/address.md) or [alias](/blockchain/account/alias.md) of the account.
+[Адрес](/blockchain/account/address.md) или [псевдоним](/blockchain/account/alias.md) аккаунта.
 
 #### key: String
 
-The key.
+Ключ.
 
 ## getString(Address|Alias, String): String|Unit<a id="get-string"></a>
 
-Gets a string by key.
+Получает строку по ключу.
 
 ``` ride
-getString(addressOrAlias: Address|Alias, key: String): String|Unit
+getString(addressOrAlias: Address|Alias, key: String): String|Unit
 ```
 
-### Parameters
+### Параметры
 
 #### addressOrAlias: Address|Alias
 
-[Address](/blockchain/account/address.md) or [alias](/blockchain/account/alias.md) of the account.
+[Адрес](/blockchain/account/address.md) или [псевдоним](/blockchain/account/alias.md) аккаунта.
 
 #### key: String
 
-The key.
+Ключ.
 
-## getStringValue(Address|Alias, String): String<a id="get-string-value"></a>
+## getStringValue(Address|Alias, String): String<a id="get-string-value"></a>
 
-Gets a string by key. Throws an exception if there is no data.
+Получает строку по ключу. Выбрасывает исключение, если данных нет.
 
 ``` ride
-getStringValue(addressOrAlias: Address|Alias, key: String): String
+getStringValue(addressOrAlias: Address|Alias, key: String): String
 ```
 
-### Parameters
+### Параметры
 
 #### addressOrAlias: Address|Alias
 
-[Address](/blockchain/account/address.md) or [alias](/blockchain/account/alias.md) of the account.
+[Адрес](/blockchain/account/address.md) или [псевдоним](/blockchain/account/alias.md) аккаунта.
 
 #### key: String
 
-The key.
+Ключ.
 
 ## wavesBalance(Address|Alias): Int<a id="waves-balance"></a>
 
-Gets account balance in [WAVES](/blockchain/token/waves.md).
+Получает баланс аккаунта в [WAVES](/blockchain/token/waves.md).
 
 ``` ride
 wavesBalance(addressOrAlias: Address|Alias): Int
 ```
 
-### Parameters
+### Параметры
 
 #### addressOrAlias: Address|Alias
 
-[Address](/blockchain/account/address.md) or [alias](/blockchain/account/alias.md) of the account.
+[Адрес](/blockchain/account/address.md) или [псевдоним](/blockchain/account/alias.md) аккаунта.

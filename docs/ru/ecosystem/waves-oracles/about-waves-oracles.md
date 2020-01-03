@@ -1,13 +1,13 @@
-# About Waves Oracles
+# О Waves Oracles
 
-**Waves Oracles** is the online service ([https://oracles.wavesexplorer.com/](https://oracles.wavesexplorer.com/)) destined to work with oracles.
+**Waves Oracles** — онлайн-сервис ([https://oracles.wavesexplorer.com](https://oracles.wavesexplorer.com)), предназначенный для работы с [оракулами](/blockchain/oracle.md).
 
-In the current version it is possible to register an [oracle card](/waves-oracles/oracle-card.md), the creation of the microservice itself, which receives data from the source and records it in blockchain, is outside the scope of this service.
+В текущей реализации позволяет зарегистрировать [карточку оракула](/waves-oracles/oracle-card.md). Создание самого микросервиса, осуществляющего получение данных от источника и запись их в блокчейн, находится за рамками данного сервиса.
 
-Waves Oracles features:
+Возможности Waves Oracles:
 
-- Viewing public [oracle](/blockchain/oracle.md) cards.
-- Searching oracles by name or [account](/blockchain/account.md).
-- Filtering of oracles by category, status, network type.
-- [Creating an oracle card](/waves-oracles/create-an-oracle-card-with-waves-oracle.md).
-- [Sending data transaction by the specification of the oracle](/waves-oracles/data-transaction-tool.md).
+- Просмотр публичных карточек [оракулов](/blockchain/oracle.md).
+- Поиск оракулов по имени или [аккаунту](/blockchain/account.md).
+- Фильтрация оракулов в зависимости от их категории, статуса и типа сети.
+- [Создание карточки оракула](/waves-oracles/create-an-oracle-card-with-waves-oracle.md).
+- [Запись транзакций данных по спецификации оракула]().

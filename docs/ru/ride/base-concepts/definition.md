@@ -1,16 +1,16 @@
-# Definition
+# Определение
 
-A **definition** is a linking of the name to the value or to the [function](/ride/functions.md) body.
+**Определение** — связывание имени со значением или с телом [функции](/ride/functions.md).
 
-## Examples
+## Примеры
 
-Linking the name to the value.
+Связывание имени со значением.
 
 ``` ride
 let x = 5 + 5
 ```
 
-Linking the name to the function body.
+Связывание имени с телом функции.
 
 ``` ride
 func f(x: Int) = {

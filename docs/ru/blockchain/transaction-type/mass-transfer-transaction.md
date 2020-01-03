@@ -1,9 +1,9 @@
-# Mass transfer transaction
+# Транзакция массового перевода
 
-A **mass transfer transaction** is a [transaction](/blockchain/transaction.md) that transfers a certain amount of [token](/blockchain/token.md) from one [account](/blockchain/account.md) to several accounts simultaneously.
+**Транзакция массового перевода** — [транзакция](/blockchain/transaction.md), которая переводит определенное количество [токена](/blockchain/token.md) с одного [аккаунта](/blockchain/account.md) одновременно на несколько аккаунтов.
 
-A mass transfer transaction contains from 1 to 100 transfers inclusive. The number of tokens to be transferred and the address of the recipient are specified for each transfer individually.
+Транзакция массового перевода содержит от 1 до 100 переводов включительно. Количество переводимого токена и адрес получателя задаются для каждого перевода индивидуально.
 
-## Binary format
+## Бинарный формат
 
-See the page [Mass transfer transaction binary format](/blockchain/binary-format/transaction-binary-format/mass-transfer-transaction-binary-format.md).
+Смотрите страницу [Бинарный формат транзакции массового перевода](/blockchain/binary-format/transaction-binary-format/mass-transfer-transaction-binary-format.md).

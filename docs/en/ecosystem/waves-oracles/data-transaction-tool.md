@@ -6,7 +6,7 @@ In Waves Oracles login to your oracle account via Waves Keeper. Hit **Send trans
 
 The pop-up will open.
 
-![](./_assets/data_transaction_tool.png)
+![](/waves-oracles/img/data_transaction_tool.png)
 
 For boolean type keys: Yes - True, No - False.
 

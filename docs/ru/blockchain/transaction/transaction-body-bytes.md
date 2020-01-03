@@ -1,5 +1,5 @@
-# Transaction body bytes
+# Байты тела транзакции
 
-The **transaction body bytes** are the bytes of all the fields of a [binary representation](/blockchain/binary-format/transaction-binary-format.md) of a transaction with the exception of `id`, `signature` and `proofs` fields.
+**Байты тела транзакции** — байты всех полей [бинарного представления](/blockchain/binary-format/transaction-binary-format.md) транзакции за исключением полей `id`, `signature`, `proofs`.
 
-Based on the transaction body bytes, the [transaction ID](/blockchain/transaction/transaction-id.md) and the [transaction signature](/blockchain/transaction/transaction-signature.md) are generated.
+На основании байтов тела транзакции формируется [ID транзакции](/blockchain/transaction/transaction-id.md) и [подпись транзакции](/blockchain/transaction/transaction-signature.md).

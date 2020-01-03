@@ -1,47 +1,47 @@
-# Issue transaction binary format
+# Бинарный формат транзакции выпуска
 
-> Learn more about [issue transaction](/blockchain/transaction-type/issue-transaction.md)
+> Узнать больше о [транзакции выпуска](/blockchain/transaction-type/issue-transaction.md)
 
-## Transaction version 2
+## Транзакция версии 2
 
-| Field order number | Field | JSON field name | Field type | Field size in bytes | Comment |
+| Порядковый номер поля | Поле | Название JSON-поля | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | Version flag | | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | Indicates the [transaction version](/blockchain/transaction/transaction-version.md) is version 2 or higher.<br>Value must be 0 |
-| 2 | [Transaction type ID](/blockchain/transaction-type.md) | type | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | Value must be 3 |
-| 3 | [Transaction version](/blockchain/transaction/transaction-version.md) | version | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | Value must be 2 |
-| 4 | [Chain ID](/blockchain/blockchain-network/chain-id.md) | chainId | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | 84 for [test network](/blockchain/blockchain-network/test-network.md), 87 for [main network](/blockchain/blockchain-network/main-network.md) |
-| 5 | Public key of the transaction sender  | senderPublicKey | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | 32 | |
-| 6.1 | [Token](/blockchain/token.md) name length | | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 | |
-| 6.2 | Token name | name | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | From 4 to 16 | |
-| 7.1 | Token description length | | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 | |
-| 7.2 | Token description | description | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | From 0 to 1000 | |
-| 8 | Amount of the token that will be issued | quantity | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 | |
-| 9 | Number of decimal places of the [token](/blockchain/token.md) | decimals | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | |
-| 10 | Reissue flag | reissuable | [Boolean](/blockchain/blockchain/blockchain-data-types.md) | 1 | If the value is 0, then token reissue is not possible.<br>If the value is 1, then token reissue is possible |
-| 11 | [Transaction fee](/blockchain/transaction/transaction-fee.md) | fee | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 | |
-| 12 | [Transaction timestamp](/blockchain/transaction/transaction-timestamp.md) | timestamp | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 | |
-| 13.1 | Script existence flag | | [Boolean](/blockchain/blockchain/blockchain-data-types.md) | 1 | If the value is 0, then the token does not have a script.<br>If the value is 1, then the token has a script |
-| 13.2 | Script length in bytes | | [Short](/blockchain/blockchain/blockchain-data-types.md) | S | `S = 0 ` if the value of the "Script existence flag" field is 0.<br>`S = 2 `if the value of the "Script existence flag" field is 1 |
-| 13.3 | [Asset script](/ride/script/script-types/asset-script.md) or [account script](/ride/script/script-types/account-script.md) | script | [String](/blockchain/blockchain/blockchain-data-types.md) | S | `S = 0` if the value of the "Script existence flag" field is 0.<br>0 &lt; `S` ≤ 32768, if the value of the "Script existence flag" field is 1 |
-| 14 | [Transaction proofs](/blockchain/transaction/transaction-proof.md) | proofs | [Proofs](/blockchain/transaction/transaction-proof.md) | S | If the array is empty, then `S`= 3. <br>If the array is not empty, then `S` = 3 + 2 × `N` + (`P`<sub>1</sub> + `P`<sub>2</sub> + ... + `P`<sub>n</sub>), where `N` is the number of proofs in the array, `P`<sub>n</sub> is the size on `N`-th proof in bytes. <br>The maximum number of proofs in the array is 8. The maximum size of each proof is 64 bytes |
+| 1 | Флаг версии |  | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | Указывает, что [версия транзакции](/blockchain/transaction/transaction-version.md) является второй или выше.<br>Значение должно быть равно 0 |
+| 2 | [ID типа транзакции](/blockchain/transaction-type.md) | type | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | Значение должно быть равно 3 |
+| 3 | [Версия транзакции](/blockchain/transaction/transaction-version.md) | version | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | Значение должно быть равно 2 |
+| 4 | [Байт сети](/blockchain/blockchain-network/chain-id.md) | chainId | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | 84 для [тестовой сети](/blockchain/blockchain-network/test-network.md), 87 для [основной сети](/blockchain/blockchain-network/main-network.md) |
+| 5 | Открытый ключ аккаунта отправителя транзакции | senderPublicKey | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | 32 |  |
+| 6.1 | Длина названия токена |  | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 |  |
+| 6.2 | Название токена | name | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | От 4 до 16 включительно |  |
+| 7.1 | Длина описания токена |  | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 |  |
+| 7.2 | Описание токена | description | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | От 0 до 1000 включительно |  |
+| 8 | Количество токенов, которые будут выпущены | amount | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 |  |
+| 9 | Число знаков после запятой у токена | decimals | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 |  |
+| 10 | Флаг возможности довыпуска | reissuable | [Boolean](/blockchain/blockchain/blockchain-data-types.md) | 1 | Если значение равно 0, то довыпуск невозможен.<br>Если значение равно 1, то довыпуск возможен |
+| 11 | [Комиссия за транзакцию](/blockchain/transaction/transaction-fee.md) | fee | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 |  |
+| 12 | [Временная метка транзакции](/blockchain/transaction/transaction-timestamp.md) | timestamp | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 |  |
+| 13.1 | Флаг наличия скрипта |  | [Boolean](/blockchain/blockchain/blockchain-data-types.md) | 1 | Если значение равно 0, то токен не имеет скрипт.<br>Если значение равно 1, то токен имеет скрипт |
+| 13.2 | Длина скрипта |  | [Short](/blockchain/blockchain/blockchain-data-types.md) | `S` | `S` = 0, если значение поля "Флаг наличия скрипта" равно 0.<br>`S` = 2, если значение поля "Флаг наличия скрипта" равно 1 |
+| 13.3 | [Скрипт ассета](/ride/script/script-types/asset-script.md) или [скрипт аккаунта](/ride/script/script-types/account-script.md) | script | [String](/blockchain/blockchain/blockchain-data-types.md) | `S` | `S` = 0, если значение поля "Флаг наличия скрипта" равно 0.<br>0 < `S` ≤ 32768, если значение поля "Флаг наличия скрипта" равно 1 |
+| 14 | [Подтверждения транзакции](/blockchain/transaction/transaction-proof.md) | proofs | [Подтверждения](/blockchain/transaction/transaction-proof.md) | `S` | Если массив пустой, то `S` = 3.<br>Если массив не пустой, то `S` = 3 + 2 × `N` + (`P`<sub>1</sub> + `P`<sub>2</sub> + ... + `P`<sub>n</sub>),<br>где<br>`N` — количество подтверждений в массиве,<br>`P`<sub>n</sub> — размер `N`-го подтверждения в байтах.<br>Максимальное количество подтверждений в массиве — 8. Максимальный размер каждого подтверждения — 64 байта |
 
-## JSON representation of the transaction
+## JSON-представление транзакции
 
-See the [example](https://testnodes.wavesnodes.com/transactions/info/8jfD2JBLe23XtCCSQoTx5eAW5QCU6Mbxi3r78aNQLcNf) in Node API.
+Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/FTQvw9zdYirRksUFCKDvor3hiu2NiUjXEPTDEcircqti) в Node API.
 
-## Transaction version 1
+## Транзакция версии 1
 
-| Field order number | Field | Field type | Field size in bytes | Comment |
+| Порядковый номер поля | Название поля | Тип поля | Размер поля в байтах | Описание |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | [Transaction type ID](/blockchain/transaction-type.md) | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | Value must be 3 |
-| 2 | Public key of the transaction sender  | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | 32 | |
-| 3.1 | [Token](/blockchain/token.md) name length | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 | |
-| 3.2 | Token name | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | From 4 to 16 | |
-| 4.1 | Token description length | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 | |
-| 4.2 | Token description | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | From 0 to 1000 | |
-| 5 | Amount of the [token](/blockchain/token.md) that will be issued | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 | |
-| 6 | Number of decimal places of the [token](/blockchain/token.md) | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | |
-| 7 | Reissue flag | [Boolean](/blockchain/blockchain/blockchain-data-types.md) | 1 | |
-| 8 | [Transaction fee](/blockchain/transaction/transaction-fee.md) | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 | |
-| 9 | [Transaction timestamp](/blockchain/transaction/transaction-timestamp.md) | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 | |
-| 10 | [Transaction signature](/blockchain/transaction/transaction-signature.md) | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | 64 | | |
+| 1 | [ID типа транзакции](/blockchain/transaction-type.md) | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | Значение должно быть равно 3 |
+| 2 | Подпись транзакции | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | 64 |  |
+| 3 | Открытый ключ аккаунта отправителя транзакции | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | 32 |  |
+| 4 | Длина имени токена | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 |  |
+| 5 | Имя токена | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | От 4 до 16 включительно |  |
+| 6 | Длина описания токена | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 |  |
+| 7 | Описание токена | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | От 0 до 1000 включительно |  |
+| 8 | Количество токенов | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 |  |
+| 9 | Количество знаков после запятой у токена | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 |  |
+| 10 | Флаг возможности довыпуска | [Boolean](/blockchain/blockchain/blockchain-data-types.md) | 1 | Если значение равно 0, то довыпуск невозможен.<br>Если значение равно 1, то довыпуск возможен |
+| 11 | [Комиссия за транзакцию](/blockchain/transaction/transaction-fee.md) | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 |  |
+| 12 | [Временная метка транзакции](/blockchain/transaction/transaction-timestamp.md) | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 |  |  |

@@ -1,18 +1,18 @@
-# Functions
+# Функции
 
-A function must return a value. The return type is not specified in the signature of the function.
+Функция должна возвращать значение. Тип возвращаемого значения в сигнатуре функции не указывается.
 
-A function must be declared above the place of its usage.
+Функция должна быть объявлена выше места ее использования.
 
-A function can be [annotated](/ride/functions/annotations.md).
+Функция может быть [аннотирована](/ride/functions/annotations.md).
 
-There are many [built-in functions](/ride/functions/built-in-functions.md).
+Существует множество [встроенных функций](/ride/functions/built-in-functions.md).
 
-When declaring a function to the right of the "=" sign must be an [expression](/ride/base-concepts/expression.md). The value of the function is the [expression result](/ride/base-concepts/expression.md#expression-result).
+При объявлении функции справа от знака "=" должно находиться [выражение](/ride/base-concepts/expression.md). Значение функции — [результат выражения](/ride/base-concepts/expression.md#expression-result).
 
-## Examples
+## Примеры
 
-Definition of the function with no parameters that returns an integer:
+Определение функции без параметров, которая возвращает целое число:
 
 ``` ride
 func main() = {
@@ -20,7 +20,7 @@ func main() = {
 }
 ```
 
-Definition of a function with two parameters:
+Определение функции с двумя параметрами:
 
 ``` ride
 func main(amount: Int, name: String) = {

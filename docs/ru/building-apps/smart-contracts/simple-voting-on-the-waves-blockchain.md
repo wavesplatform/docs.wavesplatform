@@ -1,57 +1,57 @@
-# Simple voting on the Waves blockchain
+# Простое голосование на блокчейне Waves
 
-The head of the HOA (homeowners association) asks the tenants of the building: "Dear residents, do you agree with the construction of the kids' playground in the yard of your building?".
+Глава ТСЖ (товарищества собственников жилья) задает вопрос жильцам дома: "Уважаемые жильцы, согласны ли вы со строительством детской площадки во дворе вашего дома?".
 
-Objective: implement such voting among tenants on the Waves blockchain.
+На блокчейне Waves необходимо реализовать голосование жильцов дома за строительство детской площадки.
 
-## Roadmap
+## План действий
 
-1. Create an [account](/blockchain/account.md) of the head of the HOA.
-2. Create accounts of tenants.
-3. Create [dApp script](/ride/script/script-types/dapp-script.md) with the `vote` method.
-4. Attach dApp script to the account of the head of the HOA, thus creating a [dApp](/blockchain/account/dapp.md).
-5. Vote from the accounts of tenants by invoking the `vote` method of the dApp.
-6. View the results of the voting.
+1. Создадим [аккаунт](/blockchain/account.md) главы ТСЖ.
+2. Создадим аккаунты жильцов дома.
+3. Создадим [dApp-скрипт](/ride/script/script-types/dapp-script.md) с методом `vote`.
+4. Привяжем dApp-скрипт к аккаунту главы ТСЖ, создав таким образом [dApp](/blockchain/account/dapp.md).
+5. Проголосуем с аккаунтов жильцов дома, вызвав метод `vote` dApp.
+6. Узнаем результаты голосования.
 
-## 1. Creation of the account of the head of the HOA
+## 1. Создание аккаунта главы ТСЖ
 
-Go to the [Waves IDE](https://ide.wavesplatform.com) settings.
+Зайдите в настройки [Waves IDE](https://ide.wavesplatform.com/).
 
-![](./_assets/voting/account-settings.png)
+<img src="img/voting/account-settings.png" width="300"/>
 
-Make sure that the [test network](/blockchain/blockchain-network/test-network.md) is selected.
+Убедитесь, что выбрана [тестовая сеть](/blockchain/blockchain-network/test-network.md).
 
-![](./_assets/voting/account-settings-test.png)
+<img src="img/voting/account-settings-test.png" width="540"/>
 
-Create an account of the head of HOA by selecting **Generate New Account**.
+Создайте аккаунт главы ТСЖ, выбрав  **Generate new account**.
 
-![](./_assets/voting/account-new.png)
+<img src="img/voting/account-new.png" width="240"/>
 
-Rename created account to "Head of HOA".
+Переименуйте созданный аккаунт в "Глава ТСЖ".
 
-![](./_assets/voting/account-chief.png)
+<img src="img/voting/account-chief.png" width="245"/>
 
-Copy the [address](/blockchain/account/address.md) of the head of HOA and top up its balance by 10 [WAVES](/blockchain/token/waves.md) using the [Faucet](/waves-explorer/account-balance-top-up-in-the-test-network.md). The head of HOA will need [tokens](/blockchain/token.md) to pay the [fee](/blockchain/transaction/transaction-fee.md) for the set script transaction when he will be attaching [dApp script](/ride/script/script-types/dapp-script.md) to his account.
+Скопируйте [адрес](/blockchain/account/address.md) главы ТСЖ и [с помощью Faucet](/waves-explorer/account-balance-top-up-in-the-test-network.md) пополните его баланс на 10 [WAVES](/blockchain/token/waves.md). [Токены](/blockchain/token.md) понадобятся главе ТСЖ для оплаты [комиссии](/blockchain/transaction/transaction-fee.md) за [транзакцию установки скрипта](/blockchain/transaction-type/set-script-transaction.md), когда он будет привязывать [dApp-скрипт](/ride/script/script-types/dapp-script.md) к своему аккаунту.
 
-![](./_assets/voting/account-chief-balance.png)
+<img src="img/voting/account-chief-balance.png" width="250"/>
 
-## 2. Creation of accounts of tenants
+## 2. Создание аккаунтов жильцов дома
 
-Similarly, create accounts of tenants Aleksei and Anna and top up their balances by 10 WAVES. They will need tokens to pay a fee for the [invoke script transaction](/blockchain/transaction-type/invoke-script-transaction.md) when they will vote by calling the `vote` method of the dApp.
+Аналогично создайте аккаунты жильцов дома Алексея и Анны и пополните их балансы на 10 WAVES. Токены им понадобятся для оплаты комиссии за [транзакцию вызова скрипта](/blockchain/transaction-type/invoke-script-transaction.md), когда они будут голосовать, вызывая метод `vote` dApp.
 
-![](./_assets/voting/accounts-residents.png)
+<img src="img/voting/accounts-residents.png" width="250"/>
 
-## 3. Creation of a dApp script
+## 3. Создание dApp-скрипта
 
-Create a [dApp script](/ride/script/script-types/dapp-script.md) by selecting **DApp** in the drop-down list.
+Создайте [dApp-скрипт](/ride/script/script-types/dapp-script.md), выбрав в выпадающем списке **DApp**.
 
-![](./_assets/voting/new-dapp-script.png)
+<img src="img/voting/new-dapp-script.png" width="870"/>
 
-Rename the script to the "Head of the HOA voting".
+Переименуйте скрипт в "Голосование главы ТСЖ".
 
-![](./_assets/voting/dapp-script-rename.png)
+<img src="img/voting/dapp-script-rename.png" width="870"/>
 
-Replace automatically generated code with the following:
+Замените автоматически сгенерированный код на следующий:
 
 ```ride
 {-# STDLIB_VERSION 3 #-}
@@ -60,8 +60,8 @@ Replace automatically generated code with the following:
 
 func voterIsAllowedToVote(voterPublicKey: ByteVector) = {
 
-    let alekseiPubKey = base58'8t38fWQhrYJsqxXtPpiRCEk1g5RJdq9bG5Rkr2N7mDFC'
-    let annaPubKey = base58'BqHZaEwUMvoF8HKNC69gkHwQwHnw5FX9i67DJSH78z9E'
+    let alekseiPubKey = base58'8QvKvspfNF6cUv2DFMCfvT8SrbraERqXpNMEMqBfJZ3e'
+    let annaPubKey = base58'AtYwJTqWNfwYrPnWVvfmnPTSTEioiLFzUTcZVttgDj1x'
 
     if (voterPublicKey != alekseiPubKey && voterPublicKey != annaPubKey)
     then
@@ -74,114 +74,117 @@ func voterIsAllowedToVote(voterPublicKey: ByteVector) = {
 @Callable(i)
 func vote(theVote: Int) = {
 
-    if(!voterIsAllowedToVote(i.callerPublicKey))
+    if (!voterIsAllowedToVote(i.callerPublicKey))
     then
-        throw("You can not vote because you are not in the list of voters!")
+        throw("Вы не можете голосовать, так как вас нет в списке голосующих!")
     else
         let dataFromStorage = this.getInteger(i.callerPublicKey.toBase58String())
 
-        if(dataFromStorage.isDefined())
+        if (dataFromStorage.isDefined())
         then
-            throw("You have already voted! Voting the second time is not allowed.")
+            throw("Вы уже голосовали! Повтороное голосование запрещено.")
         else
             WriteSet([DataEntry(i.callerPublicKey.toBase58String(), theVote)])
 
 }
 ```
 
-### Explanation of the code of the dApp script
+### Пояснения к коду dApp-скрипта
 
-#### The `vote` function
+#### Функция `vote`
 
-The `vote` function returns the `WriteSet` [structure](/ride/structures.md), inside of which takes place the recording of the vote to the [account data storage](/blockchain/account/account-data-storage.md) of the head of the HOA.
+Функция `vote` возвращает [структуру](/ride/structures.md) `WriteSet`, внутри которой происходит запись голоса в [хранилище данных аккаунта](/blockchain/account/account-data-storage.md) главы ТСЖ.
 
-In front of the `vote` function, there is a `@Callable` annotation which makes the dApp function callable. The `i` is the variable that contains the information about transaction which invoked the `vote` function. In the code we use variable `i` to get public key of the account which sent the invoke script transaction.
+Перед функцией `vote` указана аннотация `@Callable`, которая делает данную функцию вызываемой у dApp. У данной аннотации `i` — переменная, содержащая информацию о транзакции, которая вызвала функцию `vote`. Мы используем переменную `i` в коде для получения открытого ключа аккаунта `i.callerPublicKey`, который отправил транзакцию вызова скрипта.
 
-To keep things simple, there are no checks of the value of the `theVote` variable in the code.
+Для простоты, в функции `vote` нет никаких проверок значения переменной `theVote`.
 
-#### The `voterIsAllowedToVote` function
+#### Функция `voterIsAllowedToVote`
 
-The `voterIsAllowedToVote` function checks if the account that invoked the script has rights to vote.
+Функция `voterIsAllowedToVote` проверяет, что аккаунт, вызывающий скрипт, имеет право голосовать.
 
-In the current example the values of public keys are hardcoded in the script. In the real world example, it will be better to read public keys, for example, from the data storage of the account of the head of the HOA (after saving them there beforehand).
+В данном примере значения открытых ключей жестко прописаны в коде скрипта. В реальном примере можно было бы считывать открытые ключи, например, из хранилища данных аккаунта главы ТСЖ (предварительно записав их туда).
 
-Get the values of `alekseiPubKey` and `annaPubKey` from the accounts' cards of Aleksei and Anna.
+Значения открытых ключей `alekseiPubKey` и `annaPubKey` возьмите из карточек аккаунтов Алексея и Анны.
 
-![](./_assets/voting/public-key.png)
+<img src="img/voting/public-key.png" width="240"/>
 
-#### The `getInteger` function
+#### Функция `getInteger`
 
-The `getInteger` function gets values of the account data storage by key:
+Функция `getInteger` получает значения из хранилища данных аккаунта по ключу:
 
 ```
 let dataFromStorage = this.getInteger(i.callerPublicKey.toBase58String())
 ```
 
-The size and the [complexity](/ride/base-concepts/complexity.md) of the script is displayed in the panel underneath the script editor.
+Размер и [сложность](/ride/base-concepts/complexity.md) скрипта отображаются в панели под редактором скрипта.
 
-![](./_assets/voting/script-complexity.png)
+<img src="img/voting/script-complexity.png" width="450"/>
 
-## 4. Attaching dApp script to the account of the head of the HOA
+## 4. Привязка dApp-скрипта к аккаунту главы ТСЖ
 
-Press the **Deploy dAppscript** button.
+Нажмите на кнопку **Deploy dAppscript**.
 
-![](./_assets/voting/deploy-dapp-script.png)
+<img src="img/voting/deploy-dapp-script.png" width="940"/>
 
-In the opened window, in the **Account** combo box, select the "Head of the HOA" value. Sign the transaction by pressing **Add sign**.
+В открывшемся окне, в комбинированном списке **Account**, выберите значение "Глава ТСЖ". Подпишите транзакцию, нажав **Add sign**.
 
-![](./_assets/voting/add-sign.png)
+<img src="img/voting/add-sign.png" width="900"/>
 
-Note that you can also sign a transaction with a seed phrase or using the [Waves Keeper](/waves-keeper/about-waves-keeper.md).
+Отметим, что подписать транзакцию можно также секретной фразой или с помощью [Waves Keeper](/waves-keeper/about-waves-keeper.md).
 
-![](./_assets/voting/seed-and-waves-keeper.png)
+<img src="img/voting/seed-and-waves-keeper.png" width="300"/>
 
-Send a [set script transaction](/blockchain/transaction-type/set-script-transaction.md) from the account of the head of the HOA by pressing **Publish**. By doing so, you just created a [dApp](/blockchain/account/dapp.md).
+Отправьте с аккаунта главы ТСЖ транзакцию установки скрипта, нажав **Publish**.
 
-![](./_assets/voting/publish.png)
+<img src="img/voting/publish.png" width="880"/>
 
-In the [Waves Explorer](https://wavesexplorer.com/testnet), in the _test network_, find the information about the activity on the account of the head of the HOA. Enter the address of the head of the HOA in the search bar and press **Enter**.
+Таким образом, вы только что создали [dApp](/blockchain/account/dapp.md).
 
-![](./_assets/voting/testnet-address.png)
+В [Waves Explorer](https://wavesexplorer.com/testnet), _в тестовой сети_, найдите информацию об активности на адресе главы ТСЖ. Для этого введите адрес главы ТСЖ в строку поиска и нажмите **Enter**.
 
-There are two transactions on the head of the HOA's address: the [transfer transaction](/blockchain/transaction-type/transfer-transaction.md) (balance top up by 10 WAVES using the Faucet) and the set script transaction. Note that the commission of 0.001 WAVES was charged from the head of the HOA's balance for the set script transaction.
+<img src="img/voting/testnet-address.png" width="800"/>
 
-![](./_assets/voting/waves-explorer-chief-transactions.png)
+По адресу главы ТСЖ отображаются две транзакции: [транзакция перевода](/blockchain/transaction-type/transfer-transaction.md) (пополнение баланса на 10 WAVES с помощью faucet) и отправка транзакции установки скрипта. Отметим, что с баланса аккаунта главы ТСЖ списали комиссию за транзакцию установки скрипта в 0,001 WAVES.
 
-## 5. Voting
+<img src="img/voting/waves-explorer-chief-transactions.png" width="900"/>
 
-In order to vote a resident must send an invoke script transaction from his account. In the transaction he must specify the address of the dApp, the name of the method to call, and the passed parameters.
-Send an invoke script transaction from Aleksei's account using [REPL](/smart-contracts/tools/repl.md). First, _select Aleksei's account_ in the Waves IDE.
+## 5. Голосование
 
-![](./_assets/voting/account-aleksei.png)
+Для того, чтобы проголосовать, жильцу необходимо отправить транзакцию вызова скрипта со своего аккаунта. В транзакции необходимо указать адрес dApp, имя вызываемого метода dApp, а также передаваемые в метод параметры.
 
-Then in the REPL execute the following command:
+Отправьте транзакцию вызова скрипта с аккаунта Алексея с помощью [REPL](/smart-contracts/tools/repl.md). Для этого в Waves IDE _выберите аккаунт Алексея_.
 
-```ride
-broadcast(invokeScript({dApp: "3Mw2J9yxS8ftQ8FZuD6hsE3fCu494qJqB5r", call: {function: "vote", args: [{type: "integer", value: 7}]} }))
+<img src="img/voting/account-aleksei.png" width="320"/>
+
+Далее в REPL выполните следующую команду:
+
+```
+broadcast(invokeScript({dApp: "3Mz2X8c4Gpf8uporPrkEHA5TH73pYDYg6vL", call: {function: "vote", args: [{type: "integer", value: 7}]} }))
 ```
 
-Here `3Mw2J9yxS8ftQ8FZuD6hsE3fCu494qJqB5r` is the address of the account of the head of the HOA.
+Здесь `3Mz2X8c4Gpf8uporPrkEHA5TH73pYDYg6vL` — адрес аккаунта главы ТСЖ.
 
-If everything went right, you will see the following result (expand the `Promise` object in the console):
+Если все прошло успешно, то вы увидите следующий результат (разверните объект `Promise` в консоли):
 
-![](./_assets/voting/repl-success.png)
+<img src="img/voting/repl-success.png" width="650"/>
 
-Similarly, vote from Anna's account, _after selecting Anna's account_ in the Wave IDE:
+Аналогично проголосуйте с аккаунта Анны, _предварительно выбрав аккаунт Анны_ в Waves IDE:
 
-```ride
-broadcast(invokeScript({dApp: "3Mw2J9yxS8ftQ8FZuD6hsE3fCu494qJqB5r", call: {function: "vote", args: [{type: "integer", value: 25}]} }))
+```
+broadcast(invokeScript({dApp: "3Mz2X8c4Gpf8uporPrkEHA5TH73pYDYg6vL", call: {function: "vote", args: [{type: "integer", value: 25}]} }))
 ```
 
-If you will try to vote again from Aleksei's or Anna's accounts, you will see the error:
+Если вы попробуете повторно проголосовать с аккаунтов Алексея или Анны, то вы увидите ошибку:
 
-![](./_assets/voting/repl-error-1.png)
+<img src="img/voting/repl-error-1.png" width="900"/>
 
-If you will try to vote from the account of the head of the HOA, you will see the error:
+Если вы попробуете проголосовать с аккаунта главы ТСЖ, то вы увидите ошибку:
 
-![](./_assets/voting/repl-error-2.png)
+<img src="img/voting/repl-error-2.png" width="900"/>
 
-## 6. Viewing the results of the voting
+## 6. Просмотр результатов голосования
 
-Take a look at the contents of the head of the HOA's account data storage on the **Data** tab in the Waves Explorer — there are two records in the account data storage.
+На вкладке **Data** в Waves Explorer просмотрите содержимое хранилища данных аккаунта главы ТСЖ — в хранилище данных содержатся две записи.
 
-![](./_assets/voting/voting-results.png)
+<img src="img/voting/voting-results.png" width="880"/>

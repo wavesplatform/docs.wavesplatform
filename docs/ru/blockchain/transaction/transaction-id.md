@@ -1,5 +1,5 @@
-# Transaction ID
+# ID транзакции
 
-A **transaction ID** is a hash of the [transaction body bytes](/blockchain/transaction/transaction-body-bytes.md) which is calculated by the [blake2b256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) hash function.
+**ID транзакции** — хеш от [байтов тела транзакции](/blockchain/transaction/transaction-body-bytes.md), который вычисляется хеш-функцией [blake2b256](https://en.wikipedia.org/wiki/BLAKE_&#40;hash_function&#41;).
 
-Unlike the other transaction types, the transaction ID of an [alias transaction](/blockchain/transaction-type/alias-transaction.md) is calculated as a hash of the values of `type` and `alias` fields.
+В отличие от остальных типов транзакций, ID [транзакции создания псевдонима](/blockchain/transaction-type/alias-transaction.md) рассчитывается как хеш от значений полей `type` и `alias`.

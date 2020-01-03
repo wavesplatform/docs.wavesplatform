@@ -1,90 +1,90 @@
-# User interface
+# Интерфейс пользователя
 
-## Account
+## Меню аккаунта
 
-Tokens can be rated from browsers only with Waves Keeper installed. In mobile browsers, only display of ratings is available.
+Оценивать токены можно только из браузеров с установленным Waves Keeper. Для мобильных версий доступен только просмотр рейтингов.
 
-If Waves Keeper is installed, then in the upper right corner you can see the calculated value of the weight of your rating based on the number of WCT tokens on your account.
+Если Waves Keeper установлен, то в правом верхнем углу вы может увидеть расчетное значение веса вашей оценки исходя из количества токенов WCT на вашем аккаунте.
 
-The menu consists of following items:
+Меню состоит из следующих пунктов:
 
-* Account - account information
-* Rating - default Token Rating page
-* My tokens - the token management panel for issuers
-* Log out
+* Аккаунт — информация об аккаунте
+* Рейтинг — страница сервиса с рейтингом по умолчанию
+* Мои токены — [панель управления токенами]() для владельцев токенов
+* Выйти
 
-## Filters
+## Фильтры
 
-### Top 20
+### Топ 20
 
-Displays 20 tokens that have the best overall indicators of rating, sums of all weights [W<sub>n</sub>](/waves-token-rating/rating-formula.md), and the number of [addresses](/blockchain/account/address.md) that rated token.
+Отображаются 20 токенов, которые имеют лучшие показатели по рейтингу, сумме всех [весов W<sub>n</sub>](/waves-token-rating/rating-formula.md) и количеству [адресов](/blockchain/account/address.md), оценивших токен.
 
-### All tokens
+### Все токены
 
-Displays all tokens.
+Отображаются все токены.
 
-On the **All Tokens** page, additional filters are available: by rating, WCT weight and votes sum.
+На странице Все токены доступны дополнительные фильтры по рейтингу, весу и количеству оценок.
 
-You can also view all the tokens you have rated by switching the filter Only my votes to the active position.
+Вы можете посмотреть все токены, которым вы выставили оценку, переключив фильтр **Только мои оценки** в активное положение.
 
-## Rating table
+## Таблица рейтингов
 
-The table displays only tokens that were ever rated. Tokens without ratings can be found via the search bar.
+В таблице отображаются только ранее оцененные токены. Токены без оценки можно найти через строку поиска.
 
-| Column | Description |
+| Столбец | Описание |
 | :--- | :--- |
-| Name | Name of the token.<br>If the token is suspicious, then next to its name there will be special mark |
-| Rating | Rating of the token.<br> If you have already rated the token, then next to its rating there will be a mark with your score |
-| WCT weight	| Sum of all weights W<sub>n</sub> of all scores |
-| Vote sum | Number of users' rates |
-| Total amount | Amount of issued tokens |
-| Last price | The current price of a single token from [DEX](/waves-dex/about-waves-dex.md) (updates every three hours) |
+| Название | Название токена.<br>Если токен является подозрительным, то рядом с его названием будет соответствующая отметка |
+| Рейтинг | Рейтинг токена.<br>Если вы уже оценивали токен, то рядом с его рейтингом будет отметка с вашей оценкой |
+| Вес WCT | Сумма весов W<sub>n</sub> всех выставленных оценок |
+| Всего оценок | Количество выставленных оценок |
+| Всего выпущено | Общее количество выпущенных токенов |
+| Последняя цена | Текущая стоимость одного токена на [DEX](/waves-dex/about-waves-dex.md) в американских долларах и WAVES (обновляется раз в три часа) |
 
-## Token's card
+## Карточка токена
 
-### Filters
+### Фильтры
 
 #### WCT
 
-Displays distribution of weights W<sub>n</sub> by rates.
+Показывается распределение оценок по весам W<sub>n</sub>.
 
-#### Votes
+#### Оценок
 
-Displays distribution of a number of addresses that rated token by rates.
+Показывается распределение оценок по количеству адресов, оценивших токен.
 
-### My voting history
+### История оценок
 
-This section is displayed only if you already rated token.
+Раздел доступен только если вы уже выставляли оценку токену.
 
-| Field | Description |
+| Поле | Описание |
 | :--- | :--- |
-| Vote date | Date and time of voting|
-| WCT weight | Weight of score |
-| My vote | Score |
+| Дата | Дата и время выставленной оценки |
+| Вес WCT | Вес выставленной оценки |
+| Оценка | Выставленная оценка |
 
-### Market information
+### Рыночная информация
 
-This section is displayed only if the token has a ticker or is traded on the DEX.
+Раздел доступен только если у токена есть тикер или он торгуется на бирже DEX.
 
-| Field | Description |
+| Поле | Описание |
 | :--- | :--- |
-| Ticker | The token ticker on DEX if there is |
-| Price in USD | The current price of the token in USD |
-| Price in WAVES | The current price of the token in WAVES |
-| Capitalization | Capitalization (product of the token's price and the amount of issued tokens) |
+| Тикер | Показывает тикер токена на DEX, если есть |
+| Цена в USD | Текущая цена в долларах США из DEX |
+| Цена в WAVES | Текущая цена в WAVES из DEX |
+| Капитализация | Произведение цены на количество выпущенных токенов |
 
-### General information
+### Основная информация
 
-| Field | Description |
+| Поле | Описание |
 | :--- | :--- |
-| ID | ID of the token |
-| Name | Name of the token |
-| Website | Link to the website. Displayed only if the issuer adds the link |
-| Total amount | Amount of issued tokens |
-| Decimal points | Number of decimal places of token |
-| Type | Tells if the [reissue transaction](/blockchain/transaction-type/reissue-transaction.md) is possible. <br>Takes one of two values: "Reissuable" or "Not reissuable" |
-| Issuer | Address from which the token was issued |
-| Block | The [blockchain height](/blockchain/blockchain/blockchain-height.md) at which the [issue transaction](/blockchain/transaction-type/issue-transaction.md) went to the [block](/blockchain/block.md) |
-| Issue date | Token issue date |
-| Description | Token description |
-| Additional information | Additional information from the issuer about the token or project. Displayed only if the issuer adds it |
+| ID | ID токена |
+| Название | Название токена |
+| Сайт | Ссылка на сайт. Отображается только если владелец токена добавил ссылку |
+| Всего выпущено | Количество выпущенных токенов |
+| Знаков после запятой | Число знаков после запятой у токена |
+| Тип | Определяет возможность [транзакции довыпуска](/blockchain/transaction-type/reissue-transaction.md). <br>Принимает одно из двух значений: "перевыпускаемый" или "не перевыпускаемый" |
+| Эмитент | Адрес, с которого был выпущен токен |
+| Блок | [Высота блокчейна](/blockchain/blockchain/blockchain-height.md), на которой [транзакция выпуска](/blockchain/transaction-type/issue-transaction.md) попала в [блок](/blockchain/block.md) |
+| Дата выпуска | Дата выпуска токена |
+| Описание | Описание токена |
+| Дополнительная информация | Дополнительная информация о токене или проекте от владельца токена. Отображается только если владелец токена добавил эту информацию |

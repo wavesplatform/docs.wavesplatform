@@ -1,15 +1,15 @@
-# Comments
+# Комментарии
 
-To write comments use the pound sign.
+Для написания комментариев используйте знак решетки.
 
 ``` ride
-let month = 7 # Sets the month
+let month = 7 # Устанавливает месяц
 ```
 
-If the comment takes several lines, use the pound sign on each line.
+Если комментарий занимает несколько строк, используйте знак решетки в каждой строке.
 
 ``` ride
-# This comment
-# takes
-# three lines
+# Этот комменатрий
+# занимает
+# три строки
 ```

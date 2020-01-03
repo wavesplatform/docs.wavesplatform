@@ -1,9 +1,9 @@
-# Script body
+# Тело скрипта
 
-A **script body** is the source code of the [script](/ride/script.md) that follows immediately after the [directives](/ride/script/directives.md).
+**Тело скрипта** — исходный код [скрипта](/ride/script.md), который следует сразу за [директивами](/ride/script/directives.md).
 
-The body of a [dApp script](/ride/script/script-types/dapp-script.md) is a _set_ of [definitions](/ride/base-concepts/definition.md).
+Тело [dApp-скрипта](/ride/script/script-types/dapp-script.md) — _набор_ [определений](/ride/base-concepts/definition.md).
 
-The body of an [account script](/ride/script/script-types/account-script.md) and an [asset script](/ride/script/script-types/asset-script.md) is an [expression](/ride/base-concepts/expression.md).
+Тело [скрипта аккаунта](/ride/script/script-types/account-script.md) и [скрипта ассета](/ride/script/script-types/asset-script.md) — [выражение](/ride/base-concepts/expression.md).
 
-The `CONTENT_TYPE` [directive](/ride/script/directives.md) defines what the script body is — an expression or a set of definitions.
+[Директива](/ride/script/directives.md) `CONTENT_TYPE` устанавливает, чем является тело скрипта — выражением или набором определений.

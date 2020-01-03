@@ -589,6 +589,10 @@ module.exports = [
     to: '/ru/building-apps/smart-contracts$1',
   },
   {
+    from: '/en/smart-contracts/video-tutorials/introduction-to-the-waves-blockchain-waves-smart-accounts-and-waves-smart-assets.html',
+    to: '/en/building-apps/smart-contracts/video-tutorials/introduction-waves-smart-accounts-assets.html',
+  },
+  {
     from: '/en/waves-api-and-sdk/dex-api.html',
     to: 'https://docs.waves.exchange/en/waves-matcher/matcher-api',
   },

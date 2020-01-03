@@ -1,34 +1,34 @@
-# Expression
+# Выражение
 
-An **expression** is a combination of one or more [constants](/ride/constants.md), [variables](/ride/variables.md), [operators](/ride/operators.md) and [function](/ride/functions.md) _calls_.
+**Выражение** — комбинация из одной или более [констант](/ride/constants.md), [переменных](/ride/variables.md), [операторов](/ride/operators.md) и _вызовов_ [функций](/ride/functions.md).
 
-RIDE interprets the expression and calculates its _result_.
+RIDE интерпретирует выражение и вычисляет его _результат_.
 
 <a id="expression-result"></a>
-## Expression result
+## Результат выражения
 
-An **expression result** is a value, which is obtained by the [fold](https://en.wikipedia.org/wiki/Fold_%28higher-order_function%29) of the [syntactic tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree) of the expression.
+**Результат выражения** — значение, которое получается при [свертке](https://en.wikipedia.org/wiki/Fold_%28higher-order_function%29) [синтаксического дерева](https://ru.wikipedia.org/wiki/Абстрактное_синтаксическое_дерево) выражения.
 
 <a id="expression-type"></a>
-## Expression type
+## Тип выражения
 
-An **expression type** is a [data type](/ride/data-types.md) of the expression result.
+**Тип выражения** — [тип данных](/ride/data-types.md) результата выражения.
 
-## Examples
+## Примеры
 
-The expression that consists of a single constant.
+Выражение, которое состоит из одной константы.
 
 ``` ride
 7
 ```
 
-The expression that consists of a single variable.
+Выражение, которое состоит из одной переменной.
 
 ``` ride
 x
 ```
 
-The expression that consists of the constant `7`, operators `+` and `*`, variable `x` and the `size` function call.
+Выражение, которое состоит из константы `7`, операторов `+` и `*`, переменной `x` и вызова функции `size`.
 
 ``` ride
 7 + x * size("apple")

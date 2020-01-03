@@ -1,7 +1,7 @@
-# Lease cancel transaction
+# Транзакция закрытия лизинга
 
-A **lease cancel transaction** is a [transaction](/blockchain/transaction.md) that cancels the [leasing](/blockchain/leasing.md).
+**Транзакция закрытия лизинга** — [транзакция](/blockchain/transaction.md), которая закрывает [лизинг](/blockchain/leasing.md).
 
-## Binary format
+## Бинарный формат
 
-See the page [Lease cancel transaction binary format](/blockchain/binary-format/transaction-binary-format/lease-cancel-transaction-binary-format.md).
+Смотрите страницу [Бинарный формат транзакции закрытия лизинга](/blockchain/binary-format/transaction-binary-format/lease-cancel-transaction-binary-format.md).

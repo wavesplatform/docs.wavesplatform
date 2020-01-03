@@ -1,16 +1,16 @@
 # UpdateAssetInfoTransaction
 
-Structure of a [update asset info transaction](/blockchain/transaction-type/update-asset-info-transaction.md).
+Структура [транзакции обновления информации ассета](/blockchain/transaction-type/update-asset-info-transaction.md).
 
-## Constructor
+## Конструктор
 
 ``` ride
 UpdateAssetInfoTransaction(name: String, assetId: ByteVector, description: String, id: ByteVector, fee: Int, timestamp: Int, version: Int, sender: Address, senderPublicKey: ByteVector, bodyBytes: ByteVector, proofs: List[ByteVector])
 ```
 
-## Fields
+## Поля
 
-| # | Name | Data type | Description |
+| # | Имя | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
 | 1 | name | [String](/en/ride/data-types/string.md) | Name of the [token](/blockchain/token.md) |
 | 2 | assetId | [ByteVector](/ride/data-types/byte-vector.md) | [Token ID](/blockchain/token/token-id.md) |

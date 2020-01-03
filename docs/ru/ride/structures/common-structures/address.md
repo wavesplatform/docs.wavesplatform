@@ -1,15 +1,15 @@
 # Address
 
-Structure of an [address](/blockchain/account/address.md).
+Структура [адреса](/blockchain/account/address.md).
 
-## Constructor
+## Конструктор
 
 ``` ride
 Address(bytes: ByteVector)
 ```
 
-## Fields
+## Поля
 
-|   #   | Name | Data type | Description |
+|   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | bytes | [ByteVector](/ride/data-types/byte-vector.md) | Array of bytes of the address |
+| 1 | bytes | [ByteVector](/ride/data-types/byte-vector.md) | Массив байтов адреса |

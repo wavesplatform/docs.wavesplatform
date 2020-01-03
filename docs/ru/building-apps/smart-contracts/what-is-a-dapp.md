@@ -1,22 +1,22 @@
-# What is a dApp
+# Что такое dApp. Чем dApp отличается от смарт-аккаунта
 
-Before getting acquainted with [dApp](/blockchain/account/dapp.md), let's review the features of related entities — [account](/blockchain/account.md) and [smart account](/blockchain/account/smart-account.md).
+Перед тем как начать знакомство с [dApp](/blockchain/account/dapp.md), рассмотрим функциональность смежных сущностей — [аккаунта](/blockchain/account.md) и [смарт-аккаунта](/blockchain/account/smart-account.md).
 
-An account provides the functionality to verify that an issued [transaction](/blockchain/transaction.md) was indeed sent from this account.
+Функциональность обычного аккаунта позволяет удостовериться, что выпущенная с него [транзакция](/blockchain/transaction.md) в действительности была отправлена с этого аккаунта.
 
-Smart account, i.e. an account with an [account script](/ride/script/script-types/account-script.md) attached, provides the functionality to check outgoing transactions for compliance with the conditions specified in the script. For example, an account owner can set a rule according to which transactions can be sent from an [address](/blockchain/account/address.md) only if the blockchain height exceeds N. Another example —  you can allow transactions only of a certain type. Or cancel any check by establishing a rule according to which all transactions sent from the address should be considered valid.
+Смарт-аккаунт, то есть аккаунт с прикрепленным [скриптом аккаунта](/ride/script/script-types/account-script.md), позволяет проверять исходящие транзакции на соответствие условиям, указанным в скрипте. Например, владелец аккаунта может установить правило, согласно которому транзакции могут отправляться с [адреса](/blockchain/account/address.md) только в том случае, если высота блокчейна превышает N. Другой пример — можно разрешить отправку транзакций только определённого типа. Либо вообще отменить какую-либо проверку, установив правило, согласно которому все транзакции, отправляемые с адреса, должны считаться валидными.
 
-The features of a dApp are even wider. Besides validating the outgoing transactions it also allows other accounts to invoke the functions contained in it. From this point of view, dApp is a real blockchain application.
+Возможности dApp еще шире — он умеет не только валидировать исходящие транзакции, но и позволяет другим аккаунтам вызывать содержащиеся в нем функции. С этой точки зрения dApp представляет собой настоящее приложение, работающее на блокчейне.
 
-## General Requirements to Write dApp
+## Предварительные требования для написания dApp
 
-dApps are written in [Ride](/ride/about-ride.md). To create dApp, you need an account that has enough [WAVES](/blockchain/token/waves.md) on its balance to pay for the set script transaction (1 WAVES). To start writing dApp right away, use the [Waves IDE](/smart-contracts/tools/waves-ide.md).
+dApp пишутся на языке [Ride](/ride/about-ride.md). Для создания dApp необходим [аккаунт](/blockchain/account.md), на балансе которого должно быть достаточно [WAVES](/blockchain/token/waves.md) для оплаты транзакции установки скрипта (1 WAVES). Чтобы сразу начать писать dApp, воспользуйтесь [Waves IDE](/smart-contracts/tools/waves-ide.md).
 
-## dApp Structure
+## Структура dApp
 
-### Directive
+### Директива
 
-Each Ride script must begin with a directive. Review the directive example:
+Каждый скрипт Ride должен начинаться с директивы. Рассмотрим пример директивы:
 
 ```ride
 {-# STDLIB_VERSION 3 #-}
@@ -24,132 +24,131 @@ Each Ride script must begin with a directive. Review the directive example:
 {-# SCRIPT_TYPE ACCOUNT #-}
 ```
 
-The directive listed above tells the compiler that
+Приведенная директива сообщает компилятору, что
 
-- the script will use the third version of the library of standard functions
-- the type of this script is dApp
-- the script will be attached to the account (and not to the asset).
+- в скрипте будет использоваться третья версия библиотеки стандартных функций,
+- типом данного скрипта является dApp,
+- скрипт будет привязан к аккаунту (а не к ассету).
 
-### Script Context
+### Контекст скрипта
 
-The directive is followed by a script context. The context of the script is where the functions that will be available within the entire dApp are defined and the variables are declared.  In addition to the variables and functions declared by the developer, the script context includes [built-in variables](/ride/variables/built-in-variables.md) and [built-in functions](/ride/functions/built-in-functions.md). The developer doesn't have to declare their variables or define their functions — this will not affect the presence of built-in variables and functions.
+За директивой следует контекст скрипта. В контексте скрипта объявляются переменные и определяются функции, которые будут доступны в пределах всего dApp. Помимо объявленных разработчиком переменных и функций, контекст скрипта включает [встроенные переменные](/ride/variables/built-in-variables.md) и [встроенные функции](/ride/functions/built-in-functions.md). Разработчик может не объявлять собственные переменные и не определять собственные функции — на наличие встроенных переменных и функций это не повлияет.
 
-### Declaring Callable Functions
+### Объявление вызываемых функций
 
-As it was mentioned before, dApps provide the functionality to call functions to other accounts. These functions are marked with the `@Callable(invocation)` [annotation](/ride/functions/annotations.md), where `invocation` is an arbitrary script context object.
+Как мы уже говорили, dApp позволяет вызывать свои функции другим аккаунтам. Эти функции помечаются [аннотацией](/ride/functions/annotations.md) `@Callable(invocation)`, где `invocation` — произвольный объект контекста скрипта.
 
-The following is an example of a callable function, which assigns `42` to `someDataKey` and writes it to the [account data storage](/blockchain/account/account-data-storage.md) if the account owner calls it. If someone else tries to do this, the function throws an exception. The transaction, in this case, will not be valid and will not be recorded into the blockchain:
+Ниже приведен пример вызываемой функции, которая записывает в [хранилище данных аккаунта](/blockchain/account/account-data-storage.md) значение `42` по ключу `someDataKey`, если её вызывает владелец аккаунта. Если это пытается сделать кто-то другой, функция кидает исключение. Транзакция в этом случае не будет валидной и не попадет в блокчейн:
 
 ```ride
 @Callable(invocation)
 func foo() = {
-   if (invocation.caller == this)
-   then
-       ScriptResult(
-            WriteSet([DataEntry("someDataKey", 42)]),
-            TransferSet([ScriptTransfer(invocation.caller, 100500, unit)])
-        )
-   else
-       throw("Only owner can use this function.")
+   if (invocation.caller == this)
+   then
+       ScriptResult(
+            WriteSet([DataEntry("someDataKey", 42)]),
+            TransferSet([ScriptTransfer(invocation.caller, 100500, unit)])
+        )
+   else
+       throw("Only owner can use this function.")
 }
 ```
 
-### Declaring Validation Function
+### Объявление функции валидации
 
-The validation function does the same as a smart account, i.e. validates outgoing transactions. This function is marked with the `@Verifier(tx)` annotation, where `tx` is the current transaction that the function is currently checking. Possible results of the validation function execution are:
+Функция валидации делает то же самое, что и смарт-аккаунт, то есть валидирует исходящие транзакции. Эта функция помечается аннотацией `@Verifier(tx)`, где `tx` — текущая транзакция, которую в данный момент проверяет функция. Возможными результатами выполнения функции валидации являются:
 
-- `true` (transaction is allowed)
-- `false` (transaction is not allowed)
-- error
+- `true` (транзакция разрешена),
+- `false` (транзакция запрещена),
+- ошибка.
 
-If dApp does not have the validation function, then the default validation is performed (that is, checking that the transaction is indeed signed by this account).
+Если в dApp нет функции валидации, то выполняется валидация по умолчанию (то есть проверка того, что транзакция действительно подписана этим аккаунтом).
 
-dApp with the validation function listed below will only allow [transfer transactions](/blockchain/transaction-type/transfer-transaction.md) (sending transactions of other types will be prohibited):
+dApp с приведённой ниже функцией валидации будет разрешать только [транзакции перевода](/blockchain/transaction-type/transfer-transaction.md) (отправка транзакций другого типа будет запрещена):
 
 ```ride
 @Verifier(tx)
 func verify() = {
-    match tx {
-        case ttx:TransferTransaction => sigVerify(ttx.bodyBytes, ttx.proofs[0], ttx.senderPublicKey)
-        case _ => false
-    }
+    match tx {
+        case ttx:TransferTransaction => sigVerify(ttx.bodyBytes, ttx.proofs[0], ttx.senderPublicKey)
+        case _ => false
+    }
 }
 ```
 
-##dApp limitations
+## Ограничения dApp
 
-The following limitations are applied to dApps:
-
-| Limitation | Maximum value |
+| Ограничение | Максимальное значение |
 |---|---|
-| Script size | 32 Kbytes |
+| Размер скрипта | 32 Кбайт |
 | [Complexity](/ride/base-concepts/complexity.md) | 4000 |
-| Number of callable function arguments | 22 |
-| Annotated function name size | 255 bytes |
-| [WriteSet](/ride/structures/common-structures/write-set.md) size | 5 Кбайт |
-| Number of records in WriteSet | 100 |
-| Number of transfers in [TransferSet](/ride/structures/common-structures/transfer-set.md) | 10 |
-| Size of the value of a variable of type String | 32767 символов |
-| Size of a ByteVector variable value | 65536 байт |
+| Количество аргументов Callable-функции | 22 |
+| Размер имени аннотированной функции | 255 байт |
+| Количество вызовов [ScriptTransfer](/ride/structures/common-structures/script-transfer.md), [Issue](/ride/structures/common-structures/issue.md), [Reissue](/ride/structures/common-structures/reissue.md), [Burn](/ride/structures/common-structures/burn.md) в одном вызове скрипта (применимо для [Стандартной библиотеки](/ride/script/standard-library.md) **версии 4** ) | 10 |
+| Количество вызовов [BinaryEntry](/ride/structures/common-structures/binary-entry.md), [BooleanEntry](/ride/structures/common-structures/boolean-entry.md), [IntEntry](/ride/structures/common-structures/int-entry.md), [StringEntry](/ride/structures/common-structures/string-entry.md) в одном вызове скрипта (применимо для [Стандартной библиотеки](/ride/script/standard-library.md) **версии 4**) | 100 |
+| Размер записи [хранилища данных аккаунта](/blockchain/account/account-data-storage.md) для всех вызовов структур [BinaryEntry](/ride/structures/common-structures/binary-entry.md), [BooleanEntry](/ride/structures/common-structures/boolean-entry.md), [IntEntry](/ride/structures/common-structures/int-entry.md), [StringEntry](/ride/structures/common-structures/string-entry.md) в одном вызове скрипта (применимо для [Стандартной библиотеки](/ride/script/standard-library.md) **версии 4**) | 5 Кбайт |
+| Размер WriteSet (применимо для [Стандартной библиотеки](/ride/script/standard-library.md) **версии 3**) | 100 |
+| Количество переводов в [TransferSet](/ride/structures/common-structures/transfer-set.md) (применимо для [Стандартной библиотеки](/ride/script/standard-library.md) **версии 3**) | 10 |
+| Размер значения переменной типа String | 32767 символов |
+| Размер значения переменной типа ByteVector | 65536 байт |
 
-Besides the limitations applied, an additional 0.004 WAVES is charged for each transaction sent with dApp. The minimum fee for most transactions is 0.001 WAVES. Thus, the cost of sending each of these transactions will be 0.005 WAVES for the owner of dApp.
+Помимо перечисленных ограничений, за каждую транзакцию, отправляемую с dApp, взимается дополнительные 0,004 WAVES. Минимальная плата за большинство транзакций составляет 0,001 WAVES. Таким образом, стоимость отправки каждой из этих транзакций составит для владельца dApp 0,005 WAVES.
 
-## dApp Example
+## Пример dApp
 
-dApp in the example below allows us to deposit WAVES and withdraw them back while withdrawing WAVES that belong to another account is not possible.
+dApp в приведённом ниже примере позволяет класть WAVES на депозит и забирать их обратно, при этом возможность забрать “чужие” WAVES исключена.
 
 ```ride
-# Directives
+# Директивы
 {-# STDLIB_VERSION 3 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
-
-# Script context block
-# (Empty)
-
-# Callable function. Implements funds deposit
-@Callable(i)	# Context object named i
+ 
+# Блок Контекста скрипта
+# (Пустой)
+ 
+# Вызываемая функция. Реализует размещение средств на счету
+@Callable(i)        # Объект контекста с именем i
 func deposit() = {
-   let pmt = extract(i.payment)
-   if (isDefined(pmt.assetId)) then throw("can hold waves only at the moment")
-   else {
-        let currentKey = toBase58String(i.caller.bytes)
-        let currentAmount = match getInteger(this, currentKey) {
-            case a:Int => a
-            case _ => 0
-        }
-        let newAmount = currentAmount + pmt.amount
-        WriteSet([DataEntry(currentKey, newAmount)])
-   }
+   let pmt = extract(i.payment)
+   if (isDefined(pmt.assetId)) then throw("can hold waves only at the moment")
+   else {
+        let currentKey = toBase58String(i.caller.bytes)
+        let currentAmount = match getInteger(this, currentKey) {
+            case a:Int => a
+            case _ => 0
+        }
+        let newAmount = currentAmount + pmt.amount
+        WriteSet([DataEntry(currentKey, newAmount)])
+   }
 }
-
-# Callable function. Implements funds withdraw 
-@Callable(i)	# Объект контекста с именем i
+ 
+# Вызываемая функция. Реализует снятие средств со счёта
+@Callable(i)                    # Объект контекста с именем i
 func withdraw(amount: Int) = {
-        let currentKey = toBase58String(i.caller.bytes)
-        let currentAmount = match getInteger(this, currentKey) {
-            case a:Int => a
-            case _ => 0
-        }
-        let newAmount = currentAmount - amount
-     if (amount < 0)
-            then throw("Can't withdraw negative amount")
-    else if (newAmount < 0)
-            then throw("Not enough balance")
-            else ScriptResult(
-                    WriteSet([DataEntry(currentKey, newAmount)]),
-                    TransferSet([ScriptTransfer(i.caller, amount, unit)])
-                )
-    }
-
-# Outgoing transactions validation function. Is similar to basic function of verification of the ownership of the transaction to the account holder
-
+        let currentKey = toBase58String(i.caller.bytes)
+        let currentAmount = match getInteger(this, currentKey) {
+            case a:Int => a
+            case _ => 0
+        }
+        let newAmount = currentAmount - amount
+     if (amount < 0)
+            then throw("Can't withdraw negative amount")
+    else if (newAmount < 0)
+            then throw("Not enough balance")
+            else ScriptResult(
+                    WriteSet([DataEntry(currentKey, newAmount)]),
+                    TransferSet([ScriptTransfer(i.caller, amount, unit)])
+                )
+    }
+ 
+# Функция валидации исходящих транзакций. Дублирует базовую функциональность проверки принадлежности транзакции владельцу аккаунта
 @Verifier(tx)
 func verify() = {
     sigVerify(tx.bodyBytes, tx.proofs[0], tx.senderPublicKey)
 }
 ```
 
-## Attaching dApp script to Account
+## Прикрепление dApp к аккаунту
 
-To attach dApp script to an account, use the [set script transaction](/blockchain/transaction-type/set-script-transaction.md).
+Чтобы прикрепить dApp к аккаунту, используйте [транзакцию установки скрипта](/blockchain/transaction-type/set-script-transaction.md).

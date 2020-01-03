@@ -1,22 +1,22 @@
-# Updating oracle card
+# Обновление карточки оракула
 
-To update your [oracle card](/waves-oracles/oracle-card.md):
+Чтобы перейти к обновлению [карточки оракула](/waves-oracles/oracle-card.md), выполните следующие действия:
 
-1. Log in with [Waves Keeper](/waves-keeper/about-waves-keeper.md).
-2. Click **Update my oracle** on sidebar menu.
+1. Авторизуйтесь при помощи [Waves Keeper](/waves-keeper/about-waves-keeper.md).
+2. Нажмите **Update my oracle**.
 
-The following oracle card fields are available for updating:
+Для обновления доступны следующие данные карточки:
 
-- Oracle name
-- About
-- Link
-- Status
-- Category
-- Summary of changes from previous version
-- Update frequency
-- Specification
-- Example
+- Имя оракула
+- Описание оракула
+- Ссылка на источник
+- Статус оракула
+- Категория оракула
+- Сводка изменений по сравнению с прошлой версией
+- Частота обновления
+- Спецификация оракула
+- Пример формата транзакций оракула
 
-At change of attributes of the specification do not forget to change the Example.
+При изменении атрибутов спецификации не забудьте изменить JSON в поле **Example**.
 
-Always record your changes in the Summary of Changes from Previous Version field.
+Всегда записывайте изменения в поле **Summary of Changes from Previous Version** по сравнению с предыдущей версией.

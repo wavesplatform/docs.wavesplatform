@@ -1,25 +1,26 @@
-# Data transaction tool
+# Инструмент отправки транзакций данных
 
-Use the **Data transaction tool** to write data transaction in the data storage of the oracle account.
+Воспользуйтесь **Data transaction tool**, чтобы записать транзакцию данных в хранилище данных аккаунта оракула.
 
-In Waves Oracles login to your oracle account via Waves Keeper. Hit **Send transaction** on the sidebar. If an oracle card is created, but the specification is not filled in, you will see a notification about it. To use the data transaction tool, a specification card should already be [created for the oracle](/waves-oracles/create-an-oracle-card-with-waves-oracle.md).
+Перейдите в Waves Oracles и авторизуйтесь аккаунтом оракула через Waves Keeper. Нажмите **Send transaction** на боковой панели. Если карточка оракула создана, но в ней не заполнена спецификация, то вы увидите предупреждение об этом. Для использования инструмента отправки транзакций дынных, для оракула уже должна быть создана [карточка со спецификацией](/waves-oracles/create-an-oracle-card-with-waves-oracle.md).
 
-The pop-up will open.
+Откроется окно.
 
-![](./_assets/data_transaction_tool.png)
+![](/waves-oracles/img/data_transaction_tool.png)
 
-For boolean type keys: Yes - True, No - False.
+Для ключей типа boolean доступно два значения Yes - True, No - False.
 
-For string type keys the value is limited to 32 Kb.
+Для ключей типа string значение ограничено 32 Кб.
 
-For integer type keys the value is equal to 8 bytes and only integers are available.
+Для ключей типа integer значение ограничено 32 Кб и доступны только целые числа.
 
-For binary type keys, you can download a file that is converted to base64, limit the file size to 32 Kb.
+Для ключей типа binary доступна загрузка файла, который конвертируется в base64, ограничение размера файла до 32 Кб
 
-If the key is a variable (for example, assetId), it is determined by the presence of the $ symbol at the beginning of its name in the specification. In this case, you can edit both the key and its value. To edit the keys, click on the pencil-icon next to it.
+Если ключ не константа, а переменная (например, assetId), то это определяется по наличию символа $ в начале его названия в спецификации. В этом случае можно редактировать и сам ключ, и его значение. Чтобы редактировать ключи, нажмите на иконку карандаша рядом с ним.
 
-The mandatory parameters are marked with an asterisk. Optional parameters may be left out. The cross-icon on the right side of the form - removes the key-value.
+Обязательные для заполнения поля отмечены звёздочкой. Необязательные поля можно не заполнять. Крестик в правой части формы удаляет ключ-значение.
 
-In the lower part of the form in the special area, the data transaction is dynamically displayed with all pairs of key-value of the data array, as well as the fee of this transaction.
+В нижней части формы в специальной области динамически отображается транзакция данных, которая будет записана, со всеми парами ключ-значение массива data, а также комиссия этой транзакции.
 
-To send a transaction, hit Save and approve it with Waves Keeper.
+Чтобы отправить транзакцию, нажмите Save и подтвердите её с помощью Waves Keeper.
+

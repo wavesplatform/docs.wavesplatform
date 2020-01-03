@@ -1,5 +1,5 @@
-# Blockchain
+# Блокчейн
 
-The **blockchain** or the **Waves blockchain** is a continuous sequential chain of [blocks](/blockchain/block.md) linked using cryptography.
+**Блокчейн** или **блокчейн Waves** — непрерывная последовательная цепочка [блоков](/blockchain/block.md), связанных с помощью криптографии.
 
-The blockchain has the [height](/blockchain/blockchain/blockchain-height.md).
+У блокчейна есть [высота](/blockchain/blockchain/blockchain-height.md).

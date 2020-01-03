@@ -1,3 +1,3 @@
 # Union
 
-The **union** is a data type that unites 2 or more data types.
+**Тип объединения** — тип данных, который объединяет 2 или более типа данных.

@@ -1,17 +1,17 @@
-# Structures
+# Структуры
 
-All structures in RIDE are built-in — you cannot create your own structures.
+Все структры в RIDE являются встроенными — вы не можете создавать свои собственные структуры.
 
-All structures have constructors.
+У всех структур есть конструктор.
 
-## Examples
+## Примеры
 
-The code that creates an instance of the `DataEntry` structure and reads its key and value.
+Код, который создает экземпляр структуры `DataEntry` и читает из него ключ и значение.
 
 ``` ride
 {-# STDLIB_VERSION 3 #-}
 {-# CONTENT_TYPE DAPP #-}
-
+ 
 let data = DataEntry("Age", 33)
 let key  = data.key
 let val = data.value

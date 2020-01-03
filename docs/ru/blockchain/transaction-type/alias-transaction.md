@@ -1,9 +1,9 @@
-# Alias transaction
+# Транзакция создания псевдонима
 
-**Alias transaction** is a [transaction](/blockchain/transaction.md) that creates [alias](/blockchain/account/alias.md) for an [address](/blockchain/account/address.md).
+**Транзакция создания псевдонима** — [транзакция](/blockchain/transaction.md), которая создает [псевдоним](/blockchain/account/alias.md) для [адреса](/blockchain/account/address.md).
 
-> A created alias cannot be deleted
+> Созданный псевдоним невозможно удалить
 
-## Binary format
+## Бинарный формат
 
-See the page [Alias transaction binary format](/blockchain/binary-format/transaction-binary-format/alias-transaction-binary-format.md).
+Смотрите страницу [Бинарный формат транзакции создания псевдонима](/blockchain/binary-format/transaction-binary-format/alias-transaction-binary-format.md).

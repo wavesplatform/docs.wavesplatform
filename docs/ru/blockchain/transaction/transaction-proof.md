@@ -1,26 +1,26 @@
-# Transaction proof
+# Подтверждение транзакции
 
-A **transaction proof** is an array of bytes that is used to check the validity of a transaction.
+**Подтверждение транзакции** — массив байтов, который используется для проверки валидности транзакции.
 
-An array of proofs can consist of several [transaction signatures](/blockchain/transaction/transaction-signature.md) (but not limited to only signatures).
+Массив подтверждений может состоять из несколько [подписей транзакции](/blockchain/transaction/transaction-signature.md) (но не ограничивается только подписями).
 
-One of the examples of proofs usage is multisignature which stores several transaction signatures from different accounts.
+Одним из примеров использования подтверждений является мультиподпись, которая хранит несколько подписей от разных аккаунтов.
 
-Transactions with [data structures](/blockchain/binary-format/transaction-binary-format.md) of version 2 and above are signed by proofs instead of signatures.
+Транзакции, имеющие [структуру данных](/blockchain/binary-format/transaction-binary-format.md) версии 2 и выше, подписываются подтверждениями вместо подписей.
 
-> The number of proofs in the array cannot exceed 8
+> Количество подтверждений в массиве не может превышать 8
 
-## The data structure of an array of `N` proofs
+## Структура данных массива из `N` подтверждений
 
-| Field order number | Field name | Field type | Field size in bytes | Field description |
+| Порядковый номер поля | Название поля | Тип поля | Размер поля в байтах | Описание поля |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | Proofs version | Byte | 1 | A special technical marker which determines the format of the array of proofs. <br>The value must be 0 |
-| 2 | Proofs count | Short | 2 | Number `N` of proofs in the array of proofs |
-| 3 | 1st proof length | Short | 2 | Length in bytes of the 1st proof |
-| 4 | 1st proof bytes | Array of bytes | up to 64 | Array of bytes of the 1st proof |
-| 5 | 2nd proof length | Short | 2 | Length in bytes of the 2nd proof |
-| 6 | 2nd proof bytes | Array of bytes | up to 64 | Array of bytes of the 2nd proof |
+| 1 | Версия подтверждений | Байт | 1 | Специальный технический флаг, который определяет формат массива подтверждений. <br>Значение должно быть равно 0 |
+| 2 | Количество подтверждений | Короткое целое | 2 | Количество `N` подтверждений в массиве подтверждений |
+| 3 | Длина первого подтверждения | Короткое целое | 2 | Длина первого подтверждения в байтах |
+| 4 | Байты первого подтверждения | Массив байтов | до 64 | Массив байтов первого подтверждения |
+| 5 | Длина второго подтверждения | Короткое целое | 2 | Длина второго подтверждения в байтах |
+| 6 | Байты второго подтверждения | Массив байтов | до 64 | Массив байтов второго подтверждения |
 | ... | ... | ... | ... | ... |
 | ... | ... | ... | ... | ... |
-| 2 × `N` + 1 | `N`-th proof length | Short | 2 | Length in bytes of the `N`-th proof |
-| 2 × `N` + 2 | `N`-th proof bytes | Array of bytes | up to 64 | Array of bytes of the `N`-th proof |
+| 2 × `N` + 1 | Длина `N`-го подтверждения | Короткое целое | 2 | Длина `N`-го подтверждения в байтах |
+| 2 × `N` + 2 | Байты `N`-го подтверждения | Массив байтов | до 64 | Массив байтов `N`-го подтверждения |

@@ -1,22 +1,22 @@
-# Mining reward
+# Вознаграждение за майнинг
 
-The **mining reward** is a blockchain feature under which [miners](/blockchain/mining/miner.md) receive a fixed fee in [WAVES](/blockchain/token/waves.md) for each [generated block](/blockchain/block/block-generation.md).
+**Вознаграждение за майнинг** — возможность блокчейна, в рамках которой [майнеры](/blockchain/mining/miner.md) получают фиксированное вознаграждение в [WAVES](/blockchain/token/waves.md) за каждый [сгенерированный блок](/blockchain/block/block-generation.md).
 
-Mining rewards are paid due to the additional issue of the WAVES token.
+Вознаграждение за майнинг происходит за счет дополнительной эмиссии токена WAVES.
 
-The community of miners can change the size of reward through [voting](#voting).
+Сообщество майнеров может изменить размер вознаграждения посредством голосования.
 
-## Current reward size
+## Текущий размер вознаграждения
 
-You can view the current reward size by making a request to the [Node API](/waves-node/node-api.md). In response to the request, JSON is returned, the value of the `currentReward` field of which is the current mining reward size in [WAVELET](/blockchain/token/wavelet.md)s.
+Посмотреть текущий размер вознаграждения можно с помощью запроса к [Node API](/waves-node/node-api.md). В ответе на запрос возвращается JSON, значение поля `currentReward`  которого — текущий размер вознаграждения за майнинг в [WAVELET](/blockchain/token/wavelet.md).
 
-Example of request:
+Пример запроса:
 
 ``` console
 curl https://nodes.wavesplatform.com/blockchain/rewards
 ```
 
-Example of response:
+Пример ответа:
 
 ``` json
 {
@@ -36,55 +36,59 @@ Example of response:
 }
 ```
 
-In the example above, the value of the JSON's `currentReward` field is 600,000,000 WAVELETs — i.e. it's 6 WAVES.
+В примере выше значение JSON-поля `currentReward` равняется 600 000 000 WAVELET — т.е. 6 WAVES.
 
-## The change of mining reward size over time
+## Изменение размера вознаграждения с течением времени
 
-Every 100,000 blocks, i.e. approximately every 70 days, a new voting for the current reward size change begins among the miners.
+Каждые 100 000 блоков, т.е. приблизительно каждые 70 дней, среди майнеров начинается новое голосование за изменение текущего размера вознаграждения.
 
-The voting duration is 10,000 blocks. During this time, miners vote to increase, decrease or leave the current reward size unchanged.
+Длительность голосования — 10 000 блоков. В течение этого времени майнеры голосуют за то, чтобы увеличить, уменьшить или оставить без изменения текущий размер вознаграждения.
 
-The elected reward size remains unchanged for 100,000 blocks following the end of voting.
+Выбранный размер вознаграждения остается неизменным на протяжении 100 000 блоков, которые следуют за моментом окончания голосования.
 
 <a id="voting"></a>
-## Voting
+## Голосование
 
-Miner specifies the new desired reward size using the [waves.rewards.desired](/waves-node/node-configuration.md#rewards) setting in the node configuration file; the setting value is specified in [WAVELET](/blockchain/token/wavelet.md)s.
+Майнер указывает новый желаемый размер вознаграждения с помощью настройки [waves.rewards.desired](/waves-node/node-configuration.md#rewards) в файле конфигурации ноды; значение настройки указывается в [WAVELET](/blockchain/token/wavelet.md).
 
-If the value is **greater than the current reward size**, then miner votes for the current reward size **increase**; if the value is smaller — for the decrease. If the setting value is not specified in the configuration file, then miner votes for keeping the current reward size.
+Если значение **больше текущего размера вознаграждения**, то майнер голосует за **увеличение** вознаграждения; если меньше — за уменьшение. Если значение настройки не задано в файле конфигурации, майнер голосует за сохранение текущего размера вознаграждения.
 
-When a [mining node](/blockchain/node/mining-node.md) generates a block, it writes into that block the value of the `waves.rewards.desired` setting from its own configuration file. If the setting value is not specified in the configuration file, then -1 is written to the block.
+Когда [майнящая нода](/blockchain/node/mining-node.md) генерирует блок, она записывает в него значение настройки `waves.rewards.desired` из своего  файла конфигурации. Если значение настройки не задано в файле конфигурации, то в блок записывается -1.
 
-During the voting time in 10,000 blocks, a single mining node can generate several blocks, therefore one mining node can vote several times. How often a mining node generates blocks is determined by the LPoS consensus.
+За время голосования в 10 000 блоков одна майнящая нода может сгенерировать несколько блоков — таким образом, одна майнящая нода может проголосовать несколько раз. Как часто майнящая нода генерирует блоки определяется консенсусом LPoS.
 
-## How votes are counted
+Когда [майнящая нода](/blockchain/node/mining-node.md) генерирует блок, она записывает в него значение настройки `waves.rewards.desired` из своего  файла конфигурации. Если значение настройки не задано в файле конфигурации, то в блок записывается -1.
 
-To count the votes, all 10,000 blocks generated during the voting period are inspected.
+За время голосования в 10 000 блоков одна майнящая нода может сгенерировать несколько блоков — таким образом, одна майнящая нода может проголосовать несколько раз. Как часто майнящая нода генерирует блоки определяется консенсусом LPoS.
 
-If either -1 or the value that is equal to the current reward size is recorded to the block, then miner votes for keeping the current reward size.
+## Как считаются голоса
 
-If the value recorded to the block is greater than the current reward size, then miner votes for the current reward size increase; if the value is smaller — for the decrease.
+Для подсчета голосов проверяются значения всех 10 000 блоков, которые были сгенерированы в период голосования.
 
-The mining reward is increased/decreased only if more than half of the 10,000 votes — i.e. 5,001 votes or more — were given for increase/decrease. The amount of the current reward is **increased/decreased by 0.5 WAVES** _step_.
+Если в блоке записана -1 или величина, которая совпадает с текущим размером вознаграждения, то майнер голосует за сохранение текущей величины вознаграждения.
 
-## Examples
+Если в блоке записано значение, которое больше текущего размера вознаграждения, то майнер голосует за увеличение вознаграждения; если меньше — за уменьшение.
 
-### Example 1
+Вознаграждения за майнинг увеличивается/уменьшается только если за увеличение/уменьшение отдается более половины голосов из 10 000 — то есть 5 001 голос или более. Размер текущего вознаграждения увеличивается/уменьшается _с шагом_ в 0,5 WAVES.
 
-At the [blockchain height](/blockchain/blockchain/blockchain-height.md) of 2,000,000, the mining reward equals 5 WAVES. At the height of 2,090,000, another voting starts.
+## Примеры
 
-During the 10,000 blocks of voting 6,000 votes were given for reward increase, 1,000 — for decrease, 3,000 — for keeping the current reward size.
+### Пример 1
 
-From the height of 2,100,000 to the height of 2,199,999, the new reward size will be 5.5 WAVES, because the reward change step is 0.5 WAVES.
+На [высоте блокчейна](/blockchain/blockchain/blockchain-height.md) 2 000 000 размер вознаграждения за майнинг составляет 5 WAVES. На высоте 2 090 000 начинается очередное голосование.
 
-The next voting will take place from the height of 2,190,000 to 2,199,999.
+В течение 10 000 блоков голосования 6 000 голосов было отдано за увеличение размера вознаграждения, 1 000 — за уменьшение, 3 000 — за то, чтобы размер вознаграждения остался прежним.
 
-### Example 2
+С высоты 2 100 000 по высоту 2 199 999 новый размер вознаграждения составит 5,5 WAVES, потому что шаг изменения размера вознаграждения — 0,5 WAVES.
 
-At the blockchain height of 2,100,000, the mining reward equals 5.5 WAVES. At the height of 2,190,000, another voting starts.
+Следующее голосование будет проходить с высоты 2 190 000 по 2 199 999.
 
-During the 10,000 blocks of voting 4,500 votes were given for reward increase, 4,000 — for decrease, 1,500 — for keeping the current reward size.
+### Пример 2
 
-From the height of 2,200,000 to the height of 2,299,999, the "new" reward size will be the same — 5.5 WAVES. Although the highest number of votes were given for the reward increase, it was not enough to change the current reward size. In order for the current reward size to be increased, at least 5,001 votes must be given for the increase.
+На высоте блокчейна 2 100 000 размер вознаграждения за майнинг составляет 5,5 WAVES. На высоте 2 190 000 начинается очередное голосование.
 
-The next voting will take place from the height of 2,290,000 to 2,299,999.
+В течение 10 000 блоков голосования 4 500 голосов было отдано за увеличение размера вознаграждения, 4 000 — за уменьшение, 1 500 — за то, чтобы размер вознаграждения остался прежним.
+
+С высоты 2 200 000 по высоту 2 299 999 "новый" размер вознаграждения будет прежним — 5,5 WAVES. Несмотря на то что за увеличение вознаграждения было отдано больше всего голосов, этого недостаточно для изменения текущего размера вознаграждения. Чтобы текущий размер был увеличен, за увеличение должно быть отдано не менее 5 001 голоса.
+
+Следующее голосование будет проходить с высоты 2 290 000 по 2 299 999.

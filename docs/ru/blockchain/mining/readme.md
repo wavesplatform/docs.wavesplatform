@@ -1,5 +1,5 @@
-# Mining
+# Майнинг
 
-The **mining** is the [generation](/blockchain/block/block-generation.md) of blocks by [mining node](/blockchain/node/mining-node.md).
+**Майнинг** — [генерация](/blockchain/block/block-generation.md) блоков [майнящей нодой](/blockchain/node/mining-node.md).
 
-For generating blocks, [miners](/blockchain/mining/miner.md) receive a [mining reward](/blockchain/mining/mining-reward.md), as well as [transaction fees](/blockchain/transaction/transaction-fee.md), according to the [Waves-NG protocol](/blockchain/waves-protocol/waves-ng-protocol.md) rules.
+За генерацию блоков [майнеры](/blockchain/mining/miner.md) получают [вознаграждение за майнинг](/blockchain/mining/mining-reward.md), а также [комиссии за транзакции](/blockchain/transaction/transaction-fee.md), согласно правилам протокола [Waves-NG](https://docs.wavesplatform.com/en/blockchain/waves-protocol/waves-ng-protocol.html).

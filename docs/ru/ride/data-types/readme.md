@@ -1,12 +1,12 @@
-# Data types
+# Типы данных
 
-| # | Data type name | RIDE keyword |
+| # | Название типа данных | Ключевое слово в RIDE |
 | :--- | :--- | :--- |
-| 1 | [Boolean](/ride/data-types/boolean.md) | Boolean |
-| 2 | [Byte array](/ride/data-types/byte-vector.md) | ByteVector |
-| 3 | [Integer](/ride/data-types/int.md) | Int |
-| 4 | [List](/ride/data-types/list.md) | List |
-| 5 | [String](/ride/data-types/string.md) | String |
-| 6 | [Empty value](/ride/data-types/unit.md) | Unit |
-| 7 | [Structure](/ride/structures.md) | — |
-| 8 | [Union](/ride/data-types/union.md) | — |
+| 1 | [Логический](/ride/data-types/boolean.md) | Boolean |
+| 2 | [Тип данных массива байтов](/ride/data-types/byte-vector.md) | ByteVector |
+| 3 | [Целочисленный](/ride/data-types/int.md) | Int |
+| 4 | [Тип данных списка](/ride/data-types/list.md) | List |
+| 5 | [Строковый](/ride/data-types/string.md) | String |
+| 6 | [Тип данных пустого значения](/ride/data-types/unit.md) | Unit |
+| 7 | [Структура](/ride/structures.md) | — |
+| 8 | [Тип данных объединения](/ride/data-types/union.md) | — |

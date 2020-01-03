@@ -1,9 +1,9 @@
-# Script complexity
+# Сложность скрипта
 
-**Script complexity** is a dimensionless quantity that estimates computational resources needed to execute a [script](/ride/script.md).
+**Cложность скрипта** — безразмерная величина, которая оценивает вычислительные ресурсы необходимые для исполнения [скрипта](/ride/script.md).
 
-The complexity of a script is estimated based on complexities of all the [operators](/ride/operators.md) and [functions](/ride/functions.md) it consists of.
+Сложность скрипта оценивается исходя из сложностей всех [операторов](/ride/operators.md) и [функций](/ride/functions.md), составляющих скрипт.
 
-The complexity of a script can be seen in the [Waves IDE](https://ide.wavesplatform.com); it is currently limited to 4000:
+Сложность скрипта можно посмотреть в [Waves IDE](https://ide.wavesplatform.com); в настоящий момент она ограничена 4000:
 
-![](./_assets/complexity
+<img src="img/complexity.png" alt="faucet" width="700"/>

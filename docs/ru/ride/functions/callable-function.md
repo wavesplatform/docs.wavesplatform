@@ -1,16 +1,68 @@
-# Callable function
+# Вызываемая функция
 
-A **callable function** is a [function](/ride/functions.md) of a [dApp script](/ride/script/script-types/dapp-script.md) that has `@Callable` [annotation](/ride/functions/annotations.md).
+**Вызываемая функция** — [функция](/ride/functions.md) [dApp-скрипта](/ride/script/script-types/dapp-script.md) с [аннотацией](/ride/functions/annotations.md) `@Callable`.
 
-A dApp script may have several callable functions.
+У dApp-скрипта может быть несколько вызываемых функций.
 
-A callable function of a [dApp](/blockchain/account/dapp.md) can be invoked by the [invoke script transaction](/blockchain/transaction-type/invoke-script-transaction.md).
+Вызываемую функцию у [dApp](/blockchain/account/dapp.md) можно вызвать с помощью [транзакции вызова скрипта](/blockchain/transaction-type/invoke-script-transaction.md).
 
-## Example
+## Пример для стандартной библиотеки версии 3
 
-``` ride
+```ride
 @Callable(inv)
 func rate(name: String, rating: Int) = {
     WriteSet([DataEntry(inv.caller.toString(), name + rating.toString()])
+}
+```
+
+> [!WARNING]
+> [Стандартная библиотека](/ride/script/standart-library.md) версии 4 доступна начиная с версии ноды 1.2.0 после активации функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№ 16). См. [протокол активации](/platform-features/activation-protocol.md).
+
+## Пример для стандартной библиотеки версии 4
+
+> [!INFO]
+> Начиная с 4 версии [Стандартной библиотеки](/ru/ride/script/standard-library.md) в качестве аргумента аннотируемой функции может передаваться список значений, относящихся к [примитивным типам данных](https://ru.wikipedia.org/wiki/Простой_тип). Максимальный размер списка - до 1000 элементов включительно.
+
+```ride
+{-# STDLIB_VERSION 4 #-}
+{-# CONTENT_TYPE DAPP #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+  
+@Callable(i)
+func f(args: List[String]) = [
+    StringEntry("entry1", args[0]),
+    StringEntry("entry1", args[1])
+]
+```
+
+## Пример 1
+
+```ride
+{-# STDLIB_VERSION 4 #-}
+{-# CONTENT_TYPE DAPP #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+  
+@Callable(i)
+func f(args: List[String]) = [
+    StringEntry("entry1", args[0]),
+    StringEntry("entry1", args[1])
+]
+```
+
+## Пример 2
+
+```ride
+{-# STDLIB_VERSION 4 #-}
+{-# CONTENT_TYPE DAPP #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+ 
+@Callable(i)
+func f(a: String, args: List[String]) = {
+    let s = size(args)
+    if s == 1 then
+        BooleanEntry("result", a == args[0])
+    else s > 1 then
+        BooleanEntry ("result", a == args[1])
+    else throw("args is empty")
 }
 ```

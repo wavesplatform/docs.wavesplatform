@@ -1,3 +1,3 @@
-# Prerequisites
+# Предварительные требования
 
-* [Hardware requirements](/waves-node/prerequisites/hardware-requirements.md)
+* [Требования к аппаратному обеспечению](/waves-node/prerequisites/hardware-requirements.md)

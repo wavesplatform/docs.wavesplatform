@@ -1,4 +1,5 @@
 ### GET /transactions/info/{id}
+
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
 
@@ -394,4 +395,92 @@ and all the other parameters appropriate for a transaction of the given type.
  "signature":"4gQyPXzJFEzMbsCd9u5n3B2WauEc4172ssyrXCL882oNa8NfNihnpKianHXrHWnZs1RzDLbQ9rcRYnSqxKWfEPJG",
  "alias":"dajzmj6gfuzmbfnhamsbuxivc"
 }
+```
+
+<a id="post-tx-status"></a>
+
+### POST /transactions/status
+
+> Current endpoint is available in node 1.1.7 release.
+
+Returns the list of transactions statuses, by transaction IDs. The resulting transaction list keeps the order of the transaction IDs as they were passed in the request. If the transactions IDs were not specified, the request will not be executed and an error will be returned.
+
+**Request params**
+
+`id` - transaction id
+
+**Request JSON example**
+
+```js
+[
+  {
+    "id": "H27nMqvLp514M9fFoKbn4qCvFtG3VGzMGcN7noDyDv6C"
+  },
+  {
+    "id": "Bi2vXQdUTsUPRDLE4tWkCFNVNkLjRtvy9PuvWd5iNP63"
+  },
+  {
+    "id": "Ew2mxDagrDJevuaXKUuA48e8QD5evkDr5Zpv7ERVpCN2"
+  }
+]
+```
+
+**Response JSON example**
+
+- `id` - transaction ID
+- `status` - transaction status. `not_found` - transaction not found, `unconfirmed` - transaction is in UTX-pool, `confirmed` - transaction is in the block or microblock.
+- `confirmations` - current blockchain height minus height of block the transaction was included in.
+- `height` - transaction's height in the blockchain.
+
+```js
+[
+  {
+    "id": "H27nMqvLp514M9fFoKbn4qCvFtG3VGzMGcN7noDyDv6C",
+    "status": "confirmed",
+    "confirmations": 120,
+    "height": 1772853
+  },
+  {
+    "id": "Bi2vXQdUTsUPRDLE4tWkCFNVNkLjRtvy9PuvWd5iNP63",
+    "status": "not_found"
+  },
+  {
+    "id": "Ew2mxDagrDJevuaXKUuA48e8QD5evkDr5Zpv7ERVpCN2",
+    "status": "unconfirmed"
+  }
+]
+```
+
+<a id="get-tx-status"></a>
+
+### GET /transactions/status?id=tx1id&id=tx2id
+
+> Current endpoint is available in node 1.1.7 release.
+
+Returns the list of transactions statuses, by transaction IDs. The resulting transaction list keeps the order of the transaction IDs as they were passed in the request. If the transactions IDs were not specified, the request will not be executed and an error will be returned.
+
+**Response JSON example**
+
+- `id` - transaction ID
+- `status` - transaction status. `not_found` - transaction not found, `unconfirmed` - transaction is in UTX-pool, `confirmed` - transaction is in the block or microblock.
+- `confirmations` - current blockchain height minus height of block the transaction was included in.
+- `height` - transaction's height in the blockchain.
+
+```js
+[
+  {
+    "id": "H27nMqvLp514M9fFoKbn4qCvFtG3VGzMGcN7noDyDv6C",
+    "status": "confirmed",
+    "confirmations": 120,
+    "height": 1772853
+  },
+  {
+    "id": "Bi2vXQdUTsUPRDLE4tWkCFNVNkLjRtvy9PuvWd5iNP63",
+    "status": "not_found"
+  },
+  {
+    "id": "Ew2mxDagrDJevuaXKUuA48e8QD5evkDr5Zpv7ERVpCN2",
+    "status": "unconfirmed"
+  }
+]
 ```

@@ -6,7 +6,7 @@ Ride4DApps is an update of [RIDE language](../ride-language/ride-language.md) wh
 classic _**'DApps'**_ approach on Waves by adding the ability to define and call functions 
 in a contract.
 
-![RIDE4DAPPS](../_assets/ride4dapps.png)
+![RIDE4DAPPS](../../_assets/ride4dapps.png)
 
 ## Functions Types
 

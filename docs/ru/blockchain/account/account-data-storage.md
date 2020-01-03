@@ -1,36 +1,44 @@
-# Account data storage
+# Хранилище данных аккаунта
 
-An **account data storage** is a storage, associated with an [account](/blockchain/account.md),  of data records.
+**Хранилище данных аккаунта** — ассоциированное с [аккаунтом](/blockchain/account.md) хранилище записей данных.
 
-Each account has a _single_ account data storage.
+У каждого аккаунта есть _единственное_ хранилище данных.
 
-The size of an account data storage is unlimited.
+Размер хранилища данных аккаунта неограничен.
 
-## An account data storage record
+## Запись хранилища данных аккаунта
 
-An **account data storage record** is a data record that has a key-value format.
+**Запись хранилища данных аккаунта** — запись данных, которая имеет формат ключ-значение.
 
-The key is a unique string.
+Ключ — уникальная строка.
 
-The value is the data of one of the types:
+Значение — данные одного из типов:
 
-* string
-* boolean
-* integral
-* array of bytes
+* строковый
+* логический
+* целочисленный
+* массив байтов
 
-## Adding records
+## Добавление записей
 
-Records are added to an account data storage using a [data transaction](/blockchain/transaction-type/data-transaction.md) or an invoke script transaction.
+Записи добавляются в хранилище данных аккаунта с помощью [транзакции данных](/blockchain/transaction-type/data-transaction.md) или [транзакции вызова скрипта](/blockchain/transaction-type/invoke-script-transaction.md).
 
-The maximum size of a single record is [32 kilobytes](https://github.com/wavesplatform/Waves/blob/79442553314012cc0e2c1defca9d85f8a84e1770/lang/shared/src/main/scala/com/wavesplatform/lang/v1/ContractLimits.scala#L11) for data transaction and [5 kilobytes](https://github.com/wavesplatform/Waves/blob/79442553314012cc0e2c1defca9d85f8a84e1770/lang/shared/src/main/scala/com/wavesplatform/lang/v1/ContractLimits.scala#L20) for invoke script transaction.
+Максимальный размер одной записи — [32 килобайта](https://github.com/wavesplatform/Waves/blob/79442553314012cc0e2c1defca9d85f8a84e1770/lang/shared/src/main/scala/com/wavesplatform/lang/v1/ContractLimits.scala#L11) для транзакции данных и [5 килобайтов](https://github.com/wavesplatform/Waves/blob/79442553314012cc0e2c1defca9d85f8a84e1770/lang/shared/src/main/scala/com/wavesplatform/lang/v1/ContractLimits.scala#L20) для транзакции вызова скрипта.
 
-## Editing records
+## Редактирование записей
 
-The value of a record can be rewritten using a data transaction or an invoke script transaction.
+Значение записи можно перезаписать с помощью транзакции данных или транзакции вызова скрипта.
 
-The key of a record cannot be rewritten.
+Ключ записи перезаписать нельзя.
 
-## Deleting records
+## Удаление записей
 
-A record cannot be deleted from an account data storage, it is only possible to rewrite its value.
+> С версии ноды 1.2.0 возможно удаление записей хранилища данных аккаунта. Возможность включается с активацией на ноде функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№16).
+На данный момент версии 1.2.x доступны на [stagenet](/blockchain/blockchain-network/stage-network.md)
+
+Удаление записей хранилища данных аккаунта выполняется при помощи
+
+- [транзакции данных](/blockchain/transaction-type/data-transaction.md),
+- структуры [DeleteKey](/ride/structures/common-structures/delete-key.md).
+
+Удаление записи выполняется по ключу.

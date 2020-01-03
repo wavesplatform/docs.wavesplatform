@@ -1,21 +1,21 @@
 # DeleteKey
 
-Deletes [account data storage](/blockchain/account/account-data-storage.md) record by its key.
+Удаляет запись из [хранилища данных аккаунта](/blockchain/account/account-data-storage.md) по ее ключу.
 
-> This feature is available starting from node version 1.2.0. This feature can be used after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) functionality on the node.
-Version 1.2.x is currently available on [stagenet](/blockchain/blockchain-network/stage-network.md)
+> Эта возможность доступна с версии ноды 1.2.0. Возможность включается с активацией на ноде функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№16).
+На данный момент версии 1.2.x доступны на [stagenet](/blockchain/blockchain-network/stage-network.md)
 
-## Constructor
+## Конструктор
 
 `DeleteKey(key: String)`
 
-## Fields
+## Поля
 
-|   #   | Name | Data type | Description |
+|   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | key | [String](/ride/data-types/string.md) | Record key |
+| 1 | key | [String](/ride/data-types/string.md) | Ключ записи |
 
-## Example
+## Пример
 
 ```ride
 {-# STDLIB_VERSION 4 #-}

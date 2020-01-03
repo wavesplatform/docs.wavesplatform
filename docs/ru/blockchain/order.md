@@ -1,27 +1,23 @@
-# Order
+# Биржевая заявка
 
-An **order** is an instruction from the [account owner](/blockchain/account.md) to the [matcher](/waves-node/extensions/matcher.md) to buy or sell the [token](/blockchain/token.md) on [DEX](/waves-dex/about-waves-dex.md).
+**Биржевая заявка** или **ордер** — инструкция [владельца аккаунта](/blockchain/account.md) [матчеру](/waves-node/extensions/matcher.md) на покупку или продажу [токена](/blockchain/token.md) на [DEX](/waves-dex/about-waves-dex.md).
 
-## Order cancellation
+## Отмена заявки <a id="cancel"></a>
 
-The order sender may cancel the order before it is executed.
+Отправитель заявки может отменить заявку до того как она будет исполнена.
 
-Unexecuted orders are automatically canceled after 30 days from the date of opening.
+Неисполненные заявки автоматически отменяются по истечению 30 дней с момента открытия.
 
-## Order expiration date
+## Дата истечения заявки
 
-An **order expiration date** is a date when the order is automatically canceled if it is not executed by this date.
+**Дата истечения заявки** — дата, когда заявка автоматически аннулируется, если она не будет исполнена к этой дате.
 
-The date is specified in _milliseconds_ which have passed since the beginning of the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time) until the expiration date.
+Дата указывается в _миллисекундах_, которые прошли с начала [эпохи Unix](https://ru.wikipedia.org/wiki/Unix-время) до даты истечения заявки.
 
-The expiration time varies from 1 minute to 30 days.
+Время истечения заявки составляет от 1 минуты до 30 дней.
 
-## Order timestamp
+## Временная метка заявки
 
-An **order timestamp** is a time when [matcher](/waves-node/extensions/matcher.md) adds the [order](/blockchain/order.md) to the [order book](https://en.wikipedia.org/wiki/Order_book_%28trading%29) on [DEX](/waves-dex/about-waves-dex.md).
+**Временна́я метка заявки** — время, когда [матчер](/waves-node/extensions/matcher.md) добавил [заявку](/blockchain/order.md) в [биржевой стакан](https://ru.wikipedia.org/wiki/Биржевой_стакан) на [DEX](/waves-dex/about-waves-dex.md).
 
-The time is specified in _milliseconds_ that have passed since the beginning of the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time).
-
-## Order binary format
-
-See the [Order binary format](/blockchain/binary-format/order-binary-format.md) page.
+Время указывается в _миллисекундах_, которые прошли с начала [эпохи Unix](https://ru.wikipedia.org/wiki/Unix-время).

@@ -1,3 +1,3 @@
-# Token ID
+# ID токена
 
-A **token ID** is an [ID of the transaction](/blockchain/transaction/transaction-id.md) that issued the [token](/blockchain/token.md).
+**ID токена** — [ID транзакции](/blockchain/transaction/transaction-id.md), которая выпустила [токен](/blockchain/token.md).

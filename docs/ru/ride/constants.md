@@ -1,10 +1,10 @@
-# Constants
+# Константы
 
-A **constant** is a value that cannot be changed by the program during its execution.
+**Константа** — значение, которое не может быть изменено программой во время ее выполнения.
 
-## Examples
+## Примеры
 
-Below 7 and "apple" are constants.
+Ниже 7 и "apple" — константы.
 
 ``` ride
 7 + x + size("apple")

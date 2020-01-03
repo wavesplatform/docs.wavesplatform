@@ -1,18 +1,18 @@
-# Account script
+# Скрипт аккаунта
 
-An **account script** is a [script](/ride/script.md) that has the following [directives](/ride/script/directives.md):
+**Скрипт аккаунта** — [скрипт](/ride/script.md), у которого есть следующие [директивы](/ride/script/directives.md):
 
 ``` ride
 {-# CONTENT_TYPE EXPRESSION #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 ```
 
-The [body](/ride/script/script-body.md) of the account script is an [expression](/ride/base-concepts/expression.md) of the boolean type.
+[Тело](/ride/script/script-body.md) скрипта аккаунта — [выражение](/ride/base-concepts/expression.md) логического типа.
 
-## Attaching account script
+## Прикрепление скрипта аккаунта
 
-An account script is attached to the [account](/blockchain/account.md) with a [set script transaction](/blockchain/transaction-type/set-script-transaction.md).
+Скрипт аккаунта прикрепляется к [аккаунту](/blockchain/account.md) с помощью [транзакции установки скрипта](/blockchain/transaction-type/set-script-transaction.md).
 
-An account with the account script attached to it is called a [smart account](/blockchain/account/smart-account.md).
+Аккаунт с прикрепленным к нему скриптом аккаунта называется [смарт-аккаунтом](/blockchain/account/smart-account.md).
 
-Only one script can be attached to an account.
+К аккаунту можно прикрепить только один скрипт.

@@ -1,7 +1,14 @@
-# Asset script
+# Скрипт ассета
 
-An **asset script** is a [RIDE script](/ride/script.md) that is attached to an asset with a [set asset script transaction](/blockchain/transaction-type/set-asset-script-transaction.md).
+**Скрипт ассета** — [скрипт на RIDE](/ride/script.md), который имеет следующие директивы:
 
-An asset with the attached script is called a smart asset.
+```ride
+{-# CONTENT_TYPE EXPRESSION #-}
+{-# SCRIPT_TYPE ASSET #-}
+```
 
-You can attach a script to an asset only during the creation of the asset.
+Скрипт ассета прикрепляется к ассету с помощью [транзакции установки скрипта ассета](/blockchain/transaction-type/set-asset-script-transaction.md).
+
+Ассет с прикрепленным к нему скриптом называется [смарт-ассетом](/blockchain/token/smart-asset.md).
+
+Прикрепить скрипт к ассету можно только в момент создания ассета.

@@ -1,9 +1,9 @@
 # WAVES
 
-**WAVES** is the main [token](/blockchain/token.md) of the Waves platform.
+**WAVES** — главный токен платформы Waves.
 
-1 WAVES equals 100,000,000 [WAVELETs](/blockchain/token/wavelet.md).
+1 WAVES равен 100 000 000 [WAVELET](/blockchain/token/wavelet.md).
 
-In April 2016, 100 million WAVES were issued.
+В апреле 2016 было выпущено 100 миллионов WAVES.
 
-It's impossible to burn WAVES with the [burn transaction](/blockchain/transaction-type/burn-transaction.md).
+WAVES нельзя сжечь с помощью [транзакции сжигания токена](/blockchain/transaction-type/burn-transaction.md).

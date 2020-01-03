@@ -1,3 +1,3 @@
-# Blockchain network
+# Сеть блокчейна
 
-A **blockchain network** is a computer network that consists of [nodes](/blockchain/node.md).
+**Сеть блокчейна** — компьютерная сеть, которая состоит из [нод](/blockchain/node.md).

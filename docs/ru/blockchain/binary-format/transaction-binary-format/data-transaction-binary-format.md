@@ -1,40 +1,39 @@
-# Data transaction binary format
+# Бинарный формат транзакции данных
 
-> Learn more about [data transaction](/blockchain/transaction-type/data-transaction.md)
+> Узнать больше о [транзакции данных](/blockchain/transaction-type/data-transaction.md)
 
-## Transaction version 1
+## Транзакция версии 1
 
-| Field order number | Field | JSON field name  | Field type | Field size in bytes | Comment |
+| Порядковый номер поля | Поле | Название JSON-поля | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | Version flag | | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | Indicates the [transaction version](/blockchain/transaction/transaction-version.md) is version 2 or higher.<br>Value must be 0 |
-| 2 | [Transaction type ID](/blockchain/transaction-type.md) | type | [Byte](/blockchain/blockchain/blockchain-data-types.md)  | 1 | Value must be 12 |
-| 3 | [Transaction version](/blockchain/transaction/transaction-version.md) | version | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | Value must be 1 |
-| 4 | Public key of the transaction sender | senderPublicKey | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | 32 |  |
-| 5 | Length of the data array | | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 | |
-| 6.1 | Key 1 length | | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 | |
-| 6.2 | Key 1 | key | [String](/blockchain/blockchain/blockchain-data-types.md) | 4 × `L` | `L` is a key length |
-| 6.3 | Value 1 type | type | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | 0 — integer<br>1 — boolean<br>2 — array of bytes<br>3 — string |
-| 6.4 |  Value 1 length |   |  [Short](/blockchain/blockchain/blockchain-data-types.md) | 2  | This field is present only if the value is of type of array of bytes or a string.<br>If the value is of type of integer or a boolean, this field should not be included in the data structure  |
-| 6.5 | Value 1 | value | `T` | Depends on the size of the value | `T` is one of the following: <br> - [Long](/blockchain/blockchain/blockchain-data-types.md)<br> - Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)]<br> - [Boolean](/blockchain/blockchain/blockchain-data-types.md)<br> - [String](/blockchain/blockchain/blockchain-data-types.md)  |
-| 6.6 | Key 2 length | | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 | |
-| 6.7 | Key 2 | key | [String](/blockchain/blockchain/blockchain-data-types.md) | 4 × `L` | `L` is a key length |
-| 6.8 | Value 2 type | type | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | 0 — integer <br>1 — boolean <br> 2 — array of bytes <br> 3 — string |
-| 6.9 |  Value 2 length |   |  [Short](/blockchain/blockchain/blockchain-data-types.md) |  2 | This field is present only if the value is of type of array of bytes or a string. <br>If the value is of type of integer or a boolean, this field should not be included in the data structure |
-| 6.10| Value 2 | value | `T` | Depends on the size of the value | `T` is one of the following: <br> - [Long](/blockchain/blockchain/blockchain-data-types.md)<br> - Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)]<br> - [Boolean](/blockchain/blockchain/blockchain-data-types.md)<br> - [String](/blockchain/blockchain/blockchain-data-types.md) |
+| 1 | Флаг версии | | [Byte](/blockchain/blockchain/blockchain-data-types.md)  | 1 | Указывает, что [версия транзакции](/blockchain/transaction/transaction-version.md) является второй или выше.<br>Значение должно быть равно 0 |
+| 2 | [ID типа транзакции](/blockchain/transaction-type.md) | type | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | Значение должно быть равно 12 |
+| 3 | [Версия транзакции](/blockchain/transaction/transaction-version.md) | version | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | Значение должно быть равно 1 |
+| 4 | Открытый ключ аккаунта отправителя транзакции | senderPublicKey | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | 32 |  |
+| 5 | Количество элементов в массиве данных | | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 | |
+| 6.1 | Длина ключа 1-го элемента | | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 | |
+| 6.2 | Ключ 1-го элемента | key | [String](/blockchain/blockchain/blockchain-data-types.md) | 4 × `L` | `L` — длина ключа |
+| 6.3 | Тип данных 1-го элемента | type | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | |
+| 6.4 | Длина данных 1-го элемента |  | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 | Текущее поле присутствует только если значением поля данных является массив байтов или строка.<br>Текущее поле отсутствует, если значением поля данных является целое число или логический тип |
+| 6.5 | Данные 1-го элемента | value | `T` | Зависит от размера данных | `T` — один из следующих: <br> - [Long](/blockchain/blockchain/blockchain-data-types.md)<br> - Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)]<br> - [Boolean](/blockchain/blockchain/blockchain-data-types.md)<br> - [String](/blockchain/blockchain/blockchain-data-types.md) |
+| 6.6 | Длина ключа 2-го элемента | | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 | |
+| 6.7 | Ключ 2-го элемента | key | [String](/blockchain/blockchain/blockchain-data-types.md) | 4 × `L` | `L` — длина ключа |
+| 6.8 | Тип данных 2-го элемента | type | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | |
+| 6.9 | Длина данных 2-го элемента |  | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 | Текущее поле присутствует только если значением поля данных является массив байтов или строка.<br>Текущее поле отсутствует, если значением поля данных является целое число или логический тип |
+| 6.10 | Данные 2-го элемента | value | `T` | Зависит от размера данных | `T` — один из следующих: <br> - [Long](/blockchain/blockchain/blockchain-data-types.md)<br> - Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)]<br> - [Boolean](/blockchain/blockchain/blockchain-data-types.md)<br> - [String](/blockchain/blockchain/blockchain-data-types.md) |
 | ... | ... | ... | ... | ... | ... |
 | ... | ... | ... | ... | ... | ... |
 | ... | ... | ... | ... | ... | ... |
 | ... | ... | ... | ... | ... | ... |
-| ... | ... | ... | ... | ... | ... |
-| 6.[5 × N - 4] | N-th key length | | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 | |
-| 6.[5 × N - 3] | N-th key | key | [String](/blockchain/blockchain/blockchain-data-types.md) | 4 × `L` | `L` is a key length |
-| 6.[5 × N - 2] | N-th value type | type | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | 0 — integer <br>1 — boolean <br> 2 — array of bytes <br>3 — string |
-| 6.[5 × N - 1] | N-th value length |  | [Short](/blockchain/blockchain/blockchain-data-types.md)  | 2  |  This field is present only if the value is of type of array of bytes or a string. <br>If the value is of type of integer or a boolean, this field should not be included in the data structure |
-| 6.[5 × N] | N-th value | value | `T` | Depends on the size of the value | `T` is one of the following: <br> - [Long](/blockchain/blockchain/blockchain-data-types.md)<br> - Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)]<br> - [Boolean](/blockchain/blockchain/blockchain-data-types.md)<br> - [String](/blockchain/blockchain/blockchain-data-types.md) |
-| 7 | [Transaction timestamp](/blockchain/transaction/transaction-timestamp.md) | timestamp | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 |  |
-| 8 | [Transaction fee](/blockchain/transaction/transaction-fee.md) | fee | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 |  |
-| 9 | [Transaction proofs](/blockchain/transaction/transaction-proof.md) | proofs | [Proofs](/blockchain/transaction/transaction-proof.md) | `S` | If the array is empty, then `S` = 3. If the array is not empty, then `S` = 3 + 2 × `N` + (`P1` + `P2` + ... + `P`<sub>`n`</sub>), where `N` is the number of proofs in the array, `P`<sub>`n`</sub> is the size of `N`-th proof in bytes. The maximum number of proofs in the array is 8. The maximum size of each proof is 64 bytes |
+| 6.[5 × N - 4] | Длина ключа N-го элемента | | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 | |
+| 6.[5 × N - 3] | Ключ N-го элемента | key | [String](/blockchain/blockchain/blockchain-data-types.md) | 4 × `L` | `L` — длина ключа |
+| 6.[5 × N - 2] | Тип данных N-го элемента | type | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | |
+| 6.[5 × N - 1] | Длина данных N-го элемента |  | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 | Текущее поле присутствует только если значением поля данных является массив байтов или строка.<br>Текущее поле отсутствует, если значением поля данных является целое число или логический тип |
+| 6.[5 × N] | Данные N-го элемента | value | `T` | Зависит от размера данных | `T` — один из следующих: <br> - [Long](/blockchain/blockchain/blockchain-data-types.md)<br> - Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)]<br> - [Boolean](/blockchain/blockchain/blockchain-data-types.md)<br> - [String](/blockchain/blockchain/blockchain-data-types.md) |
+| 7 | [Временная метка транзакции](/blockchain/transaction/transaction-timestamp.md) | timestamp | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 |  |
+| 8 | [Комиссия за транзакцию](/blockchain/transaction/transaction-fee.md) | fee | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 |  |
+| 9 | [Подтверждения транзакции](/blockchain/transaction/transaction-proof.md) | proofs | [Подтверждения](/blockchain/transaction/transaction-proof.md) | `S` | Если массив пустой, то `S`= 3. <br>Если массив не пустой, то `S`= 3 + 2 × `N` + \(`P`<sub>1</sub> + `P`<sub>2</sub> + ... + `P`<sub>n</sub>\), <br>где <br>`N` — количество подтверждений в массиве, <br>`P`<sub>n</sub> — размер `N`-го подтверждения в байтах.<br> Максимальное количество подтверждений в массиве — 8. Максимальный размер каждого подтверждения — 64 байта |
 
-## JSON representation of the transaction <a id="#json-representation"></a>
+## JSON-представление транзакции <a id="json-representation"></a>
 
-See the [example](https://nodes.wavesplatform.com/transactions/info/EByjQAWDRGrmc8uy7xRGy2zsQXZQq59bav7h8oTTJyHC) in Node API.
+Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/EByjQAWDRGrmc8uy7xRGy2zsQXZQq59bav7h8oTTJyHC) в Node API.

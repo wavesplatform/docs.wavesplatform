@@ -1,3 +1,3 @@
-# Transaction signature
+# Подпись транзакции
 
-A **transaction signature** is a digital signature with which the sender confirms the ownership of the outgoing transaction.
+**Подпись транзакции** — цифровая подпись, с помощью которой отправитель подтверждает принадлежность исходящей транзакции.

@@ -1,19 +1,19 @@
 # BinaryEntry
 
-> [!WARNING]
-> The structure is introduced in Standard library **version 4** that is currenlty available on [Stagenet](/blockchain/blockchain-network/stage-network.md) only.
+> [!ВНИМАНИЕ]
+> Структура BinaryEntry представлена в [Стандартной библиотеке](/ride/script/standard-library.md) **версии 4**, которая в настоящее время доступна только на [Stagenet](/blockchain/blockchain-network/stage-network.md).
 
-Structure of a binary data record of an [account data storage](/blockchain/account/account-data-storage.md).
+Структура бинарной записи [хранилища данных аккаунта](/blockchain/account/account-data-storage.md).
 
-## Constructor
+## Конструктор
 
 ```ride
 BinaryEntry(key: String, value: ByteVector)
 ```
 
-## Fields
+## Поля
 
-|   #   | Name | Data type | Description |
+|   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | key | [String](/ride/data-types/string.md) | Key of a record. Maximum of 100 characters |
-| 2 | value| [ByteVector](/ride/data-types/byte-vector.md) | Value of a record. Maximum of 5 Kbytes |
+| 1 | key | [String](/ride/data-types/string.md) | Ключ записи. Максимальная длина - 100 символов |
+| 2 | value| [ByteVector](/ride/data-types/byte-vector.md) | Значение записи. Максимальный размер - 5 Кбайт |

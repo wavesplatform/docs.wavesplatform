@@ -1,7 +1,7 @@
-# Token
+# Токен
 
-A **token** or an **asset** is an object on the [blockchain](/blockchain/blockchain.md) that represents another object from the real or virtual world, or an abstract concept.
+**Токен** или **ассет** — объект на [блокчейне](/blockchain/blockchain.md), который представляет другой объект из физического или виртуального мира, или абстрактное понятие.
 
-A token can have value.
+Токен может иметь ценность.
 
-Each token has a [unique ID](/blockchain/token/token-id.md).
+У каждого токена есть [уникальный ID](/blockchain/token/token-id.md).

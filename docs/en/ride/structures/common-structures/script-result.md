@@ -1,14 +1,19 @@
-# ScriptResult
+# ScriptResult (for Standard Library version 3)
+
+> [!WARNING]
+> The structure is disabled in Standard library version 4. Use List[BinaryEntry|BooleanEntry|IntEntry|StringEntry|ScriptTranfer|Issue|Reissue|Burn] instead of it.
 
 Structure of the execution result of a callable function.
 
-## Constructor
+## For Standard Library version 3
+
+### Constructor
 
 ``` ride
 ScriptResult(writeSet: WriteSet, transferSet: TransferSet)
 ```
 
-## Fields
+### Fields
 
 |   #   | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |

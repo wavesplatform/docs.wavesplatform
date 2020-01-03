@@ -4,9 +4,10 @@
 |:---| :--- | :--- | :--- |
 | 1 | [fraction(Int, Int, Int): Int](#fraction) | Multiplies [integers](/ride/data-types/int.md) `a`, `b` and divides the result by the integer `c` to avoid the integer overflow | 1 |
 | 2 | [log(Int, Int, Int, Int, Int, Union): Int](#log)|  Calculates logarithm of the number `a` with the base `b` | 100 |
-| 3 | [pow(Int, Int, Int, Int, Int, Union): Int](#pow) | Raises the number `a` to the power `b`| 100 |
+| 3 | [median(List[Int]): Int](#median)|  Returns the median of a list of integers | 10 |
+| 4 | [pow(Int, Int, Int, Int, Int, Union): Int](#pow) | Raises the number `a` to the power `b`| 100 |
 
-## fraction(Int, Int, Int): Int
+## fraction(Int, Int, Int): Int<a id="fraction"></a>
 
 Multiplies [integers](/ride/data-types/int.md) `a`, `b` and divides the result by the integer `c` to avoid the integer overflow.
 
@@ -63,7 +64,7 @@ fraction(3,3,3) # Returns 3
 fraction(3,2,3) # Returns 2
 ```
 
-## log(Int, Int, Int, Int, Int, Union): Int
+## log(Int, Int, Int, Int, Int, Union): Int<a id="log"></a>
 
 Calculates logarithm of the number `a` with the base `b`.
 
@@ -118,7 +119,32 @@ log(1625, 2, 27, 1, 2, HALFUP) # function returns 281, so, the result is: 2,81
 log(1625, 2, 27, 1, 5, HALFUP) # function returns 280703542, so, the result is: 2,80704
 ```
 
-## pow(Int, Int, Int, Int, Int, Union): Int
+## median(List[Int]): Int<a id="median"></a>
+
+Returns the median of the [list](/ride/data-types/list). The list can't be empty, otherwise, the script will be finished with the error.
+
+> The `median` function becomes available with node 1.2.0 version. The function can be used when the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature is activated on the node.
+Version 1.2.x is currently available on [stagenet](/blockchain/blockchain-network/stage-network.md).
+
+```ride
+median(arr: List[Int]): Int
+```
+
+### Parameters
+
+#### `arr`: [List[Int]](/ride/data-types/list.md)
+
+List of integers.
+
+### Examples
+
+```ride
+median([1, 2, 3]) # Returns 2
+median([2, 4, 9, 20]) # Returns 6
+median([-2, -4, -9, -20]) # Returns -7
+```
+
+## pow(Int, Int, Int, Int, Int, Union): Int<a id="pow"></a>
 
 Raises the number `a` to the power `b`.
 

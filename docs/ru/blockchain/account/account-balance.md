@@ -1,67 +1,69 @@
-# Account balance
+# Баланс аккаунта
 
-An **account balance** is the amount of the [token](/blockchain/token.md) that is stored on the [account](/blockchain/account.md).
+**Баланс аккаунта** — количество [токена](/blockchain/token.md), которое хранится на [аккаунте](/blockchain/account.md).
 
-One account can store different tokens in different amounts. For example, an account can have 50 [WAVES](/blockchain/token/waves.md) and 200 [WCTs](/blockchain/token/wct.md) at the same time. The amount of the Y token on the account is called the **account balance in Y token**. If there is no Y token on the account, it is said that the **account balance in Y token is equal to zero**.
+Один аккаунт может хранить разные токены в разных количествах. Например, на аккаунте может одновременно храниться 50 [WAVES](/blockchain/token/waves.md) и 200 [WCT](/blockchain/token/wct.md). Количество токена Y на аккаунте называется **балансом аккаунта в токене Y**. Если на аккаунте нет токена Y, то говорят, что **баланс аккаунта в токене Y равен нулю**.
 
-## Account balance in WAVES token
-There are four balances in WAVES token:
+## Баланс в токене WAVES
 
-* regular
-* effective
-* available
-* generating
+Существуют четыре вида баланса в токене WAVES:
 
-In addition to WAVES that belong to the account owner, the account may store WAVES that belong to other accounts — those are [leased](/blockchain/leasing.md) WAVES.
+* регулярный
+* эффективный
+* доступный
+* генерирующий
 
-The **regular balance** is the amount of WAVES on the account which belongs directly to the account owner.
+На аккаунте кроме WAVES владельца аккаунта, могут храниться WAVES, которые принадлежат другим аккаунтам — это WAVES, которые были сданы в [лизинг](/blockchain/leasing.md).
 
-To explain the effective and available balances, we will introduce the following designations:
+**Регулярный баланс** — количество WAVES на аккаунте, которое принадлежит непосредственно владельцу аккаунта.
 
-`A` — regular balance,
+Для объяснения эффективного и доступного балансов введем следующие обозначения:
 
-`L` — the amount of WAVES which account leased to other accounts,
+`A` — регулярный баланс,
 
-`R`— the amount of WAVES which were leased to the account by other accounts.
+`L` — количество WAVES, которое аккаунт отдал в лизинг другим аккаунтам,
 
-The **effective balance** is:
+`R` — количество WAVES, которое аккаунт получил в лизинг от других аккаунтов.
+
+**Эффективный баланс** это:
 
 ```
 A - L + R
 ```
 
-The **available balance** is:
+**Доступный баланс** это:
 
 ```
 A - L
 ```
 
-The **generating balance** is the minimum value of the effective balance during the last 1000 blocks.
+**Генерирующий баланс** — минимальное значение эффективного баланса аккаунта за последние 1000 [блоков](blockchain/block.md).
 
-## Top up and view account balance
+## Пополнение и просмотр баланса аккаунта
 
-You can buy and sell tokens using [Waves Wallet](https://wavesplatform.com/technology/wallet) and [Waves DEX](https://dex.wavesplatform.com/) applications or at one of the [centralized exchanges](https://coinmarketcap.com/currencies/waves/#markets).
+Купить и продать токены можно с помощью приложений [Waves Wallet](https://wavesplatform.com/technology/wallet) и [Waves DEX](https://dex.wavesplatform.com) или на одной из [централизованных бирж](https://coinmarketcap.com/currencies/waves/#markets).
 
-You can view your account balance in Waves Wallet, Waves DEX, and also in the browser extension called [Keeper](https://wavesplatform.com/technology/keeper).
+Посмотреть баланс аккаунта можно в Waves Wallet, Waves DEX, а также в расширение для браузера [Keeper](https://wavesplatform.com/technology/keeper).
 
-Example of the Wallet window with the list of tokens on the account:
+Пример окна в Wallet со списком токенов на аккаунте:
 
-![](./_assets/account-balance.png" alt="faucet" width="300"/>
+<img src="img/account-balance.png" alt="faucet" width="300"/>
 
-You can view the list of tokens on account in [Waves Explorer](https://wavesexplorer.com/) — for that find the account by its [address](/blockchain/account/address.md) or [alias](/blockchain/account/alias.md) and go to the **Assets** tab.
+Посмотреть список токенов на аккаунте можно в [Waves Explorer](https://wavesexplorer.com) — для этого найдите аккаунт по его [адресу](/blockchain/account/address.md) или [псевдониму](/blockchain/account/alias.md) и перейдите во вкладку **Assets**.
 
-![](./_assets/tokens.png" alt="faucet" width="550"/>
+<img src="img/account.png" alt="faucet" width="550"/>
 
-## Retrieving account balance using Node API
-You can get account balance in WAVES by using the Node API request.
+## Получение баланса аккаунта с помощью Node API
 
-Example of the request:
+Получить баланс аккаунта в WAVES можно с помощью запроса к Node API.
+
+Пример запроса:
 
 ```
-curl https://nodes.wavesplatform.com/addresses/balance/details/<account address>
+curl https://nodes.wavesplatform.com/addresses/balance/details/<адрес аккаунта>
 ```
 
-Example of the response:
+Пример ответа:
 
 ```
 {

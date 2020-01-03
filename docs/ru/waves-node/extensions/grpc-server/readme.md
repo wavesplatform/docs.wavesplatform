@@ -1,20 +1,24 @@
 # gRPC Server
 
-**gRPC Server** is a [node extension](/waves-node/extensions.md)  that allows running [gRPC](https://en.wikipedia.org/wiki/GRPC) services on a [node](/blockchain/node.md).
+**gRPC Server** — [расширение ноды](/waves-node/extensions.md), которое позволяет запускать [gRPC](https://en.wikipedia.org/wiki/GRPC)-сервисы на [ноде](/blockchain/node.md).
 
-gRPC services provide information about:
+gRPC-сервисы предоставляют информацию об:
 
-* [accounts](/blockchain/account.md)
-* [blockchain](/blockchain/blockchain.md)
-* [blocks](/blockchain/block.md)
-* [tokens](/blockchain/token.md)
-* [transactions](/blockchain/transaction.md)
+* [аккаунтах](/blockchain/account.md)
+* [блоках](/blockchain/block.md)
+* [блокчейне](/blockchain/blockchain.md)
+* [токенах](/blockchain/token.md)
+* [транзакциях](/blockchain/transaction.md)
 
-## Client generation
+## Установка расширения на ноду
 
-The clients [generated](https://grpc.io/docs/tutorials/) from [.proto files](https://github.com/wavesplatform/Waves/tree/master/grpc-server/src/main/protobuf) are used to connect to gRPC services.
+Смотрите страницу [Установка gRPC Server](/waves-node/extensions/grpc-server/grpc-server-installation.md).
 
-Examples of usage of gRPC clients generated from .proto files:
+## Генерация клиента
 
-* [Connecting to transactions service in Java](https://github.com/wavesplatform/WavesJ/blob/master/examples/src/main/java/GRPCTest.java)
-* [Retrieving blocks in C#](https://github.com/wavesplatform/WavesCS/blob/master/WavesCSTests/ProtobufTest.cs)
+Для подключения к gRPC-сервисам используются клиенты, которые [генерируются](https://grpc.io/docs/tutorials/) из [.proto-файлов](https://github.com/wavesplatform/Waves/tree/master/grpc-server/src/main/protobuf).
+
+Примеры использования gRPC-клиентов, сгенерированных из .proto-файлов:
+
+* [Подключения к сервису транзакций на Java](https://github.com/wavesplatform/WavesJ/blob/master/examples/src/main/java/GRPCTest.java)
+* [Загрузка блоков на C#](https://github.com/wavesplatform/WavesCS/blob/master/WavesCSTests/ProtobufTest.cs)

@@ -1,3 +1,3 @@
-# Test network
+# Тестовая сеть
 
-The **test network** or the **testnet** is a Waves blockchain that is used for testing.
+**Тестовая сеть** или **тестнет** — блокчейн Waves, который используется для тестирования.

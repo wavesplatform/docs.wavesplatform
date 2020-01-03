@@ -1,9 +1,9 @@
-# Block timestamp
+# Временная метка блока
 
-A **block timestamp** is a time of [block generation](/blockchain/block/block-generation.md).
+**Временна́я метка блока** — время [генерации блока](/blockchain/block/block-generation.md).
 
-The time is specified in _milliseconds_ that have passed since the beginning of the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time).
+Время указывается в _миллисекундах_, которые прошли с начала [эпохи Unix](https://ru.wikipedia.org/wiki/Unix-время).
 
-When the [node](/blockchain/node.md) receives a new block from the [blockchain network](/blockchain/blockchain-network.md), it verifies that the timestamp value of the block does not outpace the [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) time by more than 100 milliseconds.
+Когда [нода](/blockchain/node.md) получает новый блок из [сети блокчейна](/blockchain/blockchain-network.md), она проверяет, что значение временной метки блока не опережает время [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время) более чем на 100 миллисекунд.
 
-The timestamp value of the block is validated by nodes using the formula from FPoS.
+Значение временной метки блока валидируется нодами по формуле из FPoS.

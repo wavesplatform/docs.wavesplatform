@@ -1,26 +1,26 @@
-# How to create an oracle
+# Как создать оракул
 
-The Waves Platform provides a catalog for the searching and creating of oracle cards — [https://oracles.wavesexplorer.com](https://oracles.wavesexplorer.com). Using the [Waves Oracles](/waves-oracles/about-waves-oracles.md) service, you know which oracles have already been created by other developers and what data they write on the blockchain. Anyone can create their oracle card so that other users know it exists and can use it.
+Waves Platform предоставляет каталог для поиска и создания карточек оракулов — [https://oracles.wavesexplorer.com](https://oracles.wavesexplorer.com). Благодаря [Waves Oracles](/waves-oracles/about-waves-oracles.md) известно, какие оракулы уже созданы другими разработчиками и какие данные они записывают в блокчейн. Каждый может опубликовать карточку своего оракула, чтобы другие пользователи знали о его существовании и могли пользоваться его данными.
 
-Creating the [oracle](/blockchain/oracle.md) as microservice which takes data from an outside source and writes on the blockchain, remains outside the scope of Waves Oracles.
+Создание самого оракула — микросервиса, который берет данные из внешнего источника и записывает их в блокчейн, остается за рамками сервиса Waves Oracles.
 
-This article based on a simple sample will shortly introduce you to full-cycle how and why to use Waves Oracles, how to implementation of the program part of the oracle and launch your solution, and then use the oracle data in the [dApp](/blockchain/account/dapp.md).
+В этой статье мы на простом примере познакомим вас с полным циклом создания оракула, который состоит из регистрации карточки оракула в Waves Oracles, создания и развертывания программной части оракула, а также последующего использования данных оракула в тех или иных [dApp](/blockchain/account/dapp.md).
 
-## Example of an oracle
+## Пример оракула
 
-As a small example, the following use case should be considered now: imagine you have dApp and you want in it to access data of exchange rates: [WAVES](/blockchain/token/waves.md) per USD and WAVES per BTC, e.g.
+Примером будет dApp, которому необходимы данные курса [WAVES](/blockchain/token/waves.md) по отношению к доллару США (USD) и биткоину (BTC).
 
-If off-chain data is required for dApp to be executed, this data must be obtained and write on the [blockchain](/blockchain/blockchain.md), because dApp have access only to data stored on the blockchain. To get data from off-chain to blockchain implements small programs called [oracles](/blockchain/oracle.md).
+Данные нужно сохранить в [блокчейн](/blockchain/blockchain.md), если они нужны для выполнения dApp, потому что dApp доступны данные только из блокчейна. Для получения данных из внешнего мира в блокчейн реализуются небольшие программы, которые и называются [оракулами](/blockchain/oracle.md).
 
-Our dApp requires quotation data on the blockchain. Therefore, we will create a new oracle, which will receive the relevant quotation data from the public Waves Data Service API (you can use any other source) once an hour and write it on the blockchain. In addition, we will create an oracle card so that other users can alse use the data in their decentralized applications.
+Для нашего dApp требуются данные котировок в блокчейне. Поэтому создадим новый оракул, который будет раз в час получать соответствующие данные о котировках из публичного API Waves Data Service (можно использовать любой другой источник) и сохранять их в блокчейн. Кроме того создадим карточку оракула, чтобы другие пользователи могли также использовать эти данные в своих децентрализованных приложениях.
 
-## Implementation of the program part of the oracle
+## Реализация программной части оракула
 
-The main part of the oracle is a program that has access to the API and records exchange rates in the oracles account data storage. Here use TypeScript with Node.js, but you can use Python or any other programming language. List of [client libraries](/waves-api-and-sdk/client-libraries.md).
+Главная часть оракула — программа, которая имеет доступ к котировкам API и записывает котировки в хранилище данных оракула. В примере, используем для этого TypeScript с Node.js. Вы можете использовать Python или другой язык программирования. Смотрите список [клиентских библиотек](/waves-api-and-sdk/client-libraries.md).
 
 ### Cron
 
-Create a cron that will run our service to retrieve data from the API every hour:
+Создадим cron, который будет запускать наш сервис для получения данных из API каждый час:
 
 ``` typescript
 import * as cron from 'node-cron';
@@ -32,11 +32,11 @@ cron.schedule('0 0 */1 * * *', () => {
 });
 ```
 
-### Get data and transaction sending
+### Получение данных и отправка транзакции
 
-Create a service that will request data from the public Waves Data Services API.
+Создадим сам сервис, который будет запрашивать данные из API публичных Waves Data Services.
 
-Get the _lastPrice_ parameter from the API, shift the point by the required digits and assign a value to the corresponding keys:
+Получим параметр _lastPrice_ из API, сдвинем точку на нужное количество знаков и присвоим значение соответствующему ключу:
 
 ``` typescript
 lastPrice = await this.getLastprice('https://api.wavesplatform.com/v0/pairs/WAVES/Ft8X1v1LTa1ABafufpaCWyVj8KkaxUWE6xBhW6sNFJck');
@@ -46,23 +46,23 @@ lastPrice = await this.getLastprice('https://api.wavesplatform.com/v0/pairs/WAVE
 dataParams.push({ key: 'waves_btc_8', value: lastPrice * Math.pow(10, 8) });
 ```
 
-The easiest and correct way is to create a new account for new oracle. Read about [account creation](/waves-client/account-management/creating-an-account.md).
+Для нового оракула будет правильным зарегистрировать новый аккаунт. Как это сделать, читайте в разделе [создание аккаунта](/waves-client/account-management/creating-an-account.md).
 
-Sign the [data transaction](/blockchain/transaction-type/data-transaction.md) by your oracle account SEED:
+Подпишем [транзакцию данных](/blockchain/transaction-type/data-transaction.md) при помощи SEED от аккаунта оракула:
 
 ``` typescript
 const signerDataTX = DataTX(params,'YOU ORACLE SEED HERE');
 ```
 
-Send the signed data transaction on the blockchain. [Test network](/blockchain/blockchain-network/test-network.md) — [pool.testnet.wavesnodes.com](https://pool.testnet.wavesnodes.com/api-docs/index.html), [main network](/blockchain/blockchain-network/main-network.md) — [https://nodes.wavesnodes.com](https://nodes.wavesnodes.com/api-docs/index.html).
+Отправим подписанную транзакцию данных в блокчейн, Для [тестовой сети](/blockchain/blockchain-network/test-network.md) — [pool.testnet.wavesnodes.com](https://pool.testnet.wavesnodes.com/api-docs/index.html), для [основной сети](/blockchain/blockchain-network/main-network.md) — [https://nodes.wavesnodes.com](https://nodes.wavesnodes.com/api-docs/index.html).
 
 ``` typescript
 const result = await broadcast(signerDataTX, 'https://nodes.wavesnodes.com');
 ```
 
-Creating an oracle card and other transactions requires a fee, so don't forget to top up your account balance. The first time you can try to create an oracle in the test network.
+Помните, создание карточки оракула, как и другие транзакции требуют уплаты комиссии, поэтому не забудьте пополнить баланс аккаунта. Чтобы не тратить реальные средства, вы можете создать первый оракул в тестовой сети и воспользоваться [краником](/waves-explorer/account-balance-top-up-in-the-test-network.md) для пополнения баланса аккаунта.
 
-The code ends up looking like this:
+Итоговый код выглядит следующим образом:
 
 ``` typescript
 import axios from 'axios';
@@ -108,9 +108,9 @@ export class WavesPrice {
 }
 ```
 
-### Project dependencies
+### Зависимости проекта
 
-This part sets the project dependencies:
+Опишем зависимости проекта:
 
 ``` typescript
 {
@@ -131,81 +131,81 @@ This part sets the project dependencies:
 }
 ```
 
-## Launching oracle
+## Запуск оракула
 
-First, install Node.js, if it is not yet installed: [https://nodejs.org/en](https://nodejs.org/en).
+Установите Node.js, если он ещё не установлен: [https://nodejs.org/en](https://nodejs.org/en).
 
-Setting project dependencies:
+Установим зависимости проекта:
 
 ``` bash
 $ npm install
 ```
 
-If you have not installed TypeScript, you need to install it globally:
+Если TypeScript не установлен, следует установить его глобально:
 
 ``` bash
 $ npm install -g ts-node typescript
 ```
 
-Now let's launch our oracle:
+Теперь запустим наш оракул:
 
 ``` bash
 $ npm run start
 ```
 
-In [Waves Explorer](/waves-explorer/about-waves-explorer.md) we can see the data transaction with exchange rates in the format that we wanted (fig. 1):
+В [Waves Explorer](/waves-explorer/about-waves-explorer.md) мы увидим транзакцию с данными котировок в заданном нами формате (рис. 1):
 
-![](./_assets/5_transaction_in_explorer
+<img src="img/5_transaction_in_explorer.png" width="700">
 
-_Figure 1_.
+_Рисунок 1_.
 
-## Creation of the oracle card
+## Создание карточки оракула
 
-For other users to know about our oracle, we use Waves Oracles to create an oracle card.
+Чтобы другие пользователи знали о нашем оракуле, используем Waves Oracles для создания карточки оракула.
 
-Waves Oracles is a service that utilizes [Waves Keeper](/waves-keeper/about-waves-keeper.md).
+Waves Oracles использует расширение [Waves Keeper](/waves-keeper/about-waves-keeper.md).
 
-To create an oracle card, use the same account you used to sign transactions in the code.
+Для создания карточки оракула используйте тот же аккаунт, который указывали для подписания транзакций в коде.
 
-Open Waves Oracles, log in with Waves Keeper and hit the Create an oracle on the sidebar menu (fig.2).
+Перейдите в Waves Oracles, авторизуйтесь в Waves Keeper и нажмите кнопку **Create an oracle** на боковой панели (рис.2).
 
-![](./_assets/1_create_an_oracle
+<img src="img/1_create_an_oracle.png" width="700">
 
-_Figure 2_.
+_Рисунок 2_.
 
-On popup will be shown needs to fill certain information about the oracle.
+В появившейся форме заполните информацию об оракуле.
 
-Let's call our oracle "WAVES/USD and WAVES/BTC", select the category "Market data & exchange rates" — so users can find that oracle quickly. Сhoose the "Production" status, because the oracle is already working and available. Write a short oracle description in the About field. And the oracle updates the quotes data every hour, we specify it in the Update frequency field.
+Назовем наш оракул "WAVES/USD and WAVES/BTC" и выберем соответствующую категорию "Market data & exchange rates", чтобы его можно было быстро найти. Укажем статус "Production", так как наш оракул уже работает и доступен. В поле About дадим небольшое описание оракула и принципов его работы. Так как оракул обновляет данные котировок каждый час, укажем это в поле **Update frequency**.
 
-The up part of the form is shown in fig. 3.
+Верхняя часть формы показана на рис. 3.
 
-![](./_assets/2_create_an_oracle_popup_form_fill
+<img src="img/2_create_an_oracle_popup_form_fill.png" width="700">
 
-_Figure 3_.
+_Рисунок 3_.
 
-Coming down below and fill in the Specification and Example.
+Заполним спецификацию и пример ниже.
 
-In our case, the oracle must write two quotation values: WAVES/USD and WAVES/BTC. Therefore, we define these two parameters, as shown in fig. 4.
+В нашем случае оракул должен записывать два значения котировок: WAVES/USD и WAVES/BTC. Поэтому мы определим эти два параметра, как показано на рис. 4.
 
-Here we need some explanations: dApp on [RIDE](/ride/about-ride.md) cannot use float value, that's why we use an integer type with point shift by the necessary number of digits. Also in the key, we specify the number of digits by which the point shifts: for USD by two digits, for BTC by eight digits. It'll be easy to parse keys like this by RIDE and realize how many characters the point is shifted.
+Здесь нужны некоторые пояснения. dApp на [RIDE](/ride/about-ride.md) не может использовать значение с плавающей запятой (float), поэтому мы будем использовать целочисленный тип (integer) со сдвигом точки на необходимое количество знаков. В ключе укажем количество знаков, на которое смещается точка: для USD на два знака, для BTC на восемь знаков. В результате будет легко парсить такие ключи с помощью RIDE и видеть, на сколько именно символов необходимо смещать точку.
 
-The key like this is not unique and the [account data storage](/blockchain/account/account-data-storage.md) will always retain the last value. You can add a timestamp to make the key unique and save historical values.
+Также отметим, что такой ключ не является уникальным и в [хранилище данных аккаунта](/blockchain/account/account-data-storage.md) всегда будет сохраняться только последнее значение. Вы можете добавить метку времени (timestamp), чтобы сделать каждый ключ уникальным, и таким образом сохранять исторические данные.
 
-![](./_assets/3_create_an_oracle_popup_form_fill_specification
+<img src="img/3_create_an_oracle_popup_form_fill_specification.png" width="700">
 
-_Figure 4_.
+_Рисунок 4_.
 
-After the form is filled, Approve the data transaction for the creation of the oracle card with Waves Keeper. Once we did so, the new oracle card is successfully registered in Waves Oracles. We can see the oracle card protocol in Waves Explorer, as shown in fig. 5. After a while, the card will appear in the Waves Oracles interface.
+После заполнения формы подтвердите транзакцию данных создания карточки оракула в Waves Keeper нажатием **Approve**. В результате новая карточка оракула успешно зарегистрирована в Waves Oracles. Протокол карточки оракула можно увидеть в Waves Explorer (см. рис. 5). Через некоторое время карточка появится в интерфейсе Waves Oracles.
 
-![](./_assets/4_oracle_card_explorer
+<img src="img/4_oracle_card_explorer.png" width="700">
 
-_Figure 5_.
+_Рисунок 5_.
 
-## Usage of the oracle data
+## Использование данных оракула
 
-Congratulations, now our oracle is completely ready. Once data is written in the blockchain, every RIDE based dApp's can access this data (via the _getInteger()_, _getString()_, _getBinary()_ and _getBoolean()_ methods) and use it for their calculations, e.g., decide on the amount of payouts, sending of transactions, winners of a contest, etc.
+Поздравляем, теперь наш оракул полностью готов. После сохранения  данных в блокчейн, все dApp на RIDE могут получить к ним доступ при помощи методов _getInteger()_, _getString()_, _getBinary()_ и _getBoolean()_. dApp смогут использовать эти данные для своих расчетов, например, для определения размера выплат, отправки транзакций, определения победителей конкурса и так далее.
 
-In our case, for example, to get WAVES/BTC data from the oracle, you need to specify the oracle address and the corresponding key in _getInteger()_ method:
+В нашем случае, для получения из оракула данных по курсу пары WAVES/BTC, нужно в методе _getInteger()_ указать адрес оракула и соответствующий ключ:
 
 ``` ride
 getInteger("3PPTrTo3AzR56N7ArzbU3Bpq9zYMgcf39Mk", "waves_btc_8")

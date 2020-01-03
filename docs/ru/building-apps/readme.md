@@ -1,48 +1,48 @@
-# Developer guide
+# Руководство разработчика
 
-Waves provides client libraries to work with the platform from your applications.
+Waves предоставляет библиотеки для работы с платформой из ваших приложений.
 
-Also, you can create decentralized applications (dApps) on the blockchain using [RIDE](/ride/about-ride.md) language. The dApps functions can be called from applications using client libraries.
+Также вы можете создавать на блокчейне децентрализованные приложения (dApps) на языке [RIDE](/ride/about-ride.md). Функции dApps можно вызывать из приложений с помощью клиентских библиотек.
 
-## Client libraries
+## Клиентские библиотеки
 
-Send transactions and read blockchain data from your applications on Python, Java, C#, Swift, Kotlin.
+Отправляйте транзакции и читайте данные блокчейна из ваших приложений на Python, Java, C#, Swift, Kotlin.
 
-See the list of supported programming languages on the [Client libraries](/waves-api-and-sdk/client-libraries.md) page.
+Список поддерживаемых языков программирования смотрите на странице [Клиентские библиотеки](/waves-api-and-sdk/client-libraries.md).
 
-## Development of decentralised applications
+## Разработка децентрализованных приложений
 
-Start creating decentralised applications following the steps:
+Начните создавать децентрализованные приложения, следуя шагам:
 
-- View the RIDE language [presentation](https://wavesplatform.com/products-ride) on the official product page.
-- Learn the language syntax in the introductory article on [GitHub](https://github.com/KardanovIR/ride-introduction/blob/master/README.md). Take a look at the [examples](https://github.com/wavesplatform/ride-examples) of RIDE scripts.
-- The process of developing a decentralized application is explained in the article [How to Build, Deploy and Test a Waves RIDE dApp](https://blog.wavesplatform.com/how-to-build-deploy-and-test-a-waves-ride-dapp-785311f58c2) on Medium. A step-by-step example of creating a simple dApp is shown on the page [Simple voting of the Waves blockchain](/smart-contracts/simple-voting-on-the-waves-blockchain.md).
-- To learn more about RIDE and the infrastructure for creating decentralised applications, take the [Mastering Web3 with Waves](https://stepik.org/course/54415/promo) course. After completing the course, you will receive a certificate of successful completion of the course.
+- Посмотрите [презентацию](https://wavesplatform.com/products-ride) о языке RIDE на официальной странице продукта.
+- Изучите синтаксис языка во вводной статье на [GitHub](https://github.com/KardanovIR/ride-introduction/blob/master/README.md). Ознакомьтесь с [примерами](https://github.com/wavesplatform/ride-examples) скриптов на RIDE.
+- Процесс разработки децентрализованного приложения описан в статье [How to Build, Deploy and Test a Waves RIDE dApp](https://blog.wavesplatform.com/how-to-build-deploy-and-test-a-waves-ride-dapp-785311f58c2) на Medium. Пошаговый пример создания простого dApp описан на странице [Простое голосование на блокчейне Waves](/smart-contracts/simple-voting-on-the-waves-blockchain.md).
+- Для более глубокого знакомства с RIDE и инфраструктурой для создания децентрализованных приложений пройдите курс [Mastering Web3 with Waves](https://stepik.org/course/54415/promo). После прохождения курса вы получите сертификат об успешном прохождении курса.
 
-## Tools for programming in RIDE
+### Инструменты для программирования на RIDE
 
-- [Visual Studio Code](https://code.visualstudio.com/) with [RIDE](https://github.com/wavesplatform/ride-vscode) plugin
-- [Waves IDE](https://ide.wavesplatform.com/) — online application for developing and deploying applications on the blockchain.
-- [Surfboard](https://github.com/wavesplatform/Surfboard) — command-line interface for testing and deploying applications on the blockchain.
+- [Visual Studio Code](https://code.visualstudio.com/) с плагином [RIDE](https://github.com/wavesplatform/ride-vscode).
+- [Waves IDE](https://ide.wavesplatform.com/) — онлайн-приложение для разработки и разворачивания приложений на блокчейне.
+- [Surfboard](https://github.com/wavesplatform/Surfboard) — интерфейс командной строки для тестирования и разворачивания приложений на блокчейне.
 
-## Waves grants
+## Гранты Waves
 
-Waves supports developers with grants.
+Waves поддерживает разработчиков грантами.
 
-Find out the details and submit your application on the [Waves Labs](https://waveslabs.com/grants?lang=en) website.
+Узнайте подробности и оставьте заявку на сайте [Waves Labs](https://waveslabs.com/grants?lang=ru).
 
-## Crowdfunding
+## Краудфандинг
 
-Place your Waves project and raise funds for it on the crowdfunding platform [Ventuary DAO](https://beta.ventuary.space/).
+Разместите свой проект на Waves и соберите на него средства на краудфандинг-платформе [Ventuary DAO](https://beta.ventuary.space/).
 
-To place a project, first become a member of the DAO (_Decentralised Autonomous Organization_). Ask any [active user](https://beta.ventuary.space/community) to register you or contact the Ventuary DAO [group](https://t.me/ventuary_dao) in Telegram.
+Чтобы разместить проект, сначала станьте членом DAO (_Decentralised Autonomous Organization_). Попросите любого [действующего пользователя](https://beta.ventuary.space/community) зарегистрировать вас или обратитесь с запросом в [группу](https://t.me/ventuary_dao) Ventuary DAO в Telegram.
 
-After you become a member of the DAO, you will be able to create projects, vote and invite new users to the Ventuary DAO platform. 
+После того, как вы станете членом DAO, у вас появится возможность создавать проекты, голосовать и приглашать новых пользователей на платформу Ventuary DAO.
 
-## Community
+## Сообщество
 
-Get answers to your questions in the Waves [development group](https://t.me/waves_ride_dapps_dev) in Telegram.
+Получайте ответы на свои вопросы в [группе разработчиков](https://t.me/waves_ride_dapps_dev) Waves в Telegram.
 
-## Waves platform on GitHub
+## Платформа Waves на GitHub
 
-Waves platform page on GitHub — [https://github.com/wavesplatform](https://github.com/wavesplatform).
+Страница платформы Waves на GitHub — [https://github.com/wavesplatform](https://github.com/wavesplatform).

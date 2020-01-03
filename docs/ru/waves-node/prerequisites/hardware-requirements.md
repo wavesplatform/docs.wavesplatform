@@ -1,7 +1,7 @@
-# Hardware requirements
+# Требования к аппаратному обеспечению
 
-Minimum requirements to run Waves Node:
+Минимальные требования для запуска Waves Node:
 
-* 4 GB of RAM
-* Dual-core processor
-* 40 GB of SSD (HDD is not recommended)
+* 4 Гбайт RAM
+* Двухъядерный процессор
+* 40 Гбайт SSD (HDD использовать не рекомендуется)

@@ -1,30 +1,26 @@
-# Alias
+# Псевдоним
 
-An **alias** is a short, easy to remember, name of [address](/blockchain/account/address.md).
+**Псевдоним** — короткое, удобное для запоминания, имя [адреса](/blockchain/account/address.md).
 
-Aliases are easy to remember, because of that they are often used instead of addresses.
+Псевдонимы легко запоминаются, поэтому их часто используют вместо адресов.
 
-There cannot be two aliases with the same name.
+Не может быть двух псевдонимов с одинаковыми именами.
 
-One address can have several aliases.
+У одного адреса может быть несколько псевдонимов.
 
-## Creation of an alias
+## Создание псевдонима
 
-An alias is created using an [alias transaction](/blockchain/transaction-type/alias-transaction.md).
+Псевдоним создается с помощью [транзакции создания псевдонима](/blockchain/transaction-type/alias-transaction.md).
 
-> A created alias cannot be deleted
+> Созданный псевдоним невозможно удалить
 
-The length of an alias can be from 4 to 30 characters inclusive.
+Длина псевдонима может быть от 4  до 30 символов включительно.
 
-The following characters are allowed in the name of an alias:
+В имени псевдонима допускаются следующие символы:
 
-* lowercase Latin letters
-* numbers
-* dot
-* underscore
-* hyphen
+* строчные латинские буквы
+* цифры
+* точка
+* знак нижнего подчеркивания
+* дефис
 * @
-
-# Binary format
-
-See the page [Alias binary format](/blockchain/binary-format/alias-binary-format.md).

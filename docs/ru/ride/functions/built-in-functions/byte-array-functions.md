@@ -1,140 +1,140 @@
-# Byte array functions
+# Функции массива байтов
 
-|#|Name | Description | Complexity |
-|:---| :--- | :--- | :--- |
-|1| [drop(ByteVector, Int): ByteVector](#drop) | Returns the byte array without the first `N` bytes | 1 |
-|2| [dropRight(ByteVector, Int): ByteVector](#drop-right) | Returns the byte array without the last `N` bytes | 19 |
-|3| [size(ByteVector): Int](#size) | Returns the number of bytes in the byte array | 1 |
-|4| [take(ByteVector, Int): ByteVector](#take) | Returns the first `N` bytes of the byte array | 1 |
-|5| [takeRight(ByteVector, Int): ByteVector](#take-right) | Returns the last `N` bytes of the byte array | 19 |
+| # | Название | Описание | Сложность |
+| :--- | :--- | :--- | :--- |
+| 1 | [drop(ByteVector, Int): ByteVector](#drop) | Возвращает массив байтов без первых `N` байтов | 1 |
+| 2 | [dropRight(ByteVector, Int): ByteVector](#dropright) | Возвращает массив байтов без последних `N` байтов | 19 |
+| 3 | [size(ByteVector): Int](#size) | Возвращает количество байтов в массиве байтов | 1 |
+| 4 | [take(ByteVector, Int): ByteVector](#take) | Возвращает первые `N` байтов массива байтов | 1 |
+| 5 | [takeRight(ByteVector, Int): ByteVector](#takeright) | Возвращает последние `N` байтов массива байтов | 19 |
 
-## drop(ByteVector, Int): ByteVector<a id="drop"></a>
+## drop(ByteVector, Int): ByteVector <a id="drop"></a>
 
-Returns the byte array without the first `N` bytes.
+Возвращает массив байтов без первых `N` байтов.
 
 ``` ride
-drop(xs: ByteVector, number: Int): ByteVector
+drop(xs: ByteVector, number: Int): ByteVector
 ```
 
-### Parameters
+### Параметры
 
 #### `xs`: [ByteVector](/ride/data-types/byte-vector.md)
 
-Byte array.
-
-### Examples
-
-``` ride
-drop("Ride".toBytes(), 2)   # Returns the byte array without the first 2 bytes
-drop(125.toBytes(), 2)      # Returns the byte array without the first 2 bytes
-drop(base16'52696465', 3)   # Returns the byte array without the first 3 bytes
-drop(base58'37BPKA', 3)     # Returns the byte array without the first 3 bytes
-drop(base64'UmlkZQ==', 3)   # Returns the byte array without the first 3 bytes
-```
+Массив байтов.
 
 #### `number`: [Int](/ride/data-types/int.md)
 
-Number `N`.
+Число `N`.
 
-## dropRight(ByteVector, Int): ByteVector<a id="drop-right"></a>
+### Примеры
 
-Returns the byte array without the last `N` bytes.
+``` ride
+drop("Ride".toBytes(), 2)   # Возвращает массив байтов без первых 2-х байтов
+drop(125.toBytes(), 2)      # Возвращает массив байтов без первых 2-х байтов
+drop(base16'52696465', 3)   # Возвращает массив байтов без первых 3-х байтов
+drop(base58'37BPKA', 3)     # Возвращает массив байтов без первых 3-х байтов
+drop(base64'UmlkZQ==', 3)   # Возвращает массив байтов без первых 3-х байтов
+```
+
+## dropRight(ByteVector, Int): ByteVector <a id="dropright"></a>
+
+Возвращает массив байтов без последних `N` байтов.
 
 ``` ride
 dropRight(xs: ByteVector, number: Int): ByteVector
 ```
 
-### Parameters
+### Параметры
 
 #### `xs`: [ByteVector](/ride/data-types/byte-vector.md)
 
-Byte array.
+Массив байтов.
 
 #### `number`: [Int](/ride/data-types/int.md)
 
-Number `N`.
+Число `N`.
 
-### Examples
+### Примеры
 
 ``` ride
-dropRight("Ride".toBytes(), 2)  # Returns the byte array without the last 2 bytes
-dropRight(125.toBytes(), 2)     # Returns the byte array without the last 2 bytes
-dropRight(base16'52696465', 3)  # Returns the byte array without the last 3 bytes
-dropRight(base58'37BPKA', 3)    # Returns the byte array without the last 3 bytes
-dropRight(base64'UmlkZQ==', 3)  # Returns the byte array without the last 3 bytes
+dropRight("Ride".toBytes(), 2)  # Возвращает массив байтов без последних 2-х байтов
+dropRight(125.toBytes(), 2)     # Возвращает массив байтов без последних 2-х байтов
+dropRight(base16'52696465', 3)  # Возвращает массив байтов без последних 3-х байтов
+dropRight(base58'37BPKA', 3)    # Возвращает массив байтов без последних 3-х байтов
+dropRight(base64'UmlkZQ==', 3)  # Возвращает массив байтов без последних 3-х байтов
 ```
 
-## size(ByteVector): Int<a id="size"></a>
+## size(ByteVector): Int <a id="size"></a>
 
-Returns the number of bytes in the byte array.
+Возвращает количество байтов в массиве байтов.
 
 ``` ride
 size(byteVector: ByteVector): Int
 ```
 
-### Parameters
+### Параметры
 
 #### `byteVector`: [ByteVector](/ride/data-types/byte-vector.md)
 
-Byte array.
+Массив байтов.
 
-### Examples
-
-``` ride
-size("Hello".toBytes())         # Returns 5
-size("Hello world".toBytes())   # Returns 11
-size(64.toBytes())              # Returns 8 because all integers in Ride take 8 bytes
-size(200000.toBytes())          # Returns 8 because all integers in Ride take 8 bytes
-size(base58'37BPKA')            # Returns 4
-```
-
-## take(ByteVector, Int): ByteVector<a id="take"></a>
-
-Returns the first `N` bytes of the byte array.
+### Примеры
 
 ``` ride
-take(xs: ByteVector, number: Int): ByteVector
+size("Hello".toBytes())         # Возвращает 5
+size("Hello world".toBytes())   # Возвращает 11
+size(64.toBytes())              # Возвращает 8, так как все целые числа в Ride занимают 8 байтов
+size(200000.toBytes())          # Возвращает 8, так как все целые числа в Ride занимают 8 байтов
+size(base58'37BPKA')            # Возвращает 4
 ```
 
-### Parameters
+## take(ByteVector, Int): ByteVector <a id="take"></a>
+
+Возвращает первые `N` байтов массива байтов.
+
+``` ride
+take(xs: ByteVector, number: Int): ByteVector
+```
+
+### Параметры
 
 #### `xs`: [ByteVector](/ride/data-types/byte-vector.md)
 
-Byte array.
+Массив байтов.
 
 #### `number`: [Int](/ride/data-types/int.md)
 
-Number `N`.
+Число `N`.
 
-### Examples
-
-``` ride
-take(base58'37BPKA', 0) # Returns the empty byte array
-take(base58'37BPKA', 1) # Returns the byte array consisting of first byte of initial byte array
-take(base58'37BPKA', 15) # Returns whole byte array
-take(base58'37BPKA', -10) # Returns the empty byte array
-```
-
-## takeRight(ByteVector, Int): ByteVector<a id="take-right"></a>
-
-Returns the last `N` bytes of the byte array.
+### Примеры
 
 ``` ride
-takeRight(xs: ByteVector, number: Int): ByteVector
+take(base58'37BPKA', 0) # Возвращает пустой массив байтов
+take(base58'37BPKA', 1) # Возвращает массив байтов, состоящий из первого байта исходного массива байтов
+take(base58'37BPKA', 15) # Возвращает массив байтов целиком
+take(base58'37BPKA', -10) # Возвращает пустой массив байтов
 ```
 
-### Parameters
+## takeRight(ByteVector, Int): ByteVector <a id="takeright"></a>
+
+Возвращает последние `N` байтов массива байтов.
+
+``` ride
+takeRight(xs: ByteVector, number: Int): ByteVector
+```
+
+### Параметры
 
 #### `xs`: [ByteVector](/ride/data-types/byte-vector.md)
 
-Byte array.
+Массив байтов.
 
 #### `number`: [Int](/ride/data-types/int.md)
 
-Number `N`.
+Число `N`.
 
-### Examples
+### Примеры
 
 ``` ride
-takeRight(base58'37BPKA', 2) # Returns the last 2 bytes of the byte array
+takeRight(base58'37BPKA', 2) # Возвращает последние 2 байта массива байтов
 ```

@@ -150,6 +150,3 @@ Get a script information by address.
   "extraFee": 10001
 }
 ```
-
-
-

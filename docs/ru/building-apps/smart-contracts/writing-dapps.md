@@ -1,21 +1,21 @@
-# Writing dApps
-## Default transactions validation
-After the creation of a Waves account, each transaction that's sent from this account goes through the process of validation. If a transaction is valid, then it goes to generated block in the blockchain, if not — it's rejected by blockchain.
+# Написание dApps
+## Валидация транзакций по умолчанию
+После создания акаунта на платформе Waves, каждая транзакция, которая отправляется с этого аккаунта, проходит проверку на валидность. Если транзакция проходит проверку, то она попадает в генерируемый блок блокчейна, если нет — она отбрасывается.
 
-By default, _only_ the fact that the transaction belongs to the owner of the account from which it was sent, is checked. To check that, the transaction's binary data, the account owner's public key and the digital signature of the transaction are being run through special `sigVerify` function. If the `sigVerify` function returns `true` — the transaction is considered valid, otherwise — invalid.
+По умолчанию, во время валидации происходит проверка _только _факта принадлежности транзакции владельцу аккаунта, с которого транзакция отправляется. Для этого бинарные данные транзакции, открытый ключ владельца аккаунта, а также цифровая подпись транзакции прогоняются через специальную функцию `sigVerify`. Если функция `sigVerify` возвращет `true` — транзакция считается валидной, иначе — невалидной.
 
-## Transactions validation using account scripts
-If a validation algorithm has to have some additional logic that goes beyond only the detection of transaction's ownership, then a special script written in RIDE is used. This script is attached to the account. That kind of script is called the **account script**. After the attachment of the script to the account, all the transactions that are sent from this account will be verified with this script.
+## Валидация транзакций скриптом аккаунта
+Если в алгоритме валидации необходимо прописать более сложную логику, чем просто проверку принадлежности транзакции владельцу аккаунта, то для этого на языке RIDE пишут специальный скрипт, который эту логику содержит. Данный скрипт привязывается к аккаунту. Такой скрипт называется скриптом аккаунта. После привязки все транзакции, отправляемые с данного аккаунта, валидируются **скриптом аккаунта**.
 
-## IDE for writing account scripts
-We are using [Waves IDE](http://ide.wavesplatform.com/) as our IDE for writing RIDE scripts. To create a new script let's click the **New** button and select the **Account script** option.
-![](./_assets/1.png)
+## IDE для написания скрипта аккаунта
+В качестве IDE для написания скриптов на языке RIDE мы используем [Waves IDE](http://ide.wavesplatform.com). Чтобы создать новый скрипт, кликнем на кнопку **New** и выберем пункт **Account Script**.
+![](../../assets/1.png)
 
-A new tab will open, inside of which we can start writing our RIDE script.
-![](./_assets/2.png)
+Откроется новая вкладка, в которой мы сможем писать наш RIDE-скрипт.
+![](../../assets/2.png)
 
-## Working with transaction object inside of the account script
-An account script has the context containing a few useful variables. One of such variables is the variable `tx`, that contains within itself the information about the transaction that's validated by the account script. There are [several types of transactions](/waves-node/node-api/transactions.md) exist in the Waves blockchain. Inside of the account script we have to have an ability to determine the type of a transaction. Type casting is possible due to the `match` operator:
+## Работа с объектом транзакции внутри скрипта аккаунта
+У скрипта аккаунта есть контекст, содержащий некоторые полезные переменные. Одной из таких переменных является переменная `tx`, которая содержит в себе информацию о валидируемой скриптом транзакции. В блокчейне Waves существует  [несколько типов транзакций](/waves-node/node-api/transactions.md). Внутри скрипта аккаунта мы должны иметь возможность определять тип транзакции,  с которой мы имеем дело. Приведение типов осуществляется с помощью оператора `match`:
 ```
 let accountPubKey = base58'9xPqZ7fhgKxRsgkbahawNMsgHhM9TMYa3SXwNmn3bvyS'
  
@@ -33,48 +33,48 @@ match (tx)
         false
 }
 ```
-In the example above we are stating that if the sent transaction is a Transfer-transaction, and also the sum of the transfer is less than a 100 of tokens, then we are allowing such a transaction. We are also allowing any transaction of Issue type. All other types of transactions we are forbidding to send from the account.
+В примере выше мы говорим, что если отправляемая с аккаунта транзакция является трансфер-транзакцией, и сумма перевода составляет менее 100 токенов, то мы разрешаем такую транзакцию. Также мы разрешаем любую транзакцию типа Issue Transaction. Все остальные типы транзакций отправлять с аккаунта мы запрещаем.
 
-## The structure of a decentralised application
-A decentralised application consists of the following elements:
-- Directives
-- The context of the script
-- Definitions of the callable functions
-- Definition of the validation function
+## Структура децентрализованного приложения
+Децентрализованное приложение состоит из следующих элементов:
+- Директивы
+- Контекст скрипта
+- Объявление вызываемых функций
+- Объявление функции валидации
 
-The order in which the elements are defined inside of a dApp is important — elements have to be put in the exact same order as listed above.
+Порядок, в котором элементы определены внутри скрипта приложения важен — он должен быть такой, как в списке выше.
 
-## Directives
-Because the compiler works with the different kinds of RIDE scripts, it needs additional information to work properly. That's why it's recommended to use directives in all of the scripts, otherwise, the default values will be applied, and that may cause some unexpected behaviour.
+## Директивы
+Т.к. компилятор работает с любым видом скриптов нашей системы, ему необходима дополнительная информация для работы. Поэтому во всех скриптах желательно использовать директивы, иначе будут использованы значения по умолчанию, которые могут не подходить в конкретном случае.
 
-Here is the set of directives for dApps:
+Для dApp набор директив следующий:
 ```
 {-# STDLIB_VERSION 3 #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 {-# CONTENT_TYPE DAPP #-}
 ```
-STDLIB_VERSION 3 — version of the Standard Library.
+STDLIB_VERSION 3 — версия библиотеки стандартных функций.
 
-SCRIPT_TYPE ACCOUNT — directive that indicates that we are working with an account script (not an asset script).
+SCRIPT_TYPE ACCOUNT — директива указывающая на то, что скрипт привязан к аккаунту (а не к ассету).
 
-CONTENT_TYPE DAPP — directive that indicates that the script we are working with is a dApp.
+CONTENT_TYPE DAPP — директива, указывающая, что тип данного скрипта это dApp.
 
-## Script context
-Script context is a context where some immutable variables and functions could be defined, that will be accessible within the boundaries of the entire dApp.
+## Контекст скрипта
+Контекст скрипта — это контекст, в котором могут быть определены [неизменяемые переменные](/smart-contracts/ride-language/immutable-variables-and-the-let-keyword.md), и определены функции, которые будут доступны в пределах всего dApp.
 ```
 let someConstant = 42
 func doSomething() = {
     1+1
 }
 ```
-## Definitions of the callable functions
-Here we can define functions, that will be called with Invoke Script-transactions. Such functions are adorned with `@Callable(contextObj)`, where `contextObj` is an arbitrary name of the context object. The context object contains the following fields:
+## Объявление вызываемых функций
+Здесь мы можем объявлять функции, которые будут вызываться с помощью InvokeScript-транзакции. Такие функции помечаются аннотацией `@Callable(contextObj)`, где `contextObj` — произвольное имя объекта контекста. Объект контекста содержит поля:
 
-- `caller` — the account address, which called the function.
-- `callerPublicKey` — the public key of the account, which called the function.
-- `payment` — the payment that's attached to the function call. The payment can be empty (UNIT).
+- `caller` — адрес аккаунта, который вызвал данную функцию.
+- `callerPublicKey` — открытый ключ аккаунта, который вызвал данную функцию.
+- `payment` — платёж, который приложен к данному вызову функции. Платёж может быть пустым (UNIT).
 
-A callable function can use the functions and the values from the script context (see above) and from its own context.
+Вызываемая функция может использовать функции и значения из контекста скрипта (см. выше) или из своего контекста (т.е. не может использовать другие вызываемые функции и функцию валидации).
 ```
 @Callable(contextObj)
 func foo() = {
@@ -88,20 +88,70 @@ func foo() = {
        throw("Only owner can use this function.")
 }
 ```
-## Definition of the validation function
-The validation function in a dApp plays the role of the account script — it validates all the outgoing from this account transactions.
+Ограничения для вызываемых функций:
 
-Such a function is adorned with the `@Verifier(tx)` annotation, where `tx` is the transaction, which the function is currently validating. Available fields of the transaction (different by transaction type) you can see at the [Functions and Standard Library](/smart-contracts/ride-language/standard-library.md) page.
+- Имя функции не может превышать 255 символов.
+- Каждая из функций может принимать не больше 22 аргументов.
+- Допустимые типы аргументов: Int, String, Boolean, ByteVector
 
-Possible execution results:
+Возможные результаты выполнения (одно значение из списка): 
 
-- `true`
-- `false`
-- an error
+- ScriptResult
+- WriteSet
+- TransferSet
 
-If a dApp doesn't have the validation function, then the default validation algorithm is applied to all the outgoing transactions (see the `sigVerify` function mentioned earlier).
+**WriteSet** — в результате записывает список DataEntry (ключ, значение) в аккаунт. 
 
-The example of a function, that permits only Transfer-transactions (any other types of transactions will not be allowed to be sent from such an account):
+Ограничения:
+
+- Максимальная длина списка: 100.
+- Максимальный размер одного ключа: 100 символов. 
+
+
+**TransferSet** — в результате создаёт список платежей ScriptTransfer, которые будут применены после вызова функции.
+
+Ограничения:
+
+- Максимальная длина списка: 10.
+
+**ScriptResult** — содержит WriteSet и TransferSet.
+
+```
+@Callable(contextObj)
+ 
+func foo() = {
+    val a = 0
+ 
+    if (a == 1)
+    then ScriptResult(
+            WriteSet([DataEntry("someDataKey", 42)]),
+            TransferSet([ScriptTransfer(contextObj.caller, 100500, unit)])
+        )
+ 
+    else if (a == 2)
+    then WriteSet([DataEntry("someDataKey", 42)]),
+    else
+        TransferSet([ScriptTransfer(contextObj.caller, 100500, unit)])
+ 
+}
+```
+
+## Объявление функции валидации
+Функция валидации в dApp играет роль скрипта аккаунта — она валидирует все исходящие из данного аккаунта транзакции.
+
+Такая функция помечается аннотацией `@Verifier(tx)`, где `tx` — текущая транзакция, которую в данный момент функция проверяет. Доступные поля транзакции по её типу можно посмотреть на странице [Functions and Standard Libary](/en/smart-contracts/ride-language/standard-library.md).
+
+Возможные результаты выполнения:
+
+- true
+- false
+- ошибка
+
+Если в dApp нет функции валидации, то выполняется алгоритм валидации по умолчанию (с помощью функции `sigVerify`).
+
+
+
+Пример функции, разрешающей только Transfer-транзакции (любая другая транзакция с данного аккаунта отправлена не будет):
 ```
 @Verifier(tx)
 func verify() = {
@@ -111,24 +161,24 @@ func verify() = {
     }
 }
 ```
-## InvokeScriptTransaction function parameters
-| Parameter name |Parameter type |Description  |
+## Параметры функции InvokeScriptTransaction
+| Имя параметра | Тип параметра | Описание  |
 |---|---|---|
-|  type  |Int   |  transaction type (16 for the InvokeScript) |
-| dApp   | Address  | address of the account to which dApp is attached  |
-|  payment  | OPTION[AttachedPayment]  | payment (amount, asset type) |
-|  fee  |  Int | fee amount  |
-| feeAssetId | OPTION[ByteVector] | fee asset identifier (null for WAVES)|
-|  call: <br /> - function <br /> -args | <br /> String <br />LIST[UNION(Boolean,ByteVector,Int,String)]  | <br /> the name of the callable function <br /> the list of the passed arguments |
-|  id  | ByteVector  |  transaction identifier |
-|  timestamp  |  Int | transaction execution time  |
-|  version  | Int  |  the version of the transaction (currently it's 1) |
-|  sender  |  Address |  the address of the account that makes a call to the function |
-|  senderPublicKey  | ByteVector  |  the public key of the account that makes a call to the function |
-| proofs   | LIST[ByteVector]  |  the list of signatures that prove the authenticity of the transaction |
-|  chainId |  Byte | blockchain network identifier <br /> "T" — testing <br /> "W" — working (production)  |
+|  type  |Int   |  тип транзакции (16 для InvokeScript) |
+| dApp   | Address  | адрес, по которому вызывается функция  |
+|  payment  | OPTION[AttachedPayment]  | отправляемый платеж (размер, ассет) |
+|  fee  |  Int | размер вознаграждения |
+| feeAssetId | OPTION[ByteVector] | идентификатор ассета вознаграждения (null для WAVES)|
+|  call: <br /> - function <br /> -args | <br /> String <br />LIST[UNION(Boolean,ByteVector,Int,String)]  | <br /> имя вызываемой функции <br /> список передаваемых аргументов |
+|  id  | ByteVector  |  идентификатор транзакции |
+|  timestamp  |  Int | время выполнения транзакции  |
+|  version  | Int  |  версия транзакции (на текущий момент 1) |
+|  sender  |  Address |  адрес вызывающего аккаунта |
+|  senderPublicKey  | ByteVector  |  открытый ключ вызывающего аккаунта |
+| proofs   | LIST[ByteVector]  |  набор подписей, подтверждающих подлинность транзакции |
+|  chainId |  Byte | идентификатор сети блокчейна <br /> "T" — тестовая <br /> "W" — боевая  |
 
-## JSON of the InvokeScript-transaction
+## JSON InvokeScript-транзакции
 ```
 {
  
@@ -138,7 +188,7 @@ func verify() = {
   "dApp": "3FYR1f5YydHXF8dtfRJRyX3PoDCoT7a36Kq",
   "call": {
     "function": "deposit",
-    "args": []
+    "args": [{type:"integer", value: 600000000}]
   },
   "payment": [
     {
@@ -156,21 +206,22 @@ func verify() = {
   "id": "2fcMC9ihuLAcGNsbiSLDgz8dekq2JkrtjihroUiyNYCp"
 }
 ```
-## The example of a dApp
+
+## Пример децентрализованного приложения
 ```
-# Directives
+# Директивы
 {-# STDLIB_VERSION 3 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
  
-# Block of the context script.
-# The block is empty.
+# Блок Контекста скрипта
+# ПУСТОЙ
  
-# Callable function that accepts payments from other accounts and deposits them to the account to which the dApp is attached to.
-@Callable(i)        # Context object with the name "i".
+# Вызываемая функция — принимает платежи с других аккаунтов и записывает на их счёт (в данные аккаунта, на котором установлен DApp)
+@Callable(i)        # Объект контекста с именем i
 func deposit() = {
    let pmt = extract(i.payment)
-   if (isDefined(pmt.assetId)) then throw("can hold waves only at the moment")
+   if (isDefined(pmt.assetId)) then throw("can hodl waves only at the moment")
    else {
         let currentKey = toBase58String(i.caller.bytes)
         let currentAmount = match getInteger(this, currentKey) {
@@ -182,8 +233,8 @@ func deposit() = {
    }
 }
  
-# Callable function that withdraws from the account, to which the dApp is attached to.
-@Callable(i)                    # Context object with the name "i".
+# Вызываемая функция - снимает со счёта валюту и переводит владельцу, если у нега на счету что-то есть
+@Callable(i)                    # Объект контекста с именем i
 func withdraw(amount: Int) = {
         let currentKey = toBase58String(i.caller.bytes)
         let currentAmount = match getInteger(this, currentKey) {
@@ -201,9 +252,12 @@ func withdraw(amount: Int) = {
                 )
     }
  
-# Valiation function — validates all the outgoing from the account transactions.
+ 
+# Функция валидации исходящих транзакций — данная реализация полностью соответствует реализации по умолчанию
 @Verifier(tx)
 func verify() = {
     sigVerify(tx.bodyBytes, tx.proofs[0], tx.senderPublicKey)
 }
 ```
+
+

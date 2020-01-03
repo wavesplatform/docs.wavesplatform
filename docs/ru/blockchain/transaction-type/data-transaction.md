@@ -1,38 +1,45 @@
-# Data transaction
+# Транзакция данных
 
-**Data transaction** is a [transaction](/blockchain/transaction.md) that writes data to an [account data storage](/blockchain/account/account-data-storage.md).
+**Транзакция данных** — [транзакция](/blockchain/transaction.md), которая записывает данные в [хранилище данных аккаунта](/blockchain/account/account-data-storage.md).
 
-Each data transaction has a **data array** that contains data to be written. In [JSON representation](/blockchain/binary-format/transaction-binary-format/data-transaction-binary-format.md#json-representation) of a transaction the data array is the field `data`.
+У каждой транзакции данных есть **массив данных**, который содержит данные для записи. В [JSON-представлении транзакции](#json-representation) массив данных — поле `data`.
 
-## Data array of a data transaction
+## Массив данных
 
-The maximum length of an array is 100 elements.
+Максимальная длина массива — 100 элементов.
 
-The maximum size of an array is 150 kilobytes.
+Максимальный размер массива — 150 килобайт.
 
-Each element of an array is an object that has 3 fields: `key`, `type`, `value`.
+Каждый элемент массива представляет собой объект, у которого есть 3 поля — `key`, `type`, `value`.
 
-An array cannot contain two elements with the same `key` field.
+Массив не может содержать элементы с одинаковым значением поля key.
 
-## The `key` field
+### Поле `key`
 
-The `key` field is a non-empty [UTF-8](https://en.wikipedia.org/wiki/UTF-8) string.
+Поле `key` — непустая строка в кодировке [UTF-8](https://ru.wikipedia.org/wiki/UTF-8).
 
-At the stage of [transaction validation](/blockchain/transaction/transaction-validation.md), the `key` field is converted from UTF-8 to [UTF-16](https://en.wikipedia.org/wiki/UTF-16) encoding. The size of the resulting array of 16-bit words must not exceed 100 elements. Thus, the size of the `key` must be from 1 to 200 bytes inclusive.
+На этапе [валидации транзакции](/blockchain/transaction/transaction-validation.md) поле `key` конвертируется из кодировки UTF-8 в [UTF-16](https://ru.wikipedia.org/wiki/UTF-16). Размер получившегося массива 16-битных слов не должен превышать 100 элементов. Таким образом, размер ключа должен быть от 1 до 200 байтов включительно.
 
-## The `type` field
+При отправке ключа без `type` и `value` выполняется удаление записи по ключу.
 
-The `type` field specifies the type of the `value` field:
+> Эта возможность доступна с версии ноды 1.2.0. Возможность включается с активацией на ноде функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№16).
+На данный момент версии 1.2.x доступны на [stagenet](/blockchain/blockchain-network/stage-network.md)
 
-* 0 — integer
-* 1 — boolean
-* 2 — array of bytes
-* 3 — string
+При удалении ключа с использованием JSON-представления транзакции в качестве `type` и `value` ключа используется `null`. В одной транзакции данных возможно использование ключей как для записи, так и для удаления.
 
-## The `value` field
+### Поле `type`
 
-The size of `value` field can be from 0 to 32767 bytes.
+Поле type определяет тип поля value:
 
-## Binary format
+- binary
+- boolean
+- integer
+- string
 
-See the page [Data transaction binary format](/blockchain/binary-format/transaction-binary-format/data-transaction-binary-format.md).
+### Поле `value`
+
+Размер поля `value` может составлять от 0 до 32767 байт.
+
+## Бинарный формат
+
+Смотрите страницу [Бинарный формат транзакции данных](/blockchain/binary-format/transaction-binary-format/data-transaction-binary-format.md).

@@ -1,3 +1,3 @@
-# About Waves Explorer
+# О Waves Explorer
 
-**Waves Explorer** is an online service (<https://wavesexplorer.com>) that displays the [Waves blockchain](/blockchain/blockchain.md) data in a form that is understandable to humans.
+**Waves Explorer** — онлайн-сервис (<https://wavesexplorer.com>), отображающий в понятном для человека виде данные [блокчейна Waves](/blockchain/blockchain.md).

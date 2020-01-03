@@ -1,11 +1,11 @@
-# Transaction validation
+# Валидация транзакции
 
-## Default transaction validation
+## Валидация транзакции по умолчанию
 
-After the creation of a Waves account, each outgoing from this account transaction is checked for validity. If a transaction is valid, then it makes it to a generated block in the blockchain, if not — it's rejected by the blockchain.
+После создания аккаунта на платформе Waves, каждая исходящая из этого аккаунта транзакция проходит проверку на валидность. Если транзакция проходит проверку, она попадает в генерируемый блок блокчейна, если нет — она отбрасывается.
 
-By default, _only_ the fact that an outgoing transaction belongs to the owner of the account it was sent from, is checked. To check that, the transaction's binary data, the account owner's public key and the digital signature of the transaction are run through special `sigVerify` function. If the `sigVerify` function returns `true` — the transaction is considered valid, otherwise — invalid.
+По умолчанию, во время валидации происходит проверка _только_ факта принадлежности исходящей транзакции владельцу аккаунта, с которого транзакция отправляется. Для этого бинарные данные транзакции, открытый ключ владельца аккаунта, а также цифровая подпись транзакции прогоняются через специальную функцию `sigVerify`. Если функция `sigVerify` возвращает `true` — транзакция считается валидной, иначе — невалидной.
 
-## Transaction validation using account script
+## Валидация транзакции скриптом аккаунта
 
-If the validation logic goes beyond the detection of transaction ownership, then a programmer writes an [account script](/ride/script/script-types/account-script.md) that contains that logic. This script is attached to the account making this account a [smart account](/blockchain/account/smart-account.md). Now it's account script's duty to validate all the outgoing transactions from the account. Still, the `sigVerify` function is widely used by programmers inside of the account script.
+Если логика валидации выходит за рамки одной лишь проверки принадлежности транзакции владельцу аккаунта, тогда программист пишет [скрипт аккаунта](/ride/script/script-types/account-script.md), который эту логику содержит. Теперь это задача скрипта аккаунта — валидировать все исходящие из аккаунта транзакции. Тем не менее, функция `sigVerify` широко используется программистами внутри скрипта аккаунта.

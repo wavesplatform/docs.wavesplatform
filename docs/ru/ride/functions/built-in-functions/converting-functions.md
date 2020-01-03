@@ -1,300 +1,297 @@
-# Converting functions
+# Функции конвертации
 
-| # | Name | Description | Complexity |
-|:--- | :--- | :--- | :--- |
-| 1 | [addressFromPublicKey(ByteVector): Address](#address-from-public-key)| Gets the corresponding [address](/blockchain/account/address.md) of the account public key | 82 |
-| 2 | [addressFromRecipient(Address&#124;Alias): Address](#address-from-recipient) | Gets the corresponding [address](/blockchain/account/address.md) of the [alias](/blockchain/account/alias.md) | 100 |
-| 3 | [parseInt(String): Int&#124;Unit](#parse-int) | Converts the string representation of a number to its integer equivalent | 20 |
-| 4 | [parseIntValue(String): Int](#parse-int-value) | Converts the string representation of a number to its integer equivalent.<br>Raises an exception if the string cannot be parsed | 20 |
-| 5 | [toBytes(Boolean): ByteVector](#tobytes-bool) | Converts a boolean value to an array of bytes | 1 |
-| 6 | [toBytes(Int): ByteVector](#tobytes-int) | Converts an integer to an array of bytes | 1 |
-| 7 | [toBytes(String): ByteVector](#tobytes-string) | Converts a string to an array of bytes | 1 |
-| 8 | [toInt(ByteVector): Int](#toint-bytes) | Converts an array of bytes to an integer | 10 |
-| 9 | [toInt(ByteVector, Int): Int](#toint-bytes-int) | Converts an array of bytes to an integer starting from a certain index | 10 |
-| 10 | [toString(Address): String](#to-string-address) | Converts an array of bytes of an [address](/blockchain/account/address.md) to a string | 10 |
-| 11 | [toString(Boolean): String](#tostring-bool) | Converts a boolean value to a string | 1 |
-| 12 | [toString(Int): String](#tostring-int) | Converts an integer to a string | 1 |
-| 13 | [toUtf8String(ByteVector): String](#to-utf8-string) | Converts an array of bytes to a [UTF-8](https://en.wikipedia.org/wiki/UTF-8) string | 20 |
-
+| # | Название | Описание | Сложность |
+| :--- | :--- | :--- | :--- |
+| 1 | [addressFromPublicKey(ByteVector): Address](#address-from-public-key) | Получает [адрес](/blockchain/account/address.md), соответствующий открытому ключу аккаунта | 82 |
+| 2 | [addressFromRecipient(Address&#124;Alias): Address](#address-from-recipient) | Получает [адрес](/blockchain/account/address.md), соответствующий [псевдониму](/blockchain/account/alias.md) | 100 |
+| 3 | [parseInt(String): Int&#124;Unit](#parse-int) | Конвертирует строковое представление числа в эквивалентное целое число | 20 |
+| 4 | [parseIntValue(String): Int](#parse-int-value) | Конвертирует строковое представление числа в эквивалентное целое число.<br>Выбрасывает исключение, если строка не может быть спарсена | 20 |
+| 5 | [toBytes(Boolean): ByteVector](#to-bytes-boolean) | Конвертирует логическое значение в массив байтов | 1 |
+| 6 | [toBytes(Int): ByteVector](#to-bytes-int) | Конвертирует целое число в массив байтов | 1 |
+| 7 | [toBytes(String): ByteVector](#to-bytes-string) | Конвертирует строку в массив байтов | 1 |
+| 8 | [toInt(ByteVector): Int](#to-int-bytevector) | Конвертирует массив байтов в целое число | 10 |
+| 9 | [toInt(ByteVector, Int): Int](#to-int-bytevector-int) | Конвертирует массив байтов начиная с указанного индекса в целое число | 10 |
+| 10 | [toString(Address): String](#to-string-address) | Конвертирует массив байтов [адреса](/blockchain/account/address.md) в строку | 10 |
+| 11 | [toString(Boolean): String](#to-string-boolean) | Конвертирует логическое значение в строку | 1 |
+| 12 | [toString(Int): String](#to-string-int) | Конвертирует целое число в строку | 1 |
+| 13 | [toUtf8String(ByteVector): String](#to-utf8-string-bytevector) | Конвертирует массив байтов в строку в [UTF-8](https://ru.wikipedia.org/wiki/UTF-8) | 20 |
 
 ## addressFromPublicKey(ByteVector): Address<a id="address-from-public-key"></a>
 
-Gets the corresponding [address](/blockchain/account/address.md) of the account public key.
+Получает [адрес](/blockchain/account/address.md), соответствующий открытому ключу аккаунта.
 
-```
+``` ride
 addressFromPublicKey(publicKey: ByteVector): Address
 ```
 
-### Parameters
+### Параметры
 
 #### `publicKey`: [ByteVector](/ride/data-types/byte-vector.md)
 
-Public key.
+Открытый ключ для конвертации.
 
-### Examples
+### Примеры
 
-```ride
+``` ride
 let address = addressFromPublicKey(base58'J1t6NBs5Hd588Dn7mAPytqkhgeBshzv3zecScfFJWE2D')
 ```
 
-## addressFromRecipient(Address|Alias): Address<a id="address-from-recipient"></a>
+## addressFromRecipient(Address&#124;Alias): Address<a id="address-from-recipient"></a>
 
-Gets the corresponding [address](/blockchain/account/address.md) of the [alias](/blockchain/account/alias.md).
+Получает [адрес](/blockchain/account/address.md), соответствующий [псевдониму](/blockchain/account/alias.md).
 
 ``` ride
 addressFromRecipient(AddressOrAlias: Address|Alias): Address
 ```
 
-### Parameters
+### Параметры
 
-#### AddressOrAlias: [Address](/ride/structures/common-structures/address.md)&#124;[Alias](/ride/structures/common-structures/alias.md)
+#### `AddressOrAlias`: [Address](/ride/structures/common-structures/address.md)&#124;[Alias](/ride/structures/common-structures/alias.md)
 
-Address or alias, usually tx.recipient.
+Адрес или псевдоним, обычно получателя транзакции.
 
-### Examples
+### Примеры
 
-```ride
+``` ride
 let address =Address(base58'3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF')
 addressFromRecipient(address)
 ```
 
+## parseInt(String): Int&#124;Unit<a id="parse-int"></a>
 
-### parseInt(String): Int|Unit<a id="parse-int"></a>
+Конвертирует строковое представление числа в эквивалентное целое число.
 
-Converts the string representation of a number to its integer equivalent.
-
+``` ride
+parseInt(str: String): Int|Unit
 ```
-parseInt(str: String): Int|Unit
-```
 
-### Parameters
+### Параметры
 
 #### `str`: [String](/ride/data-types/string.md)
 
-String to parse.
+Строка для конвертации.
 
-### Examples
+### Примеры
 
-```ride
-parseInt("10") # Returns 10
-parseInt("010") # Returns 10
-parseInt("Ride") # Returns Unit
-parseInt("10.30") # Returns Unit
+``` ride
+parseInt("10") # Возвращает 10
+parseInt("010") # Возвращает 10
+parseInt("Ride") # Возвращает Unit
+parseInt("10.30") # Возвращает Unit
 ```
 
-### parseIntValue(String): Int<a id="parse-int-value"></a>
+## parseIntValue(String): Int<a id="parse-int-value"></a>
 
-Converts the string representation of a number to its integer equivalent.
+Конвертирует строковое представление числа в эквивалентное целое число.
 
-Raises an exception if the string cannot be parsed.
+Выбрасывает исключение, если строка не может быть сконвертирована.
 
-```
+``` ride
 parseIntValue(str: String): Int
 ```
 
-### Parameters
+### Параметры
 
 #### `str`: [String](/ride/data-types/string.md)
 
-String to parse.
+Строка для конвертации.
 
-### Examples
+### Примеры
 
-```ride
-parseIntValue("10") # Returns 10
-parseIntValue("010") # Returns 10
-parseIntValue("Ride") # Error while parsing string to integer
-parseIntValue("10.30") # Error while parsing string to integer
-parseIntValue("20 WAVES") # Error while parsing string to integer
+``` ride
+parseIntValue("10") # Возвращает 10
+parseIntValue("010") # Возвращает 10
+parseIntValue("Ride") # Ошибка при разборе строки на целое число
+parseIntValue("10.30") # Ошибка при разборе строки на целое число
+parseIntValue("20 WAVES") # Ошибка при разборе строки на целое число
 ```
 
-## toBytes(Boolean): ByteVector<a id="tobytes-bool"></a>
+## toBytes(Boolean): ByteVector<a id="to-bytes-boolean"></a>
 
-Converts a boolean value to an array of bytes.
+Конвертирует логическое значение в массив байтов.
 
-```
+``` ride
 toBytes(b: Boolean): ByteVector
 ```
 
-### Parameters
+### Параметры
 
 #### `b`: [Boolean](/ride/data-types/boolean.md)
 
-Boolean to convert.
+Логическое значение для конвертации.
 
-### Examples
+### Примеры
 
-```ride
-toBytes(true) # Returns 2
-toBytes(false) # Returns 1
+``` ride
+toBytes(true) # Возвращает 2
+toBytes(false) # Возвращает 1
 ```
 
-## toBytes(Int): ByteVector<a id="tobytes-int"></a>
+## toBytes(Int): ByteVector<a id="to-bytes-int"></a>
 
-Converts an integer to an array of bytes.
+Конвертирует целое число в массив байтов.
 
+``` ride
+toBytes(n: Int): ByteVector
 ```
-toBytes(n: Int): ByteVector
-```
 
-### Parameters
+### Параметры
 
 #### `n`: [Int](/ride/data-types/int.md)
 
-Integer to convert.
+Целое число для конвертации.
 
-### Examples
+### Примеры
 
-```ride
-toBytes(10) # Returns 1111111B
+``` ride
+toBytes(10) # Возвращает 1111111B
 ```
 
-## toBytes(String): ByteVector<a id="tobytes-string"></a>
+## toBytes(String): ByteVector<a id="to-bytes-string"></a>
 
-Converts a string to an array of bytes.
+Конвертирует строку в массив байтов.
 
+``` ride
+toBytes(s: String): ByteVector
 ```
-toBytes(s: String): ByteVector
-```
 
-### Parameters
+### Параметры
 
 #### `s`: [String](/ride/data-types/string.md)
 
-String to convert.
+Строка для конвертации.
 
-### Examples
+### Примеры
 
-```ride
-toBytes("Ride") # Returns 37BPKA
+``` ride
+toBytes("Ride") # Возвращает 37BPKA
 ```
 
-## toInt(ByteVector): Int<a id="toint-bytes"></a>
+## toInt(ByteVector): Int<a id="to-int-bytevector"></a>
 
-Converts an array of bytes to an integer.
+Конвертирует массив байтов в целое число.
 
+``` ride
+toInt(bin: ByteVector): Int
 ```
-toInt(bin: ByteVector) : Int
-```
 
-### Parameters
+### Параметры
 
 #### `bin`: [ByteVector](/ride/data-types/byte-vector.md)
 
-Array of bytes to convert.
+Массив байтов для конвертации.
 
-### Examples
+### Примеры
 
-```ride
-toInt(bytes) # Returns 10
+``` ride
+toInt(bytes) # Возвращает 10
 ```
 
-### toInt(ByteVector, Int): Int<a id="toint-bytes-int"></a>
+## toInt(ByteVector, Int): Int<a id="to-int-bytevector-int"></a>
 
-Converts an array of bytes to an integer starting from a certain index.
+Конвертирует массив байтов начиная с указанного индекса в целое число.
 
-```
+``` ride
 toInt(bin: ByteVector, offset: Int): Int
 ```
 
-### Parameters
+### Параметры
 
 #### `bin`: [ByteVector](/ride/data-types/byte-vector.md)
 
-Array of bytes to convert.
+Массив байтов для конвертации.
 
 #### `offset`: [Int](/ride/data-types/int.md)
 
-Index to start from.
+Индекс.
 
-### Examples
+### Примеры
 
-```ride
+``` ride
 let bytes = toBytes("Ride on Waves")
-toInt(bytes, 2) # Returns 7234224039401641825
-toInt(bytes, 6) # Index out of bounds
+toInt(bytes, 2) # Возвращает 7234224039401641825
+toInt(bytes, 6) # Индекс за пределами границ
 ```
 
 ## toString(Address): String<a id="to-string-address"></a>
 
-Converts an array of bytes of an [address](/blockchain/account/address.md) to a string.
+Конвертирует массив байтов [адреса](/blockchain/account/address.md) в строку.
 
 ``` ride
 toString(Address: Address): String
 ```
 
-### Parameters
+### Параметры
 
 #### `Address`: [Address](/ride/structures/common-structures/address.md)
 
-Address to convert.
+Адрес для конвертации.
 
-### Examples
+### Примеры
 
-```ride
+``` ride
 let address =Address(base58'3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF')
-toString(address) # Returns "3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF"
+toString(address) # Возвращает "3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF"
 ```
 
-### toString(Boolean): String<a id="tostring-bool"></a>
+## toString(Boolean): String<a id="to-string-boolean"></a>
 
-Converts a boolean value to a string.
+Конвертирует логическое значение в строку.
 
-```
+``` ride
 toString(b: Boolean): String
 ```
 
-### Parameters
+### Параметры
 
 #### `b`: [Boolean](/ride/data-types/boolean.md)
 
-Boolean to convert.
+Логическое значение для конвертации.
 
-### Examples
+### Примеры
 
-```ride
-toString(true) # Returns "true"
-toString(false) # Returns "false"
+``` ride
+toString(true) # Возвращает "true"
+toString(false) # Возвращает "false"
 ```
 
-### toString(Int): String<a id="tostring-int"></a>
+## toString(Int): String<a id="to-string-int"></a>
 
-Converts an integer to a string.
+Конвертирует целое число в строку.
 
-```
+``` ride
 toString(n: Int): String
 ```
 
-### Parameters
+### Параметры
 
 #### `n`: [Int](/ride/data-types/int.md)
 
-Integer to convert.
+Целое число для конвертации.
 
-### Examples
+### Примеры
 
-```ride
-toString(10) # Returns "10"
+``` ride
+toString(10) # Возвращает "10"
 ```
 
+## toUtf8String(ByteVector): String<a id="to-utf8-string-bytevector"></a>
 
-### toUtf8String(ByteVector): String<a id="to-utf8-string"></a>
+Конвертирует массив байтов в строку в [UTF-8](https://ru.wikipedia.org/wiki/UTF-8).
 
-Converts an array of bytes to a [UTF-8](https://en.wikipedia.org/wiki/UTF-8) string.
-
-```
+``` ride
 toUtf8String(u: ByteVector): String
 ```
 
-### Parameters
+### Параметры
 
 #### `u`: [ByteVector](/ride/data-types/byte-vector.md)
 
-Array of bytes to convert.
+Массив байтов для конвертации.
 
-### Examples
+### Примеры
 
-```ride
+``` ride
 let bytes = toBytes("Ride on Waves")
-toUtf8String(bytes) # Returns "Ride on Waves"
+toUtf8String(bytes) # Возвращает "Ride on Waves"
 ```

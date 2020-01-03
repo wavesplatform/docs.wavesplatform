@@ -1,14 +1,14 @@
-# Blockchain data types
+# Типы данных блокчейна
 
-The **blockchain data types** are the data types that are used to describe [binary formats](/blockchain/binary-format.md) of blockchain entities.
+**Типы данных блокчейна** — типы данных, которые используются при описании [бинарных форматов](/blockchain/binary-format.md) сущностей блокчейна.
 
-## List of blockchain data types
+## Список типов данных блокчейна
 
-| # | Keyword | Possible values | Variable size in bytes |
+| № | Ключевое слово | Возможные значения | Размер переменной в байтах |
 | :--- | :--- | :--- | :--- |
-| 1 | Boolean | 0 and 1 | 1 |
-| 2 | Byte | Integer from -128 to 127 inclusive | 1 |
-| 3 | Int | Integer from -2,147,483,648 to 2,147,483,647 inclusive | 4 |
-| 4 | Long | Integer from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 inclusive | 8 |
-| 5 | Short | Integer from -32,768 to 32,767 inclusive | 2 |
-| 6 | String | From 0 to 2,147,483,647 characters inclusive | From 1 to 4 bytes per character |
+| 1 | Boolean | 0 и 1 | 1 |
+| 2 | Byte | Целое число от -128 до 127 включительно | 1 |
+| 3 | Int | Целое число от -2 147 483 648 до 2 147 483 647 включительно | 4 |
+| 4 | Long | Целое число от -9 223 372 036 854 775 808 до 9 223 372 036 854 775 807 включительно | 8 |
+| 5 | Short | Целое число от -32 768 до 32 767 включительно | 2 |
+| 6 | String | От 0 до 2 147 483 647 символов включительно | От 1 до 4 байтов на символ |

@@ -1,7 +1,11 @@
-# Invoke script transaction
+# Транзакция вызова скрипта
 
-An **invoke script transaction** is a [transaction](/blockchain/transaction.md) that invokes the [callable function](/ride/functions/callable-function.md) of the [dApp](/blockchain/account/dapp.md).
+**Транзакция вызова скрипта** — [транзакция](/blockchain/transaction.md), которая вызывает у [dApp](/blockchain/account/dapp.md) [вызываемую функцию](/ride/functions/callable-function.md).
 
-## Binary format
+К транзакции вызова скрипта может быть приложен платёж для перевода токенов на счёт вызываемого dApp.
 
-See the page [Invoke script transaction binary format](/blockchain/binary-format/transaction-binary-format/invoke-script-transaction-binary-format.md).
+> Начиная с четвертой версии языка [Ride](/ride/about-ride.md) к транзакции вызова скрипта может быть приложено до двух платежей. Эта возможность появляется после активации функциональности Ride V4 and multiple attached payments for Invoke Script Transaction(№16) на ноде.<br>Ride 4.0 доступен на [stagenet](/blockchain/blockchain-network/stage-network.md)
+
+## Бинарный формат
+
+Смотрите страницу [Бинарный формат транзакции вызова скрипта](/blockchain/binary-format/transaction-binary-format/invoke-script-transaction-binary-format.md).

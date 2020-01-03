@@ -1,59 +1,65 @@
-# Account
+# Аккаунт
 
-An **account** is a [cryptographically bound](https://en.wikipedia.org/wiki/Public-key_cryptography) pair of a public and a private keys on the [blockchain](/blockchain/blockchain.md).
+**Аккаунт** — [криптографически связанная](https://ru.wikipedia.org/wiki/Криптосистема_с_открытым_ключом) пара открытого и закрытого ключей на [блокчейне](/blockchain/blockchain.md).
 
-Accounts unambiguously correlate [transactions](/blockchain/transaction.md) and [orders](/ride/structures/common-structures/order.md) with their senders.
+Аккаунты однозначно соотносят [транзакции](/blockchain/transaction.md) и [ордера](/blockchain/order.md) с их отправителями.
 
-## Account public and private keys
+## Открытый и закрытый ключи аккаунта
 
-Private and public keys have the same size — 32 bytes. The bytes of the keys are converted to a [Base58](https://en.wikipedia.org/wiki/Base58) character string; in this form, the keys are displayed in the interfaces of programs.
+Закрытый и открытый ключи имеют одинаковый размер — 32 байта. Байты ключей преобразуются в строку символов [Base58](https://ru.wikipedia.org/wiki/Base58); в таком виде ключи отображаются в интерфейсах программ.
 
-Example of a public key in Base58:
+Пример открытого ключа в Base58:
 
 ```
 BRzAFccE3BeAn8rf7Mf56LoqUdT5xExbMUEgV7wGsiKx
 ```
 
-Example of a private key in Base58:
+Пример закрытого ключа в Base58:
 
 ```
 9g5fFTwrLz9FEbgsE3ujfXPj92h5F4HDK6ew5LXh1ViZ
 ```
 
-An **account owner** is an owner of both account keys at the same time: both public and private.
+**Владелец аккаунта** — владелец одновременно обоих ключей аккаунта: и открытого, и закрытого.
 
-## Transaction digital signature
 
-_All_ transactions have a _single_ sender; the only exception is [genesis transactions](/blockchain/transaction-type/genesis-transaction.md) — they do not have a sender.
 
-A transaction contains the sender's _public key_. Before sending the transaction, the sender signs it with his _private key_. The account that signed the transaction is called the **transaction sender**. The signature that results from signing the transaction is called the **transaction digital signature**. If account Y is the sender of the transaction, it is said that the **transaction was sent from account Y**.
+## Цифровая подпись транзакции
 
-The transaction is sent to the [blockchain network](/blockchain/blockchain-network.md) along with its digital signature. The digital signature and the sender's public key are used to verify the authenticity of the transaction data.
+У _всех_ транзакций есть _единственный_ отправитель; исключение составляют только [транзакции генезиса](/blockchain/transaction-type/genesis-transaction.md) — у них отправителя нет.
 
-## Account balance
+Транзакция содержит _открытый ключ_ отправителя. Перед отправкой транзакции отправитель подписывает ее своим _закрытым ключом_. Аккаунт, который подписал транзакцию, называется **отправителем транзакции**. Подпись, которая получается в результате подписания транзакции, называется **цифровой подписью транзакции**. Если аккаунт Y — отправитель транзакции, то говорят, что транзакция **отправлена с аккаунта Y**.
 
-An account may store different [tokens](/blockchain/token.md) in different amounts. The amount of the token on the account is called the [account balance](/blockchain/account/account-balance.md) in this token.
+Транзакция отправляется в [сеть блокчейна](/blockchain/blockchain-network.md) вместе c цифровой подписью. С помощью цифровой подписи и открытого ключа отправителя проверяется подлинность данных транзакции.
 
-## Account address
+## Баланс аккаунта
 
-Each account has a _single_ [address](/blockchain/account/address.md).
+На аккаунте могут храниться разные [токены](/blockchain/token.md) в разных количествах. Количество токена на аккаунте называется [балансом аккаунта](/blockchain/account/account-balance.md) в этом токене.
 
-Example of address in [Base58](https://en.wikipedia.org/wiki/Base58):
+## Адрес аккаунта
+
+У каждого аккаунта есть _единственный_ [адрес](/blockchain/account/address.md).
+
+Пример адреса в [Base58](https://ru.wikipedia.org/wiki/Base58):
 
 ```
 3MsoC9tFzt4jcfHvmv4DBCap2ttokY5Ve9S
 ```
 
-When transferring a token from one account to another, instead of using the public key of the recipient, its [address](/blockchain/account/address.md) or [alias](/blockchain/account/alias.md) is used.
+При переводе токена с одного аккаунта на другой вместо публичного ключа получателя используется его [адрес](/blockchain/account/address.md) или [псевдоним](/blockchain/account/alias.md).
 
-## Scripted account
 
-Using the [set script transaction](/blockchain/transaction-type/set-script-transaction.md) you can attach a [script](/ride/script.md) to the account. An account with a script attached to it is called a **scripted account**. An account without a script is called a **simple account**.
 
-There are two types of scripts that can be attached to an account: an [account script](/ride/script/script-types/account-script.md) and a [dApp script](/ride/script/script-types/dapp-script.md). The account to which an account script is attached is called a [smart account](/blockchain/account/smart-account.md). An account with dApp script attached to it is called a [dApp](/blockchain/account/dapp.md).
+## Скриптованный аккаунт
 
-## Account data storage
+К аккаунту можно прикрепить [скрипт](/ride/script.md) с помощью [транзакции установки скрипта](/blockchain/transaction-type/set-script-transaction.md). Аккаунт с прикрепленным скриптом называется **скриптованным аккаунтом**. Аккаунт без скрипта называется **простым аккаунтом**.
 
-Each account has an [account data storage](/blockchain/account/account-data-storage.md) that stores data records in key-value format.
+Существует два типа скриптов, которые прикрепляются к аккаунту: [скрипт аккаунта](/ride/script/script-types/account-script.md) и [dApp-скрипт](/ride/script/script-types/dapp-script.md). Аккаунт, к которому прикреплен скрипт аккаунта, называется [смарт аккаунтом](/blockchain/account/smart-account.md). Аккаунт с прикрепленным dApp-скриптом — [dApp](/blockchain/account/dapp.md).
 
-The account data storage serves as a database for the information that is associated with the account.
+
+
+## Хранилище данных аккаунта
+
+У каждого аккаунта есть [хранилище данных](/blockchain/account/account-data-storage.md), которое хранит записи данных в формате ключ-значение.
+
+Хранилище данных аккаунта служит базой данных для информации, которая ассоциирована с аккаунтом.

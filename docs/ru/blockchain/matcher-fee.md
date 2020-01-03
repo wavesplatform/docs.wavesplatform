@@ -1,3 +1,3 @@
-# Matcher fee
+# Комиссия матчера
 
-A **matcher fee** is a fee that [matcher](/waves-node/extensions/matcher.md) takes from both [accounts](/blockchain/account.md) that participate in the exchange of the pair of [tokens](/blockchain/token.md).
+**Комиссия матчера** — комиссия, которую [матчер](/waves-node/extensions/matcher.md) берет с обоих [аккаунтов](/blockchain/account.md), которые участвуют в обмене пары [токенов](/blockchain/token.md).

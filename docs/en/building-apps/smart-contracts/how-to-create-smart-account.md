@@ -7,7 +7,7 @@ To create smart account in Waves IDE, complete the following steps:
 1. Open https://ide.wavesplatform.com/ in the browser.
 2. Click **Add account** in the upper right screen area to open the following drop-down list.
 
-![](./_assets/add_account.png)
+![](/smart-contracts/img/add_account.png)
 
 3. Make one of the following actions:
 
@@ -21,9 +21,9 @@ To create smart account in Waves IDE, complete the following steps:
         - private key
         - seed. It is recommended to remind the seed — if you lose it, it will be impossible to restore access to the account.
 
-4. Click ![](./_assets/plus.png) in the upper right screen area. As a result, the drop-down list will be displayed.
+4. Click ![](/smart-contracts/img/plus.png) in the upper right screen area. As a result, the drop-down list will be displayed.
 
-![](./_assets/plus2.png)
+![](/smart-contracts/img/plus2.png)
 
 5. Click **Account script**. As a result, the tab will be displayed. Write the smart account code in this tab.
 6. Click **Deploy** when you'll finish with the smart account code.

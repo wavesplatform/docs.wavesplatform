@@ -1,24 +1,24 @@
 # Issue
 
 > [!WARNING]
-> The structure is introduced in Standard library **version 4** that is currenlty available on [Stagenet](/blockchain/blockchain-network/stage-network.md) only.
+> Структура Issue представлена в [Стандартной библиотеке](/ride/script/standard-library.md) **версии 4**, которая в настоящее время доступна только на [Stagenet](/blockchain/blockchain-network/stage-network.md).
 
-Structure of a [token issue](/blockchain/transaction-type/issue-transaction.md).
+Структура [выпуска токена](/blockchain/transaction-type/issue-transaction.md).
 
-## Constructor
+## Конструктор
 
 ```ride
 Issue(compiledScript: Script|Unit, decimals: Int, description: String, isReissuable: Boolean, name: String, quantity: Int, nonce: Int)
 ```
 
-## Fields
+## Поля
 
-| # | Name | Data type | Description |
+| # | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | compiledScript | [Script](/ride/script.md)&#124;[Unit](/ride/data-types/unit.md) | Set it to `Unit`. Smart asset issue is currently unavailable |
-| 2 | decimals | [Int](/ride/data-types/int.md) | Number of digits in decimal part. Set to `0` for NFT token |
-| 3 | description | [String](/ride/data-types/string.md) | Token description |
-| 4 | isReissuable | [Boolean](/ride/data-types/boolean.md) | Reissue ability flag. Set to `0` for NFT |
-| 5 | name | [String](/ride/data-types/string.md) | Token name |
-| 6 | quantity | [Int](/ride/data-types/int.md) | Amount of the [token](/blockchain/token.md). Set to `1` for NFT |
-| 7 | nonce | [Int](/ride/data-types/int.md) | Sequential number of asset that is used to token ID generation. Required if several tokens with the same name and description are issued in a single script invokation. |
+| 1 | compiledScript | [Script](/ride/script.md)&#124;[Unit](/ride/data-types/unit.md) | Должно быть установлено значение `Unit`. Выпуск [смарт-ассетов](/blockchain/token/smart-asset.md) при помощи этой структуры пока недоступен |
+| 2 | decimals | [Int](/ride/data-types/int.md) | Количество цифр после запятой. Если [токеном](/blockchain/token.md) является [NFT](/blockchain/token/non-fungible-token.md), то значение должно быть `0` |
+| 3 | description | [String](/ride/data-types/string.md) | Описание токена |
+| 4 | isReissuable | [Boolean](/ride/data-types/boolean.md) | Флаг возможности довыпуска. Если токеном является [NFT](/blockchain/token/non-fungible-token.md), то значение должно быть `0` |
+| 5 | name | [String](/ride/data-types/string.md) | Название токена |
+| 6 | quantity | [Int](/ride/data-types/int.md) | Количество токена. Если токеном является [NFT](/blockchain/token/non-fungible-token.md), то значение должно быть `1` |
+| 7 | nonce | [Int](/ride/data-types/int.md) | Порядковый номер ассета, который использовался для генерации ID токена. Требуется для выпуска в одном вызове скрипта нескольких токенов с одинаковыми названиями и описаниями |

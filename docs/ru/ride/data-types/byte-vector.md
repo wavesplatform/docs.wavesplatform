@@ -1,10 +1,10 @@
 # ByteVector
 
-The **ByteVector** is a keyword of the byte array [data type](/ride/data-types.md).
+**ByteVector** — ключевое слово [типа данных](/ride/data-types.md) массива байтов.
 
-The maximum size of the variable of the byte array data type is 65,536 bytes.
+Максимальный размер переменной типа данных массива байтов — 65 536 байтов.
 
-To assign a byte array to a variable use one of the literals: `base16`, `base58` or `base64`. The literal name in single quotes is followed by a string in [Base16](https://en.wikipedia.org/wiki/Hexadecimal#Base16_&#40;Transfer_encoding&#41;), [Base58](https://en.wikipedia.org/wiki/Base58) or [Base64](https://en.wikipedia.org/wiki/Base64):
+Для присвоения переменной массива байтов используйте один из литералов: `base16`, `base58` или `base64`. За названием литерала в одинарных кавычках следует строка в [Base16](https://en.wikipedia.org/wiki/Hexadecimal#Base16_&#40;Transfer_encoding&#41;), [Base58](https://ru.wikipedia.org/wiki/Base58) или [Base64](https://ru.wikipedia.org/wiki/Base64).
 
 ``` ride
 let a = base16'52696465'
@@ -12,8 +12,7 @@ let b = base58'8t38fWQhrYJsqxXtPpiRCEk1g5RJdq9bG5Rkr2N7mDFC'
 let c = base64'UmlkZQ=='
 ```
 
-You can convert [integer](/ride/data-types/int.md), [boolean](/ride/data-types/boolean.md) and [string](/ride/data-types/string.md) values to a byte array using [toBytes](/ride/functions/built-in-functions/converting-functions.md) function:
-
+С помощью функции [toBytes](/ride/functions/built-in-functions/converting-functions.md) можно конвертировать [целочисленные](/ride/data-types/int.md), [логические](/ride/data-types/boolean.md) и [строковые](/ride/data-types/string.md) значения в массив байтов:
 
 ``` ride
 let a = 42.toBytes()

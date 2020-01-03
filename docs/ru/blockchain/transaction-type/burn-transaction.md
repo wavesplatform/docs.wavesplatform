@@ -1,11 +1,11 @@
-# Burn transaction
+# Транзакция сжигания токена
 
-A **burn transaction** is a [transaction](/blockchain/transaction.md) that decreases the amount of the [token](/blockchain/token.md) on the [blockchain](/blockchain/blockchain.md).
+**Транзакция сжигания токена** — [транзакция](/blockchain/transaction.md), которая уменьшает количество [токена](/blockchain/token.md) на [блокчейне](/blockchain/blockchain.md).
 
-Tokens are burned _only_ on the [account](/blockchain/account.md) of the sender of the transaction. Burned tokens cannot be restored back to the account.
+Токены сжигаются _только_ на [аккаунте](/blockchain/account.md) отправителя транзакции. Сожженные токены нельзя обратно восстановить на аккаунт.
 
-[Reissue transaction](/blockchain/transaction-type/reissue-transaction.md) increases the amount of the token on the blockchain.
+[Транзакция довыпуска](/blockchain/transaction-type/reissue-transaction.md) увеличивает количество токена на блокчейне.
 
-## Binary format
+## Бинарный формат
 
-See the page [Burn transaction binary format](/blockchain/binary-format/transaction-binary-format/burn-transaction-binary-format.md).
+Смотрите страницу [Бинарный формат транзакции сжигания токена](/blockchain/binary-format/transaction-binary-format/burn-transaction-binary-format.md).

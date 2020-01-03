@@ -1,9 +1,9 @@
-# Node
+# Нода
 
-A **node** is a <a href="https://en.wikipedia.org/wiki/Host_(network)">host</a> connected to the [blockchain network](/blockchain/blockchain-network.md) using the [Waves Node](https://github.com/wavesplatform/Waves) application.
+**Нода** — [хост](https://ru.wikipedia.org/wiki/Хост), который подключен к [сети блокчейна](/blockchain/blockchain-network.md) с помощью приложения [Waves Node](https://github.com/wavesplatform/Waves).
 
-Node functions are:
+Функциями ноды являются:
 
-* [blocks](/blockchain/block.md) storage
-* [transaction validation](/blockchain/transaction/transaction-validation.md)
-* sending [transactions](/blockchain/transaction.md)
+* хранение [блоков](/blockchain/block.md)
+* [валидация транзакций](/blockchain/transaction/transaction-validation.md)
+* отправка [транзакций](/blockchain/transaction.md)

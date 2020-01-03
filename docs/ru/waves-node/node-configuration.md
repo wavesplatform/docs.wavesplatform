@@ -1,182 +1,193 @@
-# Node Configuration
+# Конфигурация ноды
 
-> After upgrading to version 1.0.2 please note if your `/etc/waves/waves.conf` was originally copied from a template, you may need to assure that waves.directory points to the correct directory. If this option doesn't exist in the config, default directory `/var/lib/waves` and `/var/lib/waves-testnet` will be used for mainnet and testnet, respectively
+> После обновления до версии 1.0.2 обратите внимание: если файл `/etc/waves/waves.conf` был изначально скопирован из шаблона, то нужно проверить, что в параметре `waves.directory` указана правильная папка. Если этой опции нет в конфигурационном файле, будет использоваться папка по умолчанию.
 
-## Configuration Format
+## Формат конфигурации
 
-The configuration system of Waves Node uses HOCON format. HOCON stands for Human-Optimized Config Object Notation. The complete description of HOCON could be found in the [Official HOCON documentation](https://github.com/typesafehub/config/blob/master/HOCON.md). The advantages of HOCON are simple syntax and ability to use comments.
+В системе конфигурации ноды Waves применяется формат HOCON (Human-Optimized Config Object Notation). Подробное описание HOCON доступно по ссылке [Official HOCON documentation](https://github.com/typesafehub/config/blob/master/HOCON.md). Преимущества HOCON — это простой синтаксис и возможность использовать комментарии.
 
-## Default Configs and Overrides
+## Стандартные файлы конфигурации и ручные настройки
 
-### Default Configuration Embedded into JAR
+### Стандартный файл конфигурации, вложенный в JAR
 
-Complete default Waves Node configuration file which is embedded into jar-file can be found here: https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf
+Стандартный файл конфигурации ноды Waves, вложенный в файл JAR, доступен по ссылке:
 
-### MainNet and TestNet config in DEB-packages
+https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf
 
-If you use DEB-packages to install a node, they also contain configuration files which override some parameters specific to the network:
+### Файлы конфигурации Mainnet и Testnet в пакетах DEB
+
+Установочные пакеты DEB содержат файлы конфигурации, которые переопределяют некоторые параметры, специфичные для сети:
 
 * https://github.com/wavesplatform/Waves/blob/master/node/waves-mainnet.conf
 * https://github.com/wavesplatform/Waves/blob/master/node/waves-testnet.conf
 
-### Overriding parameters when running JAR-file
+### Переопределение параметров при запуске файлa JAR
 
-If you run JAR file it's recommended to override default parameters by passing a path to config file as the command line parameter then starting Waves Node application.
+При запуске файла JAR рекомендуется переопределять назначенные по умолчанию параметры, вписав адрес файла конфигурации через командную строку при запуске приложения ноды Waves.
 
 ```
 java -jar waves-all-0.13.3.jar waves.conf
 ```
 
-Typically this file should contain you node's unique characteristics (ip, name, keys, etc...) and network-specific parameters similar to waves-mainnet or waves-testnet configs from previous sections (files shipped with DEB packages).
+Обычно файл содержит уникальные характеристики вашей ноды (IP-адрес, имя, ключи и прочее) и параметры, специфичные для сети, аналогично файлам конфигурации `waves-mainnet` или `waves-testnet` из пакетов DEB, описанным выше.
 
+## Секции конфигурации
 
-## Configuration Sections
+### Секция конфигурации Waves
 
-### Waves configuration section
+Корневая секция `waves` содержит ключевые параметры и прочие конфигурационные подсекции.
 
-Root configuration section `waves` holds essential application parameters and other configuration subsections.
+С помощью параметра `directory` можно назначить путь к основной папке приложения. В настройках параметров конфигурации можно использовать переменные среды (environment variables). Пожалуйста, не заключайте переменные среды в кавычки: в этом случае они будут обработаны как строки и не будут применены.
 
-Using parameter `directory` it is possible to set a path to the base application directory. Starting from version 0.6.0 it is possible to use environment variables to set configuration parameters. For example, by default, the base directory constructed relative to the user’s `HOME` environment variable. Please, do not enclose environment variables references in quotes, in this case, they will be handled as strings and won’t be resolved.
+Убедитесь, что для выбранной папки корректно указан owner: `waves` для Mainnet и `waves-testnet` для Testnet.
 
-**Note:** If you want to change waves directory in Ubuntu packages you should change it using `-J-Dwaves.directory=path` in `/etc/waves/application.ini` and `/lib/systemd/system/waves.service`. You can override any JVM start parameter in `waves.service`, it has priority.
+По умолчанию в зависимости от операционной системы и типа блокчейна используются следующие папки:
 
+| | *nix | macOS | Windows |
+| :--- | :--- | :--- | :--- |
+| Mainnet | `$XDG_DATA_HOME/waves-mainnet` или `$HOME/.local/share/waves-mainnet` | `$HOME/Library/Application Support/waves-mainnet` | `$LOCALAPPDATA/waves-mainnet` |
+| Testnet | `$XDG_DATA_HOME/waves-testnet` или `$HOME/.local/share/waves-testnet` | `$HOME/Library/Application Support/waves-testnet` | `$LOCALAPPDATA/waves-testnet` |
+| Stagenet | `$XDG_DATA_HOME/waves-stagenet` или `$HOME/.local/share/waves-stagenet` | `$HOME/Library/Application Support/waves-stagenet` | `$LOCALAPPDATA/waves-stagenet` |
+| Custom | `$XDG_DATA_HOME/waves-custom-<character>*` или `$HOME/.local/share/waves-custom-<character>*` | `$HOME/Library/Application Support/waves-custom-<character>*` | `$LOCALAPPDATA/waves-custom-<character>*` |
 
+\* См. описание параметра `address-scheme-character` в настройках собственного блокчейна.
 
-**Note:** For Windows users. Often on Windows, the HOME environment variable is not set. Please, replace `${HOME}` with `${HOMEPATH}` or `${APPDATA}` in your additional configuration file. Also, you should remember that Windows' environment variables names are case sensitive.
+Параметр `data-directory` задает расположение папки базы данных LevelDB. В этой базе данных содержатся данные блокчейна и состояние.
 
-**Note:** Make sure the defined directory has a correct owner set: `waves` for mainnet or `waves-testnet` for testnet.
+Параметр `leveldb-cache-size` задает размер внутреннего кэша базы данных LevelDB. Размер кэша указывается в байтах или с использованием единиц измерения:
+* K — килобайт
+* M — мегабайт
+* G — гигабайт
 
-Parameter `data-directory` sets the location of LevelDB database folder. In this database stored blockchain data and state.
+### Настройки сети
 
-Using parameter `leveldb-cache-size` you can set the size of theinternal cache of LevelDB database.
+В секции `network` можно настроить параметры P2P-сети.
 
-**Note:** The number of bytes should be given to set the cache size parameter. But you can use size units: <ul><li>K - for kilobyte</li><li>M - for megabytes</li><li>G - for gigabytes</li></ul>
+Используйте параметр `file`, чтобы задать расположение базы данных узлов. В этой базе данных хранится список известных и заблокированных узлов. По умолчанию этот путь задан относительно основной папки `directory` в секции `waves`.
 
-### Network settings
+Используйте параметр `declared-address`, чтобы назначить внешний IP-адрес и номер порта ноды. Это важно для работы NAT большинства облачных хостингов, где компьютер напрямую не взаимодействует с внешним адресом. Если не задать данный параметр, то нода сможет подключиться к P2P-сети, но не сможет принимать входящие подключения, поэтому другие ноды не смогут подключиться. Другие ноды подключаются к вашей ноде, используя эти данные. Параметр следует задавать в формате "[ip-address]:[port]".
 
-In `network` section P2P network related settings could be set.
+Используйте параметр `bind-address`, чтобы назначить IP-адрес локальной сети, с которым будет взаимодействовать нода Waves для приема подключений. По умолчанию нода связана с адресом `0.0.0.0`: это означает, что она будет ожидать подключения от всех возможных сетевых адаптеров.
 
-Use `file` parameter to set the location of peers database. In this database node stores lists of known and blacklisted peers. By default, the path is resolved with regard to base `directory` from `waves` section.
+Используйте параметр `port`, чтобы назначить номер сетевого порта, к которому будут подключаться другие ноды Waves. Убедитесь, что порт доступен извне, иначе ваша нода будет подключаться к P2P-сети только через исходящие подключения. Если порт используется другим приложением, нода не запустится.
 
-Using `declared-address` parameter you can set the external IP address and port number of the node. It’s necessary to work behind NAT in most cloud hosting, where the machine does not interface directly with the external address. If you do not specify it, then your node connects to the P2P network, but it won’t listen to incoming connections so other nodes will not be able to connect. Other nodes are connected to your node using these data. The format of this parameter is "\[ip-address\]:\[port\]".
+Параметр `node-name` можно использовать, чтобы назначить имя ноды, которое будет видно другим участникам P2P-сети. Имя передается во время первоначального обмена данными (handshake). По умолчанию этот параметр не задан, и имя генерируется случайным образом.
 
-Using parameter `bind-address` you can set the IP address of local network interface on which Waves Node will accept incoming connections. By default, node binds to `0.0.0.0` that means that it will listen on all available network adapters.
+Параметр `nonce` передается во время первоначального обмена данными (handshake). По умолчанию он не задан и генерируется случайным образом. Данный параметр используется для того, чтобы отличать ноды, подключенные с одного IP-адреса.
 
-Use `port` parameter to set the network port number to which other Waves nodes will connect. Check that the port is reachable from outside otherwise, your node will connect to P2P network only using outgoing connections. If this the port is taken by other application, your node won’t start.
+Параметр `known-peers` используется для хранения списка bootstrap-нод, с которыми ваша нода будет устанавливать исходящие соединения во время инициализации. По умолчанию заданы ноды Testnet.
 
-Parameter `node-name` could be used to set the name of your node visible to other participants of the P2P network. The name transmitted during initial handshake. In the default configuration, this parameter is commented out, which leads to random name generation.
+Параметр `peers-data-residence-time` применяется, чтобы задать время, в течение которого нода будет хранить информацию о внешних узлах с момента последней сессии подключения.
 
-Parameter `nonce` is sent during a handshake. By default, it’s not set and nonce will be generated randomly. This value is used to distinguish nodes connected from one IP address.
+**Примечание**: Все промежутки времени указываются в миллисекундах либо с использованием единиц измерения:
+<ul><li>s — секунды</li><li>m — минуты</li><li>h — часы</li><li>d — дни</li></ul>
+С примерами применения можно ознакомиться в стандартном конфигурационном файле выше.
 
-The `known-peers` parameter stores the list of bootstrap nodes to which your node will establish outgoing connections while initializing. By default it set to Testnet nodes.
+Параметр `black-list-residence-time` применяется, чтобы задать время, в течение которого информация о внешнем узле будет находиться в черном списке.
 
-The `peers-data-residence-time` parameter could be used to set the period of time during which the node stores information about external peer since last communication session with it.
+Параметр `max-inbound-connections` применяется, чтобы задать максимальное количество одновременных входящих подключений к ноде.
 
-**Note:** All time span parameters are set in milliseconds. But duration units can be used to shorten the value. Supported units are: <ul><li>s - second, seconds</li><li>m - muinute, minutes</li><li>h - hour, hours</li><li>d - day, days</li></ul> For usage examples see the default configuration file above.
+Параметр `max-outbound-connections` применяется для ограничения количества исходящих сетевых подключений.
 
+Параметр `max-single-host-connections` применяется, чтобы задать разрешенное количество сетевых подключений с одного IP-адреса.
 
-Parameter `black-list-residence-time` could be used to set the period of time for which information about external peer stays in the blacklist.
+Параметр `connection-timeout` применяется, чтобы задать таймаут сетевого подключения.
 
-Use `max-inbound-connections` parameter to set the maximum number of simultaneous inbound connections handled by the node.
+Параметр `outbound-buffer-size` применяется, чтобы задать размер сетевого буфера. Лучше оставить значение по умолчанию. Неправильно заданный размер буфера может привести к неисправности ноды.
 
-Use `max-outbound-connections` parameter to limit the number of outgoing network connections.
+Параметр `max-unverified-peers` применяется, чтобы изменить максимальный размер буфера для хранения информации об узлах, полученной во время первоначального обмена данными (handshake).
 
-Using `max-single-host-connections` parameter you can specify the allowed number of network connections made from single IP address.
+Параметр `enable-peers-exchange` позволяет включить/выключить запрос и отправку информации про узлы.
 
-Parameter `connection-timeout` could be used to change the network communication timeout.
+Параметр `enable-blacklisting` позволяет включить/выключить черный список узлов.
 
-Parameter `outbound-buffer-size`is used to set the network buffer size. Better leave the default value, incorrect buffer size could lead to node malfunction.
+Параметр `peers-broadcast-interval` позволяет задать время между сеансами передачи списков известных узлов другим нодам.
 
-Parameter `max-unverified-peers` could be used to change the maximum size of the buffer to store information about peers during handshake process.
+Параметр `handshake-timeout` позволяет задать время ожидания ответа во время первоначального обмена данными (handshake). Неответивший узел попадет в черный список.
 
-Use `enable-peers-exchange` parameter to enable requesting and sending the information about peers.
+В секции `upnp` можно задать настройки UPnP. Данные настройки нужны только в том случае, если нода Waves запущена в домашней сети, где требуется установка туннельного соединения роутера. По умолчанию данная функциональность выключена. Используйте параметр `enable` в секции `upnp` для включения.
 
-Parameter `enable-blacklisting` allows to enable or disable blacklisting of peers.
+В секции `traffic-logger` можно включить/выключить логирование некоторых исходящих или входящих сообщений. Сетевые сообщения логируются на уровне TRACE.
 
-Use `peers-broadcast-interval` parameter to set the period of time between broadcasts of known peers list to other nodes.
+### Настройки кошелька
 
-Using `handshake-timeout` parameter it is possible to set time period to wait for reply during handshake. In case of no reply the peer will be blacklisted.
+В секции `wallet` можно настроить встроенный в ноду кошелек Waves.
 
-In `upnp` section you can set the UPnP settings. Actually, those settings are useful only if you ran your Waves node on the home network where the node could ask your router to establish a tunnel. By default, this functionality is disabled. Use`enable`parameter of`upnp`to enable this functionality.
+Параметр `file` позволяет задать путь до файла кошелька. По умолчанию путь задан относительно основной папки приложения.
 
-In `traffic-logger` section you can enable or disable logging of some of incoming or outgoing network messages. Network messages are logged at TRACE level.
+Параметр `password` позволяет задать пароль для файла кошелька.
 
-### Wallet settings
+Параметр `seed` позволяет пересоздать кошелек на новой ноде. Укажите SEED-фразу в формате Base58. Если у вас нет кошелька, закомментируйте данный параметр и запустите ноду. Во время первого запуска приложение создаст кошелек со случайной SEED-фразой. В этом случае SEED-фраза отобразится в логе приложения. Если вы потеряете лог или не хотите открывать его, SEED-фразу также можно будет получить с помощью метода `wallet/seed` REST API ноды.
 
-In `wallet` section you can configure wallet built in Waves node.
+> **Внимание!** Кошелек — критически важный компонент вашей ноды. Храните файл кошелька в безопасном месте. Создайте резервную копию файла.
+> Рекомендуем удалить SEED-фразу из файла конфигурации сразу же после запуска ноды. Если злоумышленник получит доступ к вашей SEED-фразе, у него будет доступ ко всем вашим средствам на всех адресах!
 
-Use `file` parameter to set the path to the wallet file. By default, the path to the file is calculated relative to the base application directory.
+#### Обновление настроек кошелька
 
-Parameter `password` could be used to set the password string to protect the wallet file.
+Чтобы запустить ноду с другим кошельком, используйте один из способов:
+* Заменить файл `wallet.dat` другим, в котором хранится SEED-фраза нужного кошелька.
+ИЛИ
+* Удалите/перенесите файл `wallet.dat`, чтобы папка `wallet` стала пустой. Затем обновите SEDD-фразу в файле конфигурации.
 
-Using `seed` parameter you could recreate an existing wallet on a new node. Provide the BASE58 string of your seed here. If you don’t have any existing wallet comment out this parameter and start the node. During the first run, the application will create a new wallet with a random seed for you. In this case, the seed will be displayed in the application log. If you miss it or if you don’t want to check the log files, it will also be available in REST API using the wallet/seed method.
+Перезапустите ноду. После перезапуска нода будет использовать настройки другого кошелька.
 
-**Warning:** The wallet is a critical part of your node. Better to create its file in a safe and protected location. Don’t forget to backup your wallet’s file. It’s recommended to remove the seed from the configuration file immediately after the start of the node. If an attacker gains access to this seed string, he has access to all your funds on all your addresses!
+### Настройки блокчейна
 
-#### Update wallet's settings
+В данной секции можно выбрать тип блокчейна или создать свой собственный блокчейн.
 
-If you want to run the node with another wallet, you have to:
-* delete/cope to another location your wallet.dat file for making directory /wallet empty
-* update seed at config file
+Параметр `max-transactions-per-block-diff` позволяет задать количество транзакций, которые будут храниться в памяти перед сохранением на диск. Уменьшение этого значения может увеличить количество операций записи на диск.
 
-After that node will use another wallet settings.
+Параметр `min-blocks-in-memory` позволяет изменить количество блоков, которые будут храниться в памяти.
 
-### Blockchain settings
+Параметр `type` позволяет выбрать тип блокчейна. Доступные опции: TESTNET, MAINNET, STAGENET и CUSTOM. Для типов MAINNET, TESTNET и STAGENET параметры блокчейна встроены в приложение, поэтому дополнительная настройка не требуется. При выборе блокчейна типа CUSTOM необходимо задать параметры секции `custom` (которая закомментирована в примере).
 
-Here you can select the blockchain type or create your own blockchain.
+#### Настройка собственного блокчейна
 
-Use parameter `max-transactions-per-block-diff` to set the number of transactions stored in memory before storing on disk. Reducing the number could increase the number of disk operations.
+Параметр `address-scheme-character` в секции `custom` позволяет включить функцию address character. Указанный символ используется при формировании адреса, а также передается по сети во время первичного взаимодействия (handshake). Таким образом, функция позволяет ноде не взаимодействовать с нодами других блокчейнов.
 
-You can change the number of blocks stored in memory using parameter `min-blocks-in-memory`.
+Секция `functionality` позволяет устанавливать временные отметки активации различных валидаций блокчейна. Рекомендуем задать значение 0 для всех функциональностей, чтобы активировать все типы валидаций.
 
-Using `type` parameter you can select the blockchain type. Three choices are available: TESTNET, MAINNET and CUSTOM. For TESTNET or MAINNET types, parameters of blockchain are built in the application so you don’t have to configure them. But if you select CUSTOM blockchain type you have to provide the `custom` configuration section \(which is commented out in the example\).
+В секции `genesis` необходимо описать первый блок вашего собственного блокчейна.
 
-#### Configuring custom blockchain
+Параметр `block-timestamp` позволяет задать дату создания блока генезиса.
 
-Use parameter `address-scheme-character` in section `custom` to set the address feature character. This character used while building an address and also passed over a network during a handshake. The latter allow nodes not connect to the nodes with other blockchains.
+Параметр `timestamp` позволяет задать время создания транзакций генезиса.
 
-`functionality` section allows you to set the timestamps of activation of different blockchain validations. It’s better to set all functionality settings to 0 to have a blockchain with all validations active.
+Параметр `signature` позволяет задать подпись блока генезиса.
 
-In `genesis` section it is possible to describe the first \(genesis\) block of your custom blockchain.
+Параметр `initial-balance` позволяет задать общее количество монет. Это значение следует задавать в наименьших единицах измерения криптовалюты.
 
-Use `block-timestamp` parameter to set the date of creation of genesis block. Using parameter `timestamp` it is possible to set time of creation for genesis transactions.
+Параметр `initial-base-target` позволяет настроить скорость генерации блоков в самом начале вашего блокчейна.
 
-Using `signature` parameter you can set the signature of genesis block.
+Параметр `average-block-delay` позволяет задать скорость генерации блоков вашего блокчейна. Это промежуток времени между блоками, к которому система будет стремиться. Реальные промежутки между блоками могут отличаться от заданного значения.
 
-In `initial-balance` parameter it’s possible to set the total amount of coins. This value should be given in the smallest units of cryptocurrency.
+В качества параметра `transactions` укажите список транзакций генезиса. Каждая транзакция должна содержать адрес получателя (строка BASE58) и количество. В блоке генезиса необходимо распределить весь первоначальный баланс на один или несколько адресов, иначе блок генезиса будет признан ошибочным и приложение не запустится.
 
-Using `initial-base-target` parameter it’s possible adjust the speed of block generation in the very begging of your custom blockchain.
+### Настройки майнера
 
-Using `average-block-delay` parameter you can set the speed of block generation in your blockchain. This is a target period of time between blocks. In reality delays between blocks could vary.
+В секции `miner` можно настроить генератор новых блоков.
 
-In `transactions` parameter you should provide the list of first transactions. Each transaction is described by recipient’s address \(as BASE58 string\) and amount. You have to distribute all initial balance to one or more addresses in genesis block. If you failed to do so, the genesis block will be considered as incorrect and the application won’t start.
+Параметр `enable` позволяет включить/выключить генерацию блоков нодой. По умолчанию генерация включена, но если ее выключить, то нода не будет генерировать новые блоки.
 
-### Miner settings
+Параметр `quorum` позволяет задать минимальное количество подключенных узлов, необходимых для майнинга новых блоков. По умолчанию задано значение 1. Это означает, что ваша нода начнет майнинг сразу, как только подключится к первому узлу P2P-сети. Если задать значение 0, то активируется офлайн-генерация.
 
-In section `miner` it is possible to configure parameters of the new blocks generator.
+Параметр `interval-after-last-block-then-generation-is-allowed` позволяет настроить алгоритм загрузки и генерации блоков. По умолчанию задано значение 1 день. Это означает, что ваша нода не начнет генерацию, если последний блок локального блокчейна старше 1 дня. Используя данный параметр, вы даете команду ноде актуализировать блокчейн перед началом генерации новых блоков. Это применимо только после длительных отключений ноды.
 
-Use `enable` parameter to enable or disable block generation on the node. By default, it’s enabled, but if you disable it your node won’t try to generate new blocks \(won’t mine\).
+### Настройки REST API
 
-Use `quorum` parameter to set the minimum required number of connected peers to enable and start mining of new blocks. It defaults to 1, so your node will start mining as soon as it connects to the first peer in the P2P network. Setting this parameter to 0 will enable off-line generation.
-
-Using `interval-after-last-block-then-generation-is-allowed` parameter you tune your node’s blocks download and generation behavior. By default, it set to 1 day, which means that your node won’t start block generation until it has the last block in the local blockchain not older than 1 day. So, using this parameter you order you node to actualize the blockchain before starting to generate new blocks. Actually, it works only after long node shutdowns.
-
-### REST API settings
-
-The **REST API section** is a section in the node configuration file with settings of a [node API](/waves-node/node-api.md).
-
-#### parameters
+Секция **REST API** файла конфигурации ноды содержит настройки [Node API](/waves-node/node-api.md).
 
 | # | Name | Description | Default value |
 | :--- | :--- | :--- | :--- |
-| 1 | enable | Activates REST API. <br>If you want to deactivate REST API, change the default value to `no` | yes |
-| 2 | `bind-address` | Sets the network address where the REST API will accept the incoming connections. <br>**Note.** It's not recommended to change the default value. Use [Nginx’s proxy pass module](http://nginx.org/ru/docs/http/ngx_http_proxy_module.html) or [SSH port forwarding](http://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html) for external access. | `"127.0.0.1"` |
-| 3 | `port` | Sets the port number where the REST API will await connections. | 6869 |
-| 4 | `api-key-hash` | Sets the hash of the [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) that is provided by the node owner.<br> [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) of the node owner is highly important as the [seed](http://confluence.wavesplatform.com/display/WDOCS/Seed+phrase) phrase and the password of the wallet.<br>Follow these steps to generate the hash of the API key:<br> 1. Go to [Swagger web interface](http://confluence.wavesplatform.com/display/WDOCS/Node+API)<br> 2. Click on[`utils`](https://nodes.wavesnodes.com/api-docs/index.html#/utils)section<br>3. Click on the API method [`/utils/hash/secure`](https://nodes.wavesnodes.com/api-docs/index.html#!/utils/hashSecure_1)<br>4. Create a unique [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) as a string value and include it in the `message` parameter<br> 5. Get the hash of the [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) and paste it in your node configuration file<br>6. Restart the node<br>**Note.** The API key is transmitted in the HTTP header as unprotected plain text. An attacker can intercept it in the network transit and use it to transfer your money to any address! So it's highly important to protect the transmission using HTTPS or SSH port forwarding. | "" |
-| 5 | cors | Enables [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) support that is necessary for [Swagger](https://swagger.io/) and [DEX](http://confluence.wavesplatform.com/display/WDOCS/About+Waves+DEX). <br>[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) allows to safely resolve queries for other domains outside the one that is running the node.<br> **Note.** If you want to deactivate [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) support, change the default value to `no` | yes |
+| 1 | enable | Активирует REST API. <br>Для деактивации REST API укажите значение `no`. | yes |
+| 2 | `bind-address` | Назначает сетевой адрес, по которому REST API будет принимать входящие подключения. <br>**Примечание**. Не рекомендуется менять значение по умолчанию. Используйте [Nginx’s proxy pass module](http://nginx.org/ru/docs/http/ngx_http_proxy_module.html) или [SSH port forwarding](http://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html)  для внешнего доступа. | `"127.0.0.1"` |
+| 3 | `port` | Назначает номер порта, через который REST API будет ожидать подключения. | 6869 |
+| 4 | `api-key-hash` | Задает хэш [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key), который предоставляется владельцем ноды.<br> API key владельца ноды — очень важный параметр, так же как и [SEED-фраза](/waves-client/frequently-asked-questions-faq/account-management/seed-phrase.md) и пароль кошелька.<br>Для генерации хэша API key:<br> 1. Перейдите в [Swagger web interface](/waves-node/node-api.md).<br>2. Нажмите на секцию [`utils`](https://nodes.wavesnodes.com/api-docs/index.html#/utils).<br>3. Нажмите на метод [`/utils/hash/secure`](https://nodes.wavesnodes.com/api-docs/index.html#!/utils/hashSecure_1).<br>4. Создайте уникальную строку API key и включите ее в параметр `message`.<br> 5. Скопируйте хэш API key и вставьте его в файл конфигурации ноды.<br>6. Перезапустите ноду.<br>**Внимание!** API key передается в HTTP-заголовке в открытом виде. Злоумышленники могут перехватить его в процессе передачи по сети и использовать для перевода ваших средств на любой адрес. Очень важно защитить передачу данных с помощью HTTPS- или SSH-ретрансляции порта. | "" |
+| 5 | cors | Включает поддержку [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), которая важна для [Swagger](https://swagger.io/) и [Exchange](https://waves.exchange). <br>CORS позволяет безопасно получать запросы для других доменов, вне того, на котором работает нода. Для выключения поддержки CORS установите значение `no`. | yes |
 
-During REST API calls the node owner must provide the string value of his unique [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) instead of the hashed value.
-This is an example for signing a transaction that already exists in the wallet of the node owner as a CURL command:
+**Примечание**. В запросах к REST API ноды нужно указывать сам [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key), а не его хэш.
+
+Пример подписи транзакции, которая уже существует в кошельке владельца ноды в виде команды curl:
 
 ```
 curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'X-API-Key: YOUR UNIQUE API KEY'
@@ -187,45 +198,50 @@ type: 4, \
 version: 1, \
 attachment: "", \
 sender: "3P3pUKEAKxegWr3PZkGYNq1mzQQaQ5zxZbw", \
-feeAssetId: null, \ assetId: null, \
+feeAssetId: null, \
+assetId: null, \
 recipient: "3P9p39MwZ5JjwdBSYEWC6XYri4jpovzcAbs", \
 feeAsset: null, \
 timestamp: 1568020044350 \
 }' 'http://nodes.wavesnodes.com/transactions/sign'
 ```
 
-### Synchronization settings
+### Настройки синхронизации
 
-In `synchronization` section it is possible to tune different aspects of node synchronization process.
+В секции `synchronisation` можно настраивать различные аспекты процесса синхронизации ноды.
 
-Use `max-rollback` parameter to change the length of blockchain that can be discarded in case of fork detection. In your node find yourself on a fork with a lower score, it will try to switch to another fork, to do so the node will rollback few blocks. If the detected fork is longer than the given number, node prefers not to switch to another fork even if its score is bigger.
+Параметр `max-rollback` позволяет задать количество блоков, которые будут сброшены в случае обнаружения форка. Если нода обнаружит форк с более низким score, она попытается переключиться на другой форк, для этого нода откатится на несколько блоков. Если обнаруженный форк длиннее заданного значения параметра, нода не будет переключаться, даже если score другого форка выше.
 
-Parameter `max-chain-length` is used to set the size of the buffer that stores blocks of detected fork. This size should be bigger than maximum fork length.
+Параметр `max-chain-length` позволяет задать размер буфера для хранения блоков обнаруженного форка. Размер должен быть больше, чем максимальная длина форка.
 
-Parameter `synchronization-timeout` could be used to set the timeout on block download operation.
+Параметр `synchronization-timeout` позволяет задать таймаут операции загрузки блока.
 
-Use parameter `score-broadcast-interval` to set the interval between score broadcasts to the P2P network.
+Параметр `score-broadcast-interval` позволяет задать интервал между публикациями score в P2P-cети.
 
-Use parameter `score-ttl` to set the time-to-live interval of broadcasted score packets.
+Параметр `score-ttl` позволяет задать интервал time-to-live публикуемых пакетов score.
 
-Parameter `remote-score-debounce` allows to set the time to wait before receiving the next score update from a peer.
+Параметр `remote-score-debounce` позволяет задать время ожидания получения следующего обновления данных score от других узлов.
 
-In `history-replier` subsection you can configure the number of last blocks and micro-blocks cached in memory.
+В подсекции `history-replier` можно задать количество последних блоков и микроблоков, которые будут кешироваться в памяти.
 
-In `micro-block-synchronizer` subsection you could tune various parameters of Waves-NG protocol.
+В подсекции `micro-block-synchronizer` можно настроить различные параметры протокола Waves-NG.
 
-### UTX pool settings
+### Настройки UTX pool
 
-In this section, you can change the size of unconfirmed transactions pool \(`max-size` parameter\) and maximum age of transactions allowed to UTX \(`max-transaction-age`\).
+Параметр `max-size` позволяет настроить размер пула неподтвержденных транзакций (как скриптованных, так и нескриптованных).
+
+Параметр `max-scripted-size` позволяет настроить размер пула неподтверждённых скриптованных транзакций. До версии ноды 1.1.6 количество транзакций вызова скрипта не учитывалось (учитывались транзакции, для валидации которых требуется выполнить смарт-контракт).
+
+Параметр `max-transaction-age` позволяет установить максимальную давность транзакций. Транзакции, возраст которых превышает значение, установленное в этом параметре, не будут допускаться в UTX пул.
 
 <a id="rewards"></a>
-### Rewards settings
+### Настройки вознаграждения
 
-In this section, you can set the desired reward size using `desired` parameter. The setting value is specified in WAVELETs.
+В данной секции вы можете указать желаемый размер вознаграждения за майнинг в параметре `desired`. Значение указывается в [WAVELET](/blockchain/token/wavelet.md).
 
-If the value is greater than the current reward size, then miner votes for the current reward size increase; if the value is smaller — for the decrease.
+Если значение больше текущего размера вознаграждения, то майнер голосует за увеличение вознаграждения; если меньше — за уменьшение.
 
-Example of the setting that has the desired value of 7 WAVES:
+Пример: желаемый размер вознаграждения 7 WAVES:
 
 ```js
 waves {
@@ -235,6 +251,7 @@ waves {
 }  
 ```
 
-The value can be any integer in the range from 0 to 9,223,372,036,854,775,807 inclusive.
+В качестве значения может быть указано любое целое число в диапазоне от 0 до 9 223 372 036 854 775 807 включительно.
+Отрицательные значения игнорируются.
 
-See [Mining reward](/blockchain/mining/mining-reward.md) for more information.
+Подробнее см. в разделе [Вознаграждение за майнинг](/blockchain/mining/mining-reward.md).

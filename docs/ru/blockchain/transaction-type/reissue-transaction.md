@@ -1,9 +1,9 @@
-# Reissue transaction
+# Транзакция довыпуска
 
-A **reissue transaction** is a [transaction](/blockchain/transaction.md) that increases the amount of the [token](/blockchain/token.md) on the [blockchain](/blockchain/blockchain.md) and/or prohibits its reissue.
+**Транзакция довыпуска** — [транзакция](/blockchain/transaction.md), которая увеличивает количество [токена](/blockchain/token.md) на [блокчейне](/blockchain/blockchain.md) и/или запрещает его довыпуск.
 
-[Burn transaction](/blockchain/transaction-type/burn-transaction.md) decreases the amount of the token on the blockchain.
+[Транзакции сжигания токена](/blockchain/transaction-type/burn-transaction.md) уменьшает количество токена на блокчейне.
 
-## Binary format
+## Бинарный формат
 
-See the page [Reissue transaction binary format](/blockchain/binary-format/transaction-binary-format/reissue-transaction-binary-format.md).
+Смотрите страницу [Бинарный формат транзакции довыпуска](/blockchain/binary-format/transaction-binary-format/reissue-transaction-binary-format.md).

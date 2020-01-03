@@ -1,3 +1,3 @@
-# Mining account
+# Майнящий аккаунт
 
-A **mining account** is an [account](/blockchain/account.md) that [mining node](/blockchain/node/mining-node.md) uses for [signing](/blockchain/block/block-signature.md) generated blocks.
+**Майнящий аккаунт** —  [аккаунт](/blockchain/account.md), который [майнящая нода](/blockchain/node/mining-node.md) использует для [подписания](/blockchain/block/block-signature.md) сгенерированных блоков.

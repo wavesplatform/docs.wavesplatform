@@ -1,19 +1,19 @@
 # Burn
 
 > [!WARNING]
-> The structure is introduced in Standard library **version 4** that is currenlty available on [Stagenet](/blockchain/blockchain-network/stage-network.md).
+> Структура Burn представлена в [Стандартной библиотеке](/ride/script/standard-library.md) **версии 4**, которая в настоящее время доступна только на [Stagenet](/blockchain/blockchain-network/stage-network.md).
 
-Structure of a [token burn](/blockchain/transaction-type/burn-transaction.md).
+Структура [сжигания токена](/blockchain/transaction-type/burn-transaction.md).
 
-## Constructor
+## Конструктор
 
 ```ride
 Burn(assetId: ByteVector, quantity: Int)
 ```
 
-## Fields
+## Поля
 
-| # | Name | Data type | Description |
+| # | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | assetId | [ByteVector](/ride/data-types/byte-vector.md) | [ID of the token](/blockchain/token/token-id.md) to burn |
-| 2 | quantity | [Int](/ride/data-types/int.md) | Amount of the token |
+| 1 | assetId | [ByteVector](/ride/data-types/byte-vector.md) | [ID токена](/blockchain/token/token-id.md), предназначенного для сжигания |
+| 2 | quantity | [Int](/ride/data-types/int.md) | Количество токена |

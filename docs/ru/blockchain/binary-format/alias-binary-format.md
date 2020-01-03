@@ -1,10 +1,10 @@
-# Alias binary format
+# Бинарный формат псевдонима
 
-> Learn more about [alias](/blockchain/account/alias.md)
+> Узнать больше о [псевдониме](/blockchain/account/alias.md)
 
-| Field order number | Field | Field type | Field size in bytes | Comments |
+| Порядковый номер поля | Поле | Тип поля | Размер поля в байтах | Комментарии |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | Entity type | Byte | 1 | Value must be 2 |
-| 2 | [Chain ID](/blockchain/blockchain-network/chain-id.md)| Byte | 1 | Value equals:<br> 54 — for [test network](/blockchain/blockchain-network/test-network.md)<br> 57 — for [main network](/blockchain/blockchain-network/main-network.md) |
-| 3 | Number of characters in the alias | Short | 2 | |
-| 4 | Alias | Array of bytes	 | From 4 to 30 | | |
+| 1 | Тип сущности | Байт | 1 | Значение должно равняться 2 |
+| 2 | [Байт сети](/blockchain/blockchain-network/chain-id.md) | Байт | 1 | Значение равно:<br> 54 — для [тестовой сети](/blockchain/blockchain-network/test-network.md)<br> 57 — для [основной сети](/blockchain/blockchain-network/main-network.md) |
+| 3 | Число символов в псевдониме | Короткое целое | 2 | |
+| 4 | Псевдоним | Массив байтов		 | От 4 до 30 включительно | | |

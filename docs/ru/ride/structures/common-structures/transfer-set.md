@@ -1,15 +1,18 @@
 # TransferSet
 
-Structure of a list of [token](/blockchain/token.md) transfers.
+> [!WARNING]
+> Структура TransferSet не входит в [Стандартную библиотеку](/ride/script/standard-library.md) версии 4. Начиная с версии 4, используйте `ScriptTransfer` в `ScriptResult` напрямую.
 
-## Constructor
+Структура списка переводов токенов.
+
+## Конструктор
 
 ``` ride
 TransferSet(transfers: List[ScriptTransfer])
 ```
 
-## Fields
+## Поля
 
-|   #   | Name | Data type | Description |
+|   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | transfers | [List](/ride/data-types/list.md)[[ScriptTransfer](/ride/structures/common-structures/script-transfer.md)] | List of token transfers |
+| 1 | transfers | [List](/ride/data-types/list.md)[[ScriptTransfer](/ride/structures/common-structures/script-transfer.md)] | Список переводов токенов |

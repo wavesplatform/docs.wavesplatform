@@ -1,15 +1,15 @@
-# Directives
+# Директивы
 
-A **directive** is an instruction that sets the compilation mode of the [script](/ride/script.md).
+**Директива** — инструкция, которая задает режим компиляции [скрипта](/ride/script.md).
 
 ``` ride
-{-# DIRECTIVE_NAME VALUE #-}
+{-# НАЗВАНИЕ_ДИРЕКТИВЫ ЗНАЧЕНИЕ #-}
 ```
 
-## Directives list
+## Список директив
 
-| # | Directive name | Directive function | Possible values |
+| № | Название директивы | Функция директивы | Возможные значения |
 | :--- | :--- | :--- | :--- |
-| 1 | CONTENT_TYPE | Defines whether the [script body](/ride/script/script-body.md) is an [expression](/ride/base-concepts/expression.md) or a _set_ of [definitions](/ride/base-concepts/definition.md) | `EXPRESSION` — expression<br>`DAPP` — set of definitions |
-| 2 | SCRIPT_TYPE | Defines the [script context](/ride/script/script-context.md) | `ACCOUNT`<br>`ASSET` |
-| 3 | STDLIB_VERSION | Sets the version of the [Standard Library](/ride/script/standard-library.md) | `3`<br>`2`<br>`1` |
+| 1 | CONTENT_TYPE | Определяет, чем является [тело скрипта](/ride/script/script-body.md) — [выражением](/ride/base-concepts/expression.md) или _набором_ [определений](/ride/base-concepts/definition.md) | `EXPRESSION` — логическое выражение<br>`DAPP` — набор определений |
+| 2 | SCRIPT_TYPE | Определяет [контекст скрипта](/ride/script/script-context.md) | `ACCOUNT`<br>`ASSET` |
+| 3 | STDLIB_VERSION | Задает версию [Стандартной библиотеки](/ride/script/standard-library.md) | `4` (доступна только на [stagenet](/blockchain/blockchain-network/stage-network.md))<br>`3`<br>`2`<br>`1` |

@@ -1,77 +1,77 @@
-# List functions
+# Функции списка
 
-| # | Name | Description | Complexity |
+| # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
-| 1 | [getElement(List[T], Int): T](#get-element) | Gets element from the [list](/ride/data-types/list.md) by index | 2 |
-| 2 | [cons(T, List[T]): List[T]](#cons) | Inserts element to the beginning of the [list](/ride/data-types/list.md) | 2 |
-| 3 | [size(List[T]): Int](#size) | Returns the size of the [list](/ride/data-types/list.md) | 2 |
+| 1 | [getElement(List[T], Int): T](#get-element)  | Получает элемент [списка](/ride/data-types/list.md) по индексу | 2 |
+| 2 | [cons(T, List[T]): List[T]](#cons)  | Вставляет элемент в начало [списка](/ride/data-types/list.md) | 2 |
+| 3 | [size(List[T]): Int](#size)  | Возвращает размер [списка](/ride/data-types/list.md) | 2 |
 
-## getElement(List[T], Int): T 
+## getElement(List[T], Int): T<a id="get-element"></a>
 
-Gets element from the [list](/ride/data-types/list.md) by index.
+Получает элемент [списка](/ride/data-types/list.md) по индексу.
 
 ``` ride
 getElement(arr: List[T], pos: Int): T
 ```
 
-### Parameters
+### Параметры
 
 #### `arr`: [List[T]](/ride/data-types/list.md)
 
-List.
+Список.
 
 #### `pos`: Int
 
-Index of the element.
+Индекс элемента.
 
-### Examples
+### Примеры
 
 ```ride
-getElement(["Ride", "on", "Waves"], 0)  # Returns "Ride"
-getElement([false, true], 1) # Returns true
+getElement(["Ride", "on", "Waves"], 0)  # Возвращает "Ride"
+getElement([false, true], 1) # Возвращает true
 ```
 
-## <a id="cons"></a>cons(T, List[T]): List[T] 
+## cons(T, List[T]): List[T] <a id="cons"></a>
 
-Inserts element to the beginning of the [list](/ride/data-types/list.md).
+Вставляет элемент в начало [списка](/ride/data-types/list.md).
 
 ``` ride
 cons(head:T, tail: List[T]): List[T]
 ```
 
-### Parameters
+### Параметры
 
 #### `head`: T
 
-Element.
+Элемент.
 
 #### `tail`: [List[T]](/ride/data-types/list.md)
 
-List.
+Список.
 
-### Examples
+### Примеры
 
 ```ride
-cons("Ride", ["on", "Waves"]) # Returns ["Ride", "on", "Waves"]
-cons(1, [2, 3, 4, 5]) # Returns [1, 2, 3, 4, 5]
+cons("Ride", ["on", "Waves"]) # Возвращает ["Ride", "on", "Waves"]
+cons(1, [2, 3, 4, 5]) # Возвращает [1, 2, 3, 4, 5]
 ```
 
-## <a id="size"></a>size(List[T]): Int
+## size(List[T]): Int <a id="size"></a>
 
-Returns the size of the [list](/ride/data-types/list.md).
+Возвращает размер [списка](/ride/data-types/list.md).
 
 ``` ride
-size(arr: List[T]): Int
+size(arr: List[T]): Int
 ```
 
-### Parameters
+### Параметры
 
 #### `arr`: [List[T]](/ride/data-types/list.md)
 
-List.
+Список.
 
-### Examples
+### Примеры
 
 ```ride
-size(["Ride", "on", "Waves"]) # Returns 3
+size(["Ride", "on", "Waves"]) # Возвращает 3
 ```

@@ -1,45 +1,60 @@
-# Activation Protocol
+# Протокол активации
 
-# 1. Features
+# 1. Особенности и функции
 
-New versions of Waves software bring new features. Those new features should be activated by many nodes at the same time. Before now features were activated by timestamps. That put node owners in a tight time frame to update their nodes. Failure to update a node in time led to the unintentional participation to a fork. Features Activation Protocol gives the Waves community the ability to apply new features with a suitable pace. Or not apply some of them at all.
+Новая версия программного обеспечения Waves содержит новые функции, которые должны быть активированы нодами в одно и то же время.
+Раньше функции активировались по таймстемпу, и это ставило владельцев нод в жесткие рамки по срокам проведения обновления. 
+Неспособность обновить ноду вовремя приводила к непреднамеренному форку. Протокол активации дает сообществу Waves 
+возможность применять новые функции в своем темпе или совсем не применять некоторые из них.
 
-## 1.1 Features identification
+## 1.1 Особенности идентификации
 
-Each new feature will be assigned a unique sequential number. List of new features with their IDs will be provided with each new release. Feature support by software
+Каждая новая функция имеет свой уникальный порядковый номер. Список новых функций с их идентификаторами представлен в каждом релизе и каждая функция поддерживается программным обеспечением.
 
-New features come with new versions of node’s software. Different versions could operate identically until activation of new features. After activation of a feature network will diverge in two parts: nodes that implement this feature and nodes that does not.
+Новые функции поставляются с новыми версиями программного обеспечения ноды. До активации новых функций разные версии могут работать 
+одинаково. После активации функции сеть делится две части: ноды, которые поддерживают эту функцию, и ноды, которые этого не делают.
 
-## 1.2 Feature states on blockchain
+## 1.2 Состояния функции в блокчейне 
 
-State of features is stored on the blockchain. The feature can be in one of three states. The initial state called Defined. Every feature, even non-existent, has it state initially. The next state - Approved. That means the feature received a required number of votes from miners. After a defined period \(number of blocks\) approved feature became Activated. From that moment \(block\) nodes that implement the feature start to operate in a new way.
+Состояние функций хранится в блокчейне. Функция может находиться в одном из трех состояний: исходное состояние называется 
+Defined (определена). Каждая функция, даже несуществующая, имеет начальное состояние. Следующее состояние - Approved (одобрена). 
+Это означает, что функция получила необходимое количество голосов от майнеров. По истечении определенного времени \(количества блоков\) 
+подтвержденная функция становится Activated. С этого момента \(блока\), ноды, которые поддерживают эту функцию, начинают работать по-новому.
 
-# 2. Voting
+# 2. Голосование
 
-Voting is performed by miners. If miner supports some feature and wants to vote "yes" it has to put its number \(ID\) in the list of supported features in the configuration file. From now on every block forged by this miner will contain the IDs of supported features. Every 10000 blocks \(this number may differ on other blockchains\) the node sums up the number of blocks with support for a feature. If a feature was supported in more than 80% of blocks during the last calculation period it became Approved. Otherwise, the voting continues and could take another voting period \(10k blocks for Mainnet\) or more.
+Голосование осуществляется майнерами. Если майнер поддерживает функцию и хочет за нее проголосовать, он должен добавить её номер \(ID\) 
+в лист поддерживаемых функций в конфиге. Сейчас каждый блок, генерируемый майнером, содержит ID-шники поддерживаемых функций. Каждые
+10000 блоков \(это число может меняться для других блокчейнов\) нода суммирует число блоков, поддерживающих функцию. Если функция 
+поддерживается более чем 80% блоков за последний период подсчета голосов, она становится Approved. В противном случае голосование 
+продолжается и может продолжиться в следующий период голосования \(10000 блоков для Mainnet\) или более.
 
-If the node sees that a new feature was approved, but the node does not implement it, it will log the warning message about the upcoming activation of an unsupported feature.
+Если нода видит, что одобренная функция, в ней не реализуется, она \(нода\) логирует предупреждающее сообщение о предстоящей 
+активации неподдерживаемой функции.
 
-Before an approved feature become Activated another 10000 blocks have to pass. This period intended for the update of non-mining nodes to a new version.
+Перед тем, как подтвержденная функция активируется, необходимо, чтобы прошло еще 10000 блоков. Этот период предназначен для обновления 
+не-майнящих нод до новой версии.
 
-If a new feature was activated but the node was not updated to support it, the node will shutdown itself \(default behavior\) and log the error about activation of the unsupported feature.
+Если новая функция была активирована, но нода не обновилась для ее поддержки, нода выключается сама \(поведение по умолчанию\) 
+и логирует ошибку активации неподдерживаемой функции.
 
-**Warning**
+**ПРЕДУПРЕЖДЕНИЕ**
 
-```
- On the Testnet approval and activation periods were set to 3000 blocks each.
- It will allow a faster activation of new features for testing purposes.
-```
+***
+ На Testnet подтверждение и активация функций занимают период в 3000 блоков каждый.
+ Это позволяет быстрее активировать новые функции для целей тестирования.
+***
 
-# 3. Configuration file changes
+# 3. Изменение конфига
 
-The new configuration file section `features` was introduced. It contains two parameters:
+В конфиг был добавлен новый раздел `features`. Он содержит два параметра:
 
-* auto-shutdown-on-unsupported-feature could be yes or no. If this setting is turned on, the node will be shut down on activation of a feature that is not implemented by node’s codebase. By default, it set to yes.
+* auto-shutdown-on-unsupported-feature может быть yes или no. Если этот параметр включен, нода будет отключена при активации функции, 
+которая не реализована кодовой базой ноды. По умолчанию параметр установлен в yes.
 
-* supported contains the list of features IDs, that node owner is supporting. By default, the list is empty.
+* поддерживается список идентификаторов функций, которые поддерживает владелец ноды. По умолчанию список пуст.
 
-Below you can see an example of the new section.
+Пример заполнения новой секции конфига:
 
 ```js
  features {
@@ -48,9 +63,9 @@ Below you can see an example of the new section.
  }
 ```
 
-# 4. Changes to REST API
+# 4. Изменения в REST API
 
-To support the Features Activation Protocol new API method was added to the node/activation route. In response, the JSON that describes the current state of features will be returned.
+Чтобы поддержать протокол активации, был добавлен новый API метод в node/activation. В ответ возвращается JSON, который описывает текущее состояние функций.
 
 ```js
  {
@@ -85,35 +100,41 @@ To support the Features Activation Protocol new API method was added to the node
  }
 ```
 
-Fields of returned object:
+Поля возвращаемого объекта:
 
-* `height` - current blockchain height on node
+* `height` - Текущая высота блокчейна на ноде
 
-* `approvalInterval` - Approval or Activation periods length in blocks
+* `approvalInterval` - Длина периода подтверждения и активации в блоках
 
-* `approvalThreshold` - Number of blocks that supports a feature to approve it
+* `approvalThreshold` - Число блоков, которые поддерживают функцию и подтверждают её
 
-* `nextCheck` - Next height to calculate approval or activation statuses of features
+* `nextCheck` - Высота на которой будет производиться следующий расчет подтверждений или статусов активации функций
 
-* `features` - List of all features
+* `features` - Лист всех функций
 
-* `id` - Feature ID
+* `id` - ID функции
 
-* `blockchainStatus` - Current status of the feature on the blockchain, could be DEFINED, VOTING, APPROVED or ACTIVATED
+* `blockchainStatus` - Текущий статус функции на блокчейне, может быть DEFINED, VOTING, APPROVED или ACTIVATED
 
-* `nodeStatus` - Node feature status, could be SUPPORTED or UNSUPPORTED
+* `nodeStatus` - Статус функции на ноде, мождет быть SUPPORTED или UNSUPPORTED
 
-* `supportBlocks` - Number of blocks that contains support for the feature
+* `supportBlocks` - Число блоков, которые поддерживают функцию
 
-# 5. Example
+# 5. Пример
 
-In version 1.0.0 a new cool feature was introduced. It has ID 123.
+Допустим, в версии 1.0.0 была введена новая интересующая нас функция, её ID равен 123.
 
-Mining pool 'SuperMiners' with a total stake of 40% supports the feature. Administrator of 'SuperMiners' updates the node from version 0.9.9 to 1.0.0. And adds 123 to the list of supported features in the configuration file. 'SuperMiners' node starts to put ID 123 into each mined block since height 1228765. But no other miners supported the feature but some of them updated their nodes to version 1.0.0.
+Майнинг пул 'SuperMiners' с общей долей владения 40% поддерживает функцию. Администратор 'SuperMiners' обновляет 
+ноду с версии 0.9.9 до 1.0.0 и добавляет 123 в лист поддерживаемых функций в конфиге. Нода 'SuperMiners' начинает класть ID равный 123 
+в каждый смайненый блок, начиная с высоты 1228765. Другие майнеры поддерживают функцию, но только некоторые из них обновили ноды до версии 1.0.0.
 
-At block number 1230000 nodes calculated that only 50% of blocks contains support for feature 123. So, the status of feature stays unchanged, the voting was unsuccessful for the period and it continues.
+На блоке номер 1230000 ноды посчитали, что только 50% блоков поддерживают функцию 123. Таким образом, статус функции остается неизменным, голосование 
+за этот период не увенчалось успехом, и, следовательно, продолжается.
 
-During the next 10000 blocks 'SuperMiners' convinced few smaller miners to support the feature. On block 1240000 it turns out that the feature is supported in 9102 of last 10000 blocks. That means 91%. So, the status of the feature changed to approved. At this moment nodes that run on version 0.9.9 and earlier warn their owners about the approval of an unsupported feature.
+В течение следующих 10000 блоков 'SuperMiners' убедили некоторых майнеров поменьше поддержать эту функцию. На блоке 1240000 оказывается, 
+что функция поддерживается в 9102 из последних 10000 блоков, то есть в 91%. Таким образом, статус функции изменился на одобренный. 
+В данный момент ноды, работающие на версии 0.9.9 и на более ранних, предупреждают своих владельцев об утверждении неподдерживаемой 
+функции.
 
-At block 1250000 the feature number 123 will be activated and nodes version 1.0.0 and above start use it. Nodes on earlier versions will stop working.
-
+На момент генерации 1250000 блока функция 123 будет активирована и её начнут использовать ноды версии 1.0.0 и выше. 
+Ноды более ранних версий перестанут работать.

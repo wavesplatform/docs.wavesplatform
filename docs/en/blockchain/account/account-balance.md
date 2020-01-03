@@ -46,11 +46,11 @@ You can view your account balance in Waves Wallet, Waves DEX, and also in the br
 
 Example of the Wallet window with the list of tokens on the account:
 
-![](./_assets/account-balance.png" alt="faucet" width="300"/>
+<img src="img/account-balance.png" alt="faucet" width="300"/>
 
 You can view the list of tokens on account in [Waves Explorer](https://wavesexplorer.com/) — for that find the account by its [address](/blockchain/account/address.md) or [alias](/blockchain/account/alias.md) and go to the **Assets** tab.
 
-![](./_assets/tokens.png" alt="faucet" width="550"/>
+<img src="img/tokens.png" alt="faucet" width="550"/>
 
 ## Retrieving account balance using Node API
 You can get account balance in WAVES by using the Node API request.

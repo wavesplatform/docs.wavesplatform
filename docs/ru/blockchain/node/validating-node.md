@@ -1,3 +1,3 @@
-# Validating node
+# Валидирующая нода
 
-A **validating node** is a [node](/blockchain/node.md) that [validates](/blockchain/transaction/transaction-validation.md) transactions.
+**Валидирующая нода** — [нода](/blockchain/node.md), которая [валидирует](/blockchain/transaction/transaction-validation.md) транзакции.

@@ -1,316 +1,333 @@
-<h1>Glossary</h1>
+<h1>Словарь терминов</h1>
 
-<a href="#A-letter">A</a> | <a href="#B-letter">B</a> | <a href="#C-letter">C</a> | <a href="#D-letter">D</a> | <a href="#E-letter">E</a> | <a href="#F-letter">F</a> | <a href="#G-letter">G</a> | <a href="#H-letter">H</a> | I | J | <a href="#K-letter">K</a> | <a href="#L-letter">L</a> | <a href="#M-letter">M</a> | <a href="#N-letter">N</a> | <a href="#O-letter">O</a> | <a href="#P-letter">P</a> | Q | <a href="#R-letter">R</a> | <a href="#S-letter">S</a> | <a href="#T-letter">T</a> | <a href="#U-letter">U</a> | <a href="#V-letter">V</a> | <a href="#W-letter">W</a> | X | Y | Z
+<a href="#cA-letter">А</a> | <a href="#cB-letter">Б</a> | <a href="#cV-letter">В</a> | <a href="#cG-letter">Г</a> | <a href="#cD-letter">Д</a> | E | Ж | <a href="#cZ-letter">З</a> | И | Й | <a href="#cK-letter">К</a> | <a href="#cL-letter">Л</a> | <a href="#cM-letter">М</a> | <a href="#cN-letter">Н</a> | <a href="#cO-letter">О</a> | <a href="#cP-letter">П</a> | Р | <a href="#cS-letter">С</a> | <a href="#cT-letter">Т</a> | У | Ф | <a href="#cKh-letter">Х</a> | Ц | Ч | <a href="#cSh-letter">Ш</a> | Щ | <a href="#cEe-letter">Э</a> | Ю | Я
 
-<h2>A</h2><a id="A-letter"></a>
+A | B | C | <a href="#D-letter">D</a> | <a href="#E-letter">E</a> | <a href="#F-letter">F</a> | G | H | I | J | <a href="#K-letter">K</a> | <a href="#L-letter">L</a> | M | <a href="#N-letter">N</a> | O | <a href="#P-letter">P</a> | Q | <a href="#R-letter">R</a> | S | <a href="#T-letter">T</a> | <a href="#U-letter">U</a> | V | <a href="#W-letter">W</a> | X | Y | Z
 
-<h3>Account</h3><a id="account-data-storage"></a>
+<h2>А</h2><a id="cA-letter"></a>
 
-An **account** is a [cryptographically connected](https://en.wikipedia.org/wiki/Public-key_cryptography) pair of [public](#public-key)
- and [private keys](#private-key) on the [blockchain](#blockchain). Accounts uniquely correlate [transactions](#transaction) and [orders](#order) with their senders.
+<h3>Адрес</h3><a id="address"></a>
 
-<h3>Account data storage</h3><a id="account-data-storage"></a>
+**Адрес** — уникальный идентификатор [аккаунта](#account). Адрес может быть представлен в виде буквенно-цифровой строки.
 
-An **account data storage** is the store of data records in the key-value format associated with the [account](#account). Each account has single data storage. The size of the account data storage is unlimited.
+<h3>Аккаунт</h3><a id="account"></a>
 
-<h3>Account script</h3><a id="account-script"></a>
+**Аккаунт** — [криптографически связанная](https://ru.wikipedia.org/wiki/Криптосистема_с_открытым_ключом) пара [открытого](#public-key) и [закрытого ключей](#private-key) на [блокчейне](#blockchain). Аккаунты однозначно соотносят [транзакции](#transaction) и [ордера](#order) с их отправителями.
 
-An **account script** is a [Ride](#ride) [script](#script) that has the following directives:
+<h3>Ассет</h3><a id="asset"></a>
+
+**Ассет** — синоним термина [токен](#token).
+
+<h2>Б</h2><a id="cB-letter"></a>
+
+<h3>Блок</h3><a id="block"></a>
+
+**Блок** — звено цепочки [блокчейна](#blockchain). Блок содержит [транзакции](#transaction): от 0 до 6000 включительно. Максимальный размер блока — 1 Мбайт.
+
+<h3>Блокчейн</h3><a id="blockchain"></a>
+
+**Блокчейн** — непрерывная последовательная цепочка [блоков](#block), связанных с помощью криптографии.
+
+<h2>В</h2><a id="cV-letter"></a>
+
+<h3>Высота блока</h3><a id="block-height"></a>
+
+**Высота блока** — порядковый номер [блока](#block) в [блокчейне](#blockchain).
+
+<h3>Высота блокчейна</h3><a id="blockchain-height"></a>
+
+**Высота блокчейна** — порядковый номер последнего [блока](#block) в [блокчейне](#blockchain).
+
+<h3>Валидирующая нода</h3><a id="validating-node"></a>
+
+**Валидирующая нода** — [нода](#node), которая валидирует [транзакции](#transaction).
+
+<h2>Г</h2><a id="cG-letter"></a>
+
+<h3>Генезис-блок</h3><a id="genesis-block"></a>
+
+**Генезис-блок** (или генезис) — самый первый [блок](#block) [блокчейна](#blockchain). В генезис-блоке содержится одна или несколько [транзакций генезиса](/blockchain/transaction-type/genesis-transaction.md).
+
+<h2>Д</h2><a id="cD-letter"></a>
+
+<h3>Децентрализованное приложение</h3><a id="decentralized-app"></a>
+
+**Децентрализованное приложение** — приложение, которое хранится и исполняется в сети [блокчейна](#blockchain).
+
+<h2>З</h2><a id="cZ-letter"></a>
+
+<h3>Закрытый ключ</h3><a id="private-key"></a>
+
+**Закрытый ключ** (или приватный ключ) — один из пары ключей [аккаунта](#account). Владелец аккаунта подписывает [транзакцию](#transaction) закрытым ключом перед тем, как ее отправить. В результате получается цифровая подпись транзакции.
+
+<h2>К</h2><a id="cK-letter"></a>
+
+<h3>Карточка оракула</h3><a id="oracle-card"></a>
+
+**Карточка оракула** — публичное описание [оракула](#oracle) в [блокчейне](#blockchain) по [стандартизированному протоколу](https://confluence.wavesplatform.com/pages/viewpage.action?pageId=1640860360) в виде [транзакции данных](/blockchain/transaction-type/data-transaction.md).
+
+<h3>Консенсус</h3><a id="consensus"></a>
+
+**Консенсус** — набор правил, в соответствии с которыми работает [блокчейн](#blockchain). Waves использует [LPoS-консенсус](#lpos).
+
+<h3>Кошелек</h3><a id="wallet"></a>
+
+**Кошелек** — раздел онлайн-сервиса [Waves DEX](#dex). Позволяет получать и отправлять токены, просматривать курсы криптовалют и выполненные транзакции, а также давать WAVES в [лизинг](#leasing).
+
+<h3>Криптовалюта</h3><a id="cryptocurrency"></a>
+
+**Криптовалюта** — разновидность [цифровой валюты](https://ru.wikipedia.org/wiki/Цифровая_валюта), создание и контроль за которой базируются на криптографических методах.
+
+<h2>Л</h2><a id="cL-letter"></a>
+
+<h3>Лизинг</h3><a id="leasing"></a>
+
+**Лизинг** — временная обратимая передача [WAVES](#waves) с одного [аккаунта](#account) на другой c целью [увеличения стабильности и безопасности сети](/waves-client/account-management/waves-leasing.md), а также потенциального получения [вознаграждения за майнинг](/blockchain/mining/mining-reward.md). Важно отметить, что фактической передачи токенов WAVES не происходит, они остаются на балансе отправителя, однако они "заморожены" и не могут участвовать в операциях покупки, продажи, как и не могут быть отправлены на другой аккаунт. Переданные в лизинг [токены](#token) обеспечивают получателю лизинга бо́льшую вероятность [смайнить](#mining) очередной [блок](#block). Получатель лизинга может делиться доходом от майнинга с тем, кто предоставил ему WAVES в лизинг. Однако платформа Waves не регулирует процесс выплат по [LPoS](#lpos) майнингу, это остается на усмотрение [майнера](#miner). В любой момент передавший может "разморозить" токены  с помощью [транзакции закрытия лизинга](/blockchain/transaction-type/lease-cancel-transaction.md).
+
+<h2>М</h2><a id="cM-letter"></a>
+
+<h3>Майнер</h3><a id="miner"></a>
+
+**Майнер** — владелец [майнящей ноды](#mining-node).
+
+<h3>Майнинг</h3><a id="mining"></a>
+
+**Майнинг** — процесс генерации [блока](#block) [майнящей нодой](#mining-node), в результате которого в [блокчейн](#blockchain) добавляется новый блок и происходит эмиссия токенов [WAVES](#waves). За генерацию блоков [майнеры](#miner) получают вознаграждение за майнинг, а также [комиссии за транзакции](/blockchain/transaction/transaction-fee.md), согласно правилам протокола [Waves-NG](/blockchain/waves-protocol/waves-ng-protocol.md).
+
+<h3>Майнящий аккаунт</h3><a id="mining-account"></a>
+
+**Майнящий аккаунт** — [аккаунт](#account), который [майнящая нода](#mining-node) использует для [подписания](#block-signature) сгенерированных [блоков](#block).
+
+<h3>Майнящая нода</h3><a id="mining-node"></a>
+
+**Майнящая нода** — [нода](#node), которая может осуществлять [майнинг](#mining). Каждая [майнящая нода](#mining-node) является [валидирующей нодой](#validating-node).
+
+<h3>Матчер</h3><a id="matcher"></a>
+
+**Матчер** — pасширение [ноды](#node), которое исполняет [ордера](#order) на бирже [DEX](#dex).
+
+<h3>Мультиподпись</h3><a id="multisignature"></a>
+
+**Мультиподпись** — схема реализации электронной подписи, которая требует использования нескольких [закрытых ключей](#private-key) в качестве условия выполнения транзакции.
+
+<h2>Н</h2><a id="cN-letter"></a>
+
+<h3>Нода</h3><a id="node"></a>
+
+**Нода** (или узел) — [хост](https://ru.wikipedia.org/wiki/Хост), который подключен к [сети блокчейна](#blockchain-network) с помощью приложения [Waves Node](https://github.com/wavesplatform/Waves). Функциями ноды являются: хранение [блоков](#block), валидация [транзакций](#transaction), отправка транзакций.
+
+<h2>О</h2><a id="cO-letter"></a>
+
+<h3>Оракул</h3><a id="oracle"></a>
+
+**Оракул** — поставщик данных из внешнего мира в [блокчейн](#blockchain).
+
+<h3>Ордер</h3><a id="order"></a>
+
+**Ордер** (или биржевая заявка) — инструкция клиенту на покупку или продажу [токена](#token) на [DEX](#dex).
+
+<h3>Основная сеть</h3><a id="mainnet"></a>
+
+**Основная сеть** (или мейннет) — основная сеть [блокчейна](#blockhain) Waves.
+
+<h3>Открытый ключ</h3><a id="public-key"></a>
+
+**Открытый ключ** (или публичный ключ) — один из пары ключей [аккаунта](#account). Открытый ключ однозначно соотносит [транзакцию](#transaction) с ее отправителем. С помощью открытого ключа проверяется верность цифровой подписи транзакции.
+
+<h2>П</h2><a id="cP-letter"></a>
+
+<h3>Подпись блока</h3><a id="block-signature"></a>
+
+**Подпись блока** — [хеш](#hash), который [майнящая нода](#mining-node) получает, когда подписывает сгенерированный [блок](#block) [закрытым ключом](#private-key) [майнящего аккаунта](#mining-account).
+
+<h3>Псевдоним</h3><a id="signature"></a>
+
+**Псевдоним** — короткое, удобное для запоминания, имя [адреса](#address). Не может быть двух псевдонимов с одинаковыми именами. У одного адреса может быть несколько псевдонимов.
+
+<h2>С</h2><a id="cS-letter"></a>
+
+<h3>Сеть блокчейна</h3><a id="blockchain-network"></a>
+
+Сеть блокчейна — компьютерная сеть, которая состоит из [нод](#node).
+
+<h3>Секретная фраза</h3><a id="seed"></a>
+
+**Секретная фраза** (или seed)— набор символов (обычно 15 английских слов с пробелами между словами), который позволяет получить доступ к Waves [адресу](#address) и, соотвественно, к средствам вашего [аккаунта](#account). При регистрации аккаунта вам предлагается сохранить вашу секретную фразу.
+
+<h3>Скрипт</h3><a id="script"></a>
+
+**Скрипт** — исходный код на языке [Ride](#ride). Существует три типа скриптов: [dApp-скрипты](#dapp-script), [скрипты аккаунтов](#account-script), [скрипты ассетов](#asset-script).
+
+<h3>Скрипт аккаунта</h3><a id="account-script"></a>
+
+**Скрипт аккаунта** — [скрипт](#script) на [Ride](#ride), который имеет следующие директивы:
 
 ```ride
 {-# CONTENT_TYPE EXPRESSION #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 ```
 
-The account script is attached to the [account](#account) using the [set script transaction](/blockchain/transaction-type/set-script-transaction.md). Only one script can be attached to an [account](#account). An account with an account script attached is called a [smart account](#smart-account).
+Скрипт аккаунта прикрепляется к [аккаунту](#account) с помощью [транзакции установки скрипта](/blockchain/transaction-type/set-script-transaction.md). К аккаунту можно прикрепить только один скрипт. Аккаунт с прикрепленным к нему скриптом аккаунта называется [смарт-аккаунтом](#smart-account).
 
-<h3>Address</h3><a id="address"></a>
+<h3>Скрипт ассета</h3><a id="asset-script"></a>
 
-An **address** is a unique [account](#account) identifier. The address can be represented as an alphanumeric string.
-
-<h3>Airdrop</h3><a id="airdrop"></a>
-
-An **airdrop** is a simultaneous sending of [tokens](#token) to multiple [addresses](#address). As a rule, the airdrop is used as an incentive for holders of a certain token as part of a marketing campaign to promote a project, increase its recognition, and attract investors.
-
-<h3>Alias</h3><a id="alias"></a>
-
-An **alias** is a short, easy-to-remember [address](#address) name. There cannot be two aliases with the same name. A single address can have multiple aliases.
-
-<h3>Asset</h3><a id="asset"></a>
-
-An asset is a synonym for the [token](#token).
-
-<h3>Asset script</h3><a id="asset-script"></a>
-
-An **asset script** is a [Ride](#ride) [script](#script) that has the following directives:
+Скрипт ассета — [скрипт](#script) на [Ride](#ride), который имеет следующие директивы:
 
 ```ride
 {-# CONTENT_TYPE EXPRESSION #-}
 {-# SCRIPT_TYPE ASSET #-}
 ```
 
-The asset script is attached to the [asset](#asset) using the [set asset script transaction](/blockchain/transaction-type/set-asset-script-transaction.md). You can attach a script to an asset only at the time the asset creation. However, you can change the script later, if needed. An asset with a script attached to it is called a [smart asset](#smart-asset).
+Скрипт ассета прикрепляется к ассету с помощью [транзакции установки скрипта ассета](/blockchain/transaction-type/set-asset-script-transaction.md). Прикрепить скрипт к ассету можно только в момент создания ассета. Ассет с прикрепленным к нему скриптом называется [смарт-ассетом](#smart-asset).
 
-<h2>B</h2><a id="B-letter"></a>
+<h3>Смарт-аккаунт</h3><a id="smart-account"></a>
 
-<h3>Block</h3><a id="block"></a>
+**Смарт-аккаунт** — [аккаунт](#account), к которому прикреплён [скрипт аккаунта](#account-script). К аккаунту можно прикрепить только один скрипт. Скрипт аккаунта прикрепляется к аккаунту с помощью [транзакции установки скрипта](/blockchain/transaction-type/set-script-transaction.md).
 
-A **block** is a unit of the [blockchain](#blockchain) chain. The block contains [transactions](#transaction): from 0 to 6000 inclusive. The maximum block size is 1 MB.
+<h3>Смарт-ассет</h3><a id="smart-asset"></a>
 
-<h3>Blockchain</h3><a id="blockchain"></a>
+**Смарт-ассет** — [токен](#token), к которому прикреплён [скрипт ассета](#asset-script).
 
-A **blockchain** is a continuous sequential chain of [blocks](#block), that are linked using cryptography.
+<h2>Т</h2><a id="cT-letter"></a>
 
-<h3>Block height</h3><a id="block-height"></a>
+<h3>Тестовая сеть</h3><a id="testnet"></a>
 
-A **block height** is a [block](#block) sequence number in the [blockchain](#blockchain).
+**Тестовая сеть** (или тестнет) — тестовая cеть [блокчейна](#blockchain) Waves, которая используется разработчиками для тестирования своих продуктов, а пользователями — для знакомства с блокчейном.
 
-<h3>Blockchain height</h3><a id="blockchain-height"></a>
+<h3>Токен</h3><a id="token"></a>
 
-A **blockchain height** is a sequence number of the last [block](#block) in the [blockchain](#blockchain).
+**Токен** — объект на [блокчейне](#blockchain), который представляет другой объект из физического или виртуального мира или абстрактное понятие.
 
-<h3>Blockchain network</h3><a id="blockchain-network"></a>
+<h3>Транзакция</h3><a id="transaction"></a>
 
-A **blockchain network** is a computer network that consists of [nodes](#node).
+**Транзакция** — действие на [блокчейне](#blockchain) от имени [аккаунта](#account). Транзакции можно отправлять только с аккаунта — таким образом, любую транзакцию можно соотнести с каким-либо аккаунтом.
 
-<h3>Block signature</h3><a id="block-signature"></a>
+<h3>Транзакция генезиса</h3><a id="genesis-transaction"></a>
 
-A **block signature** is a [hash](#hash) that the [mining node](#mining-node) receives when it signs the generated [block](#block) with the [private key](#private-key) of the [mining account](#mining-account).
+**Транзакция генезиса** — [транзакция](#transaction) [генезис-блока](#genesis-block), которая начисляет [WAVES](#waves) на [аккаунт](#account). Транзакции генезиса отвечают за первоначальное распределение WAVES между аккаунтами во время создания [блокчейна](#blockchain).
 
-<h2>C</h2><a id="C-letter"></a>
+<h2>Х</h2><a id="cKh-letter"></a>
 
-<h3>Consensus</h3><a id="consensus"></a>
+<h3>Хеш</h3><a id="hash"></a>
 
-The **consensus** is a set of rules in accordance with which [blockchain](#blockchain) operates. Waves uses the [LPoS consensus](#lpos).
+**Хеш** — результат вычисления [хеш-функции](#hash-function).
 
-<h3>Cryptocurrency</h3><a id="cryptocurrency"></a>
+<h3>Хеш-функция</h3><a id="hash-function"></a>
 
-A **cryptocurrency** is a type of [digital currency](https://en.wikipedia.org/wiki/Digital_currency), the creation and control of which is based on cryptographic methods.
+**Хеш-функция** (или функция свертки) — функция, осуществляющая преобразование массива входных данных произвольной длины в битовую строку фиксированной длины, выполняемое определенным алгоритмом.
+
+<h3>Хранилище данных аккаунта</h3><a id="account-data-storage"></a>
+
+**Хранилище данных аккаунта** — ассоциированное с [аккаунтом](#account) хранилище записей данных в формате ключ-значение. У каждого аккаунта есть единственное хранилище данных. Размер хранилища данных аккаунта неограничен.
+
+<h2>Ш</h2><a id="cSh-letter"></a>
+
+<h3>Шлюз</h3><a id="gateway"></a>
+
+**Шлюз** — централизованная платёжное решение, которое позволяет переводить [криптовалюты](#cryptocurrency) из одного [блокчейна](#blockchain) в другой и обратно.
+
+<h2>Э</h2><a id="cEe-letter"></a>
+
+<h3>Эйдроп</h3><a id="airdrop"></a>
+
+**Эйдроп** — одновременная отправка [токенов](#token) по множеству [адресов](#address). Как правило, эйрдроп применяется в качестве поощрения держателей определенного токена в рамках маркетинговой кампании с целью продвижения проекта, повышения его узнаваемости, а также привлечения инвесторов.
+
+<h3>Экспериментальная сеть</h3><a id="stagenet"></a>
+
+**Экспериментальная сеть** (или стейджнет) — [cеть блокчейна](#blockchain-network) Waves, которая используется для экспериментов, промежуточного тестирования новой функциональности, а также предоставления доступа комьюнити к промежуточным релизам. Важно учитывать, что данная сеть нестабильна, возможны частые откаты данных блокчейна до N-ой высоты в прошлом.
 
 <h2>D</h2><a id="D-letter"></a>
 
 <h3>dApp</h3><a id="dapp"></a>
 
-A **dApp** is an [account](#account) with the [dApp script](#dapp-script) attached.
+**dApp** — [аккаунт](#account), к которому прикреплён [dApp-скрипт](#dapp-script).
 
-<h3>dApp script</h3><a id="dapp-script"></a>
+<h3>dApp-скрипт</h3><a id="dapp-script"></a>
 
-A **dApp script** is a [Ride](#ride) [script](#script) used to create [dApp](#dapp). The dApp script has the following directive:
+**dApp-скрипт** — [скрипт](#script) на [Ride](#ride), который используется для создания [dApp](#dapp). dApp-скрипт имеет следующую директиву:
 
 ```ride
 {-# CONTENT_TYPE DAPP #-}
 ```
 
-dApp-script can be attached to the [account](#account) using the [set script transaction](/blockchain/transaction-type/set-script-transaction.md), and, as a result, the dApp will be created.
-
-<h3>Decentralized application</h3><a id="decentralized-application"></a>
-
-A **decentralized application** is an application that is stored and executed on the [blockchain network](#blockchain-network).
+dApp-скрипт можно привязать к [аккаунту](#account) с помощью [транзакции установки скрипта](/blockchain/transaction-type/set-script-transaction.md), создав таким образом dApp.
 
 <h3>DEX</h3><a id="dex"></a>
 
-**DEX** (or Waves DEX) is a decentralized exchange (https://dex.wavesplatform.com) that allows users to issue and trade [tokens](#token) within the Waves [blockchain](#blockchain).
+**DEX** (или Waves DEX) — децентрализованная биржа (https://dex.wavesplatform.com), которая позволяет торговать [токенами](#token) в рамках [блокчейна](#blockchain) Waves.
 
 <h2>E</h2><a id="E-letter"></a>
 
 <h3>Explorer</h3><a id="explorer"></a>
 
-**Explorer** (or Waves Explorer) is an online service (https://wavesexplorer.com) that displays Waves [blockchain](#blockchain) data in a human-readable form.
+**Explorer** (или Waves Explorer) — онлайн-сервис (https://wavesexplorer.com), отображающий в понятном для человека виде данные [блокчейна](#blockchain) Waves.
 
 <h2>F</h2><a id="F-letter"></a>
 
 <h3>Faucet</h3><a id="faucet"></a>
 
-A **test network faucet** (or faucet) is a [Waves Explorer](#explorer) tool that refills the [test network](#test-network) [accounts](#account) with the [WAVES](#waves) test [tokens](#token). For one recharge, the user receives 10 testnet WAVES.
-
-<h2>G</h2><a id="G-letter"></a>
-
-<h3>Gateway</h3><a id="gateway"></a>
-
-**Gateway** is a centralized payment solution that allows transferring [cryptocurrencies](#cryptocurrency) from one [blockchain](#blockchain) to another and vice versa; as well as transferring fiat money to and out of the blockchain.
-
-<h3>Genesis block</h3><a id="genesis-block"></a>
-
-The **genesis block** (or genesis) is the very first [block](#block) of the [blockchain](#blockchain). The genesis block contains one or several [genesis transactions](/blockchain/transaction-type/genesis-transaction.md).
-
-<h3>Genesis transaction</h3><a id="genesis-transaction"></a>
-
-**Genesis transaction** is a [genesis block](#genesis-block) [transaction](#transaction) that charges [WAVES](#waves) to an [account](#account). The genesis transactions define the initial distribution of WAVES between accounts during the creation of the [blockchain](#blockchain).
-
-<h2>H</h2><a id="H-letter"></a>
-
-<h3>Hash</h3><a id="hash"></a>
-
-A **hash** is a result of applying a [hash function](#hash-function).
-
-<h3>Hash function</h3><a id="hash-function"></a>
-
-A **hash function** (or fold function) is a function that converts an array of input data of arbitrary length into a bit string of a fixed length, performed by a certain algorithm.
+**Faucet** (или testnet faucet) — инструмент [Waves Explorer](#explorer), который пополняет [аккаунты](#account) [тестовой сети](#testnet) тестовыми [токенами](#token) [WAVES](#waves). За одно пополнение пользователь получает 10 тестовых WAVES.
 
 <h2>K</h2><a id="K-letter"></a>
 
 <h3>Keeper</h3><a id="keeper"></a>
 
-**Keeper** (or Waves Keeper) is a web browser extension that allows users to securely interact with Waves-enabled web services.
+**Keeper** (или Waves Keeper) — расширение для веб-браузера, которое позволяет безопасно взаимодействовать с веб-сервисами с поддержкой Waves.
 
 <h2>L</h2><a id="L-letter"></a>
 
-<h3>Leasing</h3><a id="leasing"></a>
-
-**Leasing** is a temporary reversible transfer of [WAVES](#waves) from one account to another to [increase the stability and security of the network](/waves-client/account-management/waves-leasing.md), as well as potentially get [mining reward](/blockchain/mining/mining-reward.md). Note that the WAVES [tokens](#token) are not actually being transferred to another [account](#account), they remain on the sender's balance, however, they are 'frozen' and cannot participate in the buying and selling operations, as well as they cannot be sent to another account. The leased tokens provide the leasing recipient with a greater chance of [mining](#mining) a [block](#block). The recipient of the lease can share the income from mining with the one who leased WAVES to him. However, the Waves platform does not regulate the payment process for [LPoS](#lpos) [mining](#mining), this remains at the discretion of the [miner](#miner). At any time, the sender can 'unfreeze' tokens by invoking the [Lease Cancel transaction](/blockchain/transaction-type/lease-cancel-transaction.md).
-
 <h3>LPoS</h3><a id="lpos"></a>
 
-**LPoS** (or Leased Proof-of-Stake) is a [consensus](#consensus) algorithm in which the probability of generating the next [block](#block) by the participant is proportional to the share of [cryptocurrency](#cryptocurrency) belonging to this participant or leased to this participant from their total supply. In other words, the more [tokens](#token) on the [account](#account) of the [miner](#miner) (own and leased to them), the higher the probability of generating the next block.
-
-<h2>M</h2><a id="M-letter"></a>
-
-<h3>Mainnet</h3><a id="mainnet"></a>
-
-The **mainnet** (or main network) is the main Waves [blockchain network](#blockchain-network).
-
-<h3>Matcher</h3><a id="matcher"></a>
-
-A **matcher** is a [node](#node) extension that executes [orders](#order) on the [DEX](#dex) exchange.
-
-<h3>Miner</h3><a id="miner"></a>
-
-A **miner** is the owner of the [mining node](#mining-node).
-
-<h3>Mining</h3><a id="mining"></a>
-
-**Mining** is the process of generating a [block](#block) by a [mining node](#mining-node), as a result of which a new block is added to the [blockchain](#blockchain) and [WAVES](#waves) [tokens](#token) are issued. For block generation, [miners](#miner) receive a [reward for mining](/blockchain/mining/mining-reward.md), as well as [transaction fees](/blockchain/transaction/transaction-fee.md), according to the rules of the [Waves-NG](/blockchain/waves-protocol/waves-ng-protocol.md) protocol.
-
-<h3>Mining account</h3><a id="mining-account"></a>
-
-A **mining account** is an [account](#account) that the [mining node](#mining-node) uses to [sign](#block-signature) the generated [blocks](#block).
-
-<h3>Mining node</h3><a id="mining-node"></a>
-
-A **mining node** is a [node](#node) that can perform [mining](#mining). Each mining node is a [validating node](#validating-node).
-
-<h3>Multisignature</h3><a id="multisignature"></a>
-
-**Multisignature** is an implementation of an electronic signature that requires the use of several [private keys](#private-key) as a condition for [transaction](#transaction) execution.
+**LPoS** (или Leased Proof-of-Stake) — алгоритм [консенсуса](#consensus), при котором вероятность формирования участником очередного блока в [блокчейне](#blockchain) пропорциональна доле, которую составляют принадлежащие этому участнику или отданные этому участнику в [лизинг](#leasing) расчётные единицы данной криптовалюты от их общего количества. Иными словами, чем больше [токенов](#token) (собственных и отданных ему в лизинг) на счету у [майнера](#miner), тем выше его вероятность сгенерировать [блок](#block).
 
 <h2>N</h2><a id="N-letter"></a>
 
 <h3>NFT</h3><a id="nft"></a>
 
-**NFT** (Non-Fungible Token) is a [token](#token) with unique ID. Two 'regular' tokens can not be distinguished from each other — they are the same, i.e. fungible. Each NFT is unique; there cannot be two identical NFTs. Most often NFTs are used in games.
-
-<h3>Node</h3><a id="node"></a>
-
-A **node** is a [host](https://ru.wikipedia.org/wiki/Хост) that is connected to the [blockchain network](#blockchain-network) using the [Waves Node](https://github.com/wavesplatform/Waves) application. The node stores [blocks](#block), sends and validates [transactions](#transaction).
-
-<h2>O</h2><a id="O-letter"></a>
-
-<h3>Oracle</h3><a id="oracle"></a>
-
-**Oracle** is a provider of data from the outside world to the [blockchain](#blockchain).
-
-<h3>Oracle card</h3><a id="oracle-card"></a>
-
-An **oracle card** is a public description of the [oracle](#oracle) in the [blockchain](#blockchain) according to a [standardized protocol](/waves-oracles/create-an-oracle-card-with-a-data-transaction.md) in the form of a [data transaction](/blockchain/transaction-type/data-transaction.md).
-
-<h3>Order</h3><a id="order"></a>
-
-**Order** (or exchange order) is an instruction to buy or sell a [token](#token) on [DEX](#dex).
+**NFT** (или не взаимозаменяемый токен) — (от англ. non fungible token) особый вид [токена](#token), который представляет собой какой-то уникальный объект. Два обычных токена нельзя отличить друг от друга — они одинаковые, т.е. взаимозаменяемые. Каждый токен NFT уникален. Любые два NFT всегда можно различить. Наиболее часто NFT используются в играх.
 
 <h2>P</h2><a id="P-letter"></a>
 
 <h3>PoS</h3><a id="pos"></a>
 
-**PoS** (Proof-of-Stake) is a [consensus](#consensus) algorithm in which the probability of generating the next [block](#block) is proportional to the share of [cryptocurrency](#cryptocurrency) belonging to this participant from their total supply. In other words, the more [tokens](#token) on the [account](#account) of a [miner](#miner), the higher the probability of generating the next block.
+**PoS** (от англ. Proof-of-Stake) — алгоритм [консенсуса](#consensus), при котором вероятность формирования участником очередного [блока](#block) в [блокчейне](#blockchain) пропорциональна доле, которую составляют принадлежащие этому участнику расчётные единицы данной [криптовалюты](#cryptocurrency) от их общего количества. Иными словами, чем больше [токенов](#token) на счету у [майнера](#miner), тем выше его вероятность сгенерировать [блок](#block).
 
 <h3>PoW</h3><a id="pow"></a>
 
-**PoW** (Proof-of-Work) is a [consensus](#consensus) algorithm in which it is required to perform a complex calculation in order to generate a new [block](#block). That is, the higher the performance of the [miner's](#miner) equipment, the higher the probability of generating the next block.
-
-<h3>Private key</h3><a id="private-key"></a>
-
-The **private key** is one of a pair of [account](#account) keys. The account owner signs the [transaction](#transaction) with the [private key](#private-key) before sending it, and, as a result, gets the digital signature of the transaction.
-
-<h3>Public key</h3><a id="public-key"></a>
-
-The **public key** is one of a pair of [account](#account) keys. A public key uniquely correlates a [transaction](#transaction) with its sender. The transaction signature is checked against the public key with some function, and, if it returns true, we can be sure that the user has valid [private key](#private-key) for this public key.
+**PoW** (от англ. Proof-of-Work) —  алгоритм [консенсуса](#consensus), при котором для генерации нового [блока](#block) [блокчейна](#blockchain) требуется выполнить трудозатратное вычисление. То есть, чем выше мощность оборудования [майнера](#miner), тем выше его вероятность сгенерировать блок.
 
 <h2>R</h2><a id="R-letter"></a>
 
 <h3>Ride</h3><a id="ride"></a>
 
-The **Ride** is a functional expression-based programming language. Ride is used to write [scripts](#script). The language has [strong static typing](https://en.wikipedia.org/wiki/Type_system), it is case sensitive, has no loops, recursions, and goto-like expressions, and therefore it is [Turing-incomplete](https://en.wikipedia.org/wiki/Turing_completeness).
-
-<h2>S</h2><a id="S-letter"></a>
-
-<h3>Script</h3><a id="script"></a>
-
-A **script** is the source code on the [Ride](#ride) language. There are three types of scripts: [dApp script](#dapp-script), [account script](#account-script), [asset script](#asset-script).
-
-<h3>Secret phrase</h3><a id="secret-phrase"></a>
-
-**Secret phrase** (or Seed) is a set of characters (usually, it is 15 English words with spaces between them) that allows you to access your Waves [address](#address) and, accordingly, the funds on your [account](#account). When registering an account, you are asked to keep your secret phrase safe.
-
-<h3>Smart account</h3><a id="smart-account"></a>
-
-A **smart account** is an [account](#account) with an [account script](#account-script) attached. Only one script can be attached to an account. The account script is attached to the account using the [set script transaction](/blockchain/transaction-type/set-script-transaction.md).
-
-<h3>Smart asset</h3><a id="smart-asset"></a>
-
-A **smart asset** is a [token](#token) with an [asset script](#asset-script) attached.
-
-<h3>Stagenet</h3><a id="stagenet"></a>
-
-**Stagenet** (or staging network) is the Waves [blockchain network](#blockchain-network), which is used for experiments, intermediate testing of new functionality, as well as providing access for the Waves community to intermediate releases. It is important to consider that this network is unstable, a frequent rollback of blockchain data to the N-th height in the past is possible.
+**Ride** — функциональный язык программирования, основанный на выражениях. Ride используется для написания [скриптов](#script). Язык имеет [сильную статическую типизацию](https://ru.wikipedia.org/wiki/Статическая_типизация), чувствителен к регистру, не имеет циклов, рекурсий и goto-подобных выражений, и поэтому является [неполным по Тьюрингу](https://ru.wikipedia.org/wiki/Полнота_по_Тьюрингy).
 
 <h2>T</h2><a id="T-letter"></a>
 
-<h3>Test network</h3><a id="test-network"></a>
+<h3>Token Rating</h3><a id="token-rating"></a>
 
-**Test network** (or testnet) is a Waves [blockchain](#blockchain) test network, which is used by developers to test their products, and by users to get acquainted with the blockchain.
-
-<h3>Token</h3><a id="token"></a>
-
-A **token** is a [blockchain](#blockchain) object that represents another object from the physical or virtual world or an abstract concept.
-
-<h3>Token rating</h3><a id="token-rating"></a>
-
-**Token Rating** is an online service (https://tokenrating.wavesexplorer.com) that displays the ratings of [tokens](#token) (projects) issued on the Waves platform. The service allows users to vote for a particular token.
-
-<h3>Transaction</h3><a id="transaction"></a>
-
-The **transaction** is an action on the [blockchain](#blockchain) on behalf of the [account](#account). Transactions can be sent only from the account — thus, any transaction can be correlated with a certain account.
+**Token Rating** — онлайн-сервис (https://tokenrating.wavesexplorer.com), отображающий рейтинги [токенов](#token) (проектов), выпущенных на платформе Waves. Сервис позволяет пользователю проголосовать за тот или иной токен.
 
 <h2>U</h2><a id="U-letter"></a>
 
 <h3>UTX pool</h3><a id="utx-pool"></a>
 
-**UTX pool** (or Unconfirmed Transactions pool) is a pool of unconfirmed [node](#node) [transactions](#transaction) that are waiting for validation.
-
-<h2>V</h2><a id="V-letter"></a>
-
-<h3>Validating node</h3><a id="validating-node"></a>
-
-A **validating node** is a [node](#node) that validates [transactions](#transaction).
+**UTX pool** — Unconfirmed Transactions Pool, пул неподтвержденных [транзакций](#transaction) [ноды](#node), которые ожидают валидацию.
 
 <h2>W</h2><a id="W-letter"></a>
 
-<h3>Wallet</h3><a id="wallet"></a>
-
-A **wallet** is a section of the [Waves DEX](#dex) online service. It allows us to send and receive [tokens](#token), view [transactions](#transaction) and [cryptocurrency](#cryptocurrency) rates, and [lease](#leasing) [WAVES](#waves).
-
 <h3>WAVELET</h3><a id="wavelet"></a>
 
-**WAVELET** is 1/100 000 000 [WAVES](#waves). 1 WAVELET is the minimum number of WAVES that you can work with within the Waves [blockchain](#blockchain).
+**WAVELET** — 1/100 000 000 [WAVES](#waves). 1 WAVELET — минимальное количество WAVES, с которыми вы можете работать в блокчейне Waves.
 
 <h3>WAVES</h3><a id="waves"></a>
 
-**WAVES** is the main [token](#token) of the Waves platform. 1 WAVES equals 100,000,000 [WAVELET](#wavelet). In April 2016, 100 million WAVES were released. WAVES cannot be burned using a [burn transaction](/blockchain/transaction-type/burn-transaction.md).
+**WAVES** — главный [токен](#token) платформы Waves. 1 WAVES равен 100 000 000 [WAVELET](#wavelet). В апреле 2016 было выпущено 100 миллионов WAVES. WAVES нельзя сжечь с помощью [транзакции сжигания токена](/blockchain/transaction-type/burn-transaction.md).
 
 <h3>WCT</h3><a id="wct"></a>
 
-**WCT** (or Waves Community Token) is a [token](#token) used by members of the Waves community during voting and other activities.
+**WCT** — (от англ. Waves Community Token) [токен](#token), который используется участниками сообщества Waves во время голосований и других активностей.
 
 <h3>WRT</h3><a id="wrt"></a>
 
-**WRT** (or Waves Reward Token) is a [token](#token) that is used to reward contributors. Contributors can participate in the creation of [dApps](#dapp), serve as external auditors or assist in events and receive rewards for this. The more difficult the contributor’s task is, the more WRT tokens they can get. Also, with the help of WRT, Waves community members can thank the most influential and useful members of the Waves ecosystem.
+**WRT** — (от англ. Waves Reward Token) [токен](#token), который используется для поощрения технических амбассадоров. Технические амбассадоры могут участвовать в создании dApps, быть сторонними аудиторами или содействовать в проведении семинаров и получать за это вознаграждение. Чем сложнее задача у амбассадора, тем больше токенов WRT он сможет получить. Также с помощью WRT члены сообщества Waves могут поблагодарить самых влиятельных и полезных участников экосистемы Waves.

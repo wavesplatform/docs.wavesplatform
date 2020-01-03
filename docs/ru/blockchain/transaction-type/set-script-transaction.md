@@ -1,7 +1,7 @@
-# Set script transaction
+# Транзакция установки скрипта
 
-A **set script transaction** is a [transaction](/blockchain/transaction.md) that attaches [dApp script](/ride/script/script-types/dapp-script.md) or [account script](/ride/script/script-types/account-script.md) to the [account](/blockchain/account.md).
+**Транзакция установки скрипта** — [транзакция](/blockchain/transaction.md), которая прикрепляет [dApp-скрипт](/ride/script/script-types/dapp-script.md) или [скрипт аккаунта](/ride/script/script-types/account-script.md) к [аккаунту](/blockchain/account.md).
 
-## Binary format
+## Бинарный формат
 
-See the page [Set script transaction binary format](/blockchain/binary-format/transaction-binary-format/set-script-transaction-binary-format.md).
+Смотрите страницу [Бинарный формат транзакции установки скрипта](/blockchain/binary-format/transaction-binary-format/set-script-transaction-binary-format.md).

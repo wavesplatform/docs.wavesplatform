@@ -1,13 +1,13 @@
-# Non-fungible token
+# Не взаимозаменяемый токен
 
-A **non-fungible token** or **NFT** is a special type of a [token](/blockchain/token.md), that represents some _unique_ object.
+**Не взаимозаменяемый токен** или **NFT** (от англ. _non-fungible token_) — особый тип [токена](/blockchain/token.md), который представляет собой какой-то _уникальный_ объект.
 
-Two regular tokens cannot be distinguished from each other — they are alike, i.e. _fungible_. Each NFT token is unique, and therefore NFTs are _non-fungible_. Any two NFTs can always be distinguished.
+Два обычных токена нельзя отличить друг от друга — они одинаковые, т.е. _взаимозаменяемые_. Каждый токен NFT уникален, и поэтому NFT _не взаимозаменяемые_. Любые два NFT всегда можно различить.
 
-Every NFT has a unique ID.
+У каждого NFT есть уникальный ID.
 
-NFTs are most commonly used in games.
+Наиболее часто NFT используются в играх.
 
-## Issue of NFT
+## Выпуск NFT
 
-See the page [Issue transaction](/blockchain/transaction-type/issue-transaction.md#nft).
+Смотрите страницу [Транзакция выпуска](/blockchain/transaction-type/issue-transaction.md#nft).

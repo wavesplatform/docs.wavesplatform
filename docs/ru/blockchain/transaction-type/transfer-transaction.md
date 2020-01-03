@@ -1,7 +1,7 @@
-# Transfer transaction
+# Транзакция перевода
 
-A **transfer transaction** is a [transaction](/blockchain/transaction.md) that transfers a certain amount of the [token](/blockchain/token.md) from one [account](/blockchain/account.md) to another.
+**Транзакция перевода** — [транзакция](/blockchain/transaction.md), которая переводит определенное количество [токена](/blockchain/token.md) с одного [аккаунта](/blockchain/account.md) на другой.
 
-## Binary format
+## Бинарный формат
 
-See the page [Transfer transaction binary format](/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format.md).
+Смотрите страницу [Бинарный формат транзакции перевода](/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format.md).

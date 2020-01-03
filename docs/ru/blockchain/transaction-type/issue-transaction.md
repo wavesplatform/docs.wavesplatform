@@ -1,16 +1,16 @@
-# Issue transaction
+# Транзакция выпуска
 
-An **issue transaction** is a [transaction](/blockchain/transaction.md) that [issues token](/blockchain/token.md).
+**Транзакция выпуска** — [транзакция](/blockchain/transaction.md), которая [выпускает токен](/blockchain/token.md).
 
-## Issue of NFT <a id="nft"></a>
+## Выпуск NFT <a id="nft"></a>
 
-The issue of an [NFT](/blockchain/token/non-fungible-token.md) is made by an issue transaction that has the "Amount" field equal 1, and the "Number of decimal places" and "Reissue flag" fields equal 0.
+Выпуск одного [NFT](/blockchain/token/non-fungible-token.md) производится с помощью транзакции выпуска, у которой значение поля "Количество токенов" равняется 1, а значения полей "Число знаков после запятой" и "Флаг довыпуска" — 0.
 
-The fee for the issue of a single NFT is 0.001 [WAVES](/blockchain/token/waves.md).
+Комиссия за выпуск одного NFT составляет 0,001 [WAVES](/blockchain/token/waves.md).
 
-To issue NFTs you can use the [waves-games](https://www.npmjs.com/package/@waves/waves-games) npm package.
+Для выпуска NFT вы можете использовать npm-пакет [waves-games](https://www.npmjs.com/package/@waves/waves-games).
 
-### JSON representation of an issue transaction of an NFT
+### JSON-представление транзакции выпуска не взаимозаменяемого токена
 
 ``` json
 {
@@ -37,6 +37,6 @@ To issue NFTs you can use the [waves-games](https://www.npmjs.com/package/@waves
 }
 ```
 
-## Binary format
+## Бинарный формат
 
-See the page [Issue transaction binary format](/blockchain/binary-format/transaction-binary-format/issue-transaction-binary-format.md).
+Смотрите страницу [Бинарный формат транзакции выпуска](/blockchain/binary-format/transaction-binary-format/issue-transaction-binary-format.md).

@@ -1,9 +1,9 @@
-# dApp script
+# dApp-скрипт
 
-A **dApp script** — [RIDE script](/ride/script.md), that has the following directive:
+**dApp-скрипт** — [скрипт на RIDE](/ride/script.md), который имеет следующую директиву:
 
 ```ride
 {-# CONTENT_TYPE DAPP #-}
 ```
 
-A dApp script can be attached to an account with a [set script transaction](/blockchain/transaction-type/set-script-transaction.md), thus creating a [dApp](/blockchain/account/dapp.md).
+dApp-скрипт можно привязать к аккаунту с помощью [транзакции установки скрипта](/blockchain/transaction-type/set-script-transaction.md), создав таким образом [dApp](/blockchain/account/dapp.md).

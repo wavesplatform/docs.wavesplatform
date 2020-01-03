@@ -1,43 +1,45 @@
-# Transfer transaction binary format
+# Бинарный формат транзакции перевода
 
-> Learn more about [transfer transaction](/blockchain/transaction-type/transfer-transaction.md)
+> Узнать больше о [транзакции перевода](/blockchain/transaction-type/transfer-transaction.md)
 
-## Transaction version 2
+## Транзакция версии 2
 
-| Field order number | Field | JSON field name | Field type | Field size in bytes | Comment |
+| Порядковый номер поля | Поле | Название JSON-поля | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | Version flag | | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | Indicates the[ transaction version](/blockchain/transaction/transaction-version.md) is version 2 or higher.<br>Value must be 0 |
-| 2 | [Transaction type ID](/blockchain/transaction-type.md) | type | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | Value must be 4 |
-| 3 | [Transaction version](/blockchain/transaction/transaction-version.md) | version | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | Value must be 2 |
-| 4 | Public key of the transaction sender  | senderPublicKey | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | 32 | |
-| 5.1 | Flag [WAVES](/blockchain/token/waves.md)/[token](/blockchain/token.md) | | | 1 | Value is 0 for transferring [WAVES](/blockchain/token/waves.md).<br>Value is 1 for transferring other [tokens](/blockchain/token.md) |
-| 5.2 | [Token ID](/blockchain/token/token-id.md) | assetId | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | `S` | `S`= 0 if the value of the "flag WAVES/token" field is 0.<br>`S` = 32 if the value of the "flag WAVES/token" field is 1 |
-| 5.3 | Token fee | feeAssetId | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | `S` | [Token](/blockchain/token.md) to pay the commission. Currently it can be [WAVES](/blockchain/token/waves.md) only.<br>`S` = 0 if the value of the "flag WAVES/token" field is 0.<br>`S` = 32 if the value of the "flag WAVES/token" field is 1 |
-| 6 | [Address](/blockchain/account/address.md) or [alias](/blockchain/account/alias.md)of the transfer recipient | recipient | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | 32 | |
-| 7 | Amount of [tokens](/blockchain/token.md) in the transfer | amount | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 | |
-| 8 | [Transaction timestamp](/blockchain/transaction/transaction-timestamp.md) | timestamp | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 | |
-| 9 | [Transaction fee](/blockchain/transaction/transaction-fee.md) | fee | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 | |
-| 10.1 | Attachment length | | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 | |
-| 10.2 | Attachment | | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | 2 | Arbitrary data attached to the transaction |
-| 11 | [Transaction proofs](/blockchain/transaction/transaction-proof.md) | proofs | [Proofs](/blockchain/transaction/transaction-proof.md) | S | If the array is empty, then `S` = 3. <br>If the array is not empty, then `S` = 3 + 2 × `N` + (`P`<sub>1</sub> + `P`<sub>2</sub> + ... + `P`<sub>n</sub>), where `N` is the number of proofs in the array, `P`<sub>n</sub> is the size on `N`-th proof in bytes. <br>The maximum number of proofs in the array is 8. The maximum size of each proof is 64 bytes |
+| 1 | Флаг версии |  | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | Указывает, что [версия транзакции](/blockchain/transaction/transaction-version.md) является второй или выше.<br>Значение должно быть равно 0 |
+| 2 | [ID типа транзакции](/blockchain/transaction-type.md) | type | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | Значение должно быть равно 4 |
+| 3 | [Версия транзакции](/blockchain/transaction/transaction-version.md) | version | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | Значение должно быть равно 2 |
+| 4 | Открытый ключ аккаунта отправителя транзакции | senderPublicKey | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | 32 |  |
+| 5 | Флаг типа переводимого токена |  | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | 0 — [WAVES](/blockchain/token/waves.md)<br>1 — другой токен |
+| 6 | [ID](/blockchain/token/token-id.md) переводимого токена | assetId | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | `S` | `S` = 0 если значение поля 5 равно 0.<br>`S` = 32 если значение поля 5 не равно 0 |
+| 7 | Флаг типа токена комиссии |  | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | 0 — WAVES<br>1 — другой токен |
+| 8 | ID токена комиссии | feeAssetId | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | `S` | `S` = 0 если значение поля 7 равно 0.<br>`S` = 32 если значение поля 7 не равно 0 |
+| 9 | [Временная метка транзакции](/blockchain/transaction/transaction-timestamp.md) | timestamp | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 |  |
+| 10 | Количество токена для перевода | amount | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 |  |
+| 11 | [Комиссия за транзакцию](/blockchain/transaction/transaction-fee.md) | fee | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 |  |
+| 12 | [Адрес](/blockchain/account/address.md) или [псевдоним](/blockchain/account/alias.md) получателя | recipient | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | 32 | Если первым байтом поля является 1, то за ним следует адрес.<br>Если первым байтом поля является 2, то за ним следует псевдоним |
+| 13 | Длина вложения |  | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 |  |
+| 14 | Вложение | attachment | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | До 140 включительно | Может включать произвольные данные |
+| 15 | [Подтверждения транзакции](/blockchain/transaction/transaction-proof.md) | proofs | Array[[Подтверждение](/blockchain/transaction/transaction-proof.md)] | `S` | Если массив пустой, то `S` = 3.<br>Если массив не пустой, то `S` = 3 + 2 × `N` + (`P`<sub>1</sub> + `P`<sub>2</sub> + ... + `P`<sub>n</sub>),<br>где<br>`N` — количество подтверждений в массиве,<br>`P`<sub>n</sub> — размер N-го подтверждения в байтах.<br>Максимальное количество подтверждений в массиве — 8. Максимальный размер каждого подтверждения — 64 байта |
 
-## JSON representation of the transaction
+## JSON-представление транзакции
 
-See the [example](https://nodes.wavesnodes.com/transactions/info/JAutkv1Nk4xVrkb4fkacS4451VvyHC3iJtEDfBRD7rwr) in Node API.
+Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/FwYSpmVDbWQ2BA5NCBZ9z5GSjY39PSyfNZzBayDiMA88) в Node API.
 
-## Transaction version 1
+## Транзакция версии 1
 
-| Field order number | Field | Field type | Field size in bytes | Comment |
+| Порядковый номер поля | Название поля | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | [Transaction type ID](/blockchain/transaction-type.md) | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | Value must be 4 |
-| 2 | Public key of the transaction sender  | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | 32 | |
-| 3.1 | Flag [WAVES](/blockchain/token/waves.md)/[token](/blockchain/token.md) | | 1 | Value is 0 for transferring [WAVES](/blockchain/token/waves.md).<br>Value is 1 for transferring other [tokens](/blockchain/token.md) |
-| 3.2 | [Token ID](/blockchain/token/token-id.md) | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | `S` | `S` = 0 if the value of the "flag WAVES/token" field is 0.<br>`S` = 32 if the value of the "flag WAVES/token" field is 1 |
-| 3.3 | Token fee | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | `S` | [Token](/blockchain/token.md) to pay the commission. Currently it can be [WAVES](/blockchain/token/waves.md) only.<br>`S` = 0 if the value of the "flag WAVES/token" field is 0.<br>`S` = 32 if the value of the "flag WAVES/token" field is 1 |
-| 4 | [Address](/blockchain/account/address.md) or [alias](/blockchain/account/alias.md) of the transfer recipient | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | 32 | |
-| 5 | Amount of [tokens](/blockchain/token.md) in the transfer | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 | |
-| 6 | [Transaction fee](/blockchain/transaction/transaction-fee.md) | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 | |
-| 7 | [Transaction timestamp](/blockchain/transaction/transaction-timestamp.md) | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 | |
-| 8.1 | Attachment length | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 | |
-| 8.2 | Attachment | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | 2 | Arbitrary data attached to the transaction |
-| 9 | [Transaction signature](/blockchain/transaction/transaction-signature.md) | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | 64 | | |
+| 1 | [ID типа транзакции](/blockchain/transaction-type.md) | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | Значение должно быть равно 4 |
+| 2 | [Подпись транзакции](/blockchain/transaction/transaction-signature.md) | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | 64 |  |
+| 3 | Открытый ключ аккаунта отправителя транзакции | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | 32 |  |
+| 4 | Флаг типа переводимого токена | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | 0 — [WAVES](/blockchain/token/waves.md)<br>1 — другой токен |
+| 5 | [ID](/blockchain/token/token-id.md) переводимого токена | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | `S` | `S` = 0 если значение поля 4 равно 0.<br>`S` = 32 если значение поля 4 не равно 0 |
+| 6 | Флаг типа токена комиссии | [Byte](/blockchain/blockchain/blockchain-data-types.md) | 1 | 0 — WAVES<br>1 — другой токен |
+| 7 | ID токена комиссии | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | `S` | `S` = 0 если значение поля 4 равно 0.<br>`S` = 32 если значение поля 4 не равно 0 |
+| 8 | [Временная метка транзакции](/blockchain/transaction/transaction-timestamp.md) | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 |  |
+| 9 | Количество токена для перевода | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 |  |
+| 10 | [Комиссия за транзакцию](/blockchain/transaction/transaction-fee.md) | [Long](/blockchain/blockchain/blockchain-data-types.md) | 8 |  |
+| 11 | [Адрес](/blockchain/account/address.md) или [псевдоним](/blockchain/account/alias.md) получателя | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | 32 | Если первым байтом поля является 1, то за ним следует адрес.<br>Если первым байтом поля является 2, то за ним следует псевдоним |
+| 12 | Длина вложения | [Short](/blockchain/blockchain/blockchain-data-types.md) | 2 |  |
+| 13 | Вложение | Array[[Byte](/blockchain/blockchain/blockchain-data-types.md)] | До 140 включительно | Может включать произвольные данные |

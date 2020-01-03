@@ -1,3 +1,3 @@
-# Smart asset
+# Смарт-ассет
 
-A **smart asset** is a [token](/blockchain/token.md) that has an [asset script](/ride/script/script-types/asset-script.md) attached to it.
+**Смарт-ассет** — [токен](/blockchain/token.md), к которому прикреплен [скрипт ассета](/ride/script/script-types/asset-script.md).

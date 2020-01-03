@@ -1,10 +1,10 @@
-# Data transaction with user's rate
+# Транзакция данных с оценкой пользователя
 
-When a user rates a token inside the token's card, a [data transaction](/blockchain/transaction-type/data-transaction.md) is sent from the user's [address](/blockchain/account/address.md).
+Когда пользователь оценивает токен в карточке токена, с его [адреса](/blockchain/account/address.md) отправляется [транзакция данных](/blockchain/transaction-type/data-transaction.md). 
 
-An example of the `data` field of such a transaction:
+Пример поля `data` такой транзакции:
 
-```
+```js
 "data": [
   {
     "key": "tokenRating",
@@ -24,8 +24,8 @@ An example of the `data` field of such a transaction:
 ]
 ```
 
-| Key | Data type | Value  |
+| Ключ | Тип данных | Значение  |
 |---|---|---|
-| tokenRating | String |  Service field. <br>The value must be "tokenRating" |
-| assetId | String | ID of the token |
-| score  |  Integer | Rate |
+| tokenRating | Строка |  Сервисное поле. <br>Значение должно быть равно "tokenRating" |
+| assetId | Строка | ID токена |
+| score  |  Целое число | Оценка |

@@ -1,3 +1,3 @@
 # WCT
 
-**WCT** (_Waves Community Token_) is a [token](/blockchain/token.md) that is used by Waves community members during polls and other activities.
+**WCT** (от англ. _Waves Community Token_) — [токен](/blockchain/token.md), который используется участниками сообщества Waves во время голосований и других активностей.

@@ -1,310 +1,324 @@
-# Data transaction functions
+# Функции транзакции данных
 
-The functions listed below retrieve data from the [data transaction](/blockchain/transaction-type/data-transaction.md) or from any list of objects of [DataEntry](/ride/structures/common-structures/data-entry.md).
-
-| # | Name | Description | Complexity |
+| # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
-| 1 | [getInteger(List[DataEntry], String): Int&#124;Unit](#get-integer-string) | Gets an integer value from a list of data entires by key | 10 |
-| 2 | [getInteger(List[DataEntry], Int): Int&#124;Unit](#get-integer-integer) | Gets an integer value from a list of data entires by index | 30 |
-| 3 | [getIntegerValue(List[DataEntry], String): Int](#get-integer-value-string) | Gets an integer value from a list of data entires by key. Throws an exception if there is no data | 10 |
-| 4 | [getIntegerValue(List[DataEntry], Int): Int](#get-integer-value-integer) | Gets an integer value from a list of data entires by index. Throws an exception if there is no data | 30 |
-| 5 | [getBoolean(List[DataEntry], String): Boolean&#124;Unit](#get-boolean-string) | Gets a boolean value from a list of data entires by key | 10 |
-| 6 | [getBoolean(List[DataEntry], Int): Boolean&#124;Unit](#get-boolean-integer) | Gets a boolean value from a list of data entires by index | 30 |
-| 7 | [getBooleanValue(List[DataEntry], String): Boolean](#get-boolean-value-string) | Gets a boolean value from a list of data entires by key. Throws an exception if there is no data | 10 |
-| 8 | [getBooleanValue(List[DataEntry], Int: Boolean](#get-boolean-value-integer) | Gets a boolean value from a list of data entires by index. Throws an exception if there is no data | 30 |
-| 9 | [getBinary(List[DataEntry], String): ByteVector&#124;Unit](#get-binary-string) | Gets a binary value from a list of data entires by key | 10 |
-| 10 | [getBinary(List[DataEntry], Int): ByteVector&#124;Unit](#get-binary-integer) | Gets a binary value from a list of data entires by index | 30 |
-| 11 | [getBinaryValue(ListDataEntry, String): ByteVector](#get-binary-value-string) | Gets a binary value from a list of data entires by key. Throws an exception if there is no data | 10 |
-| 12 | [getBinaryValue(List[DataEntry], Int): ByteVector](#get-binary-value-integer) | Gets a binary value from a list of data entires by index. Throws an exception if there is no data | 30 |
-| 13 | [getString(List[DataEntry] String): String&#124;Unit](#get-string-string) | Gets a string value from a list of data entires by key | 10 |
-| 14 | [getString(List[DataEntry], Int): String&#124;Unit](get-string-integer) | Gets a string value from a list of data entires by index | 30 |
-| 15 | [getStringValue(List[DataEntry], String): String](get-string-value-string) | Gets a string value from a list of data entires by key. Throws an exception if there is no data | 10 |
-| 16 | [getStringValue(List[DataEntry], Int): String](#get-string-value-integer) | Gets a string value from a list of data entires by index. Throws an exception if there is no data | 30 |
+| 1 | [getInteger(List[DataEntry], String): Int&#124;Unit](#get-integer-key) | Возвращает целое число из списка записей данных по ключу | 10 |
+| 2 | [getInteger(List[DataEntry], Int): Int&#124;Unit](#get-integer-index) | Возвращает целое число из списка записей данных по индексу | 30 |
+| 3 | [getIntegerValuе(List[DataEntry], String): Int](#get-integer-value-key) | Возвращает целое число из списка записей данных по ключу. Выбрасывает исключение, если данных нет | 10 |
+| 4 | [getIntegerValue(List[DataEntry], Int): Int](#get-integer-value-index) | Возвращает целое число из списка записей данных по индексу. Выбрасывает исключение, если данных нет | 30 |
+| 5 | [getBoolean(List[DataEntry], String): Boolean&#124;Unit](#get-boolean-key) | Возвращает логическое значение из списка записей данных по ключу | 10 |
+| 6 | [getBoolean(List[DataEntry], Int): Boolean&#124;Unit](#get-boolean-index) | Возвращает логическое значение из списка записей данных по индексу | 30 |
+| 7 | [getBooleanValue(List[DataEntry], String): Boolean](#get-boolean-value-key) | Возвращает логическое значение из списка записей данных по ключу. Выбрасывает исключение, если данных нет | 10 |
+| 8 | [getBooleanValue(List[DataEntry], Int): Boolean](#get-boolean-value-index) | Возвращает логическое значение из списка записей данных по индексу. Выбрасывает исключение, если данных нет | 30 |
+| 9 | [getBinary(List[DataEntry], String): ByteVector&#124;Unit](#get-binary-key) | Возвращает массив байтов из списка записей данных по ключу | 10 |
+| 10 | [getBinary(List[DataEntry], Int): ByteVector&#124;Unit](#get-binary-index) | Возвращает массив байтов из списка записей данных по индексу | 30 |
+| 11 | [getBinaryValue(List[DataEntry], String): ByteVector](#get-binary-value-key) | Возвращает массив байтов из списка записей данных по ключу. Выбрасывает исключение, если данных нет | 10 |
+| 12 | [getBinaryValue(List[DataEntry], Int): ByteVector](#get-binary-value-index) | Возвращает массив байтов из списка записей данных по индексу. Выбрасывает исключение, если данных нет | 30 |
+| 13 | [getString(List[DataEntry], String): String&#124;Unit](#get-string-key) | Возвращает строку из списка записей данных по ключу | 10 |
+| 14 | [getString(List[DataEntry], Int): String&#124;Unit](#get-string-index) | Возвращает строку из списка записей данных по индексу | 30 |
+| 15 | [getStringValue(List[DataEntry], String) : String](#get-string-value-key) | Возвращает строку из списка записей данных по ключу. Выбрасывает исключение, если данных нет | 10 |
+| 16 | [getStringValue(List[DataEntry], Int): String](#get-string-value-index) | Возвращает строку из списка записей данных по индексу. Выбрасывает исключение, если данных нет | 30 |
 
-## getInteger(ListDataEntry, String): Int|Unit<a id="get-integer-string"></a>
+## getInteger(List[DataEntry], String): Int|Unit <a id="get-integer-key"></a>
 
-Gets integer from a list of data entires by key.
+Возвращает целое число из списка записей данных по ключу.
 
 ``` ride
 getInteger(data: List[DataEntry], key: String): Int|Unit
 ```
 
-### Parameters
+### Параметры
 
-#### data: List[DataEntry]
+#### `data`: List[DataEntry]
 
-DataEntry vector, usually tx.data.
+Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
 
-#### key: String
+#### `key`: String
 
-Key.
+Ключ.
 
-## getInteger(ListDataEntry, Int): Int|Unit<a id="get-integer-integer"></a>
+## getInteger(List[DataEntry], Int): Unit|Int <a id="get-integer-index"></a>
 
-Gets an integer value from a list of data entires by index.
+Возвращает целое число из списка записей данных по индексу.
 
 ``` ride
-getInteger(data: List[DataEntry], index: Int): Int|Unit
+getInteger(data: List[DataEntry], index: Int): Unit|Int
 ```
 
-### Parameters
+### Параметры
 
-#### data: List[DataEntry]
+#### `data`: List[DataEntry]
 
-DataEntry vector, usally tx.data.
+Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
 
-#### index: Int
+#### `index`: Int
 
-Index.
+Индекс.
 
-## getIntegerValue(ListDataEntry, String): Int<a id="get-integer-value-string"></a>
+## getIntegerValue(List[DataEntry], String): Int <a id="get-integer-value-key"></a>
 
-Gets an integer value from a list of data entires by key. Throws an exception if there is no data.
+Возвращает целое число из списка записей данных по ключу.
+
+Выбрасывает исключение, если данных нет.
 
 ``` ride
 getIntegerValue(data: List[DataEntry], key: String): Int
 ```
 
-### Parameters
+### Параметры
 
-#### data: List[DataEntry]
+#### `data`: List[DataEntry]
 
-DataEntry vector, usually tx.data.
+Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
 
-#### key: String
+#### `key`: String
 
-Key.
+Ключ.
 
-## getIntegerValue(ListDataEntry, Int): Int<a id="get-integer-value-integer"></a>
+## getIntegerValue(List[DataEntry], Int): Int <a id="get-integer-value-index"></a>
 
-Gets an integer value from a list of data entires by index. Throws an exception if there is no data.
+Возвращает целое число из списка записей данных по индексу.
+
+Выбрасывает исключение, если данных нет
 
 ``` ride
 getIntegerValue(data: List[DataEntry], index: Int): Int
 ```
 
-### Parameters
+### Параметры
 
-#### data: List[DataEntry]
+#### `data`: List[DataEntry]
 
-DataEntry vector, usually tx.data.
+Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
 
-#### index: Int
+#### `index`: Int
 
-Index.
+Индекс.
 
-## getBoolean(List[DataEntry], String): Boolean|Unit<a id="get-boolean-string"></a>
+## getBoolean(List[DataEntry], String): Boolean|Unit <a id="get-boolean-key"></a>
 
-Gets a boolean value from a list of data entires by key.
-
-``` ride
-getBoolean(data: List[DataEntry], key: String): Union of boolean
-```
-
-### Parameters
-
-#### data: List[DataEntry]
-
-DataEntry vector, usually tx.data.
-
-#### key: String
-
-Key.
-
-## getBoolean(List[DataEntry], Int): Boolean|Unit<a id="get-boolean-integer"></a>
-
-Gets a boolean value from a list of data entires by index.
+Возвращает логическое значение из списка записей данных по ключу.
 
 ``` ride
-getBoolean(data: List[DataEntry], index: Int): Union of boolean
+getBoolean(data: List[DataEntry], key: String): Boolean|Unit
 ```
 
-### Parameters
+### Параметры
 
-#### data: List[DataEntry]
+#### `data`: List[DataEntry]
 
-DataEntry vector, usually tx.data.
+Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
 
-#### index: Int
+#### `key`: String
 
-Index.
+Ключ.
 
-## getBooleanValue(List[DataEntry], String): Boolean<a id="get-boolean-value-string"></a>
+## getBoolean(data: List[DataEntry], index: Int): Boolean|Unit <a id="get-boolean-index"></a>
 
-Gets a boolean value from a list of data entires by key. Throws an exception if there is no data.
+Возвращает логическое значение из списка записей данных по индексу.
+
+``` ride
+getBoolean(data: List[DataEntry], index: Int): Boolean|Unit
+```
+
+### Параметры
+
+#### `data`: List[DataEntry]
+
+Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
+
+#### `index`: Int
+
+Индекс.
+
+## getBooleanValue(List[DataEntry], String): Boolean <a id="get-boolean-value-key"></a>
+
+Возвращает логическое значение из списка записей данных по ключу.
+
+Выбрасывает исключение, если данных нет.
 
 ``` ride
 getBooleanValue(data: List[DataEntry], key: String): Boolean
 ```
 
-### Parameters
+### Параметры
 
-#### data: List[DataEntry]
+#### `data`: List[DataEntry]
 
-DataEntry vector, usually tx.data.
+Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
 
-#### key: String
+#### `key`: String
 
-Key.
+Ключ.
 
-## getBooleanValue(List[DataEntry], Int): Boolean<a id="get-boolean-value-integer"></a>
+## getBooleanValue(List[DataEntry], Int): Boolean <a id="get-boolean-value-index"></a>
 
-Gets a boolean value from a list of data entires by index. Throws an exception if there is no data.
+Возвращает логическое значение из списка записей данных по индексу.
+
+Выбрасывает исключение, если данных нет.
 
 ``` ride
 getBooleanValue(data: List[DataEntry], index: Int): Boolean
 ```
 
-### Parameters
+### Параметры
 
-#### data: List[DataEntry]
+#### `data`: List[DataEntry]
 
-DataEntry vector, usually tx.data.
+Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
 
-#### index: Int
+#### `index`: Int
 
-Index.
+Индекс.
 
-## getBinary(List[DataEntry], String): ByteVector|Unit<a id="get-binary-string"></a>
+## getBinary(List[DataEntry], String): ByteVector|Unit <a id="get-binary-key"></a>
 
-Gets a binary value from a list of data entires by key.
-
-``` ride
-getBinary(data: List[DataEntry], key: String): Union of ByteVector
-```
-
-### Parameters
-
-#### data: List[DataEntry]
-
-DataEntry vector, usually tx.data.
-
-#### key: String
-
-Key.
-
-## getBinary(List[DataEntry], Int): ByteVector|Unit<a id="get-binary-integer"></a>
-
-Gets a binary value from a list of data entires by index.
+Возвращает массив байтов из списка записей данных по ключу.
 
 ``` ride
-getBinary(data: List[DataEntry], index: Int): Union of ByteVector
+getBinary(data: List[DataEntry], key: String): ByteVector|Unit
 ```
 
-### Parameters
+### Параметры
 
-#### data: List[DataEntry]
+#### `data`: List[DataEntry]
 
-DataEntry vector, usually tx.data.
+Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
 
-#### index: Int
+#### `key`: String
 
-Index.
+Ключ.
 
-## getBinaryValue(List[DataEntry], String): ByteVector<a id="get-binary-value-string"></a>
+## getBinary(List[DataEntry], Int): ByteVector|Unit <a id="get-binary-index"></a>
 
-Gets a binary value from a list of data entires by key. Throws an exception if there is no data.
+Возвращает массив байтов из списка записей данных по индексу.
+
+``` ride
+getBinary(data: List[DataEntry], index: Int): ByteVector|Unit
+```
+
+### Параметры
+
+#### `data`: List[DataEntry]
+
+Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
+
+#### `index`: Int
+
+Индекс.
+
+## getBinaryValue(List[DataEntry], String): ByteVector <a id="get-binary-value-key"></a>
+
+Возвращает массив байтов из списка записей данных по ключу.
+
+Выбрасывает исключение, если данных нет.
 
 ``` ride
 getBinaryValue(data: List[DataEntry], key: String): ByteVector
 ```
 
-### Parameters
+### Параметры
 
-#### data: List[DataEntry]
+#### `data`: List[DataEntry]
 
-DataEntry vector, usually tx.data.
+Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
 
-#### key: String
+#### `key`: String
 
-Key.
+Ключ.
 
-## getBinaryValue(List[DataEntry], Int): ByteVector<a id="get-binary-value-integer"></a>
+## getBinaryValue(List[DataEntry], Int): ByteVector <a id="get-binary-value-index"></a>
 
-Gets a binary value from a list of data entires by index. Throws an exception if there is no data.
+Возвращает массив байтов из списка записей данных по индексу.
+
+Выбрасывает исключение, если данных нет.
 
 ``` ride
 getBinaryValue(data: List[DataEntry], index: Int): ByteVector
 ```
 
-### Parameters
+### Параметры
 
-#### data: List[DataEntry]
+#### `data`: List[DataEntry]
 
-DataEntry vector, usually tx.data.
+Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
 
-#### index: Int
+#### `index`: Int
 
-Index.
+Индекс.
 
-## getString(List[DataEntry], String): String|Unit<a id="get-string-string"></a>
+## getString(List[DataEntry], String): String|Unit <a id="get-string-key"></a>
 
-Gets a string value from a list of data entires by key.
-
-``` ride
-getString(data: List[DataEntry], key: String): Union of string
-```
-
-### Parameters
-
-#### data: List[DataEntry]
-
-DataEntry vector, usually tx.data.
-
-#### key: String
-
-Key.
-
-## getString(List[DataEntry], Int): String|Unit<a id="get-string-integer"></a>
-
-Gets a string value from a list of data entires by index.
+Возвращает строку из списка записей данных по ключу.
 
 ``` ride
-getString(data: List[DataEntry], index: Int): Union of string
+getString(data: List[DataEntry], key: String): String|Unit
 ```
 
-### Parameters
+### Параметры
 
-#### data: List[DataEntry]
+#### `data`: List[DataEntry]
 
-DataEntry vector, usually tx.data.
+Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
 
-#### index: Int
+#### `key`: String
 
-Index.
+Ключ.
 
-## getStringValue(List[DataEntry], String): String<a id="get-string-value-string"></a>
+## getString(List[DataEntry], Int): String|Unit <a id="get-string-index"></a>
 
-Gets a string value from a list of data entires by key. Throws an exception if there is no data.
+Возвращает строку из списка записей данных по индексу.
+
+``` ride
+getString(data: List[DataEntry], index: Int): String|Unit
+```
+
+### Параметры
+
+#### `data`: List[DataEntry]
+
+Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
+
+#### `index`: Int
+
+Индекс.
+
+## getStringValue(List[DataEntry], String) : String <a id="get-string-value-key"></a>
+
+Возвращает строку из списка записей данных по ключу.
+
+Выбрасывает исключение, если данных нет.
 
 ``` ride
 getStringValue(data: List[DataEntry], key: String) : String
 ```
 
-### Parameters
+### Параметры
 
-#### data: List[DataEntry]
+#### `data`: List[DataEntry]
 
-DataEntry vector, usually tx.data.
+Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
 
-#### key: String
+#### `key`: String
 
-Key.
+Ключ.
 
-## getStringValue(List[DataEntry], Int): String<a id="get-string-value-integer"></a>
+## getStringValue(List[DataEntry], Int): String <a id="get-string-value-index"></a>
 
-Gets a string value from a list of data entires by index. Throws an exception if there is no data.
+Возвращает строку из списка записей данных по индексу.
+
+Выбрасывает исключение, если данных нет.
 
 ``` ride
 getStringValue(data: List[DataEntry], index: Int): String
 ```
 
-### Parameters
+### Параметры
 
-#### data: List[DataEntry]
+#### `data`: List[DataEntry]
 
-DataEntry vector, usually tx.data.
+Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
 
-#### index: Int
+#### `index`: Int
 
-Index.
+Индекс.

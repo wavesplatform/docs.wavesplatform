@@ -1,36 +1,36 @@
-# Create an oracle card with Waves Oracle
+# Создание карточки оракула при помощи Waves Oracle
 
-Only authorized users can create an [oracle card](/waves-oracles/oracle-card.md). Authorization is performed using Waves Keeper.
+Создать [карточку оракула](/waves-oracles/oracle-card.md) могут только авторизованные пользователи. Авторизация выполняется при помощи [Waves Keeper](/waves-keeper/about-waves-keeper.md).
 
-The account can create no more than one oracle card.
+[Аккаунт](/blockchain/account.md) может создать не более одной карточки оракула.
 
-If the authorization is done through a test network account, the oracle card will be created in the test network. If the authorization is done through an account from the main network, the oracle card will be created in the main network.
+Если авторизация осуществляется при помощи аккаунта из [тестовой сети](/blockchain/blockchain-network/test-network.md), то карточка оракула будет создана в тестовой сети. Если авторизация осуществляется при помощи аккаунта из [основной сети](/blockchain/blockchain-network/main-network.md), то карточка оракула будет создана в основной сети.
 
-## Create an oracle card
+## Создание карточки оракула
 
-1. Determine which Waves account you will use to create your oracle card. This can be an existing account or a newly created one. Use the instructions to create a new Waves account.
-2. Install Waves Keeper if this extension is not already installed.
-3. Go to Waves Oracles and log in.
-4. Select **Create an oracle**.
-5. Fill in the fields of the oracle card registration form.
-6. Click **Create**.
-7. Confirm the transaction in Waves Keeper by clicking **Approve**.
-8. Wait until the oracle card is created.
+1. Определите, какой аккаунт Waves вы будете использовать для создания карточки оракула. Это может быть существующий аккаунт или вновь созданный. Чтобы создать новый аккаунт Waves, используйте [инструкцию](/waves-client/account-management/creating-an-account.md).
+2. Установите [Waves Keeper](/waves-keeper/about-waves-keeper.md), если это расширение еще не установлено.
+3. Перейдите к [Waves Oracles](https://oracles.wavesexplorer.com/) и авторизуйтесь.
+4. Выберите **Create an oracle**.
+5. Заполните [поля формы регистрации карточки оракула](/waves-oracles/create-an-oracle-card-with-waves-oracle.md#fields).
+6. Нажмите **Create**.
+7. Подтвердите транзакцию данных в Waves Keeper, нажав **Approve**.
+8. Дождитесь, когда карточка оракула будет создана.
 
-Once the oracle card has been created, the oracle card is available to all users. The oracle card informs users what data and in what format the oracle will send from sources (e.g. external APIs) to blockchain Waves.
+После создания карточки оракула всем пользователям доступна его [карточка](/waves-oracles/oracle-card.md). Карточка оракула информирует пользователей, какие данные и в каком формате оракул будет отправлять из источников (например, внешних API) в блокчейн Waves.
 
-## Fields of the 'create my oracle' form
+## Поля формы создания оракула <a id="#fields"></a>
 
-| Field | Description |
+| Поле | Описание |
 | :--- | :--- |
-| Network | Lock input. Network Mainnet or Testnet which you log in with Waves Keeper |
-| Address | Lock input. Waves address which you log in with Waves Keeper |
-| Oracle name | Your oracle name |
-| Link | Link to the data providers website (source of data) |
-| Category | Select a category of data for better indexing in Waves Oracles for other users |
-| Status | Select the current oracle status:<ul><li>development</li><li>test</li><li>production</li><li>archive</li></ul> |
-| About | Goals and ideas of the current protocol, description of data sources or algorithm based on which data appears, list of use cases, list of references with descriptions |
-| Update frequency | How often the provider updates the data in time, or blocks, or by request only |
-| Summary of Changes from Previous Version | Summary of the made revisions |
-| Specification | Specification kit. You can add or remove an arbitrary number of parameters by specifying their type, required and description. It is in this format that oracle will need to transmit data from the data source to the consumer.<br>If the parameter key should be variable, for example, assetId, then write **$** at the beginning: **$assetId** |
-| Example | Example of oracle transaction. For a better understanding of your oracle by other users insert a sample transaction in JSON by the format specified in the specification |
+| Network | Поле недоступно для ввода. Отображает сеть, которой принадлежит аккаунт пользователя |
+| Address | Поле недоступно для ввода. Отображает [адрес](/blockchain/account/address.md) аккаунта пользователя |
+| Oracle name | Название оракула |
+| Link | Ссылка на внешний API |
+| Category | Категория данных оракула |
+| Status | Статус оракула |
+| About | Описание действующего протокола, источников данных или алгоритма, на основе которого появляются данные, список вариантов использования, список ссылок с описаниями |
+| Update frequency | Как часто обновляются данные оракула. Данные могут обновляться по времени — каждые N минут, по мере увеличения [высоты](/blockchain/blockchain/blockchain-height.md) блокчейна — каждые N блоков. Кроме того, данные могут не зависеть от обновлений. В этом случае их выдача осуществляется по запросу. |
+| Summary of Changes from Previous Version | Сводка сделанных изменений по сравнению с прошлой версией оракула |
+| Specification | Спецификация оракула. Возможно добавить или удалить произвольное количество параметров, указав их тип, обязательность и описание.<br>Если ключ параметра должен быть переменным, например, assetsId, то поставьте символ **$** в начале: **$assetId** |
+| Example | Пример транзакции оракула. Рекомендуется привести JSON примера транзакции в соответствии с форматом, указанным в спецификации |

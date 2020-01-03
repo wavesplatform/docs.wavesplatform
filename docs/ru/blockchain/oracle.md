@@ -1,25 +1,25 @@
-# Oracle
+# Оракул
 
-**Oracle** is a data provider from the outside world on the [blockchain](/blockchain/blockchain.md).
+**Оракул** — поставщик данных из внешнего мира в [блокчейн](/blockchain/blockchain.md).
 
-## Sources of the outside world
+## Источники внешнего мира
 
-**Software oracles** handle data accessible on the web. For example, the temperature, costs of products and merchandise, flight or train delays, etc. The information originates from online sources, e.g. API. The product prophet extricates the required data and pushes it into the blockchain.
+**Программные оракулы** обрабатывают данные из Интернета. Например, температура воздуха, стоимость продуктов и товаров, задержки рейсов или поездов и т.д. Информация поступает из онлайн-источников, например API. Оракул извлекает необходимые данные и помещает их в блокчейн.
 
-**Hardware oracles** track real-world objects with devices and sensors. For example, a video camera with an analytics function virtual line crossing tracks vehicles entering a specific zone. If an event is detected, the oracle writes about it on the blockchain. Based on the data of such oracle, some script of decentralized application on the blockchain may be triggered. In this case, for example, a fine and the write-off of tokens from the account of the vehicle owner. But it is not in oracle scope, is in the scope of the script that is based on the data of such an oracle.
+**Аппаратные оракулы** отслеживают объекты реального мира с помощью устройств и датчиков. Например, видеокамера с заданной аналитикой на пересечение линии отслеживает автомобиль, въезжающий в определенную зону. Если событие произошло, то оракул фиксирует его в блокчейне. Исходя из данных такого оракула может инициироваться какое-либо событие. В данном случае, например, выписка штрафа и списание токенов с аккаунта владельца автомобиля. Но это делает уже не оракул, а скрипт, который ориентируется на данные такого оракула.
 
-**Human oracles** imply that the data is entered by a human being.
+**Человеческие оракулы** подразумевают, что данные вводит человек.
 
-## Oracles issue
+## Описание проблемы
 
-The oracle is a way of connecting the blockchain with the outside world.
+Оракул можно рассматривать как способ связи блокчейна с реальным миром.
 
-The major problem that is solved by the usage of oracles is the very point that blockchains can only access data that is stored on the blockchain. Here, in blockchain, the point is that it is important that decentralized applications can only access data that is stored on the blockchain so that every execution of the script leads to the same result at a given point in time. Therefore, decentralized applications are not able to access data from outside the blockchain, e.g., provided by web services or other external sources of data.
+Основная проблема, которая решается с помощью оракулов, заключается в том, что блокчейны могут получить доступ только к данным внутри себя, это важно, чтобы децентрализованные приложения имели доступ только к тем данным, которые хранятся в цепочке блоков, так, чтобы каждое выполнение скрипта приводило к одному и тому же результату во времени. Поэтому децентрализованным приложениям не позволено получать доступ к данным, поступающим из-за пределов блокчейна, например, через веб-сервисы или другие внешние источники данных.
 
-Nevertheless, much interesting application needs access to the outside world, e.g., decentralized application for insurances, decentralized betting systems, financial services and so forth.
+Тем не менее, многим интересным приложениям необходим доступ к внешним данным, например, децентрализованные приложения для страхования, децентрализованные букмекерские системы, финансовые сервисы и прочие.
 
-Here, the solution is quite straightforward: if external data is necessary for the execution of a decentralized application, this data needs to be stored on the blockchain. To achieve this, there are usually small programs implemented that access the necessary data and write it to the blockchain. Those little programs are called oracles.
+Решение достаточно простое: если для выполнения децентрализованного приложения необходимы внешние данные, то они должны храниться в блокчейне. Для этого создаются небольшие программы, которые получают доступ к необходимым данным и записывают их в блокчейн. Эти маленькие программы называются оракулами.
 
-## Consensus of oracles
+## Консенсус оракулов
 
-One source may be unsafe if it does not have the authority or high rating. However, several oracles can be used to stay away from the monopoly and have safer. For example, get information from ten oracles and only if the data of 6 out of 10 oracles coincide, to accept them. This is the consensus of the oracles.
+Один источник информации может быть небезопасным, если он не имеет должный авторитет или высокий рейтинг. Тем не менее, чтобы держаться подальше от контроля информации и иметь большую безопасность, можно использовать несколько оракулов. Например, получать информацию от десяти оракулов и только если данные 6 из 10 оракулов совпадают, то принимать их. Это и есть консенсус оракулов.

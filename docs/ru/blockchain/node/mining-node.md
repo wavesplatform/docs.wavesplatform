@@ -1,5 +1,5 @@
-# Mining node
+# Майнящая нода
 
-A **mining node** is a [node](/blockchain/node.md) that does [mining](/blockchain/mining.md).
+**Майнящая нода** — [нода](/blockchain/node.md), которая осуществляет [майнинг](/blockchain/mining.md).
 
-Each mining node is a [validating node](/blockchain/node/validating-node.md).
+Каждая майнящая нода является [валидирующей нодой](/blockchain/node/validating-node.md).

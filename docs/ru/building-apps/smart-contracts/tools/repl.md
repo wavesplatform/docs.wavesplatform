@@ -1,15 +1,15 @@
 # REPL
 
-**REPL** ([_read–eval–print loop_](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)) is a console of the [Waves IDE](/smart-contracts/tools/waves-ide.md).
+**REPL** ([_read–eval–print loop_](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)) — консоль [Waves IDE](/smart-contracts/tools/waves-ide.md).
 
-<img src="./_assets/repl.png" width="700px" />
+<img src="img/repl/repl.png" width="700px" />
 
-You can write in the console any JavaScript code.
+В консоли можно писать любой код на JavaScript.
 
-The console has built-in functions which you can use to:
+В консоли есть встроенные функции, с помощью которых можно:
 
-* sign and send [transactions](/blockchain/transaction.md)
-* get account balance
-* read data from [account data storage](/blockchain/account/account-data-storage.md)
+* подписывать и отправлять [транзакции](/blockchain/transaction.md)
+* получать баланс аккаунта
+* читать данные из [хранилища данных аккаунта](/blockchain/account/account-data-storage.md)
 
-The documentation on the console functions is available on [GitHub](https://wavesplatform.github.io/js-test-env).
+Документация по функциям консоли доступна на [GitHub](https://wavesplatform.github.io/js-test-env).

@@ -1,5 +1,5 @@
-# Smart account
+# Смарт-аккаунт
 
-A **smart account** is an [account](/blockchain/account.md) that has an [account script](/ride/script/script-types/account-script.md) attached to it.
+**Смарт-аккаунт** — [аккаунт](/blockchain/account.md), к которому прикреплен [скрипт аккаунта](/ride/script/script-types/account-script.md).
 
-An account script is attached to the account with a [set script transaction](/blockchain/transaction-type/set-script-transaction.md). Only one script can be attached to the account.
+Скрипт аккаунта прикрепляется к аккаунту с помощью [транзакции установки скрипта](/blockchain/transaction-type/set-script-transaction.md). К аккаунту можно прикрепить только один скрипт.

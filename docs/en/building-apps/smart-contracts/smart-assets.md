@@ -1,6 +1,6 @@
 # Smart Assets
 
-![master](https://img.shields.io/badge/node-0.15.1-4bc51d.svg)
+![master](https://img.shields.io/badge/node->%3D0.15.1-4bc51d.svg)
 
 ## Smart Assets Definition
 
@@ -54,7 +54,6 @@ If an Asset Pair contains a Smart Asset then the fee is increased by + 0.004 \(+
 This fee is payed to the Matcher by every account that is placing an order. The same fee is payed by the Matcher when an ExchangeTransaction is put into the blockchain.
 
 If an ExchangeTransaction's sender \(the Matcher or any other account\) has a script then the total fee for the transaction is increased by 0.004 waves.
-
 
 ## Validation
 
@@ -121,8 +120,6 @@ The assets that were issued without a script cannot become scripted. You can cre
 A smart asset’s script can be changed via [_**SetAssetScriptTransaction**_](/blockchain/binary-format/transaction-binary-format/set-asset-script-transaction-binary-format.md) \([fee](../technical-details/transactions-fees.md) on changing is equal to 1 WAVES\).
 
 Only the issuer can change the asset's script.
-
-
 
 ## Examples of Scripts for Smart Assets
 
@@ -213,12 +210,11 @@ match tx {
 
 Let’s consider an exchange of two smart assets:
 
-![](./_assets/1.png)
+![](../_assets/1.png)
 
 Alice and Bob \(both have smart accounts\) place their orders to the matcher \(the matcher has its own script\). When the two orders have matched, the matcher creates an ExchangeTransaction and tries to put it into the blockchain.
 
 ![](../_assets/2.png)
-
 
 In this case, the following validations are performed:
 
@@ -239,6 +235,4 @@ In this case, the following validations are performed:
 
 \*Matcher validates Orders by the assets’ scripts as follows: the matcher creates an auxiliary counter-order, puts the two orders to an ExchangeTransaction and validates this transaction via the assets scripts’ “case tx: ExchangeTx =&gt; …” branches.
 
-As a result, for the Orders placement Alice pays fee=0.011 waves to the matcher, Bob pays fee=0.011 waves to the matcher. When the ExchangeTransaction is being put into the blockchain, the fee payed by the matcher is 0.011+0.004\(because of the matcher’s script\)=0.015 waves. 
-
-
+As a result, for the Orders placement Alice pays fee=0.011 waves to the matcher, Bob pays fee=0.011 waves to the matcher. When the ExchangeTransaction is being put into the blockchain, the fee payed by the matcher is 0.011+0.004\(because of the matcher’s script\)=0.015 waves.

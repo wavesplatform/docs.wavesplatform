@@ -1,17 +1,19 @@
-# Annotations
+# Аннотации
 
-An **annotation** is a form of metadata that is added to a [function](/ride/functions.md) of a [dApp script](/ride/script/script-types/dapp-script.md).
+**Аннотация** — форма метаданных, которая добавляется к [функции](/ride/functions.md) [dApp-скрипта](/ride/script/script-types/dapp-script.md).
 
-At the present moment, there are two annotations: `@Callable` and `@Verifier`.
+В настоящее время существуют две аннотации: `@Callable` и `@Verifier`.
+
+Аннотированная функция не может быть вызвана внутри dApp-скрипта.
 
 ## @Callable(inv: [Invocation](/ride/structures/common-structures.md#invocation))
 
-Annotation of a [callable function](/ride/functions/callable-function.md).
+Аннотация [вызываемой функции](/ride/functions/callable-function.md).
 
-Variable `inv` contains information about the transaction that invoked the function of a [dApp](/blockchain/account/dapp.md).
+Переменная `inv` содержит информацию о транзакции, которая вызвала функцию [dApp](/blockchain/account/dapp.md).
 
 ## @Verifier(tx: Transaction|[Order](/ride/structures/common-structures.md#order))
 
-Annotation of a [verifier function](/ride/functions/verifier-function.md).
+Аннотация [функции-верификатора](/ride/functions/verifier-function.md).
 
-Variable `tx` contains information about the transaction or the order that was sent.
+Переменная `tx` содержит информацию об отправляемой транзакции или ордере.

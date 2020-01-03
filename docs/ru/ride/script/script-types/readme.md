@@ -1,9 +1,9 @@
-# Script types
+# Типы скриптов
 
-There are three types of [scripts](/ride/script.md):
+Существует три типа [скриптов](/ride/script.md):
 
-* [Account script](/ride/script/script-types/account-script.md)
-* [Asset script](/ride/script/script-types/asset-script.md)
-* [dApp script](/ride/script/script-types/dapp-script.md)
+* [dApp-скрипт](/ride/script/script-types/dapp-script.md)
+* [Скрипт аккаунта](/ride/script/script-types/account-script.md)
+* [Скрипт ассета](/ride/script/script-types/asset-script.md)
 
-The script type is defined by the `SCRIPT_TYPE` [directive](/ride/script/directives.md).
+Тип скрипта задается [директивой](/ride/script/directives.md) `SCRIPT_TYPE`.

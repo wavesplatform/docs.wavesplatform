@@ -1,28 +1,29 @@
-# Decoding functions
+# Функции декодирования
 
-|#| Name | Description | Complexity |
-|:---| :--- | :--- | :--- |
-| 1 | [addressFromString(String): Address&#124;Unit](#address-from-string)| Decodes address from [Base58](https://en.wikipedia.org/wiki/Base58) string | 124 |
-| 2 | [addressFromStringValue(String): Address](#address-from-string-value) | Decodes address from [Base58](https://en.wikipedia.org/wiki/Base58) string.<br>Raises an exception if the address cannot be decoded | 124 |
-| 3 | [fromBase16String(String): ByteVector](#from-base-16-string) | Decodes [Base16](https://en.wikipedia.org/wiki/Hexadecimal) string to an array of bytes | 10 |
-| 4 | [fromBase58String(String): ByteVector](#from-base-58-string) | Decodes [Base58](https://en.wikipedia.org/wiki/Base58) string to an array of bytes | 10 |
-| 5 | [fromBase64String(String): ByteVector](#from-base-64-string)| Decodes [Base64](https://en.wikipedia.org/wiki/Base64) string to an array of bytes | 10 |
+| # | Название | Описание | Сложность |
+| :--- | :--- | :--- | :--- |
+| 1 | [addressFromString(String): Address&#124;Unit](#address-from-string)| Декодирует адрес из строки [Base58](https://ru.wikipedia.org/wiki/Base58) | 124 |
+| 2 | [addressFromStringValue(String): Address](#address-from-string-value) | Декодирует адрес из строки [Base58](https://ru.wikipedia.org/wiki/Base58).<br>Выбрасывает исключение, если адрес невозможно декодировать | 124 |
+| 3 | [fromBase16String(String): ByteVector](#from-base-16-string) | Декодирует строку [Base16](https://ru.wikipedia.org/wiki/Шестнадцатеричная_система_счисления) в массив байтов | 10 |
+| 4 | [fromBase58String(String): ByteVector](#from-base-58-string) | Декодирует строку [Base58](https://ru.wikipedia.org/wiki/Base58) в массив байтов | 10 |
+| 5 | [fromBase64String(String): ByteVector](#from-base-64-string)| Декодирует строку [Base64](https://ru.wikipedia.org/wiki/Base64) в массив байтов | 10 |
+
 
 ### addressFromString(String): Address|Unit<a id="address-from-string"></a>
 
-Decodes address from [Base58](https://en.wikipedia.org/wiki/Base58) string.
+Декодирует адрес из строки [Base58](https://ru.wikipedia.org/wiki/Base58).
 
-```
+``` ride
 addressFromString(string: String): Address|Unit
 ```
 
-### Parameters
+### Параметры
 
 #### `string`: [String](en/ride/data-types/string.md)
 
-The string to decode.
+Строка для декодирования.
 
-### Examples
+### Примеры
 
 ```ride
 let address = addressFromString("3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF")
@@ -30,21 +31,21 @@ let address = addressFromString("3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF")
 
 ## addressFromStringValue(String): Address <a id="address-from-string-value"></a>
 
-Decodes address from [Base58](https://en.wikipedia.org/wiki/Base58) string.
+Декодирует адрес из строки [Base58](https://ru.wikipedia.org/wiki/Base58).
 
-Raises an exception if the address cannot be decoded.
+Выбрасывает исключение, если адрес невозможно декодировать.
 
-```
+``` ride
 addressFromStringValue(string: String): Address
 ```
 
-### Parameters
+### Параметры
 
 #### `string`: [String](en/ride/data-types/string.md)
 
-The string to decode.
+Строка для декодирования.
 
-### Examples
+### Примеры
 
 ```ride
 let address = addressFromStringValue("3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF")
@@ -52,39 +53,39 @@ let address = addressFromStringValue("3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF")
 
 ## fromBase16String(String): ByteVector<a id="from-base-16-string"></a>
 
-Decodes a [Base16](https://en.wikipedia.org/wiki/Hexadecimal) string to an array of bytes.
+Декодирует строку [Base16](https://ru.wikipedia.org/wiki/Шестнадцатеричная_система_счисления) в массив байтов.
 
-```
+``` ride
 fromBase16String(str: String): ByteVector
 ```
 
-### Parameters
+### Параметры
 
 #### `str`: [String](en/ride/data-types/string.md)
 
-The string to decode.
+Строка для декодирования.
 
-### Examples
+### Примеры
 
 ```ride
-let bytes = fromBase16String("52696465")
+fromBase16String("52696465")
 ```
 
 ## fromBase58String(String): ByteVector<a id="from-base-58-string"></a>
 
-Decodes a [Base58](https://en.wikipedia.org/wiki/Base58) string to an array of bytes.
+Декодирует строку [Base58](https://ru.wikipedia.org/wiki/Base58) в массив байтов.
 
-```
+``` ride
 fromBase58String(str: String): ByteVector
 ```
 
-### Parameters
+### Параметры
 
 #### `str`: [String](en/ride/data-types/string.md)
 
-The string to decode.
+Строка для декодирования.
 
-### Examples
+### Примеры
 
 ```ride
 let bytes = fromBase58String("37BPKA")
@@ -92,19 +93,19 @@ let bytes = fromBase58String("37BPKA")
 
 ## fromBase64String(String): ByteVector<a id="from-base-64-string"></a>
 
-Decodes a [Base64](https://en.wikipedia.org/wiki/Base64) string to an array of bytes.
+Декодирует строку [Base64](https://ru.wikipedia.org/wiki/Base64) в массив байтов.
 
-```
+``` ride
 fromBase64String(str: String): ByteVector
 ```
 
-### Parameters
+### Параметры
 
 #### `str`: [String](en/ride/data-types/string.md)
 
-The string to decode.
+Строка для декодирования.
 
-### Examples
+### Примеры
 
 ```ride
 let bytes = fromBase64String("UmlkZQ==")

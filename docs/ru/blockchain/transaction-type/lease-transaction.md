@@ -1,7 +1,7 @@
-# Lease transaction
+# Транзакция лизинга
 
-A **lease transaction** is a [transaction](/blockchain/transaction.md) that [leases](/blockchain/leasing.md) [WAVES](/blockchain/token/waves.md) to another [account](/blockchain/account.md).
+**Транзакция лизинга** — [транзакция](/blockchain/transaction.md), которая передаёт [WAVES](/blockchain/token/waves.md) в [лизинг](/blockchain/leasing.md) другому [аккаунту](/blockchain/account.md).
 
-## Binary format
+## Бинарный формат
 
-See the page [Lease transaction binary format](/blockchain/binary-format/transaction-binary-format/lease-transaction-binary-format.md).
+Смотрите страницу [Бинарный формат транзакции лизинга](/blockchain/binary-format/transaction-binary-format/leasing-transaction-binary-format.md).
