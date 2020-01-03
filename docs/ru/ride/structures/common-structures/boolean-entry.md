@@ -1,9 +1,8 @@
 # BooleanEntry
 
-> [!WARNING]
-> Структура BooleanEntry представлена в [Стандартной библиотеке](/ru/ride/script/standard-library.md) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network.md).
+<note type="warning" title="">Структура BooleanEntry представлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).</note>
 
-Структура записи логического типа [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage.md).
+Структура записи логического типа [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage).
 
 ## Конструктор
 
@@ -15,5 +14,5 @@ BooleanEntry(key: String, value: Boolean)
 
 |   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | key | [String](/ru/ride/data-types/string.md) | Ключ записи. Максимальная длина - 100 символов |
-| 2 | value| [Boolean](/ru/ride/data-types/boolean.md) | Значение записи |
+| 1 | key | [String](/ru/ride/data-types/string) | Ключ записи. Максимальная длина - 100 символов |
+| 2 | value| [Boolean](/ru/ride/data-types/boolean) | Значение записи |

@@ -73,7 +73,7 @@ You can use the [@waves/signature-generator](https://www.npmjs.com/package/@wave
 
 Signed data consists of three objects `Prefix string` + `URL host` + `Provided Data`
 Signature is taken from the data in the following order: a `WavesWalletAuthentication` string, then a string with your host parameter value, then a string with your data parameter value.
-All strings is converted to `length bytes + value bytes` as in [Data Transactions](/en/blockchain/transaction-type/data-transaction.md)
+All strings is converted to `length bytes + value bytes` as in [Data Transactions](/en/blockchain/transaction-type/data-transaction)
 Prefix string and the host is required for security purposes if malicious service tries to use transaction data and signature from Auth API it would be useless to broadcast into blockchain.
 
 We also suggest address validation in case the signature and public key is valid but the address was swapped.

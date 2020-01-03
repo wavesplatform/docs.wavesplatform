@@ -1,6 +1,6 @@
 # Order
 
-An **order** is an instruction from the [account owner](/en/blockchain/account.md) to the [matcher](/en/waves-node/extensions/matcher.md) to buy or sell the [token](/en/blockchain/token.md) on [DEX](/waves-dex/about-waves-dex.md).
+An **order** is an instruction from the [account owner](/en/blockchain/account) to the [matcher](/en/waves-node/extensions/matcher) to buy or sell the [token](/en/blockchain/token) on [DEX](/waves-dex/about-waves-dex).
 
 ## Order cancellation
 
@@ -18,10 +18,10 @@ The expiration time varies from 1 minute to 30 days.
 
 ## Order timestamp
 
-An **order timestamp** is a time when [matcher](/en/waves-node/extensions/matcher.md) adds the [order](/en/blockchain/order.md) to the [order book](https://en.wikipedia.org/wiki/Order_book_%28trading%29) on [DEX](/waves-dex/about-waves-dex.md).
+An **order timestamp** is a time when [matcher](/en/waves-node/extensions/matcher) adds the [order](/en/blockchain/order) to the [order book](https://en.wikipedia.org/wiki/Order_book_%28trading%29) on [DEX](/waves-dex/about-waves-dex).
 
 The time is specified in _milliseconds_ that have passed since the beginning of the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time).
 
 ## Order binary format
 
-See the [Order binary format](/en/blockchain/binary-format/order-binary-format.md) page.
+See the [Order binary format](/en/blockchain/binary-format/order-binary-format) page.

@@ -1,6 +1,6 @@
 # Alias
 
-An **alias** is a short, easy to remember, name of [address](/en/blockchain/account/address.md).
+An **alias** is a short, easy to remember, name of [address](/en/blockchain/account/address).
 
 Aliases are easy to remember, because of that they are often used instead of addresses.
 
@@ -10,7 +10,7 @@ One address can have several aliases.
 
 ## Creation of an alias
 
-An alias is created using an [alias transaction](/en/blockchain/transaction-type/alias-transaction.md).
+An alias is created using an [alias transaction](/en/blockchain/transaction-type/alias-transaction).
 
 > A created alias cannot be deleted
 
@@ -27,4 +27,4 @@ The following characters are allowed in the name of an alias:
 
 # Binary format
 
-See the page [Alias binary format](/en/blockchain/binary-format/alias-binary-format.md).
+See the page [Alias binary format](/en/blockchain/binary-format/alias-binary-format).

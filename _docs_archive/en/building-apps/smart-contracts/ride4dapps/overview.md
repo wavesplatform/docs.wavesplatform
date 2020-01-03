@@ -24,7 +24,8 @@ func verify() = {
   (a || b) && sigVerify(tx...)
 }
 ```
-{% prettyhint type="info" %} tx is no longer part of global context, but the actual transaction object is bound through @Verifier annotation. {% endprettyhint %}
+
+<note type="info" title="">tx is no longer part of global context, but the actual transaction object is bound through @Verifier annotation.</note>
 
 ### **Callable Functions**
 
@@ -49,4 +50,5 @@ Unlike verifier function, _**Callable function**_ can return one of:
 
 **_The sender pays fees(0.001 + 0.004*(the cost of each script involved))_** to the miner for the invocation. The sender can optionally attach payment in WAVES or tokens, and upon invocation the contract state can be changed and the contract can make multiple payments. By default, a contract’s attributes (the contract itself, contract data and contract tokens) are controlled by the account’s private key.
 
-{% prettyhint type="info" %} In addition, there’re functions that are not Verifier and are not Callable which means that they cannot be called via InvokeScriptTransaction but can be called by other functions. In this case, you need to define this kind of functions at the beginning of your code before any callable or verifier functions which means that recursive calls is not possible {% endprettyhint %}
+
+<note type="info" title="">In addition, there’re functions that are not Verifier and are not Callable which means that they cannot be called via InvokeScriptTransaction but can be called by other functions. In this case, you need to define this kind of functions at the beginning of your code before any callable or verifier functions which means that recursive calls is not possible.</note>

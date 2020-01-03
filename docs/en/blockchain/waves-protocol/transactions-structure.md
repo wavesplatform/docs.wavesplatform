@@ -2,7 +2,7 @@
 
 In this section, you can find all transactions body bytes details and the new fields which are included in the updated version of our transactions \(Version 2\).
 
-In the new version, the transactions are signed by [_**proofs**_](/waves-environment/waves-protocol/versioned-transactions.md) instead of using a signature.
+In the new version, the transactions are signed by [_**proofs**_](/waves-environment/waves-protocol/versioned-transactions) instead of using a signature.
 
 The differences between TransactionV2 and TransactionV1 are:
 

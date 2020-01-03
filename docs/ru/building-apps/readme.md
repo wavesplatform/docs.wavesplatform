@@ -2,21 +2,21 @@
 
 Waves предоставляет библиотеки для работы с платформой из ваших приложений.
 
-Также вы можете создавать на блокчейне децентрализованные приложения (dApps) на языке [RIDE](/ru/ride/about-ride.md). Функции dApps можно вызывать из приложений с помощью клиентских библиотек.
+Также вы можете создавать на блокчейне децентрализованные приложения (dApps) на языке [RIDE](/ru/ride/about-ride). Функции dApps можно вызывать из приложений с помощью клиентских библиотек.
 
 ## Клиентские библиотеки
 
 Отправляйте транзакции и читайте данные блокчейна из ваших приложений на Python, Java, C#, Swift, Kotlin.
 
-Список поддерживаемых языков программирования смотрите на странице [Клиентские библиотеки](/ru/building-apps/waves-api-and-sdk/client-libraries.md).
+Список поддерживаемых языков программирования смотрите на странице [Клиентские библиотеки](/ru/building-apps/waves-api-and-sdk/client-libraries).
 
 ## Разработка децентрализованных приложений
 
 Начните создавать децентрализованные приложения, следуя шагам:
 
 - Посмотрите [презентацию](https://wavesplatform.com/products-ride) о языке RIDE на официальной странице продукта.
-- Изучите синтаксис языка во вводной статье на [GitHub](https://github.com/KardanovIR/ride-introduction/blob/master/README.md). Ознакомьтесь с [примерами](https://github.com/wavesplatform/ride-examples) скриптов на RIDE.
-- Процесс разработки децентрализованного приложения описан в статье [How to Build, Deploy and Test a Waves RIDE dApp](https://blog.wavesplatform.com/how-to-build-deploy-and-test-a-waves-ride-dapp-785311f58c2) на Medium. Пошаговый пример создания простого dApp описан на странице [Простое голосование на блокчейне Waves](/ru/building-apps/smart-contracts/simple-voting-on-the-waves-blockchain.md).
+- Изучите синтаксис языка во вводной статье на [GitHub](https://github.com/KardanovIR/ride-introduction/blob/master/README). Ознакомьтесь с [примерами](https://github.com/wavesplatform/ride-examples) скриптов на RIDE.
+- Процесс разработки децентрализованного приложения описан в статье [How to Build, Deploy and Test a Waves RIDE dApp](https://blog.wavesplatform.com/how-to-build-deploy-and-test-a-waves-ride-dapp-785311f58c2) на Medium. Пошаговый пример создания простого dApp описан на странице [Простое голосование на блокчейне Waves](/ru/building-apps/smart-contracts/simple-voting-on-the-waves-blockchain).
 - Для более глубокого знакомства с RIDE и инфраструктурой для создания децентрализованных приложений пройдите курс [Mastering Web3 with Waves](https://stepik.org/course/54415/promo). После прохождения курса вы получите сертификат об успешном прохождении курса.
 
 ### Инструменты для программирования на RIDE

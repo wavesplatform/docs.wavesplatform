@@ -6,10 +6,10 @@ Objective: implement such voting among tenants on the Waves blockchain.
 
 ## Roadmap
 
-1. Create an [account](/en/blockchain/account.md) of the head of the HOA.
+1. Create an [account](/en/blockchain/account) of the head of the HOA.
 2. Create accounts of tenants.
-3. Create [dApp script](/en/ride/script/script-types/dapp-script.md) with the `vote` method.
-4. Attach dApp script to the account of the head of the HOA, thus creating a [dApp](/en/blockchain/account/dapp.md).
+3. Create [dApp script](/en/ride/script/script-types/dapp-script) with the `vote` method.
+4. Attach dApp script to the account of the head of the HOA, thus creating a [dApp](/en/blockchain/account/dapp).
 5. Vote from the accounts of tenants by invoking the `vote` method of the dApp.
 6. View the results of the voting.
 
@@ -19,7 +19,7 @@ Go to the [Waves IDE](https://ide.wavesplatform.com) settings.
 
 ![](./_assets/voting/account-settings.png)
 
-Make sure that the [test network](/en/blockchain/blockchain-network/test-network.md) is selected.
+Make sure that the [test network](/en/blockchain/blockchain-network/test-network) is selected.
 
 ![](./_assets/voting/account-settings-test.png)
 
@@ -31,19 +31,19 @@ Rename created account to "Head of HOA".
 
 ![](./_assets/voting/account-chief.png)
 
-Copy the [address](/en/blockchain/account/address.md) of the head of HOA and top up its balance by 10 [WAVES](/en/blockchain/token/waves.md) using the [Faucet](/en/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network.md). The head of HOA will need [tokens](/en/blockchain/token.md) to pay the [fee](/en/blockchain/transaction/transaction-fee.md) for the set script transaction when he will be attaching [dApp script](/en/ride/script/script-types/dapp-script.md) to his account.
+Copy the [address](/en/blockchain/account/address) of the head of HOA and top up its balance by 10 [WAVES](/en/blockchain/token/waves) using the [Faucet](/en/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network). The head of HOA will need [tokens](/en/blockchain/token) to pay the [fee](/en/blockchain/transaction/transaction-fee) for the set script transaction when he will be attaching [dApp script](/en/ride/script/script-types/dapp-script) to his account.
 
 ![](./_assets/voting/account-chief-balance.png)
 
 ## 2. Creation of accounts of tenants
 
-Similarly, create accounts of tenants Aleksei and Anna and top up their balances by 10 WAVES. They will need tokens to pay a fee for the [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction.md) when they will vote by calling the `vote` method of the dApp.
+Similarly, create accounts of tenants Aleksei and Anna and top up their balances by 10 WAVES. They will need tokens to pay a fee for the [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) when they will vote by calling the `vote` method of the dApp.
 
 ![](./_assets/voting/accounts-residents.png)
 
 ## 3. Creation of a dApp script
 
-Create a [dApp script](/en/ride/script/script-types/dapp-script.md) by selecting **DApp** in the drop-down list.
+Create a [dApp script](/en/ride/script/script-types/dapp-script) by selecting **DApp** in the drop-down list.
 
 ![](./_assets/voting/new-dapp-script.png)
 
@@ -93,7 +93,7 @@ func vote(theVote: Int) = {
 
 #### The `vote` function
 
-The `vote` function returns the `WriteSet` [structure](/en/ride/structures.md), inside of which takes place the recording of the vote to the [account data storage](/en/blockchain/account/account-data-storage.md) of the head of the HOA.
+The `vote` function returns the `WriteSet` [structure](/en/ride/structures), inside of which takes place the recording of the vote to the [account data storage](/en/blockchain/account/account-data-storage) of the head of the HOA.
 
 In front of the `vote` function, there is a `@Callable` annotation which makes the dApp function callable. The `i` is the variable that contains the information about transaction which invoked the `vote` function. In the code we use variable `i` to get public key of the account which sent the invoke script transaction.
 
@@ -117,7 +117,7 @@ The `getInteger` function gets values of the account data storage by key:
 let dataFromStorage = this.getInteger(i.callerPublicKey.toBase58String())
 ```
 
-The size and the [complexity](/en/ride/base-concepts/complexity.md) of the script is displayed in the panel underneath the script editor.
+The size and the [complexity](/en/ride/base-concepts/complexity) of the script is displayed in the panel underneath the script editor.
 
 ![](./_assets/voting/script-complexity.png)
 
@@ -131,11 +131,11 @@ In the opened window, in the **Account** combo box, select the "Head of the HOA"
 
 ![](./_assets/voting/add-sign.png)
 
-Note that you can also sign a transaction with a seed phrase or using the [Waves Keeper](/waves-keeper/about-waves-keeper.md).
+Note that you can also sign a transaction with a seed phrase or using the [Waves Keeper](/waves-keeper/about-waves-keeper).
 
 ![](./_assets/voting/seed-and-waves-keeper.png)
 
-Send a [set script transaction](/en/blockchain/transaction-type/set-script-transaction.md) from the account of the head of the HOA by pressing **Publish**. By doing so, you just created a [dApp](/en/blockchain/account/dapp.md).
+Send a [set script transaction](/en/blockchain/transaction-type/set-script-transaction) from the account of the head of the HOA by pressing **Publish**. By doing so, you just created a [dApp](/en/blockchain/account/dapp).
 
 ![](./_assets/voting/publish.png)
 
@@ -143,14 +143,14 @@ In the [Waves Explorer](https://wavesexplorer.com/testnet), in the _test network
 
 ![](./_assets/voting/testnet-address.png)
 
-There are two transactions on the head of the HOA's address: the [transfer transaction](/en/blockchain/transaction-type/transfer-transaction.md) (balance top up by 10 WAVES using the Faucet) and the set script transaction. Note that the commission of 0.001 WAVES was charged from the head of the HOA's balance for the set script transaction.
+There are two transactions on the head of the HOA's address: the [transfer transaction](/en/blockchain/transaction-type/transfer-transaction) (balance top up by 10 WAVES using the Faucet) and the set script transaction. Note that the commission of 0.001 WAVES was charged from the head of the HOA's balance for the set script transaction.
 
 ![](./_assets/voting/waves-explorer-chief-transactions.png
 
 ## 5. Voting
 
 In order to vote a resident must send an invoke script transaction from his account. In the transaction he must specify the address of the dApp, the name of the method to call, and the passed parameters.
-Send an invoke script transaction from Aleksei's account using [REPL](/en/building-apps/smart-contracts/tools/repl.md). First, _select Aleksei's account_ in the Waves IDE.
+Send an invoke script transaction from Aleksei's account using [REPL](/en/building-apps/smart-contracts/tools/repl). First, _select Aleksei's account_ in the Waves IDE.
 
 ![](./_assets/voting/account-aleksei.png)
 

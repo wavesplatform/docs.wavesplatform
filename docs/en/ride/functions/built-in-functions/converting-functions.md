@@ -2,8 +2,8 @@
 
 | # | Name | Description | Complexity |
 |:--- | :--- | :--- | :--- |
-| 1 | [addressFromPublicKey(ByteVector): Address](#address-from-public-key)| Gets the corresponding [address](/en/blockchain/account/address.md) of the account public key | 82 |
-| 2 | [addressFromRecipient(Address&#124;Alias): Address](#address-from-recipient) | Gets the corresponding [address](/en/blockchain/account/address.md) of the [alias](/en/blockchain/account/alias.md) | 100 |
+| 1 | [addressFromPublicKey(ByteVector): Address](#address-from-public-key)| Gets the corresponding [address](/en/blockchain/account/address) of the account public key | 82 |
+| 2 | [addressFromRecipient(Address&#124;Alias): Address](#address-from-recipient) | Gets the corresponding [address](/en/blockchain/account/address) of the [alias](/en/blockchain/account/alias) | 100 |
 | 3 | [parseInt(String): Int&#124;Unit](#parse-int) | Converts the string representation of a number to its integer equivalent | 20 |
 | 4 | [parseIntValue(String): Int](#parse-int-value) | Converts the string representation of a number to its integer equivalent.<br>Raises an exception if the string cannot be parsed | 20 |
 | 5 | [toBytes(Boolean): ByteVector](#tobytes-bool) | Converts a boolean value to an array of bytes | 1 |
@@ -11,7 +11,7 @@
 | 7 | [toBytes(String): ByteVector](#tobytes-string) | Converts a string to an array of bytes | 1 |
 | 8 | [toInt(ByteVector): Int](#toint-bytes) | Converts an array of bytes to an integer | 10 |
 | 9 | [toInt(ByteVector, Int): Int](#toint-bytes-int) | Converts an array of bytes to an integer starting from a certain index | 10 |
-| 10 | [toString(Address): String](#to-string-address) | Converts an array of bytes of an [address](/en/blockchain/account/address.md) to a string | 10 |
+| 10 | [toString(Address): String](#to-string-address) | Converts an array of bytes of an [address](/en/blockchain/account/address) to a string | 10 |
 | 11 | [toString(Boolean): String](#tostring-bool) | Converts a boolean value to a string | 1 |
 | 12 | [toString(Int): String](#tostring-int) | Converts an integer to a string | 1 |
 | 13 | [toUtf8String(ByteVector): String](#to-utf8-string) | Converts an array of bytes to a [UTF-8](https://en.wikipedia.org/wiki/UTF-8) string | 20 |
@@ -19,7 +19,7 @@
 
 ## addressFromPublicKey(ByteVector): Address<a id="address-from-public-key"></a>
 
-Gets the corresponding [address](/en/blockchain/account/address.md) of the account public key.
+Gets the corresponding [address](/en/blockchain/account/address) of the account public key.
 
 ```
 addressFromPublicKey(publicKey: ByteVector): Address
@@ -27,7 +27,7 @@ addressFromPublicKey(publicKey: ByteVector): Address
 
 ### Parameters
 
-#### `publicKey`: [ByteVector](/en/ride/data-types/byte-vector.md)
+#### `publicKey`: [ByteVector](/en/ride/data-types/byte-vector)
 
 Public key.
 
@@ -39,7 +39,7 @@ let address = addressFromPublicKey(base58'J1t6NBs5Hd588Dn7mAPytqkhgeBshzv3zecScf
 
 ## addressFromRecipient(Address|Alias): Address<a id="address-from-recipient"></a>
 
-Gets the corresponding [address](/en/blockchain/account/address.md) of the [alias](/en/blockchain/account/alias.md).
+Gets the corresponding [address](/en/blockchain/account/address) of the [alias](/en/blockchain/account/alias).
 
 ``` ride
 addressFromRecipient(AddressOrAlias: Address|Alias): Address
@@ -47,7 +47,7 @@ addressFromRecipient(AddressOrAlias: Address|Alias): Address
 
 ### Parameters
 
-#### AddressOrAlias: [Address](/en/ride/structures/common-structures/address.md)&#124;[Alias](/en/ride/structures/common-structures/alias.md)
+#### AddressOrAlias: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias)
 
 Address or alias, usually tx.recipient.
 
@@ -69,7 +69,7 @@ parseInt(str: String): Int|Unit
 
 ### Parameters
 
-#### `str`: [String](/en/ride/data-types/string.md)
+#### `str`: [String](/en/ride/data-types/string)
 
 String to parse.
 
@@ -94,7 +94,7 @@ parseIntValue(str: String): Int
 
 ### Parameters
 
-#### `str`: [String](/en/ride/data-types/string.md)
+#### `str`: [String](/en/ride/data-types/string)
 
 String to parse.
 
@@ -118,7 +118,7 @@ toBytes(b: Boolean): ByteVector
 
 ### Parameters
 
-#### `b`: [Boolean](/en/ride/data-types/boolean.md)
+#### `b`: [Boolean](/en/ride/data-types/boolean)
 
 Boolean to convert.
 
@@ -139,7 +139,7 @@ toBytes(n: Int): ByteVector
 
 ### Parameters
 
-#### `n`: [Int](/en/ride/data-types/int.md)
+#### `n`: [Int](/en/ride/data-types/int)
 
 Integer to convert.
 
@@ -159,7 +159,7 @@ toBytes(s: String): ByteVector
 
 ### Parameters
 
-#### `s`: [String](/en/ride/data-types/string.md)
+#### `s`: [String](/en/ride/data-types/string)
 
 String to convert.
 
@@ -179,7 +179,7 @@ toInt(bin: ByteVector) : Int
 
 ### Parameters
 
-#### `bin`: [ByteVector](/en/ride/data-types/byte-vector.md)
+#### `bin`: [ByteVector](/en/ride/data-types/byte-vector)
 
 Array of bytes to convert.
 
@@ -199,11 +199,11 @@ toInt(bin: ByteVector, offset: Int): Int
 
 ### Parameters
 
-#### `bin`: [ByteVector](/en/ride/data-types/byte-vector.md)
+#### `bin`: [ByteVector](/en/ride/data-types/byte-vector)
 
 Array of bytes to convert.
 
-#### `offset`: [Int](/en/ride/data-types/int.md)
+#### `offset`: [Int](/en/ride/data-types/int)
 
 Index to start from.
 
@@ -217,7 +217,7 @@ toInt(bytes, 6) # Index out of bounds
 
 ## toString(Address): String<a id="to-string-address"></a>
 
-Converts an array of bytes of an [address](/en/blockchain/account/address.md) to a string.
+Converts an array of bytes of an [address](/en/blockchain/account/address) to a string.
 
 ``` ride
 toString(Address: Address): String
@@ -225,7 +225,7 @@ toString(Address: Address): String
 
 ### Parameters
 
-#### `Address`: [Address](/en/ride/structures/common-structures/address.md)
+#### `Address`: [Address](/en/ride/structures/common-structures/address)
 
 Address to convert.
 
@@ -246,7 +246,7 @@ toString(b: Boolean): String
 
 ### Parameters
 
-#### `b`: [Boolean](/en/ride/data-types/boolean.md)
+#### `b`: [Boolean](/en/ride/data-types/boolean)
 
 Boolean to convert.
 
@@ -267,7 +267,7 @@ toString(n: Int): String
 
 ### Parameters
 
-#### `n`: [Int](/en/ride/data-types/int.md)
+#### `n`: [Int](/en/ride/data-types/int)
 
 Integer to convert.
 
@@ -288,7 +288,7 @@ toUtf8String(u: ByteVector): String
 
 ### Parameters
 
-#### `u`: [ByteVector](/en/ride/data-types/byte-vector.md)
+#### `u`: [ByteVector](/en/ride/data-types/byte-vector)
 
 Array of bytes to convert.
 

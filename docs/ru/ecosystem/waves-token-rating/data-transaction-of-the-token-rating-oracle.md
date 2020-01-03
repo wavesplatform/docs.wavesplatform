@@ -1,12 +1,12 @@
 # Транзакция данных оракула Token Rating
 
-Раз в сутки [оракул](/ru/ecosystem/waves-oracles/oracle.md) [Token Rating](https://oracles.wavesexplorer.com/oracle/3P2eDV4pWJGmPjLGLrW4dsMA53te4gzkwnH) отправляет в блокчейн [транзакцию данных](/ru/blockchain/transaction-type/data-transaction.md) с [рейтингами и оценками](/ru/ecosystem/waves-token-rating/rating-formula.md) токенов.
+Раз в сутки [оракул](/ru/ecosystem/waves-oracles/oracle) [Token Rating](https://oracles.wavesexplorer.com/oracle/3P2eDV4pWJGmPjLGLrW4dsMA53te4gzkwnH) отправляет в блокчейн [транзакцию данных](/ru/blockchain/transaction-type/data-transaction) с [рейтингами и оценками](/ru/ecosystem/waves-token-rating/rating-formula) токенов.
 
 Транзакция данных содержит информацию о токенах, которые за прошедшие 24 часа были оценены.
 
 Одна транзакция содержит информацию не более чем о 25 токенах — если оцененных токенов будет больше, то будет отправлено несколько транзакций.
 
-Пример [массива данных](/ru/blockchain/transaction-type/data-transaction.md) такой транзакции:
+Пример [массива данных](/ru/blockchain/transaction-type/data-transaction) такой транзакции:
 
 ``` js
 "data": [
@@ -98,6 +98,6 @@
 
 Из строки следует, что никто не оценил токен одной, двумя или четырьмя звездами.
 
-Три пользователя оценили токен тремя звездами. Сумма [весов W<sub>n</sub>](/ru/ecosystem/waves-token-rating/rating-formula.md) этих оценок равна 545.
+Три пользователя оценили токен тремя звездами. Сумма [весов W<sub>n</sub>](/ru/ecosystem/waves-token-rating/rating-formula) этих оценок равна 545.
 
 Два пользователя оценили токен пятью звездами. Сумма весов Wn этих оценок равна 3827.

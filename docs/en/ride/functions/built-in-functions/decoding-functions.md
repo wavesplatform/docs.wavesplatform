@@ -18,7 +18,7 @@ addressFromString(string: String): Address|Unit
 
 ### Parameters
 
-#### `string`: [String](en/ride/data-types/string.md)
+#### `string`: [String](en/ride/data-types/string)
 
 The string to decode.
 
@@ -40,7 +40,7 @@ addressFromStringValue(string: String): Address
 
 ### Parameters
 
-#### `string`: [String](en/ride/data-types/string.md)
+#### `string`: [String](en/ride/data-types/string)
 
 The string to decode.
 
@@ -60,7 +60,7 @@ fromBase16String(str: String): ByteVector
 
 ### Parameters
 
-#### `str`: [String](en/ride/data-types/string.md)
+#### `str`: [String](en/ride/data-types/string)
 
 The string to decode.
 
@@ -80,7 +80,7 @@ fromBase58String(str: String): ByteVector
 
 ### Parameters
 
-#### `str`: [String](en/ride/data-types/string.md)
+#### `str`: [String](en/ride/data-types/string)
 
 The string to decode.
 
@@ -100,7 +100,7 @@ fromBase64String(str: String): ByteVector
 
 ### Parameters
 
-#### `str`: [String](en/ride/data-types/string.md)
+#### `str`: [String](en/ride/data-types/string)
 
 The string to decode.
 

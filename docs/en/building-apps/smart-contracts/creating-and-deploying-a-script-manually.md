@@ -8,8 +8,8 @@ In this example, we're going to create and deploy a simple 2 of 2 MultiSig examp
 
 **Example Assumptions:**
 
-1. We assume that we have our own Waves node \(if you do not have Waves node, you can implement the example using one of [Waves Libraries](/en/building-apps/waves-api-and-sdk/client-libraries.md) as shown in this [video tutorial](https://www.youtube.com/watch?v=o2msjSo0y0o&t=21s) using Waves Java Library\).
-2. We want to set up a script for a [generated](/en/waves-node/node-api/address.md#post-addresses) account in order to implement the **smart account **idea.
+1. We assume that we have our own Waves node \(if you do not have Waves node, you can implement the example using one of [Waves Libraries](/en/building-apps/waves-api-and-sdk/client-libraries) as shown in this [video tutorial](https://www.youtube.com/watch?v=o2msjSo0y0o&t=21s) using Waves Java Library\).
+2. We want to set up a script for a [generated](/en/waves-node/node-api/address#post-addresses) account in order to implement the **smart account **idea.
 3. we assume that we have three generated addresses:
 
 `3MxjWXEUcVCeiaEUqNcorB5HxSpLsgJCGxE` - Alice's account.
@@ -70,7 +70,7 @@ SAtDTKwqmdqJpWtBWYLEy6cfaTTKCQFNH2Lnj2DYgaFRWETGQVQpMMVYFKkk
 
    Note, `fee` is `100000` - a minimal required fee to deploy your script.
 
-2. Send it to [/transactions/sign](/en/waves-node/node-api/transactions.md#post-transactionssign):
+2. Send it to [/transactions/sign](/en/waves-node/node-api/transactions#post-transactionssign):
 
    ```bash
    $ curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' \
@@ -97,7 +97,7 @@ SAtDTKwqmdqJpWtBWYLEy6cfaTTKCQFNH2Lnj2DYgaFRWETGQVQpMMVYFKkk
    }
    ```
 
-3. Then we [broadcast](/en/waves-node/node-api/transactions.md#post-transactionsbroadcast) a prepared request:
+3. Then we [broadcast](/en/waves-node/node-api/transactions#post-transactionsbroadcast) a prepared request:
 
    ```bash
    $ curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' \
@@ -180,7 +180,7 @@ Now, let's try to make a valid transactions with all required proofs. For exampl
 }
 ```
 
-1. Alice signs this request by her private key through [POST /transactions/sign/{signerAddress}](/en/waves-node/node-api/transactions.md#post-transactionssignsigneraddress)
+1. Alice signs this request by her private key through [POST /transactions/sign/{signerAddress}](/en/waves-node/node-api/transactions#post-transactionssignsigneraddress)
 
    * Alice address: `3MxjWXEUcVCeiaEUqNcorB5HxSpLsgJCGxE`
    * JSON:
@@ -220,7 +220,7 @@ Now, let's try to make a valid transactions with all required proofs. For exampl
 
 2. Alice gives received JSON of her transaction to Bob
 
-3. Bob signs it by his private key by same method [POST /transactions/sign/{signerAddress}](/en/waves-node/node-api/transactions.md#post-transactionssignsigneraddress)
+3. Bob signs it by his private key by same method [POST /transactions/sign/{signerAddress}](/en/waves-node/node-api/transactions#post-transactionssignsigneraddress)
 
    * Signer address: `3MqGVvfgqdqqU6P9mTAsLSxyRoRjrHF18Mf`
    * JSON:
@@ -290,7 +290,7 @@ Now, let's try to make a valid transactions with all required proofs. For exampl
    }
    ```
 
-5. Bob [broadcasts](/en/waves-node/node-api/transactions.md#post-transactionsbroadcast) the transaction
+5. Bob [broadcasts](/en/waves-node/node-api/transactions#post-transactionsbroadcast) the transaction
 
    ```json
     {

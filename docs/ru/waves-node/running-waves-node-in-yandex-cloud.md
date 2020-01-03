@@ -16,7 +16,7 @@
 
 ![](./_assets/search-bar.png)
 
-5.&nbsp;Задайте параметры виртуальной машины. Минимальные аппаратные требования для запуска ноды смотрите на странице [Требования к аппаратному обеспечению](/ru/waves-node/prerequisites/hardware-requirements.md).
+5.&nbsp;Задайте параметры виртуальной машины. Минимальные аппаратные требования для запуска ноды смотрите на странице [Требования к аппаратному обеспечению](/ru/waves-node/prerequisites/hardware-requirements).
 
 ![](./_assets/virtual-machine-parameters.png)
 

@@ -29,7 +29,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
 
 Just [download latest waves deb](https://github.com/wavesplatform/Waves/releases) and install it with `sudo dpkg -i waves*.deb`. Now it's time to check your waves config!
 
-It's embedded into the deb package and unpacked to `/usr/share/waves/conf/waves.conf` (or `waves-testnet` folder for testnet) and symlinked to `/etc/waves/waves.conf`. [Please read this and edit waves config](/en/waves-node/node-configuration.md) with caution.
+It's embedded into the deb package and unpacked to `/usr/share/waves/conf/waves.conf` (or `waves-testnet` folder for testnet) and symlinked to `/etc/waves/waves.conf`. [Please read this and edit waves config](/en/waves-node/node-configuration) with caution.
 
 There are two types of deb packages of waves nodes: with **upstart loader** and **systemd loader**.
 
@@ -51,7 +51,7 @@ Users can start the node with `sudo service waves start` (`waves-testnet` for te
 
 Check out the configuration file, **it is very important**! On this depends **the safety of your wallet and money**.
 
-Just open it via your favorite text editor, pour a cup of tea and read [the documentation of the configuration file.](/en/waves-node/node-configuration.md)
+Just open it via your favorite text editor, pour a cup of tea and read [the documentation of the configuration file.](/en/waves-node/node-configuration)
 
 Then start console, navigate to the folder with the jar file with the command `cd /opt/waves` and start waves node with command `java -jar waves.jar waves-config.conf`.
 

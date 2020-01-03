@@ -1,6 +1,6 @@
 # Account data storage functions
 
-> Learn more about [account data storage](/en/blockchain/account/account-data-storage.md)
+> Learn more about [account data storage](/en/blockchain/account/account-data-storage)
 
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
@@ -13,7 +13,7 @@
 | 7 | [getIntegerValue(Address&#124;Alias, String): Int](#get-integer-value) | Gets an integer by key. Throws an exception if there is no data | 100 |
 | 8 | [getString(Address&#124;Alias, String): String&#124;Unit](#get-string) | Gets a string by key | 100 |
 | 9 | [getStringValue(Address&#124;Alias, String): String](#get-string-value) | Gets a string by key. Throws an exception if there is no data | 100 |
-| 10 | [wavesBalance(Address&#124;Alias): Int](#waves-balance) | Gets account balance in [WAVES](/en/blockchain/token/waves.md) | 109 |
+| 10 | [wavesBalance(Address&#124;Alias): Int](#waves-balance) | Gets account balance in [WAVES](/en/blockchain/token/waves) | 109 |
 
 ## assetBalance(Address|Alias, ByteVector): Int<a id="asset-balance"></a>
 
@@ -27,7 +27,7 @@ assetBalance(addressOrAlias: Address|Alias, assetId: ByteVector): Int
 
 #### `addressOrAlias`: Address|Alias
 
-[Address](/en/blockchain/account/address.md) or [alias](/en/blockchain/account/alias.md) of the account.
+[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account.
 
 #### `assetId`: ByteVector
 
@@ -45,7 +45,7 @@ getBinary(addressOrAlias: Address|Alias, key: String): ByteVector|Unit
 
 #### `addressOrAlias`: Address|Alias
 
-[Address](/en/blockchain/account/address.md) or [alias](/en/blockchain/account/alias.md) of the account.
+[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account.
 
 #### `key`: String
 
@@ -63,7 +63,7 @@ getBinaryValue(addressOrAlias: Address|Alias, key: String): ByteVector
 
 #### `addressOrAlias`: Address|Alias
 
-[Address](/en/blockchain/account/address.md) or [alias](/en/blockchain/account/alias.md) of the account.
+[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account.
 
 #### `key`: String
 
@@ -81,7 +81,7 @@ getBoolean(addressOrAlias: Address|Alias, key: String): Boolean|Unit
 
 #### `addressOrAlias`: Address|Alias
 
-[Address](/en/blockchain/account/address.md) or [alias](/en/blockchain/account/alias.md) of the account.
+[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account.
 
 #### key: String
 
@@ -99,7 +99,7 @@ getBooleanValue(addressOrAlias: Address|Alias, key: String): Boolean
 
 #### addressOrAlias: Address|Alias
 
-[Address](/en/blockchain/account/address.md) or [alias](/en/blockchain/account/alias.md) of the account.
+[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account.
 
 #### key: String
 
@@ -117,7 +117,7 @@ getInteger(addressOrAlias: Address|Alias, key: String): Int|Unit
 
 #### addressOrAlias: Address|Alias
 
-[Address](/en/blockchain/account/address.md) or [alias](/en/blockchain/account/alias.md) of the account.
+[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account.
 
 #### key: String
 
@@ -135,7 +135,7 @@ getIntegerValue(addressOrAlias: Address|Alias, key: String): Int
 
 #### addressOrAlias: Address|Alias
 
-[Address](/en/blockchain/account/address.md) or [alias](/en/blockchain/account/alias.md) of the account.
+[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account.
 
 #### key: String
 
@@ -153,7 +153,7 @@ getString(addressOrAlias: Address|Alias, key: String): String|Unit
 
 #### addressOrAlias: Address|Alias
 
-[Address](/en/blockchain/account/address.md) or [alias](/en/blockchain/account/alias.md) of the account.
+[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account.
 
 #### key: String
 
@@ -171,7 +171,7 @@ getStringValue(addressOrAlias: Address|Alias, key: String): String
 
 #### addressOrAlias: Address|Alias
 
-[Address](/en/blockchain/account/address.md) or [alias](/en/blockchain/account/alias.md) of the account.
+[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account.
 
 #### key: String
 
@@ -179,7 +179,7 @@ The key.
 
 ## wavesBalance(Address|Alias): Int<a id="waves-balance"></a>
 
-Gets account balance in [WAVES](/en/blockchain/token/waves.md).
+Gets account balance in [WAVES](/en/blockchain/token/waves).
 
 ``` ride
 wavesBalance(addressOrAlias: Address|Alias): Int
@@ -189,4 +189,4 @@ wavesBalance(addressOrAlias: Address|Alias): Int
 
 #### addressOrAlias: Address|Alias
 
-[Address](/en/blockchain/account/address.md) or [alias](/en/blockchain/account/alias.md) of the account.
+[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account.

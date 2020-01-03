@@ -1,6 +1,6 @@
 # Node API
 
-**Node API** или **Waves Node API** — [REST](https://ru.wikipedia.org/wiki/REST) API веб-сервисов [ноды](/ru/blockchain/node.md).
+**Node API** или **Waves Node API** — [REST](https://ru.wikipedia.org/wiki/REST) API веб-сервисов [ноды](/ru/blockchain/node).
 
 ## Веб-интерфейс Swagger
 

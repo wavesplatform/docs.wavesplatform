@@ -4,7 +4,7 @@ After a user installs a node, the user will have different ways to get the block
 
 ## 1. Synchronization of the state during a regular operation of the node.
 
-Build from scratch, here you will need to [_**run the node**_](/en/waves-node/how-to-install-a-node/how-to-install-a-node.md), then it will receive all the needed information from the other nodes.
+Build from scratch, here you will need to [_**run the node**_](/en/waves-node/how-to-install-a-node/how-to-install-a-node), then it will receive all the needed information from the other nodes.
 
 After launch, the node begins to receive blocks from the network, verify them and validate the signature.  By affecting these components, you can reduce the time to reach the current state.  So, the following factors affect network sharing:
 
@@ -17,20 +17,15 @@ After launch, the node begins to receive blocks from the network, verify them an
 
 The user needs to stop the node before starting the process of importing the blocks.
 
-> [!TIP]
-> Please follow the steps to import from blockchain by the link below. 
-
-{% prettylink link="../waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain.md" %} Import From Blockchain {% endprettylink %}
+<note type="tip" title="">Please follow the steps to import from blockchain by the link below.<br><a href="/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain">Import From Blockchain</a>.</note> 
 
 If the node is on a fork with a height more than 2000 blocks, it should choose an option for getting the actual blockchain. This can be achieved by updating the node version and reimporting the blockchain.
 
-> [!DANGER]
-> If your node is on a fork and you want to update it, please do not export/import your own blockchain but download the recent exported blockchains from the provided links below(the file blockchain_last.tar) otherwise your node will stay on the fork.
+<note type="error" title="">If your node is on a fork and you want to update it, please do not export/import your own blockchain but download the recent exported blockchains from the provided links below(the file blockchain_last.tar) otherwise your node will stay on the fork.</note>
 
-{% prettylink link="http://blockchain.wavesnodes.com" %} Mainnet {% endprettylink %}
-{% prettylink link="http://blockchain.testnet.wavesnodes.com" %} Testnet {% endprettylink %}
+* [MainNet](https://blockchain.wavesnodes.com/)
+* [TestNet](https://blockchain.testnet.wavesnodes.com)
 
- 
 The speed of block verification and signature verification affects the time of reaching the current state by the import method. These operations are performed on the CPU. The verification of the blocks goes in one stream, therefore, a gain in time will be given by a high-frequency CPU rather than a multicore one. The signature verification operation is multi-threaded, but against the background of block verification, it has an insignificant effect. In other words, there is practically no difference when using 8 or 16 cores CPUs operating at the same frequency. The remaining blocks will be synchronized during normal operation.
 
 When synchronizing the state, an active writing to disk exceeds the IOPS values that the HDD gives. In particular, there may be delays when the operating system doesn't have enough physical memory. We recommend keeping at least 30% of the total memory for the needs of the operating system \(cache/buffers\).  
@@ -38,7 +33,7 @@ Therefore, we choose SSD.
 
 ## 3. Copy the finished node database
 
-[_**Downloading state**_](/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying.md), approximately the size of the State is around 23 GB \(**in November 2018**\).
+[_**Downloading state**_](/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying), approximately the size of the State is around 23 GB \(**in November 2018**\).
 
 In this case, the longest operation is to download the archive. Then it is enough to unpack the archive files to the /var/lib/waves/data directory and run the node.  The remaining blocks will be synchronized during normal operation.
 
@@ -46,7 +41,7 @@ In this case, the longest operation is to download the archive. Then it is enoug
 
 Block verification is not a linear operation, “heavy” blocks are verified longer. The ”heaviness" of a block is determined by the number and type of transactions it contains.  So the first blocks \(for example, the first 200.000\) are empty and verified much faster than the same number of blocks after the million.  On the chart it looks as follows:
 
-![](../_assets/statistics_blocks_receiving.png)
+![](./_assets/statistics_blocks_receiving.png)
 
 The time to reach the block 1220000 on different CPUs \(number of cores and frequencies\) in numbers:
 
@@ -56,4 +51,5 @@ The time to reach the block 1220000 on different CPUs \(number of cores and freq
 | Intel Xeon Platinum 8124M @ 3.00 GHz \(16 vCPU\)/32 GB | 10:45. | 10:05 |
 | Intel i7 8550u @ 1.8 GHz \(up to 4GHz\) \(8 vCPU\)/16 GB | 9:35. | 9:20. |
 
-{% prettyhint type="info" %} You can go through the links above for more details about each step.{% endprettyhint %}
+
+<note type="info" title="">You can go through the links above for more details about each step.</note>

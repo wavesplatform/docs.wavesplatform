@@ -1,6 +1,6 @@
 # Creating smart account
 
-In this article, we will review the creation of [smart account](/en/blockchain/account/smart-account.md) using [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide.md).
+In this article, we will review the creation of [smart account](/en/blockchain/account/smart-account) using [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide).
 
 To create smart account in Waves IDE, complete the following steps:
 
@@ -12,11 +12,11 @@ To create smart account in Waves IDE, complete the following steps:
 3. Make one of the following actions:
 
     - If you already have an account, click **Import account** in the drop-down list. Make the following actions in the displayed form:
-        1. Type in [seed](/waves-client/frequently-asked-questions-faq/account-management/seed-phrase.md) in the **Seed phrase** field.
+        1. Type in [seed](/waves-client/frequently-asked-questions-faq/account-management/seed-phrase) in the **Seed phrase** field.
         2. Come up with an account name and enter it in the **Account name** field.
         3. Click **Import**.
     - If you don't have an account yet, click **Generate new account** in the drop-down list. As a result, the following account attributes will be displayed
-        - account [address](/en/blockchain/account/address.md)
+        - account [address](/en/blockchain/account/address)
         - public key
         - private key
         - seed. It is recommended to remind the seed — if you lose it, it will be impossible to restore access to the account.

@@ -19,7 +19,7 @@ addressFromString(string: String): Address|Unit
 
 ### Параметры
 
-#### `string`: [String](en/ride/data-types/string.md)
+#### `string`: [String](en/ride/data-types/string)
 
 Строка для декодирования.
 
@@ -41,7 +41,7 @@ addressFromStringValue(string: String): Address
 
 ### Параметры
 
-#### `string`: [String](en/ride/data-types/string.md)
+#### `string`: [String](en/ride/data-types/string)
 
 Строка для декодирования.
 
@@ -61,7 +61,7 @@ fromBase16String(str: String): ByteVector
 
 ### Параметры
 
-#### `str`: [String](en/ride/data-types/string.md)
+#### `str`: [String](en/ride/data-types/string)
 
 Строка для декодирования.
 
@@ -81,7 +81,7 @@ fromBase58String(str: String): ByteVector
 
 ### Параметры
 
-#### `str`: [String](en/ride/data-types/string.md)
+#### `str`: [String](en/ride/data-types/string)
 
 Строка для декодирования.
 
@@ -101,7 +101,7 @@ fromBase64String(str: String): ByteVector
 
 ### Параметры
 
-#### `str`: [String](en/ride/data-types/string.md)
+#### `str`: [String](en/ride/data-types/string)
 
 Строка для декодирования.
 

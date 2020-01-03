@@ -4,11 +4,11 @@ A function must return a value. The return type is not specified in the signatur
 
 A function must be declared above the place of its usage.
 
-A function can be [annotated](/en/ride/functions/annotations.md).
+A function can be [annotated](/en/ride/functions/annotations).
 
-There are many [built-in functions](/en/ride/functions/built-in-functions.md).
+There are many [built-in functions](/en/ride/functions/built-in-functions).
 
-When declaring a function to the right of the "=" sign must be an [expression](/en/ride/base-concepts/expression.md). The value of the function is the [expression result](/en/ride/base-concepts/expression.md#expression-result).
+When declaring a function to the right of the "=" sign must be an [expression](/en/ride/base-concepts/expression). The value of the function is the [expression result](/en/ride/base-concepts/expression#expression-result).
 
 ## Examples
 

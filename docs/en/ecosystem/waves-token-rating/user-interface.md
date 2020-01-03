@@ -17,7 +17,7 @@ The menu consists of following items:
 
 ### Top 20
 
-Displays 20 tokens that have the best overall indicators of rating, sums of all weights [W<sub>n</sub>](/en/ecosystem/waves-token-rating/rating-formula.md), and the number of [addresses](/en/blockchain/account/address.md) that rated token.
+Displays 20 tokens that have the best overall indicators of rating, sums of all weights [W<sub>n</sub>](/en/ecosystem/waves-token-rating/rating-formula), and the number of [addresses](/en/blockchain/account/address) that rated token.
 
 ### All tokens
 
@@ -38,7 +38,7 @@ The table displays only tokens that were ever rated. Tokens without ratings can 
 | WCT weight	| Sum of all weights W<sub>n</sub> of all scores |
 | Vote sum | Number of users' rates |
 | Total amount | Amount of issued tokens |
-| Last price | The current price of a single token from [DEX](/waves-dex/about-waves-dex.md) (updates every three hours) |
+| Last price | The current price of a single token from [DEX](/waves-dex/about-waves-dex) (updates every three hours) |
 
 ## Token's card
 
@@ -82,9 +82,9 @@ This section is displayed only if the token has a ticker or is traded on the DEX
 | Website | Link to the website. Displayed only if the issuer adds the link |
 | Total amount | Amount of issued tokens |
 | Decimal points | Number of decimal places of token |
-| Type | Tells if the [reissue transaction](/en/blockchain/transaction-type/reissue-transaction.md) is possible. <br>Takes one of two values: "Reissuable" or "Not reissuable" |
+| Type | Tells if the [reissue transaction](/en/blockchain/transaction-type/reissue-transaction) is possible. <br>Takes one of two values: "Reissuable" or "Not reissuable" |
 | Issuer | Address from which the token was issued |
-| Block | The [blockchain height](/en/blockchain/blockchain/blockchain-height.md) at which the [issue transaction](/en/blockchain/transaction-type/issue-transaction.md) went to the [block](/en/blockchain/block.md) |
+| Block | The [blockchain height](/en/blockchain/blockchain/blockchain-height) at which the [issue transaction](/en/blockchain/transaction-type/issue-transaction) went to the [block](/en/blockchain/block) |
 | Issue date | Token issue date |
 | Description | Token description |
 | Additional information | Additional information from the issuer about the token or project. Displayed only if the issuer adds it |

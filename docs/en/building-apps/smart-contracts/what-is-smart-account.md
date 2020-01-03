@@ -1,25 +1,25 @@
 # What is Smart Account
 
-The functionality of a regular [account](/en/blockchain/account.md) only allows you to verify that the [transaction](/en/blockchain/transaction.md) released from it was actually sent from this account.
+The functionality of a regular [account](/en/blockchain/account) only allows you to verify that the [transaction](/en/blockchain/transaction) released from it was actually sent from this account.
 
-Аttaching an [account script](/en/ride/script/script-types/account-script.md) to an account extends its functionality. It enables checking outgoing transactions for compliance with the conditions specified in the script. An account with a script attached to it is called a [smart account](/en/blockchain/account/smart-account.md). Only those transactions that have been validated can be sent from the smart account. For example, an account owner can set a rule according to which transactions can be sent from the address only if the [blockchain height](/en/blockchain/blockchain/blockchain-height.md) exceeds N. Another example — an account owner can allow sending only certain types of transactions. Or disable any validation other than the rule that all transactions sent from the [address](/en/blockchain/account/address.md) should be considered valid.
+Аttaching an [account script](/en/ride/script/script-types/account-script) to an account extends its functionality. It enables checking outgoing transactions for compliance with the conditions specified in the script. An account with a script attached to it is called a [smart account](/en/blockchain/account/smart-account). Only those transactions that have been validated can be sent from the smart account. For example, an account owner can set a rule according to which transactions can be sent from the address only if the [blockchain height](/en/blockchain/blockchain/blockchain-height) exceeds N. Another example — an account owner can allow sending only certain types of transactions. Or disable any validation other than the rule that all transactions sent from the [address](/en/blockchain/account/address) should be considered valid.
 
 The following parameters can be used for checks:
 
-- [Transaction Signature](/en/blockchain/transaction/transaction-signature.md).
-- [Transaction proof](/en/blockchain/transaction/transaction-proof.md).
+- [Transaction Signature](/en/blockchain/transaction/transaction-signature).
+- [Transaction proof](/en/blockchain/transaction/transaction-proof).
 - The current blockchain height.
-- Arbitrary data existing in the blockchain, for example, [oracle](/en/blockchain/oracle.md) data.
+- Arbitrary data existing in the blockchain, for example, [oracle](/en/blockchain/oracle) data.
 
 ## Attaching an Account Script to an Account
 
-As we mentioned before, an account without a script validates transactions using the [transaction validation](/en/blockchain/transaction/transaction-validation.md) mechanism. The operation of this mechanism is equivalent to the operation of the following script:
+As we mentioned before, an account without a script validates transactions using the [transaction validation](/en/blockchain/transaction/transaction-validation) mechanism. The operation of this mechanism is equivalent to the operation of the following script:
 
 ```ride
 sigVerify(tx.bodyBytes, tx.proofs[0], tx.senderPk)
 ```
 
-To attach your own script to an account, you need to send a [set script transaction](/en/blockchain/transaction-type/set-script-transaction.md) from it. Only one script can be attached to an account. “Detaching” a script from a smart account or replacing the old account script with a new one is possible unless the old script forbids it. To "detach" a script or replace it with a new one, you will need to send a new set script transaction. The transaction fee for setting the script is 0.01 [WAVES](/en/blockchain/token/waves.md).
+To attach your own script to an account, you need to send a [set script transaction](/en/blockchain/transaction-type/set-script-transaction) from it. Only one script can be attached to an account. “Detaching” a script from a smart account or replacing the old account script with a new one is possible unless the old script forbids it. To "detach" a script or replace it with a new one, you will need to send a new set script transaction. The transaction fee for setting the script is 0.01 [WAVES](/en/blockchain/token/waves).
 
 ## Account Script Structure
 
@@ -37,7 +37,7 @@ The given directive consists of three annotations and provides the compiler with
 
 - the script will use the third version of the library of standard functions
 - the type of script content is Expression
-- the [script context](/en/ride/script/script-context.md) will be the account context. In particular, this means that `this` variable type will be `Address`.
+- the [script context](/en/ride/script/script-context) will be the account context. In particular, this means that `this` variable type will be `Address`.
 
 If the directive is missing, then default annotations values will be used:
 

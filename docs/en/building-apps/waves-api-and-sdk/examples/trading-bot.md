@@ -3,7 +3,7 @@
 ## Introduction
 Waves platform is designed and built from the ground up for speed and scale. At the same time Waves is one of the most developer-friendly ecosystems. Waves blockchain exposes its functionality through a powerful REST API, that can be used with any programming language.
 
-This text guides you through the basics of Waves Node Rest API. In this example, we will use python wrapper for the API — [PyWaves](https://github.com/PyWaves/PyWaves) library, but there are other options for [different programming languages as well](/en/building-apps/waves-api-and-sdk/client-libraries.md), e.g. [WavesCS for C#](https://github.com/wavesplatform/WavesCS), [WavesJ for Java](https://github.com/wavesplatform/WavesJ) etc.
+This text guides you through the basics of Waves Node Rest API. In this example, we will use python wrapper for the API — [PyWaves](https://github.com/PyWaves/PyWaves) library, but there are other options for [different programming languages as well](/en/building-apps/waves-api-and-sdk/client-libraries), e.g. [WavesCS for C#](https://github.com/wavesplatform/WavesCS), [WavesJ for Java](https://github.com/wavesplatform/WavesJ) etc.
 
 Pywaves is an object-oriented Python interface to the Waves blockchain which will help us to reduce the code complexity while maintaining its structure. Anything you learn using this library can be applied with pure HTTP API calls.
 
@@ -18,7 +18,7 @@ Node REST API allows working with Waves Blockchain like with many other centrali
 ## Terms
 **Node** — Full Node, it contains full-copy of the blockchain.
 
-**Matcher (DEX)** — part of a full node. Matcher nodes are responsible for pairing orders and executing trades quickly, whilst they are still settled on the blockchain. When a user sends an order to Matcher he doesn’t transfer ownership of his money to anyone, his money remains on his account until the order is matched with counter-order. For more details, read [DEX protocol](/waves-dex/dex-protocol.md) and [Matcher API](/en/building-apps/waves-api-and-sdk/dex-api/matcher.md).
+**Matcher (DEX)** — part of a full node. Matcher nodes are responsible for pairing orders and executing trades quickly, whilst they are still settled on the blockchain. When a user sends an order to Matcher he doesn’t transfer ownership of his money to anyone, his money remains on his account until the order is matched with counter-order. For more details, read [DEX protocol](/waves-dex/dex-protocol) and [Matcher API](/en/building-apps/waves-api-and-sdk/dex-api/matcher).
 
 **AssetPair** — Pair of assets we want to exchange.
 

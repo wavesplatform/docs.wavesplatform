@@ -1,6 +1,6 @@
 # ScriptTransfer
 
-Структура перевода [токенов](/ru/blockchain/token.md).
+Структура перевода [токенов](/ru/blockchain/token).
 
 ### Конструктор
 
@@ -12,6 +12,6 @@ ScriptTransfer(recipient: Address|Alias, amount: Int, asset: ByteVector|Unit)
 
 |   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | recipient | [Address](/ru/ride/structures/common-structures/address.md)&#124;[Alias](/ru/ride/structures/common-structures/alias.md) | [Адрес](/ru/blockchain/account/address.md) или [псевдоним](/ru/blockchain/account/alias.md) получателя токенов |
-| 2 | amount | [Int](/ru/ride/data-types/int.md) | Количество токенов |
-| 3 | asset | [ByteVector](/ru/ride/data-types/byte-vector.md)&#124;[Unit](/ru/ride/data-types/unit.md) | ID токена |
+| 1 | recipient | [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) получателя токенов |
+| 2 | amount | [Int](/ru/ride/data-types/int) | Количество токенов |
+| 3 | asset | [ByteVector](/ru/ride/data-types/byte-vector)&#124;[Unit](/ru/ride/data-types/unit) | ID токена |

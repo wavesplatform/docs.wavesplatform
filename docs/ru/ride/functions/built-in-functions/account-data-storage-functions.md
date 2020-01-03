@@ -1,6 +1,6 @@
 # Функции хранилища данных аккаунта
 
-> Подробнее о [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage.md)
+> Подробнее о [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
@@ -13,7 +13,7 @@
 | 7 | [getIntegerValue(Address&#124;Alias, String): Int](#get-integer-value)  | Получает целое число по ключу. Выбрасывает исключение, если данных нет | 100 |
 | 8 | [getString(Address&#124;Alias, String): String&#124;Unit](#get-string)  | Получает строку по ключу | 100 |
 | 9 | [getStringValue(Address&#124;Alias, String): String](#get-string-value)  | Получает строку по ключу. Выбрасывает исключение, если данных нет | 100 |
-| 10 | [wavesBalance(Address&#124;Alias): Int](#waves-balance)  | Получает баланс аккаунта в [WAVES](/ru/blockchain/token/waves.md) | 100 |
+| 10 | [wavesBalance(Address&#124;Alias): Int](#waves-balance)  | Получает баланс аккаунта в [WAVES](/ru/blockchain/token/waves) | 100 |
 
 ## assetBalance(Address|Alias, ByteVector): Int<a id="asset-balance"></a>
 
@@ -27,7 +27,7 @@ assetBalance(addressOrAlias: Address|Alias, assetId: ByteVector): Int
 
 #### addressOrAlias: Address|Alias
 
-[Адрес](/ru/blockchain/account/address.md) или [псевдоним](/ru/blockchain/account/alias.md) аккаунта.
+[Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта.
 
 #### assetId: ByteVector
 
@@ -45,7 +45,7 @@ getBinary(addressOrAlias: Address|Alias, key: String): ByteVector|Unit
 
 #### addressOrAlias: Address|Alias
 
-[Адрес](/ru/blockchain/account/address.md) или [псевдоним](/ru/blockchain/account/alias.md) аккаунта.
+[Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта.
 
 #### key: String
 
@@ -63,7 +63,7 @@ getBinaryValue(addressOrAlias: Address|Alias, key: String): ByteVector
 
 #### addressOrAlias: Address|Alias
 
-[Адрес](/ru/blockchain/account/address.md) или [псевдоним](/ru/blockchain/account/alias.md) аккаунта.
+[Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта.
 
 #### key: String
 
@@ -81,7 +81,7 @@ getBoolean(addressOrAlias: Address|Alias, key: String): Boolean|Unit
 
 #### addressOrAlias: Address|Alias
 
-[Адрес](/ru/blockchain/account/address.md) или [псевдоним](/ru/blockchain/account/alias.md) аккаунта.
+[Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта.
 
 #### key: String
 
@@ -99,7 +99,7 @@ getBooleanValue(addressOrAlias: Address|Alias, key: String): Boolean
 
 #### addressOrAlias: Address|Alias
 
-[Адрес](/ru/blockchain/account/address.md) или [псевдоним](/ru/blockchain/account/alias.md) аккаунта.
+[Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта.
 
 #### key: String
 
@@ -117,7 +117,7 @@ getInteger(addressOrAlias: Address|Alias, key: String): Int|Unit
 
 #### addressOrAlias: Address|Alias
 
-[Адрес](/ru/blockchain/account/address.md) или [псевдоним](/ru/blockchain/account/alias.md) аккаунта.
+[Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта.
 
 #### key: String
 
@@ -135,7 +135,7 @@ getIntegerValue(addressOrAlias: Address|Alias, key: String): Int
 
 #### addressOrAlias: Address|Alias
 
-[Адрес](/ru/blockchain/account/address.md) или [псевдоним](/ru/blockchain/account/alias.md) аккаунта.
+[Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта.
 
 #### key: String
 
@@ -153,7 +153,7 @@ getString(addressOrAlias: Address|Alias, key: String): String|Unit
 
 #### addressOrAlias: Address|Alias
 
-[Адрес](/ru/blockchain/account/address.md) или [псевдоним](/ru/blockchain/account/alias.md) аккаунта.
+[Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта.
 
 #### key: String
 
@@ -171,7 +171,7 @@ getStringValue(addressOrAlias: Address|Alias, key: String): String
 
 #### addressOrAlias: Address|Alias
 
-[Адрес](/ru/blockchain/account/address.md) или [псевдоним](/ru/blockchain/account/alias.md) аккаунта.
+[Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта.
 
 #### key: String
 
@@ -179,7 +179,7 @@ getStringValue(addressOrAlias: Address|Alias, key: String): String
 
 ## wavesBalance(Address|Alias): Int<a id="waves-balance"></a>
 
-Получает баланс аккаунта в [WAVES](/ru/blockchain/token/waves.md).
+Получает баланс аккаунта в [WAVES](/ru/blockchain/token/waves).
 
 ``` ride
 wavesBalance(addressOrAlias: Address|Alias): Int
@@ -189,4 +189,4 @@ wavesBalance(addressOrAlias: Address|Alias): Int
 
 #### addressOrAlias: Address|Alias
 
-[Адрес](/ru/blockchain/account/address.md) или [псевдоним](/ru/blockchain/account/alias.md) аккаунта.
+[Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта.

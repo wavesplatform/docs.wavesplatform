@@ -2,7 +2,7 @@
 
 Use the **Data transaction tool** to write data transaction in the data storage of the oracle account.
 
-In Waves Oracles login to your oracle account via Waves Keeper. Hit **Send transaction** on the sidebar. If an oracle card is created, but the specification is not filled in, you will see a notification about it. To use the data transaction tool, a specification card should already be [created for the oracle](/en/ecosystem/waves-oracles/create-an-oracle-card-with-waves-oracle.md).
+In Waves Oracles login to your oracle account via Waves Keeper. Hit **Send transaction** on the sidebar. If an oracle card is created, but the specification is not filled in, you will see a notification about it. To use the data transaction tool, a specification card should already be [created for the oracle](/en/ecosystem/waves-oracles/create-an-oracle-card-with-waves-oracle).
 
 The pop-up will open.
 

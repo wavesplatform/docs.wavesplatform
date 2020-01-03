@@ -1,6 +1,6 @@
 # Transfer
 
-Структура перевода [токенов](/ru/blockchain/token.md) транзакции массового перевода.
+Структура перевода [токенов](/ru/blockchain/token) транзакции массового перевода.
 
 ## Конструктор
 
@@ -12,5 +12,5 @@ Transfer(recipient: Address|Alias, amount: Int)
 
 | # | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | recipient | [Address](/ru/ride/structures/common-structures/address.md)&#124;[Alias](/ru/ride/structures/common-structures/alias.md) | Адрес получателя |
-| 2 | amount | [Int](/ru/ride/data-types/int.md) | Количество токенов |
+| 1 | recipient | [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | Адрес получателя |
+| 2 | amount | [Int](/ru/ride/data-types/int) | Количество токенов |

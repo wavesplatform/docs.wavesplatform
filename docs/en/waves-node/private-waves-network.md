@@ -214,4 +214,4 @@ You can add more nodes to your network using `waves.network.known-peers` param
 
 **Note**. The developers can add new parameters in `waves.blockchain.custom.functionality` section, which are not present in this example; for an example of a working configuration, you can look at the [waves-devnet.conf file in root folder of repository](https://github.com/wavesplatform/Waves/blob/master/node/waves-devnet.conf).
 
-Check our [configuration file documentation](/en/waves-node/node-configuration.md) for more information.
+Check our [configuration file documentation](/en/waves-node/node-configuration) for more information.

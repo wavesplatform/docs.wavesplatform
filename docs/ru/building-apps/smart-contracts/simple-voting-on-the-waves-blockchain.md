@@ -6,10 +6,10 @@
 
 ## План действий
 
-1. Создадим [аккаунт](/ru/blockchain/account.md) главы ТСЖ.
+1. Создадим [аккаунт](/ru/blockchain/account) главы ТСЖ.
 2. Создадим аккаунты жильцов дома.
-3. Создадим [dApp-скрипт](/ru/ride/script/script-types/dapp-script.md) с методом `vote`.
-4. Привяжем dApp-скрипт к аккаунту главы ТСЖ, создав таким образом [dApp](/ru/blockchain/account/dapp.md).
+3. Создадим [dApp-скрипт](/ru/ride/script/script-types/dapp-script) с методом `vote`.
+4. Привяжем dApp-скрипт к аккаунту главы ТСЖ, создав таким образом [dApp](/ru/blockchain/account/dapp).
 5. Проголосуем с аккаунтов жильцов дома, вызвав метод `vote` dApp.
 6. Узнаем результаты голосования.
 
@@ -19,7 +19,7 @@
 
 ![](./_assets/voting/account-settings.png)
 
-Убедитесь, что выбрана [тестовая сеть](/ru/blockchain/blockchain-network/test-network.md).
+Убедитесь, что выбрана [тестовая сеть](/ru/blockchain/blockchain-network/test-network).
 
 ![](./_assets/voting/account-settings-test.png)
 
@@ -31,19 +31,19 @@
 
 ![](./_assets/voting/account-chief.png)
 
-Скопируйте [адрес](/ru/blockchain/account/address.md) главы ТСЖ и [с помощью Faucet](/ru/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network.md) пополните его баланс на 10 [WAVES](/ru/blockchain/token/waves.md). [Токены](/ru/blockchain/token.md) понадобятся главе ТСЖ для оплаты [комиссии](/ru/blockchain/transaction/transaction-fee.md) за [транзакцию установки скрипта](/ru/blockchain/transaction-type/set-script-transaction.md), когда он будет привязывать [dApp-скрипт](/ru/ride/script/script-types/dapp-script.md) к своему аккаунту.
+Скопируйте [адрес](/ru/blockchain/account/address) главы ТСЖ и [с помощью Faucet](/ru/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network) пополните его баланс на 10 [WAVES](/ru/blockchain/token/waves). [Токены](/ru/blockchain/token) понадобятся главе ТСЖ для оплаты [комиссии](/ru/blockchain/transaction/transaction-fee) за [транзакцию установки скрипта](/ru/blockchain/transaction-type/set-script-transaction), когда он будет привязывать [dApp-скрипт](/ru/ride/script/script-types/dapp-script) к своему аккаунту.
 
 ![](./_assets/voting/account-chief-balance.png)
 
 ## 2. Создание аккаунтов жильцов дома
 
-Аналогично создайте аккаунты жильцов дома Алексея и Анны и пополните их балансы на 10 WAVES. Токены им понадобятся для оплаты комиссии за [транзакцию вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction.md), когда они будут голосовать, вызывая метод `vote` dApp.
+Аналогично создайте аккаунты жильцов дома Алексея и Анны и пополните их балансы на 10 WAVES. Токены им понадобятся для оплаты комиссии за [транзакцию вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction), когда они будут голосовать, вызывая метод `vote` dApp.
 
 ![](./_assets/voting/accounts-residents.png)
 
 ## 3. Создание dApp-скрипта
 
-Создайте [dApp-скрипт](/ru/ride/script/script-types/dapp-script.md), выбрав в выпадающем списке **DApp**.
+Создайте [dApp-скрипт](/ru/ride/script/script-types/dapp-script), выбрав в выпадающем списке **DApp**.
 
 ![](./_assets/voting/new-dapp-script.png)
 
@@ -93,7 +93,7 @@ func vote(theVote: Int) = {
 
 #### Функция `vote`
 
-Функция `vote` возвращает [структуру](/ru/ride/structures.md) `WriteSet`, внутри которой происходит запись голоса в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage.md) главы ТСЖ.
+Функция `vote` возвращает [структуру](/ru/ride/structures) `WriteSet`, внутри которой происходит запись голоса в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage) главы ТСЖ.
 
 Перед функцией `vote` указана аннотация `@Callable`, которая делает данную функцию вызываемой у dApp. У данной аннотации `i` — переменная, содержащая информацию о транзакции, которая вызвала функцию `vote`. Мы используем переменную `i` в коде для получения открытого ключа аккаунта `i.callerPublicKey`, который отправил транзакцию вызова скрипта.
 
@@ -117,7 +117,7 @@ func vote(theVote: Int) = {
 let dataFromStorage = this.getInteger(i.callerPublicKey.toBase58String())
 ```
 
-Размер и [сложность](/ru/ride/base-concepts/complexity.md) скрипта отображаются в панели под редактором скрипта.
+Размер и [сложность](/ru/ride/base-concepts/complexity) скрипта отображаются в панели под редактором скрипта.
 
 ![](./_assets/voting/script-complexity.png)
 
@@ -131,7 +131,7 @@ let dataFromStorage = this.getInteger(i.callerPublicKey.toBase58String())
 
 ![](./_assets/voting/add-sign.png)
 
-Отметим, что подписать транзакцию можно также секретной фразой или с помощью [Waves Keeper](/waves-keeper/about-waves-keeper.md).
+Отметим, что подписать транзакцию можно также секретной фразой или с помощью [Waves Keeper](/waves-keeper/about-waves-keeper).
 
 ![](./_assets/voting/seed-and-waves-keeper.png)
 
@@ -139,13 +139,13 @@ let dataFromStorage = this.getInteger(i.callerPublicKey.toBase58String())
 
 ![](./_assets/voting/publish.png)
 
-Таким образом, вы только что создали [dApp](/ru/blockchain/account/dapp.md).
+Таким образом, вы только что создали [dApp](/ru/blockchain/account/dapp).
 
 В [Waves Explorer](https://wavesexplorer.com/testnet), _в тестовой сети_, найдите информацию об активности на адресе главы ТСЖ. Для этого введите адрес главы ТСЖ в строку поиска и нажмите **Enter**.
 
 ![](./_assets/voting/testnet-address.png)
 
-По адресу главы ТСЖ отображаются две транзакции: [транзакция перевода](/ru/blockchain/transaction-type/transfer-transaction.md) (пополнение баланса на 10 WAVES с помощью faucet) и отправка транзакции установки скрипта. Отметим, что с баланса аккаунта главы ТСЖ списали комиссию за транзакцию установки скрипта в 0,001 WAVES.
+По адресу главы ТСЖ отображаются две транзакции: [транзакция перевода](/ru/blockchain/transaction-type/transfer-transaction) (пополнение баланса на 10 WAVES с помощью faucet) и отправка транзакции установки скрипта. Отметим, что с баланса аккаунта главы ТСЖ списали комиссию за транзакцию установки скрипта в 0,001 WAVES.
 
 ![](./_assets/voting/waves-explorer-chief-transactions.png)
 
@@ -153,7 +153,7 @@ let dataFromStorage = this.getInteger(i.callerPublicKey.toBase58String())
 
 Для того, чтобы проголосовать, жильцу необходимо отправить транзакцию вызова скрипта со своего аккаунта. В транзакции необходимо указать адрес dApp, имя вызываемого метода dApp, а также передаваемые в метод параметры.
 
-Отправьте транзакцию вызова скрипта с аккаунта Алексея с помощью [REPL](/ru/building-apps/smart-contracts/tools/repl.md). Для этого в Waves IDE _выберите аккаунт Алексея_.
+Отправьте транзакцию вызова скрипта с аккаунта Алексея с помощью [REPL](/ru/building-apps/smart-contracts/tools/repl). Для этого в Waves IDE _выберите аккаунт Алексея_.
 
 ![](./_assets/voting/account-aleksei.png)
 

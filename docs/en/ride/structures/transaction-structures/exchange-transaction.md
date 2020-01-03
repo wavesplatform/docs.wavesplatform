@@ -1,6 +1,6 @@
 # ExchangeTransaction
 
-Structure of an [exchange transaction](/en/blockchain/transaction-type/exchange-transaction.md).
+Structure of an [exchange transaction](/en/blockchain/transaction-type/exchange-transaction).
 
 ### Constructor
 
@@ -12,17 +12,17 @@ ExchangeTransaction(buyOrder: Order, sellOrder: Order, price: Int, amount: Int, 
 
 | # | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | buyOrder | [Order](/en/ride/structures/common-structures/order.md) | [Token](/en/blockchain/token.md) purchase [order](/en/blockchain/order.md) |
-| 2 | sellOrder | [Order](/en/ride/structures/common-structures/order.md) | Token sell order |
-| 3 | price | [Int](/en/ride/data-types/int.md) | Price of exchanging token |
-| 4 | amount | [Int](/en/ride/data-types/int.md) | Amount of exchanging tokens |
-| 5 | buyMatcherFee | [Int](/en/ride/data-types/int.md) | [Matcher](/en/waves-node/extensions/matcher.md)'s purchase fee |
-| 6 | sellMatcherFee | [Int](/en/ride/data-types/int.md) | Matcher's sell fee |
-| 7 | id | [ByteVector](/en/ride/data-types/byte-vector.md) | [Transaction ID](/en/blockchain/transaction/transaction-id.md) |
-| 8 | fee | [Int](/en/ride/data-types/int.md) | [Transaction fee](/en/blockchain/transaction/transaction-fee.md) |
-| 9 | timestamp | [Int](/en/ride/data-types/int.md) | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp.md) |
-| 10 | version | [Int](/en/ride/data-types/int.md) | [Transaction version](/en/blockchain/transaction/transaction-version.md) |
-| 11 | sender | [Address](/en/ride/structures/common-structures/address.md) | [Address](/en/blockchain/account/address.md) of a transaction sender |
-| 12 | senderPublicKey | [ByteVector](/en/ride/data-types/byte-vector.md) | Account public key of a sender |
-| 13 | bodyBytes | [ByteVector](/en/ride/data-types/byte-vector.md) | [Transaction body bytes](/en/blockchain/transaction/transaction-body-bytes.md) |
-| 14 | proofs | [List](/en/ride/data-types/list.md)[[ByteVector](/en/ride/data-types/byte-vector.md)] | Array of [proofs](/en/blockchain/transaction/transaction-proof.md) |
+| 1 | buyOrder | [Order](/en/ride/structures/common-structures/order) | [Token](/en/blockchain/token) purchase [order](/en/blockchain/order) |
+| 2 | sellOrder | [Order](/en/ride/structures/common-structures/order) | Token sell order |
+| 3 | price | [Int](/en/ride/data-types/int) | Price of exchanging token |
+| 4 | amount | [Int](/en/ride/data-types/int) | Amount of exchanging tokens |
+| 5 | buyMatcherFee | [Int](/en/ride/data-types/int) | [Matcher](/en/waves-node/extensions/matcher)'s purchase fee |
+| 6 | sellMatcherFee | [Int](/en/ride/data-types/int) | Matcher's sell fee |
+| 7 | id | [ByteVector](/en/ride/data-types/byte-vector) | [Transaction ID](/en/blockchain/transaction/transaction-id) |
+| 8 | fee | [Int](/en/ride/data-types/int) | [Transaction fee](/en/blockchain/transaction/transaction-fee) |
+| 9 | timestamp | [Int](/en/ride/data-types/int) | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) |
+| 10 | version | [Int](/en/ride/data-types/int) | [Transaction version](/en/blockchain/transaction/transaction-version) |
+| 11 | sender | [Address](/en/ride/structures/common-structures/address) | [Address](/en/blockchain/account/address) of a transaction sender |
+| 12 | senderPublicKey | [ByteVector](/en/ride/data-types/byte-vector) | Account public key of a sender |
+| 13 | bodyBytes | [ByteVector](/en/ride/data-types/byte-vector) | [Transaction body bytes](/en/blockchain/transaction/transaction-body-bytes) |
+| 14 | proofs | [List](/en/ride/data-types/list)[[ByteVector](/en/ride/data-types/byte-vector)] | Array of [proofs](/en/blockchain/transaction/transaction-proof) |

@@ -1,3 +1,3 @@
 # Blockchain network
 
-A **blockchain network** is a computer network that consists of [nodes](/en/blockchain/node.md).
+A **blockchain network** is a computer network that consists of [nodes](/en/blockchain/node).

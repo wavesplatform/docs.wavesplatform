@@ -17,7 +17,7 @@ toBase16String(bytes: ByteVector): String
 
 ### Parameters
 
-#### `bytes`: [ByteVector](/en/ride/data-types/byte-vector.md)
+#### `bytes`: [ByteVector](/en/ride/data-types/byte-vector)
 
 The array of bytes to encode.
 
@@ -38,7 +38,7 @@ toBase58String(bytes: ByteVector): String
 
 ### Parameters
 
-#### `bytes`: [ByteVector](/en/ride/data-types/byte-vector.md)
+#### `bytes`: [ByteVector](/en/ride/data-types/byte-vector)
 
 The array of bytes to encode.
 
@@ -59,7 +59,7 @@ toBase64String(bytes: ByteVector): String
 
 ### Parameters
 
-#### `bytes`: [ByteVector](/en/ride/data-types/byte-vector.md)
+#### `bytes`: [ByteVector](/en/ride/data-types/byte-vector)
 
 The array of bytes to encode.
 

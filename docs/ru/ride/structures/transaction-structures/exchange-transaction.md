@@ -1,6 +1,6 @@
 # Exchange transaction
 
-Структура [транзакции обмена](/ru/blockchain/transaction-type/exchange-transaction.md).
+Структура [транзакции обмена](/ru/blockchain/transaction-type/exchange-transaction).
 
 ## Конструктор
 
@@ -12,17 +12,17 @@ ExchangeTransaction(buyOrder: Order, sellOrder: Order, price: Int, amount: Int, 
 
 | # | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | buyOrder | [Order](/ru/ride/structures/common-structures/order.md) | [Бинарный формат ордера](/ru/blockchain/binary-format/transaction-binary-format.md) на покупку |
-| 2 | sellOrder | [Order](/ru/ride/structures/common-structures/order.md) | Ордер на продажу |
-| 3 | price | [Int](/ru/ride/data-types/int.md) | Стоимость токена |
-| 4 | amount | [Int](/ru/ride/data-types/int.md) | Количество токенов |
-| 5 | buyMatcherFee | [Int](/ru/ride/data-types/int.md) | Комиссия [матчера](/ru/waves-node/extensions/matcher.md) за покупку |
-| 6 | sellMatcherFee | [Int](/ru/ride/data-types/int.md) | Комиссия матчера за продажу |
-| 7 | id | [ByteVector](/ru/ride/data-types/byte-vector.md) | [ID транзакции](/ru/blockchain/transaction/transaction-id.md) |
-| 8 | fee | [Int](/ru/ride/data-types/int.md) | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee.md) |
-| 9 | timestamp | [Int](/ru/ride/data-types/int.md) | [Временная метка транзакции](/ru/blockchain/transaction/transaction-timestamp.md) |
-| 10 | version | [Int](/ru/ride/data-types/int.md) | [Версия транзакции](/ru/blockchain/transaction/transaction-version.md) |
-| 11 | sender | [Address](/ru/ride/structures/common-structures/address.md) | [Адрес](/ru/blockchain/account/address.md) отправителя транзакции |
-| 12 | senderPublicKey | [ByteVector](/ru/ride/data-types/byte-vector.md) | Открытый ключ отправителя транзакции |
-| 13 | bodyBytes | [ByteVector](/ru/ride/data-types/byte-vector.md) | [Байты тела транзакции](/ru/blockchain/transaction/transaction-body-bytes.md) |
-| 14 | proofs | [List](/ru/ride/data-types/list.md)[[ByteVector](/ru/ride/data-types/byte-vector.md)] | Список [подтверждений](/ru/blockchain/transaction/transaction-proof.md) |
+| 1 | buyOrder | [Order](/ru/ride/structures/common-structures/order) | [Бинарный формат ордера](/ru/blockchain/binary-format/transaction-binary-format) на покупку |
+| 2 | sellOrder | [Order](/ru/ride/structures/common-structures/order) | Ордер на продажу |
+| 3 | price | [Int](/ru/ride/data-types/int) | Стоимость токена |
+| 4 | amount | [Int](/ru/ride/data-types/int) | Количество токенов |
+| 5 | buyMatcherFee | [Int](/ru/ride/data-types/int) | Комиссия [матчера](/ru/waves-node/extensions/matcher) за покупку |
+| 6 | sellMatcherFee | [Int](/ru/ride/data-types/int) | Комиссия матчера за продажу |
+| 7 | id | [ByteVector](/ru/ride/data-types/byte-vector) | [ID транзакции](/ru/blockchain/transaction/transaction-id) |
+| 8 | fee | [Int](/ru/ride/data-types/int) | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) |
+| 9 | timestamp | [Int](/ru/ride/data-types/int) | [Временная метка транзакции](/ru/blockchain/transaction/transaction-timestamp) |
+| 10 | version | [Int](/ru/ride/data-types/int) | [Версия транзакции](/ru/blockchain/transaction/transaction-version) |
+| 11 | sender | [Address](/ru/ride/structures/common-structures/address) | [Адрес](/ru/blockchain/account/address) отправителя транзакции |
+| 12 | senderPublicKey | [ByteVector](/ru/ride/data-types/byte-vector) | Открытый ключ отправителя транзакции |
+| 13 | bodyBytes | [ByteVector](/ru/ride/data-types/byte-vector) | [Байты тела транзакции](/ru/blockchain/transaction/transaction-body-bytes) |
+| 14 | proofs | [List](/ru/ride/data-types/list)[[ByteVector](/ru/ride/data-types/byte-vector)] | Список [подтверждений](/ru/blockchain/transaction/transaction-proof) |

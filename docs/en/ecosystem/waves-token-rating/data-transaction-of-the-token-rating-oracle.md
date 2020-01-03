@@ -1,12 +1,12 @@
 # Data transaction of the Token Rating oracle
 
-Once a day, the [Token Rating](https://oracles.wavesexplorer.com/oracle/3P2eDV4pWJGmPjLGLrW4dsMA53te4gzkwnH) [oracle](/en/ecosystem/waves-oracles/oracle.md) sends to the blockchain a [data transaction](/en/blockchain/transaction-type/data-transaction.md) with [ratings and rates](/en/ecosystem/waves-token-rating/rating-formula.md) of tokens.
+Once a day, the [Token Rating](https://oracles.wavesexplorer.com/oracle/3P2eDV4pWJGmPjLGLrW4dsMA53te4gzkwnH) [oracle](/en/ecosystem/waves-oracles/oracle) sends to the blockchain a [data transaction](/en/blockchain/transaction-type/data-transaction) with [ratings and rates](/en/ecosystem/waves-token-rating/rating-formula) of tokens.
 
 A data transaction contains the information about tokens, that have been rated in the past 24 hours.
 
 A single transaction contains the information about no more than 25 tokens —  if there are more rated tokens, then several transactions will be sent.
 
-An example of a [data array](/en/blockchain/transaction-type/data-transaction.md) of such a transaction:
+An example of a [data array](/en/blockchain/transaction-type/data-transaction) of such a transaction:
 
 ``` js
 "data": [
@@ -98,6 +98,6 @@ Let's unescape that string:
 
 It follows from the string that no one rated the token with one, two or four stars.
 
-Three users rated the token with three stars. The sum of the weights [W<sub>n</sub>](/en/ecosystem/waves-token-rating/rating-formula.md) of those rates is 545.
+Three users rated the token with three stars. The sum of the weights [W<sub>n</sub>](/en/ecosystem/waves-token-rating/rating-formula) of those rates is 545.
 
 Two users rated the token with five stars. The sum of the weights W<sub>n</sub> of those rates is 3827.

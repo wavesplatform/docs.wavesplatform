@@ -4,9 +4,9 @@
 
 ## Leasing benefits for the node owner
 
-[Nodes](/en/blockchain/node.md) can use the leased tokens to generate blocks and get the [mining reward](/en/blockchain/mining/mining-reward.md). For that purpose, the generating balance of a node must be at least 1000 WAVES.
+[Nodes](/en/blockchain/node) can use the leased tokens to generate blocks and get the [mining reward](/en/blockchain/mining/mining-reward). For that purpose, the generating balance of a node must be at least 1000 WAVES.
 
-> In the [node configuration file](/en/waves-node/node-configuration.md), Use the `enable` parameter to start generating blocks on your node. By default, it’s enabled, but if you disable it your node won’t generate blocks.
+> In the [node configuration file](/en/waves-node/node-configuration), Use the `enable` parameter to start generating blocks on your node. By default, it’s enabled, but if you disable it your node won’t generate blocks.
 
 ## Leasing benefits for the token holder
 
@@ -32,7 +32,7 @@ To start leasing, the token holder needs to create a lease transaction and speci
 
 There are two types of transactions which are used in the LPoS:
 
-1. [Lease transaction](/en/blockchain/transaction-type/lease-transaction.md) to activate the leasing process.
-2. [Lease cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction.md) to deactivate the leasing process.
+1. [Lease transaction](/en/blockchain/transaction-type/lease-transaction) to activate the leasing process.
+2. [Lease cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction) to deactivate the leasing process.
 
-> These transactions can be used directly from the wallet (See [Lease your Waves](/waves-client/account-management/waves-leasing.md) page) or from the [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries.md).
+> These transactions can be used directly from the wallet (See [Lease your Waves](/waves-client/account-management/waves-leasing) page) or from the [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries).

@@ -2,11 +2,11 @@
 
 All variables in RIDE are _immutable_. After definition, the value of the variable does not change.
 
-Definition and simultaneous initialization of the variable are performed with the help of the `let` [operator](/en/ride/operators.md).
+Definition and simultaneous initialization of the variable are performed with the help of the `let` [operator](/en/ride/operators).
 
 You cannot declare a variable without initialization.
 
-During the variable assignment at the right side of the "=" sign must be an [expression](/en/ride/base-concepts/expression.md). The value of the variable is the [expression result](/en/ride/base-concepts/expression.md#expression-result).
+During the variable assignment at the right side of the "=" sign must be an [expression](/en/ride/base-concepts/expression). The value of the variable is the [expression result](/en/ride/base-concepts/expression#expression-result).
 
 ## Examples
 
@@ -22,7 +22,7 @@ Definition of the string variable.
 let season = "Spring"
 ```
 
-Since a [function](/en/ride/functions.md) is a [definition](/en/ride/base-concepts/definition.md) and not an [expression](/en/ride/base-concepts/expression.md), you can assign a function value to a variable but not the function itself.
+Since a [function](/en/ride/functions) is a [definition](/en/ride/base-concepts/definition) and not an [expression](/en/ride/base-concepts/expression), you can assign a function value to a variable but not the function itself.
 
 ``` ride
 func f() = {
@@ -37,4 +37,4 @@ RIDE has the lazy variable initialization, so the value of the variable is calcu
 
 ## Variables built into the script
 
-The [script](/en/ride/script.md) has [built-in variables](/en/ride/variables/built-in-variables.md).
+The [script](/en/ride/script) has [built-in variables](/en/ride/variables/built-in-variables).

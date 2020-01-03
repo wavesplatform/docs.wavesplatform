@@ -2,15 +2,15 @@
 
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
-| 1 | [extract(T&#124;Unit): T](#extract) | Gets a data type from a [union](/en/ride/data-types/union.md) | 13 |
-| 2 | [isDefined(List[T]&#124;Unit): Boolean](#is-defined) | Checks if a value is not [unit](/en/ride/data-types/unit.md) | 1 |
-| 3 | [value(T&#124;Unit): T](#value) | Gets a data type from a [union](/en/ride/data-types/union.md) | 13 |
-| 4 | [valueOrElse(T&#124;Unit, T): T](#valueOrElse) | Returns value from [union](/en/ride/data-types/union.md) type argument if it's not [unit](/en/ride/data-types/unit.md). Otherwise, returns the second argument | 13 |
-| 5 | [valueOrErrorMessage(T&#124;Unit, String): T](#value-error) | Gets a data type from a [union](/en/ride/data-types/union.md). Throws an exception if there is no data | 13 |
+| 1 | [extract(T&#124;Unit): T](#extract) | Gets a data type from a [union](/en/ride/data-types/union) | 13 |
+| 2 | [isDefined(List[T]&#124;Unit): Boolean](#is-defined) | Checks if a value is not [unit](/en/ride/data-types/unit) | 1 |
+| 3 | [value(T&#124;Unit): T](#value) | Gets a data type from a [union](/en/ride/data-types/union) | 13 |
+| 4 | [valueOrElse(T&#124;Unit, T): T](#valueOrElse) | Returns value from [union](/en/ride/data-types/union) type argument if it's not [unit](/en/ride/data-types/unit). Otherwise, returns the second argument | 13 |
+| 5 | [valueOrErrorMessage(T&#124;Unit, String): T](#value-error) | Gets a data type from a [union](/en/ride/data-types/union). Throws an exception if there is no data | 13 |
 
 ## extract(T|Unit): T<a id="extract"></a>
 
-Gets a data type from a [union](/en/ride/data-types/union.md).
+Gets a data type from a [union](/en/ride/data-types/union).
 
 ``` ride
 extract(T|Unit): T
@@ -38,7 +38,7 @@ The argument.
 
 ## value(T|Unit): T<a id="value"></a>
 
-Gets a data type from a [union](/en/ride/data-types/union.md).
+Gets a data type from a [union](/en/ride/data-types/union).
 
 ``` ride
 value(a: T|Unit): T
@@ -52,7 +52,7 @@ Value from an option.
 
 ## valueOrElse(T|Unit, T): T<a id="valueOrElse"></a>
 
-Returns value from [union](/en/ride/data-types/union.md) type argument if it's not [unit](/en/ride/data-types/unit.md). Otherwise, returns the second argument.
+Returns value from [union](/en/ride/data-types/union) type argument if it's not [unit](/en/ride/data-types/unit). Otherwise, returns the second argument.
 
 ``` ride
 valueOrElse(t: T|Unit, t0: T): T
@@ -70,7 +70,7 @@ Returned if the value of `t` is unit.
 
 ## valueOrErrorMessage(T|Unit, String): T<a id="value-error"></a>
 
-Gets a data type from a [union](/en/ride/data-types/union.md). Throws an exception if there is no data.
+Gets a data type from a [union](/en/ride/data-types/union). Throws an exception if there is no data.
 
 ``` ride
 valueOrErrorMessage(a: T|Unit, msg: String): T

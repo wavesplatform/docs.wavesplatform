@@ -1,4 +1,6 @@
-# waves-transactions  [![npm version](https://badge.fury.io/js/%40waves%2Fwaves-transactions.svg)](https://badge.fury.io/js/%40waves%2Fwaves-transactions)
+# waves-transactions
+
+[![npm version](https://badge.fury.io/js/%40waves%2Fwaves-transactions.svg)](https://badge.fury.io/js/%40waves%2Fwaves-transactions)
 
 [![](https://img.shields.io/npm/l/make-coverage-badge.svg)](https://opensource.org/licenses/MIT) ![](https://img.shields.io/badge/Coverage-98.77%25-brightgreen.svg)
 

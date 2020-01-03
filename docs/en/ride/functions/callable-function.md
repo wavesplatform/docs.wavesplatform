@@ -1,10 +1,10 @@
 # Callable function
 
-A **callable function** is a [function](/en/ride/functions.md) of a [dApp script](/en/ride/script/script-types/dapp-script.md) that has `@Callable` [annotation](/en/ride/functions/annotations.md).
+A **callable function** is a [function](/en/ride/functions) of a [dApp script](/en/ride/script/script-types/dapp-script) that has `@Callable` [annotation](/en/ride/functions/annotations).
 
 A dApp script may have several callable functions.
 
-A callable function of a [dApp](/en/blockchain/account/dapp.md) can be invoked by the [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction.md).
+A callable function of a [dApp](/en/blockchain/account/dapp) can be invoked by the [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction).
 
 ## Example for Standard Library version 3
 
@@ -15,13 +15,11 @@ func rate(name: String, rating: Int) = {
 }
 ```
 
-> [!WARNING]
-> [Standard Library](/en/ride/script/standard-library.md) Version 4 becomes available from node version 1.2.0, after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature. See [Activation Protocol](/en/blockchain/waves-protocol/activation-protocol.md).
+<note type="warning" title=""><a href="/en/ride/script/standard-library">Standard Library</a> Version 4 becomes available from node version 1.2.0, after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature. See <a href="/en/blockchain/waves-protocol/activation-protocol">Activation Protocol</a>.</note>
 
 ## Example for Standard Library version 4
 
-> [!INFO]
-> Starting from [Standard library]() version 4, the list of primitive data types values can be passed to the annotated function. Maximum list size - 1000 elements
+<note type="info" title="">Starting from <a href="/en/ride/script/standard-library">Standard Library</a> version 4, the list of primitive data types values can be passed to the annotated function. Maximum list size - 1000 elements.</note>
 
 ```ride
 {-# STDLIB_VERSION 4 #-}

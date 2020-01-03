@@ -1,9 +1,8 @@
 # TransferSet (for Standard Library version 3)
 
-> [!WARNING]
-> The structure is disabled in Standard library version 4. Starting with version 4 use `ScriptTransfer` in `ScriptResult` directly.
+<note type="warning" title="">The structure is disabled in Standard library version 4. Starting with version 4 use `ScriptTransfer` in `ScriptResult` directly.</note>
 
-Structure of a list of [token](/en/blockchain/token.md) transfers.
+Structure of a list of [token](/en/blockchain/token) transfers.
 
 ## Constructor
 
@@ -15,4 +14,4 @@ TransferSet(transfers: List[ScriptTransfer])
 
 |   #   | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | transfers | [List](/en/ride/data-types/list.md)[[ScriptTransfer](/en/ride/structures/common-structures/script-transfer.md)] | List of token transfers |
+| 1 | transfers | [List](/en/ride/data-types/list)[[ScriptTransfer](/en/ride/structures/common-structures/script-transfer)] | List of token transfers |

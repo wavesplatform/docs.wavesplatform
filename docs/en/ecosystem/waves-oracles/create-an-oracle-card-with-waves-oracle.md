@@ -1,6 +1,6 @@
 # Create an oracle card with Waves Oracle
 
-Only authorized users can create an [oracle card](/en/ecosystem/waves-oracles/oracle-card.md). Authorization is performed using Waves Keeper.
+Only authorized users can create an [oracle card](/en/ecosystem/waves-oracles/oracle-card). Authorization is performed using Waves Keeper.
 
 The account can create no more than one oracle card.
 

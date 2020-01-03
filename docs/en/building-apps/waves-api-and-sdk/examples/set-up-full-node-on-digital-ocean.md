@@ -2,7 +2,7 @@
 
 Waves Full Node stores the whole blockchain and gives access to the REST API.
 For more information follow the links:
- * [Full Node](../waves-node/what-is-a-full-node.md)
+ * [Full Node](../waves-node/what-is-a-full-node)
  * [REST API](/)
 
 

@@ -1,6 +1,6 @@
 # Биржевая заявка
 
-**Биржевая заявка** или **ордер** — инструкция [владельца аккаунта](/ru/blockchain/account.md) [матчеру](/ru/waves-node/extensions/matcher.md) на покупку или продажу [токена](/ru/blockchain/token.md) на [DEX](/waves-dex/about-waves-dex.md).
+**Биржевая заявка** или **ордер** — инструкция [владельца аккаунта](/ru/blockchain/account) [матчеру](/ru/waves-node/extensions/matcher) на покупку или продажу [токена](/ru/blockchain/token) на [DEX](/waves-dex/about-waves-dex).
 
 ## Отмена заявки <a id="cancel"></a>
 
@@ -18,6 +18,6 @@
 
 ## Временная метка заявки
 
-**Временна́я метка заявки** — время, когда [матчер](/ru/waves-node/extensions/matcher.md) добавил [заявку](/ru/blockchain/order.md) в [биржевой стакан](https://ru.wikipedia.org/wiki/Биржевой_стакан) на [DEX](/waves-dex/about-waves-dex.md).
+**Временна́я метка заявки** — время, когда [матчер](/ru/waves-node/extensions/matcher) добавил [заявку](/ru/blockchain/order) в [биржевой стакан](https://ru.wikipedia.org/wiki/Биржевой_стакан) на [DEX](/waves-dex/about-waves-dex).
 
 Время указывается в _миллисекундах_, которые прошли с начала [эпохи Unix](https://ru.wikipedia.org/wiki/Unix-время).

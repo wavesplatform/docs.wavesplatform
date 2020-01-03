@@ -1,9 +1,8 @@
 # Burn
 
-> [!WARNING]
-> The structure is introduced in Standard library **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network.md).
+<note type="warning" title="">The structure is introduced in Standard library **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network).</note>
 
-Structure of a [token burn](/en/blockchain/transaction-type/burn-transaction.md).
+Structure of a [token burn](/en/blockchain/transaction-type/burn-transaction).
 
 ## Constructor
 
@@ -15,5 +14,5 @@ Burn(assetId: ByteVector, quantity: Int)
 
 | # | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | assetId | [ByteVector](/en/ride/data-types/byte-vector.md) | [ID of the token](/en/blockchain/token/token-id.md) to burn |
-| 2 | quantity | [Int](/en/ride/data-types/int.md) | Amount of the token |
+| 1 | assetId | [ByteVector](/en/ride/data-types/byte-vector) | [ID of the token](/en/blockchain/token/token-id) to burn |
+| 2 | quantity | [Int](/en/ride/data-types/int) | Amount of the token |

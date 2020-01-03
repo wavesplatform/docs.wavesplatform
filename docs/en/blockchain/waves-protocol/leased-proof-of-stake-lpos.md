@@ -120,7 +120,7 @@ leaseId: '9q7X84wFuVvKqRdDQeWbtBmpsHt9SXFbvPPtUuKBVxxr'
 
 # 3.2.3 Useful links for leasing 
 
-For Step-by-Step guide to lease your waves, click [here](/en/waves-client/account-management/waves-leasing.md).
+For Step-by-Step guide to lease your waves, click [here](/en/waves-client/account-management/waves-leasing).
 
 For the List of generators click [here](http://dev.pywaves.org/generators/).
 

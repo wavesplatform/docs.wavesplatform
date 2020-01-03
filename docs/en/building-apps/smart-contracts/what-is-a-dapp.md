@@ -1,16 +1,16 @@
 # What is a dApp
 
-Before getting acquainted with [dApp](/en/blockchain/account/dapp.md), let's review the features of related entities — [account](/en/blockchain/account.md) and [smart account](/en/blockchain/account/smart-account.md).
+Before getting acquainted with [dApp](/en/blockchain/account/dapp), let's review the features of related entities — [account](/en/blockchain/account) and [smart account](/en/blockchain/account/smart-account).
 
-An account provides the functionality to verify that an issued [transaction](/en/blockchain/transaction.md) was indeed sent from this account.
+An account provides the functionality to verify that an issued [transaction](/en/blockchain/transaction) was indeed sent from this account.
 
-Smart account, i.e. an account with an [account script](/en/ride/script/script-types/account-script.md) attached, provides the functionality to check outgoing transactions for compliance with the conditions specified in the script. For example, an account owner can set a rule according to which transactions can be sent from an [address](/en/blockchain/account/address.md) only if the blockchain height exceeds N. Another example —  you can allow transactions only of a certain type. Or cancel any check by establishing a rule according to which all transactions sent from the address should be considered valid.
+Smart account, i.e. an account with an [account script](/en/ride/script/script-types/account-script) attached, provides the functionality to check outgoing transactions for compliance with the conditions specified in the script. For example, an account owner can set a rule according to which transactions can be sent from an [address](/en/blockchain/account/address) only if the blockchain height exceeds N. Another example —  you can allow transactions only of a certain type. Or cancel any check by establishing a rule according to which all transactions sent from the address should be considered valid.
 
 The features of a dApp are even wider. Besides validating the outgoing transactions it also allows other accounts to invoke the functions contained in it. From this point of view, dApp is a real blockchain application.
 
 ## General Requirements to Write dApp
 
-dApps are written in [Ride](/en/ride/about-ride.md). To create dApp, you need an account that has enough [WAVES](/en/blockchain/token/waves.md) on its balance to pay for the set script transaction (1 WAVES). To start writing dApp right away, use the [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide.md).
+dApps are written in [Ride](/en/ride/about-ride). To create dApp, you need an account that has enough [WAVES](/en/blockchain/token/waves) on its balance to pay for the set script transaction (1 WAVES). To start writing dApp right away, use the [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide).
 
 ## dApp Structure
 
@@ -32,13 +32,13 @@ The directive listed above tells the compiler that
 
 ### Script Context
 
-The directive is followed by a script context. The context of the script is where the functions that will be available within the entire dApp are defined and the variables are declared.  In addition to the variables and functions declared by the developer, the script context includes [built-in variables](/en/ride/variables/built-in-variables.md) and [built-in functions](/en/ride/functions/built-in-functions.md). The developer doesn't have to declare their variables or define their functions — this will not affect the presence of built-in variables and functions.
+The directive is followed by a script context. The context of the script is where the functions that will be available within the entire dApp are defined and the variables are declared.  In addition to the variables and functions declared by the developer, the script context includes [built-in variables](/en/ride/variables/built-in-variables) and [built-in functions](/en/ride/functions/built-in-functions). The developer doesn't have to declare their variables or define their functions — this will not affect the presence of built-in variables and functions.
 
 ### Declaring Callable Functions
 
-As it was mentioned before, dApps provide the functionality to call functions to other accounts. These functions are marked with the `@Callable(invocation)` [annotation](/en/ride/functions/annotations.md), where `invocation` is an arbitrary script context object.
+As it was mentioned before, dApps provide the functionality to call functions to other accounts. These functions are marked with the `@Callable(invocation)` [annotation](/en/ride/functions/annotations), where `invocation` is an arbitrary script context object.
 
-The following is an example of a callable function, which assigns `42` to `someDataKey` and writes it to the [account data storage](/en/blockchain/account/account-data-storage.md) if the account owner calls it. If someone else tries to do this, the function throws an exception. The transaction, in this case, will not be valid and will not be recorded into the blockchain:
+The following is an example of a callable function, which assigns `42` to `someDataKey` and writes it to the [account data storage](/en/blockchain/account/account-data-storage) if the account owner calls it. If someone else tries to do this, the function throws an exception. The transaction, in this case, will not be valid and will not be recorded into the blockchain:
 
 ```ride
 @Callable(invocation)
@@ -64,7 +64,7 @@ The validation function does the same as a smart account, i.e. validates outgoin
 
 If dApp does not have the validation function, then the default validation is performed (that is, checking that the transaction is indeed signed by this account).
 
-dApp with the validation function listed below will only allow [transfer transactions](/en/blockchain/transaction-type/transfer-transaction.md) (sending transactions of other types will be prohibited):
+dApp with the validation function listed below will only allow [transfer transactions](/en/blockchain/transaction-type/transfer-transaction) (sending transactions of other types will be prohibited):
 
 ```ride
 @Verifier(tx)
@@ -83,15 +83,15 @@ The following limitations are applied to dApps:
 | Limitation | Maximum value |
 |---|---|
 | Script size | 32 Kbytes |
-| [Complexity](/en/ride/base-concepts/complexity.md) | 4000 |
+| [Complexity](/en/ride/base-concepts/complexity) | 4000 |
 | Number of callable function arguments | 22 |
 | Annotated function name size | 255 bytes |
-| Number of [ScriptTransfer](/en/ride/structures/common-structures/script-transfer.md), [Issue](/en/ride/structures/common-structures/issue.md), [Reissue](/en/ride/structures/common-structures/reissue.md), [Burn](/en/ride/structures/common-structures/burn.md) calls in one script invocation (for [Standard Library](/en/ride/script/standard-library.md) **version 4**) | 10 |
-| Number of [BinaryEntry](/en/ride/structures/common-structures/binary-entry.md), [BooleanEntry](/en/ride/structures/common-structures/boolean-entry.md), [IntEntry](/en/ride/structures/common-structures/int-entry.md), [StringEntry](/en/ride/structures/common-structures/string-entry.md) calls in one script invocation (for [Standard Library](/en/ride/script/standard-library.md) **version 4**) | 100 |
-| Size of the data written to the account data storage, for all [BinaryEntry](/en/ride/structures/common-structures/binary-entry.md), [BooleanEntry](/en/ride/structures/common-structures/boolean-entry.md), [IntEntry](/en/ride/structures/common-structures/int-entry.md), [StringEntry](/en/ride/structures/common-structures/string-entry.md) calls in one script invocation (for [Standard Library](/en/ride/script/standard-library.md) **version 4**) | 5 Kbytes |
-| [WriteSet](/en/ride/structures/common-structures/write-set.md) size (for [Standard Library](/en/ride/script/standard-library.md) **version 3**) | 5 Kbytes |
-| Number of records in WriteSet (for [Standard Library](/en/ride/script/standard-library.md) **version 3**) | 100 |
-| Number of transfers in [TransferSet](/en/ride/structures/common-structures/transfer-set.md) (for [Standard Library](/en/ride/script/standard-library.md) **version 3**) | 10 |
+| Number of [ScriptTransfer](/en/ride/structures/common-structures/script-transfer), [Issue](/en/ride/structures/common-structures/issue), [Reissue](/en/ride/structures/common-structures/reissue), [Burn](/en/ride/structures/common-structures/burn) calls in one script invocation (for [Standard Library](/en/ride/script/standard-library) **version 4**) | 10 |
+| Number of [BinaryEntry](/en/ride/structures/common-structures/binary-entry), [BooleanEntry](/en/ride/structures/common-structures/boolean-entry), [IntEntry](/en/ride/structures/common-structures/int-entry), [StringEntry](/en/ride/structures/common-structures/string-entry) calls in one script invocation (for [Standard Library](/en/ride/script/standard-library) **version 4**) | 100 |
+| Size of the data written to the account data storage, for all [BinaryEntry](/en/ride/structures/common-structures/binary-entry), [BooleanEntry](/en/ride/structures/common-structures/boolean-entry), [IntEntry](/en/ride/structures/common-structures/int-entry), [StringEntry](/en/ride/structures/common-structures/string-entry) calls in one script invocation (for [Standard Library](/en/ride/script/standard-library) **version 4**) | 5 Kbytes |
+| [WriteSet](/en/ride/structures/common-structures/write-set) size (for [Standard Library](/en/ride/script/standard-library) **version 3**) | 5 Kbytes |
+| Number of records in WriteSet (for [Standard Library](/en/ride/script/standard-library) **version 3**) | 100 |
+| Number of transfers in [TransferSet](/en/ride/structures/common-structures/transfer-set) (for [Standard Library](/en/ride/script/standard-library) **version 3**) | 10 |
 | Size of the value of a variable of type String | 32767  characters |
 | Size of a ByteVector variable value | 65536 bytes |
 
@@ -155,4 +155,4 @@ func verify() = {
 
 ## Attaching dApp script to Account
 
-To attach dApp script to an account, use the [set script transaction](/en/blockchain/transaction-type/set-script-transaction.md).
+To attach dApp script to an account, use the [set script transaction](/en/blockchain/transaction-type/set-script-transaction).

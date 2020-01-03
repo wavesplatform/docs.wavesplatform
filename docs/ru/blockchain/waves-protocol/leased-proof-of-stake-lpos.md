@@ -120,7 +120,7 @@ LPoS (дословно -  арендованное доказательство 
 
 # 3.2.3 Полезные ссылки для лизинга 
 
-Пошаговое руководство по сдаче средств в лизинг [здесь](/waves-client/account-management/waves-leasing.md).
+Пошаговое руководство по сдаче средств в лизинг [здесь](/waves-client/account-management/waves-leasing).
 
 Список нод генераторов [здесь](http://dev.pywaves.org/generators/).
 

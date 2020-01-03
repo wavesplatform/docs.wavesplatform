@@ -1,5 +1,6 @@
 # Standard Library
-{% prettylink link="https://cdn.rawgit.com/wavesplatform/waves-documentation/master/en/doc.html" %}Full Details{% endprettylink %}
+
+> [Full Details](https://cdn.rawgit.com/wavesplatform/waves-documentation/master/en/doc.html)
 
 # Input variables
 |vars|type|doc|

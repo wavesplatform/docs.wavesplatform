@@ -18,7 +18,7 @@ drop(xs: ByteVector, number: Int): ByteVector
 
 ### Parameters
 
-#### `xs`: [ByteVector](/en/ride/data-types/byte-vector.md)
+#### `xs`: [ByteVector](/en/ride/data-types/byte-vector)
 
 Byte array.
 
@@ -32,7 +32,7 @@ drop(base58'37BPKA', 3)     # Returns the byte array without the first 3 bytes
 drop(base64'UmlkZQ==', 3)   # Returns the byte array without the first 3 bytes
 ```
 
-#### `number`: [Int](/en/ride/data-types/int.md)
+#### `number`: [Int](/en/ride/data-types/int)
 
 Number `N`.
 
@@ -46,11 +46,11 @@ dropRight(xs: ByteVector, number: Int): ByteVector
 
 ### Parameters
 
-#### `xs`: [ByteVector](/en/ride/data-types/byte-vector.md)
+#### `xs`: [ByteVector](/en/ride/data-types/byte-vector)
 
 Byte array.
 
-#### `number`: [Int](/en/ride/data-types/int.md)
+#### `number`: [Int](/en/ride/data-types/int)
 
 Number `N`.
 
@@ -74,7 +74,7 @@ size(byteVector: ByteVector): Int
 
 ### Parameters
 
-#### `byteVector`: [ByteVector](/en/ride/data-types/byte-vector.md)
+#### `byteVector`: [ByteVector](/en/ride/data-types/byte-vector)
 
 Byte array.
 
@@ -98,11 +98,11 @@ take(xs: ByteVector, number: Int): ByteVector
 
 ### Parameters
 
-#### `xs`: [ByteVector](/en/ride/data-types/byte-vector.md)
+#### `xs`: [ByteVector](/en/ride/data-types/byte-vector)
 
 Byte array.
 
-#### `number`: [Int](/en/ride/data-types/int.md)
+#### `number`: [Int](/en/ride/data-types/int)
 
 Number `N`.
 
@@ -125,11 +125,11 @@ takeRight(xs: ByteVector, number: Int): ByteVector
 
 ### Parameters
 
-#### `xs`: [ByteVector](/en/ride/data-types/byte-vector.md)
+#### `xs`: [ByteVector](/en/ride/data-types/byte-vector)
 
 Byte array.
 
-#### `number`: [Int](/en/ride/data-types/int.md)
+#### `number`: [Int](/en/ride/data-types/int)
 
 Number `N`.
 

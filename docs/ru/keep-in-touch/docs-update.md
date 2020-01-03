@@ -4,124 +4,124 @@
 
 ### RIDE
 
-* [Макрос FOLD<N>](ride/fold-macro.md)
+* [Макрос FOLD<N>](ride/fold-macro)
 
 ### Сеть блокчейна
 
-* [Экспериментальная сеть](blockchain/blockchain-network/stage-network.md)
+* [Экспериментальная сеть](blockchain/blockchain-network/stage-network)
 
 ### Блокчейн
 
 * Тип транзакции
-  * [Транзакция обновления информации ассета](blockchain/transaction-type/update-asset-info-transaction.md)
+  * [Транзакция обновления информации ассета](blockchain/transaction-type/update-asset-info-transaction)
 
 * Бинарный формат
   * Protobuf-схема транзакции
-    * [Protobuf-схема транзакции обновления информации ассета](blockchain/binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme.md)
+    * [Protobuf-схема транзакции обновления информации ассета](blockchain/binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme)
 
 ### Нода
 
-* [Конфигурация ноды](waves-node/node-configuration.md)
+* [Конфигурация ноды](waves-node/node-configuration)
 
 ### Ride
 
 * Структура
   * Общие структруры
-    * [BinaryEntry](ride/structures/common-structures/binary-entry.md)
-    * [BooleanEntry](ride/structures/common-structures/boolean-entry.md)
-    * [Burn](ride/structures/common-structures/burn.md)
-    * [DeleteKey](ride/structures/common-structures/delete-key.md)
-    * [IntEntry](ride/structures/common-structures/int-entry.md)
-    * [Issue](ride/structures/common-structures/issue.md)
-    * [Reissue](ride/structures/common-structures/reissue.md)
-    * [StringEntry](ride/structures/common-structures/string-entry.md)
+    * [BinaryEntry](ride/structures/common-structures/binary-entry)
+    * [BooleanEntry](ride/structures/common-structures/boolean-entry)
+    * [Burn](ride/structures/common-structures/burn)
+    * [DeleteKey](ride/structures/common-structures/delete-key)
+    * [IntEntry](ride/structures/common-structures/int-entry)
+    * [Issue](ride/structures/common-structures/issue)
+    * [Reissue](ride/structures/common-structures/reissue)
+    * [StringEntry](ride/structures/common-structures/string-entry)
   * Структуры транзакций
-    * [UpdateAssetInfoTransaction](ride/structures/transaction-structures/update-asset-info-transaction.md)
+    * [UpdateAssetInfoTransaction](ride/structures/transaction-structures/update-asset-info-transaction)
 
 ## Ноябрьские статьи
 
 ### Программирование
 
-* [Что такое смарт-аккаунт](smart-contracts/what-is-smart-account.md)
-* [Создание смарт-аккаунта](smart-contracts/how-to-create-smart-account.md)
+* [Что такое смарт-аккаунт](smart-contracts/what-is-smart-account)
+* [Создание смарт-аккаунта](smart-contracts/how-to-create-smart-account)
 )
 
 ## Октябрьские статьи
 
 ### Программирование
 
-* [Что такое смарт-ассет](smart-contracts/what-is-smart-asset.md)
-* [Что такое dApp](smart-contracts/what-is-a-dapp.md)
+* [Что такое смарт-ассет](smart-contracts/what-is-smart-asset)
+* [Что такое dApp](smart-contracts/what-is-a-dapp)
 
 ### Node
 
 * Расширения
   * Матчер
-    * [Установка матчера на Ubuntu из deb-пакета](/ru/waves-node/extensions/matcher/matcher-install-ubuntu-deb.md)
+    * [Установка матчера на Ubuntu из deb-пакета](/ru/waves-node/extensions/matcher/matcher-install-ubuntu-deb)
 
 ### Oracles
 
-* [Инструмент отправки транзакций данных](/ru/ecosystem/waves-oracles/data-transaction-tool.md)
+* [Инструмент отправки транзакций данных](/ru/ecosystem/waves-oracles/data-transaction-tool)
 
 ### RIDE
 
 * Типы данных
-  * [ByteVector](ride/data-types/byte-vector.md) — <span style="color:green">обновлено</span>
-  * [Int](ride/data-types/int.md) — <span style="color:green">обновлено</span>
+  * [ByteVector](ride/data-types/byte-vector) — <span style="color:green">обновлено</span>
+  * [Int](ride/data-types/int) — <span style="color:green">обновлено</span>
 
 * Функции
   * Встроенные функции
-    * [Математические функции](ride/functions/built-in-functions/math-functions.md) — <span style="color:green">обновлено</span>
-    * [Функции массива байтов](ride/functions/built-in-functions/byte-array-functions.md) — <span style="color:green">обновлено</span>
-    * [Функции строки](ride/functions/built-in-functions/string-functions.md) — <span style="color:green">обновлено</span>
-    * [Функции хеширования](ride/functions/built-in-functions/hashing-functions.md) — <span style="color:green">обновлено</span>
+    * [Математические функции](ride/functions/built-in-functions/math-functions) — <span style="color:green">обновлено</span>
+    * [Функции массива байтов](ride/functions/built-in-functions/byte-array-functions) — <span style="color:green">обновлено</span>
+    * [Функции строки](ride/functions/built-in-functions/string-functions) — <span style="color:green">обновлено</span>
+    * [Функции хеширования](ride/functions/built-in-functions/hashing-functions) — <span style="color:green">обновлено</span>
 
 ### Блокчейн
 
-* [Майнинг](blockchain/mining.md) — <span style="color:green">обновлено</span>
-  * [Вознаграждение за майнинг](blockchain/mining/mining-reward.md) — <span style="color:green">обновлено</span>
+* [Майнинг](blockchain/mining) — <span style="color:green">обновлено</span>
+  * [Вознаграждение за майнинг](blockchain/mining/mining-reward) — <span style="color:green">обновлено</span>
 
 ### Глоссарий
 
-* [Глоссарий](glossary/glossary.md)
+* [Глоссарий](glossary/glossary)
 
 ## Сентябрьские статьи
 
 ### Блокчейн
 
-* [Аккаунт](blockchain/account.md) — <span style="color:green">обновлено</span>
-  * [Баланс аккаунта](blockchain/account/account-balance.md)
+* [Аккаунт](blockchain/account) — <span style="color:green">обновлено</span>
+  * [Баланс аккаунта](blockchain/account/account-balance)
 * Бинарный формат
-  * [Бинарный формат ордера](blockchain/binary-format/order-binary-format.md)
+  * [Бинарный формат ордера](blockchain/binary-format/order-binary-format)
   * Бинарный формат транзакции
-    * [Бинарный формат транзакции вызова скрипта](blockchain/binary-format/transaction-binary-format/invoke-script-transaction-binary-format.md)
-    * [Бинарный формат транзакции выпуска](blockchain/binary-format/transaction-binary-format/issue-transaction-binary-format.md)
-    * [Бинарный формат транзакции довыпуска](blockchain/binary-format/transaction-binary-format/reissue-transaction-binary-format.md)
-    * [Бинарный формат транзакции массового перевода](blockchain/binary-format/transaction-binary-format/mass-transfer-transaction-binary-format.md)
-    * [Бинарный формат транзакции обмена](blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format.md)
-    * [Бинарный формат транзакции отмены лизинга](blockchain/binary-format/transaction-binary-format/lease-cancel-transaction-binary-format.md)
-    * [Бинарный формат транзакции перевода](blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format.md)
-    * [Бинарный формат транзакции спонсирования](blockchain/binary-format/transaction-binary-format/sponsor-fee-transaction-binary-format.md)
-    * [Бинарный формат транзакции установки скрипта ассета](blockchain/binary-format/transaction-binary-format/set-asset-script-transaction-binary-format.md)
-    * [Бинарный формат транзакции установки скрипта](blockchain/binary-format/transaction-binary-format/set-script-transaction-binary-format.md)
-* [Биржевая заявка](blockchain/order.md) — <span style="color:green">обновлено</span>
+    * [Бинарный формат транзакции вызова скрипта](blockchain/binary-format/transaction-binary-format/invoke-script-transaction-binary-format)
+    * [Бинарный формат транзакции выпуска](blockchain/binary-format/transaction-binary-format/issue-transaction-binary-format)
+    * [Бинарный формат транзакции довыпуска](blockchain/binary-format/transaction-binary-format/reissue-transaction-binary-format)
+    * [Бинарный формат транзакции массового перевода](blockchain/binary-format/transaction-binary-format/mass-transfer-transaction-binary-format)
+    * [Бинарный формат транзакции обмена](blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format)
+    * [Бинарный формат транзакции отмены лизинга](blockchain/binary-format/transaction-binary-format/lease-cancel-transaction-binary-format)
+    * [Бинарный формат транзакции перевода](blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format)
+    * [Бинарный формат транзакции спонсирования](blockchain/binary-format/transaction-binary-format/sponsor-fee-transaction-binary-format)
+    * [Бинарный формат транзакции установки скрипта ассета](blockchain/binary-format/transaction-binary-format/set-asset-script-transaction-binary-format)
+    * [Бинарный формат транзакции установки скрипта](blockchain/binary-format/transaction-binary-format/set-script-transaction-binary-format)
+* [Биржевая заявка](blockchain/order) — <span style="color:green">обновлено</span>
 * Майнинг
-  * [Вознаграждение за майнинг](/ru/blockchain/mining/mining-reward.md)
+  * [Вознаграждение за майнинг](/ru/blockchain/mining/mining-reward)
 * Token Rating
-  * [Управление токеном](waves-token-rating/token-management.md)
+  * [Управление токеном](waves-token-rating/token-management)
 
 ### RIDE
 
 * Скрипт
-  * [Контекст скрипта](ride/script/script-context.md)
-  * [Стандартная библиотека](ride/script/standard-library.md)
-  * [Тело скрипта](ride/script/script-body.md)
+  * [Контекст скрипта](ride/script/script-context)
+  * [Стандартная библиотека](ride/script/standard-library)
+  * [Тело скрипта](ride/script/script-body)
   * Типы скриптов
-    * [Скрипт аккаунта](ride/script/script-types/account-script.md) — <span style="color:green">обновлено</span>
+    * [Скрипт аккаунта](ride/script/script-types/account-script) — <span style="color:green">обновлено</span>
 * Функции
-  * [Встроенные функции](ride/functions/built-in-functions.md) — <span style="color:green">обновлено</span>
-    * [Функции верификации](ride/functions/built-in-functions/verification-functions.md) — <span style="color:green">обновлено</span>
+  * [Встроенные функции](ride/functions/built-in-functions) — <span style="color:green">обновлено</span>
+    * [Функции верификации](ride/functions/built-in-functions/verification-functions) — <span style="color:green">обновлено</span>
 
-> Посмотреть старые новости в [Aрхиве новостей](miscellaneous/news-archive.md)
+> Посмотреть старые новости в [Aрхиве новостей](miscellaneous/news-archive)
 
 > Посмотреть репозиторий документации на [Github](https://github.com/wavesplatform/waves-documentation)

@@ -30,7 +30,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
 
 Carefully edit the configuration waves.conf file, **it is very important! The safety of your wallet and money depends on this!**
 
-So, just open it with your favorite text editor, pour a cup of tea and read [the documentation of the configuration file](/en/waves-node/node-configuration.md).
+So, just open it with your favorite text editor, pour a cup of tea and read [the documentation of the configuration file](/en/waves-node/node-configuration).
 
 Then start Terminal app `Terminal.app`, navigate to the folder with the jar file with the command `cd ~/waves`and start waves node with command `java -jar waves.jar waves.conf`.
 

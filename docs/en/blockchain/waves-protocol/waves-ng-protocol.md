@@ -28,7 +28,7 @@ Blockchain Systems can process transactions and the maximum rate of these transa
 
 * The block interval defines the average amount of time that passes between the creation of two blocks. By deciding to reduce the block interval to solve the latency limit, the system will have less security \(increase forks probability\) due to the reason of new miner for every second which will lead to instability where the blockchain is subject to reorganization and the system is in disagreement \(Figure 1\). If we reduce the time per block, then we will have a situation where a significant number of blocks are solved in less time than it takes to relay a solved block throughout the network. So there will be no way to know which block is the "real" one and which one is a "fork" because the transactions that appeared to have multiple confirmations suddenly have fewer confirmations \(or possibly go back to being unconfirmed\).
 
-![](./_assets/BlockInterval.PNG)
+![](./_assets/BlockInterval.png)
 
 Figure1, Increasing block frequency with Static blocksize will result to less security.
 
@@ -49,7 +49,7 @@ The leaders take the rule of generating blocks:
 * Key blocks for the election of a leader.
 * Micro blocks for ledger records.
 
-![](./_assets/Serialization.JPG)
+![](./_assets/serialization.jpg)
 
 Figure 3: Bitcoin-NG time periods structure with serializing transactions.
 
@@ -79,7 +79,7 @@ Because a key-block requires proof of stake, miners can not just produce one and
 
 Following the key-block, the lead miner can quickly issue microblocks, simply by signing them with the private key corresponding to the public key named in the key-block’s coinbase \(Figure 4\).
 
-![](./_assets/Bitcoin Blocks.JPG)
+![](./_assets/BitcoinBlocks.jpg)
 
 Figure 4: Key-blocks and Micro-blocks signing process.
 
@@ -128,4 +128,5 @@ In practice, the remuneration is implemented by having each key block contain a 
 
 As in Bitcoin, this transaction can only be spent after a maturity period of 100 key blocks, to avoid non-mergeable transactions following a fork.
 
-{% prettyhint type="info" %} Find more technical details about Waves-NG <a href="/blockchain/waves-prtocol/waves-ng-solution.md"> &nbsp;In This Section. </a> {% endprettyhint %}
+
+<note type="info" title="">Find more technical details about Waves-NG <a href="/en/blockchain/waves-prtocol/waves-ng-solution">in this section</a>.</note>

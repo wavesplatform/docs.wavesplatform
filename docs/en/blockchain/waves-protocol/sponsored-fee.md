@@ -92,7 +92,7 @@ But the total **block fee** for the block with sponsored transactions can be com
 }
 ```
 
-Sponsorship information for the asset present in [asset description](../waves-node/node-api/asset-transactions/public-functions.md#get-assetsdetailsassetid).
+Sponsorship information for the asset present in [asset description](../waves-node/node-api/asset-transactions/public-functions#get-assetsdetailsassetid).
 
 ### Constraints
 

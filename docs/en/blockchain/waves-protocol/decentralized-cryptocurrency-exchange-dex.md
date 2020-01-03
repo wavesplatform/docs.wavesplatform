@@ -85,14 +85,14 @@ tradable_balance(asset) = balance_of_asset -
 
 The current balance in `asset`:
 
-* [WAVES](../development-and-api/node-api/address.md#get-addressesbalanceaddress);
-* [assets](../development-and-api/node-api/address.md#get-assetsbalanceaddress).
+* [WAVES](../development-and-api/node-api/address#get-addressesbalanceaddress);
+* [assets](../development-and-api/node-api/address#get-assetsbalanceaddress).
 
 ## spendings of asset in transactions in utx pool
 
 The sum of all spending by the asset of unconfirmed transactions.
 
-For example, if you are transferring `WAVES` and sending a [data transaction](/en/blockchain/transaction-type/data-transaction.md)  
+For example, if you are transferring `WAVES` and sending a [data transaction](/en/blockchain/transaction-type/data-transaction)  
 and these transactions haven't yet forged, `spendings_of_WAVES_in_transactions_in_utx_pool` will be `amount_of_transferred_waves + transfer_fee + data_transaction_fee`.
 
 Note: UTX pool of one node could not be the same as on other node.
@@ -116,7 +116,7 @@ So, you can buy `WAVES` for `BTC` even if you have no `WAVES`.
   [www.wavesplatform.com](http://www.wavesplatform.com/)
   , or use the webwallet, available at
   [client.wavesplatform.com](https://dex.wavesplatform.com/)
-* [Deposit your bitcoins](/waves-client/transfers-and-gateways/bitcoin-transfers.md) or any [supported coins and tokens](/en/waves-client/wallet-management.md) into the wallet and [start trading using the Waves DEX](/waves-client/waves-dex.md).
+* [Deposit your bitcoins](/waves-client/transfers-and-gateways/bitcoin-transfers) or any [supported coins and tokens](/en/waves-client/wallet-management) into the wallet and [start trading using the Waves DEX](/waves-client/waves-dex).
 
 # 6. Installing your Own Matcher
 
@@ -124,4 +124,4 @@ So, you can buy `WAVES` for `BTC` even if you have no `WAVES`.
 * The Matcher earns fees from the services it provides, so you can substantially increase your mining revenues.
 * When a user sends an order to Matcher he doesn't transfer ownership of his money to anyone, his money remains on his account until the order is matched with counter-order.
 
-{% prettyhint type="info" %} Find more technical details about the Matcher <a href="/development-and-api/dex-api/matcher.md"> &nbsp;HERE. </a> {% endprettyhint %}
+<note type="info" title="">Find more technical details about the Matcher <a href="https://docs.waves.exchange/en/waves-matcher/">HERE</a>.</note>

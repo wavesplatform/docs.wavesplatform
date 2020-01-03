@@ -1,10 +1,10 @@
 # Вызываемая функция
 
-**Вызываемая функция** — [функция](/ru/ride/functions.md) [dApp-скрипта](/ru/ride/script/script-types/dapp-script.md) с [аннотацией](/ru/ride/functions/annotations.md) `@Callable`.
+**Вызываемая функция** — [функция](/ru/ride/functions) [dApp-скрипта](/ru/ride/script/script-types/dapp-script) с [аннотацией](/ru/ride/functions/annotations) `@Callable`.
 
 У dApp-скрипта может быть несколько вызываемых функций.
 
-Вызываемую функцию у [dApp](/ru/blockchain/account/dapp.md) можно вызвать с помощью [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction.md).
+Вызываемую функцию у [dApp](/ru/blockchain/account/dapp) можно вызвать с помощью [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction).
 
 ## Пример для стандартной библиотеки версии 3
 
@@ -15,13 +15,11 @@ func rate(name: String, rating: Int) = {
 }
 ```
 
-> [!WARNING]
-> [Стандартная библиотека](/ru/ride/script/standart-library.md) версии 4 доступна начиная с версии ноды 1.2.0 после активации функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№ 16). См. [протокол активации](/platform-features/activation-protocol.md).
+<note type="warning" title="">[Стандартная библиотека](/ru/ride/script/standart-library) версии 4 доступна начиная с версии ноды 1.2.0 после активации функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№ 16). См. [протокол активации](/platform-features/activation-protocol).</note>
 
 ## Пример для стандартной библиотеки версии 4
 
-> [!INFO]
-> Начиная с 4 версии [Стандартной библиотеки](/ru/ride/script/standard-library.md) в качестве аргумента аннотируемой функции может передаваться список значений, относящихся к [примитивным типам данных](https://ru.wikipedia.org/wiki/Простой_тип). Максимальный размер списка - до 1000 элементов включительно.
+<note type="warning" title="">Начиная с 4 версии [Стандартной библиотеки](/ru/ride/script/standard-library) в качестве аргумента аннотируемой функции может передаваться список значений, относящихся к [примитивным типам данных](https://ru.wikipedia.org/wiki/Простой_тип). Максимальный размер списка - до 1000 элементов включительно.</note>
 
 ```ride
 {-# STDLIB_VERSION 4 #-}

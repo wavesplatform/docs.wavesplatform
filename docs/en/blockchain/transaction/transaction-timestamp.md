@@ -1,6 +1,6 @@
 # Transaction timestamp
 
-**Transaction timestamp** is a time specified by the sender when the transaction was sent to the [blockchain network](/en/blockchain/blockchain-network.md).
+**Transaction timestamp** is a time specified by the sender when the transaction was sent to the [blockchain network](/en/blockchain/blockchain-network).
 
 The actual time differs from the timestamp value by no more than 2 hours back and 1.5 hours forward.
 

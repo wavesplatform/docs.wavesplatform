@@ -1,6 +1,6 @@
 # Generation signature
 
-**Generation signature** is the variable in the average block generation time [formula](/en/blockchain/waves-protocol/fair-pos.md). It is used to check whether the current [miner](/en/blockchain/mining/miner.md) is eligible to generate the next block.
+**Generation signature** is the variable in the average block generation time [formula](/en/blockchain/waves-protocol/fair-pos). It is used to check whether the current [miner](/en/blockchain/mining/miner) is eligible to generate the next block.
 
 The computation of the block's generation signature `generationSignature`<sub>i+1</sub> is done by the following steps:
 
@@ -19,4 +19,4 @@ The VRF contains `calculateVRF` function, which calculates proof for some messag
 Considering that a block’s generation signature is equal to `calculateVRF` output for a previous generation signature with account private key `sk` (of generator of `i+1`-th block):<br>
 `generationSignature`<sub>i+1</sub> = `VRFproof` = `calculateVRF`<sub>sk</sub>(VRF<sub>i</sub>)<br>
 The output of `calculateVRF` function is a VRF proof, which means that the validity of the signature can be checked.
-Before VRF implementation, the `generationSignature`<sub>i</sub> was used in consensus to define the time delay between `i+99` and `i+100` blocks for concrete block generator. With VRF, the output of function `verifyVRF`(`pk`<sub>i</sub>, `generationSignature`<sub>i</sub>) is used to define the time delay between `i+99` and `i+100` blocks for concrete block generator.<br>Node version 1.2.x with the described VRF feature is currently available on [stagenet](/en/blockchain/blockchain-network/stage-network.md).
+Before VRF implementation, the `generationSignature`<sub>i</sub> was used in consensus to define the time delay between `i+99` and `i+100` blocks for concrete block generator. With VRF, the output of function `verifyVRF`(`pk`<sub>i</sub>, `generationSignature`<sub>i</sub>) is used to define the time delay between `i+99` and `i+100` blocks for concrete block generator.<br>Node version 1.2.x with the described VRF feature is currently available on [stagenet](/en/blockchain/blockchain-network/stage-network).

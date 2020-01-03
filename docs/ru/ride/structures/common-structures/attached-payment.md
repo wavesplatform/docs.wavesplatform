@@ -12,5 +12,5 @@ AttachedPayment(assetId: ByteVector|Unit, amount: Int)
 
 |   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | assetId | [ByteVector](/ru/ride/data-types/byte-vector.md)&#124;[Unit](/ru/ride/data-types/unit.md) | ID [токена](/ru/blockchain/token.md) |
-| 2 | amount | [Int](/ru/ride/data-types/int.md) | Сумма платежа |
+| 1 | assetId | [ByteVector](/ru/ride/data-types/byte-vector)&#124;[Unit](/ru/ride/data-types/unit) | ID [токена](/ru/blockchain/token) |
+| 2 | amount | [Int](/ru/ride/data-types/int) | Сумма платежа |

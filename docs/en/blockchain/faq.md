@@ -6,7 +6,7 @@ By implementing a gateway.
 
 ### 2. Do we vote for new features with our community tokens?
 
-No. If your node is mining, you vote while generating blocks. [_**Check this article**_](/waves-environment/waves-protocol/activation-protocol.md)_**.**_
+No. If your node is mining, you vote while generating blocks. [_**Check this article**_](/waves-environment/waves-protocol/activation-protocol)_**.**_
 
 ### 3. How much WAVES do I need to have in order to start the mining process?
 
@@ -42,7 +42,7 @@ Yes, there are airdrop tools, e.g., [_**WavesLPoSDistributer**_](https://github.
 
 ### 11. What is the size of data that can be stored as Data TranSactions in Waves? And what is the type of data that can be stored?
 
-Please check [_**Data transaction**_](/en/blockchain/transaction-type/data-transaction.md) article.
+Please check [_**Data transaction**_](/en/blockchain/transaction-type/data-transaction) article.
 
 
 

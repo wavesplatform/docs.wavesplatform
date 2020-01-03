@@ -1,10 +1,10 @@
 # Установка gRPC Server
 
-Расширение [gRPC Server](/ru/waves-node/extensions/grpc-server.md) можно установить на [ноду](/ru/blockchain/node.md) двумя способами: с помощью [deb-пакета](https://ru.wikipedia.org/wiki/Deb_%28формат_файлов%29) и с помощью ZIP-файла.
+Расширение [gRPC Server](/ru/waves-node/extensions/grpc-server) можно установить на [ноду](/ru/blockchain/node) двумя способами: с помощью [deb-пакета](https://ru.wikipedia.org/wiki/Deb_%28формат_файлов%29) и с помощью ZIP-файла.
 
 ## Установка с помощью deb-пакета
 
-1.&nbsp;Скачайте deb-пакет со страницы Releases (секция Assets) на [Github](https://github.com/wavesplatform/Waves/releases). Для [основной сети](/ru/blockchain/blockchain-network/main-network.md) это файл grpc-server\_{номер версии}\_all.deb, для [тестовой](/ru/blockchain/blockchain-network/test-network.md) — grpc-server-testnet\_{номер версии}\_all.deb.
+1.&nbsp;Скачайте deb-пакет со страницы Releases (секция Assets) на [Github](https://github.com/wavesplatform/Waves/releases). Для [основной сети](/ru/blockchain/blockchain-network/main-network) это файл grpc-server\_{номер версии}\_all.deb, для [тестовой](/ru/blockchain/blockchain-network/test-network) — grpc-server-testnet\_{номер версии}\_all.deb.
 
 2.&nbsp;Установите пакет с помощью команды:
 
