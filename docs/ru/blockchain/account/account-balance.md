@@ -47,11 +47,11 @@ A - L
 
 Пример окна в Wallet со списком токенов на аккаунте:
 
-<img src="img/account-balance.png" alt="faucet" width="300"/>
+![](./_assets/account-balance.png)
 
 Посмотреть список токенов на аккаунте можно в [Waves Explorer](https://wavesexplorer.com) — для этого найдите аккаунт по его [адресу](/ru/blockchain/account/address.md) или [псевдониму](/ru/blockchain/account/alias.md) и перейдите во вкладку **Assets**.
 
-<img src="img/account.png" alt="faucet" width="550"/>
+![](./_assets/account.png)
 
 ## Получение баланса аккаунта с помощью Node API
 

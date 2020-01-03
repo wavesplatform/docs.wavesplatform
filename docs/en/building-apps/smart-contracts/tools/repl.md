@@ -2,7 +2,7 @@
 
 **REPL** ([_read–eval–print loop_](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)) is a console of the [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide.md).
 
-<img src="img/repl/repl.png" width="700px" />
+![](./_assets/repl/repl.png)
 
 You can write in the console any JavaScript code.
 

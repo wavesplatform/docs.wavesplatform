@@ -27,7 +27,7 @@ The orders are linked in pairs by individual nodes, which work as Matcher. Befor
 
 A user initiates his willingness to purchase or sell assets by creating, signing and sending a Limit Order request to the Matcher node. The Limit Order here is the same as at all exchanges: an order for a buy \(sell\) of a fixed number of a token at a price equal or better than specified. When a new Order is submitted to the DEX all its fields are checked for adequacy and a signature is validated by sender's public key. Then, the Order is validated, based on internal Matcher state: Order with such id should not exist already and the sum of all Order amounts for a particular asset should be less or equal to the balance of that asset on sender's account. The scheme of work with the DEX is shown in the Figure 1:
 
-![](/_assets/DEX1.png)Figure 1
+![](./_assets/DEX1.png)Figure 1
 
 User can set an expiration time \(maximum timestamp\) to the order, and when the order expires it will be automatically canceled. One of the rules at DEX is that all orders older than 30 days will be canceled by default. An expiration time for each order is specified by the user at the time the order is signed. The expiration time is a long integer value that represents the absolute number of seconds since the UNIX epoch. When the order is unfilled and its expiration time is more than now UNIX timestamp, it can be canceled by the user. In this case, the order gets into blockchain as Cancelled order and nobody can fill it since that.
 
@@ -58,7 +58,7 @@ There are 3 different orders \(Figure 2\): two buy orders and one sell. For each
 
 Thus, the fee that the matcher gets from users for these transactions is**0.0021 - 0.0006  = 0.0015 waves**. And the fee that the matcher pays to miners is**0.006waves**.
 
-![](/_assets/matcher.png)Figure 2: example of matcher's fee work, TX1 - Transaction1, TX2 - Transaction2, Ord1 - Order1, Ord2 - Order2, Ord3 - Order3
+![](./_assets/matcher.png)Figure 2: example of matcher's fee work, TX1 - Transaction1, TX2 - Transaction2, Ord1 - Order1, Ord2 - Order2, Ord3 - Order3
 
 ###  
 

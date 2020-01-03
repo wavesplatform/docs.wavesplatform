@@ -6,7 +6,7 @@
 
 Откроется окно.
 
-![](/ru/ecosystem/waves-oracles/img/data_transaction_tool.png)
+![](./_assets/data_transaction_tool.png)
 
 Для ключей типа boolean доступно два значения Yes - True, No - False.
 

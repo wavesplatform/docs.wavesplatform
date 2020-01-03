@@ -2,7 +2,7 @@
 
 Open the token dashboard by hitting **My tokens** at the top-right menu.
 
-![](/en/ecosystem/waves-token-rating/img/dashboard_en.png)
+![](./_assets/dashboard_en.png)
 
 Available options for token:
 
@@ -16,7 +16,7 @@ A ticker is a token’s unique identifier, used by exchanges and users as a curr
 
 If the token has a ticker, it is easier to remember, easier to find and more readable to display on the exchange. Without the ticker, the trade pair string may not be displayed  properly, for example:
 
-![](/en/ecosystem/waves-token-rating/img/with_or_without_ticker.png)
+![](./_assets/with_or_without_ticker.png)
 
 If your token has a high rating, WCT weight, and votes sum, you can create a ticker for that token for the exchange. The ticker should be unique within the Waves ecosystem and consist of up to six uppercase characters. After adding a ticker, it is not possible to edit or change it. The created ticker can not be used for other tokens.
 

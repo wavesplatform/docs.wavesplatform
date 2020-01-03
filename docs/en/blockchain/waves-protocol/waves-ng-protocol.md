@@ -20,7 +20,7 @@ Waves-NG will address the scalability bottleneck by making the network to reach 
 
 Table1, Scalability comparison between Bitcoin, Ethereum, Waves and Waves-NG.
 
-![](/_assets/waves_dex_ng.jpg)
+![](./_assets/waves_dex_ng.jpg)
 
 ## **1.2 Weaknesses of Current Proposals to Improve Scalability**
 
@@ -28,7 +28,7 @@ Blockchain Systems can process transactions and the maximum rate of these transa
 
 * The block interval defines the average amount of time that passes between the creation of two blocks. By deciding to reduce the block interval to solve the latency limit, the system will have less security \(increase forks probability\) due to the reason of new miner for every second which will lead to instability where the blockchain is subject to reorganization and the system is in disagreement \(Figure 1\). If we reduce the time per block, then we will have a situation where a significant number of blocks are solved in less time than it takes to relay a solved block throughout the network. So there will be no way to know which block is the "real" one and which one is a "fork" because the transactions that appeared to have multiple confirmations suddenly have fewer confirmations \(or possibly go back to being unconfirmed\).
 
-![](/_assets/BlockInterval.PNG)
+![](./_assets/BlockInterval.PNG)
 
 Figure1, Increasing block frequency with Static blocksize will result to less security.
 
@@ -36,7 +36,7 @@ Figure1, Increasing block frequency with Static blocksize will result to less se
 
   Larger blocks do however cause slower propagation speeds, which causes more discarded blocks \(orphaning risk\). An unlimited blocksize could, for example, result in a DoS attack on the system by creating a block that takes a long time to validate. If the choice is to Increase block size in order to improve throughput, there will be Network spikes with longer time to propagate in the network \(Figure 2\).
 
-![](/_assets/Block Size.JPG)
+![](./_assets/Block Size.JPG)
 
 Figure2, Increasing block size with Static block frequency will lead to more discarded blocks and network spikes.
 
@@ -49,7 +49,7 @@ The leaders take the rule of generating blocks:
 * Key blocks for the election of a leader.
 * Micro blocks for ledger records.
 
-![](/_assets/Serialization.JPG)
+![](./_assets/Serialization.JPG)
 
 Figure 3: Bitcoin-NG time periods structure with serializing transactions.
 
@@ -79,7 +79,7 @@ Because a key-block requires proof of stake, miners can not just produce one and
 
 Following the key-block, the lead miner can quickly issue microblocks, simply by signing them with the private key corresponding to the public key named in the key-block’s coinbase \(Figure 4\).
 
-![](/_assets/Bitcoin Blocks.JPG)
+![](./_assets/Bitcoin Blocks.JPG)
 
 Figure 4: Key-blocks and Micro-blocks signing process.
 
@@ -120,7 +120,7 @@ Each transaction pays a fee to the system, but unlike Bitcoin, this fee is distr
 
 Finally, if a leader forks the chain by generating two microblocks with the same parent, it is punished by revoking the subsidy revenue; whoever detects the fraud wins a nominal fee, \(Figure 5\).
 
-![](/_assets/Capture 4.jpg)
+![](./_assets/Capture 4.jpg)
 
 Figure 5: chain structure of the Waves-NG protocol. Microblocks \(circles\) are signed with the private key matching with the public key in the last key block \(squares\). The fee is distributed 40% to the leader and 60% to the next one.
 

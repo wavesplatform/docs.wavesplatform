@@ -155,7 +155,7 @@ $ npm run start
 
 В [Waves Explorer](/ru/ecosystem/waves-explorer/about-waves-explorer.md) мы увидим транзакцию с данными котировок в заданном нами формате (рис. 1):
 
-<img src="img/5_transaction_in_explorer.png" width="700">
+![](./_assets/5_transaction_in_explorer.png)
 
 _Рисунок 1_.
 
@@ -169,7 +169,7 @@ Waves Oracles использует расширение [Waves Keeper](/waves-ke
 
 Перейдите в Waves Oracles, авторизуйтесь в Waves Keeper и нажмите кнопку **Create an oracle** на боковой панели (рис.2).
 
-<img src="img/1_create_an_oracle.png" width="700">
+![](./_assets/1_create_an_oracle.png)
 
 _Рисунок 2_.
 
@@ -179,7 +179,7 @@ _Рисунок 2_.
 
 Верхняя часть формы показана на рис. 3.
 
-<img src="img/2_create_an_oracle_popup_form_fill.png" width="700">
+![](./_assets/2_create_an_oracle_popup_form_fill.png)
 
 _Рисунок 3_.
 
@@ -191,13 +191,13 @@ _Рисунок 3_.
 
 Также отметим, что такой ключ не является уникальным и в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage.md) всегда будет сохраняться только последнее значение. Вы можете добавить метку времени (timestamp), чтобы сделать каждый ключ уникальным, и таким образом сохранять исторические данные.
 
-<img src="img/3_create_an_oracle_popup_form_fill_specification.png" width="700">
+![](./_assets/3_create_an_oracle_popup_form_fill_specification.png)
 
 _Рисунок 4_.
 
 После заполнения формы подтвердите транзакцию данных создания карточки оракула в Waves Keeper нажатием **Approve**. В результате новая карточка оракула успешно зарегистрирована в Waves Oracles. Протокол карточки оракула можно увидеть в Waves Explorer (см. рис. 5). Через некоторое время карточка появится в интерфейсе Waves Oracles.
 
-<img src="img/4_oracle_card_explorer.png" width="700">
+![](./_assets/4_oracle_card_explorer.png)
 
 _Рисунок 5_.
 

@@ -65,7 +65,7 @@ PoS has to constraints to avoid some kinds of attacks:
 * Waves Implement the Proof-of-Stake method for a more greener and cheaper distributed form of consensus.
 * In Proof-of-Stake, forgers are always those who own the coins minted.
 
-![](/_assets/PoW.png)Figure 1, PoW vs PoS
+![](./_assets/PoW.png)Figure 1, PoW vs PoS
 
 # 3. Leased Proof-of-Stake \(LPoS\) 
 
@@ -75,7 +75,7 @@ In a Leased Proof-of-Stake environment, users can choose between running a full 
 
 User can lease his WAVES through leasing on any computer or mobile device that has an internet browser since Waves provides a lite client solution that does not require "Miners", that are leasing their balance to store the whole Blockchain or to have the wallet running, Figure 2.
 
-![](/_assets/Webp.net-resizeimage-2.jpg)  
+![](./_assets/Webp.net-resizeimage-2.jpg)  
 Figure 2, LPOS System
 
 ## 3.1 Benefits of leasing your WAVES 

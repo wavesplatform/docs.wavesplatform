@@ -6,4 +6,4 @@
 
 Сложность скрипта можно посмотреть в [Waves IDE](https://ide.wavesplatform.com); в настоящий момент она ограничена 4000:
 
-<img src="img/complexity.png" alt="faucet" width="700"/>
+![](./_assets/complexity.png)
