@@ -42,7 +42,7 @@ Yes, there are airdrop tools, e.g., [_**WavesLPoSDistributer**_](https://github.
 
 ### 11. What is the size of data that can be stored as Data TranSactions in Waves? And what is the type of data that can be stored?
 
-Please check [_**Data transaction**_](/blockchain/transaction-type/data-transaction.md) article.
+Please check [_**Data transaction**_](/en/blockchain/transaction-type/data-transaction.md) article.
 
 
 

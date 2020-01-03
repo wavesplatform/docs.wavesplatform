@@ -1,3 +1,3 @@
 # Prerequisites
 
-* [Hardware requirements](/waves-node/prerequisites/hardware-requirements.md)
+* [Hardware requirements](/en/waves-node/prerequisites/hardware-requirements.md)

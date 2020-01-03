@@ -1,10 +1,10 @@
 ## Waves Protocol
 
-* [Cryptographic Practical Details](/blockchain/waves-protocol/cryptographic-practical-details.md)
-* [Validation Rules](/blockchain/waves-protocol/validation-rules.md)
-* [Waves-NG Solution](/blockchain/waves-protocol/waves-ng-solution.md)
-* [Sponsored Fee](/blockchain/waves-protocol/sponsored-fee.md)
-* [Leased Proof of Stake (LPoS)](/blockchain/waves-protocol/leased-proof-of-stake-lpos.md)
-* [Fair Proof of Stake](/blockchain/waves-protocol/fair-pos.md)
-* [Waves-NG Protocol](/blockchain/waves-protocol/waves-ng-protocol.md)
-* [Activation Protocol](/blockchain/waves-protocol/activation-protocol.md)
+* [Cryptographic Practical Details](/en/blockchain/waves-protocol/cryptographic-practical-details.md)
+* [Validation Rules](/en/blockchain/waves-protocol/validation-rules.md)
+* [Waves-NG Solution](/en/blockchain/waves-protocol/waves-ng-solution.md)
+* [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee.md)
+* [Leased Proof of Stake (LPoS)](/en/blockchain/waves-protocol/leased-proof-of-stake-lpos.md)
+* [Fair Proof of Stake](/en/blockchain/waves-protocol/fair-pos.md)
+* [Waves-NG Protocol](/en/blockchain/waves-protocol/waves-ng-protocol.md)
+* [Activation Protocol](/en/blockchain/waves-protocol/activation-protocol.md)

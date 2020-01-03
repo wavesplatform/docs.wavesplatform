@@ -17,7 +17,7 @@ The menu consists of following items:
 
 ### Top 20
 
-Displays 20 tokens that have the best overall indicators of rating, sums of all weights [W<sub>n</sub>](/waves-token-rating/rating-formula.md), and the number of [addresses](/blockchain/account/address.md) that rated token.
+Displays 20 tokens that have the best overall indicators of rating, sums of all weights [W<sub>n</sub>](/en/ecosystem/waves-token-rating/rating-formula.md), and the number of [addresses](/en/blockchain/account/address.md) that rated token.
 
 ### All tokens
 
@@ -82,9 +82,9 @@ This section is displayed only if the token has a ticker or is traded on the DEX
 | Website | Link to the website. Displayed only if the issuer adds the link |
 | Total amount | Amount of issued tokens |
 | Decimal points | Number of decimal places of token |
-| Type | Tells if the [reissue transaction](/blockchain/transaction-type/reissue-transaction.md) is possible. <br>Takes one of two values: "Reissuable" or "Not reissuable" |
+| Type | Tells if the [reissue transaction](/en/blockchain/transaction-type/reissue-transaction.md) is possible. <br>Takes one of two values: "Reissuable" or "Not reissuable" |
 | Issuer | Address from which the token was issued |
-| Block | The [blockchain height](/blockchain/blockchain/blockchain-height.md) at which the [issue transaction](/blockchain/transaction-type/issue-transaction.md) went to the [block](/blockchain/block.md) |
+| Block | The [blockchain height](/en/blockchain/blockchain/blockchain-height.md) at which the [issue transaction](/en/blockchain/transaction-type/issue-transaction.md) went to the [block](/en/blockchain/block.md) |
 | Issue date | Token issue date |
 | Description | Token description |
 | Additional information | Additional information from the issuer about the token or project. Displayed only if the issuer adds it |

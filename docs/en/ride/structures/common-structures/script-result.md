@@ -17,5 +17,5 @@ ScriptResult(writeSet: WriteSet, transferSet: TransferSet)
 
 |   #   | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | writeSet | [WriteSet](/ride/structures/common-structures/write-set.md) | List of records of an [account data storage](/blockchain/account/account-data-storage.md) |
-| 2 | transferSet | [TransferSet](/ride/structures/common-structures/transfer-set.md) | List of [tokens](/blockchain/token.md) of a transfer |
+| 1 | writeSet | [WriteSet](/en/ride/structures/common-structures/write-set.md) | List of records of an [account data storage](/en/blockchain/account/account-data-storage.md) |
+| 2 | transferSet | [TransferSet](/en/ride/structures/common-structures/transfer-set.md) | List of [tokens](/en/blockchain/token.md) of a transfer |

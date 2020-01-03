@@ -26,7 +26,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
 
 Carefully edit the configuration waves .conf file, **it is very important! The safety of your wallet and money depends on this!**
 
-Just open it with your favorite text editor, pour a cup of tea and read [the documentation of the configuration file](/waves-node/node-configuration.md).
+Just open it with your favorite text editor, pour a cup of tea and read [the documentation of the configuration file](/en/waves-node/node-configuration.md).
 
 Then start Windows Command line app `cmd.exe`, navigate to the folder with the jar file with the command `cd C:/waves` and start waves node with command `java -jar waves.jar waves.conf`.
 

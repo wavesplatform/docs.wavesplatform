@@ -1,6 +1,6 @@
 # Транзакция данных с оценкой пользователя
 
-Когда пользователь оценивает токен в карточке токена, с его [адреса](/blockchain/account/address.md) отправляется [транзакция данных](/blockchain/transaction-type/data-transaction.md). 
+Когда пользователь оценивает токен в карточке токена, с его [адреса](/ru/blockchain/account/address.md) отправляется [транзакция данных](/ru/blockchain/transaction-type/data-transaction.md). 
 
 Пример поля `data` такой транзакции:
 

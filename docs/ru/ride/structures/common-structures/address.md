@@ -1,6 +1,6 @@
 # Address
 
-Структура [адреса](/blockchain/account/address.md).
+Структура [адреса](/ru/blockchain/account/address.md).
 
 ## Конструктор
 
@@ -12,4 +12,4 @@ Address(bytes: ByteVector)
 
 |   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | bytes | [ByteVector](/ride/data-types/byte-vector.md) | Массив байтов адреса |
+| 1 | bytes | [ByteVector](/ru/ride/data-types/byte-vector.md) | Массив байтов адреса |

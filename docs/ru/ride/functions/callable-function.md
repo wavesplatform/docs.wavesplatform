@@ -1,10 +1,10 @@
 # Вызываемая функция
 
-**Вызываемая функция** — [функция](/ride/functions.md) [dApp-скрипта](/ride/script/script-types/dapp-script.md) с [аннотацией](/ride/functions/annotations.md) `@Callable`.
+**Вызываемая функция** — [функция](/ru/ride/functions.md) [dApp-скрипта](/ru/ride/script/script-types/dapp-script.md) с [аннотацией](/ru/ride/functions/annotations.md) `@Callable`.
 
 У dApp-скрипта может быть несколько вызываемых функций.
 
-Вызываемую функцию у [dApp](/blockchain/account/dapp.md) можно вызвать с помощью [транзакции вызова скрипта](/blockchain/transaction-type/invoke-script-transaction.md).
+Вызываемую функцию у [dApp](/ru/blockchain/account/dapp.md) можно вызвать с помощью [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction.md).
 
 ## Пример для стандартной библиотеки версии 3
 
@@ -16,7 +16,7 @@ func rate(name: String, rating: Int) = {
 ```
 
 > [!WARNING]
-> [Стандартная библиотека](/ride/script/standart-library.md) версии 4 доступна начиная с версии ноды 1.2.0 после активации функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№ 16). См. [протокол активации](/platform-features/activation-protocol.md).
+> [Стандартная библиотека](/ru/ride/script/standart-library.md) версии 4 доступна начиная с версии ноды 1.2.0 после активации функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№ 16). См. [протокол активации](/platform-features/activation-protocol.md).
 
 ## Пример для стандартной библиотеки версии 4
 

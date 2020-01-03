@@ -1,9 +1,9 @@
 # DeleteKey
 
-Удаляет запись из [хранилища данных аккаунта](/blockchain/account/account-data-storage.md) по ее ключу.
+Удаляет запись из [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage.md) по ее ключу.
 
 > Эта возможность доступна с версии ноды 1.2.0. Возможность включается с активацией на ноде функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№16).
-На данный момент версии 1.2.x доступны на [stagenet](/blockchain/blockchain-network/stage-network.md)
+На данный момент версии 1.2.x доступны на [stagenet](/ru/blockchain/blockchain-network/stage-network.md)
 
 ## Конструктор
 
@@ -13,7 +13,7 @@
 
 |   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | key | [String](/ride/data-types/string.md) | Ключ записи |
+| 1 | key | [String](/ru/ride/data-types/string.md) | Ключ записи |
 
 ## Пример
 

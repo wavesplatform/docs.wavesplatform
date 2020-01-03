@@ -1,12 +1,12 @@
 # Транзакция выпуска
 
-**Транзакция выпуска** — [транзакция](/blockchain/transaction.md), которая [выпускает токен](/blockchain/token.md).
+**Транзакция выпуска** — [транзакция](/ru/blockchain/transaction.md), которая [выпускает токен](/ru/blockchain/token.md).
 
 ## Выпуск NFT <a id="nft"></a>
 
-Выпуск одного [NFT](/blockchain/token/non-fungible-token.md) производится с помощью транзакции выпуска, у которой значение поля "Количество токенов" равняется 1, а значения полей "Число знаков после запятой" и "Флаг довыпуска" — 0.
+Выпуск одного [NFT](/ru/blockchain/token/non-fungible-token.md) производится с помощью транзакции выпуска, у которой значение поля "Количество токенов" равняется 1, а значения полей "Число знаков после запятой" и "Флаг довыпуска" — 0.
 
-Комиссия за выпуск одного NFT составляет 0,001 [WAVES](/blockchain/token/waves.md).
+Комиссия за выпуск одного NFT составляет 0,001 [WAVES](/ru/blockchain/token/waves.md).
 
 Для выпуска NFT вы можете использовать npm-пакет [waves-games](https://www.npmjs.com/package/@waves/waves-games).
 
@@ -39,4 +39,4 @@
 
 ## Бинарный формат
 
-Смотрите страницу [Бинарный формат транзакции выпуска](/blockchain/binary-format/transaction-binary-format/issue-transaction-binary-format.md).
+Смотрите страницу [Бинарный формат транзакции выпуска](/ru/blockchain/binary-format/transaction-binary-format/issue-transaction-binary-format.md).

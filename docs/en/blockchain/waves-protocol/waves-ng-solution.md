@@ -5,7 +5,7 @@ The maximum rate of transactions in blockchain systems is limited by the choice 
 * The block interval defines the average amount of time that passes between the creation of two blocks. If we reduce this time, forks will appear more frequently, which will lead to either non-resolved forks or to decreased throughput since a considerable amount of time would be spent on resolving these forks.
 * Larger blocks lead to huge network usage spikes during block propagation, which in turn will lead to throughput problems and huge forks.
 
-**Note. **Find How Waves-NG Protocol works [**here.**](/blockchain/waves-protocol/waves-ng-protocol.md)
+**Note. **Find How Waves-NG Protocol works [**here.**](/en/blockchain/waves-protocol/waves-ng-protocol.md)
 
 # 1.1 Waves-NG Solution With Technical Details
 

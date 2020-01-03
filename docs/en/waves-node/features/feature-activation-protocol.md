@@ -1,5 +1,5 @@
 # Feature activation protocol
 
-**Feature activation protocol** is a procedure according to which a new [feature](/waves-node/features/feature.md) gets activated, i.e. it gets the "activated" [status](/waves-node/features/feature.md).
+**Feature activation protocol** is a procedure according to which a new [feature](/en/waves-node/features/feature.md) gets activated, i.e. it gets the "activated" [status](/en/waves-node/features/feature.md).
 
-For more details see [Activation protocol](/blockchain/waves-protocol/activation-protocol.md) page.
+For more details see [Activation protocol](/en/blockchain/waves-protocol/activation-protocol.md) page.

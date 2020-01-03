@@ -4,11 +4,11 @@
 
 Функция должна быть объявлена выше места ее использования.
 
-Функция может быть [аннотирована](/ride/functions/annotations.md).
+Функция может быть [аннотирована](/ru/ride/functions/annotations.md).
 
-Существует множество [встроенных функций](/ride/functions/built-in-functions.md).
+Существует множество [встроенных функций](/ru/ride/functions/built-in-functions.md).
 
-При объявлении функции справа от знака "=" должно находиться [выражение](/ride/base-concepts/expression.md). Значение функции — [результат выражения](/ride/base-concepts/expression.md#expression-result).
+При объявлении функции справа от знака "=" должно находиться [выражение](/ru/ride/base-concepts/expression.md). Значение функции — [результат выражения](/ru/ride/base-concepts/expression.md#expression-result).
 
 ## Примеры
 

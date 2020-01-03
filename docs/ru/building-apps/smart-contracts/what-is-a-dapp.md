@@ -1,16 +1,16 @@
 # Что такое dApp. Чем dApp отличается от смарт-аккаунта
 
-Перед тем как начать знакомство с [dApp](/blockchain/account/dapp.md), рассмотрим функциональность смежных сущностей — [аккаунта](/blockchain/account.md) и [смарт-аккаунта](/blockchain/account/smart-account.md).
+Перед тем как начать знакомство с [dApp](/ru/blockchain/account/dapp.md), рассмотрим функциональность смежных сущностей — [аккаунта](/ru/blockchain/account.md) и [смарт-аккаунта](/ru/blockchain/account/smart-account.md).
 
-Функциональность обычного аккаунта позволяет удостовериться, что выпущенная с него [транзакция](/blockchain/transaction.md) в действительности была отправлена с этого аккаунта.
+Функциональность обычного аккаунта позволяет удостовериться, что выпущенная с него [транзакция](/ru/blockchain/transaction.md) в действительности была отправлена с этого аккаунта.
 
-Смарт-аккаунт, то есть аккаунт с прикрепленным [скриптом аккаунта](/ride/script/script-types/account-script.md), позволяет проверять исходящие транзакции на соответствие условиям, указанным в скрипте. Например, владелец аккаунта может установить правило, согласно которому транзакции могут отправляться с [адреса](/blockchain/account/address.md) только в том случае, если высота блокчейна превышает N. Другой пример — можно разрешить отправку транзакций только определённого типа. Либо вообще отменить какую-либо проверку, установив правило, согласно которому все транзакции, отправляемые с адреса, должны считаться валидными.
+Смарт-аккаунт, то есть аккаунт с прикрепленным [скриптом аккаунта](/ru/ride/script/script-types/account-script.md), позволяет проверять исходящие транзакции на соответствие условиям, указанным в скрипте. Например, владелец аккаунта может установить правило, согласно которому транзакции могут отправляться с [адреса](/ru/blockchain/account/address.md) только в том случае, если высота блокчейна превышает N. Другой пример — можно разрешить отправку транзакций только определённого типа. Либо вообще отменить какую-либо проверку, установив правило, согласно которому все транзакции, отправляемые с адреса, должны считаться валидными.
 
 Возможности dApp еще шире — он умеет не только валидировать исходящие транзакции, но и позволяет другим аккаунтам вызывать содержащиеся в нем функции. С этой точки зрения dApp представляет собой настоящее приложение, работающее на блокчейне.
 
 ## Предварительные требования для написания dApp
 
-dApp пишутся на языке [Ride](/ride/about-ride.md). Для создания dApp необходим [аккаунт](/blockchain/account.md), на балансе которого должно быть достаточно [WAVES](/blockchain/token/waves.md) для оплаты транзакции установки скрипта (1 WAVES). Чтобы сразу начать писать dApp, воспользуйтесь [Waves IDE](/smart-contracts/tools/waves-ide.md).
+dApp пишутся на языке [Ride](/ru/ride/about-ride.md). Для создания dApp необходим [аккаунт](/ru/blockchain/account.md), на балансе которого должно быть достаточно [WAVES](/ru/blockchain/token/waves.md) для оплаты транзакции установки скрипта (1 WAVES). Чтобы сразу начать писать dApp, воспользуйтесь [Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide.md).
 
 ## Структура dApp
 
@@ -32,13 +32,13 @@ dApp пишутся на языке [Ride](/ride/about-ride.md). Для созд
 
 ### Контекст скрипта
 
-За директивой следует контекст скрипта. В контексте скрипта объявляются переменные и определяются функции, которые будут доступны в пределах всего dApp. Помимо объявленных разработчиком переменных и функций, контекст скрипта включает [встроенные переменные](/ride/variables/built-in-variables.md) и [встроенные функции](/ride/functions/built-in-functions.md). Разработчик может не объявлять собственные переменные и не определять собственные функции — на наличие встроенных переменных и функций это не повлияет.
+За директивой следует контекст скрипта. В контексте скрипта объявляются переменные и определяются функции, которые будут доступны в пределах всего dApp. Помимо объявленных разработчиком переменных и функций, контекст скрипта включает [встроенные переменные](/ru/ride/variables/built-in-variables.md) и [встроенные функции](/ru/ride/functions/built-in-functions.md). Разработчик может не объявлять собственные переменные и не определять собственные функции — на наличие встроенных переменных и функций это не повлияет.
 
 ### Объявление вызываемых функций
 
-Как мы уже говорили, dApp позволяет вызывать свои функции другим аккаунтам. Эти функции помечаются [аннотацией](/ride/functions/annotations.md) `@Callable(invocation)`, где `invocation` — произвольный объект контекста скрипта.
+Как мы уже говорили, dApp позволяет вызывать свои функции другим аккаунтам. Эти функции помечаются [аннотацией](/ru/ride/functions/annotations.md) `@Callable(invocation)`, где `invocation` — произвольный объект контекста скрипта.
 
-Ниже приведен пример вызываемой функции, которая записывает в [хранилище данных аккаунта](/blockchain/account/account-data-storage.md) значение `42` по ключу `someDataKey`, если её вызывает владелец аккаунта. Если это пытается сделать кто-то другой, функция кидает исключение. Транзакция в этом случае не будет валидной и не попадет в блокчейн:
+Ниже приведен пример вызываемой функции, которая записывает в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage.md) значение `42` по ключу `someDataKey`, если её вызывает владелец аккаунта. Если это пытается сделать кто-то другой, функция кидает исключение. Транзакция в этом случае не будет валидной и не попадет в блокчейн:
 
 ```ride
 @Callable(invocation)
@@ -64,7 +64,7 @@ func foo() = {
 
 Если в dApp нет функции валидации, то выполняется валидация по умолчанию (то есть проверка того, что транзакция действительно подписана этим аккаунтом).
 
-dApp с приведённой ниже функцией валидации будет разрешать только [транзакции перевода](/blockchain/transaction-type/transfer-transaction.md) (отправка транзакций другого типа будет запрещена):
+dApp с приведённой ниже функцией валидации будет разрешать только [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction.md) (отправка транзакций другого типа будет запрещена):
 
 ```ride
 @Verifier(tx)
@@ -81,14 +81,14 @@ func verify() = {
 | Ограничение | Максимальное значение |
 |---|---|
 | Размер скрипта | 32 Кбайт |
-| [Complexity](/ride/base-concepts/complexity.md) | 4000 |
+| [Complexity](/ru/ride/base-concepts/complexity.md) | 4000 |
 | Количество аргументов Callable-функции | 22 |
 | Размер имени аннотированной функции | 255 байт |
-| Количество вызовов [ScriptTransfer](/ride/structures/common-structures/script-transfer.md), [Issue](/ride/structures/common-structures/issue.md), [Reissue](/ride/structures/common-structures/reissue.md), [Burn](/ride/structures/common-structures/burn.md) в одном вызове скрипта (применимо для [Стандартной библиотеки](/ride/script/standard-library.md) **версии 4** ) | 10 |
-| Количество вызовов [BinaryEntry](/ride/structures/common-structures/binary-entry.md), [BooleanEntry](/ride/structures/common-structures/boolean-entry.md), [IntEntry](/ride/structures/common-structures/int-entry.md), [StringEntry](/ride/structures/common-structures/string-entry.md) в одном вызове скрипта (применимо для [Стандартной библиотеки](/ride/script/standard-library.md) **версии 4**) | 100 |
-| Размер записи [хранилища данных аккаунта](/blockchain/account/account-data-storage.md) для всех вызовов структур [BinaryEntry](/ride/structures/common-structures/binary-entry.md), [BooleanEntry](/ride/structures/common-structures/boolean-entry.md), [IntEntry](/ride/structures/common-structures/int-entry.md), [StringEntry](/ride/structures/common-structures/string-entry.md) в одном вызове скрипта (применимо для [Стандартной библиотеки](/ride/script/standard-library.md) **версии 4**) | 5 Кбайт |
-| Размер WriteSet (применимо для [Стандартной библиотеки](/ride/script/standard-library.md) **версии 3**) | 100 |
-| Количество переводов в [TransferSet](/ride/structures/common-structures/transfer-set.md) (применимо для [Стандартной библиотеки](/ride/script/standard-library.md) **версии 3**) | 10 |
+| Количество вызовов [ScriptTransfer](/ru/ride/structures/common-structures/script-transfer.md), [Issue](/ru/ride/structures/common-structures/issue.md), [Reissue](/ru/ride/structures/common-structures/reissue.md), [Burn](/ru/ride/structures/common-structures/burn.md) в одном вызове скрипта (применимо для [Стандартной библиотеки](/ru/ride/script/standard-library.md) **версии 4** ) | 10 |
+| Количество вызовов [BinaryEntry](/ru/ride/structures/common-structures/binary-entry.md), [BooleanEntry](/ru/ride/structures/common-structures/boolean-entry.md), [IntEntry](/ru/ride/structures/common-structures/int-entry.md), [StringEntry](/ru/ride/structures/common-structures/string-entry.md) в одном вызове скрипта (применимо для [Стандартной библиотеки](/ru/ride/script/standard-library.md) **версии 4**) | 100 |
+| Размер записи [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage.md) для всех вызовов структур [BinaryEntry](/ru/ride/structures/common-structures/binary-entry.md), [BooleanEntry](/ru/ride/structures/common-structures/boolean-entry.md), [IntEntry](/ru/ride/structures/common-structures/int-entry.md), [StringEntry](/ru/ride/structures/common-structures/string-entry.md) в одном вызове скрипта (применимо для [Стандартной библиотеки](/ru/ride/script/standard-library.md) **версии 4**) | 5 Кбайт |
+| Размер WriteSet (применимо для [Стандартной библиотеки](/ru/ride/script/standard-library.md) **версии 3**) | 100 |
+| Количество переводов в [TransferSet](/ru/ride/structures/common-structures/transfer-set.md) (применимо для [Стандартной библиотеки](/ru/ride/script/standard-library.md) **версии 3**) | 10 |
 | Размер значения переменной типа String | 32767 символов |
 | Размер значения переменной типа ByteVector | 65536 байт |
 
@@ -151,4 +151,4 @@ func verify() = {
 
 ## Прикрепление dApp к аккаунту
 
-Чтобы прикрепить dApp к аккаунту, используйте [транзакцию установки скрипта](/blockchain/transaction-type/set-script-transaction.md).
+Чтобы прикрепить dApp к аккаунту, используйте [транзакцию установки скрипта](/ru/blockchain/transaction-type/set-script-transaction.md).

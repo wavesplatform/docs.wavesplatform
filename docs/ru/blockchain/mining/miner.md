@@ -1,3 +1,3 @@
 # Майнер
 
-**Майнер** — владелец [майнящей ноды](/blockchain/node/mining-node.md).
+**Майнер** — владелец [майнящей ноды](/ru/blockchain/node/mining-node.md).

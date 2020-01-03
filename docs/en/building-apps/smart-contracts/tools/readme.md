@@ -1,4 +1,4 @@
 # Tools
 
-* [REPL](/smart-contracts/tools/repl.md)
-* [Waves IDE](/smart-contracts/tools/waves-ide.md)
+* [REPL](/en/building-apps/smart-contracts/tools/repl.md)
+* [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide.md)

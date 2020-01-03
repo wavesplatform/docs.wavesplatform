@@ -1,6 +1,6 @@
 # UpdateAssetInfoTransaction
 
-Structure of a [update asset info transaction](/blockchain/transaction-type/update-asset-info-transaction.md).
+Structure of a [update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction.md).
 
 ## Constructor
 
@@ -12,14 +12,14 @@ UpdateAssetInfoTransaction(name: String, assetId: ByteVector, description: Strin
 
 | # | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | name | [String](/en/ride/data-types/string.md) | Name of the [token](/blockchain/token.md) |
-| 2 | assetId | [ByteVector](/ride/data-types/byte-vector.md) | [Token ID](/blockchain/token/token-id.md) |
+| 1 | name | [String](/en/ride/data-types/string.md) | Name of the [token](/en/blockchain/token.md) |
+| 2 | assetId | [ByteVector](/en/ride/data-types/byte-vector.md) | [Token ID](/en/blockchain/token/token-id.md) |
 | 3 | description | [String](/en/ride/data-types/string.md) | Description of the token |
-| 4 | id | [ByteVector](/ride/data-types/byte-vector.md) | [Transaction ID](/blockchain/transaction/transaction-id.md) |
-| 5 | fee | [Int](/ride/data-types/int.md) | [Transaction fee](/blockchain/transaction/transaction-fee.md) |
-| 6 | timestamp | [Int](/ride/data-types/int.md) | [Transaction timestamp](/blockchain/transaction/transaction-timestamp.md) |
-| 7 | version | [Int](/ride/data-types/int.md) | [Transaction version](/blockchain/transaction/transaction-version.md) |
-| 8 | sender | [Address](/ride/structures/common-structures/address.md) | [Address](/blockchain/account/address.md) of a transaction sender |
-| 9 | senderPublicKey | [ByteVector](/ride/data-types/byte-vector.md) | Account public key of a sender |
-| 10 | bodyBytes | [ByteVector](/ride/data-types/byte-vector.md) | [Transaction body bytes](/blockchain/transaction/transaction-body-bytes.md) |
-| 11 | proofs | [List](/ride/data-types/list.md)[[ByteVector](/ride/data-types/byte-vector.md)] | Array of [proofs](/blockchain/transaction/transaction-proof.md) |
+| 4 | id | [ByteVector](/en/ride/data-types/byte-vector.md) | [Transaction ID](/en/blockchain/transaction/transaction-id.md) |
+| 5 | fee | [Int](/en/ride/data-types/int.md) | [Transaction fee](/en/blockchain/transaction/transaction-fee.md) |
+| 6 | timestamp | [Int](/en/ride/data-types/int.md) | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp.md) |
+| 7 | version | [Int](/en/ride/data-types/int.md) | [Transaction version](/en/blockchain/transaction/transaction-version.md) |
+| 8 | sender | [Address](/en/ride/structures/common-structures/address.md) | [Address](/en/blockchain/account/address.md) of a transaction sender |
+| 9 | senderPublicKey | [ByteVector](/en/ride/data-types/byte-vector.md) | Account public key of a sender |
+| 10 | bodyBytes | [ByteVector](/en/ride/data-types/byte-vector.md) | [Transaction body bytes](/en/blockchain/transaction/transaction-body-bytes.md) |
+| 11 | proofs | [List](/en/ride/data-types/list.md)[[ByteVector](/en/ride/data-types/byte-vector.md)] | Array of [proofs](/en/blockchain/transaction/transaction-proof.md) |

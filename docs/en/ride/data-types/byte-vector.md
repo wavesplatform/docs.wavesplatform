@@ -1,6 +1,6 @@
 # ByteVector
 
-The **ByteVector** is a keyword of the byte array [data type](/ride/data-types.md).
+The **ByteVector** is a keyword of the byte array [data type](/en/ride/data-types.md).
 
 The maximum size of the variable of the byte array data type is 65,536 bytes.
 
@@ -12,7 +12,7 @@ let b = base58'8t38fWQhrYJsqxXtPpiRCEk1g5RJdq9bG5Rkr2N7mDFC'
 let c = base64'UmlkZQ=='
 ```
 
-You can convert [integer](/ride/data-types/int.md), [boolean](/ride/data-types/boolean.md) and [string](/ride/data-types/string.md) values to a byte array using [toBytes](/ride/functions/built-in-functions/converting-functions.md) function:
+You can convert [integer](/en/ride/data-types/int.md), [boolean](/en/ride/data-types/boolean.md) and [string](/en/ride/data-types/string.md) values to a byte array using [toBytes](/en/ride/functions/built-in-functions/converting-functions.md) function:
 
 
 ``` ride

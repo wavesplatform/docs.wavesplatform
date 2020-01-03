@@ -1,3 +1,3 @@
 # Высота блока
 
-**Высота блока** — порядковый номер [блока](/blockchain/block.md) в [блокчейне](/blockchain/blockchain.md).
+**Высота блока** — порядковый номер [блока](/ru/blockchain/block.md) в [блокчейне](/ru/blockchain/blockchain.md).

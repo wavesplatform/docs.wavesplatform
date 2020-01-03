@@ -11,7 +11,7 @@ The user has two options:
      "returnTransactionsToUtx": false
    }
 ```
-2. If the condition is not met \(the user needs to rollback to more than 2000 blocks\), then the user needs to follow these [_**instructions**_](/waves-node/options-for-getting-actual-blockchain.md) to get the actual blockchain state.
+2. If the condition is not met \(the user needs to rollback to more than 2000 blocks\), then the user needs to follow these [_**instructions**_](/en/waves-node/options-for-getting-actual-blockchain.md) to get the actual blockchain state.
 
 You can use [**_chaincmp_**](https://github.com/wavesplatform/gowaves/releases/tag/v0.1.2) utility to compare blockchains on the node and reference nodes.
 

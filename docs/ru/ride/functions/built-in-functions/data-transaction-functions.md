@@ -31,7 +31,7 @@ getInteger(data: List[DataEntry], key: String): Int|Unit
 
 #### `data`: List[DataEntry]
 
-Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
+Список записей данных, обычно — данных [транзакции данных](/ru/blockchain/transaction-type/data-transaction.md).
 
 #### `key`: String
 
@@ -49,7 +49,7 @@ getInteger(data: List[DataEntry], index: Int): Unit|Int
 
 #### `data`: List[DataEntry]
 
-Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
+Список записей данных, обычно — данных [транзакции данных](/ru/blockchain/transaction-type/data-transaction.md).
 
 #### `index`: Int
 
@@ -69,7 +69,7 @@ getIntegerValue(data: List[DataEntry], key: String): Int
 
 #### `data`: List[DataEntry]
 
-Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
+Список записей данных, обычно — данных [транзакции данных](/ru/blockchain/transaction-type/data-transaction.md).
 
 #### `key`: String
 
@@ -89,7 +89,7 @@ getIntegerValue(data: List[DataEntry], index: Int): Int
 
 #### `data`: List[DataEntry]
 
-Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
+Список записей данных, обычно — данных [транзакции данных](/ru/blockchain/transaction-type/data-transaction.md).
 
 #### `index`: Int
 
@@ -107,7 +107,7 @@ getBoolean(data: List[DataEntry], key: String): Boolean|Unit
 
 #### `data`: List[DataEntry]
 
-Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
+Список записей данных, обычно — данных [транзакции данных](/ru/blockchain/transaction-type/data-transaction.md).
 
 #### `key`: String
 
@@ -125,7 +125,7 @@ getBoolean(data: List[DataEntry], index: Int): Boolean|Unit
 
 #### `data`: List[DataEntry]
 
-Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
+Список записей данных, обычно — данных [транзакции данных](/ru/blockchain/transaction-type/data-transaction.md).
 
 #### `index`: Int
 
@@ -145,7 +145,7 @@ getBooleanValue(data: List[DataEntry], key: String): Boolean
 
 #### `data`: List[DataEntry]
 
-Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
+Список записей данных, обычно — данных [транзакции данных](/ru/blockchain/transaction-type/data-transaction.md).
 
 #### `key`: String
 
@@ -165,7 +165,7 @@ getBooleanValue(data: List[DataEntry], index: Int): Boolean
 
 #### `data`: List[DataEntry]
 
-Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
+Список записей данных, обычно — данных [транзакции данных](/ru/blockchain/transaction-type/data-transaction.md).
 
 #### `index`: Int
 
@@ -183,7 +183,7 @@ getBinary(data: List[DataEntry], key: String): ByteVector|Unit
 
 #### `data`: List[DataEntry]
 
-Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
+Список записей данных, обычно — данных [транзакции данных](/ru/blockchain/transaction-type/data-transaction.md).
 
 #### `key`: String
 
@@ -201,7 +201,7 @@ getBinary(data: List[DataEntry], index: Int): ByteVector|Unit
 
 #### `data`: List[DataEntry]
 
-Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
+Список записей данных, обычно — данных [транзакции данных](/ru/blockchain/transaction-type/data-transaction.md).
 
 #### `index`: Int
 
@@ -221,7 +221,7 @@ getBinaryValue(data: List[DataEntry], key: String): ByteVector
 
 #### `data`: List[DataEntry]
 
-Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
+Список записей данных, обычно — данных [транзакции данных](/ru/blockchain/transaction-type/data-transaction.md).
 
 #### `key`: String
 
@@ -241,7 +241,7 @@ getBinaryValue(data: List[DataEntry], index: Int): ByteVector
 
 #### `data`: List[DataEntry]
 
-Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
+Список записей данных, обычно — данных [транзакции данных](/ru/blockchain/transaction-type/data-transaction.md).
 
 #### `index`: Int
 
@@ -259,7 +259,7 @@ getString(data: List[DataEntry], key: String): String|Unit
 
 #### `data`: List[DataEntry]
 
-Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
+Список записей данных, обычно — данных [транзакции данных](/ru/blockchain/transaction-type/data-transaction.md).
 
 #### `key`: String
 
@@ -277,7 +277,7 @@ getString(data: List[DataEntry], index: Int): String|Unit
 
 #### `data`: List[DataEntry]
 
-Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
+Список записей данных, обычно — данных [транзакции данных](/ru/blockchain/transaction-type/data-transaction.md).
 
 #### `index`: Int
 
@@ -297,7 +297,7 @@ getStringValue(data: List[DataEntry], key: String) : String
 
 #### `data`: List[DataEntry]
 
-Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
+Список записей данных, обычно — данных [транзакции данных](/ru/blockchain/transaction-type/data-transaction.md).
 
 #### `key`: String
 
@@ -317,7 +317,7 @@ getStringValue(data: List[DataEntry], index: Int): String
 
 #### `data`: List[DataEntry]
 
-Список записей данных, обычно — данных [транзакции данных](/blockchain/transaction-type/data-transaction.md).
+Список записей данных, обычно — данных [транзакции данных](/ru/blockchain/transaction-type/data-transaction.md).
 
 #### `index`: Int
 

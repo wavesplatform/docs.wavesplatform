@@ -43,11 +43,11 @@ signatures, but you can put any data in the array (each element is up to 64 byte
 ![TESTNET available](https://img.shields.io/badge/testnet-available-4bc51d.svg)
 
 Waves uses account-based model, there are no inputs and outputs of transactions like in some other blockchain networks.
-All assets and [data](/blockchain/transaction-type/data-transaction.md) associates with an account and bound
+All assets and [data](/en/blockchain/transaction-type/data-transaction.md) associates with an account and bound
 to its' public key.
 
 >[!TIP]
-> By default, public key “owns” assets and stores key-value data attached by [data transactions](/blockchain/transaction-type/data-transaction.md). To spend funds or update key-value storage the sender
+> By default, public key “owns” assets and stores key-value data attached by [data transactions](/en/blockchain/transaction-type/data-transaction.md). To spend funds or update key-value storage the sender
 > provides **a valid signature** matching transaction body and public key.
 
 **The main idea **that before the transaction is submitted to be included in the next block, the account checks if
@@ -68,7 +68,7 @@ If you're familiar with Ethereum smart contracts model you have to consider the 
 Smart Contracts:
 >[!NOTE]
 > Waves smart **contract** does **not** have its' own state. There is a smart **account** state managed by
-> [data transactions](/blockchain/transaction-type/data-transaction.md)
+> [data transactions](/en/blockchain/transaction-type/data-transaction.md)
 
 If case you need to work with state you have to use data transactions and manage them with smart account scripts.
 More details about  

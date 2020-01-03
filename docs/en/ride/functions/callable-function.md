@@ -1,10 +1,10 @@
 # Callable function
 
-A **callable function** is a [function](/ride/functions.md) of a [dApp script](/ride/script/script-types/dapp-script.md) that has `@Callable` [annotation](/ride/functions/annotations.md).
+A **callable function** is a [function](/en/ride/functions.md) of a [dApp script](/en/ride/script/script-types/dapp-script.md) that has `@Callable` [annotation](/en/ride/functions/annotations.md).
 
 A dApp script may have several callable functions.
 
-A callable function of a [dApp](/blockchain/account/dapp.md) can be invoked by the [invoke script transaction](/blockchain/transaction-type/invoke-script-transaction.md).
+A callable function of a [dApp](/en/blockchain/account/dapp.md) can be invoked by the [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction.md).
 
 ## Example for Standard Library version 3
 
@@ -16,7 +16,7 @@ func rate(name: String, rating: Int) = {
 ```
 
 > [!WARNING]
-> [Standard Library](/ride/script/standard-library.md) Version 4 becomes available from node version 1.2.0, after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature. See [Activation Protocol](/blockchain/waves-protocol/activation-protocol.md).
+> [Standard Library](/en/ride/script/standard-library.md) Version 4 becomes available from node version 1.2.0, after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature. See [Activation Protocol](/en/blockchain/waves-protocol/activation-protocol.md).
 
 ## Example for Standard Library version 4
 

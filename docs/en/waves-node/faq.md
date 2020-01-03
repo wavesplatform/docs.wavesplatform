@@ -2,7 +2,7 @@
 
 ### 1. I'm syncing my node for 3 days now. Its very slow. 100 blocks update every 3 min or so. Im on a 4gb ubuntu server. what is the verification speed?
 
-The verification speed depends on your CPU resources. RAM is also valuable, but CPU needs to be fast for good speed. We added some explanations_** **_[_**here**_](/waves-node/options-for-getting-actual-blockchain.md).  Also the bottleneck could be in your hard drive \(we recommend using SSD\), or network.
+The verification speed depends on your CPU resources. RAM is also valuable, but CPU needs to be fast for good speed. We added some explanations_** **_[_**here**_](/en/waves-node/options-for-getting-actual-blockchain.md).  Also the bottleneck could be in your hard drive \(we recommend using SSD\), or network.
 
 ### 2. I was trying to set up a Waves platform, there I used
 
@@ -20,7 +20,7 @@ For seed it will look like: `waves -D waves.wallet.seed="base58 seed value"` or 
 
 ### 3. What is the fastest way to get all blocks?
 
-Importing is the fastest way to get all blocks. You get it in single file, not from other nodes by inter-nodes protocol. But you still need to verify every block. If you want not to verify everything - you need to download state. Check Option 3 [_**here**_](/waves-node/options-for-getting-actual-blockchain.md).
+Importing is the fastest way to get all blocks. You get it in single file, not from other nodes by inter-nodes protocol. But you still need to verify every block. If you want not to verify everything - you need to download state. Check Option 3 [_**here**_](/en/waves-node/options-for-getting-actual-blockchain.md).
 
 ### 4. I encountered some data corruption due to a UPS failure, what is the URL to download the Waves blockchain so I can import it into my node ?
 
@@ -56,12 +56,12 @@ Yes it's allowed. there are lot of Waves node currently hosted in Amazon.
 
 ### 12. My node says in status : Forked at 133xxxx what does that mean?
 
-It means that your node is on fork. Check [_**how to rollback a node**_](/waves-node/how-to-rollback-a-node.md)_**.**_
+It means that your node is on fork. Check [_**how to rollback a node**_](/en/waves-node/how-to-rollback-a-node.md)_**.**_
 
 ### 13. How to know exactly if the node is on fork or not? is there a pywaves utility or API command that show it?
 
-You can check the blockchain height or the last 100 signatures of blocks to understand if your node is on fork or not \(compare block generators and signatures with other nodes api. [http://dev.pywaves.org/nodes/](http://dev.pywaves.org/nodes/) can also show status of nodes\). You can use the [rest api](/waves-node/node-api.md) with swagger on different nodes to compare block \# on both. looking for different generators in the same block height.
+You can check the blockchain height or the last 100 signatures of blocks to understand if your node is on fork or not \(compare block generators and signatures with other nodes api. [http://dev.pywaves.org/nodes/](http://dev.pywaves.org/nodes/) can also show status of nodes\). You can use the [rest api](/en/waves-node/node-api.md) with swagger on different nodes to compare block \# on both. looking for different generators in the same block height.
 
 Your node can be in one of two possibilities: your node on fork with height **less** than 2000 blocks or **more** than 2000 blocks**.**  
-In case that your node is on fork with a height less than 2000 blocks, here you can implement **rollback**_** **through _[**rollback instructions**](/waves-node/how-to-rollback-a-node.md). Otherwise, you need to choose an [_**option for Getting Actual Blockchain**_](/waves-node/options-for-getting-actual-blockchain.md).
+In case that your node is on fork with a height less than 2000 blocks, here you can implement **rollback**_** **through _[**rollback instructions**](/en/waves-node/how-to-rollback-a-node.md). Otherwise, you need to choose an [_**option for Getting Actual Blockchain**_](/en/waves-node/options-for-getting-actual-blockchain.md).
 

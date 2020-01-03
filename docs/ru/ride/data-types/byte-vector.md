@@ -1,6 +1,6 @@
 # ByteVector
 
-**ByteVector** — ключевое слово [типа данных](/ride/data-types.md) массива байтов.
+**ByteVector** — ключевое слово [типа данных](/ru/ride/data-types.md) массива байтов.
 
 Максимальный размер переменной типа данных массива байтов — 65 536 байтов.
 
@@ -12,7 +12,7 @@ let b = base58'8t38fWQhrYJsqxXtPpiRCEk1g5RJdq9bG5Rkr2N7mDFC'
 let c = base64'UmlkZQ=='
 ```
 
-С помощью функции [toBytes](/ride/functions/built-in-functions/converting-functions.md) можно конвертировать [целочисленные](/ride/data-types/int.md), [логические](/ride/data-types/boolean.md) и [строковые](/ride/data-types/string.md) значения в массив байтов:
+С помощью функции [toBytes](/ru/ride/functions/built-in-functions/converting-functions.md) можно конвертировать [целочисленные](/ru/ride/data-types/int.md), [логические](/ru/ride/data-types/boolean.md) и [строковые](/ru/ride/data-types/string.md) значения в массив байтов:
 
 ``` ride
 let a = 42.toBytes()

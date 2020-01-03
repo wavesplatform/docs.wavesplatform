@@ -6,10 +6,10 @@
 
 ## План действий
 
-1. Создадим [аккаунт](/blockchain/account.md) главы ТСЖ.
+1. Создадим [аккаунт](/ru/blockchain/account.md) главы ТСЖ.
 2. Создадим аккаунты жильцов дома.
-3. Создадим [dApp-скрипт](/ride/script/script-types/dapp-script.md) с методом `vote`.
-4. Привяжем dApp-скрипт к аккаунту главы ТСЖ, создав таким образом [dApp](/blockchain/account/dapp.md).
+3. Создадим [dApp-скрипт](/ru/ride/script/script-types/dapp-script.md) с методом `vote`.
+4. Привяжем dApp-скрипт к аккаунту главы ТСЖ, создав таким образом [dApp](/ru/blockchain/account/dapp.md).
 5. Проголосуем с аккаунтов жильцов дома, вызвав метод `vote` dApp.
 6. Узнаем результаты голосования.
 
@@ -19,7 +19,7 @@
 
 <img src="img/voting/account-settings.png" width="300"/>
 
-Убедитесь, что выбрана [тестовая сеть](/blockchain/blockchain-network/test-network.md).
+Убедитесь, что выбрана [тестовая сеть](/ru/blockchain/blockchain-network/test-network.md).
 
 <img src="img/voting/account-settings-test.png" width="540"/>
 
@@ -31,19 +31,19 @@
 
 <img src="img/voting/account-chief.png" width="245"/>
 
-Скопируйте [адрес](/blockchain/account/address.md) главы ТСЖ и [с помощью Faucet](/waves-explorer/account-balance-top-up-in-the-test-network.md) пополните его баланс на 10 [WAVES](/blockchain/token/waves.md). [Токены](/blockchain/token.md) понадобятся главе ТСЖ для оплаты [комиссии](/blockchain/transaction/transaction-fee.md) за [транзакцию установки скрипта](/blockchain/transaction-type/set-script-transaction.md), когда он будет привязывать [dApp-скрипт](/ride/script/script-types/dapp-script.md) к своему аккаунту.
+Скопируйте [адрес](/ru/blockchain/account/address.md) главы ТСЖ и [с помощью Faucet](/ru/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network.md) пополните его баланс на 10 [WAVES](/ru/blockchain/token/waves.md). [Токены](/ru/blockchain/token.md) понадобятся главе ТСЖ для оплаты [комиссии](/ru/blockchain/transaction/transaction-fee.md) за [транзакцию установки скрипта](/ru/blockchain/transaction-type/set-script-transaction.md), когда он будет привязывать [dApp-скрипт](/ru/ride/script/script-types/dapp-script.md) к своему аккаунту.
 
 <img src="img/voting/account-chief-balance.png" width="250"/>
 
 ## 2. Создание аккаунтов жильцов дома
 
-Аналогично создайте аккаунты жильцов дома Алексея и Анны и пополните их балансы на 10 WAVES. Токены им понадобятся для оплаты комиссии за [транзакцию вызова скрипта](/blockchain/transaction-type/invoke-script-transaction.md), когда они будут голосовать, вызывая метод `vote` dApp.
+Аналогично создайте аккаунты жильцов дома Алексея и Анны и пополните их балансы на 10 WAVES. Токены им понадобятся для оплаты комиссии за [транзакцию вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction.md), когда они будут голосовать, вызывая метод `vote` dApp.
 
 <img src="img/voting/accounts-residents.png" width="250"/>
 
 ## 3. Создание dApp-скрипта
 
-Создайте [dApp-скрипт](/ride/script/script-types/dapp-script.md), выбрав в выпадающем списке **DApp**.
+Создайте [dApp-скрипт](/ru/ride/script/script-types/dapp-script.md), выбрав в выпадающем списке **DApp**.
 
 <img src="img/voting/new-dapp-script.png" width="870"/>
 
@@ -93,7 +93,7 @@ func vote(theVote: Int) = {
 
 #### Функция `vote`
 
-Функция `vote` возвращает [структуру](/ride/structures.md) `WriteSet`, внутри которой происходит запись голоса в [хранилище данных аккаунта](/blockchain/account/account-data-storage.md) главы ТСЖ.
+Функция `vote` возвращает [структуру](/ru/ride/structures.md) `WriteSet`, внутри которой происходит запись голоса в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage.md) главы ТСЖ.
 
 Перед функцией `vote` указана аннотация `@Callable`, которая делает данную функцию вызываемой у dApp. У данной аннотации `i` — переменная, содержащая информацию о транзакции, которая вызвала функцию `vote`. Мы используем переменную `i` в коде для получения открытого ключа аккаунта `i.callerPublicKey`, который отправил транзакцию вызова скрипта.
 
@@ -117,7 +117,7 @@ func vote(theVote: Int) = {
 let dataFromStorage = this.getInteger(i.callerPublicKey.toBase58String())
 ```
 
-Размер и [сложность](/ride/base-concepts/complexity.md) скрипта отображаются в панели под редактором скрипта.
+Размер и [сложность](/ru/ride/base-concepts/complexity.md) скрипта отображаются в панели под редактором скрипта.
 
 <img src="img/voting/script-complexity.png" width="450"/>
 
@@ -139,13 +139,13 @@ let dataFromStorage = this.getInteger(i.callerPublicKey.toBase58String())
 
 <img src="img/voting/publish.png" width="880"/>
 
-Таким образом, вы только что создали [dApp](/blockchain/account/dapp.md).
+Таким образом, вы только что создали [dApp](/ru/blockchain/account/dapp.md).
 
 В [Waves Explorer](https://wavesexplorer.com/testnet), _в тестовой сети_, найдите информацию об активности на адресе главы ТСЖ. Для этого введите адрес главы ТСЖ в строку поиска и нажмите **Enter**.
 
 <img src="img/voting/testnet-address.png" width="800"/>
 
-По адресу главы ТСЖ отображаются две транзакции: [транзакция перевода](/blockchain/transaction-type/transfer-transaction.md) (пополнение баланса на 10 WAVES с помощью faucet) и отправка транзакции установки скрипта. Отметим, что с баланса аккаунта главы ТСЖ списали комиссию за транзакцию установки скрипта в 0,001 WAVES.
+По адресу главы ТСЖ отображаются две транзакции: [транзакция перевода](/ru/blockchain/transaction-type/transfer-transaction.md) (пополнение баланса на 10 WAVES с помощью faucet) и отправка транзакции установки скрипта. Отметим, что с баланса аккаунта главы ТСЖ списали комиссию за транзакцию установки скрипта в 0,001 WAVES.
 
 <img src="img/voting/waves-explorer-chief-transactions.png" width="900"/>
 
@@ -153,7 +153,7 @@ let dataFromStorage = this.getInteger(i.callerPublicKey.toBase58String())
 
 Для того, чтобы проголосовать, жильцу необходимо отправить транзакцию вызова скрипта со своего аккаунта. В транзакции необходимо указать адрес dApp, имя вызываемого метода dApp, а также передаваемые в метод параметры.
 
-Отправьте транзакцию вызова скрипта с аккаунта Алексея с помощью [REPL](/smart-contracts/tools/repl.md). Для этого в Waves IDE _выберите аккаунт Алексея_.
+Отправьте транзакцию вызова скрипта с аккаунта Алексея с помощью [REPL](/ru/building-apps/smart-contracts/tools/repl.md). Для этого в Waves IDE _выберите аккаунт Алексея_.
 
 <img src="img/voting/account-aleksei.png" width="320"/>
 

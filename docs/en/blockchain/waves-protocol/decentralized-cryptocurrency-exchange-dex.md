@@ -92,7 +92,7 @@ The current balance in `asset`:
 
 The sum of all spending by the asset of unconfirmed transactions.
 
-For example, if you are transferring `WAVES` and sending a [data transaction](/blockchain/transaction-type/data-transaction.md)  
+For example, if you are transferring `WAVES` and sending a [data transaction](/en/blockchain/transaction-type/data-transaction.md)  
 and these transactions haven't yet forged, `spendings_of_WAVES_in_transactions_in_utx_pool` will be `amount_of_transferred_waves + transfer_fee + data_transaction_fee`.
 
 Note: UTX pool of one node could not be the same as on other node.

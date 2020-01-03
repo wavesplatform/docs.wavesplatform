@@ -57,11 +57,11 @@
 
 * Расширения
   * Матчер
-    * [Установка матчера на Ubuntu из deb-пакета](/waves-node/extensions/matcher/matcher-install-ubuntu-deb.md)
+    * [Установка матчера на Ubuntu из deb-пакета](/ru/waves-node/extensions/matcher/matcher-install-ubuntu-deb.md)
 
 ### Oracles
 
-* [Инструмент отправки транзакций данных](/waves-oracles/data-transaction-tool.md)
+* [Инструмент отправки транзакций данных](/ru/ecosystem/waves-oracles/data-transaction-tool.md)
 
 ### RIDE
 
@@ -106,7 +106,7 @@
     * [Бинарный формат транзакции установки скрипта](blockchain/binary-format/transaction-binary-format/set-script-transaction-binary-format.md)
 * [Биржевая заявка](blockchain/order.md) — <span style="color:green">обновлено</span>
 * Майнинг
-  * [Вознаграждение за майнинг](/blockchain/mining/mining-reward.md)
+  * [Вознаграждение за майнинг](/ru/blockchain/mining/mining-reward.md)
 * Token Rating
   * [Управление токеном](waves-token-rating/token-management.md)
 

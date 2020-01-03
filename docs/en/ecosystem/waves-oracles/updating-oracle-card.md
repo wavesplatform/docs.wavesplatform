@@ -1,6 +1,6 @@
 # Updating oracle card
 
-To update your [oracle card](/waves-oracles/oracle-card.md):
+To update your [oracle card](/en/ecosystem/waves-oracles/oracle-card.md):
 
 1. Log in with [Waves Keeper](/waves-keeper/about-waves-keeper.md).
 2. Click **Update my oracle** on sidebar menu.

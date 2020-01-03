@@ -22,7 +22,7 @@ An **account script** is a [Ride](#ride) [script](#script) that has the followin
 {-# SCRIPT_TYPE ACCOUNT #-}
 ```
 
-The account script is attached to the [account](#account) using the [set script transaction](/blockchain/transaction-type/set-script-transaction.md). Only one script can be attached to an [account](#account). An account with an account script attached is called a [smart account](#smart-account).
+The account script is attached to the [account](#account) using the [set script transaction](/en/blockchain/transaction-type/set-script-transaction.md). Only one script can be attached to an [account](#account). An account with an account script attached is called a [smart account](#smart-account).
 
 <h3>Address</h3><a id="address"></a>
 
@@ -49,7 +49,7 @@ An **asset script** is a [Ride](#ride) [script](#script) that has the following 
 {-# SCRIPT_TYPE ASSET #-}
 ```
 
-The asset script is attached to the [asset](#asset) using the [set asset script transaction](/blockchain/transaction-type/set-asset-script-transaction.md). You can attach a script to an asset only at the time the asset creation. However, you can change the script later, if needed. An asset with a script attached to it is called a [smart asset](#smart-asset).
+The asset script is attached to the [asset](#asset) using the [set asset script transaction](/en/blockchain/transaction-type/set-asset-script-transaction.md). You can attach a script to an asset only at the time the asset creation. However, you can change the script later, if needed. An asset with a script attached to it is called a [smart asset](#smart-asset).
 
 <h2>B</h2><a id="B-letter"></a>
 
@@ -101,7 +101,7 @@ A **dApp script** is a [Ride](#ride) [script](#script) used to create [dApp](#da
 {-# CONTENT_TYPE DAPP #-}
 ```
 
-dApp-script can be attached to the [account](#account) using the [set script transaction](/blockchain/transaction-type/set-script-transaction.md), and, as a result, the dApp will be created.
+dApp-script can be attached to the [account](#account) using the [set script transaction](/en/blockchain/transaction-type/set-script-transaction.md), and, as a result, the dApp will be created.
 
 <h3>Decentralized application</h3><a id="decentralized-application"></a>
 
@@ -131,7 +131,7 @@ A **test network faucet** (or faucet) is a [Waves Explorer](#explorer) tool that
 
 <h3>Genesis block</h3><a id="genesis-block"></a>
 
-The **genesis block** (or genesis) is the very first [block](#block) of the [blockchain](#blockchain). The genesis block contains one or several [genesis transactions](/blockchain/transaction-type/genesis-transaction.md).
+The **genesis block** (or genesis) is the very first [block](#block) of the [blockchain](#blockchain). The genesis block contains one or several [genesis transactions](/en/blockchain/transaction-type/genesis-transaction.md).
 
 <h3>Genesis transaction</h3><a id="genesis-transaction"></a>
 
@@ -157,7 +157,7 @@ A **hash function** (or fold function) is a function that converts an array of i
 
 <h3>Leasing</h3><a id="leasing"></a>
 
-**Leasing** is a temporary reversible transfer of [WAVES](#waves) from one account to another to [increase the stability and security of the network](/waves-client/account-management/waves-leasing.md), as well as potentially get [mining reward](/blockchain/mining/mining-reward.md). Note that the WAVES [tokens](#token) are not actually being transferred to another [account](#account), they remain on the sender's balance, however, they are 'frozen' and cannot participate in the buying and selling operations, as well as they cannot be sent to another account. The leased tokens provide the leasing recipient with a greater chance of [mining](#mining) a [block](#block). The recipient of the lease can share the income from mining with the one who leased WAVES to him. However, the Waves platform does not regulate the payment process for [LPoS](#lpos) [mining](#mining), this remains at the discretion of the [miner](#miner). At any time, the sender can 'unfreeze' tokens by invoking the [Lease Cancel transaction](/blockchain/transaction-type/lease-cancel-transaction.md).
+**Leasing** is a temporary reversible transfer of [WAVES](#waves) from one account to another to [increase the stability and security of the network](/waves-client/account-management/waves-leasing.md), as well as potentially get [mining reward](/en/blockchain/mining/mining-reward.md). Note that the WAVES [tokens](#token) are not actually being transferred to another [account](#account), they remain on the sender's balance, however, they are 'frozen' and cannot participate in the buying and selling operations, as well as they cannot be sent to another account. The leased tokens provide the leasing recipient with a greater chance of [mining](#mining) a [block](#block). The recipient of the lease can share the income from mining with the one who leased WAVES to him. However, the Waves platform does not regulate the payment process for [LPoS](#lpos) [mining](#mining), this remains at the discretion of the [miner](#miner). At any time, the sender can 'unfreeze' tokens by invoking the [Lease Cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction.md).
 
 <h3>LPoS</h3><a id="lpos"></a>
 
@@ -179,7 +179,7 @@ A **miner** is the owner of the [mining node](#mining-node).
 
 <h3>Mining</h3><a id="mining"></a>
 
-**Mining** is the process of generating a [block](#block) by a [mining node](#mining-node), as a result of which a new block is added to the [blockchain](#blockchain) and [WAVES](#waves) [tokens](#token) are issued. For block generation, [miners](#miner) receive a [reward for mining](/blockchain/mining/mining-reward.md), as well as [transaction fees](/blockchain/transaction/transaction-fee.md), according to the rules of the [Waves-NG](/blockchain/waves-protocol/waves-ng-protocol.md) protocol.
+**Mining** is the process of generating a [block](#block) by a [mining node](#mining-node), as a result of which a new block is added to the [blockchain](#blockchain) and [WAVES](#waves) [tokens](#token) are issued. For block generation, [miners](#miner) receive a [reward for mining](/en/blockchain/mining/mining-reward.md), as well as [transaction fees](/en/blockchain/transaction/transaction-fee.md), according to the rules of the [Waves-NG](/en/blockchain/waves-protocol/waves-ng-protocol.md) protocol.
 
 <h3>Mining account</h3><a id="mining-account"></a>
 
@@ -211,7 +211,7 @@ A **node** is a [host](https://ru.wikipedia.org/wiki/Хост) that is connected
 
 <h3>Oracle card</h3><a id="oracle-card"></a>
 
-An **oracle card** is a public description of the [oracle](#oracle) in the [blockchain](#blockchain) according to a [standardized protocol](/waves-oracles/create-an-oracle-card-with-a-data-transaction.md) in the form of a [data transaction](/blockchain/transaction-type/data-transaction.md).
+An **oracle card** is a public description of the [oracle](#oracle) in the [blockchain](#blockchain) according to a [standardized protocol](/en/ecosystem/waves-oracles/create-an-oracle-card-with-a-data-transaction.md) in the form of a [data transaction](/en/blockchain/transaction-type/data-transaction.md).
 
 <h3>Order</h3><a id="order"></a>
 
@@ -253,7 +253,7 @@ A **script** is the source code on the [Ride](#ride) language. There are three t
 
 <h3>Smart account</h3><a id="smart-account"></a>
 
-A **smart account** is an [account](#account) with an [account script](#account-script) attached. Only one script can be attached to an account. The account script is attached to the account using the [set script transaction](/blockchain/transaction-type/set-script-transaction.md).
+A **smart account** is an [account](#account) with an [account script](#account-script) attached. Only one script can be attached to an account. The account script is attached to the account using the [set script transaction](/en/blockchain/transaction-type/set-script-transaction.md).
 
 <h3>Smart asset</h3><a id="smart-asset"></a>
 
@@ -305,7 +305,7 @@ A **wallet** is a section of the [Waves DEX](#dex) online service. It allows us 
 
 <h3>WAVES</h3><a id="waves"></a>
 
-**WAVES** is the main [token](#token) of the Waves platform. 1 WAVES equals 100,000,000 [WAVELET](#wavelet). In April 2016, 100 million WAVES were released. WAVES cannot be burned using a [burn transaction](/blockchain/transaction-type/burn-transaction.md).
+**WAVES** is the main [token](#token) of the Waves platform. 1 WAVES equals 100,000,000 [WAVELET](#wavelet). In April 2016, 100 million WAVES were released. WAVES cannot be burned using a [burn transaction](/en/blockchain/transaction-type/burn-transaction.md).
 
 <h3>WCT</h3><a id="wct"></a>
 

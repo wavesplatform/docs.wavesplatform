@@ -105,7 +105,7 @@ func divideAmount() = {
 
 ## InvokeScript Transaction to execute Functions
 
-You can execute the functions by using [IDE](https://ide.wavesplatform.com/) console. Also it's available in the JS library \([waves-transactions](/waves-api-and-sdk/client-libraries/waves-transactions.md)\).
+You can execute the functions by using [IDE](https://ide.wavesplatform.com/) console. Also it's available in the JS library \([waves-transactions](/en/building-apps/waves-api-and-sdk/client-libraries/waves-transactions.md)\).
 
 ```js
 broadcast(invokeScript({dApp: "Contract Address", call:{function:"divideAmount",args:[]}, payment: []}))

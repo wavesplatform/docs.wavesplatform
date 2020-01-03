@@ -15,7 +15,7 @@ A new tab will open, inside of which we can start writing our RIDE script.
 ![](../../assets/2.png)
 
 ## Working with transaction object inside of the account script
-An account script has the context containing a few useful variables. One of such variables is the variable `tx`, that contains within itself the information about the transaction that's validated by the account script. There are [several types of transactions](/waves-node/node-api/transactions.md) exist in the Waves blockchain. Inside of the account script we have to have an ability to determine the type of a transaction. Type casting is possible due to the `match` operator:
+An account script has the context containing a few useful variables. One of such variables is the variable `tx`, that contains within itself the information about the transaction that's validated by the account script. There are [several types of transactions](/en/waves-node/node-api/transactions.md) exist in the Waves blockchain. Inside of the account script we have to have an ability to determine the type of a transaction. Type casting is possible due to the `match` operator:
 ```
 let accountPubKey = base58'9xPqZ7fhgKxRsgkbahawNMsgHhM9TMYa3SXwNmn3bvyS'
  
@@ -91,7 +91,7 @@ func foo() = {
 ## Definition of the validation function
 The validation function in a dApp plays the role of the account script — it validates all the outgoing from this account transactions.
 
-Such a function is adorned with the `@Verifier(tx)` annotation, where `tx` is the transaction, which the function is currently validating. Available fields of the transaction (different by transaction type) you can see at the [Functions and Standard Library](/smart-contracts/ride-language/standard-library.md) page.
+Such a function is adorned with the `@Verifier(tx)` annotation, where `tx` is the transaction, which the function is currently validating. Available fields of the transaction (different by transaction type) you can see at the [Functions and Standard Library](/en/building-apps/smart-contracts/ride-language/standard-library.md) page.
 
 Possible execution results:
 

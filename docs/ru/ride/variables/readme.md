@@ -2,11 +2,11 @@
 
 В RIDE все переменные являются _неизменяемыми_. После определения значение переменной не меняется.
 
-Определение и одновременная инициализация переменной производятся с помощью [оператора](/ride/operators.md) `let`.
+Определение и одновременная инициализация переменной производятся с помощью [оператора](/ru/ride/operators.md) `let`.
 
 Нельзя объявить переменную без инициализации.
 
-Во время присваивания значения переменной справа от знака "=" должно находиться [выражение](/ride/base-concepts/expression.md). Значение переменной — [результат выражения](/ride/base-concepts/expression.md#expression-result).
+Во время присваивания значения переменной справа от знака "=" должно находиться [выражение](/ru/ride/base-concepts/expression.md). Значение переменной — [результат выражения](/ru/ride/base-concepts/expression.md#expression-result).
 
 ## Примеры
 
@@ -22,7 +22,7 @@ let size = 5
 let season = "Spring"
 ```
 
-Так как [функция](/ride/functions.md) является [определением](/ride/base-concepts/definition.md), а не [выражением](/ride/base-concepts/expression.md), то переменной можно присвоить значение функции, но не саму функцию.
+Так как [функция](/ru/ride/functions.md) является [определением](/ru/ride/base-concepts/definition.md), а не [выражением](/ru/ride/base-concepts/expression.md), то переменной можно присвоить значение функции, но не саму функцию.
 
 ``` ride
 func f() = {
@@ -37,4 +37,4 @@ let result = f()
 
 ## Встроенные в скрипт переменные
 
-У [скрипта](/ride/script.md) есть [встроенные переменные](/ride/variables/built-in-variables.md).
+У [скрипта](/ru/ride/script.md) есть [встроенные переменные](/ru/ride/variables/built-in-variables.md).

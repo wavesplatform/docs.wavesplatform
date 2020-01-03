@@ -1,6 +1,6 @@
 # Встроенные переменные
 
-**Встроенная переменная** — [переменная](/ride/variables.md) [контекста скрипта](/ride/script/script-context.md).
+**Встроенная переменная** — [переменная](/ru/ride/variables.md) [контекста скрипта](/ru/ride/script/script-context.md).
 
 ## Список встроенных переменных
 <table style="width:100%">

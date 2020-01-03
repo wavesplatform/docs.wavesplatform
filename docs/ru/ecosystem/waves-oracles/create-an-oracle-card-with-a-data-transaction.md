@@ -22,7 +22,7 @@
 
 ## Описание транзакции данных
 
-См. [информацию о транзакции данных](/blockchain/transaction-type/data-transaction.md).
+См. [информацию о транзакции данных](/ru/blockchain/transaction-type/data-transaction.md).
 
 ## Параметры карточки оракула
 
@@ -37,13 +37,13 @@
 | wpo_addres | Address | Строка | да | Аккаунт, в хранилище данных которого хранится карточка оракула |
 | wpo_name | Oracle name | Строка | да | Название оракула |
 | wpo_link | Link | Строка | нет | Ссылка на источник данных |
-| wpo_protocol | Category | Целое число | да | [Код протокола](/waves-oracles/create-an-oracle-card-with-a-data-transaction.md#codes) |
+| wpo_protocol | Category | Целое число | да | [Код протокола](/ru/ecosystem/waves-oracles/create-an-oracle-card-with-a-data-transaction.md#codes) |
 | wpo_status | Status | Целое число | да | Текущий статус оракула. Задается целым числом:<br>3 — archive<br>2 — development<br>1 — production<br>0 — test |
 | wpo_description | About | Строка | нет | Данные поля About |
 | wpo_frequency | Update frequency | Строка | нет | Данные поля Update frequency |
 | wpo_revisions | Summary of Changes from Previous Version | Строка | нет | Данные поля Summary of Changes from Previous Version |
-| wpo_specifation | Specification | Массив байтов | нет | [Спецификация оракула](/waves-oracles/create-an-oracle-card-with-a-data-transaction.md#specification) |
-| wpo_example | Example | Массив байтов | нет | [Пример формата транзакции оракула](/waves-oracles/create-an-oracle-card-with-a-data-transaction.md#example) |
+| wpo_specifation | Specification | Массив байтов | нет | [Спецификация оракула](/ru/ecosystem/waves-oracles/create-an-oracle-card-with-a-data-transaction.md#specification) |
+| wpo_example | Example | Массив байтов | нет | [Пример формата транзакции оракула](/ru/ecosystem/waves-oracles/create-an-oracle-card-with-a-data-transaction.md#example) |
 | wpo_updatedate |  | Целое число | да | Временная метка обновления карточки оракула.<br>Равно 0, если карточка создается впервые. |
 
 ### Ключ со спецификацией оракула <a id="specification"></a>

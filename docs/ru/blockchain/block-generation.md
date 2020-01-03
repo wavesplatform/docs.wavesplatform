@@ -1,5 +1,5 @@
 # Block generation
 
-**Генерация блока** — процесс создания нового [блока](/blockchain/block.md) на [блокчейне](/blockchain/blockchain.md).
+**Генерация блока** — процесс создания нового [блока](/ru/blockchain/block.md) на [блокчейне](/ru/blockchain/blockchain.md).
 
-Блоки генерируются [майнящими нодами](/blockchain/mining/mining-node.md) в соответствии с протоколом Waves-NG.
+Блоки генерируются [майнящими нодами](/ru/blockchain/mining/mining-node.md) в соответствии с протоколом Waves-NG.

@@ -1,6 +1,6 @@
 # Data transaction with user's rate
 
-When a user rates a token inside the token's card, a [data transaction](/blockchain/transaction-type/data-transaction.md) is sent from the user's [address](/blockchain/account/address.md).
+When a user rates a token inside the token's card, a [data transaction](/en/blockchain/transaction-type/data-transaction.md) is sent from the user's [address](/en/blockchain/account/address.md).
 
 An example of the `data` field of such a transaction:
 

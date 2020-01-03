@@ -42,7 +42,7 @@
 
 ### API & SDK
 
-* [Signer](/waves-api-and-sdk/client-libraries/signer.md)
+* [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer.md)
 
 ## November articles
 
@@ -67,8 +67,8 @@
 
 * Extensions
   * Matcher
-    * [Installing matcher on Ubuntu from deb-package](/waves-node/extensions/matcher/matcher-install-ubuntu-deb.md)
-    * [Matcher settings](/waves-node/extensions/matcher/matcher-settings.md)
+    * [Installing matcher on Ubuntu from deb-package](/en/waves-node/extensions/matcher/matcher-install-ubuntu-deb.md)
+    * [Matcher settings](/en/waves-node/extensions/matcher/matcher-settings.md)
 
 ### Oracles
 

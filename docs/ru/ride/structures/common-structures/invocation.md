@@ -1,6 +1,6 @@
 # Invocation
 
-Структура сокращенного представления [транзакции вызова скрипта](/blockchain/transaction-type/invoke-script-transaction.md).
+Структура сокращенного представления [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction.md).
 
 ## Конструктор
 
@@ -12,9 +12,9 @@ Invocation(caller: Address, callerPublicKey: ByteVector, payment: AttachedPaymen
 
 |   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | caller | [Address](/ride/structures/common-structures/address.md) | [Адрес](/blockchain/account/address.md) аккаунта, который отправил транзакцию |
-| 2 | callerPublicKey | [ByteVector](/ride/data-types/byte-vector.md) | Открытый ключ аккаунта, который отправил транзакцию |
-| 3 | payment | [AttachedPayment](/ride/structures/common-structures/attached-payment.md)&#124;[Unit](/ride/data-types/unit.md) | Приложенный платеж |
-| 4 | transactionId | [ByteVector](/ride/data-types/byte-vector.md) | ID транзакции |
-| 5 | fee | [Int](/ride/data-types/int.md) | [Комиссия за транзакцию](/blockchain/transaction/transaction-fee.md) |
-| 6 | feeAssetId | [ByteVector](/ride/data-types/byte-vector.md)&#124;[Unit](/ride/data-types/unit.md) | [Токен](/blockchain/token.md) комиссии за отправку транзакции |
+| 1 | caller | [Address](/ru/ride/structures/common-structures/address.md) | [Адрес](/ru/blockchain/account/address.md) аккаунта, который отправил транзакцию |
+| 2 | callerPublicKey | [ByteVector](/ru/ride/data-types/byte-vector.md) | Открытый ключ аккаунта, который отправил транзакцию |
+| 3 | payment | [AttachedPayment](/ru/ride/structures/common-structures/attached-payment.md)&#124;[Unit](/ru/ride/data-types/unit.md) | Приложенный платеж |
+| 4 | transactionId | [ByteVector](/ru/ride/data-types/byte-vector.md) | ID транзакции |
+| 5 | fee | [Int](/ru/ride/data-types/int.md) | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee.md) |
+| 6 | feeAssetId | [ByteVector](/ru/ride/data-types/byte-vector.md)&#124;[Unit](/ru/ride/data-types/unit.md) | [Токен](/ru/blockchain/token.md) комиссии за отправку транзакции |

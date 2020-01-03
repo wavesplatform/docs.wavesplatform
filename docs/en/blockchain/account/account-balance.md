@@ -1,8 +1,8 @@
 # Account balance
 
-An **account balance** is the amount of the [token](/blockchain/token.md) that is stored on the [account](/blockchain/account.md).
+An **account balance** is the amount of the [token](/en/blockchain/token.md) that is stored on the [account](/en/blockchain/account.md).
 
-One account can store different tokens in different amounts. For example, an account can have 50 [WAVES](/blockchain/token/waves.md) and 200 [WCTs](/blockchain/token/wct.md) at the same time. The amount of the Y token on the account is called the **account balance in Y token**. If there is no Y token on the account, it is said that the **account balance in Y token is equal to zero**.
+One account can store different tokens in different amounts. For example, an account can have 50 [WAVES](/en/blockchain/token/waves.md) and 200 [WCTs](/en/blockchain/token/wct.md) at the same time. The amount of the Y token on the account is called the **account balance in Y token**. If there is no Y token on the account, it is said that the **account balance in Y token is equal to zero**.
 
 ## Account balance in WAVES token
 There are four balances in WAVES token:
@@ -12,7 +12,7 @@ There are four balances in WAVES token:
 * available
 * generating
 
-In addition to WAVES that belong to the account owner, the account may store WAVES that belong to other accounts — those are [leased](/blockchain/leasing.md) WAVES.
+In addition to WAVES that belong to the account owner, the account may store WAVES that belong to other accounts — those are [leased](/en/blockchain/leasing.md) WAVES.
 
 The **regular balance** is the amount of WAVES on the account which belongs directly to the account owner.
 
@@ -48,7 +48,7 @@ Example of the Wallet window with the list of tokens on the account:
 
 <img src="img/account-balance.png" alt="faucet" width="300"/>
 
-You can view the list of tokens on account in [Waves Explorer](https://wavesexplorer.com/) — for that find the account by its [address](/blockchain/account/address.md) or [alias](/blockchain/account/alias.md) and go to the **Assets** tab.
+You can view the list of tokens on account in [Waves Explorer](https://wavesexplorer.com/) — for that find the account by its [address](/en/blockchain/account/address.md) or [alias](/en/blockchain/account/alias.md) and go to the **Assets** tab.
 
 <img src="img/tokens.png" alt="faucet" width="550"/>
 

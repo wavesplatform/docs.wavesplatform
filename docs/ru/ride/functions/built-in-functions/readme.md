@@ -1,10 +1,10 @@
 # Встроенные функции
 
-**Встроенная функция** — [функция](/ride/functions.md) [контекста скрипта](/ride/script/script-context.md).
+**Встроенная функция** — [функция](/ru/ride/functions.md) [контекста скрипта](/ru/ride/script/script-context.md).
 
 ## Список встроенных функций
 
-### [Математические функции](/ride/functions/built-in-functions/math-functions.md)
+### [Математические функции](/ru/ride/functions/built-in-functions/math-functions.md)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
@@ -13,16 +13,16 @@
 | 3 | median(List[Int]): Int | Возвращает медиану списка целых чисел | 10 |
 | 4 | pow(Int, Int, Int, Int, Int, Union): Int | Возводит число в степень | 100 |
 
-### [Функции блокчейна](/ride/functions/built-in-functions/blockchain-functions.md)
+### [Функции блокчейна](/ru/ride/functions/built-in-functions/blockchain-functions.md)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
-| 1 | assetInfo(ByteVector): Аsset&#124;Unit | Получает информацию о [токене](/blockchain/token.md) | 100 |
-| 2 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Получает информацию о [блоке](/blockchain/block.md) по [высоте блока](/blockchain/block/block-height.md) | 100 |
-| 3 | transactionHeightById(ByteVector):  Int&#124;Unit | Получает [высоту блока](/blockchain/block/block-height.md) транзакции | 100 |
-| 4 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/blockchain/transaction-type/transfer-transaction.md) | 100 |
+| 1 | assetInfo(ByteVector): Аsset&#124;Unit | Получает информацию о [токене](/ru/blockchain/token.md) | 100 |
+| 2 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Получает информацию о [блоке](/ru/blockchain/block.md) по [высоте блока](/ru/blockchain/block/block-height.md) | 100 |
+| 3 | transactionHeightById(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height.md) транзакции | 100 |
+| 4 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction.md) | 100 |
 
-### [Функции верификации](/ride/functions/built-in-functions/verification-functions.md)
+### [Функции верификации](/ru/ride/functions/built-in-functions/verification-functions.md)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
@@ -30,7 +30,7 @@
 | 2 | rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что цифровая подпись [RSA](https://ru.wikipedia.org/wiki/RSA) достоверна; то есть что она была создана владельцем открытого ключа | 300 |
 | 3 | sigVerify(ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что цифровая подпись [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна; то есть что она была создана владельцем открытого ключа | 100 |
 
-### [Функции декодирования](/ride/functions/built-in-functions/decoding-functions.md)
+### [Функции декодирования](/ru/ride/functions/built-in-functions/decoding-functions.md)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
@@ -40,14 +40,14 @@
 | 4 | fromBase58String(String): ByteVector | Декодирует строку [Base58](https://en.wikipedia.org/wiki/Base58) в массив байтов | 10 |
 | 5 | fromBase64String(String): ByteVector | Декодирует строку [Base64](https://en.wikipedia.org/wiki/Base64) в массив байтов | 10 |
 
-### [Функции исключения](/ride/functions/built-in-functions/exception-functions.md)
+### [Функции исключения](/ru/ride/functions/built-in-functions/exception-functions.md)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
 | 1 | throw() | Выбрасывает исключение | 1 |
 | 2 | throw(String) | Выбрасывает исключение с сообщением | 1 |
 
-### [Функции кодирования](/ride/functions/built-in-functions/encoding-functions.md)
+### [Функции кодирования](/ru/ride/functions/built-in-functions/encoding-functions.md)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
@@ -55,12 +55,12 @@
 | 2 | toBase58String(ByteVector): String | Кодирует массив байтов в строку [Base58](https://en.wikipedia.org/wiki/Base58) | 10 |
 | 3 | toBase64String(ByteVector): String | Кодирует массив байтов в строку [Base64](https://en.wikipedia.org/wiki/Base64) | 10 |
 
-### [Функции конвертации](/ride/functions/built-in-functions/converting-functions.md)
+### [Функции конвертации](/ru/ride/functions/built-in-functions/converting-functions.md)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
-| 1 | addressFromPublicKey(ByteVector): Address | Получает [адрес](/blockchain/account/address.md), соответствующий открытому ключу аккаунта | 82 |
-| 2 | addressFromRecipient(Address&#124;Alias): Address | Получает [адрес](/blockchain/account/address.md), соответствующий [псевдониму](/blockchain/account/alias.md) | 100 |
+| 1 | addressFromPublicKey(ByteVector): Address | Получает [адрес](/ru/blockchain/account/address.md), соответствующий открытому ключу аккаунта | 82 |
+| 2 | addressFromRecipient(Address&#124;Alias): Address | Получает [адрес](/ru/blockchain/account/address.md), соответствующий [псевдониму](/ru/blockchain/account/alias.md) | 100 |
 | 3 | parseInt(String): Int&#124;Unit | Конвертирует строковое представление числа в эквивалентное целое число | 20 |
 | 4 | parseIntValue(String): Int | Конвертирует строковое представление числа в эквивалентное целое число. <br>Выбрасывает исключение, если строка не может быть спарсена | 20 |
 | 5 | toBytes(Boolean): ByteVector | Конвертирует логическое значение в массив байтов | 1 |
@@ -68,12 +68,12 @@
 | 7 | toBytes(String): ByteVector | Конвертирует строку в массив байтов | 1 |
 | 8 | toInt(ByteVector): Int | Конвертирует массив байтов в целое число | 10 |
 | 9 | toInt(ByteVector, Int): Int | Конвертирует массив байтов, начиная с указанного индекса, в целое число | 10 |
-| 10 | toString(Address): String | Конвертирует массив байтов [адреса](/blockchain/account/address.md) в строку | 10 |
+| 10 | toString(Address): String | Конвертирует массив байтов [адреса](/ru/blockchain/account/address.md) в строку | 10 |
 | 11 | toString(Boolean): String | Конвертирует логическое значение в строку | 1 |
 | 12 | toString(Int): String | Конвертирует целое число в строку | 1 |
 | 13 | toUtf8String(ByteVector): String | Конвертирует массив байтов в строку в [UTF-8](https://ru.wikipedia.org/wiki/UTF-8) | 20 |
 
-### [Функции массива байтов](/ride/functions/built-in-functions/byte-array-functions.md)
+### [Функции массива байтов](/ru/ride/functions/built-in-functions/byte-array-functions.md)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
@@ -83,16 +83,16 @@
 | 4 | take(ByteVector, Int): ByteVector | Возвращает первые `N` байтов массива байтов | 1 |
 | 5 | takeRight(ByteVector, Int): ByteVector | Возвращает последние `N` байтов массива байтов	 | 19 |
 
-### [Функции объединения](/ride/functions/built-in-functions/union-functions.md)
+### [Функции объединения](/ru/ride/functions/built-in-functions/union-functions.md)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
-| 1 | extract(T&#124;Unit): T | Возвращает значение из параметра типа данных [объединение](/ride/data-types/union.md). Выбрасывает исключение, если параметром является [unit](/ride/data-types/unit.md) | 13 |
-| 2 | isDefined(List[T]|Unit): Boolean | Проверяет, относится ли параметр к типу [unit](/ride/data-types/unit.md) | 1 |
-| 3 | value(T&#124;Unit): T | Возвращает значение из параметра типа данных [объединение](/ride/data-types/union.md). Выбрасывает исключение, если параметром является [unit](/ride/data-types/unit.md) | 13 |
-| 4 | valueOrErrorMessage(T&#124;Unit, String): T | Возвращает значение из параметра типа данных [объединение](/ride/data-types/union.md). Если параметром является [unit](/ride/data-types/unit.md), возвращает сообщение об ошибке, заданное во втором параметре | 13 |
+| 1 | extract(T&#124;Unit): T | Возвращает значение из параметра типа данных [объединение](/ru/ride/data-types/union.md). Выбрасывает исключение, если параметром является [unit](/ru/ride/data-types/unit.md) | 13 |
+| 2 | isDefined(List[T]|Unit): Boolean | Проверяет, относится ли параметр к типу [unit](/ru/ride/data-types/unit.md) | 1 |
+| 3 | value(T&#124;Unit): T | Возвращает значение из параметра типа данных [объединение](/ru/ride/data-types/union.md). Выбрасывает исключение, если параметром является [unit](/ru/ride/data-types/unit.md) | 13 |
+| 4 | valueOrErrorMessage(T&#124;Unit, String): T | Возвращает значение из параметра типа данных [объединение](/ru/ride/data-types/union.md). Если параметром является [unit](/ru/ride/data-types/unit.md), возвращает сообщение об ошибке, заданное во втором параметре | 13 |
 
-### [Функции получения данных из хранилища данных аккаунта](/ride/functions/built-in-functions/account-data-storage-functions.md)
+### [Функции получения данных из хранилища данных аккаунта](/ru/ride/functions/built-in-functions/account-data-storage-functions.md)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
@@ -105,9 +105,9 @@
 | 7 | getIntegerValue(Address&#124;Alias, String): Int | Получает целое число по ключу. Выбрасывает исключение, если данных нет | 100 |
 | 8 | getString(Address&#124;Alias, String): String&#124;Unit | Получает строку по ключу | 100 |
 | 9 | getStringValue(Address&#124;Alias, String): String | Получает строку по ключу. Выбрасывает исключение, если данных нет | 100 |
-| 10 | wavesBalance(Address&#124;Alias): Int | Получает баланс аккаунта в [WAVES](/blockchain/token/waves.md) | 109 |
+| 10 | wavesBalance(Address&#124;Alias): Int | Получает баланс аккаунта в [WAVES](/ru/blockchain/token/waves.md) | 109 |
 
-### [Функции списка](/ride/functions/built-in-functions/list-functions.md)
+### [Функции списка](/ru/ride/functions/built-in-functions/list-functions.md)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
@@ -115,7 +115,7 @@
 | 2 | cons(T, List[T]): List[T] | Вставляет элемент в начало списка | 2 |
 | 3 | size(List[T]): Int | Возвращает размер списка | 2 |
 
-### [Функции строки](/ride/functions/built-in-functions/string-functions.md)
+### [Функции строки](/ru/ride/functions/built-in-functions/string-functions.md)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
@@ -129,7 +129,7 @@
 | 8 | take(String, Int): String | Возвращает первые `n` символов строки | 1 |
 | 9 | takeRight(String, Int): String | Возвращает последние `n` символов строки | 19 |
 
-### [Функции транзакции данных](/ride/functions/built-in-functions/data-transaction-functions.md)
+### [Функции транзакции данных](/ru/ride/functions/built-in-functions/data-transaction-functions.md)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
@@ -150,7 +150,7 @@
 | 15 | getStringValue(List[DataEntry], String): String | Возвращает строку из списка записей данных по ключу. Выбрасывает исключение, если данных нет | 10 |
 | 16 | getStringValue(List[DataEntry], Int): String | Возвращает строку из списка записей данных по индексу. Выбрасывает исключение, если данных нет | 30 |
 
-### [Функции хеширования](/ride/functions/built-in-functions/hashing-functions.md)
+### [Функции хеширования](/ru/ride/functions/built-in-functions/hashing-functions.md)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |

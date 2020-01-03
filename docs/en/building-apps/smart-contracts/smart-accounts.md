@@ -88,5 +88,5 @@ match tx {
 }
 ```
 
-**Note.** To understand our language better, you can check our [_**RIDE Language Section**_](/smart-contracts/ride-language/ride-language.md) and go through our [_**Video Tutorials and Articles**_](/smart-contracts/video-tutorials-and-articles.md).
+**Note.** To understand our language better, you can check our [_**RIDE Language Section**_](/en/building-apps/smart-contracts/ride-language/ride-language.md) and go through our [_**Video Tutorials and Articles**_](/en/building-apps/smart-contracts/video-tutorials-and-articles.md).
 

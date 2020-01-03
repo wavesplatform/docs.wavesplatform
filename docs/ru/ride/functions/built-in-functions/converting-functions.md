@@ -2,8 +2,8 @@
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
-| 1 | [addressFromPublicKey(ByteVector): Address](#address-from-public-key) | Получает [адрес](/blockchain/account/address.md), соответствующий открытому ключу аккаунта | 82 |
-| 2 | [addressFromRecipient(Address&#124;Alias): Address](#address-from-recipient) | Получает [адрес](/blockchain/account/address.md), соответствующий [псевдониму](/blockchain/account/alias.md) | 100 |
+| 1 | [addressFromPublicKey(ByteVector): Address](#address-from-public-key) | Получает [адрес](/ru/blockchain/account/address.md), соответствующий открытому ключу аккаунта | 82 |
+| 2 | [addressFromRecipient(Address&#124;Alias): Address](#address-from-recipient) | Получает [адрес](/ru/blockchain/account/address.md), соответствующий [псевдониму](/ru/blockchain/account/alias.md) | 100 |
 | 3 | [parseInt(String): Int&#124;Unit](#parse-int) | Конвертирует строковое представление числа в эквивалентное целое число | 20 |
 | 4 | [parseIntValue(String): Int](#parse-int-value) | Конвертирует строковое представление числа в эквивалентное целое число.<br>Выбрасывает исключение, если строка не может быть спарсена | 20 |
 | 5 | [toBytes(Boolean): ByteVector](#to-bytes-boolean) | Конвертирует логическое значение в массив байтов | 1 |
@@ -11,14 +11,14 @@
 | 7 | [toBytes(String): ByteVector](#to-bytes-string) | Конвертирует строку в массив байтов | 1 |
 | 8 | [toInt(ByteVector): Int](#to-int-bytevector) | Конвертирует массив байтов в целое число | 10 |
 | 9 | [toInt(ByteVector, Int): Int](#to-int-bytevector-int) | Конвертирует массив байтов начиная с указанного индекса в целое число | 10 |
-| 10 | [toString(Address): String](#to-string-address) | Конвертирует массив байтов [адреса](/blockchain/account/address.md) в строку | 10 |
+| 10 | [toString(Address): String](#to-string-address) | Конвертирует массив байтов [адреса](/ru/blockchain/account/address.md) в строку | 10 |
 | 11 | [toString(Boolean): String](#to-string-boolean) | Конвертирует логическое значение в строку | 1 |
 | 12 | [toString(Int): String](#to-string-int) | Конвертирует целое число в строку | 1 |
 | 13 | [toUtf8String(ByteVector): String](#to-utf8-string-bytevector) | Конвертирует массив байтов в строку в [UTF-8](https://ru.wikipedia.org/wiki/UTF-8) | 20 |
 
 ## addressFromPublicKey(ByteVector): Address<a id="address-from-public-key"></a>
 
-Получает [адрес](/blockchain/account/address.md), соответствующий открытому ключу аккаунта.
+Получает [адрес](/ru/blockchain/account/address.md), соответствующий открытому ключу аккаунта.
 
 ``` ride
 addressFromPublicKey(publicKey: ByteVector): Address
@@ -26,7 +26,7 @@ addressFromPublicKey(publicKey: ByteVector): Address
 
 ### Параметры
 
-#### `publicKey`: [ByteVector](/ride/data-types/byte-vector.md)
+#### `publicKey`: [ByteVector](/ru/ride/data-types/byte-vector.md)
 
 Открытый ключ для конвертации.
 
@@ -38,7 +38,7 @@ let address = addressFromPublicKey(base58'J1t6NBs5Hd588Dn7mAPytqkhgeBshzv3zecScf
 
 ## addressFromRecipient(Address&#124;Alias): Address<a id="address-from-recipient"></a>
 
-Получает [адрес](/blockchain/account/address.md), соответствующий [псевдониму](/blockchain/account/alias.md).
+Получает [адрес](/ru/blockchain/account/address.md), соответствующий [псевдониму](/ru/blockchain/account/alias.md).
 
 ``` ride
 addressFromRecipient(AddressOrAlias: Address|Alias): Address
@@ -46,7 +46,7 @@ addressFromRecipient(AddressOrAlias: Address|Alias): Address
 
 ### Параметры
 
-#### `AddressOrAlias`: [Address](/ride/structures/common-structures/address.md)&#124;[Alias](/ride/structures/common-structures/alias.md)
+#### `AddressOrAlias`: [Address](/ru/ride/structures/common-structures/address.md)&#124;[Alias](/ru/ride/structures/common-structures/alias.md)
 
 Адрес или псевдоним, обычно получателя транзакции.
 
@@ -67,7 +67,7 @@ parseInt(str: String): Int|Unit
 
 ### Параметры
 
-#### `str`: [String](/ride/data-types/string.md)
+#### `str`: [String](/ru/ride/data-types/string.md)
 
 Строка для конвертации.
 
@@ -92,7 +92,7 @@ parseIntValue(str: String): Int
 
 ### Параметры
 
-#### `str`: [String](/ride/data-types/string.md)
+#### `str`: [String](/ru/ride/data-types/string.md)
 
 Строка для конвертации.
 
@@ -116,7 +116,7 @@ toBytes(b: Boolean): ByteVector
 
 ### Параметры
 
-#### `b`: [Boolean](/ride/data-types/boolean.md)
+#### `b`: [Boolean](/ru/ride/data-types/boolean.md)
 
 Логическое значение для конвертации.
 
@@ -137,7 +137,7 @@ toBytes(n: Int): ByteVector
 
 ### Параметры
 
-#### `n`: [Int](/ride/data-types/int.md)
+#### `n`: [Int](/ru/ride/data-types/int.md)
 
 Целое число для конвертации.
 
@@ -157,7 +157,7 @@ toBytes(s: String): ByteVector
 
 ### Параметры
 
-#### `s`: [String](/ride/data-types/string.md)
+#### `s`: [String](/ru/ride/data-types/string.md)
 
 Строка для конвертации.
 
@@ -177,7 +177,7 @@ toInt(bin: ByteVector): Int
 
 ### Параметры
 
-#### `bin`: [ByteVector](/ride/data-types/byte-vector.md)
+#### `bin`: [ByteVector](/ru/ride/data-types/byte-vector.md)
 
 Массив байтов для конвертации.
 
@@ -197,11 +197,11 @@ toInt(bin: ByteVector, offset: Int): Int
 
 ### Параметры
 
-#### `bin`: [ByteVector](/ride/data-types/byte-vector.md)
+#### `bin`: [ByteVector](/ru/ride/data-types/byte-vector.md)
 
 Массив байтов для конвертации.
 
-#### `offset`: [Int](/ride/data-types/int.md)
+#### `offset`: [Int](/ru/ride/data-types/int.md)
 
 Индекс.
 
@@ -215,7 +215,7 @@ toInt(bytes, 6) # Индекс за пределами границ
 
 ## toString(Address): String<a id="to-string-address"></a>
 
-Конвертирует массив байтов [адреса](/blockchain/account/address.md) в строку.
+Конвертирует массив байтов [адреса](/ru/blockchain/account/address.md) в строку.
 
 ``` ride
 toString(Address: Address): String
@@ -223,7 +223,7 @@ toString(Address: Address): String
 
 ### Параметры
 
-#### `Address`: [Address](/ride/structures/common-structures/address.md)
+#### `Address`: [Address](/ru/ride/structures/common-structures/address.md)
 
 Адрес для конвертации.
 
@@ -244,7 +244,7 @@ toString(b: Boolean): String
 
 ### Параметры
 
-#### `b`: [Boolean](/ride/data-types/boolean.md)
+#### `b`: [Boolean](/ru/ride/data-types/boolean.md)
 
 Логическое значение для конвертации.
 
@@ -265,7 +265,7 @@ toString(n: Int): String
 
 ### Параметры
 
-#### `n`: [Int](/ride/data-types/int.md)
+#### `n`: [Int](/ru/ride/data-types/int.md)
 
 Целое число для конвертации.
 
@@ -285,7 +285,7 @@ toUtf8String(u: ByteVector): String
 
 ### Параметры
 
-#### `u`: [ByteVector](/ride/data-types/byte-vector.md)
+#### `u`: [ByteVector](/ru/ride/data-types/byte-vector.md)
 
 Массив байтов для конвертации.
 

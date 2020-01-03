@@ -46,7 +46,7 @@ A | B | C | <a href="#D-letter">D</a> | <a href="#E-letter">E</a> | <a href="#F-
 
 <h3>Генезис-блок</h3><a id="genesis-block"></a>
 
-**Генезис-блок** (или генезис) — самый первый [блок](#block) [блокчейна](#blockchain). В генезис-блоке содержится одна или несколько [транзакций генезиса](/blockchain/transaction-type/genesis-transaction.md).
+**Генезис-блок** (или генезис) — самый первый [блок](#block) [блокчейна](#blockchain). В генезис-блоке содержится одна или несколько [транзакций генезиса](/ru/blockchain/transaction-type/genesis-transaction.md).
 
 <h2>Д</h2><a id="cD-letter"></a>
 
@@ -64,7 +64,7 @@ A | B | C | <a href="#D-letter">D</a> | <a href="#E-letter">E</a> | <a href="#F-
 
 <h3>Карточка оракула</h3><a id="oracle-card"></a>
 
-**Карточка оракула** — публичное описание [оракула](#oracle) в [блокчейне](#blockchain) по [стандартизированному протоколу](https://confluence.wavesplatform.com/pages/viewpage.action?pageId=1640860360) в виде [транзакции данных](/blockchain/transaction-type/data-transaction.md).
+**Карточка оракула** — публичное описание [оракула](#oracle) в [блокчейне](#blockchain) по [стандартизированному протоколу](https://confluence.wavesplatform.com/pages/viewpage.action?pageId=1640860360) в виде [транзакции данных](/ru/blockchain/transaction-type/data-transaction.md).
 
 <h3>Консенсус</h3><a id="consensus"></a>
 
@@ -82,7 +82,7 @@ A | B | C | <a href="#D-letter">D</a> | <a href="#E-letter">E</a> | <a href="#F-
 
 <h3>Лизинг</h3><a id="leasing"></a>
 
-**Лизинг** — временная обратимая передача [WAVES](#waves) с одного [аккаунта](#account) на другой c целью [увеличения стабильности и безопасности сети](/waves-client/account-management/waves-leasing.md), а также потенциального получения [вознаграждения за майнинг](/blockchain/mining/mining-reward.md). Важно отметить, что фактической передачи токенов WAVES не происходит, они остаются на балансе отправителя, однако они "заморожены" и не могут участвовать в операциях покупки, продажи, как и не могут быть отправлены на другой аккаунт. Переданные в лизинг [токены](#token) обеспечивают получателю лизинга бо́льшую вероятность [смайнить](#mining) очередной [блок](#block). Получатель лизинга может делиться доходом от майнинга с тем, кто предоставил ему WAVES в лизинг. Однако платформа Waves не регулирует процесс выплат по [LPoS](#lpos) майнингу, это остается на усмотрение [майнера](#miner). В любой момент передавший может "разморозить" токены  с помощью [транзакции закрытия лизинга](/blockchain/transaction-type/lease-cancel-transaction.md).
+**Лизинг** — временная обратимая передача [WAVES](#waves) с одного [аккаунта](#account) на другой c целью [увеличения стабильности и безопасности сети](/waves-client/account-management/waves-leasing.md), а также потенциального получения [вознаграждения за майнинг](/ru/blockchain/mining/mining-reward.md). Важно отметить, что фактической передачи токенов WAVES не происходит, они остаются на балансе отправителя, однако они "заморожены" и не могут участвовать в операциях покупки, продажи, как и не могут быть отправлены на другой аккаунт. Переданные в лизинг [токены](#token) обеспечивают получателю лизинга бо́льшую вероятность [смайнить](#mining) очередной [блок](#block). Получатель лизинга может делиться доходом от майнинга с тем, кто предоставил ему WAVES в лизинг. Однако платформа Waves не регулирует процесс выплат по [LPoS](#lpos) майнингу, это остается на усмотрение [майнера](#miner). В любой момент передавший может "разморозить" токены  с помощью [транзакции закрытия лизинга](/ru/blockchain/transaction-type/lease-cancel-transaction.md).
 
 <h2>М</h2><a id="cM-letter"></a>
 
@@ -92,7 +92,7 @@ A | B | C | <a href="#D-letter">D</a> | <a href="#E-letter">E</a> | <a href="#F-
 
 <h3>Майнинг</h3><a id="mining"></a>
 
-**Майнинг** — процесс генерации [блока](#block) [майнящей нодой](#mining-node), в результате которого в [блокчейн](#blockchain) добавляется новый блок и происходит эмиссия токенов [WAVES](#waves). За генерацию блоков [майнеры](#miner) получают вознаграждение за майнинг, а также [комиссии за транзакции](/blockchain/transaction/transaction-fee.md), согласно правилам протокола [Waves-NG](/blockchain/waves-protocol/waves-ng-protocol.md).
+**Майнинг** — процесс генерации [блока](#block) [майнящей нодой](#mining-node), в результате которого в [блокчейн](#blockchain) добавляется новый блок и происходит эмиссия токенов [WAVES](#waves). За генерацию блоков [майнеры](#miner) получают вознаграждение за майнинг, а также [комиссии за транзакции](/ru/blockchain/transaction/transaction-fee.md), согласно правилам протокола [Waves-NG](/ru/blockchain/waves-protocol/waves-ng-protocol.md).
 
 <h3>Майнящий аккаунт</h3><a id="mining-account"></a>
 
@@ -167,7 +167,7 @@ A | B | C | <a href="#D-letter">D</a> | <a href="#E-letter">E</a> | <a href="#F-
 {-# SCRIPT_TYPE ACCOUNT #-}
 ```
 
-Скрипт аккаунта прикрепляется к [аккаунту](#account) с помощью [транзакции установки скрипта](/blockchain/transaction-type/set-script-transaction.md). К аккаунту можно прикрепить только один скрипт. Аккаунт с прикрепленным к нему скриптом аккаунта называется [смарт-аккаунтом](#smart-account).
+Скрипт аккаунта прикрепляется к [аккаунту](#account) с помощью [транзакции установки скрипта](/ru/blockchain/transaction-type/set-script-transaction.md). К аккаунту можно прикрепить только один скрипт. Аккаунт с прикрепленным к нему скриптом аккаунта называется [смарт-аккаунтом](#smart-account).
 
 <h3>Скрипт ассета</h3><a id="asset-script"></a>
 
@@ -178,11 +178,11 @@ A | B | C | <a href="#D-letter">D</a> | <a href="#E-letter">E</a> | <a href="#F-
 {-# SCRIPT_TYPE ASSET #-}
 ```
 
-Скрипт ассета прикрепляется к ассету с помощью [транзакции установки скрипта ассета](/blockchain/transaction-type/set-asset-script-transaction.md). Прикрепить скрипт к ассету можно только в момент создания ассета. Ассет с прикрепленным к нему скриптом называется [смарт-ассетом](#smart-asset).
+Скрипт ассета прикрепляется к ассету с помощью [транзакции установки скрипта ассета](/ru/blockchain/transaction-type/set-asset-script-transaction.md). Прикрепить скрипт к ассету можно только в момент создания ассета. Ассет с прикрепленным к нему скриптом называется [смарт-ассетом](#smart-asset).
 
 <h3>Смарт-аккаунт</h3><a id="smart-account"></a>
 
-**Смарт-аккаунт** — [аккаунт](#account), к которому прикреплён [скрипт аккаунта](#account-script). К аккаунту можно прикрепить только один скрипт. Скрипт аккаунта прикрепляется к аккаунту с помощью [транзакции установки скрипта](/blockchain/transaction-type/set-script-transaction.md).
+**Смарт-аккаунт** — [аккаунт](#account), к которому прикреплён [скрипт аккаунта](#account-script). К аккаунту можно прикрепить только один скрипт. Скрипт аккаунта прикрепляется к аккаунту с помощью [транзакции установки скрипта](/ru/blockchain/transaction-type/set-script-transaction.md).
 
 <h3>Смарт-ассет</h3><a id="smart-asset"></a>
 
@@ -250,7 +250,7 @@ A | B | C | <a href="#D-letter">D</a> | <a href="#E-letter">E</a> | <a href="#F-
 {-# CONTENT_TYPE DAPP #-}
 ```
 
-dApp-скрипт можно привязать к [аккаунту](#account) с помощью [транзакции установки скрипта](/blockchain/transaction-type/set-script-transaction.md), создав таким образом dApp.
+dApp-скрипт можно привязать к [аккаунту](#account) с помощью [транзакции установки скрипта](/ru/blockchain/transaction-type/set-script-transaction.md), создав таким образом dApp.
 
 <h3>DEX</h3><a id="dex"></a>
 
@@ -322,7 +322,7 @@ dApp-скрипт можно привязать к [аккаунту](#account) 
 
 <h3>WAVES</h3><a id="waves"></a>
 
-**WAVES** — главный [токен](#token) платформы Waves. 1 WAVES равен 100 000 000 [WAVELET](#wavelet). В апреле 2016 было выпущено 100 миллионов WAVES. WAVES нельзя сжечь с помощью [транзакции сжигания токена](/blockchain/transaction-type/burn-transaction.md).
+**WAVES** — главный [токен](#token) платформы Waves. 1 WAVES равен 100 000 000 [WAVELET](#wavelet). В апреле 2016 было выпущено 100 миллионов WAVES. WAVES нельзя сжечь с помощью [транзакции сжигания токена](/ru/blockchain/transaction-type/burn-transaction.md).
 
 <h3>WCT</h3><a id="wct"></a>
 

@@ -175,14 +175,14 @@ java -jar waves-all-0.13.3.jar waves.conf
 
 ### Настройки REST API
 
-Секция **REST API** файла конфигурации ноды содержит настройки [Node API](/waves-node/node-api.md).
+Секция **REST API** файла конфигурации ноды содержит настройки [Node API](/ru/waves-node/node-api.md).
 
 | # | Name | Description | Default value |
 | :--- | :--- | :--- | :--- |
 | 1 | enable | Активирует REST API. <br>Для деактивации REST API укажите значение `no`. | yes |
 | 2 | `bind-address` | Назначает сетевой адрес, по которому REST API будет принимать входящие подключения. <br>**Примечание**. Не рекомендуется менять значение по умолчанию. Используйте [Nginx’s proxy pass module](http://nginx.org/ru/docs/http/ngx_http_proxy_module.html) или [SSH port forwarding](http://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html)  для внешнего доступа. | `"127.0.0.1"` |
 | 3 | `port` | Назначает номер порта, через который REST API будет ожидать подключения. | 6869 |
-| 4 | `api-key-hash` | Задает хэш [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key), который предоставляется владельцем ноды.<br> API key владельца ноды — очень важный параметр, так же как и [SEED-фраза](/waves-client/frequently-asked-questions-faq/account-management/seed-phrase.md) и пароль кошелька.<br>Для генерации хэша API key:<br> 1. Перейдите в [Swagger web interface](/waves-node/node-api.md).<br>2. Нажмите на секцию [`utils`](https://nodes.wavesnodes.com/api-docs/index.html#/utils).<br>3. Нажмите на метод [`/utils/hash/secure`](https://nodes.wavesnodes.com/api-docs/index.html#!/utils/hashSecure_1).<br>4. Создайте уникальную строку API key и включите ее в параметр `message`.<br> 5. Скопируйте хэш API key и вставьте его в файл конфигурации ноды.<br>6. Перезапустите ноду.<br>**Внимание!** API key передается в HTTP-заголовке в открытом виде. Злоумышленники могут перехватить его в процессе передачи по сети и использовать для перевода ваших средств на любой адрес. Очень важно защитить передачу данных с помощью HTTPS- или SSH-ретрансляции порта. | "" |
+| 4 | `api-key-hash` | Задает хэш [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key), который предоставляется владельцем ноды.<br> API key владельца ноды — очень важный параметр, так же как и [SEED-фраза](/waves-client/frequently-asked-questions-faq/account-management/seed-phrase.md) и пароль кошелька.<br>Для генерации хэша API key:<br> 1. Перейдите в [Swagger web interface](/ru/waves-node/node-api.md).<br>2. Нажмите на секцию [`utils`](https://nodes.wavesnodes.com/api-docs/index.html#/utils).<br>3. Нажмите на метод [`/utils/hash/secure`](https://nodes.wavesnodes.com/api-docs/index.html#!/utils/hashSecure_1).<br>4. Создайте уникальную строку API key и включите ее в параметр `message`.<br> 5. Скопируйте хэш API key и вставьте его в файл конфигурации ноды.<br>6. Перезапустите ноду.<br>**Внимание!** API key передается в HTTP-заголовке в открытом виде. Злоумышленники могут перехватить его в процессе передачи по сети и использовать для перевода ваших средств на любой адрес. Очень важно защитить передачу данных с помощью HTTPS- или SSH-ретрансляции порта. | "" |
 | 5 | cors | Включает поддержку [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), которая важна для [Swagger](https://swagger.io/) и [Exchange](https://waves.exchange). <br>CORS позволяет безопасно получать запросы для других доменов, вне того, на котором работает нода. Для выключения поддержки CORS установите значение `no`. | yes |
 
 **Примечание**. В запросах к REST API ноды нужно указывать сам [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key), а не его хэш.
@@ -237,7 +237,7 @@ timestamp: 1568020044350 \
 <a id="rewards"></a>
 ### Настройки вознаграждения
 
-В данной секции вы можете указать желаемый размер вознаграждения за майнинг в параметре `desired`. Значение указывается в [WAVELET](/blockchain/token/wavelet.md).
+В данной секции вы можете указать желаемый размер вознаграждения за майнинг в параметре `desired`. Значение указывается в [WAVELET](/ru/blockchain/token/wavelet.md).
 
 Если значение больше текущего размера вознаграждения, то майнер голосует за увеличение вознаграждения; если меньше — за уменьшение.
 
@@ -254,4 +254,4 @@ waves {
 В качестве значения может быть указано любое целое число в диапазоне от 0 до 9 223 372 036 854 775 807 включительно.
 Отрицательные значения игнорируются.
 
-Подробнее см. в разделе [Вознаграждение за майнинг](/blockchain/mining/mining-reward.md).
+Подробнее см. в разделе [Вознаграждение за майнинг](/ru/blockchain/mining/mining-reward.md).

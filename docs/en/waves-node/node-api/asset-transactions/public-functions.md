@@ -107,7 +107,7 @@ Asset description.
 Description of specified assets.
 
 > [!WARNING]
-> This method becomes available from node version 1.2.0, after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature. See [Activation Protocol](/blockchain/waves-protocol/activation-protocol.md). Version 1.2.x is currently available on [Stagenet](/blockchain/blockchain-network/stage-network.md) only.
+> This method becomes available from node version 1.2.0, after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature. See [Activation Protocol](/en/blockchain/waves-protocol/activation-protocol.md). Version 1.2.x is currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network.md) only.
 
 **Request params:**
 

@@ -2,14 +2,14 @@
 
 | # | Name | Description | Complexity |
 |:---| :--- | :--- | :--- |
-| 1 | [fraction(Int, Int, Int): Int](#fraction) | Multiplies [integers](/ride/data-types/int.md) `a`, `b` and divides the result by the integer `c` to avoid the integer overflow | 1 |
+| 1 | [fraction(Int, Int, Int): Int](#fraction) | Multiplies [integers](/en/ride/data-types/int.md) `a`, `b` and divides the result by the integer `c` to avoid the integer overflow | 1 |
 | 2 | [log(Int, Int, Int, Int, Int, Union): Int](#log)|  Calculates logarithm of the number `a` with the base `b` | 100 |
 | 3 | [median(List[Int]): Int](#median)|  Returns the median of a list of integers | 10 |
 | 4 | [pow(Int, Int, Int, Int, Int, Union): Int](#pow) | Raises the number `a` to the power `b`| 100 |
 
 ## fraction(Int, Int, Int): Int<a id="fraction"></a>
 
-Multiplies [integers](/ride/data-types/int.md) `a`, `b` and divides the result by the integer `c` to avoid the integer overflow.
+Multiplies [integers](/en/ride/data-types/int.md) `a`, `b` and divides the result by the integer `c` to avoid the integer overflow.
 
 Fraction `(a × b)/c` should not exceed the maximum value of the integer type 9 223 372 036 854 755 807.
 
@@ -19,15 +19,15 @@ fraction(value: Int, numerator: Int, denominator: Int): Int
 
 ### Parameters
 
-#### `value`: [Int](/ride/data-types/int.md)
+#### `value`: [Int](/en/ride/data-types/int.md)
 
 Integer `a`.
 
-#### `numerator`: [Int](/ride/data-types/int.md)
+#### `numerator`: [Int](/en/ride/data-types/int.md)
 
 Integer `b`.
 
-#### `denominator`: [Int](/ride/data-types/int.md)
+#### `denominator`: [Int](/en/ride/data-types/int.md)
 
 Integer `c`.
 
@@ -49,7 +49,7 @@ b =50 000 000 000 000,
 
 c = 250 0000.
 
-The following formula, with [operators](/ride/operators.md) `*` and `/`, will throw integer overflow exception:
+The following formula, with [operators](/en/ride/operators.md) `*` and `/`, will throw integer overflow exception:
 
 ```ride
 let result = a * b # integer overflow, because a * b exceeds max integer type value 9 223 372 036 854 755 807
@@ -72,33 +72,33 @@ Calculates logarithm of the number `a` with the base `b`.
 log(value: Int, ep: Int, base: Int, bp: Int, rp: Int, round: Union): Int
 ```
 
-In Ride, there is no [data type](/ride/data-types.md) with the floating point. That is why, for example, when you need to calculate `log<sub>2,7</sub>(16,25)` then the number `a` = 1625, and the logarithm base `b` = 27.
+In Ride, there is no [data type](/en/ride/data-types.md) with the floating point. That is why, for example, when you need to calculate `log<sub>2,7</sub>(16,25)` then the number `a` = 1625, and the logarithm base `b` = 27.
 
 If the `log` function returns, for example, 64391, and the parameter of function `rp` = 4, then the result is  — 6,4391; in the number 64391 the last 4 digits (`rp` = 4) — fractional part. The `rp` parameter specifies the calculation accuracy of the result of the function, — number of decimals in the result.
 
 ### Parameters
 
-#### `value`: [Int](/ride/data-types/int.md)
+#### `value`: [Int](/en/ride/data-types/int.md)
 
 Given number without decimals.
 
 For example, if `a` = 2,715, then `value` = 2715; if `a` = 230,9, then `value` = 2309; if `a` = 5, then value = `5`; if `a` = 5,00, then `value` = 500.
 
-#### `ep`: [Int](/ride/data-types/int.md)
+#### `ep`: [Int](/en/ride/data-types/int.md)
 
 Number of decimals of the given number `a`.
 
 For example, if `a` = 2,715, then `ep` = 3; if `a` = 230,9, then `ep` = 1; if `a` = 5, then `ep` = 0; if `a` = 5,00, then `ep` = 2.
 
-#### `base`: [Int](/ride/data-types/int.md)
+#### `base`: [Int](/en/ride/data-types/int.md)
 
 Logarithm base without the decimals.
 
-#### `bp`: [Int](/ride/data-types/int.md)
+#### `bp`: [Int](/en/ride/data-types/int.md)
 
 Number of decimals of the logarithm base.
 
-#### `rp`: [Int](/ride/data-types/int.md)
+#### `rp`: [Int](/en/ride/data-types/int.md)
 
 Number of decimals in the resulting value. Specifies the accuracy of the calculated result.
 
@@ -121,10 +121,10 @@ log(1625, 2, 27, 1, 5, HALFUP) # function returns 280703542, so, the result is: 
 
 ## median(List[Int]): Int<a id="median"></a>
 
-Returns the median of the [list](/ride/data-types/list). The list can't be empty, otherwise, the script will be finished with the error.
+Returns the median of the [list](/en/ride/data-types/list). The list can't be empty, otherwise, the script will be finished with the error.
 
 > The `median` function becomes available with node 1.2.0 version. The function can be used when the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature is activated on the node.
-Version 1.2.x is currently available on [stagenet](/blockchain/blockchain-network/stage-network.md).
+Version 1.2.x is currently available on [stagenet](/en/blockchain/blockchain-network/stage-network.md).
 
 ```ride
 median(arr: List[Int]): Int
@@ -132,7 +132,7 @@ median(arr: List[Int]): Int
 
 ### Parameters
 
-#### `arr`: [List[Int]](/ride/data-types/list.md)
+#### `arr`: [List[Int]](/en/ride/data-types/list.md)
 
 List of integers.
 
@@ -152,29 +152,29 @@ Raises the number `a` to the power `b`.
 pow(base: Int, bp: Int, exponent: Int, ep: Int, rp: Int, round: Union): Int
 ```
 
-there is no [data type](/ride/data-types.md) with the floating point. That is why, for example, when you need to calculate, 16,25<sup>2,7</sup>, then the number `a` = 1625, and the logarithm base `b` = 27.
+there is no [data type](/en/ride/data-types.md) with the floating point. That is why, for example, when you need to calculate, 16,25<sup>2,7</sup>, then the number `a` = 1625, and the logarithm base `b` = 27.
 
  If the `pow` function returns, for example, 64391, and the parameter of function `rp` = 4, then the result is  — 6,4391; in the number 64391 the last 4 digits (`rp` = 4) — fractional part. The `rp` parameter specifies the calculation accuracy of the result of the function, — number of decimals in the result.
 
 ### Parameters
 
-#### `base`: [Int](/ride/data-types/int.md)
+#### `base`: [Int](/en/ride/data-types/int.md)
 
 Given number without decimals.
 
-#### `bp`: [Int](/ride/data-types/int.md)
+#### `bp`: [Int](/en/ride/data-types/int.md)
 
 Number of decimals of the given number `a`.
 
-#### `exponent`: [Int](/ride/data-types/int.md)
+#### `exponent`: [Int](/en/ride/data-types/int.md)
 
 Power without decimals.
 
-#### `ep`: [Int](/ride/data-types/int.md)
+#### `ep`: [Int](/en/ride/data-types/int.md)
 
 Number of decimals of the power.
 
-#### `rp`: [Int](/ride/data-types/int.md)
+#### `rp`: [Int](/en/ride/data-types/int.md)
 
 Number of decimals of the resulting value. Specifies the accuracy of the calculated result.
 

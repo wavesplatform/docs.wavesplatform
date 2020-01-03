@@ -1,4 +1,4 @@
 # Features
 
-* [Feature](/waves-node/features/feature.md)
-* [Feature activation protocol](/waves-node/features/feature-activation-protocol.md)
+* [Feature](/en/waves-node/features/feature.md)
+* [Feature activation protocol](/en/waves-node/features/feature-activation-protocol.md)

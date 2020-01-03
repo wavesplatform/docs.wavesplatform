@@ -1,6 +1,6 @@
 # Mining reward
 
-The **mining reward** is a blockchain feature under which [miners](/blockchain/mining/miner.md) receive a fixed fee in [WAVES](/blockchain/token/waves.md) for each [generated block](/blockchain/block/block-generation.md).
+The **mining reward** is a blockchain feature under which [miners](/en/blockchain/mining/miner.md) receive a fixed fee in [WAVES](/en/blockchain/token/waves.md) for each [generated block](/en/blockchain/block/block-generation.md).
 
 Mining rewards are paid due to the additional issue of the WAVES token.
 
@@ -8,7 +8,7 @@ The community of miners can change the size of reward through [voting](#voting).
 
 ## Current reward size
 
-You can view the current reward size by making a request to the [Node API](/waves-node/node-api.md). In response to the request, JSON is returned, the value of the `currentReward` field of which is the current mining reward size in [WAVELET](/blockchain/token/wavelet.md)s.
+You can view the current reward size by making a request to the [Node API](/en/waves-node/node-api.md). In response to the request, JSON is returned, the value of the `currentReward` field of which is the current mining reward size in [WAVELET](/en/blockchain/token/wavelet.md)s.
 
 Example of request:
 
@@ -49,11 +49,11 @@ The elected reward size remains unchanged for 100,000 blocks following the end o
 <a id="voting"></a>
 ## Voting
 
-Miner specifies the new desired reward size using the [waves.rewards.desired](/waves-node/node-configuration.md#rewards) setting in the node configuration file; the setting value is specified in [WAVELET](/blockchain/token/wavelet.md)s.
+Miner specifies the new desired reward size using the [waves.rewards.desired](/en/waves-node/node-configuration.md#rewards) setting in the node configuration file; the setting value is specified in [WAVELET](/en/blockchain/token/wavelet.md)s.
 
 If the value is **greater than the current reward size**, then miner votes for the current reward size **increase**; if the value is smaller — for the decrease. If the setting value is not specified in the configuration file, then miner votes for keeping the current reward size.
 
-When a [mining node](/blockchain/node/mining-node.md) generates a block, it writes into that block the value of the `waves.rewards.desired` setting from its own configuration file. If the setting value is not specified in the configuration file, then -1 is written to the block.
+When a [mining node](/en/blockchain/node/mining-node.md) generates a block, it writes into that block the value of the `waves.rewards.desired` setting from its own configuration file. If the setting value is not specified in the configuration file, then -1 is written to the block.
 
 During the voting time in 10,000 blocks, a single mining node can generate several blocks, therefore one mining node can vote several times. How often a mining node generates blocks is determined by the LPoS consensus.
 
@@ -71,7 +71,7 @@ The mining reward is increased/decreased only if more than half of the 10,000 vo
 
 ### Example 1
 
-At the [blockchain height](/blockchain/blockchain/blockchain-height.md) of 2,000,000, the mining reward equals 5 WAVES. At the height of 2,090,000, another voting starts.
+At the [blockchain height](/en/blockchain/blockchain/blockchain-height.md) of 2,000,000, the mining reward equals 5 WAVES. At the height of 2,090,000, another voting starts.
 
 During the 10,000 blocks of voting 6,000 votes were given for reward increase, 1,000 — for decrease, 3,000 — for keeping the current reward size.
 

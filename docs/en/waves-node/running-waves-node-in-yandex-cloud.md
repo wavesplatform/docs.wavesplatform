@@ -16,7 +16,7 @@
 
 <img src="img/search-bar.png" width="550"/> <br>
 
-5.&nbsp;Set the parameters of the virtual machine. See the [Hardware requirements](/waves-node/prerequisites/hardware-requirements.md) page for minimum hardware requirements to start the node.
+5.&nbsp;Set the parameters of the virtual machine. See the [Hardware requirements](/en/waves-node/prerequisites/hardware-requirements.md) page for minimum hardware requirements to start the node.
 
 <img src="img/virtual-machine-parameters.png" width="600"/> <br>
 

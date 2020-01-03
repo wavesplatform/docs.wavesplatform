@@ -1,13 +1,13 @@
 # Создание смарт-аккаунта
 
-В этой статье мы рассмотрим создание [смарт-аккаунта](/blockchain/account/smart-account.md) при помощи [Waves IDE](/smart-contracts/tools/waves-ide.md).
+В этой статье мы рассмотрим создание [смарт-аккаунта](/ru/blockchain/account/smart-account.md) при помощи [Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide.md).
 
 Чтобы создать смарт-аккаунт в Waves IDE, выполните следующие действия:
 
 1. Откройте в браузере https://ide.wavesplatform.com/
 2. Нажмите **Add account** в верхней правой области экрана. В результате отобразится выпадающий список.
 
-![](/smart-contracts/img/add_account.png)
+![](/ru/building-apps/smart-contracts/img/add_account.png)
 
 3. Выполните одно из перечисленных действий:
 
@@ -16,14 +16,14 @@
         2. Придумайте имя аккаунта и введите его в поле **Account name**.
         3. Нажмите **Import**.
     - Если у вас нет аккаунта, нажмите **Generate new account** в выпадающем списке. В результате отобразятся
-        - [адрес](/blockchain/account/address.md) аккаунта,
+        - [адрес](/ru/blockchain/account/address.md) аккаунта,
         - открытый ключ,
         - закрытый ключ,
         - seed. Рекомендуется запомнить seed — если он будет утрачен, восстановить доступ к аккаунту будет невозможно.
 
-4. Нажмите ![](/smart-contracts/img/plus.png) в правой верхней области экрана. В результате отобразится выпадающий список.
+4. Нажмите ![](/ru/building-apps/smart-contracts/img/plus.png) в правой верхней области экрана. В результате отобразится выпадающий список.
 
-![](/smart-contracts/img/plus2.png)
+![](/ru/building-apps/smart-contracts/img/plus2.png)
 
 5. Нажмите **Account script**. В результате откроется вкладка. Используйте её, чтобы написать код смарт-аккаунта.
 6. Нажмите **Deploy** после того как код смарт-аккаунта будет сформирован.

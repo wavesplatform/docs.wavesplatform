@@ -1,11 +1,11 @@
 # What is a Smart Asset
 
-Any user can not only [create](/waves-client/assets-management/issue-an-asset.md) their own [token](/blockchain/token.md) on the Waves platform but also endow it with certain functionality by attaching a script to it. A token with an attached script is called a [smart asset](/blockchain/token/smart-asset.md), and an attached script is called an [asset script](/ride/script/script-types/asset-script.md). Examples of practical use of smart assets:
+Any user can not only [create](/waves-client/assets-management/issue-an-asset.md) their own [token](/en/blockchain/token.md) on the Waves platform but also endow it with certain functionality by attaching a script to it. A token with an attached script is called a [smart asset](/en/blockchain/token/smart-asset.md), and an attached script is called an [asset script](/en/ride/script/script-types/asset-script.md). Examples of practical use of smart assets:
 
-- **Freezing**. [Transactions](/blockchain/transaction.md) with a smart asset can be prohibited before (or after) the moment when the [blockchain](/blockchain/blockchain.md) reaches a certain [height](/blockchain/blockchain/blockchain-height.md).
-- **Black / white lists**. Transfer of a smart asset can be prohibited to the specified [addresses](/blockchain/account/address.md) or, conversely, allowed only to the specified addresses.
+- **Freezing**. [Transactions](/en/blockchain/transaction.md) with a smart asset can be prohibited before (or after) the moment when the [blockchain](/en/blockchain/blockchain.md) reaches a certain [height](/en/blockchain/blockchain/blockchain-height.md).
+- **Black / white lists**. Transfer of a smart asset can be prohibited to the specified [addresses](/en/blockchain/account/address.md) or, conversely, allowed only to the specified addresses.
 - **Commission**. The creator of the smart asset can set a commission that will be paid to him for each operation with his smart asset.
-- **Multi-signature**. A smart asset may require the [signing](/blockchain/transaction/transaction-signature.md) of multiple accounts to complete a transaction.
+- **Multi-signature**. A smart asset may require the [signing](/en/blockchain/transaction/transaction-signature.md) of multiple accounts to complete a transaction.
 - **Purchase restriction**. A rule can be established according to which a smart asset can only be purchased for certain tokens. Buying a smart asset for other tokens may be prohibited.
 - **Restriction on the matcher**. A rule may be established according to which the purchase and sale transaction of a smart asset can be carried out only by a specific matcher.
 - **Gaming**. For a smart asset used as game currency, permission can be set to make transactions only in specified game locations or only between characters with certain properties.
@@ -14,7 +14,7 @@ The features of smart assets are not limited to the examples given.
 
 ## Creating a Smart Asset
 
-You can attach a script to a token only at the time the token is created. The script can be updated at any time. To create a token, you can use both [Waves IDE](/smart-contracts/tools/waves-ide.md) and libraries ([WavesJ](https://github.com/wavesplatform/WavesJ), [WavesCS](https://github.com/wavesplatform/WavesCS), and others). The asset script must be written in [Ride](/ride/about-ride.md) and attached to the token using the [set asset script transaction](/blockchain/transaction-type/set-asset-script-transaction.md). A commission of 1 [WAVES](/blockchain/token/waves.md) is charged for the execution of an asset script installation transaction.
+You can attach a script to a token only at the time the token is created. The script can be updated at any time. To create a token, you can use both [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide.md) and libraries ([WavesJ](https://github.com/wavesplatform/WavesJ), [WavesCS](https://github.com/wavesplatform/WavesCS), and others). The asset script must be written in [Ride](/en/ride/about-ride.md) and attached to the token using the [set asset script transaction](/en/blockchain/transaction-type/set-asset-script-transaction.md). A commission of 1 [WAVES](/en/blockchain/token/waves.md) is charged for the execution of an asset script installation transaction.
 
 ## Asset Script Structure
 
@@ -70,7 +70,7 @@ match tx {
 
 ### Commission from each token transfer
 
-The issuer of the token involved in the transaction will receive a commission fee after the successful [transfer transaction](/blockchain/transaction-type/transfer-transaction.md).
+The issuer of the token involved in the transaction will receive a commission fee after the successful [transfer transaction](/en/blockchain/transaction-type/transfer-transaction.md).
 
 ```ride
 match tx {
@@ -82,7 +82,7 @@ match tx {
 
 ### Non-transferrable token
 
-To make token transfers impossible, false should be returned for the transfer transaction, [mass transfer transaction](/blockchain/transaction-type/mass-transfer-transaction.md) and [exchange transaction](/blockchain/transaction-type/exchange-transaction.md).
+To make token transfers impossible, false should be returned for the transfer transaction, [mass transfer transaction](/en/blockchain/transaction-type/mass-transfer-transaction.md) and [exchange transaction](/en/blockchain/transaction-type/exchange-transaction.md).
 
 ```ride
 match tx {
@@ -122,7 +122,7 @@ A transaction involving the execution of an asset script has the transaction fee
 
 ## Smart asset fees
 
-The fee for the transaction in which the asset script is executed is increased by 0.004 WAVES. If the account is a [smart account](/blockchain/account/smart-account.md), then the size of the fee is increased by an additional 0.004 WAVES.
+The fee for the transaction in which the asset script is executed is increased by 0.004 WAVES. If the account is a [smart account](/en/blockchain/account/smart-account.md), then the size of the fee is increased by an additional 0.004 WAVES.
 
 Let's review the example. The commission for a transfer transaction is 0.001 WAVES. If a user makes a transfer of a smart asset from a smart account, then the amount of the commission will be 0.001 + 0.004 + 0.004 = 0.009 WAVES.
 

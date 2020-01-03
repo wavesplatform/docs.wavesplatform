@@ -1,9 +1,9 @@
 # DeleteKey
 
-Deletes [account data storage](/blockchain/account/account-data-storage.md) record by its key.
+Deletes [account data storage](/en/blockchain/account/account-data-storage.md) record by its key.
 
 > This feature is available starting from node version 1.2.0. This feature can be used after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) functionality on the node.
-Version 1.2.x is currently available on [stagenet](/blockchain/blockchain-network/stage-network.md)
+Version 1.2.x is currently available on [stagenet](/en/blockchain/blockchain-network/stage-network.md)
 
 ## Constructor
 
@@ -13,7 +13,7 @@ Version 1.2.x is currently available on [stagenet](/blockchain/blockchain-networ
 
 |   #   | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | key | [String](/ride/data-types/string.md) | Record key |
+| 1 | key | [String](/en/ride/data-types/string.md) | Record key |
 
 ## Example
 

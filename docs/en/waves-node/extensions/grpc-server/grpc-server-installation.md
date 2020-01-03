@@ -1,10 +1,10 @@
 # gRPC Server installation
 
-The [gRPC Server](/waves-node/extensions/grpc-server.md) extension can be installed on the [node](/blockchain/node.md) by two methods: using [deb package](https://en.wikipedia.org/wiki/Deb_%28file_format%29) or using ZIP file.
+The [gRPC Server](/en/waves-node/extensions/grpc-server.md) extension can be installed on the [node](/en/blockchain/node.md) by two methods: using [deb package](https://en.wikipedia.org/wiki/Deb_%28file_format%29) or using ZIP file.
 
 ## Installation via deb package
 
-1. Download deb package from the Releases page (Assets section) on [Github](https://github.com/wavesplatform/Waves/releases). For the [main network](/blockchain/blockchain-network/main-network.md) it is grpc-server\_{version number}\_all.deb file, for [test network](/blockchain/blockchain-network/test-network.md) it is grpc-server-testnet\_{version number}\_all.deb.
+1. Download deb package from the Releases page (Assets section) on [Github](https://github.com/wavesplatform/Waves/releases). For the [main network](/en/blockchain/blockchain-network/main-network.md) it is grpc-server\_{version number}\_all.deb file, for [test network](/en/blockchain/blockchain-network/test-network.md) it is grpc-server-testnet\_{version number}\_all.deb.
 
 2. Install the package using the command:
 

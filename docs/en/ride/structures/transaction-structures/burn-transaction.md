@@ -1,6 +1,6 @@
 # BurnTransaction
 
-Structure of a [burn transaction](/blockchain/transaction-type/burn-transaction.md).
+Structure of a [burn transaction](/en/blockchain/transaction-type/burn-transaction.md).
 
 ## Constructor
 
@@ -12,13 +12,13 @@ BurnTransaction(quantity: Int, assetId: ByteVector, id: ByteVector, fee: Int, ti
 
 | # | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | quantity | [Int](/ride/data-types/int.md) | Amount of the [token](/blockchain/token.md) to burn |
-| 2 | assetId | [ByteVector](/ride/data-types/byte-vector.md) | [ID of the token](/blockchain/token/token-id.md) to burn |
-| 3 | id | [ByteVector](/ride/data-types/byte-vector.md) | [Transaction ID](/blockchain/transaction/transaction-id.md) |
-| 4 | fee | [Int](/ride/data-types/int.md) | [Transaction fee](/blockchain/transaction/transaction-fee.md) |
-| 5 | timestamp | [Int](/ride/data-types/int.md) | [Transaction timestamp](/blockchain/transaction/transaction-timestamp.md) |
-| 6 | version | [Int](/ride/data-types/int.md) | [Transaction version](/blockchain/transaction/transaction-version.md) |
-| 7 | sender | [Address](/ride/structures/common-structures/address.md) | [Address](/blockchain/account/address.md) of the transaction sender |
-| 8 | senderPublicKey | [ByteVector](/ride/data-types/byte-vector.md) | Public key of the transaction sender  |
-| 9 | bodyBytes | [ByteVector](/ride/data-types/byte-vector.md) | [Transaction body bytes](/blockchain/transaction/transaction-body-bytes.md) |
-| 10 | proofs | [List](/ride/data-types/list.md)[[ByteVector](/ride/data-types/byte-vector.md)] | Array of [proofs](/blockchain/transaction/transaction-proof.md) |
+| 1 | quantity | [Int](/en/ride/data-types/int.md) | Amount of the [token](/en/blockchain/token.md) to burn |
+| 2 | assetId | [ByteVector](/en/ride/data-types/byte-vector.md) | [ID of the token](/en/blockchain/token/token-id.md) to burn |
+| 3 | id | [ByteVector](/en/ride/data-types/byte-vector.md) | [Transaction ID](/en/blockchain/transaction/transaction-id.md) |
+| 4 | fee | [Int](/en/ride/data-types/int.md) | [Transaction fee](/en/blockchain/transaction/transaction-fee.md) |
+| 5 | timestamp | [Int](/en/ride/data-types/int.md) | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp.md) |
+| 6 | version | [Int](/en/ride/data-types/int.md) | [Transaction version](/en/blockchain/transaction/transaction-version.md) |
+| 7 | sender | [Address](/en/ride/structures/common-structures/address.md) | [Address](/en/blockchain/account/address.md) of the transaction sender |
+| 8 | senderPublicKey | [ByteVector](/en/ride/data-types/byte-vector.md) | Public key of the transaction sender  |
+| 9 | bodyBytes | [ByteVector](/en/ride/data-types/byte-vector.md) | [Transaction body bytes](/en/blockchain/transaction/transaction-body-bytes.md) |
+| 10 | proofs | [List](/en/ride/data-types/list.md)[[ByteVector](/en/ride/data-types/byte-vector.md)] | Array of [proofs](/en/blockchain/transaction/transaction-proof.md) |
