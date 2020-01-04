@@ -442,10 +442,6 @@ module.exports = {
       path: blockchainPath + 'waves-protocol',
       children: [
         {
-          title: 'Leased Proof Of Stake (LPoS)',
-          path: blockchainPath + 'waves-protocol/leased-proof-of-stake-lpos',
-        },
-        {
           title: 'Fair Proof of Stake',
           path: blockchainPath + 'waves-protocol/fair-pos',
         },

@@ -674,7 +674,7 @@ module.exports = [
   },
   {
     from: '/ru/platform-features/leased-proof-of-stake-lpos.html',
-    to: '/ru/blockchain/waves-protocol/leased-proof-of-stake-lpos',
+    to: '/ru/blockchain/leasing',
   },
   {
     '===============================  Oracles  =====================================': null,
