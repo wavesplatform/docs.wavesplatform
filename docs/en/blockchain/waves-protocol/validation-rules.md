@@ -1,10 +1,16 @@
-# Account validation
+---
+sidebarDepth: 2
+---
+
+# Validation rules
+
+## Account validation
 
 Account is valid then it is a valid Base58 string and the length of corresponding array is 26 bytes. Version of address \(1st byte\) is equal to 1. The network byte \(2nd byte\) is equal to network ID. The checksum of address \(last 4 bytes\) is correct.
 
-# Transactions validation
+## Transactions validation
 
-## Transfer transaction
+### Transfer transaction
 
 Transfer transaction is valid then:
 
@@ -15,7 +21,7 @@ Transfer transaction is valid then:
 5. Adding fee to amount does not lead to Long overflow. In case of Long overflow _OverflowError _validation result will be returned.
 6. Transaction's signature is valid, otherwise _InvalidSignature _validation result is returned.
 
-## Issue transaction
+### Issue transaction
 
 Issue transaction is valid then:
 
@@ -27,7 +33,7 @@ Issue transaction is valid then:
 6. Decimals is positive and less or equal to _MaxDecimals_, in other case _TooBigArray _is returned.
 7. Transaction's signature is valid, otherwise _InvalidSignature _validation result is returned.
 
-## Reissue transaction
+### Reissue transaction
 
 Reissue transaction is valid then:
 
@@ -36,7 +42,7 @@ Reissue transaction is valid then:
 3. Transaction's fee is positive, in other case _InsufficienFee _result will be returned.
 4. Transaction's signature is valid, otherwise _InvalidSignature _validation result is returned.
 
-# Block validations
+## Block validations
 
 Block is valid then:
 
@@ -45,7 +51,7 @@ Block is valid then:
 3. Block's consensus data is valid.
 4. Block's transactions are valid.
 
-## Consensus data validation
+### Consensus data validation
 
 Block's consensus data is valid then:
 
@@ -57,14 +63,14 @@ Block's consensus data is valid then:
 6. Generator's balance is more or equal then _MinimalEffectiveBalanceForGeneration _\(1000000000000 wavelets\). This rule always works on Testnet and works only after 1479168000000 on Mainnet.
 7. Block's hit is less then calculated block's target.
 
-## Transactions data validation
+### Transactions data validation
 
 Block's transactions are valid then:
 
 1. Creation time of every transaction in block is less then block's creation time no more then on _MaxTxAndBlockDiff _\(2 hours\).
 2. All transactions are valid against state.
 
-### Transaction validation against state
+#### Transaction validation against state
 
 Transactions are valid then:
 
@@ -75,7 +81,7 @@ Transactions are valid then:
 5. Application of transaction's amount to current balance should not lead to Long overflow.
 6. After application of all block's transactions affected balances should not be negative.
 
-# Unconfirmed Transactions Pool validation
+## Unconfirmed Transactions Pool validation
 
 Transaction could be inserted in Unconfirmed Transactions Pool then:
 

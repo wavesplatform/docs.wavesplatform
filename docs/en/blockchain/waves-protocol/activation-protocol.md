@@ -1,20 +1,24 @@
+---
+sidebarDepth: 2
+---
+
 # Activation Protocol
 
-# 1. Features
+## 1. Features
 
 New versions of Waves software bring new features. Those new features should be activated by many nodes at the same time. Before now features were activated by timestamps. That put node owners in a tight time frame to update their nodes. Failure to update a node in time led to the unintentional participation to a fork. Features Activation Protocol gives the Waves community the ability to apply new features with a suitable pace. Or not apply some of them at all.
 
-## 1.1 Features identification
+### 1.1 Features identification
 
 Each new feature will be assigned a unique sequential number. List of new features with their IDs will be provided with each new release. Feature support by software
 
 New features come with new versions of node’s software. Different versions could operate identically until activation of new features. After activation of a feature network will diverge in two parts: nodes that implement this feature and nodes that does not.
 
-## 1.2 Feature states on blockchain
+### 1.2 Feature states on blockchain
 
 State of features is stored on the blockchain. The feature can be in one of three states. The initial state called Defined. Every feature, even non-existent, has it state initially. The next state - Approved. That means the feature received a required number of votes from miners. After a defined period \(number of blocks\) approved feature became Activated. From that moment \(block\) nodes that implement the feature start to operate in a new way.
 
-# 2. Voting
+## 2. Voting
 
 Voting is performed by miners. If miner supports some feature and wants to vote "yes" it has to put its number \(ID\) in the list of supported features in the configuration file. From now on every block forged by this miner will contain the IDs of supported features. Every 10000 blocks \(this number may differ on other blockchains\) the node sums up the number of blocks with support for a feature. If a feature was supported in more than 80% of blocks during the last calculation period it became Approved. Otherwise, the voting continues and could take another voting period \(10k blocks for Mainnet\) or more.
 
@@ -31,7 +35,7 @@ If a new feature was activated but the node was not updated to support it, the n
  It will allow a faster activation of new features for testing purposes.
 ```
 
-# 3. Configuration file changes
+## 3. Configuration file changes
 
 The new configuration file section `features` was introduced. It contains two parameters:
 
@@ -48,7 +52,7 @@ Below you can see an example of the new section.
  }
 ```
 
-# 4. Changes to REST API
+## 4. Changes to REST API
 
 To support the Features Activation Protocol new API method was added to the node/activation route. In response, the JSON that describes the current state of features will be returned.
 
@@ -105,7 +109,7 @@ Fields of returned object:
 
 * `supportBlocks` - Number of blocks that contains support for the feature
 
-# 5. Example
+## 5. Example
 
 In version 1.0.0 a new cool feature was introduced. It has ID 123.
 
