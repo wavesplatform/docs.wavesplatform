@@ -46,7 +46,7 @@ lastPrice = await this.getLastprice('https://api.wavesplatform.com/v0/pairs/WAVE
 dataParams.push({ key: 'waves_btc_8', value: lastPrice * Math.pow(10, 8) });
 ```
 
-The easiest and correct way is to create a new account for new oracle. Read about [account creation](/waves-client/account-management/creating-an-account).
+The easiest and correct way is to create a new account for new oracle. You can create an account using Waves.Exchange, see the [Create Account](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-account/online-desktop-creation) section.
 
 Sign the [data transaction](/en/blockchain/transaction-type/data-transaction) by your oracle account SEED:
 
@@ -163,7 +163,7 @@ _Figure 1_.
 
 For other users to know about our oracle, we use Waves Oracles to create an oracle card.
 
-Waves Oracles is a service that utilizes [Waves Keeper](/waves-keeper/about-waves-keeper).
+Waves Oracles is a service that utilizes [Waves Keeper](https://docs.waves.exchange/en/waves-keeper/).
 
 To create an oracle card, use the same account you used to sign transactions in the code.
 

@@ -12,7 +12,7 @@ To create smart account in Waves IDE, complete the following steps:
 3. Make one of the following actions:
 
     - If you already have an account, click **Import account** in the drop-down list. Make the following actions in the displayed form:
-        1. Type in [seed](/waves-client/frequently-asked-questions-faq/account-management/seed-phrase) in the **Seed phrase** field.
+        1. Type in [seed](/en/blockchain/waves-protocol/cryptographic-practical-details#creating-a-private-key-from-a-seed) in the **Seed phrase** field.
         2. Come up with an account name and enter it in the **Account name** field.
         3. Click **Import**.
     - If you don't have an account yet, click **Generate new account** in the drop-down list. As a result, the following account attributes will be displayed

@@ -1,4 +1,6 @@
-# Description
+# Cryptographic practical details
+
+## Description
 
 This section describes all the details of cryptographic algorithms which are used to: 
 
@@ -14,15 +16,15 @@ We use:
 
 **Note**: We use KECCAK which differs slightly than that assigned as the SHA-3 \(FIPS-202\).
 
-# Bytes encoding Base58
+## Bytes encoding Base58
 
 All arrays of bytes in the project are encoded by Base58 algorithm with Bitcoin alphabet to make it ease human readable \(text readability\).
 
-## Example
+### Example
 
 The string `teststring` is coded into the bytes `[5, 83, 9, -20, 82, -65, 120, -11]`. The bytes `[1, 2, 3, 4, 5]` are coded into the string `7bWpTW`.
 
-# Creating a private key from a seed
+## Creating a private key from a seed
 
 A seed string is a representation of entropy, from which you can re-create deterministically all the private keys for one wallet. It should be long enough so that the probability of selection is an unrealistic negligible.
 
@@ -52,7 +54,7 @@ There are valid Curve25519 realizations for different languages:
 
 Also some `Curve25519` libraries \(as the one used in our project\) have the `Sha256` hashing integrated, some not \(such as most of c/c++/python libraries\), so you may need to apply it manually. Note that private key is clamped, so not any random 32 bytes can be a valid private key.
 
-## Example
+### Example
 
 Brainwallet seed string
 
@@ -102,7 +104,7 @@ Created public key
 HBqhfdFASRQ5eBBpu2y6c6KKi1az6bMx8v1JxX4iW1Q8
 ```
 
-# Creating address from public key
+## Creating address from public key
 
 Our network address obtained from the public key depends on the byte chainId \('T' for testnet and 'W' for mainnet\), so different networks obtained a different address for a single seed \(and hence public keys\). Creating a byte addresses described in more detail [here](/en/blockchain/binary-format).
 
@@ -120,7 +122,7 @@ in mainnet network \(chainId 'W'\) will be created this address
 3PPbMwqLtwBGcJrTA5whqJfY95GqnNnFMDX
 ```
 
-# Signing
+## Signing
 
 `Curve25519` is used for all the signatures in the project.
 
@@ -130,7 +132,7 @@ For the validation of signature is enough signature bytes, signed object bytes a
 
 Do not forget that there are many valid \(not unique!\) signatures for a one array of bytes \(block or transaction\). Also you should not assume that the id of block or transaction is unique. The collision can occur one day! They have already taken place for some weak keys.
 
-## Example
+### Example
 
 Transaction data:
 
@@ -176,6 +178,6 @@ _**Total transaction bytes with signature:**_
 
 `6zY3LYmrh981Qbzj7SRLQ2FP9EmXFpUTX9cA7bD5b7VSGmtoWxfpCrP4y5NPGou7XDYHx5oASPsUzB92aj3623SUpvc1xaaPjfLn6dCPVEa6SPjTbwvmDwMT8UVoAfdMwb7t4okLcURcZCFugf2Wc9tBGbVu7mgznLGLxooYiJmRQSeAACN8jYZVnUuXv4V7jrDJVXTFNCz1mYevnpA5RXAoehPRXKiBPJLnvVmV2Wae2TCNvweHGgknioZU6ZaixSCxM1YzY24Prv9qThszohojaWq4cRuRHwMAA5VUBvUs`
 
-# Calculating Transaction Id
+## Calculating Transaction Id
 
 Transaction Id is not stored in the transaction bytes and for most of transactions \(except Payment\) it can be easily calculated from the special bytes for signing using`blake2b256(bytes_for_signing)`. For Payment transaction Id is just the signature of this transaction.

@@ -12,7 +12,7 @@
 3. Выполните одно из перечисленных действий:
 
     - Если у вас уже есть аккаунт, нажмите **Import account** в выпадающем списке. Выполните следующие действия в отобразившейся форме:
-        1. Введите [seed](/waves-client/frequently-asked-questions-faq/account-management/seed-phrase) в поле **Seed phrase**.
+        1. Введите [seed](/en/blockchain/waves-protocol/cryptographic-practical-details#creating-a-private-key-from-a-seed) в поле **Seed phrase**.
         2. Придумайте имя аккаунта и введите его в поле **Account name**.
         3. Нажмите **Import**.
     - Если у вас нет аккаунта, нажмите **Generate new account** в выпадающем списке. В результате отобразятся

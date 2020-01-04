@@ -1,6 +1,6 @@
 # Sponsored Fee Transactions
 
-### Use Cases
+## Use Cases
 
 Users can set a transaction fee nominated in an asset. However, node owners need to explicitly allow transaction fees in the asset by manually editing node configuration file. Otherwise, node won't be able to mine a block with these transactions.
 
@@ -11,9 +11,9 @@ After this transaction is confirmed, it becomes possible to use this asset as a 
 Only the issuer of an asset can set up sponsorship. The sponsorship is set by giving the rate at which fee in an asset is converted to Waves.
 
 
-### Implementation
+## Implementation
 
-#### Sponsored Fee Transaction representations
+### Sponsored Fee Transaction representations
 
 Binary format of a SponsorFee transaction is as follows:
 
@@ -49,7 +49,7 @@ JSON representation example:
 }
 ```
 
-### Fees
+## Fees
 
 #### Fee for Sponsored Fee Transaction
 A fee for a sponsor is payable in WAVES only. The fee for this transaction is fixed and equal to 1.0 WAVES.
@@ -66,7 +66,7 @@ where:
 
 But the total **block fee** for the block with sponsored transactions can be computed as the sum of transactions which have **only the fee in WAVES**. For example, if we have the block with only sponsored transactions, a fee for this block will be equal to 0.
 
-### API
+## API
 
 `POST /assets/sponsor` signs and sends a start/update sponsorship transaction. This endpoint requires API key. Sample input is as follows:
 
@@ -94,10 +94,10 @@ But the total **block fee** for the block with sponsored transactions can be com
 
 Sponsorship information for the asset present in [asset description](../waves-node/node-api/asset-transactions/public-functions#get-assetsdetailsassetid).
 
-### Constraints
+## Constraints
 
 Only issuer may sponsor asset.
 
-### Related Changes
+## Related Changes
 
 Minimal fee was moved to consensus.

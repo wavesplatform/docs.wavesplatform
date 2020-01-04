@@ -38,7 +38,7 @@ cron.schedule('0 0 */1 * * *', () => {
 
 Получим параметр _lastPrice_ из API, сдвинем точку на нужное количество знаков и присвоим значение соответствующему ключу:
 
-``` typescript
+```typescript
 lastPrice = await this.getLastprice('https://api.wavesplatform.com/v0/pairs/WAVES/Ft8X1v1LTa1ABafufpaCWyVj8KkaxUWE6xBhW6sNFJck');
 dataParams.push({ key: 'waves_usd_2', value: lastPrice * Math.pow(10, 2) });
 
@@ -46,11 +46,11 @@ lastPrice = await this.getLastprice('https://api.wavesplatform.com/v0/pairs/WAVE
 dataParams.push({ key: 'waves_btc_8', value: lastPrice * Math.pow(10, 8) });
 ```
 
-Для нового оракула будет правильным зарегистрировать новый аккаунт. Как это сделать, читайте в разделе [создание аккаунта](/waves-client/account-management/creating-an-account).
+Вы можете создать аккаунт, например, в Waves.Exchange, см. раздел [Создать аккаунт](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-account/online-desktop-creation) section.
 
 Подпишем [транзакцию данных](/ru/blockchain/transaction-type/data-transaction) при помощи SEED от аккаунта оракула:
 
-``` typescript
+```typescript
 const signerDataTX = DataTX(params,'YOU ORACLE SEED HERE');
 ```
 
@@ -163,7 +163,7 @@ _Рисунок 1_.
 
 Чтобы другие пользователи знали о нашем оракуле, используем Waves Oracles для создания карточки оракула.
 
-Waves Oracles использует расширение [Waves Keeper](/waves-keeper/about-waves-keeper).
+Waves Oracles использует расширение [Waves Keeper](https://docs.waves.exchange/ru/waves-keeper/).
 
 Для создания карточки оракула используйте тот же аккаунт, который указывали для подписания транзакций в коде.
 

@@ -1,6 +1,6 @@
 # Создание карточки оракула при помощи Waves Oracle
 
-Создать [карточку оракула](/ru/ecosystem/waves-oracles/oracle-card) могут только авторизованные пользователи. Авторизация выполняется при помощи [Waves Keeper](/waves-keeper/about-waves-keeper).
+Создать [карточку оракула](/ru/ecosystem/waves-oracles/oracle-card) могут только авторизованные пользователи. Авторизация выполняется при помощи [Waves Keeper](https://docs.waves.exchange/ru/waves-keeper/).
 
 [Аккаунт](/ru/blockchain/account) может создать не более одной карточки оракула.
 
@@ -8,8 +8,8 @@
 
 ## Создание карточки оракула
 
-1. Определите, какой аккаунт Waves вы будете использовать для создания карточки оракула. Это может быть существующий аккаунт или вновь созданный. Чтобы создать новый аккаунт Waves, используйте [инструкцию](/waves-client/account-management/creating-an-account).
-2. Установите [Waves Keeper](/waves-keeper/about-waves-keeper), если это расширение еще не установлено.
+1. Определите, какой аккаунт Waves вы будете использовать для создания карточки оракула. Это может быть существующий аккаунт или вновь созданный. Вы можете создать аккаунт, например, в Waves.Exchange, см. раздел [Создать аккаунт](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-account/online-desktop-creation) section.
+2. Установите [Waves Keeper](https://docs.waves.exchange/ru/waves-keeper/), если это расширение еще не установлено.
 3. Перейдите к [Waves Oracles](https://oracles.wavesexplorer.com/) и авторизуйтесь.
 4. Выберите **Create an oracle**.
 5. Заполните [поля формы регистрации карточки оракула](/ru/ecosystem/waves-oracles/create-an-oracle-card-with-waves-oracle#fields).

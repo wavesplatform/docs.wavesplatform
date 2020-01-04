@@ -131,7 +131,7 @@ let dataFromStorage = this.getInteger(i.callerPublicKey.toBase58String())
 
 ![](./_assets/voting/add-sign.png)
 
-Отметим, что подписать транзакцию можно также секретной фразой или с помощью [Waves Keeper](/waves-keeper/about-waves-keeper).
+Отметим, что подписать транзакцию можно также секретной фразой или с помощью [Waves Keeper](https://docs.waves.exchange/ru/waves-keeper/).
 
 ![](./_assets/voting/seed-and-waves-keeper.png)
 

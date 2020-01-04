@@ -1,6 +1,6 @@
 # Node owner guide
 
-[Get to understand what is a Waves full node](/en/waves-node/what-is-a-full-node). Nodes are a critical part of Waves ecosystem. By Running a Waves node, you help in processing transactions and you will increase your profit for securing the network if users [start leasing](/waves-client/account-management/waves-leasing) their funds to your node \(The more WAVES you lease to a node, the more rewards you will receive, you can lease any sum from 0.002 WAVES\).
+[Get to understand what is a Waves full node](/en/waves-node/what-is-a-full-node). Nodes are a critical part of Waves ecosystem. By Running a Waves node, you help in processing transactions and you will increase your profit for securing the network if users [start leasing](/en/blockchain/leasing) their funds to your node \(The more WAVES you lease to a node, the more rewards you will receive, you can lease any sum from 0.002 WAVES\).
 
 The WAVES you own \(or that have been leased to you\) reflect your mining power, the more you own, the higher your chances of processing the next block and receiving the transaction fees as a reward. The final amount will also depend on overall network activity and the level of fees generated.
 

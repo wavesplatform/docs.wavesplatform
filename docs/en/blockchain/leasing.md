@@ -35,4 +35,4 @@ There are two types of transactions which are used in the LPoS:
 1. [Lease transaction](/en/blockchain/transaction-type/lease-transaction) to activate the leasing process.
 2. [Lease cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction) to deactivate the leasing process.
 
-> These transactions can be used directly from the wallet (See [Lease your Waves](/waves-client/account-management/waves-leasing) page) or from the [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries).
+> These transactions can be used directly from the wallet (See [Lease Waves Tokens](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-account/online-desktop-lease) page) or from the [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries).

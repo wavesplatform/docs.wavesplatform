@@ -1,6 +1,6 @@
 # What is a Smart Asset
 
-Any user can not only [create](/waves-client/assets-management/issue-an-asset) their own [token](/en/blockchain/token) on the Waves platform but also endow it with certain functionality by attaching a script to it. A token with an attached script is called a [smart asset](/en/blockchain/token/smart-asset), and an attached script is called an [asset script](/en/ride/script/script-types/asset-script). Examples of practical use of smart assets:
+Any user can not only create their own [token](/en/blockchain/token) on the Waves platform but also endow it with certain functionality by attaching a script to it. A token with an attached script is called a [smart asset](/en/blockchain/token/smart-asset), and an attached script is called an [asset script](/en/ride/script/script-types/asset-script). Examples of practical use of smart assets:
 
 - **Freezing**. [Transactions](/en/blockchain/transaction) with a smart asset can be prohibited before (or after) the moment when the [blockchain](/en/blockchain/blockchain) reaches a certain [height](/en/blockchain/blockchain/blockchain-height).
 - **Black / white lists**. Transfer of a smart asset can be prohibited to the specified [addresses](/en/blockchain/account/address) or, conversely, allowed only to the specified addresses.
