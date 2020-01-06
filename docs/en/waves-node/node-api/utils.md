@@ -1,7 +1,7 @@
-### POST /utils/hash/secure
+# Utils
+
+## POST /utils/hash/secure
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
-
-
 
 Produce a secure hash of a specified message.
 
@@ -22,10 +22,8 @@ ridethewaves!
 
 ```
 
-### POST /utils/hash/fast
+## POST /utils/hash/fast
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
-
-
 
 Fast hash of specified message.
 
@@ -46,10 +44,9 @@ ridethewaves!
 
 ```
 
-### GET /utils/seed/{length}
+## GET /utils/seed/{length}
+
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
-
-
 
 Generate a random seed of specified length.
 
@@ -61,10 +58,8 @@ Generate a random seed of specified length.
 }
 ```
 
-### GET /utils/seed
+## GET /utils/seed
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
-
-
 
 Generate a random seed.
 
@@ -77,14 +72,9 @@ Generate a random seed.
 
 ```
 
-### POST /utils/script/compile
+## POST /utils/script/compile
+
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg) ![master](https://img.shields.io/badge/node-&gt;%3D0.13.3-4bc51d.svg)
-
-
-
-
-
-
 
 Compiles a human-readable code into a Base58 representation for Node.
 
@@ -130,10 +120,9 @@ x == 1
 }
 ```
 
-### POST /utils/script/estimate
+## POST /utils/script/estimate
+
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg) ![master](https://img.shields.io/badge/node-&gt;%3D0.13.3-4bc51d.svg)
-
-
 
 Estimates a human-readable code into a Base58 representation for Node.
 

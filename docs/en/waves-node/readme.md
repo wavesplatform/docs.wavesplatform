@@ -40,10 +40,9 @@ You can check the blockchain height or the last 100 signatures of blocks to unde
 
 
 Your node can be in one of two possibilities:
+
 * your node on fork with height **less** than 2000 blocks or **more** than 2000 blocks.
 In case that your node is on fork with a height less than 2000 blocks, here you can implement rollback through [rollback instructions](/en/waves-node/how-to-rollback-a-node). 
-
 * Otherwise, you need to choose an [option for Getting Actual Blockchain](/en/waves-node/options-for-getting-actual-blockchain).
 
-
-<note type="info" title="">If you're interested in joining the Testnet, you will need to follow these steps for<a href="/en/waves-node/joining-testnet">Joining The Testnet</a>.</node>
+<note type="info" title="">If you're interested in joining the Testnet, you will need to follow these steps for <a href="/en/waves-node/joining-testnet">Joining The Testnet</a>.</node>

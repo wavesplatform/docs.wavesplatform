@@ -1,6 +1,6 @@
-## Address
+# Address
 
-### GET /addresses
+## GET /addresses
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
@@ -30,7 +30,7 @@ Get list of accounts addresses with indexes at this range in the node's wallet.
 ]
 ```
 
-### POST /addresses
+## POST /addresses
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
@@ -52,7 +52,7 @@ Generate a new account address in the wallet._Requires API\_KEY to be provided_
 }
 ```
 
-### GET /addresses/balance/details/{address}
+## GET /addresses/balance/details/{address}
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
@@ -78,7 +78,7 @@ Get Balance details:
 }
 ```
 
-### GET /addresses/balance/{address} <a id="get-addressesbalance"></a>
+## GET /addresses/balance/{address} <a id="get-addressesbalance"></a>
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
@@ -100,7 +100,7 @@ Get account balance in WAVES in {address}:
 }
 ```
 
-### GET /addresses/balance/{address}/{confirmations}
+## GET /addresses/balance/{address}/{confirmations}
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
@@ -125,7 +125,7 @@ Get account balance in WAVES by {address} after {confirmations} from now:
 }
 ```
 
-### GET /addresses/scriptInfo/{address}
+## GET /addresses/scriptInfo/{address}
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg) ![master](https://img.shields.io/badge/node->%3D0.13.3-4bc51d.svg)
 

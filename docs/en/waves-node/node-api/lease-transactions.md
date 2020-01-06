@@ -1,9 +1,7 @@
-### POST /leasing/lease
+# Leasing
+
+## POST /leasing/lease
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
-
-
-
-
 
 Creates lease transaction.
 
@@ -44,10 +42,6 @@ Creates lease transaction.
 ### POST /leasing/cancel
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
-
-
-
-
 Creates lease cancel transaction.
 
 **Request params**
@@ -83,7 +77,7 @@ Creates lease cancel transaction.
 }
 ```
 
-### POST /leasing/broadcast/lease
+## POST /leasing/broadcast/lease
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
 
@@ -131,12 +125,8 @@ Creates signed lease transaction.
 }
 ```
 
-### POST /leasing/broadcast/cancel
+## POST /leasing/broadcast/cancel
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
-
-
-
-
 
 Creates signed lease cancel transaction.
 

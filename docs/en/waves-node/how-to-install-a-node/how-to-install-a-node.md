@@ -24,7 +24,7 @@ Here you can find a tutorial about [Installing Waves Node](https://www.youtube.c
 
 >A common use for `Xmx` flag is when you encounter a `java.lang.OutOfMemoryError`.
 
-# Activation Process of New Features
+## Activation Process of New Features
 
 When some new feature is developed and released, it must be activated.
 

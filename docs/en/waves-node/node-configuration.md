@@ -1,3 +1,7 @@
+---
+sidebarDepth: 2
+---
+
 # Node Configuration
 
 > After upgrading to version 1.0.2 please note if your `/etc/waves/waves.conf` was originally copied from a template, you may need to assure that waves.directory points to the correct directory. If this option doesn't exist in the config, default directory will be used.
@@ -10,14 +14,14 @@ The configuration system of Waves Node uses HOCON format. HOCON stands for Human
 
 ### Default Configuration Embedded into JAR
 
-Complete default Waves Node configuration file which is embedded into jar-file can be found here: https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf
+Complete default Waves Node configuration file which is embedded into jar-file can be found here: <https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf>.
 
 ### MainNet and TestNet config in DEB-packages
 
 If you use DEB-packages to install a node, they also contain configuration files which override some parameters specific to the network:
 
-* https://github.com/wavesplatform/Waves/blob/master/node/waves-mainnet.conf
-* https://github.com/wavesplatform/Waves/blob/master/node/waves-testnet.conf
+* <https://github.com/wavesplatform/Waves/blob/master/node/waves-mainnet.conf>
+* <https://github.com/wavesplatform/Waves/blob/master/node/waves-testnet.conf>
 
 ### Overriding parameters when running JAR-file
 

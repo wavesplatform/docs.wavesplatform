@@ -1,15 +1,10 @@
-## Private Functions
+# Private Functions
 
 All private functions below require API Key to be provided in every HTTP request using `X-Api-Key` header. The default value is `ridethewaves!`. Securely hashed header value is stored in `rest-api.api-key-hash` setting in the waves.conf configuration file. See [/utils/hash/secure](/development-and-api/node-api/utils) for more information on how to obtain a secure hash.
 
-### POST /assets/issue
+## POST /assets/issue
+
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
-
-
-
-
-
-
 
 Issue a new Asset for an address that exists in the node's wallet.
 
@@ -44,14 +39,9 @@ The same as in [Broadcast Issue Assets]
 The same as in [Broadcast Issue Assets]
 ```
 
-### POST /assets/reissue 
+## POST /assets/reissue 
+
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
-
-
-
-
-
-
 
 Re-issue an additional quantity of the Asset
 
@@ -84,14 +74,9 @@ The same as in [Broadcast Reissue Assets]
 The same as in [Broadcast Reissue Assets]
 ```
 
-### POST /assets/burn
+## POST /assets/burn
+
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
-
-
-
-
-
-
 
 Burn quantity of the Asset.
 
@@ -131,14 +116,9 @@ Burn quantity of the Asset.
 }
 ```
 
-### POST /assets/transfer
+## POST /assets/transfer
+
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
-
-
-
-
-
-
 
 Create transaction to transfer assets from one address to another.
 
@@ -172,14 +152,9 @@ The same as in [Broadcast Transfer Assets]
 The same as in [Broadcast Transfer Assets]
 ```
 
-### POST /assets/masstransfer
+## POST /assets/masstransfer
+
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
-
-
-
-
-
-
 
 Create transaction to transfer an asset to several recipient addresses at once.
 

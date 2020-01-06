@@ -20,7 +20,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
 
 **Note.** Do not install OpenJDK 8 If you already have OpenJDK 11 installed. The node Installation is supported in both versions 8 and 11.
 
-# Download Waves package and configure the application
+## Download Waves package and configure the application
 
 [Download the latest version](https://github.com/wavesplatform/Waves/releases) of waves.jar and the required configuration file \(for mainnet or testnet\) to any folder, for example `~/waves`.
 
@@ -30,7 +30,7 @@ Just open it with your favorite text editor, pour a cup of tea and read [the doc
 
 Then start Windows Command line app `cmd.exe`, navigate to the folder with the jar file with the command `cd C:/waves` and start waves node with command `java -jar waves.jar waves.conf`.
 
-# Additional security
+## Additional security
 
 For added security, it is recommended to store your wallet and configuration applications on an encrypted partition. You can use software like [BitLocker](https://technet.microsoft.com/en-us/library/cc731549%28v=ws.10%29.aspx), [TrueCrypt](http://truecrypt.sourceforge.net/), [AxCrypt](http://www.axcrypt.net/), [DiskCryptor](https://diskcryptor.net/), [FreeOTFE](https://sourceforge.net/projects/freeotfe.mirror/), [GostCrypt](https://www.gostcrypt.org/), [VeraCrypt](https://veracrypt.codeplex.com/) or else. You choose this application **at your own risk**!
 

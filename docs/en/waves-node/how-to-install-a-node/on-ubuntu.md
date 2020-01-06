@@ -45,7 +45,7 @@ Users can start the node with `sudo service waves start` (`waves-testnet` for te
 
 **If you want to change waves directory (for wallet, blockchain and other node files\ in ubuntu packages you should change it using **`-J-Dwaves.directory=path`** in **`/etc/waves/application.ini`**. Default waves directory is **`/var/lib/waves-testnet/`** is set in run systemd start script.**
 
-# Installation for advanced users
+## Installation for advanced users
 
 [Download latest version](https://github.com/wavesplatform/Waves/releases) of waves.jar and required configuration file (for mainnet or testnet) to any folder, for example `/opt/waves`.
 
@@ -57,7 +57,7 @@ Then start console, navigate to the folder with the jar file with the command `c
 
 Now you can write a script to run every node, which you like and use it! I hope it's worth it! :\)
 
-# Installation from source
+## Installation from source
 
 * add to your ~/.bashrc for increase memory for jvm:
   ```
@@ -101,7 +101,7 @@ Now you can write a script to run every node, which you like and use it! I hope 
 
 * Enjoy
 
-# Additional security
+## Additional security
 
 For added security, it is recommended to store your wallet and configuration applications on an encrypted partition. You can read about it [here](https://help.ubuntu.com/community/EncryptedFilesystems).
 

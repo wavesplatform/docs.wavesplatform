@@ -1,4 +1,7 @@
-### GET /assets/balance/{address}
+# Public Functions
+
+## GET /assets/balance/{address}
+
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
 Balances for all assets that the given account ever had \(besides WAVES\).
@@ -53,7 +56,8 @@ Balances for all assets that the given account ever had \(besides WAVES\).
 }
 ```
 
-### GET /assets/balance/{address}/{assetId} <a id="getassetbalance"></a>
+## GET /assets/balance/{address}/{assetId} <a id="getassetbalance"></a>
+
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
 Account's balance for the given asset.
@@ -73,7 +77,8 @@ Account's balance for the given asset.
 }
 ```
 
-### GET /assets/details/{assetId}
+## GET /assets/details/{assetId}
+
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
 Asset description.
@@ -102,7 +107,7 @@ Asset description.
 }
 ```
 
-### GET /assets/details/?id={assetId1}&id={assetId2}&...
+## GET /assets/details/?id={assetId1}&id={assetId2}&...
 
 Description of specified assets.
 
@@ -149,7 +154,7 @@ Description of specified assets.
 ]
 ```
 
-### GET /assets/nft/{address}/limit/{limit}?after={after}
+## GET /assets/nft/{address}/limit/{limit}?after={after}
 
 Account's NFTs balance.
 
@@ -202,7 +207,8 @@ Before Feature 16 activation this method returns all the assets that are created
 ]
 ```
 
-### POST /assets/broadcast/issue
+## POST /assets/broadcast/issue
+
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
 Publish signed Asset issue transaction to the network.
@@ -276,7 +282,7 @@ Publish signed Asset issue transaction to the network.
 }
 ```
 
-### POST /assets/broadcast/reissue
+## POST /assets/broadcast/reissue
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
 
@@ -337,14 +343,8 @@ Others the same as in [Broadcast Issue Assets]
 }
 ```
 
-### POST /assets/broadcast/burn
+## POST /assets/broadcast/burn
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
-
-
-
-
-
-
 
 Burn quantity of the Asset. Publish signed Asset burn transaction to the network.
 
@@ -388,14 +388,8 @@ Burn quantity of the Asset. Publish signed Asset burn transaction to the network
 }
 ```
 
-### POST /assets/broadcast/transfer
+## POST /assets/broadcast/transfer
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
-
-
-
-
-
-
 
 Publish signed Asset transfer from one address to another as a transaction to the network.
 
@@ -498,14 +492,9 @@ Publish signed Asset transfer from one address to another as a transaction to th
 }
 ```
 
-### POST /assets/broadcast/batch-transfer
+## POST /assets/broadcast/batch-transfer
+
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
-
-
-
-
-
-
 
 Publish many signed Asset transfer from one address to another as a transaction to the network. The current limit on the size of the JSON object sent is 1 megabyte.
 

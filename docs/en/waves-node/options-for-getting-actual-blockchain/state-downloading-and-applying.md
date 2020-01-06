@@ -1,9 +1,9 @@
-## State Downloading and Applying
+# State Downloading and Applying
 
 In this option, the user needs to download the [_**latest State**_](http://blockchain.wavesnodes.com) which is _**the blockchain\_last.tar**_ file \(this State is a generated database by the node when it receives blocks\).  
 Please note that this file is updated regularly.  Basically the **State** represents a **LevelDB** which stores its files in `/var/lib/waves/data`
 
-### Step-by-Step
+## Step-by-Step
 
 The user needs to follow these steps for State downloading and applying:
 
