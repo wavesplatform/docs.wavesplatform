@@ -218,12 +218,24 @@ module.exports = {
                   path: blockchainPath + 'binary-format/transaction-protobuf-scheme/lease-cancel-transaction-protobuf-scheme',
               },
               {
+                  title: 'Lease transaction protobuf scheme',
+                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/lease-transaction-protobuf-scheme',
+              },
+              {
                   title: 'Mass transfer transaction protobuf scheme',
                 path: blockchainPath + 'binary-format/transaction-protobuf-scheme/mass-transfer-transaction-protobuf-scheme',
               },
               {
+                  title: 'Reissue transaction protobuf scheme',
+                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/reissue-transaction-protobuf-scheme',
+              },
+              {
                   title: 'Set asset script transaction protobuf scheme',
                   path: blockchainPath + 'binary-format/transaction-protobuf-scheme/set-asset-script-transaction-protobuf-scheme',
+              },
+              {
+                  title: 'Set script transaction protobuf scheme',
+                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/set-script-transaction-protobuf-scheme',
               },
               {
                   title: 'Sponsor fee transaction protobuf scheme',

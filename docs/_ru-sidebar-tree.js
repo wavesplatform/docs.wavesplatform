@@ -66,63 +66,63 @@ module.exports = {
           path: blockchainPath + 'binary-format/transaction-binary-format',
           children: [
             {
-              title: 'Бинарный формат транзакции создания псевдонима',
+              title: 'Cоздание псевдонима',
               path: blockchainPath + 'binary-format/transaction-binary-format/alias-transaction-binary-format',
             },
             {
-              title: 'Бинарный формат транзакции сжигания токена',
+              title: 'Сжигание токена',
               path: blockchainPath + 'binary-format/transaction-binary-format/burn-transaction-binary-format',
             },
             {
-              title: 'Бинарный формат транзакции данных',
+              title: 'Транзакция данных',
               path: blockchainPath + 'binary-format/transaction-binary-format/data-transaction-binary-format',
             },
             {
-              title: 'Бинарный формат транзакции обмена',
+              title: 'Обмен',
               path: blockchainPath + 'binary-format/transaction-binary-format/exchange-transaction-binary-format',
             },
             {
-              title: 'Бинарный формат транзакции генезиса',
+              title: 'Генезис',
               path: blockchainPath + 'binary-format/transaction-binary-format/genesis-transaction-binary-format',
             },
             {
-              title: 'Бинарный формат транзакции вызова скрипта',
+              title: 'Вызов скрипта',
               path: blockchainPath + 'binary-format/transaction-binary-format/invoke-script-transaction-binary-format',
             },
             {
-              title: 'Бинарный формат транзакции выпуска',
+              title: 'Выпуск',
               path: blockchainPath + 'binary-format/transaction-binary-format/issue-transaction-binary-format',
             },
             {
-              title: 'Бинарный формат транзакции отмены лизинга',
+              title: 'Отмена лизинга',
               path: blockchainPath + 'binary-format/transaction-binary-format/lease-cancel-transaction-binary-format',
             },
             {
-              title: 'Бинарный формат транзакции лизинга',
+              title: 'Лизинг',
               path: blockchainPath + 'binary-format/transaction-binary-format/lease-transaction-binary-format',
             },
             {
-              title: 'Бинарный формат транзакции массового перевода',
+              title: 'Массовый перевод',
               path: blockchainPath + 'binary-format/transaction-binary-format/mass-transfer-transaction-binary-format',
             },
             {
-              title: 'Бинарный формат транзакции довыпуска',
+              title: 'Довыпуск',
               path: blockchainPath + 'binary-format/transaction-binary-format/reissue-transaction-binary-format',
             },
             {
-              title: 'Бинарный формат транзакции установки скрипта ассета',
+              title: 'Установка скрипта ассета',
               path: blockchainPath + 'binary-format/transaction-binary-format/set-asset-script-transaction-binary-format',
             },
             {
-              title: 'Бинарный формат транзакции установки скрипта',
+              title: 'Установка скрипта',
               path: blockchainPath + 'binary-format/transaction-binary-format/set-script-transaction-binary-format',
             },
             {
-              title: 'Бинарный формат транзакции спонсирования',
+              title: 'Спонсирование',
               path: blockchainPath + 'binary-format/transaction-binary-format/sponsorship-transaction-binary-format',
             },
             {
-              title: 'Бинарный формат транзакции перевода',
+              title: 'Перевод',
               path: blockchainPath + 'binary-format/transaction-binary-format/transfer-transaction-binary-format',
             },
           ],
@@ -132,55 +132,67 @@ module.exports = {
           path: blockchainPath + 'binary-format/transaction-protobuf-scheme',
           children: [
             {
-               title: 'Protobuf-схема транзакции создания псевдонима',
+               title: 'Создание псевдонима',
                path: blockchainPath + 'binary-format/transaction-protobuf-scheme/alias-transaction-protobuf-scheme',
             },
             {
-               title: 'Protobuf-схема транзакции сжигания токена',
+               title: 'Сжигание токена',
                path: blockchainPath + 'binary-format/transaction-protobuf-scheme/burn-transaction-protobuf-scheme',
             },
             {
-               title: 'Protobuf-схема транзакции данных',
+               title: 'Транзакция данных',
                path: blockchainPath + 'binary-format/transaction-protobuf-scheme/data-transaction-protobuf-scheme',
             },
             {
-               title: 'Protobuf-схема транзакции обмена',
+               title: 'Обмен',
                path: blockchainPath + 'binary-format/transaction-protobuf-scheme/exchange-transaction-protobuf-scheme',
             },
             {
-               title: 'Protobuf-схема транзакции генезиса',
+               title: 'Генезис',
                path: blockchainPath + 'binary-format/transaction-protobuf-scheme/genesis-transaction-protobuf-scheme',
             },
             {
-               title: 'Protobuf-схема транзакции вызова скрипта',
+               title: 'Вызов скрипта',
                path: blockchainPath + 'binary-format/transaction-protobuf-scheme/invoke-script-transaction-protobuf-scheme',
             },
             {
-               title: 'Protobuf-схема транзакции выпуска',
+               title: 'Выпуск',
                path: blockchainPath + 'binary-format/transaction-protobuf-scheme/issue-transaction-protobuf-scheme',
             },
             {
-               title: 'Protobuf-схема транзакции отмены лизинга',
+               title: 'Отмена лизинга',
                path: blockchainPath + 'binary-format/transaction-protobuf-scheme/lease-cancel-transaction-protobuf-scheme',
             },
             {
-               title: 'Protobuf-схема транзакции массового перевода',
+               title: 'Лизинг',
+               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/lease-transaction-protobuf-scheme',
+            },
+            {
+               title: 'Массовый перевод',
                path: blockchainPath + 'binary-format/transaction-protobuf-scheme/mass-transfer-transaction-protobuf-scheme',
             },
             {
-               title: 'Protobuf-схема транзакции установки скрипта ассета',
+               title: 'Довыпуск',
+               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/reissue-transaction-protobuf-scheme',
+            },
+            {
+               title: 'Установка скрипта ассета',
                path: blockchainPath + 'binary-format/transaction-protobuf-scheme/set-asset-script-transaction-protobuf-scheme',
             },
             {
-               title: 'Protobuf-схема транзакции спонсирования',
+               title: 'Установка скрипта',
+               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/set-script-transaction-protobuf-scheme',
+            },
+            {
+               title: 'Спонсирование',
                path: blockchainPath + 'binary-format/transaction-protobuf-scheme/sponsor-fee-transaction-protobuf-scheme',
             },
             {
-               title: 'Protobuf-схема транзакции перевода',
+               title: 'Перевод',
                path: blockchainPath + 'binary-format/transaction-protobuf-scheme/transfer-transaction-protobuf-scheme',
             },
             {
-               title: 'Protobuf-схема транзакции обновления информации ассета',
+               title: 'Обновление информации ассета',
                path: blockchainPath + 'binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme',
              },
           ],
@@ -442,7 +454,7 @@ module.exports = {
       path: blockchainPath + 'waves-protocol',
       children: [
         {
-          title: 'Fair Proof of Stake',
+          title: 'Честный Proof-of-Stake',
           path: blockchainPath + 'waves-protocol/fair-pos',
         },
         {
