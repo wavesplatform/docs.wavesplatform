@@ -38,7 +38,7 @@ The table displays only tokens that were ever rated. Tokens without ratings can 
 | WCT weight	| Sum of all weights W<sub>n</sub> of all scores |
 | Vote sum | Number of users' rates |
 | Total amount | Amount of issued tokens |
-| Last price | The current price of a single token from [DEX](/waves-dex/about-waves-dex) (updates every three hours) |
+| Last price | The current price of a single token from [Waves.Exchange](https://waves.exchange/) (updates every three hours) |
 
 ## Token's card
 

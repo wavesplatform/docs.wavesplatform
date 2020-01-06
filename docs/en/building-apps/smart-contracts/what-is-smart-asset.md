@@ -128,7 +128,7 @@ Let's review the example. The commission for a transfer transaction is 0.001 WAV
 
 ## Buying and selling smart assets
 
-Smart assets can be bought and sold on [DEX](/waves-dex/about-waves-dex). If the smart asset is one of the bought or sold tokens, then the exchange transaction fee is increased by 0.004 WAVES for each participant of the transaction. If both tokens are smart assets, then the amount of the commission is increased by 0.008 WAVES for each participant in the transaction.
+Smart assets can be bought and sold on [Waves.Exchange](https://waves.exchange/). If the smart asset is one of the bought or sold tokens, then the exchange transaction fee is increased by 0.004 WAVES for each participant of the transaction. If both tokens are smart assets, then the amount of the commission is increased by 0.008 WAVES for each participant in the transaction.
 
 Example 1: one of the tokens is a smart asset. The exchange transaction fee is 0.003 WAVES. Each of the participants in the transaction will pay 0.003 + 0.004 = 0.007 WAVES.
 

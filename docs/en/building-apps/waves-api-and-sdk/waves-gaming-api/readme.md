@@ -1,5 +1,3 @@
-
-
 # Building Games on Waves Blockchain
 
 Gaming development is now possible on the Waves Blockchain supported by Waves gaming SDK, smart assets and smart contracts \(suite of tools to help developers\). The first question is why do the gaming industry need the blockchain technology?
@@ -14,7 +12,7 @@ Blockchain presents a valuable tool for gamers due to different reasons includin
 
 One of the most visible benefits of cryptocurrencies for gaming is their utility as fast and secure payment networks. The payment advantages of cryptocurrencies are particularly useful for eSports, creating native in-game tokens, and driving faultless transactions on decentralized exchanges.
 
-## **In-game Items on blockchain**
+## In-game Items on blockchain
 
 Gamers have bought and sold items on the Market for a big amount of money. For example, The Pink Ethereal Flame War Dog Courier from Dota 2, another Valve game, famously sold for $38,000.  With traditional game platforms, you leave your winnings, skins, and any other game items behind the moment you leave it.
 

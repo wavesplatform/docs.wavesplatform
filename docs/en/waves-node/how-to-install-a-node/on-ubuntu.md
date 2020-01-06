@@ -9,7 +9,7 @@ sudo apt-get update
 sudo apt-get install openjdk-8-jre
 ```
 
-Now check the JDK version using the console:
+Now check the JDK version using the bash:
 
 ```
 java -version
@@ -53,7 +53,7 @@ Check out the configuration file, **it is very important**! On this depends **th
 
 Just open it via your favorite text editor, pour a cup of tea and read [the documentation of the configuration file.](/en/waves-node/node-configuration)
 
-Then start console, navigate to the folder with the jar file with the command `cd /opt/waves` and start waves node with command `java -jar waves.jar waves-config.conf`.
+Then start bash, navigate to the folder with the jar file with the command `cd /opt/waves` and start waves node with command `java -jar waves.jar waves-config.conf`.
 
 Now you can write a script to run every node, which you like and use it! I hope it's worth it! :\)
 
@@ -63,7 +63,7 @@ Now you can write a script to run every node, which you like and use it! I hope 
   ```
   SBT_OPTS="-XX:MaxJavaStackTraceDepth=5000 -Xmx2536M -XX:+CMSClassUnloadingEnabled -Xss2M"
   ```
-* Run at console:
+* Run at bash:
 
   ```
   sudo apt install sbt

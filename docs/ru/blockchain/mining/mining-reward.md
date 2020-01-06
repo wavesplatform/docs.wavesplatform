@@ -12,7 +12,7 @@
 
 Пример запроса:
 
-``` console
+``` bash
 curl https://nodes.wavesplatform.com/blockchain/rewards
 ```
 

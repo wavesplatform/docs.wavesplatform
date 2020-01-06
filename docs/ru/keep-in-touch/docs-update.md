@@ -2,7 +2,7 @@
 
 ## Декабрьские статьи
 
-### RIDE
+### Ride
 
 * [Макрос FOLD<N>](ride/fold-macro)
 
@@ -63,7 +63,7 @@
 
 * [Инструмент отправки транзакций данных](/ru/ecosystem/waves-oracles/data-transaction-tool)
 
-### RIDE
+### Ride
 
 * Типы данных
   * [ByteVector](ride/data-types/byte-vector) — <span style="color:green">обновлено</span>
@@ -110,7 +110,7 @@
 * Token Rating
   * [Управление токеном](waves-token-rating/token-management)
 
-### RIDE
+### Ride
 
 * Скрипт
   * [Контекст скрипта](ride/script/script-context)

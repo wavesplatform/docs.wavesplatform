@@ -1,6 +1,6 @@
 # Запуск Waves Node в Яндекс.Облаке
 
-1.&nbsp;В [консоли](https://console.cloud.yandex.ru/) Яндекс.Облака перейдите в нужную группу ресурсов.
+1.&nbsp;В [консоли](https://bash.cloud.yandex.ru/) Яндекс.Облака перейдите в нужную группу ресурсов.
 
 ![](./_assets/resource-group.png)
 
@@ -26,7 +26,7 @@
 
 7.&nbsp;Убедитесь, что виртуальная машина запущена, [подключившись](https://cloud.yandex.ru/docs/compute/operations/vm-connect/ssh#vm-connect) к ней по SSH. IP-адрес машины скопируйте из панели управления Яндекс.Облака.
 
-``` console
+``` bash
 ssh <имя_пользователя>@<ip_адрес_виртуальной_машины>
 ```
 
@@ -38,6 +38,6 @@ ssh <имя_пользователя>@<ip_адрес_виртуальной_ма
 
 10.&nbsp;Убедитесь, что контейнер запущен, выполнив в консоли виртуальной машины команду [docker ps](https://docs.docker.com/engine/reference/commandline/ps/).
 
-``` console
+``` bash
 sudo docker ps
 ```

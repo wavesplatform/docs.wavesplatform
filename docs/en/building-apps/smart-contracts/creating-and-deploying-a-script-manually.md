@@ -1,4 +1,4 @@
-# 1. Creating and deploying a script manually
+# Creating and deploying a script manually
 
 The idea of a **Smart Account** is the following:
 
@@ -18,7 +18,7 @@ In this example, we're going to create and deploy a simple 2 of 2 MultiSig examp
 
 `3N7H4jTBMKtZfNCY86K2ND1rWcvFsGjDT3X` - Shared account.
 
-# 1.1 How to Create a script
+## 1. How to Create a Script
 
 The idea here is to create a script and attach it to the account so this account can :
 
@@ -54,7 +54,7 @@ WBMHK214mYRoxdAH3zvKyWQcqndnWETd59mCEGkRjB9UUL6vmCF1ZQCSytdJKgyRhRQ7pzxxa5iL92hG
 SAtDTKwqmdqJpWtBWYLEy6cfaTTKCQFNH2Lnj2DYgaFRWETGQVQpMMVYFKkk
 ```
 
-# 1.2 Attaching a script to account
+# 2 How to Attach a Script to Account
 
 1. Now let's prepare a JSON request to sign a SetScriptTransaction for the shared account with a given script:
 
@@ -126,7 +126,7 @@ where `<scriptText>` is a String representation of compiled `<script>` \(express
 
 Fine! Now we able to make transfers from this account.
 
-## 2. Example of transferring Waves with a bad request
+## Example of transferring Waves with a bad request
 
 **From shared account to another account: **`3MqCPnaoTvE81Es4FSR1m7S6yMUnnJPu9bj`
 
@@ -165,7 +165,7 @@ And we got:
 
 > State check failed. Reason: TransactionNotAllowedByScript
 
-## 2.1 Example of transferring Waves with a successful request
+## Example of transferring Waves with a successful request
 
 Now, let's try to make a valid transactions with all required proofs. For example, we want to sign this transfer request:
 

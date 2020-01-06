@@ -145,7 +145,7 @@ In the [Waves Explorer](https://wavesexplorer.com/testnet), in the _test network
 
 There are two transactions on the head of the HOA's address: the [transfer transaction](/en/blockchain/transaction-type/transfer-transaction) (balance top up by 10 WAVES using the Faucet) and the set script transaction. Note that the commission of 0.001 WAVES was charged from the head of the HOA's balance for the set script transaction.
 
-![](./_assets/voting/waves-explorer-chief-transactions.png
+![](./_assets/voting/waves-explorer-chief-transactions.png)
 
 ## 5. Voting
 
@@ -162,7 +162,7 @@ broadcast(invokeScript({dApp: "3Mw2J9yxS8ftQ8FZuD6hsE3fCu494qJqB5r", call: {func
 
 Here `3Mw2J9yxS8ftQ8FZuD6hsE3fCu494qJqB5r` is the address of the account of the head of the HOA.
 
-If everything went right, you will see the following result (expand the `Promise` object in the console):
+If everything went right, you will see the following result (expand the `Promise` object in the bash):
 
 ![](./_assets/voting/repl-success.png)
 

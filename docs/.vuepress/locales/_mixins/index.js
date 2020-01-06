@@ -49,6 +49,30 @@ module.exports = {
                     }
                 }
             },
+            buildingBlockchainApps: {
+                rootLink: '/en/building-apps/',
+                type: 'advanced',
+                iconFilePath: getRawIcon('./images/rocket.svg'),
+                buttonSet: {
+                    smartAccount: {
+                        text: 'Smart accounts',
+                        link: '/en/building-apps/smart-contracts/smart-accounts'
+                    },
+                    smartAsset: {
+                        text: 'Smart assets',
+                        link: '/en/building-apps/smart-contracts/smart-assets'
+                    },
+                    dapp: {
+                        text: 'dApps',
+                        link: '/en/building-apps/smart-contracts/what-is-a-dapp'
+                    }
+                }
+            },
+            rideProgrammingLanguage: {
+                rootLink: '/en/ride/',
+                type: 'advanced',
+                iconFilePath: getRawIcon('./images/category5.svg'),
+            },
             node: {
                 rootLink: '/en/waves-node/',
                 type: 'advanced',
@@ -90,30 +114,6 @@ module.exports = {
                         link: '/en/ecosystem/waves-token-rating/about-waves-token-rating',
                     },
                 },
-            },
-            buildingBlockchainApps: {
-                rootLink: '/en/building-apps/',
-                type: 'advanced',
-                iconFilePath: getRawIcon('./images/rocket.svg'),
-                buttonSet: {
-                    smartAccount: {
-                        text: 'Smart accounts',
-                        link: '/en/building-apps/smart-contracts/smart-accounts'
-                    },
-                    smartAsset: {
-                        text: 'Smart assets',
-                        link: '/en/building-apps/smart-contracts/smart-assets'
-                    },
-                    dapp: {
-                        text: 'dApps',
-                        link: '/en/building-apps/smart-contracts/what-is-a-dapp'
-                    }
-                }
-            },
-            rideProgrammingLanguage: {
-                rootLink: '/en/ride/',
-                type: 'advanced',
-                iconFilePath: getRawIcon('./images/category5.svg'),
             },
             miscellaneous: {
                 rootLink: '/en/keep-in-touch/',

@@ -1,8 +1,8 @@
-# О RIDE
+# О Ride
 
-**RIDE** — функциональный язык программирования, основанный на [выражениях](/ru/ride/base-concepts/expression).
+**Ride** — функциональный язык программирования, основанный на [выражениях](/ru/ride/base-concepts/expression).
 
-RIDE используется для написания [скриптов](/ru/ride/script).
+Ride используется для написания [скриптов](/ru/ride/script).
 
 Язык:
 
@@ -12,8 +12,8 @@ RIDE используется для написания [скриптов](/ru/r
 
 ## IDE
 
-Для написания скриптов используйте [Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide) или Visual Studio Code с [расширением RIDE](https://marketplace.visualstudio.com/items?itemName=wavesplatform.waves-ride).
+Для написания скриптов используйте [Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide) или Visual Studio Code с [расширением Ride](https://marketplace.visualstudio.com/items?itemName=wavesplatform.waves-ride).
 
 ## История создания
 
-Язык RIDE появился в 2018 году. Тогда же была опубликована [белая книга](https://wavesplatform.com/files/docs/white_paper_waves_smart_contracts.pdf) по языку.  
+Язык Ride появился в 2018 году. Тогда же была опубликована [белая книга](https://wavesplatform.com/files/docs/white_paper_waves_smart_contracts.pdf) по языку.  

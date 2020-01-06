@@ -5,13 +5,15 @@ After the creation of a Waves account, each transaction that's sent from this ac
 By default, _only_ the fact that the transaction belongs to the owner of the account from which it was sent, is checked. To check that, the transaction's binary data, the account owner's public key and the digital signature of the transaction are being run through special `sigVerify` function. If the `sigVerify` function returns `true` — the transaction is considered valid, otherwise — invalid.
 
 ## Transactions validation using account scripts
-If a validation algorithm has to have some additional logic that goes beyond only the detection of transaction's ownership, then a special script written in RIDE is used. This script is attached to the account. That kind of script is called the **account script**. After the attachment of the script to the account, all the transactions that are sent from this account will be verified with this script.
+If a validation algorithm has to have some additional logic that goes beyond only the detection of transaction's ownership, then a special script written in Ride is used. This script is attached to the account. That kind of script is called the **account script**. After the attachment of the script to the account, all the transactions that are sent from this account will be verified with this script.
 
 ## IDE for writing account scripts
-We are using [Waves IDE](http://ide.wavesplatform.com/) as our IDE for writing RIDE scripts. To create a new script let's click the **New** button and select the **Account script** option.
+We are using [Waves IDE](http://ide.wavesplatform.com/) as our IDE for writing Ride scripts. To create a new script let's click the **New** button and select the **Account script** option.
+
 ![](./_assets/ide1.png)
 
-A new tab will open, inside of which we can start writing our RIDE script.
+A new tab will open, inside of which we can start writing our Ride script.
+
 ![](./_assets/ide2.png)
 
 ## Working with transaction object inside of the account script
@@ -45,7 +47,7 @@ A decentralised application consists of the following elements:
 The order in which the elements are defined inside of a dApp is important — elements have to be put in the exact same order as listed above.
 
 ## Directives
-Because the compiler works with the different kinds of RIDE scripts, it needs additional information to work properly. That's why it's recommended to use directives in all of the scripts, otherwise, the default values will be applied, and that may cause some unexpected behaviour.
+Because the compiler works with the different kinds of Ride scripts, it needs additional information to work properly. That's why it's recommended to use directives in all of the scripts, otherwise, the default values will be applied, and that may cause some unexpected behaviour.
 
 Here is the set of directives for dApps:
 ```

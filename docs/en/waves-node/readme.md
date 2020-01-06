@@ -22,7 +22,7 @@ There're different options when you want to deal with Waves full node and you wi
 <note type="info" title="">Please check <a href="/en/waves-node/how-to-install-a-node/how-to-install-a-node">The Activation Process of New features</a>.</note>
 
 
-### **Getting actual blockchain**
+### Getting actual blockchain
 
 After installing a node, you will have different ways to get the blockchain. follow the [getting blockchain guide](/en/waves-node/options-for-getting-actual-blockchain).
 

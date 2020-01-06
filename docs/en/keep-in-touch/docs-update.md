@@ -28,7 +28,7 @@
     * [BooleanEntry](ride/structures/common-structures/boolean-entry)
     * [Burn](ride/structures/common-structures/burn)
     * [DeleteKey](ride/structures/common-structures/delete-key)
-    * [IntEntry](ride/structures/common-structures/int-entry)\
+    * [IntEntry](ride/structures/common-structures/int-entry)
     * [Issue](ride/structures/common-structures/issue)
     * [Reissue](ride/structures/common-structures/reissue)
     * [StringEntry](ride/structures/common-structures/string-entry)
@@ -74,7 +74,7 @@
 
 * [Data transaction tool](waves-oracles/data-transaction-tool)
 
-### RIDE
+### Ride
 
 * Data types
   * [ByteVector](ride/data-types/byte-vector) — <span style="color:green">updated</span>
@@ -99,7 +99,7 @@
 * [Leasing](blockchain/leasing) — <span style="color:green">updated</span>
 * [Order](blockchain/order) — <span style="color:green">updated</span>
 
-### RIDE
+### Ride
 
 * Script
   * [Script body](ride/script/script-body)

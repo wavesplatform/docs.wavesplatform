@@ -1,6 +1,6 @@
 # Скрипт
 
-**Скрипт** — исходный код на языке [RIDE](/ru/ride/about-ride).
+**Скрипт** — исходный код на языке [Ride](/ru/ride/about-ride).
 
 ## Типы скриптов
 
@@ -16,4 +16,4 @@
 
 ## IDE
 
-Для написания скриптов используйте [Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide) или Visual Studio Code с [расширением RIDE](https://marketplace.visualstudio.com/items?itemName=wavesplatform.waves-ride).
+Для написания скриптов используйте [Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide) или Visual Studio Code с [расширением Ride](https://marketplace.visualstudio.com/items?itemName=wavesplatform.waves-ride).

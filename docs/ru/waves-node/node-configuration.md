@@ -12,14 +12,14 @@
 
 Стандартный файл конфигурации ноды Waves, вложенный в файл JAR, доступен по ссылке:
 
-https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf
+<https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf>
 
 ### Файлы конфигурации Mainnet и Testnet в пакетах DEB
 
 Установочные пакеты DEB содержат файлы конфигурации, которые переопределяют некоторые параметры, специфичные для сети:
 
-* https://github.com/wavesplatform/Waves/blob/master/node/waves-mainnet.conf
-* https://github.com/wavesplatform/Waves/blob/master/node/waves-testnet.conf
+* <https://github.com/wavesplatform/Waves/blob/master/node/waves-mainnet.conf>
+* <https://github.com/wavesplatform/Waves/blob/master/node/waves-testnet.conf>
 
 ### Переопределение параметров при запуске файлa JAR
 

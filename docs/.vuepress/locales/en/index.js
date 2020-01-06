@@ -23,14 +23,6 @@ module.exports = deepmerge(mixin, {
                 title: 'Waves Blockchain',
                 caption: 'Overview of the Waves blockchain main features. Protocol, consensus, cryptography. Mining, transaction types and fees.',
             },
-            node: {
-                title: 'Node',
-                caption: 'Waves full node. Configuring and running a node. Getting actual blockchain. Activating new features.',
-            },
-            ecosystemApplications: {
-                title: 'Ecosystem Apps',
-                caption: 'Useful applications and services built on the Waves blockchain.',
-            },
             buildingBlockchainApps: {
                 title: 'Building Apps',
                 caption: 'Creating smart contract and distributed applications with Waves. Developer tools, APIs and SDKs.',
@@ -44,6 +36,14 @@ module.exports = deepmerge(mixin, {
                         link: '/en/ride/getting-started'
                     }
                 },
+            },
+            node: {
+                title: 'Node',
+                caption: 'Waves full node. Configuring and running a node. Getting actual blockchain. Activating new features.',
+            },
+            ecosystemApplications: {
+                title: 'Ecosystem Apps',
+                caption: 'Useful applications and services built on the Waves blockchain.',
             },
             miscellaneous: {
                 title: 'Keep in Touch',

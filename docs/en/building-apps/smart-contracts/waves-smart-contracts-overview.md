@@ -7,10 +7,10 @@ Welcome! We are excited that you want to learn Waves Smart Contracts.
 Smart Contracts in Waves ecosystem allow to change the default behaviour of accounts and assets. Smart contract is
 not a separate entity, it can't be called and it can't call another smart contract.
 
-<note type="tip" title="">Waves Smart Account can be called with RIDE4DAPPS features, which is available on the TESTNET now.<br>You can find more details about RIDE4DAPPS in the <a href="/en/building-apps/smart-contracts/smart-accounts" >Smart Accounts</a> section.</>
+<note type="tip" title="">Waves Smart Account can be called with RIDE4DAPPS features, which is available on the TESTNET now.<br>You can find more details about RIDE4DAPPS in the <a href="/en/building-apps/smart-contracts/smart-accounts">Smart Accounts</a> section.</note>
 
 Smart contracts are:
-1. Scripts written using RIDE programming language.
+1. Scripts written using Ride programming language.
 2. Predicates over account or asset transactions, which always should return `true` or `false`.
 3. Always passive and **not** callable.
 
@@ -41,7 +41,7 @@ to its' public key.
 
 <note type="tip" title="">By default, public key “owns” assets and stores key-value data attached by [data transactions](/en/blockchain/transaction-type/data-transaction). To spend funds or update key-value storage the sender provides **a valid signature** matching transaction body and public key.</note>
 
-**The main idea **that before the transaction is submitted to be included in the next block, the account checks if
+**The main idea** that before the transaction is submitted to be included in the next block, the account checks if
 the transaction meets certain requirements, defined in a **script**. The script is attached to the account so the
 account can validate every transaction before confirming it.
 
@@ -102,4 +102,4 @@ Our realization of smart contracts will contain two Stages:
 1. **Non-Turing Complete Smart Contracts** which cover a large proportion of use cases, including smart accounts.
 2. **Turing Complete Smart Contracts** which will allow the creation of decentralised applications on the blockchain.
 
-<note type="info" title="">Here you can find [**White Paper**](https://wavesplatform.com/files/docs/white_paper_waves_smart_contracts.pdf?cache=b) which describes Waves Smart Contracts approach: basic use-cases, implementation details and RIDE language description.</note>
+<note type="info" title="">Here you can find [**White Paper**](https://wavesplatform.com/files/docs/white_paper_waves_smart_contracts.pdf?cache=b) which describes Waves Smart Contracts approach: basic use-cases, implementation details and Ride language description.</note>

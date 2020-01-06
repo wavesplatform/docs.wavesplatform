@@ -130,7 +130,7 @@ Instead of calling the <code>isDefined</code> function, you may use the equality
 <pre>
 <code class=“lang-ride”>
 asset != unit
-# Expression asset != unit is equivalent to the expression token.isDefined()
+\# Expression asset != unit is equivalent to the expression token.isDefined()
 </code>
 </pre>
   </td>

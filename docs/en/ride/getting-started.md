@@ -38,7 +38,7 @@ Functions in Ride are declared with `func` (see further below). Functions do hav
 
 Ride was created specifically for execution within a blockchain environment and is optimised for this purpose. Because the blockchain is a shared ledger, located on many computers all around the world, it works a little differently to conventional programming languages.
 
-Since Ride is designed to be used inside the blockchain, there is no way to access the filesystem or display anything in the console. Instead, Ride functions can read data from the blockchain and return actions as a result, which can then be applied to the blockchain.
+Since Ride is designed to be used inside the blockchain, there is no way to access the filesystem or display anything in the bash. Instead, Ride functions can read data from the blockchain and return actions as a result, which can then be applied to the blockchain.
 
 ## Comments
 

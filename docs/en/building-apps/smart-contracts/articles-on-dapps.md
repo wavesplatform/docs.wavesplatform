@@ -1,4 +1,4 @@
-# Articles on dApps
+# Articles on smart contracts
 
 Waves Platform blog articles on dApps:
 

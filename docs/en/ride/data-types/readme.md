@@ -1,6 +1,6 @@
 # Data types
 
-| # | Data type name | RIDE keyword |
+| # | Data type name | Ride keyword |
 | :--- | :--- | :--- |
 | 1 | [Boolean](/en/ride/data-types/boolean) | Boolean |
 | 2 | [Byte array](/en/ride/data-types/byte-vector) | ByteVector |

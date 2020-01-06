@@ -1,6 +1,6 @@
 # Script
 
-A **script** is a source code in [RIDE](/en/ride/about-ride) language.
+A **script** is a source code in [Ride](/en/ride/about-ride) language.
 
 ## Script types
 
@@ -16,4 +16,4 @@ See the page [Complexity](/en/ride/base-concepts/complexity).
 
 ## IDE
 
-Use [Waves IDE](https://ide.wavesplatform.com) or Visual Studio Code with [RIDE extension](https://marketplace.visualstudio.com/items?itemName=wavesplatform.waves-ride) for writing scripts.
+Use [Waves IDE](https://ide.wavesplatform.com) or Visual Studio Code with [Ride extension](https://marketplace.visualstudio.com/items?itemName=wavesplatform.waves-ride) for writing scripts.

@@ -1,8 +1,8 @@
-# About RIDE
+# About Ride
 
-**RIDE** is a functional programming language based on [expressions](/en/ride/base-concepts/expression).
+**Ride** is a functional programming language based on [expressions](/en/ride/base-concepts/expression).
 
-RIDE is used for writing [scripts](/en/ride/script).
+Ride is used for writing [scripts](/en/ride/script).
 
 The language:
 
@@ -12,8 +12,8 @@ The language:
 
 ## IDE
 
-Use [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide) or Visual Studio Code with the [RIDE extension](https://marketplace.visualstudio.com/items?itemName=wavesplatform.waves-ride) for writing scripts.
+Use [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide) or Visual Studio Code with the [Ride extension](https://marketplace.visualstudio.com/items?itemName=wavesplatform.waves-ride) for writing scripts.
 
 ## The history of creation
 
-RIDE was created in 2018. The [white paper](https://wavesplatform.com/files/docs/white_paper_waves_smart_contracts.pdf) of the language was published at that time also.
+Ride was created in 2018. The [white paper](https://wavesplatform.com/files/docs/white_paper_waves_smart_contracts.pdf) of the language was published at that time also.

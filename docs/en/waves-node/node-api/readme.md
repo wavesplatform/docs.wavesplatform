@@ -6,5 +6,5 @@ The **Node API** or the **Waves Node API** is a [REST](https://en.wikipedia.or
 
 The [Swagger](https://swagger.io) web interface of the Node API:
 
-* Main network — https://nodes.wavesnodes.com
-* Test network — https://nodes-testnet.wavesnodes.com
+* Main network — <https://nodes.wavesnodes.com>
+* Test network — <https://nodes-testnet.wavesnodes.com>

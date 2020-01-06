@@ -1,6 +1,6 @@
 # Variables
 
-All variables in RIDE are _immutable_. After definition, the value of the variable does not change.
+All variables in Ride are _immutable_. After definition, the value of the variable does not change.
 
 Definition and simultaneous initialization of the variable are performed with the help of the `let` [operator](/en/ride/operators).
 
@@ -33,7 +33,7 @@ let result = f()
 
 ## Laziness
 
-RIDE has the lazy variable initialization, so the value of the variable is calculated only at the first call to it.
+Ride has the lazy variable initialization, so the value of the variable is calculated only at the first call to it.
 
 ## Variables built into the script
 

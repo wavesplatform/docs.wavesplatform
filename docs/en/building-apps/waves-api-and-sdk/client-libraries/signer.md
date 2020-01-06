@@ -1,12 +1,9 @@
+---
+sidebarDepth: 3
+---
+
 # Signer
 
-* [Overview](#overview)
-* [Getting Started](#getting-started)
-* [Constructor](#constructor)
-* [Methods](#methods)
-* [Provider Interface](#provider-interface)
-
-<a id="overview"></a>
 ## Overview
 
 Waves Signer is a TypeScript/JavaScript library for your web app for interacting with the Waves blockchain. Using Signer you can easily create and sign transactions.
@@ -24,7 +21,6 @@ You can also develop your own Provider, see [Provider Interface](#provider-inter
 
 In code you can use [TypeScript types](https://github.com/wavesplatform/ts-types/blob/master/transactions/index.d.ts).
 
-<a id="getting-started"></a>
 ## Getting Started
 
 ### 1. Signer and Provider library installation
@@ -107,12 +103,10 @@ const [signedTransfer] = await signer
   .sign(); // Promise will resolved after user sign
 ```
 
-<a id="more-examples"></a>
 ### More examples
 
 See example of an app that implements the donate button: <https://github.com/vlzhr/crypto-donate>.
 
-<a id="constructor"></a>
 ## Constructor
 
 ```js
@@ -131,7 +125,6 @@ Parameters:
 
 <!-- | MATCHER_URL | https://matcher.waves.exchange/ | Matcher that is used to serve orders | -->
 
-<a id="methods"></a>
 ## Methods
 
 * [User Info](#user-info)
@@ -166,10 +159,8 @@ Parameters:
    * [setProvider](#setprovider)
    * [waitTxConfirm](#waittxconfirm)
 
-<a id="user-info"></a>
 ### User Info
 
-<a id="login"></a>
 #### login
 
 Authenticates user with his/her account; creates account if it don't exist.
@@ -196,7 +187,6 @@ const {address, publicKey} = await signer.login();
 }
 ```
 
-<a id="logout"></a>
 #### logout
 
 Logs user out.
@@ -212,7 +202,6 @@ logout();
 await signer.logout();
 ```
 
-<a id="getbalance"></a>
 #### getBalance
 
 If user logged in, provides balances of assets in user's portfolio.
@@ -267,7 +256,6 @@ const balances = await signer.getBalance();
 | sponsorship | Amount of sponsored asset to be charged to users (per 0.001 WAVES) multiplied by 10^`decimals`<br>`null` if the asset is not sponsored |
 | isSmart | `true` for [smart assets](https://docs.wavesplatform.com/en/smart-contracts/what-is-smart-asset.html) |
 
-<a id="getsponsoredbalances"></a>
 #### getSponsoredBalances
 
 If user logged in, provides balances of sponsored assets in user's portfolio.
@@ -301,7 +289,6 @@ const sponsoredBalances = await signer.getSponsoredBalances();
 
 **Output fields** are the same as in [getBalance](#getbalance) method.
 
-<a id="create-transactions"></a>
 ### Create transactions
 
 The following methods create transactions (but do not sign or broadcast them):
@@ -323,7 +310,6 @@ The following methods create transactions (but do not sign or broadcast them):
 
 > Check which of these transactions are supported by your Provider.
 
-<a id="common-fields"></a>
 #### Common fields
 
 Each create transaction method has optional fields that you don't specify manually in most cases:
@@ -335,7 +321,6 @@ Each create transaction method has optional fields that you don't specify manual
 | proofs | Array of transaction signatures | Added by `sign` or `broadcast` method (see [How to Sign and Broadcast Transactions](#how-to-sign-and-broadcast-transaction)). If you specify a proof manually, it is also added to the array |
 | senderPublicKey | Base58-encoded public key of transaction sender | Returned by [login](#login) method |
 
-<a id="how-to-sign-and-broadcast-transaction"></a>
 #### How to Sign and Broadcast Transactions
 
 Each create transaction method returns object that features the `sign` and `broadcast` methods.
@@ -369,7 +354,6 @@ signer.alias({ 'new_alias', })
 }).broadcast();
 ```
 
-<a id="alias"></a>
 #### alias
 
 Creates [alias transaction](https://docs.wavesplatform.com/en/blockchain/transaction-type/alias-transaction.html).
@@ -400,7 +384,6 @@ const [tx] = await signer
   .broadcast();
 ```
 
-<a id="burn"></a>
 #### burn
 
 Creates [burn transaction](https://docs.wavesplatform.com/en/blockchain/transaction-type/burn-transaction.html).
@@ -436,7 +419,6 @@ const [tx] = await signer
   .broadcast();
 ```
 
-<a id="cancellease"></a>
 #### cancelLease
 
 Creates [lease cancel transaction](https://docs.wavesplatform.com/en/blockchain/transaction-type/lease-cancel-transaction.html).
@@ -469,7 +451,6 @@ const [tx] = await signer
   .broadcast();
 ```
 
-<a id="data"></a>
 #### data
 
 Creates [data](https://docs.wavesplatform.com/en/blockchain/transaction-type/data-transaction.html) transaction.
@@ -551,7 +532,6 @@ const [tx] = await signer
   .broadcast();
 ```-->
 
-<a id="invoke"></a>
 #### invoke
 
 Creates [invoke scipt transaction](https://docs.wavesplatform.com/en/blockchain/transaction-type/invoke-script-transaction.html).
@@ -617,7 +597,6 @@ const [tx] = await signer
   .broadcast();
 ```
 
-<a id="issue"></a>
 #### issue
 
 Creates [issue transaction](https://docs.wavesplatform.com/en/blockchain/transaction-type/issue-transaction.html).
@@ -664,7 +643,6 @@ const [tx] = await signer
   .broadcast();
 ```
 
-<a id="lease"></a>
 #### lease
 
 Creates [lease transaction](https://docs.wavesplatform.com/en/blockchain/transaction-type/lease-transaction.html).
@@ -700,7 +678,6 @@ const [tx] = await signer
   .broadcast();
 ```
 
-<a id="masstransfer"></a>
 #### massTransfer
 
 Creates [mass transfer transaction](https://docs.wavesplatform.com/en/blockchain/transaction-type/mass-transfer-transaction.html).
@@ -749,7 +726,6 @@ const [tx] = await signer
   .broadcast();
 ```
 
-<a id="reissue"></a>
 #### reissue
 
 Creates [reissue transaction](https://docs.wavesplatform.com/en/blockchain/transaction-type/reissue-transaction.html).
@@ -788,7 +764,6 @@ const [tx] = await signer
   .broadcast();
 ```
 
-<a id="setassetscript"></a>
 #### setAssetScript
 
 Creates [set asset script transaction](https://docs.wavesplatform.com/en/blockchain/transaction-type/set-asset-script-transaction.html).
@@ -824,7 +799,6 @@ const [tx] = await signer
   .broadcast();
 ```
 
-<a id="setscript"></a>
 #### setScript
 
 Creates [set script transaction](https://docs.wavesplatform.com/en/blockchain/transaction-type/set-script-transaction.html).
@@ -855,7 +829,6 @@ const [tx] = await signer
   .broadcast();
 ```
 
-<a id="sponsorship"></a>
 #### sponsorship
 
 Creates sponsorship transaction.
@@ -890,7 +863,6 @@ const [tx] = await signer
   .broadcast();
 ```
 
-<a id="transfer"></a>
 #### transfer
 
 Creates [transfer transaction](https://docs.wavesplatform.com/en/blockchain/transaction-type/transfer-transaction.html).
@@ -932,7 +904,6 @@ const [tx] = await signer
   .broadcast();
 ```
 
-<a id="batch"></a>
 #### batch
 
 Creates list of transactions.
@@ -980,7 +951,6 @@ In this example, `sign` method returns array of signed transactions in the same 
 
 ### Others
 
-<a id="broadcast"></a>
 #### broadcast
 
 Sends transactions that are already signed to the blockchain.
@@ -1018,7 +988,6 @@ In this example:
 * Block with `transfer2` and two more blocks are added to the blockchain.
 * Promise is resolved and you can notify user that his/her transactions are confirmed.
 
-<a id="setprovider"></a>
 #### setProvider
 
 Specifies a Provider that is used to sign transactions. See [Provider Interface](#provider-interface) to find out the provider requirements.
@@ -1040,7 +1009,6 @@ setProvider(provider);
 signer.setProvider(new Provider());
 ```
 
-<a id="waittxconfirm"></a>
 #### waitTxConfirm
 
 Waits for the transaction to appear in the blockchain.
@@ -1069,7 +1037,6 @@ signer.waitTxConfirm(tx, 1).then((tx) => {
 }});
 ```
 
-<a id="provider-interface"></a>
 ## Provider Interface 
 
 Provider should feature the following interface:

@@ -1,6 +1,6 @@
 # Running Waves Node in Yandex.Cloud
 
-1.&nbsp;In the Yandex.Cloud [console](https://console.cloud.yandex.com), navigate to the desired resource group.
+1.&nbsp;In the Yandex.Cloud [bash](https://bash.cloud.yandex.com), navigate to the desired resource group.
 
 ![](./_assets/resource-group.png)
 
@@ -26,7 +26,7 @@
 
 7.&nbsp;Make sure that the virtual machine is running by [connecting](https://cloud.yandex.com/docs/compute/operations/vm-connect/ssh#vm-connect) to it via SSH. Copy the IP address of the machine from the control panel of Yandex.Cloud.
 
-``` console
+``` bash
 ssh <username>@<virtual_machine_ip_address>
 ```
 
@@ -36,8 +36,8 @@ ssh <username>@<virtual_machine_ip_address>
 
 9.&nbsp;Set the necessary settings. When ready, click **Run my node!**. The docker container will start with the settings you have specified.
 
-10.&nbsp;Make sure that the container is running by running the [docker ps](https://docs.docker.com/engine/reference/commandline/ps) command in the virtual machine console.
+10.&nbsp;Make sure that the container is running by running the [docker ps](https://docs.docker.com/engine/reference/commandline/ps) command in the virtual machine bash.
 
-``` console
+``` bash
 sudo docker ps
 ```

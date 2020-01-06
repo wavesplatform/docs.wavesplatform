@@ -6,5 +6,5 @@
 
 Веб-интерфейс Node API в [Swagger](https://swagger.io):
 
-* Основная сеть — https://nodes.wavesnodes.com
-* Тестовая сеть — https://nodes-testnet.wavesnodes.com
+* Основная сеть — <https://nodes.wavesnodes.com>
+* Тестовая сеть — <https://nodes-testnet.wavesnodes.com>

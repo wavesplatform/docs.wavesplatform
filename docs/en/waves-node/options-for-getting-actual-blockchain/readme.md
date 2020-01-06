@@ -22,9 +22,8 @@ The user needs to stop the node before starting the process of importing the blo
 If the node is on a fork with a height more than 2000 blocks, it should choose an option for getting the actual blockchain. This can be achieved by updating the node version and reimporting the blockchain.
 
 <note type="error" title="">If your node is on a fork and you want to update it, please do not export/import your own blockchain but download the recent exported blockchains from the provided links below (the file blockchain_last.tar) otherwise your node will stay on the fork.
-
-* [MainNet](https://blockchain.wavesnodes.com/)
-* [TestNet](https://blockchain.testnet.wavesnodes.com)
+<ul><li><a href="https://blockchain.wavesnodes.com/">MainNet</a></li>
+<li><a href="https://blockchain.testnet.wavesnodes.com">TestNet</a></li></ul>
 </note>
 
 The speed of block verification and signature verification affects the time of reaching the current state by the import method. These operations are performed on the CPU. The verification of the blocks goes in one stream, therefore, a gain in time will be given by a high-frequency CPU rather than a multicore one. The signature verification operation is multi-threaded, but against the background of block verification, it has an insignificant effect. In other words, there is practically no difference when using 8 or 16 cores CPUs operating at the same frequency. The remaining blocks will be synchronized during normal operation.

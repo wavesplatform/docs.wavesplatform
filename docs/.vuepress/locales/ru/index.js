@@ -50,6 +50,30 @@ module.exports = deepmerge(mixin, {
                     }
                 }
             },
+            buildingBlockchainApps: {
+                rootLink: '/ru/building-apps/',
+                title: 'Разработка приложений на блокчейне',
+                caption: 'Создание смарт-контрактов и децентрализованных приложений на платформе Waves. Инструменты разработчика, API и SDK.',
+                buttonSet: {
+                    smartAccount: {
+                        text: 'Смарт-аккаунты',
+                        link: '/ru/building-apps/smart-contracts/smart-accounts',
+                    },
+                    smartAsset: {
+                        text: 'Смарт-ассеты',
+                        link: '/ru/building-apps/smart-contracts/smart-assets',
+                    },
+                    dapp: {
+                        text: 'dApps',
+                        link: '/ru/building-apps/smart-contracts/what-is-a-dapp',
+                    },
+                },
+            },
+            rideProgrammingLanguage: {
+                rootLink: '/ru/building-apps/',
+                title: 'Язык программирования Ride',
+                caption: 'Cинтаксис Ride. Типы скриптов. Встроенные функции, операторы и структуры.',
+            },
             node: {
                 rootLink: '/ru/waves-node/',
                 title: 'Нода Waves',
@@ -91,30 +115,6 @@ module.exports = deepmerge(mixin, {
                         link: '/ru/ecosystem/waves-token-rating/about-waves-token-rating',
                     },
                 },
-            },
-            buildingBlockchainApps: {
-                rootLink: '/ru/building-apps/',
-                title: 'Разработка приложений на блокчейне',
-                caption: 'Создание смарт-контрактов и децентрализованных приложений на платформе Waves. Инструменты разработчика, API и SDK.',
-                buttonSet: {
-                    smartAccount: {
-                        text: 'Смарт-аккаунты',
-                        link: '/ru/building-apps/smart-contracts/smart-accounts',
-                    },
-                    smartAsset: {
-                        text: 'Смарт-ассеты',
-                        link: '/ru/building-apps/smart-contracts/smart-assets',
-                    },
-                    dapp: {
-                        text: 'dApps',
-                        link: '/ru/building-apps/smart-contracts/what-is-a-dapp',
-                    },
-                },
-            },
-            rideProgrammingLanguage: {
-                rootLink: '/ru/building-apps/',
-                title: 'Язык программирования Ride',
-                caption: 'Cинтаксис Ride. Типы скриптов. Встроенные функции, операторы и структуры.',
             },
             miscellaneous: {
                 rootLink: '/ru/keep-in-touch/',

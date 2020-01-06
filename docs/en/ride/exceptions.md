@@ -14,4 +14,4 @@ func main(amount: Int) = {
 
 The return type of `throw` is [Nothing](/en/ride/data-types).
 
-There is no exception handling in RIDE — after an exception has been thrown, the script will stop its execution; the transaction will be considered as failed and will not be included in the block.
+There is no exception handling in Ride — after an exception has been thrown, the script will stop its execution; the transaction will be considered as failed and will not be included in the block.

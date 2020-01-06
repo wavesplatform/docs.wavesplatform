@@ -75,7 +75,7 @@ A smart asset’s script validates any of [_**the following transaction**_](../w
 * LeaseTransaction, LeaseCancelTransaction, AliasTransaction, DataTransaction, SetScriptTransaction
   These transactions don’t involve any assets.
 
-**Note.** Smart Assets scripts **do not validate orders**. Therefore, although RIDE allows to use `case t : Order => …` branch, in fact this branch does not validate anything when used in SmartAssets’ scripts and will be ignored. So all the logic regarding orders should be moved to `case t : ExchangeTransaction => …` branch. The Sponsorship of smart assets is _**prohibited**_.
+**Note.** Smart Assets scripts **do not validate orders**. Therefore, although Ride allows to use `case t : Order => …` branch, in fact this branch does not validate anything when used in SmartAssets’ scripts and will be ignored. So all the logic regarding orders should be moved to `case t : ExchangeTransaction => …` branch. The Sponsorship of smart assets is _**prohibited**_.
 
 **Validation in smart trading**
 

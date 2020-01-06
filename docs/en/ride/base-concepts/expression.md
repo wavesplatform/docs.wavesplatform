@@ -2,7 +2,7 @@
 
 An **expression** is a combination of one or more [constants](/en/ride/constants), [variables](/en/ride/variables), [operators](/en/ride/operators) and [function](/en/ride/functions) _calls_.
 
-RIDE interprets the expression and calculates its _result_.
+Ride interprets the expression and calculates its _result_.
 
 <a id="expression-result"></a>
 ## Expression result
