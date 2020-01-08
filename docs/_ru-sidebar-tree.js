@@ -509,11 +509,11 @@ module.exports = {
       path: nodePath + 'node-api',
     },
     {
-      title: 'Запуск Waves Node в Яндекс.Облаке',
+      title: 'Запуск ноды Waves в Яндекс.Облаке',
       path: nodePath + 'running-waves-node-in-yandex-cloud',
     },
     {
-      title: 'Обновление Ноды Waves',
+      title: 'Обновление ноды Waves',
       path: nodePath + 'upgrading',
     },
     {
@@ -925,7 +925,7 @@ module.exports = {
       path: programmingPath + 'what-is-a-dapp',
       children: [
         {
-          title: 'Написание dApps',
+          title: 'Написание dApp',
           path: programmingPath + 'writing-dapps',
         },
         {

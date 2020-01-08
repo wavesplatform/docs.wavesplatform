@@ -4,5 +4,5 @@
 
 Список доступных расширений:
 
-* [gRPC server](/ru/waves-node/extensions/grpc-server)
-* [Матчер](/ru/waves-node/extensions/matcher)
+* [gRPC Server](/ru/waves-node/extensions/grpc-server)
+* Матчер: см. описание в разделе [Waves.Exchange Матчер](https://docs.waves.exchange/ru/waves-matcher/) документации Waves.Exchange.
