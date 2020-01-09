@@ -62,6 +62,7 @@ SCRIPT_TYPE ACCOUNT — directive that indicates that we are working with an acc
 CONTENT_TYPE DAPP — directive that indicates that the script we are working with is a dApp.
 
 ## Script context
+
 Script context is a context where some immutable variables and functions could be defined, that will be accessible within the boundaries of the entire dApp.
 ```
 let someConstant = 42
@@ -69,7 +70,9 @@ func doSomething() = {
     1+1
 }
 ```
+
 ## Definitions of the callable functions
+
 Here we can define functions, that will be called with Invoke Script-transactions. Such functions are adorned with `@Callable(contextObj)`, where `contextObj` is an arbitrary name of the context object. The context object contains the following fields:
 
 - `caller` — the account address, which called the function.
@@ -77,6 +80,7 @@ Here we can define functions, that will be called with Invoke Script-transaction
 - `payment` — the payment that's attached to the function call. The payment can be empty (UNIT).
 
 A callable function can use the functions and the values from the script context (see above) and from its own context.
+
 ```
 @Callable(contextObj)
 func foo() = {
@@ -95,7 +99,7 @@ func foo() = {
 
 The validation function in a dApp plays the role of the account script — it validates all the outgoing from this account transactions.
 
-Such a function is adorned with the `@Verifier(tx)` annotation, where `tx` is the transaction, which the function is currently validating. Available fields of the transaction (different by transaction type) you can see at the [Functions and Standard Library](/en/ride/script/standard-library) page.
+Such a function is adorned with the `@Verifier(tx)` annotation, where `tx` is the transaction, which the function is currently validating. Available fields of the transaction (different by transaction type) you can see in the [Transaction structures](/en/ride/structures/transaction-structures) section.
 
 Possible execution results:
 

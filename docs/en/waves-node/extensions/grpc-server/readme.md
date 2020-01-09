@@ -12,7 +12,7 @@ gRPC services provide information about:
 
 ## Client generation
 
-The clients [generated](https://grpc.io/docs/tutorials/) from [.proto files](https://github.com/wavesplatform/Waves/tree/master/grpc-server/src/main/protobuf) are used to connect to gRPC services.
+The clients [generated](https://grpc.io/docs/tutorials/) from [.proto files](https://github.com/wavesplatform/protobuf-schemas) are used to connect to gRPC services.
 
 Examples of usage of gRPC clients generated from .proto files:
 

@@ -57,11 +57,11 @@ module.exports = deepmerge(mixin, {
                 buttonSet: {
                     smartAccount: {
                         text: 'Смарт-аккаунты',
-                        link: '/ru/building-apps/smart-contracts/smart-accounts',
+                        link: '/ru/building-apps/smart-contracts/what-is-smart-account',
                     },
                     smartAsset: {
                         text: 'Смарт-ассеты',
-                        link: '/ru/building-apps/smart-contracts/smart-assets',
+                        link: '/ru/building-apps/smart-contracts/what-is-smart-asset',
                     },
                     dapp: {
                         text: 'dApps',

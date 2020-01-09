@@ -119,7 +119,7 @@ module.exports = {
             },
             {
               title: 'Спонсирование',
-              path: blockchainPath + 'binary-format/transaction-binary-format/sponsorship-transaction-binary-format',
+              path: blockchainPath + 'binary-format/transaction-binary-format/sponsor-fee-transaction-binary-format',
             },
             {
               title: 'Перевод',

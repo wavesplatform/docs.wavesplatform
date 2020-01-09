@@ -117,7 +117,7 @@ The assets that were issued without a script cannot become scripted. You can cre
 
 ## Changing a Smart Asset's Script
 
-A smart asset’s script can be changed via [_**SetAssetScriptTransaction**_](/en/blockchain/binary-format/transaction-binary-format/set-asset-script-transaction-binary-format) \([fee](../technical-details/transactions-fees) on changing is equal to 1 WAVES\).
+A smart asset’s script can be changed via [_**SetAssetScriptTransaction**_](/en/blockchain/binary-format/transaction-binary-format/set-asset-script-transaction-binary-format) \([fee](/en/blockchain/transaction/transaction-fee) on changing is equal to 1 WAVES\).
 
 Only the issuer can change the asset's script.
 

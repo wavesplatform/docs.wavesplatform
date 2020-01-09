@@ -1,6 +1,6 @@
 # Бинарный формат транзакции установки скрипта
 
-> Узнать больше о [транзакции установки скрипта](/ru/blockchain/transaction-type/set-script-transaction-transaction)
+> Узнать больше о [транзакции установки скрипта](/ru/blockchain/transaction-type/set-script-transaction)
 
 ## Транзакция версии 1
 

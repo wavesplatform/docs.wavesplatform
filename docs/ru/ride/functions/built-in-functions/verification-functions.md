@@ -44,7 +44,7 @@ rsaVerify(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub
 
 Алгоритм хеширования, который применяется к данным.
 
-Значение должно быть одной из [встроенных переменных](ru/ride/variables/built-in-variables):
+Значение должно быть одной из [встроенных переменных](/ru/ride/variables/built-in-variables):
 
 * NOALG
 * MD5

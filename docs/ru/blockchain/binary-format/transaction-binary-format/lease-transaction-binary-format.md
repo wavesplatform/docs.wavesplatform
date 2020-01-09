@@ -9,7 +9,7 @@
 | 3 | [Версия транзакции](/ru/blockchain/transaction/transaction-version) |version| [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Значение должно быть равно 2 |
 | 4 | Зарезервированное поле |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Значение должно быть равно 0 |
 | 5 | Открытый ключ аккаунта отправителя транзакции | senderPublicKey | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
-| 6 | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/alias/alias) получателя | recipient | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 | Если первый байт поля равен 1, то в поле хранится адрес; если 2 — псевдоним |
+| 6 | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/alias) получателя | recipient | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 | Если первый байт поля равен 1, то в поле хранится адрес; если 2 — псевдоним |
 | 7 | Количество токенов, отдаваемых в лизинг | amount | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 8 | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) | fee | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 9 | [Временная метка транзакции](/ru/blockchain/transaction/transaction-timestamp) | timestamp | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
