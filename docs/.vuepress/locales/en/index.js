@@ -25,11 +25,11 @@ module.exports = deepmerge(mixin, {
             },
             buildingBlockchainApps: {
                 title: 'Building Apps',
-                caption: 'Creating smart contract and distributed applications with Waves. Developer tools, APIs and SDKs.',
+                caption: 'Creating smart contracts and distributed applications with Waves. Developer tools, APIs and SDKs.',
             },
             rideProgrammingLanguage: {
                 title: 'Ride Programming Language',
-                caption: 'Syntax of Ride. Script types. Build-in functions, operators and structures.',
+                caption: 'Syntax of Ride. Script types. Built-in functions, operators and structures.',
                 buttonSet: {
                     gettingStarted: {
                         text: 'Getting started',

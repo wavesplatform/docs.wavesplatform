@@ -37,7 +37,7 @@ Place your Waves project and raise funds for it on the crowdfunding platform [Ve
 
 To place a project, first become a member of the DAO (_Decentralised Autonomous Organization_). Ask any [active user](https://beta.ventuary.space/community) to register you or contact the Ventuary DAO [group](https://t.me/ventuary_dao) in Telegram.
 
-After you become a member of the DAO, you will be able to create projects, vote and invite new users to the Ventuary DAO platform. 
+After you become a member of the DAO, you will be able to create projects, vote and invite new users to the Ventuary DAO platform.
 
 ## Community
 
