@@ -162,7 +162,7 @@ broadcast(invokeScript({dApp: "3Mw2J9yxS8ftQ8FZuD6hsE3fCu494qJqB5r", call: {func
 
 Here `3Mw2J9yxS8ftQ8FZuD6hsE3fCu494qJqB5r` is the address of the account of the head of the HOA.
 
-If everything went right, you will see the following result (expand the `Promise` object in the bash):
+If everything went right, you will see the following result (expand the `Promise` object in the console):
 
 ![](./_assets/voting/repl-success.png)
 

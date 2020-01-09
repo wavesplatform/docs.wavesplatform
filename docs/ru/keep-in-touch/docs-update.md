@@ -53,12 +53,6 @@
 * [Что такое смарт-ассет](smart-contracts/what-is-smart-asset)
 * [Что такое dApp](smart-contracts/what-is-a-dapp)
 
-### Node
-
-* Расширения
-  * Матчер
-    * [Установка матчера на Ubuntu из deb-пакета](/ru/waves-node/extensions/matcher/matcher-install-ubuntu-deb)
-
 ### Oracles
 
 * [Инструмент отправки транзакций данных](/ru/ecosystem/waves-oracles/data-transaction-tool)

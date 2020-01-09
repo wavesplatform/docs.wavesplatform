@@ -63,13 +63,6 @@
 * [Mining](blockchain/mining) — <span style="color:green">updated</span>
   * [Mining reward](blockchain/mining/mining-reward) — <span style="color:green">updated</span>
 
-### Node
-
-* Extensions
-  * Matcher
-    * [Installing matcher on Ubuntu from deb-package](/en/waves-node/extensions/matcher/matcher-install-ubuntu-deb)
-    * [Matcher settings](/en/waves-node/extensions/matcher/matcher-settings)
-
 ### Oracles
 
 * [Data transaction tool](waves-oracles/data-transaction-tool)

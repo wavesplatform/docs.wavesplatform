@@ -2,7 +2,7 @@
 
 ## Install OpenJDK 8
 
-Install [OpenJDK 8](tps://github.com/AdoptOpenJDK/homebrew-openjdk) :
+Install [OpenJDK 8](https://github.com/AdoptOpenJDK/homebrew-openjdk) :
 
 ```
 brew cask install adoptopenjdk/openjdk/adoptopenjdk8
@@ -36,7 +36,7 @@ Then start Terminal app `Terminal.app`, navigate to the folder with the jar file
 
 ## Additional security
 
-For added security, it is recommended to store your wallet and configuration applications on an encrypted partition. You can read about it [here](https://support.apple.com/en-us/HT201599).
+For added security, it is recommended to store your wallet and configuration applications on an encrypted partition. You can read about it [here](https://support.apple.com/en-us/HT208344).
 
 Also, you may want to limit the use of these folders to designated users only. You can read about it [here](http://ss64.com/osx/chown.html).
 

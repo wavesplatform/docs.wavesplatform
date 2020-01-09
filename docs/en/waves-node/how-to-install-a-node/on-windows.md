@@ -32,7 +32,7 @@ Then start Windows Command line app `cmd.exe`, navigate to the folder with the j
 
 ## Additional security
 
-For added security, it is recommended to store your wallet and configuration applications on an encrypted partition. You can use software like [BitLocker](https://technet.microsoft.com/en-us/library/cc731549%28v=ws.10%29.aspx), [TrueCrypt](http://truecrypt.sourceforge.net/), [AxCrypt](http://www.axcrypt.net/), [DiskCryptor](https://diskcryptor.net/), [FreeOTFE](https://sourceforge.net/projects/freeotfe.mirror/), [GostCrypt](https://www.gostcrypt.org/), [VeraCrypt](https://veracrypt.codeplex.com/) or else. You choose this application **at your own risk**!
+For added security, it is recommended to store your wallet and configuration applications on an encrypted partition. You can use software like [BitLocker](https://technet.microsoft.com/en-us/library/cc731549%28v=ws.10%29.aspx), [TrueCrypt](http://truecrypt.sourceforge.net/), [AxCrypt](http://www.axcrypt.net/), [FreeOTFE](https://sourceforge.net/projects/freeotfe.mirror/), [GostCrypt](https://www.gostcrypt.org/), [VeraCrypt](https://veracrypt.codeplex.com/) or else. You choose this application **at your own risk**!
 
 Also, you may want to limit the use of these folders to designated users only. You can read about it [here](https://technet.microsoft.com/en-us/library/cc754344%28v=ws.11%29.aspx).
 

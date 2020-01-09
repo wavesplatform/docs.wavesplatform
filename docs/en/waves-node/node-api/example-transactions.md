@@ -54,7 +54,7 @@ Listed below are examples of real transactions of each type found in _**testnet*
 | 6 | Burn | [9wFtso92XU5k3m82HiMCxkxHQpkoHmaqSMXj4p9us1nG](https://testnode1.wavesnodes.com/transactions/info/9wFtso92XU5k3m82HiMCxkxHQpkoHmaqSMXj4p9us1nG) [465761](https://testnode1.wavesnodes.com/blocks/at/465761) |
 | 7 | Exchange | [28biMwpgZVjAUk5iJnWvphaFgr8Tybwqe6s5JxGTdDWJ](https://testnode1.wavesnodes.com/transactions/info/28biMwpgZVjAUk5iJnWvphaFgr8Tybwqe6s5JxGTdDWJ) [469802](https://testnode1.wavesnodes.com/blocks/at/469802) |
 | 8 | Lease | [HhcB4D2wwWA8HdjrRSb2HmtAiG1a9UBmtP4yQJZQxo8S](https://testnode1.wavesnodes.com/transactions/info/HhcB4D2wwWA8HdjrRSb2HmtAiG1a9UBmtP4yQJZQxo8S) [465720](https://testnode1.wavesnodes.com/blocks/at/465720) |
-| 9 | Lease Cancel | [DZcp4Uq4d27UJG5QUs1LGpJMCk9N6GXe9mP5kySm89np](https://testnode1.wavesnodes.com/transactions/info/DZcp4Uq4d27UJG5QUs1LGpJMCk9N6GXe9mP5kySm89np) [465721](https://testnode1.wavesnodes.com/blocks/at/465721v) |
+| 9 | Lease Cancel | [DZcp4Uq4d27UJG5QUs1LGpJMCk9N6GXe9mP5kySm89np](https://testnode1.wavesnodes.com/transactions/info/DZcp4Uq4d27UJG5QUs1LGpJMCk9N6GXe9mP5kySm89np) [465721](https://testnode1.wavesnodes.com/blocks/at/465721) |
 | 10 | Alias | [AD7KmXwoVNc2fXsmaxsHsrnT1tfPF3HsWYtfjFijVsvM](https://testnode1.wavesnodes.com/transactions/info/AD7KmXwoVNc2fXsmaxsHsrnT1tfPF3HsWYtfjFijVsvM) [466104](https://testnode1.wavesnodes.com/blocks/at/466104) |
 
 ### Mainnet

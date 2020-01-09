@@ -16,7 +16,7 @@ ExchangeTransaction(buyOrder: Order, sellOrder: Order, price: Int, amount: Int, 
 | 2 | sellOrder | [Order](/ru/ride/structures/common-structures/order) | Ордер на продажу |
 | 3 | price | [Int](/ru/ride/data-types/int) | Стоимость токена |
 | 4 | amount | [Int](/ru/ride/data-types/int) | Количество токенов |
-| 5 | buyMatcherFee | [Int](/ru/ride/data-types/int) | Комиссия [матчера](/ru/waves-node/extensions/matcher) за покупку |
+| 5 | buyMatcherFee | [Int](/ru/ride/data-types/int) | Комиссия [матчера](https://docs.waves.exchange/ru/waves-matcher/) за покупку |
 | 6 | sellMatcherFee | [Int](/ru/ride/data-types/int) | Комиссия матчера за продажу |
 | 7 | id | [ByteVector](/ru/ride/data-types/byte-vector) | [ID транзакции](/ru/blockchain/transaction/transaction-id) |
 | 8 | fee | [Int](/ru/ride/data-types/int) | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) |

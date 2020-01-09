@@ -102,7 +102,7 @@ export class WavesPrice {
 ​
       await this.broadcastTX(dataParams);
     } catch(err) {
-      bash.log(err);
+      console.log(err);
     }
   }
 }
@@ -137,19 +137,19 @@ export class WavesPrice {
 
 Установим зависимости проекта:
 
-``` bash
+```bash
 $ npm install
 ```
 
 Если TypeScript не установлен, следует установить его глобально:
 
-``` bash
+```bash
 $ npm install -g ts-node typescript
 ```
 
 Теперь запустим наш оракул:
 
-``` bash
+```bash
 $ npm run start
 ```
 
@@ -207,6 +207,6 @@ _Рисунок 5_.
 
 В нашем случае, для получения из оракула данных по курсу пары WAVES/BTC, нужно в методе _getInteger()_ указать адрес оракула и соответствующий ключ:
 
-``` ride
+```ride
 getInteger("3PPTrTo3AzR56N7ArzbU3Bpq9zYMgcf39Mk", "waves_btc_8")
 ```

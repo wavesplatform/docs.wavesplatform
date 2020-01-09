@@ -10,7 +10,7 @@ The features of a dApp are even wider. Besides validating the outgoing transacti
 
 ## General Requirements to Write dApp
 
-dApps are written in [Ride](/en/ride/about-ride). To create dApp, you need an account that has enough [WAVES](/en/blockchain/token/waves) on its balance to pay for the set script transaction (1 WAVES). To start writing dApp right away, use the [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide).
+dApps are written in [Ride](/en/ride). To create dApp, you need an account that has enough [WAVES](/en/blockchain/token/waves) on its balance to pay for the set script transaction (1 WAVES). To start writing dApp right away, use the [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide).
 
 ## dApp Structure
 

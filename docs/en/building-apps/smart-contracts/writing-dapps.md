@@ -8,7 +8,7 @@ By default, _only_ the fact that the transaction belongs to the owner of the acc
 If a validation algorithm has to have some additional logic that goes beyond only the detection of transaction's ownership, then a special script written in Ride is used. This script is attached to the account. That kind of script is called the **account script**. After the attachment of the script to the account, all the transactions that are sent from this account will be verified with this script.
 
 ## IDE for writing account scripts
-We are using [Waves IDE](http://ide.wavesplatform.com/) as our IDE for writing Ride scripts. To create a new script let's click the **New** button and select the **Account script** option.
+We are using [Waves IDE](https://ide.wavesplatform.com/) as our IDE for writing Ride scripts. To create a new script let's click the **New** button and select the **Account script** option.
 
 ![](./_assets/ide1.png)
 
@@ -90,10 +90,12 @@ func foo() = {
        throw("Only owner can use this function.")
 }
 ```
+
 ## Definition of the validation function
+
 The validation function in a dApp plays the role of the account script — it validates all the outgoing from this account transactions.
 
-Such a function is adorned with the `@Verifier(tx)` annotation, where `tx` is the transaction, which the function is currently validating. Available fields of the transaction (different by transaction type) you can see at the [Functions and Standard Library](/en/building-apps/smart-contracts/ride-language/standard-library) page.
+Such a function is adorned with the `@Verifier(tx)` annotation, where `tx` is the transaction, which the function is currently validating. Available fields of the transaction (different by transaction type) you can see at the [Functions and Standard Library](/en/ride/script/standard-library) page.
 
 Possible execution results:
 
@@ -105,6 +107,7 @@ If a dApp doesn't have the validation function, then the default validation algo
 
 The example of a function, that permits only Transfer-transactions (any other types of transactions will not be allowed to be sent from such an account):
 ```
+
 @Verifier(tx)
 func verify() = {
     match tx {
@@ -113,7 +116,9 @@ func verify() = {
     }
 }
 ```
+
 ## InvokeScriptTransaction function parameters
+
 | Parameter name |Parameter type |Description  |
 |---|---|---|
 |  type  |Int   |  transaction type (16 for the InvokeScript) |
@@ -131,6 +136,7 @@ func verify() = {
 |  chainId |  Byte | blockchain network identifier <br /> "T" — testing <br /> "W" — working (production)  |
 
 ## JSON of the InvokeScript-transaction
+
 ```
 {
  
@@ -158,7 +164,9 @@ func verify() = {
   "id": "2fcMC9ihuLAcGNsbiSLDgz8dekq2JkrtjihroUiyNYCp"
 }
 ```
+
 ## The example of a dApp
+
 ```
 # Directives
 {-# STDLIB_VERSION 3 #-}
