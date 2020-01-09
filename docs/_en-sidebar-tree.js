@@ -593,16 +593,12 @@ module.exports = {
       path: nodePath + 'options-for-getting-actual-blockchain',
       children: [
         {
-          title: 'State downloading and applying',
-          path: nodePath + 'options-for-getting-actual-blockchain/state-downloading-and-applying',
-        },
-        {
-          title: 'Import blockchain',
+          title: 'Export/Import Blockchain',
           path: nodePath + 'options-for-getting-actual-blockchain/import-from-the-blockchain',
-        },
+        },	  
         {
-          title: 'Export blockchain',
-          path: nodePath + 'options-for-getting-actual-blockchain/export-and-import-from-the-blockchain',
+          title: 'Download the Latest Blockchain',
+          path: nodePath + 'options-for-getting-actual-blockchain/state-downloading-and-applying',
         },
       ],
     },
