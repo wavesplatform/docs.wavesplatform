@@ -1,13 +1,58 @@
-# Import Blockchain
-![master](https://img.shields.io/badge/node->%3D0.8.0-4bc51d.svg)
+# Export/Import Blockchain
 
-If you already have a Waves full node synced to the correct chain, you can import the blockchain data. Importing can be used as an option for more quickly obtaining the Waves blockchain.
+A running node requires up-to-date blockchain database for operation. The database can be imported from a previously exported binary file.
 
-## Import Blocks From The Binary File
+This article describes the database exporting and importing process.
 
-The node must be stopped before importing the blockchain. If you already have some data in the node's `data` folder, the import will continue to append new data from the blockchain's binary file. So, you may want to remove the existing data. The user should be careful while appending data because mixing data from different versions can lead to an erroneous state.
+## Export the Existing Blocks to Binary File
 
-To import the blockchain and rebuild the state run the following command(Importing is a heavy operation and it could take a few hours to be completed):
+If you have a running Waves node that is synchronized to actual blockchain, you can export the node's blockchain database to a binary file.
+Stop the node before exporting. Exporting is quite a fast operation, but the resulting binary file can take up to 1/3 of the data folder size.
+
+To export the existing blocks to a binary file, run the following command:
+
+### On Windows
+
+```bash
+java -cp waves-all-<version>.jar com.wavesplatform.Exporter -c [configuration-file-name] -o [output-file-name] -h [height]
+```
+
+### On Linux
+
+Mainnet:
+
+```bash
+sudo -u waves waves export -c /etc/waves/waves.conf -o [output-file-name] -h [height]
+```
+
+Testnet:
+
+```bash
+sudo -u waves-testnet waves-testnet export -c /etc/waves-testnet/waves.conf -o [output-file-name] -h [height]
+```
+
+The height parameter allows to specify maximum height of the blocks during exporting. If the parameter is not set, all the blocks will be exported.
+
+The output-file-name parameter is optional ('blockchain' is used by default). The resulting export file with the `<output-file-name>-<height>` name will be created in the `data` folder.
+
+## Import Blocks from Binary File
+
+A running node requires up-to-date blockchain database for operation. It is possible to import blockchain database (to increase the speed of the process) instead of automatic node synchronization.
+
+Stop the node before importing.
+
+If the data folder of the node contains some files, the import will continue to append new data from the blockchain's binary file.
+It is recommended to delete the existing files to avoid mixing data from different versions that can cause errors.
+
+On Windows, the folder is located here: **%HOMEPATH%\waves\data**
+
+On Linux: **/var/lib/waves[-testnet]/ folder:**
+
+**sudo rm -rdf /var/lib/waves[-testnet]/data**
+
+**Warning**: Importing is a heavy operation that may take several hours to complete.
+
+To import database, run the followiong command:
 
 ### On Windows
 
@@ -17,28 +62,38 @@ java -cp waves-all-<version>.jar com.wavesplatform.Importer -c [configuration-fi
 
 ### On Linux
 
-```bash
-Mainnet: sudo -u waves waves import -c /etc/waves/waves.conf -i [binary-file-name]
+Mainnet:
 
-Testnet: sudo -u waves-testnet waves-testnet import -c /etc/waves-testnet/waves.conf -i [binary-file-name]
+```bash
+sudo -u waves waves import -c /etc/waves/waves.conf -i [binary-file-name]
 ```
 
-## Import blocks up to a certain height
+Testnet:
 
-when importing, The user can specify the target height. If the parameter `height` was not given, all blocks will be imported. To accomplish that, the user need to write the following commands:
+```bash
+sudo -u waves-testnet waves-testnet import -c /etc/waves-testnet/waves.conf -i [binary-file-name]
+```
+
+## Import Blocks Up to a Certain Height
+
+It is possible to set target height. If the height parameter is not set, all the blocks will be impoerted. To import, run the following command:
 
 ### On Windows
 
-```
+```bash
 java com.wavesplatform.Importer -c <config_file> -i <blockchain_file> -h <height>
 ```
 
 ### On Linux
 
+Mainnet:
+
+```bash
+sudo -u waves waves import -c /etc/waves/waves.conf -i /path/to/mainnet-1234688
 ```
-Mainnet: sudo -u waves waves import -c /etc/waves/waves.conf -i /path/to/mainnet-1234688
-Testnet: sudo -u waves-testnet waves-testnet import -c /etc/waves-testnet/waves.conf -i /path/to/testnet-1234688
+
+Testnet:
+
+```bash
+sudo -u waves-testnet waves-testnet import -c /etc/waves-testnet/waves.conf -i /path/to/testnet-1234688
 ```
-
-
-
