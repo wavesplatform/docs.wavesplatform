@@ -8,13 +8,13 @@
 
 2.&nbsp;Установите пакет с помощью команды:
 
-``` bash
+```bash
 sudo dpkg -i grpc-server_{номер версии}_all.deb
 ```
 
 3.&nbsp;В файл конфигурации добавьте следующую строчку:
 
-``` bash
+```bash
 waves.extensions += com.wavesplatform.api.grpc.GRPCServerExtension
 ```
 
@@ -24,13 +24,13 @@ waves.extensions += com.wavesplatform.api.grpc.GRPCServerExtension
 
 Если нода запущена в основной сети, выполните команду:
 
-``` bash
+```bash
 sudo systemctl restart waves
 ```
 
 Если нода запущена в тестовой сети, выполните команду:
 
-``` bash
+```bash
 sudo systemctl restart waves-testnet
 ```
 
@@ -42,12 +42,12 @@ sudo systemctl restart waves-testnet
 
 3.&nbsp;Создайте новый файл конфигурации или откройте существующий и добавьте в него строчку:
 
-``` bash
+```bash
 waves.extensions += com.wavesplatform.api.grpc.GRPCServerExtension
 ```
 
 4.&nbsp;Выполните команду:
 
-``` bash
+```bash
 java -cp 'waves-all-1.0.0.jar:grpc-server-1.0.0/lib/*' com.wavesplatform.Application {название файла конфигурации}.conf
 ```

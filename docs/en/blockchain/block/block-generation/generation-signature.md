@@ -5,7 +5,7 @@
 The computation of the block's generation signature `generationSignature`<sub>i+1</sub> is done by the following steps:
 
 1. Choosing the block. Let `h` will be the current blockchain height. If `h` ≥ 100, then the block at height `h-100` will be chosen. Otherwise, the block at height `h-1` will be chosen.
-2. Hashing the chosen block's generation signature `generationSignature`<sub>i</sub> and miner's account public key `pk` using [Blake2b256](https%3A//en.wikipedia.org/wiki/BLAKE_%28hash_function%29):
+2. Hashing the chosen block's generation signature `generationSignature`<sub>i</sub> and miner's account public key `pk` using [Blake2b256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29):
 `generationSignature`<sub>i+1</sub> = `Blake2b256`(`generationSignature`<sub>i</sub>, `pk`)
 
 The resulting hash is the generation signature.

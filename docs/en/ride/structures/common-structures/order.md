@@ -18,7 +18,7 @@ Order(id: ByteVector, matcherPublicKey: ByteVector, assetPair: AssetPair, orderT
 | 4 | orderType | Buy&#124;Sell | Type of an order — selling or buying |
 | 5 | price | [Int](/en/ride/data-types/int) | Price of a token to exchange |
 | 6 | amount | [Int](/en/ride/data-types/int) | Number of tokens to exchange |
-| 7 | timestamp | [Int](/en/ride/data-types/int) | [Unix time](https://en.wikipedia.org/wiki/Unix-time) of the validation of an order by a matcher  |
+| 7 | timestamp | [Int](/en/ride/data-types/int) | [Unix time](https://en.wikipedia.org/wiki/Unix_time) of the validation of an order by a matcher  |
 | 8 | expiration | [Int](/en/ride/data-types/int) | Unix time when an uncompleted order will be cancelled |
 | 9 | matcherFee | [Int](/en/ride/data-types/int) | [Transaction fee](/en/blockchain/transaction/transaction-fee) |
 | 10 | matcherFeeAssetId | [ByteVector](/en/ride/data-types/byte-vector)&#124;[Unit](/en/ride/data-types/unit) | Token of a transaction fee.<br>It can only be [WAVES](/en/blockchain/token/waves) |

@@ -13,6 +13,6 @@
 * [Reissue transaction protobuf scheme](/en/blockchain/binary-format/transaction-protobuf-scheme/reissue-transaction-protobuf-scheme)
 * [Set asset script transaction protobuf scheme](/en/blockchain/binary-format/transaction-protobuf-scheme/set-asset-script-transaction-protobuf-scheme)
 * [Set script transaction protobuf scheme](/en/blockchain/binary-format/transaction-protobuf-scheme/set-script-transaction-protobuf-scheme)
-* [Sponsor fee transaction protobuf scheme](/en/blockchain/binary-format/transaction-protobuf-scheme/sponsorship-transaction-protobuf-scheme)
+* [Sponsor fee transaction protobuf scheme](/en/blockchain/binary-format/transaction-protobuf-scheme/sponsor-fee-transaction-protobuf-scheme)
 * [Transfer transaction protobuf scheme](/en/blockchain/binary-format/transaction-protobuf-scheme/transfer-transaction-protobuf-scheme)
 * [Update asset info transaction protobuf scheme](/en/blockchain/binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme)
