@@ -195,29 +195,29 @@ module.exports = [
   },
   {
     /*===============================  Client  =====================================*/
-    from: '/ru/waves-client(.)',
+    from: '/ru/waves-client()',
     to: 'https://docs.waves.exchange/ru',
   },
   {
-    from: '/en/waves-client(.)',
+    from: '/en/waves-client()',
     to: 'https://docs.waves.exchange/en',
   },
   {
     /*===============================  DEX  =====================================*/
-    from: '/ru/waves-dex(.)',
+    from: '/ru/waves-dex()',
     to: 'https://docs.waves.exchange/ru',
   },
   {
-    from: '/en/waves-dex(.)',
+    from: '/en/waves-dex()',
     to: 'https://docs.waves.exchange/en',
   },
   {
     /*===============================  Keeper  =====================================*/
-    from: '/en/waves-keeper(.)',
+    from: '/en/waves-keeper()',
     to: 'https://docs.waves.exchange/en/waves-keeper',
   },
   {
-    from: '/ru/waves-keeper(.)',
+    from: '/ru/waves-keeper()',
     to: 'https://docs.waves.exchange/ru/waves-keeper',
   },
   {
@@ -581,11 +581,11 @@ module.exports = [
     to: '/en/ride/script-performance-tests',
   },
   {
-    from: '/en/smart-contracts(.)',
+    from: '/en/smart-contracts()',
     to: '/en/building-apps/smart-contracts$1',
   },
   {
-    from: '/ru/smart-contracts(.)',
+    from: '/ru/smart-contracts()',
     to: '/ru/building-apps/smart-contracts$1',
   },
   {
@@ -601,7 +601,7 @@ module.exports = [
     to: 'https://docs.waves.exchange/en/waves-matcher/matcher-api',
   },
   {
-    from: '/en/waves-api-and-sdk/client-api(.)',
+    from: '/en/waves-api-and-sdk/client-api()',
     to: 'https://docs.waves.exchange/en/waves-exchange/waves-exchange-client-api',
   },
   {
@@ -613,47 +613,47 @@ module.exports = [
     to: '/en/building-apps/waves-api-and-sdk/waves-data-service-api',
   },
   {
-    from: '/en/waves-api-and-sdk/waves-gaming-api(.)',
+    from: '/en/waves-api-and-sdk/waves-gaming-api()',
     to: '/en/building-apps/waves-api-and-sdk/waves-gaming-api$1',
   },
   {
-    from: '/en/waves-api-and-sdk/client-libraries(.)',
+    from: '/en/waves-api-and-sdk/client-libraries()',
     to: '/en/building-apps/waves-api-and-sdk/client-libraries$1',
   },
   {
-    from: '/en/waves-api-and-sdk/examples(.)',
+    from: '/en/waves-api-and-sdk/examples()',
     to: '/en/building-apps/waves-api-and-sdk/examples$1',
   },
   {
-    from: '/ru/waves-api-and-sdk(.)',
+    from: '/ru/waves-api-and-sdk()',
     to: '/ru/building-apps/waves-api-and-sdk$1',
   },
   {
-    from: '/en/waves-explorer(.)',
+    from: '/en/waves-explorer()',
     to: '/en/ecosystem/waves-explorer$1',
   },
   {
-    from: '/ru/waves-explorer(.)',
+    from: '/ru/waves-explorer()',
     to: '/ru/ecosystem/waves-explorer$1',
   },
   {
-    from: '/en/waves-oracles(.)',
+    from: '/en/waves-oracles()',
     to: '/en/ecosystem/waves-oracles$1',
   },
   {
-    from: '/ru/waves-oracles(.)',
+    from: '/ru/waves-oracles()',
     to: '/ru/ecosystem/waves-oracles$1',
   },
   {
-    from: '/en/waves-token-rating(.)',
+    from: '/en/waves-token-rating()',
     to: '/en/ecosystem/waves-token-rating$1',
   },
   {
-    from: '/ru/waves-token-rating(.)',
+    from: '/ru/waves-token-rating()',
     to: '/ru/ecosystem/waves-token-rating$1',
   },
   {
-    from: '/en/recources(.)',
+    from: '/en/recources()',
     to: '/en/keep-in-touch',
   },
   {
