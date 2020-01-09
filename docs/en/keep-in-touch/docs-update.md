@@ -1,4 +1,4 @@
-# News
+# Documentation updates
 
 ## December articles
 

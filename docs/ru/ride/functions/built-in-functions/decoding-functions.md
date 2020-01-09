@@ -9,7 +9,7 @@
 | 5 | [fromBase64String(String): ByteVector](#from-base-64-string)| Декодирует строку [Base64](https://ru.wikipedia.org/wiki/Base64) в массив байтов | 10 |
 
 
-### addressFromString(String): Address|Unit<a id="address-from-string"></a>
+## addressFromString(String): Address|Unit<a id="address-from-string"></a>
 
 Декодирует адрес из строки [Base58](https://ru.wikipedia.org/wiki/Base58).
 
