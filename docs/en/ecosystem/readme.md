@@ -4,11 +4,11 @@ Here are some useful applications based on Waves Platform:
 
 * [Waves Explorer](/en/ecosystem/waves-explorer/about-waves-explorer)
 
-   Displays the Waves blockchain data in a form that is understandable to humans.
+   Displays the Waves blockchain data in human-readable format.
 
 * [Free Waves on Testnet](/en/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network)
 
-   Enables top up account balance in the test network by 10 WAVES at a time.
+   Allows to top up account balance in the test network with 10 WAVES at a time.
 
 * [Waves Oracles](/en/ecosystem/waves-oracles/about-waves-oracles)
 
