@@ -15,7 +15,7 @@ func rate(name: String, rating: Int) = {
 }
 ```
 
-<note type="warning" title="">[Стандартная библиотека](/ru/ride/script/standard-library) версии 4 доступна начиная с версии ноды 1.2.0 после активации функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№ 16). См. [протокол активации](/platform-features/activation-protocol).</note>
+<note type="warning" title="">[Стандартная библиотека](/ru/ride/script/standard-library) версии 4 доступна начиная с версии ноды 1.2.0 после активации функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№ 16). См. [протокол активации](/ru/blockchain/waves-protocol/activation-protocol).</note>
 
 ## Пример для стандартной библиотеки версии 4
 

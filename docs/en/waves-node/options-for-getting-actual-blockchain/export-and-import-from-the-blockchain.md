@@ -40,4 +40,4 @@ sudo rm -rdf /var/lib/waves[-testnet]/data
 You can download recently exported blockchains using following links:
 
 * [MainNet](http://blockchain.wavesnodes.com/)
-* [TestNet](http://blockchain.testnet.wavesnodes.com)
+* [TestNet](http://blockchain-testnet.wavesnodes.com)

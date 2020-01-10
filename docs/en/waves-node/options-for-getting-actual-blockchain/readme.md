@@ -23,7 +23,7 @@ If the node is on a fork with a height more than 2000 blocks, you sholuld get th
 
 **Warning**: If your node is on a fork and you want to update it, please do not export/import your own blockchain but download the recent exported blockchains from the provided links below (the blockchain_last.tar file):
 
-* [MainNet](https://blockchain.wavesnodes.com/)
+* [MainNet](http://blockchain.wavesnodes.com/)
 * [TestNet](http://blockchain-testnet.wavesnodes.com/)
 
 The speed of block verification and signature verification affects the time of reaching the current state by the import method. These operations are performed on the CPU. The verification of the blocks goes in one stream, therefore, a gain in time will be given by a high-frequency CPU rather than a multicore one. The signature verification operation is multi-threaded, but against the background of block verification, it has an insignificant effect. In other words, there is practically no difference when using 8 or 16 cores CPUs operating at the same frequency. The remaining blocks will be synchronized during normal operation.

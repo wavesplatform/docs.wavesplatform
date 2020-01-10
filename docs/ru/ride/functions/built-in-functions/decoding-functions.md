@@ -19,7 +19,7 @@ addressFromString(string: String): Address|Unit
 
 ### Параметры
 
-#### `string`: [String](/en/ride/data-types/string)
+#### `string`: [String](/ru/ride/data-types/string)
 
 Строка для декодирования.
 
@@ -41,7 +41,7 @@ addressFromStringValue(string: String): Address
 
 ### Параметры
 
-#### `string`: [String](en/ride/data-types/string)
+#### `string`: [String](/ru/ride/data-types/string)
 
 Строка для декодирования.
 

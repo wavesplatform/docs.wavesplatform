@@ -83,7 +83,7 @@
   <tr>
     <td>8</td>
     <td>this</td>
-    <td><a href="/ru/blockchain/account/addressd">Адрес</a> отправителя транзакции или информация о <a href="/ru/blockchain/token">токене</a></td>
+    <td><a href="/ru/blockchain/account/address">Адрес</a> отправителя транзакции или информация о <a href="/ru/blockchain/token">токене</a></td>
   </tr>
   <tr>
     <td>9</td>
