@@ -488,21 +488,9 @@ module.exports = {
         },
       ],
     },
-   {
-      title: 'Расширения',
-      path: nodePath + 'extensions',
-      children: [
-        {
-          title: 'gRPC Server',
-          path: nodePath + 'extensions/grpc-server',
-          children: [
-            {
-              title: 'Установка gRPC Server',
-              path: nodePath + 'extensions/grpc-server/grpc-server-installation',
-            },
-          ],
-        },
-      ]
+    {
+      title: 'Full нода Waves',
+      path: nodePath + 'what-is-a-full-node',
     },
 	{
       title: 'Как установить ноду',
@@ -535,6 +523,22 @@ module.exports = {
           path: nodePath + 'options-for-getting-actual-blockchain/state-downloading-and-applying',
         },
       ],
+    },
+	{
+      title: 'Расширения',
+      path: nodePath + 'extensions',
+      children: [
+        {
+          title: 'gRPC Server',
+          path: nodePath + 'extensions/grpc-server',
+          children: [
+            {
+              title: 'Установка gRPC Server',
+              path: nodePath + 'extensions/grpc-server/grpc-server-installation',
+            },
+          ],
+        },
+      ]
     },
 	{
       title: 'Node API',
