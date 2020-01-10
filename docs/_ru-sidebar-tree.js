@@ -508,6 +508,38 @@ module.exports = {
       title: 'Node API',
       path: nodePath + 'node-api',
     },
+	{
+      title: 'Как установить ноду',
+      path: nodePath + 'how-to-install-a-node/how-to-install-a-node',
+      children: [
+        {
+          title: 'Установка ноды на Mac',
+          path: nodePath + 'how-to-install-a-node/on-mac',
+        },
+        {
+          title: 'Установка ноды на Windows',
+          path: nodePath + 'how-to-install-a-node/on-windows',
+        },
+        {
+          title: 'Установка ноды на Ubuntu',
+          path: nodePath + 'how-to-install-a-node/on-ubuntu',
+        }
+      ],
+    },
+	{
+      title: 'Способы загрузки актуального блокчейна',
+      path: nodePath + 'options-for-getting-actual-blockchain',
+      children: [
+        {
+          title: 'Экспорт/Импорт блокчейна',
+          path: nodePath + 'options-for-getting-actual-blockchain/import-from-the-blockchain',
+        },	  
+        {
+          title: 'Загрузка готовой актуальной базы данных',
+          path: nodePath + 'options-for-getting-actual-blockchain/state-downloading-and-applying',
+        },
+      ],
+    },
     {
       title: 'Запуск ноды Waves в Яндекс.Облаке',
       path: nodePath + 'running-waves-node-in-yandex-cloud',
