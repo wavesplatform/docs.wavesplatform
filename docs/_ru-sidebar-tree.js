@@ -580,6 +580,10 @@ module.exports = {
       path: ridePath,
     },
     {
+      title: 'Начало работы',
+      path: ridePath + 'getting-started',
+    },
+    {
       title: 'Базовые понятия',
       path: ridePath + 'base-concepts',
       children: [
