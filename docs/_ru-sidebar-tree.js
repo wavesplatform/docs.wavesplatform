@@ -504,10 +504,6 @@ module.exports = {
         },
       ]
     },
-    {
-      title: 'Node API',
-      path: nodePath + 'node-api',
-    },
 	{
       title: 'Как установить ноду',
       path: nodePath + 'how-to-install-a-node/how-to-install-a-node',
@@ -539,6 +535,10 @@ module.exports = {
           path: nodePath + 'options-for-getting-actual-blockchain/state-downloading-and-applying',
         },
       ],
+    },
+	{
+      title: 'Node API',
+      path: nodePath + 'node-api',
     },
     {
       title: 'Запуск ноды Waves в Яндекс.Облаке',
