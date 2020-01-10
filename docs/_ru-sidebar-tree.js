@@ -965,9 +965,15 @@ module.exports = {
         {
           title: 'Клиентские библиотеки',
           path: sdkPath + 'client-libraries',
+          children: [
+            {
+              title: 'Signer',
+              path: sdkPath + 'client-libraries/signer',
+            }
+          ]
         },
       ],
-    }
+    },
   ],
 
   [ecosystemPath]: [
