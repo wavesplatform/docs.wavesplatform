@@ -529,6 +529,10 @@ module.exports = {
       path: nodePath + 'how-to-rollback-a-node',
     },
 	{
+      title: 'Запуск ноды в Docker',
+      path: nodePath + 'waves-node-in-docker',
+    },
+	{
       title: 'Расширения',
       path: nodePath + 'extensions',
       children: [
