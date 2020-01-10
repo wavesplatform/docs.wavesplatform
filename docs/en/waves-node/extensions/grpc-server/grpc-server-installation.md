@@ -8,13 +8,13 @@ The [gRPC Server](/en/waves-node/extensions/grpc-server) extension can be instal
 
 2. Install the package using the command:
 
-``` bash
+```bash
 sudo dpkg -i grpc-server_{version number}_all.deb
 ```
 
 3. Add the following string to the configuration file:
 
-``` bash
+```bash
 waves.extensions += com.wavesplatform.api.grpc.GRPCServerExtension
 ```
 
@@ -24,13 +24,13 @@ For the main network, the configuration file is located at /etc/waves/waves.conf
 
 If the node is running in the main network, run the command:
 
-``` bash
+```bash
 sudo systemctl restart waves
 ```
 
 If the node is running in the test network, run the command:
 
-``` bash
+```bash
 sudo systemctl restart waves-testnet
 ```
 
@@ -40,12 +40,12 @@ sudo systemctl restart waves-testnet
 2. Unpack the archive to the directory containing node's JAR-file.
 3. Create a new configuration file or open the existing one and add to it the following string:
 
-``` bash
+```bash
 waves.extensions += com.wavesplatform.api.grpc.GRPCServerExtension
 ```
 
 4. Run command:
 
-``` bash
+```bash
 java -cp 'waves-all-1.0.0.jar:grpc-server-1.0.0/lib/*' com.wavesplatform.Application {configuration file name}.conf
 ```

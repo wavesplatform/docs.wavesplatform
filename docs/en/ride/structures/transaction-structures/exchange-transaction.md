@@ -16,7 +16,7 @@ ExchangeTransaction(buyOrder: Order, sellOrder: Order, price: Int, amount: Int, 
 | 2 | sellOrder | [Order](/en/ride/structures/common-structures/order) | Token sell order |
 | 3 | price | [Int](/en/ride/data-types/int) | Price of exchanging token |
 | 4 | amount | [Int](/en/ride/data-types/int) | Amount of exchanging tokens |
-| 5 | buyMatcherFee | [Int](/en/ride/data-types/int) | [Matcher](/en/waves-node/extensions/matcher)'s purchase fee |
+| 5 | buyMatcherFee | [Int](/en/ride/data-types/int) | [Matcher](https://docs.waves.exchange/en/waves-matcher/)'s purchase fee |
 | 6 | sellMatcherFee | [Int](/en/ride/data-types/int) | Matcher's sell fee |
 | 7 | id | [ByteVector](/en/ride/data-types/byte-vector) | [Transaction ID](/en/blockchain/transaction/transaction-id) |
 | 8 | fee | [Int](/en/ride/data-types/int) | [Transaction fee](/en/blockchain/transaction/transaction-fee) |

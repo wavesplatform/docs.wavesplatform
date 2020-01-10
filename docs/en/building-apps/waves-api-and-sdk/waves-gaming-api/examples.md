@@ -10,7 +10,7 @@ async function createItem()
 const items = Items(ChainId.Testnet)
 const request = items.create(100,false, { version:1, main: { name:'The sword of pain', img:'img_url'}, misc: {} }, seed)
 const item =await request.execute()
-bash.log(item)
+console.log(item)
 }
 ```
 
@@ -21,7 +21,7 @@ async function getItem()
 {
  const items = Items(ChainId.Testnet)
  const item = await items.getItem('6vq5YokeJUeCU3BCah65LTgiS5ESzjJdNurddY4ZDhcG', false)
- bash.log(item)
+ console.log(item)
 }
 ```
 
@@ -34,7 +34,7 @@ async function getItemList()
 {
  const items = Items(ChainId.Testnet)
  const list = await items.getItemList('creatorAddress')
- bash.log(list)
+ console.log(list)
 }
 ```
 

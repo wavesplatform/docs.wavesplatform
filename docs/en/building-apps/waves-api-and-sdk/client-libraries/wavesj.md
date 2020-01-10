@@ -73,7 +73,7 @@ Now send it from an online machine:
 node.send(tx);
 ```
 
-Create a DEX order:
+Create an order:
 
 ```java
 Node matcher = new Node("https://testnode2.wavesnodes.com");

@@ -12,7 +12,7 @@ A **built-in variable** is a [variable](/en/ride/variables) of the [script conte
   <tr>
     <td>1</td>
     <td>Buy</td>
-    <td><a href="/blockchain/order.md">Order</a> type</td>
+    <td><a href="/en/blockchain/order">Order</a> type</td>
   </tr>
   <tr>
     <td>2</td>
@@ -28,23 +28,23 @@ A **built-in variable** is a [variable](/en/ride/variables) of the [script conte
       </ul>
     </td>
     <td>
-      <a href="/ride/functions/built-in-functions/math-functions.md">Rounding methods</a> used in the <a href="/ride/functions/built-in-functions/math-functions.md">log</a> and <a href="/ride/functions/built-in-functions/math-functions.md">pow</a> functions
+      <a href="/en/ride/functions/built-in-functions/math-functions">Rounding methods</a> used in the <a href="/en/ride/functions/built-in-functions/math-functions">log</a> and <a href="/en/ride/functions/built-in-functions/math-functions">pow</a> functions
     </td>
   </tr>
   <tr>
     <td>3</td>
     <td>height</td>
-    <td><a href="/blockchain/blockchain/blockchain-height.md">Blockchain height</a> at the script execution time</td>
+    <td><a href="/en/blockchain/blockchain/blockchain-height">Blockchain height</a> at the script execution time</td>
   </tr>
   <tr>
     <td>4</td>
     <td>lastBlock</td>
-    <td>Information about the last <a href="/blockchain/block.md">block</a> of the blockchain at the script execution time</td>
+    <td>Information about the last <a href="/en/blockchain/block">block</a> of the blockchain at the script execution time</td>
   </tr>
   <tr>
     <td>5</td>
     <td>nil</td>
-    <td>Variable that contains an empty <a href="/ride/data-types/list.md">list.</a><br>The variable is used for creating lists. For example, instead of:<br>
+    <td>Variable that contains an empty <a href="/en/ride/data-types/list">list.</a><br>The variable is used for creating lists. For example, instead of:<br>
 <pre>
 <code class=“lang-ride”>
     let a = [5,6]
@@ -77,28 +77,28 @@ A **built-in variable** is a [variable](/en/ride/variables) of the [script conte
       </ul>
     </td>
     <td>
-      Variables that are passed as the first parameter to the <a href="/ride/functions/built-in-functions/verification-functions.md">rsaVerify</a> function
+      Variables that are passed as the first parameter to the <a href="/en/ride/functions/built-in-functions/verification-functions">rsaVerify</a> function
     </td>
   </tr>
   <tr>
     <td>7</td>
     <td>Sell</td>
-    <td><a href="/blockchain/order.md">Order</a> type</td>
+    <td><a href="/en/blockchain/order">Order</a> type</td>
   </tr>
   <tr>
     <td>8</td>
     <td>this</td>
-    <td>Transaction sender <a href="/blockchain/account/address.md">address</a> or information about the <a href="/blockchain/token.md">token</a></td>
+    <td>Transaction sender <a href="/en/blockchain/account/address">address</a> or information about the <a href="/en/blockchain/token">token</a></td>
   </tr>
   <tr>
     <td>9</td>
     <td>tx</td>
-    <td><a href="/blockchain/transaction.md">Transaction</a> or <a href="/blockchain/order.md">order</a></td>
+    <td><a href="/en/blockchain/transaction">Transaction</a> or <a href="/en/blockchain/order">order</a></td>
   </tr>
   <tr>
     <td>10</td>
     <td>unit</td>
-    <td>Variable that contains an object of <a href="/ride/data-types/unit.md">Unit</a> type.<br><b>Example 1</b><br> the <code>deposit</code> function transfers 5 <a href="/blockchain/token/wavelet.md">WAVELETs</a> to the account, that <a href="/ride/functions/callable-function.md">called</a> this function.
+    <td>Variable that contains an object of <a href="/en/ride/data-types/unit">Unit</a> type.<br><b>Example 1</b><br> the <code>deposit</code> function transfers 5 <a href="/en/blockchain/token/wavelet">WAVELETs</a> to the account, that <a href="/en/ride/functions/callable-function">called</a> this function.
 
 <pre>
 <code class=“lang-ride”>
@@ -115,7 +115,7 @@ func deposit() = {
 </code>
 </pre>
 
-WAVES does not have a <a href="/blockchain/token/token-id.md">token ID</a>; the <code>unit</code> is passed instead of the ID.<br><b>Example 2</b><br>The <a href="/ride/functions/built-in-functions/blockchain-functions.md"><tt>assetInfo</tt></a> function requests information about the token by its ID. Next, the <code>isDefined</code> function checks that a token with this ID exists on the blockchain.
+WAVES does not have a <a href="/en/blockchain/token/token-id">token ID</a>; the <code>unit</code> is passed instead of the ID.<br><b>Example 2</b><br>The <a href="/en/ride/functions/built-in-functions/blockchain-functions"><tt>assetInfo</tt></a> function requests information about the token by its ID. Next, the <code>isDefined</code> function checks that a token with this ID exists on the blockchain.
 <pre>
 <code class=“lang-ride”>
 {-# STDLIB_VERSION 3 #-}

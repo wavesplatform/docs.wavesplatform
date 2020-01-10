@@ -102,7 +102,7 @@ export class WavesPrice {
 ​
       await this.broadcastTX(dataParams);
     } catch(err) {
-      bash.log(err);
+      console.log(err);
     }
   }
 }
@@ -137,19 +137,19 @@ First, install Node.js, if it is not yet installed: [https://nodejs.org/en](htt
 
 Setting project dependencies:
 
-``` bash
+```bash
 $ npm install
 ```
 
 If you have not installed TypeScript, you need to install it globally:
 
-``` bash
+```bash
 $ npm install -g ts-node typescript
 ```
 
 Now let's launch our oracle:
 
-``` bash
+```bash
 $ npm run start
 ```
 
@@ -187,7 +187,7 @@ Coming down below and fill in the Specification and Example.
 
 In our case, the oracle must write two quotation values: WAVES/USD and WAVES/BTC. Therefore, we define these two parameters, as shown in fig. 4.
 
-Here we need some explanations: dApp on [Ride](/en/ride/about-ride) cannot use float value, that's why we use an integer type with point shift by the necessary number of digits. Also in the key, we specify the number of digits by which the point shifts: for USD by two digits, for BTC by eight digits. It'll be easy to parse keys like this by Ride and realize how many characters the point is shifted.
+Here we need some explanations: dApp on [Ride](/en/ride) cannot use float value, that's why we use an integer type with point shift by the necessary number of digits. Also in the key, we specify the number of digits by which the point shifts: for USD by two digits, for BTC by eight digits. It'll be easy to parse keys like this by Ride and realize how many characters the point is shifted.
 
 The key like this is not unique and the [account data storage](/en/blockchain/account/account-data-storage) will always retain the last value. You can add a timestamp to make the key unique and save historical values.
 
@@ -207,6 +207,6 @@ Congratulations, now our oracle is completely ready. Once data is written in the
 
 In our case, for example, to get WAVES/BTC data from the oracle, you need to specify the oracle address and the corresponding key in _getInteger()_ method:
 
-``` ride
+```ride
 getInteger("3PPTrTo3AzR56N7ArzbU3Bpq9zYMgcf39Mk", "waves_btc_8")
 ```

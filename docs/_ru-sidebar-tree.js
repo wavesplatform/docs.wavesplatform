@@ -119,7 +119,7 @@ module.exports = {
             },
             {
               title: 'Спонсирование',
-              path: blockchainPath + 'binary-format/transaction-binary-format/sponsorship-transaction-binary-format',
+              path: blockchainPath + 'binary-format/transaction-binary-format/sponsor-fee-transaction-binary-format',
             },
             {
               title: 'Перевод',
@@ -488,7 +488,47 @@ module.exports = {
         },
       ],
     },
-   {
+    {
+      title: 'Full нода Waves',
+      path: nodePath + 'what-is-a-full-node',
+    },
+	{
+      title: 'Как установить ноду',
+      path: nodePath + 'how-to-install-a-node/how-to-install-a-node',
+      children: [
+        {
+          title: 'Установка ноды на Mac',
+          path: nodePath + 'how-to-install-a-node/on-mac',
+        },
+        {
+          title: 'Установка ноды на Windows',
+          path: nodePath + 'how-to-install-a-node/on-windows',
+        },
+        {
+          title: 'Установка ноды на Ubuntu',
+          path: nodePath + 'how-to-install-a-node/on-ubuntu',
+        }
+      ],
+    },
+	{
+      title: 'Способы загрузки актуального блокчейна',
+      path: nodePath + 'options-for-getting-actual-blockchain',
+      children: [
+        {
+          title: 'Экспорт/Импорт блокчейна',
+          path: nodePath + 'options-for-getting-actual-blockchain/import-from-the-blockchain',
+        },	  
+        {
+          title: 'Загрузка готовой актуальной базы данных',
+          path: nodePath + 'options-for-getting-actual-blockchain/state-downloading-and-applying',
+        },
+      ],
+    },
+	{
+      title: 'Как откатить ноду',
+      path: nodePath + 'how-to-rollback-a-node',
+    },
+	{
       title: 'Расширения',
       path: nodePath + 'extensions',
       children: [
@@ -504,7 +544,7 @@ module.exports = {
         },
       ]
     },
-    {
+	{
       title: 'Node API',
       path: nodePath + 'node-api',
     },

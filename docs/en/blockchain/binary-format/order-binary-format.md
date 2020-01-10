@@ -6,7 +6,7 @@
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [Order](/en/blockchain/order) binary format version number | version | [Byte](/en/blockchain/blockchain/blockchain-data-types)| 1 | Value must be 3 |
 | 2 | Order sender public key | senderPublicKey | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 |  |
-| 3 | [Matcher](/en/blockchain/waves-node/extensions/matcher) public key | matcherPublicKey | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 |  |
+| 3 | [Matcher](https://docs.waves.exchange/en/waves-matcher/) public key | matcherPublicKey | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 |  |
 | 4.1 | Token B flag |  | [Short](/en/blockchain/blockchain/blockchain-data-types) | 1 | If token is [WAVES](/en/blockchain/token/waves), then value is 0, else 1 |
 | 4.2 | [Token ID](/en/blockchain/token/token-id) Б | amountAsset | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | If token is not WAVES, then `S` = 32, else the field should be absent |
 | 5.1 | Token A flag |  | [Short](/en/blockchain/blockchain/blockchain-data-types) | 1 | If token is WAVES, then value is 0, else 1 |

@@ -12,7 +12,7 @@
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Номер версии бинарного формата [ордера](/ru/blockchain/order) | version | [Byte](/ru/blockchain/blockchain/blockchain-data-types)| 1 | Значение должно быть равно 3 |
 | 2 | Открытый ключ отправителя ордера | senderPublicKey | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
-| 3 | Открытый ключ [матчера](/ru/blockchain/waves-node/extensions/matcher) | matcherPublicKey | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
+| 3 | Открытый ключ [матчера](https://docs.waves.exchange/ru/waves-matcher/) | matcherPublicKey | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
 | 4.1 | Флаг токена Б |  | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Если токен [WAVES](/ru/blockchain/token/waves), то значение 0, иначе — 1 |
 | 4.2 | [ID токена](/ru/blockchain/token/token-id) Б | amountAsset | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | Если токен не WAVES, то `S` = 32, иначе — поле не должно присутствовать в бинарном формате |
 | 5.1 | Флаг токена А |  | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Если токен WAVES, то значение 0, иначе — 1 |
@@ -59,7 +59,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | Номер версии бинарного формата [ордера](/ru/blockchain/order) | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Значение должно быть равно 2 |
 | 2 | Открытый ключ отправителя ордера | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
-| 3 | Открытый ключ [матчера](/ru/blockchain/waves-node/extensions/matcher) | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
+| 3 | Открытый ключ [матчера](https://docs.waves.exchange/ru/waves-matcher/) | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
 | 4.1 | Флаг токена А | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Если токен [WAVES](/ru/blockchain/token/waves), то значение 0, иначе — 1 |
 | 4.2 | [ID токена](/ru/blockchain/token/token-id) А | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | Если токен не WAVES, то `S` = 32, иначе — поле не должно присутствовать в бинарном формате |
 | 5.1 | Флаг токена Б | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Если токен WAVES, то значение 0, иначе — 1 |
@@ -77,7 +77,7 @@
 | Порядковый номер поля | Название поля | Тип поля | Размер поля в байтах | Описание поля |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | Открытый ключ отправителя [ордера](/ru/blockchain/order) | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
-| 2 | Открытый ключ [матчера](/ru/blockchain/waves-node/extensions/matcher) | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
+| 2 | Открытый ключ [матчера](https://docs.waves.exchange/ru/waves-matcher/) | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
 | 3.1 | Флаг токена A | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Если [WAVES](/ru/blockchain/token/waves), то значение 0, иначе — 1 |
 | 3.2 | [ID токена](/ru/blockchain/token/token-id) А | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | Если токен не WAVES, то `S` = 32, иначе — поле не должно присутствовать в бинарном формате |
 | 4.1 | Флаг токена Б | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Если WAVES, то значение 0, иначе — 1 |

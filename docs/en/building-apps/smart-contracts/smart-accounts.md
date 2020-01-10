@@ -39,7 +39,7 @@ As a result, We define the following constraint for a _**script cost**_:
 * If transaction's usual cost is 0.001 WAVES, in case of smart scripting exactly the same transaction will be cost 0.001 + 0.004 WAVES.
 * Set Alias for an account without a script would cost 0.001 WAVES, whereas for a Smart Account it would be 0.001+0.004=0.005 WAVES.
 
-**Note.** All minimal transactions fees can be found [_**here**_](../transactions-fees).
+**Note.** All minimal transactions fees can be found [here](/en/blockchain/transaction/transaction-fee).
 
 ## Trading With Smart Accounts
 
@@ -88,5 +88,5 @@ match tx {
 }
 ```
 
-**Note.** To understand our language better, you can check our [_**Ride Language Section**_](/en/building-apps/smart-contracts/ride-language/ride-language) and go through our [_**Video Tutorials and Articles**_](/en/building-apps/smart-contracts/video-tutorials-and-articles).
+**Note.** To understand our language better, you can check our [Ride Language Section](/en/ride) and go through our [video tutorials](/en/building-apps/smart-contracts/video-tutorials/) and [articles](/en/building-apps/smart-contracts/articles-on-dapps).
 

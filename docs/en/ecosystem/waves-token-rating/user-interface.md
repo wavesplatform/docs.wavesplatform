@@ -64,11 +64,11 @@ This section is displayed only if you already rated token.
 
 ### Market information
 
-This section is displayed only if the token has a ticker or is traded on the DEX.
+This section is displayed only if the token has a ticker or is traded on the [Waves.Exchange](https://waves.exchange/).
 
 | Field | Description |
 | :--- | :--- |
-| Ticker | The token ticker on DEX if there is |
+| Ticker | The token ticker on [Waves.Exchange](https://waves.exchange/) if there is |
 | Price in USD | The current price of the token in USD |
 | Price in WAVES | The current price of the token in WAVES |
 | Capitalization | Capitalization (product of the token's price and the amount of issued tokens) |

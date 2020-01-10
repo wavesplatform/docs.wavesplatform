@@ -10,7 +10,7 @@
 
 ## Предварительные требования для написания dApp
 
-dApp пишутся на языке [Ride](/ru/ride/about-ride). Для создания dApp необходим [аккаунт](/ru/blockchain/account), на балансе которого должно быть достаточно [WAVES](/ru/blockchain/token/waves) для оплаты транзакции установки скрипта (1 WAVES). Чтобы сразу начать писать dApp, воспользуйтесь [Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide).
+dApp пишутся на языке [Ride](/ru/ride). Для создания dApp необходим [аккаунт](/ru/blockchain/account), на балансе которого должно быть достаточно [WAVES](/ru/blockchain/token/waves) для оплаты транзакции установки скрипта (1 WAVES). Чтобы сразу начать писать dApp, воспользуйтесь [Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide).
 
 ## Структура dApp
 

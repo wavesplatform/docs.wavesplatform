@@ -1,6 +1,6 @@
 # Транзакция данных оракула Token Rating
 
-Раз в сутки [оракул](/ru/ecosystem/waves-oracles/oracle) [Token Rating](https://oracles.wavesexplorer.com/oracle/3P2eDV4pWJGmPjLGLrW4dsMA53te4gzkwnH) отправляет в блокчейн [транзакцию данных](/ru/blockchain/transaction-type/data-transaction) с [рейтингами и оценками](/ru/ecosystem/waves-token-rating/rating-formula) токенов.
+Раз в сутки оракул [Token Rating](https://oracles.wavesexplorer.com/oracle/3P2eDV4pWJGmPjLGLrW4dsMA53te4gzkwnH) отправляет в блокчейн [транзакцию данных](/ru/blockchain/transaction-type/data-transaction) с [рейтингами и оценками](/ru/ecosystem/waves-token-rating/rating-formula) токенов.
 
 Транзакция данных содержит информацию о токенах, которые за прошедшие 24 часа были оценены.
 

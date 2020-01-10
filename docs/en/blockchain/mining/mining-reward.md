@@ -12,7 +12,7 @@ You can view the current reward size by making a request to the [Node API](/en/w
 
 Example of request:
 
-``` bash
+```bash
 curl https://nodes.wavesplatform.com/blockchain/rewards
 ```
 
