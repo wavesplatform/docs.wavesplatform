@@ -525,6 +525,10 @@ module.exports = {
       ],
     },
 	{
+      title: 'Как откатить ноду',
+      path: nodePath + 'how-to-rollback-a-node',
+    },
+	{
       title: 'Расширения',
       path: nodePath + 'extensions',
       children: [
