@@ -533,6 +533,10 @@ module.exports = {
       path: nodePath + 'waves-node-in-docker',
     },
 	{
+      title: 'Про Waves Testnet',
+      path: nodePath + 'joining-testnet',
+    },
+	{
       title: 'Расширения',
       path: nodePath + 'extensions',
       children: [
