@@ -557,16 +557,6 @@ module.exports = {
       path: nodePath + 'what-is-a-full-node',
     },
     {
-      title: 'Prerequisites',
-      path: nodePath + 'prerequisites',
-      children: [
-        {
-          title: 'Hardware requirements',
-          path: nodePath + 'prerequisites/hardware-requirements',
-        },
-      ],
-    },
-    {
       title: 'How to install a node',
       path: nodePath + 'how-to-install-a-node/how-to-install-a-node',
       children: [
