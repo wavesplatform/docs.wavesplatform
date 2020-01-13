@@ -5,7 +5,7 @@
 ## Конструктор
 
 ``` ride
-InvokeScriptTransaction(dApp: Address|Alias, payments: List[AttachedPayment], feeAssetId: ByteVector|Unit, function: String, args: List[Boolean|ByteVector|Int|String], id: ByteVector, fee: Int, timestamp: Int, version: Int, sender: Address, senderPublicKey: ByteVector, bodyBytes: ByteVector, proofs: List[ByteVector])
+InvokeScriptTransaction(dApp: Address|Alias, payment: AttachedPayment|Unit, feeAssetId: ByteVector|Unit, function: String, args: List[Boolean|ByteVector|Int|String], id: ByteVector, fee: Int, timestamp: Int, version: Int, sender: Address, senderPublicKey: ByteVector, bodyBytes: ByteVector, proofs: List[ByteVector])
 ```
 
 ## Поля структуры
@@ -13,7 +13,7 @@ InvokeScriptTransaction(dApp: Address|Alias, payments: List[AttachedPayment], fe
 | # | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
 | 1 | dApp | [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) [аккаунта](/ru/blockchain/account), который вызывает функцию |
-| 2 | payments | List[[AttachedPayment](/ru/ride/structures/common-structures/attached-payment)] | Платёж, приложенный к [транзакции](/ru/blockchain/transaction) |
+| 2 | payment | [AttachedPayment](/ru/ride/structures/common-structures/attached-payment)&#124;[Unit](/ru/ride/data-types/unit) | Платёж, приложенный к [транзакции](/ru/blockchain/transaction) |
 | 3 | feeAssetId | [ByteVector](/ru/ride/data-types/byte-vector)&#124;[Unit](/ru/ride/data-types/unit) | [Токен](/ru/blockchain/token) комиссии. В настоящее время им может быть только [WAVES](/ru/blockchain/token/waves) |
 | 4 | function | [String](/ru/ride/data-types/string) | Имя [функции](/ru/ride/functions) |
 | 5 | args | [List](/ru/ride/data-types/list)[[Boolean](/ru/ride/data-types/boolean)&#124;[ByteVector](/ru/ride/data-types/byte-vector)&#124;[Int](/ru/ride/data-types/int)&#124;[String](/ru/ride/data-types/string)] | Параметры[ функции](/ru/ride/functions) |
