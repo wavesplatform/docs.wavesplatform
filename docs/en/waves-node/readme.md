@@ -24,7 +24,7 @@ After installing a node, you will need to get the blockchain database, using one
 
 ## Already a Node Owner
 
-If already own a node, you will need to check for the latest updates and then go for one of the follwing:
+If you already own a node, you need to check for the latest updates and then proceed with one of the following:
 
 ### Upgrade Your Node
 

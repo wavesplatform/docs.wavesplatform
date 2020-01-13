@@ -553,7 +553,7 @@ module.exports = {
       path: nodePath,
     },
     {
-      title: 'What is Waves full node',
+      title: 'Waves Full Node',
       path: nodePath + 'what-is-a-full-node',
     },
     {
