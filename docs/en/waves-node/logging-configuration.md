@@ -16,7 +16,10 @@ The log levels are listed [below](#loglevels).
 
 ## Configuring own logback.xml <a id="own-logback"></a>
 
-To redefine existing node's `logback.xml` properties, use the `included` tag in `/etc/waves/logback.xml`. Example:
+To redefine existing node's `logback.xml` property
+
+1. Create `/etc/waves/logback.xml` file
+2. Add to the file the property wrapped to `included` tag, like so:
 
 ```xml
 <included>
