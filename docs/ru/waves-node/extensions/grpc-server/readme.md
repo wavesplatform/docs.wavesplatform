@@ -16,7 +16,7 @@ gRPC-сервисы предоставляют информацию об:
 
 ## Генерация клиента
 
-Для подключения к gRPC-сервисам используются клиенты, которые [генерируются](https://grpc.io/docs/tutorials/) из [.proto-файлов](https://github.com/wavesplatform/Waves/tree/master/grpc-server/src/main/protobuf).
+Для подключения к gRPC-сервисам используются клиенты, которые [генерируются](https://grpc.io/docs/tutorials/) из [.proto-файлов](https://github.com/wavesplatform/protobuf-schemas).
 
 Примеры использования gRPC-клиентов, сгенерированных из .proto-файлов:
 

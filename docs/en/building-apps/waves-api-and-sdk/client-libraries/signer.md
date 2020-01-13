@@ -134,7 +134,7 @@ Parameters:
    * [getBalance](#getbalance)
    * [getSponsoredBalances](#getsponsoredbalances)
 
-* [Сreate Transactions](create-transactions)
+* [Сreate Transactions](#create-transactions)
 
    * [Common fields](#common-fields)
    * [How to sign and broadcast transaction](#how-to-sign-and-broadcast-transaction)

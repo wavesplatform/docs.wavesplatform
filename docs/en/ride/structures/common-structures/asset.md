@@ -18,5 +18,5 @@ Asset(id: ByteVector, quantity: Int, decimals: Int, issuer: Address, issuerPubli
 | 4 | issuer | [Address](/en/ride/structures/common-structures/address) | [Address](/en/blockchain/account/address) of the [account](/en/blockchain/account) that issued a token |
 | 5 | issuerPublicKey | [ByteVector](/en/ride/data-types/byte-vector) | Public key of the account that issued a token |
 | 6 | reissuable | [Boolean](/en/ride/data-types/boolean) | true — token can be reissued, false — cannot be reissued |
-| 7 | scripted | [Boolean](/en/ride/data-types/boolean) | true — [smart asset](/en/ride/smart-assets), false — regular token |
+| 7 | scripted | [Boolean](/en/ride/data-types/boolean) | true — [smart asset](/en/smart-contracts/what-is-smart-asset), false — regular token |
 | 8 | sponsored | [Boolean](/en/ride/data-types/boolean) | true — token can be sponsored, false — cannot be sponsored |

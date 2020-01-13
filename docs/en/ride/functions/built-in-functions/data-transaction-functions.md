@@ -17,8 +17,8 @@ The functions listed below retrieve data from the [data transaction](/en/blockch
 | 11 | [getBinaryValue(ListDataEntry, String): ByteVector](#get-binary-value-string) | Gets a binary value from a list of data entires by key. Throws an exception if there is no data | 10 |
 | 12 | [getBinaryValue(List[DataEntry], Int): ByteVector](#get-binary-value-integer) | Gets a binary value from a list of data entires by index. Throws an exception if there is no data | 30 |
 | 13 | [getString(List[DataEntry] String): String&#124;Unit](#get-string-string) | Gets a string value from a list of data entires by key | 10 |
-| 14 | [getString(List[DataEntry], Int): String&#124;Unit](get-string-integer) | Gets a string value from a list of data entires by index | 30 |
-| 15 | [getStringValue(List[DataEntry], String): String](get-string-value-string) | Gets a string value from a list of data entires by key. Throws an exception if there is no data | 10 |
+| 14 | [getString(List[DataEntry], Int): String&#124;Unit](#get-string-integer) | Gets a string value from a list of data entires by index | 30 |
+| 15 | [getStringValue(List[DataEntry], String): String](#get-string-value-string) | Gets a string value from a list of data entires by key. Throws an exception if there is no data | 10 |
 | 16 | [getStringValue(List[DataEntry], Int): String](#get-string-value-integer) | Gets a string value from a list of data entires by index. Throws an exception if there is no data | 30 |
 
 ## getInteger(ListDataEntry, String): Int|Unit<a id="get-integer-string"></a>

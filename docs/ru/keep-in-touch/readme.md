@@ -2,12 +2,6 @@
 
 * [**Официальный вэб-сайт**](https://wavesplatform.com)
 * [**Исходный код на GitHub**](https://github.com/wavesplatform)
-* [**Windows приложение**](https://wavesplatform.com/files/WavesClient-win.zip)
-* [**Mac приложение**](https://wavesplatform.com/files/WavesClient-mac.dmg)
-* [**Linux приложение**](https://wavesplatform.com/files/WavesClient-linux.deb)
-* [**Онлайн приложение**](https://dex.wavesplatform.com)
-* [**iOS приложение**](https://itunes.apple.com/us/app/waves-wallet/id1233158971)
-* [**Android приложение**](https://play.google.com/store/apps/details?id=com.wavesplatform.wallet)
 * [**Main Net эксплорер**](http://wavesexplorer.com)
 * [**Test Net эксплорер**](https://testnet.wavesexplorer.com)
 
@@ -30,6 +24,3 @@
 * [**Александр Иванов в Telegram (US)**](https://t.me/absolutelysasha)
 * [**Александр Иванов в Telegram (RU)**](https://t.me/absolutelysasharu)
 
-# Поддержка
-
-* [**Служба поддержки**](https://support.wavesplatform.com/)

@@ -3,6 +3,7 @@
 **Встроенная переменная** — [переменная](/ru/ride/variables) [контекста скрипта](/ru/ride/script/script-context).
 
 ## Список встроенных переменных
+
 <table style="width:100%">
   <tr>
     <th align="left">№</th>
@@ -12,7 +13,7 @@
   <tr>
     <td>1</td>
     <td>Buy</td>
-    <td>Тип <a href="/blockchain/order.md">ордера</a></td>
+    <td>Тип <a href="/ru/blockchain/order">ордера</a></td>
   </tr>
   <tr>
     <td>2</td>
@@ -28,23 +29,23 @@
       </ul>
     </td>
     <td>
-      <a href="/ride/functions/built-in-functions/math-functions.md">Переменные округления</a>, которые используются в функциях <a href="/ride/functions/built-in-functions/math-functions.md">log</a> и <a href="/ride/functions/built-in-functions/math-functions.md">pow</a> functions
+      <a href="/ru/ride/functions/built-in-functions/math-functions">Переменные округления</a>, которые используются в функциях <a href="/ru/ride/functions/built-in-functions/math-functions">log</a> и <a href="/ru/ride/functions/built-in-functions/math-functions">pow</a> functions
     </td>
   </tr>
   <tr>
     <td>3</td>
     <td>lastBlock</td>
-    <td><a href="/blockchain/blockchain/blockchain-height.md">Высота блокчейна</a> в момент выполнения скрипта</td>
+    <td><a href="/ru/blockchain/blockchain/blockchain-height">Высота блокчейна</a> в момент выполнения скрипта</td>
   </tr>
   <tr>
     <td>4</td>
     <td>height</td>
-    <td>Информация о последнем <a href="/blockchain/block.md">блоке</a> блокчейна в момент выполнения скрипта</td>
+    <td>Информация о последнем <a href="/ru/blockchain/block">блоке</a> блокчейна в момент выполнения скрипта</td>
   </tr>
   <tr>
     <td>5</td>
     <td>nil</td>
-    <td>Переменная, которая содержит пустой <a href="/ride/data-types/list.md">список.</a><br>Используется для создания списков. Например, вместо:<br>
+    <td>Переменная, которая содержит пустой <a href="/ru/ride/data-types/list">список.</a><br>Используется для создания списков. Например, вместо:<br>
 <pre>
 <code class=“lang-ride”>
     let a = [5,6]
@@ -56,7 +57,7 @@
     let b = 5::6::nil
 </code>
 </pre>
-      Списки создаются обоими способами. Первый способ — синтаксический сахар      
+      Списки создаются обоими способами. Первый способ — синтаксический сахар
     </td>
   </tr>
   <tr>
@@ -71,28 +72,28 @@
         <li>SHA3512</li></ol>
     </td>
     <td>
-      Переменные, которые передаются первым параметром в функцию <a href="/ride/functions/built-in-functions/verification-functions.md">rsaVerify</a>
+      Переменные, которые передаются первым параметром в функцию <a href="/ru/ride/functions/built-in-functions/verification-functions">rsaVerify</a>
     </td>
   </tr>
   <tr>
     <td>7</td>
     <td>Sell</td>
-    <td>Тип <a href="/blockchain/order.md">ордера</a></td>
+    <td>Тип <a href="/ru/blockchain/order">ордера</a></td>
   </tr>
   <tr>
     <td>8</td>
     <td>this</td>
-    <td><a href="/blockchain/account/address.md">Адрес</a> отправителя транзакции или информация о <a href="/blockchain/token.md">токене</a></td>
+    <td><a href="/ru/blockchain/account/address">Адрес</a> отправителя транзакции или информация о <a href="/ru/blockchain/token">токене</a></td>
   </tr>
   <tr>
     <td>9</td>
     <td>tx</td>
-    <td><a href="/blockchain/transaction.md">Транзакция</a> или <a href="/blockchain/order.md">ордер</a></td>
+    <td><a href="/ru/blockchain/transaction">Транзакция</a> или <a href="/ru/blockchain/order">ордер</a></td>
   </tr>
   <tr>
     <td>10</td>
     <td>unit</td>
-    <td>Переменная, которая содержит объект типа <a href="/ride/data-types/unit.md">Unit</a>. <br><b>Пример 1</b><br> Функция <code>deposit</code> переводит 5 <a href="/blockchain/token/wavelet.md">WAVELET</a> на аккаунт, который <a href="/ride/functions/callable-function.md">вызвал</a> эту функцию.
+    <td>Переменная, которая содержит объект типа <a href="/ru/ride/data-types/unit">Unit</a>. <br><b>Пример 1</b><br> Функция <code>deposit</code> переводит 5 <a href="/ru/blockchain/token/wavelet">WAVELET</a> на аккаунт, который <a href="/ru/ride/functions/callable-function">вызвал</a> эту функцию.
 
 <pre>
 <code class=“lang-ride”>
@@ -109,7 +110,7 @@ func deposit() = {
 </code>
 </pre>
 
-У WAVES нет <a href="/blockchain/token/token-id.md">ID токена</a>; вместо ID передается <code>unit</code>.<br><b>Пример 2</b><br>Функция <a href="/ride/functions/built-in-functions/blockchain-functions.md"><tt>assetInfo</tt></a> запрашивает информацию о токене по его ID. Далее функция <code>isDefined</code> проверяет, что токен с таким ID существует на блокчейне.
+У WAVES нет <a href="/ru/blockchain/token/token-id">ID токена</a>; вместо ID передается <code>unit</code>.<br><b>Пример 2</b><br>Функция <a href="/ru/ride/functions/built-in-functions/blockchain-functions"><tt>assetInfo</tt></a> запрашивает информацию о токене по его ID. Далее функция <code>isDefined</code> проверяет, что токен с таким ID существует на блокчейне.
 <pre>
 <code class=“lang-ride”>
 {-# STDLIB_VERSION 3 #-}

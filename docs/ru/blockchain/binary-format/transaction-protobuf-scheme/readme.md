@@ -13,6 +13,6 @@
 * [Protobuf-схема транзакции довыпуска](/en/blockchain/binary-format/transaction-protobuf-scheme/reissue-transaction-protobuf-scheme)
 * [Protobuf-схема транзакции установки скрипта ассета](/en/blockchain/binary-format/transaction-protobuf-scheme/set-asset-script-transaction-protobuf-scheme)
 * [Protobuf-схема транзакции установки скрипта](/en/blockchain/binary-format/transaction-protobuf-scheme/set-script-transaction-protobuf-scheme)
-* [Protobuf-схема транзакции спонсирования](/en/blockchain/binary-format/transaction-protobuf-scheme/sponsorship-transaction-protobuf-scheme)
+* [Protobuf-схема транзакции спонсирования](/en/blockchain/binary-format/transaction-protobuf-scheme/sponsor-fee-transaction-protobuf-scheme)
 * [Protobuf-схема транзакции перевода](/en/blockchain/binary-format/transaction-protobuf-scheme/transfer-transaction-protobuf-scheme)
 * [Protobuf-схема транзакции обновления информации ассета](/en/blockchain/binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme)

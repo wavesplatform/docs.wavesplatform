@@ -1,6 +1,6 @@
 # Data transaction of the Token Rating oracle
 
-Once a day, the [Token Rating](https://oracles.wavesexplorer.com/oracle/3P2eDV4pWJGmPjLGLrW4dsMA53te4gzkwnH) [oracle](/en/ecosystem/waves-oracles/oracle) sends to the blockchain a [data transaction](/en/blockchain/transaction-type/data-transaction) with [ratings and rates](/en/ecosystem/waves-token-rating/rating-formula) of tokens.
+Once a day, the [Token Rating](https://oracles.wavesexplorer.com/oracle/3P2eDV4pWJGmPjLGLrW4dsMA53te4gzkwnH) oracle sends to the blockchain a [data transaction](/en/blockchain/transaction-type/data-transaction) with [ratings and rates](/en/ecosystem/waves-token-rating/rating-formula) of tokens.
 
 A data transaction contains the information about tokens, that have been rated in the past 24 hours.
 
