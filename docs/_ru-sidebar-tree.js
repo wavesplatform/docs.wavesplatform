@@ -479,16 +479,6 @@ module.exports = {
       path: nodePath,
     },
     {
-      title: 'Предварительные требования',
-      path: nodePath + 'prerequisites',
-      children: [
-        {
-          title: 'Требования к аппаратному обеспечению',
-          path: nodePath + 'prerequisites/hardware-requirements',
-        },
-      ],
-    },
-    {
       title: 'Full нода Waves',
       path: nodePath + 'what-is-a-full-node',
     },

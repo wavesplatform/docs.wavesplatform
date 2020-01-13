@@ -13,10 +13,19 @@ The Waves full node serves **two critical roles**:
 
 There are different options to run Waves full node. Review the [Node configuration](/en/waves-node/node-configuration) article to select an option that suits your needs. A running node can have zero balance, however, to create mining pool, a node must have the minimum balance of **1000 WAVES** (including Waves that are lease to the node).
 
+**Hardware requirements**
+
+Minimum requirements to run Waves Node:
+
+* 4 GB of RAM
+* Dual-core processor
+* 40 GB of SSD (HDD is not recommended)
+
 ### Installing a Node
 
 * The easiest way to run a Waves Node is by means of [Waves Docker container](/en/waves-node/waves-node-in-docker). It requires just one command to enable everything or to change the settings of the node.
-* The other way is to [download the latest version](https://github.com/wavesplatform/Waves/releases) of `waves.jar` and the required `.conf` configuration file \(for mainnet or testnet\) to any folder, for example `~/waves`. Follow the steps described in [How to Install a Node](/en/waves-node/how-to-install-a-node/how-to-install-a-node) article for details about installation and activation of the node.
+
+* The other way is to [download the latest version](https://github.com/wavesplatform/Waves/releases) of `waves.jar` and the required `.conf` configuration file \(for mainnet or testnet\) to any folder, for example `~/waves`. Follow the steps described in [How to Install a Node](/en/waves-node/how-to-install-a-node/how-to-install-a-node) article for details about node installation and activation of the node features.
 
 ### Getting Actual Blockchain
 
@@ -24,7 +33,7 @@ After installing a node, you will need to get the blockchain database, using one
 
 ## Already a Node Owner
 
-If already own a node, you will need to check for the latest updates and then go for one of the follwing:
+If you already own a node, you need to check for the latest updates and then proceed with one of the following:
 
 ### Upgrade Your Node
 
