@@ -475,7 +475,7 @@ module.exports = {
 
   [nodePath]: [
     {
-      title: 'Нода',
+      title: 'Руководство владельца ноды',
       path: nodePath,
     },
     {
