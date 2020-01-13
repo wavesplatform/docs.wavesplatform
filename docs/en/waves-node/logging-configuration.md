@@ -10,7 +10,7 @@ Prior to node version 1.1.6, the logs were written to STDOUT and to `/var/log/wa
 
 Also waves.log is now rotated when size limit is reached (100 mb by default), in addition to daily rotation.
 
-Enabling or disabling of the logging features is done by adding properties to application.ini, on the command line or in `logback.xml`.
+Enabling or disabling of the logging features is done by adding properties to application.ini, on the command line or in `logback.xml`. It is not necessary to restart node after logging-related settings changes.
 
 The log levels are listed [below](#loglevels).
 
@@ -26,7 +26,7 @@ To redefine existing node's `logback.xml` properties, use the `included` tag in 
 
 ## Activate writing the traces <a id="enable-traces"></a>
 
-Add <property name="logback.utx-trace.enabled" value="true" /> to `logback.xml`.
+Add `<property name="logback.utx-trace.enabled" value="true" />` to `logback.xml`.
 
 If writing the traces is activated, it will be written to `/var/log/utx-trace.log`.
 
