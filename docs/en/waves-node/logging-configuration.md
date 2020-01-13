@@ -1,12 +1,12 @@
 # Logging Configuration
 
-## About the used framework
+## About the framework
 
-For log writing, the [logback](https://logback.qos.ch/documentation.html) framework is used. The node is shipped with embedded logback configurion, [here](https://logback.qos.ch/manual/configuration.html) you can find the default [logback.xml](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/logback.xml) file example.
+For log writing, the [logback](https://logback.qos.ch/documentation.html) framework is used. The node is shipped with embedded logback configuration, [here](https://logback.qos.ch/manual/configuration.html) you can find the default [logback.xml](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/logback.xml) file example.
 
 To override the node's `logback.xml` settings, create own `logback.xml` in `/etc/waves/`. Refer to [this](#own-logback) section on how to configure it.
 
-Prior to node version 1.1.6, the logs were written to STDOUT and to `waves.log` file in a human-readable format by [default](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/logback.xml). After the node 1.1.6 version release, the execution traces are no longer written to waves.log by default to reduce the amount of logs the node produces under heavy load. However, writing the traces to file [can be enabled](#enable-traces).
+Prior to node version 1.1.6, the logs were written to STDOUT and to `/var/log/waves.log` file in a human-readable format by [default](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/logback.xml). After the node 1.1.6 version release, the execution traces are no longer written to waves.log by default to reduce the amount of logs the node produces under heavy load. However, writing the traces to separate file [can be enabled](#enable-traces).
 
 Also waves.log is now rotated when size limit is reached (100 mb by default), in addition to daily rotation.
 
@@ -24,23 +24,23 @@ To redefine existing node's `logback.xml` properties, use the `included` tag in 
 </included>
 ```
 
-## Activate writing the traces <a id="enable-traces"></a> to uts-trace.log
+## Activate writing the traces <a id="enable-traces"></a>
 
-Add <property name="logback.uts-trace.enabled" value="true" /> to `logback.xml`.
+Add <property name="logback.utx-trace.enabled" value="true" /> to `logback.xml`.
+
+If writing the traces is activated, it will be written to `/var/log/utx-trace.log`.
 
 ## Change log file location
 
 * If you set up node from the package, edit `/etc/waves/application.ini`.
 * If you run the node from the jar, use Java's options, for example, `java -Dsomeoption=somevalue -jar /path/to/waves-all.jar /path/to/config`
 
-The default directory is `{waves.directory}/log`. To change the logs directory, use `-Dlogback.file.directory=/path/to/directory/for/logs`. Note that node must have rights to write files to choosen directory.
+The default directory is `/var/log`. To change the logs directory, use `-Dlogback.file.directory=/path/to/directory/for/logs`. Note that node must have rights to write files to choosen directory.
 
 ## Setting the network
 
 * mainnet: `/etc/waves/`
 * testnet: `/etc/waves-testnet/`
-
-`{waves.directory}`
 
 ## Setting logging level for STDOUT
 
