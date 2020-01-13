@@ -9,7 +9,7 @@
 | 1 | Version flag | | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Indicates the [transaction version](/en/blockchain/transaction/transaction-version) is version 2 or higher.<br>Value must be 0 |
 | 2 | [Transaction type ID](/en/blockchain/transaction-type) | type | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 15 |
 | 3 | [Transaction version](/en/blockchain/transaction/transaction-version) | version | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 1 |
-| 4 | [Chain ID](/en/blockchain/blockchain-network/chain-id) | chainId | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | 84 for [test network](/en/blockchain/blockchain-network/test-network), 87 for [main network](/en/blockchain/blockchain-network/main-network) |
+| 4 | [Chain ID](/en/blockchain/blockchain-network/chain-id) | chainId | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | 84 — for [test network](/blockchain/blockchain-network/test-network.md)<br>87 — for [main network](/blockchain/blockchain-network/main-network.md)<br>83 — for [stage network](/blockchain/blockchain-network/stage-network.md) |
 | 5 | Public key of the transaction sender  | senderPublicKey | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 | |
 | 6 | [Token ID](/en/blockchain/token/token-id) to which the asset script is attached | assetId | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 | |
 | 7.1 | Script existence flag | | [Boolean](/en/blockchain/blockchain/blockchain-data-types) | 1 | If the value is 0, then the token does not have a script.<br>If the value is 1, then the token has a script |
