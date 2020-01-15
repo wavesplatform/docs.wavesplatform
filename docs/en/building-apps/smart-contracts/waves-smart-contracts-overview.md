@@ -4,10 +4,7 @@ Welcome! We are excited that you want to learn Waves Smart Contracts.
 
 ## Orientation
 
-Smart Contracts in Waves ecosystem allow to change the default behaviour of accounts and assets. Smart contract is
-not a separate entity, it can't be called and it can't call another smart contract.
-
-<note type="tip" title="">Waves Smart Account can be called with RIDE4DAPPS features, which is available on the TESTNET now.<br>You can find more details about RIDE4DAPPS in the <a href="/en/building-apps/smart-contracts/smart-accounts">Smart Accounts</a> section.</note>
+Smart Contracts in Waves ecosystem allow to change the default behaviour of accounts and assets. 
 
 Smart contracts are:
 1. Scripts written using Ride programming language.
@@ -94,12 +91,5 @@ The script for the token is invoked upon the following operations with an asset:
 * Burn Transaction
 * ExchangeTransaction
 * SetAssetScriptTransaction
-
-## Waves Smart Contracts Next Steps
-
-Our realization of smart contracts will contain two Stages:
-
-1. **Non-Turing Complete Smart Contracts** which cover a large proportion of use cases, including smart accounts.
-2. **Turing Complete Smart Contracts** which will allow the creation of decentralised applications on the blockchain.
 
 <note type="info" title="">Here you can find [**White Paper**](https://wavesplatform.com/files/docs/white_paper_waves_smart_contracts.pdf?cache=b) which describes Waves Smart Contracts approach: basic use-cases, implementation details and Ride language description.</note>
