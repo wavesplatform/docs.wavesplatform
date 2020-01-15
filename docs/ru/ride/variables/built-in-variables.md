@@ -104,7 +104,7 @@
 @Callable(inv)
 func deposit() = {
   TransferSet([
-    ScriptTransfer(inv.caller, 5, unit) # Перевести 5 WAVELET на аккаунт inv.caller. Вместо ID токена указан unit
+    ScriptTransfer(inv.caller, 5, unit) \# Перевести 5 WAVELET на аккаунт inv.caller. Вместо ID токена указан unit
   ])
 }
 </code>

@@ -21,7 +21,7 @@
 
 ### Ride
 
-* [FOLD<N> Macro](ride/fold-macro)
+* [FOLD&lt;N&gt; Macro](ride/fold-macro)
 * Structures
   * Common structures
     * [BinaryEntry](ride/structures/common-structures/binary-entry)

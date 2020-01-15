@@ -4,7 +4,7 @@
 
 ### Ride
 
-* [Макрос FOLD<N>](ride/fold-macro)
+* [Макрос FOLD&lt;N&gt;](ride/fold-macro)
 
 ### Сеть блокчейна
 
