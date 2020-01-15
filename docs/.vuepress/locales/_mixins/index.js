@@ -154,10 +154,6 @@ module.exports = {
             productsAndTools: {
                 title: 'Products & tools',
                 links: {
-                    wavesWallet: {
-                        title: 'Waves Wallet',
-                        link: 'https://wavesplatform.com/technology/wallet',
-                    },
                     wavesKeeper: {
                         title: 'Waves Keeper',
                         link: 'https://wavesplatform.com/technology/keeper',
@@ -183,10 +179,6 @@ module.exports = {
                         title: 'GitHub',
                         link: 'https://github.com/wavesplatform',
                     },
-                    api: {
-                        title: 'API',
-                        link: 'https://docs.wavesplatform.com/en/waves-node/node-api.html',
-                    },
                     stackOverflow: {
                         title: 'Stack Overflow',
                         link: 'https://stackoverflow.com/questions/tagged/wavesplatform',
@@ -194,6 +186,10 @@ module.exports = {
                     wavesLabs: {
                         title: 'Waves Labs',
                         link: 'https://waveslabs.com',
+                    },
+                    web3Course: {
+                        title: 'Web3 Course',
+                        link: 'https://stepik.org/course/54415/promo',
                     },
                 },
             },
@@ -236,6 +232,10 @@ module.exports = {
                     forum: {
                         title: 'Forum',
                         link: 'https://forum.wavesplatform.com',
+                    },
+                    medium: {
+                        title: 'Medium',
+                        link: 'https://medium.com/@waves.exchange',
                     },
                 },
             },
