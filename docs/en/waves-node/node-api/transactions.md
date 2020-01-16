@@ -400,8 +400,6 @@ and all the other parameters appropriate for a transaction of the given type.
 
 ![master](https://img.shields.io/badge/node-%3E%3D%201.1.7-brightgreen)
 
-> Current endpoint is available in node 1.1.7 release.
-
 Returns the list of transactions statuses, by transaction IDs. The resulting transaction list keeps the order of the transaction IDs as they were passed in the request. If the transactions IDs were not specified, the request will not be executed and an error will be returned.
 
 **Request params**
@@ -455,8 +453,6 @@ Returns the list of transactions statuses, by transaction IDs. The resulting tra
 ## GET /transactions/status?id=tx1id&id=tx2id
 
 ![master](https://img.shields.io/badge/node-%3E%3D%201.1.7-brightgreen)
-
-> Current endpoint is available in node 1.1.7 release.
 
 Returns the list of transactions statuses, by transaction IDs. The resulting transaction list keeps the order of the transaction IDs as they were passed in the request. If the transactions IDs were not specified, the request will not be executed and an error will be returned.
 
