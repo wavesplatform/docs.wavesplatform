@@ -1,6 +1,6 @@
 # Burn
 
-<note type="warning" title="">Структура Burn представлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).</note>
+> :warning: Структура Burn представлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 Структура [сжигания токена](/ru/blockchain/transaction-type/burn-transaction).
 

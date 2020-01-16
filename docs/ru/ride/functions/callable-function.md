@@ -15,11 +15,11 @@ func rate(name: String, rating: Int) = {
 }
 ```
 
-<note type="warning" title="">[Стандартная библиотека](/ru/ride/script/standard-library) версии 4 доступна начиная с версии ноды 1.2.0 после активации функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№ 16). См. [протокол активации](/ru/blockchain/waves-protocol/activation-protocol).</note>
+> :warning: [Стандартная библиотека](/ru/ride/script/standard-library) версии 4 доступна начиная с версии ноды 1.2.0 после активации функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№ 16). См. [протокол активации](/ru/blockchain/waves-protocol/activation-protocol).
 
 ## Пример для стандартной библиотеки версии 4
 
-<note type="warning" title="">Начиная с 4 версии [Стандартной библиотеки](/ru/ride/script/standard-library) в качестве аргумента аннотируемой функции может передаваться список значений, относящихся к [примитивным типам данных](https://ru.wikipedia.org/wiki/Простой_тип). Максимальный размер списка - до 1000 элементов включительно.</note>
+> :warning: Начиная с 4 версии [Стандартной библиотеки](/ru/ride/script/standard-library) в качестве аргумента аннотируемой функции может передаваться список значений, относящихся к [примитивным типам данных](https://ru.wikipedia.org/wiki/Простой_тип). Максимальный размер списка - до 1000 элементов включительно.
 
 ```ride
 {-# STDLIB_VERSION 4 #-}
