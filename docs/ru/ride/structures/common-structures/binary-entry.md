@@ -1,6 +1,6 @@
 # BinaryEntry
 
-<note type="warning" title="">Структура BinaryEntry представлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).</note>
+> :warning: Структура BinaryEntry представлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 Структура бинарной записи [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage).
 
