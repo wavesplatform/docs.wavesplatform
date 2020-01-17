@@ -482,7 +482,7 @@ module.exports = {
       title: 'Full нода Waves',
       path: nodePath + 'what-is-a-full-node',
     },
-	{
+	  {
       title: 'Как установить ноду',
       path: nodePath + 'how-to-install-a-node/how-to-install-a-node',
       children: [
@@ -500,7 +500,7 @@ module.exports = {
         }
       ],
     },
-	{
+	  {
       title: 'Способы загрузки актуального блокчейна',
       path: nodePath + 'options-for-getting-actual-blockchain',
       children: [
@@ -514,19 +514,24 @@ module.exports = {
         },
       ],
     },
-	{
+	  {
       title: 'Как откатить ноду',
       path: nodePath + 'how-to-rollback-a-node',
     },
-	{
+    {
+      title: 'Как работать с wallet ноды',
+      path: nodePath + 'how-to-work-with-node-wallet',
+    },
+	  {
       title: 'Запуск ноды в Docker',
       path: nodePath + 'waves-node-in-docker',
     },
-	{
+  	{
       title: 'Про Waves Testnet',
       path: nodePath + 'joining-testnet',
     },
-	{
+	  {
+
       title: 'Расширения',
       path: nodePath + 'extensions',
       children: [
@@ -542,7 +547,7 @@ module.exports = {
         },
       ]
     },
-	{
+	  {
       title: 'Node API',
       path: nodePath + 'node-api',
     },
