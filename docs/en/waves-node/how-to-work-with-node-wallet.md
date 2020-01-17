@@ -1,4 +1,4 @@
-# Working with node wallet
+# How to work with node wallet
 
 Being connected to the node, the wallet enables node with
 
