@@ -475,18 +475,8 @@ module.exports = {
 
   [nodePath]: [
     {
-      title: 'Нода',
+      title: 'Руководство владельца ноды',
       path: nodePath,
-    },
-    {
-      title: 'Предварительные требования',
-      path: nodePath + 'prerequisites',
-      children: [
-        {
-          title: 'Требования к аппаратному обеспечению',
-          path: nodePath + 'prerequisites/hardware-requirements',
-        },
-      ],
     },
     {
       title: 'Full нода Waves',
@@ -533,6 +523,15 @@ module.exports = {
       path: nodePath + 'how-to-work-with-node-wallet',
     },
 	  {
+      title: 'Запуск ноды в Docker',
+      path: nodePath + 'waves-node-in-docker',
+    },
+  	{
+      title: 'Про Waves Testnet',
+      path: nodePath + 'joining-testnet',
+    },
+	  {
+
       title: 'Расширения',
       path: nodePath + 'extensions',
       children: [

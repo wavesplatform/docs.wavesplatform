@@ -18,7 +18,7 @@ Node REST API allows working with Waves Blockchain like with many other centrali
 ## Terms
 **Node** — Full Node, it contains full-copy of the blockchain.
 
-**Matcher** — part of a full node. Matcher nodes are responsible for pairing orders and executing trades quickly, whilst they are still settled on the blockchain. When a user sends an order to Matcher he doesn’t transfer ownership of his money to anyone, his money remains on his account until the order is matched with counter-order. For more details, read [Waves.Exchange Protocol](https://docs.waves.exchange/en/waves-exchange/waves-exchange-protocol) and [Matcher API](https://docs.waves.exchange/en/waves-matcher/matcher-api).
+**Matcher** — an exchange engine that executes incoming orders, creates Exchange Transactions, and puts them into blockchain to fix changes in balances of users. When a user sends an order to Matcher he doesn’t transfer ownership of his money to anyone, his money remains on his account until the order is matched with counter-order. For more details, read [Waves.Exchange Protocol](https://docs.waves.exchange/en/waves-exchange/waves-exchange-protocol) and [Matcher API](https://docs.waves.exchange/en/waves-matcher/matcher-api) sections in Waves.Exchange documentation.
 
 **AssetPair** — Pair of assets we want to exchange.
 
