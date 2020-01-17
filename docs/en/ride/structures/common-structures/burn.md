@@ -1,6 +1,6 @@
 # Burn
 
-<note type="warning" title="">The structure is introduced in Standard library **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network).</note>
+> :warning: The structure is introduced in Standard library **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network).
 
 Structure of a [token burn](/en/blockchain/transaction-type/burn-transaction).
 
