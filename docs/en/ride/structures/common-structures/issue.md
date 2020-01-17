@@ -1,6 +1,6 @@
 # Issue
 
-<note type="warning" title="">The structure is introduced in Standard library **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.</note>
+> :warning: The structure is introduced in Standard library **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 Structure of a [token issue](/en/blockchain/transaction-type/issue-transaction).
 

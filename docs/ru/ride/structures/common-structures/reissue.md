@@ -1,6 +1,6 @@
 # Reissue
 
-<note type="warning" title="">Структура Reissue представлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).</note>
+> :warning: Структура Reissue представлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 Структура [довыпуска токена](/ru/blockchain/transaction-type/reissue-transaction).
 
