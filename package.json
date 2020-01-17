@@ -10,12 +10,8 @@
         "production": "yarn upgrade core.docs.wavesplatform && yarn build && yarn server"
     },
     "dependencies": {
+        "@vuepress/plugin-google-analytics": "^1.2.0",
         "core.docs.wavesplatform": "https://github.com/wavesplatform/core.docs.wavesplatform.git",
-        "vuepress": "^1.2.0",
-        "webpack": "^4.41.2"
-    },
-    "devDependencies": {
-        "node-sass": "^4.13.0",
-        "sass-loader": "^8.0.0"
+        "vuepress": "^1.2.0"
     }
 }

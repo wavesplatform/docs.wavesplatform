@@ -15,6 +15,8 @@ const enLocaleConfig = require('./locales/en');
 const ruLocaleConfig = require('./locales/ru');
 const colorationConfig = require('./colouration');
 
+const googleAnalytics = require('@vuepress/plugin-google-analytics');
+
 module.exports = (ctx) => {
     const vuepressComputedConfig = getVuepressConfig(ctx, {
         host: envHost,
@@ -49,6 +51,11 @@ module.exports = (ctx) => {
                 '/ru/': ruLocaleConfig,
             },
         },
+        plugins: [
+            [googleAnalytics, {
+                ga: 'GTM-NSRFXFS'
+            }],
+        ],
     });
     const configureWebpackOriginal = vuepressComputedConfig.configureWebpack;
     vuepressComputedConfig.configureWebpack = (webpackConfig, isServer) => {
