@@ -590,6 +590,22 @@ module.exports = [
     to: '/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain',
   },
   {
+    from: '/en/waves-node/prerequisites.html',
+    to: '/en/waves-node',
+  },
+  {
+    from: '/en/waves-node/prerequisites/hardware-requirements.html',
+    to: '/en/waves-node',
+  },
+  {
+    from: '/ru/waves-node/prerequisites.html',
+    to: '/ru/waves-node',
+  },
+  {
+    from: '/ru/waves-node/prerequisites/hardware-requirements.html',
+    to: '/ru/waves-node',
+  },
+  {
     from: '/en/ride/about-ride.html',
     to: '/en/ride',
   },
@@ -710,13 +726,25 @@ module.exports = [
     to: '/ru/blockchain/leasing',
   },
   {
-    '===============================  Oracles  =====================================': null,
+    /*===============================  Oracles  =====================================*/
     to: '/en/ecosystem/waves-oracles/about-waves-oracles',
     from: '/en/oracels-developments/what-is-a-data-oracle.html',
   },
   {
-    '===============================  Resources  ===================================': null,
+    /*===============================  Resources  ===================================*/
     to: '/en/keep-in-touch',
     from: '/en/contributing.html',
-  }
+  },
+  {
+    from: '/zh()',
+    to: 'https://old-docs.wavesplatform.com/',
+  },
+  {
+    from: '/ko()',
+    to: 'https://old-docs.wavesplatform.com/',
+  },
+  {
+    from: '/pt-br()',
+    to: 'https://old-docs.wavesplatform.com/',
+  },
 ];
