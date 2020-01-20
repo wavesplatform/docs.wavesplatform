@@ -11,9 +11,15 @@ In this article we will review the following scenarios of wallet usage:
 
 ## Creating a New Wallet From Scratch <a id="new"></a>
 
-During first launch, the node will create a wallet if the directory listed in `wallet` section of [node's configuration file](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf) does not contain wallet.dat file.
+During first launch, the node will create a wallet if the directory listed in `wallet` section of [node's configuration file](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf) (`/var/lib/waves/wallet` by default) does not contain wallet.dat file.
 
-In the process of wallet creation the node will generate seed and ask for a new password which will be used to encrypt the seed. To omit entering password each time node is started, it is recommended to specify it in node's configuration file `/etc/waves/waves.conf`.
+In the process of wallet creation the node will
+
+1. generate seed.
+2. print it in the console.
+3. ask for a new password which will be used to encrypt the seed.
+
+To omit entering password each time node is started, it is recommended to specify it in node's configuration file `/etc/waves/waves.conf`.
 
 ## Creating Wallet Using Existing Seed <a id="existing-seed"></a>
 
@@ -24,7 +30,7 @@ If you already have a seed, then input the following parameters in the `wallet` 
 
 If you have lost the password, then node will request a new one during startup.
 
-There are lots of online base58 encoders. It is reasonable to use console of [Waves IDE](https://ide.wavesplatform.com/). To encode seed to base58, enter `"your-seed-phrase".toBytes().toBase58String()` to console.
+There are lots of online base58 encoders. It is reasonable to use RideREPL of [Waves IDE](https://ide.wavesplatform.com/). To encode seed to base58, enter `"your-seed-phrase".toBytes().toBase58String()` to console.
 
 If necessary, change the path to directory where the generated wallet.dat must be placed. `wallet` section example with described settings is provided below:
 
