@@ -9,7 +9,7 @@
 | 1 | Version flag | | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Indicates the [transaction version](/en/blockchain/transaction/transaction-version) is version 2 or higher.<br>Value must be 0 |
 | 2 | [Transaction type ID](/en/blockchain/transaction-type) | type | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 3 |
 | 3 | [Transaction version](/en/blockchain/transaction/transaction-version) | version | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 2 |
-| 4 | [Chain ID](/en/blockchain/blockchain-network/chain-id) | chainId | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | 84 for [test network](/en/blockchain/blockchain-network/test-network), 87 for [main network](/en/blockchain/blockchain-network/main-network) |
+| 4 | [Chain ID](/en/blockchain/blockchain-network/chain-id) | chainId | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | 84 — for [test network](/en/blockchain/blockchain-network/test-network)<br>87 — for [main network](/en/blockchain/blockchain-network/main-network)<br>83 — for [stage network](/en/blockchain/blockchain-network/stage-network) |
 | 5 | Public key of the transaction sender  | senderPublicKey | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 | |
 | 6.1 | [Token](/en/blockchain/token) name length | | [Short](/en/blockchain/blockchain/blockchain-data-types) | 2 | |
 | 6.2 | Token name | name | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | From 4 to 16 | |
@@ -22,7 +22,7 @@
 | 12 | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) | timestamp | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 | 13.1 | Script existence flag | | [Boolean](/en/blockchain/blockchain/blockchain-data-types) | 1 | If the value is 0, then the token does not have a script.<br>If the value is 1, then the token has a script |
 | 13.2 | Script length in bytes | | [Short](/en/blockchain/blockchain/blockchain-data-types) | S | `S = 0 ` if the value of the "Script existence flag" field is 0.<br>`S = 2 `if the value of the "Script existence flag" field is 1 |
-| 13.3 | [Asset script](/en/ride/script/script-types/asset-script) or [account script](/en/ride/script/script-types/account-script) | script | [String](/en/blockchain/blockchain/blockchain-data-types) | S | `S = 0` if the value of the "Script existence flag" field is 0.<br>0 &lt; `S` ≤ 32768, if the value of the "Script existence flag" field is 1 |
+| 13.3 | [Asset script](/en/ride/script/script-types/asset-script) or [account script](/en/ride/script/script-types/account-script) | script | [String](/en/blockchain/blockchain/blockchain-data-types) | S | `S = 0` if the value of the "Script existence flag" field is 0.<br>0 &lt; `S` ≤ 8192, if the value of the "Script existence flag" field is 1 |
 | 14 | [Transaction proofs](/en/blockchain/transaction/transaction-proof) | proofs | [Proofs](/en/blockchain/transaction/transaction-proof) | S | If the array is empty, then `S`= 3. <br>If the array is not empty, then `S` = 3 + 2 × `N` + (`P`<sub>1</sub> + `P`<sub>2</sub> + ... + `P`<sub>n</sub>), where `N` is the number of proofs in the array, `P`<sub>n</sub> is the size on `N`-th proof in bytes. <br>The maximum number of proofs in the array is 8. The maximum size of each proof is 64 bytes |
 
 ## JSON representation of the transaction

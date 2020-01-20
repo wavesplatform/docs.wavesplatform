@@ -553,18 +553,8 @@ module.exports = {
       path: nodePath,
     },
     {
-      title: 'What is Waves full node',
+      title: 'Waves Full Node',
       path: nodePath + 'what-is-a-full-node',
-    },
-    {
-      title: 'Prerequisites',
-      path: nodePath + 'prerequisites',
-      children: [
-        {
-          title: 'Hardware requirements',
-          path: nodePath + 'prerequisites/hardware-requirements',
-        },
-      ],
     },
     {
       title: 'How to install a node',
@@ -609,6 +599,10 @@ module.exports = {
     {
       title: 'How to rollback a node',
       path: nodePath + 'how-to-rollback-a-node',
+    },
+    {
+      title: 'How to work with node wallet',
+      path: nodePath + 'how-to-work-with-node-wallet',
     },
     {
       title: 'Waves node in Docker',

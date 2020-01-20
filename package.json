@@ -6,16 +6,16 @@
         "build": "yarn upgrade core.docs.wavesplatform && vuepress build docs",
         "build:dev": "corePath=$PWD/../core.docs.wavesplatform yarn build",
         "server": "node docs/.vuepress/runServer",
-        "server:dev": "corePath=$PWD/../core.docs.wavesplatform port=3084 yarn server",
+        "server:dev": "corePath=$PWD/../core.docs.wavesplatform yarn server",
         "production": "yarn upgrade core.docs.wavesplatform && yarn build && yarn server"
     },
     "dependencies": {
-        "core.docs.wavesplatform": "https://github.com/wavesplatform/core.docs.wavesplatform.git",
-        "vuepress": "^1.2.0",
-        "webpack": "^4.41.2"
+        "@vuepress/plugin-google-analytics": "^1.2.0",
+        "core.docs.wavesplatform": "https://github.com/wavesplatform/core.docs.wavesplatform.git"
     },
     "devDependencies": {
         "node-sass": "^4.13.0",
-        "sass-loader": "^8.0.0"
+        "sass-loader": "^8.0.0",
+        "vuepress": "^1.2.0"
     }
 }

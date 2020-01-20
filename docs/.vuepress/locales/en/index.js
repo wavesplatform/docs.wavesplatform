@@ -5,6 +5,7 @@ const mixin = require('../_mixins');
 const sidebarConfig = require(path.join(process.cwd(), 'docs/_en-sidebar-tree'));
 
 module.exports = deepmerge(mixin, {
+    label: 'English',
     langIconRawSvg: fs.readFileSync(path.resolve(__dirname, './britain-18.svg')).toString(),
     searchPlaceholderText: 'Enter a term and press Return…',
     sidebar: sidebarConfig,

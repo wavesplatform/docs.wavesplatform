@@ -549,14 +549,14 @@ module.exports = {
 
   [nodePath]: [
     {
-      title: 'Нода',
+      title: 'Руководство владельца ноды',
       path: nodePath,
     },
     {
       title: 'Full нода Waves',
       path: nodePath + 'what-is-a-full-node',
     },
-	{
+	  {
       title: 'Как установить ноду',
       path: nodePath + 'how-to-install-a-node/how-to-install-a-node',
       children: [
@@ -597,7 +597,7 @@ module.exports = {
       path: nodePath + 'upgrading',
     },
     {
-      title: 'Как откатить ноду',
+     title: 'Как откатить ноду',
       path: nodePath + 'how-to-rollback-a-node',
     },
     {
@@ -613,6 +613,10 @@ module.exports = {
       path: nodePath + 'private-waves-network',
     },
     {
+      title: 'Как работать с wallet ноды',
+      path: nodePath + 'how-to-work-with-node-wallet',
+    },
+	  {
       title: 'Расширения',
       path: nodePath + 'extensions',
       children: [

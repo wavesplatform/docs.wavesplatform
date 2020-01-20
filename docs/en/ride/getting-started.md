@@ -368,9 +368,9 @@ let transferSet = TransferSet([ScriptTransfer("3P23fi1qfVw6RVDn4CH2a5nNouEtWNQ4T
 
 All data structures can be used for type checking, pattern matching and their constructors as well.
 
-## Loops with FOLD\<N\>
+## Loops with FOLD&lt;N&gt;
 
-Since Ride’s virtual machine doesn’t have any concept of loops, they are implemented at compiler level via the FOLD\<N\> macro. The macro behaves like the ‘fold’ function in other programming languages, taking the input arguments: collection for iteration, starting values of the accumulator and folding function.
+Since Ride’s virtual machine doesn’t have any concept of loops, they are implemented at compiler level via the FOLD&lt;N&gt; macro. The macro behaves like the ‘fold’ function in other programming languages, taking the input arguments: collection for iteration, starting values of the accumulator and folding function.
 
 The important aspect is N - the maximum amount of interactions over collections. This is necessary for maintaining predictable computation costs.
 
@@ -382,7 +382,7 @@ func foldFunc(acc: Int, e: Int) = acc + e
 FOLD<5>(a, 0, foldFunc) # returns 15
 ```
 
-`FOLD\<N\>` can also be used for filtering, mapping, and other operations. Here’s an example for map with reverse:
+`FOLD<N>` can also be used for filtering, mapping, and other operations. Here’s an example for map with reverse:
 
 ```scala
 let a = [1, 2, 3, 4, 5]

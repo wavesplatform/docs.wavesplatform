@@ -226,8 +226,21 @@ module.exports = [
     to: 'https://docs.waves.exchange/en/waves-matcher',
   },
   {
+    /*===============================  Matcher  =====================================*/
+    from: '/en/waves-node/extensions/matcher.html',
+    to: 'https://docs.waves.exchange/en/waves-matcher',
+  },
+  {
+    from: '/ru/waves-node/extensions/matcher.html',
+    to: 'https://docs.waves.exchange/ru/waves-matcher',
+  },
+  {
     from: '/en/waves-node/extensions/matcher/matcher-install-ubuntu-deb.html',
     to: 'https://docs.waves.exchange/en/waves-matcher/installing-matcher-on-ubuntu-deb',
+  },
+  {
+    from: '/ru/waves-node/extensions/matcher/matcher-install-ubuntu-deb.html',
+    to: 'https://docs.waves.exchange/ru/waves-matcher/installing-matcher-on-ubuntu-deb',
   },
   {
     from: '/en/waves-node/extensions/matcher/matcher-settings.html',
@@ -538,7 +551,11 @@ module.exports = [
   {
     /*=============================== !!! New Structure !!! =====================================*/
     from: '/en/getting-started/getting-started-for-users.html',
-    to: 'http://docs.waves.exchange/en',
+    to: 'https://docs.waves.exchange/en',
+  },
+  {
+    from: '/ru/getting-started/getting-started-for-users.html',
+    to: 'https://docs.waves.exchange/ru',
   },
   {
     from: '/en/getting-started/getting-started-for-node-owners.html',
@@ -553,7 +570,7 @@ module.exports = [
     to: '/ru/building-apps',
   },
   {
-    from: '/en/resources/contributing.html',
+    from: '/en/resources()',
     to: '/en/keep-in-touch',
   },
   {
@@ -569,6 +586,26 @@ module.exports = [
     to: '/ru/blockchain/glossary',
   },
   {
+    from: '/en/waves-node/options-for-getting-actual-blockchain/export-and-import-from-the-blockchain.html',
+    to: '/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain',
+  },
+  {
+    from: '/en/waves-node/prerequisites.html',
+    to: '/en/waves-node',
+  },
+  {
+    from: '/en/waves-node/prerequisites/hardware-requirements.html',
+    to: '/en/waves-node',
+  },
+  {
+    from: '/ru/waves-node/prerequisites.html',
+    to: '/ru/waves-node',
+  },
+  {
+    from: '/ru/waves-node/prerequisites/hardware-requirements.html',
+    to: '/ru/waves-node',
+  },
+  {
     from: '/en/ride/about-ride.html',
     to: '/en/ride',
   },
@@ -581,16 +618,16 @@ module.exports = [
     to: '/en/ride/script-performance-tests',
   },
   {
+    from: '/en/smart-contracts/video-tutorials/introduction-to-the-waves-blockchain-waves-smart-accounts-and-waves-smart-assets.html',
+    to: '/en/building-apps/smart-contracts/video-tutorials/introduction-waves-smart-accounts-assets',
+  },
+  {
     from: '/en/smart-contracts()',
     to: '/en/building-apps/smart-contracts$1',
   },
   {
     from: '/ru/smart-contracts()',
     to: '/ru/building-apps/smart-contracts$1',
-  },
-  {
-    from: '/en/smart-contracts/video-tutorials/introduction-to-the-waves-blockchain-waves-smart-accounts-and-waves-smart-assets.html',
-    to: '/en/building-apps/smart-contracts/video-tutorials/introduction-waves-smart-accounts-assets.html',
   },
   {
     from: '/en/waves-api-and-sdk/dex-api.html',
@@ -665,6 +702,10 @@ module.exports = [
     to: '/ru/keep-in-touch/docs-update',
   },
   {
+    from: '/ru/overview/platform-components.html',
+    to: '/ru',
+  },
+  {
     from: '/ru/platform-features/fair-pos.html',
     to: '/ru/blockchain/waves-protocol/fair-pos',
   },
@@ -673,17 +714,38 @@ module.exports = [
     to: '/ru/blockchain/waves-protocol/activation-protocol',
   },
   {
+    from: '/ru/platform-features/assets-custom-tokens.html',
+    to: '/ru/blockchain/token',
+  },
+  {
+    from: '/ru/platform-features/decentralized-cryptocurrency-exchange-dex.html',
+    to: 'https://docs.waves.exchange/ru/',
+  },
+  {
     from: '/ru/platform-features/leased-proof-of-stake-lpos.html',
     to: '/ru/blockchain/leasing',
   },
   {
-    '===============================  Oracles  =====================================': null,
+    /*===============================  Oracles  =====================================*/
     to: '/en/ecosystem/waves-oracles/about-waves-oracles',
     from: '/en/oracels-developments/what-is-a-data-oracle.html',
   },
   {
-    '===============================  Resources  ===================================': null,
+    /*===============================  Resources  ===================================*/
     to: '/en/keep-in-touch',
     from: '/en/contributing.html',
-  }
+  },
+  /**/
+  {
+    from: '/zh()',
+    to: 'https://old-docs.wavesplatform.com/',
+  },
+  {
+    from: '/ko()',
+    to: 'https://old-docs.wavesplatform.com/',
+  },
+  {
+    from: '/pt-br()',
+    to: 'https://old-docs.wavesplatform.com/',
+  },
 ];
