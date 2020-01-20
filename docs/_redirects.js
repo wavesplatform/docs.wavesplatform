@@ -687,7 +687,7 @@ module.exports = [
   },
   {
     from: '/ru/overview/platform-components.html',
-    to: '/ru', 
+    to: '/ru',
   },
   {
     from: '/ru/platform-features/fair-pos.html',
@@ -710,13 +710,26 @@ module.exports = [
     to: '/ru/blockchain/leasing',
   },
   {
-    '===============================  Oracles  =====================================': null,
+    /*===============================  Oracles  =====================================*/
     to: '/en/ecosystem/waves-oracles/about-waves-oracles',
     from: '/en/oracels-developments/what-is-a-data-oracle.html',
   },
   {
-    '===============================  Resources  ===================================': null,
+    /*===============================  Resources  ===================================*/
     to: '/en/keep-in-touch',
     from: '/en/contributing.html',
-  }
+  },
+  /**/
+  {
+    from: '/zh()',
+    to: 'https://old-docs.wavesplatform.com/',
+  },
+  {
+    from: '/ko()',
+    to: 'https://old-docs.wavesplatform.com/',
+  },
+  {
+    from: '/pt-br()',
+    to: 'https://old-docs.wavesplatform.com/',
+  },
 ];
