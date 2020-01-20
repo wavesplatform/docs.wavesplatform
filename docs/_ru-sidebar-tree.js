@@ -519,8 +519,8 @@ module.exports = {
       path: nodePath + 'how-to-rollback-a-node',
     },
     {
-      title: 'Как работать с wallet ноды',
-      path: nodePath + 'how-to-work-with-node-wallet',
+      title: 'Работа с кошельком ноды',
+      path: nodePath + 'working-with-node-wallet',
     },
 	  {
       title: 'Запуск ноды в Docker',

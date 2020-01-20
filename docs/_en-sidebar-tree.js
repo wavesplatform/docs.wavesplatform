@@ -601,8 +601,8 @@ module.exports = {
       path: nodePath + 'how-to-rollback-a-node',
     },
     {
-      title: 'How to work with node wallet',
-      path: nodePath + 'how-to-work-with-node-wallet',
+      title: 'Working with node wallet',
+      path: nodePath + 'working-with-node-wallet',
     },
     {
       title: 'Waves node in Docker',
