@@ -703,7 +703,7 @@ module.exports = [
   },
   {
     from: '/ru/overview/platform-components.html',
-    to: '/ru', 
+    to: '/ru',
   },
   {
     from: '/ru/platform-features/fair-pos.html',
@@ -735,6 +735,7 @@ module.exports = [
     to: '/en/keep-in-touch',
     from: '/en/contributing.html',
   },
+  /**/
   {
     from: '/zh()',
     to: 'https://old-docs.wavesplatform.com/',
