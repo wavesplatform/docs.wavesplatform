@@ -72,6 +72,13 @@ module.exports = {
                 rootLink: '/en/ride/',
                 type: 'advanced',
                 iconFilePath: getRawIcon('./images/category5.svg'),
+                buttonSet: {
+                    gettingStarted: {
+                        text: 'Getting started',
+                        link: '/en/ride/getting-started'
+                    },
+                },
+
             },
             node: {
                 rootLink: '/en/waves-node/',
