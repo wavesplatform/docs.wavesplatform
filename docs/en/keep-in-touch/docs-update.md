@@ -42,7 +42,7 @@
 
 ### API & SDK
 
-* [Signer](/en//en/building-apps/waves-api-and-sdk/client-libraries/signer)
+* [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer)
 
 ## November articles
 
@@ -101,8 +101,8 @@
     * [Account script](/en/ride/script/script-types/account-script) — <span style="color:green">updated</span>
   * [Standard Library](/en/ride/script/standard-library)
 * Functions
-  * [Built-in functions](/en/ride/functions/built-in-functions) — [<span style="color:green">updated</span>](/en/https://github.com/wavesplatform/waves-documentation/commit/b9c34cc7a7c0f540a2e41be8592233e1903da0d2#diff-b3344cfde38b2228710ac8c6a652a56d)
-    * [Verification functions](/en/ride/functions/built-in-functions/verification-functions) — [<span style="color:green">updated</span>](/en/https://github.com/wavesplatform/waves-documentation/commit/de148968d16389068ce77865bcc3a482eb3fb9b5?diff=unified#diff-7d8db406e747ac90ad2ed0ae321fc5fe)
+  * [Built-in functions](/en/ride/functions/built-in-functions) — <span style="color:green">updated</span>
+    * [Verification functions](/en/ride/functions/built-in-functions/verification-functions) — <span style="color:green">updated</span>
 * Variables
   * [Built-in variables](/en/ride/variables/built-in-variables)
 
