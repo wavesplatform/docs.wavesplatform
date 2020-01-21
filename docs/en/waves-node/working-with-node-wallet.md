@@ -19,7 +19,7 @@ In the process of wallet creation the node will
 2. print it in the STDOUT.
 3. ask for a new password which will be used to encrypt the seed.
 
-> It is recommended to store seed phrase in safe place. If you waste it, you can restore seed hashed with nonce. To get it, you'll need to make GET request to `/addresses/seed/{address}` Node API's url. You can use hashed seed for [getting account private key](/en/blockchain/waves-protocol/cryptographic-practical-details.md). Note that you won't be able to restore seed phrase itself.
+> It is recommended to keep the seed phrase in safe place. If you waste it, you won't be able to restore the initial seed. Instead, you can obtain hashed seed. To get it, you'll need to make GET request to `/addresses/seed/{address}` Node API's url. You can use hashed seed to [get account private key](/en/blockchain/waves-protocol/cryptographic-practical-details.md).
 
 To omit entering password each time node is started, it is recommended to specify it in node's configuration file `/etc/waves/waves.conf`.
 
