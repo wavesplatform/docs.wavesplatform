@@ -4,7 +4,7 @@
 
 ## Формат конфигурации
 
-В системе конфигурации ноды Waves применяется формат HOCON (Human-Optimized Config Object Notation). Подробное описание HOCON доступно по ссылке [Official HOCON documentation](https://github.com/typesafehub/config/blob/master/HOCON). Преимущества HOCON — это простой синтаксис и возможность использовать комментарии.
+В системе конфигурации ноды Waves применяется формат HOCON (Human-Optimized Config Object Notation). Подробное описание HOCON доступно по ссылке [Official HOCON documentation](https://github.com/lightbend/config/blob/master/HOCON.md). Преимущества HOCON — это простой синтаксис и возможность использовать комментарии.
 
 ## Стандартные файлы конфигурации и ручные настройки
 

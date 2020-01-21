@@ -48,15 +48,15 @@
 
 ### Smart contracts
 
-* [What is a Smart Account](/en/smart-contracts/what-is-smart-account)
-* [Creating smart account](/en/smart-contracts/how-to-create-smart-account)
+* [What is a Smart Account](/en/building-apps/smart-contracts/what-is-smart-account)
+* [Creating smart account](/en/building-apps/smart-contracts/how-to-create-smart-account)
 
 ## October articles
 
 ### Programming
 
-* [What is a Smart Asset](/en/smart-contracts/what-is-smart-asset)
-* [What is a dApp](/en/smart-contracts/what-is-a-dapp)
+* [What is a Smart Asset](/en/building-apps/smart-contracts/what-is-smart-asset)
+* [What is a dApp](/en/building-apps/smart-contracts/what-is-a-dapp)
 
 ### Blockchain
 
@@ -81,7 +81,7 @@
 
 ### Glossary
 
-* [Glossary](/en/glossary/glossary)
+* [Glossary](/en/blockchain/glossary)
 
 ## September articles
 
@@ -111,8 +111,6 @@
 * [Node configuration](/en/waves-node/node-configuration) — <span style="color:green">updated</span>
 
 * Token Rating
-  * [Token management](/en/waves-token-rating/token-management)
+  * [Token management](/en/ecosystem/waves-token-rating/token-management)
 
-> See older news in the [News archive](/en/miscellaneous/news-archive)
-
-> Check out documentation repository on [Github](/en/https://github.com/wavesplatform/waves-documentation)
+> Check out documentation repository on [Github](https://github.com/wavesplatform/docs.wavesplatform)
