@@ -1,6 +1,6 @@
 # Working with node's wallet
 
-Wallet, or wallet.dat file, contains seed encrypted with user's password. Presence of wallet is mandatory for mining. Private key used by node to sign generated blocks, is formed using the seed. 
+Wallet, or wallet.dat file, contains seed encrypted with user's password. Presence of wallet is mandatory for mining. Private key used by node to sign generated blocks, is formed using the seed.
 
 In this article we will review the following scenarios of wallet usage:
 
@@ -16,8 +16,10 @@ During first launch, the node will create a wallet if the directory listed in `w
 In the process of wallet creation the node will
 
 1. generate seed.
-2. print it in the console.
+2. print it in the STDOUT.
 3. ask for a new password which will be used to encrypt the seed.
+
+> It is recommended to store seed phrase in safe place. If you waste it, you can restore seed hashed with nonce. To get it, you'll need to make GET request to `/addresses/seed/{address}` Node API's url. You can use hashed seed for [getting account private key](/en/blockchain/waves-protocol/cryptographic-practical-details.md). Note that you won't be able to restore seed phrase itself.
 
 To omit entering password each time node is started, it is recommended to specify it in node's configuration file `/etc/waves/waves.conf`.
 
