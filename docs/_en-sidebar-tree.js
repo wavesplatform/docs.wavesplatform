@@ -882,7 +882,7 @@ module.exports = {
       ],
     },
     {
-      title: 'FOLD&lt;N&gt; Macro',
+      title: 'FOLD<N> Macro',
       path: ridePath + 'fold-macro',
     },
 
