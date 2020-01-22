@@ -155,7 +155,7 @@ module.exports = {
 
     footer: {
         broughtToYouByWavesTeam: 'Brought to you by Waves Team.',
-        copyright: '© 2019 Waves Platform',
+        copyright: '© 2020 Waves Platform',
         email: '',
         resourcesCategories: {
             productsAndTools: {
