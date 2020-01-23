@@ -258,7 +258,7 @@ const balances = await signer.getBalance();
 
 #### getSponsoredBalances
 
-If user logged in, provides balances of sponsored assets in user's portfolio.
+If user logged in, provides balances of sponsored assets in user's portfolio. См. [Sponsored Fee Transactions](/en/blockchain/waves-protocol/sponsored-fee).
 
 ```js
 getSponsoredBalances();
@@ -793,7 +793,7 @@ See [Common fields](#common-fields) for other fields description.
 ```js
 const data = {
   assetId: 'AcrRM9STdBu5PNiFveTCbRFTS8tADhKcsbC2KBp8A4tx',
-  script: 'base64:AwZd0cYf',
+  script: 'base64:AwZd0cYf...',
 }
 
 const [tx] = await signer
@@ -833,7 +833,7 @@ const [tx] = await signer
 
 #### sponsorship
 
-Creates sponsorship transaction.
+Creates [sponsor fee transaction](/en/blockchain/waves-protocol/sponsored-fee).
 
 ```js
 sponsorship(data: {
