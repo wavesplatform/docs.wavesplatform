@@ -14,14 +14,13 @@ Waves also contain full nodes allowing anyone to take part in the decentralized 
 
 The Waves full node serves two critical roles:
 
-1. To relay blocks and transactions to miners
+1. To relay blocks and transactions to miners.
 2. To answer queries for end users about the state of the blockchain.
 
 ## The Importance of a Full Node
 
-The job of a full node is to store the blockchain data, pass along the data to other nodes, and ensure newly added blocks are valid. Validation entails ensuring that the format of the block is correct, all hashes in the new block were computed correctly, the new block contains the hash of the previous block, and each transaction in the block is valid and signed by the appropriate parties. Full nodes may also act as mining nodes \(i.e., generating new blocks\), The mining node checks that each transaction is self-valid since the other nodes would reject the block if it included invalid transactions.
+The job of a full node is to store the blockchain data, pass along the data to other nodes, and ensure newly added blocks are valid. Validation entails ensuring that the format of the block is correct, all hashes in the new block were computed correctly, the new block contains the hash of the previous block, and each transaction in the block is valid and signed by the appropriate parties. Full nodes may also act as mining nodes \(i.e., generating new blocks\), The mining node checks that each transaction is self-valid since the other nodes would reject the block if it includes invalid transactions.
 
 Any node may propose new transactions, and these proposed transactions are propagated between nodes until they are eventually added to a block.
 
-**Note.** You can find a full nodes list at [dev.pywaves.org](http://dev.pywaves.org/generators/).
-
+**Note:** You can find the list of full nodes at [dev.pywaves.org](http://dev.pywaves.org/generators/).

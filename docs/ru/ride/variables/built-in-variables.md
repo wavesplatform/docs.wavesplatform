@@ -83,7 +83,7 @@
   <tr>
     <td>8</td>
     <td>this</td>
-    <td><a href="/ru/blockchain/account/addressd">Адрес</a> отправителя транзакции или информация о <a href="/ru/blockchain/token">токене</a></td>
+    <td><a href="/ru/blockchain/account/address">Адрес</a> отправителя транзакции или информация о <a href="/ru/blockchain/token">токене</a></td>
   </tr>
   <tr>
     <td>9</td>
@@ -104,7 +104,7 @@
 @Callable(inv)
 func deposit() = {
   TransferSet([
-    ScriptTransfer(inv.caller, 5, unit) # Перевести 5 WAVELET на аккаунт inv.caller. Вместо ID токена указан unit
+    ScriptTransfer(inv.caller, 5, unit) \# Перевести 5 WAVELET на аккаунт inv.caller. Вместо ID токена указан unit
   ])
 }
 </code>

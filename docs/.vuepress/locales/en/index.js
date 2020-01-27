@@ -5,6 +5,7 @@ const mixin = require('../_mixins');
 const sidebarConfig = require(path.join(process.cwd(), 'docs/_en-sidebar-tree'));
 
 module.exports = deepmerge(mixin, {
+    label: 'English',
     langIconRawSvg: fs.readFileSync(path.resolve(__dirname, './britain-18.svg')).toString(),
     searchPlaceholderText: 'Enter a term and press Return…',
     sidebar: sidebarConfig,
@@ -25,17 +26,11 @@ module.exports = deepmerge(mixin, {
             },
             buildingBlockchainApps: {
                 title: 'Building Apps',
-                caption: 'Creating smart contracts and distributed applications with Waves. Developer tools, APIs and SDKs.',
+                caption: 'Creating smart contracts and decentralized applications with Waves. Developer tools, APIs and SDKs.',
             },
             rideProgrammingLanguage: {
                 title: 'Ride Programming Language',
                 caption: 'Syntax of Ride. Script types. Built-in functions, operators and structures.',
-                buttonSet: {
-                    gettingStarted: {
-                        text: 'Getting started',
-                        link: '/en/ride/getting-started'
-                    }
-                },
             },
             node: {
                 title: 'Node',

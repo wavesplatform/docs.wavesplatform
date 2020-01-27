@@ -67,7 +67,7 @@ Waves approach this scalability matter by providing the miner with the ability t
 
 This approach increases effective bandwidth and speed of block creation, which is described as being “especially significant for businesses” using the Waves platform since it allows for conducting micro transactions - without any delays that are typical with traditional blockchain systems.
 
-Furthermore, it allows the platform to withstand high loads, such as distribution of tokens following crowdsales and airdrops of bonus tokens. The speed of processing trading transactions on Waves decentralized exchange \(DEX\) is increased as well.
+Furthermore, it allows the platform to withstand high loads, such as distribution of tokens following crowdsales and airdrops of bonus tokens. The speed of processing trading transactions on exchange is increased as well.
 
 ### 2.1 Waves-NG operations
 
@@ -134,4 +134,4 @@ In practice, the remuneration is implemented by having each key block contain a 
 
 As in Bitcoin, this transaction can only be spent after a maturity period of 100 key blocks, to avoid non-mergeable transactions following a fork.
 
-<note type="info" title="">Find more technical details about Waves-NG <a href="/en/blockchain/waves-protocol/waves-ng-solution">in this section</a>.</note>
+> :bulb: Find more technical details about Waves-NG <a href="/en/blockchain/waves-protocol/waves-ng-solution">in this section</a>.

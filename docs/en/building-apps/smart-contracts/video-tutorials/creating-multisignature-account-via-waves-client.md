@@ -1,3 +1,5 @@
+# Creating Multisignature Account via Waves Client
+
 In this tutorial, we will go through the advanced features of the Waves Client, which are:
 
 1. Getting the JSON of the transaction.

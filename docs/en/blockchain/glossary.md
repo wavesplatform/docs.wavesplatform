@@ -1,3 +1,5 @@
+
+
 # Glossary
 
 ## A
@@ -105,10 +107,6 @@ dApp-script can be attached to the [account](#account) using the [set script tra
 
 A **decentralized application** is an application that is stored and executed on the [blockchain network](#blockchain-network).
 
-### DEX
-
-**DEX** (or Waves DEX) is a decentralized exchange (https://dex.wavesplatform.com) that allows users to issue and trade [tokens](#token) within the Waves [blockchain](#blockchain).
-
 ## E
 
 ### Explorer
@@ -169,7 +167,7 @@ The **mainnet** (or main network) is the main Waves [blockchain network](#blockc
 
 ### Matcher
 
-A **matcher** is a [node](#node) extension that executes [orders](#order) on the [DEX](#dex) exchange.
+A **matcher** is a [node](#node) extension that executes [orders](#order) on the exchange. See the [About Waves.Exchange Matcher](https://docs.waves.exchange/en/waves-matcher/) section in the Waves.Exchange documentation.
 
 ### Miner
 
@@ -213,7 +211,7 @@ An **oracle card** is a public description of the [oracle](#oracle) in the [bloc
 
 ### Order
 
-**Order** (or exchange order) is an instruction to buy or sell a [token](#token) on [DEX](#dex).
+**Order** (or exchange order) is an instruction to buy or sell a [token](#token) on the exchange.
 
 ## P
 
@@ -292,10 +290,6 @@ The **transaction** is an action on the [blockchain](#blockchain) on behalf of t
 A **validating node** is a [node](#node) that validates [transactions](#transaction).
 
 ## W
-
-### Wallet
-
-A **wallet** is a section of the [Waves DEX](#dex) online service. It allows us to send and receive [tokens](#token), view [transactions](#transaction) and [cryptocurrency](#cryptocurrency) rates, and [lease](#leasing) [WAVES](#waves).
 
 ### WAVELET
 

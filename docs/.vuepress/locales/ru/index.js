@@ -5,6 +5,7 @@ const mixin = require('../_mixins');
 const sidebarConfig = require(path.join(process.cwd(), 'docs/_ru-sidebar-tree'));
 
 module.exports = deepmerge(mixin, {
+    label: 'Русский',
     langIconRawSvg: fs.readFileSync(path.resolve(__dirname, './russia-18.svg')).toString(),
     searchPlaceholderText: 'Введите запрос и нажмите Return…',
     backToIndexButtonText: 'Вернуться к разделам',
@@ -73,6 +74,13 @@ module.exports = deepmerge(mixin, {
                 rootLink: '/ru/ride/',
                 title: 'Язык программирования Ride',
                 caption: 'Cинтаксис Ride. Типы скриптов. Встроенные функции, операторы и структуры.',
+                buttonSet: {
+                    gettingStarted: {
+                        text: 'Начало работы',
+                        link: '/ru/ride/getting-started'
+                    }
+                },
+
             },
             node: {
                 rootLink: '/ru/waves-node/',

@@ -6,6 +6,21 @@ A dApp script may have several callable functions.
 
 A callable function of a [dApp](/en/blockchain/account/dapp) can be invoked by the [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction).
 
+Calling @Callable function may require payment, so it can be attached to invoke script transaction. Starting from Ride v.4, up to two payments can be attached to invoke script transaction.
+
+Actions that can be performed by callable function, include (but not limited to):
+
+* adding or modifying records in [account data storage](/en/blockchain/account/account-data-storage). Within invoke script transaction up to 100 entries can be added/modified/deleted in the dApp account storage.
+* token transfers. Within invoke script transaction, dApp can execute up to 10 token transfers. The tokens can be transferred both from dApp balance and from payments attached to invoke script transaction.
+
+Starting from Ride v.4, the actions listed above include
+
+* tokens issue.
+* tokens reissue.
+* burning tokens.
+
+In Ride v.4, within invoke script transaction the total amount of transfer/issue/reissue/burn tokens actions must not exceed 10 inclusively.
+
 ## Example for Standard Library version 3
 
 ```ride
@@ -15,11 +30,11 @@ func rate(name: String, rating: Int) = {
 }
 ```
 
-<note type="warning" title=""><a href="/en/ride/script/standard-library">Standard Library</a> Version 4 becomes available from node version 1.2.0, after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature. See <a href="/en/blockchain/waves-protocol/activation-protocol">Activation Protocol</a>.</note>
+> :warning: <a href="/en/ride/script/standard-library">Standard Library</a> Version 4 becomes available from node version 1.2.0, after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature. See <a href="/en/blockchain/waves-protocol/activation-protocol">Activation Protocol</a>.
 
 ## Example for Standard Library version 4
 
-<note type="info" title="">Starting from <a href="/en/ride/script/standard-library">Standard Library</a> version 4, the list of primitive data types values can be passed to the annotated function. Maximum list size - 1000 elements.</note>
+> :bulb: Starting from <a href="/en/ride/script/standard-library">Standard Library</a> version 4, the list of primitive data types values can be passed to the annotated function. Maximum list size - 1000 elements.
 
 ```ride
 {-# STDLIB_VERSION 4 #-}

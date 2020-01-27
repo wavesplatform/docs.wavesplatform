@@ -10,15 +10,15 @@ Pywaves is an object-oriented Python interface to the Waves blockchain which wil
 ## What is Waves Node REST API
 Waves Platform is a little bit complex and consists of a lot of components:
 
-Waves Full Node performs almost like all other decentralized-cryptocurrencies: keeps a full-copy of the blockchain, verifies the transactions. The main differences are convenient REST API and DEX(Matcher).
+Waves Full Node performs almost like all other decentralized-cryptocurrencies: keeps a full-copy of the blockchain, verifies the transactions. The main differences are convenient REST API and Matcher.
 
-Note: DEX(matcher) is disabled in default configuration file.
+Note: Matcher is disabled in default configuration file.
 Node REST API allows working with Waves Blockchain like with many other centralized platforms, e.g. Google, Facebook etc. In official Waves platform’s Github repository, you can find RPC API documentation and description of used data structures. If you prefer API docs in Postman interface you can follow the link
 
 ## Terms
 **Node** — Full Node, it contains full-copy of the blockchain.
 
-**Matcher (DEX)** — part of a full node. Matcher nodes are responsible for pairing orders and executing trades quickly, whilst they are still settled on the blockchain. When a user sends an order to Matcher he doesn’t transfer ownership of his money to anyone, his money remains on his account until the order is matched with counter-order. For more details, read [Waves.Exchange Protocol](https://docs.waves.exchange/en/waves-exchange/waves-exchange-protocol) and [Matcher API](https://docs.waves.exchange/en/waves-matcher/matcher-api).
+**Matcher** — an exchange engine that executes incoming orders, creates Exchange Transactions, and puts them into blockchain to fix changes in balances of users. When a user sends an order to Matcher he doesn’t transfer ownership of his money to anyone, his money remains on his account until the order is matched with counter-order. For more details, read [Waves.Exchange Protocol](https://docs.waves.exchange/en/waves-exchange/waves-exchange-protocol) and [Matcher API](https://docs.waves.exchange/en/waves-matcher/matcher-api) sections in Waves.Exchange documentation.
 
 **AssetPair** — Pair of assets we want to exchange.
 
@@ -50,7 +50,7 @@ It’s better to make configuration file where we will store all sensitive and c
 node = http://127.0.0.1
 # select the network: testnet or mainnet
 network = mainnet
-# DEX matcher
+# matcher
 matcher = http://nodes.wavesnodes.com
 order_fee = 300000
 # order lifetime in seconds, max allowed 29 days

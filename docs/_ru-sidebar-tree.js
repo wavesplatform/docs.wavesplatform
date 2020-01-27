@@ -58,6 +58,56 @@ module.exports = {
           path: blockchainPath + 'binary-format/alias-binary-format',
         },
         {
+          title: '[en] Block binary format',
+          path: blockchainPath + 'binary-format/block-binary-format',
+        },
+        {
+          title: '[en] Network message binary format',
+          path: blockchainPath + 'binary-format/network-message-binary-format',
+          children: [
+            {
+              title: '[en] Block message binary format',
+              path: blockchainPath + 'binary-format/network-message-binary-format/block-message-binary-format',
+            },
+            {
+              title: '[en] Checkpoint message binary format',
+              path: blockchainPath + 'binary-format/network-message-binary-format/checkpoint-message-binary-format',
+            },
+            {
+              title: '[en] Get block message binary format',
+              path: blockchainPath + 'binary-format/network-message-binary-format/get-block-message-binary-format',
+            },
+            {
+              title: '[en] Get peers message binary format',
+              path: blockchainPath + 'binary-format/network-message-binary-format/get-peers-message-binary-format',
+            },
+            {
+              title: '[en] Get signatures message binary format',
+              path: blockchainPath + 'binary-format/network-message-binary-format/get-signatures-message-binary-format',
+            },
+            {
+              title: '[en] Handshake message binary format',
+              path: blockchainPath + 'binary-format/network-message-binary-format/handshake-message-binary-format',
+            },
+            {
+              title: '[en] Peers message binary format',
+              path: blockchainPath + 'binary-format/network-message-binary-format/peers-message-binary-format',
+            },
+            {
+              title: '[en] Score message binary format',
+              path: blockchainPath + 'binary-format/network-message-binary-format/score-message-binary-format',
+            },
+            {
+              title: '[en] Signatures message binary format',
+              path: blockchainPath + 'binary-format/network-message-binary-format/signatures-message-binary-format',
+            },
+            {
+              title: '[en] Transaction message binary format',
+              path: blockchainPath + 'binary-format/network-message-binary-format/transaction-message-binary-format',
+            },
+          ]
+        },
+        {
           title: 'Бинарный формат ордера',
           path: blockchainPath + 'binary-format/order-binary-format',
         },
@@ -126,6 +176,10 @@ module.exports = {
               path: blockchainPath + 'binary-format/transaction-binary-format/transfer-transaction-binary-format',
             },
           ],
+        },
+        {
+          title: '[en] Transaction proof binary format',
+          path: blockchainPath + 'binary-format/transaction-proof-binary-format',
         },
         {
           title: 'Protobuf-схема транзакции',
@@ -210,7 +264,11 @@ module.exports = {
             {
               title: 'Базовая цель',
               path: blockchainPath + 'block/block-generation/base-target',
-            }
+            },
+            {
+              title: '[en] Generation signature',
+              path: blockchainPath + 'block/block-generation/generation-signature',
+            },
           ],
         },
         {
@@ -454,6 +512,22 @@ module.exports = {
       path: blockchainPath + 'waves-protocol',
       children: [
         {
+          title: '[en] Cryptographic practical details',
+          path: blockchainPath + 'waves-protocol/cryptographic-practical-details',
+        },
+        {
+          title: '[en] Validation rules',
+          path: blockchainPath + 'waves-protocol/validation-rules',
+        },
+        {
+          title: '[en] Waves-NG solution',
+          path: blockchainPath + 'waves-protocol/waves-ng-solution',
+        },
+        {
+          title: '[en] Sponsored fee',
+          path: blockchainPath + 'waves-protocol/sponsored-fee',
+        },
+        {
           title: 'Честный Proof-of-Stake',
           path: blockchainPath + 'waves-protocol/fair-pos',
         },
@@ -475,20 +549,74 @@ module.exports = {
 
   [nodePath]: [
     {
-      title: 'Нода',
+      title: 'Руководство владельца ноды',
       path: nodePath,
     },
     {
-      title: 'Предварительные требования',
-      path: nodePath + 'prerequisites',
+      title: 'Full нода Waves',
+      path: nodePath + 'what-is-a-full-node',
+    },
+	  {
+      title: 'Как установить ноду',
+      path: nodePath + 'how-to-install-a-node/how-to-install-a-node',
       children: [
         {
-          title: 'Требования к аппаратному обеспечению',
-          path: nodePath + 'prerequisites/hardware-requirements',
+          title: 'Установка ноды на Mac',
+          path: nodePath + 'how-to-install-a-node/on-mac',
+        },
+        {
+          title: 'Установка ноды на Windows',
+          path: nodePath + 'how-to-install-a-node/on-windows',
+        },
+        {
+          title: 'Установка ноды на Ubuntu',
+          path: nodePath + 'how-to-install-a-node/on-ubuntu',
+        }
+      ],
+    },
+    {
+      title: '[en] How to build and test a node',
+      path: nodePath + 'how-to-build-and-test-a-node',
+    },
+    {
+      title: 'Способы загрузки актуального блокчейна',
+      path: nodePath + 'options-for-getting-actual-blockchain',
+      children: [
+        {
+          title: 'Экспорт/Импорт блокчейна',
+          path: nodePath + 'options-for-getting-actual-blockchain/import-from-the-blockchain',
+        },	  
+        {
+          title: 'Загрузка готовой актуальной базы данных',
+          path: nodePath + 'options-for-getting-actual-blockchain/state-downloading-and-applying',
         },
       ],
     },
-   {
+    {
+      title: 'Обновление ноды Waves',
+      path: nodePath + 'upgrading',
+    },
+    {
+     title: 'Как откатить ноду',
+     path: nodePath + 'how-to-rollback-a-node',
+    },
+    {
+      title: 'Работа с кошельком ноды',
+      path: nodePath + 'working-with-node-wallet',
+    },
+    {
+      title: 'Запуск ноды в Docker',
+      path: nodePath + 'waves-node-in-docker',
+    },
+    {
+      title: 'Про Waves Testnet',
+      path: nodePath + 'joining-testnet',
+    },
+    {
+      title: '[en] Private Waves network',
+      path: nodePath + 'private-waves-network',
+    },
+	  {
       title: 'Расширения',
       path: nodePath + 'extensions',
       children: [
@@ -505,20 +633,90 @@ module.exports = {
       ]
     },
     {
-      title: 'Node API',
-      path: nodePath + 'node-api',
-    },
-    {
-      title: 'Запуск ноды Waves в Яндекс.Облаке',
-      path: nodePath + 'running-waves-node-in-yandex-cloud',
-    },
-    {
-      title: 'Обновление ноды Waves',
-      path: nodePath + 'upgrading',
+      title: '[en] Features',
+      path: nodePath + 'features/features',
+      children: [
+        {
+          title: '[en] Feature',
+          path: nodePath + 'features/feature',
+        },
+        {
+          title: '[en] Feature activation protocol',
+          path: nodePath + 'features/feature-activation-protocol',
+        }
+      ],
     },
     {
       title: 'Конфигурация ноды',
       path: nodePath + 'node-configuration',
+    },
+    {
+      title: '[en] Logging configuration',
+      path: nodePath + 'logging-configuration',
+    },
+    {
+      title: 'Node API',
+      path: nodePath + 'node-api',
+      children: [
+        {
+          title: '[en] Request headers',
+          path: nodePath + 'node-api/headers',
+        },
+        {
+          title: '[en] Address',
+          path: nodePath + 'node-api/address',
+        },
+        {
+          title: '[en] Lease Transactions',
+          path: nodePath + 'node-api/lease-transactions',
+        },
+        {
+          title: '[en] Assets',
+          path: nodePath + 'node-api/asset-transactions',
+          children: [
+            {
+              title: '[en] Public Functions',
+              path: nodePath + 'node-api/asset-transactions/public-functions',
+            },
+            {
+              title: '[en] Private Functions',
+              path: nodePath + 'node-api/asset-transactions/private-functions',
+            },
+            {
+              title: '[en] Distribution Methods',
+              path: nodePath + 'node-api/asset-transactions/distribution-methods',
+            }
+          ],
+        },
+        {
+          title: '[en] Alias Transaction',
+          path: nodePath + 'node-api/alias-transaction',
+        },
+        {
+          title: '[en] Transactions',
+          path: nodePath + 'node-api/transactions',
+        },
+        {
+          title: '[en] Peers',
+          path: nodePath + 'node-api/peers',
+        },
+        {
+          title: '[en] Blocks',
+          path: nodePath + 'node-api/blocks',
+        },
+        {
+          title: '[en] Utils',
+          path: nodePath + 'node-api/utils',
+        },
+        {
+          title: '[en] Examples of transactions',
+          path: nodePath + 'node-api/example-transactions',
+        }
+      ],
+    },
+    {
+      title: 'Запуск ноды Waves в Яндекс.Облаке',
+      path: nodePath + 'running-waves-node-in-yandex-cloud',
     },
     {
       title: 'Ограничения API пула публичных нод',
@@ -530,6 +728,10 @@ module.exports = {
     {
       title: 'O Ride',
       path: ridePath,
+    },
+    {
+      title: 'Начало работы',
+      path: ridePath + 'getting-started',
     },
     {
       title: 'Базовые понятия',
@@ -556,10 +758,6 @@ module.exports = {
     {
       title: 'Константы',
       path: ridePath + 'constants',
-    },
-    {
-      title: 'Макрос FOLD<N>',
-      path: ridePath + 'fold-macro',
     },
     {
       title: 'Типы данных',
@@ -678,6 +876,10 @@ module.exports = {
           path: ridePath + 'functions/verifier-function',
         },
       ],
+    },
+    {
+      title: 'Макрос FOLD<N>',
+      path: ridePath + 'fold-macro',
     },
     {
       title: 'Операторы',
@@ -842,6 +1044,10 @@ module.exports = {
               path: ridePath + 'structures/transaction-structures/exchange-transaction',
             },
             {
+              title: '[en] FeeSponsoringTransaction',
+              path: ridePath + 'structures/transaction-structures/fee-sponsoring-transaction',
+            },
+            {
               title: 'GenesisTransaction',
               path: ridePath + 'structures/transaction-structures/genesis-transaction',
             },
@@ -899,12 +1105,20 @@ module.exports = {
         },
       ],
     },
+    {
+      title: '[en] Script performance tests',
+      path: ridePath + 'script-performance-tests',
+    },
   ],
 
   [buildingAppsPath]: [
     {
       title: 'Руководство разработчика',
       path: buildingAppsPath,
+    },
+    {
+      title: '[en] Waves Smart Contracts',
+      path: programmingPath + 'waves-smart-contracts-overview',
     },
     {
       title: 'Cмарт-аккаунт',
@@ -914,6 +1128,14 @@ module.exports = {
           title: 'Создание смарт-аккаунта',
           path: programmingPath + 'how-to-create-smart-account',
         },
+        {
+          title: '[en] Creating and deploying a script manually',
+          path: programmingPath + 'creating-and-deploying-a-script-manually',
+        },
+        {
+          title: '[en] Video tutorials',
+          path: programmingPath + 'video-tutorials',
+        }
       ],
     },
     {
@@ -935,6 +1157,10 @@ module.exports = {
             {
               title: 'Простое голосование на блокчейне Waves',
               path: programmingPath + 'simple-voting-on-the-waves-blockchain',
+            },
+            {
+              title: '[en] Create your first crypto trading Bot',
+              path: sdkPath + 'examples/trading-bot',
             },
           ],
         },
@@ -963,14 +1189,64 @@ module.exports = {
       path: sdkPath,
       children: [
         {
+          title: '[en] Waves data service API',
+          path: sdkPath + 'waves-data-service-api',
+        },
+        {
           title: 'Клиентские библиотеки',
           path: sdkPath + 'client-libraries',
           children: [
             {
               title: 'Signer',
               path: sdkPath + 'client-libraries/signer',
-            }
-          ]
+            },
+            {
+              title: '[en] PyWaves',
+              path: sdkPath + 'client-libraries/pywaves',
+            },
+            {
+              title: '[en] WavesJ',
+              path: sdkPath + 'client-libraries/wavesj',
+            },
+            {
+              title: '[en] WavesCS',
+              path: sdkPath + 'client-libraries/wavescs',
+            },
+            {
+              title: '[en] WavesC',
+              path: sdkPath + 'client-libraries/waves-c',
+            },
+            {
+              title: '[en] GoWaves',
+              path: sdkPath + 'client-libraries/gowaves',
+            },
+            {
+              title: '[en] WavesRS',
+              path: sdkPath + 'client-libraries/wavesrs',
+            },
+            {
+              title: '[en] Waves transactions',
+              path: sdkPath + 'client-libraries/waves-transactions',
+            },
+            {
+              title: '[en] Community libraries',
+              path: sdkPath + 'client-libraries/unofficial-libraries',
+            },
+          ],
+        },
+        {
+          title: '[en] Waves Games',
+          path: sdkPath + 'waves-gaming-api',
+          children: [
+            {
+              title: '[en] Waves Games API',
+              path: sdkPath + 'waves-gaming-api/waves-games-api',
+            },
+            {
+              title: '[en] Examples',
+              path: sdkPath + 'waves-gaming-api/examples',
+            },
+          ],
         },
       ],
     },
