@@ -1,9 +1,9 @@
 # Script Performance Tests
 
 We conducted performance tests for all aspects of our scripts.  
-For this purpose, we developed an benchmark subproject with [JMH](http://openjdk.java.net/projects/code-tools/jmh/) that computes the complexity of scripts after compilation phase by AST \(Abstract Syntax Tree\) traversal in special complexity units.
+For this purpose, we developed an benchmark subproject with [JMH](http://openjdk.java.net/projects/code-tools/jmh/) that computes the complexity of scripts after compilation phase by AST (Abstract Syntax Tree) traversal in special complexity units.
 
-Complexity units is a measure of the script's relative cost: we found out the most expensive operation in terms of computational complexity and defined it equal to **100 complexity units**. In every test, we conducted **10 tests** and calculated the **average cost**. 
+Complexity units is a measure of the script's relative cost: we found out the most expensive operation in terms of computational complexity and defined it equal to **100 complexity units**. In every test, we conducted **10 tests** and calculated the **average cost**.
 
 **The performance tests' results are the following:**
 

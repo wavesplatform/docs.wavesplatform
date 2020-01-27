@@ -1127,12 +1127,8 @@ module.exports = {
     },
     {
       title: 'Smart Account',
-      path: programmingPath + 'smart-accounts',
+      path: programmingPath + 'what-is-smart-account',
       children: [
-        {
-          title: 'What is a Smart Account',
-          path: programmingPath + 'what-is-smart-account',
-        },
         {
           title: 'Creating smart account',
           path: programmingPath + 'how-to-create-smart-account',

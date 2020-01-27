@@ -401,6 +401,10 @@ module.exports = [
     from: '/en/blockchain/waves-protocol/smart-contracts.html',
   },
   {
+    to: '/en/building-apps/smart-contracts/what-is-smart-account',
+    from: '/en/building-apps/smart-contracts/smart-accounts',
+  },
+  {
     to: '/en/smart-contracts/smart-assets',
     from: '/en/technical-details/smart-assets.html',
   },
