@@ -34,4 +34,4 @@
 
 | ID типа транзакции | Название | Описание |
 | :--- | :--- | :--- |
-| [GenesisTransaction](/ru/ride/structures/transaction-structures/genesis-transaction) | Структура [транзакции генезиса](/ru/blockchain/transaction-type/genesis-transaction) | 1 |
+| 1 | [GenesisTransaction](/ru/ride/structures/transaction-structures/genesis-transaction) | Структура [транзакции генезиса](/ru/blockchain/transaction-type/genesis-transaction) |

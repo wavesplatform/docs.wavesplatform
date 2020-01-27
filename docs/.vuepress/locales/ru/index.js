@@ -74,6 +74,13 @@ module.exports = deepmerge(mixin, {
                 rootLink: '/ru/ride/',
                 title: 'Язык программирования Ride',
                 caption: 'Cинтаксис Ride. Типы скриптов. Встроенные функции, операторы и структуры.',
+                buttonSet: {
+                    gettingStarted: {
+                        text: 'Начало работы',
+                        link: '/ru/ride/getting-started'
+                    }
+                },
+
             },
             node: {
                 rootLink: '/ru/waves-node/',

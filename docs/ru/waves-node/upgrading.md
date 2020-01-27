@@ -1,6 +1,6 @@
 # Обновление ноды Waves
 
-Перед обновлением ноды Waves, проверьте используемый тип установки. Это может быть файл DEB (для всех Deb-base дистрибутивов GNU/Linux) или файл JAR (другие операционные системы). В зависимости от типа ноды, выполните шаги одной из процедур приведённых ниже, чтобы обновить ноду Waves. Подробное описание типов установки нод Waves, можно найти в статьях [How to Install a Node](https://docs.wavesplatform.com/en/waves-node/how-to-install-a-node/how-to-install-a-node.html) и [How to Build and Test a Node](https://docs.wavesplatform.com/en/waves-node/how-to-build-and-test-a-node.html).
+Перед обновлением ноды Waves, проверьте используемый тип установки. Это может быть файл DEB (для всех Deb-base дистрибутивов GNU/Linux) или файл JAR (другие операционные системы). В зависимости от типа ноды, выполните шаги одной из процедур приведённых ниже, чтобы обновить ноду Waves. Подробное описание типов установки нод Waves, можно найти в статьях [How to Install a Node](/ru/waves-node/how-to-install-a-node/how-to-install-a-node) и [How to Build and Test a Node](/ru/waves-node/how-to-build-and-test-a-node).
 
 ## Обновление ноды через APT репозиторий
 
@@ -33,13 +33,13 @@ sudo apt upgrade
    java -jar waves.jar waves.conf
    ```
 
-   **Note:** Более подробно запуск ноды описан в статье  [How to Install a Node](https://docs.wavesplatform.com/en/waves-node/how-to-install-a-node/how-to-install-a-node.html).
+   **Note:** Более подробно запуск ноды описан в статье  [How to Install a Node](/ru/waves-node/how-to-install-a-node/how-to-install-a-node).
 
 2. Проверьте версию установленной ноды в файле **/var/log/waves/waves.log** или в названии **JAR** файла.
 3. Проверьте актуальную версию ноды на странице [latest Waves Release](https://github.com/wavesplatform/Waves/releases) и скачайте последнюю версию **Mainnet** релиза (**JAR** файл).
 4. Изучите информацию о версии (release notes) на предмет необходимости повторной сборки базы данных состояния.
 5. **При необходимости:** Если новая версия ноды подразумевает повторную сборку базы данных состояния, экспортируйте существующие блоки.
-Подробное описание экспорта/импорта блоков описано в статьях  [Export to the Blockchain](https://docs.wavesplatform.com/en/waves-node/options-for-getting-actual-blockchain/export-and-import-from-the-blockchain.html) и [State Downloading and Applying](https://docs.wavesplatform.com/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying.html).
+Подробное описание экспорта/импорта блоков описано в статьях  [Export to the Blockchain](/ru/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain) и [State Downloading and Applying](/ru/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying).
 
    **Note:** импорт/экспорт блоков не является обязательным, но позволит сэкономить интернет-трафик, а иначе нода загрузит все необходимые данные из сети.
 
@@ -47,7 +47,7 @@ sudo apt upgrade
 
 7. Замените старый **JAR** файл новой скаченной версией.
 
-8. При необходимости: Если новая версия ноды подразумевает повторную сборку базы данных состояния, импортируйте бинарный файл. Подробное описание импорта блоков описано в статье [Import From the Blockchain](https://docs.wavesplatform.com/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain.html).
+8. При необходимости: Если новая версия ноды подразумевает повторную сборку базы данных состояния, импортируйте бинарный файл. Подробное описание импорта блоков описано в статье [Import From the Blockchain](/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain).
 9. Запустите ноду, выполнив следующую команду:
 
    ```
@@ -64,7 +64,7 @@ sudo apt upgrade
    # sudo systemctl start waves
    ```
 
-   **Note:** Более подробно запуск ноды описан в статье [How to Install a Node](https://docs.wavesplatform.com/en/waves-node/how-to-install-a-node/how-to-install-a-node.html).
+   **Note:** Более подробно запуск ноды описан в статье [How to Install a Node](/ru/waves-node/how-to-install-a-node/how-to-install-a-node).
 
 2. Проверьте версию установленной ноды в файле **/var/log/waves/waves.log** или выполните следующую команду:
 
@@ -75,7 +75,7 @@ sudo apt upgrade
 3. Проверьте актуальную версию ноды на странице [latest Waves Release](https://github.com/wavesplatform/Waves/releases) и скачайте последнюю версию **Mainnet** релиза (**DEB** файл).
 4. Изучите информацию о версии (release notes) на предмет необходимости повторной сборки базы данных состояния.
 5. **При необходимости:** Если новая версия ноды подразумевает повторную сборку базы данных состояния, экспортируйте существующие блоки.
-Подробное описание экспорта/импорта блоков описано в статьях [Export to the Blockchain](https://docs.wavesplatform.com/en/waves-node/options-for-getting-actual-blockchain/export-and-import-from-the-blockchain.html) и [State Downloading and Applying](https://docs.wavesplatform.com/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying.html).
+Подробное описание экспорта/импорта блоков описано в статьях [Export to the Blockchain](/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain) и [State Downloading and Applying](/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying).
 
    **Note:** импорт/экспорт блоков не является обязательным, но позволит сэкономить интернет-трафик, а иначе нода загрузит все необходимые данные из сети.
 6. Остановите ноду, выполнив следующую команду:
@@ -90,7 +90,7 @@ sudo apt upgrade
    # sudo dpkg -i waves_X.Y.Z_all.deb
    ```
 
-8. При необходимости: Если новая версия ноды подразумевает повторную сборку базы данных состояния, импортируйте бинарный файл. Подробное описание импорта блоков описано в статье  [Import From the Blockchain](https://docs.wavesplatform.com/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain.html).
+8. При необходимости: Если новая версия ноды подразумевает повторную сборку базы данных состояния, импортируйте бинарный файл. Подробное описание импорта блоков описано в статье  [Import From the Blockchain](/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain).
 9. Запустите ноду, выполнив следующую команду:
 
    ```
@@ -99,4 +99,4 @@ sudo apt upgrade
 
 ## Обновление файла конфигурации ноды
 
-Подробное описание файла конфигурации ноды содержится в статье [Waves node configuration file](https://docs.wavesplatform.com/en/waves-node/node-configuration.html).
+Подробное описание файла конфигурации ноды содержится в статье [Waves node configuration file](/ru/waves-node/node-configuration).

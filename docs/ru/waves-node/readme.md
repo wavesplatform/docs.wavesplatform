@@ -23,10 +23,10 @@
 
 ### Установка ноды
 
-* Наиболее просто способ запустить ноду — использовать [Waves Docker container](en/waves-node/waves-node-in-docker). Достаточно одной команды, чтобы включить все или изменить настройки ноды.
-* Другой способ — скачать [последнюю версию](https://github.com/wavesplatform/Waves/releases) `waves.jar` и конфигурационный файл для Mainnet или Testnet в любую папку, например `~/waves`. Воспользуйтесь [инструкцией по установке ноды](en/waves-node/how-to-install-a-node/how-to-install-a-node) для вашей операционной системы.
+* Наиболее просто способ запустить ноду — использовать [Waves Docker container](/ru/waves-node/waves-node-in-docker). Достаточно одной команды, чтобы включить все или изменить настройки ноды.
+* Другой способ — скачать [последнюю версию](https://github.com/wavesplatform/Waves/releases) `waves.jar` и конфигурационный файл для Mainnet или Testnet в любую папку, например `~/waves`. Воспользуйтесь [инструкцией по установке ноды](/ru/waves-node/how-to-install-a-node/how-to-install-a-node) для вашей операционной системы.
 
-> Ознакомьтесь с [порядком активации](en/waves-node/how-to-install-a-node/how-to-install-a-node) новых функциональностей.
+> Ознакомьтесь с [порядком активации](/ru/waves-node/how-to-install-a-node/how-to-install-a-node) новых функциональностей.
 
 ### Получение актуального блокчейна
 
@@ -44,5 +44,5 @@
 
 Проверьте высоту блокчейна или подписи 100 последних блоков, чтобы понять, работаете вы с основныи блокчейном или с форком. Вы можете использовать утилиту [chaincmp](https://github.com/wavesplatform/gowaves/releases/tag/v0.1.2), чтобы сравнить блокчейн на своей ноде и на других.
 
-* Если высота форка менее 2000 блоков, вы можете [выполнить откат](en/waves-node/how-to-rollback-a-node).
+* Если высота форка менее 2000 блоков, вы можете [выполнить откат](/ru/waves-node/how-to-rollback-a-node).
 * Если высота форка более 2000 блоков, получите [актуальный блокчейн](/ru/waves-node/options-for-getting-actual-blockchain).
