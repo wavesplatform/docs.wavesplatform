@@ -1197,6 +1197,10 @@ module.exports = {
           path: sdkPath + 'client-libraries',
           children: [
             {
+              title: 'Signer',
+              path: sdkPath + 'client-libraries/signer',
+            },
+            {
               title: '[en] PyWaves',
               path: sdkPath + 'client-libraries/pywaves',
             },
@@ -1219,10 +1223,6 @@ module.exports = {
             {
               title: '[en] WavesRS',
               path: sdkPath + 'client-libraries/wavesrs',
-            },
-            {
-              title: '[en] Waves Signer',
-              path: sdkPath + 'client-libraries/signer',
             },
             {
               title: '[en] Waves transactions',
@@ -1249,7 +1249,7 @@ module.exports = {
           ],
         },
       ],
-    }
+    },
   ],
 
   [ecosystemPath]: [
