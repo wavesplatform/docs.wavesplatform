@@ -56,7 +56,7 @@ module.exports = {
                 buttonSet: {
                     smartAccount: {
                         text: 'Smart accounts',
-                        link: '/en/building-apps/smart-contracts/smart-accounts'
+                        link: '/en/building-apps/smart-contracts/what-is-smart-account'
                     },
                     smartAsset: {
                         text: 'Smart assets',
