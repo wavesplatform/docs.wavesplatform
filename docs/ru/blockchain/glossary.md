@@ -60,7 +60,7 @@
 
 ### Карточка оракула
 
-**Карточка оракула** — публичное описание [оракула](#оракул) в [блокчейне](#блокчейн) по [стандартизированному протоколу](https://confluence.wavesplatform.com/pages/viewpage.action?pageId=1640860360) в виде [транзакции данных](/ru/blockchain/transaction-type/data-transaction).
+**Карточка оракула** — публичное описание [оракула](#оракул) в [блокчейне](#блокчейн) по [стандартизированному протоколу](/ru/ecosystem/waves-oracles/create-an-oracle-card-with-a-data-transaction) в виде [транзакции данных](/ru/blockchain/transaction-type/data-transaction).
 
 ### Консенсус
 

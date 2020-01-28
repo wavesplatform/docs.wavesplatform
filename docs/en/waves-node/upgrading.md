@@ -41,7 +41,7 @@ To upgrade a **JAR** Node complete the following steps:
 3. Review the [latest Waves Release](https://github.com/wavesplatform/Waves/releases) page and download the latest **Mainnet** release (**JAR** file).
 4. Review the release notes and check if the new version requires rebuilding the state database.
 5. **Optional step:** If the new version of the Node requires rebuilding the state database, export the existing blocks.
-See [Export to the Blockchain](/en/waves-node/options-for-getting-actual-blockchain/export-and-import-from-the-blockchain) and [State Downloading and Applying](/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying) articles for detais about exporting/importing blocks.
+See [Export to the Blockchain](/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain) and [State Downloading and Applying](/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying) articles for detais about exporting/importing blocks.
 
    **Note:** Exporting/importing blocks is not mandatory but it saves internet data traffic. Otherwise the Node will download all the necessary data from the internet.
 
@@ -77,7 +77,7 @@ To upgrade a **DEB** Node complete the following steps:
 3. Review the [latest Waves Release](https://github.com/wavesplatform/Waves/releases) page and download the latest **Mainnet** release (**DEB** file).
 4. Review the release notes and check if the new version requires rebuilding the state database.
 5. **Optional step:** If the new version of the Node requires rebuilding the state database, export the existing blocks.
-See [Export to the Blockchain](/en/waves-node/options-for-getting-actual-blockchain/export-and-import-from-the-blockchain) and [State Downloading and Applying](/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying) articles for detais about exporting/importing blocks.
+See [Export to the Blockchain](/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain) and [State Downloading and Applying](/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying) articles for detais about exporting/importing blocks.
 
    **Note:** Exporting/importing blocks is not mandatory but it saves internet data traffic. Otherwise the Node will download all the necessary data from the internet.
 6. Stop the Node by executing the following command:

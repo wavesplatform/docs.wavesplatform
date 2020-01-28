@@ -34,4 +34,4 @@
 
 | Transaction type ID | Name | Description |
 | :--- | :--- | :--- |
-| [GenesisTransaction](/en/ride/structures/transaction-structures/genesis-transaction) | Structure of [genesis transaction](/en/blockchain/transaction-type/genesis-transaction) | 1 |
+| 1 | [GenesisTransaction](/en/ride/structures/transaction-structures/genesis-transaction) | Structure of [genesis transaction](/en/blockchain/transaction-type/genesis-transaction) |

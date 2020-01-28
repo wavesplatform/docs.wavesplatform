@@ -72,6 +72,13 @@ module.exports = {
                 rootLink: '/en/ride/',
                 type: 'advanced',
                 iconFilePath: getRawIcon('./images/category5.svg'),
+                buttonSet: {
+                    gettingStarted: {
+                        text: 'Getting started',
+                        link: '/en/ride/getting-started'
+                    },
+                },
+
             },
             node: {
                 rootLink: '/en/waves-node/',
@@ -148,7 +155,7 @@ module.exports = {
 
     footer: {
         broughtToYouByWavesTeam: 'Brought to you by Waves Team.',
-        copyright: '© 2019 Waves Platform',
+        copyright: '© 2020 Waves Platform',
         email: '',
         resourcesCategories: {
             productsAndTools: {

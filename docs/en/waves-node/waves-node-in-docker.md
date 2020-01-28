@@ -16,7 +16,7 @@ Please, follow installation instructions at [Docker Site](https://docs.docker.co
 
 ## Running the image
 
-It is highly recommended to read more about [Waves Node configuration](https://docs.wavesplatform.com/en/waves-node/how-to-configure-a-node.html) before running the container.
+It is highly recommended to read more about [Waves Node configuration](/en/waves-node/node-configuration) before running the container.
 
 The simplest way to run a container:
 ```
@@ -42,8 +42,8 @@ docker run -p 6869:6869 -p 6863:6863 -e WAVES_NETWORK=TESTNET -e WAVES_LOG_LEVEL
 |`WAVES_WALLET_PASSWORD`           |Password for wallet file.    |
 |`WAVES_VERSION`                   |Node version. Default value is `latest`. You can find the list of available versions [here](https://github.com/wavesplatform/Waves/releases).|
 |`WAVES_NETWORK`                   |Available values are `MAINNET` and `TESTNET`.   |
-|`WAVES_LOG_LEVEL`                 |Node logging level, available values: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`. More details about logging are available [here](https://docs.wavesplatform.com/en/waves-node/logging.html).   |
-|`WAVES_HEAP_SIZE`                 |Java Heap Size limit in -X Command-line Options notation (`-Xms=[your value]`). More details [here](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html)   |
+|`WAVES_LOG_LEVEL`                 |Node logging level, available values: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`. More details about logging are available [here](/en/waves-node/logging-configuration). |
+|`WAVES_HEAP_SIZE`                 |Java Heap Size limit in -X Command-line Options notation (`-Xms=[your value]`). More details [here](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html) |
 |`WAVES_CONFIG_FILE`               |Path to your Waves Configuration file.   |
 |`WAVES_DECLARED_ADDRESS`          |String with IP address and port to send as external address during handshake. Could be set automatically if UPnP is enabled. If `declared-address` is set, which is the common scenario for nodes running in the cloud, the node will just listen to incoming connections on `bind-address:port` and broadcast its `declared-address` to its peers.|
 |`WAVES_AUTODETECT_ADDRESS`        |Set `yes` if you want to get your public address and set value `declared-address` with it.|
@@ -56,7 +56,7 @@ docker run -p 6869:6869 -p 6863:6863 -e WAVES_NETWORK=TESTNET -e WAVES_LOG_LEVEL
 The image supports config customization with env variables.
 Depending on env values the image generates `local.conf` file and stores it in `/waves/configs` directory.
 The simple rule of how to set a value in the configuration file:
-0. Determine the path to variable in configuration file ([complete configuration file](https://docs.wavesplatform.com/en/waves-node/how-to-configure-a-node.html))
+0. Determine the path to variable in [configuration file](/en/waves-node/node-configuration).
 1. Join all section names with two underscores(`__`).
 2. Replace all dashes with one underscore (`_`).
 3. Capitalize the final string.
