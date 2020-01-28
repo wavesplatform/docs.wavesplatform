@@ -22,6 +22,7 @@ module.exports = (ctx) => {
         head: [
             ['meta', { name: 'theme-color', content: '#1f5af6' }],
             ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
+            ['meta', { name: 'yandex-verification', content: '3b56db5e097d3f9e' }],
             ['link', { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#0055ff' }],
             ['link', { rel: 'apple-touch-icon', href: '/apple-touch-icon.png', size: '180x180' }],
             ['link', { rel: 'icon', href: '/favicon-32x32.png', size: '32x32' }],
