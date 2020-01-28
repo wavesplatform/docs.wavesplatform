@@ -67,7 +67,7 @@ Could anybody help me?
 
 ## Account Balance
 
-Each account can store different assets (tokens) in different amounts. For WAVES, there are four types of balance: regular, effective, available, and generating. See the [Account Balance](/en/blockchain/account/account-balance) for more information.
+Each account can store different assets (also called tokens) in different amounts. For WAVES, there are four types of balance: regular, effective, available, and generating. See the [Account Balance](/en/blockchain/account/account-balance) for more information.
 
 ### Using Waves Explorer
 
@@ -213,3 +213,29 @@ curl 'https://nodes-testnet.wavesnodes.com/blocks/headers/last'
 You can adjust the proposed request to your app written in any programming language.
 
 > To get the entire block, both headers and transactions, use `GET /blocks/last` method.
+
+### Using JavaScript
+
+You can use functions of `waves-transactions` library:
+
+* `accountData` function retrieves all the data records from an account data storage, optionally filtered by certain regexp.
+* `accountDataByKey` retrieves a data record by key.
+
+See [nodeinteraction module description](https://wavesplatform.github.io/waves-transactions/modules/nodeinteraction.html) on Github.
+
+**Example:**
+
+```js
+import { nodeInteraction } from "@waves/waves-transactions";
+
+const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
+
+let address = '3Mz9N7YPfZPWGd4yYaX6H53Gcgrq6ifYiH7';
+let price = await nodeInteraction.accountDataByKey('price',address,nodeUrl);
+```
+
+### Using Python
+
+```
+Could anybody help me?
+```
