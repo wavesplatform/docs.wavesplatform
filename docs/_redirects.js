@@ -610,6 +610,10 @@ module.exports = [
     to: '/en/ride',
   },
   {
+    from: '/en/ride/operators.html',
+    to: '/en/operators/operators',
+  },
+  {
     from: '/ru/ride/about-ride.html',
     to: '/ru/ride',
   },
