@@ -37,7 +37,7 @@ In this example we are using version 2 of Ride standard library, `STDLIB_VERSION
 * ExchangeTransaction
 * MassTransferTransaction
 
-Transactions of other types (i.e. transactions that does not transfer funds) are being sent to blockchain. But Ride is developing rapidly, and a new transaction types are emerging. Features of invoke script transaction which is not supported by Ride v2 include transferring funds from account. This means that the InvokeScriptTransaction won't be caught by first `case`. It will pass to the default branch `case _ =>` and sent to blockchain. As a result, the funds transfer from account will take place.
+Transactions of other types (i.e. transactions that does not transfer funds) are being sent to blockchain. But Ride is developing rapidly, and a new transaction types are emerging. Features of invoke script transaction which is not supported by Ride v2 include attaching payments to transfer tokens to the account of the called [dApp](/en/blockchain/account/dapp). This means that the InvokeScriptTransaction won't be caught by first `case`. It will pass to the default branch `case _ =>` and sent to blockchain. As a result, the funds transfer from account may take place.
 
 ## Solution
 
