@@ -44,6 +44,7 @@ module.exports = (ctx) => {
         themeConfig: {
             logo: '/waves-docs-logo.svg',
             repo: 'https://github.com/wavesplatform/docs.wavesplatform',
+            isShowEditLink: false,
             // activeColouration: 'default',
             colouration: colorationConfig,
             locales: {
