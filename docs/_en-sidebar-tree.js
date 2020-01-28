@@ -885,10 +885,15 @@ module.exports = {
       title: 'FOLD<N> Macro',
       path: ridePath + 'fold-macro',
     },
-
     {
       title: 'Operators',
       path: ridePath + 'operators',
+      children: [
+        {
+          title: 'match-case',
+          path: ridePath + 'operators/match-case',
+        },
+      ]
     },
     {
       title: 'Script',
