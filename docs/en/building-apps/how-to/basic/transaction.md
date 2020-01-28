@@ -1,1 +1,1 @@
-# How to Creating a Transaction and Broadcast It to the Blockchain
+# How to Create a Transaction and Broadcast It to the Blockchain

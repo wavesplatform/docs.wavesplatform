@@ -53,9 +53,9 @@ See [nodeinteraction module description](https://wavesplatform.github.io/waves-t
 ```js
 import { nodeInteraction } from "@waves/waves-transactions";
 
-let nodeUrl = 'https://nodes-testnet.wavesnodes.com';
-let address = '3Mz9N7YPfZPWGd4yYaX6H53Gcgrq6ifYiH7';
+const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
 
+let address = '3Mz9N7YPfZPWGd4yYaX6H53Gcgrq6ifYiH7';
 let price = await nodeInteraction.accountDataByKey('price',address,nodeUrl);
 ```
 
@@ -98,7 +98,7 @@ You can adjust the proposed request to your app written in any programming langu
 
 ### Using JavaScript
 
-#### Without user authentication
+#### Without User Authentication
 
 You can use functions of `waves-transactions` library:
 
@@ -112,14 +112,15 @@ See [nodeinteraction module description](https://wavesplatform.github.io/waves-t
 ```js
 import { nodeInteraction } from "@waves/waves-transactions";
 
-let nodeUrl = 'https://nodes-testnet.wavesnodes.com';
+const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
+
 let address = '3Mz9N7YPfZPWGd4yYaX6H53Gcgrq6ifYiH7';
 
 let wavesBalance = await nodeInteraction.balanceDetails('price',address,nodeUrl);
 let assetsBalance = await nodeInteraction.assetBalance('price',address,nodeUrl);
 ```
 
-#### With user authentication
+#### With User Authentication
 
 If user is authentication in your app, you can use functions of `Signer` library:
 
@@ -149,29 +150,28 @@ See method descriptions in [Swagger web interface](https://nodes-testnet.wavesno
 **Request example:**
 
 ```
-curl 'address/3PPcVp7fzNgdncv9HSN7V22mjRESGUNmXGE/limit/20?after=5VsNkFuEsxwaZRHezQkTsfkf7cJxjRGBiahn3H1raKsT'
+curl 'https://nodes-testnet.wavesnodes.com/address/3PPcVp7fzNgdncv9HSN7V22mjRESGUNmXGE/limit/20?after=5VsNkFuEsxwaZRHezQkTsfkf7cJxjRGBiahn3H1raKsT'
 ```
 
 You can adjust the proposed request to your app written in any programming language.
 
 ### Using JavaScript
 
-You can use functions of `waves-transactions` library:
-
-* `accountData` function retrieves all the data records from an account data storage, optionally filtered by certain regexp.
-* `accountDataByKey` retrieves a data record by key.
-
-See [nodeinteraction module description](https://wavesplatform.github.io/waves-transactions/modules/nodeinteraction.html) on Github.
+You can use the `fetchTransactions` function of `node-api-js` library.
 
 **Example:**
 
 ```js
-import { nodeInteraction } from "@waves/waves-transactions";
+import { create } from "@waves/node-api-js";
 
-let nodeUrl = 'https://nodes-testnet.wavesnodes.com';
+const  nodeUrl = 'https://nodes-testnet.wavesnodes.com';
+const api = create(nodeUrl);
+
 let address = '3Mz9N7YPfZPWGd4yYaX6H53Gcgrq6ifYiH7';
 
-let price = await nodeInteraction.accountDataByKey('price',address,nodeUrl);
+let txList = await api.transactions.fetchTransactions(address,10);
+
+тут хорошо бы описать, как получить весь список (не только первую страницу)
 ```
 
 ### Using Python
@@ -180,6 +180,36 @@ let price = await nodeInteraction.accountDataByKey('price',address,nodeUrl);
 Could anybody help me?
 ```
 
-## List of Transactions by Address
+## List of Transactions by Asset
 
-## Data from Account Data Storage
+(It seems to be quite difficult, need to discuss)
+
+## Blockchain Height and Current Time
+
+The block height is a sequence number of a block in the blockchain. The blockchain height is a sequence number of the last block.
+
+You can use timestamp of the last block as a current time of the blockchain.
+
+### Using Waves Explorer
+
+1. Open <https://wavesexplorer.com/>.
+2. Press ![](./_assets/settings.png) button and switch to Mainnet ot Testnet.
+3. Current height is displayed above the block list. Click block number to see timestamp.
+
+### Using Node REST API
+
+To retrieve the blockchain height only, use `GET /blocks/height` method.
+
+To retrieve all the headers of the last block, including height and timestamp, use `GET /blocks/headers/last` method.
+
+See method descriptions in [Swagger web interface](https://nodes-testnet.wavesnodes.com/).
+
+**Request example:**
+
+```
+curl 'https://nodes-testnet.wavesnodes.com/blocks/headers/last'
+```
+
+You can adjust the proposed request to your app written in any programming language.
+
+> To get the entire block, both headers and transactions, use `GET /blocks/last` method.
