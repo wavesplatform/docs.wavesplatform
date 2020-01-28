@@ -23,7 +23,6 @@ An **account script** is a [Ride](#ride) [script](#script) that has the followin
 ```
 
 The account script is attached to the [account](#account) using the [set script transaction](/en/blockchain/transaction-type/set-script-transaction). Only one script can be attached to an [account](#account). An account with an account script attached is called a [smart account](#smart-account).
-
 ### Address
 
 An **address** is a unique [account](#account) identifier. The address can be represented as an alphanumeric string.
