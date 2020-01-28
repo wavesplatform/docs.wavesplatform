@@ -389,19 +389,23 @@ module.exports = [
   },
   {
     /*===============================  Smart contracts  =====================================*/
-    to:'/en/smart-contracts/what-is-a-dapp',
+    to:'/en/building-apps/smart-contracts/what-is-a-dapp',
     from: '/en/smart-contracts/ride4dapps/overview.html',
   },
   {
-    to: '/en/smart-contracts/writing-dapps',
+    to: '/en/building-apps/smart-contracts/writing-dapps',
     from: '/en/blockchain/writing-dapps.html',
   },
   {
-    to: '/en/smart-contracts/waves-smart-contracts-overview',
+    to: '/en/building-apps/smart-contracts/waves-smart-contracts-overview',
     from: '/en/blockchain/waves-protocol/smart-contracts.html',
-  },
+  }, 
   {
-    to: '/en/smart-contracts/smart-assets',
+    to: '/en/building-apps/smart-contracts/what-is-smart-account',
+    from: '/en/building-apps/smart-contracts/smart-accounts',
+  }, 
+  {
+    to: '/en/building-apps/smart-contracts/smart-assets',
     from: '/en/technical-details/smart-assets.html',
   },
   {
