@@ -887,7 +887,7 @@ module.exports = {
     },
     {
       title: 'Operators',
-      path: ridePath + 'operators',
+      path: ridePath + 'operators/operators',
       children: [
         {
           title: 'match-case',
