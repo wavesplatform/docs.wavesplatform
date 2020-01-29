@@ -25,3 +25,42 @@ The time is specified in _milliseconds_ that have passed since the beginning of 
 ## Order binary format
 
 See the [Order binary format](/en/blockchain/binary-format/order-binary-format) page.
+
+## Amount and price in order
+
+In order, the amount and price are represented in normalized (i.e. integer) format.
+
+To convert the amount to normalized format, it is being multiplied by 10<sup>amountAssetDecimals</sup>.
+
+To convert the price to normalized format, it is being multiplied by
+
+* in version 1, 2, 3 orders: by 10<sup>(8 + priceAssetDecimals - amountAssetDecimals)</sup>,
+* in version 4 orders: by 10<sup>8</sup>.
+
+In version 4 orders, the price asset quantity in normalized format is being calculated by following formula:
+
+spendAmount = amount × price × 10<sup>(priceAssetDecimals - amountAssetDecimals - 8)</sup>,
+
+where
+
+* spendAmount — the quantity of price asset in the normalized format,
+* amount — the amount in a normalized format,
+* price — price in a normalized format,
+* priceAssetDecimals — price asset quantity of decimals,
+* amountAssetDecimals — price asset quantity of decimals.
+
+### Calculation example for order v4
+
+Let's review the purchase of 2,13 Tidex for 0,35 WAVES per Tidex.
+
+The amount asset is Tidex, the value of amountAssetDecimals equals 2.
+
+Price asset is Waves, the value of priceAssetDecimals equals 8.
+
+Amount value in normalized format is equals to 2,13 × 10<sup>amountAssetDecimals</sup> = 213.
+
+Price value in normalized format is equals to 0,35016774 × 10<sup>amountAssetDecimals</sup> = 35016774.
+
+Quantity of price-asset in normalized format will be calculated by the following formula:  213 × 35016774 × 10<sup>(8 - 2 - 8)</sup> = 74585728.
+
+As a result, 0,74585728 Waves will be gained for 2,13 Tidex.
