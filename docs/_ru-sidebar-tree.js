@@ -883,7 +883,7 @@ module.exports = {
     },
     {
       title: 'Операторы',
-      path: ridePath + 'operators/operators',
+      path: ridePath + 'operators',
       children: [
         {
           title: 'match-case',
