@@ -21,3 +21,46 @@
 **Временна́я метка заявки** — время, когда [матчер](https://docs.waves.exchange/en/waves-matcher/) добавил [заявку](/ru/blockchain/order) в [биржевой стакан](https://ru.wikipedia.org/wiki/Биржевой_стакан).
 
 Время указывается в _миллисекундах_, которые прошли с начала [эпохи Unix](https://ru.wikipedia.org/wiki/Unix-время).
+
+## Бинарный формат ордера
+
+Смотрите страницу [Бинарный формат ордера](/ru/blockchain/binary-format/order-binary-format).
+
+## Amount и price в ордере
+
+В ордере amount и price представлены в нормализованном (т.е. целочисленном) виде.  
+
+Чтобы привести amount к нормализованному виду, он умножается на 10<sup>amountAssetDecimals</sup>.
+
+Чтобы привести price к нормализованному виду, он умножается
+
+* в ордерах версий 1, 2, 3: на 10<sup>(8 + priceAssetDecimals - amountAssetDecimals)</sup>,
+* в ордерах версии 4: на 10<sup>8</sup>.
+
+В ордерах версии 4 количество price-ассета в нормализованном виде вычисляется по формуле
+
+spendAmount = amount × price × 10<sup>(priceAssetDecimals - amountAssetDecimals - 8)</sup>,
+
+где
+
+* spendAmount — количество price-ассета в нормализованном виде,
+* amount — amount в нормализованном виде,
+* price — price в нормализованном виде,
+* priceAssetDecimals — количество знаков после запятой у price-ассета,
+* amountAssetDecimals — количество знаков после запятой у amount-ассета.
+
+### Пример расчета для ордера v4
+
+Рассмотрим покупку 2,13 Tidex по цене 0,35 WAVES за один Tidex.
+
+Amount-ассетом является Tidex, значение amountAssetDecimals равно 2.
+
+Price-ассетом является Waves, значение priceAssetDecimals равно 8.
+
+Значение amount в нормализованном виде равно 2,13 × 10<sup>amountAssetDecimals</sup> = 213.
+
+Значение price в нормализованном виде равно 0,35016774 × 10<sup>amountAssetDecimals</sup> = 35016774.
+
+Количество price-ассета в нормализованном виде будет рассчитано следующим образом:  213 × 35016774 × 10<sup>(8 - 2 - 8)</sup> = 74585728.
+
+В результате за 2,13 Tidex будет выручено 0,74585728 Waves.

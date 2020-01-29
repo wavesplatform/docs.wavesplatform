@@ -112,4 +112,3 @@ coverage
 exports
 .cache
 build
-yarn.lock

@@ -10,7 +10,6 @@
         "production": "yarn upgrade core.docs.wavesplatform && yarn build && yarn server"
     },
     "dependencies": {
-        "@vuepress/plugin-google-analytics": "^1.2.0",
         "core.docs.wavesplatform": "https://github.com/wavesplatform/core.docs.wavesplatform.git"
     },
     "devDependencies": {
