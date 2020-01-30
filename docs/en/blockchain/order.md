@@ -28,39 +28,57 @@ See the [Order binary format](/en/blockchain/binary-format/order-binary-format) 
 
 ## Amount and price in order
 
-In order, the amount and price are represented in normalized (i.e. integer) format.
+In user interface, the amount and price are displayed as the  values with a decimal part, but in order itself they are represented in normalized (i.e. integer) format.
 
-To convert the amount to normalized format, it is being multiplied by 10<sup>amountAssetDecimals</sup>.
+To make the amount normalized, it is multiplied by 10<sup>amountAssetDecimals</sup>.
 
-To convert the price to normalized format, it is being multiplied by
+To make the price normalized, it is multiplied
 
 * in version 1, 2, 3 orders: by 10<sup>(8 + priceAssetDecimals - amountAssetDecimals)</sup>,
 * in version 4 orders: by 10<sup>8</sup>.
 
-In version 4 orders, the price asset quantity in normalized format is being calculated by following formula:
+Quantity of the price asset in normalized format is calculated by the following formula:
 
-spendAmount = amount × price × 10<sup>(priceAssetDecimals - amountAssetDecimals - 8)</sup>,
+* in version 1, 2, 3 orders: amount × price × 10<sup>-8</sup>,
+* in version 4 orders: amount × price × 10<sup>(priceAssetDecimals - amountAssetDecimals - 8)</sup>.
 
-where
+In both cases the decimal part is omitted.
 
-* spendAmount — the quantity of price asset in the normalized format,
-* amount — the amount in a normalized format,
-* price — price in a normalized format,
-* priceAssetDecimals — price asset quantity of decimals,
-* amountAssetDecimals — price asset quantity of decimals.
+In the above formula
 
-### Calculation example for order v4
+* amount — normalized amount,
+* price — normalized price,
+* priceAssetDecimals — price asset decimals,
+* amountAssetDecimals — amount asset decimals.
 
-Let's review the purchase of 2,13 Tidex for 0,35 WAVES per Tidex.
+## Calculation example for v1/v2/v3 order
 
-The amount asset is Tidex, the value of amountAssetDecimals equals 2.
+Let's review the purchase of 2,13 Tidex for 0,35016774 Waves per one Tidex.
 
-Price asset is Waves, the value of priceAssetDecimals equals 8.
+The amount asset is Tidex, amountAssetDecimals value equals 2.
 
-Amount value in normalized format is equals to 2,13 × 10<sup>amountAssetDecimals</sup> = 213.
+The price asset is Waves, priceAssetDecimals value equals 8.
 
-Price value in normalized format is equals to 0,35016774 × 10<sup>amountAssetDecimals</sup> = 35016774.
+Normalized amount value equals 2,13 × 10<sup>amountAssetDecimals</sup> = 213.
 
-Quantity of price-asset in normalized format will be calculated by the following formula:  213 × 35016774 × 10<sup>(8 - 2 - 8)</sup> = 74585728.
+Normalized price value equals 0,35016774 × 10<sup>(8 + 8 - 2)</sup> = 35016774 × 10<sup>6</sup>.
+
+Quantity of normalized price asset equals to 213 × 35016774 × 10<sup>6</sup> × 10<sup>-8</sup> = 74585728,62. The decimal part will be omitted.
+
+As a result, 0,74585728 Waves will be gained for 2,13 Tidex.
+
+## Calculation example for v4 order
+
+Let's review the purchase of 2,13 Tidex for 0,35016774 Waves per one Tidex.
+
+The amount asset is Tidex, amountAssetDecimals value equals 2.
+
+The price asset is Waves, priceAssetDecimals value equals 8.
+
+Normalized amount value equals 2,13 × 10<sup>amountAssetDecimals</sup> = 213.
+
+Normalized price value equals 0,35016774 × 10<sup>8</sup> = 35016774.
+
+Quantity of normalized price asset equals to 213 × 35016774 × 10<sup>(8 - 2 - 8)</sup> = 74585728,62. The decimal part will be omitted.
 
 As a result, 0,74585728 Waves will be gained for 2,13 Tidex.
