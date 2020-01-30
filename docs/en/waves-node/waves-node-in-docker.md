@@ -10,7 +10,7 @@ Please, follow installation instructions at [Docker Site](https://docs.docker.co
 
 ## About the image
 
-* This Docker image contains scripts and configs to run Waves Node from **Version 0.13.0 **for TESTNET, MAINNET or CUSTOM networks.
+* This Docker image contains scripts and configs to run Waves Node from **Version 0.13.0 **for TESTNET, MAINNET or STAGENET networks.
 * The image is focused on fast and convenient deployment of Waves Node.
 * Container downloads `.jar` file and configuration files from the [releases section](https://github.com/wavesplatform/Waves/releases) and runs it.
 
@@ -41,7 +41,7 @@ docker run -p 6869:6869 -p 6863:6863 -e WAVES_NETWORK=TESTNET -e WAVES_LOG_LEVEL
 |`WAVES_WALLET_SEED_BASE58`        |Base58 encoded seed.   |
 |`WAVES_WALLET_PASSWORD`           |Password for wallet file.    |
 |`WAVES_VERSION`                   |Node version. Default value is `latest`. You can find the list of available versions [here](https://github.com/wavesplatform/Waves/releases).|
-|`WAVES_NETWORK`                   |Available values are `MAINNET` and `TESTNET`.   |
+|`WAVES_NETWORK`                   |Available values are `MAINNET`, `TESTNET` and `STAGENET`.   |
 |`WAVES_LOG_LEVEL`                 |Node logging level, available values: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`. More details about logging are available [here](/en/waves-node/logging-configuration). |
 |`WAVES_HEAP_SIZE`                 |Java Heap Size limit in -X Command-line Options notation (`-Xms=[your value]`). More details [here](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html) |
 |`WAVES_CONFIG_FILE`               |Path to your Waves Configuration file.   |
