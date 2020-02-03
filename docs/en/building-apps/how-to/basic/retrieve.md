@@ -6,6 +6,10 @@ sidebarDepth: 2
 
 For example, you can retrive data from account data storage, account balance, a list of transactions by certain asset, or current blockchain height and time.
 
+You can send a request to your own node or to one of the Waves nodes with public API:
+* Testnet: <https://nodes-testnet.wavesnodes.com>
+* Mainnet: <https://nodes.wavesnodes.com>
+
 ## Data from Account Data Storage
 
 Each account on the Waves blockchain has an account data storage that stores data records in key-value format. See the [Account Data Storage](/en/blockchain/account/account-data-storage) section for more information.
@@ -20,10 +24,6 @@ Each account on the Waves blockchain has an account data storage that stores dat
 ![](./_assets/data-storage-explorer.png)
 
 ### Using Node REST API
-
-You can send a request to your own node or to one of the Waves nodes with public API:
-* Testnet: <https://nodes-testnet.wavesnodes.com>
-* Mainnet: <https://nodes.wavesnodes.com>
 
 To retrieve all the data records from an account data storage, use `GET /addresses/data/{address}` method.
 
@@ -216,22 +216,20 @@ You can adjust the proposed request to your app written in any programming langu
 
 ### Using JavaScript
 
-You can use functions of `waves-transactions` library:
-
-* `accountData` function retrieves all the data records from an account data storage, optionally filtered by certain regexp.
-* `accountDataByKey` retrieves a data record by key.
-
-See [nodeinteraction module description](https://wavesplatform.github.io/waves-transactions/modules/nodeinteraction.html) on Github.
+You can use the `fetchHeadersLast` function of `node-api-js` library.
 
 **Example:**
 
 ```js
-import { nodeInteraction } from "@waves/waves-transactions";
+import { create } from "@waves/node-api-js";
 
-const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
+const  nodeUrl = 'https://nodes-testnet.wavesnodes.com';
+const api = create(nodeUrl);
 
-let address = '3Mz9N7YPfZPWGd4yYaX6H53Gcgrq6ifYiH7';
-let price = await nodeInteraction.accountDataByKey('price',address,nodeUrl);
+let top = await api.transactions.fetchHeadersLast();
+
+console.log('Currrent height: ' + top.height);
+console.log('Current time: '+ top.timestamp);
 ```
 
 ### Using Python
