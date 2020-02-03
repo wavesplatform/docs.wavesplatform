@@ -1,6 +1,11 @@
 # How to Create Transaction and Broadcast It to Blockchain
 
-All actions on the blockchain are represented as transations. Waves provides a large number of transaction types. See the [Transaction Type](/en/blockchain/transaction-type) section for more information. Depending on the type, transactions may contain different fields.
+All actions on the blockchain are represented as transations. For example:
+
+* data transaction writes data to an account data storage;
+* transfer transaction transfers a certain amount of the token from one account to another.
+
+Waves provides a large number of transaction types. See the [Transaction Type](/en/blockchain/transaction-type) section for more information. Depending on the type, transactions may contain different fields.
 
 **Proof**
 
