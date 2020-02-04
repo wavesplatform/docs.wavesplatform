@@ -4,7 +4,7 @@ sidebarDepth: 2
 
 # How to Read Blockchain Data
 
-For example, you can retrive data from account data storage, account balance, a list of transactions by certain asset, or current blockchain height and time.
+All the data in the Waves blockchain is public and can be read by anyone. For example, you can retrive data from account data storage, account balance, a list of transactions by certain account, or current blockchain height and time.
 
 You can send a request to your own node or to one of the Waves nodes with public API:
 * Testnet: <https://nodes-testnet.wavesnodes.com>
@@ -17,7 +17,7 @@ Each account on the Waves blockchain has an account data storage that stores dat
 ### Using Waves Explorer
 
 1. Open <https://wavesexplorer.com/>.
-2. Press ![](./_assets/settings.png) button and switch to Mainnet ot Testnet.
+2. Press ![](./_assets/settings.png) button and switch to ![](./_assets/mainnet.png) or ![](./_assets/testnet.png).
 3. Search for an account by its address or alias.
 4. Switch to **Data** tab.
 
@@ -34,19 +34,19 @@ See method descriptions in [Swagger web interface](https://nodes-testnet.wavesno
 **Request example:**
 
 ```
-curl 'https://nodes-testnet.wavesnodes.com/addresses/data/3Mz9N7YPfZPWGd4yYaX6H53Gcgrq6ifYiH7'
+curl 'https://nodes-testnet.wavesnodes.com/addresses/data/3N4iKL6ikwxiL7yNvWQmw7rg3wGna8uL6LU'
 ```
 
 The examples shown here and below are suitable for the `cURL` utility. You can adjust the proposed request to your app written in any programming language.
 
 ### Using JavaScript
 
-You can use functions of `waves-transactions` library:
+Use functions of `waves-transactions` library:
 
 * `accountData` function retrieves all the data records from an account data storage, optionally filtered by certain regexp.
 * `accountDataByKey` retrieves a data record by key.
 
-See [nodeinteraction module description](https://wavesplatform.github.io/waves-transactions/modules/nodeinteraction.html) on Github.
+See [library documentation](https://wavesplatform.github.io/waves-transactions/modules/nodeinteraction.html) on Github.
 
 **Example:**
 
@@ -54,9 +54,11 @@ See [nodeinteraction module description](https://wavesplatform.github.io/waves-t
 import { nodeInteraction } from "@waves/waves-transactions";
 
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
+const address = '3N4iKL6ikwxiL7yNvWQmw7rg3wGna8uL6LU';
 
-let address = '3Mz9N7YPfZPWGd4yYaX6H53Gcgrq6ifYiH7';
-let price = await nodeInteraction.accountDataByKey('price',address,nodeUrl);
+let stringVal = await nodeInteraction.accountDataByKey('stringVal',address,nodeUrl);
+
+console.log('stringVal: ' + stringVal.value);
 ```
 
 ### Using Python
@@ -72,9 +74,11 @@ Each account can store different assets (also called tokens) in different amount
 ### Using Waves Explorer
 
 1. Open <https://wavesexplorer.com/>.
-2. Press ![](./_assets/settings.png) button and switch to Mainnet ot Testnet.
+2. Press ![](./_assets/settings.png) button and switch to ![](./_assets/mainnet.png) or ![](./_assets/testnet.png).
 3. Search for an account by its address or alias.
 4. Balances in WAVES are displayed below the address. Switch to **Assets** tab to see balances in other tokens.
+
+![](./_assets/data-storage-explorer.png)
 
 > NFTs are displayed on the **Non-fungible tokens** tab.
 
@@ -85,6 +89,10 @@ To retrieve all types of balalnces of WAVES, use `GET /addresses/balance/details
 To retrieve balances of other assets, use `GET /assets/balance/{address}` or `GET /assets/balance/{address}/{assetId}` method.
 
 See method descriptions in [Swagger web interface](https://nodes-testnet.wavesnodes.com/).
+
+> :bulb: The easiest way to find out the asset ID by its name and vice versa is to open [Waves.Exchange](https://waves.exchange/) app developed by Waves.Exchange team, go to the **Trading** page and type a name or asset ID in the search bar.
+
+![](./_assets/asset-id.png)
 
 **Request example:**
 
@@ -105,7 +113,7 @@ You can use functions of `waves-transactions` library:
 * `balanceDetails` function retrieves all types of balalnces of WAVES.
 * `assetBalance` function retrieve balances of other assets.
 
-See [nodeinteraction module description](https://wavesplatform.github.io/waves-transactions/modules/nodeinteraction.html) on Github.
+See [library documentation](https://wavesplatform.github.io/waves-transactions/modules/nodeinteraction.html) on Github.
 
 **Example:**
 
@@ -113,16 +121,44 @@ See [nodeinteraction module description](https://wavesplatform.github.io/waves-t
 import { nodeInteraction } from "@waves/waves-transactions";
 
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
+const address = '3Mvpp7v6G11tKNgsoNhbgnZS9thdZ6TvAXK';
+const assetId = 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p';
 
-let address = '3Mz9N7YPfZPWGd4yYaX6H53Gcgrq6ifYiH7';
+let wavesBalance = await nodeInteraction.balanceDetails(address,nodeUrl);
+let assetBalance = await nodeInteraction.assetBalance(assetId,address,nodeUrl);
 
-let wavesBalance = await nodeInteraction.balanceDetails('price',address,nodeUrl);
-let assetsBalance = await nodeInteraction.assetBalance('price',address,nodeUrl);
+console.log('WAVES available balance: ' + wavesBalance.available);
+console.log('WAVES effictive balance: ' + wavesBalance.effective);
+console.log('Neutrino balance: ' + assetBalance.balance);
 ```
 
 #### With User Authentication
 
-If user is authentication in your app, you can use functions of `Signer` library:
+If user is authenticated in your app, you can use functions of `Signer` library:
+
+* `getBalance` provides balances of all assets in user's portfolio. For WAVES, available balance is returned.
+* `getSponsoredBalances` prodives balances of sponsored assets in user's portfolio. См. [Sponsored Fee Transactions](https://docs.wavesplatform.com/en/blockchain/waves-protocol/sponsored-fee).
+
+See [Signer documentation](/en/building-apps/waves-api-and-sdk/client-libraries/signer).
+
+**Example:**
+
+```js
+import Signer from '@waves/signer';
+import Provider from '@waves.exchange/provider-web';
+
+// Library initialization
+
+const signer = new Signer({
+  NODE_URL: 'https://nodes-testnet.wavesnodes.com'
+});
+signer.setProvider(new Provider());
+
+const user = await signer.login();
+let balances = await signer.getBalance();
+
+console.log('User balances: ' + JSON.stringify(balances));
+```
 
 ### Using Python
 
@@ -132,12 +168,12 @@ I need help!
 
 ## List of Transactions by Address
 
-You can get a list of transactions related to the specified account: outgoing transactions that are sent from the account; incoming transfers; exchanges that the account participated in; dApp script invokations etc.
+You can get a list of transactions related to the specified account: outgoing transactions that are sent from the account; incoming transfers; exchanges that the account participated in; dApp script invocations etc.
 
 ### Using Waves Explorer
 
 1. Open <https://wavesexplorer.com/>.
-2. Press ![](./_assets/settings.png) button and switch to Mainnet ot Testnet.
+2. Press ![](./_assets/settings.png) button and switch to ![](./_assets/mainnet.png) or ![](./_assets/testnet.png).
 3. Search for an account by its address or alias.
 4. Switch to **Transactions** tab.
 
@@ -145,12 +181,12 @@ You can get a list of transactions related to the specified account: outgoing tr
 
 To retrieve all the transactions related to an account, use `GET /transactions/address/{address}/limit/{limit}` method. In this method, you can use pagination: to get the next page, specify the `after` parameter as ID of the last transaction in previous response.
 
-See method descriptions in [Swagger web interface](https://nodes-testnet.wavesnodes.com/).
+See method description in [Swagger web interface](https://nodes-testnet.wavesnodes.com/).
 
 **Request example:**
 
 ```
-curl 'https://nodes-testnet.wavesnodes.com/address/3PPcVp7fzNgdncv9HSN7V22mjRESGUNmXGE/limit/20?after=5VsNkFuEsxwaZRHezQkTsfkf7cJxjRGBiahn3H1raKsT'
+curl 'https://nodes-testnet.wavesnodes.com/address/3N4iKL6ikwxiL7yNvWQmw7rg3wGna8uL6LU/limit/20?after=5VsNkFuEsxwaZRHezQkTsfkf7cJxjRGBiahn3H1raKsT'
 ```
 
 You can adjust the proposed request to your app written in any programming language.
@@ -179,10 +215,6 @@ let txList = await api.transactions.fetchTransactions(address,10);
 ```
 Could anybody help me?
 ```
-
-## List of Transactions by Asset
-
-(It seems to be quite difficult, need to discuss)
 
 ## Blockchain Height and Current Time
 

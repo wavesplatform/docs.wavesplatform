@@ -1,6 +1,6 @@
 # How-to Guides
 
-How-to guides provide step-by-step instructions including sample code that you can follow to complete a specific task.
+How-to guides provide instructions including sample code that you can follow to complete a specific task.
 
 [**Retrieving information from the blockchain**](/en/building-apps/how-to/basic/retrieve)
 
