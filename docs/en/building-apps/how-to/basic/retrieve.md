@@ -202,7 +202,7 @@ See method description in [Swagger web interface](https://nodes-testnet.wavesnod
 **Request example:**
 
 ```
-curl 'https://nodes-testnet.wavesnodes.com/address/3N4iKL6ikwxiL7yNvWQmw7rg3wGna8uL6LU/limit/20?after=5VsNkFuEsxwaZRHezQkTsfkf7cJxjRGBiahn3H1raKsT'
+curl 'https://nodes-testnet.wavesnodes.com/transactions/address/3N1HYdheNiiTtHgi2n3jLAek6N3H4guaciG/limit/20?after=Ay5J4ZiFDVhRrLq4fdViiHHm5aiyrK3CYAN2nK6AkMA9'
 ```
 
 You can adjust the proposed request to your app written in any programming language.
@@ -216,14 +216,14 @@ You can use the `fetchTransactions` function of `node-api-js` library.
 ```js
 import { create } from "@waves/node-api-js";
 
-const  nodeUrl = 'https://nodes-testnet.wavesnodes.com';
+const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
 const api = create(nodeUrl);
 
-let address = '3Mz9N7YPfZPWGd4yYaX6H53Gcgrq6ifYiH7';
+let address = '3N1HYdheNiiTtHgi2n3jLAek6N3H4guaciG';
 
 let txList = await api.transactions.fetchTransactions(address,10);
 
-тут хорошо бы описать, как получить весь список (не только первую страницу)
+console.log('Transactions:' + txList.map(tx => '\nid: ' + tx.id + ' | type: ' + tx.type + ' | senderPublicKey: ' + tx.senderPublicKey));
 ```
 
 ### Using Python
@@ -249,8 +249,8 @@ You can use timestamp of the last block as a current time of the blockchain.
 ### Using Waves Explorer
 
 1. Open <https://wavesexplorer.com/>.
-2. Press ![](./_assets/settings.png) button and switch to Mainnet ot Testnet.
-3. Current height is displayed above the block list. Click block number to see timestamp.
+2. Press ![](./_assets/settings.png) button and switch to ![](./_assets/mainnet.png) or ![](./_assets/testnet.png).
+3. Current height is displayed above the block list. If don't see block timestamps, click last block number.
 
 ### Using Node REST API
 
@@ -282,10 +282,10 @@ import { create } from "@waves/node-api-js";
 const  nodeUrl = 'https://nodes-testnet.wavesnodes.com';
 const api = create(nodeUrl);
 
-let top = await api.transactions.fetchHeadersLast();
+let topBlock = await api.blocks.fetchHeadersLast();
 
-console.log('Currrent height: ' + top.height);
-console.log('Current time: '+ top.timestamp);
+console.log('Currrent height: ' + topBlock.height);
+console.log('Current time: '+ Date(topBlock.timestamp));
 ```
 
 ### Using Python
