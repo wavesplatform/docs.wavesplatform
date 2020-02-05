@@ -63,8 +63,14 @@ console.log('stringVal: ' + stringVal.value);
 
 ### Using Python
 
-```
-Could anybody help me?
+```python
+import requests
+
+node_url = 'https://nodes-testnet.wavesnodes.com'
+address = '3N4iKL6ikwxiL7yNvWQmw7rg3wGna8uL6LU'
+
+account_data_storage_data = requests.get(f'{node_url}/addresses/data/{address}').json()
+print(account_data_storage_data)
 ```
 
 ## Account Balance
@@ -162,8 +168,18 @@ console.log('User balances: ' + JSON.stringify(balances));
 
 ### Using Python
 
-```
-I need help!
+```python
+import requests
+
+node_url = 'https://nodes-testnet.wavesnodes.com'
+address = '3N4iKL6ikwxiL7yNvWQmw7rg3wGna8uL6LU'
+asset_id = 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
+
+waves_balances = requests.get(f'{node_url}/addresses/balance/details/{address}').json()
+print(waves_balances)
+
+asset_balance = requests.get(f'{node_url}/assets/balance/{address}/{asset_id}').json()
+print(asset_balance)
 ```
 
 ## List of Transactions by Address
@@ -212,8 +228,16 @@ let txList = await api.transactions.fetchTransactions(address,10);
 
 ### Using Python
 
-```
-Could anybody help me?
+```python
+import requests
+
+node_url = 'https://nodes-testnet.wavesnodes.com'
+address = '3N4iKL6ikwxiL7yNvWQmw7rg3wGna8uL6LU'
+limit = 10
+after = '5VsNkFuEsxwaZRHezQkTsfkf7cJxjRGBiahn3H1raKsT'
+
+transactions = requests.get(f'{node_url}/transactions/address/{address}/limit/{limit}?after={after}').json()
+print(transactions)
 ```
 
 ## Blockchain Height and Current Time
@@ -266,6 +290,14 @@ console.log('Current time: '+ top.timestamp);
 
 ### Using Python
 
-```
-Could anybody help me?
+```python
+import requests
+
+node_url = 'https://nodes-testnet.wavesnodes.com'
+
+blockchain_height = requests.get(f'{node_url}/blocks/height').json()
+print(blockchain_height)
+
+last_block_headers = requests.get(f'{node_url}/blocks/headers/last').json()
+print(last_block_headers)
 ```
