@@ -14,16 +14,11 @@ module.exports = {
         message: 'The content of this page is currently unavailable.<br>Sorry for the inconvenience!',
     },
 
-    nav: [
-        // {
-        //     text: 'Home',
-        //     link: '/en/'
-        // },
-        // {
-        //     text: 'Blockchain',
-        //     link: '/en/blockchain/'
-        // },
-    ],
+    notFoundPage: {
+        title: 'Something’s missing',
+        description: 'The page you are looking for is not found',
+    },
+
     homePage: {
         technologyList: {
             learnAboutWavesPlatform: {
