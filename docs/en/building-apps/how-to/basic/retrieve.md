@@ -90,7 +90,7 @@ Each account can store different assets (also called tokens) in different amount
 
 ### Using Node REST API
 
-To retrieve all types of balalnces of WAVES, use `GET /addresses/balance/details/{address}` method.
+To retrieve [all types of balances](/en/blockchain/account/account-balance) of WAVES, use `GET /addresses/balance/details/{address}` method.
 
 To retrieve balances of other assets, use `GET /assets/balance/{address}` or `GET /assets/balance/{address}/{assetId}` method.
 
