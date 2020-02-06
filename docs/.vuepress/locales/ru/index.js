@@ -145,6 +145,10 @@ module.exports = deepmerge(mixin, {
                     chat: {
                         text: 'Чат разработчиков',
                         link: 'https://t.me/waves_ride_dapps_dev'
+                    },
+                    release_notes: {
+                        text: 'Release notes',
+                        link: '/ru/keep-in-touch/release-notes'
                     }
                 },
 

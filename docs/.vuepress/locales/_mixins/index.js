@@ -133,7 +133,11 @@ module.exports = {
                     chat: {
                         text: 'Developer chat',
                         link: 'https://t.me/waves_ride_dapps_dev'
-                    }
+                    },
+                    release_notes: {
+                        text: 'Release notes',
+                        link: '/en/keep-in-touch/release-notes'
+                    },                    
                 },
             }
         },
