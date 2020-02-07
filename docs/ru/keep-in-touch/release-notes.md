@@ -6,7 +6,7 @@
 * Изменена схема подписания майнящей нодой транзакций блока. Ранее майнящей ноде требовалось подписывать заголовок блока вместе со всеми транзакциями. Теперь в заголовок добавляется [MerkleRootHash](https://en.wikipedia.org/wiki/Merkle_tree), который содержит хеши всех транзакций блока. Благодаря этому отпадает необходимость подписывать все транзакции, достаточно подписать только заголовок.
 * Реализована возможность удалять записи в хранилище данных аккаунта. Это действие может быть выполнено при помощи [транзакции данных](/ru/blockchain/transaction-type/data-transaction) либо структуры [DeleteEntry](/ru/ride/structures/common-structures/delete-entry) языка Ride.
 * Реализована возможность изменять наименование и описание выпущенных ассетов. Для этого предлагается использовать транзакцию нового типа, называемую [транзакцией обновления информации ассета](/ru/blockchain/transaction-type/update-asset-info-transaction).
-* Снижена минимальная комиссия за [транзакцию довыпуска](/ru/blockchain/transaction-type/reissue-transaction) — с 1 до 0.001 WAVES.
+* Снижена минимальная комиссия за [транзакцию довыпуска](/ru/blockchain/transaction-type/reissue-transaction) — с 1 до 0,001 WAVES.
 * Добавлена возможность описания транзакций в формате protobuf.
 * В [транзакции выпуска](/ru/blockchain/transaction-type/issue-transaction) формат полей `name` и `description` изменён с bytes на string.
 * В [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) и [транзакции массового перевода](/ru/blockchain/transaction-type/mass-transfer-transaction) изменён тип поля `attachment` на [union](/ru/ride/data-types/union) `(type: Int|Boolean|ByteVector|String)`.
