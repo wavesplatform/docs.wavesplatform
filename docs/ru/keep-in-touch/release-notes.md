@@ -4,12 +4,12 @@
 
 * Усовершенствован механизм [генерации блоков](/ru/blockchain/block/block-generation) за счет использования [VRF](https://en.wikipedia.org/wiki/Verifiable_random_function) (Verifiable random function). Это улучшение позволяет противостоять атакам типа stake grinding, при помощи которых злоумышленники пытаются повысить для себя вероятность генерации блока.
 * Изменена схема подписания майнящей нодой транзакций блока. Ранее майнящей ноде требовалось подписывать заголовок блока вместе со всеми транзакциями. Теперь в заголовок добавляется [MerkleRootHash](https://en.wikipedia.org/wiki/Merkle_tree), который содержит хеши всех транзакций блока. Благодаря этому отпадает необходимость подписывать все транзакции, достаточно подписать только заголовок.
-* Реализована возможность удалять записи в хранилище данных аккаунта. Это действие может быть выполнено при помощи [транзакции данных](/ru/blockchain/transaction-type/data-transaction) либо структуры DeleteEntry языка Ride.
+* Реализована возможность удалять записи в хранилище данных аккаунта. Это действие может быть выполнено при помощи [транзакции данных](/ru/blockchain/transaction-type/data-transaction) либо структуры [DeleteEntry](/ru/) языка Ride.
 * Реализована возможность изменять наименование и описание выпущенных ассетов. Для этого предлагается использовать транзакцию нового типа, называемую [транзакцией обновления информации ассета](/ru/blockchain/transaction-type/update-asset-info-transaction).
 * Снижена минимальная комиссия за [транзакцию довыпуска](/ru/blockchain/transaction-type/reissue-transaction) — с 1 до 0,001 WAVES.
 * Добавлена возможность описания транзакций в формате protobuf.
 * В [транзакции выпуска](/ru/blockchain/transaction-type/issue-transaction) формат полей `name` и `description` изменён с bytes на string.
-* В [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) и [транзакции массового перевода]() изменён тип поля `attachment` на [union](/ru/ride/data-types/union) `(type: Int|Boolean|ByteVector|String)`.
+* В [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) и [транзакции массового перевода](/ru/blockchain/transaction-type/mass-transfer-transaction) изменён тип поля `attachment` на [union](/ru/ride/data-types/union) `(type: Int|Boolean|ByteVector|String)`.
 * Максимальный размер данных в транзакции данных увеличен до 165890 байта.
 * Изменена формула расчёта price в [ордерах](/ru/blockchain/order). Ранее, при определении price для ассетов с разным количеством десятичных знаков, возникала проблема с величиной price. Её максимальное значение зависело от разности десятичных знаков ассетов. К примеру, price для [NFT](/ru/blockchain/token/non-fungible-token)-ассета не мог превышать 1000 WAVES. Изменённая формула исправляет эту проблему. Разность  десятичных знаков больше не влияет на максимальный размер price.
 
@@ -38,11 +38,11 @@
 * Добавлена структура DeleteEntry для удаления данных из [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage).
 * Добавлена возможность выпускать, довыпускать и сжигать токены из скрипта [dApp](/ru/blockchain/account/dapp). В одной транзакции можно выполнить до 10 вызовов функций для выпуска/довыпуска/сжигания токенов.
 * Комиссия за выполнение транзакции вызова скрипта увеличивается на 1 WAVES за каждый не NFT-ассет, выпущенный при помощи структуры Issue.
-* Изменен формат результата [callable](/ru/ride/functions/callable-function) функций. Из него удалены структуры ScriptResult, WriteSet и TransferSet. Вместо них можно просто возвращать список результатов в любом порядке: [StringEntry, Issue, TransferSet].
+* Изменен формат результата [callable](/ru/ride/functions/callable-function) функций. Из него удалены структуры ScriptResult, WriteSet и TransferSet. Вместо них можно просто возвращать список результатов в любом порядке: [StringEntry, Issue, ScriptTransfer].
 * Структура [DataEntry](/ru/ride/structures/common-structures/data-entry) удалена. Вместо неё добавлены следующие структуры:
   * [BinaryEntry](/ru/ride/structures/common-structures/binary-entry). Выполняет запись бинарных данных в хранилище данных аккаунта.
   * [BooleanEntry](/ru/ride/structures/common-structures/boolean-entry). Выполняет булевую запись данных в хранилище данных аккаунта.
-  * [IntegerEntry](/ru/ride/structures/common-structures/int-entry). Выполняет запись целочисленных данных в хранилище данных аккаунта.
+  * [IntEntry](/ru/ride/structures/common-structures/int-entry). Выполняет запись целочисленных данных в хранилище данных аккаунта.
   * [StringEntry](/ru/ride/structures/common-structures/string-entry). Выполняет запись строковых данных в хранилище данных аккаунта.
 * Реализована возможность обрабатывать в dApp до двух платежей, приложенных к транзакции вызова скрипта.
 * Добавлена встроенная функция верификации [доказательства с нулевым разглашением](https://ru.wikipedia.org/wiki/Доказательство_с_нулевым_разглашением) `groth16verify`. Complexity функции равна 1900.
