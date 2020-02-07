@@ -73,8 +73,20 @@ const signedDataTx = data(params, seed)
 
 ### Using Python
 
-```
-sample
+The simplest way to send a transaction using Python is implementing [PyWaves](https://github.com/PyWaves/PyWaves) library developed by Waves community. Use Address class to do the operations in blockchain. Explore more use cases in their [readme file](https://github.com/PyWaves/PyWaves/blob/master/README.md).
+
+```python
+import pywaves as pw
+
+myAddress = pw.Address(seed='example seed phrase')
+
+data = [{'type':'string', 'key': 'stringVal', 'value':'Lorem ipsum dolor sit amet'},
+        {'type':'integer',  key: 'integerVal', value: 1 },
+        {'type':'boolean',  key: 'booleanVal', value: true }]
+
+myAddress.dataTransaction(data)
+myAddress.sendWaves(recipient = pw.Address('3P8pGyzZL9AUuFs9YRYPDV3vm73T48ptZxs'),
+                    amount = 100000000)
 ```
 
 ## Sign Transaction on Behalf of User
