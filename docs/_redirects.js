@@ -264,6 +264,14 @@ module.exports = [
     from: '/en/ride/structures/built-in-structures.html',
   },
   {
+    to: '/en/ride/structures/common-structures/delete-entry',
+    from: '/en/ride/structures/common-structures/delete-key.html',
+  },
+  {
+    to: '/ru/ride/structures/common-structures/delete-entry',
+    from: '/ru/ride/structures/common-structures/delete-key.html',
+  },
+  {
     to: '/ru/ride/base-concepts/expression',
     from: '/ru/ride/expression.html',
   },
