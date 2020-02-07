@@ -43,7 +43,7 @@ See method descriptions in [documentation](https://wavesplatform.github.io/waves
 ```js
 import @waves/waves-transactions';
 
-const seed = 'example seed phrase'
+const seed = 'example seed phrase';
 
 // Data transaction: add records to the sender's account data storage
 
@@ -138,10 +138,4 @@ const money = {
 const [transferTx] = await signer
   .transfer(money)
   .broadcast();
-```
-
-### Using Python
-
-```
-sample
 ```
