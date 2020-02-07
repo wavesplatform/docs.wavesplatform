@@ -265,11 +265,11 @@ module.exports = [
   },
   {
     to: '/en/ride/structures/common-structures/delete-entry',
-    from: '/en/ride/structures/common-structures/delete-key.html',
+    from: '/en/ride/structures/common-structures/delete-key',
   },
   {
     to: '/ru/ride/structures/common-structures/delete-entry',
-    from: '/ru/ride/structures/common-structures/delete-key.html',
+    from: '/ru/ride/structures/common-structures/delete-key',
   },
   {
     to: '/ru/ride/base-concepts/expression',

@@ -980,8 +980,8 @@ module.exports = {
               path: ridePath + 'structures/common-structures/data-entry',
             },
             {
-              title: 'DeleteKey',
-              path: ridePath + 'structures/common-structures/delete-key',
+              title: 'DeleteEntry',
+              path: ridePath + 'structures/common-structures/delete-entry',
             },
             {
               title: 'IntEntry',
