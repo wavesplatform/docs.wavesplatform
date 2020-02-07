@@ -1,4 +1,4 @@
-# DeleteKey
+# DeleteEntry
 
 Deletes [account data storage](/en/blockchain/account/account-data-storage) record by its key.
 
@@ -7,7 +7,7 @@ Version 1.2.x is currently available on [stagenet](/en/blockchain/blockchain-net
 
 ## Constructor
 
-`DeleteKey(key: String)`
+`DeleteEntry(key: String)`
 
 ## Fields
 
@@ -23,6 +23,6 @@ Version 1.2.x is currently available on [stagenet](/en/blockchain/blockchain-net
     
 @Callable(inv)
 func default() = {
-  [ DeleteKey(inv.caller.toString()) ]
+  [ DeleteEntry(inv.caller.toString()) ]
 }
 ```

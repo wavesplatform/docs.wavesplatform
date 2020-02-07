@@ -1371,6 +1371,10 @@ module.exports = {
       path: keepInTouchPath,
     },
     {
+      title: 'Release Notes',
+      path: keepInTouchPath + 'release-notes',
+    },
+    {
       title: 'Documentation Updates',
       path: keepInTouchPath + 'docs-update',
     },

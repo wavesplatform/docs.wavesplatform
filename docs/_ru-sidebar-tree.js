@@ -1335,6 +1335,10 @@ module.exports = {
       path: keepInTouchPath,
     },
     {
+      title: 'Release notes',
+      path: keepInTouchPath + 'release-notes',
+    },
+    {
       title: 'Обновления в документации',
       path: keepInTouchPath + 'docs-update',
     },
