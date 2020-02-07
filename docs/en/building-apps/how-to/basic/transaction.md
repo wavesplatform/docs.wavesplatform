@@ -87,8 +87,8 @@ import pywaves as pw
 myAddress = pw.Address(seed='example seed phrase')
 
 data = [{'type':'string', 'key': 'stringVal', 'value':'Lorem ipsum dolor sit amet'},
-        {'type':'integer',  key: 'integerVal', value: 1 },
-        {'type':'boolean',  key: 'booleanVal', value: true }]
+        {'type':'integer', 'key': 'integerVal', value: 1 },
+        {'type':'boolean', 'key': 'booleanVal', value: true }]
 
 myAddress.dataTransaction(data)
 myAddress.sendWaves(recipient = pw.Address('3P8pGyzZL9AUuFs9YRYPDV3vm73T48ptZxs'),
