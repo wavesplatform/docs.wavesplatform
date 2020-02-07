@@ -20,7 +20,7 @@ Use `waves-transactions` library. Order proof is derived from seed. Fee is calcu
 
 See method descriptions in [documentation](https://wavesplatform.github.io/waves-transactions/index.html).
 
-```js
+```javascript
 import @waves/waves-transactions';
 
 const seed = 'example seed phrase';
@@ -55,7 +55,7 @@ The placed order is displayed in the **My Open Orders** tab (Online & Desktop ap
 
 ### Using JavaScript
 
-```js
+```javascript
 const matcherUrl = 'https://matcher.waves.exchange';
 const amountAsset = 'WAVES'
 const priceAsset = '8LQW8f7P5d5PZM7GtZEBgaqRPGSzS3DfPuiXrURJ4AJS';
@@ -94,7 +94,7 @@ Use `cancelSubmittedOrder` function of `waves-transactions` library. See functio
 
 **Exapmle**
 
-```js
+```javascript
 import @waves/waves-transactions';
 
 const seed = 'example seed phrase';

@@ -50,7 +50,7 @@ See [library documentation](https://wavesplatform.github.io/waves-transactions/m
 
 **Example:**
 
-```js
+```javascript
 import { nodeInteraction } from "@waves/waves-transactions";
 
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
@@ -123,7 +123,7 @@ See [library documentation](https://wavesplatform.github.io/waves-transactions/m
 
 **Example:**
 
-```js
+```javascript
 import { nodeInteraction } from "@waves/waves-transactions";
 
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
@@ -149,7 +149,7 @@ See [Signer documentation](/en/building-apps/waves-api-and-sdk/client-libraries/
 
 **Example:**
 
-```js
+```javascript
 import Signer from '@waves/signer';
 import Provider from '@waves.exchange/provider-web';
 
@@ -213,7 +213,7 @@ You can use the `fetchTransactions` function of `node-api-js` library.
 
 **Example:**
 
-```js
+```javascript
 import { create } from "@waves/node-api-js";
 
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
@@ -276,7 +276,7 @@ You can use the `fetchHeadersLast` function of `node-api-js` library.
 
 **Example:**
 
-```js
+```javascript
 import { create } from "@waves/node-api-js";
 
 const  nodeUrl = 'https://nodes-testnet.wavesnodes.com';
