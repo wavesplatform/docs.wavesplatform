@@ -49,12 +49,17 @@ Without going into detail, we note that the method of the price normalizing prop
 
 ### Price Asset Quantity Calculation
 
-The quantity of price asset in normalized form is calculated by the following formula:
+The quantity of price asset which
+
+* will be given by sender if order is BUY
+* will be acquired by sender if order is SELL
+
+is calculated by the following formula:
 
 * in version 1, 2, 3 orders: amount × price × 10<sup>-8</sup>
 * version 4 orders: amount × price × 10<sup>(priceAssetDecimals - amountAssetDecimals - 8)</sup>
 
-In both cases, the fractional part is discarded.
+Note that in the calculated value's amount of decimals can exceed price asset's decimals. For example, the calculation result can be 0.123456789 WAVES. The order having such value will be rejected from placement by matcher.
 
 Designations in the above formula:
 
