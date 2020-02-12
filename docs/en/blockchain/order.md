@@ -47,9 +47,11 @@ The exponent of 8 is selected because there cannot be an asset with the exceedin
 
 Without going into detail, we note that the method of the price normalizing proposed in Ride v4 orders provides more flexibility when working with order pairs having a different number of decimals.
 
+The matcher has a limitation in relation to price: the last N digits of the normalized price must be zeros (N is price_decimals minus amount_decimals). If this is not so, then the matcher rejects the order on placement. The considered feature provides the correct display of assets in the Waves Exchange user interface.
+
 ### Price Asset Quantity Calculation
 
-The quantity of price asset which
+The quantity of price asset in normalized form which
 
 * will be given by sender if order is BUY
 * will be acquired by sender if order is SELL
@@ -59,7 +61,7 @@ is calculated by the following formula:
 * in version 1, 2, 3 orders: amount × price × 10<sup>-8</sup>
 * version 4 orders: amount × price × 10<sup>(priceAssetDecimals - amountAssetDecimals - 8)</sup>
 
-Note that in the calculated value's amount of decimals can exceed price asset's decimals. For example, the calculation result can be 0.123456789 WAVES. The order having such value will be rejected from placement by matcher.
+If as a result of the calculation a value with a fractional part is obtained, then it is discarded.
 
 Designations in the above formula:
 
