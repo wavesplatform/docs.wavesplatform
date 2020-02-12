@@ -61,7 +61,7 @@ is calculated by the following formula:
 * in version 1, 2, 3 orders: amount × price × 10<sup>-8</sup>
 * version 4 orders: amount × price × 10<sup>(priceAssetDecimals - amountAssetDecimals - 8)</sup>
 
-If as a result of the calculation a value with a fractional part is obtained, then it is discarded.
+If the result of the calculation is a value with a fractional part, then the fractional part is discarded.
 
 Designations in the above formula:
 
