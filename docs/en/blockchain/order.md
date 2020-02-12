@@ -47,7 +47,7 @@ The exponent of 8 is selected because there cannot be an asset with the exceedin
 
 Without going into detail, we note that the method of the price normalizing proposed in Ride v4 orders provides more flexibility when working with order pairs having a different number of decimals.
 
-The matcher has a limitation in relation to price: the last N digits of the normalized price must be zeros (N is price_decimals minus amount_decimals). If this is not so, then the matcher rejects the order on placement. The considered feature provides the correct display of assets in the Waves Exchange user interface.
+> The matcher algoritm has a limitation in relation to price: the last N digits of the normalized price must be zeros (N is price_decimals minus amount_decimals). If this is not so, then the matcher rejects the order on placement.
 
 ### Price Asset Quantity Calculation
 
