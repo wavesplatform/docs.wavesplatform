@@ -18,7 +18,7 @@ To perform any action on the blockchain, you need to create a transaction of app
 
 To buy or sell asset (except NFTs), you need to create an order, sign it and send to the exchange.
 
-[**Creating your first crypto trading bot**](/en/building-apps/waves-api-and-sdk/examples/trading-bot) by [Antonina Begicheva](https://github.com/gingerabsurdity)
+[**Creating your first crypto trading bot**](/en/building-apps/waves-api-and-sdk/examples/trading-bot) (Python) by [Antonina Begicheva](https://github.com/gingerabsurdity)
 
 This trading bot implements scalping trading strategy that exploits small changes in currency prices: it buys at the mean price minus some price step and sells at the mean price plus some step, in order to gain the bid/ask difference.
 
