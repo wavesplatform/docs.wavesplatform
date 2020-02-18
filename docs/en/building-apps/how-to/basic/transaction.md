@@ -5,13 +5,13 @@ All events on the blockchain are represented as transactions. For example:
 * data transaction writes data to an account data storage;
 * transfer transaction moves a certain amount of the token from one account to another.
 
-Waves provides a large number of transaction types. See the [Transaction Type](/en/blockchain/transaction-type) section for more information. Depending on the type, transactions may contain different fields.
+Waves provides a large number of transaction types. See the [Transaction Type](/en/blockchain/transaction-type) article for more information. Depending on the type, transactions may contain different fields.
 
 **Transaction Proof**
 
 On Waves, each transaction can be sent only from the account. Transaction that is sent from ordinary (unscripted) account must contain a proof – a sender's digital signature. (Smart accounts and dApps can set their own rules for verification of outgoing transations). See the [Transaction Proof](/en/blockchain/transaction/transaction-proof) section for more information.
 
-There are two option to sign a transaction:
+There are two options to sign a transaction:
 
 * If your app sends trancastions on your behalf, you can use your own seed phrase to sign transactions. This way is described in [Sign Transaction Using Your Own Seed](#sign-transaction-using-your-own-seed) section below.
 * If your app sends transactions on behalf of range of users, we don't recommend to inquire their seed phrases. Instead, use the official wallet software – for example, provided by Waves.Exchange team. This way is described in [Sign Transaction on Behalf of User](#sign-transaction-on-behalf-of-user) section below.

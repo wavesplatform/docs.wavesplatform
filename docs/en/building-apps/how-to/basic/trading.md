@@ -4,9 +4,11 @@ sidebarDepth: 2
 
 # How to Buy and Sell Tokens
 
-Any token or asset issued on the Waves blockchain can be bought or sold on the [Waves.Exchange](https://waves.exchange/). Waves.Exchange developed by Waves.Exchange team is a part of the Waves ecosystem. It combines a user wallet and decentralized exchange that execute trades swiftly and securely.
+Any asset issued on the Waves blockchain (except [NFTs](/en/blockchain/token/non-fungible-token)) can be bought or sold on the [Waves.Exchange](https://waves.exchange/). Waves.Exchange developed by Waves.Exchange team is a part of the Waves ecosystem. It combines a user wallet and decentralized exchange that execute trades swiftly and securely.
 
-To buy or sell tokens, a user submits an order. He/she doesn't transfer his/her tokens to exchange, his/her money remains on his/her account until the order is matched with counter-order. The Matcher (exchange engine) creates exchange transaction while the blockchain guarantees that the transaction will be made on the conditions that are not worse than in the user's order. After the transaction is confirmed on blockchain, the user account's balances of assets are changed according to the amount, order execution price, and the Matcher fee.
+To buy or sell tokens, you submit an order to Matcher (exchange engine). You don't transfer your assets to exchange, money remains on your account until Matcher executes the order and creates an exchange transaction. The blockchain guarantees that the transaction will be made on the conditions that are not worse than in the user's order.
+
+See the [Order](/en/blockchain/order) article for more information about orders.
 
 ## Create Trading Order
 
@@ -16,29 +18,60 @@ You can use online, desktop or mobile app. See the [Start Trading (Online & Desk
 
 ### Using JavaScript
 
-Use `waves-transactions` library. Order proof is derived from seed. Fee is calculated automatically.
+#### Step 1. Set Matcher Params
+
+Use the following Matcher URL:
+
+* Testnet: <https://matcher.testnet.wavesnodes.com>
+* Mainnet: <https://matcher.waves.exchange>
+
+Use the `GET /matcher` method of Matcher API to retrieve Matcher public key.
+
+#### Step 2. Set Asset Pair
+
+Asset pair is a pair of assets you want to exchange: an amount asset ID and price asset ID. Which asset is a price asset does not depend on which asset is 'spend' and which is 'received'.
+
+For Mainnet, you can see asset pairs and asset IDs on the **Trading** page of Waves.Exchange. The first asset in pair is amount asset and the second is price asset.
+
+![](./_assets/asset-pair.png)
+
+For both Mainnet and Testnet, you can get asset pairs using `GET /matcher/orderbook` or `GET /matcher/settings` API method. For more information, see [Matcher API](https://docs.waves.exchange/en/waves-matcher/matcher-api) article of Waves.Exchange documentation.
+
+> :warning: Asset IDs differ on Mainnet and Testnet.
+
+WAVES doesn't have asset ID, use 'WAVES' instead.
+
+#### Step 3. Fill in Orders Fields, Sign Order and Send to Matcher
+
+Use `waves-transactions` library. Order proof is derived from seed. Matcher fee is calculated automatically.
 
 See method descriptions in [documentation](https://wavesplatform.github.io/waves-transactions/index.html).
 
 ```javascript
-import @waves/waves-transactions';
+import { order, submitOrder } from "@waves/waves-transactions";
 
-const seed = 'example seed phrase';
-const matcherUrl = 'https://matcher.waves.exchange';
-const matcherPublicKey = '9cpfKN9suPNvfeUNphzxXMjcnn974eme8ZhWUjaktzU5';
+const matcherUrl = 'https://matcher.testnet.wavesnodes.com';
+const matcherPublicKey: '8QUAqtTckM5B8gvcuP7mMswat9SjKUuafJMusEoSn1Gy';
 
-const params = {
-  amount: 100000000, //1 WAVES
-  price: 10, //for 0.00000010 BTC
-  priceAsset: '8LQW8f7P5d5PZM7GtZEBgaqRPGSzS3DfPuiXrURJ4AJS',
-  matcherPublicKey: matcherPublicKey,
-  orderType: 'buy'
+const amountAssetId: 'BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3'; // asset ID of ETH on Testnet
+const priceAssetId: 'WAVES';
+
+const seed = 'insert your seed here';
+
+const orderParams = {
+    amount: 100000000, // 1 ETH: actual volume of amount asset multiplied by 10^amountAssetDecimals
+    price: 19900000000, // 199 WAVES for 1 ETH: actual price denominated in priceAsset and multiplied by 10^(8 + priceAssetDecimals – amountAssetDecimals)
+    amountAsset: amountAssetId,
+    priceAsset: priceAssetId,
+    matcherPublicKey: matcherPublicKey,
+    orderType: 'buy'
 }
 
-const signedOrder = order(params, seed);
-await submitOrder(order, matcherUrl);
+const signedOrder = order(orderParams, seed);
+await submitOrder(signedOrder, matcherUrl);
 
-console.log('Order ID: '+ signedOrder.id);
+let orderId = signedOrder.id;
+console.log('Order ID: '+ orderId);
 ```
 
 ### Using Python
@@ -51,24 +84,16 @@ sample
 
 ### Using Waves.Exchange
 
-The placed order is displayed in the **My Open Orders** tab (Online & Desktop app) or in the **My Orders** tab (Mobile) until it is completed. See the [Start Trading (Online & Desktop)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) and [Start Trading (Mobile)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-mobile/mobile-trading/mobile-start-trading) sections of the Waves.Exchange documentation.
+The submitted order is displayed in the **My Open Orders** tab (Online & Desktop app) or in the **My Orders** tab (Mobile) until it is completed. See the [Start Trading (Online & Desktop)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) and [Start Trading (Mobile)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-mobile/mobile-trading/mobile-start-trading) sections of the Waves.Exchange documentation.
 
 ### Using JavaScript
 
+To get order status, you need to know order ID and asset pair.
+
 ```javascript
-const matcherUrl = 'https://matcher.waves.exchange';
-const amountAsset = 'WAVES'
-const priceAsset = '8LQW8f7P5d5PZM7GtZEBgaqRPGSzS3DfPuiXrURJ4AJS';
-
-let orderId = 'sefdqregvqergqerg';
-
-const xhr = new XMLHttpRequest();
-xhr.open('GET', matcherUrl + '/' + amountAsset + '/' + priceAsset + '/' + orderId, false);
-xhr.send();
-xhr.onload  = function() {
-  let orderStatus = xhr.response;;
-  console.log('Order status: ' + orderStatus.status);
-}
+let response = await fetch(matcherUrl + '/matcher/orderbook/' + amountAsset + '/' + priceAsset + '/' + orderId);
+let json = await response.json();
+console.log('Order status: ' + json.status);
 ```
 
 ### Using Python
