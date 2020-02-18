@@ -20,6 +20,8 @@ To buy or sell asset (except NFTs), you need to create an order, sign it and sen
 
 [**Creating your first crypto trading bot**](/en/building-apps/waves-api-and-sdk/examples/trading-bot) by [Antonina Begicheva](https://github.com/gingerabsurdity)
 
+This trading bot implements scalping trading strategy that exploits small changes in currency prices: it buys at the mean price minus some price step and sells at the mean price plus some step, in order to gain the bid/ask difference.
+
 ## Tokens & Assets
 
 [**Creating and Managing Custom Token**](/en/building-apps/how-to/assets/issue)
@@ -30,6 +32,4 @@ To buy or sell asset (except NFTs), you need to create an order, sign it and sen
 
 [Simple voting on the Waves blockchain](/en/building-apps/smart-contracts/simple-voting-on-the-waves-blockchain)
 
-
-
-
+This dApp implements voting among HOA (homeowners association) members on the Waves blockchain. The dApp script checks if a voter has rights to vote and writes voting results to the dApp data storage.

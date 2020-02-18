@@ -4,7 +4,7 @@ sidebarDepth: 2
 
 # How to Buy and Sell Tokens
 
-Any asset issued on the Waves blockchain (except [NFTs](/en/blockchain/token/non-fungible-token)) can be bought or sold on the [Waves.Exchange](https://waves.exchange/). Waves.Exchange developed by Waves.Exchange team is a part of the Waves ecosystem. It combines a user wallet and decentralized exchange that execute trades swiftly and securely.
+Any asset issued on the Waves blockchain (except [NFTs](/en/blockchain/token/non-fungible-token)) can be bought or sold on the [Waves.Exchange](https://waves.exchange/). Waves.Exchange developed by Waves.Exchange team is a part of the Waves ecosystem. It combines a user wallet and decentralized exchange that executes trades swiftly and securely.
 
 To buy or sell tokens, you submit an order to Matcher (exchange engine). You don't transfer your assets to exchange, money remains on your account until Matcher executes the order and creates an exchange transaction. The blockchain guarantees that the transaction will be made on the conditions that are not worse than in the user's order.
 
@@ -18,7 +18,7 @@ You can use online, desktop or mobile app. See the [Start Trading (Online & Desk
 
 ### Using JavaScript
 
-#### Step 1. Set Matcher Params
+#### Set Matcher Params
 
 Use the following Matcher URL:
 
@@ -27,7 +27,7 @@ Use the following Matcher URL:
 
 Use the `GET /matcher` method of Matcher API to retrieve Matcher public key.
 
-#### Step 2. Set Asset Pair
+#### Set Asset Pair
 
 Asset pair is a pair of assets you want to exchange: an amount asset ID and price asset ID. Which asset is a price asset does not depend on which asset is 'spend' and which is 'received'.
 
@@ -39,13 +39,16 @@ For both Mainnet and Testnet, you can get asset pairs using `GET /matcher/orderb
 
 > :warning: Asset IDs differ on Mainnet and Testnet.
 
-WAVES doesn't have asset ID, use 'WAVES' instead.
+WAVES, the core token of Waves blockchain, doesn't have an asset ID, use 'WAVES' instead.
 
-#### Step 3. Fill in Orders Fields, Sign Order and Send to Matcher
+#### Set Orders Fields, Sign Order and Send to Matcher
 
-Use `waves-transactions` library. Order proof is derived from seed. Matcher fee is calculated automatically.
+Use functions of `waves-transactions` library:
 
-See method descriptions in [documentation](https://wavesplatform.github.io/waves-transactions/index.html).
+* `order` function creates and signs an order. Order proof is derived from seed. By default, Matcher fee is calculated automatically.
+* `submitOrder` sends signed order to Matcher.
+
+See function descriptions in [waves-transactions documentation](https://wavesplatform.github.io/waves-transactions/index.html) on Github.
 
 ```javascript
 import { order, submitOrder } from "@waves/waves-transactions";
@@ -86,11 +89,30 @@ sample
 
 The submitted order is displayed in the **My Open Orders** tab (Online & Desktop app) or in the **My Orders** tab (Mobile) until it is completed. See the [Start Trading (Online & Desktop)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) and [Start Trading (Mobile)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-mobile/mobile-trading/mobile-start-trading) sections of the Waves.Exchange documentation.
 
+### Using Matcher API
+
+To get order status, you need to know order ID and asset pair. Use `GET /matcher/orderbook/{amountAsset}/{priceAsset}/{orderId}` method. Status is returned for orders submitted not earlier than 30 days ago. For partially filled orders, the method aslo returns filled amount.
+
+See method description in [Matcher API](https://docs.waves.exchange/en/waves-matcher/matcher-api) article of Waves.Exchange documentation.
+
+**Request example:**
+
+```
+curl 'https://matcher.testnet.wavesnodes.com/matcher/orderbook/BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3/WAVES/6hgoJMKAMPVZb11epd2vCjqk47dGcr9eT8cJQ2HpYnHp'
+```
+
+The example is suitable for the `cURL` utility. You can adjust the proposed request to your app written in any programming language.
+
 ### Using JavaScript
 
-To get order status, you need to know order ID and asset pair.
-
 ```javascript
+const matcherUrl = 'https://matcher.testnet.wavesnodes.com';
+
+const amountAssetId: 'BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3'; // asset ID of ETH on Testnet
+const priceAssetId: 'WAVES';
+
+const orderId= '6hgoJMKAMPVZb11epd2vCjqk47dGcr9eT8cJQ2HpYnHp';
+
 let response = await fetch(matcherUrl + '/matcher/orderbook/' + amountAsset + '/' + priceAsset + '/' + orderId);
 let json = await response.json();
 console.log('Order status: ' + json.status);
@@ -115,20 +137,32 @@ You can cancel an order:
 
 ### Using JavaScript
 
-Use `cancelSubmittedOrder` function of `waves-transactions` library. See function description in [documentation](https://wavesplatform.github.io/waves-transactions/index.html).
+The request to cancel the order must be signed by the order sender.
+
+Use functions of `waves-transactions` library:
+
+* `cancelOrder` function creates and signs cancel order request.
+* `cancelSubmittedOrder` sends signed request to Matcher.
+
+See function descriptions in [waves-transactions documentation](https://wavesplatform.github.io/waves-transactions/index.html) on Github.
 
 **Exapmle**
 
 ```javascript
-import @waves/waves-transactions';
+import {cancelOrder, cancelSubmittedOrder } from "@waves/waves-transactions";
 
-const seed = 'example seed phrase';
-const matcherUrl = 'https://matcher.waves.exchange';
-const matcherPublicKey = '9cpfKN9suPNvfeUNphzxXMjcnn974eme8ZhWUjaktzU5';
+const matcherUrl = 'https://matcher.testnet.wavesnodes.com';
 
-let orderId = 'sefdqregvqergqerg';
-let cancelOrderRequest = cancelOrder({ orderId },seed);
-await cancelSubmittedOrder(cancelOrderRequest, amountAsset, priceAsset, matcherUrl);
+const amountAssetId: 'BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3'; // asset ID of ETH on Testnet
+const priceAssetId: 'WAVES';
+
+const seed = 'insert your seed here';
+const orderId= '6hgoJMKAMPVZb11epd2vCjqk47dGcr9eT8cJQ2HpYnHp';
+
+const co = cancelOrder({ orderId: orderId }, seed);
+const cancelledOrder = await cancelSubmittedOrder(co, amountAsset, priceAsset, matcherUrl);
+
+console.log(cancelledOrder.status);
 ```
 
 ### Using Python
