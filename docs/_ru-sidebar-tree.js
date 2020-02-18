@@ -980,8 +980,8 @@ module.exports = {
               path: ridePath + 'structures/common-structures/data-entry',
             },
             {
-              title: 'DeleteKey',
-              path: ridePath + 'structures/common-structures/delete-key',
+              title: 'DeleteEntry',
+              path: ridePath + 'structures/common-structures/delete-entry',
             },
             {
               title: 'IntEntry',
@@ -1333,6 +1333,10 @@ module.exports = {
     {
       title: 'Будьте в курсе',
       path: keepInTouchPath,
+    },
+    {
+      title: 'Release notes',
+      path: keepInTouchPath + 'release-notes',
     },
     {
       title: 'Обновления в документации',
