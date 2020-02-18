@@ -77,7 +77,24 @@ console.log('Order ID: '+ orderId);
 ### Using Python
 
 ```python
-sample
+import pywaves as pw
+
+matcher_url = 'https://matcher.testnet.wavesnodes.com'
+pw.setMatcher(matcher_url)
+
+# ETH asset on Testnet
+amount_asset = pw.Asset('BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3')
+
+# WAVES
+price_asset = pw.Asset('')
+
+asset_pair = pw.AssetPair(amount_asset, price_asset)
+
+my_address = pw.Address(privateKey='some_private_key')
+
+buy_order = my_address.buy(asset_pair=asset_pair, amount=1e8, price=50e8)
+
+print(f'Buy order ID: {buy_order.orderId}')
 ```
 
 ## Get Order Status
@@ -99,7 +116,8 @@ console.log('Order status: ' + json.status);
 ### Using Python
 
 ```python
-sample
+# using order from previous example
+print(buy_order.status())
 ```
 
 ## Cancel Order
@@ -134,5 +152,6 @@ await cancelSubmittedOrder(cancelOrderRequest, amountAsset, priceAsset, matcherU
 ### Using Python
 
 ```python
-sample
+# using order from previous example
+buy_order.cancel()
 ```
