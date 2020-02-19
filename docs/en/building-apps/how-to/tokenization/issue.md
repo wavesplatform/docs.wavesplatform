@@ -44,7 +44,12 @@ console.log('Token ID: ' + issueTx.id);
 ### Using Python
 
 ```python
-sample
+import pywaves as pw
+
+my_address = pw.Address(privateKey='some_private_key')
+my_address.issueAsset(
+    name='Token1', description='My Token', quantity=1000, decimals=0
+)
 ```
 
 ### Using dApp
