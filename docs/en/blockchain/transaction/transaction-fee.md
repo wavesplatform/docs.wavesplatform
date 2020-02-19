@@ -2,17 +2,37 @@
 
 A **transaction fee** is a fee that an [account](/en/blockchain/account) owner pays to send a [transaction](/en/blockchain/transaction).
 
-A sender can specify any amount of fee but not less than a certain amount. The larger the fee is, the quicker the transaction will be added to the new [block](/en/blockchain/block).
+A transaction sender can specify any amount of fee but not less than a  minimum amount. The larger the fee is, the quicker the transaction will be added to the new [block](/en/blockchain/block). A sender can set a transaction fee nominated in WAVES or in a sponsored asset.
 
-> If a [smart account](/en/blockchain/account/smart-account) transfers a [smart asset](/en/blockchain/token/smart-asset), then the fee doubles. <br>If a transaction is validated by an [account script](/en/ride/script/script-types/account-script) or an [asset script](/en/ride/script/script-types/asset-script), then the fee is increased by 0.004 WAVES
+The minimum fees for each type of transaction are listed in the table below. If a transaction is verified by an [account script](/en/ride/script/script-types/account-script) or an [asset script](/en/ride/script/script-types/asset-script), then the fee is increased by 0.004 WAVES for each script execution.
+
+**Example 1.**
+
+The minimum fee for a transfer transaction:
+
+* Without a smart account or a smart asset: 0.001.
+* Transfer from smart account: 0.001 + 0.004.
+* Transfer of smart asset: 0.001 + 0.004.
+* Transfer of smart asset sent from smart account: 0.001 + 0.004 + 0.004.
+
+**Example 2.**
+
+The minimum fee for an invoke script transaction:
+
+* Without a smart account or a smart asset: 0.005 + `K` ().
+* Invoke script transaction sent from smart account: 0.005 + `K` + 0.004.
+* Invoke script transaction with attached payment that is nominated in a smart asset: 0.005 + `K` + 0.004.
+* Invoke script transaction with attached payments that are nominated in two different smart assets: 0.005 + `K` + 2 × 0.004.
+* Invoke script transaction that initiated two smart assset transfers and one smart asset burn: 0.005 + `K` + 3 × 0,004.
+* Invoke script transaction that is sent from smart account, with an attached payment that is nominated in a smart asset, and initiated two smart assset transfers and one smart asset burn: 0.005 + `K` + 0,004 + 4 × 0,004 (1 account script and 4 asset script executions).
 
 | Transaction type | Transaction type ID | A minimum transaction fee in WAVES | Comments |
 | :--- | :--- | :--- | :--- |
-| [Alias transaction](/en/blockchain/transaction-type/alias-transaction) | 10 | 0.001 | |
 | [Burn transaction](/en/blockchain/transaction-type/burn-transaction) | 6 | 0.001 | |
+| [Create alias transaction](/en/blockchain/transaction-type/alias-transaction) | 10 | 0.001 | |
 | [Data transaction](/en/blockchain/transaction-type/data-transaction) | 12 | 0.001 per kilobyte | The value is rounded up to the thousandths |
 | [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) | 7 | 0.003 | |
-| [Invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) | 16 | 0.005 + `B`<br/>+ 0.004 × `C`<br/>+ 0.004 × `D` + `K` | If an invoke script transaction is sent from a [smart account](/en/blockchain/account/smart-account), then `B` = 0.004, otherwise `B` = 0.<br>An invoke script transaction may have up to two payments attached. `C` represents  a number of different [smart assets](/en/blockchain/token/smart-asset) in payments.<br>In addition to this, the invoke script transaction can invoke a transfer, reissue or burn of different assets. `D` represents the number of [smart assets](/en/blockchain/token/smart-asset) in these actions.<br>In addition to this, the invoke script transaction can invoke an issue of assets. `K` represents the number of issued assets that are not [non-fungible tokens](/en/blockchain/token/non-fungible-token). |
+| [Invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) | 16 | 0.005 + `K` | Invoke script transaction can initiate an issue of assets. `K` represents the number of issued assets that are not [non-fungible tokens](/en/blockchain/token/non-fungible-token). |
 | [Issue transaction](/en/blockchain/transaction-type/issue-transaction) | 3 | 1 for reqular token <br>0.001 for [non-fungible token](/en/blockchain/token/non-fungible-token) | |
 | [Lease cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction) | 9 | 0.001 | |
 | [Lease transaction](/en/blockchain/transaction-type/lease-transaction) | 8 | 0.001 | |
@@ -20,5 +40,12 @@ A sender can specify any amount of fee but not less than a certain amount. The l
 | [Reissue transaction](/en/blockchain/transaction-type/reissue-transaction) | 5 | 1<br/>0.001 – starting from node version 1.2.0, after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature. See <a href="/en/blockchain/waves-protocol/activation-protocol">Activation Protocol</a>| |
 | [Set asset script transaction](/en/blockchain/transaction-type/set-asset-script-transaction) | 15 | 1 | |
 | [Set script transaction](/en/blockchain/transaction-type/set-script-transaction) | 13 | 0.01 | |
-| Sponsorship transaction | 14 | 1 | |
+| Sponsor fee transaction | 14 | 1 | |
 | [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 4 | 0.001 | | |
+| [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) | 17 | 0.001 | | |
+
+## Fee nominated in a sponsored asset
+
+An issuer of an asset can set up sponsorship. If the sponsorship is set up for an asset, any user can specify a transaction fee in this asset.
+
+In a sponsor fee transaction the issuer indicates an amount of asset that is equivalent to the minimum fee of 0.001 WAVES. For exmaple, if `minSponsoredAssetFee: 5`, then the fee in this asset for exchange transaction equals 5 × 0.003 / 0.001 = 15. See the [Sponsor Fee Transactions](/en/blockchain/waves-protocol/sponsored-fee) articls for details.
