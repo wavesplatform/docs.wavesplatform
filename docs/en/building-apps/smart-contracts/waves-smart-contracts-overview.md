@@ -4,13 +4,13 @@ Welcome! We are excited that you want to learn Waves Smart Contracts.
 
 ## Orientation
 
+Waves Smart Contracts are scripts written using Ride programming language.
+
 There are 3 types of Waves Smart Contracts:
 
 * Smart assets
 * Smart accounts
 * dApps
-
-Waves Smart Contracts are scripts written using Ride programming language.
 
 The first two types of Smart Contracts accommodate some logic that checks outgoing transactions for compliance with the specified conditions. The transaction is sent only if this conditions are satisfied. Smart assets and smart accounts are **not** callable.
 
