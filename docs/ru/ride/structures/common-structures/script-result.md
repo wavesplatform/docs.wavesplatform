@@ -1,6 +1,6 @@
 # ScriptResult
 
-> :warning: Структура ScriptResult не входит в [Стандартную библиотеку](/ru/ride/script/standard-library) версии 4. Используйте List[BinaryEntry|BooleanEntry|IntEntry|StringEntry|ScriptTranfer|Issue|Reissue|Burn] вместо этой структуры.
+> :warning: Структура ScriptResult не входит в [Стандартную библиотеку](/ru/ride/script/standard-library) версии 4. Используйте List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry|ScriptTranfer|Issue|Reissue|Burn] вместо этой структуры.
 
 Структура результата выполнения [вызываемой функции](/ru/ride/functions/callable-function).
 

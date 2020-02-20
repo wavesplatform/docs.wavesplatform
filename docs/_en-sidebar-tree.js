@@ -988,7 +988,7 @@ module.exports = {
               path: ridePath + 'structures/common-structures/delete-entry',
             },
             {
-              title: 'IntEntry',
+              title: 'IntegerEntry',
               path: ridePath + 'structures/common-structures/int-entry',
             },
             {

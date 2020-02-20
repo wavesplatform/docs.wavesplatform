@@ -37,7 +37,7 @@
     * [BooleanEntry](/ru/ride/structures/common-structures/boolean-entry)
     * [Burn](/ru/ride/structures/common-structures/burn)
     * [DeleteKey](/ru/ride/structures/common-structures/delete-key)
-    * [IntEntry](/ru/ride/structures/common-structures/int-entry)
+    * [IntegerEntry](/ru/ride/structures/common-structures/int-entry)
     * [Issue](/ru/ride/structures/common-structures/issue)
     * [Reissue](/ru/ride/structures/common-structures/reissue)
     * [StringEntry](/ru/ride/structures/common-structures/string-entry)
