@@ -6,10 +6,9 @@ A transaction sender can specify any amount of fee but not less than a  minimum 
 
 For invoke script transaction and transfer transaction, a sender can specify a transaction fee nominated in a sponsored asset, see the section [Fee Nominated in Sponsored Asset](#fee-nominated-in-sponsored-asset) below.
 
-
 ## Minimum Fee
 
-The minimum fees for each type of transaction are listed in the table below. If a transaction is verified by an [account script](/en/ride/script/script-types/account-script) or an [asset script](/en/ride/script/script-types/asset-script), then the fee is increased by 0.004 WAVES for each script execution.
+The minimum fees in WAVES for each type of transaction are listed in the table below. If a transaction is verified by an [account script](/en/ride/script/script-types/account-script) or an [asset script](/en/ride/script/script-types/asset-script), then the fee is increased by 0.004 WAVES for each script execution.
 
 **Example 1.**
 
@@ -31,7 +30,7 @@ The minimum fee for an invoke script transaction:
 * Invoke script transaction that initiated two smart assset transfers and one smart asset burn: 0.005 + `K` + 3 × 0,004.
 * Invoke script transaction that is sent from smart account, with an attached payment that is nominated in a smart asset, and initiated two smart assset transfers and one smart asset burn: 0.005 + `K` + 0,004 + 4 × 0,004 (1 account script and 4 asset script executions).
 
-| Transaction type | Transaction type ID | A minimum transaction fee in WAVES |
+| Transaction type | Transaction type ID | Minimum transaction fee in WAVES |
 | :--- | :--- | :--- |
 | [Burn transaction](/en/blockchain/transaction-type/burn-transaction) | 6 | 0.001 |
 | [Create alias transaction](/en/blockchain/transaction-type/alias-transaction) | 10 | 0.001 |
