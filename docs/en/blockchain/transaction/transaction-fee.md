@@ -2,7 +2,12 @@
 
 A **transaction fee** is a fee that an [account](/en/blockchain/account) owner pays to send a [transaction](/en/blockchain/transaction).
 
-A transaction sender can specify any amount of fee but not less than a  minimum amount. The larger the fee is, the quicker the transaction will be added to the new [block](/en/blockchain/block). A sender can set a transaction fee nominated in WAVES or in a sponsored asset.
+A transaction sender can specify any amount of fee but not less than a  minimum amount. The larger the fee is, the quicker the transaction will be added to the new [block](/en/blockchain/block).
+
+For invoke script transaction and transfer transaction, a sender can specify a transaction fee nominated in a sponsored asset, see the section [Fee Nominated in Sponsored Asset](#fee-nominated-in-sponsored-asset) below.
+
+
+## Minimum Fee
 
 The minimum fees for each type of transaction are listed in the table below. If a transaction is verified by an [account script](/en/ride/script/script-types/account-script) or an [asset script](/en/ride/script/script-types/asset-script), then the fee is increased by 0.004 WAVES for each script execution.
 
@@ -32,7 +37,9 @@ The minimum fee for an invoke script transaction:
 | [Create alias transaction](/en/blockchain/transaction-type/alias-transaction) | 10 | 0.001 |
 | [Data transaction](/en/blockchain/transaction-type/data-transaction) | 12 | 0.001 per kilobyte | The value is rounded up to the thousandths |
 | [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) | 7 | 0.003 |
-| [Invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) | 16 | 0.005 + `K`<br>`K` is the number of assets issued as a result of dApp script invocation that are not [non-fungible tokens](/en/blockchain/token/non-fungible-token) |
+| [Invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) | 16 | 0.005 + `K`<br>`K` is the number of assets issued as a result of dApp script invocation that are not [non-fungible tokens](/en/blockchain/token/non-fungible-token).<br>
+The functionality of the token issue by dApp script is introduced in the node version 1.2.0. The functionality can be used after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature on the node.
+Version 1.2.x is currently available on [stagenet](/en/blockchain/blockchain-network/stage-network) |
 | [Issue transaction](/en/blockchain/transaction-type/issue-transaction) | 3 | 1 for reqular token <br>0.001 for [non-fungible token](/en/blockchain/token/non-fungible-token) |
 | [Lease cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction) | 9 | 0.001 |
 | [Lease transaction](/en/blockchain/transaction-type/lease-transaction) | 8 | 0.001 |
@@ -44,8 +51,8 @@ The minimum fee for an invoke script transaction:
 | [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 4 | 0.001 |
 | [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) | 17 | 0.001 |
 
-## Fee nominated in a sponsored asset
+## Fee Nominated in Sponsored Asset
 
-An issuer of an asset can set up sponsorship — so that any user can specify a transaction fee in this asset.
+An issuer of an asset can set up sponsorship — so that any user can specify a transaction fee in this asset for invoke script transactions and transfer transactions.
 
 To activate sposorship, the issuer puts a sponsor fee transaction that specifies an amount of asset that is equivalent to the minimum fee of 0.001 WAVES. For exmaple, if `minSponsoredAssetFee: 5`, then the fee in this asset for exchange transaction equals 5 × 0.003 / 0.001 = 15. See the [Sponsor Fee Transactions](/en/blockchain/waves-protocol/sponsored-fee) article for details.
