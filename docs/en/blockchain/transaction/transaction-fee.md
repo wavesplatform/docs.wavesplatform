@@ -19,33 +19,33 @@ The minimum fee for a transfer transaction:
 
 The minimum fee for an invoke script transaction:
 
-* Without a smart account or a smart asset: 0.005 + `K` ().
+* Without a smart account or a smart asset: 0.005 + `K` (see table below).
 * Invoke script transaction sent from smart account: 0.005 + `K` + 0.004.
 * Invoke script transaction with attached payment that is nominated in a smart asset: 0.005 + `K` + 0.004.
 * Invoke script transaction with attached payments that are nominated in two different smart assets: 0.005 + `K` + 2 × 0.004.
 * Invoke script transaction that initiated two smart assset transfers and one smart asset burn: 0.005 + `K` + 3 × 0,004.
 * Invoke script transaction that is sent from smart account, with an attached payment that is nominated in a smart asset, and initiated two smart assset transfers and one smart asset burn: 0.005 + `K` + 0,004 + 4 × 0,004 (1 account script and 4 asset script executions).
 
-| Transaction type | Transaction type ID | A minimum transaction fee in WAVES | Comments |
-| :--- | :--- | :--- | :--- |
-| [Burn transaction](/en/blockchain/transaction-type/burn-transaction) | 6 | 0.001 | |
-| [Create alias transaction](/en/blockchain/transaction-type/alias-transaction) | 10 | 0.001 | |
+| Transaction type | Transaction type ID | A minimum transaction fee in WAVES |
+| :--- | :--- | :--- |
+| [Burn transaction](/en/blockchain/transaction-type/burn-transaction) | 6 | 0.001 |
+| [Create alias transaction](/en/blockchain/transaction-type/alias-transaction) | 10 | 0.001 |
 | [Data transaction](/en/blockchain/transaction-type/data-transaction) | 12 | 0.001 per kilobyte | The value is rounded up to the thousandths |
-| [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) | 7 | 0.003 | |
-| [Invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) | 16 | 0.005 + `K` | Invoke script transaction can initiate an issue of assets. `K` represents the number of issued assets that are not [non-fungible tokens](/en/blockchain/token/non-fungible-token). |
-| [Issue transaction](/en/blockchain/transaction-type/issue-transaction) | 3 | 1 for reqular token <br>0.001 for [non-fungible token](/en/blockchain/token/non-fungible-token) | |
-| [Lease cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction) | 9 | 0.001 | |
-| [Lease transaction](/en/blockchain/transaction-type/lease-transaction) | 8 | 0.001 | |
-| [Mass transfer transaction](/en/blockchain/transaction-type/mass-transfer-transaction) | 11 | 0.001 + 0.0005 × N | `N` is the number of transfers inside of the transaction. <br>The value of 0.0005 × N in the formula is rounded up to the thousandths |
-| [Reissue transaction](/en/blockchain/transaction-type/reissue-transaction) | 5 | 1<br/>0.001 – starting from node version 1.2.0, after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature. See <a href="/en/blockchain/waves-protocol/activation-protocol">Activation Protocol</a>| |
-| [Set asset script transaction](/en/blockchain/transaction-type/set-asset-script-transaction) | 15 | 1 | |
-| [Set script transaction](/en/blockchain/transaction-type/set-script-transaction) | 13 | 0.01 | |
-| Sponsor fee transaction | 14 | 1 | |
-| [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 4 | 0.001 | | |
-| [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) | 17 | 0.001 | | |
+| [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) | 7 | 0.003 |
+| [Invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) | 16 | 0.005 + `K`<br>`K` is the number of assets issued as a result of dApp script invocation that are not [non-fungible tokens](/en/blockchain/token/non-fungible-token) |
+| [Issue transaction](/en/blockchain/transaction-type/issue-transaction) | 3 | 1 for reqular token <br>0.001 for [non-fungible token](/en/blockchain/token/non-fungible-token) |
+| [Lease cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction) | 9 | 0.001 |
+| [Lease transaction](/en/blockchain/transaction-type/lease-transaction) | 8 | 0.001 |
+| [Mass transfer transaction](/en/blockchain/transaction-type/mass-transfer-transaction) | 11 | 0.001 + 0.0005 × `N`<br>`N` is the number of transfers inside of the transaction.<br>The value is rounded up to the thousandths |
+| [Reissue transaction](/en/blockchain/transaction-type/reissue-transaction) | 5 | 1<br/>0.001 – starting from node version 1.2.0, after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature. See <a href="/en/blockchain/waves-protocol/activation-protocol">Activation Protocol</a>|
+| [Set asset script transaction](/en/blockchain/transaction-type/set-asset-script-transaction) | 15 | 1 |
+| [Set script transaction](/en/blockchain/transaction-type/set-script-transaction) | 13 | 0.01 |
+| Sponsor fee transaction | 14 | 1 |
+| [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 4 | 0.001 |
+| [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) | 17 | 0.001 |
 
 ## Fee nominated in a sponsored asset
 
-An issuer of an asset can set up sponsorship. If the sponsorship is set up for an asset, any user can specify a transaction fee in this asset.
+An issuer of an asset can set up sponsorship — so that any user can specify a transaction fee in this asset.
 
-In a sponsor fee transaction the issuer indicates an amount of asset that is equivalent to the minimum fee of 0.001 WAVES. For exmaple, if `minSponsoredAssetFee: 5`, then the fee in this asset for exchange transaction equals 5 × 0.003 / 0.001 = 15. See the [Sponsor Fee Transactions](/en/blockchain/waves-protocol/sponsored-fee) articls for details.
+To activate sposorship, the issuer puts a sponsor fee transaction that specifies an amount of asset that is equivalent to the minimum fee of 0.001 WAVES. For exmaple, if `minSponsoredAssetFee: 5`, then the fee in this asset for exchange transaction equals 5 × 0.003 / 0.001 = 15. See the [Sponsor Fee Transactions](/en/blockchain/waves-protocol/sponsored-fee) article for details.

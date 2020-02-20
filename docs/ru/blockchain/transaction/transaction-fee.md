@@ -36,7 +36,8 @@
 | [Транзакция довыпуска](/ru/blockchain/transaction-type/reissue-transaction) | 5 | 1<br/>0,001 — начиная с версии ноды 1.2.0, после активации функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№ 16). См. раздел[Протокол активации](/ru/blockchain/waves-protocol/activation-protocol) |
 | [Транзакция закрытия лизинга](/ru/blockchain/transaction-type/lease-cancel-transaction) | 9 | 0,001 |
 | [Транзакция лизинга](/ru/blockchain/transaction-type/lease-transaction) | 8 | 0,001 |
-| [Транзакция массового перевода](/ru/blockchain/transaction-type/mass-transfer-transaction) | 11 | 0,001 + 0,0005 × `N`<br>`N` — количество переводов внутри транзакции |
+| [Транзакция массового перевода](/ru/blockchain/transaction-type/mass-transfer-transaction) | 11 | 0,001 + 0,0005 × `N`<br>`N` — количество переводов внутри транзакции.<br>Значение округляется вверх 
+до тысячных |
 | [Транзакция обмена](/ru/blockchain/transaction-type/exchange-transaction) | 7 | 0,003 |
 | [Транзакция перевода](/ru/blockchain/transaction-type/transfer-transaction) | 4 | 0,001 |
 | [Транзакция сжигания токена](/ru/blockchain/transaction-type/burn-transaction) | 6 | 0,001 |
@@ -50,4 +51,5 @@
 
 Эмитент ассета (аккаунт, выпустивший ассет) может сделать его спонсорским — разрешить любым пользователям платить комиссию в этом ассете.
 
-Для включения спонсирования эмитент отправляет транзакцию спонсирования. В транзакции эмитент указывает, какое количество ассета соответствует минимальной комиссии 0,001 WAVES. Например, в случае `minSponsoredAssetFee: 5` комиссия в этом ассете за транзакцию обмена составит 5 × 0,003 / 0,001 = 15. Подробнее см. раздел [Sponsor Fee Transactions](/en/blockchain/waves-protocol/sponsored-fee).
+Для включения спонсирования эмитент отправляет транзакцию спонсирования, в которой указывает количество ассета, 
+эквивалентное минимальной комиссии 0,001 WAVES. Например, в случае `minSponsoredAssetFee: 5` комиссия в этом ассете за транзакцию обмена составит 5 × 0,003 / 0,001 = 15. Подробнее см. раздел [Sponsor Fee Transactions](/en/blockchain/waves-protocol/sponsored-fee).
