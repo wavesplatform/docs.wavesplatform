@@ -4,7 +4,7 @@ A **transaction fee** is a fee that an [account](/en/blockchain/account) owner p
 
 A transaction sender can specify any amount of fee but not less than a  minimum amount. The larger the fee is, the quicker the transaction will be added to the new [block](/en/blockchain/block).
 
-For invoke script transaction and transfer transaction, a sender can specify a transaction fee nominated in a sponsored asset, see the section [Fee Nominated in Sponsored Asset](#fee-nominated-in-sponsored-asset) below.
+For invoke script transaction and transfer transaction, a sender can specify a transaction fee nominated in a sponsored asset instead of WAVES, see the section [Fee Nominated in Sponsored Asset](#fee-nominated-in-sponsored-asset) below.
 
 ## Minimum Fee
 
@@ -50,7 +50,7 @@ Version 1.2.x is currently available on [stagenet](/en/blockchain/blockchain-net
 | [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 4 | 0.001 |
 | [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) | 17 | 0.001 |
 
-## Fee Nominated in Sponsored Asset
+## Fee in Sponsored Asset
 
 An issuer of an asset can set up sponsorship — so that any user can specify a transaction fee in this asset for invoke script transactions and transfer transactions.
 
