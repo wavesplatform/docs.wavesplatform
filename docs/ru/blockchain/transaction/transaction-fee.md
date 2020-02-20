@@ -38,8 +38,7 @@
 | [Транзакция довыпуска](/ru/blockchain/transaction-type/reissue-transaction) | 5 | 1<br/>0,001 — начиная с версии ноды 1.2.0, после активации функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№ 16). См. раздел[Протокол активации](/ru/blockchain/waves-protocol/activation-protocol) |
 | [Транзакция закрытия лизинга](/ru/blockchain/transaction-type/lease-cancel-transaction) | 9 | 0,001 |
 | [Транзакция лизинга](/ru/blockchain/transaction-type/lease-transaction) | 8 | 0,001 |
-| [Транзакция массового перевода](/ru/blockchain/transaction-type/mass-transfer-transaction) | 11 | 0,001 + 0,0005 × `N`<br>`N` — количество переводов внутри транзакции.<br>Значение округляется вверх 
-до тысячных |
+| [Транзакция массового перевода](/ru/blockchain/transaction-type/mass-transfer-transaction) | 11 | 0,001 + 0,0005 × `N`<br>`N` — количество переводов внутри транзакции.<br>Значение округляется вверх до тысячных |
 | [Транзакция обмена](/ru/blockchain/transaction-type/exchange-transaction) | 7 | 0,003 |
 | [Транзакция перевода](/ru/blockchain/transaction-type/transfer-transaction) | 4 | 0,001 |
 | [Транзакция сжигания токена](/ru/blockchain/transaction-type/burn-transaction) | 6 | 0,001 |
