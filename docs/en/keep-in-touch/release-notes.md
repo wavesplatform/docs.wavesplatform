@@ -32,7 +32,7 @@
 
 * Version 4 of the Ride [standard library](/en/ride/script/standard-library) was issued.
 * Added the [median(List[Int])](/en/ride/functions/built-in-functions/math-functions#median) built-in math function. This function calculates a median of the list of integers. Its complexity equals 10.
-* Added the `calculateAssetId(issue: Issue)` function which calculates ID of asset obtained by invoke script transaction's call of the [Issue](/en/ride/structures/common-structures/issue) structure.
+* Added the [calculateAssetId](/en/ride/functions/built-in-functions/blockchain-functions#calculate) function which calculates ID of asset obtained by invoke script transaction's call of the [Issue](/en/ride/structures/common-structures/issue) structure.
 * Added the DeleteEntry structure for deleting the [account data storage](/en/blockchain/account/account-data-storage) entries.
 * Added the feature of issuing/reissuing/burning tokens in the [dApp](/en/blockchain/account/dapp) script. A single transaction can contain up to 10 invocations for the token issue/reissue/burn.
 * Invoke script transaction's fee increased by 1 WAVES for each non-NFT asset issued by the transaction's Issue structure.

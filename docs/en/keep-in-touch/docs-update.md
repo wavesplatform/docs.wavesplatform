@@ -4,8 +4,9 @@
 
 ### Ride
 
-#### Built-in functions
+#### Built-in Functions
 
+* [calculateAssetId](/en/ride/functions/built-in-functions/blockchain-functions#calculate)
 * [groth16Verify](/en/ride/functions/built-in-functions/blockchain-functions#groth)
 
 ## December articles
