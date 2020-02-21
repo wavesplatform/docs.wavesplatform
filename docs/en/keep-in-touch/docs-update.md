@@ -1,5 +1,13 @@
 # Documentation updates
 
+## February articles
+
+### Ride
+
+#### Built-in Functions
+
+* [calculateAssetId](/en/ride/functions/built-in-functions/blockchain-functions#calculate)
+
 ## December articles
 
 ### Blockchain network

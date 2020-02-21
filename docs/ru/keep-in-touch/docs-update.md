@@ -1,5 +1,13 @@
 # Обновления в документации
 
+## Февральские статьи
+
+### Ride
+
+#### Встроенные функции
+
+* [calculateAssetId](/ru/ride/functions/built-in-functions/blockchain-functions#calculate)
+
 ## Январские статьи
 
 ### API & SDK
