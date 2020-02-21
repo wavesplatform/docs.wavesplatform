@@ -36,9 +36,7 @@ The minimum fee for an invoke script transaction:
 | [Create alias transaction](/en/blockchain/transaction-type/alias-transaction) | 10 | 0.001 |
 | [Data transaction](/en/blockchain/transaction-type/data-transaction) | 12 | 0.001 per kilobyte | The value is rounded up to the thousandths |
 | [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) | 7 | 0.003 |
-| [Invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) | 16 | 0.005 + `K`<br>`K` is the number of assets issued as a result of dApp script invocation that are not [non-fungible tokens](/en/blockchain/token/non-fungible-token).<br>
-The functionality of the token issue by dApp script is introduced in the node version 1.2.0. The functionality can be used after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature on the node.
-Version 1.2.x is currently available on [stagenet](/en/blockchain/blockchain-network/stage-network) |
+| [Invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) | 16 | 0.005 + `K`<br>`K` is the number of assets issued as a result of dApp script invocation that are not [non-fungible tokens](/en/blockchain/token/non-fungible-token).<br>Token issue by dApp script added to node version 1.2.0. The functionality can be used after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature on the node. Version 1.2.x is currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) |
 | [Issue transaction](/en/blockchain/transaction-type/issue-transaction) | 3 | 1 for reqular token <br>0.001 for [non-fungible token](/en/blockchain/token/non-fungible-token) |
 | [Lease cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction) | 9 | 0.001 |
 | [Lease transaction](/en/blockchain/transaction-type/lease-transaction) | 8 | 0.001 |
