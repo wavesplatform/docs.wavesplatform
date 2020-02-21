@@ -41,11 +41,11 @@ The minimum fee for an invoke script transaction:
 | [Data transaction](/en/blockchain/transaction-type/data-transaction) | 12 | 0.001 per kilobyte | The value is rounded up to the thousandths |
 | [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) | 7 | 0.003 |
 | [Invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) | 16 | 0.005 + `K`<br>`K` is the number of assets issued as a result of dApp script invocation that are not [non-fungible tokens](/en/blockchain/token/non-fungible-token).<br>Asset issue by dApp script added to node version 1.2.0. The functionality can be used after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature on the node. Version 1.2.x is currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) |
-| [Issue transaction](/en/blockchain/transaction-type/issue-transaction) | 3 | 1 for reqular token <br>0.001 for [non-fungible token](/en/blockchain/token/non-fungible-token) |
+| [Issue transaction](/en/blockchain/transaction-type/issue-transaction) | 3 | • 1 for reqular token <br>• 0.001 for [non-fungible token](/en/blockchain/token/non-fungible-token) |
 | [Lease cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction) | 9 | 0.001 |
 | [Lease transaction](/en/blockchain/transaction-type/lease-transaction) | 8 | 0.001 |
 | [Mass transfer transaction](/en/blockchain/transaction-type/mass-transfer-transaction) | 11 | 0.001 + 0.0005 × `N`<br>`N` is the number of transfers inside of the transaction.<br>The value is rounded up to the thousandths |
-| [Reissue transaction](/en/blockchain/transaction-type/reissue-transaction) | 5 | 0.001 – starting from node version 1.2.0, after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature. See <a href="/en/blockchain/waves-protocol/activation-protocol">Activation Protocol</a>.<br>1 — before activation of the No. 16 feature. |
+| [Reissue transaction](/en/blockchain/transaction-type/reissue-transaction) | 5 | • 0.001 – starting from node version 1.2.0, after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature. See <a href="/en/blockchain/waves-protocol/activation-protocol">Activation Protocol</a>.<br>• 1 — before activation of the No. 16 feature. |
 | [Set asset script transaction](/en/blockchain/transaction-type/set-asset-script-transaction) | 15 | 1 |
 | [Set script transaction](/en/blockchain/transaction-type/set-script-transaction) | 13 | 0.01 |
 | Sponsor fee transaction | 14 | 1 |
