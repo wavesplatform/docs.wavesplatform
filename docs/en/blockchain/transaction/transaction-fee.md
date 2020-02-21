@@ -46,7 +46,7 @@ The minimum fee for an invoke script transaction:
 | [Set script transaction](/en/blockchain/transaction-type/set-script-transaction) | 13 | 0.01 |
 | Sponsor fee transaction | 14 | 1 |
 | [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 4 | 0.001 |
-| [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) | 17 | 0.001 |
+| [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) | 17 | 0.001<br>The update asset info transaction has been added in node version 1.2.0. It can be used after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16). Version 1.2.x is currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) |
 
 ## Fee in Sponsored Asset
 
