@@ -1,5 +1,13 @@
 # Documentation updates
 
+## February articles
+
+### Ride
+
+#### Built-in functions
+
+* [groth16Verify](/en/ride/functions/built-in-functions/blockchain-functions#groth)
+
 ## December articles
 
 ### Blockchain network

@@ -43,7 +43,7 @@
   * IntegerEntry. Writes integer data to the account data storage.
   * StringEntry. Writes string data to the account data storage.
 * Implemented the ability to process in dApp up to two payments attached to the invoke script transaction.
-* Added the `groth16verify` built-in function for zero-knowledge proof verification. Its complexity equals 1900.
+* Added the [groth16verify](/en/ride/functions/built-in-functions/blockchain-functions#groth) built-in function for zero-knowledge proof verification. Its complexity equals 1900.
 * Added the [valueOrElse(t: T|Unit, t0 : T)](/ru/ride/functions/built-in-functions/union-functions#valueOrElse) built-in function that returns a value from the union type if it's not empty. Its complexity equals 13.
 * Added the [contains(source: String, substr: String)](/ru/ride/functions/built-in-functions/string-functions#contains) built-in function which checks whether the second argument (substring) is contained in the first string argument. Its complexity equals 20.
 * Now the list can be the function argument.
