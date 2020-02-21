@@ -1,5 +1,11 @@
 # Обновления в документации
 
+### Ride
+
+#### Встроенные функции
+
+* [groth16Verify(ByteVector, ByteVector, ByteVector): Boolean](/ru/ride/functions/built-in-functions/blockchain-functions#groth)
+
 ## Январские статьи
 
 ### API & SDK
