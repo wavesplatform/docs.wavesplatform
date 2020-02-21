@@ -26,7 +26,7 @@ The minimum fee for an invoke script transaction:
 * Without a smart account or a smart asset: 0.005 + `K` WAVES (see table below).
 * Invoke script transaction sent from smart account: 0.005 + `K` + 0.004 = 0.009 + `K` WAVES.
 * Invoke script transaction with attached payment that is nominated in a smart asset: 0.005 + `K` + 0.004 = 0.009 + `K` WAVES.
-* Invoke script transaction with attached payments that are nominated in two different smart assets: 0.005 + `K` + 2 × 0.004 = 0.013 + `K` WAVES.
+* Invoke script transaction with two attached payments that are nominated in smart assets: 0.005 + `K` + 2 × 0.004 = 0.013 + `K` WAVES.
 * Invoke script transaction that initiated two smart assset transfers and one smart asset burn: 0.005 + `K` + 3 × 0,004 = 0.017 + `K` WAVES.
 * Invoke script transaction that is sent from smart account, with an attached payment that is nominated in a smart asset, and initiated two smart assset transfers and one smart asset burn: 0.005 + `K` + 0,004 + 4 × 0,004  = 0.025 + `K` WAVES (1 account script and 4 asset script executions).
 
