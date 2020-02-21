@@ -17,6 +17,11 @@ module.exports = deepmerge(mixin, {
         message: 'Содержимое этой страницы временно недоступно.<br>Приносим извинения за неудобства!',
     },
 
+    notFoundPage: {
+        title: 'Чего-то не хватает',
+        description: 'Страница, которую вы ищете, не найдена',
+    },
+
     homePage: {
         welcomeText: 'Добро пожаловать в документацию платформы Waves',
         or: 'Или',
@@ -68,12 +73,23 @@ module.exports = deepmerge(mixin, {
                         text: 'dApps',
                         link: '/ru/building-apps/smart-contracts/what-is-a-dapp',
                     },
+                    signer: {
+                        text: 'Библиотека Signer',
+                        link: '/ru/building-apps/waves-api-and-sdk/client-libraries/signer'
+                    }
                 },
             },
             rideProgrammingLanguage: {
                 rootLink: '/ru/ride/',
                 title: 'Язык программирования Ride',
                 caption: 'Cинтаксис Ride. Типы скриптов. Встроенные функции, операторы и структуры.',
+                buttonSet: {
+                    gettingStarted: {
+                        text: 'Начало работы',
+                        link: '/ru/ride/getting-started'
+                    }
+                },
+
             },
             node: {
                 rootLink: '/ru/waves-node/',
@@ -133,6 +149,10 @@ module.exports = deepmerge(mixin, {
                     chat: {
                         text: 'Чат разработчиков',
                         link: 'https://t.me/waves_ride_dapps_dev'
+                    },
+                    release_notes: {
+                        text: 'Release notes',
+                        link: '/ru/keep-in-touch/release-notes'
                     }
                 },
 

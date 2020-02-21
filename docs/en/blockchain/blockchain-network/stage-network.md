@@ -20,9 +20,9 @@ To use nodes on stagenet, you will need to:
 
 * Download [waves-StageNet.conf](https://github.com/wavesplatform/Waves/blob/version-0.17.x/node/waves-stagenet.conf) (Skip this step, if you use the DEB package for a node installation)
 
-* Install the node as described in the [manual](https://docs.wavesplatform.com/en/waves-node/how-to-install-a-node/how-to-install-a-node.html)
+* Install the node as described in the [manual](/en/waves-node/how-to-install-a-node/how-to-install-a-node)
 
-After that the node will begin downloading blocks. To speed up the process, you can import blocks as described in the [manual](https://docs.wavesplatform.com/en/waves-node/options-for-getting-actual-blockchain.html).
+After that the node will begin downloading blocks. To speed up the process, you can import blocks as described in the [manual](/en/waves-node/options-for-getting-actual-blockchain).
 
 If you’d like to become a miner on stagenet, please send a [request](https://wavesplatform.atlassian.net/servicedesk/customer/portal/11/create/178) for WAVES tokens for leasing.
 

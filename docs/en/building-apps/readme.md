@@ -25,12 +25,6 @@ Start creating decentralised applications following the steps:
 - [Waves IDE](https://ide.wavesplatform.com/) — online application for developing and deploying applications on the blockchain.
 - [Surfboard](https://github.com/wavesplatform/Surfboard) — command-line interface for testing and deploying applications on the blockchain.
 
-## Waves grants
-
-Waves supports developers with grants.
-
-Find out the details and submit your application on the [Waves Labs](https://waveslabs.com/grants?lang=en) website.
-
 ## Crowdfunding
 
 Place your Waves project and raise funds for it on the crowdfunding platform [Ventuary DAO](https://beta.ventuary.space/).

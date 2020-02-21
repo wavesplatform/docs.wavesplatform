@@ -264,6 +264,14 @@ module.exports = [
     from: '/en/ride/structures/built-in-structures.html',
   },
   {
+    to: '/en/ride/structures/common-structures/delete-entry',
+    from: '/en/ride/structures/common-structures/delete-key',
+  },
+  {
+    to: '/ru/ride/structures/common-structures/delete-entry',
+    from: '/ru/ride/structures/common-structures/delete-key',
+  },
+  {
     to: '/ru/ride/base-concepts/expression',
     from: '/ru/ride/expression.html',
   },
@@ -389,19 +397,23 @@ module.exports = [
   },
   {
     /*===============================  Smart contracts  =====================================*/
-    to:'/en/smart-contracts/what-is-a-dapp',
+    to:'/en/building-apps/smart-contracts/what-is-a-dapp',
     from: '/en/smart-contracts/ride4dapps/overview.html',
   },
   {
-    to: '/en/smart-contracts/writing-dapps',
+    to: '/en/building-apps/smart-contracts/writing-dapps',
     from: '/en/blockchain/writing-dapps.html',
   },
   {
-    to: '/en/smart-contracts/waves-smart-contracts-overview',
+    to: '/en/building-apps/smart-contracts/waves-smart-contracts-overview',
     from: '/en/blockchain/waves-protocol/smart-contracts.html',
-  },
+  }, 
   {
-    to: '/en/smart-contracts/smart-assets',
+    to: '/en/building-apps/smart-contracts/what-is-smart-account',
+    from: '/en/building-apps/smart-contracts/smart-accounts',
+  }, 
+  {
+    to: '/en/building-apps/smart-contracts/smart-assets',
     from: '/en/technical-details/smart-assets.html',
   },
   {
@@ -590,6 +602,22 @@ module.exports = [
     to: '/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain',
   },
   {
+    from: '/en/waves-node/prerequisites.html',
+    to: '/en/waves-node',
+  },
+  {
+    from: '/en/waves-node/prerequisites/hardware-requirements.html',
+    to: '/en/waves-node',
+  },
+  {
+    from: '/ru/waves-node/prerequisites.html',
+    to: '/ru/waves-node',
+  },
+  {
+    from: '/ru/waves-node/prerequisites/hardware-requirements.html',
+    to: '/ru/waves-node',
+  },
+  {
     from: '/en/ride/about-ride.html',
     to: '/en/ride',
   },
@@ -687,7 +715,7 @@ module.exports = [
   },
   {
     from: '/ru/overview/platform-components.html',
-    to: '/ru', 
+    to: '/ru',
   },
   {
     from: '/ru/platform-features/fair-pos.html',
@@ -710,13 +738,26 @@ module.exports = [
     to: '/ru/blockchain/leasing',
   },
   {
-    '===============================  Oracles  =====================================': null,
+    /*===============================  Oracles  =====================================*/
     to: '/en/ecosystem/waves-oracles/about-waves-oracles',
     from: '/en/oracels-developments/what-is-a-data-oracle.html',
   },
   {
-    '===============================  Resources  ===================================': null,
+    /*===============================  Resources  ===================================*/
     to: '/en/keep-in-touch',
     from: '/en/contributing.html',
-  }
+  },
+  /**/
+  {
+    from: '/zh()',
+    to: 'https://old-docs.wavesplatform.com/',
+  },
+  {
+    from: '/ko()',
+    to: 'https://old-docs.wavesplatform.com/',
+  },
+  {
+    from: '/pt-br()',
+    to: 'https://old-docs.wavesplatform.com/',
+  },
 ];

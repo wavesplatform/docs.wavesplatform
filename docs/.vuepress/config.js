@@ -22,6 +22,8 @@ module.exports = (ctx) => {
         head: [
             ['meta', { name: 'theme-color', content: '#1f5af6' }],
             ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
+            ['meta', { name: 'yandex-verification', content: '3b56db5e097d3f9e' }],
+            ['meta', { name: 'google-site-verification', content: 'OCgZKSvn02M8lGxNeseJn-OWvDxCu0gWHCcSzke2X3Q' }],
             ['link', { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#0055ff' }],
             ['link', { rel: 'apple-touch-icon', href: '/apple-touch-icon.png', size: '180x180' }],
             ['link', { rel: 'icon', href: '/favicon-32x32.png', size: '32x32' }],
@@ -42,12 +44,14 @@ module.exports = (ctx) => {
         themeConfig: {
             logo: '/waves-docs-logo.svg',
             repo: 'https://github.com/wavesplatform/docs.wavesplatform',
+            isShowEditLink: false,
             // activeColouration: 'default',
             colouration: colorationConfig,
             locales: {
                 '/en/': enLocaleConfig,
                 '/ru/': ruLocaleConfig,
             },
+            gtmId: 'GTM-NSRFXFS',
         },
     });
     const configureWebpackOriginal = vuepressComputedConfig.configureWebpack;

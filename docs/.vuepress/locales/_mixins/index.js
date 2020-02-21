@@ -14,16 +14,11 @@ module.exports = {
         message: 'The content of this page is currently unavailable.<br>Sorry for the inconvenience!',
     },
 
-    nav: [
-        // {
-        //     text: 'Home',
-        //     link: '/en/'
-        // },
-        // {
-        //     text: 'Blockchain',
-        //     link: '/en/blockchain/'
-        // },
-    ],
+    notFoundPage: {
+        title: 'Something’s missing',
+        description: 'The page you are looking for is not found',
+    },
+
     homePage: {
         technologyList: {
             learnAboutWavesPlatform: {
@@ -56,7 +51,7 @@ module.exports = {
                 buttonSet: {
                     smartAccount: {
                         text: 'Smart accounts',
-                        link: '/en/building-apps/smart-contracts/smart-accounts'
+                        link: '/en/building-apps/smart-contracts/what-is-smart-account'
                     },
                     smartAsset: {
                         text: 'Smart assets',
@@ -65,6 +60,10 @@ module.exports = {
                     dapp: {
                         text: 'dApps',
                         link: '/en/building-apps/smart-contracts/what-is-a-dapp'
+                    },
+                    signer: {
+                        text: 'Signer library',
+                        link: '/en/building-apps/waves-api-and-sdk/client-libraries/signer'
                     }
                 }
             },
@@ -72,6 +71,13 @@ module.exports = {
                 rootLink: '/en/ride/',
                 type: 'advanced',
                 iconFilePath: getRawIcon('./images/category5.svg'),
+                buttonSet: {
+                    gettingStarted: {
+                        text: 'Getting started',
+                        link: '/en/ride/getting-started'
+                    },
+                },
+
             },
             node: {
                 rootLink: '/en/waves-node/',
@@ -131,7 +137,11 @@ module.exports = {
                     chat: {
                         text: 'Developer chat',
                         link: 'https://t.me/waves_ride_dapps_dev'
-                    }
+                    },
+                    release_notes: {
+                        text: 'Release notes',
+                        link: '/en/keep-in-touch/release-notes'
+                    },                    
                 },
             }
         },
@@ -148,7 +158,7 @@ module.exports = {
 
     footer: {
         broughtToYouByWavesTeam: 'Brought to you by Waves Team.',
-        copyright: '© 2019 Waves Platform',
+        copyright: '© 2020 Waves Platform',
         email: '',
         resourcesCategories: {
             productsAndTools: {

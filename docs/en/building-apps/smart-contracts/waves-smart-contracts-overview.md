@@ -25,7 +25,7 @@ signatures, but you can put any data in the array (each element is up to 64 byte
 
 > :bulb: The best intuition about smart contracts in Waves model are locks. There is a default lock for accounts and assets, which checks signatures of transactions. Smart Contracts allow to change that lock to custom, i.e. open lock (every user can send transaction from smart account), multisignature (account can send transactions only if multiple people sign a transaction), time lock (transactions can be send only after specified blockchain height).
 
-![Smart contracts intuition](../_assets/locks.png)
+![Smart contracts intuition](./_assets/locks.png)
 
 
 ## Smart Accounts

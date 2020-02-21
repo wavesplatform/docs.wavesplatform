@@ -10,13 +10,13 @@
 
 ## Про образ
 
-* Docker образ содержит скрипты и файлы конфигурации для запуска ноды Waves начиная с версии **Version 0.13.0** для TESTNET, MAINNET или CUSTOM сетей.
+* Docker образ содержит скрипты и файлы конфигурации для запуска ноды Waves начиная с версии **Version 0.13.0** для TESTNET, MAINNET или STAGENET сетей.
 * Образ предназначен для быстрого и удобного разворачивания ноды Waves.
 * Контейнер скачивает файл .jar вместе с файлами конфигурации из секции [releases section](https://github.com/wavesplatform/Waves/releases) и осуществляет запуск.
 
 ## Запуск образа
 
-Рекомендуется подробно ознакомиться со статьёй [Конфигурация ноды](https://docs.wavesplatform.com/en/waves-node/how-to-configure-a-node.html) перед запуском контейнера.
+Рекомендуется подробно ознакомиться со статьей [Конфигурация ноды](/en/waves-node/node-configuration) перед запуском контейнера.
 
 Самый простой способ запуска контейнера:
 
@@ -44,8 +44,8 @@ docker run -p 6869:6869 -p 6863:6863 -e WAVES_NETWORK=TESTNET -e WAVES_LOG_LEVEL
 |`WAVES_WALLET_SEED_BASE58`        |Кодовая фраза, зашифрованная в Base58.   |
 |`WAVES_WALLET_PASSWORD`           |Пароль для файла кошелька.    |
 |`WAVES_VERSION`                   |Версия ноды. Значение по умолчанию latest. Список доступных версий [тут](https://github.com/wavesplatform/Waves/releases).|
-|`WAVES_NETWORK`                   |Тип ноды. `MAINNET` или `TESTNET`.   |
-|`WAVES_LOG_LEVEL`                 |Режим логирования ноды: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`. Подробно про режимы логирования [тут](https://docs.wavesplatform.com/en/waves-node/logging.html).   |
+|`WAVES_NETWORK`                   |Тип ноды. `MAINNET`, `TESTNET` или `STAGENET`   |
+|`WAVES_LOG_LEVEL`                 |Режим логирования ноды: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`. Подробно про режимы логирования [тут](/ru/waves-node/logging-configuration).   |
 |`WAVES_HEAP_SIZE`                 |Java Heap Size лимит в -X Command-line Options notation (`-Xms=[your value]`). Подробно [тут](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html)   |
 |`WAVES_CONFIG_FILE`               |Адрес файла конфигурации Waves.   |
 |`WAVES_DECLARED_ADDRESS`          |Строка с IP адресом и портом для отправки в качестве внешнего адреса во время handshake. Может быть задан автоматически если активирован UPnP. Если параметр задан, что является нормальным сценарием для ноды, работающей в облаке, нода будет принимать входящие подключения через `bind-address:port` и передавать свой `declared-address` другим узлам.|
@@ -59,7 +59,7 @@ docker run -p 6869:6869 -p 6863:6863 -e WAVES_NETWORK=TESTNET -e WAVES_LOG_LEVEL
 Образ поддерживает конфигурирование при помощи переменных среды. В зависимости от переменных среды, образ генерирует файл local.conf и сохраняет его в папке `/waves/configs`.
 Чтобы задать значение в файле конфигурации следуйте простым привилам:
 
-1. Определите путь до переменной в файле конфигурации ([complete configuration file](https://docs.wavesplatform.com/en/waves-node/how-to-configure-a-node.html))
+1. Определите путь до переменной в файле конфигурации ([complete configuration file](/en/waves-node/node-configuration))
 2. Соединяйте все имена секций двойным underscore (`__`).
 3. Замените все тире одиночными underscore (`_`).
 4. Капитализируйте последнюю строку.

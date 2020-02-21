@@ -1,5 +1,14 @@
 # Documentation updates
 
+## February articles
+
+### Ride
+
+#### Built-in Functions
+
+* [calculateAssetId](/en/ride/functions/built-in-functions/blockchain-functions#calculate)
+* [groth16Verify](/en/ride/functions/built-in-functions/blockchain-functions#groth)
+
 ## December articles
 
 ### Blockchain network
@@ -28,7 +37,7 @@
     * [BooleanEntry](/en/ride/structures/common-structures/boolean-entry)
     * [Burn](/en/ride/structures/common-structures/burn)
     * [DeleteKey](/en/ride/structures/common-structures/delete-key)
-    * [IntEntry](/en/ride/structures/common-structures/int-entry)
+    * [IntegerEntry](/en/ride/structures/common-structures/int-entry)
     * [Issue](/en/ride/structures/common-structures/issue)
     * [Reissue](/en/ride/structures/common-structures/reissue)
     * [StringEntry](/en/ride/structures/common-structures/string-entry)
@@ -42,21 +51,21 @@
 
 ### API & SDK
 
-* [Signer](/en//en/building-apps/waves-api-and-sdk/client-libraries/signer)
+* [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer)
 
 ## November articles
 
 ### Smart contracts
 
-* [What is a Smart Account](/en/smart-contracts/what-is-smart-account)
-* [Creating smart account](/en/smart-contracts/how-to-create-smart-account)
+* [What is a Smart Account](/en/building-apps/smart-contracts/what-is-smart-account)
+* [Creating smart account](/en/building-apps/smart-contracts/how-to-create-smart-account)
 
 ## October articles
 
 ### Programming
 
-* [What is a Smart Asset](/en/smart-contracts/what-is-smart-asset)
-* [What is a dApp](/en/smart-contracts/what-is-a-dapp)
+* [What is a Smart Asset](/en/building-apps/smart-contracts/what-is-smart-asset)
+* [What is a dApp](/en/building-apps/smart-contracts/what-is-a-dapp)
 
 ### Blockchain
 
@@ -81,7 +90,7 @@
 
 ### Glossary
 
-* [Glossary](/en/glossary/glossary)
+* [Glossary](/en/blockchain/glossary)
 
 ## September articles
 
@@ -101,8 +110,8 @@
     * [Account script](/en/ride/script/script-types/account-script) — <span style="color:green">updated</span>
   * [Standard Library](/en/ride/script/standard-library)
 * Functions
-  * [Built-in functions](/en/ride/functions/built-in-functions) — [<span style="color:green">updated</span>](/en/https://github.com/wavesplatform/waves-documentation/commit/b9c34cc7a7c0f540a2e41be8592233e1903da0d2#diff-b3344cfde38b2228710ac8c6a652a56d)
-    * [Verification functions](/en/ride/functions/built-in-functions/verification-functions) — [<span style="color:green">updated</span>](/en/https://github.com/wavesplatform/waves-documentation/commit/de148968d16389068ce77865bcc3a482eb3fb9b5?diff=unified#diff-7d8db406e747ac90ad2ed0ae321fc5fe)
+  * [Built-in functions](/en/ride/functions/built-in-functions) — <span style="color:green">updated</span>
+    * [Verification functions](/en/ride/functions/built-in-functions/verification-functions) — <span style="color:green">updated</span>
 * Variables
   * [Built-in variables](/en/ride/variables/built-in-variables)
 
@@ -111,8 +120,6 @@
 * [Node configuration](/en/waves-node/node-configuration) — <span style="color:green">updated</span>
 
 * Token Rating
-  * [Token management](/en/waves-token-rating/token-management)
+  * [Token management](/en/ecosystem/waves-token-rating/token-management)
 
-> See older news in the [News archive](/en/miscellaneous/news-archive)
-
-> Check out documentation repository on [Github](/en/https://github.com/wavesplatform/waves-documentation)
+> Check out documentation repository on [Github](https://github.com/wavesplatform/docs.wavesplatform)

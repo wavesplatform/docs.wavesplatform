@@ -601,6 +601,10 @@ module.exports = {
       path: nodePath + 'how-to-rollback-a-node',
     },
     {
+      title: 'Working with node wallet',
+      path: nodePath + 'working-with-node-wallet',
+    },
+    {
       title: 'Waves node in Docker',
       path: nodePath + 'waves-node-in-docker',
     },
@@ -881,10 +885,15 @@ module.exports = {
       title: 'FOLD<N> Macro',
       path: ridePath + 'fold-macro',
     },
-
     {
       title: 'Operators',
       path: ridePath + 'operators',
+      children: [
+        {
+          title: 'match-case',
+          path: ridePath + 'operators/match-case',
+        },
+      ]
     },
     {
       title: 'Script',
@@ -975,11 +984,11 @@ module.exports = {
               path: ridePath + 'structures/common-structures/data-entry',
             },
             {
-              title: 'DeleteKey',
-              path: ridePath + 'structures/common-structures/delete-key',
+              title: 'DeleteEntry',
+              path: ridePath + 'structures/common-structures/delete-entry',
             },
             {
-              title: 'IntEntry',
+              title: 'IntegerEntry',
               path: ridePath + 'structures/common-structures/int-entry',
             },
             {
@@ -1123,12 +1132,8 @@ module.exports = {
     },
     {
       title: 'Smart Account',
-      path: programmingPath + 'smart-accounts',
+      path: programmingPath + 'what-is-smart-account',
       children: [
-        {
-          title: 'What is a Smart Account',
-          path: programmingPath + 'what-is-smart-account',
-        },
         {
           title: 'Creating smart account',
           path: programmingPath + 'how-to-create-smart-account',
@@ -1234,6 +1239,10 @@ module.exports = {
           path: sdkPath + 'client-libraries',
           children: [
             {
+              title: 'Signer',
+              path: sdkPath + 'client-libraries/signer',
+            },
+            {
               title: 'PyWaves',
               path: sdkPath + 'client-libraries/pywaves',
             },
@@ -1256,10 +1265,6 @@ module.exports = {
             {
               title: 'WavesRS',
               path: sdkPath + 'client-libraries/wavesrs',
-            },
-            {
-              title: 'Waves Signer',
-              path: sdkPath + 'client-libraries/signer',
             },
             {
               title: 'Waves transactions',
@@ -1364,6 +1369,10 @@ module.exports = {
     {
       title: 'Keep in Touch',
       path: keepInTouchPath,
+    },
+    {
+      title: 'Release Notes',
+      path: keepInTouchPath + 'release-notes',
     },
     {
       title: 'Documentation Updates',

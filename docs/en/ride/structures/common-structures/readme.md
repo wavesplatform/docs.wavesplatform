@@ -11,7 +11,7 @@
 | [BooleanEntry](/en/ride/structures/common-structures/boolean-entry) (for Standard Library version 4) | Adds a boolean data record of an [account data storage](/en/blockchain/account/account-data-storage) |
 | [Burn](/en/ride/structures/common-structures/burn) (for Standard Library version 4) | Burns token |
 | [DataEntry](/en/ride/structures/common-structures/data-entry) (for Standard Library version 3) | Adds a data record of an  [account data storage](/en/blockchain/account/account-data-storage) |
-| [IntEntry](/en/ride/structures/common-structures/int-entry) (for Standard Library version 4) | Adds an integer data record of an [account data storage](/en/blockchain/account/account-data-storage) |
+| [IntegerEntry](/en/ride/structures/common-structures/int-entry) (for Standard Library version 4) | Adds an integer data record of an [account data storage](/en/blockchain/account/account-data-storage) |
 | [Invocation](/en/ride/structures/common-structures/invocation) |Abbreviated representation of an invoke script transaction |
 | [Issue](/en/ride/structures/common-structures/issue) (for Standard Library version 4) | Issues a token |
 | [Order](/en/ride/structures/common-structures/order) | Order info |

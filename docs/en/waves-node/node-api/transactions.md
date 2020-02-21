@@ -298,7 +298,7 @@ or
 
 Signs an arbitrary transaction by a private key of signer. This requires an API key, a signer address and transaction type to be specified in the request body.
 
-`signerAddress` should be created by [POST /addresses](https://docs.wavesplatform.com/development-and-api/node-api/address.html#post-addresses).
+`signerAddress` should be created by [POST /addresses](/en/waves-node/node-api/address#post-addresses).
 
 The types are as follows:
 

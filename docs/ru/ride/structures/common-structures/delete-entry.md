@@ -1,4 +1,4 @@
-# DeleteKey
+# DeleteEntry
 
 Удаляет запись из [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage) по ее ключу.
 
@@ -7,7 +7,7 @@
 
 ## Конструктор
 
-`DeleteKey(key: String)`
+`DeleteEntry(key: String)`
 
 ## Поля
 
@@ -23,6 +23,6 @@
     
 @Callable(inv)
 func default() = {
-  [ DeleteKey(inv.caller.toString()) ]
+  [ DeleteEntry(inv.caller.toString()) ]
 }
 ```

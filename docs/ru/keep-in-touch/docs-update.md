@@ -1,5 +1,20 @@
 # Обновления в документации
 
+## Февральские статьи
+
+### Ride
+
+#### Встроенные функции
+
+* [calculateAssetId](/ru/ride/functions/built-in-functions/blockchain-functions#calculate)
+* [groth16Verify](/ru/ride/functions/built-in-functions/blockchain-functions#groth)
+
+## Январские статьи
+
+### API & SDK
+
+* [Signer](/ru/building-apps/waves-api-and-sdk/client-libraries/signer) — библиотека для создания, подписания и отправки транзакций.
+
 ## Декабрьские статьи
 
 ### Ride
@@ -31,7 +46,7 @@
     * [BooleanEntry](/ru/ride/structures/common-structures/boolean-entry)
     * [Burn](/ru/ride/structures/common-structures/burn)
     * [DeleteKey](/ru/ride/structures/common-structures/delete-key)
-    * [IntEntry](/ru/ride/structures/common-structures/int-entry)
+    * [IntegerEntry](/ru/ride/structures/common-structures/int-entry)
     * [Issue](/ru/ride/structures/common-structures/issue)
     * [Reissue](/ru/ride/structures/common-structures/reissue)
     * [StringEntry](/ru/ride/structures/common-structures/string-entry)
@@ -42,20 +57,20 @@
 
 ### Программирование
 
-* [Что такое смарт-аккаунт](/ru/smart-contracts/what-is-smart-account)
-* [Создание смарт-аккаунта](/ru/smart-contracts/how-to-create-smart-account)
+* [Что такое смарт-аккаунт](/ru/building-apps/smart-contracts/what-is-smart-account)
+* [Создание смарт-аккаунта](/ru/building-apps/smart-contracts/how-to-create-smart-account)
 )
 
 ## Октябрьские статьи
 
 ### Программирование
 
-* [Что такое смарт-ассет](/ru/smart-contracts/what-is-smart-asset)
-* [Что такое dApp](/ru/smart-contracts/what-is-a-dapp)
+* [Что такое смарт-ассет](/ru/building-apps/smart-contracts/what-is-smart-asset)
+* [Что такое dApp](/ru/building-apps/smart-contracts/what-is-a-dapp)
 
 ### Oracles
 
-* [Инструмент отправки транзакций данных](/ru//ru/ecosystem/waves-oracles/data-transaction-tool)
+* [Инструмент отправки транзакций данных](/ru/ecosystem/waves-oracles/data-transaction-tool)
 
 ### Ride
 
@@ -77,7 +92,7 @@
 
 ### Глоссарий
 
-* [Глоссарий](/ru/glossary/glossary)
+* [Глоссарий](/ru/blockchain/glossary)
 
 ## Сентябрьские статьи
 
@@ -100,9 +115,9 @@
     * [Бинарный формат транзакции установки скрипта](/ru/blockchain/binary-format/transaction-binary-format/set-script-transaction-binary-format)
 * [Биржевая заявка](/ru/blockchain/order) — <span style="color:green">обновлено</span>
 * Майнинг
-  * [Вознаграждение за майнинг](/ru//ru/blockchain/mining/mining-reward)
+  * [Вознаграждение за майнинг](/ru/blockchain/mining/mining-reward)
 * Token Rating
-  * [Управление токеном](/ru/waves-token-rating/token-management)
+  * [Управление токеном](/ru/ecosystem/waves-token-rating/token-management)
 
 ### Ride
 
@@ -116,6 +131,4 @@
   * [Встроенные функции](/ru/ride/functions/built-in-functions) — <span style="color:green">обновлено</span>
     * [Функции верификации](/ru/ride/functions/built-in-functions/verification-functions) — <span style="color:green">обновлено</span>
 
-> Посмотреть старые новости в [Aрхиве новостей](/ru/miscellaneous/news-archive)
-
-> Посмотреть репозиторий документации на [Github](/ru/https://github.com/wavesplatform/waves-documentation)
+> Посмотреть репозиторий документации на [Github](https://github.com/wavesplatform/docs.wavesplatform)
