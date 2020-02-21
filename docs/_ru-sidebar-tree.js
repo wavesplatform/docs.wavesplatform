@@ -1119,8 +1119,34 @@ module.exports = {
 
   [buildingAppsPath]: [
     {
-      title: 'Руководство разработчика',
+      title: 'Приступая к работе',
       path: buildingAppsPath,
+    },
+    {
+      title: 'Практические руководства',
+      path: buildingAppsPath + 'how-to',
+      children: [
+        {
+          title: 'Получение данных из блокчейна',
+          path: buildingAppsPath + 'how-to/basic/retrieve',
+        },
+        {
+          title: 'Создание и отправка транзакций',
+          path: buildingAppsPath + 'how-to/basic/transaction',
+        },
+        {
+          title: 'Покупка и продажа токенов',
+          path: buildingAppsPath + 'how-to/basic/trading',
+        },
+        {
+          title: '[en] Create your first crypto trading Bot',
+          path: sdkPath + 'examples/trading-bot',
+        },
+        {
+          title: 'Простое голосование',
+          path: programmingPath + 'simple-voting-on-the-waves-blockchain',
+        }
+      ]
     },
     {
       title: '[en] Waves Smart Contracts',
@@ -1155,25 +1181,11 @@ module.exports = {
         {
           title: 'Написание dApp',
           path: programmingPath + 'writing-dapps',
-        },
-        {
-          title: 'Руководства',
-          path: sdkPath + 'examples',
-          children: [
-            {
-              title: 'Простое голосование на блокчейне Waves',
-              path: programmingPath + 'simple-voting-on-the-waves-blockchain',
-            },
-            {
-              title: '[en] Create your first crypto trading Bot',
-              path: sdkPath + 'examples/trading-bot',
-            },
-          ],
-        },
+        }
       ],
     },
     {
-      title: 'Статьи о dApps',
+      title: 'Статьи о смарт-контрактах',
       path: programmingPath + 'articles-on-dapps',
     },
     {

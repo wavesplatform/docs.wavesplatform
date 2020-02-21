@@ -1,4 +1,4 @@
-# Create your first crypto trading bot
+# How to Create Your First Crypto Trading Bot
 
 ## Introduction
 Waves platform is designed and built from the ground up for speed and scale. At the same time Waves is one of the most developer-friendly ecosystems. Waves blockchain exposes its functionality through a powerful REST API, that can be used with any programming language.

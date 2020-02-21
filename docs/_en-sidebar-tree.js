@@ -585,7 +585,7 @@ module.exports = {
         {
           title: 'Export/Import Blockchain',
           path: nodePath + 'options-for-getting-actual-blockchain/import-from-the-blockchain',
-        },	  
+        },    
         {
           title: 'Download the Latest Blockchain',
           path: nodePath + 'options-for-getting-actual-blockchain/state-downloading-and-applying',
@@ -1123,8 +1123,34 @@ module.exports = {
 
   [buildingAppsPath]: [
     {
-      title: 'Developer guide',
+      title: 'Getting Started',
       path: buildingAppsPath,
+    },
+    {
+      title: 'How-to Guides',
+      path: buildingAppsPath + 'how-to',
+      children: [
+        {
+          title: 'Retrieving Information from the Blockchain',
+          path: buildingAppsPath + 'how-to/basic/retrieve',
+        },
+        {
+          title: 'Creating & Broadcasting Transactions',
+          path: buildingAppsPath + 'how-to/basic/transaction',
+        },
+        {
+          title: 'Buying & Selling Tokens',
+          path: buildingAppsPath + 'how-to/basic/trading',
+        },
+        {
+          title: 'Creating Crypto Trading Bot',
+          path: sdkPath + 'examples/trading-bot',
+        },
+        {
+          title: 'Simple Voting',
+          path: programmingPath + 'simple-voting-on-the-waves-blockchain',
+        }
+      ]
     },
     {
       title: 'Waves Smart Contracts',
@@ -1191,20 +1217,6 @@ module.exports = {
         {
           title: 'Writing dApps',
           path: programmingPath + 'writing-dapps',
-        },
-        {
-          title: 'How-to guides',
-          path: sdkPath + 'examples',
-          children: [
-            {
-              title: 'Simple voting on the Waves blockchain',
-              path: programmingPath + 'simple-voting-on-the-waves-blockchain',
-            },
-            {
-              title: 'Create your first crypto trading Bot',
-              path: sdkPath + 'examples/trading-bot',
-            },
-          ],
         },
       ],
     },

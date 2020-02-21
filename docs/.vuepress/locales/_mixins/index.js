@@ -61,6 +61,10 @@ module.exports = {
                         text: 'dApps',
                         link: '/en/building-apps/smart-contracts/what-is-a-dapp'
                     },
+                    howTo: {
+                        text: 'How-to Guides',
+                        link: '/en/building-apps/how-to'
+                    },
                     signer: {
                         text: 'Signer library',
                         link: '/en/building-apps/waves-api-and-sdk/client-libraries/signer'

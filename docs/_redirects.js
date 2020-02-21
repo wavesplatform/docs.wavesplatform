@@ -670,8 +670,16 @@ module.exports = [
     to: '/en/building-apps/waves-api-and-sdk/client-libraries$1',
   },
   {
-    from: '/en/waves-api-and-sdk/examples()',
-    to: '/en/building-apps/waves-api-and-sdk/examples$1',
+    from: '/en/waves-api-and-sdk/examples',
+    to: '/en/building-apps/how-to',
+  },
+  {
+    from: '/ru/waves-api-and-sdk/examples',
+    to: '/ru/building-apps/how-to',
+  },
+  {
+    from: '/en/waves-api-and-sdk/examples/trading-bot',
+    to: '/en/building-apps/waves-api-and-sdk/examples/trading-bot',
   },
   {
     from: '/ru/waves-api-and-sdk()',
