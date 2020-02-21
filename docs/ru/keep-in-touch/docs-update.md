@@ -4,7 +4,7 @@
 
 #### Встроенные функции
 
-* [groth16Verify(ByteVector, ByteVector, ByteVector): Boolean](/ru/ride/functions/built-in-functions/blockchain-functions#groth)
+* [groth16Verify](/ru/ride/functions/built-in-functions/blockchain-functions#groth)
 
 ## Январские статьи
 
