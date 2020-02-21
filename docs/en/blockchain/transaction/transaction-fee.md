@@ -14,21 +14,21 @@ The minimum fees in WAVES for each type of transaction are listed in the table b
 
 The minimum fee for a transfer transaction:
 
-* Without a smart account or a smart asset: 0.001.
-* Transfer from smart account: 0.001 + 0.004.
-* Transfer of smart asset: 0.001 + 0.004.
-* Transfer of smart asset sent from smart account: 0.001 + 0.004 + 0.004.
+* Without a smart account or a smart asset: 0.001 WAVES.
+* Transfer from smart account: 0.001 + 0.004 = 0.005 WAVES.
+* Transfer of smart asset: 0.001 + 0.004 = 0.005 WAVES.
+* Transfer of smart asset sent from smart account: 0.001 + 0.004 + 0.004 = 0.009 WAVES.
 
 **Example 2.**
 
 The minimum fee for an invoke script transaction:
 
-* Without a smart account or a smart asset: 0.005 + `K` (see table below).
-* Invoke script transaction sent from smart account: 0.005 + `K` + 0.004.
-* Invoke script transaction with attached payment that is nominated in a smart asset: 0.005 + `K` + 0.004.
-* Invoke script transaction with attached payments that are nominated in two different smart assets: 0.005 + `K` + 2 × 0.004.
-* Invoke script transaction that initiated two smart assset transfers and one smart asset burn: 0.005 + `K` + 3 × 0,004.
-* Invoke script transaction that is sent from smart account, with an attached payment that is nominated in a smart asset, and initiated two smart assset transfers and one smart asset burn: 0.005 + `K` + 0,004 + 4 × 0,004 (1 account script and 4 asset script executions).
+* Without a smart account or a smart asset: 0.005 + `K` WAVES (see table below).
+* Invoke script transaction sent from smart account: 0.005 + `K` + 0.004 = 0.009 + `K` WAVES.
+* Invoke script transaction with attached payment that is nominated in a smart asset: 0.005 + `K` + 0.004 = 0.009 + `K` WAVES.
+* Invoke script transaction with attached payments that are nominated in two different smart assets: 0.005 + `K` + 2 × 0.004 = 0.013 + `K` WAVES.
+* Invoke script transaction that initiated two smart assset transfers and one smart asset burn: 0.005 + `K` + 3 × 0,004 = 0.017 + `K` WAVES.
+* Invoke script transaction that is sent from smart account, with an attached payment that is nominated in a smart asset, and initiated two smart assset transfers and one smart asset burn: 0.005 + `K` + 0,004 + 4 × 0,004  = 0.025 + `K` WAVES (1 account script and 4 asset script executions).
 
 | Transaction type | Transaction type ID | Minimum transaction fee in WAVES |
 | :--- | :--- | :--- |
