@@ -14,7 +14,7 @@ The minimum fees in WAVES for each type of transaction are listed in the table b
 
 The minimum fee for a transfer transaction:
 
-* Without a smart account or a smart asset: 0.001 WAVES.
+* No smart account or smart assets: 0.001 WAVES.
 * Transfer from smart account: 0.001 + 0.004 = 0.005 WAVES.
 * Transfer of smart asset: 0.001 + 0.004 = 0.005 WAVES.
 * Transfer of smart asset sent from smart account: 0.001 + 0.004 + 0.004 = 0.009 WAVES.
@@ -23,12 +23,16 @@ The minimum fee for a transfer transaction:
 
 The minimum fee for an invoke script transaction:
 
-* Without a smart account or a smart asset: 0.005 + `K` WAVES (see table below).
-* Invoke script transaction sent from smart account: 0.005 + `K` + 0.004 = 0.009 + `K` WAVES.
-* Invoke script transaction with attached payment that is nominated in a smart asset: 0.005 + `K` + 0.004 = 0.009 + `K` WAVES.
-* Invoke script transaction with two attached payments that are nominated in smart assets: 0.005 + `K` + 2 × 0.004 = 0.013 + `K` WAVES.
-* Invoke script transaction that initiated two smart assset transfers and one smart asset burn: 0.005 + `K` + 3 × 0,004 = 0.017 + `K` WAVES.
-* Invoke script transaction that is sent from smart account, with an attached payment that is nominated in a smart asset, and initiated two smart assset transfers and one smart asset burn: 0.005 + `K` + 0,004 + 4 × 0,004  = 0.025 + `K` WAVES (1 account script and 4 asset script executions).
+* No smart account, no smart assets, no assets issued: 0.005 WAVES.
+* dApp script invocation is sent from a smart account: 0.005 + 0.004 = 0.009 WAVES.
+* dApp script invocation with an attached payment that is nominated in a smart asset: 0.005 + 0.004 = 0.009 WAVES.
+* dApp script invocation with two attached payments in smart assets: 0.005 + 2 × 0.004 = 0.013 WAVES.
+* dApp script invocation that performed two smart assset transfers and one smart asset burn: 0.005 + 3 × 0.004 = 0.017 WAVES.
+* dApp script invocation is sent from a smart account, with two attached payment in smart assets, and 10 smart assets transfers/reissues/burns are performed: 0.005 + 0.004 + 2 × 0.004 + 10 × 0.004 = 0.057 WAVES.
+* dApp script invocation issued an asset that is not [non-fungible token](/en/blockchain/token/non-fungible-token): 0.005 + 1 = 1.005 WAVES.
+* dApp script invocation is sent from smart account, with two attached payment in smart assets, and 10 asssets that are not [non-fungible token](/en/blockchain/token/non-fungible-token) are issued: 0.005 + 0.004 + 2 × 0.004 + 10 × 1 = 10.017 WAVES.
+
+> Asset issue/reissue/burn by dApp script added to node version 1.2.0. The functionality can be used after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature on the node. Version 1.2.x is currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network)
 
 | Transaction type | Transaction type ID | Minimum transaction fee in WAVES |
 | :--- | :--- | :--- |
@@ -36,7 +40,7 @@ The minimum fee for an invoke script transaction:
 | [Create alias transaction](/en/blockchain/transaction-type/alias-transaction) | 10 | 0.001 |
 | [Data transaction](/en/blockchain/transaction-type/data-transaction) | 12 | 0.001 per kilobyte | The value is rounded up to the thousandths |
 | [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) | 7 | 0.003 |
-| [Invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) | 16 | 0.005 + `K`<br>`K` is the number of assets issued as a result of dApp script invocation that are not [non-fungible tokens](/en/blockchain/token/non-fungible-token).<br>Token issue by dApp script added to node version 1.2.0. The functionality can be used after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature on the node. Version 1.2.x is currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) |
+| [Invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) | 16 | 0.005 + `K`<br>`K` is the number of assets issued as a result of dApp script invocation that are not [non-fungible tokens](/en/blockchain/token/non-fungible-token).<br>Asset issue by dApp script added to node version 1.2.0. The functionality can be used after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature on the node. Version 1.2.x is currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) |
 | [Issue transaction](/en/blockchain/transaction-type/issue-transaction) | 3 | 1 for reqular token <br>0.001 for [non-fungible token](/en/blockchain/token/non-fungible-token) |
 | [Lease cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction) | 9 | 0.001 |
 | [Lease transaction](/en/blockchain/transaction-type/lease-transaction) | 8 | 0.001 |

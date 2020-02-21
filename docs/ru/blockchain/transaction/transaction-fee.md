@@ -32,6 +32,8 @@
 * Вызов, в котором dApp-скрипт выпустил новый ассет (не являющийся [NFT](/ru/blockchain/token/non-fungible-token)): 0,005 + 1 = 1,005 WAVES.
 * Вызов со смарт-аккаунта, приложено два платежа в смарт-ассетах, dApp-скрипт выпустил 10 ассетов (не являющихся [NFT](/ru/blockchain/token/non-fungible-token)): 0,005 + 0,004 + 2 × 0,004 + 10 × 1 = 10,017 WAVES.
 
+> Возможность выпуска/довыпуска/cжигания токена dApp-скриптом добавлена в версии ноды 1.2.0. Возможность включается с активацией на ноде функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№16). На данный момент версии 1.2.x доступны на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
 | Тип транзакции | ID типа транзакции | Минимальная комиссия в WAVES |
 | :--- | :--- | :--- |
 | [Транзакция вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 16 | 0,005 +`K`<br>`K` — количество обычных ассетов (не являющихся [NFT](/ru/blockchain/token/non-fungible-token)), выпущенных в результате вызова dApp-скрипта.<br>Возможность выпуска токена dApp-скриптом добавлена в версии ноды 1.2.0. Возможность включается с активацией на ноде функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№16). На данный момент версии 1.2.x доступны на [Stagenet](/ru/blockchain/blockchain-network/stage-network) |
