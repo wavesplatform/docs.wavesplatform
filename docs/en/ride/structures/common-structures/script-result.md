@@ -1,6 +1,6 @@
 # ScriptResult (for Standard Library version 3)
 
-> :warning: The structure is disabled in Standard library version 4. Use `List[BinaryEntry|BooleanEntry|IntEntry|StringEntry|ScriptTranfer|Issue|Reissue|Burn]` instead of it.
+> :warning: The structure is disabled in Standard library version 4. Use `List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry|ScriptTranfer|Issue|Reissue|Burn]` instead of it.
 
 Structure of the execution result of a callable function.
 

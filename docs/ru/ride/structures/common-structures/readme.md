@@ -11,7 +11,7 @@
 | [BooleanEntry](/ru/ride/structures/common-structures/boolean-entry) | Добавляет в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage) запись логического типа. Применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) версии 4 |
 | [Burn](/ru/ride/structures/common-structures/burn) | Сжигает токен. Применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) версии 4 |
 | [DataEntry](/ru/ride/structures/common-structures/data-entry) | Добавляет запись в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage). Применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) версии 3 |
-| [IntEntry](/ru/ride/structures/common-structures/int-entry) | Добавляет в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage) запись целочисленного типа. Применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) версии 4 |
+| [IntegerEntry](/ru/ride/structures/common-structures/int-entry) | Добавляет в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage) запись целочисленного типа. Применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) версии 4 |
 | [Invocation](/ru/ride/structures/common-structures/invocation) | Сокращенное представление транзакции вызова скрипта |
 | [Issue](/ru/ride/structures/common-structures/issue) | Выпускает токен. Применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) версии 4 |
 | [Order](/ru/ride/structures/common-structures/order) | [Oрдер](/ru/blockchain/order) |

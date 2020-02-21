@@ -7,6 +7,7 @@
 #### Built-in Functions
 
 * [calculateAssetId](/en/ride/functions/built-in-functions/blockchain-functions#calculate)
+* [groth16Verify](/en/ride/functions/built-in-functions/blockchain-functions#groth)
 
 ## December articles
 
@@ -36,7 +37,7 @@
     * [BooleanEntry](/en/ride/structures/common-structures/boolean-entry)
     * [Burn](/en/ride/structures/common-structures/burn)
     * [DeleteKey](/en/ride/structures/common-structures/delete-key)
-    * [IntEntry](/en/ride/structures/common-structures/int-entry)
+    * [IntegerEntry](/en/ride/structures/common-structures/int-entry)
     * [Issue](/en/ride/structures/common-structures/issue)
     * [Reissue](/en/ride/structures/common-structures/reissue)
     * [StringEntry](/en/ride/structures/common-structures/string-entry)
