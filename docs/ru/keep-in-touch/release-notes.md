@@ -32,7 +32,7 @@
 
 * Выпущена четвертая версия [стандартной библиотеки](/ru/ride/script/standard-library).
 * Добавлена встроенная математическая функция [median(List[Int])](/ru/ride/functions/built-in-functions/math-functions#median). Эта функция служит для вычисления медианы списка целых чисел. Complexity функции равна 10.
-* Добавлена функция `calculateAssetId(issue: Issue)`, вычисляющая ID ассета, сформированного структурой [Issue](/ru/ride/structures/common-structures/issue) при выполнении транзакции вызова скрипта.
+* Добавлена функция [calculateAssetId](/ru/ride/functions/built-in-functions/blockchain-functions#calculate), вычисляющая ID ассета, сформированного структурой [Issue](/ru/ride/structures/common-structures/issue) при выполнении транзакции вызова скрипта.
 * Добавлена структура DeleteEntry для удаления данных из [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage).
 * Добавлена возможность выпускать, довыпускать и сжигать токены из скрипта [dApp](/ru/blockchain/account/dapp). В одной транзакции можно выполнить до 10 вызовов функций для выпуска/довыпуска/сжигания токенов.
 * Комиссия за выполнение транзакции вызова скрипта увеличивается на 1 WAVES за каждый не NFT-ассет, выпущенный при помощи структуры Issue.
