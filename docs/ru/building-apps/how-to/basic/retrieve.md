@@ -2,53 +2,53 @@
 sidebarDepth: 2
 ---
 
-# How to Read Blockchain Data
+# Как прочитать данные из блокчейна
 
-All the data in the Waves blockchain is public and can be read by anyone. For example, you can retrive data from account data storage, account balance, a list of transactions by certain account, or current blockchain height and time.
+Все данные в блокчейне Waves доступны для чтения. Например, вы можете прочитать записи в хранилище данных любого аккаунта, баланс аккаунта, список транзакций аккаунта, текущую высоту и время на блокчейне.
 
-You can send a request to your own node or to one of the Waves nodes with public API:
+Запросна чтение данных вы можете отправить на собственную ноду или одну из нод с публичным API:
 * Testnet: <https://nodes-testnet.wavesnodes.com>
 * Mainnet: <https://nodes.wavesnodes.com>
 
-## Data from Account Data Storage
+## Записи хранилища данных аккаунта
 
-Each account on the Waves blockchain has an account data storage that stores data records in key-value format. See the [Account Data Storage](/en/blockchain/account/account-data-storage) article for more information.
+У каждого аккаунта есть хранилище данных, которое содержит записи в формате ключ-значение. Подробнее см. в разделе [Хранилище данных аккаунта](/ru/blockchain/account/account-data-storage).
 
-### Using Waves Explorer
+### С помощью Waves Explorer
 
-1. Open <https://wavesexplorer.com/>.
-2. Press ![](./_assets/settings.png) button and switch to ![](./_assets/mainnet.png) or ![](./_assets/testnet.png).
-3. Search for an account by its address or alias.
-4. Switch to **Data** tab.
+1. Откройте <https://wavesexplorer.com/>.
+2. Нажмите кнопку ![](./_assets/settings.png) и переключитесь на ![](./_assets/mainnet.png) или ![](./_assets/testnet.png).
+3. Найдите аккаунт по адресу или алиасу.
+4. Перейдите на вкладку **Data**.
 
 ![](./_assets/data-storage-explorer.png)
 
-### Using Node REST API
+### С помощью Node REST API
 
-To retrieve all the data records from an account data storage, use `GET /addresses/data/{address}` method.
+Чтобы получить все записи из хранилища данных аккаунта, используйте метод `GET /addresses/data/{address}`.
 
-To retrieve a data record by key, use `GET /addresses/data/{address}/{key}` method.
+Чтобы получить запись по ее ключу, используйте метод `GET /addresses/data/{address}/{key}`.
 
-See method descriptions in [Swagger web interface](https://nodes-testnet.wavesnodes.com/).
+Описание методов см. в [Swagger](https://nodes-testnet.wavesnodes.com/).
 
-**Request example:**
+**Пример запроса:**
 
 ```
 curl 'https://nodes-testnet.wavesnodes.com/addresses/data/3N4iKL6ikwxiL7yNvWQmw7rg3wGna8uL6LU'
 ```
 
-The examples shown here and below are suitable for the `cURL` utility. You can adjust the proposed request to your app written in any programming language.
+Приведенные здесь и далее примеры пригодны для использования с помощью утилиты `cURL`. Вы можете адаптировать запрос под ваш язык программирования.
 
-### Using JavaScript
+### С помощью JavaScript
 
-Use functions of `waves-transactions` library:
+Используйте функции библиотеки `waves-transactions`:
 
-* `accountData` function retrieves all the data records from an account data storage, optionally filtered by certain regexp.
-* `accountDataByKey` retrieves a data record by key.
+* функция `accountData` получает все записи из хранилища данных аккаунта, опционально для отбора записей можно использовать регулярное выражение.
+* функция `accountDataByKey` получает запись по ее ключу.
 
-See [library documentation](https://wavesplatform.github.io/waves-transactions/modules/nodeinteraction.html) on Github.
+См. [документацию библиотеки](https://wavesplatform.github.io/waves-transactions/modules/nodeinteraction.html) на Github.
 
-**Example:**
+**Пример:**
 
 ```javascript
 import { nodeInteraction } from "@waves/waves-transactions";
@@ -61,7 +61,7 @@ let stringVal = await nodeInteraction.accountDataByKey('stringVal',address,nodeU
 console.log('stringVal: ' + stringVal.value);
 ```
 
-### Using Python
+### С помощью Python
 
 ```python
 import requests
@@ -73,55 +73,55 @@ account_data_storage_data = requests.get(f'{node_url}/addresses/data/{address}')
 print(account_data_storage_data)
 ```
 
-## Account Balance
+## Баланс аккаунта
 
-Each account can store different assets (also called tokens) in different amounts. For WAVES, there are four types of balance: regular, effective, available, and generating. See the [Account Balance](/en/blockchain/account/account-balance) article for more information.
+Аккаунту могут принадлежать несколько ассетов (токенов) в разных количествах. Для WAVES есть четыре типа баланса: регулярный, эффективный, доступный, генерирующий. Подробнее см. в разделe [Баланс аккаунта](/ru/blockchain/account/account-balance).
 
-### Using Waves Explorer
+### С помощью Waves Explorer
 
-1. Open <https://wavesexplorer.com/>.
-2. Press ![](./_assets/settings.png) button and switch to ![](./_assets/mainnet.png) or ![](./_assets/testnet.png).
-3. Search for an account by its address or alias.
-4. Balances in WAVES are displayed below the address. Switch to **Assets** tab to see balances in other tokens.
+1. Откройте <https://wavesexplorer.com/>.
+2. Нажмите кнопку ![](./_assets/settings.png) и переключитесь на ![](./_assets/mainnet.png) или ![](./_assets/testnet.png).
+3. Найдите аккаунт по адресу или алиасу.
+4. Балансы в WAVES отображаются прямо под адресом аккаунта. Перейдите на вкладку **Assets**, чтобы увидеть балансы в других ассетах.
 
 ![](./_assets/data-storage-explorer.png)
 
-> NFTs are displayed on the **Non-fungible tokens** tab.
+> Невзаимозаменяемые токены (NFT) отображаются на вкладке **Non-fungible tokens**.
 
-### Using Node REST API
+### С помощью Node REST API
 
-To retrieve [all types of balances](/en/blockchain/account/account-balance) of WAVES, use `GET /addresses/balance/details/{address}` method.
+Чтобы получить [все типы баланса](/ru/blockchain/account/account-balance) в WAVES, используйте метод `GET /addresses/balance/details/{address}`.
 
-To retrieve balances of other assets, use `GET /assets/balance/{address}` or `GET /assets/balance/{address}/{assetId}` method.
+Чтобы получить балансы в других ассетах, используйте метод `GET /assets/balance/{address}` или `GET /assets/balance/{address}/{assetId}`.
 
-See method descriptions in [Swagger web interface](https://nodes-testnet.wavesnodes.com/).
+Описание методов см. в [Swagger](https://nodes-testnet.wavesnodes.com/).
 
-> :bulb: The easiest way to find out the asset ID by its name and vice versa is to open [Waves.Exchange](https://waves.exchange/) app developed by Waves.Exchange team, go to the **Trading** page and type a name or asset ID in the search bar.
+> :bulb: Самый простой способ узнать ID ассета по названию и наоборот — посмотреть в приложении [Waves.Exchange](https://waves.exchange/), разработанном командой Waves.Exchange. Перейдите на вкладку **Торговля** и введите название или ID ассета в строке поиска.
 
 ![](./_assets/asset-id.png)
 
-**Request example:**
+**Пример запроса:**
 
 ```
 curl 'https://nodes.wavesnodes.com/assets/balance/3P8pGyzZL9AUuFs9YRYPDV3vm73T48ptZxs/G9hT3ntXUenjCr2UwXRVa1PP6kWZtfotBLGYhfw8J7GG'
 ```
 
-You can adjust the proposed request to your app written in any programming language.
+Вы можете адаптировать запрос под ваш язык программирования.
 
-> To get a list of NFTs that belong to account, use `GET /assets/nft/{address}/limit/{limit}` method.
+> Чтобы получить список принадлежащих аккаунту NFT, используйте метод `GET /assets/nft/{address}/limit/{limit}`.
 
-### Using JavaScript
+### С помощью JavaScript
 
-#### Without User Authentication
+#### Без входа в аккаунт
 
-You can use functions of `waves-transactions` library:
+Используйте функции библиотеки `waves-transactions`:
 
-* `balanceDetails` function retrieves all types of balalnces of WAVES.
-* `assetBalance` function retrieve balances of other assets.
+* функция `balanceDetails` получает все типы баланса в WAVES.
+* функция `assetBalance` получает балансы в других ассетах.
 
-See [library documentation](https://wavesplatform.github.io/waves-transactions/modules/nodeinteraction.html) on Github.
+См. [документацию библиотеки](https://wavesplatform.github.io/waves-transactions/modules/nodeinteraction.html) на Github.
 
-**Example:**
+**Пример:**
 
 ```javascript
 import { nodeInteraction } from "@waves/waves-transactions";
@@ -138,7 +138,7 @@ console.log('WAVES effictive balance: ' + wavesBalance.effective);
 console.log('Neutrino balance: ' + assetBalance.balance);
 ```
 
-#### With User Authentication
+#### 
 
 If user is authenticated in your app, you can use functions of `Signer` library:
 
