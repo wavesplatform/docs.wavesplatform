@@ -121,7 +121,7 @@ module.exports = {
             },
             {
               title: 'Create alias transaction binary format',
-              path: blockchainPath + 'binary-format/transaction-binary-format/alias-transaction-binary-format',
+              path: blockchainPath + 'binary-format/transaction-binary-format/create-alias-transaction-binary-format',
             },
             {
               title: 'Data transaction binary format',
@@ -169,7 +169,7 @@ module.exports = {
             },
             {
               title: 'Sponsor fee transaction binary format',
-              path: blockchainPath + 'binary-format/transaction-binary-format/sponsorship-transaction-binary-format',
+              path: blockchainPath + 'binary-format/transaction-binary-format/sponsor-fee-transaction-binary-format',
             },
             {
               title: 'Transfer transaction binary format',
@@ -191,7 +191,7 @@ module.exports = {
               },
               {
                   title: 'Create alias transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/alias-transaction-protobuf-scheme',
+                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/create-alias-transaction-protobuf-scheme',
               },
               {
                   title: 'Data transaction protobuf scheme',
@@ -451,7 +451,7 @@ module.exports = {
         },
         {
           title: 'Create alias transaction',
-          path: blockchainPath + 'transaction-type/alias-transaction',
+          path: blockchainPath + 'transaction-type/create-alias-transaction',
         },
         {
           title: 'Data transaction',
@@ -1054,10 +1054,6 @@ module.exports = {
               path: ridePath + 'structures/transaction-structures/exchange-transaction',
             },
             {
-              title: 'SponsorFeeTransaction',
-              path: ridePath + 'structures/transaction-structures/fee-sponsoring-transaction',
-            },
-            {
               title: 'GenesisTransaction',
               path: ridePath + 'structures/transaction-structures/genesis-transaction',
             },
@@ -1092,6 +1088,10 @@ module.exports = {
             {
               title: 'SetScriptTransaction',
               path: ridePath + 'structures/transaction-structures/set-script-transaction',
+            },
+            {
+              title: 'SponsorFeeTransaction',
+              path: ridePath + 'structures/transaction-structures/sponsor-fee-transaction',
             },
             {
               title: 'TransferTransaction',
