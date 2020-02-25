@@ -4,51 +4,51 @@ sidebarDepth: 2
 
 # Как покупать или продавать токены
 
-Any asset issued on the Waves blockchain (except [NFTs](/en/blockchain/token/non-fungible-token)) can be bought or sold on the [Waves.Exchange](https://waves.exchange/). Waves.Exchange developed by Waves.Exchange team is a part of the Waves ecosystem. It combines a user wallet and decentralized exchange that executes trades swiftly and securely.
+Любой ассет, выпущенный на блокчейне Waves (кроме [NFT](/en/blockchain/token/non-fungible-token)), можно продать или купить на бирже [Waves.Exchange](https://waves.exchange/). Приложение Waves.Exchange, разработанное командой Waves.Exchange, является частью экосистемы Waves и включает пользовательский кошелек и децентрализованную биржу, которая выполняет сделки быстро и надежно.
 
-To buy or sell tokens, you submit an order to Matcher (exchange engine). You don't transfer your assets to exchange, money remains on your account until Matcher executes the order and creates an exchange transaction. The blockchain guarantees that the transaction will be made on the conditions that are not worse than in the user's order.
+Чтобы продать или купить токены, нужно отправить ордер (биржевую заявку) на Матчер (движок биржи). При этом вы не передаете токены на биржу — они остаются на вашем аккаунте до момента, когда Матчер выполнит заявку и создаст транзакцию обмена. Блокчейн гарантирует, что условия обмена будут не хуже, чем указаны в заявке.
 
-See the [Order](/en/blockchain/order) article for more information about orders.
+Подробнее см. в разделе [Биржевая заявка](/ru/blockchain/order).
 
-## Create Trading Order
+## Создание ордера
 
-### Using Waves.Exchange
+### С помощью Waves.Exchange
 
-You can use online, desktop or mobile app. See the [Start Trading (Online & Desktop)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) and [Start Trading (Mobile)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-mobile/mobile-trading/mobile-start-trading) sections of the Waves.Exchange documentation.
+Используйте online, desktop или мобильное приложение. См. разделы [Торговля на бирже (Online/Desktop)](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) и [Торговля на бирже (Мобильные приложения)](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-mobile/mobile-trading/mobile-start-trading) документации Waves.Exchange.
 
-### Using JavaScript
+### С помощью JavaScript
 
-#### Set Matcher Params
+#### Установка параметров Матчера
 
-Use the following Matcher URL:
+Используйте следующий адрес Матчера:
 
-* Testnet: <https://matcher.testnet.wavesnodes.com>
-* Mainnet: <https://matcher.waves.exchange>
+* Для Testnet: <https://matcher.testnet.wavesnodes.com>
+* Для Mainnet: <https://matcher.waves.exchange>
 
-Use the `GET /matcher` method of Matcher API to retrieve Matcher public key.
+Чтобы получить публичный ключ Матчера, используйте метод `GET /matcher` API Матчера.
 
-#### Set Asset Pair
+#### Установка ассетной пары
 
-Asset pair is a pair of assets you want to exchange: an amount asset ID and price asset ID. Which asset is a price asset does not depend on which asset is 'spend' and which is 'received'.
+Ассетную пару образуют два ассета, которые вы хотите обменять: amount-ассет и price-ассет. Который из двух ассетов является price-ассетом, не зависит от того, какой ассет вы отдаете и какой получаете.
 
-For Mainnet, you can see asset pairs and asset IDs on the **Trading** page of Waves.Exchange. The first asset in pair is amount asset and the second is price asset.
+На Mainnet вы можете посмотреть ассетные пары и идентификаторы ассетов в Waves.Exchange на странице **Торговля**. Первый ассет в паре — это amount-ассет, второй — price-ассет.
 
 ![](./_assets/asset-pair.png)
 
-For both Mainnet and Testnet, you can get asset pairs using `GET /matcher/orderbook` or `GET /matcher/settings` API method. For more information, see [Matcher API](https://docs.waves.exchange/en/waves-matcher/matcher-api) article of Waves.Exchange documentation.
+Как на Mainnet, так и на Testnet вы можете получить ассетные пары с помощью метода `GET /matcher/orderbook` или `GET /matcher/settings`. Подробнее см. раздел [Matcher API](https://docs.waves.exchange/ru/waves-matcher/matcher-api) документации Waves.Exchange.
 
-> :warning: Asset IDs differ on Mainnet and Testnet.
+> :warning: Идентификаторы ассетов отличаются на Mainnet и на Testnet.
 
-WAVES, the core token of Waves blockchain, doesn't have an asset ID, use 'WAVES' instead.
+WAVES — главный токен платформы Waves — не имеет идентификатора, вместо ID нужно указывать значение 'WAVES'.
 
-#### Set Orders Fields, Sign Order and Send to Matcher
+#### Заполнение параметров ордера, подписание и отправка на Матчер
 
-Use functions of `waves-transactions` library:
+Используйте функции библиотеки `waves-transactions`:
 
-* `order` function creates and signs an order. Order proof is derived from seed. By default, Matcher fee is calculated automatically.
-* `submitOrder` sends signed order to Matcher.
+* функция `order` создает ордер и генерирует подпись. Для генерации подписи используется секретная фраза (seed) аккаунта. По умолчанию комиссия Матчера рассчитывается автоматически.
+* функция `submitOrder` отправляет подписанный ордер на Матчер.
 
-See function descriptions in [waves-transactions documentation](https://wavesplatform.github.io/waves-transactions/index.html) on Github.
+Описание функций приведено в [документации библиотеки](https://wavesplatform.github.io/waves-transactions/index.html) на Github.
 
 ```javascript
 import { order, submitOrder } from "@waves/waves-transactions";
@@ -56,14 +56,14 @@ import { order, submitOrder } from "@waves/waves-transactions";
 const matcherUrl = 'https://matcher.testnet.wavesnodes.com';
 const matcherPublicKey: '8QUAqtTckM5B8gvcuP7mMswat9SjKUuafJMusEoSn1Gy';
 
-const amountAssetId: 'BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3'; // asset ID of ETH on Testnet
+const amountAssetId: 'BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3'; // Идентификатор ETH на Testnet
 const priceAssetId: 'WAVES';
 
 const seed = 'insert your seed here';
 
 const orderParams = {
-    amount: 100000000, // 1 ETH: actual volume of amount asset multiplied by 10^amountAssetDecimals
-    price: 19900000000, // 199 WAVES for 1 ETH: actual price denominated in priceAsset and multiplied by 10^(8 + priceAssetDecimals – amountAssetDecimals)
+    amount: 100000000, // 1 ETH: фактическое количество amount-ассета нужно умножить на 10^amountAssetDecimals
+    price: 19900000000, // 199 WAVES за один 1 ETH: цену, выраженную в price-ассете, нужно умножить на 10^(8 + priceAssetDecimals – amountAssetDecimals)
     amountAsset: amountAssetId,
     priceAsset: priceAssetId,
     matcherPublicKey: matcherPublicKey,
@@ -77,7 +77,7 @@ let orderId = signedOrder.id;
 console.log('Order ID: '+ orderId);
 ```
 
-### Using Python
+### С помощью Python
 
 ```python
 import pywaves as pw
@@ -85,7 +85,7 @@ import pywaves as pw
 matcher_url = 'https://matcher.testnet.wavesnodes.com'
 pw.setMatcher(matcher_url)
 
-# ETH asset on Testnet
+# ETH на Testnet
 amount_asset = pw.Asset('BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3')
 
 # WAVES
@@ -100,9 +100,9 @@ buy_order = my_address.buy(asset_pair=asset_pair, amount=1e8, price=50e8)
 print(f'Buy order ID: {buy_order.orderId}')
 ```
 
-## Get Order Status
+## Проверка статуса ордера
 
-### Using Waves.Exchange
+### С помощью Waves.Exchange
 
 The submitted order is displayed in the **My Open Orders** tab (Online & Desktop app) or in the **My Orders** tab (Mobile) until it is completed. See the [Start Trading (Online & Desktop)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) and [Start Trading (Mobile)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-mobile/mobile-trading/mobile-start-trading) sections of the Waves.Exchange documentation.
 

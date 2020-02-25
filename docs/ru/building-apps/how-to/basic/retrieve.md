@@ -6,7 +6,7 @@ sidebarDepth: 2
 
 Все данные в блокчейне Waves доступны для чтения. Например, вы можете прочитать записи в хранилище данных любого аккаунта, баланс аккаунта, список транзакций аккаунта, текущую высоту и время на блокчейне.
 
-Запросна чтение данных вы можете отправить на собственную ноду или одну из нод с публичным API:
+Запрос на чтение данных вы можете отправить на собственную ноду или одну из нод с публичным API:
 * Testnet: <https://nodes-testnet.wavesnodes.com>
 * Mainnet: <https://nodes.wavesnodes.com>
 
@@ -193,7 +193,7 @@ print(asset_balance)
 3. Найдите аккаунт по адресу или алиасу.
 4. Перейдите на вкладку **Transactions**.
 
-### Using Node REST API
+### С помощью Node REST API
 
 Чтобы получить все транзакции, относящиеся к аккаунту, используйте метод `GET /transactions/address/{address}/limit/{limit}`. Получать список можно постранично: чтобы получить следующую страницу, укажите в параметре `after` ID последней полученной транзакции.
 
@@ -207,7 +207,7 @@ curl 'https://nodes-testnet.wavesnodes.com/transactions/address/3N1HYdheNiiTtHgi
 
 Вы можете адаптировать запрос для своего языка программирования.
 
-### Using JavaScript
+### С помощью JavaScript
 
 Используйте функцию `fetchTransactions` библиотеки `node-api-js`.
 
@@ -226,7 +226,7 @@ let txList = await api.transactions.fetchTransactions(address,10);
 console.log('Transactions:' + txList.map(tx => '\nid: ' + tx.id + ' | type: ' + tx.type + ' | senderPublicKey: ' + tx.senderPublicKey));
 ```
 
-### Using Python
+### С помощью Python
 
 ```python
 import requests
@@ -242,39 +242,39 @@ print(transactions)
 
 ## Высота блокчейна и текущее время
 
-The block height is a sequence number of a block in the blockchain. The blockchain height is a sequence number of the last block.
+Высота блока — это его порядковый номер в блокчейне. Высота блокчейна — это порядковый номер последнего блока.
 
-You can use timestamp of the last block as a current time of the blockchain.
+Вы можете использовать временную метку последнего блока как текущее время на блокчейне.
 
-### Using Waves Explorer
+### С помощью Waves Explorer
 
-1. Open <https://wavesexplorer.com/>.
-2. Press ![](./_assets/settings.png) button and switch to ![](./_assets/mainnet.png) or ![](./_assets/testnet.png).
-3. Current height is displayed above the block list. If don't see block timestamps, click last block number.
+1. Откройте <https://wavesexplorer.com/>.
+2. Нажмите кнопку ![](./_assets/settings.png) и выберите ![](./_assets/mainnet.png) или ![](./_assets/testnet.png).
+3. Текущая высота отображается над списком блоков. Если вы не видите временные метки блоков, нажмите номер последнего блока.
 
-### Using Node REST API
+### С помощью Node REST API
 
-To retrieve the blockchain height only, use `GET /blocks/height` method.
+Чтобы получить только высоту блокчейна, используйте метод  `GET /blocks/height`.
 
-To retrieve all the headers of the last block, including height and timestamp, use `GET /blocks/headers/last` method.
+Чтобы получить все заголовки последнего блока, в том числе высоту и временную метку, используйте метод GET /blocks/headers/last`.
 
-See method descriptions in [Swagger web interface](https://nodes-testnet.wavesnodes.com/).
+Описание методов см. в [Swagger](https://nodes-testnet.wavesnodes.com/).
 
-**Request example:**
+**Пример запроса:**
 
 ```
 curl 'https://nodes-testnet.wavesnodes.com/blocks/headers/last'
 ```
 
-You can adjust the proposed request to your app written in any programming language.
+Вы можете адаптировать запрос для своего языка программирования.
 
-> To get the entire block, both headers and transactions, use `GET /blocks/last` method.
+> Чтобы получить блок целиком, со всеми заголовками и транзакциями, используйте метод `GET /blocks/last`.
 
-### Using JavaScript
+### С помощью JavaScript
 
-You can use the `fetchHeadersLast` function of `node-api-js` library.
+Используйте функцию `fetchHeadersLast` библиотеки `node-api-js`.
 
-**Example:**
+**Пример:**
 
 ```javascript
 import { create } from "@waves/node-api-js";
@@ -284,11 +284,11 @@ const api = create(nodeUrl);
 
 let topBlock = await api.blocks.fetchHeadersLast();
 
-console.log('Currrent height: ' + topBlock.height);
-console.log('Current time: '+ Date(topBlock.timestamp));
+console.log('Текущая высота: ' + topBlock.height);
+console.log('Текущее время: '+ Date(topBlock.timestamp));
 ```
 
-### Using Python
+### С помощью Python
 
 ```python
 import requests
