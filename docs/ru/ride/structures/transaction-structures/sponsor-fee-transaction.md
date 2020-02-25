@@ -2,4 +2,4 @@
 
 К сожалению, эта статья еще не переведена на русский язык.
 
-[Читать на английском](/ru/ride/structures/transaction-structures/fee-sponsoring-transaction)
+[Читать на английском](/en/ride/structures/transaction-structures/sponsor-fee-transaction)

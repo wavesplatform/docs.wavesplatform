@@ -28,7 +28,7 @@
 | :--- | :--- | :--- |
 | 8 | [LeaseTransaction](/en/ride/structures/transaction-structures/lease-transaction) | Structure of [lease transaction](/en/blockchain/transaction-type/lease-transaction) |
 | 9 | [LeaseCancelTransaction](/en/ride/structures/transaction-structures/lease-cancel-transaction) | Structure of [lease cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction) |
-| 14 | [SponsorFeeTransaction](/en/ride/structures/transaction-structures/fee-sponsoring-transaction) | Structure of fee sponsoring transaction |
+| 14 | [SponsorFeeTransaction](/en/ride/structures/transaction-structures/sponsor-fee-transaction) | Structure of fee sponsoring transaction |
 
 ## Genesis
 

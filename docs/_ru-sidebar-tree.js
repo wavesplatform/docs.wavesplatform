@@ -117,7 +117,7 @@ module.exports = {
           children: [
             {
               title: 'Cоздание псевдонима',
-              path: blockchainPath + 'binary-format/transaction-binary-format/alias-transaction-binary-format',
+              path: blockchainPath + 'binary-format/transaction-binary-format/create-alias-transaction-binary-format',
             },
             {
               title: 'Сжигание токена',
@@ -187,7 +187,7 @@ module.exports = {
           children: [
             {
                title: 'Создание псевдонима',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/alias-transaction-protobuf-scheme',
+               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/create-alias-transaction-protobuf-scheme',
             },
             {
                title: 'Сжигание токена',
@@ -447,7 +447,7 @@ module.exports = {
       children: [
         {
           title: 'Транзакция создания псевдонима',
-          path: blockchainPath + 'transaction-type/alias-transaction',
+          path: blockchainPath + 'transaction-type/create-alias-transaction',
         },
         {
           title: 'Транзакция сжигания токена',
@@ -1050,10 +1050,6 @@ module.exports = {
               path: ridePath + 'structures/transaction-structures/exchange-transaction',
             },
             {
-              title: '[en] FeeSponsoringTransaction',
-              path: ridePath + 'structures/transaction-structures/fee-sponsoring-transaction',
-            },
-            {
               title: 'GenesisTransaction',
               path: ridePath + 'structures/transaction-structures/genesis-transaction',
             },
@@ -1088,6 +1084,10 @@ module.exports = {
             {
               title: 'SetScriptTransaction',
               path: ridePath + 'structures/transaction-structures/set-script-transaction',
+            },
+            {
+              title: '[en] SponsorFeeTransaction',
+              path: ridePath + 'structures/transaction-structures/sponsor-fee-transaction',
             },
             {
               title: 'TransferTransaction',
