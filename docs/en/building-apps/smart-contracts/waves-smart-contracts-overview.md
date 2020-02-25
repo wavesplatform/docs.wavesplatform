@@ -26,7 +26,10 @@ The dApps can bear not only the compliance checks, but also they allow other acc
 
 Each Waves Smart Contract has access to:
 
-* **Blockchain height**. There is `height()` function in the global scope of a script which returns the blockchain height at the execution time.
+* **Blockchain height**. There is height function in the global scope of a script which returns the blockchain height at the execution time.
+
+> :warning: Note that when the smart account validates order, it has access to the order fields only. It does not have access to global scope functions, including the mentioned `height` function.
+
 * **Key-value storage of any account**.
 
 Smart accounts and dApps has access to **transaction proofs**. Any transaction can contain an array of proofs up to 8 elements. By default proofs array used for signatures, but you can put any data in the array (each element is up to 64 bytes).
