@@ -10,6 +10,7 @@
         "production": "yarn upgrade core.docs.wavesplatform && yarn build && yarn server"
     },
     "dependencies": {
+        "core-js": "2",
         "core.docs.wavesplatform": "https://github.com/wavesplatform/core.docs.wavesplatform.git"
     },
     "devDependencies": {
