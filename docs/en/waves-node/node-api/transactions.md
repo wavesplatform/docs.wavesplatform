@@ -164,11 +164,11 @@ Calculates a fee for an arbitrary transaction and returns it. The transaction ty
 | 6 | Burn |
 | 8 | Lease |
 | 9 | Lease Cancel |
-| 10 | Alias |
+| 10 | Create Alias |
 | 11 | Mass Transfer |
 | 12 | Data |
 | 13 | Set Script |
-| 14 | Sponsorship |
+| 14 | Sponsor Fee |
 
 **Request params**
 
@@ -236,11 +236,11 @@ Signs an arbitrary transaction. This requires an API key, and transaction type t
 | 6 | Burn |
 | 8 | Lease |
 | 9 | Lease Cancel |
-| 10 | Alias |
+| 10 | Create Alias |
 | 11 | Mass Transfer |
 | 12 | Data |
 | 13 | Set Script |
-| 14 | Sponsorship |
+| 14 | Sponsor Fee|
 
 An optional `timestamp` parameter may be specified, which represents transaction timestamp in milliseconds. If it is omitted, current server time is used.
 
@@ -310,11 +310,11 @@ The types are as follows:
 | 6 | Burn |
 | 8 | Lease |
 | 9 | Lease Cancel |
-| 10 | Alias |
+| 10 | Create Alias |
 | 11 | Mass Transfer |
 | 12 | Data |
 | 13 | Set Script |
-| 14 | Sponsorship |
+| 14 | Sponsor Fee |
 
 An optional `timestamp` parameter may be specified, which represents transaction timestamp in milliseconds. If it is omitted, current server time is used.
 

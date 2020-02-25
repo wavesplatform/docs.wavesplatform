@@ -4,8 +4,8 @@ A **transaction binary format** is a set of fields of a [transaction](/en/blockc
 
 Transactions of different [types](/en/blockchain/transaction-type) have different binary formats. Transactions of the same type, but of different [versions](/en/blockchain/transaction/transaction-version), also have different binary formats.
 
-* [Alias transaction binary format](/en/blockchain/binary-format/transaction-binary-format/alias-transaction-binary-format)
 * [Burn transaction binary format](/en/blockchain/binary-format/transaction-binary-format/burn-transaction-binary-format)
+* [Create alias transaction binary format](/en/blockchain/binary-format/transaction-binary-format/alias-transaction-binary-format)
 * [Data transaction binary format](/en/blockchain/binary-format/transaction-binary-format/data-transaction-binary-format)
 * [Exchange transaction binary format](/en/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format)
 * [Genesis transaction binary format](/en/blockchain/binary-format/transaction-binary-format/genesis-transaction-binary-format)

@@ -1,4 +1,4 @@
-# FeeSponsoringTransaction
+# SponsorFeeTransaction
 
 <table>
 <tr>

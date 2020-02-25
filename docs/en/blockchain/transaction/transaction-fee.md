@@ -57,3 +57,4 @@ The minimum fee for an invoke script transaction:
 An issuer of an asset can set up sponsorship — so that any user can specify a transaction fee in this asset for invoke script transactions and transfer transactions.
 
 To activate sposorship, the issuer puts a sponsor fee transaction that specifies an amount of asset that is equivalent to the minimum fee of 0.001 WAVES. For exmaple, if `minSponsoredAssetFee: 5`, then the fee in this asset for exchange transaction equals 5 × 0.003 / 0.001 = 15. See the [Sponsor Fee Transactions](/en/blockchain/waves-protocol/sponsored-fee) article for details.
+

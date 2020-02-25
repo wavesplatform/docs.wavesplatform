@@ -2,8 +2,7 @@
 
 An **Update Asset Info transaction** — a [transaction](/en/blockchain/transaction) that changes name and description of [asset](/en/blockchain/token) issued before.
 
-> The Update Asset Info transaction has been added in node version 1.2.0. The functionality that implements it is called "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16).
-Version 1.2.x is currently available on [stagenet](/en/blockchain/blockchain-network/stage-network)
+> The Update Asset Info transaction has been added in node version 1.2.0. The functionality that implements it is called "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16). Version 1.2.x is currently available on [stagenet](/en/blockchain/blockchain-network/stage-network).
 
 The asset name and/or description with respect to the same asset can be changed no more often than after 100,000 blocks from the last change or from the moment of the asset issue.
 
