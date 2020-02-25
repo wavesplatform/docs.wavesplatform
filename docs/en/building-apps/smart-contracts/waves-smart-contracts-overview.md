@@ -20,7 +20,11 @@ There are 3 types of Waves Smart Contracts:
 
 As denoted in the table above, the smart contracts accommodate some logic that checks outgoing transactions for compliance with the specified conditions. The transaction is sent only if this conditions are satisfied.
 
-> :bulb: The best intuition about smart assets and smart accounts are locks. There is a default lock for regular accounts and assets, which checks signatures of transactions. Smart Contracts allow to change that lock to custom, i.e. open lock (all transactions are allowed), multisignature (the transaction can be sent if several people sign it), time lock (transactions can be send only after specified blockchain height).
+> :bulb: The best intuition about smart assets and smart accounts are locks. There is a default lock for regular accounts and assets, which checks signatures of transactions. Smart Contracts allow to change that lock to custom, i.e.
+
+* open lock - all transactions are allowed
+* multisignature - the transaction can be sent if several people sign it
+* time lock - transactions can be send only after specified blockchain height, and others.
 
 The dApps can bear not only the compliance checks, but also they allow other accounts to invoke its functions.
 
