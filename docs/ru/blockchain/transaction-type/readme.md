@@ -22,3 +22,6 @@
 | Транзакция спонсирования | 14 |
 | [Транзакция установки скрипта](/ru/blockchain/transaction-type/set-script-transaction) | 13 |
 | [Транзакция установки скрипта ассета](/ru/blockchain/transaction-type/set-asset-script-transaction) | 15 |
+
+> Транзакция обновления информации ассета добавлена в версии ноды 1.2.0. Возможность использовать эту транзакцию включается с активацией на ноде функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№16).
+На данный момент версии 1.2.x доступны на [Stagenet](/ru/blockchain/blockchain-network/stage-network).

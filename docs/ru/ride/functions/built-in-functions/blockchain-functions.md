@@ -96,6 +96,7 @@ func issueAndSend() = {
 //     "value": "55jbTUxWkbLbfd6Z7Wy93DcyD7xikBg5GRDmccD4s8uv",
 //     "key": "id"
 //   }
+```
 
 ## groth16Verify(ByteVector, ByteVector, ByteVector): Boolean
  <a id="groth"></a>

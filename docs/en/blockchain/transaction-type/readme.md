@@ -21,6 +21,6 @@ Each [transaction](/en/blockchain/transaction) on the blockchain is of a specifi
 | [Set script transaction](/en/blockchain/transaction-type/set-script-transaction) | 13 |
 | Sponsor fee transaction | 14 |
 | [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction)  | 4 |
-| [Update Asset Info transaction](/en/blockchain/transaction-type/update-asset-info-transaction)* | 17 |
+| [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction)* | 17 |
 
-> * The Update Asset Info transaction has been added in node version 1.2.0. The functionality that implements it is called "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16). Version 1.2.x is currently available on [stagenet](/en/blockchain/blockchain-network/stage-network).
+> \* The Update Asset Info transaction has been added in node version 1.2.0. The functionality that implements it is called "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16). Version 1.2.x is currently available on [stagenet](/en/blockchain/blockchain-network/stage-network).
