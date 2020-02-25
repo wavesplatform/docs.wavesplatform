@@ -19,8 +19,10 @@
 | :--- | :--- | :--- | :--- |
 | 1 | assetInfo(ByteVector): Аsset&#124;Unit | Получает информацию о [токене](/ru/blockchain/token) | 100 |
 | 2 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Получает информацию о [блоке](/ru/blockchain/block) по [высоте блока](/ru/blockchain/block/block-height) | 100 |
-| 3 | transactionHeightById(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 100 |
-| 4 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 100 |
+| 3 | calculateAssetId(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/common-structures/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 10 |
+| 4 |  groth16Verify(ByteVector, ByteVector, ByteVector): Boolean] | Осуществляет проверку [снарка](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf) | 1900 |
+| 5 | transactionHeightById(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 100 |
+| 6 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 100 |
 
 ### [Функции верификации](/ru/ride/functions/built-in-functions/verification-functions)
 
