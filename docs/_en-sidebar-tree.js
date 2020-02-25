@@ -1239,6 +1239,10 @@ module.exports = {
           path: sdkPath + 'client-libraries',
           children: [
             {
+              title: 'Signer',
+              path: sdkPath + 'client-libraries/signer',
+            },
+            {
               title: 'PyWaves',
               path: sdkPath + 'client-libraries/pywaves',
             },
@@ -1261,10 +1265,6 @@ module.exports = {
             {
               title: 'WavesRS',
               path: sdkPath + 'client-libraries/wavesrs',
-            },
-            {
-              title: 'Waves Signer',
-              path: sdkPath + 'client-libraries/signer',
             },
             {
               title: 'Waves transactions',

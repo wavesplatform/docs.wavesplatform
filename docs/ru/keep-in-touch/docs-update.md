@@ -1,5 +1,14 @@
 # Обновления в документации
 
+## Февральские статьи
+
+### Ride
+
+#### Встроенные функции
+
+* [calculateAssetId](/ru/ride/functions/built-in-functions/blockchain-functions#calculate)
+* [groth16Verify](/ru/ride/functions/built-in-functions/blockchain-functions#groth)
+
 ## Январские статьи
 
 ### API & SDK
