@@ -37,7 +37,7 @@ sidebarDepth: 2
 curl 'https://nodes-testnet.wavesnodes.com/addresses/data/3N4iKL6ikwxiL7yNvWQmw7rg3wGna8uL6LU'
 ```
 
-Приведенные здесь и далее примеры пригодны для использования с помощью утилиты `cURL`. Вы можете адаптировать запрос под ваш язык программирования.
+Приведенные здесь и далее примеры пригодны для использования с помощью утилиты `cURL`. Вы можете адаптировать запрос для своего языка программирования.
 
 ### С помощью JavaScript
 
@@ -106,7 +106,7 @@ print(account_data_storage_data)
 curl 'https://nodes.wavesnodes.com/assets/balance/3P8pGyzZL9AUuFs9YRYPDV3vm73T48ptZxs/G9hT3ntXUenjCr2UwXRVa1PP6kWZtfotBLGYhfw8J7GG'
 ```
 
-Вы можете адаптировать запрос под ваш язык программирования.
+Вы можете адаптировать запрос для своего языка программирования.
 
 > Чтобы получить список принадлежащих аккаунту NFT, используйте метод `GET /assets/nft/{address}/limit/{limit}`.
 
@@ -133,27 +133,27 @@ const assetId = 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p';
 let wavesBalance = await nodeInteraction.balanceDetails(address,nodeUrl);
 let assetBalance = await nodeInteraction.assetBalance(assetId,address,nodeUrl);
 
-console.log('WAVES available balance: ' + wavesBalance.available);
-console.log('WAVES effictive balance: ' + wavesBalance.effective);
-console.log('Neutrino balance: ' + assetBalance.balance);
+console.log('Доступный баланс WAVES: ' + wavesBalance.available);
+console.log('Эффективный баланс WAVES: ' + wavesBalance.effective);
+console.log('Баланс Neutrino: ' + assetBalance.balance);
 ```
 
-#### 
+#### С входом в аккаунт
 
-If user is authenticated in your app, you can use functions of `Signer` library:
+Если пользователь аутентифицирован в вашем приложении, вы можете использовать функции библиотеки `Signer`:
 
-* `getBalance` provides balances of all assets in user's portfolio. For WAVES, available balance is returned.
-* `getSponsoredBalances` prodives balances of sponsored assets in user's portfolio. См. [Sponsored Fee Transactions](https://docs.wavesplatform.com/en/blockchain/waves-protocol/sponsored-fee).
+* функция `getBalance` возвращает балансы всех ассетов, принадлежащих пользователю. Для WAVES возвращается доступный баланс.
+* функция `getSponsoredBalances` возвращает балансы спонсорских ассетов См. [Sponsored Fee Transactions](https://docs.wavesplatform.com/en/blockchain/waves-protocol/sponsored-fee).
 
-See [Signer documentation](/en/building-apps/waves-api-and-sdk/client-libraries/signer).
+См. [документацию библиотеки Signern](/en/building-apps/waves-api-and-sdk/client-libraries/signer).
 
-**Example:**
+**Пример:**
 
 ```javascript
 import Signer from '@waves/signer';
 import Provider from '@waves.exchange/provider-web';
 
-// Library initialization
+// Инициализация библиотеки
 
 const signer = new Signer({
   NODE_URL: 'https://nodes-testnet.wavesnodes.com'
@@ -163,10 +163,10 @@ signer.setProvider(new Provider());
 const user = await signer.login();
 let balances = await signer.getBalance();
 
-console.log('User balances: ' + JSON.stringify(balances));
+console.log('Балансы пользователя: ' + JSON.stringify(balances));
 ```
 
-### Using Python
+### С помощью Python
 
 ```python
 import requests
@@ -182,36 +182,36 @@ asset_balance = requests.get(f'{node_url}/assets/balance/{address}/{asset_id}').
 print(asset_balance)
 ```
 
-## List of Transactions by Address
+## Список транзакций по адресу
 
-You can get a list of transactions related to the specified account: outgoing transactions that are sent from the account; incoming transfers; exchanges that the account participated in; dApp script invocations etc.
+По адресу аккаунта вы можете получить список относящихся к нему транзакций: исходящие транзакции, отправленные с этого аккаунта; входящие переводы; сделки обмена, в которых участвовал аккаунт; вызовы dApp-скрипта и др.
 
-### Using Waves Explorer
+### С помощью Waves Explorer
 
-1. Open <https://wavesexplorer.com/>.
-2. Press ![](./_assets/settings.png) button and switch to ![](./_assets/mainnet.png) or ![](./_assets/testnet.png).
-3. Search for an account by its address or alias.
-4. Switch to **Transactions** tab.
+1. Откройте <https://wavesexplorer.com/>.
+2. Нажмите кнопку ![](./_assets/settings.png) и переключитесь на ![](./_assets/mainnet.png) или ![](./_assets/testnet.png).
+3. Найдите аккаунт по адресу или алиасу.
+4. Перейдите на вкладку **Transactions**.
 
 ### Using Node REST API
 
-To retrieve all the transactions related to an account, use `GET /transactions/address/{address}/limit/{limit}` method. In this method, you can use pagination: to get the next page, specify the `after` parameter as ID of the last transaction in previous response.
+Чтобы получить все транзакции, относящиеся к аккаунту, используйте метод `GET /transactions/address/{address}/limit/{limit}`. Получать список можно постранично: чтобы получить следующую страницу, укажите в параметре `after` ID последней полученной транзакции.
 
-See method description in [Swagger web interface](https://nodes-testnet.wavesnodes.com/).
+Описание методов см. в [Swagger](https://nodes-testnet.wavesnodes.com/).
 
-**Request example:**
+**Пример запроса:**
 
 ```
 curl 'https://nodes-testnet.wavesnodes.com/transactions/address/3N1HYdheNiiTtHgi2n3jLAek6N3H4guaciG/limit/20?after=Ay5J4ZiFDVhRrLq4fdViiHHm5aiyrK3CYAN2nK6AkMA9'
 ```
 
-You can adjust the proposed request to your app written in any programming language.
+Вы можете адаптировать запрос для своего языка программирования.
 
 ### Using JavaScript
 
-You can use the `fetchTransactions` function of `node-api-js` library.
+Используйте функцию `fetchTransactions` библиотеки `node-api-js`.
 
-**Example:**
+**Пример:**
 
 ```javascript
 import { create } from "@waves/node-api-js";
@@ -240,7 +240,7 @@ transactions = requests.get(f'{node_url}/transactions/address/{address}/limit/{l
 print(transactions)
 ```
 
-## Blockchain Height and Current Time
+## Высота блокчейна и текущее время
 
 The block height is a sequence number of a block in the blockchain. The blockchain height is a sequence number of the last block.
 
