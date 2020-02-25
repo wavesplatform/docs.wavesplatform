@@ -9,7 +9,7 @@ Waves provides a large number of transaction types. See the [Transaction Type](/
 
 **Transaction Proof**
 
-On Waves, each transaction can be sent only from the account. Transaction that is sent from ordinary (unscripted) account must contain a proof – a sender's digital signature. (Smart accounts and dApps can set their own rules for verification of outgoing transations). See the [Transaction Proof](/en/blockchain/transaction/transaction-proof) section for more information.
+On Waves, each transaction can be sent only from the account. Transaction that is sent from ordinary (unscripted) account must contain a proof – a sender's digital signature. (Smart accounts and dApps can set their own rules for verification of outgoing transations). See the [Transaction Proof](/en/blockchain/transaction/transaction-proof) section for more information. 
 
 There are two options to sign a transaction:
 
