@@ -1,4 +1,4 @@
-# Get Started
+# Waves Smart Contracts Overview
 
 Welcome! We are excited that you want to learn Waves Smart Contracts.
 
@@ -12,11 +12,15 @@ There are 3 types of Waves Smart Contracts:
 * Smart accounts
 * dApps
 
-The first two types of Smart Contracts accommodate some logic that checks outgoing transactions for compliance with the specified conditions. The transaction is sent only if this conditions are satisfied. Smart assets and smart accounts are **not** callable.
+| Smart contract type | Designation | Is callable |
+|---|---|---|
+| Smart asset | Verifies transactions involving the asset | No |
+| Smart account | Verifies transactions issuing from the account  | No |
+| dApp  | - Verifies transactions issuing from the account<br> - Allows invoking its [callable functions](/en/ride/functions/callable-function) by other accounts | Yes  |
 
-> :bulb: The best intuition about smart assets and smart accounts are locks. There is a default lock for regular accounts and assets, which checks signatures of transactions. Smart Contracts allow to change that lock to custom, i.e. open lock (every user can send transaction from smart account), multisignature (account can send transactions only if multiple people sign a transaction), time lock (transactions can be send only after specified blockchain height).
+As denoted in the table above, the smart contracts accommodate some logic that checks outgoing transactions for compliance with the specified conditions. The transaction is sent only if this conditions are satisfied.
 
-![Smart contracts intuition](./_assets/locks.png)
+> :bulb: The best intuition about smart assets and smart accounts are locks. There is a default lock for regular accounts and assets, which checks signatures of transactions. Smart Contracts allow to change that lock to custom, i.e. open lock (all transactions are allowed), multisignature (the transaction can be sent if several people sign it), time lock (transactions can be send only after specified blockchain height).
 
 The dApps can bear not only the compliance checks, but also they allow other accounts to invoke its functions.
 
@@ -65,17 +69,20 @@ Every regular account can become smart account.
 
 If we plan to apply constraints on all operations for a specific asset, we cannot use a smart account. In our paradigm, we have smart assets for this purpose: the script will be attached to the asset and will work in a similar way. Transactions for such assets are valid only if the script returns True. For example, a script can verify proofs from a transaction, check if a notary/escrow approves the transaction, and that operations with the asset are not locked for a specified time. The script for the token is invoked upon the following operations with an asset:
 
-* Transfer Transaction
-* MassTransfer Transaction
-* Reissue Transaction
-* Burn Transaction
-* ExchangeTransaction
-* SetAssetScriptTransaction
-
-> :bulb: Here you can find [White Paper](https://wavesplatform.com/files/docs/white_paper_waves_smart_contracts.pdf?cache=b) which describes Waves Smart Contracts approach: basic use-cases, implementation details and Ride language description.
+* Transfer transaction
+* Mass Transfer transaction
+* Reissue transaction
+* Burn transaction
+* Exchange transaction
+* Set Asset Script transaction
+* Update Asset Info transaction
 
 ## dApps
 
 Read [What is a dApp](/en/building-apps/smart-contracts/what-is-a-dapp.md) article for quick acquaitance with dApps features.
 
 Proceed to [How-to guides](/en/building-apps/waves-api-and-sdk/examples/) to learn dApps in more detail.
+
+## Additional Information
+
+> :bulb: Here you can find [White Paper](https://wavesplatform.com/files/docs/white_paper_waves_smart_contracts.pdf?cache=b) which describes Waves Smart Contracts approach: basic use-cases, implementation details and Ride language description.
