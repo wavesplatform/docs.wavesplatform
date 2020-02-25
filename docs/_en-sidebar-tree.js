@@ -326,7 +326,7 @@ module.exports = {
       ],
     },
     {
-      title: 'Leasing Proof of Stake',
+      title: 'Leased Proof of Stake',
       path: blockchainPath + 'leasing',
     },
     {
