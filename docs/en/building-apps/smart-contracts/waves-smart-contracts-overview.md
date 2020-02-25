@@ -41,7 +41,7 @@ dApps' Callable function has an access only to Invoke transaction's Invokation s
 
 ### Absence of Gas
 
-Ride is non-Turing complete language. With absence of cycles and quite severe resctictions on script size, this means that Ride scripts are executed for predictable time. This feature allowed to **reject gas** usage. Execution fee is fixed and always known upfront (0.004 WAVES for each script invocation).
+Ride is non-Turing complete language. With absence of cycles and quite severe resctictions on script size, this means that Ride scripts are executed for predictable time. This feature allowed to **reject gas** usage. [Execution fee](/en/blockchain/transaction/transaction-fee) is fixed and always known upfront (0.004 WAVES for each script invocation).
 
 > For example, minimal fee for transfer transaction is 0.001 WAVES for usual account and 0.005 (0.001 + 0.004) for smart account.
 
@@ -55,11 +55,9 @@ So for working with the state, the following tools are available:
 
 | Tool | Used with | Read | Write |
 |---|---|---|---|
-| Data transaction | Smart accounts, dApps  |   |   |
-| [Account data storage functions](/en/ride/functions/built-in-functions/account-data-storage-functions)  |   |   |   |
-| [Data transaction functions](/en/ride/functions/built-in-functions/data-transaction-functions)  |   |   |   |
-|   |   |   |   |
-
+| Data transaction | Smart accounts, dApps | No | Yes |
+| [Account data storage functions](/en/ride/functions/built-in-functions/account-data-storage-functions)  | Smart accounts, dApps | Yes | No |
+| Callable functions | dApps  | Yes | Yes |
 
 ## Smart Accounts
 
@@ -75,7 +73,7 @@ Every regular account can become smart account.
 
 ## Smart Assets
 
-If we plan to apply constraints on all operations for a specific asset, we cannot use a smart account. In our paradigm, we have smart assets for this purpose: the script will be attached to the asset and will work in a similar way. Transactions for such assets are valid only if the script returns True. For example, a script can verify proofs from a transaction, check if a notary/escrow approves the transaction, and that operations with the asset are not locked for a specified time. The script for the token is invoked upon the following operations with an asset:
+If we plan to apply constraints on all operations for a specific asset, we cannot use a smart account. In our paradigm, we have smart assets for this purpose: the script will be attached to the asset and will work in a similar way. Transactions for such assets are valid only if the script returns True. For example, a script can check if a notary/escrow approves the transaction or that operations with the asset are not locked for a specified time. The script for the token is invoked upon the following operations with an asset:
 
 * Transfer transaction
 * Mass Transfer transaction
