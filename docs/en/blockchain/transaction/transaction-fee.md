@@ -8,7 +8,7 @@ A sender can specify any amount of fee but not less than a certain amount. The l
 
 | Transaction type | Transaction type ID | A minimum transaction fee in WAVES | Comments |
 | :--- | :--- | :--- | :--- |
-| [Alias transaction](/en/blockchain/transaction-type/alias-transaction) | 10 | 0.001 | |
+| [Create alias transaction](/en/blockchain/transaction-type/alias-transaction) | 10 | 0.001 | |
 | [Burn transaction](/en/blockchain/transaction-type/burn-transaction) | 6 | 0.001 | |
 | [Data transaction](/en/blockchain/transaction-type/data-transaction) | 12 | 0.001 per kilobyte | The value is rounded up to the thousandths |
 | [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) | 7 | 0.003 | |
@@ -20,5 +20,5 @@ A sender can specify any amount of fee but not less than a certain amount. The l
 | [Reissue transaction](/en/blockchain/transaction-type/reissue-transaction) | 5 | 1<br/>0.001 – starting from node version 1.2.0, after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature. See <a href="/en/blockchain/waves-protocol/activation-protocol">Activation Protocol</a>| |
 | [Set asset script transaction](/en/blockchain/transaction-type/set-asset-script-transaction) | 15 | 1 | |
 | [Set script transaction](/en/blockchain/transaction-type/set-script-transaction) | 13 | 0.01 | |
-| Sponsorship transaction | 14 | 1 | |
+| Sponsor fee transaction | 14 | 1 | |
 | [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 4 | 0.001 | | |

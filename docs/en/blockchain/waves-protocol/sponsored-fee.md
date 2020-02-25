@@ -1,4 +1,4 @@
-# Sponsored Fee Transactions
+# Sponsored Fee
 
 ## Use Cases
 
@@ -13,9 +13,9 @@ Only the issuer of an asset can set up sponsorship. The sponsorship is set by gi
 
 ## Implementation
 
-### Sponsored Fee Transaction representations
+### Sponsor Fee Transaction representations
 
-Binary format of a SponsorFee transaction is as follows:
+Binary format of a sponsor fee transaction is as follows:
 
 | \# | Field name | Type | Position | Length |
 | --- | ---: | --- | --- | --- |
@@ -51,7 +51,7 @@ JSON representation example:
 
 ## Fees
 
-#### Fee for Sponsored Fee Transaction
+#### Fee for Sponsor Fee Transaction
 A fee for a sponsor is payable in WAVES only. The fee for this transaction is fixed and equal to 1.0 WAVES.
 
 #### Fee for miner in WAVES
@@ -62,7 +62,7 @@ The total **miner's fee in WAVES for transactions** with a fee in sponsored asse
 where:
 * `assetFee` - a fee in asset from transaction
 * `feeUnit` - for sponsorship is equal to 100000
-* `sponsorship` - the `minSponsoredAssetFee` value from Sponsored Fee Transaction for this asset
+* `sponsorship` - the `minSponsoredAssetFee` value from Sponsor Fee Transaction for this asset
 
 But the total **block fee** for the block with sponsored transactions can be computed as the sum of transactions which have **only the fee in WAVES**. For example, if we have the block with only sponsored transactions, a fee for this block will be equal to 0.
 
@@ -80,7 +80,7 @@ But the total **block fee** for the block with sponsored transactions can be com
 }
 ```
 
-`POST /asset/sponsor` signs and sends a canceling sponsorship transaction. This endpoint requires API key. Sample input is as follows:
+`POST /asset/sponsor` signs and sends a canceling sponsor fee transaction. This endpoint requires API key. Sample input is as follows:
 
 ```js
 {

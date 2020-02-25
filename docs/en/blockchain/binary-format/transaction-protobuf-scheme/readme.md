@@ -1,7 +1,7 @@
 # Transaction protobuf scheme
 
-* [Alias transaction protobuf scheme](/en/blockchain/binary-format/transaction-protobuf-scheme/alias-transaction-protobuf-scheme)
 * [Burn transaction protobuf scheme](/en/blockchain/binary-format/transaction-protobuf-scheme/burn-transaction-protobuf-scheme)
+* [Create alias transaction protobuf scheme](/en/blockchain/binary-format/transaction-protobuf-scheme/alias-transaction-protobuf-scheme)
 * [Data transaction protobuf scheme](/en/blockchain/binary-format/transaction-protobuf-scheme/data-transaction-protobuf-scheme)
 * [Exchange transaction protobuf scheme](/en/blockchain/binary-format/transaction-protobuf-scheme/exchange-transaction-protobuf-scheme)
 * [Genesis transaction protobuf scheme](/en/blockchain/binary-format/transaction-protobuf-scheme/genesis-transaction-protobuf-scheme)

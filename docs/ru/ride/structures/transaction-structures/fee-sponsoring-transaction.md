@@ -1,4 +1,4 @@
-# FeeSponsoringTransaction
+# SponsorFeeTransaction
 
 К сожалению, эта статья еще не переведена на русский язык.
 
