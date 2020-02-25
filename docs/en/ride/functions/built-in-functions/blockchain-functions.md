@@ -91,7 +91,7 @@ func issueAndSend() = {
   ]
 }
  
-// Результат:
+// Result:
 //   {
 //     "type": "string",
 //     "value": "55jbTUxWkbLbfd6Z7Wy93DcyD7xikBg5GRDmccD4s8uv",
