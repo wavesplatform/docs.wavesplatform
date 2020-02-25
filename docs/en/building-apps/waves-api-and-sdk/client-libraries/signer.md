@@ -356,7 +356,7 @@ signer.alias({ 'new_alias', })
 
 #### alias
 
-Creates [create alias transaction](/en/blockchain/transaction-type/alias-transaction).
+Creates [create alias transaction](/en/blockchain/transaction-type/create-alias-transaction).
 
 ```js
 alias(data: {

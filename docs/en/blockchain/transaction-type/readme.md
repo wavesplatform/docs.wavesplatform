@@ -7,7 +7,7 @@ Each [transaction](/en/blockchain/transaction) on the blockchain is of a specifi
 | Transaction type | Transaction type ID |
 | :--- | :--- | :--- |
 | [Burn transaction](/en/blockchain/transaction-type/burn-transaction)  | 6 |
-| [Create alias transaction](/en/blockchain/transaction-type/alias-transaction) | 10 |
+| [Create alias transaction](/en/blockchain/transaction-type/create-alias-transaction) | 10 |
 | [Data transaction](/en/blockchain/transaction-type/data-transaction) | 12 |
 | [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction)  | 7 |
 | [Genesis transaction](/en/blockchain/transaction-type/genesis-transaction)  | 1 |

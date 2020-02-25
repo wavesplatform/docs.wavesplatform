@@ -9,7 +9,7 @@ When developing applications, it is recommended to use transactions of the lates
 | Transaction type | Available versions |
 | :--- | :--- |
 | [Burn transaction](/en/blockchain/transaction-type/burn-transaction) | 1, 2 |
-| [Create alias transaction](/en/blockchain/transaction-type/alias-transaction) | | 1, 2 |
+| [Create alias transaction](/en/blockchain/transaction-type/create-alias-transaction) | | 1, 2 |
 | [Data transaction](/en/blockchain/transaction-type/data-transaction) | 1 |
 | [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) | 1, 2 |
 | [Genesis transaction](/en/blockchain/transaction-type/genesis-transaction) | Has no version |

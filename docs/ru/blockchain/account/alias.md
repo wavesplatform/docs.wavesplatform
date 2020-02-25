@@ -10,7 +10,7 @@
 
 ## Создание псевдонима
 
-Псевдоним создается с помощью [транзакции создания псевдонима](/ru/blockchain/transaction-type/alias-transaction).
+Псевдоним создается с помощью [транзакции создания псевдонима](/ru/blockchain/transaction-type/create-alias-transaction).
 
 > Созданный псевдоним невозможно удалить
 

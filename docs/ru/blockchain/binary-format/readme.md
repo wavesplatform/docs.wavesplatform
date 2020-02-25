@@ -14,7 +14,7 @@
   * [Бинарный формат транзакции обмена](/ru/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format)
   * [Бинарный формат транзакции перевода](/ru/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format)
   * [Бинарный формат транзакции сжигания токена](/ru/blockchain/binary-format/transaction-binary-format/burn-transaction-binary-format)
-  * [Бинарный формат транзакции создания псевдонима](/ru/blockchain/binary-format/transaction-binary-format/alias-transaction-binary-format)
+  * [Бинарный формат транзакции создания псевдонима](/ru/blockchain/binary-format/transaction-binary-format/create-alias-transaction-binary-format)
   * [Бинарный формат транзакции спонсирования](/ru/blockchain/binary-format/transaction-binary-format/sponsor-fee-transaction-binary-format)
   * [Бинарный формат транзакции установки скрипта](/ru/blockchain/binary-format/transaction-binary-format/set-script-transaction-binary-format)
   * [Бинарный формат транзакции установки скрипта ассета](/ru/blockchain/binary-format/transaction-binary-format/set-asset-script-transaction-binary-format)

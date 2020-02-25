@@ -10,7 +10,7 @@ One address can have several aliases.
 
 ## Creation of an alias
 
-An alias is created using a [create alias transaction](/en/blockchain/transaction-type/alias-transaction).
+An alias is created using a [create alias transaction](/en/blockchain/transaction-type/create-alias-transaction).
 
 > A created alias cannot be deleted
 

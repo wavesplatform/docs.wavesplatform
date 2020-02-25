@@ -6,4 +6,4 @@
 
 ## Binary format
 
-See the page [Create alias transaction binary format](/en/blockchain/binary-format/transaction-binary-format/alias-transaction-binary-format).
+See the page [Create alias transaction binary format](/en/blockchain/binary-format/transaction-binary-format/create-alias-transaction-binary-format).

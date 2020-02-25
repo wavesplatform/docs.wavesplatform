@@ -1,6 +1,6 @@
 # Бинарный формат транзакции создания псевдонима
 
-> Узнать больше о [транзакции создания псевдонима](/ru/blockchain/transaction-type/alias-transaction)
+> Узнать больше о [транзакции создания псевдонима](/ru/blockchain/transaction-type/create-alias-transaction)
 
 ## Транзакция версии 2
 

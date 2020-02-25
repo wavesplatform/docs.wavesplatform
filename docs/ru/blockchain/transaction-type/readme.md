@@ -18,7 +18,7 @@
 | [Транзакция обновления информации ассета](/ru/blockchain/transaction-type/update-asset-info-transaction) | 17 |
 | [Транзакция перевода](/ru/blockchain/transaction-type/transfer-transaction) | 4 |
 | [Транзакция сжигания токена](/ru/blockchain/transaction-type/burn-transaction) | 6 |
-| [Транзакция создания псевдонима](/ru/blockchain/transaction-type/alias-transaction) | 10|
+| [Транзакция создания псевдонима](/ru/blockchain/transaction-type/create-alias-transaction) | 10|
 | Транзакция спонсирования | 14 |
 | [Транзакция установки скрипта](/ru/blockchain/transaction-type/set-script-transaction) | 13 |
 | [Транзакция установки скрипта ассета](/ru/blockchain/transaction-type/set-asset-script-transaction) | 15 |

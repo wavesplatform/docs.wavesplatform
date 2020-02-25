@@ -19,7 +19,7 @@
 | 9 | [Транзакция обмена](/ru/blockchain/transaction-type/exchange-transaction) | 1, 2 |
 | 10 | [Транзакция перевода](/ru/blockchain/transaction-type/transfer-transaction) | 1, 2 |
 | 11 | [Транзакция сжигания токена](/ru/blockchain/transaction-type/burn-transaction) | 1, 2 |
-| 12 | [Транзакция создания псевдонима](/ru/blockchain/transaction-type/alias-transaction) | 1, 2 |
+| 12 | [Транзакция создания псевдонима](/ru/blockchain/transaction-type/create-alias-transaction) | 1, 2 |
 | 13 | Транзакция спонсирования | 1 |
 | 14 | [Транзакция установки скрипта](/ru/blockchain/transaction-type/set-script-transaction) | 1 |
 | 15 | [Транзакция установки скрипта ассета](/ru/blockchain/transaction-type/set-asset-script-transaction) | 1 |
