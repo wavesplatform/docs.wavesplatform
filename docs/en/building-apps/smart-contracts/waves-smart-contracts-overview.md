@@ -33,7 +33,7 @@ Smart accounts and dApps has access to **transaction proofs**. Any transaction c
 
 > :warning: `Proofs` array is not available in an asset script.
 
-Smart assets, smart accounts and dApps' verifier function (i.e. function that checks for compliance with the specified conditions) have access to current transaction fields. There is `tx` variable in the global scope of a script which contains all fields of current outgoing transaction, including proofs array.
+Smart assets, smart accounts and dApps' verifier function (i.e. function that checks dApp's outgoing transactions for compliance with the specified conditions) have access to current transaction fields. There is `tx` variable in the global scope of a script which contains all fields of current outgoing transaction, including proofs array.
 
 dApps' Callable function has an access only to Invoke transaction's Invokation structure.
 
@@ -41,7 +41,7 @@ dApps' Callable function has an access only to Invoke transaction's Invokation s
 
 ### Absence of Gas
 
-Ride is Turing incomplete language. With absence of cycles and quite severe resctictions on script size, this means that Ride scripts are executed for predictable time. This feature allowed to **reject gas** usage so the execution costs are always known upfront. Transactions from smart account or with smart asset require additional 0.004 WAVES fee.
+Ride is non-Turing complete language. With absence of cycles and quite severe resctictions on script size, this means that Ride scripts are executed for predictable time. This feature allowed to **reject gas** usage. Execution fee is fixed and always known upfront (0.004 WAVES for each script invocation).
 
 > For example, minimal fee for transfer transaction is 0.001 WAVES for usual account and 0.005 (0.001 + 0.004) for smart account.
 
@@ -49,9 +49,17 @@ Ride is Turing incomplete language. With absence of cycles and quite severe resc
 
 If you're familiar with Ethereum smart contracts model you have to consider the main difference between them and Waves Smart Contracts:
 
-> :bulb: Waves smart **contract** does **not** have its' own state. Instead, the account's key-value storage is used. It is managed by [data transactions](https://docs.wavesplatform.com/en/blockchain/transaction-type/data-transaction).
+> :bulb: Waves smart **contract** does **not** have its' own state. Instead, the [account's key-value storage](/en/blockchain/account/account-data-storage) is used. It is managed by [data transactions](https://docs.wavesplatform.com/en/blockchain/transaction-type/data-transaction). Also, Waves smart contract can make request to key-value storage of an arbitrary account.
 
-So if you need to work with state, use the data transactions.
+So for working with the state, the following tools are available:
+
+| Tool | Used with | Read | Write |
+|---|---|---|---|
+| Data transaction | Smart accounts, dApps  |   |   |
+| [Account data storage functions](/en/ride/functions/built-in-functions/account-data-storage-functions)  |   |   |   |
+| [Data transaction functions](/en/ride/functions/built-in-functions/data-transaction-functions)  |   |   |   |
+|   |   |   |   |
+
 
 ## Smart Accounts
 
