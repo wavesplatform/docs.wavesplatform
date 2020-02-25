@@ -73,6 +73,10 @@ module.exports = deepmerge(mixin, {
                         text: 'dApps',
                         link: '/ru/building-apps/smart-contracts/what-is-a-dapp',
                     },
+                    signer: {
+                        text: 'Библиотека Signer',
+                        link: '/ru/building-apps/waves-api-and-sdk/client-libraries/signer'
+                    }
                 },
             },
             rideProgrammingLanguage: {

@@ -32,18 +32,18 @@
 
 * Version 4 of the Ride [standard library](/en/ride/script/standard-library) was issued.
 * Added the [median(List[Int])](/en/ride/functions/built-in-functions/math-functions#median) built-in math function. This function calculates a median of the list of integers. Its complexity equals 10.
-* Added the `calculateAssetId(issue: Issue)` function which calculates ID of asset obtained by invoke script transaction's call of the [Issue](/en/ride/structures/common-structures/issue) structure.
+* Added the [calculateAssetId](/en/ride/functions/built-in-functions/blockchain-functions#calculate) function which calculates ID of asset obtained by invoke script transaction's call of the [Issue](/en/ride/structures/common-structures/issue) structure.
 * Added the DeleteEntry structure for deleting the [account data storage](/en/blockchain/account/account-data-storage) entries.
 * Added the feature of issuing/reissuing/burning tokens in the [dApp](/en/blockchain/account/dapp) script. A single transaction can contain up to 10 invocations for the token issue/reissue/burn.
 * Invoke script transaction's fee increased by 1 WAVES for each non-NFT asset issued by the transaction's Issue structure.
-* The [callable](/en/ride/functions/callable-function) functions result format was modified. The following structures were removed from it: ScriptResult, WriteSet и TransferSet. Instead, the results list can be returned in arbitrary order:  [[StringEntry](/en/ride/structures/common-structures/string-entry), [Issue](/en/ride/structures/common-structures/issue), [ScriptTransfer](/en/ride/structures/common-structures/script-transfer), [BooleanEntry](/en/ride/structures/common-structures/boolean-entry), [BinaryEntry](/en/ride/structures/common-structures/binary-entry), [IntEntry](/en/ride/structures/common-structures/int-entry), [DeleteEntry](/en/ride/structures/common-structures/delete-entry), [Reissue](/en/ride/structures/common-structures/reissue), [Burn](/en/ride/structures/common-structures/burn)].
+* The [callable](/en/ride/functions/callable-function) functions result format was modified. The following structures were removed from it: ScriptResult, WriteSet и TransferSet. Instead, the results list can be returned in arbitrary order:  [[StringEntry](/en/ride/structures/common-structures/string-entry), [Issue](/en/ride/structures/common-structures/issue), [ScriptTransfer](/en/ride/structures/common-structures/script-transfer), [BooleanEntry](/en/ride/structures/common-structures/boolean-entry), [BinaryEntry](/en/ride/structures/common-structures/binary-entry), [IntegerEntry](/en/ride/structures/common-structures/int-entry), [DeleteEntry](/en/ride/structures/common-structures/delete-entry), [Reissue](/en/ride/structures/common-structures/reissue), [Burn](/en/ride/structures/common-structures/burn)].
 * The [DataEntry](/en/ride/structures/common-structures/data-entry) structure was removed. The following structures were added instead:
   * BinaryEntry. Writes binary data to the account data storage.
   * BooleanEntry. Writes boolean data to the account data storage.
   * IntegerEntry. Writes integer data to the account data storage.
   * StringEntry. Writes string data to the account data storage.
 * Implemented the ability to process in dApp up to two payments attached to the invoke script transaction.
-* Added the `groth16verify` built-in function for zero-knowledge proof verification. Its complexity equals 1900.
+* Added the [groth16verify](/en/ride/functions/built-in-functions/blockchain-functions#groth) built-in function for zero-knowledge proof verification. Its complexity equals 1900.
 * Added the [valueOrElse(t: T|Unit, t0 : T)](/ru/ride/functions/built-in-functions/union-functions#valueOrElse) built-in function that returns a value from the union type if it's not empty. Its complexity equals 13.
 * Added the [contains(source: String, substr: String)](/ru/ride/functions/built-in-functions/string-functions#contains) built-in function which checks whether the second argument (substring) is contained in the first string argument. Its complexity equals 20.
 * Now the list can be the function argument.

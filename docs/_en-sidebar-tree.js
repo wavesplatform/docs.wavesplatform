@@ -116,12 +116,12 @@ module.exports = {
           path: blockchainPath + 'binary-format/transaction-binary-format',
           children: [
             {
-              title: 'Alias transaction binary format',
-              path: blockchainPath + 'binary-format/transaction-binary-format/alias-transaction-binary-format',
-            },
-            {
               title: 'Burn transaction binary format',
               path: blockchainPath + 'binary-format/transaction-binary-format/burn-transaction-binary-format',
+            },
+            {
+              title: 'Create alias transaction binary format',
+              path: blockchainPath + 'binary-format/transaction-binary-format/alias-transaction-binary-format',
             },
             {
               title: 'Data transaction binary format',
@@ -168,7 +168,7 @@ module.exports = {
               path: blockchainPath + 'binary-format/transaction-binary-format/set-script-transaction-binary-format',
             },
             {
-              title: 'Sponsorship transaction binary format',
+              title: 'Sponsor fee transaction binary format',
               path: blockchainPath + 'binary-format/transaction-binary-format/sponsorship-transaction-binary-format',
             },
             {
@@ -186,12 +186,12 @@ module.exports = {
           path: blockchainPath + 'binary-format/transaction-protobuf-scheme',
           children: [
               {
-                  title: 'Аlias transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/alias-transaction-protobuf-scheme',
-              },
-              {
                   title: 'Burn transaction protobuf scheme',
                   path: blockchainPath + 'binary-format/transaction-protobuf-scheme/burn-transaction-protobuf-scheme',
+              },
+              {
+                  title: 'Create alias transaction protobuf scheme',
+                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/alias-transaction-protobuf-scheme',
               },
               {
                   title: 'Data transaction protobuf scheme',
@@ -326,7 +326,7 @@ module.exports = {
       ],
     },
     {
-      title: 'Leasing Proof of Stake',
+      title: 'Leased Proof of Stake',
       path: blockchainPath + 'leasing',
     },
     {
@@ -446,12 +446,12 @@ module.exports = {
       path: blockchainPath + 'transaction-type',
       children: [
         {
-          title: 'Alias transaction',
-          path: blockchainPath + 'transaction-type/alias-transaction',
-        },
-        {
           title: 'Burn transaction',
           path: blockchainPath + 'transaction-type/burn-transaction',
+        },
+        {
+          title: 'Create alias transaction',
+          path: blockchainPath + 'transaction-type/alias-transaction',
         },
         {
           title: 'Data transaction',
@@ -693,7 +693,7 @@ module.exports = {
           ],
         },
         {
-          title: 'Alias Transaction',
+          title: 'Aliases',
           path: nodePath + 'node-api/alias-transaction',
         },
         {
@@ -988,7 +988,7 @@ module.exports = {
               path: ridePath + 'structures/common-structures/delete-entry',
             },
             {
-              title: 'IntEntry',
+              title: 'IntegerEntry',
               path: ridePath + 'structures/common-structures/int-entry',
             },
             {
@@ -1054,7 +1054,7 @@ module.exports = {
               path: ridePath + 'structures/transaction-structures/exchange-transaction',
             },
             {
-              title: 'FeeSponsoringTransaction',
+              title: 'SponsorFeeTransaction',
               path: ridePath + 'structures/transaction-structures/fee-sponsoring-transaction',
             },
             {
@@ -1239,6 +1239,10 @@ module.exports = {
           path: sdkPath + 'client-libraries',
           children: [
             {
+              title: 'Signer',
+              path: sdkPath + 'client-libraries/signer',
+            },
+            {
               title: 'PyWaves',
               path: sdkPath + 'client-libraries/pywaves',
             },
@@ -1261,10 +1265,6 @@ module.exports = {
             {
               title: 'WavesRS',
               path: sdkPath + 'client-libraries/wavesrs',
-            },
-            {
-              title: 'Waves Signer',
-              path: sdkPath + 'client-libraries/signer',
             },
             {
               title: 'Waves transactions',

@@ -1,4 +1,4 @@
-# Alias transaction protobuf scheme
+# Create alias transaction protobuf scheme
 
 > protobuf-schemas/proto/waves/transaction.proto
 

@@ -70,9 +70,9 @@ A smart asset’s script validates any of the following [transaction types](/en/
 
 * IssueTransaction
   An asset that is already issued cannot be issued again, so validating IssueTransactions by smart asset’s script doesn’t make sense.
-* SetSponsorshipTransaction
+* SponsorFeeTransaction
   Sponsorship of smart assets was prohibited due to the fact that sponsorship can require an extra validation \(if a TransferTransaction contains feeAsset\). However, when an asset issuer sets sponsorship to the asset, they may foresee this situation, so smart asset sponsorship will be probably allowed in the forthcoming releases.
-* LeaseTransaction, LeaseCancelTransaction, AliasTransaction, DataTransaction, SetScriptTransaction
+* LeaseTransaction, LeaseCancelTransaction, CreateAliasTransaction, DataTransaction, SetScriptTransaction
   These transactions don’t involve any assets.
 
 **Note.** Smart Assets scripts **do not validate orders**. Therefore, although Ride allows to use `case t : Order => …` branch, in fact this branch does not validate anything when used in SmartAssets’ scripts and will be ignored. So all the logic regarding orders should be moved to `case t : ExchangeTransaction => …` branch. The Sponsorship of smart assets is _**prohibited**_.

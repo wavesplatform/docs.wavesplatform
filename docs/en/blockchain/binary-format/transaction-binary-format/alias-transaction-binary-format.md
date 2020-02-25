@@ -1,6 +1,6 @@
-# Alias transaction binary format
+# Create alias transaction binary format
 
-> Learn more about [alias transaction](/en/blockchain/transaction-type/alias-transaction)
+> Learn more about [create alias transaction](/en/blockchain/transaction-type/alias-transaction)
 
 ## Transaction version 2
 

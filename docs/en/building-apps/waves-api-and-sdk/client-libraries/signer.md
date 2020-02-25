@@ -258,7 +258,7 @@ const balances = await signer.getBalance();
 
 #### getSponsoredBalances
 
-If user logged in, provides balances of sponsored assets in user's portfolio. См. [Sponsored Fee Transactions](/en/blockchain/waves-protocol/sponsored-fee).
+If user logged in, provides balances of sponsored assets in user's portfolio. См. [Sponsor Fee Transactions](/en/blockchain/waves-protocol/sponsored-fee).
 
 ```js
 getSponsoredBalances();
@@ -356,7 +356,7 @@ signer.alias({ 'new_alias', })
 
 #### alias
 
-Creates [alias transaction](/en/blockchain/transaction-type/alias-transaction).
+Creates [create alias transaction](/en/blockchain/transaction-type/alias-transaction).
 
 ```js
 alias(data: {

@@ -28,7 +28,7 @@
 | :--- | :--- | :--- |
 | 8 |[LeaseTransaction](/ru/ride/structures/transaction-structures/lease-transaction) | Структура [транзакции лизинга](/ru/blockchain/transaction-type/lease-transaction) |
 | 9 | [LeaseCancelTransaction](/ru/ride/structures/transaction-structures/lease-cancel-transaction) | Структура [транзакции закрытия лизинга](/ru/blockchain/transaction-type/lease-cancel-transaction) |
-| 14 | [FeeSponsoringTransaction](/ru/ride/structures/transaction-structures/fee-sponsoring-transaction) | Структура транзакции спонсирования |
+| 14 | [SponsorFeeTransaction](/ru/ride/structures/transaction-structures/fee-sponsoring-transaction) | Структура транзакции спонсирования |
 
 ## Генезис
 

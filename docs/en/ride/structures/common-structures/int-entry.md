@@ -1,4 +1,4 @@
-# IntEntry
+# IntegerEntry
 
 > :warning: The structure is introduced in Standard library **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
@@ -7,7 +7,7 @@ Structure of an integer data record of an [account data storage](/en/blockchain
 ## Constructor
 
 ```ride
-IntEntry(key: String, value: Int)
+IntegerEntry(key: String, value: Int)
 ```
 
 ## Fields
