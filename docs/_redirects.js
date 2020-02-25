@@ -134,6 +134,34 @@ module.exports = [
     from: '/en/blockchain/transaction-type-data-structure.html',
   },
   {
+    from: '/en/blockchain/binary-format/transaction-binary-format/alias-transaction-binary-format',
+    to: '/en/blockchain/binary-format/transaction-binary-format/create-alias-transaction-binary-format',
+  },
+  {
+    from: '/ru/blockchain/binary-format/transaction-binary-format/alias-transaction-binary-format',
+    to: '/ru/blockchain/binary-format/transaction-binary-format/create-alias-transaction-binary-format',
+  },
+  {
+    from: '/en/blockchain/binary-format/transaction-binary-format/sponsorship-transaction-binary-format',
+    to: '/en/blockchain/binary-format/transaction-binary-format/sponsor-fee-transaction-binary-format',
+  },
+  {
+    from: '/en/blockchain/binary-format/transaction-protobuf-scheme/alias-transaction-protobuf-scheme',
+    to: '/en/blockchain/binary-format/transaction-protobuf-scheme/create-alias-transaction-protobuf-scheme',
+  },
+  {
+    from: '/ru/blockchain/binary-format/transaction-protobuf-scheme/alias-transaction-protobuf-scheme',
+    to: '/ru/blockchain/binary-format/transaction-protobuf-scheme/create-alias-transaction-protobuf-scheme',
+  },
+  {
+    from: '/en/blockchain/binary-format/transaction-type/alias-transaction',
+    to: '/en/blockchain/binary-format/transaction-type/create-alias-transaction',
+  },
+  {
+    from: '/ru/blockchain/binary-format/transaction-type/alias-transaction',
+    to: '/ru/blockchain/binary-format/transaction-type/create-alias-transaction',
+  },
+  {
     to: '/en/blockchain/leasing',
     from: '/en/waves-environment/waves-protocol/leased-proof-of-stake-lpos.html',
   },
@@ -270,6 +298,14 @@ module.exports = [
   {
     to: '/ru/ride/structures/common-structures/delete-entry',
     from: '/ru/ride/structures/common-structures/delete-key',
+  },
+  {
+    from: '/en/ride/structures/transaction-structures/fee-sponsoring-transaction',
+    to: '/en/ride/structures/transaction-structures/sponsor-fee-transaction',
+  },
+  {
+    from: '/ru/ride/structures/transaction-structures/fee-sponsoring-transaction',
+    to: '/ru/ride/structures/transaction-structures/sponsor-fee-transaction',
   },
   {
     to: '/ru/ride/base-concepts/expression',
