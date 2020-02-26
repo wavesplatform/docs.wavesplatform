@@ -26,11 +26,15 @@ There are no constraints on operations with "regular" assets. But when the const
 
 To attach the script to the asset and therefore make it smart asset, the [set asset script transaction](/en/blockchain/transaction-type/set-asset-script-transaction.md) must be issued. Every regular asset can become smart asset.
 
+When an [order](/en/blockchain/order) with a smart asset is placed on matcher, the matcher validates orders with smart asset's script. Then, when an ExchangeTransaction with this order is put into blockchain, it is validated with smart asset's script (`case tx: ExchangeTransaction => ...`)
+
 ### Smart Accounts <a id="smart-accounts"></a>
 
 Resembling smart assets, the smart accounts ensure if the transaction passes one or more checks defined in the script attached to the account. If the checks are passed, the transaction is submitted to be included to the next block.
 
 To attach the script to account and therefore make it smart account, the [set script transaction](/en/blockchain/transaction-type/set-script-transaction.md) is issued. Every regular account can become smart account.
+
+When a smart account places an order, the matcher validates the order with the account's script `(case tx: Order => ...)` the same way as the blockchain does.
 
 > :bulb: The best intuition about smart assets and smart accounts are locks. There is a default lock for regular accounts and assets, which checks signatures of transactions. Smart Contracts allow to change that lock to custom, i.e.
 > * open lock - all transactions are allowed
@@ -52,6 +56,11 @@ Each Waves Smart Contract has access to:
 * **Blockchain height**. There is height function in the global scope of a script which returns the blockchain height at the execution time.
 
 > :warning: Note that when the smart account validates order, it has access to the order fields only. It does not have access to global scope blockchain-related [functions](/en/ride/functions/built-in-functions/blockchain-functions) and [variables](/en/ride/variables/built-in-variables), and account data storage.
+
+
+When an Order with a smart asset is placed on Matcher, Matcher validates orders with Smart Asset's script (create fake ExhcangeTransaction and validate it).
+
+Then, when an ExchangeTransaction with this order is put into blockchain, it is validated with Smart Asset's script (case tx: ExchangeTransaction => ...)
 
 * **Key-value storage of any account**.
 
