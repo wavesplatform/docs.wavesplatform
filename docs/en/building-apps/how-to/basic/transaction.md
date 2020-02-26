@@ -39,11 +39,11 @@ The node checks transaction for validity. If a transaction is valid, then it is 
 
 ## Sign Transaction Using Your Own Seed
 
-### Using Javascript
+### Using JavaScript
 
 Use `waves-transactions` library. Transaction proof is generated using your seed phrase. If transaction fee is not specified, it is calculated automatically.
 
-See method descriptions in [documentation](https://wavesplatform.github.io/waves-transactions/index.html).
+See function descriptions in [documentation](https://wavesplatform.github.io/waves-transactions/index.html) on Github.
 
 ```javascript
 import { nodeInteraction } from "@waves/waves-transactions";
@@ -68,7 +68,7 @@ const seed = 'insert your seed here';
 
   const money = {
     recipient: '3N1HYdheNiiTtHgi2n3jLAek6N3H4guaciG',
-    amount: 100000000
+    amount: 100000000 // Actual amount multiplied by 10^decimals
   }
 
   const transferTx = transfer(money, seed); // Create and sign transfer transaction
@@ -79,7 +79,7 @@ const seed = 'insert your seed here';
 
 ### Using Python
 
-The simplest way to send a transaction using Python is implementing [PyWaves](https://github.com/PyWaves/PyWaves) library developed by Waves community. Use Address class to do the operations in blockchain. Explore more use cases in their [readme file](https://github.com/PyWaves/PyWaves/blob/master/README.md).
+The simplest way to send a transaction using Python is implementing [PyWaves](https://github.com/PyWaves/PyWaves) library developed by Waves community. Use `Address` class to do the operations in blockchain. Explore more use cases in their [readme file](https://github.com/PyWaves/PyWaves/blob/master/README.md).
 
 ```python
 import pywaves as pw
@@ -97,17 +97,17 @@ myAddress.sendWaves(recipient = pw.Address('3P8pGyzZL9AUuFs9YRYPDV3vm73T48ptZxs'
 
 ## Sign Transaction on Behalf of User
 
-### Using Javascript
+### Using JavaScript
 
 Use `Signer` library together with `ProviderWeb` developed by Waves.Exchange team.
 
-ProviderWeb opens a windows where user can confirm a transaction. After that ProviderWeb generates a transaction proof.
+`ProviderWeb` opens a windows where user can confirm a transaction. After that `ProviderWeb` generates a transaction proof.
 
 If transaction fee is not specified, it is calculated by `Signer` automatically.
 
-> :warning: Note: `ProviderWeb` now implements signing only for **transfer**, **data** and **invoke** transactions.
+> :warning: `ProviderWeb` now implements signing for all types of transactions except exchange transactions.
 
-See full descriptions in [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer) documentation.
+See full description in [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer) documentation.
 
 **Example:**
 

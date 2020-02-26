@@ -2,7 +2,7 @@
 sidebarDepth: 2
 ---
 
-# Как покупать или продавать токены
+# Как купить или продать токены
 
 Любой ассет, выпущенный на блокчейне Waves (кроме [NFT](/en/blockchain/token/non-fungible-token)), можно продать или купить на бирже [Waves.Exchange](https://waves.exchange/). Приложение Waves.Exchange, разработанное командой Waves.Exchange, является частью экосистемы Waves и включает пользовательский кошелек и децентрализованную биржу, которая выполняет сделки быстро и надежно.
 
@@ -14,7 +14,7 @@ sidebarDepth: 2
 
 ### С помощью Waves.Exchange
 
-Используйте online, desktop или мобильное приложение. См. разделы [Торговля на бирже (Online/Desktop)](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) и [Торговля на бирже (Мобильные приложения)](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-mobile/mobile-trading/mobile-start-trading) документации Waves.Exchange.
+Используйте online/desktop- или мобильное приложение. См. разделы [Торговля на бирже (online/desktop-приложение)](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) и [Торговля на бирже (мобильные приложения)](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-mobile/mobile-trading/mobile-start-trading) документации Waves.Exchange.
 
 ### С помощью JavaScript
 
@@ -74,7 +74,7 @@ const signedOrder = order(orderParams, seed);
 await submitOrder(signedOrder, matcherUrl);
 
 let orderId = signedOrder.id;
-console.log('Order ID: '+ orderId);
+console.log('ID ордера: '+ orderId);
 ```
 
 ### С помощью Python
@@ -104,74 +104,74 @@ print(f'Buy order ID: {buy_order.orderId}')
 
 ### С помощью Waves.Exchange
 
-The submitted order is displayed in the **My Open Orders** tab (Online & Desktop app) or in the **My Orders** tab (Mobile) until it is completed. See the [Start Trading (Online & Desktop)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) and [Start Trading (Mobile)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-mobile/mobile-trading/mobile-start-trading) sections of the Waves.Exchange documentation.
+Размещенный ордер отображается на вкладке **Мои открытые ордера** в online/desktop-приложении или на вкладке **My Orders** в мобильном приложении. См. разделы [Торговля на бирже (online/desktop-приложение)](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) и [Торговля на бирже (мобильные приложения)](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-mobile/mobile-trading/mobile-start-trading) документации Waves.Exchange.
 
-### Using Matcher API
+### С помощью API Матчера
 
-To get order status, you need to know order ID and asset pair. Use `GET /matcher/orderbook/{amountAsset}/{priceAsset}/{orderId}` method. Status is returned for orders submitted not earlier than 30 days ago. For partially filled orders, the method aslo returns filled amount.
+Чтобы получить статус ордера, достаточно значть его идентификатор и ассетную пару. Используйте метод `GET /matcher/orderbook/{amountAsset}/{priceAsset}/{orderId}`. Получение статуса доступно для ордеров, размещенный не более 30 дней назад. Для частично выполненных ордеров метод также возвращает сумму выполненной части.
 
-See method description in [Matcher API](https://docs.waves.exchange/en/waves-matcher/matcher-api) article of Waves.Exchange documentation.
+Описание метода приведено в разделе [Matcher API](https://docs.waves.exchange/ru/waves-matcher/matcher-api) документации Waves.Exchange.
 
-**Request example:**
+**Пример запроса:**
 
 ```
 curl 'https://matcher.testnet.wavesnodes.com/matcher/orderbook/BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3/WAVES/6hgoJMKAMPVZb11epd2vCjqk47dGcr9eT8cJQ2HpYnHp'
 ```
 
-The example is suitable for the `cURL` utility. You can adjust the proposed request to your app written in any programming language.
+Приведенный пример подходит для утилиты `cURL`. Вы можете адаптировать запрос для своего языка программирования.
 
-### Using JavaScript
+### С помощью JavaScript
 
 ```javascript
 const matcherUrl = 'https://matcher.testnet.wavesnodes.com';
 
-const amountAssetId: 'BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3'; // asset ID of ETH on Testnet
+const amountAssetId: 'BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3'; // Идентификатор ETH на Testnet
 const priceAssetId: 'WAVES';
 
 const orderId= '6hgoJMKAMPVZb11epd2vCjqk47dGcr9eT8cJQ2HpYnHp';
 
 let response = await fetch(matcherUrl + '/matcher/orderbook/' + amountAsset + '/' + priceAsset + '/' + orderId);
 let json = await response.json();
-console.log('Order status: ' + json.status);
+console.log('Статус ордера: ' + json.status);
 ```
 
-### Using Python
+### С помощью Python
 
 ```python
-# using order from previous example
+# используем ордер из предыдущего примера
 print(buy_order.status())
 ```
 
-## Cancel Order
+## Отмена ордера
 
-You can cancel previously submitted order if it's not already filled completely.
+Вы можете отменить ордер, если он еще не выполнен полностью.
 
-### Using Waves.Exchange
+### С помощью Waves.Exchange
 
-You can cancel an order:
+Вы можете отменить ордер:
 
-* In Online or Desktop app: click **Cancel** in **My Open Orders** tab.
-* In Mobile app: Note: tap **X** in **My orders** tab.
+* В online/desktop-приложении: нажмите **Отмена** на вкладке **Мои открытые ордера**.
+* В мобильном приложении: Note: нажмите **X** на вкладке **Мои ордера**.
 
-### Using JavaScript
+### С помощью JavaScript
 
-The request to cancel the order must be signed by the order sender.
+Запрос на отмену ордера должен быть подписан отправителем ордера.
 
-Use functions of `waves-transactions` library:
+Используйте функции библиотеки `waves-transactions`:
 
-* `cancelOrder` function creates and signs cancel order request.
-* `cancelSubmittedOrder` sends signed request to Matcher.
+* функция `cancelOrder` создает и подписывает запрос на отмену ордера.
+* функция `cancelSubmittedOrder` отправляет подписанный запрос на Матчер.
 
-See function descriptions in [waves-transactions documentation](https://wavesplatform.github.io/waves-transactions/index.html) on Github.
+Описание функций см. в [документации библиотеки](https://wavesplatform.github.io/waves-transactions/index.html) на Github.
 
-**Exapmle**
+**Пример:**
 
 ```javascript
 import {cancelOrder, cancelSubmittedOrder } from "@waves/waves-transactions";
 
 const matcherUrl = 'https://matcher.testnet.wavesnodes.com';
 
-const amountAssetId: 'BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3'; // asset ID of ETH on Testnet
+const amountAssetId: 'BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3'; // Идентификатор ETH на Testnet
 const priceAssetId: 'WAVES';
 
 const seed = 'insert your seed here';
@@ -183,9 +183,9 @@ const cancelledOrder = await cancelSubmittedOrder(co, amountAsset, priceAsset, m
 console.log(cancelledOrder.status);
 ```
 
-### Using Python
+### С помощью Python
 
 ```python
-# using order from previous example
+# используем ордер из предыдущего примера
 buy_order.cancel()
 ```

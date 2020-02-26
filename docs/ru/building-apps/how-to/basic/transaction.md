@@ -1,49 +1,49 @@
-# How to Create Transaction and Broadcast It to Blockchain
+# Как создать транзакцию и добавить ее в блокчейн
 
-All events on the blockchain are represented as transactions. For example:
+Все события на блокчейне представлены в виде транзакций. Например:
 
-* data transaction writes data to an account data storage;
-* transfer transaction moves a certain amount of the token from one account to another.
+* транзакция данных записывает информацию в хранилище данных аккаунта;
+* транзакция перевода отправляет заданное количество токенов с одного аккаунта на другой.
 
-Waves provides a large number of transaction types. See the [Transaction Type](/en/blockchain/transaction-type) article for more information. Depending on the type, transactions may contain different fields.
+В Waves предусмотрено множество типов транзакций, см. раздел [Тип транзакции](/ru/blockchain/transaction-type). Набор полей транзакции зависит от ее типа.
 
-**Transaction Proof**
+**Подтверждение транзакции**
 
-On Waves, each transaction can be sent only from the account. Transaction that is sent from ordinary (unscripted) account must contain a proof – a sender's digital signature. (Smart accounts and dApps can set their own rules for verification of outgoing transations). See the [Transaction Proof](/en/blockchain/transaction/transaction-proof) section for more information. 
+В Waves каждая транзакция отправлена с какого-либо аккаунта. Транзакция, отправленная с обычного аккаунта (без установленного скрипта), должна содержать подтверждение — цифровую подпись отправителя. (Смарт-аккаунты и dApp могут устанавливать собственные правила верификации исходщих транзакций.) Подробнее см. в разделе [Подтверждение транзакциии](/ru/blockchain/transaction/transaction-proof).
 
-There are two options to sign a transaction:
+Есть два способа сгенерировать подтверждение транзакции:
 
-* If your app sends trancastions on your behalf, you can use your own seed phrase to sign transactions. This way is described in [Sign Transaction Using Your Own Seed](#sign-transaction-using-your-own-seed) section below.
-* If your app sends transactions on behalf of range of users, we don't recommend to ask them for their seed phrases. Instead, use the official wallet software – for example, provided by Waves.Exchange team. This way is described in [Sign Transaction on Behalf of User](#sign-transaction-on-behalf-of-user) section below.
+* Если приложение отправляет транзакции от вашего имени, вы можете использовать свою секретную фразу (seed) для подписания транзакций. Этот способ описан в подразделе [Подписание с помощью секретной фразы](#подписание-с-помощью-секретной-фразы) ниже.
+* Если приложение отправляет транзакции от имени разных пользователей, мы не рекомендуем запрашивать у них секретную фразу. Вместо этого используйте официальное приложение-кошелек — например, разработанное командой Waves.Exchange. Этот способ описан в подразделе [Подписание от имени пользователя](#подписание-от-имени-пользователя) ниже.
 
-**Transaction Fee**
+**Комиссия за транзакцию**
 
-Waves transactions are very cheap but not free. Each transaction must contain a fee not less than specified in [Transaction fee](/en/blockchain/transaction/transaction-fee) article.
+Транзакции в Waves очень дешевые, но не бесплатные. В каждой транзакции должна быть указана комиссия не менее минимальной. Минимальные комиссии представлены в разделе [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee).
 
-> :bulb: On Testnet, a user can top up their balance using [Testnet Faucet](/en/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network).
+> :bulb: На Testnet пользователи могут пополнять баланс с помощью [Testnet Faucet](/ru/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network).
 
-**Workflow**
+**Процесс**
 
-In order to put a transaction on the blockchain, complete the following steps:
+Чтобы поместить транзакцию в блокчейн:
 
-1. Fill in the transaction fields.
-2. Sign transaction: generate sender's signature and add it to the transaction.
-3. Send transaction to a node.
+1. Заполните поля транзакции.
+2. Подпишите транзакцию: сгенерируйте подтверждение и добавьте его к транзакции.
+3. Отправьте транзакцию на ноду Waves.
 
-You can send a request to your own node or to one of the Waves nodes with public API:
+Вы можете отправить транзакцию на свою собственную ноду или одну из нод с публичным API:
 
 * Testnet: <https://nodes-testnet.wavesnodes.com>
 * Mainnet: <https://nodes.wavesnodes.com>
 
-The node checks transaction for validity. If a transaction is valid, then it is put to a generated block in the blockchain, if not — it's rejected by the blockchain.
+Нода проверяет валидность транзакции. Если проверка прошла успешно, транзакция помещается в очередной сгенерированный блок, в противном случае транзакция отвергается блокчейном.
 
-## Sign Transaction Using Your Own Seed
+## Подписание с помощью секретной фразы
 
-### Using Javascript
+### С помощью JavaScript
 
-Use `waves-transactions` library. Transaction proof is generated using your seed phrase. If transaction fee is not specified, it is calculated automatically.
+Используйте библиотеку `waves-transactions`. Для генерации подписи используется секретная фраза (seed) аккаунта. Если комиссия за транзакцию не указана, она рассчитывается автоматически.
 
-See method descriptions in [documentation](https://wavesplatform.github.io/waves-transactions/index.html).
+Описание функций приведено в [документации библиотеки](https://wavesplatform.github.io/waves-transactions/index.html) на Github.
 
 ```javascript
 import { nodeInteraction } from "@waves/waves-transactions";
@@ -52,7 +52,7 @@ import { data, transfer } from "@waves/waves-transactions";
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
 const seed = 'insert your seed here';
 
-  // Data transaction: add records to the sender's account data storage
+  // Транзакция данных: добавляет записи в хранилище данных аккаунта-отправителя
 
   const records = [
     { key: 'integerVal', value: 1 },
@@ -60,26 +60,26 @@ const seed = 'insert your seed here';
     { key: 'stringVal', value: 'Lorem ipsum dolor sit amet' }
   ]
 
-  const dataTx = data({ data: records }, seed); // Create and sign data transaction
+  const dataTx = data({ data: records }, seed); // Создание и подписание транзакции данных
 
   nodeInteraction.broadcast(dataTx,nodeUrl).then(resp => console.log(resp));
 
-  // Transfer transaction: send 1 WAVES to the specified address
+  // Транзакция перевода: отправляет 1 WAVES на заданный адрес
 
   const money = {
     recipient: '3N1HYdheNiiTtHgi2n3jLAek6N3H4guaciG',
-    amount: 100000000
+    amount: 100000000 // Фактическое количество ассета нужно умножить на 10^decimals
   }
 
-  const transferTx = transfer(money, seed); // Create and sign transfer transaction
+  const transferTx = transfer(money, seed); // Создание и подписание транзакции перевода
 
   nodeInteraction.broadcast(transferTx,nodeUrl).then(resp => console.log(resp));
 
 ```
 
-### Using Python
+### С помощью Python
 
-The simplest way to send a transaction using Python is implementing [PyWaves](https://github.com/PyWaves/PyWaves) library developed by Waves community. Use Address class to do the operations in blockchain. Explore more use cases in their [readme file](https://github.com/PyWaves/PyWaves/blob/master/README.md).
+Используйте библиотеку [PyWaves](https://github.com/PyWaves/PyWaves), разработанную сообществом Waves. Класс `Address` предназначен для операций в блокчейне. Подробнее см. в [документации библиотеки](https://github.com/PyWaves/PyWaves/blob/master/README.md) на Github.
 
 ```python
 import pywaves as pw
@@ -95,34 +95,34 @@ myAddress.sendWaves(recipient = pw.Address('3P8pGyzZL9AUuFs9YRYPDV3vm73T48ptZxs'
                     amount = 100000000)
 ```
 
-## Sign Transaction on Behalf of User
+## Подписание от имени пользователя
 
-### Using Javascript
+### С помощью JavaScript
 
-Use `Signer` library together with `ProviderWeb` developed by Waves.Exchange team.
+Используйте библиотеку `Signer` вместе с библиотекой `ProviderWeb`, разработанной командой Waves.Exchange.
 
-ProviderWeb opens a windows where user can confirm a transaction. After that ProviderWeb generates a transaction proof.
+`ProviderWeb` открывает окно, в котором пользователь может подтвердить транзакцию. Затем `ProviderWeb` генерирует подтверждение транзакции.
 
-If transaction fee is not specified, it is calculated by `Signer` automatically.
+Если комиссия за транзакцию не указана, она рассчитывается автоматически.
 
-> :warning: Note: `ProviderWeb` now implements signing only for **transfer**, **data** and **invoke** transactions.
+> :warning: `ProviderWeb` поддерживает подписание всех транзакций, кроме транзакций обмена.
 
-See full descriptions in [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer) documentation.
+Полное описание приведено в документации [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer).
 
-**Example:**
+**Пример:**
 
 ```javascript
 import Signer from '@waves/signer';
 import Provider from '@waves.exchange/provider-web';
 
-// Library initialization
+// Инициализация библиотеки
 
 const signer = new Signer({
   NODE_URL: 'https://nodes-testnet.wavesnodes.com'
 });
 signer.setProvider(new Provider());
 
-// Data transaction: add records to the sender's account data storage
+// Транзакция данных: добавляет записи в хранилище данных аккаунта-отправителя
 
 const records = [
   { key: 'integerVal', value: 1 },
@@ -138,7 +138,7 @@ dataTx.then(resp => console.log(resp));
 
 console.log('Data tx: ' + dataTx);
 
-// Transfer transaction: send 1 WAVES to the specified address
+// Транзакция перевода: отправляет 1 WAVES на заданный адрес
 
 const money = {
   recipient: '3N1HYdheNiiTtHgi2n3jLAek6N3H4guaciG',

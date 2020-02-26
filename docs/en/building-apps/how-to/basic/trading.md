@@ -151,7 +151,7 @@ You can cancel previously submitted order if it's not already filled completely.
 You can cancel an order:
 
 * In Online or Desktop app: click **Cancel** in **My Open Orders** tab.
-* In Mobile app: Note: tap **X** in **My orders** tab.
+* In Mobile app: tap **X** in **My orders** tab.
 
 ### Using JavaScript
 
@@ -164,7 +164,7 @@ Use functions of `waves-transactions` library:
 
 See function descriptions in [waves-transactions documentation](https://wavesplatform.github.io/waves-transactions/index.html) on Github.
 
-**Exapmle**
+**Exapmle:**
 
 ```javascript
 import {cancelOrder, cancelSubmittedOrder } from "@waves/waves-transactions";
