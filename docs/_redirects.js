@@ -154,12 +154,12 @@ module.exports = [
     to: '/ru/blockchain/binary-format/transaction-protobuf-scheme/create-alias-transaction-protobuf-scheme',
   },
   {
-    from: '/en/blockchain/binary-format/transaction-type/alias-transaction',
-    to: '/en/blockchain/binary-format/transaction-type/create-alias-transaction',
+    from: '/en/blockchain/transaction-type/alias-transaction',
+    to: '/en/blockchain/transaction-type/create-alias-transaction',
   },
   {
-    from: '/ru/blockchain/binary-format/transaction-type/alias-transaction',
-    to: '/ru/blockchain/binary-format/transaction-type/create-alias-transaction',
+    from: '/ru/blockchain/transaction-type/alias-transaction',
+    to: '/ru/blockchain/transaction-type/create-alias-transaction',
   },
   {
     to: '/en/blockchain/leasing',
