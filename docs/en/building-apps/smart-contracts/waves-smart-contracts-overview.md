@@ -28,7 +28,7 @@ To attach the script to the asset and therefore make it smart asset, the [set as
 
 ### Smart Accounts <a id="smart-accounts"></a>
 
-Resembling smart assets, the smart accounts check if the transaction passes one or more checks defined in the script attached to the account. If the checks are passed, the transaction is submitted to be included to the next block.
+Resembling smart assets, the smart accounts ensure if the transaction passes one or more checks defined in the script attached to the account. If the checks are passed, the transaction is submitted to be included to the next block.
 
 To attach the script to account and therefore make it smart account, the [set script transaction](/en/blockchain/transaction-type/set-script-transaction.md) is issued. Every regular account can become smart account.
 
