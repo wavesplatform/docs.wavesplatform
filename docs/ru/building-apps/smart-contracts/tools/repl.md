@@ -12,4 +12,4 @@
 * получать баланс аккаунта
 * читать данные из [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage)
 
-Документация по функциям консоли доступна на [GitHub](https://wavesplatform.github.io/js-test-env).
+Документация по функциям консоли доступна на [GitHub](https://wavesplatform.github.io/js-test-env/).

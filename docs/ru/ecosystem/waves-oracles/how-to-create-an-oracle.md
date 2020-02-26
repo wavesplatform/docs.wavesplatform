@@ -133,7 +133,7 @@ export class WavesPrice {
 
 ## Запуск оракула
 
-Установите Node.js, если он ещё не установлен: [https://nodejs.org/en](https://nodejs.org/en).
+Установите Node.js, если он ещё не установлен: [https://nodejs.org/en/](https://nodejs.org/en/).
 
 Установим зависимости проекта:
 

@@ -255,7 +255,7 @@ const balances = await signer.getBalance();
 | isMyAsset | `true`, если ассет выпущен текущим пользователем |
 | tokens | Баланс ассета для отображения в приложении |
 | sponsorship | Количество спонсорского ассета, взимаемое с пользователей (эквивалент 0,001 WAVES), умноженное на  10^`decimals`<br>`null` — если токен не является спосорским |
-| isSmart | `true` для [смарт-ассетов](/ru/smart-contracts/what-is-smart-asset) |
+| isSmart | `true` для [смарт-ассетов](/ru/building-apps/smart-contracts/what-is-smart-asset) |
 
 #### getSponsoredBalances
 
@@ -818,7 +818,7 @@ setScript(data: {
 
 | Имя параметра | Значение по умолчанию | Описание |
 | :--- | :--- | :--- |
-| script | | [Скрипт аккаунта](/ru/ride/script/script-types/account-scriptl) или [dApp-скрипт](/ru/ride/script/script-types/dapp-script) в кодировке Base64 (с префиксом `base64:`). `null` — отмена установки скрипта |
+| script | | [Скрипт аккаунта](/ru/ride/script/script-types/account-script) или [dApp-скрипт](/ru/ride/script/script-types/dapp-script) в кодировке Base64 (с префиксом `base64:`). `null` — отмена установки скрипта |
 
 См. [Общие параметры](#общие-параметры) для описания остальных параметров.
 
@@ -968,7 +968,7 @@ const [transfer, alias, issue] = await signer.batch([
 broadcast(tx,[options])
 ```
 
-**Возвращает:** Promise ответа ноды. См. описание метода [POST /transactions/broadcast](https://docs.wavesplatform.com/ru/waves-node/node-api/transactions.html#section-8b7f977c1b3f2832df49d3d3738dc0cf) Node API.
+**Возвращает:** Promise ответа ноды. См. описание метода [POST /transactions/broadcast](/ru/waves-node/node-api/transactions) Node API.
 
 **Параметры:**
 
