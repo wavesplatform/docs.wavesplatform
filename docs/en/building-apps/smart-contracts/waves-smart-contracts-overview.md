@@ -14,18 +14,38 @@ There are 3 types of Waves Smart Contracts:
 
 | Smart contract type | Designation | Is callable |
 |---|---|---|
-| Smart asset | Verifies transactions involving the asset | No |
-| Smart account | Verifies transactions issuing from the account  | No |
-| dApp  | - Verifies transactions issuing from the account<br> - Allows invoking its [callable functions](/en/ride/functions/callable-function) by other accounts | Yes  |
+| [Smart asset](#smart-assets) | Verifies transactions involving the asset | No |
+| [Smart account](#smart-accounts) | Verifies transactions issuing from the account  | No |
+| [dApp](#dapp) | - Verifies transactions issuing from the account<br> - Allows invoking its [callable functions](/en/ride/functions/callable-function) by other accounts | Yes  |
 
-As denoted in the table above, the smart contracts accommodate some logic that checks outgoing transactions for compliance with the specified conditions. The transaction is sent only if this conditions are satisfied.
+## Smart Contracts Types
+
+### Smart Assets <a id="smart-assets"></a>
+
+There are no constraints on operations with "regular" assets. But when the constraints are needed, for example, to get notary/escrow approval of the transaction or to ensure that  operations with the asset are locked for a specified time, the asset can be "promoted" to smart asset to follow the limitations. To convert asset to the smart asset, the script containing one or more checks is attached to it. If the checks return `True`, then the transaction is good to be sent to blockchain.
+
+To attach the script to the asset and therefore make it smart asset, the [set asset script transaction](/en/blockchain/transaction-type/set-asset-script-transaction.md) must be issued. Every regular asset can become smart asset.
+
+### Smart Accounts <a id="smart-accounts"></a>
+
+Resembling smart assets, the smart accounts check if the transaction passes one or more checks defined in the script attached to the account. If the checks are passed, the transaction is submitted to be included to the next block.
+
+To attach the script to account and therefore make it smart account, the [set script transaction](/en/blockchain/transaction-type/set-script-transaction.md) is issued. Every regular account can become smart account.
 
 > :bulb: The best intuition about smart assets and smart accounts are locks. There is a default lock for regular accounts and assets, which checks signatures of transactions. Smart Contracts allow to change that lock to custom, i.e.
 > * open lock - all transactions are allowed
 > * multisignature - the transaction can be sent if several people sign it
 > * time lock - transactions can be send only after specified blockchain height, and others.
 
-The dApps can bear not only the compliance checks, but also they allow other accounts to invoke its functions.
+### dApps
+
+dApps are smart accounts with the important additional feature: they can bear not only the compliance checks, but also allow other accounts to invoke its functions.
+
+Read [What is a dApp](/en/building-apps/smart-contracts/what-is-a-dapp.md) article for quick acquaitance with dApps features.
+
+Proceed to [How-to guides](/en/building-apps/waves-api-and-sdk/examples/) to learn dApps in more detail.
+
+## Data Available for Smart Contracts
 
 Each Waves Smart Contract has access to:
 
@@ -41,15 +61,13 @@ Smart accounts and dApps has access to **transaction proofs**. Any transaction c
 
 Smart assets, smart accounts and dApps' verifier function (i.e. function that checks dApp's outgoing transactions for compliance with the specified conditions) have access to current transaction fields. There is `tx` variable in the global scope of a script which contains all fields of current outgoing transaction, including proofs array.
 
-dApps' Callable function has an access only to Invoke transaction's Invokation structure.
+dApps' Callable function has an access only to Invoke transaction's Invoсation structure.
 
-## Ride Specifics
+## Waves Smart Contracts Specifics
 
 ### Absence of Gas
 
-Ride is non-Turing complete language. With absence of cycles and quite severe resctictions on script size, this means that Ride scripts are executed for predictable time. This feature allowed to **reject gas** usage. [Execution fee](/en/blockchain/transaction/transaction-fee) is fixed and always known upfront (0.004 WAVES for each script invocation).
-
-> For example, minimal fee for transfer transaction is 0.001 WAVES for usual account and 0.005 (0.001 + 0.004) for smart account.
+Ride is non-Turing complete language. With absence of cycles and quite severe resctictions on script size, this means that Ride scripts are executed for predictable time. This feature allowed to **reject gas** usage. [Execution fee](/en/blockchain/transaction/transaction-fee) is fixed and always known upfront (at least 0.001 WAVES plus 0.004 WAVES for each script invocation).
 
 ### Working with State
 
@@ -64,37 +82,3 @@ So for working with the state, the following tools are available:
 | Data transaction | Smart accounts, dApps | No | Yes |
 | [Account data storage functions](/en/ride/functions/built-in-functions/account-data-storage-functions)  | Smart accounts, dApps | Yes | No |
 | Callable functions | dApps  | Yes | Yes |
-
-## Smart Accounts
-
-Waves uses account-based model, there are no inputs and outputs of transactions like in some other blockchain networks. All assets and data [associates](https://docs.wavesplatform.com/en/blockchain/transaction-type/data-transaction) with an account and bound to its' public key.
-
-> :bulb: By default, public key "owns" assets and stores key-value data attached by [data transactions](https://docs.wavesplatform.com/en/blockchain/transaction-type/data-transaction). To spend funds or update key-value storage the sender provides **a valid signature** matching transaction body and public key.
-
-**The main idea** that before the transaction is submitted to be included in the next block, the account checks if the transaction meets certain requirements, defined in a **script**. The script is attached to the account so the account can validate every transaction before confirming it. To attach the script to account and therefore make it smart account, the [set script transaction](/en/blockchain/transaction-type/set-script-transaction.md) is issued.
-
-Every regular account can become smart account.
-
-> [Detailed explanation of Smart Accounts with examples](https://docs.wavesplatform.com/en/building-apps/smart-contracts/what-is-smart-account#account-script-structure)
-
-## Smart Assets
-
-If we plan to apply constraints on all operations for a specific asset, we cannot use a smart account. In our paradigm, we have smart assets for this purpose: the script will be attached to the asset and will work in a similar way. Transactions for such assets are valid only if the script returns True. For example, a script can check if a notary/escrow approves the transaction or that operations with the asset are not locked for a specified time. The script for the token is invoked upon the following operations with an asset:
-
-* Transfer transaction
-* Mass Transfer transaction
-* Reissue transaction
-* Burn transaction
-* Exchange transaction
-* Set Asset Script transaction
-* Update Asset Info transaction
-
-## dApps
-
-Read [What is a dApp](/en/building-apps/smart-contracts/what-is-a-dapp.md) article for quick acquaitance with dApps features.
-
-Proceed to [How-to guides](/en/building-apps/waves-api-and-sdk/examples/) to learn dApps in more detail.
-
-## Additional Information
-
-> :bulb: Here you can find [White Paper](https://wavesplatform.com/files/docs/white_paper_waves_smart_contracts.pdf?cache=b) which describes Waves Smart Contracts approach: basic use-cases, implementation details and Ride language description.
