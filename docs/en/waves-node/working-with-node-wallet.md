@@ -9,7 +9,7 @@ In this article we will review the following scenarios of wallet usage:
 * [using existing wallet](#existing-wallet).
 * [changing node's account](#re-create).
 
-## Creating a New Wallet From Scratch <a id="new"></a>
+## Creating a New Wallet From Scratch <a id="new"></a>
 
 During first launch, the node will create a wallet if the directory listed in `wallet` section of [node's configuration file](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf) (`/var/lib/waves/wallet` by default) does not contain wallet.dat file.
 
