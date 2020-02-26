@@ -51,7 +51,7 @@ Each Waves Smart Contract has access to:
 
 * **Blockchain height**. There is height function in the global scope of a script which returns the blockchain height at the execution time.
 
-> :warning: Note that when the smart account validates order, it has access to the order fields only. It does not have access to global scope functions, including the mentioned `height` function.
+> :warning: Note that when the smart account validates order, it has access to the order fields only. It does not have access to global scope blockchain-related [functions](/en/ride/functions/built-in-functions/blockchain-functions) and [variables](/en/ride/variables/built-in-variables), including account data storage.
 
 * **Key-value storage of any account**.
 
