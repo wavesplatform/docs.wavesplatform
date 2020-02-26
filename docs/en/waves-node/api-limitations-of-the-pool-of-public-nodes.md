@@ -2,7 +2,7 @@
 
 **Pool of public nodes** is a set of public [nodes](/en/blockchain/node) which provide data via REST API [https://nodes.wavesnodes.com](https://nodes.wavesnodes.com/).
 
-You can use our public nodes to retreive the information from Waves' blockchain, but we recommend you to use your own nodes, because our pool has some limitations listed in the table below.
+You can use our public nodes to retrieve the information from Waves' blockchain, but we recommend you to use your own nodes, because our pool has some limitations listed in the table below.
 
 Please note:
 
