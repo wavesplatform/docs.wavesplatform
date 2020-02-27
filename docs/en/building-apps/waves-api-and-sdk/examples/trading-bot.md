@@ -1,4 +1,4 @@
-# Create your first crypto trading bot
+# How to Create Your First Crypto Trading Bot
 
 ## Introduction
 
