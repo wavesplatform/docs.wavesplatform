@@ -20,7 +20,7 @@
 
 Транзакции в Waves очень дешевые, но не бесплатные. В каждой транзакции должна быть указана комиссия не менее минимальной. Минимальные комиссии представлены в разделе [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee).
 
-> :bulb: На Testnet пользователи могут пополнять баланс с помощью [Testnet Faucet](/ru/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network).
+> :bulb: На Testnet пользователи могут пополнять баланс WAVES с помощью [Testnet Faucet](/ru/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network).
 
 **Процесс**
 
@@ -105,9 +105,9 @@ myAddress.sendWaves(recipient = pw.Address('3P8pGyzZL9AUuFs9YRYPDV3vm73T48ptZxs'
 
 Если комиссия за транзакцию не указана, она рассчитывается автоматически.
 
-> :warning: `ProviderWeb` поддерживает подписание всех транзакций, кроме транзакций обмена.
+> :warning: `ProviderWeb` поддерживает подписание транзакций всех типов, кроме транзакций обмена.
 
-Полное описание приведено в документации [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer).
+Полное описание приведено в документации [Signer](/ru/building-apps/waves-api-and-sdk/client-libraries/signer).
 
 **Пример:**
 

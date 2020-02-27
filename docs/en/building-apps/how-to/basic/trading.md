@@ -8,7 +8,7 @@ All the assets issued on the Waves blockchain (except [NFTs](/en/blockchain/toke
 
 Waves.Exchange app is a part of the Waves ecosystem. It combines user wallet and decentralized exchange that executes trades swiftly and securely.
 
-To buy or sell tokens, you submit an order to Matcher (exchange engine). You don't transfer your assets to exchange, money remains on your account until Matcher executes the order and creates an exchange transaction. The blockchain guarantees that the transaction will be made on the conditions that are not worse than in the user's order.
+To buy or sell tokens, you submit an order to matcher (exchange engine). You don't transfer your assets to exchange, money remains on your account until matcher executes the order and creates an exchange transaction. The blockchain guarantees that the transaction will be made on the conditions that are not worse than in the user's order.
 
 See the [Order](/en/blockchain/order) article for more information about orders.
 
@@ -22,12 +22,12 @@ You can use online, desktop or mobile app. See the [Start Trading (Online & Desk
 
 #### Set Matcher Params
 
-Use the following Matcher URL:
+Use the following matcher URL:
 
 * Testnet: <https://matcher.testnet.wavesnodes.com>
 * Mainnet: <https://matcher.waves.exchange>
 
-Use the `GET /matcher` method of Matcher API to retrieve Matcher public key.
+Use the `GET /matcher` method of matcher API to retrieve matcher public key.
 
 #### Set Asset Pair
 
@@ -37,7 +37,7 @@ For Mainnet, you can see asset pairs and asset IDs on the **Trading** page of Wa
 
 ![](./_assets/asset-pair.png)
 
-For both Mainnet and Testnet, you can get asset pairs using `GET /matcher/orderbook` or `GET /matcher/settings` API method. For more information, see [Matcher API](https://docs.waves.exchange/en/waves-matcher/matcher-api) article of Waves.Exchange documentation.
+For both Mainnet and Testnet, you can get asset pairs using `GET /matcher/orderbook` or `GET /matcher/settings` API method. For more information, see [matcher API](https://docs.waves.exchange/en/waves-matcher/matcher-api) article of Waves.Exchange documentation.
 
 > :warning: Asset IDs differ on Mainnet and Testnet.
 
@@ -47,8 +47,8 @@ WAVES, the core token of Waves blockchain, doesn't have an asset ID, use 'WAVES'
 
 Use functions of `waves-transactions` library:
 
-* `order` function creates and signs an order. Order proof is derived from seed. By default, Matcher fee is calculated automatically.
-* `submitOrder` sends signed order to Matcher.
+* `order` function creates and signs an order. Order proof is derived from seed. By default, matcher fee is calculated automatically.
+* `submitOrder` sends signed order to matcher.
 
 See function descriptions in [waves-transactions documentation](https://wavesplatform.github.io/waves-transactions/index.html) on Github.
 
@@ -162,7 +162,7 @@ The request to cancel the order must be signed by the order sender.
 Use functions of `waves-transactions` library:
 
 * `cancelOrder` function creates and signs cancel order request.
-* `cancelSubmittedOrder` sends signed request to Matcher.
+* `cancelSubmittedOrder` sends signed request to matcher.
 
 See function descriptions in [waves-transactions documentation](https://wavesplatform.github.io/waves-transactions/index.html) on Github.
 

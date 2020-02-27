@@ -143,9 +143,9 @@ console.log('Баланс Neutrino: ' + assetBalance.balance);
 Если пользователь аутентифицирован в вашем приложении, вы можете использовать функции библиотеки `Signer`:
 
 * функция `getBalance` возвращает балансы всех ассетов, принадлежащих пользователю. Для WAVES возвращается доступный баланс.
-* функция `getSponsoredBalances` возвращает балансы спонсорских ассетов См. [Sponsored Fee Transactions](https://docs.wavesplatform.com/en/blockchain/waves-protocol/sponsored-fee).
+* функция `getSponsoredBalances` возвращает балансы спонсорских ассетов Подробнее о спонсировании см. в разделе [Sponsored Fee Transactions](/ru/blockchain/waves-protocol/sponsored-fee).
 
-См. [документацию библиотеки Signern](/en/building-apps/waves-api-and-sdk/client-libraries/signer).
+См. [документацию библиотеки Signer](/ru/building-apps/waves-api-and-sdk/client-libraries/signer).
 
 **Пример:**
 
@@ -195,7 +195,7 @@ print(asset_balance)
 
 ### С помощью Node REST API
 
-Чтобы получить все транзакции, относящиеся к аккаунту, используйте метод `GET /transactions/address/{address}/limit/{limit}`. Получать список можно постранично: чтобы получить следующую страницу, укажите в параметре `after` ID последней полученной транзакции.
+Чтобы получить все транзакции, относящиеся к аккаунту, используйте метод `GET /transactions/address/{address}/limit/{limit}`. Получать список можно постранично: чтобы получить следующую страницу, укажите ID последней полученной транзакции в параметре `after`.
 
 Описание методов см. в [Swagger](https://nodes-testnet.wavesnodes.com/).
 
@@ -256,7 +256,7 @@ print(transactions)
 
 Чтобы получить только высоту блокчейна, используйте метод  `GET /blocks/height`.
 
-Чтобы получить все заголовки последнего блока, в том числе высоту и временную метку, используйте метод GET /blocks/headers/last`.
+Чтобы получить все заголовки последнего блока, в том числе высоту и временную метку, используйте метод `GET /blocks/headers/last`.
 
 Описание методов см. в [Swagger](https://nodes-testnet.wavesnodes.com/).
 
