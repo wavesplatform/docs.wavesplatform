@@ -75,7 +75,7 @@ module.exports = deepmerge(mixin, {
                     },
                     howTo: {
                         text: 'Практические руководства',
-                        link: '/building-apps/how-to'
+                        link: '/ru/building-apps/how-to'
                     },
                     signer: {
                         text: 'Signer',
