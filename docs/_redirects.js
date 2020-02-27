@@ -560,6 +560,14 @@ module.exports = [
     from: '/en/development-and-api/client-api/auth-api.html',
   },
   {
+    from: '/en/building-apps/waves-api-and-sdk/examples',
+    to: '/en/building-apps/how-to',
+  },
+  {
+    from: '/ru/building-apps/waves-api-and-sdk/examples',
+    to: '/ru/building-apps/how-to',
+  },
+  {
     to: '/en/building-apps/waves-api-and-sdk/examples/trading-bot',
     from: '/en/development-and-api/examples/trading-bot.html',
   },

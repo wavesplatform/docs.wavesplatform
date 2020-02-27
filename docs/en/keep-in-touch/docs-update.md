@@ -2,6 +2,14 @@
 
 ## February articles
 
+### Building Apps
+
+Added how-to guides:
+
+* [Retrieving information from the blockchain](/en/building-apps/how-to/basic/retrieve)
+* [Creating and broadcasting transactions to the blockchain](/en/building-apps/how-to/basic/transaction)
+* [Buying and selling assets on exchange](/en/building-apps/how-to/basic/trading)
+
 ### Ride
 
 #### Built-in Functions

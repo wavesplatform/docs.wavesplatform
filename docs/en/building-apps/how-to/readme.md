@@ -14,7 +14,7 @@ To perform any action on the blockchain, you need to create a transaction of app
 
 ## Trading
 
-[**Buying and selling assets on exchange**](/en/building-apps/how-to/basics/trading)
+[**Buying and selling assets on exchange**](/en/building-apps/how-to/basic/trading)
 
 To buy or sell asset (except NFTs), you need to create an order, sign it and send to the exchange.
 
