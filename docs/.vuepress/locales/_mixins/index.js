@@ -62,7 +62,7 @@ module.exports = {
                         link: '/en/building-apps/smart-contracts/what-is-a-dapp'
                     },
                     howTo: {
-                        text: 'How-to Guides',
+                        text: 'How-to guides',
                         link: '/en/building-apps/how-to'
                     },
                     signer: {

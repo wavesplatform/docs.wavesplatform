@@ -24,6 +24,6 @@
 
 ## dApps
 
-[**Простое голосование на блокченйе Waves**](/ru/building-apps/smart-contracts/simple-voting-on-the-waves-blockchain)
+[**Простое голосование на блокчейне Waves**](/ru/building-apps/smart-contracts/simple-voting-on-the-waves-blockchain)
 
 dApp реализует голосование жильцов дома: скрипт проверяет, что аккаунт имеет право голосовать, и записывает результаты в хранилище данных dApp.

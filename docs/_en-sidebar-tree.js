@@ -1131,7 +1131,7 @@ module.exports = {
       path: buildingAppsPath + 'how-to',
       children: [
         {
-          title: 'Retrieving Information from the Blockchain',
+          title: 'Reading Blockchain Data',
           path: buildingAppsPath + 'how-to/basic/retrieve',
         },
         {

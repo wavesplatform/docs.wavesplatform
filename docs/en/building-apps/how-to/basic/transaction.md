@@ -1,4 +1,4 @@
-# How to Create Transaction and Broadcast It to Blockchain
+# How to Create Transaction and Put It to Blockchain
 
 All events on the blockchain are represented as transactions. For example:
 

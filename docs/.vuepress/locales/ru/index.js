@@ -75,10 +75,10 @@ module.exports = deepmerge(mixin, {
                     },
                     howTo: {
                         text: 'Практические руководства',
-                        link: '/en/building-apps/how-to'
+                        link: '/building-apps/how-to'
                     },
                     signer: {
-                        text: 'Библиотека Signer',
+                        text: 'Signer',
                         link: '/ru/building-apps/waves-api-and-sdk/client-libraries/signer'
                     }
                 },
