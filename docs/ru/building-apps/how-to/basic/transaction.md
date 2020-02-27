@@ -84,7 +84,7 @@ const seed = 'insert your seed here';
 ```python
 import pywaves as pw
 
-myAddress = pw.Address(seed='example seed phrase')
+myAddress = pw.Address(seed='insert your seed here')
 
 data = [{'type':'string', 'key': 'stringVal', 'value':'Lorem ipsum dolor sit amet'},
         {'type':'integer',  key: 'integerVal', value: 1 },

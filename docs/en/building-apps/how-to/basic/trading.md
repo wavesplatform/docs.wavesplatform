@@ -4,7 +4,9 @@ sidebarDepth: 2
 
 # How to Buy and Sell Tokens
 
-Any asset issued on the Waves blockchain (except [NFTs](/en/blockchain/token/non-fungible-token)) can be bought or sold on the [Waves.Exchange](https://waves.exchange/). Waves.Exchange developed by Waves.Exchange team is a part of the Waves ecosystem. It combines a user wallet and decentralized exchange that executes trades swiftly and securely.
+All the assets issued on the Waves blockchain (except [NFTs](/en/blockchain/token/non-fungible-token)) can be bought or sold on [Waves.Exchange](https://waves.exchange/) developed by Waves.Exchange team.
+
+Waves.Exchange app is a part of the Waves ecosystem. It combines user wallet and decentralized exchange that executes trades swiftly and securely.
 
 To buy or sell tokens, you submit an order to Matcher (exchange engine). You don't transfer your assets to exchange, money remains on your account until Matcher executes the order and creates an exchange transaction. The blockchain guarantees that the transaction will be made on the conditions that are not worse than in the user's order.
 
@@ -14,7 +16,7 @@ See the [Order](/en/blockchain/order) article for more information about orders.
 
 ### Using Waves.Exchange
 
-You can use online, desktop or mobile app. See the [Start Trading (Online & Desktop)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) and [Start Trading (Mobile)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-mobile/mobile-trading/mobile-start-trading) sections of the Waves.Exchange documentation.
+You can use online, desktop or mobile app. See the [Start Trading (Online & Desktop)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) and [Start Trading (Mobile)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-mobile/mobile-trading/mobile-start-trading) articles of the Waves.Exchange documentation.
 
 ### Using JavaScript
 
@@ -29,9 +31,9 @@ Use the `GET /matcher` method of Matcher API to retrieve Matcher public key.
 
 #### Set Asset Pair
 
-Asset pair is a pair of assets you want to exchange: an amount asset ID and price asset ID. Which asset is a price asset does not depend on which asset is 'spend' and which is 'received'.
+An asset pair consists of two assets you want to exchange: amount asset and price asset. Under the order, you can either sell or buy the amount asset for the price asset.
 
-For Mainnet, you can see asset pairs and asset IDs on the **Trading** page of Waves.Exchange. The first asset in pair is amount asset and the second is price asset.
+For Mainnet, you can see asset pairs and asset IDs on the **Trading** page of Waves.Exchange. The first asset in pair is the amount asset and the second one is the price asset.
 
 ![](./_assets/asset-pair.png)
 
@@ -104,7 +106,7 @@ print(f'Buy order ID: {buy_order.orderId}')
 
 ### Using Waves.Exchange
 
-The submitted order is displayed in the **My Open Orders** tab (Online & Desktop app) or in the **My Orders** tab (Mobile) until it is completed. See the [Start Trading (Online & Desktop)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) and [Start Trading (Mobile)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-mobile/mobile-trading/mobile-start-trading) sections of the Waves.Exchange documentation.
+The submitted order is displayed in the **My Open Orders** tab (Online & Desktop app) or in the **My Orders** tab (Mobile) until it is completed. See the [Start Trading (Online & Desktop)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) and [Start Trading (Mobile)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-mobile/mobile-trading/mobile-start-trading) articles of the Waves.Exchange documentation.
 
 ### Using Matcher API
 

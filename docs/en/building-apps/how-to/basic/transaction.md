@@ -5,11 +5,11 @@ All events on the blockchain are represented as transactions. For example:
 * data transaction writes data to an account data storage;
 * transfer transaction moves a certain amount of the token from one account to another.
 
-Waves provides a large number of transaction types. See the [Transaction Type](/en/blockchain/transaction-type) article for more information. Depending on the type, transactions may contain different fields.
+Waves provides variety of transaction types. See the [Transaction Type](/en/blockchain/transaction-type) article for more information. Depending on the type, transactions may contain different fields.
 
 **Transaction Proof**
 
-On Waves, each transaction can be sent only from the account. Transaction that is sent from ordinary (unscripted) account must contain a proof – a sender's digital signature. (Smart accounts and dApps can set their own rules for verification of outgoing transations). See the [Transaction Proof](/en/blockchain/transaction/transaction-proof) section for more information. 
+On Waves, each transaction can be sent only from the account. Transaction that is sent from ordinary account (without script) must contain a proof – sender's digital signature. (Smart accounts and dApps can set their own rules for verification of outgoing transations). See the [Transaction Proof](/en/blockchain/transaction/transaction-proof) section for more information. 
 
 There are two options to sign a transaction:
 
@@ -20,7 +20,7 @@ There are two options to sign a transaction:
 
 Waves transactions are very cheap but not free. Each transaction must contain a fee not less than specified in [Transaction fee](/en/blockchain/transaction/transaction-fee) article.
 
-> :bulb: On Testnet, a user can top up their balance using [Testnet Faucet](/en/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network).
+> :bulb: On Testnet, a user can top up their WAVES balance using [Testnet Faucet](/en/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network).
 
 **Workflow**
 
@@ -84,7 +84,7 @@ The simplest way to send a transaction using Python is implementing [PyWaves](ht
 ```python
 import pywaves as pw
 
-myAddress = pw.Address(seed='example seed phrase')
+myAddress = pw.Address(seed='insert your seed here')
 
 data = [{'type':'string', 'key': 'stringVal', 'value':'Lorem ipsum dolor sit amet'},
         {'type':'integer',  key: 'integerVal', value: 1 },

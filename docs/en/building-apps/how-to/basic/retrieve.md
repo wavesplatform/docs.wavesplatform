@@ -18,7 +18,7 @@ Each account on the Waves blockchain has an account data storage that stores dat
 
 1. Open <https://wavesexplorer.com/>.
 2. Press ![](./_assets/settings.png) button and switch to ![](./_assets/mainnet.png) or ![](./_assets/testnet.png).
-3. Search for an account by its address or alias.
+3. Use search bar to find the account by address or alias.
 4. Switch to **Data** tab.
 
 ![](./_assets/data-storage-explorer.png)
@@ -43,10 +43,10 @@ The examples shown here and below are suitable for the `cURL` utility. You can a
 
 Use functions of `waves-transactions` library:
 
-* `accountData` function retrieves all the data records from an account data storage, optionally filtered by certain regexp.
+* `accountData` function retrieves all the data records from an account data storage. Optionally you can filter keys using [regular expression](https://en.wikipedia.org/wiki/Regular_expression).
 * `accountDataByKey` retrieves a data record by key.
 
-See [library documentation](https://wavesplatform.github.io/waves-transactions/modules/nodeinteraction.html) on Github.
+See function descriptions in [library documentation](https://wavesplatform.github.io/waves-transactions/modules/nodeinteraction.html) on Github.
 
 **Example:**
 
@@ -81,7 +81,7 @@ Each account can store different assets (also called tokens) in different amount
 
 1. Open <https://wavesexplorer.com/>.
 2. Press ![](./_assets/settings.png) button and switch to ![](./_assets/mainnet.png) or ![](./_assets/testnet.png).
-3. Search for an account by its address or alias.
+3. Use search bar to find the account by address or alias.
 4. Balances in WAVES are displayed below the address. Switch to **Assets** tab to see balances in other tokens.
 
 ![](./_assets/data-storage-explorer.png)
@@ -119,7 +119,7 @@ You can use functions of `waves-transactions` library:
 * `balanceDetails` function retrieves all types of balalnces of WAVES.
 * `assetBalance` function retrieve balances of other assets.
 
-See [library documentation](https://wavesplatform.github.io/waves-transactions/modules/nodeinteraction.html) on Github.
+See function descriptions in [library documentation](https://wavesplatform.github.io/waves-transactions/modules/nodeinteraction.html) on Github.
 
 **Example:**
 
@@ -142,10 +142,10 @@ console.log('Neutrino balance: ' + assetBalance.balance);
 
 If user is authenticated in your app, you can use functions of `Signer` library:
 
-* `getBalance` provides balances of all assets in user's portfolio. For WAVES, available balance is returned.
-* `getSponsoredBalances` prodives balances of sponsored assets in user's portfolio. См. [Sponsored Fee Transactions](https://docs.wavesplatform.com/en/blockchain/waves-protocol/sponsored-fee).
+* `getBalance` provides balances of all assets in user's portfolio. For WAVES, the available balance is returned.
+* `getSponsoredBalances` prodives balances of sponsored assets in user's portfolio. See [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) for more information about sponsorship.
 
-See [Signer documentation](/en/building-apps/waves-api-and-sdk/client-libraries/signer).
+See [Signer documentation](/en/building-apps/waves-api-and-sdk/client-libraries/signer) for how It works.
 
 **Example:**
 
@@ -190,7 +190,7 @@ You can get a list of transactions related to the specified account: outgoing tr
 
 1. Open <https://wavesexplorer.com/>.
 2. Press ![](./_assets/settings.png) button and switch to ![](./_assets/mainnet.png) or ![](./_assets/testnet.png).
-3. Search for an account by its address or alias.
+3. Use search bar to find the account by address or alias.
 4. Switch to **Transactions** tab.
 
 ### Using Node REST API
@@ -244,13 +244,13 @@ print(transactions)
 
 The block height is a sequence number of a block in the blockchain. The blockchain height is a sequence number of the last block.
 
-You can use timestamp of the last block as a current time of the blockchain.
+You can use timestamp of the last block as current time of the blockchain.
 
 ### Using Waves Explorer
 
 1. Open <https://wavesexplorer.com/>.
 2. Press ![](./_assets/settings.png) button and switch to ![](./_assets/mainnet.png) or ![](./_assets/testnet.png).
-3. Current height is displayed above the block list. If don't see block timestamps, click last block number.
+3. Current height is displayed above the block list. If you don't see block timestamps, click last block number.
 
 ### Using Node REST API
 
