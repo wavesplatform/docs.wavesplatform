@@ -6,20 +6,38 @@ sidebarDepth: 3
 
 ## Общие сведения
 
-Waves Signer — TypeScript/JavaScript-библиотека, которая позволяет вашему веб-приложению взаимодействовать с блокчейном Waves. Используя Signer, вы сможете легко создавать и подписывать транзакции.
+Signer — TypeScript/JavaScript-библиотека, которая позволяет вашему веб-приложению подписывать и отправлять транзакции от имени пользователей, не запрашивая у них секретную фразу (seed) или закрытый ключ.
 
-Signer предоставляет протокол для взаимодействия с Провайдером — внешней библиотекой, которая выполняет аутентификацию пользователей и генерирует подтверждения транзакций. Ваше приложение, как и Signer, не имеет доступа к закрытому ключу и секретной фразе (seed) пользователя.
+Исходный код библиотеки доступен на Github: <https://github.com/wavesplatform/signer>.
+
+### Провайдер
+
+Для работы Signer необходимо подключить внешнюю библиотеку — Провайдера. Провайдер обеспечивает безопасное хранение приватных данных пользователя. Ни ваше приложение, ни Signer не имеют доступа к закрытому ключу и секретной фразе (seed) пользователя.
+
+Провайдер выполняет аутентификацию пользователя и генерацию цифровой подписи.
+
+Signer предоставляет веб-приложению удобный протокол взаимодействия с Провайдером, а также отправляет транзакции в блокчейн.
 
 ![](./_assets/signer.png)
 
 В данный момент вы можете подключить одного из следующих провайдеров:
 
 * [ProviderSeed](https://github.com/wavesplatform/provider-seed) разработан командой Waves и создает аккаунт пользователя из секретной фразы. ProviderSeed можно использовать на этапе разработки и отладки приложения.
-* [ProviderWeb](https://github.com/waves-exchange/provider-web) — приложение-кошелек, разработанное Waves.Exchange, которое хранит в зашифрованном виде секретную фразу и закрытый ключ пользователя, гарантируя, что средства пользователей защищены от хакеров и вредоносных веб-сайтов.
+* [ProviderWeb](https://github.com/waves-exchange/provider-web) — официальное приложение-кошелек, разработанное Waves.Exchange, которое хранит в зашифрованном виде секретную фразу и закрытый ключ пользователя.
 
 Вы также можете разработать собственного Провайдера, см. подраздел [Интерфейс Провайдера](#интерфейс-провайдера).
 
-В коде можно использовать [типы TypeScript](https://github.com/wavesplatform/ts-types/blob/master/transactions/index.d.ts).
+### Signer + ProviderWeb: как это работает
+
+Получив от Signer запрос на подписание транзакции, ProviderWeb открывает iframe, в котором пользователь может посмотреть детали транзакции, подтвердить или отклонить ее. Получив подтверждение, ProviderWeb генерирует цифровую подпись. Процесс подписания транзакции продемонстрирован в следующем видео.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OrcNtEP8XpU?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Ограничения
+
+Signer поддерживает все типы транзакций, кроме транзакций обмена.
+
+Signer поддерживает все браузеры, кроме Brave.
 
 ## Начало работы
 
@@ -42,6 +60,11 @@ Signer предоставляет протокол для взаимодейст
    ```bash
    npm i @waves.exchange/provider-web
    ```
+  
+   Для Windows используйте следующий формат:
+   ```bash
+   npm i @waves/signer '@waves.exchange/provider-web'
+   ```
 
 ### 2. Подключение библиотек
 
@@ -57,7 +80,7 @@ Signer предоставляет протокол для взаимодейст
    const seed = libs.crypto.randomSeed(15);
    const signer = new Signer({
      // Укажите адрес ноды, подключенной к Testnet
-     NODE_URL: 'https://pool.testnet.wavesnodes.com'
+     NODE_URL: 'https://nodes-testnet.wavesnodes.com'
    });
    signer.setProvider(new ProviderSeed(seed));
    ```
@@ -70,7 +93,7 @@ Signer предоставляет протокол для взаимодейст
    
    const signer = new Signer({
      // Укажите адрес ноды, подключенной к Testnet
-     NODE_URL: 'https://pool.testnet.wavesnodes.com'
+     NODE_URL: 'https://nodes-testnet.wavesnodes.com'
    });
    signer.setProvider(new Provider());
    ```
@@ -105,8 +128,8 @@ const [signedTransfer] = await signer
 
 ### Другие примеры
 
-Пример приложения, реализующего кнопку сбора пожертвований: <https://github.com/vlzhr/crypto-donate>.
-
+* Приложение, реализующее кнопку сбора пожертвований: <https://github.com/vlzhr/crypto-donate>.
+* Приложение, реализующее отправку транзакций трех типов: <https://github.com/vlzhr/waves-signer-example>.
 
 ## Конструктор
 
@@ -157,8 +180,11 @@ new Signer({
 * [Прочие](#методы)
 
    * [broadcast](#broadcast)
+   * [getNetworkByte](#getnetworkbyte)
    * [setProvider](#setprovider)
    * [waitTxConfirm](#waittxconfirm)
+
+В коде можно использовать [типы TypeScript](https://github.com/wavesplatform/ts-types/blob/master/transactions/index.d.ts).
 
 ### Данные пользователя
 
@@ -205,7 +231,7 @@ await signer.logout();
 
 #### getBalance
 
-Если пользователь вошел в аккаунт, получает текущий баланс всех ассетов в портфеле пользователя.
+Если пользователь вошел в аккаунт, функция получает текущий баланс всех ассетов в портфеле пользователя.
 
 ```js
 getBalance();
@@ -259,7 +285,7 @@ const balances = await signer.getBalance();
 
 #### getSponsoredBalances
 
-Если пользователь вошел в аккаунт, получает текущий баланс спонсорских ассетов в портфеле пользователя. См. [Спонсирование](/ru/blockchain/waves-protocol/sponsored-fee).
+Если пользователь вошел в аккаунт, функция получает текущий баланс спонсорских ассетов в портфеле пользователя. См. раздел [Спонсирование](/ru/blockchain/waves-protocol/sponsored-fee).
 
 ```js
 getSponsoredBalances();
@@ -481,14 +507,14 @@ data(data: [{
 **Пример вызова:**
 
 ```js
-const data = [
+const records = [
   { key: 'name', type: 'string', value: 'Lorem ipsum dolor sit amet' },
   { key: 'value', type: 'number', value: 1234567 },
   { key: 'flag', type: 'boolean', value: true }
 ]
 
 const [tx] = await signer
-  .data(data)
+  .data({ data: records })
   .broadcast();
 ```
 
@@ -554,6 +580,7 @@ invoke(data: {
       value: number | 'string',
     }],
   },
+  feeAssetId: 'string',
 })
 ```
 
@@ -571,6 +598,7 @@ invoke(data: {
 | call.args* | | Аргументы вызываемой функции |
 | call.args.type* | | Тип аргумента |
 | call.args.value* | | Значение аргумента |
+| feeAssetId | WAVES | Идентификатор спонсорского ассета, в котором будет уплачена комиссия за трензакцию, в кодировке Base58. См. раздел [Спонсирование](/ru/blockchain/waves-protocol/sponsored-fee). `null` или отсутствующий параметр означает WAVES |
 
 \* Обязательный параметр.
 
@@ -893,7 +921,7 @@ transfer(data: {
 | amount* | | Количество ассета, умноженное на 10^`decimals`. Например, для WAVES `decimals` равно 8, поэтому фактическое количество WAVES умножается на 10^8. `{ "WAVES": 677728840 }` означает 6,77728840 WAVES  |
 | assetId | WAVES | Идентификатор ассета в кодировке Base58. `null` или отсутствующий параметр означает WAVES |
 | attachment | | Произвольные данные, прикладываемые к транзакции. Обычно используются для комментария к переводу. Не более 140 байт |
-| feeAssetId | WAVES | Идентификатор ассета, в котором будет уплачена комиссия за перевод, в кодировке Base58. `null` или отсутствующий параметр означает WAVES |
+| feeAssetId | WAVES | Идентификатор спонсорского ассета, в котором будет уплачена комиссия за трензакцию, в кодировке Base58. См. раздел [Спонсирование](/ru/blockchain/waves-protocol/sponsored-fee). `null` или отсутствующий параметр означает WAVES |
 
 \* Обязательный параметр.
 
@@ -997,6 +1025,21 @@ await signer.broadcast([transfer1, transfer2], {chain: true, confirmations: 2});
 * Блок с транзакцией `transfer2` и еще два блока добавляются в блокчейн.
 * Происходит разрешение Promise, и вы можете сообщить пользователю, что его транзакции подтверждены.
 
+#### getNetworkByte
+
+Получает [байт сети](/ru/blockchain/blockchain-network/chain-id).
+
+```js
+getNetworkByte();
+```
+
+**Возвращает:** Promise байта сети.
+
+**Пример вызова:**
+```js
+const chainId = signer.getNetworkByte();
+```
+
 #### setProvider
 
 Устанавливает Провайдера, который используется для подписания транзакций. Требования к Провайдеру приведены в разделе [Интерфейс Провайдера](#интерфейс-провайдера).
@@ -1047,6 +1090,8 @@ signer.waitTxConfirm(tx, 1).then((tx) => {
 ```
 
 ## Интерфейс Провайдера
+
+> :warning: Чтобы обеспечить конфиденциальность данных пользователя, Провайдер следует реализовывать на основе `iframe`.
 
 Провайдер должен предоставлять следующий интерфейс:
 
