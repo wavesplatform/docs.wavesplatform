@@ -13,13 +13,13 @@
 | 4.2 | ID токена | assetId | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | S | S = 0 если значение поля "Флаг WAVES/токен" равно 0.<br>S = 32 если значение поля "Флаг WAVES/токен" равно 1 |
 | 5.1 | Количество переводов | transferCount | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 2 | Количество переводов токенов в транзакции |
 | 5.2 | Сумма всех переводов  | totalAmount | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| 5.3 | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) получателя перевода 1 | recipient | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
+| 5.3 | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) получателя перевода 1 | recipient | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | Если первым байтом поля является 1, то за ним следует адрес. `S` в этом случае равняется 26.<br>Если первым байтом поля является 2, то за ним следует псевдоним. В этом случае 8 <= `S` <= 34 |
 | 5.4 | Количество токена в переводе 1 | amount | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| 5.5 | Адрес или псевдоним получателя перевода 2 | recipient | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
+| 5.5 | Адрес или псевдоним получателя перевода 2 | recipient | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | Если первым байтом поля является 1, то за ним следует адрес. `S` в этом случае равняется 26.<br>Если первым байтом поля является 2, то за ним следует псевдоним. В этом случае 8 <= `S` <= 34 |
 | 5.6 | Количество токена в переводе 2 | amount | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | ... | ... | ... | ... | ... | ... |
 | ... | ... | ... | ... | ... | ... |
-| 5.[2× N + 1] | Адрес или псевдоним получателя перевода N | recipient | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
+| 5.[2× N + 1] | Адрес или псевдоним получателя перевода N | recipient | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | Если первым байтом поля является 1, то за ним следует адрес. `S` в этом случае равняется 26.<br>Если первым байтом поля является 2, то за ним следует псевдоним. В этом случае 8 <= `S` <= 34 |
 | 5.[2× N + 2] | Количество токена в переводе N | amount | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 6 | [Временная метка транзакции](/ru/blockchain/transaction/transaction-timestamp) | timestamp | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 7 | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) | fee | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
