@@ -82,7 +82,7 @@ def __init__(self):
   self.log_file = "bot.log"
   self.node = "https://nodes.wavesnodes.com"
   self.chain = "mainnet"
-  self.matcher = "https://matcher.waves.exchange>"
+  self.matcher = "https://matcher.waves.exchange"
   self.order_fee = int(0.003 * 10 ** 8)
   self.order_lifetime = 29 * 86400  # 29 days
   self.private_key = ""
