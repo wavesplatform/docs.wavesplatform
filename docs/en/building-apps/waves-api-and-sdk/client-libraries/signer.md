@@ -23,13 +23,13 @@ Signer implements developer-friendly protocol for interacting with Provider as w
 For now, you can use one of the following Providers:
 
 * [ProviderSeed](https://github.com/wavesplatform/provider-seed) developed by Waves team creates user account from seed. ProviderSeed can be used at the app debugging stage.
-* [ProviderWeb](https://github.com/waves-exchange/provider-web) developed by Waves.Exchange is the official wallet software that encryptes and stores user's private key and seed phrase.
+* [ProviderWeb](https://github.com/waves-exchange/provider-web) developed by Waves.Exchange is the official wallet software that encrypts and stores user's private key and seed phrase.
 
 You can also develop your own Provider, see the [Provider Interface](#provider-interface) section below.
 
 ### Signer + ProviderWeb: How It Works
 
-When Signer requests to sign a transaction, ProviderWeb opens an iframe, where the user can review transaction details and confirm or reject it. Upon confirmation, ProviderWeb generates a digital signature. User experience is represented in the following video.
+When Signer requests to sign a transaction, ProviderWeb opens an [iframe](https://html.spec.whatwg.org/multipage/iframe-embed-object.html), where the user can review transaction details and confirm or reject it. Upon confirmation, ProviderWeb generates a digital signature. User experience is represented in the following video.
 
  <iframe width="560" height="315" src="https://www.youtube.com/embed/OrcNtEP8XpU?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -37,7 +37,7 @@ When Signer requests to sign a transaction, ProviderWeb opens an iframe, where t
 
 Signer supports all types of transactions except exchange transactions.
 
-Signer supports all browser except Brave.
+Signer supports all browsers except Brave.
 
 ## Getting Started
 
