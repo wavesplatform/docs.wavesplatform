@@ -7,17 +7,17 @@
 ## Конструктор
 
 ```ride
-Issue(compiledScript: Script|Unit, decimals: Int, description: String, isReissuable: Boolean, name: String, quantity: Int, nonce: Int)
+Issue(name: String, description: String, quantity: Int, decimals: Int, isReissuable: Boolean, compiledScript: Script|Unit, nonce: Int)
 ```
 
 ## Поля
 
 | # | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | compiledScript | [Script](/ru/ride/script)&#124;[Unit](/ru/ride/data-types/unit) | Должно быть установлено значение `Unit`. Выпуск [смарт-ассетов](/ru/blockchain/token/smart-asset) при помощи этой структуры пока недоступен |
-| 2 | decimals | [Int](/ru/ride/data-types/int) | Количество цифр после запятой. Если [токеном](/ru/blockchain/token) является [NFT](/ru/blockchain/token/non-fungible-token), то значение должно быть `0` |
-| 3 | description | [String](/ru/ride/data-types/string) | Описание токена |
-| 4 | isReissuable | [Boolean](/ru/ride/data-types/boolean) | Флаг возможности довыпуска. Если токеном является [NFT](/ru/blockchain/token/non-fungible-token), то значение должно быть `0` |
-| 5 | name | [String](/ru/ride/data-types/string) | Название токена |
-| 6 | quantity | [Int](/ru/ride/data-types/int) | Количество токена. Если токеном является [NFT](/ru/blockchain/token/non-fungible-token), то значение должно быть `1` |
+| 1 | name | [String](/ru/ride/data-types/string) | Название токена |
+| 2 | description | [String](/ru/ride/data-types/string) | Описание токена |
+| 3 | quantity | [Int](/ru/ride/data-types/int) | Количество токена. Если токеном является [NFT](/ru/blockchain/token/non-fungible-token), то значение должно быть `1` |
+| 4 | decimals | [Int](/ru/ride/data-types/int) | Количество цифр после запятой. Если [токеном](/ru/blockchain/token) является [NFT](/ru/blockchain/token/non-fungible-token), то значение должно быть `0` |
+| 5 | isReissuable | [Boolean](/ru/ride/data-types/boolean) | Флаг возможности довыпуска. Если токеном является [NFT](/ru/blockchain/token/non-fungible-token), то значение должно быть `0` |
+| 6 | compiledScript | [Script](/ru/ride/script)&#124;[Unit](/ru/ride/data-types/unit) | Должно быть установлено значение `Unit`. Выпуск [смарт-ассетов](/ru/blockchain/token/smart-asset) при помощи этой структуры пока недоступен |
 | 7 | nonce | [Int](/ru/ride/data-types/int) | Порядковый номер ассета, который использовался для генерации ID токена. Требуется для выпуска в одном вызове скрипта нескольких токенов с одинаковыми названиями и описаниями |
