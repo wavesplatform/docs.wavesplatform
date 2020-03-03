@@ -11,7 +11,7 @@
 | 3 | [Transaction version](/en/blockchain/transaction/transaction-version) | version | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 2 |
 | 4 | Reserved field | | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be equal to 0 |
 | 5 | Public key of the transaction sender  | senderPublicKey | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 | |
-| 6 | [Address](/en/blockchain/account/address) of the recipient |  recipient | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 2 | |
+| 6 | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the recipient |  recipient | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | If first byte of the field is 1, then it is followed by address. `S` in this case equals 26<br>If first byte of the field is 2, then it is followed by alias. In this case 8 <= `S` <= 34 |
 | 7 | Amount of [WAVES](/en/blockchain/token/waves) that will be leased to the [account](/en/blockchain/account) | amount | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 | 8 | [Transaction fee](/en/blockchain/transaction/transaction-fee) | fee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 | 9 | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) | timestamp | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
@@ -27,7 +27,7 @@ See the [example](https://nodes.wavesnodes.com/transactions/info/J6jZCzLpWJX8EDV
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | [Transaction type ID](/en/blockchain/transaction-type) | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 8 |
 | 2 | Public key of the transaction sender  | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 | |
-| 3 | [Address](/en/blockchain/account/address) of the recipient | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 2 | |
+| 3 | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the recipient |  recipient | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | If first byte of the field is 1, then it is followed by address. `S` in this case equals 26<br>If first byte of the field is 2, then it is followed by alias. In this case 8 <= `S` <= 34 |
 | 4 | Amount of [WAVES](/en/blockchain/token/waves) that will be leased to the [account](/en/blockchain/account) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 | 5 | [Transaction fee](/en/blockchain/transaction/transaction-fee) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 | 6 | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
