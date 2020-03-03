@@ -6,20 +6,38 @@ sidebarDepth: 3
 
 ## Overview
 
-Waves Signer is a TypeScript/JavaScript library for your web app for interacting with the Waves blockchain. Using Signer you can easily create and sign transactions.
+Signer is a TypeScript/JavaScript library that enables signing and broadcasting transactions on behalf of users without asking them for their seed phrases or private keys.
 
-Signer is a protocol for interacting with external Provider library that authenticates users with their accounts and signes transactions. Your web app and Signer itself do not have access to user's private key and SEED phrase.
+The source code is available on Github: <https://github.com/wavesplatform/signer>.
+
+### Provider
+
+In order to work with Signer, you need to link an external Provider library. Provider securely stores user's private data . Your web app and Signer itself do not have access to user's private key and seed phrase.
+
+The Provider authenticates user and generates a digital signature.
+
+Signer implements developer-friendly protocol for interacting with Provider as well as broadcasts transactions to the blockchain.
 
 ![](./_assets/signer.png)
 
 For now, you can use one of the following Providers:
 
-* [ProviderSeed](https://github.com/wavesplatform/provider-seed) developed by Waves team creates user account from SEED. ProviderSeed can be used at the app debugging stage.
-* [ProviderWeb](https://github.com/waves-exchange/provider-web) developed by Waves.Exchange is the wallet software that encryptes and stores user's private key and SEED phrase, making sure that users' funds are protected from hackers and malicious websites.
+* [ProviderSeed](https://github.com/wavesplatform/provider-seed) developed by Waves team creates user account from seed. ProviderSeed can be used at the app debugging stage.
+* [ProviderWeb](https://github.com/waves-exchange/provider-web) developed by Waves.Exchange is the official wallet software that encryptes and stores user's private key and seed phrase.
 
-You can also develop your own Provider, see [Provider Interface](#provider-interface).
+You can also develop your own Provider, see the [Provider Interface](#provider-interface) section below.
 
-In code you can use [TypeScript types](https://github.com/wavesplatform/ts-types/blob/master/transactions/index.d.ts).
+### Signer + ProviderWeb: How It Works
+
+When Signer requests to sign a transaction, ProviderWeb opens an iframe, where the user can review transaction details and confirm or reject it. Upon confirmation, ProviderWeb generates a digital signature. User experience is represented in the following video.
+
+ <iframe width="560" height="315" src="https://www.youtube.com/embed/OrcNtEP8XpU?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Restrictions
+
+Signer supports all types of transactions except exchange transactions.
+
+Signer supports all browser except Brave.
 
 ## Getting Started
 
@@ -43,6 +61,12 @@ In code you can use [TypeScript types](https://github.com/wavesplatform/ts-types
    npm i @waves.exchange/provider-web
    ```
 
+   For Windows, use the following format:
+
+   ```bash
+   npm i '@waves.exchange/provider-web'
+   ```
+
 ### 2. Library initialization
 
 Add library initialization to your app.
@@ -57,7 +81,7 @@ Add library initialization to your app.
    const seed = libs.crypto.randomSeed(15);
    const signer = new Signer({
      // Specify URL of the node on Testnet
-     NODE_URL: 'https://pool.testnet.wavesnodes.com'
+     NODE_URL: 'https://nodes-testnet.wavesnodes.com'
    });
    signer.setProvider(new ProviderSeed(seed));
    ```
@@ -70,7 +94,7 @@ Add library initialization to your app.
    
    const signer = new Signer({
      // Specify URL of the node on Testnet
-     NODE_URL: 'https://pool.testnet.wavesnodes.com'
+     NODE_URL: 'https://nodes-testnet.wavesnodes.com'
    });
    signer.setProvider(new Provider());
    ```
@@ -105,7 +129,8 @@ const [signedTransfer] = await signer
 
 ### More examples
 
-See example of an app that implements the donate button: <https://github.com/vlzhr/crypto-donate>.
+* App that implements the donate button: <https://github.com/vlzhr/crypto-donate>.
+* App that submits three types of transaction: <https://github.com/vlzhr/waves-signer-example>.
 
 ## Constructor
 
@@ -156,8 +181,11 @@ Creates an object that features the following [methods](#methods).
 * [Others](#others)
 
    * [broadcast](#broadcast)
+   * [getNetworkByte](#getnetworkbyte)
    * [setProvider](#setprovider)
    * [waitTxConfirm](#waittxconfirm)
+
+In code you can use [TypeScript types](https://github.com/wavesplatform/ts-types/blob/master/transactions/index.d.ts).
 
 ### User Info
 
@@ -480,14 +508,14 @@ See [Common fields](#common-fields) for other fields description.
 **Usage:**
 
 ```js
-const data = [
+const records = [
   { key: 'name', type: 'string', value: 'Lorem ipsum dolor sit amet' },
   { key: 'value', type: 'number', value: 1234567 },
   { key: 'flag', type: 'boolean', value: true }
 ]
 
 const [tx] = await signer
-  .data(data)
+  .data({ data: records })
   .broadcast();
 ```
 
@@ -553,6 +581,7 @@ invoke(data: {
       value: number | 'string',
     }],
   },
+  feeAssetId: 'string',
 })
 ```
 
@@ -570,6 +599,7 @@ invoke(data: {
 | call.args* | | Arguments for the function  that is called |
 | call.args.type* | | Type of argument |
 | call.args.value* | | Value of argument |
+| feeAssetId | WAVES | Base58-encoded ID of the sponsored asset to pay the commission. See the [Sponsored Fee](/ru/blockchain/waves-protocol/sponsored-fee) article for more information. `null` or omitted field means WAVES |
 
 \* Required field
 
@@ -887,7 +917,7 @@ transfer(data: {
 | amount* | | Amount of asset multiplied by 10^`decimals`. For example, `decimals` of WAVES is 8, so the real amount is multipied by 10^8. `{ "WAVES": 677728840 }` means 6.77728840 |
 | assetId | WAVES | Base58-encoded ID of the asset to transfer. `null` or omitted field means WAVES |
 | attachment | | Optional data attached to the transaction. This field is often used to attach a comment to the transaction. The maximum data size is 140 bytes |
-| feeAssetId | WAVES | Base58-encoded ID of the asset to pay the commission. `null` or omitted field means WAVES |
+| feeAssetId | WAVES | Base58-encoded ID of the sponsored asset to pay the commission. See the [Sponsored Fee](/ru/blockchain/waves-protocol/sponsored-fee) article for more information. `null` or omitted field means WAVES |
 
 \* Required field
 
@@ -990,6 +1020,22 @@ In this example:
 * Block with `transfer2` and two more blocks are added to the blockchain.
 * Promise is resolved and you can notify user that his/her transactions are confirmed.
 
+#### getNetworkByte
+
+Obtains [chain ID](/ru/blockchain/blockchain-network/chain-id).
+
+```js
+getNetworkByte();
+```
+
+**Returns:** Promise of chain ID.
+
+**Usage:**
+
+```js
+const chainId = signer.getNetworkByte();
+```
+
 #### setProvider
 
 Specifies a Provider that is used to sign transactions. See [Provider Interface](#provider-interface) to find out the provider requirements.
@@ -1040,6 +1086,8 @@ signer.waitTxConfirm(tx, 1).then((tx) => {
 ```
 
 ## Provider Interface 
+
+> :warning: To ensure the security of user data, Provider should be based on `iframe`.
 
 Provider should feature the following interface:
 
