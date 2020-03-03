@@ -13,13 +13,13 @@
 | 4.2 | [Token ID](/en/blockchain/token/token-id) | assetId | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | `S` = 0 if the value of the "flag WAVES/token" field is 0.<br>`S` = 32 if the value of the "flag WAVES/token" field is 1 |
 | 5.1 | Number of transfers | transferCount | [Short](/en/blockchain/blockchain/blockchain-data-types) | 2 | |
 | 5.2 | Sum of all transfers | totalAmount | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
-| 5.3 | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the recipient |  recipient | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | If first byte of the field is 1, then it is followed by address. `S` in this case equals 26<br>If first byte of the field is 2, then it is followed by alias. In this case 8 <= `S` <= 34 |
+| 5.3 | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the recipient |  recipient | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | If the first byte of the field is 1, then it is followed by address. `S` in this case equals 26<br>If the first byte of the field is 2, then it is followed by alias. In this case 8 <= `S` <= 34 |
 | 5.4 | Amount of [tokens](/en/blockchain/token) in the transfer 1 | amount | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
-| 5.5 | Address or alias of the recipient |  recipient | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | If first byte of the field is 1, then it is followed by address. `S` in this case equals 26<br>If first byte of the field is 2, then it is followed by alias. In this case 8 <= `S` <= 34 |
+| 5.5 | Address or alias of the recipient |  recipient | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | If the first byte of the field is 1, then it is followed by address. `S` in this case equals 26<br>If the first byte of the field is 2, then it is followed by alias. In this case 8 <= `S` <= 34 |
 | 5.6 | Amount of tokens in the transfer 2 | amount | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 | ... | ... | ... | ... | ... | ... |
 | ... | ... | ... | ... | ... | ... |
-| 5.[2× `N + 1`] | Address or alias of the recipient |  recipient | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | If first byte of the field is 1, then it is followed by address. `S` in this case equals 26<br>If first byte of the field is 2, then it is followed by alias. In this case 8 <= `S` <= 34 |
+| 5.[2× `N + 1`] | Address or alias of the recipient |  recipient | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | If the first byte of the field is 1, then it is followed by address. `S` in this case equals 26<br>If the first byte of the field is 2, then it is followed by alias. In this case 8 <= `S` <= 34 |
 | 5.[2× `N + 2`] | Amount of tokens in the transfer`N` | amount | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 | 6 | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) | timestamp | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 | 7 | [Transaction fee](/en/blockchain/transaction/transaction-fee) | fee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
