@@ -1147,6 +1147,14 @@ module.exports = {
           path: sdkPath + 'examples/trading-bot',
         },
         {
+          title: 'Tokenisation',
+          path: buildingAppsPath + 'how-to/basic/issue',
+        },
+        {
+          title: 'Airdrop',
+          path: buildingAppsPath + 'how-to/basic/airdrop',
+        },
+        {
           title: 'Simple Voting',
           path: programmingPath + 'simple-voting-on-the-waves-blockchain',
         }

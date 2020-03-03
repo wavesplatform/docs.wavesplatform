@@ -22,6 +22,11 @@ To buy or sell asset (except NFTs), you need to create an order, sign it and sen
 
 This trading bot implements scalping trading strategy that exploits small changes in currency prices: it buys at the mean price minus some price step and sells at the mean price plus some step, in order to gain the bid/ask difference.
 
+## Tokens & Assets
+
+[**Creating and Managing Custom Token**](/en/building-apps/how-to/assets/issue)
+
+[**Airdrop**]()
 
 ## dApps
 
