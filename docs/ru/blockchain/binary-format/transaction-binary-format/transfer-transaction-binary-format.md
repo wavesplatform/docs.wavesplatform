@@ -25,7 +25,7 @@
 ## JSON-представление транзакции
 
 Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/2UMEGNXwiRzyGykG8voDgxnwHA7w5aX5gmxdcf9DZZjL
-) в Node API.
+) в Node API. В JSON-представлении, значения полей `feeAsset` и `feeAssetId` идентичны.  
 
 ## Транзакция версии 1
 
