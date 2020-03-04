@@ -511,7 +511,7 @@ The resulting transaction list keeps the order of the transaction IDs as they we
 
 ```js
 {
-  "error": 000,
+  "error": 116,
   "message": "Request contains invalid IDs. H27nMqvLp514M9fFoKbn4qCvFtG3VGzMGcN7noDyDv6C, Bi2vXQdUTsUPRDLE4tWkCFNVNkLjRtvy9PuvWd5iNP63",
   "ids": [
     "H27nMqvLp514M9fFoKbn4qCvFtG3VGzMGcN7noDyDv6C",
