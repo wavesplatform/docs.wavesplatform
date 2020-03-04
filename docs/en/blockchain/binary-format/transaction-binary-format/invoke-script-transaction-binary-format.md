@@ -11,7 +11,7 @@
 | 3 | [Transaction version](/en/blockchain/transaction/transaction-version) | version | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 1 |
 | 4 | [Chain ID](/en/blockchain/blockchain-network/chain-id) |  | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | 84 — for [test network](/en/blockchain/blockchain-network/test-network)<br>87 — for [main network](/en/blockchain/blockchain-network/main-network)<br>83 — for [stage network](/en/blockchain/blockchain-network/stage-network) |
 | 5 | Public key of the transaction sender | senderPublicKey | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 |  |
-| 6 | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) | dApp | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | Address or alias of the dApp whose script should be invoked.<br>`S` = 26 if the field contains address.<br>8 <=`S` <= 34 if the field contains alias |
+| 6 | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) | dApp | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | If the first byte of the field is 1, then it is followed by address. `S` in this case equals 26<br>If the first byte of the field is 2, then it is followed by alias. In this case 8 <= `S` <= 34 |
 | 7 | Address or alias flag |  | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | 1 — address is used to identify the sender.<br>2 — alias is used to identify the sender |
 | 8 | Chain ID |  | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Duplicates the network byte mentioned above |
 | 9 | Hash of the address |  | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 20 |  |
