@@ -402,9 +402,9 @@ and all the other parameters appropriate for a transaction of the given type.
 
 Returns the list of transactions statuses, by transaction IDs.
 
-If the request contains two or more similar IDs, then response should contain the same amount of results. Maximum IDs amount in single request should not exceed 1000.
+If the request contains two or more similar IDs, then response will contain the same amount of results. Maximum IDs amount in single request is 1000.
 
-If request's transaction IDs contain one or more incorrect ID, then response with 400 error code should return. The response's JSON should contain error code, error message and list of incorrect IDs from the request.
+If request's transaction IDs contain one or more incorrect IDs, then response with 400 error code will be returned. The response's JSON will contain error code, error message and list of incorrect IDs from the request.
 
 The resulting transactions list keeps the order of the transaction IDs as they were passed in the request. If the transactions IDs were not specified, the request will not be executed and an error will be returned.
 
@@ -458,7 +458,7 @@ The resulting transactions list keeps the order of the transaction IDs as they w
 
 ```js
 {
-  "error": 000,
+  "error": 116,
   "message": "Request contains invalid IDs. H27nMqvLp514M9fFoKbn4qCvFtG3VGzMGcN7noDyDv6C, Bi2vXQdUTsUPRDLE4tWkCFNVNkLjRtvy9PuvWd5iNP63",
   "ids": [
     "H27nMqvLp514M9fFoKbn4qCvFtG3VGzMGcN7noDyDv6C",
@@ -475,9 +475,9 @@ The resulting transactions list keeps the order of the transaction IDs as they w
 
 Returns the list of transactions statuses, by transaction IDs.
 
-If the request contains two or more similar IDs, then response should contain the same amount of results. Maximum IDs amount in single request should not exceed 1000.
+If the request contains two or more similar IDs, then response will contain the same amount of results. Maximum IDs amount in single request is 1000.
 
-If request's transaction IDs contain one or more incorrect ID, then response with 400 error code should return. The response's JSON should contain error code, error message and list of incorrect IDs from the request.
+If request's transaction IDs contain one or more incorrect ID, then response with 400 error will be returned. The response's JSON will contain error code, error message and list of incorrect IDs from the request.
 
 The resulting transaction list keeps the order of the transaction IDs as they were passed in the request. If the transactions IDs were not specified, the request will not be executed and an error will be returned.
 
