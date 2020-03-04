@@ -19,13 +19,15 @@ You can use your tokens:
 
 See the [Token](/en/blockchain/token/) article for more information about token.
 
+In this chapter, tokens and assets are synonyms (but for NFT we always use the word 'token').
+
 ## Issue Asset
 
 > :bulb: Asset issued without a script cannot be converted to smart asset. If you want to add a script later, issue an asset with the script `AwZd0cYf` (base64 encoded Ride expression that is always true). Fee for the transaction with smart asset is larger by 0.004 WAVES.
 
 ### Using Waves.Exchange
 
-You can use online, desktop or mobile app. See the [Create Token](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-token-creation) article of the Waves.Exchange documentation.
+You can use online or desktop app. See the [Create Token](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-token-creation) article of the Waves.Exchange documentation.
 
 ### Using JavaScript
 
@@ -107,7 +109,7 @@ To issue an NFT, you can use any of the methods described above. Specify the fol
 * `"decimals": 0`
 * `"reissuable": false`
 
-## Reissue Token
+## Reissue Asset
 
 If your token is reissuable (you set `"reissuable": true`), you can append an additional amount of token (and also change a `reissuable` flag, if necessary).
 
@@ -117,7 +119,7 @@ If your token is reissuable (you set `"reissuable": true`), you can append an ad
 import { nodeInteraction } from "@waves/waves-transactions";
 import { reissue } from "@waves/waves-transactions";
 
-const nodeUrl = 'https://nodes-testnet.wavesnodes.com'; // Mainnet node
+const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
 const seed = 'insert your seed here';
 
 const myToken = {
@@ -138,12 +140,33 @@ nodeInteraction.broadcast(reissueTx,nodeUrl).then(resp => console.log(resp));
 sample
 ```
 
-## Burn Token
+## Burn Asset
 
-Любой адрес, содержащий данный ассет, может решить уничтожить некоторые \(или все\) принадлежащие ему экземпляры ассета. Состояние ассета и списки пропусков пересчитываются на основе транзакции Delete.
+Account that owns an asset (not necessarily asset issuer) can destroy some amount of the asset using burn transaction. The burn transaction decreases the amount of the asset on sender's account and thereby the total amount of the asset on the blockchain.
+
+### Using Waves.Exchange
+
+You can use online, desktop or mobile app. See the [Burn Token (Online & Desktop)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-token-token-burn) and [Burn Token (Mobile)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-mobile/mobile-asset/mobile-token-burn) articles of the Waves.Exchange documentation.
 
 ### Using JavaScript
 
+```javascript
+import { nodeInteraction } from "@waves/waves-transactions";
+import { burn } from "@waves/waves-transactions";
+
+const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
+const seed = 'insert your seed here';
+
+const myToken = {
+  assetId: '39M7cn3PZ7T468vGGfkc4VtxqbeDS5ssU4tLYJeoKfn4',
+  quantity: 10000, // destroy 100 Spring tokens
+  chainId: 'T' // Testnet; 'W' for Mainnet
+};
+
+const burnTx = burn(myToken, seed); // Create and sign burn transaction
+
+nodeInteraction.broadcast(burnTx,nodeUrl).then(resp => console.log(resp));
+```
 
 ### Using Python
 

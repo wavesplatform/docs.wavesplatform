@@ -12,6 +12,20 @@ All the data in Waves blockchain is public and can be read by anyone. For exampl
 
 To perform any action on the blockchain, you need to create a transaction of appropriate type, sign it and send to a node.
 
+## Tokens & Assets
+
+[**Creating and Managing Custom Token**](/en/building-apps/how-to/assets/issue)
+
+Issue your own token that represents some digital asset. New token is immediately available for transfers and trading, so you can use it in your games, DeFi apps etc.
+
+[**Airdrop**](/en/building-apps/how-to/assets/airdrop) (Python 3)
+
+Promote your app by transferring your token to active Waves addresses collected from the last blocks.
+
+[**Receiving Payments**](/en/building-apps/how-to/assets/payment)
+
+Prodive your customers with the ability to make payments in WAVES, Neutrino, Ethereum or any other asset issued on Waves blockchain or supported by Waves.Exchange gateways.
+
 ## Trading
 
 [**Buying and selling assets on exchange**](/en/building-apps/how-to/basic/trading)
@@ -21,12 +35,6 @@ To buy or sell asset (except NFTs), you need to create an order, sign it and sen
 [**Creating your first crypto trading bot**](/en/building-apps/waves-api-and-sdk/examples/trading-bot) (Python) by [Antonina Begicheva](https://github.com/gingerabsurdity)
 
 This trading bot implements scalping trading strategy that exploits small changes in currency prices: it buys at the mean price minus some price step and sells at the mean price plus some step, in order to gain the bid/ask difference.
-
-## Tokens & Assets
-
-[**Creating and Managing Custom Token**](/en/building-apps/how-to/assets/issue)
-
-[**Airdrop**]()
 
 ## dApps
 

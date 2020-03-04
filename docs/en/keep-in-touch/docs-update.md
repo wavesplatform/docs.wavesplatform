@@ -1,5 +1,15 @@
 # Documentation updates
 
+## March articles
+
+### Building Apps
+
+Added how-to guides:
+
+* [Creating and Managing Custom Token](/en/building-apps/how-to/assets/issue)
+* [Airdrop](/en/building-apps/how-to/assets/airdrop)
+* [Receiving Payments](/en/building-apps/how-to/assets/payment)
+
 ## February articles
 
 ### Building Apps
