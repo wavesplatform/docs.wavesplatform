@@ -1,4 +1,8 @@
-# Create alias transaction protobuf scheme
+# Бинарный формат транзакции обновления информации ассета
+
+> Узнать больше о [транзакции обновления информации ассета](/ru/blockchain/transaction-type/update-asset-info-transaction)
+
+## Protobuf-схема
 
 > protobuf-schemas/proto/waves/transaction.proto
 
@@ -48,7 +52,9 @@ message Transaction {
     };
 };
   
-message CreateAliasTransactionData {
-    string alias = 1;
-};
+message UpdateAssetInfoTransactionData {
+    bytes asset_id = 1;
+    string name = 2;
+    string description = 3;
+}
 ```
