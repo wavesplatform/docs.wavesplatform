@@ -47,15 +47,19 @@ message Transaction {
         UpdateAssetInfoTransactionData UpdateAssetInfo = 117;
     };
 };
-  
+
+message Attachment {
+    oneof attachment {
+        int64 int_value = 1;
+        bool bool_value = 2;
+        bytes binary_value = 3;
+        string string_value = 4;
+    };
+}
+
 message TransferTransactionData {
     Recipient recipient = 1;
     Amount amount = 2;
-    oneof attachment {
-        int64 int_value = 10;
-        bool bool_value = 11;
-        bytes binary_value = 12;
-        string string_value = 13;
-    };
+    Attachment attachment = 3;
 };
 ```
