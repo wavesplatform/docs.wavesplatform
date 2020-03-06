@@ -1,5 +1,14 @@
 # Обновления в документации
 
+## Мартовские статьи
+
+### Ride
+
+Обновлено описание
+* [функций хеширования](/ru/ride/functions/built-in-functions/hashing-functions) `blake2b256`, `keccak256`, `sha256`;
+* [функций верификации](/ru/ride/functions/built-in-functions/verification-functions) `rsaVerify`, `sigVerify`;
+* [функции блокчейна](/ru/ride/functions/built-in-functions/blockchain-functions) `groth16Verify`.
+
 ## Февральские статьи
 
 ### Разработка приложений на блокчейне

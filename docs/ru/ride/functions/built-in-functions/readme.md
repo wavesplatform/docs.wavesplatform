@@ -2,9 +2,7 @@
 
 **Встроенная функция** — [функция](/ru/ride/functions) [контекста скрипта](/ru/ride/script/script-context).
 
-## Список встроенных функций
-
-### [Математические функции](/ru/ride/functions/built-in-functions/math-functions)
+## [Математические функции](/ru/ride/functions/built-in-functions/math-functions)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
@@ -13,26 +11,49 @@
 | 3 | median(List[Int]): Int | Возвращает медиану списка целых чисел | 10 |
 | 4 | pow(Int, Int, Int, Int, Int, Union): Int | Возводит число в степень | 100 |
 
-### [Функции блокчейна](/ru/ride/functions/built-in-functions/blockchain-functions)
+## [Функции блокчейна](/ru/ride/functions/built-in-functions/blockchain-functions)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
 | 1 | assetInfo(ByteVector): Аsset&#124;Unit | Получает информацию о [токене](/ru/blockchain/token) | 100 |
 | 2 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Получает информацию о [блоке](/ru/blockchain/block) по [высоте блока](/ru/blockchain/block/block-height) | 100 |
 | 3 | calculateAssetId(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/common-structures/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 10 |
-| 4 |  groth16Verify(ByteVector, ByteVector, ByteVector): Boolean] | Осуществляет проверку [снарка](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf) | 1900 |
-| 5 | transactionHeightById(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 100 |
-| 6 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 100 |
+| 4 |  groth16Verify_1inputs(ByteVector, ByteVector, ByteVector): Boolean] | Осуществляет проверку [снарка](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf) | 1900 |
+| 5 |  groth16Verify_2inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2000 |
+| 6 |  groth16Verify_3inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2150 |
+| 7 |  groth16Verify_4inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2300 |
+| 8 |  groth16Verify_5inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2450 |
+| 9 |  groth16Verify_6inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2550 |
+| 10 |  groth16Verify_7inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2700 |
+| 11 |  groth16Verify_8inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 1900 |
+| 12 |  groth16Verify_9inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3000 |
+| 13 |  groth16Verify_10inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3150 |
+| 14 |  groth16Verify_11inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3250 |
+| 15 |  groth16Verify_12inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3500 |
+| 16 |  groth16Verify_13inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3400 |
+| 17 |  groth16Verify_14inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3500 |
+| 18 |  groth16Verify_15inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3750 |
+| 19 |  groth16Verify(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3900 |
+| 20 | transactionHeightById(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 100 |
+| 21 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 100 |
 
-### [Функции верификации](/ru/ride/functions/built-in-functions/verification-functions)
+## [Функции верификации](/ru/ride/functions/built-in-functions/verification-functions)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
 | 1 | checkMerkleProof(ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что данные являются частью [дерева Меркла](https://ru.wikipedia.org/wiki/Дерево_хешей) | 30 |
-| 2 | rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что цифровая подпись [RSA](https://ru.wikipedia.org/wiki/RSA) достоверна; то есть что она была создана владельцем открытого ключа | 300 |
-| 3 | sigVerify(ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что цифровая подпись [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна; то есть что она была создана владельцем открытого ключа | 100 |
+| 2 | rsaVerify_16Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что цифровая подпись [RSA](https://ru.wikipedia.org/wiki/RSA) достоверна; то есть что она была создана владельцем открытого ключа | 500 |
+| 3 | rsaVerify_32Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃 | 550 |
+| 4 | rsaVerify_64Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃 | 625 |
+| 5 | rsaVerify_128Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃 | 750 |
+| 6 | rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃 | 1000 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>300 для Стандартной библиотеки **версии 3**|
+| 7 | sigVerify_16Kb(ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что цифровая подпись [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна; то есть что она была создана владельцем открытого ключа | 100 |
+| 8 | sigVerify_32Kb(ByteVector, ByteVector, ByteVector): Boolean | 〃 | 110 |
+| 9 | sigVerify_64Kb(ByteVector, ByteVector, ByteVector): Boolean | 〃 | 125 |
+| 10 | sigVerify_128Kb(ByteVector, ByteVector, ByteVector): Boolean | 〃 | 150 |
+| 11 | sigVerify(ByteVector, ByteVector, ByteVector): Boolean | 〃 | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>100 для Стандартной библиотеки **версии 3** |
 
-### [Функции декодирования](/ru/ride/functions/built-in-functions/decoding-functions)
+## [Функции декодирования](/ru/ride/functions/built-in-functions/decoding-functions)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
@@ -42,14 +63,14 @@
 | 4 | fromBase58String(String): ByteVector | Декодирует строку [Base58](https://en.wikipedia.org/wiki/Base58) в массив байтов | 10 |
 | 5 | fromBase64String(String): ByteVector | Декодирует строку [Base64](https://en.wikipedia.org/wiki/Base64) в массив байтов | 10 |
 
-### [Функции исключения](/ru/ride/functions/built-in-functions/exception-functions)
+## [Функции исключения](/ru/ride/functions/built-in-functions/exception-functions)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
 | 1 | throw() | Выбрасывает исключение | 1 |
 | 2 | throw(String) | Выбрасывает исключение с сообщением | 1 |
 
-### [Функции кодирования](/ru/ride/functions/built-in-functions/encoding-functions)
+## [Функции кодирования](/ru/ride/functions/built-in-functions/encoding-functions)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
@@ -57,7 +78,7 @@
 | 2 | toBase58String(ByteVector): String | Кодирует массив байтов в строку [Base58](https://en.wikipedia.org/wiki/Base58) | 10 |
 | 3 | toBase64String(ByteVector): String | Кодирует массив байтов в строку [Base64](https://en.wikipedia.org/wiki/Base64) | 10 |
 
-### [Функции конвертации](/ru/ride/functions/built-in-functions/converting-functions)
+## [Функции конвертации](/ru/ride/functions/built-in-functions/converting-functions)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
@@ -75,17 +96,17 @@
 | 12 | toString(Int): String | Конвертирует целое число в строку | 1 |
 | 13 | toUtf8String(ByteVector): String | Конвертирует массив байтов в строку в [UTF-8](https://ru.wikipedia.org/wiki/UTF-8) | 20 |
 
-### [Функции массива байтов](/ru/ride/functions/built-in-functions/byte-array-functions)
+## [Функции массива байтов](/ru/ride/functions/built-in-functions/byte-array-functions)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
 | 1 | drop(ByteVector, Int): ByteVector | Возвращает массив байтов без первых `N` байтов | 1 |
 | 2 | dropRight(ByteVector, Int): ByteVector | Возвращает массив байтов без последних `N` байтов | 19 |
-| 3 | size(ByteVector): Int | Возвращает количество байтов в массиве байтов	 | 1 |
+| 3 | size(ByteVector): Int | Возвращает количество байтов в массиве байтов     | 1 |
 | 4 | take(ByteVector, Int): ByteVector | Возвращает первые `N` байтов массива байтов | 1 |
-| 5 | takeRight(ByteVector, Int): ByteVector | Возвращает последние `N` байтов массива байтов	 | 19 |
+| 5 | takeRight(ByteVector, Int): ByteVector | Возвращает последние `N` байтов массива байтов     | 19 |
 
-### [Функции объединения](/ru/ride/functions/built-in-functions/union-functions)
+## [Функции объединения](/ru/ride/functions/built-in-functions/union-functions)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
@@ -94,7 +115,7 @@
 | 3 | value(T&#124;Unit): T | Возвращает значение из параметра типа данных [объединение](/ru/ride/data-types/union). Выбрасывает исключение, если параметром является [unit](/ru/ride/data-types/unit) | 13 |
 | 4 | valueOrErrorMessage(T&#124;Unit, String): T | Возвращает значение из параметра типа данных [объединение](/ru/ride/data-types/union). Если параметром является [unit](/ru/ride/data-types/unit), возвращает сообщение об ошибке, заданное во втором параметре | 13 |
 
-### [Функции получения данных из хранилища данных аккаунта](/ru/ride/functions/built-in-functions/account-data-storage-functions)
+## [Функции получения данных из хранилища данных аккаунта](/ru/ride/functions/built-in-functions/account-data-storage-functions)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
@@ -109,7 +130,7 @@
 | 9 | getStringValue(Address&#124;Alias, String): String | Получает строку по ключу. Выбрасывает исключение, если данных нет | 100 |
 | 10 | wavesBalance(Address&#124;Alias): Int | Получает баланс аккаунта в [WAVES](/ru/blockchain/token/waves) | 109 |
 
-### [Функции списка](/ru/ride/functions/built-in-functions/list-functions)
+## [Функции списка](/ru/ride/functions/built-in-functions/list-functions)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
@@ -117,7 +138,7 @@
 | 2 | cons(T, List[T]): List[T] | Вставляет элемент в начало списка | 2 |
 | 3 | size(List[T]): Int | Возвращает размер списка | 2 |
 
-### [Функции строки](/ru/ride/functions/built-in-functions/string-functions)
+## [Функции строки](/ru/ride/functions/built-in-functions/string-functions)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
@@ -131,7 +152,7 @@
 | 8 | take(String, Int): String | Возвращает первые `n` символов строки | 1 |
 | 9 | takeRight(String, Int): String | Возвращает последние `n` символов строки | 19 |
 
-### [Функции транзакции данных](/ru/ride/functions/built-in-functions/data-transaction-functions)
+## [Функции транзакции данных](/ru/ride/functions/built-in-functions/data-transaction-functions)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
@@ -152,10 +173,22 @@
 | 15 | getStringValue(List[DataEntry], String): String | Возвращает строку из списка записей данных по ключу. Выбрасывает исключение, если данных нет | 10 |
 | 16 | getStringValue(List[DataEntry], Int): String | Возвращает строку из списка записей данных по индексу. Выбрасывает исключение, если данных нет | 30 |
 
-### [Функции хеширования](/ru/ride/functions/built-in-functions/hashing-functions)
+## [Функции хеширования](/ru/ride/functions/built-in-functions/hashing-functions)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
-| 1 | blake2b256(ByteVector): ByteVector | Хеширует массив байтов с помощью алгоритма [BLAKE-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10 |
-| 2 | keccak256(ByteVector): ByteVector | Хеширует массив байтов с помощью алгоритма [SHA-3-256](https://en.wikipedia.org/wiki/SHA-3) | 10 |
-| 3 | sha256(ByteVector): ByteVector | Хеширует массив байтов с помощью алгоритма [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 10 |
+| 1 | blake2b256_16Kb(ByteVector): ByteVector | Хеширует массив байтов с помощью алгоритма [BLAKE-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10 |
+| 2 | blake2b256_32Kb(ByteVector): ByteVector | 〃 | 25 |
+| 3 | blake2b256_64Kb(ByteVector): ByteVector | 〃 | 50 |
+| 4 | blake2b256_128Kb(ByteVector): ByteVector | 〃 | 100 |
+| 5 | blake2b256(ByteVector): ByteVector | 〃 | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>10 для Стандартной библиотеки **версии 3** |
+| 6 | keccak256_16Kb(ByteVector): ByteVector | Хеширует массив байтов с помощью алгоритма [SHA-3-256](https://en.wikipedia.org/wiki/SHA-3) | 10 |
+| 7 | keccak256_32Kb(ByteVector): ByteVector | 〃 | 25 |
+| 8 | keccak256_64Kb(ByteVector): ByteVector | 〃 | 50 |
+| 9 | keccak256_128Kb(ByteVector): ByteVector | 〃 | 100 |
+| 10 | keccak256(ByteVector): ByteVector | 〃 | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>10 для Стандартной библиотеки **версии 3** |
+| 11 | sha256_16Kb(ByteVector): ByteVector | Хеширует массив байтов с помощью алгоритма [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 10 |
+| 12 | sha256_32Kb(ByteVector): ByteVector | 〃 | 25 |
+| 13 | sha256_64Kb(ByteVector): ByteVector | 〃 | 50 |
+| 14 | sha256_128Kb(ByteVector): ByteVector | 〃 | 100 |
+| 15 | sha256(ByteVector): ByteVector | 〃 | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>10 для Стандартной библиотеки **версии 3** |

@@ -1,15 +1,29 @@
 # Функции блокчейна
 
-|   #   | Название | Описание | Сложность |
+| # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
-|   1  | [assetInfo(ByteVector): Аsset&#124;Unit](#asset-info) | Получает информацию о [токене](/ru/blockchain/token) | 100 |
-|   2  | [blockInfoByHeight(Int): BlockInfo&#124;Unit](#block-info-by-height) | Получает информацию о [блоке](/ru/blockchain/block) по [высоте блока](/ru/blockchain/block/block-height) | 100 |
-|   3  | [calculateAssetId(Issue): ByteVector](#calculate) | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/common-structures/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 10 |
-|   4  |  [groth16Verify(ByteVector, ByteVector, ByteVector): Boolean](#groth) | Осуществляет проверку [снарка](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf) | 1900 |
-|   5  | [transactionHeightById(ByteVector): Int&#124;Unit](#transaction-height-by-id) | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 100 |
-|   6  | [transferTransactionById(ByteVector): TransferTransaction&#124;Unit](#transfer-transaction-by-id) | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 100 |
+| 1 | assetInfo(ByteVector): Аsset&#124;Unit | Получает информацию о [токене](/ru/blockchain/token) | 100 |
+| 2 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Получает информацию о [блоке](/ru/blockchain/block) по [высоте блока](/ru/blockchain/block/block-height) | 100 |
+| 3 | calculateAssetId(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/common-structures/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 10 |
+| 5 |  groth16Verify_2inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2000 |
+| 6 |  groth16Verify_3inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2150 |
+| 7 |  groth16Verify_4inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2300 |
+| 8 |  groth16Verify_5inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2450 |
+| 9 |  groth16Verify_6inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2550 |
+| 10 |  groth16Verify_7inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2700 |
+| 11 |  groth16Verify_8inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 1900 |
+| 12 |  groth16Verify_9inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3000 |
+| 13 |  groth16Verify_10inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3150 |
+| 14 |  groth16Verify_11inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3250 |
+| 15 |  groth16Verify_12inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3500 |
+| 16 |  groth16Verify_13inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3400 |
+| 17 |  groth16Verify_14inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3500 |
+| 18 |  groth16Verify_15inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3750 |
+| 19 |  groth16Verify(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3900 |
+| 20 | transactionHeightById(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 100 |
+| 21 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 100 |
 
-## assetInfo(ByteVector): Аsset|Unit<a id="asset-info"></a>
+## assetInfo
 
 Получает информацию о [токене](/ru/blockchain/token).
 
@@ -19,9 +33,9 @@ assetInfo(id: ByteVector): Аsset|Unit
 
 ### Параметры
 
-#### `id`: ByteVector
-
-ID [токена](/ru/blockchain/token).
+| Параметр | Описание |
+| :--- | :--- |
+| `id`: ByteVector | ID [токена](/ru/blockchain/token) |
 
 ### Пример
 
@@ -34,7 +48,7 @@ let x = match assetInfo(bitcoinId) {
 }
 ```
 
-## blockInfoByHeight(Int): BlockInfo|Unit<a id="block-info-by-height"></a>
+## blockInfoByHeight
 
 Получает информацию о [блоке](/ru/blockchain/block) по [высоте блока](/ru/blockchain/block/block-height).
 
@@ -44,9 +58,9 @@ blockInfoByHeight(height: Int): BlockInfo|Unit
 
 ### Параметры
 
-#### `height`: Int
-
-Высота блока.
+| Параметр | Описание |
+| :--- | :--- |
+| `height`: Int | Высота блока. |
 
 ### Пример
 
@@ -68,9 +82,9 @@ calculateAssetId(issue: Issue): ByteVector
 
 ### Параметры
 
-#### `issue`: Issue
-
-Структура, при помощи которой сформирован ассет.
+| Параметр | Описание |
+| :--- | :--- |
+| `issue`: Issue | Структура, при помощи которой сформирован ассет. |
 
 ### Пример
 
@@ -98,28 +112,38 @@ func issueAndSend() = {
 //   }
 ```
 
-## groth16Verify(ByteVector, ByteVector, ByteVector): Boolean
- <a id="groth"></a>
+## groth16Verify
 
-Осуществляет проверку [снарка](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf) | 1900.
+Осуществляет проверку [снарка](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf).
+
+> :warning: Семейство функций `groth16Verify` появилось в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ```
+groth16Verify_1inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
+groth16Verify_2inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
+groth16Verify_3inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
+groth16Verify_4inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
+groth16Verify_5inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
+groth16Verify_6inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
+groth16Verify_7inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
+groth16Verify_8inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
+groth16Verify_9inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
+groth16Verify_10inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
+groth16Verify_11inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
+groth16Verify_12inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
+groth16Verify_13inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
+groth16Verify_14inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
+groth16Verify_15inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
 groth16Verify(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
 ```
 
 ### Параметры
 
-#### `vk`: ByteVector
-
-Ключ для проверки.
-
-#### `proof`: ByteVector
-
-[Доказательство с нулевым разглашением](https://ru.wikipedia.org/wiki/Доказательство_с_нулевым_разглашением).
-
-#### `inputs`: ByteVector
-
-Массив публичных входов доказательства с нулевым разглашением.
+| Параметр | Описание |
+| :--- | :--- |
+| `vk`: ByteVector | Ключ для проверки. |
+| `proof`: ByteVector | [Доказательство с нулевым разглашением](https://ru.wikipedia.org/wiki/Доказательство_с_нулевым_разглашением). |
+| `inputs`: ByteVector | Массив публичных входов доказательства с нулевым разглашением.<br>Максимальный размер:<br>• Для функций `groth16Verify_<N>inputs` — не более 32 × `N` байт.<br>• Для функции `groth16Verify_<N>inputs`— не более 512 байт. |
 
 ### Пример
 
@@ -131,7 +155,7 @@ groth16Verify(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
 groth16Verify(vk, proof, inputs)
 ```
 
-## transactionHeightById(ByteVector): Int|Unit<a id="transaction-height-by-id"></a>
+## transactionHeightById
 
 Получает [высоту блока](/ru/blockchain/block/block-height) транзакции.
 
@@ -141,11 +165,11 @@ transactionHeightById(id: ByteVector): Int|Unit
 
 ### Параметры
 
-#### `id`: ByteVector
+| Параметр | Описание |
+| :--- | :--- |
+| `id`: ByteVector | ID транзакции. |
 
-ID транзакции.
-
-## transferTransactionById(ByteVector): TransferTransaction|Unit<a id="transfer-transaction-by-id"></a>
+## transferTransactionById
 
 Получает данные транзакции перевода.
 
@@ -155,9 +179,9 @@ transferTransactionById(id: ByteVector): TransferTransaction|Unit
 
 ### Параметры
 
-#### `id`: ByteVector
-
-ID транзакции перевода.
+| Параметр | Описание |
+| :--- | :--- |
+| `id`: ByteVector | ID транзакции перевода. |
 
 ### Пример
 

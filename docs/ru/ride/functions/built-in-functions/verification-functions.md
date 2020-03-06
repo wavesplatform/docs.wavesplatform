@@ -2,11 +2,19 @@
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
-| 1 | [checkMerkleProof(ByteVector, ByteVector, ByteVector): Boolean](#check-merkle-proof) | Проверяет, что данные являются частью [дерева Меркла](https://ru.wikipedia.org/wiki/Дерево_хешей) | 30 |
-| 2 | [rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean](#rsa-verify) | Проверяет, что цифровая подпись [RSA](https://ru.wikipedia.org/wiki/RSA) достоверна; то есть что она была создана владельцем открытого ключа | 300 |
-| 3 | [sigVerify(ByteVector, ByteVector, ByteVector): Boolean](#sig-verify) | Проверяет, что цифровая подпись [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна; то есть что она была создана владельцем открытого ключа | 100 |
+| 1 | checkMerkleProof(ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что данные являются частью [дерева Меркла](https://ru.wikipedia.org/wiki/Дерево_хешей) | 30 |
+| 2 | rsaVerify_16Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что цифровая подпись [RSA](https://ru.wikipedia.org/wiki/RSA) достоверна; то есть что она была создана владельцем открытого ключа | 500 |
+| 3 | rsaVerify_32Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃 | 550 |
+| 4 | rsaVerify_64Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃 | 625 |
+| 5 | rsaVerify_128Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃 | 750 |
+| 6 | rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃 | 1000 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>300 для Стандартной библиотеки **версии 3**|
+| 7 | sigVerify_16Kb(ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что цифровая подпись [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна; то есть что она была создана владельцем открытого ключа | 100 |
+| 8 | sigVerify_32Kb(ByteVector, ByteVector, ByteVector): Boolean | 〃 | 110 |
+| 9 | sigVerify_64Kb(ByteVector, ByteVector, ByteVector): Boolean | 〃 | 125 |
+| 10 | sigVerify_128Kb(ByteVector, ByteVector, ByteVector): Boolean | 〃 | 150 |
+| 11 | sigVerify(ByteVector, ByteVector, ByteVector): Boolean | 〃 | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>100 для Стандартной библиотеки **версии 3** |
 
-## checkMerkleProof(ByteVector, ByteVector, ByteVector): Boolean<a id="check-merkle-proof"></a>
+## checkMerkleProof
 
 Проверяет, что данные являются частью [дерева Меркла](https://ru.wikipedia.org/wiki/Дерево_хешей).
 
@@ -18,35 +26,23 @@ checkMerkleProof(merkleRoot: ByteVector, merkleProof: ByteVector, valueBytes: By
 
 ### Параметры
 
-#### merkleRoot: ByteVector
-
-Корневой хеш дерева Меркла.
-
-#### merkleProof: ByteVector
-
-Массив хешей.
-
-#### valueBytes: ByteVector
-
-Данные для проверки.
-
-## rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean<a id="rsa-verify"></a>
-
-Проверяет, что цифровая подпись [RSA](https://ru.wikipedia.org/wiki/RSA) достоверна; то есть что она была создана владельцем открытого ключа.
-
-``` ride
-rsaVerify(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
-```
-
 ### Параметры
 
-#### `digest`: digestAlgorithmType
+| Параметр | Описание |
+| :--- | :--- |
+| `merkleRoot`: ByteVector | Корневой хеш дерева Меркла. |
+| `merkleProof`: ByteVector | Массив хешей. |
+| `valueBytes`: ByteVector | Данные для проверки.|
 
-Алгоритм хеширования, который применяется к данным.
+## rsaVerify
 
-Значение должно быть одной из [встроенных переменных](/ru/ride/variables/built-in-variables):
+Проверяет, что цифровая подпись [RSA](https://ru.wikipedia.org/wiki/RSA) данных достоверна; то есть что она была создана владельцем открытого ключа.
 
-* NOALG
+> :warning: Рекомендуемая длина модуля ключей RSA — не менее 2048 бит.
+
+Данные перед подписанием можно хешировать с помощью одного из следующих алгоритмов:
+
+* NOALG — нет хеширования.
 * MD5
 * SHA1
 * SHA224
@@ -58,38 +54,46 @@ rsaVerify(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub
 * SHA3384
 * SHA3512
 
-Все переменные, за исключением `NOALG`, представляют алгоритмы хеширования. Если используется `NOALG`, тогда данные не хешируются.
+> :warning: MD-5 и SHA-1 — устаревшие алгоритмы, для которых были найдены коллизии. Они оставлены только для обратной совместимости. Выбор безопасного алгоритма хеширования — ответственность разработчика приложения.
 
-#### `message`: ByteVector
+``` ride
+rsaVerify_16Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
+rsaVerify_32Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
+rsaVerify_64Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
+rsaVerify_128Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
+rsaVerify(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
+```
 
-Подписанные данные.
+> :warning: Функции `rsaVerify_16Kb`, `rsaVerify_32Kb`, `rsaVerify_64Kb`, `rsaVerify_128Kb` появилось в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
-#### `sig`: ByteVectore
+### Параметры
 
-Цифровая подпись.
+| Параметр | Описание |
+| :--- | :--- |
+| `digest`: digestAlgorithmType | Алгоритм хеширования, примененный к данным перед подписанием. |
+| `message`: ByteVector | Исходные данные.<br>Максимальный размер:<br>• Для функций `rsaVerify_<N>Kbytes` — не более `N` Кбайт.<br>• Для функции `rsaVerify` — не более 150 Кбайт. |
+| `sig`: ByteVectore | Цифровая подпись. |
+| `pub`: ByteVectore | Открытый ключ. |
 
-#### `pub`: ByteVectore
-
-Открытый ключ.
-
-## sigVerify(ByteVector, ByteVector, ByteVector): Boolean<a id="sig-verify"></a>
+## sigVerify
 
 Проверяет, что цифровая подпись [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна; то есть что она была создана владельцем открытого ключа.
 
 ``` ride
-sigVerify(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
+sigVerify_16Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
+sigVerify_32Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
+sigVerify_64Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
+sigVerify_128Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
+sigVerify_(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
 ```
+
+> :warning: Функции `sigVerify_16Kb`, `sigVerify_32Kb`, `sigVerify_64Kb`, `sigVerify_128Kb` появилось в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
 
 ### Параметры
 
-#### `message`: ByteVector
-
-Подписанные данные.
-
-#### `sig`: ByteVectore
-
-Цифровая подпись.
-
-#### `pub`: ByteVectore
-
-Открытый ключ.
+| Параметр | Описание |
+| :--- | :--- |
+| `message`: ByteVector | Исходные данные.<br>Максимальный размер:<br>• Для функций `sigVerify_<N>Kbytes` — не более `N` Кбайт.<br>• Для функции `sigVerify` — не более 150 Кбайт. |
+| `sig`: ByteVectore | Цифровая подпись. |
+| `pub`: ByteVectore | Открытый ключ. |
