@@ -137,7 +137,11 @@ nodeInteraction.broadcast(reissueTx,nodeUrl).then(resp => console.log(resp));
 ### Using Python
 
 ```python
-sample
+import pywaves as pw
+
+my_address = pw.Address(privateKey=some_private_key)
+my_token = pw.Asset('39M7cn3PZ7T468vGGfkc4VtxqbeDS5ssU4tLYJeoKfn4')
+my_address.reissueAsset(my_token, quantity=50000, reissuable=True)
 ```
 
 ## Burn Asset
@@ -171,5 +175,9 @@ nodeInteraction.broadcast(burnTx,nodeUrl).then(resp => console.log(resp));
 ### Using Python
 
 ```python
-sample
+import pywaves as pw
+
+my_address = pw.Address(privateKey=some_private_key)
+asset_to_burn = pw.Asset('39M7cn3PZ7T468vGGfkc4VtxqbeDS5ssU4tLYJeoKfn4')
+my_address.burnAsset(asset_to_burn, quantity=10000)
 ```
