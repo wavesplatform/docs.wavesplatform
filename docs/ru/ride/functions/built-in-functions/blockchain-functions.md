@@ -5,22 +5,22 @@
 | 1 | [assetInfo](#assetinfo)(ByteVector): Аsset&#124;Unit | Получает информацию о [токене](/ru/blockchain/token) | 100 |
 | 2 | [blockInfoByHeight](#blockinfobyheight)(Int): BlockInfo &#124;Unit | Получает информацию о [блоке](/ru/blockchain/block) по [высоте блока](/ru/blockchain/block/block-height) | 100 |
 | 3 | [calculateAssetId](#calculateassetid)(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/common-structures/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 10 |
-| 4 |  [groth16Verify](#groth16verify)_1inputs(ByteVector, ByteVector, ByteVector): Boolean] | Осуществляет проверку [снарка](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf) | 1900 |
-| 5 |  groth16Verify_2inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2000 |
-| 6 |  groth16Verify_3inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2150 |
-| 7 |  groth16Verify_4inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2300 |
-| 8 |  groth16Verify_5inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2450 |
-| 9 |  groth16Verify_6inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2550 |
-| 10 |  groth16Verify_7inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2700 |
-| 11 |  groth16Verify_8inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2900 |
-| 12 |  groth16Verify_9inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3000 |
-| 13 |  groth16Verify_10inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3150 |
-| 14 |  groth16Verify_11inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3250 |
-| 15 |  groth16Verify_12inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3400 |
-| 16 |  groth16Verify_13inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3500 |
-| 17 |  groth16Verify_14inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3650 |
-| 18 |  groth16Verify_15inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3750 |
-| 19 |  groth16Verify(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3900 |
+| 4 |  [groth16Verify](#groth16verify)(ByteVector, ByteVector, ByteVector): Boolean | Осуществляет проверку [снарка](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf) | 3900 |
+| 5 |  groth16Verify_1inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃            〃         〃      〃  〃         〃        (не более 1 входа) | 1900 |
+| 6 |  groth16Verify_2inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃            〃         〃      〃  〃         〃        (не более 2 входов) | 2000 |
+| 7 |  groth16Verify_3inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃            〃         〃      〃  〃         〃        (не более 3 входов) | 2150 |
+| 8 |  groth16Verify_4inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃            〃         〃      〃  〃         〃        (не более 4 входов) | 2300 |
+| 9 |  groth16Verify_5inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃            〃         〃      〃  〃         〃        (не более 5 входов) | 2450 |
+| 10 |  groth16Verify_6inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃            〃         〃      〃  〃         〃        (не более 6 входов) | 2550 |
+| 11 |  groth16Verify_7inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃            〃         〃      〃  〃         〃        (не более 7 входов) | 2700 |
+| 12 |  groth16Verify_8inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃            〃         〃      〃  〃         〃        (не более 8 входов) | 2900 |
+| 13 |  groth16Verify_9inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃            〃         〃      〃  〃         〃        (не более 9 входов) | 3000 |
+| 14 |  groth16Verify_10inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃            〃         〃      〃  〃         〃        (не более 10 входов) | 3150 |
+| 15 |  groth16Verify_11inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃            〃         〃      〃  〃         〃        (не более 11 входов) | 3250 |
+| 16 |  groth16Verify_12inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃            〃         〃      〃  〃         〃        (не более 12 входов) | 3400 |
+| 17 |  groth16Verify_13inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃            〃         〃      〃  〃         〃        (не более 13 входов) | 3500 |
+| 18 |  groth16Verify_14inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃            〃         〃      〃  〃         〃        (не более 14 входов) | 3650 |
+| 19 |  groth16Verify_15inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃            〃         〃      〃  〃         〃        (не более 15 входов) | 3750 |
 | 20 | [transactionHeightById](#transactionheightbyid)(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 100 |
 | 21 | [transferTransactionById](#transfertransactionbyid)(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 100 |
 
@@ -120,6 +120,7 @@ func issueAndSend() = {
 > :warning: Семейство функций `groth16Verify` появилось в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ```
+groth16Verify(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
 groth16Verify_1inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
 groth16Verify_2inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
 groth16Verify_3inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
@@ -135,7 +136,6 @@ groth16Verify_12inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Bool
 groth16Verify_13inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
 groth16Verify_14inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
 groth16Verify_15inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
-groth16Verify(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
 ```
 
 ### Параметры
