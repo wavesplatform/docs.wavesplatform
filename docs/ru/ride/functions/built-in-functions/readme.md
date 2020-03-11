@@ -18,40 +18,40 @@
 | 1 | assetInfo(ByteVector): Аsset&#124;Unit | Получает информацию о [токене](/ru/blockchain/token) | 100 |
 | 2 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Получает информацию о [блоке](/ru/blockchain/block) по [высоте блока](/ru/blockchain/block/block-height) | 100 |
 | 3 | calculateAssetId(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/common-structures/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 10 |
-| 4 |  groth16Verify_1inputs(ByteVector, ByteVector, ByteVector): Boolean] | Осуществляет проверку [снарка](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf) | 1900 |
-| 5 |  groth16Verify_2inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2000 |
-| 6 |  groth16Verify_3inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2150 |
-| 7 |  groth16Verify_4inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2300 |
-| 8 |  groth16Verify_5inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2450 |
-| 9 |  groth16Verify_6inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2550 |
-| 10 |  groth16Verify_7inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2700 |
-| 11 |  groth16Verify_8inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 2900 |
-| 12 |  groth16Verify_9inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3000 |
-| 13 |  groth16Verify_10inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3150 |
-| 14 |  groth16Verify_11inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3250 |
-| 15 |  groth16Verify_12inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3400 |
-| 16 |  groth16Verify_13inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3500 |
-| 17 |  groth16Verify_14inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3650 |
-| 18 |  groth16Verify_15inputs(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3750 |
-| 19 |  groth16Verify(ByteVector, ByteVector, ByteVector): Boolean] | 〃 | 3900 |
-| 20 | transactionHeightById(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 100 |
-| 21 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 100 |
+| 4 | transactionHeightById(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 100 |
+| 5 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 100 |
 
 ## [Функции верификации](/ru/ride/functions/built-in-functions/verification-functions)
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
 | 1 | checkMerkleProof(ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что данные являются частью [дерева Меркла](https://ru.wikipedia.org/wiki/Дерево_хешей) | 30 |
-| 2 | rsaVerify_16Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что цифровая подпись [RSA](https://ru.wikipedia.org/wiki/RSA) достоверна; то есть что она была создана владельцем открытого ключа | 500 |
-| 3 | rsaVerify_32Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃 | 550 |
-| 4 | rsaVerify_64Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃 | 625 |
-| 5 | rsaVerify_128Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃 | 750 |
-| 6 | rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃 | 1000 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>300 для Стандартной библиотеки **версии 3**|
-| 7 | sigVerify_16Kb(ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что цифровая подпись [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна; то есть что она была создана владельцем открытого ключа | 100 |
-| 8 | sigVerify_32Kb(ByteVector, ByteVector, ByteVector): Boolean | 〃 | 110 |
-| 9 | sigVerify_64Kb(ByteVector, ByteVector, ByteVector): Boolean | 〃 | 125 |
-| 10 | sigVerify_128Kb(ByteVector, ByteVector, ByteVector): Boolean | 〃 | 150 |
-| 11 | sigVerify(ByteVector, ByteVector, ByteVector): Boolean | 〃 | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>100 для Стандартной библиотеки **версии 3** |
+| 2 | groth16Verify(ByteVector, ByteVector, ByteVector): Boolean | Осуществляет проверку [снарка](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf) | 3900 |
+| 3 | groth16Verify_1inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃 (не более 1 входа) | 1900 |
+| 4 | groth16Verify_2inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃 (не более 2 входов) | 2000 |
+| 5 | groth16Verify_3inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃 (не более 3 входов) | 2150 |
+| 6 | groth16Verify_4inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃 (не более 4 входов) | 2300 |
+| 7 | groth16Verify_5inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃 (не более 5 входов) | 2450 |
+| 8 | groth16Verify_6inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃 (не более 6 входов) | 2550 |
+| 9 | groth16Verify_7inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃 (не более 7 входов) | 2700 |
+| 10 | groth16Verify_8inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃 (не более 8 входов) | 2900 |
+| 11 | groth16Verify_9inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃 (не более 9 входов) | 3000 |
+| 12 | groth16Verify_10inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃 (не более 10 входов) | 3150 |
+| 13 | groth16Verify_11inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃 (не более 11 входов) | 3250 |
+| 14 | groth16Verify_12inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃 (не более 12 входов) | 3400 |
+| 15 | groth16Verify_13inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃 (не более 13 входов) | 3500 |
+| 16 | groth16Verify_14inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃 (не более 14 входов) | 3650 |
+| 17 | groth16Verify_15inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃 (не более 15 входов) | 3750 |
+| 18 | rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что цифровая подпись [RSA](https://ru.wikipedia.org/wiki/RSA) достоверна; то есть что она была создана владельцем открытого ключа | 1000 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>300 для Стандартной библиотеки **версии 3**|
+| 19 | rsaVerify_16Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃 (объем данных не более 16 Кбайт) | 500 |
+| 20 | rsaVerify_32Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃 (объем данных не более 32 Кбайт) | 550 |
+| 21 | rsaVerify_64Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃 (объем данных не более 64 Кбайт) | 625 |
+| 22 | rsaVerify_128Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃 (объем данных не более 128 Кбайт) | 750 |
+| 23 | sigVerify(ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что цифровая подпись [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна; то есть что она была создана владельцем открытого ключа | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>100 для Стандартной библиотеки **версии 3** |
+| 24 | sigVerify_16Kb(ByteVector, ByteVector, ByteVector): Boolean | 〃 (объем данных не более 16 Кбайт) | 100 |
+| 25 | sigVerify_32Kb(ByteVector, ByteVector, ByteVector): Boolean | 〃 (объем данных не более 32 Кбайт) | 110 |
+| 26 | sigVerify_64Kb(ByteVector, ByteVector, ByteVector): Boolean | 〃 (объем данных не более 64 Кбайт) | 125 |
+| 27 | sigVerify_128Kb(ByteVector, ByteVector, ByteVector): Boolean | 〃 (объем данных не более 128 Кбайт) | 150 |
 
 ## [Функции декодирования](/ru/ride/functions/built-in-functions/decoding-functions)
 
@@ -177,18 +177,18 @@
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
-| 1 | blake2b256_16Kb(ByteVector): ByteVector | Хеширует массив байтов с помощью алгоритма [BLAKE-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10 |
-| 2 | blake2b256_32Kb(ByteVector): ByteVector | 〃 | 25 |
-| 3 | blake2b256_64Kb(ByteVector): ByteVector | 〃 | 50 |
-| 4 | blake2b256_128Kb(ByteVector): ByteVector | 〃 | 100 |
-| 5 | blake2b256(ByteVector): ByteVector | 〃 | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>10 для Стандартной библиотеки **версии 3** |
-| 6 | keccak256_16Kb(ByteVector): ByteVector | Хеширует массив байтов с помощью алгоритма [SHA-3-256](https://en.wikipedia.org/wiki/SHA-3) | 10 |
-| 7 | keccak256_32Kb(ByteVector): ByteVector | 〃 | 25 |
-| 8 | keccak256_64Kb(ByteVector): ByteVector | 〃 | 50 |
-| 9 | keccak256_128Kb(ByteVector): ByteVector | 〃 | 100 |
-| 10 | keccak256(ByteVector): ByteVector | 〃 | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>10 для Стандартной библиотеки **версии 3** |
-| 11 | sha256_16Kb(ByteVector): ByteVector | Хеширует массив байтов с помощью алгоритма [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 10 |
-| 12 | sha256_32Kb(ByteVector): ByteVector | 〃 | 25 |
-| 13 | sha256_64Kb(ByteVector): ByteVector | 〃 | 50 |
-| 14 | sha256_128Kb(ByteVector): ByteVector | 〃 | 100 |
-| 15 | sha256(ByteVector): ByteVector | 〃 | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>10 для Стандартной библиотеки **версии 3** |
+| 1 | [blake2b256](#blake2b256)(ByteVector): ByteVector | Хеширует массив байтов с помощью алгоритма [BLAKE-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>10 для Стандартной библиотеки **версии 3** |
+| 2 | blake2b256_16Kb(ByteVector): ByteVector | 〃 (объем данных не более 16 Кбайт) | 10 |
+| 3 | blake2b256_32Kb(ByteVector): ByteVector | 〃 (объем данных не более 32 Кбайт) | 25 |
+| 4 | blake2b256_64Kb(ByteVector): ByteVector | 〃 (объем данных не более 64 Кбайт) | 50 |
+| 5 | blake2b256_128Kb(ByteVector): ByteVector | 〃 (объем данных не более 128 Кбайт) | 100 |
+| 6 | [keccak256](#keccak256)(ByteVector): ByteVector | Хеширует массив байтов с помощью алгоритма [SHA3-256](https://en.wikipedia.org/wiki/SHA-3) | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>10 для Стандартной библиотеки **версии 3** |
+| 7 | keccak256_16Kb(ByteVector): ByteVector | 〃 (объем данных не более 16 Кбайт) | 10 |
+| 8 | keccak256_32Kb(ByteVector): ByteVector | 〃 (объем данных не более 32 Кбайт) | 25 |
+| 9 | keccak256_64Kb(ByteVector): ByteVector | 〃 (объем данных не более 64 Кбайт) | 50 |
+| 10 | keccak256_128Kb(ByteVector): ByteVector | 〃 (объем данных не более 128 Кбайт) | 100 |
+| 11 | sha256(ByteVector): ByteVector | Хеширует массив байтов с помощью алгоритма [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>10 для Стандартной библиотеки **версии 3** |
+| 12 | [sha256](#sha256)_16Kb(ByteVector): ByteVector | 〃 (объем данных не более 16 Кбайт) | 10 |
+| 13 | sha256_32Kb(ByteVector): ByteVector | 〃 (объем данных не более 32 Кбайт) | 25 |
+| 14 | sha256_64Kb(ByteVector): ByteVector | 〃 (объем данных не более 64 Кбайт) | 50 |
+| 15 | sha256_128Kb(ByteVector): ByteVector | 〃 (объем данных не более 128 Кбайт) | 100 |
