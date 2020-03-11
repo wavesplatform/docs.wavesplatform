@@ -128,8 +128,8 @@ rsaVerify_128Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVecto
 | :--- | :--- |
 | `digest`: digestAlgorithmType | Алгоритм хеширования, примененный к данным перед подписанием. Возможные значения:<br>• NOALG — нет хеширования.<br>• MD5<br>• SHA1<br>• SHA224<br>• SHA256<br>• SHA384<br>• SHA512<br>•  SHA3224 <br>• SHA3256<br>• SHA3384<br>• SHA3512  |
 | `message`: ByteVector | Исходные данные.<br>Максимальный размер:<br>• Для функций `rsaVerify_<N>Kbytes` — не более `N` Кбайт.<br>• Для функции `rsaVerify` — не более 150 Кбайт. |
-| `sig`: ByteVectore | Цифровая подпись. 25 байт |
-| `pub`: ByteVectore | Открытый ключ. 294 байта |
+| `sig`: ByteVector | Цифровая подпись. 25 байт |
+| `pub`: ByteVector | Открытый ключ. 294 байта |
 
 ## sigVerify
 
@@ -145,11 +145,10 @@ sigVerify_128Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
 
 > :warning: Функции `sigVerify_16Kb`, `sigVerify_32Kb`, `sigVerify_64Kb`, `sigVerify_128Kb` появились в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
-
 ### Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
 | `message`: ByteVector | Исходные данные.<br>Максимальный размер:<br>• Для функций `sigVerify_<N>Kbytes` — не более `N` Кбайт.<br>• Для функции `sigVerify` — не более 150 Кбайт. |
-| `sig`: ByteVectore | Цифровая подпись. 25 байт |
-| `pub`: ByteVectore | Открытый ключ. 294 байта |
+| `sig`: ByteVector | Цифровая подпись. 25 байт |
+| `pub`: ByteVector | Открытый ключ. 294 байта |
