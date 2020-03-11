@@ -6,8 +6,7 @@
 
 Обновлено описание
 * [функций хеширования](/ru/ride/functions/built-in-functions/hashing-functions) `blake2b256`, `keccak256`, `sha256`;
-* [функций верификации](/ru/ride/functions/built-in-functions/verification-functions) `rsaVerify`, `sigVerify`;
-* [функции блокчейна](/ru/ride/functions/built-in-functions/blockchain-functions) `groth16Verify`.
+* [функций верификации](/ru/ride/functions/built-in-functions/verification-functions) `groth16Verify`, `rsaVerify`, `sigVerify`.
 
 ## Февральские статьи
 
@@ -24,7 +23,7 @@
 #### Встроенные функции
 
 * [calculateAssetId](/ru/ride/functions/built-in-functions/blockchain-functions#calculate)
-* [groth16Verify](/ru/ride/functions/built-in-functions/blockchain-functions#groth)
+* [groth16Verify](/ru/ride/functions/built-in-functions/verification-functions#groth16Verify)
 
 ## Январские статьи
 

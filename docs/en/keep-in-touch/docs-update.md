@@ -15,7 +15,7 @@ Added how-to guides:
 #### Built-in Functions
 
 * [calculateAssetId](/en/ride/functions/built-in-functions/blockchain-functions#calculate)
-* [groth16Verify](/en/ride/functions/built-in-functions/blockchain-functions#groth)
+* [groth16Verify](/en/ride/functions/built-in-functions/verification-functions#groth16Verify)
 
 ## December articles
 

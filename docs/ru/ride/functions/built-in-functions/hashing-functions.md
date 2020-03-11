@@ -3,20 +3,20 @@
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
 | 1 | [blake2b256](#blake2b256)(ByteVector): ByteVector | Хеширует массив байтов с помощью алгоритма [BLAKE-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>10 для Стандартной библиотеки **версии 3** |
-| 2 | blake2b256_16Kb(ByteVector): ByteVector | 〃 (объем данных не более 16 Кбайт) | 10 |
-| 3 | blake2b256_32Kb(ByteVector): ByteVector | 〃 (объем данных не более 32 Кбайт) | 25 |
-| 4 | blake2b256_64Kb(ByteVector): ByteVector | 〃 (объем данных не более 64 Кбайт) | 50 |
-| 5 | blake2b256_128Kb(ByteVector): ByteVector | 〃 (объем данных не более 128 Кбайт) | 100 |
+| 2 | blake2b256_16Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 16 Кбайт) | 10 |
+| 3 | blake2b256_32Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 32 Кбайт) | 25 |
+| 4 | blake2b256_64Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 64 Кбайт) | 50 |
+| 5 | blake2b256_128Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 128 Кбайт) | 100 |
 | 6 | [keccak256](#keccak256)(ByteVector): ByteVector | Хеширует массив байтов с помощью алгоритма [SHA3-256](https://en.wikipedia.org/wiki/SHA-3) | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>10 для Стандартной библиотеки **версии 3** |
-| 7 | keccak256_16Kb(ByteVector): ByteVector | 〃 (объем данных не более 16 Кбайт) | 10 |
-| 8 | keccak256_32Kb(ByteVector): ByteVector | 〃 (объем данных не более 32 Кбайт) | 25 |
-| 9 | keccak256_64Kb(ByteVector): ByteVector | 〃 (объем данных не более 64 Кбайт) | 50 |
-| 10 | keccak256_128Kb(ByteVector): ByteVector | 〃 (объем данных не более 128 Кбайт) | 100 |
+| 7 | keccak256_16Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 16 Кбайт) | 10 |
+| 8 | keccak256_32Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 32 Кбайт) | 25 |
+| 9 | keccak256_64Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 64 Кбайт) | 50 |
+| 10 | keccak256_128Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 128 Кбайт) | 100 |
 | 11 | sha256(ByteVector): ByteVector | Хеширует массив байтов с помощью алгоритма [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>10 для Стандартной библиотеки **версии 3** |
-| 12 | [sha256](#sha256)_16Kb(ByteVector): ByteVector | 〃 (объем данных не более 16 Кбайт) | 10 |
-| 13 | sha256_32Kb(ByteVector): ByteVector | 〃 (объем данных не более 32 Кбайт) | 25 |
-| 14 | sha256_64Kb(ByteVector): ByteVector | 〃 (объем данных не более 64 Кбайт) | 50 |
-| 15 | sha256_128Kb(ByteVector): ByteVector | 〃 (объем данных не более 128 Кбайт) | 100 |
+| 12 | [sha256](#sha256)_16Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 16 Кбайт) | 10 |
+| 13 | sha256_32Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 32 Кбайт) | 25 |
+| 14 | sha256_64Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 64 Кбайт) | 50 |
+| 15 | sha256_128Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 128 Кбайт) | 100 |
 
 ## blake2b256
 
