@@ -128,8 +128,8 @@ rsaVerify_128Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVecto
 | :--- | :--- |
 | `digest`: digestAlgorithmType | Алгоритм хеширования, примененный к данным перед подписанием. Возможные значения:<br>• NOALG — нет хеширования.<br>• MD5<br>• SHA1<br>• SHA224<br>• SHA256<br>• SHA384<br>• SHA512<br>•  SHA3224 <br>• SHA3256<br>• SHA3384<br>• SHA3512  |
 | `message`: ByteVector | Исходные данные.<br>Максимальный размер:<br>• Для функций `rsaVerify_<N>Kbytes` — не более `N` Кбайт.<br>• Для функции `rsaVerify` — не более 150 Кбайт. |
-| `sig`: ByteVector | Цифровая подпись. 25 байт |
-| `pub`: ByteVector | Открытый ключ. 294 байта |
+| `sig`: ByteVector | Цифровая подпись. Фиксированный размер: 25 байт |
+| `pub`: ByteVector | Открытый ключ в бинарном формате. Фиксированный размер: 294 байта |
 
 ## sigVerify
 
@@ -150,5 +150,5 @@ sigVerify_128Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
 | Параметр | Описание |
 | :--- | :--- |
 | `message`: ByteVector | Исходные данные.<br>Максимальный размер:<br>• Для функций `sigVerify_<N>Kbytes` — не более `N` Кбайт.<br>• Для функции `sigVerify` — не более 150 Кбайт. |
-| `sig`: ByteVector | Цифровая подпись. 25 байт |
-| `pub`: ByteVector | Открытый ключ. 294 байта |
+| `sig`: ByteVector | Цифровая подпись. Фиксированный размер: 25 байт |
+| `pub`: ByteVector | Открытый ключ в бинарном формате. Фиксированный размер: 294 байта |
