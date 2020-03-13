@@ -2,14 +2,13 @@
 
 |   #  | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
-|   1  | [assetInfo(ByteVector): Аsset&#124;Unit](#asset-info) | Gets the information about a [token](/en/blockchain/token) | 100 |
-|   2  | [blockInfoByHeight(Int): BlockInfo&#124;Unit](#block-info-by-height) | Gets the information about a [block](/en/blockchain/block) by the [block height](/en/blockchain/block/block-height) | 100 |
-|   3  | [calculateAssetId(Issue): ByteVector](#calculate) | Calculates the ID of the asset, created by [Issue](/en/ride/structures/common-structures/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
-|   4  | [groth16Verify(ByteVector, ByteVector, ByteVector): Boolean](#groth) | Checks [snark](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol | 1900 |
-|   5  | [transactionHeightById(ByteVector): Int&#124;Unit](#transaction-height-by-id) | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 100 |
-|   6  | [transferTransactionById(ByteVector): TransferTransaction&#124;Unit](#transfer-transaction-by-id) | Gets the data of a transfer transaction | 100 |
+|   1  | [assetInfo(ByteVector): Аsset&#124;Unit](#assetinfo) | Gets the information about a [token](/en/blockchain/token) | 100 |
+|   2  | [blockInfoByHeight(Int): BlockInfo&#124;Unit](#blockinfobyheight) | Gets the information about a [block](/en/blockchain/block) by the [block height](/en/blockchain/block/block-height) | 100 |
+|   3  | [calculateAssetId(Issue): ByteVector](#calculateassetid) | Calculates the ID of the asset, created by [Issue](/en/ride/structures/common-structures/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
+|   4  | [transactionHeightById(ByteVector): Int&#124;Unit](#transactionheightbyid) | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 100 |
+|   5  | [transferTransactionById(ByteVector): TransferTransaction&#124;Unit](#transfertransactionbyid) | Gets the data of a transfer transaction | 100 |
 
-## assetInfo(ByteVector): Аsset|Unit<a id="asset-info"></a>
+## assetInfo
 
 Gets the information about a [token](/en/blockchain/token).
 
@@ -19,9 +18,9 @@ assetInfo(id: ByteVector): Аsset|Unit
 
 ### Parameters
 
-#### `id`: ByteVector
-
-ID of the [token](/en/blockchain/token).
+| Parameter | Description |
+| :--- | :--- |
+| `id`: ByteVector | ID of the [token](/en/blockchain/token) |
 
 ### Example
 
@@ -35,7 +34,7 @@ let x = match assetInfo(bitcoinId) {
 ```
 
 
-## blockInfoByHeight(Int): BlockInfo|Unit<a id="block-info-by-height"></a>
+## blockInfoByHeight
 
 Gets the information about a [block](/en/blockchain/block) by the [block height](/en/blockchain/block/block-height).
 
@@ -45,9 +44,9 @@ blockInfoByHeight(height: Int): BlockInfo|Unit
 
 ### Parameters
 
-#### `height`: Int
-
-Block height.
+| Parameter | Description |
+| :--- | :--- |
+| `height`: Int | Block height |
 
 ### Example
 
@@ -69,9 +68,9 @@ calculateAssetId(issue: Issue): ByteVector
 
 ### Parameters
 
-#### `issue`: Issue
-
-The structure by which the asset is formed.
+| Parameter | Description |
+| :--- | :--- |
+| `issue`: Issue | The structure by which the asset is formed |
 
 ### Example
 
@@ -99,42 +98,7 @@ func issueAndSend() = {
 //   }
 ```
 
-
-## groth16Verify(ByteVector, ByteVector, ByteVector): Boolean
- <a id="groth"></a>
-
-Checks [snark](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol.
-
-```
-groth16Verify(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
-```
-
-### Parameters
-
-#### `vk`: ByteVector
-
-Key for the check.
-
-#### `proof`: ByteVector
-
-[Zero-knowledge proof](https://en.wikipedia.org/wiki/Zero-knowledge_proof).
-
-#### `inputs`: ByteVector
-
-Zero-knowledge proof's public inputs array.
-
-
-### Example
-
-```
-{-# STDLIB_VERSION 4 #-}
-{-# CONTENT_TYPE DAPP #-}
-{-# SCRIPT_TYPE ACCOUNT #-}
- 
-groth16Verify(vk, proof, inputs)
-```
-
-## transactionHeightById(ByteVector): Int|Unit<a id="transaction-height-by-id"></a>
+## transactionHeightById
 
 Gets the [block height](/en/blockchain/block/block-height) of a transaction.
 
@@ -144,9 +108,9 @@ transactionHeightById(id: ByteVector): Int|Unit
 
 ### Parameters
 
-#### `id`: ByteVector
-
-ID of the transaction.
+| Parameter | Description |
+| :--- | :--- |
+| `id`: ByteVector | ID of the transaction |
 
 ### Example
 
@@ -158,7 +122,7 @@ let x = match transactionHeightById(bitcoinId) {
 }
 ```
 
-## transferTransactionById(ByteVector): TransferTransaction|Unit<a id="transfer-transaction-by-id"></a>
+## transferTransactionById
 
 Gets the data of a [transfer transaction](/en/blockchain/transaction-type/transfer-transaction).
 
@@ -168,9 +132,9 @@ transferTransactionById(id: ByteVector): TransferTransaction|Unit
 
 ### Parameters
 
-#### `id`: ByteVector
-
-ID of the transfer transaction.
+| Parameter | Description |
+| :--- | :--- |
+| `id`: ByteVector | ID of the transfer transaction |
 
 ### Example
 

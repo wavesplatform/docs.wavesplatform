@@ -22,6 +22,8 @@
 
 Хеширует массив байтов с помощью алгоритма [blake2b256](https://ru.wikipedia.org/wiki/BLAKE_%28хеш-функция%29).
 
+> :warning: Функции `blake2b256_16Kb`, `blake2b256_32Kb`, `blake2b256_64Kb`, `blake2b256_128Kb` появились в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
 ``` ride
 blake2b256(bytes: ByteVector): ByteVector
 blake2b256_16Kb(bytes: ByteVector): ByteVector
@@ -29,8 +31,6 @@ blake2b256_32Kb(bytes: ByteVector): ByteVector
 blake2b256_64Kb(bytes: ByteVector): ByteVector
 blake2b256_128Kb(bytes: ByteVector): ByteVector
 ```
-
-> :warning: Функции `blake2b256_16Kb`, `blake2b256_32Kb`, `blake2b256_64Kb`, `blake2b256_128Kb` появились в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ### Параметры
 
@@ -52,6 +52,8 @@ blake2b256(base64'UmlkZQ==') # Возвращает 6NSWRz5XthhFVm9uVQHuisdaseQJ
 
 Хеширует массив байтов с помощью алгоритма [SHA-3-256](https://ru.wikipedia.org/wiki/SHA-3).
 
+> :warning: Функции `keccak256_16Kb`, `keccak256_32Kb`, `keccak256_64Kb`, `keccak256_128Kb` появились в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
 ``` ride
 keccak256(bytes: ByteVector): ByteVector
 keccak256_16Kb(bytes: ByteVector): ByteVector
@@ -59,8 +61,6 @@ keccak256_32Kb(bytes: ByteVector): ByteVector
 keccak256_64Kb(bytes: ByteVector): ByteVector
 keccak256_128Kb(bytes: ByteVector): ByteVector
 ```
-
-> :warning: Функции `keccak256_16Kb`, `keccak256_32Kb`, `keccak256_64Kb`, `keccak256_128Kb` появились в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ### Параметры
 
@@ -82,6 +82,8 @@ keccak256(base64'UmlkZQ==') # Возвращает 4qa5wNk4961VwJAjCKBzXiEvBQ2gB
 
 Хеширует массив байтов с помощью алгоритма [SHA-256](https://ru.wikipedia.org/wiki/SHA-2).
 
+> :warning: Функции `sha256_16Kb`, `sha256_32Kb`, `sha256_64Kb`, `sha256_128Kb` появились в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
 ``` ride
 sha256(bytes: ByteVector): ByteVector
 sha256_16Kb(bytes: ByteVector): ByteVector
@@ -89,8 +91,6 @@ sha256_32Kb(bytes: ByteVector): ByteVector
 sha256_64Kb(bytes: ByteVector): ByteVector
 sha256_128Kb(bytes: ByteVector): ByteVector
 ```
-
-> :warning: Функции `sha256_16Kb`, `sha256_32Kb`, `sha256_64Kb`, `sha256_128Kb` появились в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ### Параметры
 
