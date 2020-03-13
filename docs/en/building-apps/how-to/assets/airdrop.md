@@ -18,14 +18,14 @@ import requests
 import time
 import pywaves as pw
 
+node_url = 'https://nodes-testnet.wavesnodes.com'
+pw.setNode(node = node_url, chain = 'testnet')
+
 seed = 'insert your seed here'
-my_address = pw.Address(seed)
+my_address = pw.Address(seed=seed)
 
 my_asset = pw.Asset('Ax54puR69NHfxqCE73DkyGHUiRb7Z6tHJZvx6ywWS49')
 airdrop_amount = 100
-
-node_url = 'https://nodes-testnet.wavesnodes.com'
-pw.setNode(node = node_url, chain = 'testnet')
 
 sender_public_keys = []
 addresses = []
@@ -56,11 +56,12 @@ for i in range(blockchain_height - depth, blockchain_height):
 for public_key in sender_public_keys:
     try:
         response = requests.get(f'{node_url}/addresses/publicKey/{public_key}')
-        addresses.append(responce.json()['address'])
+        addresses.append(response.json()['address'])
     except ValueError:
         print('Error getting address from public key ', public_key, '\nHTTP response code: ', response)
 
 # Send asset to the addresses
 for address in addresses:
-    my_address.sendAsset(address, my_asset, airdrop_amount)
+    address_obj = pw.Address(address)
+    my_address.sendAsset(address_obj, my_asset, airdrop_amount)
 ```
