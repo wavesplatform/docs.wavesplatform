@@ -1,8 +1,8 @@
 # Transaction binary format
 
-A **transaction binary format** is a set of fields of a [transaction](/en/blockchain/transaction).
+A **transaction binary format** is byte representation of a set of fields of a [transaction](/en/blockchain/transaction) of one type or another. When binary format is modified, its version changes. Recent versions of binary transactions' formats are implemented basing on [Protobuf](https://ru.wikipedia.org/wiki/Protocol_Buffers)-schemes. Their use greatly simplify the development of client libraries for working with the Waves blockchain.
 
-Transactions of different [types](/en/blockchain/transaction-type) have different binary formats. Transactions of the same type, but of different [versions](/en/blockchain/transaction/transaction-version), also have different binary formats.
+> The binary transaction formats based on protobuf become available after activating the functionality "VRF and Protobuf (No. 15)".
 
 * [Burn transaction binary format](/en/blockchain/binary-format/transaction-binary-format/burn-transaction-binary-format)
 * [Create alias transaction binary format](/en/blockchain/binary-format/transaction-binary-format/create-alias-transaction-binary-format)

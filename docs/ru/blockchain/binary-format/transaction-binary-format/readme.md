@@ -1,8 +1,8 @@
 # Бинарный формат транзакции
 
-**Бинарный формат транзакции** — набор полей [транзакции](/ru/blockchain/transaction).
+**Бинарный формат транзакции** — байтовое представление набора полей [транзакции](/ru/blockchain/transaction) того или иного типа. При изменении бинарного формата меняется его [версия](/ru/blockchain/transaction/transaction-version). Старшие версии бинарных форматов транзакций реализованы на основе Protobuf-схем. Их использование существенно упрощает разработку клиентских библиотек для работы с блокчейном Waves.
 
-Транзакции разных [типов](/ru/blockchain/transaction-type) имеют разные бинарные форматы. Транзакции одного типа, но разных [версий](/ru/blockchain/transaction/transaction-version), также имеют разные бинарные форматы.
+> Возможность использования бинарных форматов транзакций на основе protobuf становится доступна после активации функциональности "VRF and Protobuf (№15)".
 
 * [Бинарный формат транзакции вызова скрипта](/ru/blockchain/binary-format/transaction-binary-format/invoke-script-transaction-binary-format)
 * [Бинарный формат транзакции выпуска](/ru/blockchain/binary-format/transaction-binary-format/issue-transaction-binary-format)

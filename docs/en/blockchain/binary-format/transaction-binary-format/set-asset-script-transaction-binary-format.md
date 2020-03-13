@@ -2,9 +2,9 @@
 
 > Learn more about [set asset script transaction](/en/blockchain/transaction-type/set-asset-script-transaction)
 
-## Protobuf-схема
+## Transaction version 2
 
-> protobuf-schemas/proto/waves/transaction.proto
+The second version of the transaction binary format is based on [protobuf scheme](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto).
 
 ```
 // Transactions

@@ -2,9 +2,9 @@
 
 > Learn more about [reissue transaction](/en/blockchain/transaction-type/reissue-transaction)
 
-## Protobuf-схема
+## Transaction version 3
 
-> protobuf-schemas/proto/waves/transaction.proto
+The third version of the transaction binary format is based on [protobuf scheme](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto).
 
 ```
 // Transactions

@@ -2,9 +2,9 @@
 
 > Узнать больше о [транзакции обновления информации ассета](/ru/blockchain/transaction-type/update-asset-info-transaction)
 
-## Protobuf-схема
+## Транзакция версии 1
 
-> protobuf-schemas/proto/waves/transaction.proto
+Бинарный формат версии 1 основан на [протобаф-схеме](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto).
 
 ```
 // Transactions

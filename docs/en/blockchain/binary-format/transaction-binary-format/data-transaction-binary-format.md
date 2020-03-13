@@ -2,9 +2,9 @@
 
 > Learn more about [data transaction](/en/blockchain/transaction-type/data-transaction)
 
-## Protobuf scheme
+## Transaction version 2
 
-> protobuf-schemas/proto/waves/transaction.proto
+The second version of the transaction binary format is based on [protobuf scheme](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto).
 
 ```
 // Transactions

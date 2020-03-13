@@ -2,9 +2,9 @@
 
 > Узнать больше о [транзакции генезиса](/ru/blockchain/transaction-type/genesis-transaction)
 
-## Protobuf-схема
+## Транзакция версии 2
 
-> protobuf-schemas/proto/waves/transaction.proto
+Бинарный формат версии 2 основан на [протобаф-схеме](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto).
 
 ```
 // Transactions

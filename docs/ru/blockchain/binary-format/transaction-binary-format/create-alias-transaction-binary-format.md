@@ -2,9 +2,9 @@
 
 > Узнать больше о [транзакции создания псевдонима](/ru/blockchain/transaction-type/create-alias-transaction)
 
-## Protobuf-схема
+## Транзакция версии 3
 
-> protobuf-schemas/proto/waves/transaction.proto
+Бинарный формат версии 3 основан на [протобаф-схеме](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto).
 
 ```
 // Transactions

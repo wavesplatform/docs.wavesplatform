@@ -2,9 +2,9 @@
 
 > Подробнее о [транзакции обмена](/ru/blockchain/transaction-type/exchange-transaction)
 
-## Protobuf-схема
+## Транзакция версии 3
 
-> protobuf-schemas/proto/waves/transaction.proto
+Бинарный формат версии 3 основан на [протобаф-схеме](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto).
 
 ```
 // Transactions

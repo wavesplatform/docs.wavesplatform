@@ -2,9 +2,9 @@
 
 > Learn more about [burn transaction](/en/blockchain/transaction-type/burn-transaction)
 
-## Protobuf scheme
+## Transaction version 3
 
-> protobuf-schemas/proto/waves/transaction.proto
+The third version of the transaction binary format is based on [protobuf scheme](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto).
 
 ```
 // Transactions
