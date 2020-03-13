@@ -44,7 +44,7 @@
   * `StringEntry`. Writes string data to the account data storage.
 * Implemented the ability to process in dApp up to two payments attached to the invoke script transaction.
 * Added the [groth16verify](/en/ride/functions/built-in-functions/verification-functions#groth16verify) range of functions for [zero-knowledge proof](https://en.wikipedia.org/wiki/Zero-knowledge_proof) verification. The functions have different complexity depending on the argument size limit.
-* For the built-in hashing functions `blakeb256`, `keccak256`, `sha256` and the built-in verification functions `rsaVerify`, `sigVerify` the complexity was changed in Standard Library version 4 along with adding the range of similar functions with different complexity depending on the argument size limit.
+* For the built-in [hashing functions](/en/ride/functions/built-in-functions/hashing-functions) `blakeb256`, `keccak256`, `sha256` and the built-in [verification functions](/en/ride/functions/built-in-functions/verification-functions) `rsaVerify`, `sigVerify` the complexity was changed in Standard Library version 4 along with adding the range of similar functions with different complexity depending on the argument size limit.
 * Added the [valueOrElse(t: T|Unit, t0 : T)](/ru/ride/functions/built-in-functions/union-functions#valueOrElse) built-in function that returns a value from the union type if it's not empty. Its complexity equals 13.
 * Added the [contains(source: String, substr: String)](/ru/ride/functions/built-in-functions/string-functions#contains) built-in function which checks whether the second argument (substring) is contained in the first string argument. Its complexity equals 20.
 * Now the list can be the function argument.

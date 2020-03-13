@@ -105,21 +105,21 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
-| 1 | blake2b256(ByteVector): ByteVector | Hashes an array of bytes using [BLAKE-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 200 for [Standard Library](/en/ride/script/standard-library) **version 4**<br>10 for Standard Library **version 3** |
-| 2 | blake2b256_16Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 16 kB) | 10 |
-| 3 | blake2b256_32Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 32 kB) | 25 |
-| 4 | blake2b256_64Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 64 kB) | 50 |
-| 5 | blake2b256_128Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 128 Кбайт) | 100 |
-| 6 | keccak256(ByteVector): ByteVector | Hashes an array of bytes using [SHA-3-256](https://en.wikipedia.org/wiki/SHA-3) | 200 for [Standard Library](/en/ride/script/standard-library) **version 4**<br>10 for Standard Library **version 3** |
-| 7 | keccak256_16Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 16 kB) | 10 |
-| 8 | keccak256_32Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 32 kB) | 25 |
-| 9 | keccak256_64Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 64 kB) | 50 |
-| 10 | keccak256_128Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 128 kB) | 100 |
-| 11 | sha256(ByteVector): ByteVector | Hashes an array of bytes using [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 200 for [Standard Library](/en/ride/script/standard-library) **version 4**<br>10 for Standard Library **version 3** |
-| 12 | sha256_16Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 16 kB) | 10 |
-| 13 | sha256_32Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 32 kB) | 25 |
-| 14 | sha256_64Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 64 kB) | 50 |
-| 15 | sha256_128Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 128 kB) | 100 |
+| 1 | blake2b256(ByteVector): ByteVector | Hashes an array of bytes using [BLAKE-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 200 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;4**<br>10 for Standard Library **version&nbsp;3** |
+| 2 | blake2b256_16Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 16&nbsp;kB) | 10 |
+| 3 | blake2b256_32Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 32&nbsp;kB) | 25 |
+| 4 | blake2b256_64Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 64&nbsp;kB) | 50 |
+| 5 | blake2b256_128Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 128&nbsp;kB) | 100 |
+| 6 | keccak256(ByteVector): ByteVector | Hashes an array of bytes using [SHA-3-256](https://en.wikipedia.org/wiki/SHA-3) | 200 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;4**<br>10 for Standard Library **version&nbsp;3** |
+| 7 | keccak256_16Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 16&nbsp;kB) | 10 |
+| 8 | keccak256_32Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 32&nbsp;kB) | 25 |
+| 9 | keccak256_64Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 64&nbsp;kB) | 50 |
+| 10 | keccak256_128Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 128&nbsp;kB) | 100 |
+| 11 | sha256(ByteVector): ByteVector | Hashes an array of bytes using [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 200 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;4**<br>10 for Standard Library **version&nbsp;3** |
+| 12 | sha256_16Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 16&nbsp;kB) | 10 |
+| 13 | sha256_32Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 32&nbsp;kB) | 25 |
+| 14 | sha256_64Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 64&nbsp;kB) | 50 |
+| 15 | sha256_128Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 128&nbsp;kB) | 100 |
 
 ## [List functions](/en/ride/functions/built-in-functions/list-functions)
 

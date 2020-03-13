@@ -5,8 +5,8 @@
 ### Ride
 
 Updated the the following descriptions:
-* [hashing functions](/en/ride/functions/built-in-functions/hashing-functions) `blake2b256`, `keccak256`, `sha256`;
-* [verification functions](/ru/ride/functions/built-in-functions/verification-functions) `groth16Verify`, `rsaVerify`, `sigVerify`.
+* [hashing functions](/en/ride/functions/built-in-functions/hashing-functions): `blake2b256`, `keccak256`, `sha256`;
+* [verification functions](/ru/ride/functions/built-in-functions/verification-functions): `groth16Verify`, `rsaVerify`, `sigVerify`.
 
 ## February articles
 

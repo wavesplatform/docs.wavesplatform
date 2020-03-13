@@ -58,7 +58,7 @@ let x = match blockInfoByHeight(1234567) {
 }
 ```
 
-## calculateAssetId(Issue): ByteVector <a id="calculate"></a>
+## calculateAssetId
 
 Calculates the ID of the asset, created by [Issue](/en/ride/structures/common-structures/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution.
 

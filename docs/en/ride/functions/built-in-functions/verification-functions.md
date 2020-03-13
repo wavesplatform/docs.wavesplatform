@@ -2,7 +2,7 @@
 
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
-| 1 | [checkMerkleProof(ByteVector, ByteVector, ByteVector): Boolean](#check-merkle-proof) | Checks that the data is part of the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) | 30 |
+| 1 | [checkMerkleProof](#checkmerkleproof)(ByteVector, ByteVector, ByteVector): Boolean | Checks that the data is part of the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) | 30 |
 | 2 | [groth16Verify](#groth16verify)(ByteVector, ByteVector, ByteVector): Boolean | Checks [snark](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol | 3900 |
 | 3 | groth16Verify_1inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 1 input) | 1900 |
 | 4 | groth16Verify_2inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 2 inputs) | 2000 |
@@ -52,7 +52,7 @@ checkMerkleProof(merkleRoot: ByteVector, merkleProof: ByteVector, valueBytes: By
 
 Checks [snark](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol.
 
-> :warning: The the `groth16verify` range of functions is introduced in [Standard Library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+> :warning: The `groth16verify` range of functions is introduced in [Standard Library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 ```
 groth16Verify(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
@@ -95,7 +95,7 @@ groth16Verify(vk, proof, inputs)
 
 Checks that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29) digital signature is valid, i.e. it was created by the owner of the public key.
 
-> :warning: `rsaVerify_16Kb`, `rsaVerify_32Kb`, `rsaVerify_64Kb`, `rsaVerify_128Kb` functions are introduced in [Standard Library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+> :warning: The `rsaVerify_16Kb`, `rsaVerify_32Kb`, `rsaVerify_64Kb`, `rsaVerify_128Kb` functions are introduced in [Standard Library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 The recommended RSA key module length is at least 2048 bits.
 
@@ -126,16 +126,16 @@ rsaVerify_128Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVecto
 
 | Parameter | Description |
 | :--- | :--- |
-| `digest`: digestAlgorithmType | The hashing algorithm applied to the data before signing. Acceptable values:<br>• NOALG — data is not hashed.<br>• MD5<br>• SHA1<br>• SHA224<br>• SHA256<br>• SHA384<br>• SHA512<br>•  SHA3224 <br>• SHA3256<br>• SHA3384<br>• SHA3512  |
+| `digest`: digestAlgorithmType | The hashing algorithm applied to the data before signing. Acceptable values:<br>• `NOALG` — data is not hashed.<br>• `MD5`<br>• SHA1<br>• `SHA224`<br>• `SHA256`<br>• `SHA384`<br>• `SHA512`<br>•  `SHA3224` <br>• `SHA3256`<br>• `SHA3384`<br>• `SHA3512` |
 | `message`: ByteVector | Signed data.<br>Maximum size:<br>• For `rsaVerify_<N>Kbytes`functions – `N` kB.<br>• For `rsaVerify` function — 150 kB. |
-| `sig`: ByteVectore | Digital signature. Fixed size: 25 bytes |
-| `pub`: ByteVectore | Binary public key. Fixed size: 294 bytes |
+| `sig`: ByteVector | Digital signature. Fixed size: 25 bytes |
+| `pub`: ByteVector | Binary public key. Fixed size: 294 bytes |
 
 ## sigVerify
 
 Checks that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid, i.e. it was created by the owner of the public key.
 
-> :warning: `sigVerify_16Kb`, `sigVerify_32Kb`, `sigVerify_64Kb`, `sigVerify_128Kb` functions are introduced in [Standard Library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+> :warning: The `sigVerify_16Kb`, `sigVerify_32Kb`, `sigVerify_64Kb`, `sigVerify_128Kb` functions are introduced in [Standard Library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 ``` ride
 sigVerify(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
@@ -150,5 +150,5 @@ sigVerify_128Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
 | Parameter | Description |
 | :--- | :--- |
 | `message`: ByteVector | Signed data.<br>Maximum size:<br>• For `rsaVerify_<N>Kbytes`functions – `N` kB.<br>• For `rsaVerify` function — 150 kB. |
-| `sig`: ByteVectore | Digital signature. Fixed size: 25 bytes |
-| `pub`: ByteVectore | Binary public key. Fixed size: 294 bytes |
+| `sig`: ByteVector | Digital signature. Fixed size: 25 bytes |
+| `pub`: ByteVector | Binary public key. Fixed size: 294 bytes |
