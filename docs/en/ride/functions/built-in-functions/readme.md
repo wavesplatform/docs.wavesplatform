@@ -2,9 +2,7 @@
 
 A **built-in function** is a [function](/en/ride/functions) of the [script context](/en/ride/script/script-context).
 
-## List of the built-in functions
-
-### [Account data storage functions](/en/ride/functions/built-in-functions/account-data-storage-functions)
+## [Account data storage functions](/en/ride/functions/built-in-functions/account-data-storage-functions)
 
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
@@ -19,18 +17,17 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | 9 | getStringValue(Address&#124;Alias, String): String | Gets a string by key. Throws an exception if there is no data | 100 |
 | 10 | wavesBalance(Address&#124;Alias): Int | Gets account balance in [WAVES](/en/blockchain/token/waves) | 109 |
 
-### [Blockchain functions](/en/ride/functions/built-in-functions/blockchain-functions)
+## [Blockchain functions](/en/ride/functions/built-in-functions/blockchain-functions)
 
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
 | 1 | assetInfo(ByteVector): Аsset&#124;Unit | Gets the information about a [token](/en/blockchain/token) | 100 |
 | 2 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Gets the information about a [block](/en/blockchain/block) by the [block height](/en/blockchain/block/block-height) | 100 |
 | 3 | calculateAssetId(Issue): ByteVector | Calculates the ID of the asset, created by [Issue](/en/ride/structures/common-structures/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
-| 4 | groth16Verify(ByteVector, ByteVector, ByteVector): Boolean] | Checks [snark](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol | 1900 |
-| 5 | transactionHeightById(ByteVector):  Int&#124;Unit | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 100 |
-| 6 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Gets the data of a [transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 100 |
+| 4 | transactionHeightById(ByteVector):  Int&#124;Unit | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 100 |
+| 5 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Gets the data of a [transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 100 |
 
-### [Byte array functions](/en/ride/functions/built-in-functions/byte-array-functions)
+## [Byte array functions](/en/ride/functions/built-in-functions/byte-array-functions)
 
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
@@ -40,7 +37,7 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | 4 | take(ByteVector, Int): ByteVector | Returns the first `N` bytes of the byte array | 1 |
 | 5 | takeRight(ByteVector, Int): ByteVector | Returns the last `N` bytes of the byte array | 19 |
 
-### [Converting functions](/en/ride/functions/built-in-functions/converting-functions)
+## [Converting functions](/en/ride/functions/built-in-functions/converting-functions)
 
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
@@ -58,7 +55,7 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | 12 | toString(Int): String | Converts an integer to a string | 1 |
 | 13 | toUtf8String(ByteVector): String | Converts an array of bytes to a UTF-8 string | 20 |
 
-### [Data transaction functions](/en/ride/functions/built-in-functions/data-transaction-functions)
+## [Data transaction functions](/en/ride/functions/built-in-functions/data-transaction-functions)
 
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
@@ -79,7 +76,7 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | 15 | getStringValue(List[DataEntry], String): String | Gets a string value from a list of data entires by key. Throws an exception if there is no data | 10 |
 | 16 | getStringValue(List[DataEntry], Int): String | Gets a string value from a list of data entires by index. Throws an exception if there is no data | 30 |
 
-### [Decoding functions](/en/ride/functions/built-in-functions/decoding-functions)
+## [Decoding functions](/en/ride/functions/built-in-functions/decoding-functions)
 
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
@@ -89,7 +86,7 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | 4 | fromBase58String(String): ByteVector | Decodes [Base58](https://en.wikipedia.org/wiki/Base58) string to an array of bytes | 10 |
 | 5 | fromBase64String(String): ByteVector | Decodes [Base64](https://en.wikipedia.org/wiki/Base64) string to an array of bytes | 10 |
 
-### [Encoding functions](/en/ride/functions/built-in-functions/encoding-functions)
+## [Encoding functions](/en/ride/functions/built-in-functions/encoding-functions)
 
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
@@ -97,22 +94,34 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | 2 | toBase58String(ByteVector): String | Encodes array of bytes to [Base58](https://en.wikipedia.org/wiki/Base58) string | 10 |
 | 3 | toBase64String(ByteVector): String | Encodes array of bytes to [Base64](https://en.wikipedia.org/wiki/Base64) string | 10 |
 
-### [Exception functions](/en/ride/functions/built-in-functions/exception-functions)
+## [Exception functions](/en/ride/functions/built-in-functions/exception-functions)
 
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
 | 1 | throw() | Raises an exception | 1 |
 | 2 | throw(String) | Raises an exception with a message | 1 |
 
-### [Hashing functions](/en/ride/functions/built-in-functions/hashing-functions)
+## [Hashing functions](/en/ride/functions/built-in-functions/hashing-functions)
 
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
-| 1 | blake2b256(ByteVector): ByteVector | Hashes an array of bytes using [BLAKE-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10 |
-| 2 | keccak256(ByteVector): ByteVector | Hashes an array of bytes using [SHA-3-256](https://en.wikipedia.org/wiki/SHA-3) | 10 |
-| 3 | sha256(ByteVector): ByteVector | Hashes an array of bytes using [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 10 |
+| 1 | blake2b256(ByteVector): ByteVector | Hashes an array of bytes using [BLAKE-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 200 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;4**<br>10 for Standard Library **version&nbsp;3** |
+| 2 | blake2b256_16Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 16&nbsp;kB) | 10 |
+| 3 | blake2b256_32Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 32&nbsp;kB) | 25 |
+| 4 | blake2b256_64Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 64&nbsp;kB) | 50 |
+| 5 | blake2b256_128Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 128&nbsp;kB) | 100 |
+| 6 | keccak256(ByteVector): ByteVector | Hashes an array of bytes using [SHA-3-256](https://en.wikipedia.org/wiki/SHA-3) | 200 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;4**<br>10 for Standard Library **version&nbsp;3** |
+| 7 | keccak256_16Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 16&nbsp;kB) | 10 |
+| 8 | keccak256_32Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 32&nbsp;kB) | 25 |
+| 9 | keccak256_64Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 64&nbsp;kB) | 50 |
+| 10 | keccak256_128Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 128&nbsp;kB) | 100 |
+| 11 | sha256(ByteVector): ByteVector | Hashes an array of bytes using [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 200 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;4**<br>10 for Standard Library **version&nbsp;3** |
+| 12 | sha256_16Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 16&nbsp;kB) | 10 |
+| 13 | sha256_32Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 32&nbsp;kB) | 25 |
+| 14 | sha256_64Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 64&nbsp;kB) | 50 |
+| 15 | sha256_128Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 128&nbsp;kB) | 100 |
 
-### [List functions](/en/ride/functions/built-in-functions/list-functions)
+## [List functions](/en/ride/functions/built-in-functions/list-functions)
 
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
@@ -120,7 +129,7 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | 2 | cons(T, List[T]): List[T] | Inserts the element at the beginning of the list | 2 |
 | 3 | size(List[T]): Int | Returns the size of the list | 2 |
 
-### [Math functions](/en/ride/functions/built-in-functions/math-functions)
+## [Math functions](/en/ride/functions/built-in-functions/math-functions)
 
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
@@ -129,7 +138,7 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | 3 | median(List[Int]): Int | Returns the median of a list of integers | 10 |
 | 4 | pow(Int, Int, Int, Int, Int, Union): Int | Raises the number to a power | 100 |
 
-### [String functions](/en/ride/functions/built-in-functions/string-functions)
+## [String functions](/en/ride/functions/built-in-functions/string-functions)
 
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
@@ -143,7 +152,7 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | 8 | take(String, Int): String | Takes the first `n` characters from a string | 1 |
 | 9 | takeRight(String, Int): String | Takes the last `n` characters from a string | 19 |
 
-### [Union functions](/en/ride/functions/built-in-functions/union-functions)
+## [Union functions](/en/ride/functions/built-in-functions/union-functions)
 
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
@@ -152,10 +161,34 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | 3 | value(T&#124;Unit): T | Gets a data type from an union | 13 |
 | 4 | valueOrErrorMessage(T&#124;Unit, String): T | Gets a data type from an union. Throws an exception if there is no data | 13 |
 
-### [Verification functions](/en/ride/functions/built-in-functions/verification-functions)
+## [Verification functions](/en/ride/functions/built-in-functions/verification-functions)
 
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
 | 1 | checkMerkleProof(ByteVector, ByteVector, ByteVector): Boolean | Checks that the data is part of the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) | 30 |
-| 2 | rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Checks that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29) digital signature is valid, i.e. it was created by the owner of the public key | 300 |
-| 3 | sigVerify(ByteVector, ByteVector, ByteVector): Boolean | Checks that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid, i.e. it was created by the owner of the public key | 100 |
+| 2 | groth16Verify(ByteVector, ByteVector, ByteVector): Boolean | Checks [snark](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol | 3900 |
+| 3 | groth16Verify_1inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 1 input) | 1900 |
+| 4 | groth16Verify_2inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 2 inputs) | 2000 |
+| 5 | groth16Verify_3inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 3 inputs) | 2150 |
+| 6 | groth16Verify_4inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 4 inputs) | 2300 |
+| 7 | groth16Verify_5inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 5 inputs) | 2450 |
+| 8 | groth16Verify_6inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 6 inputs) | 2550 |
+| 9 | groth16Verify_7inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 7 inputs) | 2700 |
+| 10 | groth16Verify_8inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 8 inputs) | 2900 |
+| 11 | groth16Verify_9inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 9 inputs) | 3000 |
+| 12 | groth16Verify_10inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 10 inputs) | 3150 |
+| 13 | groth16Verify_11inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 11 inputs) | 3250 |
+| 14 | groth16Verify_12inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 12 inputs) | 3400 |
+| 15 | groth16Verify_13inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 13 inputs) | 3500 |
+| 16 | groth16Verify_14inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 14 inputs) | 3650 |
+| 17 | groth16Verify_15inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 15 inputs) | 3750 |
+| 18 | rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Checks that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29) digital signature is valid, i.e. it was created by the owner of the public key | 1000 for [Standard Library](/en/ride/script/standard-library) **version 4**<br>300 for Standard Library **version 3**|
+| 19 | rsaVerify_16Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 16 kB) | 500 |
+| 20 | rsaVerify_32Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 32 kB) | 550 |
+| 21 | rsaVerify_64Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 64 kB) | 625 |
+| 22 | rsaVerify_128Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 128 kB) | 750 |
+| 23 | sigVerify(ByteVector, ByteVector, ByteVector): Boolean | Checks that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid, i.e. it was created by the owner of the public key | 200 for [Standard Library](/en/ride/script/standard-library) **version 4**<br>100 for Standard Library **version 3** |
+| 24 | sigVerify_16Kb(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 16 kB) | 100 |
+| 25 | sigVerify_32Kb(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 32 kB) | 110 |
+| 26 | sigVerify_64Kb(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 64 kB) | 125 |
+| 27 | sigVerify_128Kb(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 128 kB) | 150 |
