@@ -282,7 +282,7 @@ const balances = await signer.getBalance();
 | isMyAsset | `true` if current user is an asset issuer |
 | tokens | Amount of asset to display in app interface |
 | sponsorship | Amount of sponsored asset to be charged to users (per 0.001 WAVES) multiplied by 10^`decimals`<br>`null` if the asset is not sponsored |
-| isSmart | `true` for [smart assets](/en/smart-contracts/what-is-smart-asset) |
+| isSmart | `true` for [smart assets](/en/building-apps/smart-contracts/what-is-smart-asset) |
 
 #### getSponsoredBalances
 
