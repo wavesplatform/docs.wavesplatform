@@ -1,7 +1,6 @@
 # Download the Latest Blockchain
 
-A running node requires up-to-date blockchain database for operation.
-**blockchain_last.tar** is the archive, containing database that is generated during node operation when the node gets new blocks.
+A running node requires up-to-date blockchain database for operation. Use the links below to download **blockchain_last.tar** archive containing the lateset database.
 
 **Note**: By default the blockchain data is stored in `data` folder that is located in base application directory.
 See the default base application directory for different operating systems in [Default Application Directory](/en/waves-node/node-configuration#default-application-directory) section of the [Node Configuration](/en/waves-node/node-configuration) article.
@@ -10,8 +9,9 @@ Please be aware that the downloaded archive file can contain wrong data or balan
 
 ## Latest Downloadable Database (the state from nodes.wavesnodes.com)
 
-* MainNet: [http://blockchain.wavesnodes.com/](http://blockchain.wavesnodes.com/)
-* TestNet: [http://blockchain-testnet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
+* Mainnet: [http://blockchain.wavesnodes.com/](http://blockchain.wavesnodes.com/)
+* Testnet: [http://blockchain-testnet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
+* Stagenet: [http://blockchain-stagenet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
 
 **Note**: The linked files are updated regularly.
 
