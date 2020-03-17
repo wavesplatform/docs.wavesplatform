@@ -454,11 +454,11 @@ module.exports = [
   },
   {
     /*===============================  Node  =====================================*/
-    to: '/en/waves-node/what-is-a-full-node',
+    to: '/en/waves-node',
     from: '/en/waves-full-node/what-is-a-full-node.html',
   },
   {
-    to: '/en/waves-node/what-is-a-full-node',
+    to: '/en/waves-node',
     from: '/en/waves-environment/waves-node/what-is-a-full-node.html',
   },
   {
@@ -494,7 +494,7 @@ module.exports = [
     from: '/en/waves-full-node/options-for-getting-actual-blockchain/state-downloading-and-applying.html',
   },
   {
-    to: '/en/waves-node/joining-testnet',
+    to: '/en/blockchain/blockchain-network/test-network',
     from: '/en/waves-full-node/joining-testnet.html',
   },
   {
@@ -651,7 +651,7 @@ module.exports = [
   },
   {
     from: '/en/waves-node/prerequisites/hardware-requirements.html',
-    to: '/en/waves-node',
+    to: '/en/waves-node/how-to-install-a-node',
   },
   {
     from: '/ru/waves-node/prerequisites.html',
@@ -788,6 +788,30 @@ module.exports = [
   {
     from: '/ru/platform-features/leased-proof-of-stake-lpos.html',
     to: '/ru/blockchain/leasing',
+  },
+  { 
+    from: '/en/blockchain/waves-protocol/activation-protocol',
+	to: '/en/waves-node/activation-protocol',
+  },
+  { 
+    from: '/en/waves-node/extensions/grpc-server/grpc-server-installation',
+    to: '/en/waves-node/extensions/grpc-server/',
+  },
+  { 
+    from: '/en/waves-node/features/features',
+    to: '/en/waves-node/features/',
+  },
+  { 
+    from: '/en/waves-node/features/feature',
+    to: '/en/waves-node/features/',
+  },
+  { 
+    from: '/en/waves-node/features/feature-activation-protocol',
+    to: '/en/waves-node/activation-protocol',
+  },
+  { 
+    from: '/en/waves-node/node-configuration-file',
+    to: '/en/waves-node/node-configuration',
   },
   {
     /*===============================  Oracles  =====================================*/
