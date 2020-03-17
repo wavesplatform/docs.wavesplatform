@@ -28,6 +28,24 @@ Issue(name: String, description: String, quantity: Int, decimals: Int, isReissua
 
 `Issue("RegularToken", "This is an ordinary token", 10000, 2, unit, true)`
 
+The structure sets the following parameters of token:
+
+* **Name**: RegularToken,
+* **Description**: This is an ordinary token,
+* **Amount of tokens to issue**: 10000,
+* **Amount of decimals**: 2,
+* **Reissue ability**: present,
+* **Asset script**: unit.
+
 ### NFT issue structure
 
 `Issue("UberToken", "The ultimate token. One and only.", 1, 0, unit, false)`
+
+В приведенной структуре заданы следующие параметры токена:
+
+* **Name**: UberToken,
+* **Description**: The ultimate token. One and only,
+* **Amount of tokens to issue**: 1,
+* **Amount of decimals**: 0,
+* **Reissue ability**: absent,
+* **Asset script**: unit.
