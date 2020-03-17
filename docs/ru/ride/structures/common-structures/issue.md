@@ -21,3 +21,13 @@ Issue(name: String, description: String, quantity: Int, decimals: Int, isReissua
 | 5 | isReissuable | [Boolean](/ru/ride/data-types/boolean) | Флаг возможности довыпуска. Если токеном является [NFT](/ru/blockchain/token/non-fungible-token), то значение должно быть `0` |
 | 6 | compiledScript | [Script](/ru/ride/script)&#124;[Unit](/ru/ride/data-types/unit) | Должно быть установлено значение `Unit`. Выпуск [смарт-ассетов](/ru/blockchain/token/smart-asset) при помощи этой структуры пока недоступен |
 | 7 | nonce | [Int](/ru/ride/data-types/int) | Порядковый номер ассета, который использовался для генерации ID токена. Требуется для выпуска в одном вызове скрипта нескольких токенов с одинаковыми названиями и описаниями |
+
+## Примеры
+
+### Структура выпуска обычного токена
+
+`Issue("RegularToken", "This is an ordinary token", 10000, 2, unit, true)`
+
+### Структура выпуска NFT-токена
+
+`Issue("UberToken", "The ultimate token. One and only.", 1, 0, unit, false)`

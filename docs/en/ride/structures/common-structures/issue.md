@@ -21,3 +21,13 @@ Issue(name: String, description: String, quantity: Int, decimals: Int, isReissua
 | 5 | isReissuable | [Boolean](/en/ride/data-types/boolean) | Reissue ability flag. Set to `0` for NFT |
 | 6 | compiledScript | [Script](/en/ride/script)&#124;[Unit](/en/ride/data-types/unit) | Set it to `Unit`. Smart asset issue is currently unavailable |
 | 7 | nonce | [Int](/en/ride/data-types/int) | Sequential number of asset that is used to token ID generation. Required if several tokens with the same name and description are issued in a single script invokation. |
+
+## Examples
+
+### Regular token issue structure
+
+`Issue("RegularToken", "This is an ordinary token", 10000, 2, unit, true)`
+
+### NFT issue structure
+
+`Issue("UberToken", "The ultimate token. One and only.", 1, 0, unit, false)`
