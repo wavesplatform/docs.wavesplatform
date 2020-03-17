@@ -26,7 +26,7 @@ Issue(name: String, description: String, quantity: Int, decimals: Int, isReissua
 
 ### Структура выпуска обычного токена
 
-`Issue("RegularToken", "This is an ordinary token", 10000, 2, unit, true)`
+`Issue("RegularToken", "This is an ordinary token", 10000, 2, unit, true, 0)`
 
 В приведенной структуре заданы следующие параметры токена:
 
@@ -39,7 +39,7 @@ Issue(name: String, description: String, quantity: Int, decimals: Int, isReissua
 
 ### Структура выпуска NFT-токена
 
-`Issue("UberToken", "The ultimate token. One and only", 1, 0, unit, false)`
+`Issue("UberToken", "The ultimate token. One and only", 1, 0, unit, false, 0)`
 
 В приведенной структуре заданы следующие параметры токена:
 

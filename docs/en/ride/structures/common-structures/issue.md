@@ -26,7 +26,7 @@ Issue(name: String, description: String, quantity: Int, decimals: Int, isReissua
 
 ### Regular token issue structure
 
-`Issue("RegularToken", "This is an ordinary token", 10000, 2, unit, true)`
+`Issue("RegularToken", "This is an ordinary token", 10000, 2, unit, true, 0)`
 
 The structure sets the following parameters of token:
 
@@ -39,7 +39,7 @@ The structure sets the following parameters of token:
 
 ### NFT issue structure
 
-`Issue("UberToken", "The ultimate token. One and only.", 1, 0, unit, false)`
+`Issue("UberToken", "The ultimate token. One and only.", 1, 0, unit, false, 0)`
 
 В приведенной структуре заданы следующие параметры токена:
 
