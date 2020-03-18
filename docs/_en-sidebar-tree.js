@@ -715,7 +715,7 @@ module.exports = {
       ]
     },
 	{
-      title: 'TroubTroubleshooting',
+      title: 'Troubleshooting',
       path: nodePath + 'node-troubleshooting',
 	},
   ],
