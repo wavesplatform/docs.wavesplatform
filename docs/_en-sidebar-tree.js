@@ -932,6 +932,64 @@ module.exports = {
       path: ridePath + 'structures',
       children: [
         {
+          title: 'Script actions',
+          path: ridePath + 'structures/script-actions',
+          children: [
+            {
+              title: 'BinaryEntry',
+              path: ridePath + 'structures/script-actions/binary-entry',
+            },
+            {
+              title: 'BooleanEntry',
+              path: ridePath + 'structures/script-actions/boolean-entry',
+            },
+            {
+              title: 'Burn',
+              path: ridePath + 'structures/script-actions/burn',
+            },
+            {
+              title: 'DataEntry',
+              path: ridePath + 'structures/script-actions/data-entry',
+            },
+            {
+              title: 'DeleteEntry',
+              path: ridePath + 'structures/script-actions/delete-entry',
+            },
+            {
+              title: 'IntegerEntry',
+              path: ridePath + 'structures/script-actions/int-entry',
+            },
+            {
+              title: 'Issue',
+              path: ridePath + 'structures/script-actions/issue',
+            },
+            {
+              title: 'Reissue',
+              path: ridePath + 'structures/script-actions/reissue',
+            },
+            {
+              title: 'ScriptResult',
+              path: ridePath + 'structures/script-actions/script-result',
+            },
+            {
+              title: 'ScriptTransfer',
+              path: ridePath + 'structures/script-actions/script-transfer',
+            },
+            {
+              title: 'StringEntry',
+              path: ridePath + 'structures/script-actions/string-entry',
+            },
+            {
+              title: 'TransferSet',
+              path: ridePath + 'structures/script-actions/transfer-set',
+            },
+            {
+              title: 'WriteSet',
+              path: ridePath + 'structures/script-actions/write-set',
+            },
+          ],
+        },        
+        {
           title: 'Common structures',
           path: ridePath + 'structures/common-structures',
           children: [
