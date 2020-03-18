@@ -4,6 +4,8 @@
 
 Issue is the structure that sets the parameters of a [token issue](/en/blockchain/transaction-type/issue-transaction), performed as a result of the invoking of [callable function](/en/ride/functions/callable-function).
 
+> The script action, i.e. sending issue transaction, is performed if the Issue structure is included to the [callable function](/en/ride/functions/callable-function)'s script result. Declaring the Issue structure in any other part of the script won't result the blockchain change.
+
 ## Constructor
 
 ```ride
