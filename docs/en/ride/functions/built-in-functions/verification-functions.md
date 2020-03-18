@@ -80,7 +80,6 @@ Range of functions. Check that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cr
 | rsaVerify_64Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 64 kB | 625 |
 | rsaVerify_128Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 128 kB | 750 |
 
-
 > :warning: The `rsaVerify_16Kb`, `rsaVerify_32Kb`, `rsaVerify_64Kb`, `rsaVerify_128Kb` functions are introduced in [Standard Library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 The recommended RSA key module length is at least 2048 bits.
