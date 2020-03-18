@@ -2,7 +2,7 @@
 
 > :warning: Структура Issue представлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
-Структура, устанавливающая параметры [выпуска токена](/ru/blockchain/transaction-type/issue-transaction), который выполняется в результате вызова [вызываемой функции](/ru/ride/functions/callable-function).
+Issue - cтруктура, которая задает параметры [выпуска токена](/ru/blockchain/transaction-type/issue-transaction), который выполняется в результате вызова [вызываемой функции](/ru/ride/functions/callable-function).
 
 ## Конструктор
 
