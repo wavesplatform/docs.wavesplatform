@@ -3,7 +3,7 @@
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | [checkMerkleProof](#checkmerkleproof) | Checks that the data is part of the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) | 30 |
-| [groth16Verify](#groth16verify) | Range of functions.<br>Check [SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol | 1900–3900 |
+| [groth16Verify](#groth16verify) | Range of functions.<br>Check [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol | 1900–3900 |
 | [rsaVerify](#rsaverify) | Range of functions.<br>Check that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29) digital signature is valid | 300–1000 |
 | [sigVerify](#sigverify) | Range of functions.<br>Check that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid | 100–200 |
 
@@ -27,7 +27,7 @@ checkMerkleProof(merkleRoot: ByteVector, merkleProof: ByteVector, valueBytes: By
 
 ## groth16Verify
 
-Range of functions. Check [SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol.
+Range of functions. Check [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol.
 
 > :warning: The `groth16verify` range of functions is introduced in [Standard Library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
