@@ -35,7 +35,7 @@ The structure sets the following parameters of token:
 * **Amount of tokens to issue**: 10000,
 * **Amount of decimals**: 2,
 * **Reissue ability**: present,
-* **Asset script**: unit.
+* **Asset script**: none.
 
 ### NFT issue structure
 
@@ -48,4 +48,4 @@ The structure sets the following parameters of token:
 * **Amount of tokens to issue**: 1,
 * **Amount of decimals**: 0,
 * **Reissue ability**: absent,
-* **Asset script**: unit.
+* **Asset script**: none.
