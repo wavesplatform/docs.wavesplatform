@@ -34,18 +34,20 @@ The structure sets the following parameters of token:
 * **Description**: This is an ordinary token,
 * **Amount of tokens to issue**: 10000,
 * **Amount of decimals**: 2,
+* **Asset script**: none,
 * **Reissue ability**: present,
-* **Asset script**: none.
+* **Nonce**: 0.
 
 ### NFT issue structure
 
 `Issue("UberToken", "The ultimate token. One and only.", 1, 0, unit, false, 0)`
 
-В приведенной структуре заданы следующие параметры токена:
+The structure sets the following parameters of token:
 
 * **Name**: UberToken,
 * **Description**: The ultimate token. One and only,
 * **Amount of tokens to issue**: 1,
 * **Amount of decimals**: 0,
+* **Asset script**: none,
 * **Reissue ability**: absent,
-* **Asset script**: none.
+* **Nonce**: 0.
