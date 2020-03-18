@@ -166,7 +166,7 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
 | 1 | checkMerkleProof(ByteVector, ByteVector, ByteVector): Boolean | Checks that the data is part of the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) | 30 |
-| 2 | groth16Verify(ByteVector, ByteVector, ByteVector): Boolean | Checks [snark](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol | 3900 |
+| 2 | groth16Verify(ByteVector, ByteVector, ByteVector): Boolean | Checks [SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol | 3900 |
 | 3 | groth16Verify_1inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 1 input) | 1900 |
 | 4 | groth16Verify_2inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 2 inputs) | 2000 |
 | 5 | groth16Verify_3inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 3 inputs) | 2150 |

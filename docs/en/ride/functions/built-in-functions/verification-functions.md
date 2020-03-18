@@ -1,34 +1,11 @@
 # Verification functions
 
-| # | Name | Description | Complexity |
-| :--- | :--- | :--- | :--- |
-| 1 | [checkMerkleProof](#checkmerkleproof)(ByteVector, ByteVector, ByteVector): Boolean | Checks that the data is part of the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) | 30 |
-| 2 | [groth16Verify](#groth16verify)(ByteVector, ByteVector, ByteVector): Boolean | Checks [snark](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol | 3900 |
-| 3 | groth16Verify_1inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 1 input) | 1900 |
-| 4 | groth16Verify_2inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 2 inputs) | 2000 |
-| 5 | groth16Verify_3inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 3 inputs) | 2150 |
-| 6 | groth16Verify_4inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 4 inputs) | 2300 |
-| 7 | groth16Verify_5inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 5 inputs) | 2450 |
-| 8 | groth16Verify_6inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 6 inputs) | 2550 |
-| 9 | groth16Verify_7inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 7 inputs) | 2700 |
-| 10 | groth16Verify_8inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 8 inputs) | 2900 |
-| 11 | groth16Verify_9inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 9 inputs) | 3000 |
-| 12 | groth16Verify_10inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 10 inputs) | 3150 |
-| 13 | groth16Verify_11inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 11 inputs) | 3250 |
-| 14 | groth16Verify_12inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 12 inputs) | 3400 |
-| 15 | groth16Verify_13inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 13 inputs) | 3500 |
-| 16 | groth16Verify_14inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 14 inputs) | 3650 |
-| 17 | groth16Verify_15inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum of 15 inputs) | 3750 |
-| 18 | [rsaVerify](#rsaverify)(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Checks that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29) digital signature is valid, i.e. it was created by the owner of the public key | 1000 for [Standard Library](/en/ride/script/standard-library) **version 4**<br>300 for Standard Library **version 3**|
-| 19 | rsaVerify_16Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 16 kB) | 500 |
-| 20 | rsaVerify_32Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 32 kB) | 550 |
-| 21 | rsaVerify_64Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 64 kB) | 625 |
-| 22 | rsaVerify_128Kb(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 128 kB) | 750 |
-| 23 | [sigVerify](#sigverify)(ByteVector, ByteVector, ByteVector): Boolean | Checks that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid, i.e. it was created by the owner of the public key | 200 for [Standard Library](/en/ride/script/standard-library) **version 4**<br>100 for Standard Library **version 3** |
-| 24 | sigVerify_16Kb(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 16 kB) | 100 |
-| 25 | sigVerify_32Kb(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 32 kB) | 110 |
-| 26 | sigVerify_64Kb(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 64 kB) | 125 |
-| 27 | sigVerify_128Kb(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (maximum data size of 128 kB) | 150 |
+| Name | Description | Complexity |
+| :--- | :--- | :--- |
+| [checkMerkleProof](#checkmerkleproof) | Checks that the data is part of the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) | 30 |
+| [groth16Verify](#groth16verify) | Range of functions.<br>Check [SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol | 1900–3900 |
+| [rsaVerify](#rsaverify) | Range of functions.<br>Check that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29) digital signature is valid | 300–1000 |
+| [sigVerify](#sigverify) | Range of functions.<br>Check that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid | 100–200 |
 
 ## checkMerkleProof
 
@@ -50,28 +27,28 @@ checkMerkleProof(merkleRoot: ByteVector, merkleProof: ByteVector, valueBytes: By
 
 ## groth16Verify
 
-Checks [snark](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol.
+Range of functions. Check [SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol.
 
 > :warning: The `groth16verify` range of functions is introduced in [Standard Library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
-```
-groth16Verify(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
-groth16Verify_1inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
-groth16Verify_2inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
-groth16Verify_3inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
-groth16Verify_4inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
-groth16Verify_5inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
-groth16Verify_6inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
-groth16Verify_7inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
-groth16Verify_8inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
-groth16Verify_9inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
-groth16Verify_10inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
-groth16Verify_11inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
-groth16Verify_12inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
-groth16Verify_13inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
-groth16Verify_14inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
-groth16Verify_15inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean
-```
+| Name | Max number of inputs | Complexity |
+|:---| :--- | :--- |
+| groth16Verify(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 16 | 3900 |
+| groth16Verify_1inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 1 | 1900 |
+| groth16Verify_2inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 2 | 2000 |
+| groth16Verify_3inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 3 | 2150 |
+| groth16Verify_4inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 4 | 2300 |
+| groth16Verify_5inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 5 | 2450 |
+| groth16Verify_6inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 6 | 2550 |
+| groth16Verify_7inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 7 | 2700 |
+| groth16Verify_8inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 8 | 2900 |
+| groth16Verify_9inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 9 | 3000 |
+| groth16Verify_10inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 10 | 3150 |
+| groth16Verify_11inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 11 | 3250 |
+| groth16Verify_12inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 12 | 3400 |
+| groth16Verify_13inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 13 | 3500 |
+| groth16Verify_14inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 14 | 3650 |
+| groth16Verify_15inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 15 | 3750 |
 
 ### Parameters
 
@@ -93,7 +70,16 @@ groth16Verify(vk, proof, inputs)
 
 ## rsaVerify
 
-Checks that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29) digital signature is valid, i.e. it was created by the owner of the public key.
+Range of functions. Check that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29) digital signature is valid, i.e. it was created by the owner of the public key.
+
+| Name | Max `message` size | Complexity |
+|:---| :--- | :--- |
+| rsaVerify(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 150 kB | 1000 for [Standard Library](/en/ride/script/standard-library) **version 4**<br>300 for Standard Library **version 3**|
+| rsaVerify_16Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 16 kB | 500 |
+| rsaVerify_32Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 32 kB | 550 |
+| rsaVerify_64Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 64 kB | 625 |
+| rsaVerify_128Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 128 kB | 750 |
+
 
 > :warning: The `rsaVerify_16Kb`, `rsaVerify_32Kb`, `rsaVerify_64Kb`, `rsaVerify_128Kb` functions are introduced in [Standard Library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
@@ -114,14 +100,6 @@ Data can be hashed before signing using one of the following algorithms:
 
 > :warning: MD5 and SHA-1 are outdated algorithms for which collisions were found. They are for backward compatibility only. The app developer is responsible for selecting a secure hashing algorithm.
 
-``` ride
-rsaVerify(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
-rsaVerify_16Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
-rsaVerify_32Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
-rsaVerify_64Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
-rsaVerify_128Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
-```
-
 ### Parameters
 
 | Parameter | Description |
@@ -133,17 +111,17 @@ rsaVerify_128Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVecto
 
 ## sigVerify
 
-Checks that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid, i.e. it was created by the owner of the public key.
+Range of functions. Check that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid, i.e. it was created by the owner of the public key.
 
 > :warning: The `sigVerify_16Kb`, `sigVerify_32Kb`, `sigVerify_64Kb`, `sigVerify_128Kb` functions are introduced in [Standard Library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
-``` ride
-sigVerify(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
-sigVerify_16Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
-sigVerify_32Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
-sigVerify_64Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
-sigVerify_128Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean
-```
+| Name | Max `message` size | Complexity |
+|:---| :--- | :--- |
+| sigVerify(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean |150 kB | 200 for [Standard Library](/en/ride/script/standard-library) **version 4**<br>100 for Standard Library **version 3** |
+| sigVerify_16Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 16 kB | 100 |
+| sigVerify_32Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 32 kB | 110 |
+| sigVerify_64Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 64 kB | 125 |
+| sigVerify_128Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 128 kB | 150 |
 
 ### Parameters
 
