@@ -28,13 +28,13 @@ Issue(name: String, description: String, quantity: Int, decimals: Int, isReissua
 
 ### Структура выпуска обычного токена
 
-`Issue("RegularToken", "This is an ordinary token", 10000, 2, unit, true, 0)`
+`Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 0)`
 
 В приведенной структуре заданы следующие параметры токена:
 
 * **Название**: RegularToken,
 * **Описание**: This is an ordinary token,
-* **Количество токенов для выпуска**: 10000,
+* **Количество токенов для выпуска**: 100 (значение 10000 указано в "копейках"),
 * **Количество знаков после запятой у токена**: 2,
 * **Скрипт ассета**: отсутствует,
 * **Возможность довыпуска**: присутствует,
@@ -42,7 +42,7 @@ Issue(name: String, description: String, quantity: Int, decimals: Int, isReissua
 
 ### Структура выпуска NFT-токена
 
-`Issue("UberToken", "The ultimate token. One and only", 1, 0, unit, false, 0)`
+`Issue("UberToken", "The ultimate token. One and only", 1, 0, false, unit, 0)`
 
 В приведенной структуре заданы следующие параметры токена:
 

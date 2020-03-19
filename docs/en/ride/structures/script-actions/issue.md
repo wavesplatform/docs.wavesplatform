@@ -28,13 +28,13 @@ Issue(name: String, description: String, quantity: Int, decimals: Int, isReissua
 
 ### Regular token issue structure
 
-`Issue("RegularToken", "This is an ordinary token", 10000, 2, unit, true, 0)`
+`Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 0)`
 
 The structure sets the following parameters of token:
 
 * **Name**: RegularToken,
 * **Description**: This is an ordinary token,
-* **Amount of tokens to issue**: 10000,
+* **Amount of tokens to issue**: 100 (value of 10000 is in "pennies"),
 * **Amount of decimals**: 2,
 * **Asset script**: none,
 * **Reissue ability**: present,
@@ -42,7 +42,7 @@ The structure sets the following parameters of token:
 
 ### NFT issue structure
 
-`Issue("UberToken", "The ultimate token. One and only.", 1, 0, unit, false, 0)`
+`Issue("UberToken", "The ultimate token. One and only.", 1, 0, false, unit, 0)`
 
 The structure sets the following parameters of token:
 
