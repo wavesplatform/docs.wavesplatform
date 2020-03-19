@@ -2,9 +2,9 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| [blake2b256](#blake2b256) | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [BLAKE-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10–200 |
-| [keccak256](#keccak256) | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [SHA3-256](https://en.wikipedia.org/wiki/SHA-3) | 10–200 |
-| [sha256](#sha256) | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 10–200 |
+| [blake2b256](#blake2b256) | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [BLAKE-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |
+| [keccak256](#keccak256) | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [SHA3-256](https://en.wikipedia.org/wiki/SHA-3) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |
+| [sha256](#sha256) | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |
 
 ## blake2b256
 
@@ -12,7 +12,7 @@
 
 | Название | Макс. объем данных | Сложность |
 |:---| :--- | :--- |
-| blake2b256(bytes: ByteVector): ByteVector | 150 Кбайт | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>10 для Стандартной библиотеки **версии 3** |
+| blake2b256(bytes: ByteVector): ByteVector | 150 Кбайт | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>200 для Стандартной библиотеки **версии 4** |
 | blake2b256_16Kb(bytes: ByteVector): ByteVector | 16 Кбайт | 10 |
 | blake2b256_32Kb(bytes: ByteVector): ByteVector | 32 Кбайт | 25 |
 | blake2b256_64Kb(bytes: ByteVector): ByteVector | 64 Кбайт | 50 |
@@ -42,7 +42,7 @@ blake2b256(base64'UmlkZQ==') # Возвращает 6NSWRz5XthhFVm9uVQHuisdaseQJ
 
 | Название | Макс. объем данных | Сложность |
 |:---| :--- | :--- |
-| keccak256(bytes: ByteVector): ByteVector | 150 kB | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>10 для Стандартной библиотеки **версии 3** |
+| keccak256(bytes: ByteVector): ByteVector | 150 kB | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>200 для Стандартной библиотеки **версии 4** |
 | keccak256_16Kb(bytes: ByteVector): ByteVector | 16 kB | 10 |
 | keccak256_32Kb(bytes: ByteVector): ByteVector | 32 kB | 25 |
 | keccak256_64Kb(bytes: ByteVector): ByteVector | 64 kB | 50 |
@@ -72,7 +72,7 @@ keccak256(base64'UmlkZQ==') # Возвращает 4qa5wNk4961VwJAjCKBzXiEvBQ2gB
 
 | Название | Макс. объем данных | Сложность |
 |:---| :--- | :--- |
-| sha256(bytes: ByteVector): ByteVector | 150 Кбайт | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>10 для Стандартной библиотеки **версии 3** |
+| sha256(bytes: ByteVector): ByteVector | 150 Кбайт | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>200 для Стандартной библиотеки **версии 4** |
 | sha256_16Kb(bytes: ByteVector): ByteVector | 16 Кбайт | 10 |
 | sha256_32Kb(bytes: ByteVector): ByteVector | 32 Кбайт | 25 |
 | sha256_64Kb(bytes: ByteVector): ByteVector | 64 Кбайт | 50 |

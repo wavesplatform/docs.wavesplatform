@@ -4,8 +4,8 @@
 | :--- | :--- | :--- |
 | [checkMerkleProof](#checkmerkleproof) | Checks that the data is part of the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) | 30 |
 | [groth16Verify](#groth16verify) | Range of functions.<br>Check [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol | 1900–3900 |
-| [rsaVerify](#rsaverify) | Range of functions.<br>Check that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29) digital signature is valid | 300–1000 |
-| [sigVerify](#sigverify) | Range of functions.<br>Check that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid | 100–200 |
+| [rsaVerify](#rsaverify) | Range of functions.<br>Check that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29) digital signature is valid | 300 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>500–1000 for Standard Library **version 4** |
+| [sigVerify](#sigverify) | Range of functions.<br>Check that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid | 100 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>100–200 for Standard Library **version 4** |
 
 ## checkMerkleProof
 
@@ -74,7 +74,7 @@ Range of functions. Check that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cr
 
 | Name | Max `message` size | Complexity |
 |:---| :--- | :--- |
-| rsaVerify(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 150 kB | 1000 for [Standard Library](/en/ride/script/standard-library) **version 4**<br>300 for Standard Library **version 3**|
+| rsaVerify(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 150 kB | 300 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>1000 for Standard Library **version 4** |
 | rsaVerify_16Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 16 kB | 500 |
 | rsaVerify_32Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 32 kB | 550 |
 | rsaVerify_64Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 64 kB | 625 |
@@ -116,7 +116,7 @@ Range of functions. Check that the [Curve25519](https://en.wikipedia.org/wiki/C
 
 | Name | Max `message` size | Complexity |
 |:---| :--- | :--- |
-| sigVerify(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean |150 kB | 200 for [Standard Library](/en/ride/script/standard-library) **version 4**<br>100 for Standard Library **version 3** |
+| sigVerify(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean |150 kB | 100 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>200 for Standard Library **version 4** |
 | sigVerify_16Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 16 kB | 100 |
 | sigVerify_32Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 32 kB | 110 |
 | sigVerify_64Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 64 kB | 125 |
