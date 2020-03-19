@@ -21,8 +21,8 @@ Issue(name: String, description: String, quantity: Int, decimals: Int, isReissua
 | 3 | quantity | [Int](/ru/ride/data-types/int) | Количество токена. Если токеном является [NFT](/ru/blockchain/token/non-fungible-token), то значение должно быть `1` |
 | 4 | decimals | [Int](/ru/ride/data-types/int) | Количество знаков после запятой. Если [токеном](/ru/blockchain/token) является [NFT](/ru/blockchain/token/non-fungible-token), то значение должно быть `0` |
 | 5 | isReissuable | [Boolean](/ru/ride/data-types/boolean) | Флаг возможности довыпуска. Если токеном является [NFT](/ru/blockchain/token/non-fungible-token), то значение должно быть `0` |
-| 6 | compiledScript | [Script](/ru/ride/script)&#124;[Unit](/ru/ride/data-types/unit) | Должно быть установлено значение `Unit`. Выпуск [смарт-ассетов](/ru/blockchain/token/smart-asset) при помощи этой структуры пока недоступен |
-| 7 | nonce | [Int](/ru/ride/data-types/int) | Порядковый номер ассета, который используется для генерации его ID. Необходим, если  |
+| 6 | compiledScript | [Script](/ru/ride/script)&#124;[Unit](/ru/ride/data-types/unit) | Должно быть установлено значение `unit`. Выпуск [смарт-ассетов](/ru/blockchain/token/smart-asset) при помощи этой структуры пока недоступен |
+| 7 | nonce | [Int](/ru/ride/data-types/int) | Порядковый номер ассета, который используется для генерации его ID. Это важно в ситуации, когда в результате вызова [вызываемой функции](/ru/ride/functions/callable-function) перечислено несколько структур Issue, все параметры которых (кроме скрипта ассета) совпадают, см. [пример](#nonce). Если в структурах Issue указаны разные скрипты ассета, nonce могут быть одинаковыми |
 
 ## Примеры
 
@@ -39,6 +39,10 @@ Issue(name: String, description: String, quantity: Int, decimals: Int, isReissua
 * **Скрипт ассета**: отсутствует,
 * **Возможность довыпуска**: присутствует,
 * **Нонс**: 0.
+
+### Выпуск нескольких обычных токенов одновременно <a id="nonce"></a>
+
+`[Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 0), Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 1)]`
 
 ### Выпуск NFT-токена
 

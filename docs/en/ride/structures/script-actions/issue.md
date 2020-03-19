@@ -21,8 +21,8 @@ Issue(name: String, description: String, quantity: Int, decimals: Int, isReissua
 | 3 | quantity | [Int](/en/ride/data-types/int) | Amount of the [token](/en/blockchain/token). Set to `1` for NFT |
 | 4 | decimals | [Int](/en/ride/data-types/int) | Number of digits in decimal part. Set to `0` for NFT token |
 | 5 | isReissuable | [Boolean](/en/ride/data-types/boolean) | Reissue ability flag. Set to `0` for NFT |
-| 6 | compiledScript | [Script](/en/ride/script)&#124;[Unit](/en/ride/data-types/unit) | Set it to `Unit`. Smart asset issue is currently unavailable |
-| 7 | nonce | [Int](/en/ride/data-types/int) | Sequential number of asset that is used to token ID generation. Required if several tokens with the same name and description are issued in a single script invokation. |
+| 6 | compiledScript | [Script](/en/ride/script)&#124;[Unit](/en/ride/data-types/unit) | Set it to `unit`. Smart asset issue is currently unavailable |
+| 7 | nonce | [Int](/en/ride/data-types/int) | Sequential number of asset that is used to generate token ID. Is important when multiple Issue structures having similar paramenters (except asset scripts) are listed in [callable function](/en/ride/functions/callable-function)'s script result, see [example](#nonce). If the Issue structures have different asset scripts, then the nonces can be similar |
 
 ## Examples
 
@@ -39,6 +39,10 @@ The structure sets the following parameters of token:
 * **Asset script**: none,
 * **Reissue ability**: present,
 * **Nonce**: 0.
+
+### Multiple issue of regular tokens
+
+`[Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 0), Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 1)]`
 
 ### NFT issue
 
