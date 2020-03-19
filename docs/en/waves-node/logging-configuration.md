@@ -1,4 +1,4 @@
-STDOUT # Logging Configuration
+# Logging Configuration
 
 ## Levels of Logging <a id="loglevels"></a>
 
@@ -40,24 +40,26 @@ Excluding setting up logging in JSON format, altering of this parameters can be 
 
 Logging in JSON format can be set up using `logback.xml` only.
 
-It is not necessary to restart node after logging-related settings changes because they are being re-applied each 30 seconds.
+It is not necessary to restart node after logging-related settings changes because they are being re-applied every 30 seconds.
 
-The log levels are listed in [Levels of Logging](#loglevels) section below.
+The log levels are listed in [Levels of Logging](#loglevels) section.
 
-## Configuring Own Logback.xml <a id="own-logback"></a>
+## Redefine Logging Settings in Logback.xml <a id="own-logback"></a>
 
 To redefine logging settings set up in node's `logback.xml`
 
 1. Create own `/etc/waves/logback.xml` file.
-2. Add to the file the property wrapped to `included` tag, like so:
+2. Add to the file the properties wrapped in `included` tag.
 
-**Example**:
+The following example code can be used to enable `TRACE` logging:
 
 ```xml
 <included>
     <property name="logback.file.level" value="TRACE"/>
 </included>
 ```
+
+**Note**: It is not necessary to restart node after logging-related settings changes because they are being re-applied every 30 seconds.
 
 ## Activate UTX Trace Logging <a id="enable-traces"></a>
 
