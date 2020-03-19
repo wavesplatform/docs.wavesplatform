@@ -27,8 +27,8 @@
 | :--- | :--- | :--- |
 | checkMerkleProof(ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что данные являются частью [дерева Меркла](https://ru.wikipedia.org/wiki/Дерево_хешей) | 30 |
 | groth16Verify(ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Осуществляют проверку [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf) | 1900–3900 |
-| rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что цифровая подпись [RSA](https://ru.wikipedia.org/wiki/RSA) достоверна |300–1000 |
-| sigVerify(ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что цифровая подпись [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна | 100–200 |
+| rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Проверяют, что цифровая подпись [RSA](https://ru.wikipedia.org/wiki/RSA) достоверна |300–1000 |
+| sigVerify(ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Проверяют, что цифровая подпись [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна | 100–200 |
 
 ## [Функции декодирования](/ru/ride/functions/built-in-functions/decoding-functions)
 
@@ -88,7 +88,7 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | extract(T&#124;Unit): T | Возвращает значение из параметра типа данных [объединение](/ru/ride/data-types/union). Выбрасывает исключение, если параметром является [unit](/ru/ride/data-types/unit) | 13 |
-| isDefined(List[T]|Unit): Boolean | Проверяет, относится ли параметр к типу [unit](/ru/ride/data-types/unit) | 1 |
+| isDefined(List[T]&#124;Unit): Boolean | Проверяет, относится ли параметр к типу [unit](/ru/ride/data-types/unit) | 1 |
 | value(T&#124;Unit): T | Возвращает значение из параметра типа данных [объединение](/ru/ride/data-types/union). Выбрасывает исключение, если параметром является [unit](/ru/ride/data-types/unit) | 13 |
 | valueOrErrorMessage(T&#124;Unit, String): T | Возвращает значение из параметра типа данных [объединение](/ru/ride/data-types/union). Если параметром является [unit](/ru/ride/data-types/unit), возвращает сообщение об ошибке, заданное во втором параметре | 13 |
 
@@ -155,5 +155,5 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | blake2b256(ByteVector): ByteVector | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [BLAKE-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10–200 |
-| keccak256(ByteVector): ByteVector | Семейство функций.<br>Хеширует массив байтов с помощью алгоритма [SHA3-256](https://en.wikipedia.org/wiki/SHA-3) | 10–200 |
-| sha256(ByteVector): ByteVector | Семейство функций.<br>Хеширует массив байтов с помощью алгоритма [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 10–200 |
+| keccak256(ByteVector): ByteVector | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [SHA3-256](https://en.wikipedia.org/wiki/SHA-3) | 10–200 |
+| sha256(ByteVector): ByteVector | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 10–200 |

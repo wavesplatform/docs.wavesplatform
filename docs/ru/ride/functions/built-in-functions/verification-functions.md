@@ -5,7 +5,7 @@
 | [checkMerkleProof](#checkmerkleproof) | Проверяет, что данные являются частью [дерева Меркла](https://ru.wikipedia.org/wiki/Дерево_хешей) | 30 |
 | [groth16Verify](#groth16verify) | Семейство функций.<br>Осуществляют проверку [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf) | 1900–3900 |
 | [rsaVerify](#rsaverify) | Семейство функций.<br>Проверяют, что цифровая подпись [RSA](https://ru.wikipedia.org/wiki/RSA) достоверна | 300–1000 |
-| [sigVerify](#sigverify) | Семейство функций.<br>Проверяет, что цифровая подпись [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна | 100–200 |
+| [sigVerify](#sigverify) | Семейство функций.<br>Проверяют, что цифровая подпись [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна | 100–200 |
 
 ## checkMerkleProof
 
