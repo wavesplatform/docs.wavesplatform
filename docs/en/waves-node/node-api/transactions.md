@@ -164,11 +164,11 @@ Calculates a fee for an arbitrary transaction and returns it. The transaction ty
 | 6 | Burn |
 | 8 | Lease |
 | 9 | Lease Cancel |
-| 10 | Create Alias |
+| 10 | Alias |
 | 11 | Mass Transfer |
 | 12 | Data |
 | 13 | Set Script |
-| 14 | Sponsor Fee |
+| 14 | Sponsorship |
 
 **Request params**
 
@@ -236,11 +236,11 @@ Signs an arbitrary transaction. This requires an API key, and transaction type t
 | 6 | Burn |
 | 8 | Lease |
 | 9 | Lease Cancel |
-| 10 | Create Alias |
+| 10 | Alias |
 | 11 | Mass Transfer |
 | 12 | Data |
 | 13 | Set Script |
-| 14 | Sponsor Fee|
+| 14 | Sponsorship |
 
 An optional `timestamp` parameter may be specified, which represents transaction timestamp in milliseconds. If it is omitted, current server time is used.
 
@@ -298,7 +298,7 @@ or
 
 Signs an arbitrary transaction by a private key of signer. This requires an API key, a signer address and transaction type to be specified in the request body.
 
-`signerAddress` should be created by [POST /addresses](/en/waves-node/node-api/address#post-addresses).
+`signerAddress` should be created by [POST /addresses](https://docs.wavesplatform.com/development-and-api/node-api/address.html#post-addresses).
 
 The types are as follows:
 
@@ -310,11 +310,11 @@ The types are as follows:
 | 6 | Burn |
 | 8 | Lease |
 | 9 | Lease Cancel |
-| 10 | Create Alias |
+| 10 | Alias |
 | 11 | Mass Transfer |
 | 12 | Data |
 | 13 | Set Script |
-| 14 | Sponsor Fee |
+| 14 | Sponsorship |
 
 An optional `timestamp` parameter may be specified, which represents transaction timestamp in milliseconds. If it is omitted, current server time is used.
 
@@ -400,13 +400,7 @@ and all the other parameters appropriate for a transaction of the given type.
 
 ![master](https://img.shields.io/badge/node-%3E%3D%201.1.7-brightgreen)
 
-Returns the list of transactions statuses, by transaction IDs.
-
-If the request contains two or more similar IDs, then response will contain the same amount of results. Maximum IDs amount in single request is 1000.
-
-If request's transaction IDs contain one or more incorrect IDs, then response with 400 error code will be returned. The response's JSON will contain error code, error message and list of incorrect IDs from the request.
-
-The resulting transactions list keeps the order of the transaction IDs as they were passed in the request. If the transactions IDs were not specified, the request will not be executed and an error will be returned.
+Returns the list of transactions statuses, by transaction IDs. The resulting transaction list keeps the order of the transaction IDs as they were passed in the request. If the transactions IDs were not specified, the request will not be executed and an error will be returned.
 
 **Request params**
 
@@ -454,32 +448,13 @@ The resulting transactions list keeps the order of the transaction IDs as they w
 ]
 ```
 
-**Response JSON example, invalid IDs**
-
-```js
-{
-  "error": 116,
-  "message": "Request contains invalid IDs. H27nMqvLp514M9fFoKbn4qCvFtG3VGzMGcN7noDyDv6C, Bi2vXQdUTsUPRDLE4tWkCFNVNkLjRtvy9PuvWd5iNP63",
-  "ids": [
-    "H27nMqvLp514M9fFoKbn4qCvFtG3VGzMGcN7noDyDv6C",
-    "Bi2vXQdUTsUPRDLE4tWkCFNVNkLjRtvy9PuvWd5iNP63"	
-  ]
-}
-```
-
 <a id="get-tx-status"></a>
 
 ## GET /transactions/status?id=tx1id&id=tx2id
 
 ![master](https://img.shields.io/badge/node-%3E%3D%201.1.7-brightgreen)
 
-Returns the list of transactions statuses, by transaction IDs.
-
-If the request contains two or more similar IDs, then response will contain the same amount of results. Maximum IDs amount in single request is 1000.
-
-If request's transaction IDs contain one or more incorrect ID, then response with 400 error will be returned. The response's JSON will contain error code, error message and list of incorrect IDs from the request.
-
-The resulting transaction list keeps the order of the transaction IDs as they were passed in the request. If the transactions IDs were not specified, the request will not be executed and an error will be returned.
+Returns the list of transactions statuses, by transaction IDs. The resulting transaction list keeps the order of the transaction IDs as they were passed in the request. If the transactions IDs were not specified, the request will not be executed and an error will be returned.
 
 **Response JSON example**
 
@@ -505,17 +480,4 @@ The resulting transaction list keeps the order of the transaction IDs as they we
     "status": "unconfirmed"
   }
 ]
-```
-
-**Response JSON example, invalid IDs**
-
-```js
-{
-  "error": 116,
-  "message": "Request contains invalid IDs. H27nMqvLp514M9fFoKbn4qCvFtG3VGzMGcN7noDyDv6C, Bi2vXQdUTsUPRDLE4tWkCFNVNkLjRtvy9PuvWd5iNP63",
-  "ids": [
-    "H27nMqvLp514M9fFoKbn4qCvFtG3VGzMGcN7noDyDv6C",
-    "Bi2vXQdUTsUPRDLE4tWkCFNVNkLjRtvy9PuvWd5iNP63"	
-  ]
-}
 ```

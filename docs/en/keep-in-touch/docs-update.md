@@ -90,7 +90,7 @@ Added how-to guides:
 
 ### Oracles
 
-* [Data transaction tool](/en/waves-oracles/data-transaction-tool)
+* [Data transaction tool](/en/ecosystem/waves-oracles/data-transaction-tool)
 
 ### Ride
 
