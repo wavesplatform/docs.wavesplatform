@@ -104,7 +104,7 @@ Data can be hashed before signing using one of the following algorithms:
 | Parameter | Description |
 | :--- | :--- |
 | `digest`: digestAlgorithmType | The hashing algorithm applied to the data before signing. Acceptable values:<br>• `NOALG` — data is not hashed.<br>• `MD5`<br>• SHA1<br>• `SHA224`<br>• `SHA256`<br>• `SHA384`<br>• `SHA512`<br>•  `SHA3224` <br>• `SHA3256`<br>• `SHA3384`<br>• `SHA3512` |
-| `message`: ByteVector | Signed data.<br>Maximum size:<br>• For `rsaVerify_<N>Kbytes`functions – `N` kB.<br>• For `rsaVerify` function — 150 kB. |
+| `message`: ByteVector | Signed data.<br>Maximum size:<br>• For `rsaVerify_<N>Kb` functions – `N` kB.<br>• For `rsaVerify` function — 150 kB. |
 | `sig`: ByteVector | Digital signature. Fixed size: 25 bytes |
 | `pub`: ByteVector | Binary public key. Fixed size: 294 bytes |
 
@@ -126,6 +126,6 @@ Range of functions. Check that the [Curve25519](https://en.wikipedia.org/wiki/C
 
 | Parameter | Description |
 | :--- | :--- |
-| `message`: ByteVector | Signed data.<br>Maximum size:<br>• For `rsaVerify_<N>Kbytes`functions – `N` kB.<br>• For `rsaVerify` function — 150 kB. |
+| `message`: ByteVector | Signed data.<br>Maximum size:<br>• For `rsaVerify_<N>Kb` functions – `N` kB.<br>• For `rsaVerify` function — 150 kB. |
 | `sig`: ByteVector | Digital signature. Fixed size: 25 bytes |
 | `pub`: ByteVector | Binary public key. Fixed size: 294 bytes |

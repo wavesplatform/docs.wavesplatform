@@ -24,7 +24,7 @@ Range of functions that hash an array of bytes using [BLAKE-256](https://en.wiki
 
 | Parameter | Description |
 | :--- | :--- |
-| `bytes`: ByteVector | The array of bytes to encode.<br>Maximum size:<br>• For `blake2b256_<N>Kbytes` functions — `N` kB.<br>• For `blake2b256` function — 150 kB. |
+| `bytes`: ByteVector | The array of bytes to encode.<br>Maximum size:<br>• For `blake2b256_<N>Kb` functions — `N` kB.<br>• For `blake2b256` function — 150 kB. |
 
 ### Examples
 
@@ -54,7 +54,7 @@ Range of functions that hash an array of bytes using [SHA-3-256](https://en.wiki
 
 | Parameter | Description |
 | :--- | :--- |
-| `bytes`: ByteVector | The array of bytes to encode.<br>Maximum size:<br>• For `keccak256_<N>Kbytes` functions — `N` kB.<br>• For `keccak256` function — 150 kB. |
+| `bytes`: ByteVector | The array of bytes to encode.<br>Maximum size:<br>• For `keccak256_<N>Kb` functions — `N` kB.<br>• For `keccak256` function — 150 kB. |
 
 ### Examples
 
@@ -84,7 +84,7 @@ Range of functions that hash an array of bytes using [SHA-256](https://en.wikipe
 
 | Parameter | Description |
 | :--- | :--- |
-| `bytes`: ByteVector | The array of bytes to encode.<br>Maximum size:<br>• For `sha256_<N>Kbytes` functions — `N` kB.<br>• For `sha256` function — 150 kB. |
+| `bytes`: ByteVector | The array of bytes to encode.<br>Maximum size:<br>• For `sha256_<N>Kb` functions — `N` kB.<br>• For `sha256` function — 150 kB. |
 
 ### Examples
 
