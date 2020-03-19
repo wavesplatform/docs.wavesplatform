@@ -26,7 +26,7 @@ Issue(name: String, description: String, quantity: Int, decimals: Int, isReissua
 
 ## Examples
 
-### Regular token issue structure
+### Regular token issue
 
 `Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 0)`
 
@@ -40,7 +40,7 @@ The structure sets the following parameters of token:
 * **Reissue ability**: present,
 * **Nonce**: 0.
 
-### NFT issue structure
+### NFT issue
 
 `Issue("UberToken", "The ultimate token. One and only.", 1, 0, false, unit, 0)`
 

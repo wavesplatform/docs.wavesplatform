@@ -19,14 +19,14 @@ Issue(name: String, description: String, quantity: Int, decimals: Int, isReissua
 | 1 | name | [String](/ru/ride/data-types/string) | Название токена |
 | 2 | description | [String](/ru/ride/data-types/string) | Описание токена |
 | 3 | quantity | [Int](/ru/ride/data-types/int) | Количество токена. Если токеном является [NFT](/ru/blockchain/token/non-fungible-token), то значение должно быть `1` |
-| 4 | decimals | [Int](/ru/ride/data-types/int) | Количество цифр после запятой. Если [токеном](/ru/blockchain/token) является [NFT](/ru/blockchain/token/non-fungible-token), то значение должно быть `0` |
+| 4 | decimals | [Int](/ru/ride/data-types/int) | Количество знаков после запятой. Если [токеном](/ru/blockchain/token) является [NFT](/ru/blockchain/token/non-fungible-token), то значение должно быть `0` |
 | 5 | isReissuable | [Boolean](/ru/ride/data-types/boolean) | Флаг возможности довыпуска. Если токеном является [NFT](/ru/blockchain/token/non-fungible-token), то значение должно быть `0` |
 | 6 | compiledScript | [Script](/ru/ride/script)&#124;[Unit](/ru/ride/data-types/unit) | Должно быть установлено значение `Unit`. Выпуск [смарт-ассетов](/ru/blockchain/token/smart-asset) при помощи этой структуры пока недоступен |
-| 7 | nonce | [Int](/ru/ride/data-types/int) | Порядковый номер ассета, который использовался для генерации ID токена. Требуется для выпуска в одном вызове скрипта нескольких токенов с одинаковыми названиями и описаниями |
+| 7 | nonce | [Int](/ru/ride/data-types/int) | Порядковый номер ассета, который используется для генерации его ID. Необходим, если  |
 
 ## Примеры
 
-### Структура выпуска обычного токена
+### Выпуск обычного токена
 
 `Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 0)`
 
@@ -40,7 +40,7 @@ Issue(name: String, description: String, quantity: Int, decimals: Int, isReissua
 * **Возможность довыпуска**: присутствует,
 * **Нонс**: 0.
 
-### Структура выпуска NFT-токена
+### Выпуск NFT-токена
 
 `Issue("UberToken", "The ultimate token. One and only", 1, 0, false, unit, 0)`
 
