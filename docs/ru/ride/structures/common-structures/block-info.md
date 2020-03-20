@@ -18,5 +18,5 @@ BlockInfo(timestamp: Int, height: Int, baseTarget: Int, generationSignature: Byt
 | 4 | generationSignature | [ByteVector](/ru/ride/data-types/byte-vector) | Подпись ключевого блока |
 | 5 | generator | [Address](/ru/ride/structures/common-structures/address) | [Адрес](/ru/blockchain/account/address) аккаунта, который создал блок |
 | 6 | generatorPublicKey | [ByteVector](/ru/ride/data-types/byte-vector) | Открытый ключ аккаунта, который создал блок |
-| 7 | transactionsRoot | [ByteVector](/ru/ride/data-types/byte-vector) | [MerkleRootHash](https://en.wikipedia.org/wiki/Merkle_tree) транзакций блока.<br>Поле появилось в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network) |
+| 7 | transactionsRoot | [ByteVector](/ru/ride/data-types/byte-vector) | [Корневой хеш транзакций блока](/ru/blockchain/block/merkle-root) транзакций блока.<br>Поле появилось в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network) |
 

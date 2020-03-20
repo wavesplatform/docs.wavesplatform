@@ -3,7 +3,7 @@
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
 | 1 | [checkMerkleProof](#checkmerkleproof)(ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что данные являются частью [дерева Меркла](https://ru.wikipedia.org/wiki/Дерево_хешей) | 30 |
-| 2 | [createMerkleRoot](#createmerkleroot)(List[ByteVector], ByteVector, Int): ByteVector | Вычисляет корневой хеш [дерева Меркла](https://ru.wikipedia.org/wiki/Дерево_хешей) | T<sub>A<sub> |
+| 2 | [createMerkleRoot](#createmerkleroot) | Вычисляет [корневой хеш транзакций блока](/ru/blockchain/block/merkle-root) | ?? |
 | 2 | [groth16Verify](#groth16verify)(ByteVector, ByteVector, ByteVector): Boolean | Осуществляет проверку [снарка](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf) | 3900 |
 | 3 | groth16Verify_1inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (не более 1 входа) | 1900 |
 | 4 | groth16Verify_2inputs(ByteVector, ByteVector, ByteVector): Boolean | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (не более 2 входов) | 2000 |
@@ -33,6 +33,8 @@
 
 ## checkMerkleProof
 
+> :warning: Функция `checkMerkleProof` не входит в [Стандартную библиотеку](/ru/ride/script/standard-library) версии 4. Используйте `createMerkleProof` вместо нее.
+
 Проверяет, что данные являются частью [дерева Меркла](https://ru.wikipedia.org/wiki/Дерево_хешей).
 
 Для хеширования [дерева Меркла](https://ru.wikipedia.org/wiki/Дерево_хешей) используется функция хеширования [BLAKE2b](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29).
@@ -48,6 +50,25 @@ checkMerkleProof(merkleRoot: ByteVector, merkleProof: ByteVector, valueBytes: By
 | `merkleRoot`: ByteVector | Корневой хеш дерева Меркла. |
 | `merkleProof`: ByteVector | Массив хешей. |
 | `valueBytes`: ByteVector | Данные для проверки.|
+
+## createMerkleProof
+
+> :warning: Функция `checkMerkleProof` представлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
+Вычисляет корневой хеш транзакций блока на основе хеша транзакции и соседних хешей дерева Меркла. Чтобы проверить присутствие транзакции в блоке, нужно сравнить вычисленный хеш с с полем `transactionsRoot` в заголовке блока. Подробное описание приведено в разделе [Корневой хеш транзакции](/ru/blockchain/block/merkle-root).
+
+
+``` ride
+createMerkleRoot(merkleProofs: List[ByteVector], valueBytes: ByteVector, index: Int) : ByteVector
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `merkleProofs`: List[ByteVector] | Массив соседних хешей дерева Меркла |
+| `valueBytes`: ByteVector | Хеш транзакции. Для хеширования можно использовать функцию [blake2b256](/ru/ride/functions/built-in-functions/hashing-functions#blake2b256). Хешировать транзакцию нужно вместе с подписью |
+| `index`: Int | Порядковый номер транзакции в блоке |
 
 ## groth16Verify
 
