@@ -936,56 +936,66 @@ module.exports = {
           path: ridePath + 'structures/script-actions',
           children: [
             {
-              title: 'BinaryEntry',
+              title: 'BinaryEntry (v4)',
               path: ridePath + 'structures/script-actions/binary-entry',
             },
             {
-              title: 'BooleanEntry',
+              title: 'BooleanEntry (v4)',
               path: ridePath + 'structures/script-actions/boolean-entry',
             },
             {
-              title: 'Burn',
+              title: 'Burn (v4)',
               path: ridePath + 'structures/script-actions/burn',
             },
             {
-              title: 'DataEntry',
+              title: 'DataEntry (v3)',
               path: ridePath + 'structures/script-actions/data-entry',
             },
             {
-              title: 'DeleteEntry',
+              title: 'DeleteEntry (v4)',
               path: ridePath + 'structures/script-actions/delete-entry',
             },
             {
-              title: 'IntegerEntry',
+              title: 'IntegerEntry (v4)',
               path: ridePath + 'structures/script-actions/int-entry',
             },
             {
-              title: 'Issue',
+              title: 'Issue (v4)',
               path: ridePath + 'structures/script-actions/issue',
             },
             {
-              title: 'Reissue',
+              title: 'Reissue (v4)',
               path: ridePath + 'structures/script-actions/reissue',
             },
             {
-              title: 'ScriptResult',
+              title: 'ScriptResult (v3)',
               path: ridePath + 'structures/script-actions/script-result',
             },
             {
-              title: 'ScriptTransfer',
+              title: 'ScriptTransfer (v3 and v4)',
               path: ridePath + 'structures/script-actions/script-transfer',
             },
             {
-              title: 'StringEntry',
+              title: 'StringEntry (v4)',
               path: ridePath + 'structures/script-actions/string-entry',
+            },
+          ],
+        },
+        {
+          title: 'Script results (v3)',
+          path: ridePath + 'structures/script-results',
+          children: [
+            {
+              title: 'ScriptResult',
+              path: ridePath + 'structures/script-results/script-result',
             },
             {
               title: 'TransferSet',
-              path: ridePath + 'structures/script-actions/transfer-set',
+              path: ridePath + 'structures/script-results/transfer-set',
             },
             {
               title: 'WriteSet',
-              path: ridePath + 'structures/script-actions/write-set',
+              path: ridePath + 'structures/script-results/write-set',
             },
           ],
         },        

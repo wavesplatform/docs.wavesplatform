@@ -16,7 +16,7 @@ Issue(name: String, description: String, quantity: Int, decimals: Int, isReissua
 | :--- | :--- | :--- | :--- |
 | 1 | name | [String](/ru/ride/data-types/string) | Название токена |
 | 2 | description | [String](/ru/ride/data-types/string) | Описание токена |
-| 3 | quantity | [Int](/ru/ride/data-types/int) | Количество токена. Если токеном является [NFT](/ru/blockchain/token/non-fungible-token), то значение должно быть `1` |
+| 3 | quantity | [Int](/ru/ride/data-types/int) | Количество токена. Если токен является [NFT](/ru/blockchain/token/non-fungible-token), то значение должно быть `1` |
 | 4 | decimals | [Int](/ru/ride/data-types/int) | Количество знаков после запятой. Если [токеном](/ru/blockchain/token) является [NFT](/ru/blockchain/token/non-fungible-token), то значение должно быть `0` |
 | 5 | isReissuable | [Boolean](/ru/ride/data-types/boolean) | Флаг возможности довыпуска. Если токеном является [NFT](/ru/blockchain/token/non-fungible-token), то значение должно быть `0` |
 | 6 | compiledScript | [Script](/ru/ride/script)&#124;[Unit](/ru/ride/data-types/unit) | Должно быть установлено значение `unit`. Выпуск [смарт-ассетов](/ru/blockchain/token/smart-asset) при помощи этой структуры пока недоступен |
