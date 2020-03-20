@@ -1,4 +1,8 @@
-# Running Waves Node in Yandex.Cloud
+# Deploy Node in Yandex.Cloud
+
+You can run Waves node in Yandex.Cloud for mining or development and testing of decentralised applications. With Waves Node in cloud, you can launch private blockchain network, create custom tokens, quickly generate and process transactions.
+
+## To Run Waves Node in Yandex.Cloud
 
 1.&nbsp;In the Yandex.Cloud [console](https://console.cloud.yandex.com), navigate to the desired resource group.
 
@@ -16,7 +20,7 @@
 
 ![](./_assets/search-bar.png)
 
-5.&nbsp;Set the parameters of the virtual machine. See the [Hardware requirements](/en/waves-node/prerequisites/hardware-requirements) page for minimum hardware requirements to start the node.
+5.&nbsp;Set the parameters of the virtual machine. See the hardware requirements on the [Node Owner Guide](/en/waves-node) page for minimum hardware requirements to start the node.
 
 ![](./_assets/virtual-machine-parameters.png)
 

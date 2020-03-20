@@ -1,34 +1,22 @@
 # Функции хеширования
 
-| # | Название | Описание | Сложность |
-| :--- | :--- | :--- | :--- |
-| 1 | [blake2b256](#blake2b256)(ByteVector): ByteVector | Хеширует массив байтов с помощью алгоритма [BLAKE-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>10 для Стандартной библиотеки **версии 3** |
-| 2 | blake2b256_16Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 16 Кбайт) | 10 |
-| 3 | blake2b256_32Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 32 Кбайт) | 25 |
-| 4 | blake2b256_64Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 64 Кбайт) | 50 |
-| 5 | blake2b256_128Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 128 Кбайт) | 100 |
-| 6 | [keccak256](#keccak256)(ByteVector): ByteVector | Хеширует массив байтов с помощью алгоритма [SHA3-256](https://en.wikipedia.org/wiki/SHA-3) | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>10 для Стандартной библиотеки **версии 3** |
-| 7 | keccak256_16Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 16 Кбайт) | 10 |
-| 8 | keccak256_32Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 32 Кбайт) | 25 |
-| 9 | keccak256_64Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 64 Кбайт) | 50 |
-| 10 | keccak256_128Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 128 Кбайт) | 100 |
-| 11 | sha256(ByteVector): ByteVector | Хеширует массив байтов с помощью алгоритма [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 200 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**<br>10 для Стандартной библиотеки **версии 3** |
-| 12 | [sha256](#sha256)_16Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 16 Кбайт) | 10 |
-| 13 | sha256_32Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 32 Кбайт) | 25 |
-| 14 | sha256_64Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 64 Кбайт) | 50 |
-| 15 | sha256_128Kb(ByteVector): ByteVector | 〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp;〃&nbsp;&nbsp;&nbsp; (объем данных не более 128 Кбайт) | 100 |
+| Название | Описание | Сложность |
+| :--- | :--- | :--- |
+| [blake2b256](#blake2b256) | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [BLAKE-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |
+| [keccak256](#keccak256) | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [SHA3-256](https://en.wikipedia.org/wiki/SHA-3) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |
+| [sha256](#sha256) | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |
 
 ## blake2b256
 
-Хеширует массив байтов с помощью алгоритма [blake2b256](https://ru.wikipedia.org/wiki/BLAKE_%28хеш-функция%29).
+Семейство функций. Хешируют массив байтов с помощью алгоритма [blake2b256](https://ru.wikipedia.org/wiki/BLAKE_%28хеш-функция%29).
 
-``` ride
-blake2b256(bytes: ByteVector): ByteVector
-blake2b256_16Kb(bytes: ByteVector): ByteVector
-blake2b256_32Kb(bytes: ByteVector): ByteVector
-blake2b256_64Kb(bytes: ByteVector): ByteVector
-blake2b256_128Kb(bytes: ByteVector): ByteVector
-```
+| Название | Макс. объем данных | Сложность |
+|:---| :--- | :--- |
+| blake2b256(bytes: ByteVector): ByteVector | 150 Кбайт | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>200 для Стандартной библиотеки **версии 4** |
+| blake2b256_16Kb(bytes: ByteVector): ByteVector | 16 Кбайт | 10 |
+| blake2b256_32Kb(bytes: ByteVector): ByteVector | 32 Кбайт | 25 |
+| blake2b256_64Kb(bytes: ByteVector): ByteVector | 64 Кбайт | 50 |
+| blake2b256_128Kb(bytes: ByteVector): ByteVector | 128 Кбайт | 100 |
 
 > :warning: Функции `blake2b256_16Kb`, `blake2b256_32Kb`, `blake2b256_64Kb`, `blake2b256_128Kb` появились в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
@@ -36,7 +24,7 @@ blake2b256_128Kb(bytes: ByteVector): ByteVector
 
 | Параметр | Описание |
 | :--- | :--- |
-| `bytes`: ByteVector | Массив байтов для хеширования.<br>Максимальный размер:<br>• Для функций `blake2b256_<N>Kbytes` — не более `N` Кбайт.<br>• Для функции `blake2b256` — не более 150 Кбайт. |
+| `bytes`: ByteVector | Массив байтов для хеширования.<br>Максимальный размер:<br>• Для функций `blake2b256_<N>Kb` — не более `N` Кбайт.<br>• Для функции `blake2b256` — не более 150 Кбайт. |
 
 ### Примеры
 
@@ -50,15 +38,15 @@ blake2b256(base64'UmlkZQ==') # Возвращает 6NSWRz5XthhFVm9uVQHuisdaseQJ
 
 ## keccak256
 
-Хеширует массив байтов с помощью алгоритма [SHA-3-256](https://ru.wikipedia.org/wiki/SHA-3).
+Семейство функций. Хешируют массив байтов с помощью алгоритма [SHA-3-256](https://ru.wikipedia.org/wiki/SHA-3).
 
-``` ride
-keccak256(bytes: ByteVector): ByteVector
-keccak256_16Kb(bytes: ByteVector): ByteVector
-keccak256_32Kb(bytes: ByteVector): ByteVector
-keccak256_64Kb(bytes: ByteVector): ByteVector
-keccak256_128Kb(bytes: ByteVector): ByteVector
-```
+| Название | Макс. объем данных | Сложность |
+|:---| :--- | :--- |
+| keccak256(bytes: ByteVector): ByteVector | 150 kB | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>200 для Стандартной библиотеки **версии 4** |
+| keccak256_16Kb(bytes: ByteVector): ByteVector | 16 kB | 10 |
+| keccak256_32Kb(bytes: ByteVector): ByteVector | 32 kB | 25 |
+| keccak256_64Kb(bytes: ByteVector): ByteVector | 64 kB | 50 |
+| keccak256_128Kb(bytes: ByteVector): ByteVector | 128 kB | 100 |
 
 > :warning: Функции `keccak256_16Kb`, `keccak256_32Kb`, `keccak256_64Kb`, `keccak256_128Kb` появились в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
@@ -66,7 +54,7 @@ keccak256_128Kb(bytes: ByteVector): ByteVector
 
 | Параметр | Описание |
 | :--- | :--- |
-| `bytes`: ByteVector | Массив байтов для хеширования.<br>Максимальный размер:<br>• Для функций `keccak256_<N>Kbytes` — не более `N` Кбайт.<br>• Для функции `keccak256` — не более 150 Кбайт. |
+| `bytes`: ByteVector | Массив байтов для хеширования.<br>Максимальный размер:<br>• Для функций `keccak256_<N>Kb` — не более `N` Кбайт.<br>• Для функции `keccak256` — не более 150 Кбайт. |
 
 ### Примеры
 
@@ -80,7 +68,17 @@ keccak256(base64'UmlkZQ==') # Возвращает 4qa5wNk4961VwJAjCKBzXiEvBQ2gB
 
 ## sha256
 
-Хеширует массив байтов с помощью алгоритма [SHA-256](https://ru.wikipedia.org/wiki/SHA-2).
+Семейство функций. Хешируют массив байтов с помощью алгоритма [SHA-256](https://ru.wikipedia.org/wiki/SHA-2).
+
+| Название | Макс. объем данных | Сложность |
+|:---| :--- | :--- |
+| sha256(bytes: ByteVector): ByteVector | 150 Кбайт | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>200 для Стандартной библиотеки **версии 4** |
+| sha256_16Kb(bytes: ByteVector): ByteVector | 16 Кбайт | 10 |
+| sha256_32Kb(bytes: ByteVector): ByteVector | 32 Кбайт | 25 |
+| sha256_64Kb(bytes: ByteVector): ByteVector | 64 Кбайт | 50 |
+| sha256_128Kb(bytes: ByteVector): ByteVector | 128 Кбайт | 100 |
+
+> :warning: Функции `sha256_16Kb`, `sha256_32Kb`, `sha256_64Kb`, `sha256_128Kb` появились в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ``` ride
 sha256(bytes: ByteVector): ByteVector
@@ -90,13 +88,11 @@ sha256_64Kb(bytes: ByteVector): ByteVector
 sha256_128Kb(bytes: ByteVector): ByteVector
 ```
 
-> :warning: Функции `sha256_16Kb`, `sha256_32Kb`, `sha256_64Kb`, `sha256_128Kb` появились в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
-
 ### Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
-| `bytes`: ByteVector | Массив байтов для хеширования.<br>Максимальный размер:<br>• Для функций `sha256_<N>Kbytes` — не более `N` Кбайт.<br>• Для функции `sha256` — не более 150 Кбайт. |
+| `bytes`: ByteVector | Массив байтов для хеширования.<br>Максимальный размер:<br>• Для функций `sha256_<N>Kb` — не более `N` Кбайт.<br>• Для функции `sha256` — не более 150 Кбайт. |
 
 ### Примеры
 
