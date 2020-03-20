@@ -65,6 +65,36 @@ Return the specified number of the latest transactions by the given account addr
 ]
 ```
 
+### GET /transactions/merkleProof?id=some1&id=some2
+
+Returns `transactionsRoot` object containing Merkle Root Hash of block transactions.
+
+> Current endpoint is available on stagenet.
+**Request parameters**
+
+`id` - transaction ID.
+
+**Response parameters**
+
+- `id` - transaction ID
+- `transactionIndex` - transaction index (its order number).
+- 'merkleProof' - proofs hashes array from bottom level to top.
+
+**Response example**
+
+```js
+[
+    {
+        "id": "A7MKi9CmBuzAeDrheewQ4xgYDy3U1AodbGUXKCsQU3H8",
+        "transactionIndex": 2345,
+        "merkleProof": [
+            "48o9DxiMexUutLpw7edbjHyM3wGAKrKE9fjuNb2crQa4CBV5bk4N67q2aDXDJGKtRp917Z3mR6nBGZonsXnYsGqr",
+            "3wHRy6bzcSfEZTqTvHpbtsVRebVGj4BQrDT5MfZirofjkUb3KuALk9aHJtCcNJWXZfkpQUfpxB1GkqqMp5bf72bY"
+        ]
+    }
+]
+```
+
 ## GET /transactions/unconfirmed
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
