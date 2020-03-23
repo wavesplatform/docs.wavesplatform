@@ -32,7 +32,7 @@ The structure sets the following parameters of token:
 
 * **Name**: RegularToken,
 * **Description**: This is an ordinary token,
-* **Amount of tokens to issue**: 100 (value of 10000 ),
+* **Amount of tokens to issue**: 100 (value of 10000 is denoted in pennies),
 * **Amount of decimals**: 2,
 * **Asset script**: none,
 * **Reissue ability**: present,
