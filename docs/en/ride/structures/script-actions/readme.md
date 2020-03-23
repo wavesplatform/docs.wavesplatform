@@ -1,6 +1,10 @@
 # Script actions
 
-The script actions listed below must be combined to the [script results](/en/ride/structures/script-results).
+The script action (BinaryEntry, Burn etc) sets the parameters of operations listed below.
+
+The [standard library](/en/ride/script/standard-library) v3 script actions must be combined to the [script results](/en/ride/structures/script-results).
+
+The standard library v4 script actions must be combined as the list elements.
 
 | Action | Description |
 |---|---|
