@@ -968,10 +968,6 @@ module.exports = {
               path: ridePath + 'structures/script-actions/reissue',
             },
             {
-              title: 'ScriptResult (v3)',
-              path: ridePath + 'structures/script-actions/script-result',
-            },
-            {
               title: 'ScriptTransfer (v3 and v4)',
               path: ridePath + 'structures/script-actions/script-transfer',
             },
@@ -1024,72 +1020,20 @@ module.exports = {
               path: ridePath + 'structures/common-structures/attached-payment',
             },
             {
-              title: 'BinaryEntry',
-              path: ridePath + 'structures/common-structures/binary-entry',
-            },
-            {
               title: 'BlockInfo',
               path: ridePath + 'structures/common-structures/block-info',
-            },
-            {
-              title: 'BooleanEntry',
-              path: ridePath + 'structures/common-structures/boolean-entry',
-            },
-            {
-              title: 'Burn',
-              path: ridePath + 'structures/common-structures/burn',
-            },
-            {
-              title: 'DataEntry',
-              path: ridePath + 'structures/common-structures/data-entry',
-            },
-            {
-              title: 'DeleteEntry',
-              path: ridePath + 'structures/common-structures/delete-entry',
-            },
-            {
-              title: 'IntegerEntry',
-              path: ridePath + 'structures/common-structures/int-entry',
             },
             {
               title: 'Invocation',
               path: ridePath + 'structures/common-structures/invocation',
             },
             {
-              title: 'Issue',
-              path: ridePath + 'structures/common-structures/issue',
-            },
-            {
               title: 'Order',
               path: ridePath + 'structures/common-structures/order',
             },
             {
-              title: 'Reissue',
-              path: ridePath + 'structures/common-structures/reissue',
-            },
-            {
-              title: 'ScriptResult',
-              path: ridePath + 'structures/common-structures/script-result',
-            },
-            {
-              title: 'ScriptTransfer',
-              path: ridePath + 'structures/common-structures/script-transfer',
-            },
-            {
-              title: 'StringEntry',
-              path: ridePath + 'structures/common-structures/string-entry',
-            },
-            {
               title: 'Transfer',
               path: ridePath + 'structures/common-structures/transfer',
-            },
-            {
-              title: 'TransferSet',
-              path: ridePath + 'structures/common-structures/transfer-set',
-            },
-            {
-              title: 'WriteSet',
-              path: ridePath + 'structures/common-structures/write-set',
             },
           ],
         },
