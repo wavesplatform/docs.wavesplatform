@@ -1,6 +1,6 @@
 # ScriptTransfer
 
-Структура перевода [токенов](/ru/blockchain/token).
+**ScriptTransfer** - cтруктура, задающая параметры перевода токенов, который выполняется в результате вызова [вызываемой функции](/ru/ride/functions/callable-function).
 
 ### Конструктор
 

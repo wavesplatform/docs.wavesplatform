@@ -2,7 +2,7 @@
 
 > :warning: Структура TransferSet не входит в [Стандартную библиотеку](/ru/ride/script/standard-library) версии 4. Начиная с версии 4, используйте `ScriptTransfer` напрямую, см. раздел [Вызываемая функция](/ru/ride/functions/callable-function).
 
-Структура списка переводов токенов.
+**TransferSet** - cтруктура, объединяющая несколько структур [ScriptTransfer](/ru/ride/structures/script-actions/script-transfer). Переводы токенов, заданные при помощи структур ScriptTransfer, будут выполнены в результате вызова [вызываемой функции](/ru/ride/functions/callable-function).
 
 ## Конструктор
 

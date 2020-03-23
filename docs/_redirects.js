@@ -292,13 +292,117 @@ module.exports = [
     from: '/en/ride/structures/built-in-structures.html',
   },
   {
-    to: '/en/ride/structures/common-structures/delete-entry',
+    to: '/en/ride/structures/script-actions/delete-entry',
     from: '/en/ride/structures/common-structures/delete-key',
   },
   {
-    to: '/ru/ride/structures/common-structures/delete-entry',
+    to: '/ru/ride/structures/script-actions/delete-entry',
     from: '/ru/ride/structures/common-structures/delete-key',
   },
+  {
+    to: '/en/ride/structures/script-actions/binary-entry',
+    from: '/en/ride/structures/common-structures/binary-entry',
+  },
+  {
+    to: '/en/ride/structures/script-actions/boolean-entry',
+    from: '/en/ride/structures/common-structures/boolean-entry',
+  },
+  {
+    to: '/en/ride/structures/script-actions/burn',
+    from: '/en/ride/structures/common-structures/burn',
+  },
+  {
+    to: '/en/ride/structures/script-actions/data-entry',
+    from: '/en/ride/structures/common-structures/data-entry',
+  },
+  {
+    to: '/en/ride/structures/script-actions/delete-entry',
+    from: '/en/ride/structures/common-structures/delete-entry',
+  },
+  {
+    to: '/en/ride/structures/script-actions/int-entry',
+    from: '/en/ride/structures/common-structures/int-entry',
+  },
+  {
+    to: '/en/ride/structures/script-actions/issue',
+    from: '/en/ride/structures/common-structures/issue',
+  },
+  {
+    to: '/en/ride/structures/script-actions/reissue',
+    from: '/en/ride/structures/common-structures/reissue',
+  },
+  {
+    to: '/en/ride/structures/script-actions/script-transfer',
+    from: '/en/ride/structures/common-structures/script-transfer',
+  },
+  {
+    to: '/en/ride/structures/script-actions/string-entry',
+    from: '/en/ride/structures/common-structures/string-entry',
+  },
+  {
+    to: '/en/ride/structures/script-results/script-result',
+    from: '/en/ride/structures/common-structures/script-result',
+  },
+  {
+    to: '/en/ride/structures/script-results/transfer-set',
+    from: '/en/ride/structures/common-structures/transfer-set',
+  },
+  {
+    to: '/en/ride/structures/script-results/write-set',
+    from: '/en/ride/structures/common-structures/write-set',
+  },
+  {
+    to: '/ru/ride/structures/script-actions/binary-entry',
+    from: '/ru/ride/structures/common-structures/binary-entry',
+  },
+  {
+    to: '/ru/ride/structures/script-actions/boolean-entry',
+    from: '/ru/ride/structures/common-structures/boolean-entry',
+  },
+  {
+    to: '/ru/ride/structures/script-actions/burn',
+    from: '/ru/ride/structures/common-structures/burn',
+  },
+  {
+    to: '/ru/ride/structures/script-actions/data-entry',
+    from: '/ru/ride/structures/common-structures/data-entry',
+  },
+  {
+    to: '/ru/ride/structures/script-actions/delete-entry',
+    from: '/ru/ride/structures/common-structures/delete-entry',
+  },
+  {
+    to: '/ru/ride/structures/script-actions/int-entry',
+    from: '/ru/ride/structures/common-structures/int-entry',
+  },
+  {
+    to: '/ru/ride/structures/script-actions/issue',
+    from: '/ru/ride/structures/common-structures/issue',
+  },
+  {
+    to: '/ru/ride/structures/script-actions/reissue',
+    from: '/ru/ride/structures/common-structures/reissue',
+  },
+  {
+    to: '/ru/ride/structures/script-actions/script-transfer',
+    from: '/ru/ride/structures/common-structures/script-transfer',
+  },
+  {
+    to: '/ru/ride/structures/script-actions/string-entry',
+    from: '/ru/ride/structures/common-structures/string-entry',
+  },
+  {
+    to: '/ru/ride/structures/script-results/script-result',
+    from: '/ru/ride/structures/common-structures/script-result',
+  },
+  {
+    to: '/ru/ride/structures/script-results/transfer-set',
+    from: '/ru/ride/structures/common-structures/transfer-set',
+  },
+  {
+    to: '/ru/ride/structures/script-results/write-set',
+    from: '/ru/ride/structures/common-structures/write-set',
+  },  
   {
     from: '/en/ride/structures/transaction-structures/fee-sponsoring-transaction',
     to: '/en/ride/structures/transaction-structures/sponsor-fee-transaction',

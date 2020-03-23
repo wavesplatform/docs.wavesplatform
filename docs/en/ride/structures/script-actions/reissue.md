@@ -2,7 +2,7 @@
 
 > :warning: The structure is introduced in Standard library **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
-Structure of a [token reissue](/en/blockchain/transaction-type/reissue-transaction).
+**Reissue** is a structure that sets the parameters of the token reissue which is performed as the result of the [callable function](/en/ride/functions/callable-function) invocation.
 
 ## Constructor
 

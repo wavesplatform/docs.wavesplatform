@@ -2,7 +2,7 @@
 
 > :warning: Структура WriteSet не входит в [Стандартную библиотеку](/ru/ride/script/standard-library) версии 4. Используйте `BinaryEntry`, `BooleanEntry`, `IntegerEntry` и `StringEntry` напрямую, см. раздел [Вызываемая функция](/ru/ride/functions/callable-function).
 
-Структура списка записей [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage).
+**WriteSet** - cтруктура, объединяющая несколько структур [DataEntry](/ru/ride/structures/script-actions/script-transfer). Добавления/изменения записей хранилища данных аккаунта, заданные при помощи структур DataEntry, будут выполнены в результате вызова [вызываемой функции](/ru/ride/functions/callable-function).
 
 ## Конструктор
 

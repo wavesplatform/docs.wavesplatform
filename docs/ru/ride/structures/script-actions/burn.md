@@ -2,7 +2,7 @@
 
 > :warning: Структура Burn представлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
-Структура [сжигания токена](/ru/blockchain/transaction-type/burn-transaction).
+**Burn** - cтруктура, задающая параметры сжигания токена, которое выполняется в результате вызова [вызываемой функции](/ru/ride/functions/callable-function).
 
 ## Конструктор
 
