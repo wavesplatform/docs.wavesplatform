@@ -1,6 +1,6 @@
 # ScriptTransfer
 
-Structure of a [token](/en/blockchain/token) transfer.
+**ScriptTransfer** is a structure that sets the parameters of the token transfer, which is performed as the result of the [callable function](/en/ride/functions/callable-function) invocation.
 
 ### Constructor
 

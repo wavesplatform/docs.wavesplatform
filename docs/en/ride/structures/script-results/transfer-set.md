@@ -2,7 +2,7 @@
 
 > :warning: The structure is disabled in Standard library version 4. Starting with version 4 use `ScriptTransfer` directly, see the [Callable function](/en/ride/functions/callable-function) section.
 
-Structure of a list of [token](/en/blockchain/token) transfers.
+**TransferSet** is a structure that combines multiple [ScriptTransfer](/en/ride/structures/script-actions/script-transfer) structures. Token transfers set by ScriptTransfer structures will be performed as the result of [callable function](/en/ride/functions/callable-function) invocation.
 
 ## Constructor
 

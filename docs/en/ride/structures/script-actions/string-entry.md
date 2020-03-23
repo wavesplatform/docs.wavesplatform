@@ -2,7 +2,7 @@
 
 > :warning: The structure is introduced in Standard library **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
-Structure of a string data record of an [account data storage](/en/blockchain/account/account-data-storage).
+**StringEntry** is a structure that sets key and value of [account data storage](/en/blockchain/account/account-data-storage) string entry, which is created or modified as the result of [callable function](/en/ride/functions/callable-function) invocation.
 
 ## Constructor
 

@@ -2,7 +2,7 @@
 
 > :warning: The structure is introduced in Standard library **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
-Structure of a boolean inary data record of an [account data storage](/en/blockchain/account/account-data-storage).
+**BooleanEntry** is a structure that sets key and value of the [account data storage](/en/blockchain/account/account-data-storage) boolean entry, which is created or modified as the result of [callable function](/en/ride/functions/callable-function) invocation.
 
 ## Constructor
 

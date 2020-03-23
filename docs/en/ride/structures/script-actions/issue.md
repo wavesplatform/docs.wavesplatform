@@ -2,7 +2,7 @@
 
 > :warning: The structure is introduced in Standard library **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
-Issue is the structure setting the parameters of a [token issue](/en/blockchain/transaction-type/issue-transaction) which is performed as a result of the invoking of [callable function](/en/ride/functions/callable-function).
+**Issue** is a structure that sets the parameters of the token issue which is performed as a result of the [callable function](/en/ride/functions/callable-function) invocation.
 
 ## Constructor
 

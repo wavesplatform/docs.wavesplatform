@@ -2,7 +2,7 @@
 
 > :warning: The structure is disabled in Standard library version 4. Use `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, and `StringEntry` directly, see the [Callable function](/en/ride/functions/callable-function) section.
 
-Structure of a list of data records of an [account data storage](/en/blockchain/account/account-data-storage).
+**WriteSet** is a structure that combines multiple [DataEntry](/en/ride/structures/script-actions/data-entry) structures. Adding/modifying the account data storage entries will be performed as the result of [callable function](/en/ride/functions/callable-function) invocation.
 
 ## Constructor
 

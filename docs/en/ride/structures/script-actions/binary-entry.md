@@ -1,8 +1,8 @@
 # BinaryEntry
 
-> :warning: BinaryEntry structure is included in [Standard library](/ru/ride/script/standard-library) **version 4**, which is currently available on [Stagenet](/ru/blockchain/blockchain-network/stage-network) only.
+> :warning: BinaryEntry structure is included in [Standard library](/en/ride/script/standard-library) **version 4**, which is currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
-[Account data storage](/en/blockchain/account/account-data-storage) binary entry structure.
+**BinaryEntry** is a structure that sets key and value of [account data storage](/en/blockchain/account/account-data-storage) binary entry, which is created or modified as the result of the [callable function](/en/ride/functions/callable-function) invocation.
 
 ## Constructor
 
@@ -14,5 +14,5 @@ BinaryEntry(key: String, value: ByteVector)
 
 |   #   | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | key | [String](/ru/ride/data-types/string) | Entry key. Maximum length - 100 symbols |
-| 2 | value| [ByteVector](/ru/ride/data-types/byte-vector) | Entry value. Maximum size - 5 Kbytes |
+| 1 | key | [String](/en/ride/data-types/string) | Entry key. Maximum length - 100 symbols |
+| 2 | value| [ByteVector](/en/ride/data-types/byte-vector) | Entry value. Maximum size - 5 Kbytes |

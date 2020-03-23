@@ -2,7 +2,7 @@
 
 > :warning: The structure is disabled in Standard library version 4. Use `List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry|ScriptTranfer|Issue|Reissue|Burn]` instead of it.
 
-Structure of the execution result of a callable function.
+**ScriptResult** is a structure used when both token transfers and adding/modifying of accound data storage entries must be performed as the result of [callable function](/en/ride/functions/callable-function) invocation.
 
 ## For Standard Library version 3
 
