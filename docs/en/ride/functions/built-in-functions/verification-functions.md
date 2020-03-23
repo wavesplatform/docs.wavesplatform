@@ -3,11 +3,14 @@
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | [checkMerkleProof](#checkmerkleproof) | Checks that the data is part of the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) | 30 |
+| [createMerkleRoot](#createmerkleroot) | Calculates the [Merkle root hash](/en/blockchain/block/merkle-root) for transactions of block | 30 |
 | [groth16Verify](#groth16verify) | Range of functions.<br>Check [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol | 1900–3900 |
 | [rsaVerify](#rsaverify) | Range of functions.<br>Check that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29) digital signature is valid | 300 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>500–1000 for Standard Library **version 4** |
 | [sigVerify](#sigverify) | Range of functions.<br>Check that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid | 100 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>100–200 for Standard Library **version 4** |
 
 ## checkMerkleProof
+
+> :warning: The structure is disabled in [Standard library](/en/ride/script/standard-library) version 4. Use `createMerkleRoot]` instead of it.
 
 Checks that the data is part of the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree).
 
@@ -24,6 +27,25 @@ checkMerkleProof(merkleRoot: ByteVector, merkleProof: ByteVector, valueBytes: By
 | merkleRoot: ByteVector | Root hash of the Merkle tree |
 | merkleProof: ByteVector | Array of hashes |
 | valueBytes: ByteVector | Data to check |
+
+## createMerkleProof
+
+> :warning: The function is introduced in [Standard library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+
+Calculates the [Merkle hash root](/en/blockchain/block/merkle-root) for transactions of block on the basis of the transaction hash and the sibling hashes of the Merkle tree. [BLAKE-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) algorithm is used for hashing. To check for the  transaction in the block, you need to compare the calculated hash with the `transactionsRoot` field in the block header. For more informtion see the [Transactions Root Hash](/en/blockchain/block/merkle-root).
+
+
+``` ride
+createMerkleRoot(merkleProofs: List[ByteVector], valueBytes: ByteVector, index: Int): ByteVector
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `merkleProofs`: List[ByteVector] | Array of sibling hashes of the Merkle tree |
+| `valueBytes`: ByteVector | Hash of transaction. You can use [blake2b256](/ru/ride/functions/built-in-functions/hashing-functions#blake2b256) function. The transaction must be hashed together with the signature |
+| `index`: Int | Index of the transaction in the block |
 
 ## groth16Verify
 
