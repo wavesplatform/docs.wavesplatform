@@ -292,11 +292,11 @@ module.exports = [
     from: '/en/ride/structures/built-in-structures.html',
   },
   {
-    to: '/en/ride/structures/common-structures/delete-entry',
+    to: '/en/ride/structures/script-actions/delete-entry',
     from: '/en/ride/structures/common-structures/delete-key',
   },
   {
-    to: '/ru/ride/structures/common-structures/delete-entry',
+    to: '/ru/ride/structures/script-actions/delete-entry',
     from: '/ru/ride/structures/common-structures/delete-key',
   },
   {
@@ -338,13 +338,17 @@ module.exports = [
   {
     to: '/en/ride/structures/script-actions/string-entry',
     from: '/en/ride/structures/common-structures/string-entry',
-  },            
+  },
   {
-    to: '/en/ride/structures/script-actions/transfer-set',
+    to: '/en/ride/structures/script-results/script-result',
+    from: '/en/ride/structures/common-structures/script-result',
+  },
+  {
+    to: '/en/ride/structures/script-results/transfer-set',
     from: '/en/ride/structures/common-structures/transfer-set',
   },
   {
-    to: '/en/ride/structures/script-actions/write-set',
+    to: '/en/ride/structures/script-results/write-set',
     from: '/en/ride/structures/common-structures/write-set',
   },
   {
@@ -386,13 +390,17 @@ module.exports = [
   {
     to: '/ru/ride/structures/script-actions/string-entry',
     from: '/ru/ride/structures/common-structures/string-entry',
-  },            
+  },
   {
-    to: '/ru/ride/structures/script-actions/transfer-set',
+    to: '/ru/ride/structures/script-results/script-result',
+    from: '/ru/ride/structures/common-structures/script-result',
+  },
+  {
+    to: '/ru/ride/structures/script-results/transfer-set',
     from: '/ru/ride/structures/common-structures/transfer-set',
   },
   {
-    to: '/ru/ride/structures/script-actions/write-set',
+    to: '/ru/ride/structures/script-results/write-set',
     from: '/ru/ride/structures/common-structures/write-set',
   },  
   {
