@@ -105,7 +105,7 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| blake2b256(ByteVector): ByteVector | Range of functions.<br>Hash an array of bytes using [BLAKE-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10–200 for Standard Library **version 4** |
+| blake2b256(ByteVector): ByteVector | Range of functions.<br>Hash an array of bytes using [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10–200 for Standard Library **version 4** |
 | keccak256(ByteVector): ByteVector | Range of functions.<br>Hash an array of bytes using [SHA-3-256](https://en.wikipedia.org/wiki/SHA-3) | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10–200 for Standard Library **version 4** |
 | sha256(ByteVector): ByteVector | Range of functions.<br>Hash an array of bytes using [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10–200 for Standard Library **version 4** |
 

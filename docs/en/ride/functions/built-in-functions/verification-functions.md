@@ -32,7 +32,7 @@ checkMerkleProof(merkleRoot: ByteVector, merkleProof: ByteVector, valueBytes: By
 
 > :warning: The function is introduced in [Standard library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
-Calculates the [Merkle hash root](/en/blockchain/block/merkle-root) for transactions of block on the basis of the transaction hash and the sibling hashes of the Merkle tree. [BLAKE-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) algorithm is used for hashing. To check for the  transaction in the block, you need to compare the calculated hash with the `transactionsRoot` field in the block header. For more informtion see the [Transactions Root Hash](/en/blockchain/block/merkle-root).
+Calculates the [Merkle root hash](/en/blockchain/block/merkle-root) for transactions of block on the basis of the transaction hash and the sibling hashes of the Merkle tree. [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) algorithm is used for hashing. To check for the  transaction in the block, you need to compare the calculated hash with the `transactionsRoot` field in the block header. For more informtion see the [Transactions Root Hash](/en/blockchain/block/merkle-root).
 
 
 ``` ride

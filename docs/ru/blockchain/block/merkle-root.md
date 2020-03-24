@@ -37,7 +37,7 @@
 
 > Если блок пустой, то `transactionsRoot` = hash(0).
 
-В блокчейне Waves для хеширования используется алгоритм [BLAKE-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29).
+В блокчейне Waves для хеширования используется алгоритм [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29).
 
 ## Как доказывается присутствие транзакции в блоке
 
@@ -93,7 +93,7 @@ transactionHeightById(id: ByteVector): Int|Unit
 
 Функция возвращает высоту блока транзакции, если транзакция с таким `id` присутствует на блокчейне, и `unit` в противном случае. Описание функции см. в разделе [Функции блокчейна](/ru/ride/functions/built-in-functions/blockchain-functions#transactionheightbyid).
 
-Проверка присутствия транзакции в блоке на другом блокчейне возможна при условии, что другой блокчейн также использует алгоритм хеширования [BLAKE-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29); в частности, для всех Waves-based блокчейнов. Для проверки используется встроенная функция Ride
+Проверка присутствия транзакции в блоке на другом блокчейне возможна при условии, что другой блокчейн также использует алгоритм хеширования [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29); в частности, для всех Waves-based блокчейнов. Для проверки используется встроенная функция Ride
 
 ```
 createMerkleRoot(merkleProofs: List[ByteVector], valueBytes: ByteVector, index: Int): ByteVector
