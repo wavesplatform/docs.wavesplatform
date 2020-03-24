@@ -37,7 +37,7 @@ The transactions root hash in the block header has the following purposes:
 
 > If the block is empty, then `transactionsRoot` = hash(0).
 
-The Waves blockchain uses [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) hashing function.
+Waves blockchain uses [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) hashing function.
 
 ## Proof of Transaction in Block
 
@@ -63,7 +63,7 @@ Side 2 checks the proof:
 
 2. It concatenates the hash with the corresponding hash of the `merkleProofs` array and calculates the hash of concatenation.
 
-   `index` is used to determine which side the adjacent hash is located on. If the `n`th bit from the end is 0, then the` n`th hash of the `merkleProofs` array is on the right. Otherwise, it is on the left.
+   `index` is used to determine which side the adjacent hash is located on. If the `n`th bit from the end is 0, then the `n`th hash of the `merkleProofs` array is on the right. Otherwise, it is on the left.
    For example, `index` = 3<sub>10</sub> = 11<sub>2</sub> , thus:
    
    * `merkleProofs`[0] = H<sub>С</sub> is on the left,
@@ -85,7 +85,7 @@ You can use the following Node API methods to provide proof that a transaction i
 
 The methods are described in the [Transaction](/en/waves-node/node-api/transactions) article.
 
-To check that a transaction is on the same blockchain, use the built-in Ride function:
+To check that a transaction is on the same blockchain, use the following built-in Ride function:
 
 ```
 transactionHeightById(id: ByteVector): Int|Unit
