@@ -28,7 +28,7 @@ checkMerkleProof(merkleRoot: ByteVector, merkleProof: ByteVector, valueBytes: By
 | merkleProof: ByteVector | Array of hashes |
 | valueBytes: ByteVector | Data to check |
 
-## createMerkleProof
+## createMerkleRoot
 
 > :warning: The function is introduced in [Standard library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 

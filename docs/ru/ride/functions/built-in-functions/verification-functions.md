@@ -10,7 +10,7 @@
 
 ## checkMerkleProof
 
-> :warning: Функция `checkMerkleProof` не входит в [Стандартную библиотеку](/ru/ride/script/standard-library) версии 4. Используйте `createMerkleProof` вместо нее.
+> :warning: Функция `checkMerkleProof` не входит в [Стандартную библиотеку](/ru/ride/script/standard-library) версии 4. Используйте `createMerkleRoot` вместо нее.
 
 Проверяет, что данные являются частью [дерева Меркла](https://ru.wikipedia.org/wiki/Дерево_хешей).
 
@@ -28,9 +28,9 @@ checkMerkleProof(merkleRoot: ByteVector, merkleProof: ByteVector, valueBytes: By
 | `merkleProof`: ByteVector | Массив хешей. |
 | `valueBytes`: ByteVector | Данные для проверки.|
 
-## createMerkleProof
+## createMerkleRoot
 
-> :warning: Функция `checkMerkleProof` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+> :warning: Функция `createMerkleRoot` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 Вычисляет корневой хеш транзакций блока на основе хеша транзакции и соседних хешей дерева Меркла, используя алгоритм хеширования [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29). Чтобы проверить присутствие транзакции в блоке, нужно сравнить вычисленный хеш с с полем `transactionsRoot` в заголовке блока. Подробное описание приведено в разделе [Корневой хеш транзакции](/ru/blockchain/block/merkle-root).
 

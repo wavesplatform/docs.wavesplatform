@@ -7,7 +7,7 @@ The transactions root hash in the block header has the following purposes:
 * To prove the integrity of transactions in the block without presenting all transactions.
 * To sign the block header only, separately from its transactions.
 
-> :warning: `transactionsRoot` is added since node version 1.2.0. This functionality is enabled by activating of the "VRF and Protobuf" feature (No. 15) on the node. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network).
+> :warning: `transactionsRoot` is added since node version 1.2.0. This functionality is enabled by activating of the "VRF and Protobuf" feature (No. 15) on the node. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 ## transactionsRoot Сalculation
 
