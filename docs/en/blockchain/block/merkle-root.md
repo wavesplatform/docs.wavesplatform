@@ -1,6 +1,6 @@
 # Transactions Root Hash
 
-The `transactionsRoot` field in the block header contains the root hash of the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) of transactions of the block. The root hash is the cryptographic proof of integrity of the block, that is, that all the transactions exist in the block in the proper order.
+The `transactionsRoot` field in the block header contains the root hash of the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) of transactions of the block. The root hash is the proof that the block contains all the transactions in the proper order.
 
 The transactions root hash in the block header has the following purposes:
 
@@ -45,6 +45,7 @@ Let's suppose that side&nbsp;1 stores the full blockchain data and side&nbsp;2 s
 
 To prove that the block contains a given transaction, side 1 provides the following data:
 
+* `T`: Transaction to check.
 * `merkleProofs`: Array of sibling hashes of the Merkle tree, bottom-to-top.
 * `index`: Index of the transaction in the block.
 
@@ -63,7 +64,8 @@ Side 2 checks the proof:
 
 2. It concatenates the hash with the corresponding hash of the `merkleProofs` array and calculates the hash of concatenation.
 
-   `index` is used to determine which side the adjacent hash is located on. If the `n`th bit from the end is 0, then the `n`th hash of the `merkleProofs` array is on the right. Otherwise, it is on the left.
+   `index` is used to determine which side the adjacent hash is located on. If the `n`th bit of `index` from the end is 0, then the `n`th hash of the `merkleProofs` array should be concatenated on the right side (it is the second hash in the pair). Otherwise, it should be concatenated on the left side (it is the first hash in the pair).
+
    For example, `index` = 3<sub>10</sub> = 11<sub>2</sub> , thus:
    
    * `merkleProofs`[0] = H<sub>С</sub> is on the left,
@@ -78,14 +80,14 @@ Side 2 checks the proof:
 
 ## Tools
 
-You can use the following Node API methods to provide proof that a transaction is in a block:
+The following Node API methods accept transaction IDs and provide the proof that the transaction is in a block for each transaction:
 
 * `GET /transactions/merkleProof`
 * `POST /transactions/merkleProof`
 
 The methods are described in the [Transaction](/en/waves-node/node-api/transactions) article.
 
-To check that a transaction is on the same blockchain, use the following built-in Ride function:
+You can check a transaction on the same blockchain without using a root hash, since the Waves node stores the full blockchain data, including all transactions. Use the following built-in Ride function:
 
 ```
 transactionHeightById(id: ByteVector): Int|Unit
@@ -93,10 +95,16 @@ transactionHeightById(id: ByteVector): Int|Unit
 
 The function returns the block height if the transaction with the specified `id` exists. Otherwise, it returns `unit`. See the function description in the [Blockchain functions](/en/ride/functions/built-in-functions/blockchain-functions#transactionheightbyid) article.
 
-You can check a transaction in a block on the external blockchain if the external blockchain uses [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) hashing function (for instance, on all the Waves-based blockchains). The following Ride function calculates the root hash from the transaction hash and sibling hashes of the Merkle tree (see Steps 1–3): 
+Для проверки присутствия транзакции в блоке на другом блокчейне используется встроенная функция Ride 
 
 ```
 createMerkleRoot(merkleProofs: List[ByteVector], valueBytes: ByteVector, index: Int): ByteVector
 ```
 
-To check a transaction in a block, compare the calculated root hash with the `transactionsRoot` value in the block header. See the function description in the [Verification functions](/en/ride/functions/built-in-functions/verification-functions#createmerkleroothash) article.
+To check a transaction in a block on the external blockchain you can use the function
+
+```
+createMerkleRoot(merkleProofs: List[ByteVector], valueBytes: ByteVector, index: Int): ByteVector
+```
+
+This function is applicable if the external blockchain uses the same algorithm for calculating the root hash of transactions (for instance, on all the Waves-based blockchains). The `createMerkleRoot` function calculates the root hash from the transaction hash and sibling hashes of the Merkle tree (see Steps 1–3). To check a transaction in a block, compare the calculated root hash with the `transactionsRoot` value in the block header. See the function description in the [Verification functions](/en/ride/functions/built-in-functions/verification-functions#createmerkleroothash) article.
