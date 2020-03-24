@@ -4,12 +4,12 @@ sidebarDepth: 2
 
 # How to Create and Manage Your Own Token
 
-One of the key benefits of the Waves platform is the simplicity of issuing tokens. To launch your own token, you don't have to write a smart contract – just create an issue transaction and put it to the blockchain. The only threshold for the creator is to pay a fee: 1 WAVES for reqular token (asset) or 0.001 for non-fungible token (NFT).
+One of the key benefits of the Waves platform is the simplicity of issuing tokens. To launch your own token, you don't have to write a smart contract – just create an issue transaction and put it to the blockchain. The only threshold for the issuer is to pay a fee: 1 WAVES for reqular token (asset) or 0.001 for non-fungible token (NFT).
 
 New tokens are immediately available:
 
 * for transfers between accounts,
-* for trading on [Waves.Exchange](https://waves.exchange/) developed by Waves.Exchange team (except NFTs),
+* (except NFTs) for trading on [Waves.Exchange](https://waves.exchange/) developed by Waves.Exchange team,
 * for payments attached to dApp script invocation.
 
 You can use your tokens:
@@ -19,11 +19,11 @@ You can use your tokens:
 
 See the [Token](/en/blockchain/token/) article for more information about token.
 
-In this chapter, tokens and assets are synonyms (but for NFT we always use the word 'token').
+In this article, tokens and assets are synonyms (but for NFT we always use the word 'token').
 
 ## Issue Asset
 
-> :bulb: Asset issued without a script cannot be converted to smart asset. If you want to add a script later, issue an asset with the script `AwZd0cYf` (base64 encoded Ride expression that is always true). Fee for the transaction with smart asset is larger by 0.004 WAVES.
+> :bulb: Asset issued without a script cannot be converted to a smart asset. If you want to add a script later, issue an asset with the script `AwZd0cYf` (base64 encoded Ride expression that is always true). Fee for the transaction with smart asset is higher by 0.004 WAVES.
 
 ### Using Waves.Exchange
 
@@ -44,7 +44,7 @@ See function descriptions in [waves-transactions documentation](https://wavespla
 import { nodeInteraction } from "@waves/waves-transactions";
 import { issue } from "@waves/waves-transactions";
 
-const nodeUrl = 'https://nodes-testnet.wavesnodes.com'; // Mainnet node
+const nodeUrl = 'https://nodes-testnet.wavesnodes.com'; // Testnet node
 const seed = 'insert your seed here';
 
   // Issue transaction: specify token params
@@ -78,14 +78,14 @@ my_address.issueAsset(
 
 ### Using dApp
 
-Starting with Standard Library version 4, dApp callable function can issue a token. See [Callable Function](/en/ride/functions/callable-function) and [Issue](/en/ride/structures/common-structures/issue) articles of [Ride](/en/ride) chapter for more information.
+Since Standard Library version 4, dApp callable function can issue a token. See [Callable Function](/en/ride/functions/callable-function) and [Issue](/en/ride/structures/script-actions/issue) articles of [Ride](/en/ride) chapter for more information.
 
 > :warning: Standard Library Version 4 becomes available from node version 1.2.0, after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature. See Activation Protocol. Version 1.2.x is currently available on Stagenet only.
 
 In this example, `myToken` function issues a token with following params:
 
 * `name` contains the address of the account which invoked the function (for example, `Spring_3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z`),
-* number of tokens equals to 1000 and decimals id 2,
+* number of tokens equals to 1000 and decimals = 2,
 * token is reissuable.
 
 ```ride
