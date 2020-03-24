@@ -4,6 +4,8 @@
 
 ### Ride
 
+* [transferTransactionFromProtoBytes](/ru/ride/functions/built-in-functions/converting-functions#transfertransactionfromprotobytes)
+
 Обновлено описание:
 * [функций хеширования](/ru/ride/functions/built-in-functions/hashing-functions) `blake2b256`, `keccak256`, `sha256`;
 * [функций верификации](/ru/ride/functions/built-in-functions/verification-functions) `groth16Verify`, `rsaVerify`, `sigVerify`.
