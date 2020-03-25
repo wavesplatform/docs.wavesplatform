@@ -8,11 +8,11 @@ Callable functions features rely on [standard library](/en/ride/script/standard-
 
 | Standard library v3 | Standard library v4 |
 |---|---|
-| Adding and modifying of [account data storage](/en/blockchain/account/account-data-storage) entries | Adding, modifying, deletion of [account data storage](/en/blockchain/account/account-data-storage) entries |
+| Adding and modifying of [account data storage](/en/blockchain/account/account-data-storage) entries | Adding, modifying, deleting of [account data storage](/en/blockchain/account/account-data-storage) entries |
 | Token transfers | Token transfers |
 |   | Issue, reissue, burning tokens |
 
-The invoke script transaction can have payments in favor of dApp applied. Funds obtained in this payments can be included to token transfers.
+The invoke script transaction can have payments in favor of dApp applied. Funds obtained in this payments can be included in token transfers.
 
 > Standard library v4 is available starting from node version 1.2.0 after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (#16) feature. See [Activation protocol](/en/blockchain/waves-protocol/activation-protocol).
 
@@ -30,7 +30,7 @@ Callable function can have arguments of the following types:
 
 ### Callable function invocation results
 
-Callable function invocation results are actions (adding entry, token transfer etc) which are passed as arguments to the Ride structures listed below.
+Callable function invocation results are actions (adding entry, token transfer etc.) which are passed as arguments to the Ride structures listed below.
 
 | Ride structure setting the result | Description | Example |
 |---|---|---|
@@ -55,7 +55,7 @@ Script actions executed by the callable function are set by Ride structures.
 
 ### Example <a id="example3"></a>
 
-The example listed below is a wallet application which allows to send [WAVES](/en/blockchain/token/waves) on certain address and withdraw them (withdrawing others' WAVES is prevented). There are two callable functions in the example:
+The example listed below is a wallet application which allows to send [WAVES](/en/blockchain/token/waves) to certain address and withdraw them (withdrawing others' WAVES is prevented). There are two callable functions in the example:
 
 * `deposit` — provides desposit of the tokens.
 * `withdraw` — provides withdraw of the tokens.
@@ -120,7 +120,7 @@ Callable function can have arguments of the following types:
 
 ### Callable function invocation results
 
-Callable function invocation results are actions (adding entry, token transfer etc) which are enclosed to a list.
+Callable function invocation results are actions (adding entry, token transfer etc.) which are enclosed to a list.
 
 | Ride structure setting the result | Description | Example |
 |---|---|---|
@@ -139,7 +139,7 @@ Script actions executed by the callable function are set by Ride structures.
 | [Burn](/en/ride/structures/script-actions/burn) | Structure setting the parameters of token burn |
 | [ScriptTransfer](/en/ride/structures/script-actions/script-transfer) | Structure setting the parameters of token transfer |
 
-### Ограничения вызываемой функции
+### Callable function limitations
 
 * Amount of dApp account data storage entries which can be added/modified/deleted within the single invoke script transaction - up to 100.
 * Amount of token issue/reissue/burn/transfer operations which can be performed by the dApp within single invoke script transaction — up to 10.
@@ -147,7 +147,7 @@ Script actions executed by the callable function are set by Ride structures.
 
 ### Example <a id="example4"></a>
 
-The example listed below is a wallet application which allows to send [WAVES](/en/blockchain/token/waves) on certain address and withdraw them (withdrawing others' WAVES is prevented). There are two callable functions in the example:
+The example listed below is a wallet application which allows to send [WAVES](/en/blockchain/token/waves) to certain address and withdraw them (withdrawing others' WAVES is prevented). There are two callable functions in the example:
 
 * `deposit` — provides desposit of the tokens.
 * `withdraw` — provides withdraw of the tokens.
