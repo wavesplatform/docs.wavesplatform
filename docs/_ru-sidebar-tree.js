@@ -284,6 +284,10 @@ module.exports = {
           path: blockchainPath + 'block/block-timestamp',
         },
         {
+          title: 'Корневой хеш транзакций',
+          path: blockchainPath + 'block/merkle-root',
+        },
+        {
           title: 'Блок генезиса',
           path: blockchainPath + 'block/genesis-block',
         },
