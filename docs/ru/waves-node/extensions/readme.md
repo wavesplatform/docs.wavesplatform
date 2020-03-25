@@ -4,5 +4,5 @@
 
 Список доступных расширений:
 
-* [gRPC Server](/ru/waves-node/extensions/grpc-server)
-* Матчер: см. описание в разделе [Waves.Exchange Матчер](https://docs.waves.exchange/ru/waves-matcher/) документации Waves.Exchange.
+* [gRPC](/ru/waves-node/extensions/grpc-server)
+* [DEX Extension](https://github.com/wavesplatform/dex): Интерфейс для связи DEX Server с кодом ноды.
