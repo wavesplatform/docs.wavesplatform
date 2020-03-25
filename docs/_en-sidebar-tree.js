@@ -284,6 +284,10 @@ module.exports = {
           path: blockchainPath + 'block/block-timestamp',
         },
         {
+          title: 'Transations Root Hash',
+          path: blockchainPath + 'block/merkle-root',
+        },
+        {
           title: 'Genesis block',
           path: blockchainPath + 'block/genesis-block',
         },

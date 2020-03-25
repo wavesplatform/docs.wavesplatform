@@ -2,7 +2,15 @@
 
 ## March articles
 
+### Blockchain
+
+* [Transactions Root](/en/blockchain/block/merkle-root)
+
 ### Ride
+
+#### Built-in Functions
+
+* [createMerkleRoot](/en/ride/functions/built-in-functions/verification-functions#create-merkle-root)
 
 Updated the the following descriptions:
 * [hashing functions](/en/ride/functions/built-in-functions/hashing-functions): `blake2b256`, `keccak256`, `sha256`;
