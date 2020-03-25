@@ -297,7 +297,7 @@ toUtf8String(bytes) # Возвращает "Ride on Waves"
 
 ## transferTransactionFromProto
 
-Десериализует транзакцию перевода версии 3: конвертирует [бинарный формат](/ru/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format) в структуру [TransferTransaction](/ru/ride/structures/transaction-structures/transfer-transaction). В случае если конверация не удалась, возвращает значение `unit`.
+Десериализует транзакцию перевода: конвертирует [бинарный формат](/ru/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format) в структуру [TransferTransaction](/ru/ride/structures/transaction-structures/transfer-transaction). Бинарный формат должен соответствовать [protobuf-схеме](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). В случае если конвертация не удалась, возвращает значение `unit`.
 
 > :warning: Функция `transferTransactionFromProto` появилась в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
@@ -309,7 +309,7 @@ transferTransactionFromProto(b: ByteVector): TransferTransaction|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `b`: [ByteVector](/ru/ride/data-types/byte-vector) | Транзакция перевода версии 3 в бинарном формате |
+| `b`: [ByteVector](/ru/ride/data-types/byte-vector) | Транзакция перевода в бинарном формате на основе protobuf |
 
 ### Примеры
 
