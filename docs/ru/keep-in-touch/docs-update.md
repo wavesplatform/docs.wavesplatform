@@ -11,6 +11,7 @@
 #### Встроенные функции
 
 * [createMerkleRoot](/ru/ride/functions/built-in-functions/verification-functions#create-merkle-root)
+* [transferTransactionFromProto](/ru/ride/functions/built-in-functions/converting-functions#transfertransactionfromproto)
 
 Обновлено описание:
 * [функций хеширования](/ru/ride/functions/built-in-functions/hashing-functions) `blake2b256`, `keccak256`, `sha256`;
