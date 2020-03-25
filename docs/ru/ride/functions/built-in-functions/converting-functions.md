@@ -15,7 +15,7 @@
 | [toString(Boolean): String](#to-string-boolean) | Конвертирует логическое значение в строку | 1 |
 | [toString(Int): String](#to-string-int) | Конвертирует целое число в строку | 1 |
 | [toUtf8String(ByteVector): String](#to-utf8-string-bytevector) | Конвертирует массив байтов в строку в [UTF-8](https://ru.wikipedia.org/wiki/UTF-8) | 20 |
-| [transferTransactionFromProtoBytes(ByteVector): TransferTransaction|Unit](#transfertransactionfromprotobytes) | Десериализует транзакцию перевода | 5 |
+| [transferTransactionFromProto(ByteVector): TransferTransaction&#124;Unit](#transfertransactionfromproto) | Десериализует транзакцию перевода | 5 |
 
 
 ## addressFromPublicKey(ByteVector): Address<a id="address-from-public-key"></a>
@@ -295,14 +295,14 @@ let bytes = toBytes("Ride on Waves")
 toUtf8String(bytes) # Возвращает "Ride on Waves"
 ```
 
-## transferTransactionFromProtoBytes
+## transferTransactionFromProto
 
 Десериализует транзакцию перевода версии 3: конвертирует [бинарный формат](/ru/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format) в структуру [TransferTransaction](/ru/ride/structures/transaction-structures/transfer-transaction). В случае если конверация не удалась, возвращает значение `unit`.
 
-> :warning: Функция `transferTransactionFromProtoBytes` появилась в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+> :warning: Функция `transferTransactionFromProto` появилась в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ```ride
-transferTransactionFromProtoBytes(b: ByteVector): TransferTransaction|Unit
+transferTransactionFromProto(b: ByteVector): TransferTransaction|Unit
 ```
 
 ### Параметры
@@ -315,7 +315,7 @@ transferTransactionFromProtoBytes(b: ByteVector): TransferTransaction|Unit
 
 ```ride
 let transfer = base64'Cr4BCFQSIA7SdnwUqEBY+k4jUf9sCV5+xj0Ry/GYuwmDMCdKTdl3GgQQoI0GIPLIyqL6LSgDwgaHAQoWChT+/s+ZWeOWzh1eRnhdRL3Qh9bxGRIkCiBO/wEBhwH/f/+bAWBRMv+A2yiAOUeBc9rY+UR/a4DxKBBkGkcaRYCcAQAB//9/AX9//0695P8EiICAfxgBgIkefwHYuDmA//83/4ABJgEBAf8d9N+8AAERyo1/j3kAGn/SAb7YIH8y/4CAXg=='
-let x = match transferTransactionFromProtoBytes(transfer) {
+let x = match transferTransactionFromProto(transfer) {
     case ttx:TransferTransaction =>
         ttx.amount # 3500000000
     case _ => throw("Can't find transaction")

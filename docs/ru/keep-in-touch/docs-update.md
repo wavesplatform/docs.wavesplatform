@@ -4,7 +4,7 @@
 
 ### Ride
 
-* [transferTransactionFromProtoBytes](/ru/ride/functions/built-in-functions/converting-functions#transfertransactionfromprotobytes)
+* [transferTransactionFromProto](/ru/ride/functions/built-in-functions/converting-functions#transfertransactionfromproto)
 
 Обновлено описание:
 * [функций хеширования](/ru/ride/functions/built-in-functions/hashing-functions) `blake2b256`, `keccak256`, `sha256`;

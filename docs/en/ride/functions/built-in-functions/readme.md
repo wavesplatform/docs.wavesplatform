@@ -54,7 +54,7 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | toString(Boolean): String | Converts a boolean to a string | 1 |
 | toString(Int): String | Converts an integer to a string | 1 |
 | toUtf8String(ByteVector): String | Converts an array of bytes to a UTF-8 string | 20 |
-| transferTransactionFromProtoBytes(ByteVector): TransferTransaction|Unit | Deserializes transfer transaction | 5 |
+| transferTransactionFromProto(ByteVector): TransferTransaction|Unit | Deserializes transfer transaction | 5 |
 
 ## [Data transaction functions](/en/ride/functions/built-in-functions/data-transaction-functions)
 
