@@ -52,9 +52,9 @@ const seed = 'insert your seed here';
 const myToken = {
   name: 'Spring',
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  quantity: 100000, // real amount (1000) multiplied by 10^decimals (100); set 1 for NFT
-  reissuable: true, // set false for NFT
-  decimals: 2, // set 0 for NFT
+  quantity: 100000, // Real amount (1000) multiplied by 10^decimals (100); set 1 for NFT
+  reissuable: true, // Set false for NFT
+  decimals: 2, // Set 0 for NFT
   chainId: 'T' // Testnet; set 'W' for Mainnet
 };
 
@@ -124,7 +124,7 @@ const seed = 'insert your seed here';
 
 const myToken = {
   assetId: '39M7cn3PZ7T468vGGfkc4VtxqbeDS5ssU4tLYJeoKfn4',
-  quantity: 50000, // append 500 Spring tokens
+  quantity: 50000, // Append 500 Spring tokens
   reissuable: true,
   chainId: 'T' // Testnet; 'W' for Mainnet
 };
@@ -163,7 +163,7 @@ const seed = 'insert your seed here';
 
 const myToken = {
   assetId: '39M7cn3PZ7T468vGGfkc4VtxqbeDS5ssU4tLYJeoKfn4',
-  quantity: 10000, // destroy 100 Spring tokens
+  quantity: 10000, // Destroy 100 Spring tokens
   chainId: 'T' // Testnet; 'W' for Mainnet
 };
 
