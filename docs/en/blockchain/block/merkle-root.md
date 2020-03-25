@@ -62,9 +62,12 @@ Side 2 checks the proof:
 
    H<sub>D</sub> = hash(T<sub>D</sub>)
 
-2. It concatenates the hash with the corresponding hash of the `merkleProofs` array and calculates the hash of concatenation.
+2. It concatenates the current hash with the corresponding hash of the `merkleProofs` array and calculates the hash of concatenation.
 
-   `index` is used to determine which side the adjacent hash is located on. If the `n`th bit of `index` from the end is 0, then the `n`th hash of the `merkleProofs` array should be concatenated on the right side (it is the second hash in the pair). Otherwise, it should be concatenated on the left side (it is the first hash in the pair).
+   `index` determines in which order to concatenate the hashes:
+   
+   * If the `n`th bit of `index` from the end is 0, then the order is: the current hash + the `n`th hash of the `merkleProofs`array (proof hash is on the right).
+   * If the `n`th bit is 1, the order is: the `n`th hash of the `merkleProofs`array + the current hash (proof hash is on the left).
 
    For example, `index` = 3<sub>10</sub> = 11<sub>2</sub> , thus:
    
@@ -95,16 +98,10 @@ transactionHeightById(id: ByteVector): Int|Unit
 
 The function returns the block height if the transaction with the specified `id` exists. Otherwise, it returns `unit`. See the function description in the [Blockchain functions](/en/ride/functions/built-in-functions/blockchain-functions#transactionheightbyid) article.
 
-Для проверки присутствия транзакции в блоке на другом блокчейне используется встроенная функция Ride 
+To check a transaction in a block on the external blockchain you can use the following built-in Ride function:
 
 ```
 createMerkleRoot(merkleProofs: List[ByteVector], valueBytes: ByteVector, index: Int): ByteVector
 ```
 
-To check a transaction in a block on the external blockchain you can use the function
-
-```
-createMerkleRoot(merkleProofs: List[ByteVector], valueBytes: ByteVector, index: Int): ByteVector
-```
-
-This function is applicable if the external blockchain uses the same algorithm for calculating the root hash of transactions (for instance, on all the Waves-based blockchains). The `createMerkleRoot` function calculates the root hash from the transaction hash and sibling hashes of the Merkle tree (see Steps 1–3). To check a transaction in a block, compare the calculated root hash with the `transactionsRoot` value in the block header. See the function description in the [Verification functions](/en/ride/functions/built-in-functions/verification-functions#createmerkleroothash) article.
+This function is applicable if the external blockchain uses the same algorithm for calculating the root hash of transactions (for instance, external blockchain is Waves-based). The `createMerkleRoot` function calculates the root hash from the transaction hash and sibling hashes of the Merkle tree (see Steps 1–3). To check a transaction in a block, compare the calculated root hash with the `transactionsRoot` value in the block header. See the function description in the [Verification functions](/en/ride/functions/built-in-functions/verification-functions#createmerkleroothash) article.
