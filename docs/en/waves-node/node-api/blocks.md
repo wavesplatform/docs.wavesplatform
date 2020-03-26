@@ -204,6 +204,42 @@ Return block data at the given height
 
 Return block data at the given height range
 
+**Response JSON example:**
+
+```js
+[
+  {
+    "id": "MyiExGCjnWZva7G749tStwS7JtDi7QjpEPBRdzLfdzGJRiVXdG6x2ZzcVarnQn1qNgce6ZbTjc8DLJMkHcr8DGq",
+    "transactions": [
+      {
+        "id": "string",
+        "timestamp": 0,
+        "version": 2,
+        "...": "..."
+      }
+    ],
+    "timestamp": 0,
+    "version": 0,
+    "height": 0,
+    "totalFee": 0,
+    "reference": "string",
+    "generator": "string",
+    "signature": "string",
+    "nxt-consensus": {
+      "base-target": 0,
+      "generation-signature": "string"
+    },
+    "blocksize": 0,
+    "transactionCount": 0,
+    "features": [
+      0
+    ],
+    "reward": 0,
+    "desiredReward": 0
+  }
+]
+```
+
 ## GET /blocks/signature/{signature}
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
