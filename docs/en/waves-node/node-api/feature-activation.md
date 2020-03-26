@@ -1,4 +1,4 @@
-# Activation
+# Feature Activation
 
 To support the Features Activation Protocol the following API method were added to the node/activation route. In response, the JSON that describes the current state of features will be returned.
 
