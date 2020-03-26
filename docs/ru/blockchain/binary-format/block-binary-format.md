@@ -1,14 +1,14 @@
 # Бинарный формат блока
 
-> Узнать больше о [блоке](/ru/blockchain/block).
+> Подробнее о [блоке](/ru/blockchain/block).
 
-Блоки хранятся в блокчейне в бинарном формате (байтовом представлении). [Расширения](/ru/waves-node/extensions) ноды, в частности [gRPC-сервер](/ru/waves-node/extensions/grpc-server), могут работать непосредственно данными в бинарном формате.
+Блоки хранятся в блокчейне в бинарном формате (байтовом представлении). [Расширения](/ru/waves-node/extensions) ноды, в частности [gRPC-сервер](/ru/waves-node/extensions/grpc-server), могут работать непосредственно с данными в бинарном формате.
 
 ## Версия 5
 
-Бинарный формат блока версии 5 соответствует [protobuf](https://developers.google.com/protocol-buffers/docs/overview?hl=ru)-схеме [block.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto).
+Бинарный формат блока версии 5 соответствует protobuf-схеме [block.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto). См. [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=ru).
 
-Версия 5 добавлена в версию ноды 1.2.0 и включается с активацией [фичи № 15 “VRF and Protobuf”](/ru/waves-node/features/features). В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+Версия 5 добавлена в версии ноды 1.2.0 и включается с активацией [фичи № 15 “VRF and Protobuf”](/ru/waves-node/features/features). В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ```protobuf
 message Block {
@@ -44,7 +44,7 @@ message Block {
 | reward_vote | 8 байт | Размер [вознаграждения за майнинг](/ru/blockchain/mining/mining-reward), за который голосует майнящая нода |
 | transactions_root | 32 байта | [Корневой хеш транзакций блока](/ru/blockchain/block/merkle-root) |
 | signature | 64 байта | [Подпись блока](/ru/blockchain/block/block-signature) |
-| transactions | Для каждой транзакции:<br>• Тело транзакции — до 165&thinsp;996 байт<br>• `proofs` — до 531 байта | См. раздел [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format/) |
+| transactions | Для каждой транзакции:<br>• Тело транзакции — до 165&nbsp;996 байт<br>• `proofs` — до 531 байта | См. раздел [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format/) |
 
 ## Версия 4
 
@@ -56,11 +56,11 @@ message Block {
 | 4 | [Базовая цель](/en/blockchain/block/block-generation/base-target) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | |
 | 5 | [Генерирующая подпись](/ru/blockchain/block/block-generation/) | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 | |
 | 6 | Количество транзакций в блоке | [Integer](/ru/blockchain/blockchain/blockchain-data-types) | 4 | |
-| 7.1 | Транзакция 1 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | До 100 | Байты первой транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format) |
-| 7.2 | Транзакция 2 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | До 100 | Байты второй транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format) |
+| 7.1 | Транзакция 1 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | Тело транзакции — до 165&nbsp;996 байт<br>`proofs` — до 531 байта | Байты первой транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format) |
+| 7.2 | Транзакция 2 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | Тело транзакции — до 165&nbsp;996 байт<br>`proofs` — до 531 байта | Байты второй транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format) |
 | ... | ... | ... | ... | ... |
-| 7.[N] | Транзакция N | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | До 100 | Байты N-й транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format) |
-| 8 | Количество [фич](/ru/waves-node/features/), за которые голосует майнящая нода | 4  | [Integer](/ru/blockchain/blockchain/blockchain-data-types) | |
+| 7.[N] | Транзакция N | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | Тело транзакции — до 165&nbsp;996 байт<br>`proofs` — до 531 байта | Байты N-й транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format) |
+| 8 | Количество [фич](/ru/waves-node/features/), за которые голосует майнящая нода | 4 | [Integer](/ru/blockchain/blockchain/blockchain-data-types) | |
 | 9.1 | Фича 1 | 2 | [Short](/ru/blockchain/blockchain/blockchain-data-types) | |
 | ... | ... | ... | ... | ... |
 | 9.[M] | Фича M | 2 | [Short](/ru/blockchain/blockchain/blockchain-data-types) | |
