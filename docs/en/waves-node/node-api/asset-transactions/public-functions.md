@@ -14,12 +14,12 @@ Balances for all assets that the given account ever had \(besides WAVES\).
 
 ```
 "address" -  Account's address in Base58 format
-"balances" - List of balance objects for assets that the given account has ever
+"balances" - List of balance objects for assets that the given account has ever had
 "assetId" - Asset ID in Base58 format
 "balance" - Balance of that Asset on account
 "quantity" - total issued assets
 "reissuable" - is this asset reissuable?
-"issueTransaction" - transaction witch create this asset
+"issueTransaction" - transaction which created this asset
 "minSponsoredAssetFee" - minimal tokens number to fee, optional, avaliable for sponsored assets
 "sponsorBalance" - sponsor balance in waves
 ```
