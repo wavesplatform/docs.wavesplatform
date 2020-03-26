@@ -1,6 +1,6 @@
 # Blocks
 
-## GET /blocks/height
+## GET /blocks/headers/last
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
@@ -13,6 +13,35 @@ Return the current blockchain height
   "height": 7788
 }
 ```
+
+## GET /blocks/headers/seq/{from}/{to}
+
+![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
+
+Return block headers at the given height range
+
+[
+  {
+    "timestamp": 0,
+    "version": 0,
+    "height": 0,
+    "totalFee": 0,
+    "reference": "string",
+    "generator": "string",
+    "signature": "string",
+    "nxt-consensus": {
+      "base-target": 0,
+      "generation-signature": "string"
+    },
+    "blocksize": 0,
+    "transactionCount": 0,
+    "features": [
+      0
+    ],
+    "reward": 0,
+    "desiredReward": 0
+  }
+]
 
 ## GET /blocks/last
 
