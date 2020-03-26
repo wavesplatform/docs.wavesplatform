@@ -2,6 +2,10 @@
 
 ## Мартовские статьи
 
+### Блокчейн
+
+* [Бинарный формат блока](/ru/blockchain/binary-format/block-binary-format)
+
 ### Ride
 
 Обновлено описание:
