@@ -36,7 +36,7 @@ message Block {
 | chain_id | 1 байт | [Байт сети](/ru/blockchain/blockchain-network/chain-id) |
 | reference | 64 байта | • В первом блоке версии 5, то есть на высоте активации фичи № 15 “VRF and Protobuf” — `signature` предыдущего блока<br>• В последующих блоках: хеш BLAKE2b-256 заголовка предыдущего блока |
 | base_target | 8 байт | [Базовая цель](/ru/blockchain/block/block-generation/base-target) — переменная, используемая в алгоритме генерации блоков |
-| generation_signature | 32 байта | [Генерирующая подпись](/ru/blockchain/block/block-generation/) — переменная, используемая в алгоритме генерации блоков |
+| generation_signature | 32 байта | [Подпись генерирования](/ru/blockchain/block/block-generation/) — переменная, используемая в алгоритме генерации блоков |
 | feature_votes | 2 байта для каждой фичи | Список фич, за которые голосует майнящая нода, см. раздел [Фичи](/ru/waves-node/features/) |
 | timestamp | 8 байт | [Временная метка блока](/ru/blockchain/block/block-timestamp): Unix-время в миллисекундах |
 | version | 1 байт | Версия блока: 5 | 
@@ -54,7 +54,7 @@ message Block {
 | 2 | [Временная метка блока](/ru/blockchain/block/block-timestamp) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Unix-время в миллисекундах |
 | 3 | [Подпись](/ru/blockchain/block/block-signature) предыдущего блока | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 64 | |
 | 4 | [Базовая цель](/en/blockchain/block/block-generation/base-target) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | |
-| 5 | [Генерирующая подпись](/ru/blockchain/block/block-generation/) | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 | |
+| 5 | [Подпись генерирования](/ru/blockchain/block/block-generation/) | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 | |
 | 6 | Количество транзакций в блоке | [Integer](/ru/blockchain/blockchain/blockchain-data-types) | 4 | |
 | 7.1 | Транзакция 1 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | Тело транзакции — до 165&nbsp;996 байт<br>`proofs` — до 531 байта | Байты первой транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format) |
 | 7.2 | Транзакция 2 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | Тело транзакции — до 165&nbsp;996 байт<br>`proofs` — до 531 байта | Байты второй транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format) |
@@ -76,7 +76,7 @@ message Block {
 | 2 | [Временная метка блока](/ru/blockchain/block/block-timestamp) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Unix-время в миллисекундах |
 | 3 | [Подпись](/ru/blockchain/block/block-signature) предыдущего блока | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 64 | |
 | 4 | [Base target](/en/blockchain/block/block-generation/base-target) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | |
-| 5 | [Генерирующая подпись](/ru/blockchain/block/block-generation/) | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 | |
+| 5 | [Подпись генерирования](/ru/blockchain/block/block-generation/) | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 | |
 | 6 | Количество транзакций в блоке | [Integer](/ru/blockchain/blockchain/blockchain-data-types) | 4 | |
 | 7.1 | Транзакция 1 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | До 100 | Байты первой транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format) |
 | 7.2 | Транзакция 2 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | До 100 | Байты второй транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format) |
