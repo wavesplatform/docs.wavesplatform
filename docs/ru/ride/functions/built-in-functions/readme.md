@@ -73,7 +73,7 @@
 | toString(Boolean): String | Конвертирует логическое значение в строку | 1 |
 | toString(Int): String | Конвертирует целое число в строку | 1 |
 | toUtf8String(ByteVector): String | Конвертирует массив байтов в строку в [UTF-8](https://ru.wikipedia.org/wiki/UTF-8) | 20 |
-| transferTransactionFromProto(ByteVector): TransferTransaction|Unit | Десериализует транзакцию перевода | 5 |
+| transferTransactionFromProto(ByteVector): TransferTransaction&#124;Unit | Десериализует транзакцию перевода | 5 |
 
 
 ## [Функции массива байтов](/ru/ride/functions/built-in-functions/byte-array-functions)
