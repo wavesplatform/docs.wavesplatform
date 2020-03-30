@@ -1,57 +1,14 @@
 # Бинарный формат транзакции обмена
 
-> Подробнее о [транзакции обмена](/ru/blockchain/transaction-type/exchange-transaction)
+> Подробнее о [транзакции обмена](/ru/blockchain/transaction-type/exchange-transaction).
 
-## Транзакция версии 3
+## Версия 3
 
-Бинарный формат версии 3 основан на [протобаф-схеме](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto).
+Бинарный формат версии 3 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). 
+
+Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).
 
 ```
-// Transactions
-syntax = "proto3";
-package waves;
-  
-option java_package = "com.wavesplatform.protobuf.transaction";
-option csharp_namespace = "Waves";
-  
-import "waves/amount.proto";
-import "waves/script.proto";
-import "waves/recipient.proto";
-import "waves/order.proto";
-  
-message SignedTransaction {
-    Transaction transaction = 1;
-    repeated bytes proofs = 2;
-}
-  
-message Transaction {
-    int32 chain_id = 1;
-    bytes sender_public_key = 2;
-    Amount fee = 3;
-    int64 timestamp = 4;
-    int32 version = 5;
-  
-    oneof data {
-        GenesisTransactionData genesis = 101;
-        PaymentTransactionData payment = 102;
-        IssueTransactionData issue = 103;
-        TransferTransactionData transfer = 104;
-        ReissueTransactionData reissue = 105;
-        BurnTransactionData burn = 106;
-        ExchangeTransactionData exchange = 107;
-        LeaseTransactionData lease = 108;
-        LeaseCancelTransactionData lease_cancel = 109;
-        CreateAliasTransactionData create_alias = 110;
-        MassTransferTransactionData mass_transfer = 111;
-        DataTransactionData data_transaction = 112;
-        SetScriptTransactionData set_script = 113;
-        SponsorFeeTransactionData sponsor_fee = 114;
-        SetAssetScriptTransactionData set_asset_script = 115;
-        InvokeScriptTransactionData invoke_script = 116;
-        UpdateAssetInfoTransactionData UpdateAssetInfo = 117;
-    };
-};
-  
 message ExchangeTransactionData {
     int64 amount = 1;
     int64 price = 2;
@@ -61,9 +18,17 @@ message ExchangeTransactionData {
 };
 ```
 
-## Транзакция версии 2 <a id="v2"></a>
+| Поле | Размер | Описание |
+| :--- | :--- | :--- |
+| amount | До 10 байт | Количество amount-ассета в нормализованном виде. Подробнее см. в разделе [Биржевая заявка](/ru/blockchain/order) |
+| price | До 10 байт | Стоимость 1 amount-ассета, выраженная в price-ассете, в нормализованном виде. Подробнее см. в разделе [Биржевая заявка](/ru/blockchain/order) |
+| buy_matcher_fee | 8 байт | [Комиссия матчера](/ru/blockchain/matcher-fee) за покупку. ID токена комиссии указан в ордере на покупку |
+| sell_matcher_fee | 8 байт | [Комиссия матчера](/ru/blockchain/matcher-fee) за продажу. ID токена комиссии указан в ордере на продажу |
+| orders | | Ордер на покупки и ордер на продажу. См. раздел [Бинарный формат ордера](/ru/blockchain/binary-format/order-binary-format) | 
 
-Транзакция версии 2 может принимать ордера версии [1](/ru/blockchain/binary-format/order-binary-format#v1), [2](/ru/blockchain/binary-format/order-binary-format#v2) и [3](/ru/blockchain/binary-format/order-binary-format#v3).
+## Версия 2
+
+Транзакция версии 2 может сoдержать ордера версии [1](/ru/blockchain/binary-format/order-binary-format#v1), [2](/ru/blockchain/binary-format/order-binary-format#v2) и [3](/ru/blockchain/binary-format/order-binary-format#v3).
 
 | Порядковый номер поля | Поле | Название JSON-поля | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -88,7 +53,7 @@ message ExchangeTransactionData {
 
 Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/9VJCXTdLqtsfvk1d68G5MT237ezQ4g9nuQhWZXR47vi9) в Node API.
 
-## Транзакция версии 1 <a id="v1"></a>
+## Версия 1
 
 Транзакция версии 1 может принимать ордера только версии 1.
 

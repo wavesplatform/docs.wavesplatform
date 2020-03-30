@@ -1,12 +1,69 @@
 # Бинарный формат ордера
 
-> Подробнее об ордере читайте на странице [Биржевая заявка](/ru/blockchain/order)
+> Подробнее об ордере читайте на странице [Биржевая заявка](/ru/blockchain/order).
 
-В [транзакции обмена версии 2](/ru/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format#v2) могут использоваться версии [3](#v3), [2](#v2) и [1](#v1) ордера.
+В [транзакции обмена версии 3](/ru/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format#версия-4) могут использоваться версии [4](#v4), [3](#v3), [2](#v2) и [1](#v1) ордера.
 
-В [транзакции обмена версии 1](/ru/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format#v1) может использоваться только версия [1](#v1) ордера.
+В [транзакции обмена версии 2](/ru/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format#версия-2) могут использоваться версии [3](#v3), [2](#v2) и [1](#v1) ордера.
 
-## Ордер версии 3 <a id="v3"></a>
+В [транзакции обмена версии 1](/ru/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format#версия-1) может использоваться только версия [1](#v1) ордера.
+
+## Версия 4 <a id="v4"></a>
+
+Бинарный формат ордера версии 4 соответствует protobuf-схеме [block.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/order.proto). См. [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=ru).
+
+Версия 4 добавлена в версии ноды 1.2.0 и включается с активацией [фичи № 15 “VRF and Protobuf”](/ru/waves-node/features/features). В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
+```protobuf
+message AssetPair {
+    bytes amount_asset_id = 1;
+    bytes price_asset_id = 2;
+};
+
+message Order {
+    enum Side {
+        BUY = 0;
+        SELL = 1;
+    };
+
+    int32 chain_id = 1;
+    bytes sender_public_key = 2;
+    bytes matcher_public_key = 3;
+    AssetPair asset_pair = 4;
+    Side order_side = 5;
+    int64 amount = 6;
+    int64 price = 7;
+    int64 timestamp = 8;
+    int64 expiration = 9;
+    Amount matcher_fee = 10;
+    int32 version = 11;
+    repeated bytes proofs = 12;
+};
+
+message Amount {
+    bytes asset_id = 1;
+    int64 amount = 2;
+};
+```
+
+| Поле | Размер | Описание |
+| :--- | :--- | :--- |
+| chain_id | 1 байт | [Байт сети](/ru/blockchain/blockchain-network/chain-id) |
+| sender_public_key | 32 байта | Открытый ключ аккаунта отправителя ордера |
+| matcher_public_key | 32 байта | Открытый ключ матчера |
+| asset_pair.amount_asset_id | 32 байта | ID amount-ассета ?? что если WAVES|
+| asset_pair.price_asset_id | 32 байта | ID price-ассета |
+| order_side | 1 байт | Тип ордера: покупка или продажа |
+| amount | До 10 байт | Количество amount-ассета в нормализованном виде |
+| price | До 10 байт | Стоимость 1 amount-ассета, выраженная в price-ассете, в нормализованном виде.  |
+| timestamp | 8 байт | Временная метка: Unix-время в миллисекундах |
+| expiration | 8 байт | Окончание срока действия ордера: Unix-время в миллисекундах |
+| matcher_fee.asset_id | 32 байта | ID токена, в котором выражена комиссия матчера |
+| matcher_fee.amount | До 10 байт | [Комиссия матчера](/ru/blockchain/matcher-fee) |
+| version | 1 байт | Версия ордера: 4 |
+| proofs | Размер каждого подтверждения — до 64 байт,<br>до 8 подтверждений| Подтверждения ордера, используемые для проверки валидности |
+
+## Версия 3 <a id="v3"></a>
 
 | Порядковый номер поля | Название поля | Название JSON-поля | Тип поля | Размер поля в байтах | Описание поля |
 | :--- | :--- | :--- | :--- | :--- | :--- |
