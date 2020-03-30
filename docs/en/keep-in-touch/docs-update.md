@@ -1,5 +1,22 @@
 # Documentation updates
 
+## March articles
+
+### Blockchain
+
+* [Transactions Root](/en/blockchain/block/merkle-root)
+
+### Ride
+
+#### Built-in Functions
+
+* [createMerkleRoot](/en/ride/functions/built-in-functions/verification-functions#create-merkle-root)
+* [transferTransactionFromProto](/en/ride/functions/built-in-functions/converting-functions#transfertransactionfromproto)
+
+Updated the the following descriptions:
+* [hashing functions](/en/ride/functions/built-in-functions/hashing-functions): `blake2b256`, `keccak256`, `sha256`;
+* [verification functions](/ru/ride/functions/built-in-functions/verification-functions): `groth16Verify`, `rsaVerify`, `sigVerify`.
+
 ## February articles
 
 ### Building Apps
@@ -15,7 +32,7 @@ Added how-to guides:
 #### Built-in Functions
 
 * [calculateAssetId](/en/ride/functions/built-in-functions/blockchain-functions#calculate)
-* [groth16Verify](/en/ride/functions/built-in-functions/blockchain-functions#groth)
+* [groth16Verify](/en/ride/functions/built-in-functions/verification-functions#groth16Verify)
 
 ## December articles
 
@@ -82,7 +99,7 @@ Added how-to guides:
 
 ### Oracles
 
-* [Data transaction tool](/en/waves-oracles/data-transaction-tool)
+* [Data transaction tool](/en/ecosystem/waves-oracles/data-transaction-tool)
 
 ### Ride
 
