@@ -148,6 +148,7 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | extract(T&#124;Unit): T | Gets a data type from an union | 13 |
 | isDefined(List[T]&#124;Unit): Boolean | Checks if a value is not an union | 1 |
 | value(T&#124;Unit): T | Gets a data type from an union | 13 |
+| valueOrElse(T&#124;Unit, T): T | Returns value from [union](/en/ride/data-types/union) type argument if it's not [unit](/en/ride/data-types/unit). Otherwise, returns the second argument | 13 |
 | valueOrErrorMessage(T&#124;Unit, String): T | Gets a data type from an union. Throws an exception if there is no data | 13 |
 
 ## [Verification functions](/en/ride/functions/built-in-functions/verification-functions)

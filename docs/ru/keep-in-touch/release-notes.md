@@ -19,7 +19,7 @@
 
 * Доработан метод `GET /assets/details/{assetId}`. Теперь он позволяет получать информацию по нескольким ассетам, перечисленным в списке. Для запроса к `/assets/details/{assetId}` теперь можно использовать метод POST. В JSON ответа добавлен объект `originTransactionId`, содержащий ID транзакции, выпустившей ассет с `{assetId}`.
 * Доработан метод `GET /assets/nft/{address}/limit/{limit}`. В JSON ответа добавлен массив `assetDetails`, содержащий список NFT-ассетов, принадлежащих указанному адресу. Кроме того, добавлена возможность совершать запрос к `/assets/nft/{address}/limit/{limit}` при помощи метода POST.
-* Реализован метод `GET /transactions/merkleProof?id=some1&id=some2`. Данный метод принимает на вход ID транзакции или массив ID транзакций и возвращает массив доказательств для проверки `MerkleRootHash`.
+* Реализован метод `GET /transactions/merkleProof?id=some1&id=some2`. Данный метод принимает на вход ID транзакции или массив ID транзакций и возвращает массив доказательств для проверки присутствия транзакции в блоке.
 * В методы, которые возвращают заголовок блока, добавлены поля `id` и `transactionsRoot`. Список методов:
   * `GET /blocks/headers/last`
   * `GET /blocks/headers/seq/{from}/{to}`
@@ -37,10 +37,10 @@
    * [Issue](/ru/ride/structures/common-structures/issue) — выпуск токена.
    * [Reissue](/ru/ride/structures/common-structures/reissue) — довыпуск токена.
    * [Burn](/ru/ride/structures/common-structures/burn) — сжигание токена.
-   * [BooleanEntry](/ru/ride/structures/common-structures/boolean-entry), [BinaryEntry](/ru/ride/structures/common-structures/binary-entry), [IntegerEntry](/ru/ride/structures/common-structures/int-entry),[StringEntry](/ru/ride/structures/common-structures/string-entry) — добавление или изменение записи соответствующего типа в хранилище данных аккаунта. Эти действия используются вместо [DataEntry](/ru/ride/structures/common-structures/data-entry), которая не поддерживается в версии 4.
+   * [BooleanEntry](/ru/ride/structures/common-structures/boolean-entry), [BinaryEntry](/ru/ride/structures/common-structures/binary-entry), [IntegerEntry](/ru/ride/structures/common-structures/int-entry), [StringEntry](/ru/ride/structures/common-structures/string-entry) — добавление или изменение записи соответствующего типа в хранилище данных аккаунта. Эти действия используются вместо [DataEntry](/ru/ride/structures/common-structures/data-entry), которая не поддерживается в версии 4.
    * [DeleteEntry](/ru/ride/structures/common-structures/delete-entry) — удаление записи из хранилища данных аккаунта.
 * Изменен формат результата вызываемой функции: в версии 4 результат представляет собой список действий скрипта. Структуры `ScriptResult`, `WriteSet` и `TransferSet` не поддерживаются.
-* Комиссия за выполнение транзакции вызова скрипта увеличивается на 1 WAVES за каждый не NFT-ассет, выпущенный при помощи структуры `Issue`.
+* Комиссия за выполнение транзакции вызова скрипта увеличивается на 1 WAVES за каждый ассет (кроме NFT), выпущенный при помощи структуры `Issue`.
 * Реализована возможность использовать список в качестве аргумента вызываемой функции.
 * Реализована возможность обрабатывать в dApp до двух платежей, приложенных к транзакции вызова скрипта.
 * Добавлены встроенные функции:
@@ -53,9 +53,9 @@
    * [valueOrElse(t: T|Unit, t0 : T)](/ru/ride/functions/built-in-functions/union-functions#valueOrElse) — получение значения из параметра типа данных объединение. Сложность 13.
 * Для встроенных [функций хеширования](/ru/ride/functions/built-in-functions/hashing-functions) `blakeb256`, `keccak256`, `sha256` и встроенных [функций верификации](/ru/ride/functions/built-in-functions/verification-functions) `rsaVerify`, `sigVerify` в версии 4 изменена сложность и добавлены семейства аналогичных функций с различной сложностью в зависимости от размера аргумента. Если размер данных известен заранее, можно использовать более «дешевую» функцию.
 * Добавлены встроенные функции работы со списками:
-   * Конкатенация при помощи оператора `++`. Пример: результатом выражения `[1, 2] ++ [3, 4]` будет `[1, 2, 3, 4]`. Complexity операции равна 10.
-   * Добавление элемента в конец списка. Пример: результатом выражения `["foo","bar"] :+ "baz"` будет `["foo", "bar", "baz"]`. Complexity операции равна 3.
+   * Конкатенация при помощи оператора `++`. Пример: результатом выражения `[1, 2] ++ [3, 4]` будет `[1, 2, 3, 4]`. Сложность равна 10.
+   * Добавление элемента в конец списка. Пример: результатом выражения `["foo","bar"] :+ "baz"` будет `["foo", "bar", "baz"]`. Сложность равна 3.
 
 ## Активация
 
-Активация перечисленных улучшений производится путем голосования за функциональности Feature 15 (VRF and Protobuf) и Feature 16 (Ride V4 and multiple attached payments for Invoke Script Transaction).
+Активация перечисленных улучшений производится путем голосования за фичи №&nbsp;15  “VRF and Protobuf” и №&nbsp;16 “Ride V4 and multiple attached payments for Invoke Script Transaction”.

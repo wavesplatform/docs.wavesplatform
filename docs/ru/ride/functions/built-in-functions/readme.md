@@ -75,7 +75,6 @@
 | toUtf8String(ByteVector): String | Конвертирует массив байтов в строку в [UTF-8](https://ru.wikipedia.org/wiki/UTF-8) | 20 |
 | transferTransactionFromProto(ByteVector): TransferTransaction|Unit | Десериализует транзакцию перевода | 5 |
 
-
 ## [Функции массива байтов](/ru/ride/functions/built-in-functions/byte-array-functions)
 
 | Название | Описание | Сложность |
@@ -93,7 +92,8 @@
 | extract(T&#124;Unit): T | Возвращает значение из параметра типа данных [объединение](/ru/ride/data-types/union). Выбрасывает исключение, если параметром является [unit](/ru/ride/data-types/unit) | 13 |
 | isDefined(List[T]&#124;Unit): Boolean | Проверяет, относится ли параметр к типу [unit](/ru/ride/data-types/unit) | 1 |
 | value(T&#124;Unit): T | Возвращает значение из параметра типа данных [объединение](/ru/ride/data-types/union). Выбрасывает исключение, если параметром является [unit](/ru/ride/data-types/unit) | 13 |
-| valueOrErrorMessage(T&#124;Unit, String): T | Возвращает значение из параметра типа данных [объединение](/ru/ride/data-types/union). Если параметром является [unit](/ru/ride/data-types/unit), возвращает сообщение об ошибке, заданное во втором параметре | 13 |
+| valueOrElse(T&#124;Unit, T): T | Возвращает значение из параметра [типа данных объединение](/ru/ride/data-types/union), если оно не является [unit](/ru/ride/data-types/unit), иначе возвращает второй параметр | 13 |
+| valueOrErrorMessage(T&#124;Unit, String): T | Возвращает значение из параметра [типа данных объединение](/ru/ride/data-types/union), если оно не является [unit](/ru/ride/data-types/unit), иначе возвращает сообщение об ошибке, заданное во втором параметре | 13 |
 
 ## [Функции получения данных из хранилища данных аккаунта](/ru/ride/functions/built-in-functions/account-data-storage-functions)
 
