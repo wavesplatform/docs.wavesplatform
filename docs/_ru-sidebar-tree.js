@@ -742,10 +742,6 @@ module.exports = {
       path: ridePath + 'base-concepts',
       children: [
         {
-          title: 'Сложность',
-          path: ridePath + 'base-concepts/complexity',
-        },
-        {
           title: 'Определение',
           path: ridePath + 'base-concepts/definition',
         },
@@ -1124,6 +1120,20 @@ module.exports = {
         {
           title: 'Встроенные переменные',
           path: ridePath + 'variables/built-in-variables',
+        },
+      ],
+    },
+    {
+      title: 'Ограничения',
+      path: ridePath + 'limits',
+      children: [
+        {
+          title: 'Сложность',
+          path: ridePath + 'base-concepts/complexity',
+        },
+        {
+          title: 'Вес данных',
+          path: ridePath + 'limits/weight',
         },
       ],
     },
