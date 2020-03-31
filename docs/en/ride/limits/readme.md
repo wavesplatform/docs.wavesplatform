@@ -15,4 +15,4 @@
 | Size of the value of a variable of type String | 32767  characters |
 | Size of a ByteVector variable value | 65536 bytes |
 
-> See also (/en/ride/limits/weight)
+> See also [Data Weight](/en/ride/limits/weight)
