@@ -8,6 +8,10 @@
 
 ### Ride
 
+#### Limitations
+
+* [Data Weight](/en/ride/limits/weight)
+
 #### Built-in Functions
 
 * [createMerkleRoot](/en/ride/functions/built-in-functions/verification-functions#create-merkle-root)

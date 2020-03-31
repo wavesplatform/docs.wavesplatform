@@ -738,10 +738,6 @@ module.exports = {
       path: ridePath + 'base-concepts',
       children: [
         {
-          title: 'Complexity',
-          path: ridePath + 'base-concepts/complexity',
-        },
-        {
           title: 'Definition',
           path: ridePath + 'base-concepts/definition',
         },
@@ -1120,6 +1116,20 @@ module.exports = {
         {
           title: 'Built-in variables',
           path: ridePath + 'variables/built-in-variables',
+        },
+      ],
+    },
+    {
+      title: 'Limitations',
+      path: ridePath + 'limits',
+      children: [
+        {
+          title: 'Complexity',
+          path: ridePath + 'base-concepts/complexity',
+        },
+        {
+          title: 'Data Weight',
+          path: ridePath + 'limits/weight',
         },
       ],
     },
