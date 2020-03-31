@@ -8,6 +8,10 @@
 
 ### Ride
 
+#### Ограничения
+
+* [Вес данных](/ru/ride/limits/weight)
+
 #### Встроенные функции
 
 * [createMerkleRoot](/ru/ride/functions/built-in-functions/verification-functions#create-merkle-root)
