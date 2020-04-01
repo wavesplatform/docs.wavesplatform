@@ -1,4 +1,4 @@
-# ScriptResult
+# ScriptResult (доступно в Стандартной библиотеке версии 3)
 
 > :warning: Структура ScriptResult не входит в [Стандартную библиотеку](/ru/ride/script/standard-library) версии 4. Используйте List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry|ScriptTranfer|Issue|Reissue|Burn] вместо этой структуры.
 

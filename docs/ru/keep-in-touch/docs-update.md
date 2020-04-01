@@ -14,7 +14,7 @@
 
 #### Встроенные функции
 
-* [createMerkleRoot](/ru/ride/functions/built-in-functions/verification-functions#create-merkle-root)
+* [createMerkleRoot](/ru/ride/functions/built-in-functions/verification-functions#createmerkleroot)
 * [transferTransactionFromProto](/ru/ride/functions/built-in-functions/converting-functions#transfertransactionfromproto)
 
 Обновлено описание:

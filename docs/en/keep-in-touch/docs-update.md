@@ -14,7 +14,7 @@
 
 #### Built-in Functions
 
-* [createMerkleRoot](/en/ride/functions/built-in-functions/verification-functions#create-merkle-root)
+* [createMerkleRoot](/en/ride/functions/built-in-functions/verification-functions#createmerkleroot)
 * [transferTransactionFromProto](/en/ride/functions/built-in-functions/converting-functions#transfertransactionfromproto)
 
 Updated the the following descriptions:
