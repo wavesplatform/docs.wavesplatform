@@ -117,7 +117,7 @@ module.exports = {
           children: [
             {
               title: 'Cоздание псевдонима',
-              path: blockchainPath + 'binary-format/transaction-binary-format/alias-transaction-binary-format',
+              path: blockchainPath + 'binary-format/transaction-binary-format/create-alias-transaction-binary-format',
             },
             {
               title: 'Сжигание токена',
@@ -187,7 +187,7 @@ module.exports = {
           children: [
             {
                title: 'Создание псевдонима',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/alias-transaction-protobuf-scheme',
+               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/create-alias-transaction-protobuf-scheme',
             },
             {
                title: 'Сжигание токена',
@@ -282,6 +282,10 @@ module.exports = {
         {
           title: 'Временная метка блока',
           path: blockchainPath + 'block/block-timestamp',
+        },
+        {
+          title: 'Корневой хеш транзакций',
+          path: blockchainPath + 'block/merkle-root',
         },
         {
           title: 'Блок генезиса',
@@ -447,7 +451,7 @@ module.exports = {
       children: [
         {
           title: 'Транзакция создания псевдонима',
-          path: blockchainPath + 'transaction-type/alias-transaction',
+          path: blockchainPath + 'transaction-type/create-alias-transaction',
         },
         {
           title: 'Транзакция сжигания токена',
@@ -738,10 +742,6 @@ module.exports = {
       path: ridePath + 'base-concepts',
       children: [
         {
-          title: 'Сложность',
-          path: ridePath + 'base-concepts/complexity',
-        },
-        {
           title: 'Определение',
           path: ridePath + 'base-concepts/definition',
         },
@@ -884,6 +884,12 @@ module.exports = {
     {
       title: 'Операторы',
       path: ridePath + 'operators',
+      children: [
+        {
+          title: 'match-case',
+          path: ridePath + 'operators/match-case',
+        },
+      ]
     },
     {
       title: 'Скрипт',
@@ -930,6 +936,70 @@ module.exports = {
       path: ridePath + 'structures',
       children: [
         {
+          title: 'Действия скрипта',
+          path: ridePath + 'structures/script-actions',
+          children: [
+            {
+              title: 'BinaryEntry (v4)',
+              path: ridePath + 'structures/script-actions/binary-entry',
+            },
+            {
+              title: 'BooleanEntry (v4)',
+              path: ridePath + 'structures/script-actions/boolean-entry',
+            },
+            {
+              title: 'Burn (v4)',
+              path: ridePath + 'structures/script-actions/burn',
+            },
+            {
+              title: 'DataEntry (v3)',
+              path: ridePath + 'structures/script-actions/data-entry',
+            },
+            {
+              title: 'DeleteEntry (v4)',
+              path: ridePath + 'structures/script-actions/delete-entry',
+            },
+            {
+              title: 'IntegerEntry (v4)',
+              path: ridePath + 'structures/script-actions/int-entry',
+            },
+            {
+              title: 'Issue (v4)',
+              path: ridePath + 'structures/script-actions/issue',
+            },
+            {
+              title: 'Reissue (v4)',
+              path: ridePath + 'structures/script-actions/reissue',
+            },
+            {
+              title: 'ScriptTransfer (v3 and v4)',
+              path: ridePath + 'structures/script-actions/script-transfer',
+            },
+            {
+              title: 'StringEntry (v4)',
+              path: ridePath + 'structures/script-actions/string-entry',
+            },
+          ],
+        },
+        {
+          title: 'Результаты скрипта (v3)',
+          path: ridePath + 'structures/script-results',
+          children: [
+            {
+              title: 'ScriptResult',
+              path: ridePath + 'structures/script-results/script-result',
+            },
+            {
+              title: 'TransferSet',
+              path: ridePath + 'structures/script-results/transfer-set',
+            },
+            {
+              title: 'WriteSet',
+              path: ridePath + 'structures/script-results/write-set',
+            },
+          ],
+        },        
+        {
           title: 'Общие структуры',
           path: ridePath + 'structures/common-structures',
           children: [
@@ -954,72 +1024,20 @@ module.exports = {
               path: ridePath + 'structures/common-structures/attached-payment',
             },
             {
-              title: 'BinaryEntry',
-              path: ridePath + 'structures/common-structures/binary-entry',
-            },
-            {
               title: 'BlockInfo',
               path: ridePath + 'structures/common-structures/block-info',
-            },
-            {
-              title: 'BooleanEntry',
-              path: ridePath + 'structures/common-structures/boolean-entry',
-            },
-            {
-              title: 'Burn',
-              path: ridePath + 'structures/common-structures/burn',
-            },
-            {
-              title: 'DataEntry',
-              path: ridePath + 'structures/common-structures/data-entry',
-            },
-            {
-              title: 'DeleteKey',
-              path: ridePath + 'structures/common-structures/delete-key',
-            },
-            {
-              title: 'IntEntry',
-              path: ridePath + 'structures/common-structures/int-entry',
             },
             {
               title: 'Invocation',
               path: ridePath + 'structures/common-structures/invocation',
             },
             {
-              title: 'Issue',
-              path: ridePath + 'structures/common-structures/issue',
-            },
-            {
               title: 'Order',
               path: ridePath + 'structures/common-structures/order',
             },
             {
-              title: 'Reissue',
-              path: ridePath + 'structures/common-structures/reissue',
-            },
-            {
-              title: 'ScriptResult',
-              path: ridePath + 'structures/common-structures/script-result',
-            },
-            {
-              title: 'ScriptTransfer',
-              path: ridePath + 'structures/common-structures/script-transfer',
-            },
-            {
-              title: 'StringEntry',
-              path: ridePath + 'structures/common-structures/string-entry',
-            },
-            {
               title: 'Transfer',
               path: ridePath + 'structures/common-structures/transfer',
-            },
-            {
-              title: 'TransferSet',
-              path: ridePath + 'structures/common-structures/transfer-set',
-            },
-            {
-              title: 'WriteSet',
-              path: ridePath + 'structures/common-structures/write-set',
             },
           ],
         },
@@ -1042,10 +1060,6 @@ module.exports = {
             {
               title: 'ExchangeTransaction',
               path: ridePath + 'structures/transaction-structures/exchange-transaction',
-            },
-            {
-              title: '[en] FeeSponsoringTransaction',
-              path: ridePath + 'structures/transaction-structures/fee-sponsoring-transaction',
             },
             {
               title: 'GenesisTransaction',
@@ -1084,6 +1098,10 @@ module.exports = {
               path: ridePath + 'structures/transaction-structures/set-script-transaction',
             },
             {
+              title: '[en] SponsorFeeTransaction',
+              path: ridePath + 'structures/transaction-structures/sponsor-fee-transaction',
+            },
+            {
               title: 'TransferTransaction',
               path: ridePath + 'structures/transaction-structures/transfer-transaction',
             },
@@ -1106,6 +1124,20 @@ module.exports = {
       ],
     },
     {
+      title: 'Ограничения',
+      path: ridePath + 'limits',
+      children: [
+        {
+          title: 'Сложность',
+          path: ridePath + 'base-concepts/complexity',
+        },
+        {
+          title: 'Вес данных',
+          path: ridePath + 'limits/weight',
+        },
+      ],
+    },
+    {
       title: '[en] Script performance tests',
       path: ridePath + 'script-performance-tests',
     },
@@ -1113,8 +1145,34 @@ module.exports = {
 
   [buildingAppsPath]: [
     {
-      title: 'Руководство разработчика',
+      title: 'Приступая к работе',
       path: buildingAppsPath,
+    },
+    {
+      title: 'Практические руководства',
+      path: buildingAppsPath + 'how-to',
+      children: [
+        {
+          title: 'Получение данных из блокчейна',
+          path: buildingAppsPath + 'how-to/basic/retrieve',
+        },
+        {
+          title: 'Создание и отправка транзакций',
+          path: buildingAppsPath + 'how-to/basic/transaction',
+        },
+        {
+          title: 'Покупка и продажа токенов',
+          path: buildingAppsPath + 'how-to/basic/trading',
+        },
+        {
+          title: '[en] Create your first crypto trading Bot',
+          path: sdkPath + 'examples/trading-bot',
+        },
+        {
+          title: 'Простое голосование',
+          path: programmingPath + 'simple-voting-on-the-waves-blockchain',
+        }
+      ]
     },
     {
       title: '[en] Waves Smart Contracts',
@@ -1149,25 +1207,11 @@ module.exports = {
         {
           title: 'Написание dApp',
           path: programmingPath + 'writing-dapps',
-        },
-        {
-          title: 'Руководства',
-          path: sdkPath + 'examples',
-          children: [
-            {
-              title: 'Простое голосование на блокчейне Waves',
-              path: programmingPath + 'simple-voting-on-the-waves-blockchain',
-            },
-            {
-              title: '[en] Create your first crypto trading Bot',
-              path: sdkPath + 'examples/trading-bot',
-            },
-          ],
-        },
+        }
       ],
     },
     {
-      title: 'Статьи о dApps',
+      title: 'Статьи о смарт-контрактах',
       path: programmingPath + 'articles-on-dapps',
     },
     {
@@ -1327,6 +1371,10 @@ module.exports = {
     {
       title: 'Будьте в курсе',
       path: keepInTouchPath,
+    },
+    {
+      title: 'Release notes',
+      path: keepInTouchPath + 'release-notes',
     },
     {
       title: 'Обновления в документации',

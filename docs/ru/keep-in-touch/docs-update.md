@@ -1,5 +1,43 @@
 # Обновления в документации
 
+## Мартовские статьи
+
+### Блокчейн
+
+* [Корневой хеш транзакции](/ru/blockchain/block/merkle-root)
+
+### Ride
+
+#### Ограничения
+
+* [Вес данных](/ru/ride/limits/weight)
+
+#### Встроенные функции
+
+* [createMerkleRoot](/ru/ride/functions/built-in-functions/verification-functions#create-merkle-root)
+* [transferTransactionFromProto](/ru/ride/functions/built-in-functions/converting-functions#transfertransactionfromproto)
+
+Обновлено описание:
+* [функций хеширования](/ru/ride/functions/built-in-functions/hashing-functions) `blake2b256`, `keccak256`, `sha256`;
+* [функций верификации](/ru/ride/functions/built-in-functions/verification-functions) `groth16Verify`, `rsaVerify`, `sigVerify`.
+
+## Февральские статьи
+
+### Разработка приложений на блокчейне
+
+Добавлены практические руководства:
+
+* [Получение данных из блокчейна](/ru/building-apps/how-to/basic/retrieve)
+* [Создание транзакций и отправка в блокчейн](/ru/building-apps/how-to/basic/transaction)
+* [Покупка и продажа токенов на бирже](/ru/building-apps/how-to/basic/trading)
+
+### Ride
+
+#### Встроенные функции
+
+* [calculateAssetId](/ru/ride/functions/built-in-functions/blockchain-functions#calculate)
+* [groth16Verify](/ru/ride/functions/built-in-functions/verification-functions#groth16Verify)
+
 ## Январские статьи
 
 ### API & SDK
@@ -36,8 +74,8 @@
     * [BinaryEntry](/ru/ride/structures/common-structures/binary-entry)
     * [BooleanEntry](/ru/ride/structures/common-structures/boolean-entry)
     * [Burn](/ru/ride/structures/common-structures/burn)
-    * [DeleteKey](/ru/ride/structures/common-structures/delete-key)
-    * [IntEntry](/ru/ride/structures/common-structures/int-entry)
+    * [DeleteEntry](/ru/ride/structures/common-structures/delete-entry)
+    * [IntegerEntry](/ru/ride/structures/common-structures/int-entry)
     * [Issue](/ru/ride/structures/common-structures/issue)
     * [Reissue](/ru/ride/structures/common-structures/reissue)
     * [StringEntry](/ru/ride/structures/common-structures/string-entry)

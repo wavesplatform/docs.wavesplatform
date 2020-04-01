@@ -16,7 +16,7 @@
 | :--- | :--- | :--- |
 | 4 | [TransferTransaction](/ru/ride/structures/transaction-structures/transfer-transaction) | Структура [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) |
 | 7 | [ExchangeTransaction](/ru/ride/structures/transaction-structures/exchange-transaction) | Структура [транзакции обмена](/ru/blockchain/transaction-type/exchange-transaction) |
-| 10 | [CreateAliasTransaction](/ru/ride/structures/transaction-structures/create-alias-transaction) | Структура [транзакции создания псевдонима](/ru/blockchain/transaction-type/alias-transaction) |
+| 10 | [CreateAliasTransaction](/ru/ride/structures/transaction-structures/create-alias-transaction) | Структура [транзакции создания псевдонима](/ru/blockchain/transaction-type/create-alias-transaction) |
 | 11 | [MassTransferTransaction](/ru/ride/structures/transaction-structures/mass-transfer-transaction) | Структура [транзакции массового перевода](/ru/blockchain/transaction-type/mass-transfer-transaction) |
 | 12 | [DataTransaction](/ru/ride/structures/transaction-structures/data-transaction) | Структура [транзакции данных](/ru/blockchain/transaction-type/data-transaction) |
 | 13 | [SetScriptTransaction](/ru/ride/structures/transaction-structures/set-script-transaction) | Структура [транзакции установки скрипта](/ru/blockchain/transaction-type/set-script-transaction) |
@@ -28,7 +28,7 @@
 | :--- | :--- | :--- |
 | 8 |[LeaseTransaction](/ru/ride/structures/transaction-structures/lease-transaction) | Структура [транзакции лизинга](/ru/blockchain/transaction-type/lease-transaction) |
 | 9 | [LeaseCancelTransaction](/ru/ride/structures/transaction-structures/lease-cancel-transaction) | Структура [транзакции закрытия лизинга](/ru/blockchain/transaction-type/lease-cancel-transaction) |
-| 14 | [FeeSponsoringTransaction](/ru/ride/structures/transaction-structures/fee-sponsoring-transaction) | Структура транзакции спонсирования |
+| 14 | [SponsorFeeTransaction](/ru/ride/structures/transaction-structures/sponsor-fee-transaction) | Структура транзакции спонсирования |
 
 ## Генезис
 

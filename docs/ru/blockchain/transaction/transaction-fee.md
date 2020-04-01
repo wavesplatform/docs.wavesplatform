@@ -2,25 +2,58 @@
 
 **Комиссия за транзакцию** — комиссия, которую владелец [аккаунта](/ru/blockchain/account) платит за отправку [транзакции](/ru/blockchain/transaction).
 
-Отправитель может указать любой размер комиссии, но не меньше определенного минимального значения. Чем больше размер комиссии, тем быстрее транзакция попадет в новый [блок](/ru/blockchain/block).
+Отправитель может указать любую сумму комиссии, но не менеe минимальной. Чем больше сумма комиссии, тем быстрее транзакция попадет в новый [блок](/ru/blockchain/block).
 
-> Если [смарт-аккаунт](/ru/blockchain/account/smart-account) отправляет [смарт-ассет](/ru/blockchain/token/smart-asset), то комиссия удваивается.
-<br>Если транзакция валидируется [скриптом аккаунта](/ru/ride/script/script-types/account-script) или [скриптом ассета](/ru/ride/script/script-types/asset-script), то комиссия увеличивается на 0,004 WAVES
+Комиссию за транзакцию вызова скрипта и транзакцию перевода можно указать в спонсорском ассете, см ниже подраздел [Комиссия в спонсорском ассете](#комиссия-в-спонсорском-ассете).
 
+## Минимальная комиссия
 
-| Тип транзакции | ID типа транзакции | Минимальный размер комиссии в WAVES | Комментарии |
-| :--- | :--- | :--- | :--- |
-| [Транзакция вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 16 | 0,005 + `B`<br> + 0,004 × `C`<br> + 0,004 × `D` + `K` | Если транзакция вызова скрипта отправляется со [смарт-аккаунта](/ru/blockchain/account/smart-account), то `B` = 0,004, в ином случае `B` = 0.<br>К транзакции вызова скрипта может быть приложено до двух платежей. `C` представляет количество различающихся [смарт-ассетов](/ru/blockchain/token/smart-asset) в этих платежах.<br>Транзакция вызова скрипта может инициировать перевод, довыпуск или сжигание одного или нескольких ассетов. `D` представляет собой количество смарт-ассетов среди этих операций.<br>Транзакция вызова скрипта может инициировать выпуск ассета. `K` представляет собой количество выпущенных ассетов, не являющихся [не взаимозаменяемыми токенами](/ru/blockchain/token/non-fungible-token) |
-| [Транзакция выпуска](/ru/blockchain/transaction-type/issue-transaction) | 3 | 1 за обычный токен <br>0,001 за [не взаимозаменяемый токен](/ru/blockchain/token/non-fungible-token) | |
-| [Транзакция данных](/ru/blockchain/transaction-type/data-transaction) | 12 | 0,001 за килобайт | |
-| [Транзакция довыпуска](/ru/blockchain/transaction-type/reissue-transaction) | 5 | 1<br/>0,001 — начиная с версии ноды 1.2.0, после активации функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№ 16). См. [протокол активации](/ru/blockchain/waves-protocol/activation-protocol) | |
-| [Транзакция закрытия лизинга](/ru/blockchain/transaction-type/lease-cancel-transaction) | 9 | 0,001 | |
-| [Транзакция лизинга](/ru/blockchain/transaction-type/lease-transaction) | 8 | 0,001 | |
-| [Транзакция массовой отправки](/ru/blockchain/transaction-type/mass-transfer-transaction) | 11 | 0,001 + 0,0005 × `N` | `N` — количество переводов внутри транзакции |
-| [Транзакция обмена](/ru/blockchain/transaction-type/exchange-transaction) | 7 | 0,003 | |
-| [Транзакция перевода](/ru/blockchain/transaction-type/transfer-transaction) | 4 | 0,001 | |
-| [Транзакция сжигания токена](/ru/blockchain/transaction-type/burn-transaction) | 6 | 0,001 | |
-| [Транзакция создания псевдонима](/ru/blockchain/transaction-type/alias-transaction) | 10 | 0,001 | |
-| Транзакция спонсирования | 14 | 1 | |
-| [Транзакция установки скрипта](/ru/blockchain/transaction-type/set-script-transaction) | 13 | 0,01 | |
-| [Транзакция установки скрипта ассета](/ru/blockchain/transaction-type/set-asset-script-transaction) | 15 | 1 | | |
+Минимальная комиссия в WAVES для каждого типа транзакции представлена в таблице. Если транзакция верифицируется [скриптом аккаунта](/ru/ride/script/script-types/account-script) или [скриптом ассета](/ru/ride/script/script-types/asset-script), то минимальная комиссия увеличивается на 0,004 WAVES за каждое выполнение скрипта.
+
+**Пример 1.**
+
+Минимальная комиссия за транзакцию перевода:
+
+* Без смарт-аккаунта и смарт-ассета: 0,001 WAVES.
+* Перевод со смарт-аккаунта: 0,001 + 0,004 = 0,005 WAVES.
+* Перевод смарт-ассета: 0,001 + 0,004 = 0,005 WAVES.
+* Перевод смарт-ассета со смарт-аккаунта: 0,001 + 0,004 + 0,004 = 0,009 WAVES.
+
+**Пример 2.**
+
+Минимальная комиссия за транзакцию вызова скрипта:
+
+* Без смарт-аккаунта, без смарт-ассетов, без выпуска новых ассетов: 0,005 WAVES.
+* Вызов со смарт-аккаунта: 0,005 + 0,004 = 0,009 WAVES.
+* Вызов, к которому приложен платеж в смарт-ассете: 0,005 + 0,004 = 0,009 WAVES.
+* Вызов, к которому приложено два платежа в смарт-ассетах: 0,005 + 2 × 0,004 = 0,013 WAVES.
+* Вызов, в котором dApp-скрипт выполнил два перевода смарт-ассета и одно сжигание смарт-ассета: 0,005 + 3 × 0,004 = 0,017 WAVES.
+* Вызов со смарт-аккаунта, приложено два платежа в смарт-ассетах, скрипт суммарно выполнил 10 переводов/перевыпусков/сжиганий смарт-ассета: 0,005 + 0,004 + 2 × 0,004 + 10 × 0,004 = 0,057 WAVES.
+* Вызов, в котором dApp-скрипт выпустил новый ассет (не являющийся [NFT](/ru/blockchain/token/non-fungible-token)): 0,005 + 1 = 1,005 WAVES.
+* Вызов со смарт-аккаунта, приложено два платежа в смарт-ассетах, dApp-скрипт выпустил 10 ассетов (не являющихся [NFT](/ru/blockchain/token/non-fungible-token)): 0,005 + 0,004 + 2 × 0,004 + 10 × 1 = 10,017 WAVES.
+
+> Возможность выпуска/довыпуска/cжигания токена dApp-скриптом добавлена в версии ноды 1.2.0. Возможность включается с активацией на ноде функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№16). На данный момент версии 1.2.x доступны на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
+| Тип транзакции | ID типа транзакции | Минимальная комиссия в WAVES |
+| :--- | :--- | :--- |
+| [Транзакция вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 16 | 0,005 +`K`<br>`K` — количество обычных ассетов (не являющихся [NFT](/ru/blockchain/token/non-fungible-token)), выпущенных в результате вызова dApp-скрипта.<br>Возможность выпуска токена dApp-скриптом добавлена в версии ноды 1.2.0. Возможность включается с активацией на ноде функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№16). На данный момент версии 1.2.x доступны на [Stagenet](/ru/blockchain/blockchain-network/stage-network) |
+| [Транзакция выпуска](/ru/blockchain/transaction-type/issue-transaction) | 3 | • 1 за обычный токен <br>• 0,001 за [NFT](/ru/blockchain/token/non-fungible-token) |
+| [Транзакция данных](/ru/blockchain/transaction-type/data-transaction) | 12 | 0,001 за килобайт<br>Значение округляется вверх до тысячных |
+| [Транзакция довыпуска](/ru/blockchain/transaction-type/reissue-transaction) | 5 | • 0,001 — начиная с версии ноды 1.2.0, после активации функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№ 16). См. раздел [Протокол активации](/ru/blockchain/waves-protocol/activation-protocol).<br>• 1 — до активации функциональности № 16 |
+| [Транзакция закрытия лизинга](/ru/blockchain/transaction-type/lease-cancel-transaction) | 9 | 0,001 |
+| [Транзакция лизинга](/ru/blockchain/transaction-type/lease-transaction) | 8 | 0,001 |
+| [Транзакция массового перевода](/ru/blockchain/transaction-type/mass-transfer-transaction) | 11 | 0,001 + 0,0005 × `N`<br>`N` — количество переводов внутри транзакции.<br>Значение округляется вверх до тысячных |
+| [Транзакция обмена](/ru/blockchain/transaction-type/exchange-transaction) | 7 | 0,003 |
+| [Транзакция перевода](/ru/blockchain/transaction-type/transfer-transaction) | 4 | 0,001 |
+| [Транзакция сжигания токена](/ru/blockchain/transaction-type/burn-transaction) | 6 | 0,001 |
+| [Транзакция создания псевдонима](/ru/blockchain/transaction-type/create-alias-transaction) | 10 | 0,001 |
+| Транзакция спонсирования | 14 | 1 |
+| [Транзакция установки скрипта](/ru/blockchain/transaction-type/set-script-transaction) | 13 | 0,01 |
+| [Транзакция установки скрипта ассета](/ru/blockchain/transaction-type/set-asset-script-transaction) | 15 | 1 |
+| [Транзакция обновления информации ассета](/en/blockchain/transaction-type/update-asset-info-transaction) | 17 | 0.001<br>Транзакция обновления информации ассета добавлена в версии ноды 1.2.0. Возможность включается с активацией на ноде функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№16). На данный момент версии 1.2.x доступны на [Stagenet](/ru/blockchain/blockchain-network/stage-network) |
+
+## Комиссия в спонсорском ассете
+
+Эмитент ассета (аккаунт, выпустивший ассет) может сделать его спонсорским — разрешить любым пользователям платить в этом ассете комиссию за транзакции вызова скрипта и транзакции перевода.
+
+Для включения спонсирования эмитент отправляет транзакцию спонсирования, в которой указывает количество ассета, эквивалентное минимальной комиссии 0,001 WAVES. Например, в случае `minSponsoredAssetFee: 5` комиссия в этом ассете за транзакцию обмена составит 5 × 0,003 / 0,001 = 15. Подробнее см. раздел [Sponsor Fee Transactions](/en/blockchain/waves-protocol/sponsored-fee).

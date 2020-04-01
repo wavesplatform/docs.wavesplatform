@@ -4,8 +4,8 @@ A **transaction binary format** is a set of fields of a [transaction](/en/blockc
 
 Transactions of different [types](/en/blockchain/transaction-type) have different binary formats. Transactions of the same type, but of different [versions](/en/blockchain/transaction/transaction-version), also have different binary formats.
 
-* [Alias transaction binary format](/en/blockchain/binary-format/transaction-binary-format/alias-transaction-binary-format)
 * [Burn transaction binary format](/en/blockchain/binary-format/transaction-binary-format/burn-transaction-binary-format)
+* [Create alias transaction binary format](/en/blockchain/binary-format/transaction-binary-format/create-alias-transaction-binary-format)
 * [Data transaction binary format](/en/blockchain/binary-format/transaction-binary-format/data-transaction-binary-format)
 * [Exchange transaction binary format](/en/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format)
 * [Genesis transaction binary format](/en/blockchain/binary-format/transaction-binary-format/genesis-transaction-binary-format)
@@ -17,5 +17,5 @@ Transactions of different [types](/en/blockchain/transaction-type) have differen
 * [Reissue transaction binary format](/en/blockchain/binary-format/transaction-binary-format/reissue-transaction-binary-format)
 * [Set asset script transaction binary format](/en/blockchain/binary-format/transaction-binary-format/set-asset-script-transaction-binary-format)
 * [Set script transaction binary format](/en/blockchain/binary-format/transaction-binary-format/set-script-transaction-binary-format)
-* [Sponsor fee transaction binary format](/en/blockchain/binary-format/transaction-binary-format/sponsorship-transaction-binary-format)
+* [Sponsor fee transaction binary format](/en/blockchain/binary-format/transaction-binary-format/sponsor-fee-transaction-binary-format)
 * [Transfer transaction binary format](/en/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format)

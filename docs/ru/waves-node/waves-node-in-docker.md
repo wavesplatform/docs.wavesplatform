@@ -10,7 +10,7 @@
 
 ## Про образ
 
-* Docker образ содержит скрипты и файлы конфигурации для запуска ноды Waves начиная с версии **Version 0.13.0** для TESTNET, MAINNET или CUSTOM сетей.
+* Docker образ содержит скрипты и файлы конфигурации для запуска ноды Waves начиная с версии **Version 0.13.0** для TESTNET, MAINNET или STAGENET сетей.
 * Образ предназначен для быстрого и удобного разворачивания ноды Waves.
 * Контейнер скачивает файл .jar вместе с файлами конфигурации из секции [releases section](https://github.com/wavesplatform/Waves/releases) и осуществляет запуск.
 
@@ -44,7 +44,7 @@ docker run -p 6869:6869 -p 6863:6863 -e WAVES_NETWORK=TESTNET -e WAVES_LOG_LEVEL
 |`WAVES_WALLET_SEED_BASE58`        |Кодовая фраза, зашифрованная в Base58.   |
 |`WAVES_WALLET_PASSWORD`           |Пароль для файла кошелька.    |
 |`WAVES_VERSION`                   |Версия ноды. Значение по умолчанию latest. Список доступных версий [тут](https://github.com/wavesplatform/Waves/releases).|
-|`WAVES_NETWORK`                   |Тип ноды. `MAINNET` или `TESTNET`.   |
+|`WAVES_NETWORK`                   |Тип ноды. `MAINNET`, `TESTNET` или `STAGENET`   |
 |`WAVES_LOG_LEVEL`                 |Режим логирования ноды: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`. Подробно про режимы логирования [тут](/ru/waves-node/logging-configuration).   |
 |`WAVES_HEAP_SIZE`                 |Java Heap Size лимит в -X Command-line Options notation (`-Xms=[your value]`). Подробно [тут](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html)   |
 |`WAVES_CONFIG_FILE`               |Адрес файла конфигурации Waves.   |

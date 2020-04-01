@@ -1,5 +1,43 @@
 # Documentation updates
 
+## March articles
+
+### Blockchain
+
+* [Transactions Root](/en/blockchain/block/merkle-root)
+
+### Ride
+
+#### Limitations
+
+* [Data Weight](/en/ride/limits/weight)
+
+#### Built-in Functions
+
+* [createMerkleRoot](/en/ride/functions/built-in-functions/verification-functions#create-merkle-root)
+* [transferTransactionFromProto](/en/ride/functions/built-in-functions/converting-functions#transfertransactionfromproto)
+
+Updated the the following descriptions:
+* [hashing functions](/en/ride/functions/built-in-functions/hashing-functions): `blake2b256`, `keccak256`, `sha256`;
+* [verification functions](/ru/ride/functions/built-in-functions/verification-functions): `groth16Verify`, `rsaVerify`, `sigVerify`.
+
+## February articles
+
+### Building Apps
+
+Added how-to guides:
+
+* [Retrieving information from the blockchain](/en/building-apps/how-to/basic/retrieve)
+* [Creating and broadcasting transactions to the blockchain](/en/building-apps/how-to/basic/transaction)
+* [Buying and selling assets on exchange](/en/building-apps/how-to/basic/trading)
+
+### Ride
+
+#### Built-in Functions
+
+* [calculateAssetId](/en/ride/functions/built-in-functions/blockchain-functions#calculate)
+* [groth16Verify](/en/ride/functions/built-in-functions/verification-functions#groth16Verify)
+
 ## December articles
 
 ### Blockchain network
@@ -27,8 +65,8 @@
     * [BinaryEntry](/en/ride/structures/common-structures/binary-entry)
     * [BooleanEntry](/en/ride/structures/common-structures/boolean-entry)
     * [Burn](/en/ride/structures/common-structures/burn)
-    * [DeleteKey](/en/ride/structures/common-structures/delete-key)
-    * [IntEntry](/en/ride/structures/common-structures/int-entry)
+    * [DeleteEntry](/en/ride/structures/common-structures/delete-entry)
+    * [IntegerEntry](/en/ride/structures/common-structures/int-entry)
     * [Issue](/en/ride/structures/common-structures/issue)
     * [Reissue](/en/ride/structures/common-structures/reissue)
     * [StringEntry](/en/ride/structures/common-structures/string-entry)
@@ -65,7 +103,7 @@
 
 ### Oracles
 
-* [Data transaction tool](/en/waves-oracles/data-transaction-tool)
+* [Data transaction tool](/en/ecosystem/waves-oracles/data-transaction-tool)
 
 ### Ride
 

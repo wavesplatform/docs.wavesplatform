@@ -16,7 +16,7 @@
 | :--- | :--- | :--- |
 | 4 | [TransferTransaction](/en/ride/structures/transaction-structures/transfer-transaction) | Structure of [transfer transaction](/en/blockchain/transaction-type/transfer-transaction) |
 | 7 | [ExchangeTransaction](/en/ride/structures/transaction-structures/exchange-transaction) | Structure of [exchange transaction](/en/blockchain/transaction-type/exchange-transaction) |
-| 10 | [CreateAliasTransaction](/en/ride/structures/transaction-structures/create-alias-transaction) | Structure of [alias transaction](/en/blockchain/transaction-type/alias-transaction) |
+| 10 | [CreateAliasTransaction](/en/ride/structures/transaction-structures/create-alias-transaction) | Structure of [create alias transaction](/en/blockchain/transaction-type/create-alias-transaction) |
 | 11 | [MassTransferTransaction](/en/ride/structures/transaction-structures/mass-transfer-transaction) | Structure of [mass transfer transaction](/en/blockchain/transaction-type/mass-transfer-transaction) |
 | 12 | [DataTransaction](/en/ride/structures/transaction-structures/data-transaction) | Structure of [data transaction](/en/blockchain/transaction-type/data-transaction) |
 | 13 | [SetScriptTransaction](/en/ride/structures/transaction-structures/set-script-transaction) | Structure of [set script transaction](/en/blockchain/transaction-type/set-script-transaction) |
@@ -26,9 +26,9 @@
 
 | Transaction type ID | Name | Description |
 | :--- | :--- | :--- |
-| 8 |[LeaseTransaction](/en/ride/structures/transaction-structures/lease-transaction) | Structure of [lease transaction](/en/blockchain/transaction-type/lease-transaction) |
+| 8 | [LeaseTransaction](/en/ride/structures/transaction-structures/lease-transaction) | Structure of [lease transaction](/en/blockchain/transaction-type/lease-transaction) |
 | 9 | [LeaseCancelTransaction](/en/ride/structures/transaction-structures/lease-cancel-transaction) | Structure of [lease cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction) |
-| 14 | [FeeSponsoringTransaction](/en/ride/structures/transaction-structures/fee-sponsoring-transaction) | Structure of fee sponsoring transaction |
+| 14 | [SponsorFeeTransaction](/en/ride/structures/transaction-structures/sponsor-fee-transaction) | Structure of fee sponsoring transaction |
 
 ## Genesis
 

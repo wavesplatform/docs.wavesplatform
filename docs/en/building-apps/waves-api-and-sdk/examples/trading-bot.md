@@ -1,6 +1,7 @@
-# Create your first crypto trading bot
+# How to Create Your First Crypto Trading Bot
 
 ## Introduction
+
 Waves platform is designed and built from the ground up for speed and scale. At the same time Waves is one of the most developer-friendly ecosystems. Waves blockchain exposes its functionality through a powerful REST API, that can be used with any programming language.
 
 This text guides you through the basics of Waves Node Rest API. In this example, we will use python wrapper for the API — [PyWaves](https://github.com/PyWaves/PyWaves) library, but there are other options for [different programming languages as well](/en/building-apps/waves-api-and-sdk/client-libraries), e.g. [WavesCS for C#](https://github.com/wavesplatform/WavesCS), [WavesJ for Java](https://github.com/wavesplatform/WavesJ) etc.
@@ -13,9 +14,10 @@ Waves Platform is a little bit complex and consists of a lot of components:
 Waves Full Node performs almost like all other decentralized-cryptocurrencies: keeps a full-copy of the blockchain, verifies the transactions. The main differences are convenient REST API and Matcher.
 
 Note: Matcher is disabled in default configuration file.
-Node REST API allows working with Waves Blockchain like with many other centralized platforms, e.g. Google, Facebook etc. In official Waves platform’s Github repository, you can find RPC API documentation and description of used data structures. If you prefer API docs in Postman interface you can follow the link
+Node REST API allows working with Waves Blockchain like with many other centralized platforms, e.g. Google, Facebook etc. In official Waves platform’s Github repository, you can find RPC API documentation and description of used data structures. If you prefer API docs in Postman interface you can follow this [link](https://nodes.wavesnodes.com/api-docs/swagger.json).
 
 ## Terms
+
 **Node** — Full Node, it contains full-copy of the blockchain.
 
 **Matcher** — an exchange engine that executes incoming orders, creates Exchange Transactions, and puts them into blockchain to fix changes in balances of users. When a user sends an order to Matcher he doesn’t transfer ownership of his money to anyone, his money remains on his account until the order is matched with counter-order. For more details, read [Waves.Exchange Protocol](https://docs.waves.exchange/en/waves-exchange/waves-exchange-protocol) and [Matcher API](https://docs.waves.exchange/en/waves-matcher/matcher-api) sections in Waves.Exchange documentation.
@@ -23,6 +25,7 @@ Node REST API allows working with Waves Blockchain like with many other centrali
 **AssetPair** — Pair of assets we want to exchange.
 
 ## Trading strategy
+
 [Scalping trading strategy](https://www.investopedia.com/articles/trading/05/scalping.asp) widely used in trading, and crypto community is not an exception. There are a lot of variations of the strategy, the main difference between them is in size of timeframe. The strategy exploits small changes in currency prices: it buys at the mean price minus some [price step](https://www.asx.com.au/services/trading-services/price.htm) and sells at the mean price plus some step, in order to gain the bid/ask difference. It normally involves establishing and liquidating a position quickly, in this case within 15 seconds. The bid and ask are the best potential prices that buyers and sellers are willing to transact at the bid for the buying side, and the ask for the selling side.
 
 It's not suggested to use scalping strategy. The scalping strategy was chosen because of its simplicity to implement it in a bot.
@@ -51,7 +54,7 @@ node = http://127.0.0.1
 # select the network: testnet or mainnet
 network = mainnet
 # matcher
-matcher = http://nodes.wavesnodes.com
+matcher = https://matcher.waves.exchange
 order_fee = 300000
 # order lifetime in seconds, max allowed 29 days
 order_lifetime = 86400
@@ -63,6 +66,7 @@ private_key = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 amount_asset = WAVES
 price_asset = XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
+
 First of all, we should import all dependencies. Besides already mentioned pywaves and configparser we need next:
 
 ```python
@@ -70,6 +74,7 @@ import pywaves as pw
 import datetime from time
 import sleep import math import os import configparser
 ```
+
 Great, now we will define SimpleBot class as a wrapper of settings. We can set default settings in the constructor:
 
 ```python
@@ -77,7 +82,7 @@ def __init__(self):
   self.log_file = "bot.log"
   self.node = "https://nodes.wavesnodes.com"
   self.chain = "mainnet"
-  self.matcher = "https://nodes.wavesnodes.com"
+  self.matcher = "https://matcher.waves.exchange"
   self.order_fee = int(0.003 * 10 ** 8)
   self.order_lifetime = 29 * 86400  # 29 days
   self.private_key = ""
@@ -97,6 +102,7 @@ self.node = config.get('main', 'node')
 self.chain = config.get('main', 'network')
 ...
 ```
+
 Using our new class SimpleBot and Pywaves library we finally can implement our business logic.
 
 Pywaves requires some configuration before usage, all available methods are listed here, in our case, it’s enough to set:
@@ -105,16 +111,19 @@ Pywaves requires some configuration before usage, all available methods are list
 pw.setNode(node=bot.node, chain=bot.chain)
 pw.setMatcher(node=bot.matcher)
 ```
+
 We also need and an instance of our address:
 
 ```python
 my_address = pw.Address(privateKey=bot.private_key)
 ```
+
 Pywaves method AssetPair creates a new AssetPair object with 2 asset objects, which we’d like to trade:
 
 ```python
 waves_btc = pw.AssetPair(bot.amount_asset, bot.price_asset)
 ```
+
 In our simple example, amount asset is WAVES, price asset is BTC, but it can be changed in the config file.
 
 Scalping trading strategy implies infinite trading with selected timeframe size, in our case 15 sec. Let’s define an infinite loop, where we’ll :

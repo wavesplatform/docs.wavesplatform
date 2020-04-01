@@ -1,6 +1,6 @@
 # CreateAliasTransaction
 
-Структура [транзакции создания псевдонима](/ru/blockchain/transaction-type/alias-transaction).
+Структура [транзакции создания псевдонима](/ru/blockchain/transaction-type/create-alias-transaction).
 
 ## Конструктор
 

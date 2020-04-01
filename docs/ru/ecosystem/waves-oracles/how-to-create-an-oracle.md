@@ -54,7 +54,7 @@ dataParams.push({ key: 'waves_btc_8', value: lastPrice * Math.pow(10, 8) });
 const signerDataTX = DataTX(params,'YOU ORACLE SEED HERE');
 ```
 
-Отправим подписанную транзакцию данных в блокчейн, Для [тестовой сети](/ru/blockchain/blockchain-network/test-network) — [pool.testnet.wavesnodes.com](https://pool.testnet.wavesnodes.com/api-docs/index.html), для [основной сети](/ru/blockchain/blockchain-network/main-network) — [https://nodes.wavesnodes.com](https://nodes.wavesnodes.com/api-docs/index.html).
+Отправим подписанную транзакцию данных в блокчейн, Для [тестовой сети](/ru/blockchain/blockchain-network/test-network) — [nodes-testnet.wavesnodes.com](https://nodes-testnet.wavesnodes.com/api-docs/index.html), для [основной сети](/ru/blockchain/blockchain-network/main-network) — [https://nodes.wavesnodes.com](https://nodes.wavesnodes.com/api-docs/index.html).
 
 ``` typescript
 const result = await broadcast(signerDataTX, 'https://nodes.wavesnodes.com');
@@ -133,7 +133,7 @@ export class WavesPrice {
 
 ## Запуск оракула
 
-Установите Node.js, если он ещё не установлен: [https://nodejs.org/en](https://nodejs.org/en).
+Установите Node.js, если он ещё не установлен: [https://nodejs.org/en/](https://nodejs.org/en/).
 
 Установим зависимости проекта:
 

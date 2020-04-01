@@ -39,6 +39,6 @@
 Удаление записей хранилища данных аккаунта выполняется при помощи
 
 - [транзакции данных](/ru/blockchain/transaction-type/data-transaction),
-- структуры [DeleteKey](/ru/ride/structures/common-structures/delete-key).
+- структуры [DeleteEntry](/ru/ride/structures/common-structures/delete-entry).
 
 Удаление записи выполняется по ключу.

@@ -1,6 +1,6 @@
 # Protobuf-схема транзакции
 
-* [Protobuf-схема транзакции создания псевдонима](/en/blockchain/binary-format/transaction-protobuf-scheme/alias-transaction-protobuf-scheme)
+* [Protobuf-схема транзакции создания псевдонима](/en/blockchain/binary-format/transaction-protobuf-scheme/create-alias-transaction-protobuf-scheme)
 * [Protobuf-схема транзакции сжигания токена](/en/blockchain/binary-format/transaction-protobuf-scheme/burn-transaction-protobuf-scheme)
 * [Protobuf-схема транзакции данных](/en/blockchain/binary-format/transaction-protobuf-scheme/data-transaction-protobuf-scheme)
 * [Protobuf-схема транзакции обмена](/en/blockchain/binary-format/transaction-protobuf-scheme/exchange-transaction-protobuf-scheme)

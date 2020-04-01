@@ -134,6 +134,34 @@ module.exports = [
     from: '/en/blockchain/transaction-type-data-structure.html',
   },
   {
+    from: '/en/blockchain/binary-format/transaction-binary-format/alias-transaction-binary-format',
+    to: '/en/blockchain/binary-format/transaction-binary-format/create-alias-transaction-binary-format',
+  },
+  {
+    from: '/ru/blockchain/binary-format/transaction-binary-format/alias-transaction-binary-format',
+    to: '/ru/blockchain/binary-format/transaction-binary-format/create-alias-transaction-binary-format',
+  },
+  {
+    from: '/en/blockchain/binary-format/transaction-binary-format/sponsorship-transaction-binary-format',
+    to: '/en/blockchain/binary-format/transaction-binary-format/sponsor-fee-transaction-binary-format',
+  },
+  {
+    from: '/en/blockchain/binary-format/transaction-protobuf-scheme/alias-transaction-protobuf-scheme',
+    to: '/en/blockchain/binary-format/transaction-protobuf-scheme/create-alias-transaction-protobuf-scheme',
+  },
+  {
+    from: '/ru/blockchain/binary-format/transaction-protobuf-scheme/alias-transaction-protobuf-scheme',
+    to: '/ru/blockchain/binary-format/transaction-protobuf-scheme/create-alias-transaction-protobuf-scheme',
+  },
+  {
+    from: '/en/blockchain/transaction-type/alias-transaction',
+    to: '/en/blockchain/transaction-type/create-alias-transaction',
+  },
+  {
+    from: '/ru/blockchain/transaction-type/alias-transaction',
+    to: '/ru/blockchain/transaction-type/create-alias-transaction',
+  },
+  {
     to: '/en/blockchain/leasing',
     from: '/en/waves-environment/waves-protocol/leased-proof-of-stake-lpos.html',
   },
@@ -262,6 +290,126 @@ module.exports = [
   {
     to: '/en/ride/structures',
     from: '/en/ride/structures/built-in-structures.html',
+  },
+  {
+    to: '/en/ride/structures/script-actions/delete-entry',
+    from: '/en/ride/structures/common-structures/delete-key',
+  },
+  {
+    to: '/ru/ride/structures/script-actions/delete-entry',
+    from: '/ru/ride/structures/common-structures/delete-key',
+  },
+  {
+    to: '/en/ride/structures/script-actions/binary-entry',
+    from: '/en/ride/structures/common-structures/binary-entry',
+  },
+  {
+    to: '/en/ride/structures/script-actions/boolean-entry',
+    from: '/en/ride/structures/common-structures/boolean-entry',
+  },
+  {
+    to: '/en/ride/structures/script-actions/burn',
+    from: '/en/ride/structures/common-structures/burn',
+  },
+  {
+    to: '/en/ride/structures/script-actions/data-entry',
+    from: '/en/ride/structures/common-structures/data-entry',
+  },
+  {
+    to: '/en/ride/structures/script-actions/delete-entry',
+    from: '/en/ride/structures/common-structures/delete-entry',
+  },
+  {
+    to: '/en/ride/structures/script-actions/int-entry',
+    from: '/en/ride/structures/common-structures/int-entry',
+  },
+  {
+    to: '/en/ride/structures/script-actions/issue',
+    from: '/en/ride/structures/common-structures/issue',
+  },
+  {
+    to: '/en/ride/structures/script-actions/reissue',
+    from: '/en/ride/structures/common-structures/reissue',
+  },
+  {
+    to: '/en/ride/structures/script-actions/script-transfer',
+    from: '/en/ride/structures/common-structures/script-transfer',
+  },
+  {
+    to: '/en/ride/structures/script-actions/string-entry',
+    from: '/en/ride/structures/common-structures/string-entry',
+  },
+  {
+    to: '/en/ride/structures/script-results/script-result',
+    from: '/en/ride/structures/common-structures/script-result',
+  },
+  {
+    to: '/en/ride/structures/script-results/transfer-set',
+    from: '/en/ride/structures/common-structures/transfer-set',
+  },
+  {
+    to: '/en/ride/structures/script-results/write-set',
+    from: '/en/ride/structures/common-structures/write-set',
+  },
+  {
+    to: '/ru/ride/structures/script-actions/binary-entry',
+    from: '/ru/ride/structures/common-structures/binary-entry',
+  },
+  {
+    to: '/ru/ride/structures/script-actions/boolean-entry',
+    from: '/ru/ride/structures/common-structures/boolean-entry',
+  },
+  {
+    to: '/ru/ride/structures/script-actions/burn',
+    from: '/ru/ride/structures/common-structures/burn',
+  },
+  {
+    to: '/ru/ride/structures/script-actions/data-entry',
+    from: '/ru/ride/structures/common-structures/data-entry',
+  },
+  {
+    to: '/ru/ride/structures/script-actions/delete-entry',
+    from: '/ru/ride/structures/common-structures/delete-entry',
+  },
+  {
+    to: '/ru/ride/structures/script-actions/int-entry',
+    from: '/ru/ride/structures/common-structures/int-entry',
+  },
+  {
+    to: '/ru/ride/structures/script-actions/issue',
+    from: '/ru/ride/structures/common-structures/issue',
+  },
+  {
+    to: '/ru/ride/structures/script-actions/reissue',
+    from: '/ru/ride/structures/common-structures/reissue',
+  },
+  {
+    to: '/ru/ride/structures/script-actions/script-transfer',
+    from: '/ru/ride/structures/common-structures/script-transfer',
+  },
+  {
+    to: '/ru/ride/structures/script-actions/string-entry',
+    from: '/ru/ride/structures/common-structures/string-entry',
+  },
+  {
+    to: '/ru/ride/structures/script-results/script-result',
+    from: '/ru/ride/structures/common-structures/script-result',
+  },
+  {
+    to: '/ru/ride/structures/script-results/transfer-set',
+    from: '/ru/ride/structures/common-structures/transfer-set',
+  },
+  {
+    to: '/ru/ride/structures/script-results/write-set',
+    from: '/ru/ride/structures/common-structures/write-set',
+  },  
+  {
+    from: '/en/ride/structures/transaction-structures/fee-sponsoring-transaction',
+    to: '/en/ride/structures/transaction-structures/sponsor-fee-transaction',
+  },
+  {
+    from: '/ru/ride/structures/transaction-structures/fee-sponsoring-transaction',
+    to: '/ru/ride/structures/transaction-structures/sponsor-fee-transaction',
   },
   {
     to: '/ru/ride/base-concepts/expression',
@@ -410,11 +558,11 @@ module.exports = [
   },
   {
     /*===============================  Node  =====================================*/
-    to: '/en/waves-node/what-is-a-full-node',
+    to: '/en/waves-node',
     from: '/en/waves-full-node/what-is-a-full-node.html',
   },
   {
-    to: '/en/waves-node/what-is-a-full-node',
+    to: '/en/waves-node',
     from: '/en/waves-environment/waves-node/what-is-a-full-node.html',
   },
   {
@@ -450,7 +598,7 @@ module.exports = [
     from: '/en/waves-full-node/options-for-getting-actual-blockchain/state-downloading-and-applying.html',
   },
   {
-    to: '/en/waves-node/joining-testnet',
+    to: '/en/blockchain/blockchain-network/test-network',
     from: '/en/waves-full-node/joining-testnet.html',
   },
   {
@@ -514,6 +662,14 @@ module.exports = [
   {
     to:'https://docs.waves.exchange/en/waves-exchange/waves-exchange-client-api/waves-exchange-web-auth-api',
     from: '/en/development-and-api/client-api/auth-api.html',
+  },
+  {
+    from: '/en/building-apps/waves-api-and-sdk/examples',
+    to: '/en/building-apps/how-to',
+  },
+  {
+    from: '/ru/building-apps/waves-api-and-sdk/examples',
+    to: '/ru/building-apps/how-to',
   },
   {
     to: '/en/building-apps/waves-api-and-sdk/examples/trading-bot',
@@ -599,7 +755,7 @@ module.exports = [
   },
   {
     from: '/en/waves-node/prerequisites/hardware-requirements.html',
-    to: '/en/waves-node',
+    to: '/en/waves-node/how-to-install-a-node',
   },
   {
     from: '/ru/waves-node/prerequisites.html',
@@ -662,8 +818,16 @@ module.exports = [
     to: '/en/building-apps/waves-api-and-sdk/client-libraries$1',
   },
   {
-    from: '/en/waves-api-and-sdk/examples()',
-    to: '/en/building-apps/waves-api-and-sdk/examples$1',
+    from: '/en/waves-api-and-sdk/examples',
+    to: '/en/building-apps/how-to',
+  },
+  {
+    from: '/ru/waves-api-and-sdk/examples',
+    to: '/ru/building-apps/how-to',
+  },
+  {
+    from: '/en/waves-api-and-sdk/examples/trading-bot',
+    to: '/en/building-apps/waves-api-and-sdk/examples/trading-bot',
   },
   {
     from: '/ru/waves-api-and-sdk()',
@@ -728,6 +892,30 @@ module.exports = [
   {
     from: '/ru/platform-features/leased-proof-of-stake-lpos.html',
     to: '/ru/blockchain/leasing',
+  },
+  { 
+    from: '/en/blockchain/waves-protocol/activation-protocol',
+	to: '/en/waves-node/activation-protocol',
+  },
+  { 
+    from: '/en/waves-node/extensions/grpc-server/grpc-server-installation',
+    to: '/en/waves-node/extensions/grpc-server/',
+  },
+  { 
+    from: '/en/waves-node/features/features',
+    to: '/en/waves-node/features/',
+  },
+  { 
+    from: '/en/waves-node/features/feature',
+    to: '/en/waves-node/features/',
+  },
+  { 
+    from: '/en/waves-node/features/feature-activation-protocol',
+    to: '/en/waves-node/activation-protocol',
+  },
+  { 
+    from: '/en/waves-node/node-configuration-file',
+    to: '/en/waves-node/node-configuration',
   },
   {
     /*===============================  Oracles  =====================================*/

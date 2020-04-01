@@ -14,16 +14,11 @@ module.exports = {
         message: 'The content of this page is currently unavailable.<br>Sorry for the inconvenience!',
     },
 
-    nav: [
-        // {
-        //     text: 'Home',
-        //     link: '/en/'
-        // },
-        // {
-        //     text: 'Blockchain',
-        //     link: '/en/blockchain/'
-        // },
-    ],
+    notFoundPage: {
+        title: 'Something’s missing',
+        description: 'The page you are looking for is not found',
+    },
+
     homePage: {
         technologyList: {
             learnAboutWavesPlatform: {
@@ -65,6 +60,14 @@ module.exports = {
                     dapp: {
                         text: 'dApps',
                         link: '/en/building-apps/smart-contracts/what-is-a-dapp'
+                    },
+                    howTo: {
+                        text: 'How-to guides',
+                        link: '/en/building-apps/how-to'
+                    },
+                    signer: {
+                        text: 'Signer library',
+                        link: '/en/building-apps/waves-api-and-sdk/client-libraries/signer'
                     }
                 }
             },
@@ -138,7 +141,11 @@ module.exports = {
                     chat: {
                         text: 'Developer chat',
                         link: 'https://t.me/waves_ride_dapps_dev'
-                    }
+                    },
+                    release_notes: {
+                        text: 'Release notes',
+                        link: '/en/keep-in-touch/release-notes'
+                    },                    
                 },
             }
         },

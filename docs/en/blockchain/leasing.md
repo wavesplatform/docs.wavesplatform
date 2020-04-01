@@ -1,6 +1,6 @@
-# Leasing Proof of Stake
+# Leased Proof of Stake
 
-**Leasing Proof of Stake (LPoS)** is an enhanced type of proof of stake [consensus algorithm](https://en.wikipedia.org/wiki/Consensus_%28computer_science%29) by which the Waves blockchain network aims to achieve the distributed consensus to secure the network.
+**Leased Proof of Stake (LPoS)** is an enhanced type of proof of stake [consensus algorithm](https://en.wikipedia.org/wiki/Consensus_%28computer_science%29) by which the Waves blockchain network aims to achieve the distributed consensus to secure the network.
 
 ## Leasing benefits for the node owner
 
