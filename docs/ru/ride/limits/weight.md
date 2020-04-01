@@ -40,7 +40,7 @@ W<sub>struct</sub> = 40 + 30 × Q + W<sub>fields</sub>
 
 Рассмотрим структуру [AssetPair](https://docs.wavesplatform.com/ru/ride/structures/common-structures/asset-pair):
 
-```ride
+```
 AssetPair(amountAsset: ByteVector|Unit, priceAsset: ByteVector|Unit)
 ```
 
