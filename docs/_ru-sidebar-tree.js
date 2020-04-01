@@ -585,7 +585,7 @@ module.exports = {
         {
           title: 'Экспорт/Импорт блокчейна',
           path: nodePath + 'options-for-getting-actual-blockchain/import-from-the-blockchain',
-        },	  
+        },
         {
           title: 'Загрузка готовой актуальной базы данных',
           path: nodePath + 'options-for-getting-actual-blockchain/state-downloading-and-applying',

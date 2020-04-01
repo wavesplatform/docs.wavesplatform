@@ -585,7 +585,7 @@ module.exports = {
         {
           title: 'Export/Import Blockchain',
           path: nodePath + 'options-for-getting-actual-blockchain/import-from-the-blockchain',
-        },	  
+        },
         {
           title: 'Download the Latest Blockchain',
           path: nodePath + 'options-for-getting-actual-blockchain/state-downloading-and-applying',
