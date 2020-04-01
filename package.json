@@ -3,7 +3,7 @@
     "scripts": {
         "dev": "NODE_OPTIONS=\"--max-old-space-size=4096\" vuepress dev docs",
         "dev:dev": "NODE_OPTIONS=\"--max-old-space-size=4096\" isDev=true corePath=$PWD/../core.docs.wavesplatform port=3084 yarn dev",
-        "build": "NODE_OPTIONS=\"--max-old-space-size=4096\" yarn upgrade core.docs.wavesplatform && vuepress build docs",
+        "build": "yarn upgrade core.docs.wavesplatform && NODE_OPTIONS=\"--max-old-space-size=4096\" vuepress build docs",
         "build:dev": "NODE_OPTIONS=\"--max-old-space-size=4096\" corePath=$PWD/../core.docs.wavesplatform vuepress build docs",
         "server": "node docs/.vuepress/runServer",
         "server:dev": "corePath=$PWD/../core.docs.wavesplatform yarn server",
