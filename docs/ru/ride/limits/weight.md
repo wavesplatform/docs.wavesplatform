@@ -29,12 +29,28 @@ W<sub>list</sub> = 20 + 20 × Q + W<sub>elems</sub>
 
 Вес структуры рассчитывается по формуле:
 
-W<sub>struct</sub> = 40 + 30 × Q + W<sub>fields</sub>,
+W<sub>struct</sub> = 40 + 30 × Q + W<sub>fields</sub>
 
 где:
 
 * Q — количество полей.
 * W<sub>fields</sub> — суммарный вес полей.
+
+### Пример расчета
+
+Рассмотрим структуру [AssetPair](https://docs.wavesplatform.com/ru/ride/structures/common-structures/asset-pair):
+
+```ride
+AssetPair(amountAsset: ByteVector|Unit, priceAsset: ByteVector|Unit)
+```
+
+Идентификатор ассета — `ByteVector` длиной 32 байта, его вес равен 32. Если оба ассета в паре — не WAVES, то вес структуры `AssetPair` составляет:
+
+W<sub>AssetPair</sub> = 40 + 30 × 2 + (32 + 32) = 164
+
+Если один из ассетов — WAVES, то соответствующее поле имеет тип `Unit` и вес 40. Тогда вес структуры  `AssetPair` составляет:
+
+W<sub>AssetPair</sub> = 40 + 30 × 2 + (32 + 40) = 172
 
 ## Ограничения
 
