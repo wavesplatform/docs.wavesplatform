@@ -8,12 +8,14 @@
 При использовании данного метода, попутно автоматически загружаются сопутствующие файлы (а именно OpenJDK 8).
 
 Чтобы установить новейшую версию ноды mainnet через APT репозиторий, выполните следующие команды:
+
 ```
 curl -sL http://apt.wavesplatform.com/apt-key.gpg | sudo apt-key add -
 sudo add-apt-repository "deb https://apt.wavesplatform.com/ xenial mainnet"
 sudo apt update
 sudo apt install waves
 ```
+
 **Note:** Установочные пакеты Waves совместимы с версиями Linux Debian 8.0+, Ubuntu 16.04+ и их ответвлениями.
 
 При выпуске новой версии ноды Waves, можно обновить установленную ноду, выполнив следующие команды:
