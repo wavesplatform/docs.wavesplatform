@@ -1,9 +1,9 @@
 {
     "description": "Wavesplatform documentation",
     "scripts": {
-        "dev": "node --max-old-space-size=8096 node_modules/.bin/vuepress dev docs || node --max-old-space-size=8096 node_modules/.bin/vuepress.cmd dev docs",
+        "dev": "node --max-old-space-size=8096 node_modules/.bin/vuepress dev docs || node --max-old-space-size=8096 node_modules\\.bin\\vuepress dev docs",
         "dev:dev": "isDev=true corePath=$PWD/../core.docs.wavesplatform port=3084 node --max-old-space-size=8096 node_modules/.bin/vuepress dev docs",
-        "build": "yarn upgrade core.docs.wavesplatform && node --max-old-space-size=8096 node_modules/.bin/vuepress build docs || node --max-old-space-size=8096 node_modules/.bin/vuepress.cmd build docs",
+        "build": "yarn upgrade core.docs.wavesplatform && node --max-old-space-size=8096 node_modules/.bin/vuepress build docs || node --max-old-space-size=8096 node_modules\\.bin\\vuepress build docs",
         "build:dev": "corePath=$PWD/../core.docs.wavesplatform node --max-old-space-size=8096 node_modules/.bin/vuepress build docs",
         "server": "node docs/.vuepress/runServer",
         "server:dev": "corePath=$PWD/../core.docs.wavesplatform yarn server",
