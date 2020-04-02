@@ -555,35 +555,45 @@ module.exports = {
     {
       title: 'Руководство владельца ноды',
       path: nodePath,
-    },
-    {
-      title: 'Full нода Waves',
-      path: nodePath + 'what-is-a-full-node',
-    },
-	  {
-      title: 'Как установить ноду',
+	},
+	{
+      title: 'Установить ноду Waves',
       path: nodePath + 'how-to-install-a-node/how-to-install-a-node',
       children: [
         {
-          title: 'Установка ноды на Mac',
+          title: 'Развернуть ноду в Docker',
+          path: nodePath + 'waves-node-in-docker',
+        },
+        {
+          title: 'Установить ноду на Ubuntu',
+          path: nodePath + 'how-to-install-a-node/on-ubuntu',
+        },	
+        {
+          title: 'Установить ноду на macOS',
           path: nodePath + 'how-to-install-a-node/on-mac',
         },
         {
-          title: 'Установка ноды на Windows',
+          title: 'Установить ноду на Windows',
           path: nodePath + 'how-to-install-a-node/on-windows',
         },
         {
-          title: 'Установка ноды на Ubuntu',
-          path: nodePath + 'how-to-install-a-node/on-ubuntu',
-        }
+          title: 'Установить из исходников (Сборка SBT)',
+          path: nodePath + 'how-to-build-and-test-a-node',
+        },
+        {
+          title: 'Развернуть ноду в облаке',
+          path: nodePath + 'how-to-install-a-node/clouds',
+		  children: [
+		    {
+              title: 'Развернуть ноду в Yandex.Cloud',
+              path: nodePath + 'running-waves-node-in-yandex-cloud',
+            },
+		  ]			
+        },	
       ],
     },
-    {
-      title: '[en] How to build and test a node',
-      path: nodePath + 'how-to-build-and-test-a-node',
-    },
-    {
-      title: 'Способы загрузки актуального блокчейна',
+	{
+      title: 'Загрузка блокчейна Waves',
       path: nodePath + 'options-for-getting-actual-blockchain',
       children: [
         {
@@ -591,141 +601,131 @@ module.exports = {
           path: nodePath + 'options-for-getting-actual-blockchain/import-from-the-blockchain',
         },	  
         {
-          title: 'Загрузка готовой актуальной базы данных',
+          title: 'Загрузка актуального блокчейна',
           path: nodePath + 'options-for-getting-actual-blockchain/state-downloading-and-applying',
         },
+		{
+          title: 'Откатить ноду Waves',
+          path: nodePath + 'how-to-rollback-a-node',
+        },
       ],
     },
     {
-      title: 'Обновление ноды Waves',
+      title: 'Обновить ноду',
       path: nodePath + 'upgrading',
-    },
-    {
-     title: 'Как откатить ноду',
-     path: nodePath + 'how-to-rollback-a-node',
-    },
-    {
-      title: 'Работа с кошельком ноды',
-      path: nodePath + 'working-with-node-wallet',
-    },
-    {
-      title: 'Запуск ноды в Docker',
-      path: nodePath + 'waves-node-in-docker',
-    },
-    {
-      title: 'Про Waves Testnet',
-      path: nodePath + 'joining-testnet',
-    },
-    {
-      title: '[en] Private Waves network',
-      path: nodePath + 'private-waves-network',
-    },
-	  {
-      title: 'Расширения',
-      path: nodePath + 'extensions',
-      children: [
-        {
-          title: 'gRPC Server',
-          path: nodePath + 'extensions/grpc-server',
-          children: [
-            {
-              title: 'Установка gRPC Server',
-              path: nodePath + 'extensions/grpc-server/grpc-server-installation',
-            },
-          ],
-        },
-      ]
-    },
-    {
-      title: '[en] Features',
-      path: nodePath + 'features/features',
-      children: [
-        {
-          title: '[en] Feature',
-          path: nodePath + 'features/feature',
-        },
-        {
-          title: '[en] Feature activation protocol',
-          path: nodePath + 'features/feature-activation-protocol',
-        }
-      ],
     },
     {
       title: 'Конфигурация ноды',
       path: nodePath + 'node-configuration',
     },
     {
-      title: '[en] Logging configuration',
+      title: 'Конфигурация логировния',
       path: nodePath + 'logging-configuration',
     },
     {
-      title: 'Node API',
+      title: 'Работа с кошельком ноды',
+      path: nodePath + 'how-to-work-with-node-wallet',
+    },	
+    {
+      title: 'Фичи',
+      path: nodePath + 'features',
+	  children: [
+	    {
+	      title: 'Протокол активации',
+          path: nodePath + 'activation-protocol',
+        },
+	  ],
+    },
+    {
+      title: 'Custom блокчейн',
+      path: nodePath + 'private-waves-network',
+    },
+    {
+      title: 'API ноды',
       path: nodePath + 'node-api',
       children: [
         {
-          title: '[en] Request headers',
+          title: 'Request headers',
           path: nodePath + 'node-api/headers',
         },
         {
-          title: '[en] Address',
+          title: 'Активация',
+          path: nodePath + 'node-api/feature-activation',
+        },	
+        {
+          title: 'Адрес',
           path: nodePath + 'node-api/address',
         },
         {
-          title: '[en] Lease Transactions',
+          title: 'Транзакции лизинга',
           path: nodePath + 'node-api/lease-transactions',
         },
         {
-          title: '[en] Assets',
+          title: 'Ассеты',
           path: nodePath + 'node-api/asset-transactions',
           children: [
             {
-              title: '[en] Public Functions',
+              title: 'Публичные функции',
               path: nodePath + 'node-api/asset-transactions/public-functions',
             },
             {
-              title: '[en] Private Functions',
+              title: 'Приватные функции',
               path: nodePath + 'node-api/asset-transactions/private-functions',
             },
             {
-              title: '[en] Distribution Methods',
+              title: 'Методы распределения',
               path: nodePath + 'node-api/asset-transactions/distribution-methods',
             }
           ],
         },
         {
-          title: '[en] Alias Transaction',
+          title: 'Транзакция Alias',
           path: nodePath + 'node-api/alias-transaction',
         },
         {
-          title: '[en] Transactions',
+          title: 'Транзакции',
           path: nodePath + 'node-api/transactions',
         },
         {
-          title: '[en] Peers',
+          title: 'Пиры',
           path: nodePath + 'node-api/peers',
         },
         {
-          title: '[en] Blocks',
+          title: 'Блоки',
           path: nodePath + 'node-api/blocks',
         },
         {
-          title: '[en] Utils',
+          title: 'Utils',
           path: nodePath + 'node-api/utils',
         },
         {
-          title: '[en] Examples of transactions',
+          title: 'Примеры транзакций',
           path: nodePath + 'node-api/example-transactions',
-        }
-      ],
+        },
+        {
+          title: 'Ауктивация фич',
+          path: nodePath + 'node-api/feature-activation',
+        },
+	    {
+          title: 'API ограничения пула публичных нод',
+          path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
+		},
+	  ],   
     },
     {
-      title: 'Запуск ноды Waves в Яндекс.Облаке',
-      path: nodePath + 'running-waves-node-in-yandex-cloud',
+      title: 'Расширения',
+      path: nodePath + 'extensions',
+      children: [
+        {
+          title: 'gRPC Server',
+          path: nodePath + 'extensions/grpc-server',
+        },
+      ]
     },
-    {
-      title: 'Ограничения API пула публичных нод',
-      path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
-    },
+	{
+      title: 'Устранение неполадок',
+      path: nodePath + 'node-troubleshooting',
+	},
   ],
 
   [ridePath]: [
