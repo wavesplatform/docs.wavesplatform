@@ -1,5 +1,11 @@
 # Documentation updates
 
+## April articles
+
+### Blockchain
+
+Updated the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
+
 ## March articles
 
 ### Blockchain
