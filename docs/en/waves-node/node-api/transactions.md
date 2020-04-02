@@ -33,7 +33,8 @@ Return transaction data by transaction ID.
 }
 ```
 
-The `applicationStatus` field is added since node version 1.2.4, after activation of the feature #17 “Accept transactions with failed script result”. `"applicationStatus": "scriptExecutionFailed"` means that the dApp script or the asset script failed. For more information, see the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
+> The `applicationStatus` field is added since node version 1.2.4, after activation of the feature #17 “Accept transactions with failed script result”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+> `"applicationStatus": "scriptExecutionFailed"` means that the dApp script or the asset script failed. For more information, see the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
 
 ## GET /transactions/address/{address}/limit/{limit}
 
@@ -461,9 +462,9 @@ Returns the list of transactions statuses, by transaction IDs. The resulting tra
 - `status` – transaction status. `not_found` – transaction not found, `unconfirmed` – transaction is in UTX-pool, `confirmed` – transaction is in the block or microblock.
 - `confirmations` – current blockchain height minus height of block the transaction was included in.
 - `height` – transaction's height in the blockchain.
-- `applicationStatus` – transaction validation status. `succeed` — transaction is valid, `scriptExecutionFailed` — the dApp script or the script failed. For more information, see the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
+- `applicationStatus` – transaction validation status. `succeed` — transaction is valid, `scriptExecutionFailed` — the dApp script or the asset script failed. For more information, see the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
 
-> The `applicationStatus` field is added since node version 1.2.4, after activation of the feature #17 “Accept transactions with failed script result”.
+> The `applicationStatus` field is added since node version 1.2.4, after activation of the feature #17 “Accept transactions with failed script result”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 ```js
 [
@@ -501,7 +502,7 @@ Returns the list of transactions statuses, by transaction IDs. The resulting tra
 - `height` – transaction's height in the blockchain.
 - `applicationStatus` – transaction validation status. `succeed` — transaction is valid, `scriptExecutionFailed` — the dApp script or the asset script failed. For more information, see the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
 
-> The `applicationStatus` field is added since node version 1.2.4, after activation of the feature #17 “Accept transactions with failed script result”.
+> The `applicationStatus` field is added since node version 1.2.4, after activation of the feature #17 “Accept transactions with failed script result”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 ```js
 [
