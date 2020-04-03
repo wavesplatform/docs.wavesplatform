@@ -566,6 +566,10 @@ module.exports = [
     from: '/en/waves-environment/waves-node/what-is-a-full-node.html',
   },
   {
+    to: '/en/waves-node',
+    from: '/en/waves-node/what-is-a-full-node',
+  },
+  {
     to: '/en/waves-node/how-to-install-a-node/how-to-install-a-node',
     from: '/en/waves-full-node/how-to-install-a-node/how-to-install-a-node.html',
   },
