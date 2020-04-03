@@ -31,7 +31,7 @@
 
 ## Как включить спонсирование
 
-Чтобы включить спонсирование, нужно отправить транзакцию спонсирования, указав в ней `minSponsoredAssetFee`. [Пример транзакции](https://wavesexplorer.com/testnet/tx/5gHUMzmBfn4KP3tELzHtw3EYR947rzWUp5PuyF7hUW23)
+Чтобы включить спонсирование, нужно отправить транзакцию спонсирования, указав `null` в качестве `minSponsoredAssetFee`. [Пример транзакции](https://wavesexplorer.com/testnet/tx/5gHUMzmBfn4KP3tELzHtw3EYR947rzWUp5PuyF7hUW23)
 
 > В бинарном и JSON-представлении транзакции спонсирования значение `minSponsoredAssetFee` указывается в минимальных единицах («копейках») спонсорского ассета.
 
