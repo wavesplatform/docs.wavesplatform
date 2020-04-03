@@ -58,3 +58,8 @@ An issuer of an asset can set up sponsorship — so that any user can specify a 
 
 To activate sposorship, the issuer puts a sponsor fee transaction that specifies an amount of asset that is equivalent to the minimum fee of 0.001 WAVES. For exmaple, if `minSponsoredAssetFee: 5`, then the fee in this asset for exchange transaction equals 5 × 0.003 / 0.001 = 15. See the [Sponsor Fee Transactions](/en/blockchain/waves-protocol/sponsored-fee) article for details.
 
+## Fee for Unvalid Transactions
+
+Invoke script transactions and exchange transactions are saved on the blockchain and a fee is charged for them if the sender's signature or account script verification passed, but the dApp script or the asset script failed. For more information see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article.
+
+Saving an charging for unvalid transactions is introduced since node version 1.2.4, afteg activating of the feature #17 “Accept transactions with failed script result”.  Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
