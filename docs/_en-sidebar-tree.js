@@ -1404,6 +1404,10 @@ module.exports = {
       title: 'Release Notes',
       path: keepInTouchPath + 'release-notes',
     },
+	{
+      title: 'Release Notes (Node Go)',
+      path: keepInTouchPath + 'release-notes-go',
+    },
     {
       title: 'Documentation Updates',
       path: keepInTouchPath + 'docs-update',

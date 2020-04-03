@@ -1377,6 +1377,10 @@ module.exports = {
       path: keepInTouchPath + 'release-notes',
     },
     {
+      title: 'Release notes (Node Go)',
+      path: keepInTouchPath + 'release-notes-go',
+    },
+    {
       title: 'Обновления в документации',
       path: keepInTouchPath + 'docs-update',
     },
