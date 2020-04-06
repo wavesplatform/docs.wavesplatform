@@ -1,33 +1,46 @@
 # FOLD&lt;N&gt; Macro
 
-**FOLD&lt;N&gt; Macro** is a construct for the compiler that allows implementing the [higher-order function](https://en.wikipedia.org/wiki/Higher-order_function) known in Scala (and other languages) as `fold` or `reduce`.
+`FOLD<N>` macro enables operations on a list of values such as `sum`, `avg`, `filter`, `zip`, `exists` etc. The macro behaves like the `fold` or `reduce` function in other programming languages,
 
-The `FOLD<N>` macro allows performing computations in relation to variable size lists, such as `sum`, `avg`, `filter`, `zip`, `exists` etc.
-
-## `sum`
-
-```ride
-func sum(a:Int, b:Int) = a + b
-let arr = [1,2,3,4,5]
-let folded_sum = FOLD<5>(arr, 0, sum)
-folded_sum # result: 15
+```
+FOLD<N>(list, start, foldFunc)
 ```
 
-## `mult`
+| Parameter | Description |
+| :--- | :--- |
+| `N` | Maximum number of iterations |
+| `list` | List of values |
+| `start` | Initial value |
+| `foldFunc` | Folded function |
+
+Complexity of the expression is complexity of `foldFunc` mutliplied by `N`.
+
+## Sum of Numbers
+
+```
+func sum(a:Int, b:Int) = a + b
+let arr = [1,2,3,4,5]
+FOLD<5>(arr, 0, sum)
+```
+
+Result: 15
+
+## Product of Numbers
 
 ```ride
 func mult(a:Int, b:Int) = a * b
 let arr = [1,2,3,4,5]
-let folded_mult = FOLD<5>(arr, 0, mult)
-folded_mult # result: 120
+FOLD<5>(arr, 1, mult)
 ```
 
-## `filter`
+Result: 120
 
-```ride
-func filterStep(a: Int, accumulated: List[Int]) =
-   if (a % 2 == 0) then a :: acumulated else accumulated
+## Filter
+```
+func filterStep(accumulated: List[Int], a: Int) =
+   if (a % 2 == 0) then a :: accumulated else accumulated
 let arr = [1,2,3,4,5]
-let evens = FOLD<5>(arr, 0, filterStep)
-evens # result: [2,4]
+FOLD<5>(arr, [], filterStep)
 ```
+
+Result: [4, 2]
