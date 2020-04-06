@@ -14,7 +14,8 @@ The following checks are performed:
 
    All the features required to support this version should be activated.
 
-3. The sender's signature verification for ordinary account (without script), or account script execution if the sender is[smart account](/en/blockchain/account/smart-account), or the [verifier function](/en/ride/functions/verifier-function) execution if the sender is [dApp](/en/blockchain/account/dapp).
+3. The sender's signature verification for ordinary account (without script), or account script execution if the sender is[smart account](/en/blockchain/account/smart-account), or the [verifier function](/en/ride/functions/verifier-function) execution if the sender is [dApp](/en/blockchain/account/dapp). A similar check is performed for orders in an exchange transaction.
+
 4. Execution of asset scripts if the transaction uses [smart assets](/en/blockchain/token/smart-asset), except scripts of assets used in [dApp script actions](/en/ride/structures/script-actions) that are executed in step 6.
 5. Sender's balance check.
 

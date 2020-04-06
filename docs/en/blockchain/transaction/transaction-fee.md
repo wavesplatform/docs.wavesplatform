@@ -2,7 +2,7 @@
 
 **Transaction fee** is a fee that an [account](/en/blockchain/account) owner pays to send a [transaction](/en/blockchain/transaction).
 
-A transaction sender can specify any amount of fee but not less than a  minimum amount. The larger the fee is, the quicker the transaction will be added to the new [block](/en/blockchain/block).
+A transaction sender can specify any amount of fee but not less than a minimum amount. The larger the fee is, the quicker the transaction will be added to the new [block](/en/blockchain/block).
 
 For invoke script transaction and transfer transaction, a sender can specify a transaction fee nominated in a sponsored asset instead of WAVES, see the section [Fee Nominated in Sponsored Asset](#fee-nominated-in-sponsored-asset) below.
 
@@ -60,6 +60,6 @@ To activate sposorship, the issuer puts a sponsor fee transaction that specifies
 
 ## Fee for Unvalid Transactions
 
-Invoke script transactions and exchange transactions are saved on the blockchain and a fee is charged for them if the sender's signature or account script verification passed, but the dApp script or the asset script failed. For more information see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article.
+Invoke script transactions and exchange transactions are saved on the blockchain and the transaction sender pays the fee if the dApp script or the asset script failed. Matcher fee for orders in exchange transaction is not charged at once. For more information see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article.
 
 Saving an charging for unvalid transactions is introduced since node version 1.2.4, afteg activating of the feature #17 “Accept transactions with failed script result”.  Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
