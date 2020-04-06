@@ -1,21 +1,21 @@
 # Account data storage functions
 
-> Learn more about [account data storage](/en/blockchain/account/account-data-storage)
+> Learn more about [account data storage](/en/blockchain/account/account-data-storage).
 
-| # | Name | Description | Complexity |
-| :--- | :--- | :--- | :--- |
-| 1 | [assetBalancе(Address&#124;Alias, ByteVector): Int](#asset-balance) | Gets account balance by token ID | 100 |
-| 2 | [getBinary(Address&#124;Alias, String): ByteVector&#124;Unit](#get-binary) | Gets an array of bytes by key | 100 |
-| 3 | [getBinaryValue(Address&#124;Alias, String): ByteVector](#get-binary-value) | Gets an array of bytes by key. Throws an exception if there is no data | 100 |
-| 4 | [getBoolean(Address&#124;Alias, String): Boolean&#124;Unit](#get-boolean) | Gets a boolean value by key | 100 |
-| 5 | [getBooleanValue(Address&#124;Alias, String): Boolean](#get-boolean-value) | Gets a boolean value by key. Throws an exception if there is no data | 100 |
-| 6 | [getInteger(Address&#124;Alias, String): Int&#124;Unit](#get-integer) | Gets an integer by key | 100 |
-| 7 | [getIntegerValue(Address&#124;Alias, String): Int](#get-integer-value) | Gets an integer by key. Throws an exception if there is no data | 100 |
-| 8 | [getString(Address&#124;Alias, String): String&#124;Unit](#get-string) | Gets a string by key | 100 |
-| 9 | [getStringValue(Address&#124;Alias, String): String](#get-string-value) | Gets a string by key. Throws an exception if there is no data | 100 |
-| 10 | [wavesBalance(Address&#124;Alias): Int](#waves-balance) | Gets account balance in [WAVES](/en/blockchain/token/waves) | 109 |
+| Name | Description | Complexity |
+| :--- | :--- | :--- |
+| [assetBalancе(Address&#124;Alias, ByteVector): Int](#asset-balance) | Gets account balance by token ID | 100 |
+| [getBinary(Address&#124;Alias, String): ByteVector&#124;Unit](#get-binary) | Gets an array of bytes by key | 100 |
+| [getBinaryValue(Address&#124;Alias, String): ByteVector](#get-binary-value) | Gets an array of bytes by key. Throws an exception if there is no data | 100 |
+| [getBoolean(Address&#124;Alias, String): Boolean&#124;Unit](#get-boolean) | Gets a boolean value by key | 100 |
+| [getBooleanValue(Address&#124;Alias, String): Boolean](#get-boolean-value) | Gets a boolean value by key. Throws an exception if there is no data | 100 |
+| [getInteger(Address&#124;Alias, String): Int&#124;Unit](#get-integer) | Gets an integer by key | 100 |
+| [getIntegerValue(Address&#124;Alias, String): Int](#get-integer-value) | Gets an integer by key. Throws an exception if there is no data | 100 |
+| [getString(Address&#124;Alias, String): String&#124;Unit](#get-string) | Gets a string by key | 100 |
+| [getStringValue(Address&#124;Alias, String): String](#get-string-value) | Gets a string by key. Throws an exception if there is no data | 100 |
+| [wavesBalance(Address&#124;Alias): Int](#waves-balance) | Gets account balance in [WAVES](/en/blockchain/token/waves) | 109 |
 
-## assetBalance(Address|Alias, ByteVector): Int<a id="asset-balance"></a>
+## assetBalance<a id="asset-balance"></a>
 
 Gets account balance by token ID.
 
@@ -25,15 +25,13 @@ assetBalance(addressOrAlias: Address|Alias, assetId: ByteVector): Int
 
 ### Parameters
 
-#### `addressOrAlias`: Address|Alias
+| Parameter | Description |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias]](/en/ride/structures/common-structures/alias) | 
+[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `assetId`: [ByteVector](/ru/ride/data-types/byte-vector) | Token ID |
 
-[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account.
-
-#### `assetId`: ByteVector
-
-Token ID.
-
-## getBinary(Address|Alias, String): ByteVector|Unit<a id="get-binary"></a>
+## getBinary <a id="get-binary"></a>
 
 Gets an array of bytes by key.
 
@@ -43,15 +41,13 @@ getBinary(addressOrAlias: Address|Alias, key: String): ByteVector|Unit
 
 ### Parameters
 
-#### `addressOrAlias`: Address|Alias
+| Parameter | Description |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias]](/en/ride/structures/common-structures/alias) | 
+[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/data-types/string) | The key |
 
-[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account.
-
-#### `key`: String
-
-The key.
-
-## getBinaryValue(Address|Alias, String): ByteVector<a id="get-binary-value"></a>
+## getBinaryValue<a id="get-binary-value"></a>
 
 Gets an array of bytes by key. Throws an exception if there is no data.
 
@@ -61,15 +57,13 @@ getBinaryValue(addressOrAlias: Address|Alias, key: String): ByteVector
 
 ### Parameters
 
-#### `addressOrAlias`: Address|Alias
+| Parameter | Description |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias]](/en/ride/structures/common-structures/alias) | 
+[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/data-types/string) | The key |
 
-[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account.
-
-#### `key`: String
-
-The key.
-
-## getBoolean(Address|Alias, String): Boolean|Unit<a id="get-boolean"></a>
+## getBoolean<a id="get-boolean"></a>
 
 Gets a boolean value by key.
 
@@ -79,15 +73,13 @@ getBoolean(addressOrAlias: Address|Alias, key: String): Boolean|Unit
 
 ### Parameters
 
-#### `addressOrAlias`: Address|Alias
+| Parameter | Description |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias]](/en/ride/structures/common-structures/alias) | 
+[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/data-types/string) | The key |
 
-[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account.
-
-#### key: String
-
-The key.
-
-## getBooleanValue(Address|Alias, String): Boolean<a id="get-boolean-value"></a>
+## getBooleanValue<a id="get-boolean-value"></a>
 
 Gets a boolean value by key. Throws an exception if there is no data.
 
@@ -97,15 +89,13 @@ getBooleanValue(addressOrAlias: Address|Alias, key: String): Boolean
 
 ### Parameters
 
-#### addressOrAlias: Address|Alias
+| Parameter | Description |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias]](/en/ride/structures/common-structures/alias) | 
+[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/data-types/string) | The key |
 
-[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account.
-
-#### key: String
-
-The key.
-
-## getInteger(Address|Alias, String): Int|Unit<a id="get-integer"></a>
+## getInteger<a id="get-integer"></a>
 
 Gets an integer by key.
 
@@ -115,15 +105,13 @@ getInteger(addressOrAlias: Address|Alias, key: String): Int|Unit
 
 ### Parameters
 
-#### addressOrAlias: Address|Alias
+| Parameter | Description |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias]](/en/ride/structures/common-structures/alias) | 
+[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/data-types/string) | The key |
 
-[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account.
-
-#### key: String
-
-The key.
-
-## getIntegerValue(Address|Alias, String): Int<a id="get-integer-value"></a>
+## getIntegerValue<a id="get-integer-value"></a>
 
 Gets an integer by key. Throws an exception if there is no data.
 
@@ -133,15 +121,13 @@ getIntegerValue(addressOrAlias: Address|Alias, key: String): Int
 
 ### Parameters
 
-#### addressOrAlias: Address|Alias
+| Parameter | Description |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias]](/en/ride/structures/common-structures/alias) | 
+[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/data-types/string) | The key |
 
-[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account.
-
-#### key: String
-
-The key.
-
-## getString(Address|Alias, String): String|Unit<a id="get-string"></a>
+## getString<a id="get-string"></a>
 
 Gets a string by key.
 
@@ -151,15 +137,13 @@ getString(addressOrAlias: Address|Alias, key: String): String|Unit
 
 ### Parameters
 
-#### addressOrAlias: Address|Alias
+| Parameter | Description |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias]](/en/ride/structures/common-structures/alias) | 
+[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/data-types/string) | The key |
 
-[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account.
-
-#### key: String
-
-The key.
-
-## getStringValue(Address|Alias, String): String<a id="get-string-value"></a>
+## getStringValue<a id="get-string-value"></a>
 
 Gets a string by key. Throws an exception if there is no data.
 
@@ -169,24 +153,35 @@ getStringValue(addressOrAlias: Address|Alias, key: String): String
 
 ### Parameters
 
-#### addressOrAlias: Address|Alias
+| Parameter | Description |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias]](/en/ride/structures/common-structures/alias) | 
+[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/data-types/string) | The key |
 
-[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account.
+## wavesBalance<a id="waves-balance"></a>
 
-#### key: String
+### For Standard Library Version 3
 
-The key.
-
-## wavesBalance(Address|Alias): Int<a id="waves-balance"></a>
-
-Gets account balance in [WAVES](/en/blockchain/token/waves).
+Gets available balance of [WAVES](/en/blockchain/token/waves).
 
 ``` ride
 wavesBalance(addressOrAlias: Address|Alias): Int
 ```
 
+### For Standard Library Version 4
+
+Gets all types of [WAVES](/en/blockchain/token/waves) balances. For description of balance types, see the [Account Balance](/en/blockchain/account/account-balance) article.
+
+``` ride
+wavesBalance(addressOrAlias: Address|Alias): BalanceDetails
+```
+
+> :warning: [Standard library](/en/ride/script/standard-library) **version 4** is available since node version 1.2.0 after activation of feature #16 “Ride V4 and multiple attached payments for Invoke Script Transaction”. Node versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+
 ### Parameters
 
-#### addressOrAlias: Address|Alias
-
-[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account.
+| Parameter | Description |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias]](/en/ride/structures/common-structures/alias) | 
+[Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |

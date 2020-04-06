@@ -1,5 +1,12 @@
 # Documentation updates
 
+## April articles
+
+### Ride
+
+* Added the [BalanceDetails](/en/ride/structures/common-structures/balance-details) structure description.
+* Updated the [wavesBalance](/en/ride/functions/built-in-functions/account-data-storage-functions#waves-balance) function description.
+
 ## March articles
 
 ### Blockchain

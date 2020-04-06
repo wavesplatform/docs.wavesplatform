@@ -51,6 +51,7 @@
 * Added the following list operators:
   * ++ for the concatenation of lists. Example: the result of `[1, 2] ++ [3, 4]` is `[1, 2, 3, 4]`. Its complexity equals 10.
   * `:+` for adding an element to the end of the list. Example: the result of `["foo","bar"] :+ "baz"` is `["foo", "bar", "baz"]`. Its complexity equals 3.
+* The [wavesBalance](/ru/ride/functions/built-in-functions/account-data-storage-functions#waves-balance) built-in function returns the [BalanceDetails](/ru/ride/structures/common-structures/balance-details) structure which contains all types of WAVES balances.
 
 ## Activation
 

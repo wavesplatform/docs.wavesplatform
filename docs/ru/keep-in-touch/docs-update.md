@@ -1,5 +1,12 @@
 # Обновления в документации
 
+## Апрельские статьи
+
+### Ride
+
+* Добавлено описание структуры [BalanceDetails](/ru/ride/structures/common-structures/balance-details).
+* Обновлено описание функции [wavesBalance](/ru/ride/functions/built-in-functions/account-data-storage-functions#waves-balance).
+
 ## Мартовские статьи
 
 ### Блокчейн
