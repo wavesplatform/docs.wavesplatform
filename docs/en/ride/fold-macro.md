@@ -13,7 +13,7 @@ FOLD<N>(list, start, foldFunc)
 | `start` | Initial value |
 | `foldFunc` | Folded function |
 
-Complexity of the expression is complexity of `foldFunc` mutliplied by `N`.
+The complexity of `FOLD<N>` corresponds to the complexity of `foldFunc` mutliplied by `N` plus extras.
 
 ## Sum of Numbers
 
