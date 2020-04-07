@@ -62,4 +62,4 @@ To activate sposorship, the issuer puts a sponsor fee transaction that specifies
 
 Invoke script transactions and exchange transactions are saved on the blockchain and the transaction sender pays the fee if the dApp script or the asset script failed. Matcher fee for orders in exchange transaction is not charged at once. For more information see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article.
 
-Saving an charging for unvalid transactions is introduced since node version 1.2.4, afteg activating of the feature #17 “Accept transactions with failed script result”.  Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+Saving an charging for unvalid transactions is introduced since node version 1.2.4, after activating of the feature #17 “Accept transactions with failed script result”.  Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
