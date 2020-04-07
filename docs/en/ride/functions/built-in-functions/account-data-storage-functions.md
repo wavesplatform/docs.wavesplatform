@@ -168,6 +168,8 @@ Gets all types of [WAVES](/en/blockchain/token/waves) balances. For description 
 wavesBalance(addressOrAlias: Address|Alias): BalanceDetails
 ```
 
+For a description of the return value, see the [BalanceDetails](/ru/ride/structures/common-structures/balance-details) article.
+
 > :warning: [Standard library](/en/ride/script/standard-library) **version 4** is available since node version 1.2.0 after activation of feature #16 “Ride V4 and multiple attached payments for Invoke Script Transaction”. Node versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 ### Parameters

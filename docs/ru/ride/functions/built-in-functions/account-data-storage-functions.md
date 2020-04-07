@@ -168,6 +168,8 @@ wavesBalance(addressOrAlias: Address|Alias): Int
 wavesBalance(addressOrAlias: Address|Alias): BalanceDetails
 ```
 
+Описание возвращаемой структуры см. в разделе [BalanceDetails](/ru/ride/structures/common-structures/balance-details).
+
 > :warning: [Стандартная библиотека](/ru/ride/script/standard-library) **версии 4** доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;16 “Ride V4 and multiple attached payments for Invoke Script Transaction”. Версии 1.2.x в настоящее время работают только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ### Параметры
@@ -175,3 +177,4 @@ wavesBalance(addressOrAlias: Address|Alias): BalanceDetails
 | Параметр | Описание |
 | :--- | :--- |
 | `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+
