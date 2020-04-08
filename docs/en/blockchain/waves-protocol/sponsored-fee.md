@@ -8,13 +8,13 @@ An account that launched an asset can enable sponsorship, that is, allow all use
 
 ## How It Works
 
-After [enabling sponsorship](#how-to-enable-sponsorsip), if the [restrictions](#restrictions) are met, sponsorship works as follows:
+After [enabling sponsorship](#how-to-enable-sponsorsip), if the requirements described in the [Restrictions](#restrictions) section are met, the sponsorship works as follows:
 
 1. A user broadcasts a transaction and specifies a fee in the sponsored asset.
 2. The sponsor receives the fee in the sponsored asset from the user's account.
 3. Block generators receive the fee in WAVES from the sponsor's account (in accordance with the [Waves-NG](/en/blockchain/waves-protocol/waves-ng-protocol) protocol, the fee is distributed between the current block generator and the next block generator in a ratio of 40/60).
 
-> The script on the sponsor's account is not executed and does not affect sponsorship because the transaction is sent from the user's account.
+> The script on the sponsor's account is not executed and does not affect the sponsorship because the transaction is sent from the user's account.
 
 ![](./_assets/sponsorship.png)
 
@@ -41,7 +41,7 @@ There are the following options to put the transaction:
 * In [Waves.Exchange](https://waves.exchange/) app developed by Waves.Exchange team. See the [Sponsored Transaction](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-sponsored-trx) article of Waves.Exchange documentation.
 * Using [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/). See also the [Creating and broadcasting transactions to the blockchain](/en/building-apps/how-to/basic/transaction) article.
 
-The fee for the sponsor fee transaction is 1 WAVES.
+The fee for this type of transaction is 1 WAVES.
 
 ## How to Disable Sponsorship
 
@@ -50,8 +50,8 @@ To disable sponsorship, you need to put a sponsor fee transaction in which `minS
 ## Restrictions
 
 * Only the issuer of the asset can be a sponsor.
-* A smart asset cannot be a sponsored asset.
-* Sponsorship only works if the sponsor's account balance is greater than 1.005 Waves. When the balance becomes smaller, sponsorship is suspended, and when it is larger, it is resumed.
+* Smart asset cannot be a sponsored asset.
+* Sponsorship only works if the sponsor's account balance is greater than 1.005 Waves. If the account balance becomes less than 1.005 Waves, the sponsorship is suspended, and if the balance becomes more than 1.005 Waves the sponsorship is resumed.
 * The fee in the sponsored asset can only be specified for invoke script transactions and transfer transactions.
 
 ## Discussion
