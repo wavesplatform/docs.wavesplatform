@@ -593,7 +593,7 @@ module.exports = {
       ],
     },
 	{
-      title: 'Загрузка блокчейна Waves',
+      title: 'Загрузить блокчейн Waves',
       path: nodePath + 'options-for-getting-actual-blockchain',
       children: [
         {

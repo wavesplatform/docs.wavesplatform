@@ -4,7 +4,7 @@ sidebarDepth: 2
 
 # Конфигурация ноды
 
-**Файл конфигурации** это файл в котором хранятся настройки [ноды](/en/blockchain/node).
+**Файл конфигурации** это файл в котором хранятся настройки [ноды](/ru/blockchain/node).
 
 В системе конфигурации ноды Waves применяется формат HOCON (Human-Optimized Config Object Notation). Подробное описание HOCON доступно по ссылке [Official HOCON documentation](https://github.com/lightbend/config/blob/master/HOCON.md). Преимущества HOCON — это простой синтаксис и возможность использовать комментарии.
 
