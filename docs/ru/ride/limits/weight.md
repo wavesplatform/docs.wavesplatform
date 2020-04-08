@@ -38,7 +38,7 @@ W<sub>struct</sub> = 40 + 30 × Q + W<sub>fields</sub>
 
 ### Пример расчета
 
-Рассмотрим структуру [AssetPair](https://docs.wavesplatform.com/ru/ride/structures/common-structures/asset-pair):
+Рассмотрим структуру [AssetPair](/ru/ride/structures/common-structures/asset-pair):
 
 ```
 AssetPair(amountAsset: ByteVector|Unit, priceAsset: ByteVector|Unit)

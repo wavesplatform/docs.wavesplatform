@@ -29,14 +29,32 @@ where:
 
 The weight of the structure is calculated as follows:
 
-W<sub>struct</sub> = 40 + 30 × Q + W<sub>fields</sub>,
+W<sub>struct</sub> = 40 + 30 × Q + W<sub>fields</sub>
 
 where:
 
 * Q is a number of fields.
 * W<sub>fields</sub> is a total weight of fields.
 
+### Example
+
+Let's consider the [AssetPair](/en/ride/structures/common-structures/asset-pair) structure:
+
+```
+AssetPair(amountAsset: ByteVector|Unit, priceAsset: ByteVector|Unit)
+```
+
+An asset ID is a `ByteVector` of 32 bytes, its weight is 32. If both assets in the pair are not WAVES, then the weight of the `AssetPair` structure is:
+
+W<sub>AssetPair</sub> = 40 + 30 × 2 + (32 + 32) = 164
+
+If one of the assets is WAVES, then the corresponding field is of type `Unit` and its weight is 40. Then the weight of the `AssetPair` structure is:
+
+W<sub>AssetPair</sub> = 40 + 30 × 2 + (32 + 40) = 172
+
 ## Limitations
 
 * Maximum weight of the value is 307200.
 * Comparison of values is not allowed if the weight of each value exceeds 13000.
+
+If the limitations are exceeded, the script fails.
