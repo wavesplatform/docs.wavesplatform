@@ -54,7 +54,7 @@ W<sub>AssetPair</sub> = 40 + 30 × 2 + (32 + 40) = 172
 
 ## Limitations
 
-* Maximum weight of the value is 307200.
-* Comparison of values is not allowed if the weight of each value exceeds 13000.
+* The maximum weight of the value is 307200.
+* A comparison of values is not allowed if the weight of each value exceeds 13000.
 
 If the limitations are exceeded, the script fails.
