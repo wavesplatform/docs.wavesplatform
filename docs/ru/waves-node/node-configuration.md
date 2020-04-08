@@ -25,8 +25,6 @@ sidebarDepth: 2
 java -jar {*}.jar {*}.conf
 ```
 
-Typically this file should contain your node's unique characteristics (ip, name, keys, etc...) and network-specific parameters similar to waves-mainnet or waves-testnet configs from the next sections (files shipped with DEB packages).
-
 Обычно этот файл должен содержать уникальные характеристики вашей ноды (IP-адрес, имя, ключи и т. Д.) И специфичные параметры сети, аналогичные настройкам waves-mainnet или waves-testnet из следующих разделов (файлы, поставляемые с пакетами DEB).
 
 ### Файлы конфигурации Mainnet и Testnet в пакетах DEB

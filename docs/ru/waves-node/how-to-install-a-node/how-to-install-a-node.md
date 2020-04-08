@@ -23,7 +23,7 @@
 * [Windows](/ru/waves-node/how-to-install-a-node/on-windows)
 * [Ubuntu](/ru/waves-node/how-to-install-a-node/on-ubuntu)
 
-For details about configuration file, see [Node Configuration](/ru/waves-node/node-configuration) article.
+Подробнее про файл конфигурации в статье [Конфигурация годы](/ru/waves-node/node-configuration).
 
 ### SBT сборка
 
