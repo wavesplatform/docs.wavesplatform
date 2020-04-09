@@ -4,7 +4,7 @@ sidebarDepth: 2
 
 # How to Create and Manage Your Own Token
 
-One of the key benefits of the Waves platform is the simplicity of issuing tokens. To launch your own token, you don't have to write a smart contract – just create an issue transaction and put it to the blockchain. The only threshold for the issuer is to pay a fee: 1 WAVES for reqular token (asset) or 0.001 for non-fungible token (NFT).
+One of the key benefits of the Waves platform is the simplicity of issuing tokens. To launch your own token, you don't have to write a smart contract – just create issue transaction and send it to the blockchain. The only threshold for the issuer is to pay a fee: 1 WAVES for reqular token (asset) or 0.001 for non-fungible token (NFT).
 
 New tokens are immediately available:
 
@@ -41,7 +41,7 @@ The issue transaction ID becomes also the token ID.
 See function descriptions in [waves-transactions documentation](https://wavesplatform.github.io/waves-transactions/index.html) on Github.
 
 ```javascript
-import { nodeInteraction } from "@waves/waves-transactions";
+import { broadcast } from "@waves/waves-transactions";
 import { issue } from "@waves/waves-transactions";
 
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com'; // Testnet node
@@ -60,7 +60,7 @@ const myToken = {
 
 const issueTx = issue(myToken, seed); // Create and sign issue transaction
 
-nodeInteraction.broadcast(issueTx,nodeUrl).then(resp => console.log(resp));
+broadcast(issueTx,nodeUrl).then(resp => console.log(resp));
 
 console.log('Token ID: ' + issueTx.id);
 ```
@@ -78,9 +78,9 @@ my_address.issueAsset(
 
 ### Using dApp
 
-Since Standard Library version 4, dApp callable function can issue a token. See [Callable Function](/en/ride/functions/callable-function) and [Issue](/en/ride/structures/script-actions/issue) articles of [Ride](/en/ride) chapter for more information.
+Since Standard library version 4, dApp callable function can issue a token. See [Callable Function](/en/ride/functions/callable-function) and [Issue](/en/ride/structures/script-actions/issue) articles of [Ride](/en/ride) chapter for more information.
 
-> :warning: Standard Library Version 4 becomes available from node version 1.2.0, after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature. See Activation Protocol. Version 1.2.x is currently available on Stagenet only.
+> :warning: Standard ibrary Version 4 becomes available from node version 1.2.0, after activation of feature #16 “Ride V4 and multiple attached payments for Invoke Script Transaction”. Versions 1.2.x are currently available on Stagenet only.
 
 In this example, `myToken` function issues a token with following params:
 
@@ -111,12 +111,16 @@ To issue an NFT, you can use any of the methods described above. Specify the fol
 
 ## Reissue Asset
 
-If your token is reissuable (you set `"reissuable": true`), you can append an additional amount of token (and also change a `reissuable` flag, if necessary).
+If your token is reissuable (you set `"reissuable": true`), you can append an additional amount of token (and also change the `reissuable` flag, if necessary).
+
+### Using Waves.Exchange
+
+You can use online or desktop app. See the [Reissue Token](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-token-reissue) article of the Waves.Exchange documentation.
 
 ### Using JavaScript
 
 ```javascript
-import { nodeInteraction } from "@waves/waves-transactions";
+import { broadcast } from "@waves/waves-transactions";
 import { reissue } from "@waves/waves-transactions";
 
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
@@ -131,7 +135,7 @@ const myToken = {
 
 const reissueTx = reissue(myToken, seed); // Create and sign reissue transaction
 
-nodeInteraction.broadcast(reissueTx,nodeUrl).then(resp => console.log(resp));
+broadcast(reissueTx,nodeUrl).then(resp => console.log(resp));
 ```
 
 ### Using Python
@@ -155,7 +159,7 @@ You can use online, desktop or mobile app. See the [Burn Token (Online & Desktop
 ### Using JavaScript
 
 ```javascript
-import { nodeInteraction } from "@waves/waves-transactions";
+import { broadcast } from "@waves/waves-transactions";
 import { burn } from "@waves/waves-transactions";
 
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
@@ -169,7 +173,7 @@ const myToken = {
 
 const burnTx = burn(myToken, seed); // Create and sign burn transaction
 
-nodeInteraction.broadcast(burnTx,nodeUrl).then(resp => console.log(resp));
+broadcast(burnTx,nodeUrl).then(resp => console.log(resp));
 ```
 
 ### Using Python

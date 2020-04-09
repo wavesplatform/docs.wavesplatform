@@ -1,6 +1,6 @@
 # Airdrop
 
-An airdrop is a simultaneous sending of tokens to multiple addresses. As a rule, the airdrop is used as a part of a marketing campaign to promote a project, increase its recognition, and attract investors.
+Airdrop is sending tokens simultaneously to multiple addresses. As a rule, the airdrop is used as a part of a marketing campaign to promote a project, increase its recognition, and attract investors.
 
 You can transfer your token to all the active Waves addresses. In this example, we make a list of addresses as follows:
 
@@ -50,7 +50,7 @@ for i in range(blockchain_height - depth, blockchain_height):
         if transaction['senderPublicKey'] not in sender_public_keys:
             sender_public_keys.append(transaction['senderPublicKey'])
 
-    # time.sleep(1) # Only 1 block per second if you use public mainnet nodes
+    # time.sleep(1) # На https://nodes.wavesnodes.com можно Only 1 block per second if you use public Mainnet nodes
 
 # Convert public keys to address
 for public_key in sender_public_keys:
@@ -60,7 +60,7 @@ for public_key in sender_public_keys:
     except ValueError:
         print('Error getting address from public key ', public_key, '\nHTTP response code: ', response)
 
-# Send asset to the addresses
+# Send token to the addresses
 for address in addresses:
     address_obj = pw.Address(address)
     my_address.sendAsset(address_obj, my_asset, airdrop_amount)

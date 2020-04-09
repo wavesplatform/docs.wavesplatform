@@ -1,6 +1,6 @@
 # How to Receive Payments on Your Site
 
-You can provide your customers with the ability to make payments in WAVES, Neutrino, Ethereum or any other asset.
+You can provide your customers with the ability to make payments in WAVES, Neutrino, Ethereum or any other supported asset.
 
 The easiest way is to use Waves.Exchange Client Payment API developed by Waves.Exchange team. Compose a payment URL in the following format:
 
