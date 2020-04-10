@@ -1,154 +1,71 @@
-# Что такое dApp. Чем dApp отличается от смарт-аккаунта
+# Что такое dApp
 
-Перед тем как начать знакомство с [dApp](/ru/blockchain/account/dapp), рассмотрим функциональность смежных сущностей — [аккаунта](/ru/blockchain/account) и [смарт-аккаунта](/ru/blockchain/account/smart-account).
+dApp — это аккаунт Waves с установленным dApp-скриптом.
 
-Функциональность обычного аккаунта позволяет удостовериться, что выпущенная с него [транзакция](/ru/blockchain/transaction) в действительности была отправлена с этого аккаунта.
+dApp-скрипт представляет собой код на языке Ride. Он содержит вызываемые (сallable) функции, которые могут быть вызваны путем отправки транзакции вызова скрипта. Транзакция вызова скрипта содержит:
 
-Смарт-аккаунт, то есть аккаунт с прикрепленным [скриптом аккаунта](/ru/ride/script/script-types/account-script), позволяет проверять исходящие транзакции на соответствие условиям, указанным в скрипте. Например, владелец аккаунта может установить правило, согласно которому транзакции могут отправляться с [адреса](/ru/blockchain/account/address) только в том случае, если высота блокчейна превышает N. Другой пример — можно разрешить отправку транзакций только определённого типа. Либо вообще отменить какую-либо проверку, установив правило, согласно которому все транзакции, отправляемые с адреса, должны считаться валидными.
+* адрес dApp;
+* имя вызываемой функции и значения аргументов;
+* дополнительно транзакция вызова может содержать платежи, которые будут зачислены на баланс dApp.
 
-Возможности dApp еще шире — он умеет не только валидировать исходящие транзакции, но и позволяет другим аккаунтам вызывать содержащиеся в нем функции. С этой точки зрения dApp представляет собой настоящее приложение, работающее на блокчейне.
+Результатом выполнения скрипта могут быть:
 
-## Предварительные требования для написания dApp
+* добавление, редактирование, изменение записей в хранилище данных аккаунта dApp;
+* переводы средств;
+* выпуск, довыпуск, сжигание токена.
 
-dApp пишутся на языке [Ride](/ru/ride). Для создания dApp необходим [аккаунт](/ru/blockchain/account), на балансе которого должно быть достаточно [WAVES](/ru/blockchain/token/waves) для оплаты транзакции установки скрипта (1 WAVES). Чтобы сразу начать писать dApp, воспользуйтесь [Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide).
+![](./_assets/dapp.png)
 
-## Структура dApp
+## Структура dApp-скрипта
 
-### Директива
+dApp-скрипт содержит одну или несколько вызываемых функций.
 
-Каждый скрипт Ride должен начинаться с директивы. Рассмотрим пример директивы:
+Кроме того, dApp-скрипт может содержать функцию-верификатор, которая проверяет транзакции и ордера, отправляемые с аккаунта dApp (то есть работает аналогично скрипту аккаунта).
 
-```ride
-{-# STDLIB_VERSION 3 #-}
-{-# CONTENT_TYPE DAPP #-}
-{-# SCRIPT_TYPE ACCOUNT #-}
-```
+Подробное описание см. в разделе [Структура dApp](/ru/building-apps/smart-contracts/dapp-structure).
 
-Приведенная директива сообщает компилятору, что
+## Данные, к которым имеет доступ dApp
 
-- в скрипте будет использоваться третья версия библиотеки стандартных функций,
-- типом данного скрипта является dApp,
-- скрипт будет привязан к аккаунту (а не к ассету).
+dApp может использовать данные блокчейна:
 
-### Контекст скрипта
+* Записи в хранилищах данных аккаунтов.
+* Балансы аккаунтов.
+* Ассеты.
+* Высота блокчейна.
+* Заголовки блоков.
+* Транзакции перевода.
 
-За директивой следует контекст скрипта. В контексте скрипта объявляются переменные и определяются функции, которые будут доступны в пределах всего dApp. Помимо объявленных разработчиком переменных и функций, контекст скрипта включает [встроенные переменные](/ru/ride/variables/built-in-variables) и [встроенные функции](/ru/ride/functions/built-in-functions). Разработчик может не объявлять собственные переменные и не определять собственные функции — на наличие встроенных переменных и функций это не повлияет.
+См. разделы [Функции хранилища данных аккаунта](/ru/ride/functions/built-in-functions/account-data-storage-functions) и [Функции блокчейна](/ru/ride/functions/built-in-functions/blockchain-functions).
 
-### Объявление вызываемых функций
+Кроме того:
 
-Как мы уже говорили, dApp позволяет вызывать свои функции другим аккаунтам. Эти функции помечаются [аннотацией](/ru/ride/functions/annotations) `@Callable(invocation)`, где `invocation` — произвольный объект контекста скрипта.
+* Вызываемая функция имеет доступ к данным транзакции, которая вызвала dApp-скрипт. Cм. раздел [Invocation](/ru/ride/structures/common-structures/invocation).
+* Функция-верификатор имеет доступ к данным транзакции или ордера, отправляемой с аккаунта dApp.
 
-Ниже приведен пример вызываемой функции, которая записывает в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage) значение `42` по ключу `someDataKey`, если её вызывает владелец аккаунта. Если это пытается сделать кто-то другой, функция кидает исключение. Транзакция в этом случае не будет валидной и не попадет в блокчейн:
+## Установка dApp-скрипта
 
-```ride
-@Callable(invocation)
-func foo() = {
-   if (invocation.caller == this)
-   then
-       ScriptResult(
-            WriteSet([DataEntry("someDataKey", 42)]),
-            TransferSet([ScriptTransfer(invocation.caller, 100500, unit)])
-        )
-   else
-       throw("Only owner can use this function.")
-}
-```
+Чтобы прикрепить dApp к аккаунту, отправьте с этого аккаунта [транзакцию установки скрипта](/ru/blockchain/transaction-type/set-script-transaction):
 
-### Объявление функции валидации
+Создать транзакцию установки скрипта можно:
+* В [Waves IDE](https://ide.wavesplatform.com/): откройте dApp-скрипт и нажмите **Deploy**.
+* С помощью одной из [клиенских библиотек](/ru/building-apps/waves-api-and-sdk/client-libraries/). См. также примеры в разделе [Создание и отправка транзакций](/ru/building-apps/how-to/basic/transaction).
 
-Функция валидации делает то же самое, что и смарт-аккаунт, то есть валидирует исходящие транзакции. Эта функция помечается аннотацией `@Verifier(tx)`, где `tx` — текущая транзакция, которую в данный момент проверяет функция. Возможными результатами выполнения функции валидации являются:
+[Пример транзакции](https://wavesexplorer.com/testnet/tx/213JdqCLq6qGLUvoXkMaSA2wLSwdzH24BuhHBhcBeHUR)
 
-- `true` (транзакция разрешена),
-- `false` (транзакция запрещена),
-- ошибка.
+Комиссия за транзакцию установки скрипта — 0,01 WAVES.
 
-Если в dApp нет функции валидации, то выполняется валидация по умолчанию (то есть проверка того, что транзакция действительно подписана этим аккаунтом).
+После установки скрипта минимальная комиссия за транзакцию, отправленную с аккаунта dApp, увеличивается на 0,004 WAVES.
 
-dApp с приведённой ниже функцией валидации будет разрешать только [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) (отправка транзакций другого типа будет запрещена):
+## Ограничения
 
-```ride
-@Verifier(tx)
-func verify() = {
-    match tx {
-        case ttx:TransferTransaction => sigVerify(ttx.bodyBytes, ttx.proofs[0], ttx.senderPublicKey)
-        case _ => false
-    }
-}
-```
+Ограничения на размер, сложность скрипта, а также на функции и переменные приведены в разделе [Ограничения](/ru/ride/limits).
 
-## Ограничения dApp
+## Примеры
 
-| Ограничение | Максимальное значение |
-|---|---|
-| Размер скрипта | 32 Кбайт |
-| [Complexity](/ru/ride/base-concepts/complexity) | 4000 |
-| Количество аргументов Callable-функции | 22 |
-| Размер имени аннотированной функции | 255 байт |
-| Количество вызовов [ScriptTransfer](/ru/ride/structures/common-structures/script-transfer), [Issue](/ru/ride/structures/common-structures/issue), [Reissue](/ru/ride/structures/common-structures/reissue), [Burn](/ru/ride/structures/common-structures/burn) в одном вызове скрипта (применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4** ) | 10 |
-| Количество вызовов [BinaryEntry](/ru/ride/structures/common-structures/binary-entry), [BooleanEntry](/ru/ride/structures/common-structures/boolean-entry), [IntegerEntry](/ru/ride/structures/common-structures/int-entry), [StringEntry](/ru/ride/structures/common-structures/string-entry) в одном вызове скрипта (применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**) | 100 |
-| Размер записи [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage) для всех вызовов структур [BinaryEntry](/ru/ride/structures/common-structures/binary-entry), [BooleanEntry](/ru/ride/structures/common-structures/boolean-entry), [IntegerEntry](/ru/ride/structures/common-structures/int-entry), [StringEntry](/ru/ride/structures/common-structures/string-entry) в одном вызове скрипта (применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4**) | 5 Кбайт |
-| Размер WriteSet (применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**) | 100 |
-| Количество переводов в [TransferSet](/ru/ride/structures/common-structures/transfer-set) (применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**) | 10 |
-| Размер значения переменной типа String | 32767 символов |
-| Размер значения переменной типа ByteVector | 65536 байт |
+Примеры dApp-скриптов можно найти:
 
-Помимо перечисленных ограничений, за каждую транзакцию, отправляемую с dApp, взимается дополнительные 0,004 WAVES. Минимальная плата за большинство транзакций составляет 0,001 WAVES. Таким образом, стоимость отправки каждой из этих транзакций составит для владельца dApp 0,005 WAVES.
+* В разделе [Практические руководства](/ru/building-apps/how-to#dapps).
+* В [Waves IDE](https://ide.wavesplatform.com/) в меню **Library**.
+* На Github в репозитории [ride-examples](https://github.com/wavesplatform/ride-examples/blob/master/welcome.md).
 
-## Пример dApp
-
-dApp в приведённом ниже примере позволяет класть WAVES на депозит и забирать их обратно, при этом возможность забрать “чужие” WAVES исключена.
-
-```ride
-# Директивы
-{-# STDLIB_VERSION 3 #-}
-{-# CONTENT_TYPE DAPP #-}
-{-# SCRIPT_TYPE ACCOUNT #-}
- 
-# Блок Контекста скрипта
-# (Пустой)
- 
-# Вызываемая функция. Реализует размещение средств на счету
-@Callable(i)        # Объект контекста с именем i
-func deposit() = {
-   let pmt = extract(i.payment)
-   if (isDefined(pmt.assetId)) then throw("can hold waves only at the moment")
-   else {
-        let currentKey = toBase58String(i.caller.bytes)
-        let currentAmount = match getInteger(this, currentKey) {
-            case a:Int => a
-            case _ => 0
-        }
-        let newAmount = currentAmount + pmt.amount
-        WriteSet([DataEntry(currentKey, newAmount)])
-   }
-}
- 
-# Вызываемая функция. Реализует снятие средств со счёта
-@Callable(i)                    # Объект контекста с именем i
-func withdraw(amount: Int) = {
-        let currentKey = toBase58String(i.caller.bytes)
-        let currentAmount = match getInteger(this, currentKey) {
-            case a:Int => a
-            case _ => 0
-        }
-        let newAmount = currentAmount - amount
-     if (amount < 0)
-            then throw("Can't withdraw negative amount")
-    else if (newAmount < 0)
-            then throw("Not enough balance")
-            else ScriptResult(
-                    WriteSet([DataEntry(currentKey, newAmount)]),
-                    TransferSet([ScriptTransfer(i.caller, amount, unit)])
-                )
-    }
- 
-# Функция валидации исходящих транзакций. Дублирует базовую функциональность проверки принадлежности транзакции владельцу аккаунта
-@Verifier(tx)
-func verify() = {
-    sigVerify(tx.bodyBytes, tx.proofs[0], tx.senderPublicKey)
-}
-```
-
-## Прикрепление dApp к аккаунту
-
-Чтобы прикрепить dApp к аккаунту, используйте [транзакцию установки скрипта](/ru/blockchain/transaction-type/set-script-transaction).
+Руководство по созданию dApp приведено в разделе [Создание dApp: быстрый старт](/ru/building-apps/smart-contracts/writing-dapps).

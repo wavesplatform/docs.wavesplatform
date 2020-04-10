@@ -1,86 +1,227 @@
-# Написание dApps
+# Создание dApp: полный цикл
 
-## Валидация транзакций по умолчанию
+В этом разделе вы узнаете, как создать и запустить реальное децентрализованное приложение, работающее на блокчейне.
 
-После создания акаунта на платформе Waves, каждая транзакция, которая отправляется с этого аккаунта, проходит проверку на валидность. Если транзакция проходит проверку, то она попадает в генерируемый блок блокчейна, если нет — она отбрасывается.
+Для создания и тестирования dApp мы используем [Waves IDE](https://ide.wavesplatform.com/). Для создания веб-приложения, которое вызывает функции dApp, мы используем JavaScript.
 
-По умолчанию, во время валидации происходит проверка _только_ факта принадлежности транзакции владельцу аккаунта, с которого транзакция отправляется. Для этого бинарные данные транзакции, открытый ключ владельца аккаунта, а также цифровая подпись транзакции прогоняются через специальную функцию `sigVerify`. Если функция `sigVerify` возвращет `true` — транзакция считается валидной, иначе — невалидной.
+Процесс разработки dApp состоит из пяти простых шагов. Мы пройдем их один за другим. В результате должно получиться простое приложение Waves Magic 8 Ball — генератор превдослучайных ответов. В дальнейшем, повторяя эти шаги, вы сможете создать приложение любой сложности. Больше о возможностях dApp читайте в разделе [Что такое dApp](/ru/building-apps/smart-contracts/what-is-dapp).
 
-## Валидация транзакций скриптом аккаунта
+## План действий
 
-Если в алгоритме валидации необходимо прописать более сложную логику, чем просто проверку принадлежности транзакции владельцу аккаунта, то для этого на языке Ride пишут специальный скрипт, который эту логику содержит. Данный скрипт привязывается к аккаунту. Такой скрипт называется скриптом аккаунта. После привязки все транзакции, отправляемые с данного аккаунта, валидируются **скриптом аккаунта**.
+1. Создать аккаунт dApp.
+2. Написать dApp-скрипт.
+3. Установить скрипт на аккаунт dApp.
+4. Протестировать скрипт.
+5. Выйти в реальный мир.
 
-## IDE для написания скрипта аккаунта
+## Шаг 1. Создание аккаунта dApp
 
-В качестве IDE для написания скриптов на языке Ride мы используем [Waves IDE](https://ide.wavesplatform.com). Чтобы создать новый скрипт, кликнем на кнопку **New** и выберем пункт **Account Script**.
+1. Откройте [Waves IDE](https://ide.wavesplatform.com/).
+2. Нажмите ![](./_assets/ide-settings.png) и убедитесь, что вы работаете с Testnet.
+3. Нажмите **Add account → Generate new account**.
+4. Нажмите **Show seed and private key** и сохраните секретную фразу в укромном месте — она потребуется для восстановления доступа к аккаунту.
+5. Пополните баланс аккаунта: в Testnet это бесплатно. Для этого:
 
-![](./_assets/ide1.png)
+   * Скопируйте адрес аккаунта: нажмите на название аккаунта, затем нажмите кнопку ![](./_assets/copy-button.png).
+   * Перейдите на страницу <https://wavesexplorer.com/testnet/faucet>, вставьте адрес и нажмите **Request 10 WAVES**.
 
-Откроется новая вкладка, в которой мы сможем писать наш Ride-скрипт.
+## Шаг 2. Написание dApp-скрипта
 
-![](./_assets/ide2.png)
+1. Нажмите кнопку ![](./_assets/add-script-button.png) и выберите **dApp script**.
+2. Замените автоматически сгенерированный код на текст вашего скрипта.
 
-## Работа с объектом транзакции внутри скрипта аккаунта
+Файл скрипта сохраняется в Waves IDE автоматически.
 
-У скрипта аккаунта есть контекст, содержащий некоторые полезные переменные. Одной из таких переменных является переменная `tx`, которая содержит в себе информацию о валидируемой скриптом транзакции. В блокчейне Waves существует [несколько типов транзакций](/ru/blockchain/transaction-type). Внутри скрипта аккаунта мы должны иметь возможность определять тип транзакции,  с которой мы имеем дело. Приведение типов осуществляется с помощью оператора `match`:
+Код скрипта Waves Magic 8 Ball можно скопировать из бибилиотеки: **Library → ride4dapps → 8ball → ride → 8ball.ride**.
 
-```
-let accountPubKey = base58'9xPqZ7fhgKxRsgkbahawNMsgHhM9TMYa3SXwNmn3bvyS'
- 
-match (tx)
-{
-    case t: TransferTransaction =>
-        sigVerify(tx.proofs[0], tx.bodyBytes, accountPubKey)
-        &&
-        t.amount < 100
- 
-    case t: IssueTransaction =>
-        sigVerify(tx.proofs[0], tx.bodyBytes, accountPubKey)
- 
-    case _ =>
-        false
-}
-```
-
-В примере выше мы говорим, что если отправляемая с аккаунта транзакция является трансфер-транзакцией, и сумма перевода составляет менее 100 токенов, то мы разрешаем такую транзакцию. Также мы разрешаем любую транзакцию типа Issue Transaction. Все остальные типы транзакций отправлять с аккаунта мы запрещаем.
-
-## Структура децентрализованного приложения
-
-Децентрализованное приложение состоит из следующих элементов:
-- Директивы
-- Контекст скрипта
-- Объявление вызываемых функций
-- Объявление функции валидации
-
-Порядок, в котором элементы определены внутри скрипта приложения важен — он должен быть такой, как в списке выше.
-
-## Директивы
-
-Т.к. компилятор работает с любым видом скриптов нашей системы, ему необходима дополнительная информация для работы. Поэтому во всех скриптах желательно использовать директивы, иначе будут использованы значения по умолчанию, которые могут не подходить в конкретном случае.
-
-Для dApp набор директив следующий:
-
-```
+<details><summary>Код скрипта</summary>
+<p>
+<code>
 {-# STDLIB_VERSION 3 #-}
-{-# SCRIPT_TYPE ACCOUNT #-}
 {-# CONTENT_TYPE DAPP #-}
-```
-STDLIB_VERSION 3 — версия библиотеки стандартных функций.
+{-# SCRIPT_TYPE ACCOUNT #-}
 
-SCRIPT_TYPE ACCOUNT — директива указывающая на то, что скрипт привязан к аккаунту (а не к ассету).
+#
+# Waves dApp version of famous Magic 8 ball toy!
+# Function name: tellme(question: String)
+# Question and answer will be written to dApp data state
+#
+# Example on Testnet: 3N27HUMt4ddx2X7foQwZRmpFzg5PSzLrUgU
+#
 
-CONTENT_TYPE DAPP — директива, указывающая, что тип данного скрипта это dApp.
+let answersCount = 20
+let answers = 
+    ["It is certain.",
+    "It is decidedly so.",
+    "Without a doubt.",
+    "Yes - definitely.",
+    "You may rely on it.",
+    "As I see it, yes.",
+    "Most likely.",
+    "Outlook good.",
+    "Yes.",
+    "Signs point to yes.",
+    "Reply hazy, try again.",
+    "Ask again later.",
+    "Better not tell you now.",
+    "Cannot predict now.",
+    "Concentrate and ask again.",
+    "Don't count on it.",
+    "My reply is no.",
+    "My sources say no.",
+    "Outlook not so good.",
+    "Very doubtful."]
 
-## Контекст скрипта
 
-Контекст скрипта — это контекст, в котором могут быть определены [неизменяемые переменные](/ru/ride/variables), и определены функции, которые будут доступны в пределах всего dApp.
-
-```
-let someConstant = 42
-func doSomething() = {
-    1+1
+#
+# Simple pseudorandom answer generator
+#
+func getAnswer(question: String, previousAnswer: String) = {
+    let hash = sha256(toBytes(question + previousAnswer))
+    let index = toInt(hash)
+    answers[index % answersCount]
 }
-```
+
+func getPreviousAnswer(address: String) = {
+  match getString(this, address + "_a") {
+    case a: String => a
+    case _ => address
+  }
+}
+
+@Callable(i)
+func tellme(question: String) = {
+    let callerAddress = toBase58String(i.caller.bytes)
+    let answer = getAnswer(question, getPreviousAnswer(callerAddress))
+
+    WriteSet([
+        DataEntry(callerAddress + "_q", question),
+        DataEntry(callerAddress + "_a", answer)
+        ])
+}
+</code>
+
+</p>
+</details>
+
+<details><summary>Пояснения к коду</summary>
+<p>
+dApp-скрипт должен начинаться с директив:
+
+<code>
+```ride
+{-# STDLIB_VERSION 4 #-}
+{-# CONTENT_TYPE DAPP #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+</code>
+
+Между директивами и вызываемой функцией можно объявить переменные и вспомогательные функции.
+
+Перед объявлением вызываемой функцией нужно указать директиву `@Callable(i)`. Объект `i` содержит поля транзакции вызова скрипта, которые может использовать вызываемая функция. В нашем примере используется поле `i.caller.bytes` — адрес аккаунта пользователя, вызвавшего функцию.
+</p>
+</details>
+
+Подробнее о структуре dApp-скрипта читайте в разделе [Структура dApp-скрипта](/ru/building-apps/smart-contracts/dapp-structure).
+
+## Шаг 3. Установка скрипта
+
+Для установки dApp-скрипта на аккаунт нужно отправить с этого аккаунта транзакцию установки скрипта. Комиссия за установку скрипта составляет 0,01 WAVES.
+
+Отправить транзакцию можно прямо из Waves IDE:
+
+1. Откройте dApp-скрипт и нажмите **Deploy**.
+2. Нажмите **Add sign**, чтобы добавить подпись к транзакции. Нажмите **Publish**.
+
+Вы можете проверить установленный dApp-скрипт в Waves Explorer:
+
+1. Откройте <https://wavesexplorer.com/>.
+2. Нажмите кнопку ![](../how-to/basic/_assets/settings.png) и переключитесь на ![](../how-to/basic/_assets/testnet.png).
+3. Выполните поиск по адресу аккаунта.
+4. Перейдите на вкладку **Script**.
+
+dApp готов к использованию — его функции можно вызывать извне блокчейна.
+
+## Шаг 4. Тестирование скрипта
+
+Для тестирования dApp-скрипта нужно отправить транзакцию вызова скрипта. Комиссия за вызов скрипта составляет от 0,005 WAVES и зависит от количества смарт-ассетов, используемых в вызове (в нашем примере они не используются). Формула расчета комиссии приведена в разделе [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee).
+
+Выполнить тесты также можно прямо из Waves IDE:
+
+1. Создайте аккаунт тестового пользователя и пополните баланс — для этого повторите шаг 1.
+2. Нажмите кнопку ![](../how-to/basic/_assets/settings.png) и переключитесь на ![](../how-to/basic/_assets/testnet.png).
+3. Замените автоматически сгенерированный код на ваш тест.
+
+   Код теста для скрипта Waves Magic 8 Ball можно скопировать из бибилиотеки: **Library → ride4dapps → 8ball → tests → 8ball_test.js**. Не забудьте заменить значение `ballAddress` на адрес своего dApp.
+
+4. Нажмите кнопку **Run full test**.
+
+<details><summary>Код теста</summary>
+<p>
+<code>
+//
+// Waves dApp Magic 8 ball tests
+//
+
+describe('8 ball', () => {
+    const ballAddress = "3N27HUMt4ddx2X7foQwZRmpFzg5PSzLrUgU"
+    const question = "Test" + Date.now()
+    const tx = invokeScript({fee: 500000, dApp: ballAddress, call:{function:"tellme", args:[{"type": "string", "value": question}]}, payment: null})
+
+    it('Tx is mined in block', async function(){
+        await broadcast(tx)
+        await waitForTx(tx.id)
+    })
+
+    it('Question is in ball', async function(){
+        await accountDataByKey(address()+"_q", ballAddress)
+            .then(reslove => expect(reslove.value).to.equal(question))
+    })
+})
+</code>
+</p>
+</details>
+
+Вы можете проверить результат выполнения dApp-скрипта в Waves Explorer:
+
+1. Откройте <https://wavesexplorer.com/>.
+2. Нажмите кнопку ![](../how-to/basic/_assets/settings.png) и переключитесь на ![](../how-to/basic/_assets/testnet.png).
+3. Выполните поиск по адресу аккаунта dApp.
+4. Перейдите на вкладку **Data**.
+
+Комиссия за вызов скрипта составляет от 0,005 WAVES и зависит от количества смарт-ассетов, используемых в вызове (в нашем примере они не используются). Формула расчета комиссии приведена в разделе [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee).
+
+## Шаг 5. Выход в реальный мир
+
+Для выхода в реальный мир нужно сделать вот что:
+
+* Создайте веб-приложение, в котором пользователь сможет, нажав кнопку, подписать и отправить транзакцию вызова скрипта.
+* Добавьте ваш dApp на Mainnet.
+* Зарегистрируйте приложение в реестрах dAppOcean и DappRadar, чтобы как можно больше пользователей узнали о нем!
+
+### 5.1. Создание веб-приложения
+
+Чтобы подписать транзакцию вызова скрипта от имени реального пользователя, подключите JS-бибилиотеку Signer.
+
+### 5.2. Добавление dApp на Mainnet
+
+1. В Waves IDE нажмите ![](./_assets/ide-settings.png) и переключитесь на Mainnet.
+2. Создайте аккаунт dApp на Mainnet — аналогично шагу 1.
+3. Пополните баланс аккаунта, чтобы оплатить комиссию за установку скрипта.
+
+   Например, с помощью приложения [Waves.Exchange](https://waves.exchange/), разработанного командой Waves.Exchange, вы можете:
+   
+   * Перевести 0,01 WAVES с другого аккаунта, см. раздел [Переводы криптовалют](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-trs-gtw/online-desktop-trs-asset) документации Waves.Exchange.
+   * Купить Neutrino с банковской карты, затем обменять на WAVES, см. разделы [Купить Neutrino с карты](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-staking#купить-neutrino-с-карты) и [Торговля на бирже](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-trading).
+
+4. Установите скрипт аккаунта — аналогично шагу 3.
+
+dApp на Mainnet получит другой адрес — не забудьте поменять его в веб-приложении. Кроме того, адрес ноды для отправки транзакции вызова скрипта нужно заменить на ` https://nodes.wavesnodes.com`.
+
+> :bulb: Если вы хотите сделать приложение бесплатным для пользователей и оплачивать вместо них комиссию за вызов скрипта, [включите спонсирование](/ru/blockchain/waves-protocol/sponsored-fee).
+
+## Что дальше
+
+API публичных нод WAVES имеет [ограничения на количество запросов в секунду](/ru/waves-node/api-limitations-of-the-pool-of-public-nodes). Поэтому, когда ваше приложение наберет популярность, мы рекомендуем [запустить собственную ноду](/ru/waves-node/how-to-install-a-node/how-to-install-a-node) и отправлять транзакции вызова скрипта на нее.
 
 ## Объявление вызываемых функций
 
@@ -201,7 +342,6 @@ func verify() = {
 ## JSON InvokeScript-транзакции
 
 ```
-
 {
  
   "type": 16,
@@ -228,58 +368,3 @@ func verify() = {
   "id": "2fcMC9ihuLAcGNsbiSLDgz8dekq2JkrtjihroUiyNYCp"
 }
 ```
-
-## Пример децентрализованного приложения
-
-```
-# Директивы
-{-# STDLIB_VERSION 3 #-}
-{-# CONTENT_TYPE DAPP #-}
-{-# SCRIPT_TYPE ACCOUNT #-}
- 
-# Блок Контекста скрипта
-# ПУСТОЙ
- 
-# Вызываемая функция — принимает платежи с других аккаунтов и записывает на их счёт (в данные аккаунта, на котором установлен DApp)
-@Callable(i)        # Объект контекста с именем i
-func deposit() = {
-   let pmt = extract(i.payment)
-   if (isDefined(pmt.assetId)) then throw("can hodl waves only at the moment")
-   else {
-        let currentKey = toBase58String(i.caller.bytes)
-        let currentAmount = match getInteger(this, currentKey) {
-            case a:Int => a
-            case _ => 0
-        }
-        let newAmount = currentAmount + pmt.amount
-        WriteSet([DataEntry(currentKey, newAmount)])
-   }
-}
- 
-# Вызываемая функция - снимает со счёта валюту и переводит владельцу, если у нега на счету что-то есть
-@Callable(i)                    # Объект контекста с именем i
-func withdraw(amount: Int) = {
-        let currentKey = toBase58String(i.caller.bytes)
-        let currentAmount = match getInteger(this, currentKey) {
-            case a:Int => a
-            case _ => 0
-        }
-        let newAmount = currentAmount - amount
-     if (amount < 0)
-            then throw("Can't withdraw negative amount")
-    else if (newAmount < 0)
-            then throw("Not enough balance")
-            else ScriptResult(
-                    WriteSet([DataEntry(currentKey, newAmount)]),
-                    TransferSet([ScriptTransfer(i.caller, amount, unit)])
-                )
-    }
- 
- 
-# Функция валидации исходящих транзакций — данная реализация полностью соответствует реализации по умолчанию
-@Verifier(tx)
-func verify() = {
-    sigVerify(tx.bodyBytes, tx.proofs[0], tx.senderPublicKey)
-}
-```
-
