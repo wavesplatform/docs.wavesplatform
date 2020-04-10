@@ -28,7 +28,7 @@ Smart assets can be used in the following cases:
 
 # Smart Asset Fees
 
-The transaction fee is calculated in the same way as for [smart accounts](/en/building-apps/smart-contracts/smart-accounts): for each time the script is called, [total transaction’s fee](/en/blockchain/transaction/transaction-fee) increases by 0.004 WAVES.
+The transaction fee is calculated in the same way as for [smart accounts](/en/building-apps/smart-contracts/what-is-smart-account): for each time the script is called, [total transaction’s fee](/en/blockchain/transaction/transaction-fee) increases by 0.004 WAVES.
 
 **Examples:**
 

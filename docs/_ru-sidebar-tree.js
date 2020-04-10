@@ -284,6 +284,10 @@ module.exports = {
           path: blockchainPath + 'block/block-timestamp',
         },
         {
+          title: 'Корневой хеш транзакций',
+          path: blockchainPath + 'block/merkle-root',
+        },
+        {
           title: 'Блок генезиса',
           path: blockchainPath + 'block/genesis-block',
         },
@@ -585,7 +589,7 @@ module.exports = {
         {
           title: 'Экспорт/Импорт блокчейна',
           path: nodePath + 'options-for-getting-actual-blockchain/import-from-the-blockchain',
-        },	  
+        },
         {
           title: 'Загрузка готовой актуальной базы данных',
           path: nodePath + 'options-for-getting-actual-blockchain/state-downloading-and-applying',
@@ -737,10 +741,6 @@ module.exports = {
       title: 'Базовые понятия',
       path: ridePath + 'base-concepts',
       children: [
-        {
-          title: 'Сложность',
-          path: ridePath + 'base-concepts/complexity',
-        },
         {
           title: 'Определение',
           path: ridePath + 'base-concepts/definition',
@@ -936,6 +936,70 @@ module.exports = {
       path: ridePath + 'structures',
       children: [
         {
+          title: 'Действия скрипта',
+          path: ridePath + 'structures/script-actions',
+          children: [
+            {
+              title: 'BinaryEntry (v4)',
+              path: ridePath + 'structures/script-actions/binary-entry',
+            },
+            {
+              title: 'BooleanEntry (v4)',
+              path: ridePath + 'structures/script-actions/boolean-entry',
+            },
+            {
+              title: 'Burn (v4)',
+              path: ridePath + 'structures/script-actions/burn',
+            },
+            {
+              title: 'DataEntry (v3)',
+              path: ridePath + 'structures/script-actions/data-entry',
+            },
+            {
+              title: 'DeleteEntry (v4)',
+              path: ridePath + 'structures/script-actions/delete-entry',
+            },
+            {
+              title: 'IntegerEntry (v4)',
+              path: ridePath + 'structures/script-actions/int-entry',
+            },
+            {
+              title: 'Issue (v4)',
+              path: ridePath + 'structures/script-actions/issue',
+            },
+            {
+              title: 'Reissue (v4)',
+              path: ridePath + 'structures/script-actions/reissue',
+            },
+            {
+              title: 'ScriptTransfer (v3 and v4)',
+              path: ridePath + 'structures/script-actions/script-transfer',
+            },
+            {
+              title: 'StringEntry (v4)',
+              path: ridePath + 'structures/script-actions/string-entry',
+            },
+          ],
+        },
+        {
+          title: 'Результаты скрипта (v3)',
+          path: ridePath + 'structures/script-results',
+          children: [
+            {
+              title: 'ScriptResult',
+              path: ridePath + 'structures/script-results/script-result',
+            },
+            {
+              title: 'TransferSet',
+              path: ridePath + 'structures/script-results/transfer-set',
+            },
+            {
+              title: 'WriteSet',
+              path: ridePath + 'structures/script-results/write-set',
+            },
+          ],
+        },        
+        {
           title: 'Общие структуры',
           path: ridePath + 'structures/common-structures',
           children: [
@@ -960,72 +1024,20 @@ module.exports = {
               path: ridePath + 'structures/common-structures/attached-payment',
             },
             {
-              title: 'BinaryEntry',
-              path: ridePath + 'structures/common-structures/binary-entry',
-            },
-            {
               title: 'BlockInfo',
               path: ridePath + 'structures/common-structures/block-info',
-            },
-            {
-              title: 'BooleanEntry',
-              path: ridePath + 'structures/common-structures/boolean-entry',
-            },
-            {
-              title: 'Burn',
-              path: ridePath + 'structures/common-structures/burn',
-            },
-            {
-              title: 'DataEntry',
-              path: ridePath + 'structures/common-structures/data-entry',
-            },
-            {
-              title: 'DeleteEntry',
-              path: ridePath + 'structures/common-structures/delete-entry',
-            },
-            {
-              title: 'IntegerEntry',
-              path: ridePath + 'structures/common-structures/int-entry',
             },
             {
               title: 'Invocation',
               path: ridePath + 'structures/common-structures/invocation',
             },
             {
-              title: 'Issue',
-              path: ridePath + 'structures/common-structures/issue',
-            },
-            {
               title: 'Order',
               path: ridePath + 'structures/common-structures/order',
             },
             {
-              title: 'Reissue',
-              path: ridePath + 'structures/common-structures/reissue',
-            },
-            {
-              title: 'ScriptResult',
-              path: ridePath + 'structures/common-structures/script-result',
-            },
-            {
-              title: 'ScriptTransfer',
-              path: ridePath + 'structures/common-structures/script-transfer',
-            },
-            {
-              title: 'StringEntry',
-              path: ridePath + 'structures/common-structures/string-entry',
-            },
-            {
               title: 'Transfer',
               path: ridePath + 'structures/common-structures/transfer',
-            },
-            {
-              title: 'TransferSet',
-              path: ridePath + 'structures/common-structures/transfer-set',
-            },
-            {
-              title: 'WriteSet',
-              path: ridePath + 'structures/common-structures/write-set',
             },
           ],
         },
@@ -1108,6 +1120,20 @@ module.exports = {
         {
           title: 'Встроенные переменные',
           path: ridePath + 'variables/built-in-variables',
+        },
+      ],
+    },
+    {
+      title: 'Ограничения',
+      path: ridePath + 'limits',
+      children: [
+        {
+          title: 'Сложность',
+          path: ridePath + 'base-concepts/complexity',
+        },
+        {
+          title: 'Вес данных',
+          path: ridePath + 'limits/weight',
         },
       ],
     },
@@ -1361,6 +1387,10 @@ module.exports = {
     {
       title: 'Release notes',
       path: keepInTouchPath + 'release-notes',
+    },
+    {
+      title: 'Release notes (Node Go)',
+      path: keepInTouchPath + 'release-notes-go',
     },
     {
       title: 'Обновления в документации',

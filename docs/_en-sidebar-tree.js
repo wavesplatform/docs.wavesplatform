@@ -284,6 +284,10 @@ module.exports = {
           path: blockchainPath + 'block/block-timestamp',
         },
         {
+          title: 'Transations Root Hash',
+          path: blockchainPath + 'block/merkle-root',
+        },
+        {
           title: 'Genesis block',
           path: blockchainPath + 'block/genesis-block',
         },
@@ -549,114 +553,92 @@ module.exports = {
 
   [nodePath]: [
     {
-      title: 'Node owner guide',
+      title: 'Node Owner Guide',
       path: nodePath,
-    },
-    {
-      title: 'Waves Full Node',
-      path: nodePath + 'what-is-a-full-node',
-    },
-    {
-      title: 'How to install a node',
+	},
+	{
+      title: 'Install Waves Node',
       path: nodePath + 'how-to-install-a-node/how-to-install-a-node',
       children: [
         {
-          title: 'On Mac',
+          title: 'Deploy Node in Docker',
+          path: nodePath + 'waves-node-in-docker',
+        },
+        {
+          title: 'Install Node on Ubuntu',
+          path: nodePath + 'how-to-install-a-node/on-ubuntu',
+        },	
+        {
+          title: 'Install Node on macOS',
           path: nodePath + 'how-to-install-a-node/on-mac',
         },
         {
-          title: 'On Windows',
+          title: 'Install Node on Windows',
           path: nodePath + 'how-to-install-a-node/on-windows',
         },
         {
-          title: 'On Ubuntu',
-          path: nodePath + 'how-to-install-a-node/on-ubuntu',
-        }
+          title: 'Install from Source (Building SBT)',
+          path: nodePath + 'how-to-build-and-test-a-node',
+        },
+        {
+          title: 'Deploy Node in Cloud',
+          path: nodePath + 'how-to-install-a-node/clouds',
+		  children: [
+		    {
+              title: 'Deploy Node in Yandex.Cloud',
+              path: nodePath + 'running-waves-node-in-yandex-cloud',
+            },
+		  ]			
+        },	
       ],
     },
-    {
-      title: 'How to build and test a node',
-      path: nodePath + 'how-to-build-and-test-a-node',
-    },
-    {
-      title: 'Options for getting actual blockchain',
+	{
+      title: 'Get Waves Blockchain',
       path: nodePath + 'options-for-getting-actual-blockchain',
       children: [
         {
           title: 'Export/Import Blockchain',
           path: nodePath + 'options-for-getting-actual-blockchain/import-from-the-blockchain',
-        },    
+        },
         {
           title: 'Download the Latest Blockchain',
           path: nodePath + 'options-for-getting-actual-blockchain/state-downloading-and-applying',
         },
+		{
+          title: 'Rollback Waves Node',
+          path: nodePath + 'how-to-rollback-a-node',
+        },
       ],
     },
     {
-      title: 'Upgrading Waves Node',
+      title: 'Upgrade Waves Node',
       path: nodePath + 'upgrading',
     },
     {
-      title: 'How to rollback a node',
-      path: nodePath + 'how-to-rollback-a-node',
-    },
-    {
-      title: 'Working with node wallet',
-      path: nodePath + 'working-with-node-wallet',
-    },
-    {
-      title: 'Waves node in Docker',
-      path: nodePath + 'waves-node-in-docker',
-    },
-    {
-      title: 'Joining testnet',
-      path: nodePath + 'joining-testnet',
-    },
-    {
-      title: 'Private Waves network',
-      path: nodePath + 'private-waves-network',
-    },
-    {
-      title: 'Extensions',
-      path: nodePath + 'extensions',
-      children: [
-        {
-          title: 'gRPC Server',
-          path: nodePath + 'extensions/grpc-server',
-          children: [
-            {
-              title: 'gRPC Server installation',
-              path: nodePath + 'extensions/grpc-server/grpc-server-installation',
-            },
-          ],
-        },
-      ]
-    },
-    {
-      title: 'Features',
-      path: nodePath + 'features/features',
-      children: [
-        {
-          title: 'Feature',
-          path: nodePath + 'features/feature',
-        },
-        {
-          title: 'Feature activation protocol',
-          path: nodePath + 'features/feature-activation-protocol',
-        }
-      ],
-    },
-    {
-      title: 'Node configuration file',
-      path: nodePath + 'node-configuration-file',
-    },
-    {
-      title: 'Node configuration',
+      title: 'Node Configuration',
       path: nodePath + 'node-configuration',
     },
     {
-      title: 'Logging configuration',
+      title: 'Logging Configuration',
       path: nodePath + 'logging-configuration',
+    },
+    {
+      title: 'Node Wallet',
+      path: nodePath + 'how-to-work-with-node-wallet',
+    },	
+    {
+      title: 'Features',
+      path: nodePath + 'features',
+	  children: [
+	    {
+	      title: 'Activation protocol',
+          path: nodePath + 'activation-protocol',
+        },
+	  ],
+    },
+    {
+      title: 'Custom Blockchain',
+      path: nodePath + 'private-waves-network',
     },
     {
       title: 'Node API',
@@ -666,6 +648,10 @@ module.exports = {
           title: 'Request headers',
           path: nodePath + 'node-api/headers',
         },
+        {
+          title: 'Activation',
+          path: nodePath + 'node-api/feature-activation',
+        },	
         {
           title: 'Address',
           path: nodePath + 'node-api/address',
@@ -693,7 +679,7 @@ module.exports = {
           ],
         },
         {
-          title: 'Aliases',
+          title: 'Alias Transaction',
           path: nodePath + 'node-api/alias-transaction',
         },
         {
@@ -715,17 +701,27 @@ module.exports = {
         {
           title: 'Examples of transactions',
           path: nodePath + 'node-api/example-transactions',
-        }
-      ],
+        },
+	    {
+          title: 'API limitations of the pool of public nodes',
+          path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
+		},
+	  ],   
     },
     {
-      title: 'Running Waves Node in Yandex.Cloud',
-      path: nodePath + 'running-waves-node-in-yandex-cloud',
+      title: 'Extensions',
+      path: nodePath + 'extensions',
+      children: [
+        {
+          title: 'gRPC Server',
+          path: nodePath + 'extensions/grpc-server',
+        },
+      ]
     },
-    {
-      title: 'API limitations of the pool of public nodes',
-      path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
-    },
+	{
+      title: 'Troubleshooting',
+      path: nodePath + 'node-troubleshooting',
+	},
   ],
 
   [ridePath]: [
@@ -741,10 +737,6 @@ module.exports = {
       title: 'Base concepts',
       path: ridePath + 'base-concepts',
       children: [
-        {
-          title: 'Complexity',
-          path: ridePath + 'base-concepts/complexity',
-        },
         {
           title: 'Definition',
           path: ridePath + 'base-concepts/definition',
@@ -940,6 +932,70 @@ module.exports = {
       path: ridePath + 'structures',
       children: [
         {
+          title: 'Script actions',
+          path: ridePath + 'structures/script-actions',
+          children: [
+            {
+              title: 'BinaryEntry (v4)',
+              path: ridePath + 'structures/script-actions/binary-entry',
+            },
+            {
+              title: 'BooleanEntry (v4)',
+              path: ridePath + 'structures/script-actions/boolean-entry',
+            },
+            {
+              title: 'Burn (v4)',
+              path: ridePath + 'structures/script-actions/burn',
+            },
+            {
+              title: 'DataEntry (v3)',
+              path: ridePath + 'structures/script-actions/data-entry',
+            },
+            {
+              title: 'DeleteEntry (v4)',
+              path: ridePath + 'structures/script-actions/delete-entry',
+            },
+            {
+              title: 'IntegerEntry (v4)',
+              path: ridePath + 'structures/script-actions/int-entry',
+            },
+            {
+              title: 'Issue (v4)',
+              path: ridePath + 'structures/script-actions/issue',
+            },
+            {
+              title: 'Reissue (v4)',
+              path: ridePath + 'structures/script-actions/reissue',
+            },
+            {
+              title: 'ScriptTransfer (v3 and v4)',
+              path: ridePath + 'structures/script-actions/script-transfer',
+            },
+            {
+              title: 'StringEntry (v4)',
+              path: ridePath + 'structures/script-actions/string-entry',
+            },
+          ],
+        },
+        {
+          title: 'Script results (v3)',
+          path: ridePath + 'structures/script-results',
+          children: [
+            {
+              title: 'ScriptResult',
+              path: ridePath + 'structures/script-results/script-result',
+            },
+            {
+              title: 'TransferSet',
+              path: ridePath + 'structures/script-results/transfer-set',
+            },
+            {
+              title: 'WriteSet',
+              path: ridePath + 'structures/script-results/write-set',
+            },
+          ],
+        },        
+        {
           title: 'Common structures',
           path: ridePath + 'structures/common-structures',
           children: [
@@ -964,72 +1020,20 @@ module.exports = {
               path: ridePath + 'structures/common-structures/attached-payment',
             },
             {
-              title: 'BinaryEntry',
-              path: ridePath + 'structures/common-structures/binary-entry',
-            },
-            {
               title: 'BlockInfo',
               path: ridePath + 'structures/common-structures/block-info',
-            },
-            {
-              title: 'BooleanEntry',
-              path: ridePath + 'structures/common-structures/boolean-entry',
-            },
-            {
-              title: 'Burn',
-              path: ridePath + 'structures/common-structures/burn',
-            },
-            {
-              title: 'DataEntry',
-              path: ridePath + 'structures/common-structures/data-entry',
-            },
-            {
-              title: 'DeleteEntry',
-              path: ridePath + 'structures/common-structures/delete-entry',
-            },
-            {
-              title: 'IntegerEntry',
-              path: ridePath + 'structures/common-structures/int-entry',
             },
             {
               title: 'Invocation',
               path: ridePath + 'structures/common-structures/invocation',
             },
             {
-              title: 'Issue',
-              path: ridePath + 'structures/common-structures/issue',
-            },
-            {
               title: 'Order',
               path: ridePath + 'structures/common-structures/order',
             },
             {
-              title: 'Reissue',
-              path: ridePath + 'structures/common-structures/reissue',
-            },
-            {
-              title: 'ScriptResult',
-              path: ridePath + 'structures/common-structures/script-result',
-            },
-            {
-              title: 'ScriptTransfer',
-              path: ridePath + 'structures/common-structures/script-transfer',
-            },
-            {
-              title: 'StringEntry',
-              path: ridePath + 'structures/common-structures/string-entry',
-            },
-            {
               title: 'Transfer',
               path: ridePath + 'structures/common-structures/transfer',
-            },
-            {
-              title: 'TransferSet',
-              path: ridePath + 'structures/common-structures/transfer-set',
-            },
-            {
-              title: 'WriteSet',
-              path: ridePath + 'structures/common-structures/write-set',
             },
           ],
         },
@@ -1112,6 +1116,20 @@ module.exports = {
         {
           title: 'Built-in variables',
           path: ridePath + 'variables/built-in-variables',
+        },
+      ],
+    },
+    {
+      title: 'Limitations',
+      path: ridePath + 'limits',
+      children: [
+        {
+          title: 'Complexity',
+          path: ridePath + 'base-concepts/complexity',
+        },
+        {
+          title: 'Data Weight',
+          path: ridePath + 'limits/weight',
         },
       ],
     },
@@ -1397,6 +1415,10 @@ module.exports = {
     {
       title: 'Release Notes',
       path: keepInTouchPath + 'release-notes',
+    },
+	{
+      title: 'Release Notes (Node Go)',
+      path: keepInTouchPath + 'release-notes-go',
     },
     {
       title: 'Documentation Updates',

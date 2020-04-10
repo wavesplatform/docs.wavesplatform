@@ -1,103 +1,59 @@
 # Sponsored Fee
 
-## Use Cases
+Users of Waves-based apps should pay a fee for each transaction. This is the entry threshold for new users. Sometimes users don't know anything about WAVES or don't understand how to get WAVES or don't want to spend money. Sponsorship enables launching apps that do not require WAVES from users.
 
-Users can set a transaction fee nominated in an asset. However, node owners need to explicitly allow transaction fees in the asset by manually editing node configuration file. Otherwise, node won't be able to mine a block with these transactions.
+## Sponsored asset
 
-The sponsorship could be set for an asset. In this case miner will receive fee in Waves for processing of transactions, the fee of which is nominated in sponsored asset.
+An account that launched an asset can enable sponsorship, that is, allow all users to pay a fee in this asset for invoke script transactions and transfer transactions. The sponsor can distribute the sponsored asset among app users.
 
-After this transaction is confirmed, it becomes possible to use this asset as a fee (automatically for all miners). When transaction with fee in sponsored fee asset appears any miner just puts it to forged block. Instead of just transferring fee asset to miner's balance blockchain does a bit different thing: It automatically moves fee asset to sponsor's (issuer's) account and transfers standard transaction cost in waves from sponsor's to miner's accounts. In fact two miners will receive these waves because of NG 40/60 fee distributions.
+## How It Works
 
-Only the issuer of an asset can set up sponsorship. The sponsorship is set by giving the rate at which fee in an asset is converted to Waves.
+After [enabling sponsorship](#how-to-enable-sponsorsip), if the requirements described in the [Restrictions](#restrictions) section are met, the sponsorship works as follows:
 
+1. A user broadcasts a transaction and specifies a fee in the sponsored asset.
+2. The sponsor receives the fee in the sponsored asset from the user's account.
+3. Block generators receive the fee in WAVES from the sponsor's account (in accordance with the [Waves-NG](/en/blockchain/waves-protocol/waves-ng-protocol) protocol, the fee is distributed between the current block generator and the next block generator in a ratio of 40/60).
 
-## Implementation
+> The script on the sponsor's account is not executed and does not affect the sponsorship because the transaction is sent from the user's account.
 
-### Sponsor Fee Transaction representations
+![](./_assets/sponsorship.png)
 
-Binary format of a sponsor fee transaction is as follows:
+The fee in WAVES charged to the sponsor is proportional to the fee specified by the transaction sender:
 
-| \# | Field name | Type | Position | Length |
-| --- | ---: | --- | --- | --- |
-| 1 | Transaction type (0x0e) | Byte | 0 | 1 |
-| 2 | Version (0x01) |  Byte | 1 | 1 |
-| 3 | Sender's public key | Bytes | 2 | 32 |
-| 4 | Asset ID | Bytes | 34 | 32 |
-| 5 | Minimal fee in assets\* | Long | 66 | 8 |
-| 6 | Fee | Long | 74 | 8 |
-| 7 | Timestamp | Long | 82 | 8 |
-| 8 | Proofs\*\* | Bytes | 90 | 64 |
+`feeInWaves` = `feeInSponsoredAsset` × 0,001 / `minSponsoredAssetFee`
 
-\* Zero value assume canceling sponsorship.
+`minSponsoredAssetFee` is the amount of sponsored asset equivalent to 0.001 WAVES. The sponsor sets this value when enabling sponsorship.
 
-\*\* Currently only signature is supported, signature have Length = 64
+For example, if the sponsor sets 3 tokens = 0.001 WAVES, then the minimum fee for invoke script transaction is 15 tokens, which corresponds to 0.005 WAVES.
 
-JSON representation example:
+:warning: Please note:
 
-```js
-{
-  "type" : 14,
-  "id" : "CwHecsEjYemKR7wqRkgkZxGrb5UEfD8yvZpFF5wXm2Su",
-  "sender" : "3FjTpAg1VbmxSH39YWnfFukAUhxMqmKqTEZ",
-  "senderPublicKey" : "5AzfA9UfpWVYiwFwvdr77k6LWupSTGLb14b24oVdEpMM",
-  "minSponsoredAssetFee": 100000, // minimum amount of assets require for fee, set equal to null to cancel sponsorship
-  "fee" : 100000000,
-  "timestamp" : 1520945679531,
-  "proofs" : [ "4huvVwtbALH9W2RQSF5h1XG6PFYLA6nvcAEgv79nVLW7myCysWST6t4wsCqhLCSGoc5zeLxG6MEHpcnB6DPy3XWr" ],
-  "version" : 1,
-  "height" : 303
-}
-```
+* The user can use the sponsored asset to pay for transactions that are not related to a certain app.
+* The user can specify any amount of fee, such as the one significantly exceeding the minimum.
 
-## Fees
+## How to Enable Sponsorship
 
-#### Fee for Sponsor Fee Transaction
-A fee for a sponsor is payable in WAVES only. The fee for this transaction is fixed and equal to 1.0 WAVES.
+To enable sponsorship, you need to put a sponsor fee transaction  with `minSponsoredAssetFee` specified in it. [Example of transaction](https://wavesexplorer.com/testnet/tx/5gHUMzmBfn4KP3tELzHtw3EYR947rzWUp5PuyF7hUW23)
 
-#### Fee for miner in WAVES
-The total **miner's fee in WAVES for transactions** with a fee in sponsored assets can be compute by this formula:
-```
-    feeInWaves = assetFee * feeUnit / sponsorship
-```
-where:
-* `assetFee` - a fee in asset from transaction
-* `feeUnit` - for sponsorship is equal to 100000
-* `sponsorship` - the `minSponsoredAssetFee` value from Sponsor Fee Transaction for this asset
+> In the binary and JSON representation of the transaction, the value of `minSponsoredAssetFee` is specified in the minimum fraction (“cent”) of the sponsored asset.
 
-But the total **block fee** for the block with sponsored transactions can be computed as the sum of transactions which have **only the fee in WAVES**. For example, if we have the block with only sponsored transactions, a fee for this block will be equal to 0.
+There are the following options to put the transaction:
+* In [Waves.Exchange](https://waves.exchange/) app developed by Waves.Exchange team. See the [Sponsored Transaction](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-sponsored-trx) article of Waves.Exchange documentation.
+* Using [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/). See also the [Creating and broadcasting transactions to the blockchain](/en/building-apps/how-to/basic/transaction) article.
 
-## API
+The fee for this type of transaction is 1 WAVES.
 
-`POST /assets/sponsor` signs and sends a start/update sponsorship transaction. This endpoint requires API key. Sample input is as follows:
+## How to Disable Sponsorship
 
-```js
-{
-  "version": 1,
-  "sender": "3FjTpAg1VbmxSH39YWnfFukAUhxMqmKqTEZ",
-  "assetId":"AP5dp4LsmdU7dKHDcgm6kcWmeaqzWi2pXyemrn4yTzfo",
-  "minSponsoredAssetFee": 100000,
-  "fee": 100000000
-}
-```
+To disable sponsorship, you need to put a sponsor fee transaction in which `minSponsoredAssetFee` is `null`.
 
-`POST /asset/sponsor` signs and sends a canceling sponsor fee transaction. This endpoint requires API key. Sample input is as follows:
+## Restrictions
 
-```js
-{
-  "version": 1,
-  "sender": "3FjTpAg1VbmxSH39YWnfFukAUhxMqmKqTEZ",
-  "assetId":"AP5dp4LsmdU7dKHDcgm6kcWmeaqzWi2pXyemrn4yTzfo",
-  "minSponsoredAssetFee": null,
-  "fee": 100000000
-}
-```
+* Only the issuer of the asset can be a sponsor.
+* Smart asset cannot be a sponsored asset.
+* Sponsorship only works if the sponsor's account balance is greater than 1.005 Waves. If the account balance becomes less than 1.005 Waves, the sponsorship is suspended, and if the balance becomes more than 1.005 Waves the sponsorship is resumed.
+* The fee in the sponsored asset can only be specified for invoke script transactions and transfer transactions.
 
-Sponsorship information for the asset present in [asset description](/en/waves-node/node-api/asset-transactions/public-functions#get-assetsdetailsassetid).
+## Discussion
 
-## Constraints
-
-Only issuer may sponsor asset.
-
-## Related Changes
-
-Minimal fee was moved to consensus.
+Improvement of sponsorship is discussed at the Waves community forum in the [WEP-2 Customizable Sponsorship](https://forum.wavesplatform.com/t/wep-2-customizable-sponsorship/15880) section.
