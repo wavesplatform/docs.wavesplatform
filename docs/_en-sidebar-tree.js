@@ -1157,6 +1157,18 @@ module.exports = {
           path: buildingAppsPath + 'how-to/basic/transaction',
         },
         {
+          title: 'Tokenisation',
+          path: buildingAppsPath + 'how-to/assets/issue',
+        },
+        {
+          title: 'Airdrop',
+          path: buildingAppsPath + 'how-to/assets/airdrop',
+        },
+        {
+          title: 'Payments',
+          path: buildingAppsPath + 'how-to/assets/payment',
+        },
+        {
           title: 'Buying & Selling Tokens',
           path: buildingAppsPath + 'how-to/basic/trading',
         },
