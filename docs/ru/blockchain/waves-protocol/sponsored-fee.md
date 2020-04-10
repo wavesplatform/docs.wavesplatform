@@ -39,7 +39,7 @@
 
 Создать транзакцию спонсирования можно:
 * В приложении [Waves.Exchange](https://waves.exchange/), разработанном командой Waves.Exchange. См. раздел [Спонсорская транзакция](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-sponsored-trx) документации Waves.Exchange.
-* С помощью одной из [клиенских библиотек](/ru/building-apps/waves-api-and-sdk/client-libraries/). См. также примеры в разделе [Создание и отправка транзакций](/ru/building-apps/how-to/basic/transaction).
+* С помощью одной из [клиентских библиотек](/ru/building-apps/waves-api-and-sdk/client-libraries/). См. также примеры в разделе [Создание и отправка транзакций](/ru/building-apps/how-to/basic/transaction).
 
 Комиссия за транзакцию спонсирования — 1 WAVES.
 
