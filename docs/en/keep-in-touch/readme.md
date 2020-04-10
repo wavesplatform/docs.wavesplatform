@@ -2,7 +2,7 @@
 
 Keep up with the latest news and articles, and find out about [_**Waves Platform**_](https://wavesplatform.com/) events.
 
-* [Community Portal](https://wavescommunity.com/)
+* [Community Portal](https://community.wavesplatform.com/)
 * [Community Forum](https://forum.wavesplatform.com/)
 * [Developer chat in Telegram](https://t.me/waves_ride_dapps_dev)
 * [Waves Blog](https://blog.wavesplatform.com/)

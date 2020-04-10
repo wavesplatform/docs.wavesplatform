@@ -49,7 +49,7 @@ executed relatively fast, in a “constant” time.
 
 Every usual account can become smart account.   
 
-> [Detailed explanation of Smart Accounts with examples](/en/building-apps/smart-contracts/smart-accounts)
+> [Detailed explanation of Smart Accounts with examples](/en/building-apps/smart-contracts/what-is-smart-account)
 
 ### How to work with state
 If you're familiar with Ethereum smart contracts model you have to consider the main difference between them and Waves

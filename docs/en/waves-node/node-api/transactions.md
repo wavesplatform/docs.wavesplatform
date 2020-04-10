@@ -65,6 +65,36 @@ Return the specified number of the latest transactions by the given account addr
 ]
 ```
 
+### GET /transactions/merkleProof?id=some1&id=some2
+
+Returns `transactionsRoot` object containing Merkle Root Hash of block transactions.
+
+> Current endpoint is available on stagenet.
+**Request parameters**
+
+`id` - transaction ID.
+
+**Response parameters**
+
+- `id` - transaction ID
+- `transactionIndex` - transaction index (its order number).
+- 'merkleProof' - proofs hashes array from bottom level to top.
+
+**Response example**
+
+```js
+[
+    {
+        "id": "A7MKi9CmBuzAeDrheewQ4xgYDy3U1AodbGUXKCsQU3H8",
+        "transactionIndex": 2345,
+        "merkleProof": [
+            "48o9DxiMexUutLpw7edbjHyM3wGAKrKE9fjuNb2crQa4CBV5bk4N67q2aDXDJGKtRp917Z3mR6nBGZonsXnYsGqr",
+            "3wHRy6bzcSfEZTqTvHpbtsVRebVGj4BQrDT5MfZirofjkUb3KuALk9aHJtCcNJWXZfkpQUfpxB1GkqqMp5bf72bY"
+        ]
+    }
+]
+```
+
 ## GET /transactions/unconfirmed
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
@@ -164,11 +194,11 @@ Calculates a fee for an arbitrary transaction and returns it. The transaction ty
 | 6 | Burn |
 | 8 | Lease |
 | 9 | Lease Cancel |
-| 10 | Create Alias |
+| 10 | Alias |
 | 11 | Mass Transfer |
 | 12 | Data |
 | 13 | Set Script |
-| 14 | Sponsor Fee |
+| 14 | Sponsorship |
 
 **Request params**
 
@@ -236,11 +266,11 @@ Signs an arbitrary transaction. This requires an API key, and transaction type t
 | 6 | Burn |
 | 8 | Lease |
 | 9 | Lease Cancel |
-| 10 | Create Alias |
+| 10 | Alias |
 | 11 | Mass Transfer |
 | 12 | Data |
 | 13 | Set Script |
-| 14 | Sponsor Fee|
+| 14 | Sponsorship |
 
 An optional `timestamp` parameter may be specified, which represents transaction timestamp in milliseconds. If it is omitted, current server time is used.
 
@@ -298,7 +328,7 @@ or
 
 Signs an arbitrary transaction by a private key of signer. This requires an API key, a signer address and transaction type to be specified in the request body.
 
-`signerAddress` should be created by [POST /addresses](/en/waves-node/node-api/address#post-addresses).
+`signerAddress` should be created by [POST /addresses](https://docs.wavesplatform.com/development-and-api/node-api/address.html#post-addresses).
 
 The types are as follows:
 
@@ -310,11 +340,11 @@ The types are as follows:
 | 6 | Burn |
 | 8 | Lease |
 | 9 | Lease Cancel |
-| 10 | Create Alias |
+| 10 | Alias |
 | 11 | Mass Transfer |
 | 12 | Data |
 | 13 | Set Script |
-| 14 | Sponsor Fee |
+| 14 | Sponsorship |
 
 An optional `timestamp` parameter may be specified, which represents transaction timestamp in milliseconds. If it is omitted, current server time is used.
 

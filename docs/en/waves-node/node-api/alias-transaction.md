@@ -4,7 +4,7 @@
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
-Creates signed create alias transaction for sender's address.
+Creates signed alias transaction for sender's address.
 
 **Request params**
 

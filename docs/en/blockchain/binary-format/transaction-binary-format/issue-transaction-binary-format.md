@@ -27,7 +27,7 @@
 
 ## JSON representation of the transaction
 
-See the [example](https://testnodes.wavesnodes.com/transactions/info/8jfD2JBLe23XtCCSQoTx5eAW5QCU6Mbxi3r78aNQLcNf) in Node API.
+See the [example](https://nodes.wavesplatform.com/transactions/info/FTQvw9zdYirRksUFCKDvor3hiu2NiUjXEPTDEcircqti) in Node API.
 
 ## Transaction version 1
 

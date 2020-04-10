@@ -376,7 +376,7 @@ signer.invoke({
 
 ```js
 signer.alias({ 'new_alias', })
-  .data([{ key: 'value', type: 'number', value: 1 ])
+  .data([{ key: 'value', type: 'integer', value: 1 ])
   .transfer({ recipient: '3P8pGyzZL9AUuFs9YRYPDV3vm73T48ptZxs', amount: 10000 })
 }).broadcast();
 ```
@@ -509,7 +509,7 @@ data(data: [{
 ```js
 const records = [
   { key: 'name', type: 'string', value: 'Lorem ipsum dolor sit amet' },
-  { key: 'value', type: 'number', value: 1234567 },
+  { key: 'value', type: 'integer', value: 1234567 },
   { key: 'flag', type: 'boolean', value: true }
 ]
 
@@ -636,7 +636,7 @@ const [tx] = await signer
 ```js
 issue(data: {
   name: 'string',
-  decimals: 'number',
+  decimals: number,
   quantity: LONG,
   reissuable: boolean,
   description: 'string',
