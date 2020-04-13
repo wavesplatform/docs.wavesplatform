@@ -52,6 +52,7 @@
   * Конкатенация при помощи оператора `++`. Пример: результатом выражения `[1, 2] ++ [3, 4]` будет `[1, 2, 3, 4]`. Complexity операции равна 10.
   * Добавление элемента в конец списка. Пример: результатом выражения `["foo","bar"] :+ "baz"` будет `["foo", "bar", "baz"]`. Complexity операции равна 3.
 * Встроенная функция [wavesBalance](/ru/ride/functions/built-in-functions/account-data-storage-functions#waves-balance) возвращает структуру [BalanceDetails](/ru/ride/structures/common-structures/balance-details), которая содержит все виды баланса WAVES.
+* В структуру [Asset](/ru/ride/structures/common-structures/asset), возвращаемую встроенной функцией [assetInfo](/ru/ride/functions/built-in-functions/blockchain-functions#assetinfo), добавлены поля `name` и `description`.
 
 ## Активация
 
