@@ -14,14 +14,14 @@ The functions listed below retrieve data from the [data transaction](/en/blockch
 | 8 | [getBooleanValue(List[DataEntry], Int: Boolean](#get-boolean-value-integer) | Gets a boolean value from a list of data entires by index. Throws an exception if there is no data | 30 |
 | 9 | [getBinary(List[DataEntry], String): ByteVector&#124;Unit](#get-binary-string) | Gets a binary value from a list of data entires by key | 10 |
 | 10 | [getBinary(List[DataEntry], Int): ByteVector&#124;Unit](#get-binary-integer) | Gets a binary value from a list of data entires by index | 30 |
-| 11 | [getBinaryValue(ListDataEntry, String): ByteVector](#get-binary-value-string) | Gets a binary value from a list of data entires by key. Throws an exception if there is no data | 10 |
+| 11 | [getBinaryValue(List[DataEntry], String): ByteVector](#get-binary-value-string) | Gets a binary value from a list of data entires by key. Throws an exception if there is no data | 10 |
 | 12 | [getBinaryValue(List[DataEntry], Int): ByteVector](#get-binary-value-integer) | Gets a binary value from a list of data entires by index. Throws an exception if there is no data | 30 |
 | 13 | [getString(List[DataEntry] String): String&#124;Unit](#get-string-string) | Gets a string value from a list of data entires by key | 10 |
 | 14 | [getString(List[DataEntry], Int): String&#124;Unit](#get-string-integer) | Gets a string value from a list of data entires by index | 30 |
 | 15 | [getStringValue(List[DataEntry], String): String](#get-string-value-string) | Gets a string value from a list of data entires by key. Throws an exception if there is no data | 10 |
 | 16 | [getStringValue(List[DataEntry], Int): String](#get-string-value-integer) | Gets a string value from a list of data entires by index. Throws an exception if there is no data | 30 |
 
-## getInteger(ListDataEntry, String): Int|Unit<a id="get-integer-string"></a>
+## getInteger(List[DataEntry], String): Int|Unit<a id="get-integer-string"></a>
 
 Gets integer from a list of data entires by key.
 
@@ -39,7 +39,7 @@ DataEntry vector, usually tx.data.
 
 Key.
 
-## getInteger(ListDataEntry, Int): Int|Unit<a id="get-integer-integer"></a>
+## getInteger(List[DataEntry], Int): Int|Unit<a id="get-integer-integer"></a>
 
 Gets an integer value from a list of data entires by index.
 
@@ -57,7 +57,7 @@ DataEntry vector, usally tx.data.
 
 Index.
 
-## getIntegerValue(ListDataEntry, String): Int<a id="get-integer-value-string"></a>
+## getIntegerValue(List[DataEntry], String): Int<a id="get-integer-value-string"></a>
 
 Gets an integer value from a list of data entires by key. Throws an exception if there is no data.
 
@@ -75,7 +75,7 @@ DataEntry vector, usually tx.data.
 
 Key.
 
-## getIntegerValue(ListDataEntry, Int): Int<a id="get-integer-value-integer"></a>
+## getIntegerValue(List[DataEntry], Int): Int<a id="get-integer-value-integer"></a>
 
 Gets an integer value from a list of data entires by index. Throws an exception if there is no data.
 
