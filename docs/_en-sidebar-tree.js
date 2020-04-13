@@ -422,6 +422,12 @@ module.exports = {
         {
           title: 'Transaction fee',
           path: blockchainPath + 'transaction/transaction-fee',
+          children: [
+            {
+              title: 'Sponsored fee',
+              path: blockchainPath + 'waves-protocol/sponsored-fee',
+            },
+          ]
         },
         {
           title: 'Transaction proof',
@@ -526,10 +532,6 @@ module.exports = {
         {
           title: 'Waves-NG solution',
           path: blockchainPath + 'waves-protocol/waves-ng-solution',
-        },
-        {
-          title: 'Sponsored fee',
-          path: blockchainPath + 'waves-protocol/sponsored-fee',
         },
         {
           title: 'Fair Proof of Stake',

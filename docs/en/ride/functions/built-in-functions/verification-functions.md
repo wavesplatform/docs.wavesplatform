@@ -44,7 +44,7 @@ createMerkleRoot(merkleProofs: List[ByteVector], valueBytes: ByteVector, index: 
 | Parameter | Description |
 | :--- | :--- |
 | `merkleProofs`: List[ByteVector] | Array of sibling hashes of the Merkle tree |
-| `valueBytes`: ByteVector | Hash of transaction. You can use [blake2b256](/ru/ride/functions/built-in-functions/hashing-functions#blake2b256) function. The transaction must be hashed together with the signature |
+| `valueBytes`: ByteVector | Hash of transaction. You can use [blake2b256](/en/ride/functions/built-in-functions/hashing-functions#blake2b256) function. The transaction must be hashed together with the signature |
 | `index`: Int | Index of the transaction in the block |
 
 ## groth16Verify

@@ -115,7 +115,7 @@ If your token is reissuable (you set `"reissuable": true`), you can append an ad
 
 ### Using Waves.Exchange
 
-You can use online or desktop app. See the [Reissue Token](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-token-reissue) article of the Waves.Exchange documentation.
+You can use online or desktop app. See the [Reissue Token](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-token-reissue) article of the Waves.Exchange documentation.
 
 ### Using JavaScript
 

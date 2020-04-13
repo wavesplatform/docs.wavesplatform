@@ -8,7 +8,7 @@ An account that launched an asset can enable sponsorship, that is, allow all use
 
 ## How It Works
 
-After [enabling sponsorship](#how-to-enable-sponsorsip), if the requirements described in the [Restrictions](#restrictions) section are met, the sponsorship works as follows:
+After [enabling sponsorship](#how-to-enable-sponsorship), if the requirements described in the [Restrictions](#restrictions) section are met, the sponsorship works as follows:
 
 1. A user broadcasts a transaction and specifies a fee in the sponsored asset.
 2. The sponsor receives the fee in the sponsored asset from the user's account.

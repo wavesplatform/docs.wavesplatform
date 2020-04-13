@@ -599,7 +599,7 @@ invoke(data: {
 | call.args* | | Arguments for the function  that is called |
 | call.args.type* | | Type of argument |
 | call.args.value* | | Value of argument |
-| feeAssetId | WAVES | Base58-encoded ID of the sponsored asset to pay the commission. See the [Sponsored Fee](/ru/blockchain/waves-protocol/sponsored-fee) article for more information. `null` or omitted field means WAVES |
+| feeAssetId | WAVES | Base58-encoded ID of the sponsored asset to pay the commission. See the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article for more information. `null` or omitted field means WAVES |
 
 \* Required field
 
@@ -917,7 +917,7 @@ transfer(data: {
 | amount* | | Amount of asset multiplied by 10^`decimals`. For example, `decimals` of WAVES is 8, so the real amount is multipied by 10^8. `{ "WAVES": 677728840 }` means 6.77728840 |
 | assetId | WAVES | Base58-encoded ID of the asset to transfer. `null` or omitted field means WAVES |
 | attachment | | Optional data attached to the transaction. This field is often used to attach a comment to the transaction. The maximum data size is 140 bytes |
-| feeAssetId | WAVES | Base58-encoded ID of the sponsored asset to pay the commission. See the [Sponsored Fee](/ru/blockchain/waves-protocol/sponsored-fee) article for more information. `null` or omitted field means WAVES |
+| feeAssetId | WAVES | Base58-encoded ID of the sponsored asset to pay the commission. See the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article for more information. `null` or omitted field means WAVES |
 
 \* Required field
 
@@ -1022,7 +1022,7 @@ In this example:
 
 #### getNetworkByte
 
-Obtains [chain ID](/ru/blockchain/blockchain-network/chain-id).
+Obtains [chain ID](/en/blockchain/blockchain-network/chain-id).
 
 ```js
 getNetworkByte();

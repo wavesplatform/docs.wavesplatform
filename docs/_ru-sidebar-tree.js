@@ -422,6 +422,12 @@ module.exports = {
         {
           title: 'Комиссия за транзакцию',
           path: blockchainPath + 'transaction/transaction-fee',
+          children: [
+            {
+              title: 'Спонсирование комиссии',
+              path: blockchainPath + 'waves-protocol/sponsored-fee',
+            },
+          ]
         },
         {
           title: 'Подтверждение транзакции',
@@ -526,10 +532,6 @@ module.exports = {
         {
           title: '[en] Waves-NG solution',
           path: blockchainPath + 'waves-protocol/waves-ng-solution',
-        },
-        {
-          title: '[en] Sponsored fee',
-          path: blockchainPath + 'waves-protocol/sponsored-fee',
         },
         {
           title: 'Честный Proof-of-Stake',
