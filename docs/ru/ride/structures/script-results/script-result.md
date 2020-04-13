@@ -14,5 +14,5 @@ ScriptResult(writeSet: WriteSet, transferSet: TransferSet)
 
 |   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | writeSet | [WriteSet](/ru/ride/structures/common-structures/write-set) | Список записей [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage) |
-| 2 | transferSet | [TransferSet](/ru/ride/structures/common-structures/transfer-set) | Список переводов токенов |
+| 1 | writeSet | [WriteSet](/ru/ride/structures/script-results/write-set) | Список записей [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage) |
+| 2 | transferSet | [TransferSet](/ru/ride/structures/script-results/transfer-set) | Список переводов токенов |

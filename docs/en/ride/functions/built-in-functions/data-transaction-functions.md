@@ -1,6 +1,6 @@
 # Data transaction functions
 
-The functions listed below retrieve data from the [data transaction](/en/blockchain/transaction-type/data-transaction) or from any list of objects of [DataEntry](/en/ride/structures/common-structures/data-entry).
+The functions listed below retrieve data from the [data transaction](/en/blockchain/transaction-type/data-transaction) or from any list of objects of [DataEntry](/en/ride/structures/script-actions/data-entry).
 
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |

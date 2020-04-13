@@ -72,14 +72,14 @@ Added how-to guides:
 * [FOLD&lt;N&gt; Macro](/en/ride/fold-macro)
 * Structures
   * Common structures
-    * [BinaryEntry](/en/ride/structures/common-structures/binary-entry)
-    * [BooleanEntry](/en/ride/structures/common-structures/boolean-entry)
-    * [Burn](/en/ride/structures/common-structures/burn)
-    * [DeleteEntry](/en/ride/structures/common-structures/delete-entry)
-    * [IntegerEntry](/en/ride/structures/common-structures/int-entry)
+    * [BinaryEntry](/en/ride/structures/script-actions/binary-entry)
+    * [BooleanEntry](/en/ride/structures/script-actions/boolean-entry)
+    * [Burn](/en/ride/structures/script-actions/burn)
+    * [DeleteEntry](/en/ride/structures/script-actions/delete-entry)
+    * [IntegerEntry](/en/ride/structures/script-actions/int-entry)
     * [Issue](/en/ride/structures/common-structures/issue)
-    * [Reissue](/en/ride/structures/common-structures/reissue)
-    * [StringEntry](/en/ride/structures/common-structures/string-entry)
+    * [Reissue](/en/ride/structures/script-actions/reissue)
+    * [StringEntry](/en/ride/structures/script-actions/string-entry)
 
   * Transaction structures
     * [UpdateAssetInfoTransaction](/en/ride/structures/transaction-structures/update-asset-info-transaction)

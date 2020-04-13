@@ -1,9 +1,9 @@
 # Официальные ресурсы Waves
 
-* [**Официальный вэб-сайт**](https://wavesplatform.com)
+* [**Официальный веб-сайт**](https://wavesplatform.com)
 * [**Исходный код на GitHub**](https://github.com/wavesplatform)
-* [**Main Net эксплорер**](http://wavesexplorer.com)
-* [**Test Net эксплорер**](https://testnet.wavesexplorer.com)
+* [**Mainnet Explorer**](http://wavesexplorer.com)
+* [**Testnet Explorer**](https://testnet.wavesexplorer.com)
 
 # Социальные сети
 
@@ -11,13 +11,13 @@
 * [**Facebook**](https://www.facebook.com/wavesplatform)
 * [**Reddit**](https://www.reddit.com/r/Wavesplatform)
 * [**Youtube**](https://www.youtube.com/wavesplatform)
-* [**Вконтакте**](https://vk.com/wavesplatform)
+* [**ВКонтакте**](https://vk.com/wavesassociation)
 * [**Discord**](https://discord.gg/cnFmDyA)
 * [**Waves форум**](https://forum.wavesplatform.com)
 * [**Waves блог**](https://blog.wavesplatform.com/latest)
 * [**Telegram (Новости US)**](https://t.me/wavesnews)
 * [**Telegram (Новости RU)**](https://t.me/WavesNewsRU)
-* [**Telegram (Муждународный)**](https://t.me/Wavescommunity)
+* [**Telegram (Международный)**](https://t.me/Wavescommunity)
 * [**Telegram (Россия)**](https://t.me/WavesCommunityRU)
 * [**Telegram (Китай)**](https://t.me/WavesChina)
 * [**Александр Иванов в Twitter**](https://twitter.com/sasha35625)
