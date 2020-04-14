@@ -1,55 +1,29 @@
 # Бинарный формат транзакции перевода
 
-> Узнать больше о [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction)
+> Узнать больше о [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction).
 
-## Транзакция версии 3
+## Версия 3
 
-Бинарный формат версии 3 основан на [протобаф-схеме](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto).
+Бинарный формат версии 3 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto).
+
+Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).
 
 ```
-// Transactions
-syntax = "proto3";
-package waves;
-  
-option java_package = "com.wavesplatform.protobuf.transaction";
-option csharp_namespace = "Waves";
-  
-import "waves/amount.proto";
-import "waves/script.proto";
-import "waves/recipient.proto";
-import "waves/order.proto";
-  
-message SignedTransaction {
-    Transaction transaction = 1;
-    repeated bytes proofs = 2;
-}
-  
-message Transaction {
-    int32 chain_id = 1;
-    bytes sender_public_key = 2;
-    Amount fee = 3;
-    int64 timestamp = 4;
-    int32 version = 5;
-  
-    oneof data {
-        GenesisTransactionData genesis = 101;
-        PaymentTransactionData payment = 102;
-        IssueTransactionData issue = 103;
-        TransferTransactionData transfer = 104;
-        ReissueTransactionData reissue = 105;
-        BurnTransactionData burn = 106;
-        ExchangeTransactionData exchange = 107;
-        LeaseTransactionData lease = 108;
-        LeaseCancelTransactionData lease_cancel = 109;
-        CreateAliasTransactionData create_alias = 110;
-        MassTransferTransactionData mass_transfer = 111;
-        DataTransactionData data_transaction = 112;
-        SetScriptTransactionData set_script = 113;
-        SponsorFeeTransactionData sponsor_fee = 114;
-        SetAssetScriptTransactionData set_asset_script = 115;
-        InvokeScriptTransactionData invoke_script = 116;
-        UpdateAssetInfoTransactionData UpdateAssetInfo = 117;
+message TransferTransactionData {
+    Recipient recipient = 1;
+    Amount amount = 2;
+    Attachment attachment = 3;
+};
+
+message Recipient {
+    oneof recipient {
+        bytes public_key_hash = 1;
+        string alias = 2;
     };
+
+message Amount {
+    bytes asset_id = 1;
+    int64 amount = 2;
 };
 
 message Attachment {
@@ -59,16 +33,18 @@ message Attachment {
         bytes binary_value = 3;
         string string_value = 4;
     };
-}
-
-message TransferTransactionData {
-    Recipient recipient = 1;
-    Amount amount = 2;
-    Attachment attachment = 3;
 };
 ```
 
-## Транзакция версии 2
+| Поле | Размер | Описание |
+| :--- | :--- | :--- |
+| recipient.public_key_hash | 20 байт | Хеш открытого ключа аккаунта получателя (компонент адреса, см. раздел [Бинарный формат адреса](/ru/blockchain/binary-format/address-binary-format)) |
+| recipient.alias | От 8 до 34 байт | [Псевдоним адреса](/ru/blockchain/account/alias) получателя |
+| amount.asset_id | 32 байта | ID токена |
+| amount.amount | 8 байт | Количество токена для перевода, в минимальных единицах («копейках») |
+| attachment | До 140 байт | Произвольные данные, прикладываемые к транзакции |
+
+## Версия 2
 
 | Порядковый номер поля | Поле | Название JSON-поля | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -92,7 +68,7 @@ message TransferTransactionData {
 
 Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/2UMEGNXwiRzyGykG8voDgxnwHA7w5aX5gmxdcf9DZZjL) в Node API. В JSON-представлении значения полей `feeAsset` и `feeAssetId` идентичны.  
 
-## Транзакция версии 1
+## Версия 1
 
 | Порядковый номер поля | Название поля | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- |
