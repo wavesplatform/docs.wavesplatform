@@ -1,7 +1,6 @@
 # DeleteEntry
 
-> Возможность использования DeleteEntry доступна с версии ноды 1.2.0. Возможность включается с активацией на ноде функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№16).
-На данный момент версии 1.2.x доступны на [stagenet](/ru/blockchain/blockchain-network/stage-network)
+> Структура `DeleteEntry` доступна с версии ноды 1.2.0. Возможность включается после активации фичи №&nbps;15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время работают только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 **DeleteEntry** - cтруктура, задающая параметры удаления записи из [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage), которое выполняется в результате вызова [вызываемой функции](/ru/ride/functions/callable-function).
 

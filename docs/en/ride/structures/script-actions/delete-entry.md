@@ -1,7 +1,6 @@
 # DeleteEntry
 
-> The feature of using the DeleteEntry is available starting from node version 1.2.0. This feature can be used after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) functionality on the node.
-Version 1.2.x is currently available on [stagenet](/en/blockchain/blockchain-network/stage-network).
+> The `DeleteEntry` structure is available starting from node version 1.2.0, after activating of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 **DeleteEntry** is a structure that sets the paramaters of deletion of entry from the [account data storage](/en/blockchain/account/account-data-storage), which is performed as the result of the [callable function](/en/ride/functions/callable-function) invocation.
 

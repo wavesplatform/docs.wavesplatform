@@ -23,4 +23,4 @@ Each [transaction](/en/blockchain/transaction) on the blockchain is of a specifi
 | [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction)  | 4 |
 | [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction)* | 17 |
 
-> \* The Update Asset Info transaction has been added in node version 1.2.0. The functionality that implements it is called "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16). Version 1.2.x is currently available on [stagenet](/en/blockchain/blockchain-network/stage-network).
+> \* The Update Asset Info transaction is added since node version 1.2.0, after activating of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.

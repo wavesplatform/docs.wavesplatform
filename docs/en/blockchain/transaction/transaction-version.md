@@ -25,5 +25,5 @@ When developing applications, it is recommended to use transactions of the lates
 | [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 1, 2 |
 | [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) | 1* |
 
-> * The Update Asset Info transaction has been added in node version 1.2.0. The functionality that implements it is called "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16). Version 1.2.x is currently available on [stagenet](/en/blockchain/blockchain-network/stage-network).
+> * The Update Asset Info transaction is added in node version 1.2.0 and becomes available after activationg of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 

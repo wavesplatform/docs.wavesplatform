@@ -2,7 +2,7 @@
 
 Waves nodes validate each transaction. Depending on the validation result the transactions can be put in the blockchain or rejected.
 
-Since node version 1.2.4, after activation of the feature #17 “Accept transactions with failed script result” the transaction validation procedure is changed. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+Since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions” the transaction validation procedure is changed. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 ![](./_assets/tx-validaton.png)
 

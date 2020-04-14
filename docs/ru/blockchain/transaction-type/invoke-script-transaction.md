@@ -4,7 +4,7 @@
 
 К транзакции вызова скрипта может быть приложен платёж для перевода токенов на счёт вызываемого dApp.
 
-> Начиная с четвертой версии языка [Ride](/ru/ride) к транзакции вызова скрипта может быть приложено до двух платежей. Эта возможность появляется после активации функциональности Ride V4 and multiple attached payments for Invoke Script Transaction(№16) на ноде.<br>Ride 4.0 доступен на [stagenet](/ru/blockchain/blockchain-network/stage-network)
+> Начиная с четвертой версии языка [Ride](/ru/ride) к транзакции вызова скрипта может быть приложено до двух платежей. Эта возможность доступна с версии ноды 1.2 и включается после активации фичи №&nbps;15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ## Бинарный формат
 
