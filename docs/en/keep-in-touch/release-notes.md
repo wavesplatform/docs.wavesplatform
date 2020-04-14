@@ -65,8 +65,4 @@
 
 ## Activation
 
-To activate the improvements listed above, vote for the following features:
-
-* #15 “VRF and Protobuf”
-* #16 “Ride V4 and multiple attached payments for Invoke Script Transaction”
-* #17 “Accept transactions with failed script result”
+To activate the improvements listed above, vote for feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
