@@ -45,7 +45,7 @@ The `fetchInfo` and `fetchStatus` functions now support the `applicationStatus` 
 
 * For invoke script transactions the dApp script result is displayed as a table.
 
-[All changes in Waves Explorer](/ru/keep-in-touch/release-notes/#waves-explorer)
+[All changes in Waves Explorer](/en/keep-in-touch/release-notes/#waves-explorer-stagenetwavesexplorercom)
 
 ## Waves IDE (ide-stagenet.wavesplatform.com)
 

@@ -45,7 +45,7 @@
 
 * Для транзакции вызова скрипта результат выполнения скрипта отображается в виде таблицы.
 
-[Все изменения Waves Explorer](/ru/keep-in-touch/release-notes/#waves-explorer)
+[Все изменения Waves Explorer](/ru/keep-in-touch/release-notes/#waves-explorer-stagenetwavesexplorercom)
 
 ## Waves IDE (ide-stagenet.wavesplatform.com)
 
