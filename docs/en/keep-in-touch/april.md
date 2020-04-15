@@ -51,7 +51,7 @@ The `fetchInfo` and `fetchStatus` functions now support the `applicationStatus` 
 
 The `applicationStatus` field for transactions that is added to the blockchain is now supported in JavaScript console and in tests.
 
-Please note: tests now need to check not only that the transaction is added to the blockchain, but also the result of validation.
+Please note: tests now need to check not only that the transaction is added to the blockchain, but also the success of the script.
 
 ## Surfboard
 
