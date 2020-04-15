@@ -61,7 +61,7 @@ The `applicationStatus` field is now supported for transactions added to the blo
 
 ## Dapp Ui (waves-dapp.com)
 
-For the invoke script transaction, in addition to the transaction status on the blockchain, the result of validation is displayed.
+For the invoke script transaction, in addition to the transaction status on the blockchain, the status of script execution is displayed.
 
 ## Node Go
 
