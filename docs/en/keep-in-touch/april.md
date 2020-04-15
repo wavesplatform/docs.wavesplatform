@@ -2,7 +2,7 @@
 
 Since node version 1.2.4, after activating of feature #15 “Ride V4, VRF, Protobuf, Failed transactions” the transaction validation procedure is changed.
 
-* Invoke script transactions and exchange transactions are saved on the blockchain and a fee is charged for them even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed. 
+* Invoke script transactions and exchange transactions are saved on the blockchain and a fee is charged for them even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed.
 * A fee for the invoke script transaction cannot be funded by transfer from dApp to the transaction sender. If sender's balance is insufficient to pay the fee, dApp script is not executed.
 
 [More details about transaction validation](/en/blockchain/transaction/transaction-validation)
@@ -41,7 +41,7 @@ The `fetchInfo` and `fetchStatus` functions now support the `applicationStatus` 
 
 * Transactions with failed dApp script or asset script results are displayed. In the list of transactions, they are marked with ![](./_assets/stop.png) icon.
 
-   ![](./_assets/failed-transaction.png).
+   ![](./_assets/failed-transaction.png)
 
 * For invoke script transactions the dApp script result is displayed as a table.
 
@@ -49,7 +49,7 @@ The `fetchInfo` and `fetchStatus` functions now support the `applicationStatus` 
 
 ## Waves IDE (ide-stagenet.wavesplatform.com)
 
-The `applicationStatus` field for transactions added to the blockchain is now supported in JavaScript console and in tests.
+The `applicationStatus` field for transactions that is added to the blockchain is now supported in JavaScript console and in tests.
 
 Please note: tests now need to check not only that the transaction is added to the blockchain, but also the result of validation.
 
