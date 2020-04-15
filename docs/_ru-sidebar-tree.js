@@ -1381,6 +1381,10 @@ module.exports = {
       path: keepInTouchPath + 'release-notes',
     },
     {
+      title: 'Сохранение транзакций с неудачным результатом выполнения скрипта',
+      path: keepInTouchPath + 'april',
+    },
+    {
       title: 'Обновления в документации',
       path: keepInTouchPath + 'docs-update',
     },

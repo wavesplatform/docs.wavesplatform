@@ -2,19 +2,19 @@
 
 ## Node Improvements
 
-* The mechanism for [generating blocks](/en/blockchain/block/block-generation) has been improved through the use of [VRF](https://en.wikipedia.org/wiki/Verifiable_random_function) (Verifiable random function). This improvement allows withstanding stake grinding attacks, which are used by the attackers to try to increase the probability of generating a block for themselves.
-* Changed the scheme for signing the block transactions by the mining node. Previously, the miner needed to sign the block header along with all transactions. Now [transactions root hash](/en/blockchain/block/merkle-root) is added to the header, so it is enough to sign only the header.
-* The BLAKE2b-256 hash of the block header is used as the block unique identifier.
+* Invoke script transactions and exchange transactions are saved on the blockchain and a fee is charged for them if the sender's signature or account script verification passed, but the dApp script or the asset script failed. [More details](/en/keep-in-touch/april)
 * Implemented the feature of the deletion of the records from the account data storage. This action can be performed using a [data transaction](/en/blockchain/transaction-type/data-transaction) or the [DeleteEntry](/en/ride/structures/common-structures/delete-entry) structure of the Ride language.
 * Implemented the feature of changing the released assets name and description. For this means, the [update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) is used.
-* Invoke script transactions and exchange transactions are saved on the blockchain and a fee is charged for them if the sender's signature or account script verification passed, but the dApp script or the asset script failed.
 * The minimal fee for the [reissue transaction](/en/blockchain/transaction-type/reissue-transaction) is reduced from 1 to 0.001 WAVES.
-* Binary transaction formats based on [protobuf](https://developers.google.com/protocol-buffers/docs/overview) are implemented.
 * [Issue transaction](/en/blockchain/transaction-type/issue-transaction)'s `name` and `description` fields type changed from bytes to string.
 * [Transfer](/en/blockchain/transaction-type/transfer-transaction) and [mass transfer transaction](/en/blockchain/transaction-type/mass-transfer-transaction)'s attachment field type was changed to [union](/en/ride/data-types/union) `(type: Int|Boolean|ByteVector|String)`.
 * The maximum data size in [data transaction](/en/blockchain/transaction-type/data-transaction) increased to 165890 bytes.
 * [Exchange transaction](/en/blockchain/transaction-type/transfer-transaction) may contain buy and sell orders in any order.
+* Binary transaction formats based on [protobuf](https://developers.google.com/protocol-buffers/docs/overview) are implemented.
 * Changed the [orders](/en/blockchain/order)' price calculation formula. Earlier, when determining the price for assets with different numbers of decimal places, there was a price value size issue. The maximum value depended on the difference of decimal digits of assets. For example, the price for an [NFT](/en/blockchain/token/non-fungible-token) asset could not exceed 1000 WAVES. The modified formula corrects this problem. Decimal places no longer affect the maximum price.
+* The mechanism for [generating blocks](/en/blockchain/block/block-generation) has been improved through the use of [VRF](https://en.wikipedia.org/wiki/Verifiable_random_function) (Verifiable random function). This improvement allows withstanding stake grinding attacks, which are used by the attackers to try to increase the probability of generating a block for themselves.
+* Changed the scheme for signing the block transactions by the mining node. Previously, the miner needed to sign the block header along with all transactions. Now [transactions root hash](/en/blockchain/block/merkle-root) is added to the header, so it is enough to sign only the header.
+* The BLAKE2b-256 hash of the block header is used as the block unique identifier.
 
 ## REST API Updates
 
@@ -36,6 +36,12 @@
    * `POST /transactions/status`
 
    `"applicationStatus": "scriptExecutionFailed"` means that the dApp script or the asset script failed.
+
+* The following endpoints, in addition to the total script complexity, provide the complexity of each callable function and the verifier function of dApp scripts:
+   * `GET /addresses/scriptInfo/{address}`
+   * `POST /utils/script/compileCode`
+   * `POST /utils/script/estimate`
+
 
 ## Ride Improvements
 
@@ -64,6 +70,15 @@
    * `:+` for adding an element to the end of the list. Example: the result of `["foo","bar"] :+ "baz"` is `["foo", "bar", "baz"]`. Complexity is 3.
 * The [wavesBalance](/en/ride/functions/built-in-functions/account-data-storage-functions#waves-balance) built-in function returns the [BalanceDetails](/en/ride/structures/common-structures/balance-details) structure which contains all types of WAVES balances.
 * Added `name` and `description` fields to the [Asset](/en/ride/structures/common-structures/asset) structure which is returned by the [assetInfo](/en/ride/functions/built-in-functions/blockchain-functions#assetinfo) built-in function.
+
+## Waves Explorer (stagenet.wavesexplorer.com)
+
+* Transactions with failed dApp script or asset script results are displayed. In the list of transactions, they are marked with ![](./_assets/stop.png) icon.
+* For invoke script transactions two payments are supported. The dApp script result is displayed as a table.
+* Added display of a new type of transaction: update asset info transaction.
+* For transfer transactions and mass transfer transactions all types of attachement are supported.
+* Added a link to the issue transaction to the asset information page.
+* Added a Block ID field to the block information page.
 
 ## Activation
 

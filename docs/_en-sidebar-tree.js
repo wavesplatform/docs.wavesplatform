@@ -1409,6 +1409,10 @@ module.exports = {
       path: keepInTouchPath + 'release-notes',
     },
     {
+      title: 'Saving Failed Transactions',
+      path: keepInTouchPath + 'april',
+    },
+    {
       title: 'Documentation Updates',
       path: keepInTouchPath + 'docs-update',
     },

@@ -59,7 +59,7 @@ The following checks are performed:
    * Sender's balance check: the sender should have enough funds to pay the additional fee for script actions.
 6. Execution of asset scripts if the transaction uses [smart assets](/en/blockchain/token/smart-asset), including scripts of assets used in dApp script actions.
 
-Invoke script transactions and exchange transactions are saved on the blockchain and the transaction sender pays the fee if checks number 1–4 passed. However, if the checks number 5–6 failed, the transaction is marked as unvalid and doesn't entail changes in balances (other than charging a fee) and account data storages. For an exchange transaction, the matcher is charged the transaction fee but the order senders are not charged the [matcher fee](https://docs.waves.exchange/en/waves-matcher/matcher-fee).
+Invoke script transactions and exchange transactions are saved on the blockchain and the transaction sender pays the fee if checks number 1–4 passed. However, if the checks number 5–6 failed, the transaction is marked as failed and doesn't entail changes in balances (other than charging a fee) and account data storages. For an exchange transaction, the matcher is charged the transaction fee but the order senders are not charged the [matcher fee](https://docs.waves.exchange/en/waves-matcher/matcher-fee).
 
 Transactons of other type are saved on the blockchain and the fee is charged if all checks are passed.
 
