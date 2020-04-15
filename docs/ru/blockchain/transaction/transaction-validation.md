@@ -2,7 +2,7 @@
 
 Каждая транзакция проходит проверку на валидность. В зависимости от результатов проверки транзакция может быть сохранена в блокчейне или отклонена.
 
-Начиная с версии ноды 1.2.4, после активации фичи №&nbps;15 “Ride V4, VRF, Protobuf, Failed transactions” порядок валидации транзакций изменен. В данный момент версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+Начиная с версии ноды 1.2.4, после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions” порядок валидации транзакций изменен. В данный момент версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ![](./_assets/tx-validaton.png)
 

@@ -99,7 +99,7 @@ log(1625, 2, 2, 0, 2, Up()) # Возвращает 403
 
 Возвращает медиану [списка](/ru/ride/data-types/list) целых чисел. Список не может быть пустым, иначе скрипт завершится с ошибкой.
 
-> Функция `median` доступна начиная с версии ноды 1.2.0 после активации фичи №&nbps;15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время работают только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+> Функция `median` доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время работают только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 
 ``` ride
