@@ -36,6 +36,10 @@
    * `POST /transactions/status`
 
    `"applicationStatus": "scriptExecutionFailed"` означает, что результат выполнения dApp-скрипта или скрипта ассета был неудачным.
+* Следующие методы, в дополнение к общей сложности скрипта, возвращают для dApp-скриптов сложность каждой вызываемой функции и функции-верификатора:
+   * `GET /addresses/scriptInfo/{address}`
+   * `POST /utils/script/compileCode`
+   * `POST /utils/script/estimate`
 
 ## Улучшения Ride
 
@@ -64,6 +68,15 @@
    * Добавление элемента в конец списка. Пример: результатом выражения `["foo","bar"] :+ "baz"` будет `["foo", "bar", "baz"]`. Сложность равна 3.
 * Встроенная функция [wavesBalance](/ru/ride/functions/built-in-functions/account-data-storage-functions#waves-balance) возвращает структуру [BalanceDetails](/ru/ride/structures/common-structures/balance-details), которая содержит все виды баланса WAVES.
 * В структуру [Asset](/ru/ride/structures/common-structures/asset), возвращаемую встроенной функцией [assetInfo](/ru/ride/functions/built-in-functions/blockchain-functions#assetinfo), добавлены поля `name` и `description`.
+
+## Waves Explorer
+
+* Добавлено отображение транзакций с неудачным результатом выполнения dApp-скрипта или скрипта ассета, сохраненных на блокчейне.
+* Для транзакции вызова скрипта поддерживается отображение нескольких платежей. Результат выполнения скрипта отображается в виде таблицы.
+* Добавлено отображение нового типа транзакций — транзакций обновления информации ассета.
+* Для транзакций перевода и транзакций массового перевода поддеживается отображение приложений (attachment) всех типов.
+* На страницу с информацией об ассете добавлена ссылка на транзакцию выпуска ассета.
+* На страницу с информацией о блоке добавлено поле Block ID.
 
 ## Активация
 

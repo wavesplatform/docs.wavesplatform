@@ -1,4 +1,4 @@
-# Сохранение невалидных транзакций
+# Сохранение невалидных транзакций (апрель 2020)
 
 Начиная с версии ноды 1.2.4, после активации фичи №&nbps;15 “Ride V4, VRF, Protobuf, Failed transactions” меняется порядок валидации транзакций:
 
@@ -8,7 +8,11 @@
 
 [Подробнее о валидации транзакций](/ru/blockchain/transaction/transaction-validation)
 
-Работа с невалидными транзакциями поддержана в следующих инструментах.
+В JSON-представление транзакции добавлено поле `applicationStatus`, которое содержит результат валидации:
+* `succeed` — валидация прошла успешно.
+* `scriptExecutionFailed` — результат выполнения dApp-скрипта или скрипта ассета был неудачным. Такая транзакция не приводит к изменениям в балансах (кроме взимания комиссии с отправителя) и в хранилищах данных аккаунтов.
+
+Работа с невалидными транзакциями поддержана в следующих инструментах Waves.
 
 ## Node API
 
@@ -18,11 +22,7 @@
    * `GET /transactions/status`
    * `POST /transactions/status`
 
-Поле `applicationStatus` содержит результат валидации транзакции:
-* `succeed` — валидация прошла успешно.
-* `scriptExecutionFailed` — результат выполнения dApp-скрипта или скрипта ассета был неудачным.
-
-[Все изменения Node API в релизе 1.2](/ru/keep-in-touch/release-notes/#обновление-node-api)
+См. также [список изменений Node API в релизе 1.2](/ru/keep-in-touch/release-notes/#обновление-node-api)
 
 ## Библиотеки
 
@@ -30,30 +30,33 @@
 
 Функции `waitForTx` и `waitForTxWithNConfirmations` возвращают Promise транзакции, который разрешается после ее попадания в блок. Теперь для транзакции добавлено поле `applicationStatus`.
 
-[Документация waves-transactions на Github](https://wavesplatform.github.io/waves-transactions/)
+[Документация waves-transactions](https://wavesplatform.github.io/waves-transactions/)
 
 **node-api JS**
 
-Функция `transactionInfo` возвращаtnющая  добавлена возможность получить объект транзакции и поле `applicationStatus`.
+Функции `fetchInfo` и `fetchStatus` возвращают поле `applicationStatus`.
 
-[Исходный код node-api JS](https://github.com/wavesplatform/node-api-js/)
+[node-api JS на Github](https://github.com/wavesplatform/node-api-js/)
 
 ## Waves Explorer (wavesexplorer.com)
 
-* Поддержaно отображение транзакций с неудачным результатом выполнения dApp-скрипта или скрипта ассета, сохраненных на блокчейне.
-* Для транзакции вызова скрипта результата выполнения скрипта отображается в виде таблицы.
+* Добавлено отображение транзакций с неудачным результатом выполнения dApp-скрипта или скрипта ассета, сохраненных на блокчейне.
+* Для транзакции вызова скрипта результат выполнения скрипта отображается в виде таблицы.
 
-[Все изменения Waves Explorer](/ru/keep-in-touch/release-notes/#изменения-в-waves-explorer)
+[Все изменения Waves Explorer](/ru/keep-in-touch/release-notes/#waves-explorer)
 
 ## Waves IDE (ide.wavesplatform.com)
 
-* JavaScript-консоль поддерживает поле `applicationStatus` транзакции.
-* В тестовом окружении поддержана возможность получения `applicationStatus` у транзакции.
+Поле `applicationStatus` поддерживается в JavaScript-консоли и в тестах.
 
-## surfboard
+Обратите внимание: в тестах теперь необходимо проверять не только появление транзакции на блокчейне, но и результат валидации.
+
+## Surfboard
 
 Поддержана возможность получения `applicationStatus` для транзакций.
 
+[Surfboard на Github](https://github.com/wavesplatform/surfboard)
+
 ## Dapp Ui (waves-dapp.com)
 
-Поддержана возможность получения `applicationStatus` для отправленных транзакций.
+Поддержана возможность получения `applicationStatus` для транзакций.
