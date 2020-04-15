@@ -1,6 +1,6 @@
 # DataEntry (доступно в Стандартной библиотеке версии 3)
 
-> :warning: Структура DataEntry не входит в [Стандартную библиотеку](/ru/ride/script/standard-library) версии 4. Используйте `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, и `StringEntry` вместо этой структуры.
+> :warning: Структура `DataEntry` не входит в [Стандартную библиотеку](/ru/ride/script/standard-library) версии 4. Используйте `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, и `StringEntry` вместо этой структуры.
 
 **DataEntry** - cтруктура, задающая ключ и значение записи [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage), которая создается или изменяется в результате вызова [вызываемой функции](/ru/ride/functions/callable-function).
 

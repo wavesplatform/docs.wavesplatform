@@ -1,6 +1,6 @@
 # DeleteEntry
 
-> The `DeleteEntry` structure is available starting from node version 1.2.0, after activating of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+> :warning: The structure is introduced in Standard library **version 4** that is currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 **DeleteEntry** is a structure that sets the paramaters of deletion of entry from the [account data storage](/en/blockchain/account/account-data-storage), which is performed as the result of the [callable function](/en/ride/functions/callable-function) invocation.
 

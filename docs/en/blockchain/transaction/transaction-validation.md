@@ -6,7 +6,7 @@ Since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Proto
 
 ![](./_assets/tx-validaton.png)
 
-## Before Activation of Feature #17
+## Before Activation of Feature #15
 
 The following checks are performed:
 
@@ -34,7 +34,7 @@ The following checks are performed:
 
 A transaction is saved on the blockchain and the transaction fee is charged if all checks are passed.
 
-## After Activation of Feature #17
+## After Activation of Feature #15
 
 The following checks are performed:
 
@@ -63,4 +63,4 @@ Invoke script transactions and exchange transactions are saved on the blockchain
 
 Transactons of other type are saved on the blockchain and the fee is charged if all checks are passed.
 
-> :warning: After activation of the feature #17, a fee for the invoke script transaction cannot be funded by transfer from dApp to the transaction sender. If sender's balance is insufficient to pay the fee, dApp script is not executed.
+> :warning: After activation of the feature #15, a fee for the invoke script transaction cannot be funded by transfer from dApp to the transaction sender. If sender's balance is insufficient to pay the fee, dApp script is not executed.

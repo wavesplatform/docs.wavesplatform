@@ -1,6 +1,6 @@
 # Issue
 
-> :warning: Структура Issue представлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+> :warning: Структура `Issue` представлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 **Issue** - cтруктура, задающая параметры выпуска токена, который выполняется в результате вызова [вызываемой функции](/ru/ride/functions/callable-function).
 

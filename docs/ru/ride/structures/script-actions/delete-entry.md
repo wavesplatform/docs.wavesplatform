@@ -1,6 +1,6 @@
 # DeleteEntry
 
-> Структура `DeleteEntry` доступна с версии ноды 1.2.0. Возможность включается после активации фичи №&nbps;15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время работают только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+> :warning: Структура `DeleteEntry` представлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 **DeleteEntry** - cтруктура, задающая параметры удаления записи из [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage), которое выполняется в результате вызова [вызываемой функции](/ru/ride/functions/callable-function).
 
