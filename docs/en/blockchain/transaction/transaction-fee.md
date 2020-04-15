@@ -62,5 +62,5 @@ To activate sposorship, the issuer puts a sponsor fee transaction that specifies
 
 Invoke script transactions and exchange transactions are saved on the blockchain and the transaction sender pays the fee if the dApp script or the asset script failed. For more information see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article. For an exchange transaction, the matcher is charged the transaction fee but the order senders are not charged the [matcher fee](https://docs.waves.exchange/en/waves-matcher/matcher-fee).
 
-Saving failed transactions and charging fees for them is introduced in node version 1.2.4, after activating of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”
+Saving failed transactions and charging fees for them is introduced in node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”
 . Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.

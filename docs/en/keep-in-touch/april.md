@@ -1,6 +1,6 @@
 # Saving Failed Transactions (April 2020)
 
-Since node version 1.2.4, after activating of feature #15 “Ride V4, VRF, Protobuf, Failed transactions” the transaction validation procedure is changed.
+Since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions” the transaction validation procedure is changed.
 
 * Invoke script transactions and exchange transactions are saved on the blockchain and a fee is charged for them even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed.
 * A fee for the invoke script transaction cannot be funded by transfer from dApp to the transaction sender. If sender's balance is insufficient to pay the fee, dApp script is not executed.

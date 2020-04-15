@@ -76,12 +76,12 @@
 
 ## Waves Explorer (stagenet.wavesexplorer.com)
 
-* Transactions with failed dApp script or asset script results are displayed. In the list of transactions, they are marked with ![](./_assets/stop.png) icon.
-* For invoke script transactions two payments are supported. The dApp script result is displayed as a table.
-* Added display of a new type of transaction: update asset info transaction.
-* For transfer transactions and mass transfer transactions all types of attachement are supported.
-* Added a link to the issue transaction to the asset information page.
-* Added a Block ID field to the block information page.
+* Transactions with failed dApp script or asset script results are now displayed, and marked with ![](./_assets/stop.png) icon in lists of transactions.
+* Added support of two payments for invoke script transactions. The dApp script result is displayed as a table.
+* Added display of the new transaction type: update asset info transaction.
+* Added support of all types of attachements for transfer transactions and mass transfer transactions.
+* Added the link to the issue transaction on the asset information page.
+* Added Block ID field to the block information page.
 
 ## Activation
 
