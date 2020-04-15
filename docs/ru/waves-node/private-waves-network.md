@@ -1,6 +1,6 @@
 # Custom блокчейн
 
-В этой статье объясняется процесс настройки custom сети блокчейн, которую можно использовать для экспериментальной деятельности.
+В данной статье описан процесс настройки custom сети блокчейн, которую можно использовать для экспериментальной деятельности.
 
 ## Настройка Custom блокчейна
 
@@ -12,7 +12,7 @@
 
 ### Шаг 2
 
-Клонируйите [репозиторий Waves](https://github.com/wavesplatform/Waves/).
+Клонируйте [репозиторий Waves](https://github.com/wavesplatform/Waves/).
 
 ### Шаг 3
 
@@ -86,9 +86,9 @@ java -cp ./node/target/waves-all-0.17.2-grpc-27-g0fab715-DIRTY.jar com.wavesplat
 
 Создайте файл `*.conf` с произвольным именем (например `waves-custom-network.conf`) и откройте его текстовым редактором.
 
-Больше информации про файл конфигурации в статье [Конфигурация ноды](/en/waves-node/node-configuration).
+Больше информации про файл конфигурации в статье [Конфигурация ноды](/ru/waves-node/node-configuration).
 
-Вы можете включать фичи ноды с помощью параметра `pre-activated-features`. Поддерживаемые фичи представлены в статье [Фичи](/en/waves-node/features).
+Вы можете включать фичи ноды с помощью параметра `pre-activated-features`. Поддерживаемые фичи описаны в статье [Фичи](/ru/waves-node/features).
 
 Если директория не задана, то она будет создана по адресу:
 | *nix | macOS | Windows |
@@ -137,7 +137,7 @@ waves
         ]
       }
       # содержимое секции `genesis` это то, что генерируется в шаге 4
-      # пожалуйста обратите внимание, что вместо того, чтобы вставить секцию, вы можете написать
+      # обратите внимание, что вместо того, чтобы вставить секцию, вы можете написать
       # `include "genesis.conf"`, где `genesis.conf` это имя файла из шага 4
     }
   }
@@ -180,9 +180,9 @@ waves
 }
 ```
 
-**Примечание**: В этом примере период активации функции будет не `30`, а `60`, однако для `feature-check-blocks-period` установлено значение `30`. Это потому, что `double-features-period-after-height` по умолчанию установлено в `0`
+**Примечание**: В этом примере период активации функции будет не `30`, а `60`, однако для `feature-check-blocks-period` установлено значение `30`. Это потому, что `double-features-period-after-height` по умолчанию установлено `0`
 
-Обратите внимание на параметры `waves.blockchain.custom.address-схема-character` и `waves.blockchain.custom.genesis`. Они были скопированы с результата и настроек инструмента Genesis Generator. Также посмотрите на значение `waves.wallet.seed`. Это значение может быть скопировано из значения "Seed" для одного из адресов генезиса из результата инструмента генератора генезиса.
+Обратите внимание на параметры `waves.blockchain.custom.address-схема-character` и `waves.blockchain.custom.genesis`. Они были скопированы с результата и настроек инструмента Genesis Generator. Также посмотрите на значение `waves.wallet.seed`. Это значение может быть скопировано из значения "Seed" для одного из адресов генезиса из результата Genesis Generator.
 
 Секция `waves.blockchain.custom.functionality` содержит параметры, которые позволяют включить/выключить некоторые фичи системы блокчейн.
 
@@ -190,7 +190,7 @@ waves
 
 ### Шаг 6
 
-Запустите свою custom ноду с помощью команды:
+Запустите вашу custom ноду с помощью команды:
 
 ```sbt "node/run waves-custom-network.conf"```
 
@@ -198,24 +198,24 @@ waves
 
 ## Добавить ноды в свою сеть
 
-Вы можете добавить больше нод в свою сеть, используя параметр `waves.network.known-peers`, указав адрес и порт существующего узла с такими же параметрами сети, как `127.0.0.1:6860`. Если у вас несколько локаьных нод, то не забудьте изменить для новых узлов сетевой порт `waves.network.port`, порт API `waves.rest-api.port`, папку для данных `waves.directory` и кошелек семян `waves.wallet.seed`.
+Вы можете добавить больше нод в свою сеть, используя параметр `waves.network.known-peers`, указав адрес и порт существующего узла с такими же параметрами сети, как `127.0.0.1:6860`. Если у вас несколько локаьных нод, то не забудьте изменить для новых нод сетевой порт `waves.network.port`, порт API `waves.rest-api.port`, папку для данных `waves.directory` и кошелек seed `waves.wallet.seed`.
 
-## Настройка других сервисов
+## Настройка дополнительных сервисов
 
-Вы можете настроить свой собственный блокчейн с другими сервисами, такими как:
+Вы можете подключить к своему блокчейну дополнительные сервисы, такие как:
 
-* [Дата сервисы](/ru/building-apps/waves-api-and-sdk/waves-data-service-api) быстро и удобно получать данные из блокчейна через REST API, аналогично Mainnet и Testnet, описанным в статье [Waves Data Service API](/ru/building-apps/waves-api-and-sdk/waves-data-service-api). Подробнее по ссылке [deploy examples](https://github.com/wavesplatform/deploy-examples) and [How to Run Data Services](https://wavestalk.ru/t/kak-zapustit-data-services-za-30-minut-iz-korobki/272) article (in Russian language).
+* [Дата сервисы](/ru/building-apps/waves-api-and-sdk/waves-data-service-api), которые позволят быстро и удобно получать данные из блокчейна через REST API, аналогично Mainnet и Testnet, описанным в статье [Waves Data Service API](/ru/building-apps/waves-api-and-sdk/waves-data-service-api). Подробнее по ссылкам [deploy examples](https://github.com/wavesplatform/deploy-examples) и [How to Run Data Services](https://wavestalk.ru/t/kak-zapustit-data-services-za-30-minut-iz-korobki/272).
 
 * [dApps](/ru/blockchain/account/dapp). Подробнее в статье по ссылке [How to Build, Deploy and Test a Waves RIDE dApp](https://blog.wavesplatform.com/how-to-build-deploy-and-test-a-waves-ride-dapp-785311f58c2).
 
-* [Waves explorer](/en/ecosystem/waves-explorer/about-waves-explorer) чтобы просматривать данные блокчейна в удобочитаемом формате.
+* [Waves explorer](/en/ecosystem/waves-explorer/about-waves-explorer), который позволит просматривать данные блокчейна в удобочитаемом формате.
 
-   Можно завернуть Waves explorer в [контейнере docker](https://hub.docker.com/r/wavesplatform/explorer) на localhost. Используйте следующкю команду:
+   Чтобы развернуть Waves explorer в [контейнере docker](https://hub.docker.com/r/wavesplatform/explorer) на localhost, используйте следующую команду:
 
    ```bash
    docker run -d -e API_NODE_URL=http://localhost:6869 -e NODE_LIST=http://localhost:6869 -p 3000:8080 wavesplatform/explorer
    ```
 
-* [DEX Extension](https://github.com/wavesplatform/dex): Интерфейс для DEX Server для связи с кодом ноды.
+* [DEX Extension](https://github.com/wavesplatform/dex): Интерфейс DEX Server для связи с кодом ноды.
 
 <!--* [Matcher](https://docs.waves.exchange/en/waves-matcher/) -->
