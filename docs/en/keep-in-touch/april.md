@@ -68,3 +68,10 @@ For the invoke script transaction, in addition to the transaction status on the 
 Node Go also supports failed transactions.
 
 [Node Go on Github](https://github.com/wavesplatform/gowaves/)
+
+## Ride limitations
+
+The maximum complexity of account script and verifier function of dApp script is changed to 3000.
+
+The maximum complexity of asset script and callable function of dApp script remains 4000.
+

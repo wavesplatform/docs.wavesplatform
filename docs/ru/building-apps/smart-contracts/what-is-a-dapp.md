@@ -81,7 +81,10 @@ func verify() = {
 | Ограничение | Максимальное значение |
 |---|---|
 | Размер скрипта | 32 Кбайт |
-| [Complexity](/ru/ride/base-concepts/complexity) | 4000 |
+| [Сложность](/ru/ride/base-concepts/complexity) скрипта аккаунта | 3000 |
+| Сложность скрипта ассета | 4000 |
+| Сложность вызываемой функции dApp-скрипта | 4000 |
+| Сложность функции-верификатора dApp-скрипта | 3000 |
 | Количество аргументов Callable-функции | 22 |
 | Размер имени аннотированной функции | 255 байт |
 | Количество вызовов [ScriptTransfer](/ru/ride/structures/common-structures/script-transfer), [Issue](/ru/ride/structures/common-structures/issue), [Reissue](/ru/ride/structures/common-structures/reissue), [Burn](/ru/ride/structures/common-structures/burn) в одном вызове скрипта (применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 4** ) | 10 |

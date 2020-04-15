@@ -42,8 +42,11 @@
    * `POST /utils/script/compileCode`
    * `POST /utils/script/estimate`
 
-
 ## Ride Improvements
+
+* The maximum complexity of account script and verifier function of dApp script is changed to 3000.
+
+   The maximum complexity of asset script and callable function of dApp script remains 4000.
 
 * Version 4 of the Ride [standard library](/en/ride/script/standard-library) was issued.
 * Added script actions that the callable function of dApp can perform:

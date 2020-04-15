@@ -41,8 +41,11 @@
    * `POST /utils/script/compileCode`
    * `POST /utils/script/estimate`
 
-## Улучшения Ride
+## Изменения Ride
 
+* Максимальная сложность скрипта аккаунта и функции-верификатора скрипта dApp изменена на 3000.
+
+   Максимальная сложность скрипта ассета и вызываемой функции скрипта dApp осталась прежней — 4000.
 * Выпущена версия 4 [Стандартной библиотеки](/ru/ride/script/standard-library).
 * Добавлены действия скрипта, которые может выполнять [вызываемая функция](/ru/ride/functions/callable-functions) dApp-скрипта:
    * [Issue](/ru/ride/structures/common-structures/issue) — выпуск токена.
