@@ -11,7 +11,7 @@ In the JSON representation of the transaction, the `applicationStatus` field is 
 * `succeed` – all checks are passed.
 * `scriptExecutionFailed` – dApp script or asset script failed. Such a transaction doesn't entail changes in balances (other than charging a fee) and account data storages.
 
-The following Waves tools support failed transactions.
+Failed transactions are implemented in the Waves protocol and are supported both by [Node Scala](https://github.com/wavesplatform/Waves/releases) and [Node Go](https://github.com/wavesplatform/gowaves/releases/), as well as by the following Waves tools.
 
 ## Node API
 
@@ -63,15 +63,8 @@ The `applicationStatus` field is now supported for transactions added to the blo
 
 For the invoke script transaction, in addition to the transaction status on the blockchain, the status of script execution is displayed.
 
-## Node Go
-
-Node Go also supports failed transactions.
-
-[Node Go on Github](https://github.com/wavesplatform/gowaves/)
-
 ## Ride limitations
 
 The maximum complexity of account script and verifier function of dApp script is changed to 3000.
 
 The maximum complexity of asset script and callable function of dApp script remains 4000.
-
