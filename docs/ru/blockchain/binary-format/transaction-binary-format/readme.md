@@ -4,13 +4,15 @@
 
 Транзакции хранятся в блокчейне в бинарном формате (байтовом представлении). [Расширения](/ru/waves-node/extensions) ноды, в частности [gRPC-сервер](/ru/waves-node/extensions/grpc-server), могут работать непосредственно с данными в бинарном формате.
 
-Их использование существенно упрощает разработку клиентских библиотек для работы с блокчейном Waves.
+Подпись транзакции и ее идентификатор также формируются на основе бинарного формата, а именно байтов тела транзакции — всех полей, за исключением идентификатора, подписи, подтверждений. Правила генерации подписи и идентификатора транзакции рассмотрены в разделе [Cryptographic practical details](en/blockchain/waves-protocol/cryptographic-practical-details#signing).
+
+Для всех строк используется кодировка UTF-8.
 
 ### Protobuf-схема
 
-Старшие версии бинарный формат транзакции соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). См. [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=ru).
+Бинарный формат старших версий транзакции соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Использование Protobuf облегчает разработку клиентских библиотек для блокчейна Waves, поскольку позволяет автоматически сериализовать транзакцию и тем самым упрощает генерацию подписи. См. [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=ru).
 
-Версия 5 добавлена в версии ноды 1.2.0 и включается с активацией [фичи № 15 “VRF and Protobuf”](/ru/waves-node/features/features). В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+Protobuf-схема для бинарного формата добавлена в версии ноды 1.2.0 и включается с активацией [фичи № 15 “VRF and Protobuf”](/ru/waves-node/features/features). В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ```protobuf
 message SignedTransaction {
@@ -54,17 +56,15 @@ message Amount {
 
 | Поле | Размер | Описание |
 | :--- | :--- | :--- |
-| proofs | Размер каждого подтверждения — до 64 байт,<br>до 8 подтверждений| [Подтверждения транзакции](/ru/blockchain/transaction/transaction-proof), используемые для проверки валидности. Массив может содержать подписи транзакции (но не ограничивается только подписями) |
 | chain_id | 1 байт | [Байт сети](/ru/blockchain/blockchain-network/chain-id) |
 | sender_public_key | 32 байта | Открытый ключ аккаунта отправителя транзакции |
-| fee.asset_id | • 32 байта, если комиссия в спонсорском токене<> | ID токена комиссии: • WAVES|
-| fee.amount | 8 байт | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) в нормализованном виде (то есть умноженная на 10<sup>decimals</sup>, для WAVES 10<sup>8</sup>) |
+| fee.amount | 8 байт | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) в минимальных единицах («копейках») ассета |
+| fee.asset_id | • 32 байта, если комиссия в спонсорском ассете<br> • 0, если комиссия в WAVES | ID токена комиссии.<br>Комиссия в спонсорском ассете доступна только для транзакций вызова скрипта и транзакций перевода. См. раздел [Спонсирование комиссии](/ru/blockchain/waves-protocol/sponsored-fee)|
 | timestamp | 8 байт | [Временная метка транзакции](/ru/blockchain/transaction/transaction-timestamp): Unix-время в миллисекундах |
 | version | 1 байт | [Версия транзакции](/ru/blockchain/transaction/transaction-version) |
+| proofs | Размер каждого подтверждения — до 64 байт,<br>до 8 подтверждений | [Подтверждения транзакции](/ru/blockchain/transaction/transaction-proof), используемые для проверки валидности. Массив может содержать подписи транзакции (но не ограничивается только подписями) |
 
-## Бинарные форматы по типам транзакций
-
-Описание бинарного формата для каждого типа транзакции представлено в следующих разделах:
+Описание полей, зависящих от типа транзакции, представлено в следующих разделах:
 
 * [Транзакция вызова скрипта](/ru/blockchain/binary-format/transaction-binary-format/invoke-script-transaction-binary-format)
 * [Транзакция выпуска](/ru/blockchain/binary-format/transaction-binary-format/issue-transaction-binary-format)

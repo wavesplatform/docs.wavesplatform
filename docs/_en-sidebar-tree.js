@@ -136,7 +136,7 @@ module.exports = {
               path: blockchainPath + 'binary-format/transaction-binary-format/genesis-transaction-binary-format',
             },
             {
-              title: 'Invoke script binary format',
+              title: 'Invoke script transaction binary format',
               path: blockchainPath + 'binary-format/transaction-binary-format/invoke-script-transaction-binary-format',
             },
             {
@@ -175,81 +175,15 @@ module.exports = {
               title: 'Transfer transaction binary format',
               path: blockchainPath + 'binary-format/transaction-binary-format/transfer-transaction-binary-format',
             },
+            {
+              title: 'Update asset info transaction binary format',
+              path: blockchainPath + 'binary-format/transaction-binary-format/update-asset-info-transaction-binary-format',
+            },
           ],
         },
         {
           title: 'Transaction proof binary format',
           path: blockchainPath + 'binary-format/transaction-proof-binary-format',
-        },
-        {
-          title: 'Transaction protobuf scheme',
-          path: blockchainPath + 'binary-format/transaction-protobuf-scheme',
-          children: [
-              {
-                  title: 'Burn transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/burn-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Create alias transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/create-alias-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Data transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/data-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Exchange transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/exchange-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Genesis transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/genesis-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Invoke script transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/invoke-script-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Issue transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/issue-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Lease cancel transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/lease-cancel-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Lease transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/lease-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Mass transfer transaction protobuf scheme',
-                path: blockchainPath + 'binary-format/transaction-protobuf-scheme/mass-transfer-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Reissue transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/reissue-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Set asset script transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/set-asset-script-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Set script transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/set-script-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Sponsor fee transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/sponsor-fee-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Transfer transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/transfer-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Update asset info transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme',
-              },
-          ]
         },
       ],
     },

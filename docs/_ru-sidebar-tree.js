@@ -116,26 +116,6 @@ module.exports = {
           path: blockchainPath + 'binary-format/transaction-binary-format',
           children: [
             {
-              title: 'Cоздание псевдонима',
-              path: blockchainPath + 'binary-format/transaction-binary-format/create-alias-transaction-binary-format',
-            },
-            {
-              title: 'Сжигание токена',
-              path: blockchainPath + 'binary-format/transaction-binary-format/burn-transaction-binary-format',
-            },
-            {
-              title: 'Транзакция данных',
-              path: blockchainPath + 'binary-format/transaction-binary-format/data-transaction-binary-format',
-            },
-            {
-              title: 'Обмен',
-              path: blockchainPath + 'binary-format/transaction-binary-format/exchange-transaction-binary-format',
-            },
-            {
-              title: 'Генезис',
-              path: blockchainPath + 'binary-format/transaction-binary-format/genesis-transaction-binary-format',
-            },
-            {
               title: 'Вызов скрипта',
               path: blockchainPath + 'binary-format/transaction-binary-format/invoke-script-transaction-binary-format',
             },
@@ -144,8 +124,16 @@ module.exports = {
               path: blockchainPath + 'binary-format/transaction-binary-format/issue-transaction-binary-format',
             },
             {
-              title: 'Отмена лизинга',
-              path: blockchainPath + 'binary-format/transaction-binary-format/lease-cancel-transaction-binary-format',
+              title: 'Генезис',
+              path: blockchainPath + 'binary-format/transaction-binary-format/genesis-transaction-binary-format',
+            },
+            {
+              title: 'Данные',
+              path: blockchainPath + 'binary-format/transaction-binary-format/data-transaction-binary-format',
+            },
+            {
+              title: 'Довыпуск',
+              path: blockchainPath + 'binary-format/transaction-binary-format/reissue-transaction-binary-format',
             },
             {
               title: 'Лизинг',
@@ -156,20 +144,36 @@ module.exports = {
               path: blockchainPath + 'binary-format/transaction-binary-format/mass-transfer-transaction-binary-format',
             },
             {
-              title: 'Довыпуск',
-              path: blockchainPath + 'binary-format/transaction-binary-format/reissue-transaction-binary-format',
+              title: 'Обмен',
+              path: blockchainPath + 'binary-format/transaction-binary-format/exchange-transaction-binary-format',
             },
             {
-              title: 'Установка скрипта ассета',
-              path: blockchainPath + 'binary-format/transaction-binary-format/set-asset-script-transaction-binary-format',
+              title: 'Обновление информации ассета',
+              path: blockchainPath + 'binary-format/transaction-binary-format/update-asset-info-transaction-binary-format',
             },
             {
-              title: 'Установка скрипта',
-              path: blockchainPath + 'binary-format/transaction-binary-format/set-script-transaction-binary-format',
+              title: 'Отмена лизинга',
+              path: blockchainPath + 'binary-format/transaction-binary-format/lease-cancel-transaction-binary-format',
+            },
+            {
+              title: 'Сжигание токена',
+              path: blockchainPath + 'binary-format/transaction-binary-format/burn-transaction-binary-format',
+            },
+            {
+              title: 'Cоздание псевдонима',
+              path: blockchainPath + 'binary-format/transaction-binary-format/create-alias-transaction-binary-format',
             },
             {
               title: 'Спонсирование',
               path: blockchainPath + 'binary-format/transaction-binary-format/sponsor-fee-transaction-binary-format',
+            },
+            {
+              title: 'Перевод',
+              path: blockchainPath + 'binary-format/transaction-binary-format/transfer-transaction-binary-format',
+            },
+            {
+              title: 'Установка скрипта',
+              path: blockchainPath + 'binary-format/transaction-binary-format/set-script-transaction-binary-format',
             },
             {
               title: 'Перевод',
@@ -180,76 +184,6 @@ module.exports = {
         {
           title: '[en] Transaction proof binary format',
           path: blockchainPath + 'binary-format/transaction-proof-binary-format',
-        },
-        {
-          title: 'Protobuf-схема транзакции',
-          path: blockchainPath + 'binary-format/transaction-protobuf-scheme',
-          children: [
-            {
-               title: 'Создание псевдонима',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/create-alias-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Сжигание токена',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/burn-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Транзакция данных',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/data-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Обмен',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/exchange-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Генезис',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/genesis-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Вызов скрипта',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/invoke-script-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Выпуск',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/issue-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Отмена лизинга',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/lease-cancel-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Лизинг',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/lease-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Массовый перевод',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/mass-transfer-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Довыпуск',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/reissue-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Установка скрипта ассета',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/set-asset-script-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Установка скрипта',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/set-script-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Спонсирование',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/sponsor-fee-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Перевод',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/transfer-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Обновление информации ассета',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme',
-             },
-          ],
         },
       ],
     },
