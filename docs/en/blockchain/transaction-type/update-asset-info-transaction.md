@@ -4,7 +4,9 @@ An **Update Asset Info transaction** — a [transaction](/en/blockchain/transact
 
 > The Update Asset Info transaction is added since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
-The asset name and/or description with respect to the same asset can be changed no more often than after 100,000 blocks from the last change or from the moment of the asset issue.
+The asset name and/or description can be changed:
+* on Mainnet and Testnet – after 100,000 or more blocks from the last change (or the asset issue);
+* on Stagenet – after 10 or more blocks.
 
 ## Protobuf scheme
 

@@ -4,7 +4,7 @@
 
 * Транзакции вызова скрипта и транзакции обмена сохраняются на блокчейне и за них взимается комиссия, даже если результат выполнения dApp-скрипта или скрипта ассета был неудачным (при условии что транзакция прошла проверку подписи отправителя или проверку скриптом аккаунта). [Подробнее](/ru/keep-in-touch/april)
 * Реализована возможность удалять записи в хранилище данных аккаунта. Это действие может быть выполнено при помощи [транзакции данных](/ru/blockchain/transaction-type/data-transaction) либо структуры [DeleteEntry](/ru/ride/structures/common-structures/delete-entry) языка Ride.
-* Реализована возможность изменять наименование и описание выпущенных ассетов. Для этого предлагается использовать транзакцию нового типа, называемую [транзакцией обновления информации ассета](/ru/blockchain/transaction-type/update-asset-info-transaction).
+* Реализована возможность изменять наименование и описание ассета. Для этого добавлен новый тип транзакции — [транзакция обновления информации ассета](/ru/blockchain/transaction-type/update-asset-info-transaction). Изменение возможно не чаще чем через 10 блоков на Stagenet и не чаще чем через 100&nbsp;000 блоков на Mainnet и Testnet.
 * Снижена минимальная комиссия за [транзакцию довыпуска](/ru/blockchain/transaction-type/reissue-transaction) — с 1 до 0,001 WAVES.
 * В [транзакции выпуска](/ru/blockchain/transaction-type/issue-transaction) формат полей `name` и `description` изменен с bytes на string.
 * В [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) и [транзакции массового перевода](/ru/blockchain/transaction-type/mass-transfer-transaction) изменен тип поля `attachment` на [union](/ru/ride/data-types/union) `(type: Int|Boolean|ByteVector|String)`.

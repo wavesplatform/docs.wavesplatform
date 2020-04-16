@@ -4,7 +4,7 @@
 
 * Invoke script transactions and exchange transactions are saved on the blockchain and a fee is charged for them even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed. [More details](/en/keep-in-touch/april)
 * Implemented the feature of the deletion of the records from the account data storage. This action can be performed using a [data transaction](/en/blockchain/transaction-type/data-transaction) or the [DeleteEntry](/en/ride/structures/common-structures/delete-entry) structure of the Ride language.
-* Implemented the feature of changing the released assets name and description. For this means, the [update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) is used.
+* Implemented the feature of changing the asset name and description. For this means, the [update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) is used. Change is possible after 10 or more blocks on Stagenet and after 100,000 or more blocks on Mainnet and Testnet.
 * The minimal fee for the [reissue transaction](/en/blockchain/transaction-type/reissue-transaction) is reduced from 1 to 0.001 WAVES.
 * [Issue transaction](/en/blockchain/transaction-type/issue-transaction)'s `name` and `description` fields type changed from bytes to string.
 * [Transfer](/en/blockchain/transaction-type/transfer-transaction) and [mass transfer transaction](/en/blockchain/transaction-type/mass-transfer-transaction)'s attachment field type was changed to [union](/en/ride/data-types/union) `(type: Int|Boolean|ByteVector|String)`.
