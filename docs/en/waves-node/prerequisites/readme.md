@@ -1,3 +1,3 @@
-# Prerequisites
+<!-- # Prerequisites
 
-* [Hardware requirements](/en/waves-node/prerequisites/hardware-requirements)
+* [Hardware requirements](/en/waves-node/prerequisites/hardware-requirements) -->
