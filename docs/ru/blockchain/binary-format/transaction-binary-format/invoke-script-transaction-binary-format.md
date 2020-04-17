@@ -38,7 +38,7 @@ message Amount {
 
 Количество платежей — не более 2.
 
-Максимальный размер `d_app` + `function_call` + `payments` — 165&nbsp;890 байт.
+Максимальный размер `d_app` + `function_call` + `payments` — 5120 байт.
 
 ## Версия 1
 
