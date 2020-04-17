@@ -28,7 +28,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
 
 [Загрузите последнюю версию](https://github.com/wavesplatform/Waves/releases) `waves.jar` и файла конфигурации [.conf](https://github.com/wavesplatform/Waves/tree/master/node) (для mainnet, testnet или stagenet) в любую папку, например `~/waves`.
 
-Файл конфигурации **это очень важно! От него зависит безопасность вашего кошелька и средств!**
+**От Файла конфигурации него зависит безопасность вашего кошелька и средств!**
 
 Отредактируйте файл `.conf` любым текстовым редактором. Подробнее в статье [Конфигурация ноды](/ru/waves-node/node-configuration).
 

@@ -4,7 +4,7 @@
 
 [API ключ](https://en.wikipedia.org/wiki/Application_programming_interface_key) владельца ноды очень важен, также как [seed](http://confluence.wavesplatform.com/display/WDOCS/Seed+phrase) фраза и пароль кошелька.
 
-API ключ передается в HTTP как незащищённый plain text в `api-key` заголовке. Злоумышленник может перехватить его ов время передачи по сети и использовать для переводов с вашего адреса! Очень важно защитить передачу по сети с помощью HTTPS или SSH ретрансляции.
+API ключ передается в HTTP как незащищённый plain text в `api-key` заголовке. Злоумышленник может перехватить его во время передачи по сети и использовать для переводов с вашего адреса! Очень важно защитить передачу по сети с помощью HTTPS или SSH ретрансляции.
 
 Пожалуйста, помните, что нода не имеет встроенной поддержки HTTPS. Рассмотрите возможность применения HTTPS-proxy, например, nginx.
 
@@ -83,7 +83,7 @@ curl -X GET --header 'Accept: application/json; large-significand-format=string'
 
 #### POST /transactions/calculateFee
 
-Задействованные поля: `feeAmount`.
+Задействованное поле: `feeAmount`.
 
 #### GET /transactions/info/{id}
 
@@ -115,7 +115,7 @@ curl -X GET --header 'Accept: application/json; large-significand-format=string'
 
 #### GET /assets/{assetId}/distribution/{height}/limit/{limit}
 
-Задействованное поле: asset ID.
+Задействованное поле: `asset ID`.
 
 #### GET /assets/details/{assetId}
 

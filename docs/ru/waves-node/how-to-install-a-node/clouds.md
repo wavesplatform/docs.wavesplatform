@@ -4,6 +4,6 @@
 
 Также вы можете развернуть ноду Waves в Yandex.Cloud, как описано в статье [Развернуть ноду в Yandex.Cloud](/ru/waves-node/running-waves-node-in-yandex-cloud).
 
-Также вы можете развернуть [Ноду Waves в Microsoft Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/waves.waves_docker?tab=Overview).
+Вы можете развернуть [ноду Waves в Microsoft Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/waves.waves_docker?tab=Overview).
 
-Также можете развернуть ноду в Digital Ocean. Подробнее по ссылке [Installing Waves Node in Digital Ocean](https://www.youtube.com/watch?v=CDmMeZlzKbk&feature=youtu.be).
+Вы можете развернуть ноду в Digital Ocean. Подробнее по ссылке [Installing Waves Node in Digital Ocean](https://www.youtube.com/watch?v=CDmMeZlzKbk&feature=youtu.be).
