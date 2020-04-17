@@ -2,13 +2,13 @@
 
 **gRPC Server** — [расширение ноды](/ru/waves-node/extensions), которое позволяет запускать [gRPC](https://en.wikipedia.org/wiki/GRPC)-сервисы на [ноде](/ru/blockchain/node).
 
-gRPC-сервисы предоставляют информацию об:
+gRPC-сервисы предоставляют информацию про:
 
-* [аккаунтах](/ru/blockchain/account)
-* [блоках](/ru/blockchain/block)
-* [блокчейне](/ru/blockchain/blockchain)
-* [токенах](/ru/blockchain/token)
-* [транзакциях](/ru/blockchain/transaction)
+* [аккаунты](/ru/blockchain/account)
+* [блоки](/ru/blockchain/block)
+* [блокчейн](/ru/blockchain/blockchain)
+* [токены](/ru/blockchain/token)
+* [транзакции](/ru/blockchain/transaction)
 
 ## Генерация клиента
 
@@ -21,7 +21,7 @@ gRPC-сервисы предоставляют информацию об:
 
 ## Установка расширения на ноду
 
-Расширение [gRPC Server](/ru/waves-node/extensions/grpc-server) можно установить на ноду двумя способами: с помощью deb-пакета и с помощью ZIP-файла.
+gRPC Server можно установить на ноду двумя способами: с помощью deb-пакета и с помощью ZIP-файла.
 
 ## Установка с помощью deb-пакета
 
@@ -39,7 +39,7 @@ sudo dpkg -i grpc-server_{номер версии}_all.deb
 waves.extensions += com.wavesplatform.api.grpc.GRPCServerExtension
 ```
 
-Для основной сети файл конфигурации находится по адресу /etc/waves/waves.conf, для тестовой — /etc/waves-testnet/waves.conf.
+Для основной сети файл конфигурации находится по адресу `/etc/waves/waves.conf`, для тестовой — `/etc/waves-testnet/waves.conf`.
 
 4.&nbsp;Перезапустите ноду.
 

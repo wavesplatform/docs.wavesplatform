@@ -49,4 +49,4 @@ Each feature can have one of the three statuses:
 
 * If there are not less than 8000 blocks on Mainnet (2700 on Testnet and 40 on Stagenet) with support of the feature during the voting period (every 10000 blocks on Mainnet, 3000 on Testnet and 100 on Stagenet), the feature gets "approved" status on the blockchain.  An "approved" feature becomes "activated" after another 10000 blocks on Mainnet (3000 on Testnet and 100 on Stagenet). Then the feature starts working and all the nodes which can not support such feature (old versions) stop.
 
-For more details see [Activation protocol](/en/blockchain/waves-protocol/activation-protocol) article.
+For more details see [Activation protocol](/en/waves-node/activation-protocol) article.
