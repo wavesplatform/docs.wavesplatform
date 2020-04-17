@@ -1,6 +1,6 @@
 # Asset
 
-Структура [токена](/ru/blockchain/token).
+Структура [токена](/ru/blockchain/token), возвращаемая встроенной функцией [assetInfo](/ru/ride/functions/built-in-functions/blockchain-functions#assetinfo).
 
 ## Конструктор
 

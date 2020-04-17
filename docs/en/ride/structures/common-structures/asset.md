@@ -1,6 +1,6 @@
 # Asset
 
-Structure of a [token](/en/blockchain/token).
+Structure of a [token](/en/blockchain/token). The structure is returned by the [assetInfo](/en/ride/functions/built-in-functions/blockchain-functions#assetinfo) built-in function.
 
 ## Constructor
 
