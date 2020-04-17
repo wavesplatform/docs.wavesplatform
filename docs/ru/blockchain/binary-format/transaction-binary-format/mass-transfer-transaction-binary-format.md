@@ -4,14 +4,14 @@
 
 ## Версия 2
 
-Бинарный формат версии 3 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).
+Бинарный формат версии 2 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).
 
 Версия 2 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ```
 message MassTransferTransactionData {
     message Transfer {
-        Recipient address = 1;
+        Recipient recipient = 1;
         int64 amount = 2;
     };
     bytes asset_id = 1;
@@ -38,11 +38,12 @@ message Attachment {
 | Поле | Размер | Описание |
 | :--- | :--- | :--- |
 | asset_id | 32 байта | Идентификатор переводимого токена |
-| transfers | | Переводы (не более 100) |
-| transfers.address.public_key_hash | 20 байт | Хеш открытого ключа аккаунта получателя (компонент адреса, см. раздел [Бинарный формат адреса](/ru/blockchain/binary-format/address-binary-format)) |
-| transfers.address.alias | От 8 до 34 байт | [Псевдоним адреса](/ru/blockchain/account/alias) получателя |
-| transfers.amount | 8 байт | Количество токена в платеже, в минимальных единицах токена (то есть умноженное на 10<sup>decimals</sup>) |
-| attachment | До 140 байт | Произвольные данные, прикладываемые к транзакции |
+| transfers.recipient.public_key_hash | 20 байт | Хеш открытого ключа аккаунта получателя (компонент адреса, см. раздел [Бинарный формат адреса](/ru/blockchain/binary-format/address-binary-format)) |
+| transfers.recipient.alias | От 4 до 30 байт | [Псевдоним адреса](/ru/blockchain/account/alias) получателя |
+| transfers.amount | 8 байт | Количество токена для перевода, в минимальных единицах («копейках») токена |
+| attachment | До 140 байт | Произвольные данные (обычно комментарий к транзакции) |
+
+Количество переводов — не более 100.
 
 ## Версия 1
 

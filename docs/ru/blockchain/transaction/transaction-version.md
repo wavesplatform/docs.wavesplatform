@@ -10,7 +10,7 @@
 | :--- | :--- |
 | [Транзакция вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 1, 2 |
 | [Транзакция выпуска](/ru/blockchain/transaction-type/issue-transaction) | 1, 2, 3 |
-| [Транзакция генезиса](/ru/blockchain/transaction-type/genesis-transaction) | 1 |
+| [Транзакция генезиса](/ru/blockchain/transaction-type/genesis-transaction) | Нет версии |
 | [Транзакция данных](/ru/blockchain/transaction-type/data-transaction) | 1, 2 |
 | [Транзакция довыпуска](/ru/blockchain/transaction-type/reissue-transaction) | 1, 2, 3 |
 | [Транзакция закрытия лизинга](/ru/blockchain/transaction-type/lease-cancel-transaction) | 1, 2, 3 |

@@ -1,6 +1,6 @@
 # Бинарный формат транзакции спонсирования
 
-> Узнать больше о [транзакции спонсирования](/ru/blockchain/transaction-type/set-asset-script-transaction).
+> Узнать больше о [спонсировании](/ru/blockchain/waves-protocol/sponsored-fee).
 
 ## Версия 2
 
@@ -21,9 +21,8 @@ message Amount {
 
 | Поле | Размер | Описание |
 | :--- | :--- | :--- |
-
 | min_fee.asset_id | 32 байта | ID ассета |
-| min_fee.amount | 8 байт | Количество спонсорского ассета, эквивалентное 0,001 WAVES, в минимальных единицах («копейках») ассета(то есть умноженное на 10<sup>decimals</sup>). См. раздел [Спонсирование комиссии](/ru/blockchain/waves-protocol/sponsored-fee) |
+| min_fee.amount | 8 байт | Количество спонсорского ассета, эквивалентное 0,001 WAVES (100&nbsp;000 WAVELET), в минимальных единицах («копейках») ассета. См. раздел [Спонсирование комиссии](/ru/blockchain/waves-protocol/sponsored-fee) |
 
 ## Версия 1
 

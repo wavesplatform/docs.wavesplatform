@@ -2,8 +2,6 @@
 
 > Узнать больше о [транзакции генезиса](/ru/blockchain/transaction-type/genesis-transaction).
 
-## Версия 1
-
 | Порядковый номер поля | Поле | Название JSON-поля |Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [ID типа транзакции](/ru/blockchain/transaction-type) |type| [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Значение должно быть равно 1 |

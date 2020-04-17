@@ -6,6 +6,8 @@
 
 Бинарный формат версии 3 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).
 
+Транзакция версии 3 может сoдержать ордера версий [1](/ru/blockchain/binary-format/order-binary-format#v1)–[4](/ru/blockchain/binary-format/order-binary-format#v4).
+
 Версия 3 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ```
@@ -20,11 +22,11 @@ message ExchangeTransactionData {
 
 | Поле | Размер | Описание |
 | :--- | :--- | :--- |
-| amount | До 10 байт | Количество amount-ассета в нормализованном виде. Подробнее см. в разделе [Биржевая заявка](/ru/blockchain/order) |
-| price | До 10 байт | Стоимость 1 amount-ассета, выраженная в price-ассете, в нормализованном виде. Подробнее см. в разделе [Биржевая заявка](/ru/blockchain/order) |
+| amount | 8 байт | Количество amount-ассета в минимальных единицах («копейках») |
+| price | 8 байт | Стоимость 1 amount-ассета, выраженная в price-ассете, умноженная на 10<sup>8</sup>. Подробнее см. в разделе [Биржевая заявка](/ru/blockchain/order) |
 | buy_matcher_fee | 8 байт | [Комиссия матчера](/ru/blockchain/matcher-fee) за покупку. ID токена комиссии указан в ордере на покупку |
 | sell_matcher_fee | 8 байт | [Комиссия матчера](/ru/blockchain/matcher-fee) за продажу. ID токена комиссии указан в ордере на продажу |
-| orders | | Ордер на покупки и ордер на продажу. См. раздел [Бинарный формат ордера](/ru/blockchain/binary-format/order-binary-format) | 
+| orders | | Ордер на покупку и ордер на продажу. См. раздел [Бинарный формат ордера](/ru/blockchain/binary-format/order-binary-format) | 
 
 ## Версия 2
 

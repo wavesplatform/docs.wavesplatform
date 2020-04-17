@@ -11,7 +11,7 @@
 ```
 message SetAssetScriptTransactionData {
     bytes asset_id = 1;
-    Script script = 2;
+    bytes script = 2;
 };
 ```
 

@@ -23,8 +23,8 @@ message Recipient {
 | Поле | Размер | Описание |
 | :--- | :--- | :--- |
 | recipient.public_key_hash | 20 байт | Хеш открытого ключа аккаунта получателя (компонент адреса, см. раздел [Бинарный формат адреса](/ru/blockchain/binary-format/address-binary-format)) |
-| d_app.alias | От 8 до 34 байт | [Псевдоним адреса](/ru/blockchain/account/alias) получателя |
-| amount | 8 байт | Количество WAVELET, отдаваемое в лизинг (то есть количество WAVES, умноженное на 10<sup>8</sup>) 
+| recipient.alias | От 4 до 30 байт | [Псевдоним адреса](/ru/blockchain/account/alias) получателя |
+| amount | 8 байт | Количество WAVELET, отдаваемое в лизинг (то есть количество WAVES, умноженное на 10<sup>8</sup>) |
 
 ## Версия 2
 

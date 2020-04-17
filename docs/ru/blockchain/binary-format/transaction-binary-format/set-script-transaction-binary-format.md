@@ -10,7 +10,7 @@
 
 ```
 message SetScriptTransactionData {
-    Script script = 2;
+    bytes script = 2;
 };
 ```
 

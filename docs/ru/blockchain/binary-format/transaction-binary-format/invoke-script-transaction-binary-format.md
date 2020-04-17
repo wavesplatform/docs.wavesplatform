@@ -30,16 +30,15 @@ message Amount {
 
 | Поле | Размер | Описание |
 | :--- | :--- | :--- |
-| d_app.publirecipient | 20 байт | [Адрес](/ru/blockchain/account/address) получателя главного токена |
-| d_app.alias | От 4 до 30 байт | [Псевдоним адреса](/ru/blockchain/account/alias) |
+| d_app.public_key_hash | 20 байт | Хеш открытого ключа аккаунта dApp (компонент адреса, см. раздел [Бинарный формат адреса](/ru/blockchain/binary-format/address-binary-format)) |
+| d_app.alias | От 4 до 30 байт | [Псевдоним адреса](/ru/blockchain/account/alias) аккаунта dApp |
 | function_call | | Имя и аргументы вызываемой функции. Бинарный формат вызова аналогичен [версии 1](#версия-1) (см. п. 13 в таблице) |
+| payments.asset_id | • 32 байта для ассета<br>• 0 для WAVES | ID токена в платеже |
 | payments.amount | 8 байт | Количество токена в платеже, в минимальных единицах («копейках») токена |
-| payments.asset_id | 32 байта | ID токена |
 
 Количество платежей — не более 2.
 
 Максимальный размер `d_app` + `function_call` + `payments` — 165&nbsp;890 байт.
-
 
 ## Версия 1
 
