@@ -12,7 +12,7 @@
 
 Бинарный формат старших версий транзакции соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Использование Protobuf облегчает разработку клиентских библиотек для блокчейна Waves, поскольку позволяет автоматически сериализовать транзакцию и тем самым упрощает генерацию подписи. См. [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=ru).
 
-Protobuf-схема для бинарного формата добавлена в версии ноды 1.2.0 и включается с активацией [фичи № 15 “VRF and Protobuf”](/ru/waves-node/features/features). В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+Protobuf-схема для бинарного формата добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ```protobuf
 message SignedTransaction {
@@ -60,7 +60,7 @@ message Amount {
 | sender_public_key | 32 байта | Открытый ключ аккаунта отправителя транзакции |
 | fee.amount | 8 байт | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) в минимальных единицах («копейках») ассета |
 | fee.asset_id | • 32 байта, если комиссия в спонсорском ассете<br> • 0, если комиссия в WAVES | ID токена комиссии.<br>Комиссия в спонсорском ассете доступна только для транзакций вызова скрипта и транзакций перевода. См. раздел [Спонсирование комиссии](/ru/blockchain/waves-protocol/sponsored-fee)|
-| timestamp | 8 байт | [Временная метка транзакции](/ru/blockchain/transaction/transaction-timestamp): Unix-время в миллисекундах |
+| timestamp | 8 байт | [Временная метка транзакции](/ru/blockchain/transaction/transaction-timestamp): Unix-время в миллисекундах. Транзакция не будет добавлена в блокчейн, если значение временной метки транзакции отличается от временной метки текущего блока более чем на 2 часа назад или 1,5 часа вперед. |
 | version | 1 байт | [Версия транзакции](/ru/blockchain/transaction/transaction-version) |
 | proofs | Размер каждого подтверждения — до 64 байт,<br>до 8 подтверждений | [Подтверждения транзакции](/ru/blockchain/transaction/transaction-proof), используемые для проверки валидности. Массив может содержать подписи транзакции (но не ограничивается только подписями) |
 

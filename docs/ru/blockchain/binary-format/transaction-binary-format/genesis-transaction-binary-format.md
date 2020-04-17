@@ -2,24 +2,6 @@
 
 > Узнать больше о [транзакции генезиса](/ru/blockchain/transaction-type/genesis-transaction).
 
-## Версия 2
-
-Бинарный формат версии 2 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto).
-
-Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).
-
-```
-message GenesisTransactionData {
-    bytes recipient_address = 1;
-    int64 amount = 2;
-};
-```
-
-| Поле | Размер | Описание |
-| :--- | :--- | :--- |
-| recipient_address | 26 байт | [Адрес](/ru/blockchain/account/address) получателя главного токена |
-| amount | До 10 байт | Количество главного токена в нормализованном виде (умноженное на 10<sup>8</sup>) |
-
 ## Версия 1
 
 | Порядковый номер поля | Поле | Название JSON-поля |Тип поля | Размер поля в байтах | Комментарий |

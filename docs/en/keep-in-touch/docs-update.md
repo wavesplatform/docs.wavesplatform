@@ -1,5 +1,11 @@
 # Documentation updates
 
+## April articles
+
+### Blockchain
+
+* Added descriptions of binary format of new versions of [transactions](/en/blockchain/binary-format/transaction-binary-format) and [orders](/en/blockchain/binary-format/order-binary-format).
+
 ## March articles
 
 ### Blockchain

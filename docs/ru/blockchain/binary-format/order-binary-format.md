@@ -10,9 +10,9 @@
 
 ## Версия 4 <a id="v4"></a>
 
-Бинарный формат ордера версии 4 соответствует protobuf-схеме [block.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/order.proto). См. [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=ru).
+Бинарный формат ордера версии 4 соответствует protobuf-схеме [order.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/order.proto). См. [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=ru).
 
-Версия 4 добавлена в версии ноды 1.2.0 и включается с активацией [фичи № 15 “VRF and Protobuf”](/ru/waves-node/features/features). В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+Версия 4 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ```protobuf
 message AssetPair {
@@ -51,17 +51,17 @@ message Amount {
 | chain_id | 1 байт | [Байт сети](/ru/blockchain/blockchain-network/chain-id) |
 | sender_public_key | 32 байта | Открытый ключ аккаунта отправителя ордера |
 | matcher_public_key | 32 байта | Открытый ключ матчера |
-| asset_pair.amount_asset_id | 32 байта | ID amount-ассета ?? что если WAVES|
-| asset_pair.price_asset_id | 32 байта | ID price-ассета |
+| asset_pair.amount_asset_id | • 32 байта для ассета<br>• 0 для WAVES | ID amount-ассета |
+| asset_pair.price_asset_id | • 32 байта для ассета<br>• 0 для WAVES | ID price-ассета |
 | order_side | 1 байт | Тип ордера: покупка или продажа |
-| amount | До 10 байт | Количество amount-ассета в нормализованном виде |
-| price | До 10 байт | Стоимость 1 amount-ассета, выраженная в price-ассете, в нормализованном виде.  |
+| amount | 8 байт | Количество amount-ассета в минимальных единицах («копейках») |
+| price | 8 байт | Стоимость 1 amount-ассета, выраженная в price-ассете, умноженная на 10<sup>8</sup> |
 | timestamp | 8 байт | Временная метка: Unix-время в миллисекундах |
 | expiration | 8 байт | Окончание срока действия ордера: Unix-время в миллисекундах |
-| matcher_fee.asset_id | 32 байта | ID токена, в котором выражена комиссия матчера |
-| matcher_fee.amount | До 10 байт | [Комиссия матчера](/ru/blockchain/matcher-fee) |
+| matcher_fee.asset_id | • 32 байта для ассета<br>• 0 для WAVES | ID токена, в котором выражена комиссия матчера |
+| matcher_fee.amount | 8 байт | [Комиссия матчера](/ru/blockchain/matcher-fee) |
 | version | 1 байт | Версия ордера: 4 |
-| proofs | Размер каждого подтверждения — до 64 байт,<br>до 8 подтверждений| Подтверждения ордера, используемые для проверки валидности |
+| proofs | Размер каждого подтверждения — до 64 байт,<br>до 8 подтверждений | Подтверждения ордера, используемые для проверки валидности |
 
 ## Версия 3 <a id="v3"></a>
 

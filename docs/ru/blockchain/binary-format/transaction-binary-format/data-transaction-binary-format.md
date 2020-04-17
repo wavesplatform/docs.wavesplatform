@@ -4,9 +4,9 @@
 
 ## Версия 2
 
-Бинарный формат версии 2 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). 
+Бинарный формат версии 2 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).
 
-Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).
+Версия 3 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ```
 message DataTransactionData {
@@ -25,11 +25,12 @@ message DataTransactionData {
 
 | Поле | Размер | Описание |
 | :--- | :--- | :--- |
-| key | До 200 байт | Ключ записи |
-| int_value | ?? | Значение целочисленного типа |
-| bool_value | ?? | Значение логического типа |
-| binary_value | ?? | Массив байтов |
-| string_value | ?? | Строковое значение | 
+| key | До 400 байт | Ключ записи |
+| value | До 32&nbsp;767 байт | Значение записи |
+
+Количество записей — не более 100.
+
+Максимальный размер данных — 165&nbsp;890 байт.
 
 ## Версия 1
 

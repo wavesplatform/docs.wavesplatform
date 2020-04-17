@@ -1,5 +1,11 @@
 # Обновления в документации
 
+## Апрельские статьи
+
+### Блокчейн
+
+* Добавлены описания бинарных форматов новых версий [транзакций](/ru/blockchain/binary-format/transaction-binary-format) и [ордеров](/ru/blockchain/binary-format/order-binary-format).
+
 ## Мартовские статьи
 
 ### Блокчейн

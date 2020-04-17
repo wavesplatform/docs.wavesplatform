@@ -4,9 +4,9 @@
 
 ## Версия 2
 
-Бинарный формат версии 2 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto).
+Бинарный формат версии 2 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).
 
-Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).
+Версия 2 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ```
 message InvokeScriptTransactionData {
@@ -32,11 +32,14 @@ message Amount {
 | :--- | :--- | :--- |
 | d_app.publirecipient | 20 байт | [Адрес](/ru/blockchain/account/address) получателя главного токена |
 | d_app.alias | От 4 до 30 байт | [Псевдоним адреса](/ru/blockchain/account/alias) |
-| function_call | | Имя и аргументы вызываемой функции |
-| asset_amount.asset_id | 32 байта | ID токена |
-| asset_amount.amount | 8 байт | Количество токена в платеже, в нормализованном виде (то есть умноженное на 10<sup>decimals</sup>) |
+| function_call | | Имя и аргументы вызываемой функции. Бинарный формат вызова аналогичен [версии 1](#версия-1) (см. п. 13 в таблице) |
+| payments.amount | 8 байт | Количество токена в платеже, в минимальных единицах («копейках») токена |
+| payments.asset_id | 32 байта | ID токена |
 
 Количество платежей — не более 2.
+
+Максимальный размер `d_app` + `function_call` + `payments` — 165&nbsp;890 байт.
+
 
 ## Версия 1
 
