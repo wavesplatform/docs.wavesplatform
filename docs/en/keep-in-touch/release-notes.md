@@ -37,6 +37,10 @@
 
    `"applicationStatus": "scriptExecutionFailed"` means that the dApp script or the asset script failed.
 
+* The following endpoints return the `errorMessage` structure indicating script failure reason for failed transactions:
+   * `/debug/stateChanges/address/{address}/limit/{limit}`
+   * `/debug/stateChanges/info/{id}`
+
 * The following endpoints, in addition to the total script complexity, provide the complexity of each callable function and the verifier function of dApp scripts:
    * `GET /addresses/scriptInfo/{address}`
    * `POST /utils/script/compileCode`

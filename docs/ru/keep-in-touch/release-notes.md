@@ -36,6 +36,10 @@
    * `POST /transactions/status`
 
    `"applicationStatus": "scriptExecutionFailed"` означает, что результат выполнения dApp-скрипта или скрипта ассета был неудачным.
+* Следующие методы возвращают для транзакций с неудачным результатом выполнения скрипта структуру `errorMessage` с описанием причины неудачи:
+   * `/debug/stateChanges/address/{address}/limit/{limit}`
+   * `/debug/stateChanges/info/{id}`
+
 * Следующие методы, в дополнение к общей сложности скрипта, возвращают для dApp-скриптов сложность каждой вызываемой функции и функции-верификатора:
    * `GET /addresses/scriptInfo/{address}`
    * `POST /utils/script/compileCode`
