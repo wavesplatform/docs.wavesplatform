@@ -5,7 +5,7 @@ Since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Proto
 * Invoke script transactions and exchange transactions are saved on the blockchain and a fee is charged for them even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed.
 * A fee for the invoke script transaction cannot be funded by transfer from dApp to the transaction sender. If sender's balance is insufficient to pay the fee, dApp script is not executed.
 
-[More details about transaction validation](/en/blockchain/transaction/transaction-validation)
+[More details about transaction validation](/en/blockchain/transaction/transaction-validation.md)
 
 In the JSON representation of the transaction, the `applicationStatus` field is added, which contains the result of validation:
 * `succeed` – all checks are passed.
@@ -21,7 +21,7 @@ Added the `applicationStatus` field to the following endpoints:
    * `GET /transactions/status`
    * `POST /transactions/status`
 
-See also [the list of Node API changes in release 1.2](/en/keep-in-touch/release-notes/#rest-api-updates)
+See also [the list of Node API changes in release 1.2](/en/keep-in-touch/release-notes.md/#rest-api-updates)
 
 ## Libraries
 
@@ -47,7 +47,7 @@ The `fetchInfo` and `fetchStatus` functions now support the `applicationStatus` 
 
 * For invoke script transactions the dApp script result is displayed as a table.
 
-[All changes in Waves Explorer](/en/keep-in-touch/release-notes/#waves-explorer)
+[All changes in Waves Explorer](/en/keep-in-touch/release-notes.md/#waves-explorer)
 
 ## Waves IDE (ide-stagenet.wavesplatform.com)
 
