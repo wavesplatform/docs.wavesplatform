@@ -1,5 +1,6 @@
 # Transaction Validation
 
+<!-- 
 Waves nodes validate each transaction. Depending on the validation result the transactions can be put in the blockchain or rejected.
 
 Since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions” the transaction validation procedure is changed. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
@@ -64,3 +65,4 @@ Invoke script transactions and exchange transactions are saved on the blockchain
 Transactons of other type are saved on the blockchain and the fee is charged if all checks are passed.
 
 > :warning: After activation of the feature #15, a fee for the invoke script transaction cannot be funded by transfer from dApp to the transaction sender. If sender's balance is insufficient to pay the fee, dApp script is not executed.
+-->

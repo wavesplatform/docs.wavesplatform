@@ -1,5 +1,6 @@
 # Version 1.2 (Stagenet)
 
+<!--
 ## Node Improvements
 
 * Failed transactions. Invoke script transactions and exchange transactions are saved on the blockchain and a fee is charged for them even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed. [More details](/en/keep-in-touch/april)
@@ -84,3 +85,4 @@
 ## Activation
 
 To activate the improvements listed above, vote for feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+-->
