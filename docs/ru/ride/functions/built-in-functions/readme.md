@@ -146,7 +146,7 @@
 | getBooleanValue(List[DataEntry], Int): Boolean | Возвращает логическое значение из списка записей данных по индексу. Выбрасывает исключение, если данных нет | 30 |
 | getBinary(List[DataEntry], String): ByteVector&#124;Unit | Возвращает массив байтов из списка записей данных по ключу | 10 |
 | getBinary(List[DataEntry], Int): ByteVector&#124;Unit | Возвращает массив байтов из списка записей данных по индексу | 30 |
-| getBinaryValue(ListDataEntry, String): ByteVector | Возвращает массив байтов из списка записей данных по ключу. Выбрасывает исключение, если данных нет | 10 |
+| getBinaryValue(List[DataEntry], String): ByteVector | Возвращает массив байтов из списка записей данных по ключу. Выбрасывает исключение, если данных нет | 10 |
 | getBinaryValue(List[DataEntry], Int): ByteVector | Возвращает массив байтов из списка записей данных по индексу. Выбрасывает исключение, если данных нет | 30 |
 | getString(List[DataEntry] String): String&#124;Unit | Возвращает строку из списка записей данных по ключу | 10 |
 | getString(List[DataEntry], Int): String&#124;Unit | Возвращает строку из списка записей данных по индексу | 30 |

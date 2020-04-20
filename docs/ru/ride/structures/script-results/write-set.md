@@ -14,4 +14,4 @@ WriteSet(data: List[DataEntry])
 
 |   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | data | [List](/ru/ride/data-types/list)[[DataEntry](/ru/ride/structures/common-structures/data-entry)] | Список записей хранилища данных аккаунта |
+| 1 | data | [List](/ru/ride/data-types/list)[[DataEntry](/ru/ride/structures/script-actions/data-entry)] | Список записей хранилища данных аккаунта |

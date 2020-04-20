@@ -422,6 +422,12 @@ module.exports = {
         {
           title: 'Transaction fee',
           path: blockchainPath + 'transaction/transaction-fee',
+          children: [
+            {
+              title: 'Sponsored fee',
+              path: blockchainPath + 'waves-protocol/sponsored-fee',
+            },
+          ]
         },
         {
           title: 'Transaction proof',
@@ -526,10 +532,6 @@ module.exports = {
         {
           title: 'Waves-NG solution',
           path: blockchainPath + 'waves-protocol/waves-ng-solution',
-        },
-        {
-          title: 'Sponsored fee',
-          path: blockchainPath + 'waves-protocol/sponsored-fee',
         },
         {
           title: 'Fair Proof of Stake',
@@ -1161,6 +1163,18 @@ module.exports = {
           path: buildingAppsPath + 'how-to/basic/transaction',
         },
         {
+          title: 'Tokenisation',
+          path: buildingAppsPath + 'how-to/assets/issue',
+        },
+        {
+          title: 'Airdrop',
+          path: buildingAppsPath + 'how-to/assets/airdrop',
+        },
+        {
+          title: 'Payments',
+          path: buildingAppsPath + 'how-to/assets/payment',
+        },
+        {
           title: 'Buying & Selling Tokens',
           path: buildingAppsPath + 'how-to/basic/trading',
         },
@@ -1407,6 +1421,10 @@ module.exports = {
     {
       title: 'Release Notes',
       path: keepInTouchPath + 'release-notes',
+    },
+	{
+      title: 'Release Notes (Node Go)',
+      path: keepInTouchPath + 'release-notes-go',
     },
     {
       title: 'Saving Failed Transactions',

@@ -39,6 +39,6 @@ Version 1.2.x is currently available on [stagenet](/en/blockchain/blockchain-net
 Deleting records is implemented by
 
 - [data transaction](/en/blockchain/transaction-type/data-transaction)
-- [DeleteEntry](/en/ride/structures/common-structures/delete-entry) structure
+- [DeleteEntry](/en/ride/structures/script-actions/delete-entry) structure
 
 Deleting a record is performed by key.

@@ -422,6 +422,12 @@ module.exports = {
         {
           title: 'Комиссия за транзакцию',
           path: blockchainPath + 'transaction/transaction-fee',
+          children: [
+            {
+              title: 'Спонсирование комиссии',
+              path: blockchainPath + 'waves-protocol/sponsored-fee',
+            },
+          ]
         },
         {
           title: 'Подтверждение транзакции',
@@ -526,10 +532,6 @@ module.exports = {
         {
           title: '[en] Waves-NG solution',
           path: blockchainPath + 'waves-protocol/waves-ng-solution',
-        },
-        {
-          title: '[en] Sponsored fee',
-          path: blockchainPath + 'waves-protocol/sponsored-fee',
         },
         {
           title: 'Честный Proof-of-Stake',
@@ -1165,6 +1167,18 @@ module.exports = {
           path: buildingAppsPath + 'how-to/basic/transaction',
         },
         {
+          title: 'Выпуск токена',
+          path: buildingAppsPath + 'how-to/assets/issue',
+        },
+        {
+          title: 'Распространение токена (airdrop)',
+          path: buildingAppsPath + 'how-to/assets/airdrop',
+        },
+        {
+          title: 'Прием платежей',
+          path: buildingAppsPath + 'how-to/assets/payment',
+        },
+        {
           title: 'Покупка и продажа токенов',
           path: buildingAppsPath + 'how-to/basic/trading',
         },
@@ -1379,6 +1393,10 @@ module.exports = {
     {
       title: 'Release notes',
       path: keepInTouchPath + 'release-notes',
+    },
+    {
+      title: 'Release notes (Node Go)',
+      path: keepInTouchPath + 'release-notes-go',
     },
     {
       title: 'Сохранение транзакций с неудачным результатом выполнения скрипта',

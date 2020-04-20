@@ -18,7 +18,7 @@ To use nodes on stagenet, you will need to:
 
 * Download the latest version of the Waves [node software](https://github.com/wavesplatform/Waves/releases)
 
-* Download [waves-StageNet.conf](https://github.com/wavesplatform/Waves/blob/version-0.17.x/node/waves-stagenet.conf) (Skip this step, if you use the DEB package for a node installation)
+* Download [waves-stagenet.conf](https://github.com/wavesplatform/Waves/blob/master/node/waves-stagenet.conf) (Skip this step, if you use the DEB package for a node installation)
 
 * Install the node as described in the [manual](/en/waves-node/how-to-install-a-node/how-to-install-a-node)
 

@@ -206,7 +206,7 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 
 #### How to Generate Hash of the API Key
 
-[API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) of the node owner is highly important just like the [seed](http://confluence.wavesplatform.com/display/WDOCS/Seed+phrase) phrase and the password of the wallet.
+[API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) of the node owner is highly important just like the [seed phrase](/en/blockchain/glossary#secret-phrase) and the password of the wallet.
 
 Follow these steps to generate the hash of the API key:<br> 1. Go to [Swagger web interface](/en/waves-node/node-api)<br> 2. Click on [utils](https://nodes.wavesnodes.com/api-docs/index.html#/utils) section<br>3. Click on the API method [/utils/hash/secure](https://nodes.wavesnodes.com/api-docs/index.html#!/utils/hashSecure_1)<br>4. Create a unique [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) as a string value and include it in the `message` parameter<br> 5. Get the hash of the [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) and paste it in your node configuration file<br>6. Restart the node
 

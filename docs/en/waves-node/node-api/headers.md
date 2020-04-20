@@ -2,7 +2,7 @@
 
 ## api-key
 
-[API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) of the node owner is highly important as the [seed](http://confluence.wavesplatform.com/display/WDOCS/Seed+phrase) phrase and the password of the wallet.
+[API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) of the node owner is highly important as the [seed phrase](/en/blockchain/glossary#secret-phrase) and the password of the wallet.
 
 The API key is transmitted in the HTTP header as unprotected plain text in `api-key` header. An attacker can intercept it in the network transit and use it to transfer your money to any address! So it's highly important to protect the transmission using HTTPS or SSH port forwarding.
 
