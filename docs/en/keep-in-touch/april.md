@@ -11,7 +11,7 @@ In the JSON representation of the transaction, the `applicationStatus` field is 
 * `succeed` – all checks are passed.
 * `scriptExecutionFailed` – dApp script or asset script failed. Such a transaction doesn't entail changes in balances (other than charging a fee) and account data storages.
 
-Failed transactions are implemented in the Waves protocol and are supported both by [Node Scala](https://github.com/wavesplatform/Waves/releases) and [Node Go](https://github.com/wavesplatform/gowaves/releases/), as well as by the following Waves tools.
+Failed transactions are implemented in the Waves protocol and are supported both by [Node Scala](https://github.com/wavesplatform/Waves/releases) and [Node Go](https://github.com/wavesplatform/gowaves/releases/) (scheduled for release on April 23), as well as by the following Waves tools.
 
 ## Node API
 
