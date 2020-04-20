@@ -83,7 +83,10 @@ The following limitations are applied to dApps:
 | Limitation | Maximum value |
 |---|---|
 | Script size | 32 Kbytes |
-| [Complexity](/en/ride/base-concepts/complexity) | 4000 |
+| [Complexity](/en/ride/base-concepts/complexity) of account script | 3000 |
+| Complexity of asset script | 4000 |
+| Complexity of each callable function of dApp script | 4000 |
+| Complexity of verifier function of dApp script | 3000 |
 | Number of callable function arguments | 22 |
 | Annotated function name size | 255 bytes |
 | Number of [ScriptTransfer](/en/ride/structures/script-actions/script-transfer), [Issue](/en/ride/structures/common-structures/issue), [Reissue](/en/ride/structures/script-actions/reissue), [Burn](/en/ride/structures/script-actions/burn) calls in one script invocation (for [Standard Library](/en/ride/script/standard-library) **version 4**) | 10 |

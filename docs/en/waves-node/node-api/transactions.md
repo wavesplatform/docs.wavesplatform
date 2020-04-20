@@ -28,9 +28,13 @@ Return transaction data by transaction ID.
   "timestamp": 1479313236091,
   "attachment": "string",
   "signature": "GknccUA79dBcwWgKjqB7vYHcnsj7caYETfncJhRkkaetbQon7DxbpMmvK9LYqUkirJp17geBJCRTNkHEoAjtsUm",
-  "height": 7782
+  "height": 7782,
+  "applicationStatus": "succeed"
 }
 ```
+
+> The `applicationStatus` field is added since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+> `"applicationStatus": "scriptExecutionFailed"` means that the dApp script or the asset script failed. For more information, see the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
 
 ## GET /transactions/address/{address}/limit/{limit}
 
@@ -454,10 +458,13 @@ Returns the list of transactions statuses, by transaction IDs. The resulting tra
 
 **Response JSON example**
 
-- `id` - transaction ID
-- `status` - transaction status. `not_found` - transaction not found, `unconfirmed` - transaction is in UTX-pool, `confirmed` - transaction is in the block or microblock.
-- `confirmations` - current blockchain height minus height of block the transaction was included in.
-- `height` - transaction's height in the blockchain.
+- `id` – transaction ID
+- `status` – transaction status. `not_found` – transaction not found, `unconfirmed` – transaction is in UTX-pool, `confirmed` – transaction is in the block or microblock.
+- `confirmations` – current blockchain height minus height of block the transaction was included in.
+- `height` – transaction's height in the blockchain.
+- `applicationStatus` – transaction validation status. `succeed` — transaction is valid, `scriptExecutionFailed` — the dApp script or the asset script failed. For more information, see the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
+
+> The `applicationStatus` field is added since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 ```js
 [
@@ -465,7 +472,8 @@ Returns the list of transactions statuses, by transaction IDs. The resulting tra
     "id": "H27nMqvLp514M9fFoKbn4qCvFtG3VGzMGcN7noDyDv6C",
     "status": "confirmed",
     "confirmations": 120,
-    "height": 1772853
+    "height": 1772853,
+    "applicationStatus": "succeed"
   },
   {
     "id": "Bi2vXQdUTsUPRDLE4tWkCFNVNkLjRtvy9PuvWd5iNP63",
@@ -488,10 +496,13 @@ Returns the list of transactions statuses, by transaction IDs. The resulting tra
 
 **Response JSON example**
 
-- `id` - transaction ID
-- `status` - transaction status. `not_found` - transaction not found, `unconfirmed` - transaction is in UTX-pool, `confirmed` - transaction is in the block or microblock.
-- `confirmations` - current blockchain height minus height of block the transaction was included in.
-- `height` - transaction's height in the blockchain.
+- `id` – transaction ID
+- `status` – transaction status. `not_found` – transaction not found, `unconfirmed` – transaction is in UTX pool, `confirmed` – transaction is in the block or microblock.
+- `confirmations` – current blockchain height minus height of block the transaction was included in.
+- `height` – transaction's height in the blockchain.
+- `applicationStatus` – transaction validation status. `succeed` — transaction is valid, `scriptExecutionFailed` — the dApp script or the asset script failed. For more information, see the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
+
+> The `applicationStatus` field is added since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 ```js
 [
@@ -499,7 +510,8 @@ Returns the list of transactions statuses, by transaction IDs. The resulting tra
     "id": "H27nMqvLp514M9fFoKbn4qCvFtG3VGzMGcN7noDyDv6C",
     "status": "confirmed",
     "confirmations": 120,
-    "height": 1772853
+    "height": 1772853,
+    "applicationStatus": "succeed"
   },
   {
     "id": "Bi2vXQdUTsUPRDLE4tWkCFNVNkLjRtvy9PuvWd5iNP63",

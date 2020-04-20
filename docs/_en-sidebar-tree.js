@@ -1022,6 +1022,10 @@ module.exports = {
               path: ridePath + 'structures/common-structures/attached-payment',
             },
             {
+              title: 'BalanceDetails',
+              path: ridePath + 'structures/common-structures/balance-details',
+            },
+            {
               title: 'BlockInfo',
               path: ridePath + 'structures/common-structures/block-info',
             },
@@ -1421,6 +1425,10 @@ module.exports = {
 	{
       title: 'Release Notes (Node Go)',
       path: keepInTouchPath + 'release-notes-go',
+    },
+    {
+      title: 'Saving Failed Transactions',
+      path: keepInTouchPath + 'april',
     },
     {
       title: 'Documentation Updates',

@@ -14,7 +14,7 @@ Callable functions features rely on [standard library](/en/ride/script/standard-
 
 The invoke script transaction can have payments in favor of dApp applied. Funds obtained in this payments can be included in token transfers.
 
-> Standard library v4 is available starting from node version 1.2.0 after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (#16) feature. See [Activation protocol](/en/blockchain/waves-protocol/activation-protocol).
+> Standard library v4 is available starting from node version 1.2.0 after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Node versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 ## Callable functions in standard library v3
 

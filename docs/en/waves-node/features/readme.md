@@ -29,9 +29,7 @@ Waves Mainnet nodes currently support the following features:
 
 | Feature ID | Name | Description |
 |------------|:-------------------------------------------------:|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 15 | VRF and Protobuf | Added ability to sign only the block header by the mining node. Added SNARK verifier support. Added ability for dApp to pay for transaction.
-| 16 | Ride V4 and multiple attached payments for Invoke Script Transaction | In Ride language version 4 up to two payments can be applied to `Invoke Script` transaction. Added `Update Asset Info` transaction. Added `Delete Entry` transaction. Added BlockTxs MerkleRoot.
-| | |
+| 15 | Ride V4, VRF, Protobuf, Failed transactions | • Ride Standard library version 4.<br>• Added update asset info transaction.<br>• Blocks generation using VRF (Verifiable random function).<br>• Signing only the block header by the generating node.<br>• SNARK verifier support.<br>• Transaction binary format based on protobuf.<br>• Saving invoke script transactions and exchange transaction with failed script result.<br>See complete list of changes in the [Release 1.2](/en/keep-in-touch/release-notes) article |
 
 ## Feature Status
 
