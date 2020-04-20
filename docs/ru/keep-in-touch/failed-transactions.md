@@ -5,7 +5,7 @@
 * Транзакции вызова скрипта и транзакции обмена сохраняются на блокчейне и за них взимается комиссия, даже если результат выполнения dApp-скрипта или скрипта ассета был неудачным (при условии что транзакция прошла проверку подписи отправителя или проверку скриптом аккаунта).
 * Становится невозможной оплата комиссии за транзакцию вызова скрипта за счет средств, переведенных dApp-скриптом отправителю. Если баланс отправителя недостаточен для оплаты комиссии, dApp-скрипт не выполняется.
 
-[Подробнее о валидации транзакций](/ru/blockchain/transaction/transaction-validation.md)
+[Подробнее о валидации транзакций](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/ru/blockchain/transaction/transaction-validation.md)
 
 В JSON-представление транзакции добавлено поле `applicationStatus`, которое содержит результат валидации:
 * `succeed` — валидация прошла успешно.
@@ -21,7 +21,7 @@
    * `GET /transactions/status`
    * `POST /transactions/status`
 
-См. также [список изменений Node API в релизе 1.2](/ru/keep-in-touch/release-notes.md/#обновление-node-api)
+См. также [список изменений Node API в релизе 1.2](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/ru/keep-in-touch/release-notes.md/#обновление-node-api)
 
 ## Библиотеки
 
@@ -47,7 +47,7 @@
 
 * Для транзакции вызова скрипта результат выполнения скрипта отображается в виде таблицы.
 
-[Все изменения Waves Explorer](/ru/keep-in-touch/release-notes.md/#waves-explorer)
+[Все изменения Waves Explorer](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/ru/keep-in-touch/release-notes.md/#waves-explorer)
 
 ## Waves IDE (ide-stagenet.wavesplatform.com)
 
