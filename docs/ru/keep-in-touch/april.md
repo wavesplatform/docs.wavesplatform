@@ -11,7 +11,7 @@
 * `succeed` — валидация прошла успешно.
 * `scriptExecutionFailed` — результат выполнения dApp-скрипта или скрипта ассета был неудачным. Такая транзакция не приводит к изменениям в балансах (кроме взимания комиссии с отправителя) и в хранилищах данных аккаунтов.
 
-Транзакции с неудачным результатом выполнения скрипта реализованы в протоколе Waves и поддержаны как в [Node Scala](https://github.com/wavesplatform/Waves/releases), так и в [Node Go](https://github.com/wavesplatform/gowaves/releases/), а также в следующих инструментах Waves.
+Транзакции с неудачным результатом выполнения скрипта реализованы в протоколе Waves и поддержаны как в [Node Scala](https://github.com/wavesplatform/Waves/releases), так и в [Node Go](https://github.com/wavesplatform/gowaves/releases/) (релиз запланирован на 23 апреля), а также в следующих инструментах Waves.
 
 ## Node API
 
