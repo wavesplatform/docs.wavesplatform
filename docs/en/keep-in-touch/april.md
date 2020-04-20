@@ -37,7 +37,9 @@ The `fetchInfo` and `fetchStatus` functions now support the `applicationStatus` 
 
 [node-api JS on Github](https://github.com/wavesplatform/node-api-js/)
 
-## Waves Explorer (stagenet.wavesexplorer.com)
+## Waves Explorer
+
+<https://stagenet.wavesexplorer.com/stagenet>
 
 * Transactions with failed dApp script or asset script results are displayed. In the list of transactions, they are marked with ![](./_assets/stop.png) icon.
 
@@ -45,7 +47,7 @@ The `fetchInfo` and `fetchStatus` functions now support the `applicationStatus` 
 
 * For invoke script transactions the dApp script result is displayed as a table.
 
-[All changes in Waves Explorer](/en/keep-in-touch/release-notes/#waves-explorer-stagenetwavesexplorercom)
+[All changes in Waves Explorer](/en/keep-in-touch/release-notes/#waves-explorer)
 
 ## Waves IDE (ide-stagenet.wavesplatform.com)
 

@@ -37,7 +37,9 @@
 
 [node-api JS на Github](https://github.com/wavesplatform/node-api-js/)
 
-## Waves Explorer (stagenet.wavesexplorer.com)
+## Waves Explorer
+
+<https://stagenet.wavesexplorer.com/stagenet>
 
 * Добавлено отображение транзакций с неудачным результатом выполнения dApp-скрипта или скрипта ассета, сохраненных на блокчейне. В списке транзакций они отмечены значком ![](./_assets/stop.png).
 
@@ -45,7 +47,7 @@
 
 * Для транзакции вызова скрипта результат выполнения скрипта отображается в виде таблицы.
 
-[Все изменения Waves Explorer](/ru/keep-in-touch/release-notes/#waves-explorer-stagenetwavesexplorercom)
+[Все изменения Waves Explorer](/ru/keep-in-touch/release-notes/#waves-explorer)
 
 ## Waves IDE (ide-stagenet.wavesplatform.com)
 

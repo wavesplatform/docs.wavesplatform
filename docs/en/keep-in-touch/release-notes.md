@@ -76,7 +76,9 @@
    * ++ for the concatenation of lists. Example: the result of `[1, 2] ++ [3, 4]` is `[1, 2, 3, 4]`. Complexity is 10.
    * `:+` for adding an element to the end of the list. Example: the result of `["foo","bar"] :+ "baz"` is `["foo", "bar", "baz"]`. Complexity is 3.
 
-## Waves Explorer (stagenet.wavesexplorer.com)
+## Waves Explorer
+
+<https://stagenet.wavesexplorer.com/stagenet>
 
 * Transactions with failed dApp script or asset script results are now displayed, and marked with ![](./_assets/stop.png) icon in lists of transactions.
 * Added support of two payments for invoke script transactions. The dApp script result is displayed as a table.
