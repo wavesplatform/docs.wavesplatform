@@ -4,13 +4,33 @@
 
 Транзакции хранятся в блокчейне в бинарном формате (байтовом представлении). [Расширения](/ru/waves-node/extensions) ноды, в частности [gRPC-сервер](/ru/waves-node/extensions/grpc-server), могут работать непосредственно с данными в бинарном формате.
 
-Подпись транзакции и ее идентификатор также формируются на основе бинарного формата, а именно байтов тела транзакции — всех полей, за исключением идентификатора, подписи, подтверждений. Правила генерации подписи и идентификатора транзакции рассмотрены в разделе [Cryptographic practical details](en/blockchain/waves-protocol/cryptographic-practical-details#signing).
+Подпись транзакции и ее идентификатор также формируются на основе бинарного формата, а именно байтов тела транзакции — всех полей, за исключением идентификатора и подтверждений (или, в зависимости от версии транзакции, идентификатора и подписи). Правила генерации подписи и идентификатора транзакции рассмотрены в разделе [Cryptographic practical details](en/blockchain/waves-protocol/cryptographic-practical-details#signing).
 
 Для всех строк используется кодировка UTF-8.
 
 ### Protobuf-схема
 
-Бинарный формат старших версий транзакции соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Использование Protobuf облегчает разработку клиентских библиотек для блокчейна Waves, поскольку позволяет автоматически сериализовать транзакцию и тем самым упрощает генерацию подписи. См. [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=ru).
+Бинарный формат старших версий транзакции соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Использование Protobuf облегчает разработку клиентских библиотек для блокчейна Waves, поскольку позволяет избежать ошибок при сериализации и упрощает создание корректно подписанной транзакции.
+
+Как сгенерировать подпись транзакции с помощью Protobuf:
+
+1. Скачайте компилятор [Protocol Buffers](https://github.com/protocolbuffers/protobuf/releases/) для вашего языка программирования и сгенерируйте класс `Transaction` на основе схемы `transaction.proto`.
+2. Заполните поля транзакции.
+
+   :warning: Обратите внимание:
+   * Идентификаторы ассетов нужно указывать в байтовом представлении.
+   * Адреса также нужно указывать в байтовом представлении, в сжатом виде (без первых двух и последних четырех байт). См. раздел [Бинарный формат адреса](/ru/blockchain/binary-format/address-binary-format).
+
+3. Вызовите функцию сериализации, чтобы получить байты тела транзакции.
+
+   Подробные инструкции для различных языков программирования приведены в разделе [Tutorials](https://developers.google.com/protocol-buffers/docs/tutorials) документации Protocol Buffers.
+
+4. Сгенерируйте подпись байтов тела транзакции с помощью функции [Curve25519](https://en.wikipedia.org/wiki/Curve25519), используя байты закрытого ключа отправителя транзакции.
+
+Чтобы отправить подписанную транзакцию на ноду:
+
+* Если вы используете собственную ноду и (gRPC-сервер)[/en/waves-node/extensions/grpc-server], отправьте объект `SignedTransaction`.
+* Если вы используете Node REST API, сформируйте JSON-представление транзакции. Подпись укажите в массиве `proofs` в кодировке base58. Передайте подписанную транзакцию с помощью метода `POST ​/transactions​/broadcast`.
 
 Protobuf-схема для бинарного формата добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
