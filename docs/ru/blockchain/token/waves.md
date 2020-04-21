@@ -1,6 +1,6 @@
 # WAVES
 
-**WAVES** — главный токен платформы Waves.
+**WAVES** — главный токен блокчейна Waves.
 
 1 WAVES равен 100 000 000 [WAVELET](/ru/blockchain/token/wavelet).
 

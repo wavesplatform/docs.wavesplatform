@@ -20,4 +20,4 @@
 
 ## JSON-представление транзакции
 
-Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/8Nwjd2tcQWff3S9WAhBa7vLRNpNnigWqrTbahvyfMVrU) в Node API.
+Смотрите [пример](https://nodes.wavesnodes.com/transactions/info/8Nwjd2tcQWff3S9WAhBa7vLRNpNnigWqrTbahvyfMVrU) в Node API.

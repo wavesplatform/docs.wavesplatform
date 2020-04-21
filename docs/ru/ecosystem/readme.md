@@ -16,4 +16,4 @@
 
 * [Waves Token Rating](/ru/ecosystem/waves-token-rating/about-waves-token-rating)
 
-   Показывает рейтинги токенов (проектов), выпущенных на платформе Waves.
+   Показывает рейтинги токенов (проектов), выпущенных на блокчейне Waves.

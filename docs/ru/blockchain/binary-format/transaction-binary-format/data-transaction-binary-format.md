@@ -36,4 +36,4 @@
 
 ## JSON-представление транзакции <a id="json-representation"></a>
 
-Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/EByjQAWDRGrmc8uy7xRGy2zsQXZQq59bav7h8oTTJyHC) в Node API.
+Смотрите [пример](https://nodes.wavesnodes.com/transactions/info/EByjQAWDRGrmc8uy7xRGy2zsQXZQq59bav7h8oTTJyHC) в Node API.

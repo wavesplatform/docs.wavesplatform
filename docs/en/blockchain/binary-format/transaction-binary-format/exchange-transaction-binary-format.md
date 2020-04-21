@@ -27,7 +27,7 @@ Transaction version 2 can accept orders of version [1](/en/blockchain/binary-for
 
 ## JSON representation of the transaction
 
-See the [example](https://nodes.wavesplatform.com/transactions/info/csr25XQHT1c965Fg7cY2vJ7XHYVsudPYrUbdaFqgaqL) in Node API.
+See the [example](https://nodes.wavesnodes.com/transactions/info/csr25XQHT1c965Fg7cY2vJ7XHYVsudPYrUbdaFqgaqL) in Node API.
 
 ## Transaction version 1 <a id="transaction1"></a>
 

@@ -132,7 +132,7 @@ module.exports = {
                 buttonSet: {
                     blog: {
                         text: 'Official blog',
-                        link: 'https://blog.wavesplatform.com/',
+                        link: 'https://medium.com/wavesprotocol',
                     },
                     forum: {
                         text: 'Forum',
@@ -162,7 +162,7 @@ module.exports = {
 
     footer: {
         broughtToYouByWavesTeam: 'Brought to you by Waves Team.',
-        copyright: '© 2020 Waves Platform',
+        copyright: '© 2020 Waves Association',
         email: '',
         resourcesCategories: {
             productsAndTools: {
@@ -185,7 +185,7 @@ module.exports = {
                         link: 'https://wavesexplorer.com/',
                     },
                 },
-            },
+            }, 
             forDevelopers: {
                 title: 'For developers',
                 links: {
@@ -233,23 +233,19 @@ module.exports = {
                 links: {
                     blog: {
                         title: 'Blog',
-                        link: 'https://blog.wavesplatform.com',
+                        link: 'https://medium.com/wavesprotocol',
                     },
                     twitter: {
                         title: 'Twitter',
-                        link: 'https://twitter.com/wavesplatform',
+                        link: 'https://twitter.com/wavesprotocol',
                     },
                     telegram: {
                         title: 'Telegram',
-                        link: 'https://t.me/WavesCommunity',
+                        link: 'https://t.me/wavesnews',
                     },
                     forum: {
                         title: 'Forum',
                         link: 'https://forum.wavesplatform.com',
-                    },
-                    medium: {
-                        title: 'Medium',
-                        link: 'https://medium.com/@waves.exchange',
                     },
                 },
             },
