@@ -23,11 +23,19 @@
 
 См. также [список изменений Node API в релизе 1.2](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/ru/keep-in-touch/release-notes.md/#обновление-node-api)
 
+**Как воспользоваться**: пул нод Waves с публичным API на Stagenet доступен по адресу <https://nodes-stagenet.wavesnodes.com/>.
+
 ## Библиотеки
 
-**waves-transactions**
+## waves-transactions
 
 Функции `waitForTx` и `waitForTxWithNConfirmations` возвращают Promise транзакции, который разрешается после ее попадания в блок. Теперь для транзакции добавлено поле `applicationStatus`.
+
+**Как воспользоваться**: установите бета-версию библиотеки с помощью команды
+
+```bash
+install npm i @waves/waves-transactions@beta
+```
 
 [Документация waves-transactions](https://wavesplatform.github.io/waves-transactions/)
 
@@ -35,17 +43,23 @@
 
 Функции `fetchInfo` и `fetchStatus` поддерживают поле `applicationStatus`.
 
+**Как воспользоваться**: установите бета-версию библиотеки с помощью команды
+
+```bash
+install npm i @waves/node-api-js@beta
+```
+
 [node-api JS на Github](https://github.com/wavesplatform/node-api-js/)
 
 ## Waves Explorer
-
-<https://stagenet.wavesexplorer.com/stagenet>
 
 * Добавлено отображение транзакций с неудачным результатом выполнения dApp-скрипта или скрипта ассета, сохраненных на блокчейне. В списке транзакций они отмечены значком ![](./_assets/stop.png).
 
    ![](./_assets/failed-transaction.png)
 
 * Для транзакции вызова скрипта результат выполнения скрипта отображается в виде таблицы.
+
+**Как воспользоваться**: Waves Explorer для Stagenet доступен по адресу <https://stagenet.wavesexplorer.com/stagenet>.
 
 [Все изменения Waves Explorer](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/ru/keep-in-touch/release-notes.md/#waves-explorer)
 
@@ -55,15 +69,25 @@
 
 Обратите внимание: в тестах теперь необходимо проверять не только появление транзакции на блокчейне, но и успешность выполнения скрипта.
 
+**Как воспользоваться**: Waves IDE для Stagenet доступна по адресу <https://ide-stagenet.wavesplatform.com/>.
+
 ## Surfboard
 
 Поддержана возможность получения поля `applicationStatus` для транзакций, добавленных на блокчейн.
+
+**Как воспользоваться**: установите бета-версию с помощью команды
+
+```bash
+install npm i @waves/surfboard@beta
+```
 
 [Surfboard на Github](https://github.com/wavesplatform/surfboard)
 
 ## Dapp Ui (waves-dapp.com)
 
 Для отправленной транзакции вызова скрипта в дополнение к статусу попадания в блокчейн выводится успешность выполнения скрипта.
+
+**Как воспользоваться**: <http://waves-dapp.com/>.
 
 ## Ограничения Ride
 
