@@ -34,7 +34,7 @@ The `waitForTx` and `waitForTxWithNConfirmations` return Promise of transaction 
 **How to access**: install the beta version of the library using the command
 
 ```bash
-install npm i @waves/waves-transactions@beta
+npm i @waves/waves-transactions@beta
 ```
 
 [waves-transactions documentation](https://wavesplatform.github.io/waves-transactions/)
@@ -46,7 +46,7 @@ The `fetchInfo` and `fetchStatus` functions now support the `applicationStatus` 
 **How to access**: install the beta version of the library using the command
 
 ```bash
-install npm i @waves/node-api-js@beta
+npm i @waves/node-api-js@beta
 ```
 
 [node-api JS on Github](https://github.com/wavesplatform/node-api-js/)
@@ -78,7 +78,7 @@ The `applicationStatus` field is now supported for transactions added to the blo
 **How to access**: install the beta version using the command
 
 ```bash
-install npm i @waves/surfboard@beta
+npm i @waves/surfboard@beta
 ```
 
 [Surfboard on Github](https://github.com/wavesplatform/surfboard)

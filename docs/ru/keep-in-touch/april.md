@@ -34,19 +34,19 @@
 **Как воспользоваться**: установите бета-версию библиотеки с помощью команды
 
 ```bash
-install npm i @waves/waves-transactions@beta
+npm i @waves/waves-transactions@beta
 ```
 
 [Документация waves-transactions](https://wavesplatform.github.io/waves-transactions/)
 
-**node-api JS**
+## node-api JS
 
 Функции `fetchInfo` и `fetchStatus` поддерживают поле `applicationStatus`.
 
 **Как воспользоваться**: установите бета-версию библиотеки с помощью команды
 
 ```bash
-install npm i @waves/node-api-js@beta
+npm i @waves/node-api-js@beta
 ```
 
 [node-api JS на Github](https://github.com/wavesplatform/node-api-js/)
@@ -78,7 +78,7 @@ install npm i @waves/node-api-js@beta
 **Как воспользоваться**: установите бета-версию с помощью команды
 
 ```bash
-install npm i @waves/surfboard@beta
+npm i @waves/surfboard@beta
 ```
 
 [Surfboard на Github](https://github.com/wavesplatform/surfboard)
