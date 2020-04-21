@@ -59,7 +59,7 @@ module.exports = deepmerge(mixin, {
             buildingBlockchainApps: {
                 rootLink: '/ru/building-apps/',
                 title: 'Разработка приложений на блокчейне',
-                caption: 'Создание смарт-контрактов и децентрализованных приложений на платформе Waves. Инструменты разработчика, API и SDK.',
+                caption: 'Создание смарт-контрактов и децентрализованных приложений на блокчейне Waves. Инструменты разработчика, API и SDK.',
                 buttonSet: {
                     smartAccount: {
                         text: 'Смарт-аккаунты',
@@ -117,7 +117,7 @@ module.exports = deepmerge(mixin, {
             ecosystemApplications: {
                 rootLink: '/ru/ecosystem/',
                 title: 'Экосистема приложений',
-                caption: 'Полезные приложения на платформе Waves.',
+                caption: 'Полезные приложения на блокчейне Waves.',
                 buttonSet: {
                     explorer: {
                         text: 'Explorer',
