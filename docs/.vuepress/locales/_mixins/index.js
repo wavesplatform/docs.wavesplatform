@@ -197,14 +197,6 @@ module.exports = {
                         title: 'Stack Overflow',
                         link: 'https://stackoverflow.com/questions/tagged/wavesplatform',
                     },
-                    wavesLabs: {
-                        title: 'Waves Labs',
-                        link: 'https://waveslabs.com',
-                    },
-                    web3Course: {
-                        title: 'Web3 Course',
-                        link: 'https://stepik.org/course/54415/promo',
-                    },
                 },
             },
             // legal: {
