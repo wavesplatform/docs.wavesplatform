@@ -160,6 +160,18 @@ Gets available balance of [WAVES](/en/blockchain/token/waves).
 wavesBalance(addressOrAlias: Address|Alias): Int
 ```
 
+### For Standard Library Version 4
+
+Gets all types of [WAVES](/en/blockchain/token/waves) balances. For description of balance types, see the [Account Balance](/en/blockchain/account/account-balance) article.
+
+``` ride
+wavesBalance(addressOrAlias: Address|Alias): BalanceDetails
+```
+
+For a description of the return value, see the [BalanceDetails](/ru/ride/structures/common-structures/balance-details) article.
+
+> :warning: [Standard library](/en/ride/script/standard-library) **version 4** is available since node version 1.2.0 after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Node versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+
 ### Parameters
 
 | Parameter | Description |
