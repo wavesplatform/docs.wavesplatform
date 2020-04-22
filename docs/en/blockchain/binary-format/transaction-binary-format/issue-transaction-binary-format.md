@@ -1,68 +1,34 @@
 # Issue transaction binary format
 
-> Learn more about [issue transaction](/en/blockchain/transaction-type/issue-transaction)
+> Learn more about [issue transaction](/en/blockchain/transaction-type/issue-transaction).
 
-## Transaction version 3
+## Version 3
 
-The third version of the transaction binary format is based on [protobuf scheme](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto).
+Binary format of version 3 is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). The fields that are common to all types of transactions are described in the [Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format) article.
+
+Version 3 is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 ```
-// Transactions
-syntax = "proto3";
-package waves;
-  
-option java_package = "com.wavesplatform.protobuf.transaction";
-option csharp_namespace = "Waves";
-  
-import "waves/amount.proto";
-import "waves/script.proto";
-import "waves/recipient.proto";
-import "waves/order.proto";
-  
-message SignedTransaction {
-    Transaction transaction = 1;
-    repeated bytes proofs = 2;
-}
-  
-message Transaction {
-    int32 chain_id = 1;
-    bytes sender_public_key = 2;
-    Amount fee = 3;
-    int64 timestamp = 4;
-    int32 version = 5;
-  
-    oneof data {
-        GenesisTransactionData genesis = 101;
-        PaymentTransactionData payment = 102;
-        IssueTransactionData issue = 103;
-        TransferTransactionData transfer = 104;
-        ReissueTransactionData reissue = 105;
-        BurnTransactionData burn = 106;
-        ExchangeTransactionData exchange = 107;
-        LeaseTransactionData lease = 108;
-        LeaseCancelTransactionData lease_cancel = 109;
-        CreateAliasTransactionData create_alias = 110;
-        MassTransferTransactionData mass_transfer = 111;
-        DataTransactionData data_transaction = 112;
-        SetScriptTransactionData set_script = 113;
-        SponsorFeeTransactionData sponsor_fee = 114;
-        SetAssetScriptTransactionData set_asset_script = 115;
-        InvokeScriptTransactionData invoke_script = 116;
-        UpdateAssetInfoTransactionData UpdateAssetInfo = 117;
-    };
-};
-
 message IssueTransactionData {
     string name = 1;
     string description = 2;
     int64 amount = 3;
     int32 decimals = 4;
     bool reissuable = 5;
-    Script script = 6;
+    bytes script = 6;
 };
 ```
 
-## Transaction version 2
+| Field | Size | Description |
+| :--- | :--- | :--- |
+| name | From 4 to 16 bytes | Token name |
+| description | From 0 to 1000 bytesт | Token description |
+| amount | 8 bytes | Amount of token to issue, specified in the minimum fraction (“cents”) |
+| decimals | 1 byte | Number of decimal places |
+| reissuable | 1 byte | Flag for reissue availability |
+| script | Up to 8192 bytes | [Asset script](/en/ride/script/script-types/asset-script) |
+
+## Version 2
 
 | Field order number | Field | JSON field name | Field type | Field size in bytes | Comment |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -89,7 +55,7 @@ message IssueTransactionData {
 
 See the [example](https://nodes.wavesplatform.com/transactions/info/FTQvw9zdYirRksUFCKDvor3hiu2NiUjXEPTDEcircqti) in Node API.
 
-## Transaction version 1
+## Version 1
 
 | Field order number | Field | Field type | Field size in bytes | Comment |
 | :--- | :--- | :--- | :--- | :--- |

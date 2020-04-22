@@ -1,57 +1,16 @@
 # Exchange transaction binary format
 
-> Learn more about [exchange transaction](/en/blockchain/transaction-type/exchange-transaction)
+> Learn more about [exchange transaction](/en/blockchain/transaction-type/exchange-transaction).
 
-## Transaction version 3
+## Version 3
 
-The third version of the transaction binary format is based on [protobuf scheme](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto).
+Binary format of version 3 is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). The fields that are common to all types of transactions are described in the [Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format) article.
+
+Exchange transaction of version 3 can accept orders of versions [1](/ru/blockchain/binary-format/order-binary-format#v1)–[4](/ru/blockchain/binary-format/order-binary-format#v4).
+
+Version 3 is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 ```
-// Transactions
-syntax = "proto3";
-package waves;
-  
-option java_package = "com.wavesplatform.protobuf.transaction";
-option csharp_namespace = "Waves";
-  
-import "waves/amount.proto";
-import "waves/script.proto";
-import "waves/recipient.proto";
-import "waves/order.proto";
-  
-message SignedTransaction {
-    Transaction transaction = 1;
-    repeated bytes proofs = 2;
-}
-  
-message Transaction {
-    int32 chain_id = 1;
-    bytes sender_public_key = 2;
-    Amount fee = 3;
-    int64 timestamp = 4;
-    int32 version = 5;
-  
-    oneof data {
-        GenesisTransactionData genesis = 101;
-        PaymentTransactionData payment = 102;
-        IssueTransactionData issue = 103;
-        TransferTransactionData transfer = 104;
-        ReissueTransactionData reissue = 105;
-        BurnTransactionData burn = 106;
-        ExchangeTransactionData exchange = 107;
-        LeaseTransactionData lease = 108;
-        LeaseCancelTransactionData lease_cancel = 109;
-        CreateAliasTransactionData create_alias = 110;
-        MassTransferTransactionData mass_transfer = 111;
-        DataTransactionData data_transaction = 112;
-        SetScriptTransactionData set_script = 113;
-        SponsorFeeTransactionData sponsor_fee = 114;
-        SetAssetScriptTransactionData set_asset_script = 115;
-        InvokeScriptTransactionData invoke_script = 116;
-        UpdateAssetInfoTransactionData UpdateAssetInfo = 117;
-    };
-};
-  
 message ExchangeTransactionData {
     int64 amount = 1;
     int64 price = 2;
@@ -61,7 +20,15 @@ message ExchangeTransactionData {
 };
 ```
 
-## Transaction version 2 <a id="transaction2"></a>
+| Field | Size | Description |
+| :--- | :--- | :--- |
+| amount | 8 bytes | Amount of the amount asset, specified in the minimum fraction (“cent”) of asset |
+| price | 8 bytes | Price for the amount asset nominated in the price asset, multiplied by 10<sup>8</sup>. For more details see the [Order](/en/blockchain/order) article |
+| buy_matcher_fee | 8 bytes | Buy [matcher fee](/en/blockchain/matcher-fee). The fee token ID is indicated in buy order |
+| sell_matcher_fee | 8 bytes | Sell [matcher fee](/en/blockchain/matcher-fee) The fee token ID is indicated in sell order |
+| orders | | Buy order and sell order. See the [Order binary format](//blockchain/binary-format/order-binary-format) | 
+
+## Version 2 <a id="transaction2"></a>
 
 Transaction version 2 can accept orders of version [1](/en/blockchain/binary-format/order-binary-format#order1), [2](/en/blockchain/binary-format/order-binary-format#order2) and 3.
 
@@ -88,7 +55,7 @@ Transaction version 2 can accept orders of version [1](/en/blockchain/binary-for
 
 See the [example](https://nodes.wavesplatform.com/transactions/info/csr25XQHT1c965Fg7cY2vJ7XHYVsudPYrUbdaFqgaqL) in Node API.
 
-## Transaction version 1 <a id="transaction1"></a>
+## Version 1 <a id="transaction1"></a>
 
 Transaction version 1 can accept orders of version [1](/en/blockchain/binary-format/order-binary-format#order1) only.
 

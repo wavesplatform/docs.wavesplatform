@@ -1,69 +1,23 @@
 # Update asset info transaction binary format
 
-> Learn more about [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction)
+> Learn more about [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction).
 
-## Transaction version 1
+Update asset info transaction is added since node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
-The transaction binary format is based on [protobuf scheme](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto).
+## Version 1
+
+Binary format is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). The fields that are common to all types of transactions are described in the [Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format) article.
 
 ```
-// Transactions
-syntax = "proto3";
-package waves;
-  
-option java_package = "com.wavesplatform.protobuf.transaction";
-option csharp_namespace = "Waves";
-  
-import "waves/amount.proto";
-import "waves/script.proto";
-import "waves/recipient.proto";
-import "waves/order.proto";
-  
-message SignedTransaction {
-    Transaction transaction = 1;
-    repeated bytes proofs = 2;
-}
-  
-message Transaction {
-    int32 chain_id = 1;
-    bytes sender_public_key = 2;
-    Amount fee = 3;
-    int64 timestamp = 4;
-    int32 version = 5;
-  
-    oneof data {
-        GenesisTransactionData genesis = 101;
-        PaymentTransactionData payment = 102;
-        IssueTransactionData issue = 103;
-        TransferTransactionData transfer = 104;
-        ReissueTransactionData reissue = 105;
-        BurnTransactionData burn = 106;
-        ExchangeTransactionData exchange = 107;
-        LeaseTransactionData lease = 108;
-        LeaseCancelTransactionData lease_cancel = 109;
-        CreateAliasTransactionData create_alias = 110;
-        MassTransferTransactionData mass_transfer = 111;
-        DataTransactionData data_transaction = 112;
-        SetScriptTransactionData set_script = 113;
-        SponsorFeeTransactionData sponsor_fee = 114;
-        SetAssetScriptTransactionData set_asset_script = 115;
-        InvokeScriptTransactionData invoke_script = 116;
-        UpdateAssetInfoTransactionData UpdateAssetInfo = 117;
-    };
-};
-
-message Attachment {
-    oneof attachment {
-        int64 int_value = 1;
-        bool bool_value = 2;
-        bytes binary_value = 3;
-        string string_value = 4;
-    };
-}
-
 message UpdateAssetInfoTransactionData {
     bytes asset_id = 1;
     string name = 2;
     string description = 3;
 }
 ```
+
+| Field | Size | Description |
+| :--- | :--- | :--- |
+| asset_id | 32 bytes | Token ID |
+| name | From 4 to 16 bytes | Token name |
+| description | От 0 до 1000 байт | Token description |

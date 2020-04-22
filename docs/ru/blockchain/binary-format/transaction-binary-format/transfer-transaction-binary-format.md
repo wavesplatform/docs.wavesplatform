@@ -39,7 +39,7 @@ message Attachment {
 | Поле | Размер | Описание |
 | :--- | :--- | :--- |
 | recipient.public_key_hash | 20 байт | Хеш открытого ключа аккаунта получателя (компонент адреса, см. раздел [Бинарный формат адреса](/ru/blockchain/binary-format/address-binary-format)) |
-| recipient.alias | От 8 до 34 байт | [Псевдоним адреса](/ru/blockchain/account/alias) получателя |
+| recipient.alias | От 4 до 30 байт | [Псевдоним адреса](/ru/blockchain/account/alias) получателя |
 | amount.asset_id | 32 байта | ID токена |
 | amount.amount | 8 байт | Количество токена для перевода, в минимальных единицах («копейках») |
 | attachment | До 140 байт | Произвольные данные (обычно комментарий к транзакции) |

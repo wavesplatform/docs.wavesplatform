@@ -1,56 +1,29 @@
 # Mass transfer transaction binary format
 
-> Learn more about [mass transfer transaction](/en/blockchain/transaction-type/mass-transfer-transaction)
+> Learn more about [mass transfer transaction](/en/blockchain/transaction-type/mass-transfer-transaction).
 
-## Transaction version 2
+## Version 2
 
-The second version of the transaction binary format is based on [protobuf scheme](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto).
+Binary format of version 2 is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). The fields that are common to all types of transactions are described in the [Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format) article.
+
+Version 2 is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 ```
-// Transactions
-syntax = "proto3";
-package waves;
-  
-option java_package = "com.wavesplatform.protobuf.transaction";
-option csharp_namespace = "Waves";
-  
-import "waves/amount.proto";
-import "waves/script.proto";
-import "waves/recipient.proto";
-import "waves/order.proto";
-  
-message SignedTransaction {
-    Transaction transaction = 1;
-    repeated bytes proofs = 2;
-}
-  
-message Transaction {
-    int32 chain_id = 1;
-    bytes sender_public_key = 2;
-    Amount fee = 3;
-    int64 timestamp = 4;
-    int32 version = 5;
-  
-    oneof data {
-        GenesisTransactionData genesis = 101;
-        PaymentTransactionData payment = 102;
-        IssueTransactionData issue = 103;
-        TransferTransactionData transfer = 104;
-        ReissueTransactionData reissue = 105;
-        BurnTransactionData burn = 106;
-        ExchangeTransactionData exchange = 107;
-        LeaseTransactionData lease = 108;
-        LeaseCancelTransactionData lease_cancel = 109;
-        CreateAliasTransactionData create_alias = 110;
-        MassTransferTransactionData mass_transfer = 111;
-        DataTransactionData data_transaction = 112;
-        SetScriptTransactionData set_script = 113;
-        SponsorFeeTransactionData sponsor_fee = 114;
-        SetAssetScriptTransactionData set_asset_script = 115;
-        InvokeScriptTransactionData invoke_script = 116;
-        UpdateAssetInfoTransactionData UpdateAssetInfo = 117;
+message MassTransferTransactionData {
+    message Transfer {
+        Recipient recipient = 1;
+        int64 amount = 2;
     };
+    bytes asset_id = 1;
+    repeated Transfer transfers = 2;
+    Attachment attachment = 3;
 };
+
+message Recipient {
+    oneof recipient {
+        bytes public_key_hash = 1;
+        string alias = 2;
+    };
 
 message Attachment {
     oneof attachment {
@@ -60,19 +33,19 @@ message Attachment {
         string string_value = 4;
     };
 }
-
-message MassTransferTransactionData {
-    message Transfer {
-        Recipient address = 1;
-        int64 amount = 2;
-    };
-    bytes asset_id = 1;
-    repeated Transfer transfers = 2;
-    Attachment attachment = 3;
-};
 ```
 
-## Transaction version 1
+| Field | Size | Description |
+| :--- | :--- | :--- |
+| asset_id | 32 bytes | ID of token to transfer |
+| transfers.recipient.public_key_hash | 20 bytes | Recipient's account public key hash (a component of address, see the [Address binary format](/en/blockchain/binary-format/address-binary-format) article) |
+| transfers.recipient.alias | From 4 to 30 bytes | Recipient's [alias](/en/blockchain/account/alias) |
+| transfers.amount | 8 bytes | Amount of token to transfer, specified in the minimum fraction (“cents”) |
+| attachment | Up to 140 bytes | Arbitrary data (typically a comment to transfer) |
+
+The maximim number of transfers is 100.
+
+## Version 1
 
 | Field order number | Field | JSON field name | Field type | Field size in bytes | Comment |
 | :--- | :--- | :--- | :--- | :--- | :--- |

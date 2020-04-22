@@ -1,5 +1,7 @@
 # Бинарный формат транзакции лизинга
 
+> Узнать больше о [транзакции лизинга](/ru/blockchain/transaction-type/lease-transaction).
+
 ## Версия 3
 
 Бинарный формат версии 3 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).

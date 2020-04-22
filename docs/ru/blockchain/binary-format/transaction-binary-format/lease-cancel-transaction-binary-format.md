@@ -1,6 +1,6 @@
 # Бинарный формат транзакции закрытия лизинга
 
-> Узнать больше о [транзакции закрытия лизинга](/ru/blockchain/transaction-type/burn-transaction).
+> Узнать больше о [транзакции закрытия лизинга](/ru/blockchain/transaction-type/lease-cancel-transaction).
 
 ## Версия 3
 

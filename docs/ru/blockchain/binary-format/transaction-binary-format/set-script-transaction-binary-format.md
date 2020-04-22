@@ -10,13 +10,13 @@
 
 ```
 message SetScriptTransactionData {
-    bytes script = 2;
+    bytes script = 1;
 };
 ```
 
 | Поле | Размер | Описание |
 | :--- | :--- | :--- |
-| script | До 8192 байт | [Скрипт аккаунта](/ru/ride/script/script-types/account-script) |
+| script | До 8192 байт | [Скрипт аккаунта](/ru/ride/script/script-types/account-script) или [dApp-скриптt](/ru/ride/script/script-types/dapp-script) |
 
 ## Версия 1
 
