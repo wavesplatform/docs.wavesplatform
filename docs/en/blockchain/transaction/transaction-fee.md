@@ -4,7 +4,7 @@
 
 A transaction sender can specify any amount of fee but not less than a minimum amount. The larger the fee is, the quicker the transaction will be added to the new [block](/en/blockchain/block).
 
-For invoke script transaction and transfer transaction, a sender can specify a transaction fee nominated in a sponsored asset instead of WAVES, see the section [Fee Nominated in Sponsored Asset](#fee-nominated-in-sponsored-asset) below.
+For invoke script transaction and transfer transaction, a sender can specify a transaction fee nominated in a sponsored asset instead of WAVES, see the section [Fee in Sponsored Asset](#fee-in-sponsored-asset) below.
 
 ## Minimum Fee
 
@@ -58,7 +58,7 @@ An issuer of an asset can set up sponsorship — so that any user can specify a 
 
 To activate sposorship, the issuer puts a sponsor fee transaction that specifies an amount of asset that is equivalent to the minimum fee of 0.001 WAVES. For exmaple, if `minSponsoredAssetFee: 5`, then the fee in this asset for exchange transaction equals 5 × 0.003 / 0.001 = 15. See the [Sponsor Fee Transactions](/en/blockchain/waves-protocol/sponsored-fee) article for details.
 
-## Fee for Unvalid Transactions
+## Fee for Failed Transactions
 
 Invoke script transactions and exchange transactions are saved on the blockchain and the transaction sender pays the fee if the dApp script or the asset script failed. For more information see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article. For an exchange transaction, the matcher is charged the transaction fee but the order senders are not charged the [matcher fee](https://docs.waves.exchange/en/waves-matcher/matcher-fee).
 
