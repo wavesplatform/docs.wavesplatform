@@ -170,11 +170,11 @@ module.exports = {
                 links: {
                     wavesKeeper: {
                         title: 'Waves Keeper',
-                        link: 'https://wavesplatform.com/technology/keeper',
+                        link: 'https://wavesprotocol.org/protocol/keeper',
                     },
                     wavesBlockchain: {
                         title: 'Waves Blockchain',
-                        link: 'https://wavesplatform.com/technology',
+                        link: 'https://wavesprotocol.org/protocol',
                     },
                     WavesIde: {
                         title: 'Waves IDE',
