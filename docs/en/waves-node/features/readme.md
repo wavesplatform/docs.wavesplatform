@@ -41,7 +41,7 @@ Each feature can have one of the three statuses:
 
 ## Activation of New Features
 
-**Feature activation protocol** is a procedure according to which a new [feature](/en/waves-node/features/feature) gets activated, i.e. it gets the "activated" status.
+**Feature activation protocol** is a procedure according to which a new [feature](/en/waves-node/features) gets activated, i.e. it gets the "activated" status.
 
 * Activation process consists of voting and activation. Each mining node (which generates blocks) can vote for a new feature by having the voting parameter set in its configuration file. Such node generates blocks that  contain the vote for the feature. See [example](/en/waves-node/activation-protocol#configuration-file-changes) and more details in [Activation Protocol](/en/waves-node/activation-protocol) article.
 
