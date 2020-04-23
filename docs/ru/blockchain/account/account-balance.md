@@ -60,7 +60,7 @@ A - L
 Пример запроса:
 
 ```
-curl https://nodes.wavesplatform.com/addresses/balance/details/<адрес аккаунта>
+curl https://nodes.wavesnodes.com/addresses/balance/details/<адрес аккаунта>
 ```
 
 Пример ответа:

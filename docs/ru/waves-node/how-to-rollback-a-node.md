@@ -4,7 +4,7 @@
 
 Есть два способа:
 
-1. Если это откат не более чем на 2000 блоков, тогда владелец ноды может воспользоваться REST/debug/rollback с применением API key (Изучите [Waves Full Node API](https://nodes.wavesplatform.com/api-docs/index.html#!/debug/rollback)\). Например,
+1. Если это откат не более чем на 2000 блоков, тогда владелец ноды может воспользоваться REST/debug/rollback с применением API key (Изучите [Waves Full Node API](https://nodes.wavesnodes.com/api-docs/index.html#!/debug/rollback)\). Например,
 
    ```js
      {

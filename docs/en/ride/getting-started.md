@@ -1,10 +1,8 @@
 # Getting started
 
-A smart contract language for Waves Platform
-
 ## Introduction
 
-Ride is Waves Platform’s purpose-designed programming language for smart contracts. It was created to address many of the most serious shortcomings of other popular smart contract languages. The overall idea was to offer a straightforward functional language for dApp development on the Waves blockchain. 
+Ride is a purpose-designed programming language for smart contracts on the Waves blockchain. It was created to address many of the most serious shortcomings of other popular smart contract languages. The overall idea was to offer a straightforward functional language for dApp development on the Waves blockchain. 
 
 Ride is easy to learn, especially for beginning developers. This brochure gives a comprehensive introduction to Ride, along with examples and further tools and resources.
 
@@ -526,10 +524,10 @@ For further development, the following tools and utilities are useful:
 
 - Visual Studio Code plugin: waves-ride
 - The `surfboard` tool will allow you to REPL and run tests on your existing node: [https://github.com/wavesplatform/surfboard]
-- You should also install the Waves Keeper browser extension: [https://wavesplatform.com/products-keeper](https://wavesplatform.com/products-keeper)
+- You should also install the Waves Keeper browser extension: <https://wavesprotocol.org/protocol/keeper>
 - Online IDE with examples: [https://ide.wavesplatform.com/](https://ide.wavesplatform.com/)
 
-Further help and information about tools can be found here: [https://wavesplatform.com/developers](https://wavesplatform.com/developers)
+Further help and information about tools can be found here: <https://wavesprotocol.org/developers>
 
 
 ## Enjoy the Ride!

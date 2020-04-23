@@ -18,7 +18,7 @@
 
 ## JSON-представление транзакции
 
-Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/7siEtrJAvmVzM1WDX6v9RN4qkiCtk7qQEeD5ZhE6955E) в Node API.
+Смотрите [пример](https://nodes.wavesnodes.com/transactions/info/7siEtrJAvmVzM1WDX6v9RN4qkiCtk7qQEeD5ZhE6955E) в Node API.
 
 ## Транзакция версии 1
 

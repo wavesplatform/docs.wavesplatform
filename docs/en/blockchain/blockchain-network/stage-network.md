@@ -34,6 +34,6 @@ Stagenet has also been added to:
 
 * [Waves IDE](https://ide.wavesplatform.com/). To use IDE with stagenet, specify `Custom Nodes` as `https://nodes-stagenet.wavesnodes.com/` and `Network byte` as `S` in the Settings.
 
-* [Waves Keeper](https://wavesplatform.com/technology/keeper). To use Waves Keeper with stagenet, specify `Node address` as `https://nodes-stagenet.wavesnodes.com/` and `Matcher address` as `https://matcher-stagenet.wavesplatform.com` in Keeper’s settings.
+* [Waves Keeper](https://wavesprotocol.org/protocol/keeper). To use Waves Keeper with stagenet, specify `Node address` as `https://nodes-stagenet.wavesnodes.com/` and `Matcher address` as `https://matcher-stagenet.wavesplatform.com` in Keeper’s settings.
 
 If you have any questions, feel free to ask them in Discord on the [stagenet channel](https://discordapp.com/channels/420933539375087617/615843628618612746).

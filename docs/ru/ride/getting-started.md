@@ -2,7 +2,7 @@
 
 ## Введение
 
-Ride — лаконичный и дружественный язык для разработки смарт-контрактов и децентрализованных приложений (dApps) на платформе Waves. В нем устранены многие серьезные недостатки других популярных языков смарт-контрактов.
+Ride — лаконичный и дружественный язык для разработки смарт-контрактов и децентрализованных приложений (dApps) на блокчейне Waves. В нем устранены многие серьезные недостатки других популярных языков смарт-контрактов.
 
 Этот раздел содержит введение в Ride, примеры, описание дополнительных инструментов и ресурсов. Его изучение займет около часа.
 
@@ -508,10 +508,10 @@ For further development, the following tools and utilities are useful:
 
 - Visual Studio Code plugin: waves-ride
 - The `surfboard` tool will allow you to REPL and run tests on your existing node: [https://github.com/wavesplatform/surfboard]
-- You should also install the Waves Keeper browser extension: [https://wavesplatform.com/products-keeper](https://wavesplatform.com/products-keeper)
+- You should also install the Waves Keeper browser extension: <https://wavesprotocol.org/protocol/keeper>
 - Online IDE with examples: [https://ide.wavesplatform.com/](https://ide.wavesplatform.com/)
 
-Further help and information about tools can be found here: [https://wavesplatform.com/developers](https://wavesplatform.com/developers)
+Further help and information about tools can be found here: <https://wavesprotocol.org/developers>
 
 
 ## Enjoy the Ride!

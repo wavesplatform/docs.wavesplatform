@@ -1,6 +1,6 @@
 # Waves Ecosystem Apps
 
-Here are some useful applications based on Waves Platform:
+Here are some useful applications based on Waves blockchain:
 
 * [Waves Explorer](/en/ecosystem/waves-explorer/about-waves-explorer)
 
@@ -16,4 +16,4 @@ Here are some useful applications based on Waves Platform:
 
 * [Waves token rating](/en/ecosystem/waves-token-rating/about-waves-token-rating)
 
-   Displays ratings of tokens (projects) issued on the Waves Platform.
+   Displays ratings of tokens (projects) issued on the Waves blockchain.

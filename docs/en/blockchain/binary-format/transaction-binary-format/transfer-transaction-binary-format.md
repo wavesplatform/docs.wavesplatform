@@ -24,7 +24,7 @@
 
 ## JSON representation of the transaction
 
-See the [example](https://nodes.wavesplatform.com/transactions/info/2UMEGNXwiRzyGykG8voDgxnwHA7w5aX5gmxdcf9DZZjL) in Node API. In the JSON representation, values of `feeAsset` and `feeAssetId` fields are identical.
+See the [example](https://nodes.wavesnodes.com/transactions/info/2UMEGNXwiRzyGykG8voDgxnwHA7w5aX5gmxdcf9DZZjL) in Node API. In the JSON representation, values of `feeAsset` and `feeAssetId` fields are identical.
 
 ## Transaction version 1
 

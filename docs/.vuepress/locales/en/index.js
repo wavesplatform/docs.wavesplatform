@@ -10,7 +10,7 @@ module.exports = deepmerge(mixin, {
     searchPlaceholderText: 'Enter a term and press Return…',
     sidebar: sidebarConfig,
     homePage: {
-        welcomeText: 'Welcome to the documentation on everything about Waves platform',
+        welcomeText: 'Welcome to the documentation on everything about Waves blockchain',
         or: 'Or',
         technologyCategoriesText: 'Browse by topic or technology category',
         technologyCategories: {
@@ -42,7 +42,7 @@ module.exports = deepmerge(mixin, {
             },
             miscellaneous: {
                 title: 'Keep in Touch',
-                caption: 'Join the community, keep up with the latest news and articles, and find out all about events happening on the Waves Platform.',
+                caption: 'Join the community, keep up with the latest news and articles, and find out all about events happening in the Waves ecosystem.',
             }
         },
     },

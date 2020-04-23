@@ -2,7 +2,7 @@
 
 **Rollback** your node to a specific height to remove all blocks after that given height. The rollback allows to discard a few blocks to quickly restore your node in case of fork detection without having to rebuild the whole blockchain database.
 
-You can implement rollback under the following default condition: **the rollback can be implemented to no more than 2000 blocks**. Implement the rollback by using `POST /debug/rollback` with the **API key** \(See [Waves Full Node API](https://nodes.wavesplatform.com/api-docs/index.html#!/debug/rollback) for details\). For example,
+You can implement rollback under the following default condition: **the rollback can be implemented to no more than 2000 blocks**. Implement the rollback by using `POST /debug/rollback` with the **API key** \(See [Waves Full Node API](https://nodes.wavesnodes.com/api-docs/index.html#!/debug/rollback) for details\). For example,
 
    ```js
       {

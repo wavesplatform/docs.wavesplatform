@@ -1,26 +1,13 @@
-# Официальные ресурсы Waves
+# Будьте в курсе
 
-* [**Официальный веб-сайт**](https://wavesplatform.com)
-* [**Исходный код на GitHub**](https://github.com/wavesplatform)
-* [**Mainnet Explorer**](http://wavesexplorer.com)
-* [**Testnet Explorer**](https://testnet.wavesexplorer.com)
+Присоединяйтесь к сообществу Waves, следите за обновлениями в блоге и узнайте всё о событиях в экосистеме Waves.
 
-# Социальные сети
-
-* [**Twitter**](https://twitter.com/wavesplatform)
-* [**Facebook**](https://www.facebook.com/wavesplatform)
-* [**Reddit**](https://www.reddit.com/r/Wavesplatform)
-* [**Youtube**](https://www.youtube.com/wavesplatform)
-* [**ВКонтакте**](https://vk.com/wavesassociation)
-* [**Discord**](https://discord.gg/cnFmDyA)
-* [**Waves форум**](https://forum.wavesplatform.com)
-* [**Waves блог**](https://blog.wavesplatform.com/latest)
-* [**Telegram (Новости US)**](https://t.me/wavesnews)
-* [**Telegram (Новости RU)**](https://t.me/WavesNewsRU)
-* [**Telegram (Международный)**](https://t.me/Wavescommunity)
-* [**Telegram (Россия)**](https://t.me/WavesCommunityRU)
-* [**Telegram (Китай)**](https://t.me/WavesChina)
-* [**Александр Иванов в Twitter**](https://twitter.com/sasha35625)
-* [**Александр Иванов в Telegram (US)**](https://t.me/absolutelysasha)
-* [**Александр Иванов в Telegram (RU)**](https://t.me/absolutelysasharu)
-
+* [Официальный блог](https://medium.com/wavesprotocol)
+* [Twitter](https://twitter.com/wavesprotocol)
+* [ВКонтакте](https://vk.com/wavesprotocol)
+* [YouTube](https://www.youtube.com/wavesplatform)
+* [Telegram](https://t.me/wavesnews)
+* [Telegram (Новости RU)](https://t.me/WavesNewsRU)
+* [Чат разработчиков в Telegram](https://t.me/waves_ride_dapps_dev)
+* [Discord](https://discord.gg/cnFmDyA)
+* [Форум](https://forum.wavesplatform.com/)

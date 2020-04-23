@@ -23,7 +23,7 @@ module.exports = deepmerge(mixin, {
     },
 
     homePage: {
-        welcomeText: 'Добро пожаловать в документацию платформы Waves',
+        welcomeText: 'Добро пожаловать в документацию блокчейна Waves',
         or: 'Или',
         technologyCategoriesText: 'Обзор по теме или категории технологии',
         technologyCategories: {
@@ -59,7 +59,7 @@ module.exports = deepmerge(mixin, {
             buildingBlockchainApps: {
                 rootLink: '/ru/building-apps/',
                 title: 'Разработка приложений на блокчейне',
-                caption: 'Создание смарт-контрактов и децентрализованных приложений на платформе Waves. Инструменты разработчика, API и SDK.',
+                caption: 'Создание смарт-контрактов и децентрализованных приложений на блокчейне Waves. Инструменты разработчика, API и SDK.',
                 buttonSet: {
                     smartAccount: {
                         text: 'Смарт-аккаунты',
@@ -117,7 +117,7 @@ module.exports = deepmerge(mixin, {
             ecosystemApplications: {
                 rootLink: '/ru/ecosystem/',
                 title: 'Экосистема приложений',
-                caption: 'Полезные приложения на платформе Waves.',
+                caption: 'Полезные приложения на блокчейне Waves.',
                 buttonSet: {
                     explorer: {
                         text: 'Explorer',
@@ -140,11 +140,11 @@ module.exports = deepmerge(mixin, {
             miscellaneous: {
                 rootLink: '/ru/keep-in-touch/',
                 title: 'Будьте в курсе',
-                caption: 'Присоединяйтесь к сообществу Waves, следите за обновлениями в блоге и узнайте всё о событиях на платформе Waves.',
+                caption: 'Присоединяйтесь к сообществу Waves, следите за обновлениями в блоге и узнайте всё о событиях в экосистеме Waves.',
                 buttonSet: {
                     blog: {
                         text: 'Блог',
-                        link: 'https://blog.wavesplatform.com/',
+                        link: 'https://medium.com/wavesprotocol',
                     },
                     forum: {
                         text: 'Форум',

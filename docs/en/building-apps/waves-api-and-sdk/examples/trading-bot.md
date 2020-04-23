@@ -2,25 +2,23 @@
 
 ## Introduction
 
-Waves platform is designed and built from the ground up for speed and scale. At the same time Waves is one of the most developer-friendly ecosystems. Waves blockchain exposes its functionality through a powerful REST API, that can be used with any programming language.
+Waves blochchain is designed and built from the ground up for speed and scale. At the same time Waves is one of the most developer-friendly ecosystems. Waves blockchain exposes its functionality through a powerful REST API, that can be used with any programming language.
 
-This text guides you through the basics of Waves Node Rest API. In this example, we will use python wrapper for the API — [PyWaves](https://github.com/PyWaves/PyWaves) library, but there are other options for [different programming languages as well](/en/building-apps/waves-api-and-sdk/client-libraries), e.g. [WavesCS for C#](https://github.com/wavesplatform/WavesCS), [WavesJ for Java](https://github.com/wavesplatform/WavesJ) etc.
+In this example, we will use python wrapper for the Waves Node API and Matcher API — [PyWaves](https://github.com/PyWaves/PyWaves) library, but there are other options for [different programming languages as well](/en/building-apps/waves-api-and-sdk/client-libraries), e.g. [WavesCS for C#](https://github.com/wavesplatform/WavesCS), [WavesJ for Java](https://github.com/wavesplatform/WavesJ) etc.
 
 Pywaves is an object-oriented Python interface to the Waves blockchain which will help us to reduce the code complexity while maintaining its structure. Anything you learn using this library can be applied with pure HTTP API calls.
 
-## What is Waves Node REST API
-Waves Platform is a little bit complex and consists of a lot of components:
+## Components
 
-Waves Full Node performs almost like all other decentralized-cryptocurrencies: keeps a full-copy of the blockchain, verifies the transactions. The main differences are convenient REST API and Matcher.
+**Waves Full Node** performs almost like all other decentralized-cryptocurrencies: keeps a full-copy of the blockchain, verifies the transactions. The main differences are convenient REST API and Matcher.
 
 Note: Matcher is disabled in default configuration file.
-Node REST API allows working with Waves Blockchain like with many other centralized platforms, e.g. Google, Facebook etc. In official Waves platform’s Github repository, you can find RPC API documentation and description of used data structures. If you prefer API docs in Postman interface you can follow this [link](https://nodes.wavesnodes.com/api-docs/swagger.json).
+
+Node REST API allows working with Waves blockchain like with many other centralized platforms, e.g. Google, Facebook etc. In official Waves protocol’s Github repository, you can find RPC API documentation and description of used data structures. If you prefer API docs in Postman interface you can follow this [link](https://nodes.wavesnodes.com/api-docs/swagger.json).
+
+**Matcher** is an exchange engine that executes incoming orders, creates Exchange Transactions, and puts them into blockchain to fix changes in balances of users. When a user sends an order to Matcher he doesn’t transfer ownership of his money to anyone, his money remains on his account until the order is matched with counter-order.
 
 ## Terms
-
-**Node** — Full Node, it contains full-copy of the blockchain.
-
-**Matcher** — an exchange engine that executes incoming orders, creates Exchange Transactions, and puts them into blockchain to fix changes in balances of users. When a user sends an order to Matcher he doesn’t transfer ownership of his money to anyone, his money remains on his account until the order is matched with counter-order. For more details, read [Waves.Exchange Protocol](https://docs.waves.exchange/en/waves-exchange/waves-exchange-protocol) and [Matcher API](https://docs.waves.exchange/en/waves-matcher/matcher-api) sections in Waves.Exchange documentation.
 
 **AssetPair** — Pair of assets we want to exchange.
 
@@ -50,10 +48,10 @@ It’s better to make configuration file where we will store all sensitive and c
 ```python
 [main]
 # URI of the Full Node
-node = http://127.0.0.1
+node = https://nodes.wavesnodes.com
 # select the network: testnet or mainnet
 network = mainnet
-# matcher
+# Instance of matcher
 matcher = https://matcher.waves.exchange
 order_fee = 300000
 # order lifetime in seconds, max allowed 29 days

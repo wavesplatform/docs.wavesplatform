@@ -58,7 +58,7 @@ You can get account balance in WAVES by using the Node API request.
 Example of the request:
 
 ```
-curl https://nodes.wavesplatform.com/addresses/balance/details/<account address>
+curl https://nodes.wavesnodes.com/addresses/balance/details/<account address>
 ```
 
 Example of the response:
