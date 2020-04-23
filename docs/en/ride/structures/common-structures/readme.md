@@ -13,7 +13,7 @@
 | [DataEntry](/en/ride/structures/script-actions/data-entry) (for Standard Library version 3) | Adds a data record of an  [account data storage](/en/blockchain/account/account-data-storage) |
 | [IntegerEntry](/en/ride/structures/script-actions/int-entry) (for Standard Library version 4) | Adds an integer data record of an [account data storage](/en/blockchain/account/account-data-storage) |
 | [Invocation](/en/ride/structures/common-structures/invocation) |Abbreviated representation of an invoke script transaction |
-| [Issue](/en/ride/structures/common-structures/issue) (for Standard Library version 4) | Issues a token |
+| [Issue](/en/ride/structures/script-actions/issue) (for Standard Library version 4) | Issues a token |
 | [Order](/en/ride/structures/common-structures/order) | Order info |
 | [Reissue](/en/ride/structures/script-actions/reissue) (for Standard Library version 4) | Reissues a token |
 | [ScriptResult](/en/ride/structures/script-results/script-result) (for Standard Library version 3) | Execution result of a callable function |

@@ -11,4 +11,4 @@ Testnet is a fully functional Waves blockchain with one key exception that Waves
 
 ## How to Get Waves Tokens on Testnet
 
-> Waves for Testnet can be obtained for free on the [https://testnet.wavesexplorer.com/faucet](https://testnet.wavesexplorer.com/faucet) website.
+> Waves for Testnet can be obtained for free on the <https://wavesexplorer.com/testnet/faucet> website.

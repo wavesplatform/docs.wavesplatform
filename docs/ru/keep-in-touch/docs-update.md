@@ -6,12 +6,6 @@
 
 Обновлена статья [Валидация транзакции](/ru/blockchain/transaction/transaction-validation).
 
-### Ride
-
-* Добавлено описание структуры [BalanceDetails](/ru/ride/structures/common-structures/balance-details).
-* Обновлено описание структуры [Asset](/ru/ride/structures/common-structures/asset).
-* Обновлено описание функции [wavesBalance](/ru/ride/functions/built-in-functions/account-data-storage-functions#waves-balance).
-
 ### Разработка приложений на блокчейне
 
 Добавлены практические руководства:
@@ -96,7 +90,7 @@
     * [Burn](/ru/ride/structures/script-actions/burn)
     * [DeleteEntry](/ru/ride/structures/script-actions/delete-entry)
     * [IntegerEntry](/ru/ride/structures/script-actions/int-entry)
-    * [Issue](/ru/ride/structures/common-structures/issue)
+    * [Issue](/ru/ride/structures/script-actions/issue)
     * [Reissue](/ru/ride/structures/script-actions/reissue)
     * [StringEntry](/ru/ride/structures/script-actions/string-entry)
   * Структуры транзакций

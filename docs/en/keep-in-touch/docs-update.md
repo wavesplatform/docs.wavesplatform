@@ -6,12 +6,6 @@
 
 Updated the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
 
-### Ride
-
-* Added the [BalanceDetails](/en/ride/structures/common-structures/balance-details) structure description.
-* Updated the [Asset](/en/ride/structures/common-structures/asset) structure description.
-* Updated the [wavesBalance](/en/ride/functions/built-in-functions/account-data-storage-functions#waves-balance) function description.
-
 ### Building Apps
 
 Added how-to guides:
@@ -87,7 +81,7 @@ Added how-to guides:
     * [Burn](/en/ride/structures/script-actions/burn)
     * [DeleteEntry](/en/ride/structures/script-actions/delete-entry)
     * [IntegerEntry](/en/ride/structures/script-actions/int-entry)
-    * [Issue](/en/ride/structures/common-structures/issue)
+    * [Issue](/en/ride/structures/script-actions/issue)
     * [Reissue](/en/ride/structures/script-actions/reissue)
     * [StringEntry](/en/ride/structures/script-actions/string-entry)
 

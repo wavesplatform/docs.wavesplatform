@@ -13,7 +13,7 @@
 | [DataEntry](/ru/ride/structures/script-actions/data-entry) | Добавляет запись в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage). Применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) версии 3 |
 | [IntegerEntry](/ru/ride/structures/script-actions/int-entry) | Добавляет в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage) запись целочисленного типа. Применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) версии 4 |
 | [Invocation](/ru/ride/structures/common-structures/invocation) | Сокращенное представление транзакции вызова скрипта |
-| [Issue](/ru/ride/structures/common-structures/issue) | Выпускает токен. Применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) версии 4 |
+| [Issue](/ru/ride/structures/script-actions/issue) | Выпускает токен. Применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) версии 4 |
 | [Order](/ru/ride/structures/common-structures/order) | [Oрдер](/ru/blockchain/order) |
 | [Reissue](/ru/ride/structures/script-actions/reissue) | Увеличивает количество ассета на блокчейне. Применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) версии 4 |
 | [ScriptResult](/ru/ride/structures/script-results/script-result) | Результат выполнения вызываемой функции. Применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) версии 3 |

@@ -3,7 +3,7 @@
 ## Улучшения ноды
 
 * Добавлено сохранение транзакций с неудачным результатом выполнения скрипта. Транзакции вызова скрипта и транзакции обмена сохраняются на блокчейне и за них взимается комиссия, даже если результат выполнения dApp-скрипта или скрипта ассета был неудачным (при условии что транзакция прошла проверку подписи отправителя или проверку скриптом аккаунта). [Подробнее](/ru/keep-in-touch/april)
-* Реализована возможность удалять записи в хранилище данных аккаунта. Это действие может быть выполнено при помощи [транзакции данных](/ru/blockchain/transaction-type/data-transaction) либо структуры [DeleteEntry](/ru/ride/structures/common-structures/delete-entry) языка Ride.
+* Реализована возможность удалять записи в хранилище данных аккаунта. Это действие может быть выполнено при помощи [транзакции данных](/ru/blockchain/transaction-type/data-transaction) либо структуры [DeleteEntry](/ru/ride/structures/script-actions/delete-entry) языка Ride.
 * Реализована возможность изменять наименование и описание ассета. Для этого добавлен новый тип транзакции — [транзакция обновления информации ассета](/ru/blockchain/transaction-type/update-asset-info-transaction). Изменение возможно не чаще чем через 10 блоков на Stagenet и не чаще чем через 100&nbsp;000 блоков на Mainnet и Testnet.
 * Снижена минимальная комиссия за [транзакцию довыпуска](/ru/blockchain/transaction-type/reissue-transaction) — с 1 до 0,001 WAVES.
 * В [транзакции выпуска](/ru/blockchain/transaction-type/issue-transaction) формат полей `name` и `description` изменен с bytes на string.
@@ -51,18 +51,18 @@
 
    Максимальная сложность скрипта ассета и вызываемой функции скрипта dApp осталась прежней — 4000.
 * Выпущена версия 4 [Стандартной библиотеки](/ru/ride/script/standard-library).
-* Добавлены действия скрипта, которые может выполнять [вызываемая функция](/ru/ride/functions/callable-functions) dApp-скрипта:
-   * [Issue](/ru/ride/structures/common-structures/issue) — выпуск токена.
-   * [Reissue](/ru/ride/structures/common-structures/reissue) — довыпуск токена.
-   * [Burn](/ru/ride/structures/common-structures/burn) — сжигание токена.
-   * [BooleanEntry](/ru/ride/structures/common-structures/boolean-entry), [BinaryEntry](/ru/ride/structures/common-structures/binary-entry), [IntegerEntry](/ru/ride/structures/common-structures/int-entry), [StringEntry](/ru/ride/structures/common-structures/string-entry) — добавление или изменение записи соответствующего типа в хранилище данных аккаунта. Эти действия используются вместо [DataEntry](/ru/ride/structures/common-structures/data-entry), которая не поддерживается в версии 4.
-   * [DeleteEntry](/ru/ride/structures/common-structures/delete-entry) — удаление записи из хранилища данных аккаунта.
+* Добавлены действия скрипта, которые может выполнять [вызываемая функция](/ru/ride/functions/callable-function) dApp-скрипта:
+   * [Issue](/ru/ride/structures/script-actions/issue) — выпуск токена.
+   * [Reissue](/ru/ride/structures/script-actions/reissue) — довыпуск токена.
+   * [Burn](/ru/ride/structures/script-actions/burn) — сжигание токена.
+   * [BooleanEntry](/ru/ride/structures/script-actions/boolean-entry), [BinaryEntry](/ru/ride/structures/script-actions/binary-entry), [IntegerEntry](/ru/ride/structures/script-actions/int-entry), [StringEntry](/ru/ride/structures/script-actions/string-entry) — добавление или изменение записи соответствующего типа в хранилище данных аккаунта. Эти действия используются вместо [DataEntry](/ru/ride/structures/script-actions/data-entry), которая не поддерживается в версии 4.
+   * [DeleteEntry](/ru/ride/structures/script-actions/delete-entry) — удаление записи из хранилища данных аккаунта.
 * Изменен формат результата вызываемой функции: в версии 4 результат представляет собой список действий скрипта. Структуры `ScriptResult`, `WriteSet` и `TransferSet` не поддерживаются.
 * Комиссия за выполнение транзакции вызова скрипта увеличивается на 1 WAVES за каждый ассет (кроме NFT), выпущенный при помощи структуры `Issue`.
 * Реализована возможность использовать список в качестве аргумента вызываемой функции.
 * Реализована возможность обрабатывать в dApp до двух платежей, приложенных к транзакции вызова скрипта.
 * Добавлены встроенные функции:
-   * [calculateAssetId](/ru/ride/functions/built-in-functions/blockchain-functions#calculate) — получает ID ассета, сформированного структурой [Issue](/ru/ride/structures/common-structures/issue) при выполнении транзакции вызова скрипта. Сложность равна 10.
+   * [calculateAssetId](/ru/ride/functions/built-in-functions/blockchain-functions#calculate) — получает ID ассета, сформированного структурой [Issue](/ru/ride/structures/script-actions/issue) при выполнении транзакции вызова скрипта. Сложность равна 10.
    * [contains](/ru/ride/functions/built-in-functions/string-functions#contains) — проверяет, содержит ли строка заданную подстроку. Сложность 20.
    * [createMerkleRoot](/ru/ride/functions/built-in-functions/verification-functions##createmerkleroot) — вычисляет [корневой хеш дерева Меркла транзакций блока](/ru/blockchain/block/merkle-root). Сложность 30.
    * [groth16verify](/ru/ride/functions/built-in-functions/verification-functions#groth16verify) — семейство функций верификации [доказательства с нулевым разглашением](https://ru.wikipedia.org/wiki/Доказательство_с_нулевым_разглашением). Сложность 1200–2700 в зависимости от размера массива публичных входов.
