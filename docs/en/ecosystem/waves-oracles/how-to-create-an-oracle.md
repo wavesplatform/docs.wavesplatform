@@ -163,7 +163,7 @@ _Figure 1_.
 
 For other users to know about our oracle, we use Waves Oracles to create an oracle card.
 
-Waves Oracles is a service that utilizes [Waves Keeper](https://docs.waves.exchange/en/waves-keeper/).
+Waves Oracles is a service that utilizes [Waves Keeper](/en/ecosystem/waves-keeper/).
 
 To create an oracle card, use the same account you used to sign transactions in the code.
 
