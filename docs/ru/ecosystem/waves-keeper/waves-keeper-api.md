@@ -6,7 +6,7 @@ sidebarDepth: 2
 
 ## Введение
 
-На страницах браузера, работающих по протоколу http / https (а не на локальных страницах с протоколом file: //) с установленным расширением Waves Keeper, становится доступен глобальный объект Waves Keeper, содержащий следующие методы:
+На страницах браузера, работающих по протоколу http/https (но не на локальных страницах с протоколом file://), с установленным расширением Waves Keeper становится доступен глобальный объект Waves Keeper, содержащий следующие методы:
 
 - `auth`
 - `publicState`
@@ -29,7 +29,7 @@ sidebarDepth: 2
 
 Все методы, кроме `on`, работают асинхронно и возвращают [promises](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
-В коде можно использовать [TypeScript types](https://github.com/wavesplatform/waveskeeper-types)
+В коде можно использовать [TypeScript types](https://github.com/wavesplatform/waveskeeper-types).
 
 При инициализации `window.WavesKeeper` не имеет методов API.
 Вы можете использовать `WavesKeeper.initialPromise` для ожидания завершения инициализации API.
@@ -45,7 +45,7 @@ sidebarDepth: 2
 
 ```
 
-В Waves Keeper для большей безопасности и простоты использования каждый новый веб-сайт, использующий API, должен быть разрешен пользователем. При первой попытке использовать API (кроме `on`) пользователь увидит запрос на доступ веб-сайта к Waves Keeper. Если пользователь выдаст доступ, веб-сайт считается доверенным и может использовать API на своих страницах. В противном случае веб-сайт блокируется, и в ответ на все запросы будет отображаться сообщение об ошибке `{message:" Api отклонен пользователем ", код: 12}.` Пользователи не будут видеть новые уведомления. Чтобы предоставить доступ, пользователь должен пометить веб-сайт как надежный в интерфейсе Keeper.
+В Waves Keeper для большей безопасности и простоты использования каждый новый веб-сайт, использующий API, должен быть разрешен пользователем. При первой попытке использовать API (кроме `on`) пользователь увидит запрос на доступ веб-сайта к Waves Keeper. Если пользователь выдаст доступ, веб-сайт считается доверенным и может использовать API на своих страницах. В противном случае веб-сайт блокируется, и в ответ на все запросы будет отображаться сообщение об ошибке `{message: "Api rejected by user", code: 12}`. Пользователи не будут видеть новые уведомления. Чтобы предоставить доступ, пользователь должен пометить веб-сайт как надежный в интерфейсе Keeper.
 
 ## Описание методов
 
@@ -115,31 +115,31 @@ sidebarDepth: 2
 }
 ```
 
-Описание полей query return:
+Описание полей ответа:
 
-- `initialized` - boolean keeper initialized
-- `locked` - boolean keeper in wait mode
-- `account` – current account, if the user allowed access to the website, or null
-- `network` – current Waves network, node and matcher addresses
-- `messages` – signature request statuses
-- `txVersion` – available transaction versions for each type
+- `initialized` — признак того, что Waves Keeper инициализирован.
+- `locked` — признак того, что требуется ввод пароля.
+- `account` — текущий аккаунт, если пользователь разрешил доступ веб-сайту, либо `null`.
+- `network` — текущая сеть Waves, адрес ноды и матчера.
+- `messages` — статусы запросов на подписание.
+- `txVersion` — доступные версии транзакций каждого типа.
 
 Возможные ошибки:
 
-- `{ message: "Init Waves Keeper and add account" }` – Waves Keeper is not initialized
-- `{ message: "Add Waves Keeper account" }` – Waves Keeper accessed, but there are no accounts
-- `{ message: "User denied message" }` – the user denied the website operation with Waves Keeper
+- `{ message: "Init Waves Keeper and add account" }` — Waves Keeper не инициализирован.
+- `{ message: "Add Waves Keeper account" }` — Waves Keeper доступен, но в нем нет аккаунтов.
+- `{ message: "User denied message" }` — пользователь отклонил операцию.
 
 ### notification
 
 Отправка сообщения в Waves Keeper. Вы можете отправлять сообщения 1 раз в 30 секунд для доверенных сайтов с разрешением на отправку.
 
-`notification` facilitates input of the following data:
+`notification` передает следующие данные:
 
-- `title` - string (20 chars max) (required field)
-- `message` - string (250 chars max) (optional field)
+- `title` — строка, не более 20 символов (обязательное поле).
+- `message` — строка, не более 250 символов) (необязательное поле).
 
-return Promise
+Возвращает `Promise`.
 
 Пример:
 
@@ -152,15 +152,15 @@ return Promise
 
 Возможные ошибки:
 
-- `{message: "Incorrect notification data", data: "title has more than 20 characters", code: "19"}` - Incorrect notification title
-- `{message: "Incorrect notification data", data: null, code: "19"}` - Incorrect notification data
-- `{message: "Can't sent notification", data: {msg: "Min notification interval 30s. Wait 28.017s."}, code: "18"}` - try send later, you can send 1 message in 30 sec
-- `{message: "Api rejected by user", code: 12}` the user denied the request or the website is not trusted.
+- `{message: "Incorrect notification data", data: "title has more than 20 characters", code: "19"}` — некорректный заголовок.
+- `{message: "Incorrect notification data", data: null, code: "19"}` — некорректное сообщение.
+- `{message: "Can't sent notification", data: {msg: "Min notification interval 30s. Wait 28.017s."}, code: "18"}` — повторите отправку позже, вы можете отправить не более 1 сообщения каждые 30 секунд.
+- `{message: "Api rejected by user", code: 12}` — пользователь отклонил запрос или веб-сайт не является доверенным.
 
 ### encryptMessage
 
 Вы можете зашифровать строковые сообщения для учетной записи в сети Waves.
-Вы должны иметь publicKey получателя.
+Вы должны иметь открытый ключ получателя.
 
 WavesKeeper.encryptMessage(`*string to encrypt*`, `*public key in base58 string*`, `*prefix is secret app string need for encoding*`)
 
@@ -175,15 +175,15 @@ WavesKeeper.encryptMessage(`*string to encrypt*`, `*public key in base58 string*
 
 Возможные ошибки:
 
-- `{ message: "Init Waves Keeper and add account" }` – Waves Keeper is not initialized
-- `{ message: "App is locked" }` – Waves Keeper is locked
-- `{ message: "Add Waves Keeper account" }` – Waves Keeper accessed, but there are no accounts
-- `{ message: "User denied message" }` – the user denied the website operation with Waves Keeper
+- `{ message: "Init Waves Keeper and add account" }` — Waves Keeper не инициализирован.
+- `{ message: "App is locked" }` — требуется ввод пароля.
+- `{ message: "Add Waves Keeper account" }` — Waves Keeper доступен, но в нем нет аккаунтов.
+- `{ message: "User denied message" }` — пользователь отклонил операцию.
 
 ### decryptMessage
 
 Вы можете расшифровать строковые сообщения из учетной записи в сети Waves.
-Вам нужно иметь publicKey отправителя и зашифрованное сообщение.
+Вам нужно иметь открытый ключ отправителя и зашифрованное сообщение.
 
 WavesKeeper.decryptMessage(`*string to decrypt*`, `*public key in base58 string*`, `*prefix is secret app string need for encoding*`)
 
@@ -198,10 +198,10 @@ WavesKeeper.decryptMessage(`*string to decrypt*`, `*public key in base58 string*
 
 Возможные ошибки:
 
-- `{ message: "Init Waves Keeper and add account" }` – Waves Keeper is not initialized
-- `{ message: "App is locked" }` – Waves Keeper is locked
-- `{ message: "Add Waves Keeper account" }` – Waves Keeper accessed, but there are no accounts
-- `{ message: "User denied message" }` – the user denied the website operation with Waves Keeper
+- `{ message: "Init Waves Keeper and add account" }` — Waves Keeper не инициализирован.
+- `{ message: "App is locked" }` — требуется ввод пароля.
+- `{ message: "Add Waves Keeper account" }` — Waves Keeper доступен, но в нем нет аккаунтов.
+- `{ message: "User denied message" }` — пользователь отклонил операцию.
 
 ### on
 
@@ -258,13 +258,13 @@ WavesKeeper.decryptMessage(`*string to decrypt*`, `*public key in base58 string*
     getAuthData(authData);
 ```
 
-`auth` содержит следующие данные:
+`auth` передает следующие данные:
 
-- `name` – name of the service (optional field)
-- `data` – a string line with any data (required field)
-- `referrer` – a websites' full URL for redirect (optional field)
-- `icon` – path to the logo relative to the `referrer`or origin of the website (optional field)
-- `successPath` – relative path to the website's Auth API (optional field)
+- `name` — название сервиса (необязательное поле).
+- `data` — произвольная строка(обязательное поле).
+- `referrer` — полный URL веб-сайта для редиректа (необязательное поле).
+- `icon` — путь к логотипу относительно `referrer` или от корня (необязательное поле).
+- `successPath` — относительный путь к Auth API веб-сайта (необязательное поле).
 
 Пример:
 
@@ -289,19 +289,19 @@ WavesKeeper.decryptMessage(`*string to decrypt*`, `*public key in base58 string*
 
 Если верификация прошла успешно, Waves Keeper вернет в promise объект, содержащий данные для верификации подписи:
 
-- `host` – a host that requested a signature
-- `name` – the name of an application that requested a signature
-- `prefix` – a prefix participating in the signature
-- `address` – an address in Waves network
-- `publicKey` – the user's public key
-- `signature` - signature
-- `version` – API version
+- `host` — хост, запросивший подпись.
+- `name` — название приложения, запросившего подпись.
+- `prefix` — префикс подписанных данных.
+- `address` — адрес аккаунта Waves.
+- `publicKey` — открытый ключ пользователя.
+- `signature` — подпись.
+- `version` — версия API.
 
 Ошибки:
 
-- `{message: "Invalid data", data: "[{"field":"data","type":"string","message":"field is required"}]", code: 9}` – signature data contain errors
-- `{message: "User denied message", code: 10}` – the user denied the request
-- `{message: "Api rejected by user", code: 12}` - the website is not trusted
+- `{message: "Invalid data", data: "[{"field":"data","type":"string","message":"field is required"}]", code: 9}` — подписываемые данные содержат ошибку.
+- `{message: "User denied message", code: 10}` — пользователь отклонил операцию.
+- `{message: "Api rejected by user", code: 12}` — веб-сайт не является доверенным.
 
 #### Как проверить валидность подписи <a id="validity"></a>
 
@@ -466,7 +466,7 @@ else
 
 ### signTransaction
 
-Метод для подписания транзакций. Описание формата транзакций см. в разделе [Формат транзакций](/ru/ecosystem/waves-keeper/transaction).
+Метод для подписания транзакций. Описание поддерживаемых транзакций см. в разделе [Формат транзакций](/ru/ecosystem/waves-keeper/transaction).
 
 Пример:
 
@@ -492,25 +492,23 @@ else
     });
 ```
 
-API возвращает строки, а не объект, поскольку в javascript точность теряется при работе с 8-byte integers.
-
-Описание поддерживаемых типов транзакций приведено ниже.
+API возвращает строки, а не объект, поскольку в JavaScript точность теряется при работе с 8-байтными целыми числами.
 
 В этом примере мы подписываем транзакцию для передачи WAVES псевдониму `test` в сети Waves.
 
-ответ:
+Ответ:
 
 `{"version":2,"assetId":"", "amount":156700000,"feeAssetId":"",fee:100000, "recipient":"recipient","attachment":"", "timestamp":1548770230589,"senderPublicKey":"public key","proofs":["signature"],"type":4}`
 
 Ошибки:
 
-- `{message: "User denied message", code: 10}` – The user denied the request.
-- `{message: "Api rejected by user", code: 12}` – The website is not trusted.
-- `{message: "Invalid data", data: "Reason", code: 9}` – invalid/incomplete request data.
+- `{message: "User denied message", code: 10}` — пользователь отклонил операцию.
+- `{message: "Api rejected by user", code: 12}` — веб-сайт не является доверенным.
+- `{message: "Invalid data", data: "Reason", code: 9}` — некорректные или неполные данные.
 
 ### signAndPublishTransaction
 
-Похоже на `signTransaction`, но также транслирует транзакцию на блокчейн. Описание формата транзакций см. в разделе [Формат транзакций](/ru/ecosystem/waves-keeper/transaction).
+Похоже на `signTransaction`, но также отправляет транзакцию на блокчейн. Описание поддерживаемых транзакций см. в разделе [Формат транзакций](/ru/ecosystem/waves-keeper/transaction).
 
 Пример:
 
@@ -536,18 +534,16 @@ API возвращает строки, а не объект, поскольку 
        });
 ```
 
-Ответ: 
-
-Cтрока, содержащая всю прошедшую транзакцию.
+Ответ: строка, содержащая всю прошедшую транзакцию.
 
 Ошибки:
 
-- Same as `signTransaction`
-- `{message: "Filed request", data: "Error description", code: 15}` – a request was signed but not broadcasted
+- Такие же, как в `signTransaction`.
+- `{message: "Filed request", data: "Error description", code: 15}` — транзакция подписана, но не отправлена.
 
 ### signTransactionPackage
 
-Подписание пакета транзакций. Иногда необходимо одновременно подписать несколько транзакций, и для удобства пользователя можно одновременно подписать до семи транзакций. Описание формата транзакций см. в разделе [Формат транзакций](/ru/ecosystem/waves-keeper/transaction).
+Подписание пакета транзакций. Иногда необходимо одновременно подписать несколько транзакций, и для удобства пользователя можно одновременно подписать до семи транзакций. Описание поддерживаемых транзакций см. в разделе [Формат транзакций](/ru/ecosystem/waves-keeper/transaction).
 
 Пример:
 
@@ -586,12 +582,10 @@ Cтрока, содержащая всю прошедшую транзакцию
 
 Подписание двух транзакций:
 
-- Перевод 1,567 WAVES на псевдоним test
-- Перевод 0,51 WAVES на псевдоним merry
+- Перевод 1,567 WAVES на псевдоним `test`.
+- Перевод 0,51 WAVES на псевдоним `merry`.
 
-Ответ:
-
-Блок из двух строк: транзакции, которые подписаны и готовы к трансляции.
+Ответ: блок из двух строк — транзакции, которые подписаны и готовы к трансляции.
 
 Ошибки:
 
@@ -599,7 +593,7 @@ Cтрока, содержащая всю прошедшую транзакцию
 
 ### signOrder
 
-Метод Waves Keeper для подписания заявки на матчере. В качестве входных данных он принимает объект, похожий на транзакцию, подобную этой:
+Метод Waves Keeper для подписания [ордера](/ru/blockchain/order) (биржевой заявки). В качестве входных данных он принимает объект, похожий на транзакцию:
 
 ```js
     {
@@ -608,17 +602,26 @@ Cтрока, содержащая всю прошедшую транзакцию
             ...data
         }
     }
-
 ```
-- `*version` 1,2,3
-- `amount` MoneyLike - amount
-- `price` MoneyLike - price
-- `orderType` 'sell'/'buy' – order type
-- `matcherFee` MoneyLike - fee (0.003 WAVES minimum),
-- `matcherPublicKey` string - the public key of the exchange service
-- `expiration` string/number – the order's expiration time
-- `*timestamp` string/number - current time
-- `*senderPublicKey` string - public key in base58
+
+- `*version`: 1,2,3.
+- `amount`: MoneyLike — количество amount-ассета.
+- `price`: MoneyLike — цена amount-ассета, выраженная в price-ассете.
+- `orderType`: 'sell'/'buy' – тип ордера.
+- `matcherFee`: MoneyLike — комиссия (не менее 0,003 WAVES).
+- `matcherPublicKey`: string — открытый ключ матчера.
+- `expiration`: string/number — время окончания срока действия ордера.
+- `*timestamp`: string/number — текущее время.
+- `*senderPublicKey`: string — открытый ключ пользователя в кодировке base58.
+
+\* — необязательное поле, данные автоматически подставляются Waves Keeper.
+
+MoneyLike может иметь вид:
+
+- `{ tokens: 1, assetId: "WAVES" }`
+- `{ coins: 100000000, assetId: "WAVES" }`
+
+В обоих сообщениях указана одинаковая сумма: 1 WAVES. Вы можете легко конвертировать `coins` в `tokens` и обратно, если вы знаете, в каком ассете указана цена, и количество знаков после запятой: `tokens = coins / (10 ** precision)`.
 
 Пример:
 
@@ -649,13 +652,13 @@ Cтрока, содержащая всю прошедшую транзакцию
    });
 ```
 
-Ответ: Строка с данными для отправки матчеру.
+Ответ: строка с данными для отправки матчеру.
 
 Ошибки:
 
-- `{ message: "User denied message", code: 10 }` – the user rejected the request
-- `{ message: "Api rejected by user", code: 12 }` – The website is not trusted
-- `{ message: "Invalid data", data: "Reason", code: 9 }` - invalid/incomplete request data
+- `{ message: "User denied message", code: 10 }` — пользователь отклонил операцию.
+- `{ message: "Api rejected by user", code: 12 }` — веб-сайт не является доверенным.
+- `{ message: "Invalid data", data: "Reason", code: 9 }` — некорректные или неполные данные ордера.
 
 ### signAndPublishOrder
 
@@ -665,8 +668,8 @@ Cтрока, содержащая всю прошедшую транзакцию
 
 Ошибки:
 
-- Те же, что у `signOrder`
-- `{message: "Filed request", data: "Error description", code: 15}` – a request has been signed, but not sent to the matcher
+- Те же, что в `signOrder`.
+- `{message: "Filed request", data: "Error description", code: 15}` — ордер подписан, но не отправлен.
 
 ### signCancelOrder
 
@@ -682,8 +685,8 @@ Cтрока, содержащая всю прошедшую транзакцию
 
 ```
 
-- `id` string – order ID
-- `*senderPublicKey` - string - sender's public key in base58
+- `id`:string – идентификатор ордера.
+- `*senderPublicKey`: string — открытый ключ пользователя в кодировке base58.
 
 Пример:
 
@@ -696,18 +699,17 @@ Cтрока, содержащая всю прошедшую транзакцию
     });
 ```
 
-Ответ: Строка данных для отправки матчеру.
+Ответ: строка данных для отправки матчеру.
 
 Ошибки:
 
-- `{ message: "User denied message", code: 10 }` – the user rejected the request
-- `{ message: "Api rejected by user", code: 12 }` – The website is not trusted
-- `{ message: "Invalid data", data: "Reason", code: 9 }` - invalid/incomplete request data
+- `{ message: "User denied message", code: 10 }` — пользователь отклонил операцию.
+- `{ message: "Api rejected by user", code: 12 }` — веб-сайт не является доверенным.
+- `{ message: "Invalid data", data: "Reason", code: 9 }` — некорректные или неполные данные.
 
 ### signAndPublishCancelOrder
 
-Метод Waves Keeper для отмены заявки матчеру. Он работает идентично `signCancelOrder`,
-но также пытается отправить данные матчеру. Для API нужно знать также 2 поля `priceAsset` и `amountAsset` ордера.
+Метод Waves Keeper для отмены ордера. Он работает идентично `signCancelOrder`, но также пытается отправить данные матчеру. Для API нужно знать также 2 поля: `priceAsset` и `amountAsset` ордера.
 
 Пример:
 
@@ -726,12 +728,12 @@ Cтрока, содержащая всю прошедшую транзакцию
     });
 ```
 
-Ответ: Данные, которые пришли от матчера.
+Ответ: данные, которые пришли от матчера.
 
 Ошибки:
 
-- Same as for `signCancelOrder`
-- `{message: "Filed request", data: "Error description", code: 15}` – a request has been signed, but not sent to the matcher.
+- Те же, что в `signCancelOrder`.
+- `{message: "Filed request", data: "Error description", code: 15}` — отмена ордера подписана, но не отправлена.
 
 ### signRequest
 
@@ -748,63 +750,55 @@ Cтрока, содержащая всю прошедшую транзакцию
 
 В настоящее время метод поддерживает следующие типы:
 
-**1001 – signing data for a request to the matcher for your orders**
+* **1001 – signing data for a request to the matcher for your orders**
 
-- `timestamp` number/string
-- `*senderPublicKey` string public key in base58
+   - `timestamp`: number/string.
+   - `*senderPublicKey`: — открытый ключ в кодировке base58.
 
-Пример:
+   Пример:
+   
+   ```js
+     WavesKeeper.signRequest({
+           type: 1001,
+           data: {
+               timestamp: 234234242423423
+           }
+       });
+   ```
 
-```js
-    WavesKeeper.signRequest({
-        type: 1001,
-        data: {
-            timestamp: 234234242423423
-        }
-    });
-```
+* **1004 – signing data for a request to gateway**
 
-Ответ: строка с подписью в base58.
+   - `timestamp`: number/string.
 
-Ошибки:
+   Пример:
 
-- `{ message: "User denied message", code: 10 }` – the user rejected the request
-- `{ message: "Api rejected by user", code: 12 }` – The website is not trusted
-- `{ message: "Invalid data", data: "Reason", code: 9 }` - invalid/incomplete request data
-
-**1004 – signing data for a request to gateway**
-
-- `timestamp` number/string
-
-Запрос:
-
-```js
-    WavesKeeper.signRequest({
-        type: 1004,
-        data: {
-            timestamp: 234234242423423
-        }
-    });
-```
+   ```js
+       WavesKeeper.signRequest({
+           type: 1004,
+           data: {
+               timestamp: 234234242423423
+           }
+       });
+   ```
 
 Ответ: строка с подписью в base58.
 
 Ошибки:
 
-- `{ message: "User denied message", code: 10 }` – the user rejected the request
-- `{ message: "Api rejected by user", code: 12 }` – The website is not trusted
-- `{ message: "Invalid data", data: "Reason", code: 9 }` - invalid/incomplete request data
+- `{ message: "User denied message", code: 10 }` — пользователь отклонил операцию.
+- `{ message: "Api rejected by user", code: 12 }` — веб-сайт не является доверенным.
+- `{ message: "Invalid data", data: "Reason", code: 9 }` — некорректные или неполные данные ордера.
 
 ### signCustomData
 
-Метод Waves Keeper для подписи пользовательских данных для разных сервисов, он принимает объект:
+Метод Waves Keeper для подписи пользовательских данных для разных сервисов.
 
-#### version 1
+#### Версия 1
 
-- `version` 1
-- `binary` string 'base64:....'
+- `version`: 1.
+- `binary`: string 'base64:....'.
 
-Note: Этот метод добавляет префикс `[255, 255, 255, 1]` к подписанным байтам. Это было сделано для того, чтобы в этом методе было невозможно подписать данные транзакций, что может привести к транзакциям, не прошедшим проверку подлинности, и фишингу. [Подробности см. В методе serializeCustomData в библиотеке waves-транзакции](https://github.com/wavesplatform/waves-transactions/blob/master/src/requests/custom-data.ts#L60)
+> Этот метод добавляет префикс `[255, 255, 255, 1]` к подписанным байтам. Это было сделано для того, чтобы в этом методе было невозможно подписать данные транзакций, что может привести к транзакциям, не прошедшим проверку подлинности, и фишингу. Подробности см. в методе [serializeCustomData](https://github.com/wavesplatform/waves-transactions/blob/master/src/requests/custom-data.ts#L60) библиотеки waves-transactions.
 
 Пример:
 
@@ -828,20 +822,21 @@ Note: Этот метод добавляет префикс `[255, 255, 255, 1]`
 
 Ошибки:
 
-- `{ message: "User denied message", code: 10 }` – the user rejected the request
-- `{ message: "Api rejected by user", code: 12 }` – The website is not trusted
-- `{ message: "Invalid data", data: "Reason", code: 9 }` - invalid/incomplete request data
+- `{ message: "User denied message", code: 10 }` — пользователь отклонил операцию.
+- `{ message: "Api rejected by user", code: 12 }` — веб-сайт не является доверенным.
+- `{ message: "Invalid data", data: "Reason", code: 9 }` — некорректные или неполные данные ордера.
 
-#### version 2
+#### Версия 2
 
-- `version` 2
-- `data` Array of
-  - `type` "binary"/string/"integer"/"boolean" - field type,
-  - `key` string - field name
-  - `value` /string/string/number/boolean
+- `version`: 2.
+- `data`: array of
+  - `type`: "binary"/string/"integer"/"boolean" — тип поля.
+  - `key`: string — имя поля.
+  - `value`: string/number/boolean.
 
-Байты для подписи: [255, 255, 255, 2, ...(from data Array to bin)]
-[waves-transaction library](https://github.com/wavesplatform/waves-transactions/blob/master/src/requests/custom-data.ts)
+Байты для подписи: [255, 255, 255, 2, ...(from `data` array to bin)]
+
+См. библиотеку [waves-transactions](https://github.com/wavesplatform/waves-transactions/blob/master/src/requests/custom-data.ts).
 
 Пример:
 
@@ -865,28 +860,29 @@ Note: Этот метод добавляет префикс `[255, 255, 255, 1]`
 
 Ошибки:
 
-- `{ message: "User denied message", code: 10 }` – the user rejected the request
-- `{ message: "Api rejected by user", code: 12 }` – The website is not trusted
-- `{ message: "Invalid data", data: "Reason", code: 9 }` - invalid/incomplete request data
+- `{ message: "User denied message", code: 10 }` — пользователь отклонил операцию.
+- `{ message: "Api rejected by user", code: 12 }` — веб-сайт не является доверенным.
+- `{ message: "Invalid data", data: "Reason", code: 9 }` — некорректные или неполные данные ордера.
 
 ### verifyCustomData
 
-Валидация custom data:
+Валидация подписи произвольных данных.
 
+```js
+   {
+       version: 1,
+       binary: 'base64:AADDEE==',
+       signature: '...',
+       publicKey: '...'
+    }
 ```
-       {
-           version: 1,
-           binary: 'base64:AADDEE==',
-           signature: '...',
-           publicKey: '...'
-       }
-       или
-       {
-            version: 2,
-            data: [{ type: 'string', key: 'name', value: 'Mr. First' }]
-            signature: '...',
-            publicKey: '...'
-       }
+или
+    {
+        version: 2,
+        data: [{ type: 'string', key: 'name', value: 'Mr. First' }]
+        signature: '...',
+        publicKey: '...'
+   }
 ```
 
 Пример:
@@ -900,14 +896,16 @@ Note: Этот метод добавляет префикс `[255, 255, 255, 1]`
     }).then(result => { console.log(result) });
 ```
 
-Ответ: true/false
+Ответ: true/false.
 
-- `{ message: "User denied message", code: 10 }` – the user rejected the request
-- `{ message: "Api rejected by user", code: 12 }` – The website is not trusted
+Ошибки:
+
+- `{ message: "User denied message", code: 10 }` — пользователь отклонил операцию.
+- `{ message: "Api rejected by user", code: 12 }` — веб-сайт не является доверенным.
 
 ### resourceIsApproved
 
-Проверка allow API status для вашего origin.
+Проверка, что пользователь разрешил сайту доступ к Waves Keeper.
 
 Пример:
 
@@ -915,11 +913,11 @@ Note: Этот метод добавляет префикс `[255, 255, 255, 1]`
     WavesKeeper.resourceIsApproved().then(result => { console.log(result) });
 ```
 
-Ответ: true/false
+Ответ: true/false.
 
 ### resourceIsBlocked
 
-Проверка статуса block API для вашего origin.
+Проверка, что пользователь заблокировал сайту доступ к Waves Keeper.
 
 Пример:
 
@@ -927,4 +925,4 @@ Note: Этот метод добавляет префикс `[255, 255, 255, 1]`
     WavesKeeper.resourceIsBlocked().then(result => { console.log(result) });
 ```
 
-Ответ: true/false
+Ответ: true/false.

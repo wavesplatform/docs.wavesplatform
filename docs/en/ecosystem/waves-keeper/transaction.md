@@ -2,19 +2,19 @@
 
 Waves Keeper API supports the following types of transactions:
 
-- 3 — issue transaction;
-- 4 — transfer transaction;
-- 5 — reissue transacton;
-- 6 — burn transaction;
-- 8 — lease transaction;
-- 9 — lease cancel transaction;
-- 10 — create alias transaction;
-- 11 — mass transfer transaction;
-- 12 — date transaction;
-- 13 — set script transaction;
-- 14 — sponsor fee transaction;
-- 15 — set asset script transaction.
-- 16 — invoke script.
+- 3 – issue transaction;
+- 4 – transfer transaction;
+- 5 – reissue transacton;
+- 6 – burn transaction;
+- 8 – lease transaction;
+- 9 – lease cancel transaction;
+- 10 – create alias transaction;
+- 11 – mass transfer transaction;
+- 12 – date transaction;
+- 13 – set script transaction;
+- 14 – sponsor fee transaction;
+- 15 – set asset script transaction.
+- 16 – invoke script.
 
 In Waves Keeper API transaction format is different from [Node REST API](/ru/waves-node/node-api). The `signTransaction`, `signAndPublishTransaction`, and `signTransactionPackage` accept transactions as follows
 
@@ -29,7 +29,7 @@ In Waves Keeper API transaction format is different from [Node REST API](/ru/wav
 
 Legend keys:
 
-* \* – optional field, data are automatically supplied from WavesKeeper.
+* \* – optional field, data are automatically supplied from Waves Keeper.
 * [x,y] – length limit from x to y.
 * [,x] – length limit to x.
 * [y,] – length limit from y.
@@ -43,22 +43,23 @@ MoneyLike could look as:
 - `{ tokens: 1, assetId: "WAVES" }`
 - `{ coins: 100000000, assetId: "WAVES" }`
 
-In both messages, the same price of 1 WAVES is indicated. You can easily convert `coins`into `tokens`and back, if you know in what asset the price is indicated and you have received its precision `tokens = coins / (10 ** precision)` \
+In both messages, the same price of 1 WAVES is indicated. You can easily convert `coins`into `tokens`and back, if you know in what asset the price is indicated and you have received its precision `tokens = coins / (10 ** precision)`.
+
 If the field contains other types than MoneyLike, for instance, string/MoneyLike , the sum is indicated as a number in  `coins`.
 
 [Calculating transaction fees](/en/blockchain/transaction/transaction-fee).
 
 ## Issue Transaction (type 3)
 
-- `name` [4, 16] string – token name,
-- `description` [0, 1000] string – token description,
-- `quantity` [0 - (JLM)] number/string - quantity,
-- `precision` [0 - 8] number - precision,
-- `reissuable` true|false – reissuble,
-- `*fee` MoneyLike -fee
-- `*script` string – [asset script](/en/building-apps/smart-contracts/what-is-smart-asset)
-- `*senderPublicKey` string – sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `name`: [4, 16] string – token name.
+- `description`: [0, 1000] string – token description.
+- `quantity`: [0 - (JLM)] number/string – token amount.
+- `precision`: [0 - 8] number – precision.
+- `reissuable`: true|false – reissuble.
+- `*fee`: MoneyLike – fee.
+- `*script`: string – asset script, see the [Smart Asset](/en/building-apps/smart-contracts/what-is-smart-asset) article.
+- `*senderPublicKey`: string – sender's public key in base58.
+- `*timestamp`: number/string – time in ms.
 
 Example:
 
@@ -87,12 +88,12 @@ In case of a success, we are issuing a new asset in the quantity of 1,000,000, a
 
 ## Transfer Transaction (type 4)
 
-- `amount` MoneyLike - amount,
-- `recipient` string – recipient's address or alias
-- `attachment`[,140 bytes] string or byte Array – additional info in text
-- `*fee` MoneyLike - fee
-- `*senderPublicKey` string – sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `amount`: MoneyLike – amount.
+- `recipient`: string – recipient's address or alias.
+- `attachment`: [,140 bytes] string or byte array – additional info in text.
+- `*fee`: MoneyLike – fee.
+- `*senderPublicKey`: string – sender's public key in base58.
+- `*timestamp` number/string – time in ms.
 
 Example:
 
@@ -113,12 +114,12 @@ Example:
 
 ## Reissue Transaction (Type 5)
 
-- `assetId` string - "asset ID",
-- `quantity` [0 - (JLM)] number/string/MoneyLike - quantity,
-- `reissuable` false – deny reissue
-- `*fee` MoneyLike -fee
-- `*senderPublicKey` string – sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `assetId`: string – asset ID.
+- `quantity`: [0 - (JLM)] number/string/MoneyLike – amount.
+- `reissuable`: false – deny reissue.
+- `*fee`: MoneyLike – fee.
+- `*senderPublicKey`: string – sender's public key in base58.
+- `*timestamp`: number/string – time in ms.
 
 Example:
 
@@ -141,15 +142,15 @@ Example:
       });
 ```
 
-In case of a success, we are re-issuing new asset in the quantity of 1,000,000, and your balance will show 10,000.00 Best Token
+In case of a success, we are re-issuing the asset in the quantity of 1000, and your balance will show 10.00 Best Token.
 
 ## Burn Transaction (Type 6)
 
-- `assetId` string – asset ID,
-- `amount` [0 - (JLM)] number/string/MoneyLike - quantity,
-- `*fee` MoneyLike -fee
-- `*senderPublicKey` string - sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `assetId`: string – asset ID.
+- `amount`: [0 - (JLM)] number/string/MoneyLike – amount.
+- `*fee`: MoneyLike – fee.
+- `*senderPublicKey`: string – sender's public key in base58.
+- `*timestamp`: number/string – time in ms.
 
 Example:
 
@@ -171,15 +172,15 @@ Example:
    });
 ```
 
-In case of a success, 1,000 coins `are burned`.
+In case of a success, 1,000 coins are burned.
 
 ## Lease Transaction (Type 8)
 
-- `recipient` string – recipient's address or alias,
-- `amount` [0 - (JLM)] number/string/MoneyLike - quantity,
-- `*fee` MoneyLike -fee
-- `*senderPublicKey` string - sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `recipient`: string – recipient's address or alias.
+- `amount`: [0 - (JLM)] number/string/MoneyLike – amount.
+- `*fee`: MoneyLike – fee.
+- `*senderPublicKey`: string – sender's public key in base58.
+- `*timestamp`: number/string – time in ms.
 
 Example:
 
@@ -205,10 +206,10 @@ In case of a success, 0.00001000 WAVES is leased.
 
 ## Lease Cancel Transaction (Type 9)
 
-- `leaseId` string – leasing transaction ID,
-- `*fee` MoneyLike -fee
-- `*senderPublicKey` string - sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `leaseId`: string – lease transaction ID.
+- `*fee`: MoneyLike – fee.
+- `*senderPublicKey`: string – sender's public key in base58.
+- `*timestamp`: number/string – time in ms.
 
 Example:
 
@@ -229,14 +230,14 @@ Example:
    });
 ```
 
-In case of a success, the leasing transaction is cancelled.
+In case of a success, the leasing is cancelled.
 
 ## Create Alias Transaction (Type 10)
 
-- `alias`[4, 30] string - alias
-- `*fee` MoneyLike -fee
-- `*senderPublicKey` string - sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `alias`: [4, 30] string – alias.
+- `*fee`: MoneyLike – fee.
+- `*senderPublicKey`: string – sender's public key in base58.
+- `*timestamp`: number/string – time in ms.
 
 Example:
 
@@ -261,13 +262,12 @@ In case of a success, an alias (another name) is created.
 
 ## Mass Transfer Transaction (Тype 11)
 
-- `totalAmount` moneyLike – total to be sent // instead of calculating the amount you may insert { assetId: "ID of the asset to be sent", coins: 0},
-- `transfers`  a mass of objects
-  { `recipient`: string - address/alias, amount: number/string/moneyLike }
-- `*fee` MoneyLike -fee
-- `attachment` [,140 bytes в base58] string – additional info
-- `*senderPublicKey` string - sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `totalAmount`: MoneyLike – total to be sent // instead of calculating the amount you may insert { `assetId`: "ID of the asset to be sent", `coin`s: 0}`.
+- `transfers`: an array of objects { `recipient`: string – address/alias, `amount`: number/string/moneyLike }.
+- `*fee`: MoneyLike – fee.
+- `attachment`: [,140 bytes в base58] string – additional info.
+- `*senderPublicKey`: string – sender's public key in base58.
+- `*timestamp`: number/string – time in ms.
 
 Example:
 
@@ -296,15 +296,15 @@ In case of a success, 0.002 WAVES will be sent to alias1 and alias2.
 
 ## Data Transaction (Type 12)
 
-- `data`  mass of objects
-  - `type` "binary"/string/"integer"/"boolean" - type,
-  - `key` string – field name
-  - `value` /string/string/number/boolean depends on the type
-- `*fee` MoneyLike - fee
-- `*senderPublicKey` string - sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `data`: array of objects:
+   - `type`: "binary"/string/"integer"/"boolean" – entry type.
+   - `key`: string – entry key.
+   - `value`: string(base64)/string/number/boolean depending on the type.
+- `*fee`: MoneyLike – fee.
+- `*senderPublicKey`: string – sender's public key in base58.
+- `*timestamp`: number/string – time in ms.
 
-Field:
+Example:
 
 ```js
    WavesKeeper.signAndPublishTransaction({
@@ -332,10 +332,10 @@ In case of a success, new data will be stored in the state.
 
 ## Set Script Transaction (Type 13)
 
-- `script` string - [account script](/en/building-apps/smart-contracts/what-is-smart-account) or [dApp script](/en/building-apps/smart-contracts/what-is-a-dapp).
-- `*fee` MoneyLike -fee
-- `*senderPublicKey` string - sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `script`: string – account script (see the [Smart Account](/en/building-apps/smart-contracts/what-is-smart-account) article) or dApp script (see the [dApp](/en/building-apps/smart-contracts/what-is-a-dapp) article).
+- `*fee`: MoneyLike – fee.
+- `*senderPublicKey`: string – sender's public key in base58.
+- `*timestamp`: number/string – time in ms.
 
 For cancelling a script the field `script` has to be "". [Script development on RIDE](https://ide.wavesplatform.com/)
 
@@ -383,10 +383,10 @@ In case of a success, a new script will be added to the account, allowing any tr
 
 ## Sponsor Fee Transaction (Type 14)
 
-- `minSponsoredAssetFee` MoneyLike – fee price in the asset.
-- `*fee` MoneyLike - fee
-- `*senderPublicKey` string - sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `minSponsoredAssetFee`: MoneyLike – amount of the sponsored asset that is equivalent to 0.001 WAVES.
+- `*fee`: MoneyLike – fee.
+- `*senderPublicKey`: string – sender's public key in base58.
+- `*timestamp`: number/string – time in ms.
 
 Example:
 
@@ -414,11 +414,11 @@ In case of a success, a transfer fee can be paid in the asset.
 
 ## Set Asset Script Transaction (Type 15)
 
-- `assetId` string – asset ID
-- `script` string – [asset script](/en/building-apps/smart-contracts/what-is-smart-asset)
-- `*fee` MoneyLike – fee
-- `*senderPublicKey` string - sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `assetId` string – asset ID.
+- `script` string – asset script, see the [Smart Asset](/en/building-apps/smart-contracts/what-is-smart-asset) article.
+- `*fee`: MoneyLike – fee.
+- `*senderPublicKey`: string – sender's public key in base58.
+- `*timestamp`: number/string – time in ms.
 
 It's now impossible to cancel a script, you can only add a new script. [Script development on RIDE](https://ide.wavesplatform.com/)
 
@@ -446,16 +446,16 @@ In case of a success, the asset's script will be reset.
 
 ## Invoke Script Transaction (Type 16)
 
-- `dApp` string – address script account
-- `call` object –
-  - `function` string function name
-  - `args` array
-    - `type` "binary"/string/"integer"/"boolean" - type,
-    - `value` /string/string/number/boolean - value for type
-- `*fee` MoneyLike – fee
-- `*payment` array MoneyLike (at now can use only 1 payment)
-- `*senderPublicKey` string - public key in base58
-- `*timestamp` number/string - number/string – time in ms
+- `dApp`: string – address of the dApp account.
+- `call`: object:
+  - `function`: string – function name.
+  - `args`: array:
+    - `type` "binary"/string/"integer"/"boolean" – type.
+    - `value` string(base64)/string/number/boolean – value.
+- `*fee`: MoneyLike – fee.
+- `*payment`: array of MoneyLike (at now can use only 1 payment).
+- `*senderPublicKey`: string – sender's public key in base58.
+- `*timestamp`: number/string – time in ms.
 
 Example:
 

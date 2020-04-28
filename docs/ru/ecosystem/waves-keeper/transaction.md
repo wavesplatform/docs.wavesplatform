@@ -29,7 +29,7 @@ Waves Keeper API поддерживает следующие типы транз
 
 Обозначения:
 
-* \* — необязательное поле, данные автоматически подставляются WavesKeeper.
+* \* — необязательное поле, данные автоматически подставляются Waves Keeper.
 * [x,y] — длина от x до y.
 * [,x] — длина не более x.
 * [y,] — длина не менее y.
@@ -41,24 +41,24 @@ Waves Keeper API поддерживает следующие типы транз
 MoneyLike может иметь вид:
 
 - `{ tokens: 1, assetId: "WAVES" }`
-- `{ coins: 100000000, assetId: "WAVES" }`;
+- `{ coins: 100000000, assetId: "WAVES" }`
 
-В обоих сообщениях указана одинаковая цена 1 WAVES. Вы можете легко конвертировать `coins` в `tokens` и обратно, если вы знаете, в каком активе указана цена, и получили его precision `tokens = coins / (10 ** precision)` \
+В обоих сообщениях указана одинаковая сумма: 1 WAVES. Вы можете легко конвертировать `coins` в `tokens` и обратно, если вы знаете, в каком ассете указана цена, и количество знаков после запятой: `tokens = coins / (10 ** precision)`.
 Если поле содержит другие типы, отличные от MoneyLike, например, string/MoneyLike, сумма указывается как число в `coins`.
 
 См. также раздел [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee).
 
 ## Транзакция выпуска (тип 3)
 
-- `name` [4, 16] string – token name,
-- `description` [0, 1000] string – token description,
-- `quantity` [0 - (JLM)] number/string - quantity,
-- `precision` [0 - 8] number - precision,
-- `reissuable` true|false – reissuble,
-- `*fee` MoneyLike -fee
-- `*script` string – [smart asset](/ru/building-apps/smart-contracts/what-is-smart-asset)
-- `*senderPublicKey` string – sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `name`: [4, 16] string — имя токена.
+- `description`: [0, 1000] string — описание токена.
+- `quantity`: [0 - (JLM)] number/string — количество токена.
+- `precision`: [0 - 8] number — количество знаков после запятой.
+- `reissuable`: true|false — флаг возможности довыпуска.
+- `*fee`: MoneyLike — комиссия за транзакцию.
+- `*script`: string — скрипт ассета, см. раздел [Смарт-ассет](/ru/building-apps/smart-contracts/what-is-smart-asset).
+- `*senderPublicKey`: string — открытый ключ отправителя в кодировке base58.
+- `*timestamp`: number/string — Unix-время в миллисекундах.
 
 Пример:
 
@@ -83,16 +83,16 @@ MoneyLike может иметь вид:
    });
 ```
 
-В случае успеха мы выпускаем новый ассет в количестве 1 000 000, и на вашем балансе будет отображаться 10 000,00 Best Token.
+В случае успеха будет выпущен новый ассет в количестве 1 000 000, и на вашем балансе будет отображаться 10 000,00 Best Token.
 
 ## Транзакция перевода (тип 4)
 
-- `amount` MoneyLike - amount,
-- `recipient` string – recipient's address or alias
-- `attachment`[,140 bytes] string or byte Array – additional info in text
-- `*fee` MoneyLike - fee
-- `*senderPublicKey` string – sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `amount`: MoneyLike – количество токена.
+- `recipient`: string – адрес или псевдоним получателя.
+- `attachment`: [,140 bytes] string или byte array – произвольный комментарий.
+- `*fee`: MoneyLike — комиссия за транзакцию.
+- `*senderPublicKey`: string — открытый ключ отправителя в кодировке base58.
+- `*timestamp`: number/string — Unix-время в миллисекундах.
 
 Пример:
 
@@ -113,12 +113,12 @@ MoneyLike может иметь вид:
 
 ## Транзакция довыпуска (тип 5)
 
-- `assetId` string - "asset ID",
-- `quantity` [0 - (JLM)] number/string/MoneyLike - quantity,
-- `reissuable` false – deny reissue
-- `*fee` MoneyLike -fee
-- `*senderPublicKey` string – sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `assetId`: string — идентификатор ассета.
+- `quantity`: [0 - (JLM)] number/string/MoneyLike — количество ассета.
+- `reissuable`: false – отмена возможности довыпуска.
+- `*fee`: MoneyLike — комиссия за транзакцию.
+- `*senderPublicKey`: string — открытый ключ отправителя в кодировке base58.
+- `*timestamp`: number/string — Unix-время в миллисекундах.
 
 Пример:
 
@@ -141,15 +141,15 @@ MoneyLike может иметь вид:
       });
 ```
 
-В случае успеха аккаунт довыпускает ассет на сумму 1 000 000, и на балансе появится 10 000,00 Best Token.
+В случае успеха аккаунт довыпускает ассет на сумму 1000 и на балансе появится 10,00 Best Token.
 
 ## Транзакция сжигания токена (тип 6)
 
-- `assetId` string – asset ID,
-- `amount` [0 - (JLM)] number/string/MoneyLike - quantity,
-- `*fee` MoneyLike -fee
-- `*senderPublicKey` string - sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `assetId`: string – идентификатор ассета.
+- `amount`: [0 - (JLM)] number/string/MoneyLike — количество ассета.
+- `*fee`: MoneyLike — комиссия за транзакцию.
+- `*senderPublicKey`: string — открытый ключ отправителя в кодировке base58.
+- `*timestamp`: number/string — Unix-время в миллисекундах.
 
 Пример:
 
@@ -175,11 +175,11 @@ MoneyLike может иметь вид:
 
 ## Транзакция лизинга (тип 8)
 
-- `recipient` string – recipient's address or alias,
-- `amount` [0 - (JLM)] number/string/MoneyLike - quantity,
-- `*fee` MoneyLike -fee
-- `*senderPublicKey` string - sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `recipient`: string – адрес или псевдоним получателя.
+- `amount`: [0 - (JLM)] number/string/MoneyLike — количество.
+- `*fee`: MoneyLike — комиссия за транзакцию.
+- `*senderPublicKey`: string — открытый ключ отправителя в кодировке base58.
+- `*timestamp`: number/string — Unix-время в миллисекундах.
 
 Пример:
 
@@ -201,14 +201,14 @@ MoneyLike может иметь вид:
    });
 ```
 
-In case of a success, 0.00001000 WAVES is leased.
+В случае успеха 0,00001000 WAVES передается в лизинг.
 
 ## Транзакция отмены лизинга (тип 9)
 
-- `leaseId` string – leasing transaction ID,
-- `*fee` MoneyLike -fee
-- `*senderPublicKey` string - sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `leaseId`: string — идентификатор лизинга.
+- `*fee`: MoneyLike — комиссия за транзакцию.
+- `*senderPublicKey`: string — открытый ключ отправителя в кодировке base58.
+- `*timestamp`: number/string — Unix-время в миллисекундах.
 
 Пример:
 
@@ -229,14 +229,14 @@ In case of a success, 0.00001000 WAVES is leased.
    });
 ```
 
-В случае успеха лизинговая транзакция отменяется.
+В случае успеха лизинг прекращается.
 
 ## Транзакция создания псевдонима (тип 10)
 
-- `alias`[4, 30] string - alias
-- `*fee` MoneyLike -fee
-- `*senderPublicKey` string - sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `alias`: [4, 30] string — псевдоним.
+- `*fee`: MoneyLike — комиссия за транзакцию.
+- `*senderPublicKey`: string — открытый ключ отправителя в кодировке base58.
+- `*timestamp`: number/string — Unix-время в миллисекундах.
 
 Пример:
 
@@ -261,13 +261,12 @@ In case of a success, 0.00001000 WAVES is leased.
 
 ## Транзакция массового перевода (тип 11)
 
-- `totalAmount` moneyLike – total to be sent // instead of calculating the amount you may insert { assetId: "ID of the asset to be sent", coins: 0},
-- `transfers`  a mass of objects
-  { `recipient`: string - address/alias, amount: number/string/moneyLike }
-- `*fee` MoneyLike -fee
-- `attachment` [,140 bytes в base58] string – additional info
-- `*senderPublicKey` string - sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `totalAmount`: MoneyLike – суммарное количество ассета // вместо вычисления можно указать { `assetId`: "ID of the asset to be sent", `coins`: 0}.
+- `transfers`: массив объектов { `recipient`: string – адрес или псевдоним получателя, `amount`: number/string/moneyLike }.
+- `*fee`: MoneyLike — комиссия за транзакцию.
+- `attachment`: [,140 bytes] string или byte array – произвольный комментарий.
+- `*senderPublicKey`: string — открытый ключ отправителя в кодировке base58.
+- `*timestamp`: number/string — Unix-время в миллисекундах.
 
 Пример:
 
@@ -296,13 +295,13 @@ In case of a success, 0.00001000 WAVES is leased.
 
 ## Транзакция данных (тип 12)
 
-- `data`  mass of objects
-  - `type` "binary"/string/"integer"/"boolean" - type,
-  - `key` string – field name
-  - `value` /string/string/number/boolean depends on the type
-- `*fee` MoneyLike - fee
-- `*senderPublicKey` string - sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `data`: массив объектов.
+   - `type`: "binary"/string/"integer"/"boolean" — тип записи.
+   - `key`: string – ключ записи.
+   - `value`: string(base64)/string/number/boolean в зависимости от типа.
+- `*fee`: MoneyLike — комиссия за транзакцию.
+- `*senderPublicKey`: string — открытый ключ отправителя в кодировке base58.
+- `*timestamp`: number/string — Unix-время в миллисекундах.
 
 Пример:
 
@@ -332,10 +331,10 @@ In case of a success, 0.00001000 WAVES is leased.
 
 ## Транзакция установки скрипта (тип 13)
 
-- `script` string - [скрипт аккаунта](/ru/building-apps/smart-contracts/what-is-smart-account) или [dApp-скрипт](/ru/building-apps/smart-contracts/what-is-a-dapp). Для отмены скрипта укажите пустую строку.
-- `*fee` MoneyLike -fee
-- `*senderPublicKey` string - sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `script`: string — скрипт аккаунта (см. раздел [Смарт-аккаунт](/ru/building-apps/smart-contracts/what-is-smart-account)) или dApp-скрипт (см. раздел [dApp](/ru/building-apps/smart-contracts/what-is-a-dapp)). Для отмены скрипта укажите пустую строку.
+- `*fee`: MoneyLike — комиссия за транзакцию.
+- `*senderPublicKey`: string — открытый ключ отправителя в кодировке base58.
+- `*timestamp`: number/string — Unix-время в миллисекундах.
 
 Пример:
 
@@ -381,10 +380,10 @@ In case of a success, 0.00001000 WAVES is leased.
 
 ## Транзакция спонсирования (тип 14)
 
-- `minSponsoredAssetFee` MoneyLike – fee price in the asset.
-- `*fee` MoneyLike - fee
-- `*senderPublicKey` string - sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `minSponsoredAssetFee`: MoneyLike — количество спонсорского ассета, эквивалентное 0,001 WAVES.
+- `*fee`: MoneyLike — комиссия за транзакцию.
+- `*senderPublicKey`: string — открытый ключ отправителя в кодировке base58.
+- `*timestamp`: number/string — Unix-время в миллисекундах.
 
 Пример:
 
@@ -412,11 +411,11 @@ In case of a success, 0.00001000 WAVES is leased.
 
 ## Транзакция установки скрипта ассета (тип 15)
 
-- `assetId` string – asset ID
-- `script` string – [скрипт ассета](/ru/building-apps/smart-contracts/what-is-smart-asset)
-- `*fee` MoneyLike – fee
-- `*senderPublicKey` string - sender's public key in base58
-- `*timestamp` number/string – time in ms
+- `assetId`: string — идентификатор ассета.
+- `script` string – скрипт ассета, см. раздел [Смарт-ассет](/ru/building-apps/smart-contracts/what-is-smart-asset).
+- `*fee`: MoneyLike — комиссия за транзакцию.
+- `*senderPublicKey`: string — открытый ключ отправителя в кодировке base58.
+- `*timestamp`: number/string — Unix-время в миллисекундах.
 
 Сейчас невозможно отменить скрипт, вы можете только добавить новый скрипт.
 
@@ -444,16 +443,16 @@ In case of a success, 0.00001000 WAVES is leased.
 
 ## Транзакция вызова скрипта (тип 16)
 
-- `dApp` string – address script account
-- `call` object –
-  - `function` string function name
-  - `args` array
-    - `type` "binary"/string/"integer"/"boolean" - type,
-    - `value` /string/string/number/boolean - value for type
-- `*fee` MoneyLike – fee
-- `*payment` array MoneyLike (at now can use only 1 payment)
-- `*senderPublicKey` string - public key in base58
-- `*timestamp` number/string - number/string – time in ms
+- `dApp`: string – адрес аккаунта dApp.
+- `call`: объект:
+  - `function`: string — имя функции.
+  - `args`: массив:
+    - `type`: "binary"/string/"integer"/"boolean" — тип.
+    - `value` string(base64)/string/number/boolean — значение.
+- `*fee`: MoneyLike — комиссия за транзакцию.
+- `*payment`: массив MoneyLike (в настоящее время доступен только 1 платеж).
+- `*senderPublicKey`: string — открытый ключ отправителя в кодировке base58.
+- `*timestamp`: number/string — Unix-время в миллисекундах.
 
 Пример:
 

@@ -29,10 +29,10 @@ On browser pages that operate under the http/https (not local pages with file://
 
 All methods, except for `on` operate asynchronously and return [promises](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
-In code you can use [TypeScript types](https://github.com/wavesplatform/waveskeeper-types)
+In code you can use [TypeScript types](https://github.com/wavesplatform/waveskeeper-types).
 
-On initialize window.WavesKeeper has no api methods.
-You can use WavesKeeper.initialPromise for waiting end initializing api.
+On initialize `window.WavesKeeper` has no api methods.
+You can use `WavesKeeper.initialPromise` for waiting end initializing api.
 
 Example:
 
@@ -42,10 +42,9 @@ Example:
             /*...init app*/
             keeperApi.publicState().then( state => startApp(state));
         })
-
 ```
 
-In Waves Keeper, for greater security and ease of use, each new website using API has to be allowed by the user. At the first attempt to use API (except "`on"`), the user will see a request to allow the website to access Waves Keeper. If the user agrees to allow access, the website is considered trusted and can use API on its pages. Otherwise, the website is blocked, and an error message will be displayed in response to all requests `{message: "Api rejected by user", code: 12}.` The users won't see new notifications. To grant access, the user has to mark the website as trusted in the interface.
+In Waves Keeper, for greater security and ease of use, each new website using API has to be allowed by the user. At the first attempt to use API (except `on`), the user will see a request to allow the website to access Waves Keeper. If the user agrees to allow access, the website is considered trusted and can use API on its pages. Otherwise, the website is blocked, and an error message will be displayed in response to all requests `{message: "Api rejected by user", code: 12}.` The users won't see new notifications. To grant access, the user has to mark the website as trusted in the interface.
 
 ## Description of methods
 
@@ -117,30 +116,30 @@ REPLY:
 
 Description of query return fields:
 
-- `initialized` - boolean keeper initialized
-- `locked` - boolean keeper in wait mode
-- `account` – current account, if the user allowed access to the website, or null
-- `network` – current Waves network, node and matcher addresses
-- `messages` – signature request statuses
-- `txVersion` – available transaction versions for each type
+- `initialized` – boolean: Waves Keeper is initialized.
+- `locked` – boolean: Waves Keeper is locked (password required).
+- `account` – current account, if the user allowed access to the website, or `null`.
+- `network` – current Waves network, node and matcher addresses.
+- `messages` – signature request statuses.
+- `txVersion` – available transaction versions for each type.
 
 Possible errors:
 
-- `{ message: "Init Waves Keeper and add account" }` – Waves Keeper is not initialized
-- `{ message: "Add Waves Keeper account" }` – Waves Keeper accessed, but there are no accounts
-- `{ message: "User denied message" }` – the user denied the website operation with Waves Keeper
+- `{ message: "Init Waves Keeper and add account" }` – Waves Keeper is not initialized.
+- `{ message: "Add Waves Keeper account" }` – Waves Keeper accessed, but there are no accounts.
+- `{ message: "User denied message" }` – the user denied the website operation with Waves Keeper.
 
 ### notification
 
-Send message to keeper.
+Send message to Waves Keeper.
 You can send message only 1 time in 30 sec for trusted sites with send permission.
 
 `notification` facilitates input of the following data:
 
-- `title` - string (20 chars max) (required field)
-- `message` - string (250 chars max) (optional field)
+- `title` – string, 20 chars max (required field)
+- `message` – string, 250 chars max (optional field)
 
-return Promise
+Returns `Promise`.
 
 Example:
 
@@ -153,10 +152,10 @@ Example:
 
 Possible errors:
 
-- `{message: "Incorrect notification data", data: "title has more than 20 characters", code: "19"}` - Incorrect notification title
-- `{message: "Incorrect notification data", data: null, code: "19"}` - Incorrect notification data
-- `{message: "Can't sent notification", data: {msg: "Min notification interval 30s. Wait 28.017s."}, code: "18"}` - try send later, you can send 1 message in 30 sec
-- `{message: "Api rejected by user", code: 12}` the user denied the request or the website is not trusted.
+- `{message: "Incorrect notification data", data: "title has more than 20 characters", code: "19"}` – incorrect notification title.
+- `{message: "Incorrect notification data", data: null, code: "19"}` – incorrect notification data.
+- `{message: "Can't sent notification", data: {msg: "Min notification interval 30s. Wait 28.017s."}, code: "18"}` – try send later, you can send 1 message in 30 sec.
+- `{message: "Api rejected by user", code: 12}` – the user denied the request or the website is not trusted.
 
 ### encryptMessage
 
@@ -176,10 +175,10 @@ Example:
 
 Possible errors:
 
-- `{ message: "Init Waves Keeper and add account" }` – Waves Keeper is not initialized
-- `{ message: "App is locked" }` – Waves Keeper is locked
-- `{ message: "Add Waves Keeper account" }` – Waves Keeper accessed, but there are no accounts
-- `{ message: "User denied message" }` – the user denied the website operation with Waves Keeper
+- `{ message: "Init Waves Keeper and add account" }` – Waves Keeper is not initialized.
+- `{ message: "App is locked" }` – Waves Keeper is locked (password required).
+- `{ message: "Add Waves Keeper account" }` – Waves Keeper accessed, but there are no accounts.
+- `{ message: "User denied message" }` – the user denied the website operation with Waves Keeper.
 
 ### decryptMessage
 
@@ -199,10 +198,10 @@ Example:
 
 Possible errors:
 
-- `{ message: "Init Waves Keeper and add account" }` – Waves Keeper is not initialized
-- `{ message: "App is locked" }` – Waves Keeper is locked
-- `{ message: "Add Waves Keeper account" }` – Waves Keeper accessed, but there are no accounts
-- `{ message: "User denied message" }` – the user denied the website operation with Waves Keeper
+- `{ message: "Init Waves Keeper and add account" }` – Waves Keeper is not initialized.
+- `{ message: "App is locked" }` – Waves Keeper is locked (password required).
+- `{ message: "Add Waves Keeper account" }` – Waves Keeper accessed, but there are no accounts.
+- `{ message: "User denied message" }` – the user denied the website operation with Waves Keeper.
 
 ### on
 
@@ -259,7 +258,7 @@ or
     getAuthData(authData);
 ```
 
-`auth` facilitates input of the following data
+`auth` facilitates input of the following data:
 
 - `name` – name of the service (optional field)
 - `data` – a string line with any data (required field)
@@ -295,14 +294,14 @@ If the verification is successful, Waves Keeper will return in the promise an ob
 - `prefix` – a prefix participating in the signature
 - `address` – an address in Waves network
 - `publicKey` – the user's public key
-- `signature` - signature
+- `signature` – signature
 - `version` – API version
 
-ERRORS:
+Possible errors:
 
-- `{message: "Invalid data", data: "[{"field":"data","type":"string","message":"field is required"}]", code: 9}` – signature data contain errors
-- `{message: "User denied message", code: 10}` – the user denied the request
-- `{message: "Api rejected by user", code: 12}` - the website is not trusted
+- `{message: "Invalid data", data: "[{"field":"data","type":"string","message":"field is required"}]", code: 9}` – signature data contain errors.
+- `{message: "User denied message", code: 10}` – the user denied the request.
+- `{message: "Api rejected by user", code: 12}` – the website is not trusted.
 
 #### <a id="validity"></a>How to check signature validity
 
@@ -493,9 +492,7 @@ Example:
     });
 ```
 
-API returns lines, not an object, as in javascript precision is lost in operation with 8-byte integers.
-
-A description of supported transaction types is below.
+API returns lines, not an object, as in JavaScript precision is lost in operation with 8-byte integers.
 
 In the example, we are signing a transaction for transferring WAVES to the alias `test` in Waves network.
 
@@ -503,10 +500,10 @@ REPLY:
 
 `{"version":2,"assetId":"", "amount":156700000,"feeAssetId":"",fee:100000, "recipient":"recipient","attachment":"", "timestamp":1548770230589,"senderPublicKey":"public key","proofs":["signature"],"type":4}`
 
-ERRORS:
+Possible errors:
 
-- `{message: "User denied message", code: 10}` – The user denied the request.
-- `{message: "Api rejected by user", code: 12}` – The website is not trusted.
+- `{message: "User denied message", code: 10}` – the user denied the request.
+- `{message: "Api rejected by user", code: 12}` – the website is not trusted.
 - `{message: "Invalid data", data: "Reason", code: 9}` – invalid/incomplete request data.
 
 ### signAndPublishTransaction
@@ -541,10 +538,10 @@ REPLY:
 
 A line containing the entire past transaction.
 
-ERRORS:
+Possible errors:
 
-- Same as `signTransaction`
-- `{message: "Filed request", data: "Error description", code: 15}` – a request was signed but not broadcasted
+- Same as `signTransaction`.
+- `{message: "Filed request", data: "Error description", code: 15}` – a request was signed but not broadcasted.
 
 ### signTransactionPackage
 
@@ -594,7 +591,7 @@ REPLY:
 
 A unit of two lines – transactions that are signed and ready to be broadcasted.
 
-ERRORS:
+Possible errors:
 
 Same as in `signTransaction`.
 
@@ -611,15 +608,24 @@ Waves Keeper's method for signing an order to the matcher. As input, it accepts 
     }
 ```
 
-- `*version` 1,2,3
-- `amount` MoneyLike - amount
-- `price` MoneyLike - price
-- `orderType` 'sell'/'buy' – order type
-- `matcherFee` MoneyLike - fee (0.003 WAVES minimum),
-- `matcherPublicKey` string - the public key of the exchange service
-- `expiration` string/number – the order's expiration time
-- `*timestamp` string/number - current time
-- `*senderPublicKey` string - public key in base58
+- `*version`: 1,2,3.
+- `amount`: MoneyLike – amount.
+- `price`: MoneyLike – price.
+- `orderType`: 'sell'/'buy' – order type.
+- `matcherFee`: MoneyLike — fee (0.003 WAVES minimum).
+- `matcherPublicKey`: string – the public key of the exchange service.
+- `expiration`: string/number – the order's expiration time in ms.
+- `*timestamp`: string/number - current time in ms.
+- `*senderPublicKey`: string - public key in base58.
+
+* \* – optional field, data are automatically supplied from Waves Keeper.
+
+MoneyLike could look as:
+
+- `{ tokens: 1, assetId: "WAVES" }`
+- `{ coins: 100000000, assetId: "WAVES" }`
+
+In both messages, the same amount of 1 WAVES is indicated. You can easily convert `coins`into `tokens`and back, if you know in what asset the price is indicated and you have received its precision: `tokens = coins / (10 ** precision)`.
 
 Example:
 
@@ -650,24 +656,24 @@ Example:
    });
 ```
 
-REPLY: A line with data for sending to the matcher.
+Response: a line with data for sending to the matcher.
 
-ERRORS:
+Possible errors:
 
-- `{ message: "User denied message", code: 10 }` – the user rejected the request
-- `{ message: "Api rejected by user", code: 12 }` – The website is not trusted
-- `{ message: "Invalid data", data: "Reason", code: 9 }` - invalid/incomplete request data
+- `{ message: "User denied message", code: 10 }` – the user rejected the request.
+- `{ message: "Api rejected by user", code: 12 }` – the website is not trusted.
+- `{ message: "Invalid data", data: "Reason", code: 9 }` – invalid/incomplete request data.
 
 ### signAndPublishOrder
 
 Waves Keeper's method for creating an order to the matcher is identical to `signOrder`, but it also tries to send data to the matcher.
 
-REPLY: the matcher's reply line about successful creation of an order.
+Response: the matcher's reply line about successful creation of an order.
 
-ERRORS:
+Possible errors:
 
-- Same as for `signOrder`
-- `{message: "Filed request", data: "Error description", code: 15}` – a request has been signed, but not sent to the matcher
+- Same as for `signOrder`.
+- `{message: "Filed request", data: "Error description", code: 15}` – a request has been signed, but not sent to the matcher.
 
 ### signCancelOrder
 
@@ -680,11 +686,10 @@ Waves Keeper's method for signing cancellation of an order to the matcher. As in
             ...data
         }
     }
-
 ```
 
-- `id` string – order ID
-- `*senderPublicKey` - string - sender's public key in base58
+- `id`: string – order ID.
+- `*senderPublicKey`: string – sender's public key in base58.
 
 Example:
 
@@ -697,18 +702,18 @@ Example:
     });
 ```
 
-REPLY: A data line for sending to the matcher.
+Response: A data line for sending to the matcher.
 
-ERRORS:
+Possible errors:
 
-- `{ message: "User denied message", code: 10 }` – the user rejected the request
-- `{ message: "Api rejected by user", code: 12 }` – The website is not trusted
-- `{ message: "Invalid data", data: "Reason", code: 9 }` - invalid/incomplete request data
+- `{ message: "User denied message", code: 10 }` – the user rejected the request.
+- `{ message: "Api rejected by user", code: 12 }` – the website is not trusted.
+- `{ message: "Invalid data", data: "Reason", code: 9 }` – invalid/incomplete request data.
 
 ### signAndPublishCancelOrder
 
 Waves Keeper's method for cancelling an order to the matcher. It works identically to `signCancelOrder`,
-but also tries to send data to the matcher. For api need know also 2 fields `priceAsset` and `amountAsset` from order.
+but also tries to send data to the matcher. You should specify two more fields: `priceAsset` and `amountAsset` from the order.
 
 Example:
 
@@ -727,11 +732,11 @@ Example:
     });
 ```
 
-REPLY: Data that came from the matcher.
+Response: data that came from the matcher.
 
-ERRORS:
+Possible errors:
 
-- Same as for `signCancelOrder`
+- Same as for `signCancelOrder`.
 - `{message: "Filed request", data: "Error description", code: 15}` – a request has been signed, but not sent to the matcher.
 
 ### signRequest
@@ -749,52 +754,44 @@ Waves Keeper's method for signing typified data, for signing requests on various
 
 Currently, the method supports the following types:
 
-**1001 – signing data for a request to the matcher for your orders**
+* **1001 – signing data for a request to the matcher for your orders**
 
-- `timestamp` number/string
-- `*senderPublicKey` string public key in base58
+   - `timestamp`: number/string.
+   - `*senderPublicKey`: string — public key in base58.
 
-Example:
+   Example:
 
-```js
-    WavesKeeper.signRequest({
-        type: 1001,
-        data: {
-            timestamp: 234234242423423
-        }
-    });
-```
+   ```js
+       WavesKeeper.signRequest({
+           type: 1001,
+           data: {
+               timestamp: 234234242423423
+           }
+       });
+   ```
 
-REPLY: a line with a signature in base58.
+* **1004 – signing data for a request to gateway**
 
-ERRORS:
+   - `timestamp`: number/string.
 
-- `{ message: "User denied message", code: 10 }` – the user rejected the request
-- `{ message: "Api rejected by user", code: 12 }` – The website is not trusted
-- `{ message: "Invalid data", data: "Reason", code: 9 }` - invalid/incomplete request data
+   Request:
 
-**1004 – signing data for a request to gateway**
+   ```js
+       WavesKeeper.signRequest({
+           type: 1004,
+           data: {
+               timestamp: 234234242423423
+           }
+       });
+   ```
 
-- `timestamp` number/string
+Response: a line with a signature in base58.
 
-Request:
+Possible errors:
 
-```js
-    WavesKeeper.signRequest({
-        type: 1004,
-        data: {
-            timestamp: 234234242423423
-        }
-    });
-```
-
-REPLY: a line with a signature in base58.
-
-ERRORS:
-
-- `{ message: "User denied message", code: 10 }` – the user rejected the request
-- `{ message: "Api rejected by user", code: 12 }` – The website is not trusted
-- `{ message: "Invalid data", data: "Reason", code: 9 }` - invalid/incomplete request data
+- `{ message: "User denied message", code: 10 }` – the user rejected the request.
+- `{ message: "Api rejected by user", code: 12 }` – the website is not trusted.
+- `{ message: "Invalid data", data: "Reason", code: 9 }` – invalid/incomplete request data.
 
 ### signCustomData
 
@@ -816,8 +813,7 @@ Example:
     });
 ```
 
-REPLY:
-
+Response:
 ```
    {
         version: 1,
@@ -827,11 +823,11 @@ REPLY:
    }
 ```
 
-ERRORS:
+Possible errors:
 
-- `{ message: "User denied message", code: 10 }` – the user rejected the request
-- `{ message: "Api rejected by user", code: 12 }` – The website is not trusted
-- `{ message: "Invalid data", data: "Reason", code: 9 }` - invalid/incomplete request data
+- `{ message: "User denied message", code: 10 }` – the user rejected the request.
+- `{ message: "Api rejected by user", code: 12 }` – the website is not trusted.
+- `{ message: "Invalid data", data: "Reason", code: 9 }` – invalid/incomplete request data.
 
 #### version 2
 
@@ -853,8 +849,7 @@ Example:
     });
 ```
 
-REPLY:
-
+Response:
 ```
    {
         version: 2,
@@ -864,11 +859,11 @@ REPLY:
    }
 ```
 
-ERRORS:
+Possible errors:
 
-- `{ message: "User denied message", code: 10 }` – the user rejected the request
-- `{ message: "Api rejected by user", code: 12 }` – The website is not trusted
-- `{ message: "Invalid data", data: "Reason", code: 9 }` - invalid/incomplete request data
+- `{ message: "User denied message", code: 10 }` – the user rejected the request.
+- `{ message: "Api rejected by user", code: 12 }` – the website is not trusted.
+- `{ message: "Invalid data", data: "Reason", code: 9 }` – invalid/incomplete request data.
 
 ### verifyCustomData
 
@@ -908,7 +903,7 @@ REPLY: true/false
 
 ### resourceIsApproved
 
-Check allow API status for your origin.
+Check that user allowed your website to access Waves Keeper.
 
 Example:
 
@@ -920,7 +915,7 @@ REPLY: true/false
 
 ### resourceIsBlocked
 
-Check block API status for your origin.
+Check that user blocked your website in Waves Keeper.
 
 Example:
 
