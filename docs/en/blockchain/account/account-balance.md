@@ -40,9 +40,9 @@ The **generating balance** is the minimum value of the effective balance during 
 
 ## Top up and view account balance
 
-You can buy and sell tokens using [Waves.Exchange](https://waves.exchange/) or at one of the [centralized exchanges](https://coinmarketcap.com/currencies/waves/#markets).
+You can buy and sell tokens using [Waves.Exchange](https://waves.exchange/) developed by Waves.Exchange team or at one of the [centralized exchanges](https://coinmarketcap.com/currencies/waves/#markets).
 
-You can view your account balance in Waves.Exchange or in the [Keeper](https://docs.waves.exchange/en/waves-keeper/) browser extension.
+You can view your account balance in Waves.Exchange or in the [Waves Keeper](/en/ecosystem/waves-keeper) browser extension.
 
 Example of the Wallet window with the list of tokens on the account:
 

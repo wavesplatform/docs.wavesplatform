@@ -163,7 +163,7 @@ _Рисунок 1_.
 
 Чтобы другие пользователи знали о нашем оракуле, используем Waves Oracles для создания карточки оракула.
 
-Waves Oracles использует расширение [Waves Keeper](https://docs.waves.exchange/ru/waves-keeper/).
+Waves Oracles использует расширение [Waves Keeper](/ru/ecosystem/waves-keeper/).
 
 Для создания карточки оракула используйте тот же аккаунт, который указывали для подписания транзакций в коде.
 

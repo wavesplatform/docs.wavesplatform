@@ -241,12 +241,20 @@ module.exports = [
   },
   {
     /*===============================  Keeper  =====================================*/
-    from: '/en/waves-keeper()',
-    to: 'https://docs.waves.exchange/en/waves-keeper',
+    from: '/en/waves-keeper/about-waves-keeper.html',
+    to: '/en/ecosystem/waves-keeper',
   },
   {
-    from: '/ru/waves-keeper()',
-    to: 'https://docs.waves.exchange/ru/waves-keeper',
+    from: '/ru/waves-keeper/about-waves-keeper.html',
+    to: '/ru/ecosystem/waves-keeper',
+  },
+  {
+    from: '/en/waves-keeper/how-to-use-waves-keeper.html',
+    to: '/en/ecosystem/waves-keeper/getting-started-with-keeper',
+  },
+  {
+    from: '/ru/waves-keeper/how-to-use-waves-keeper.html',
+    to: '/ru/ecosystem/waves-keeper/getting-started-with-keeper',
   },
   {
     /*===============================  Matcher  =====================================*/
@@ -807,7 +815,7 @@ module.exports = [
   },
   {
     from: '/en/waves-api-and-sdk/waves-keeper-api.html',
-    to: 'https://docs.waves.exchange/en/waves-keeper/waves-keeper-api',
+    to: '/en/ecosystem/waves-keeper/waves-keeper-api',
   },
   {
     from: '/en/waves-api-and-sdk/waves-data-service-api.html',

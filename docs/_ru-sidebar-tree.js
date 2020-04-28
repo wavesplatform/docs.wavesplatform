@@ -1251,48 +1251,6 @@ module.exports = {
           path: sdkPath + 'waves-data-service-api',
         },
         {
-          title: 'Клиентские библиотеки',
-          path: sdkPath + 'client-libraries',
-          children: [
-            {
-              title: 'Signer',
-              path: sdkPath + 'client-libraries/signer',
-            },
-            {
-              title: '[en] PyWaves',
-              path: sdkPath + 'client-libraries/pywaves',
-            },
-            {
-              title: '[en] WavesJ',
-              path: sdkPath + 'client-libraries/wavesj',
-            },
-            {
-              title: '[en] WavesCS',
-              path: sdkPath + 'client-libraries/wavescs',
-            },
-            {
-              title: '[en] WavesC',
-              path: sdkPath + 'client-libraries/waves-c',
-            },
-            {
-              title: '[en] GoWaves',
-              path: sdkPath + 'client-libraries/gowaves',
-            },
-            {
-              title: '[en] WavesRS',
-              path: sdkPath + 'client-libraries/wavesrs',
-            },
-            {
-              title: '[en] Waves transactions',
-              path: sdkPath + 'client-libraries/waves-transactions',
-            },
-            {
-              title: '[en] Community libraries',
-              path: sdkPath + 'client-libraries/unofficial-libraries',
-            },
-          ],
-        },
-        {
           title: '[en] Waves Games',
           path: sdkPath + 'waves-gaming-api',
           children: [
@@ -1305,6 +1263,48 @@ module.exports = {
               path: sdkPath + 'waves-gaming-api/examples',
             },
           ],
+        },
+      ],
+    },
+    {
+      title: 'Клиентские библиотеки',
+      path: sdkPath + 'client-libraries',
+      children: [
+        {
+          title: 'Signer',
+          path: sdkPath + 'client-libraries/signer',
+        },
+        {
+          title: '[en] PyWaves',
+          path: sdkPath + 'client-libraries/pywaves',
+        },
+        {
+          title: '[en] WavesJ',
+          path: sdkPath + 'client-libraries/wavesj',
+        },
+        {
+          title: '[en] WavesCS',
+          path: sdkPath + 'client-libraries/wavescs',
+        },
+        {
+          title: '[en] WavesC',
+          path: sdkPath + 'client-libraries/waves-c',
+        },
+        {
+          title: '[en] GoWaves',
+          path: sdkPath + 'client-libraries/gowaves',
+        },
+        {
+          title: '[en] WavesRS',
+          path: sdkPath + 'client-libraries/wavesrs',
+        },
+        {
+          title: '[en] Waves transactions',
+          path: sdkPath + 'client-libraries/waves-transactions',
+        },
+        {
+          title: '[en] Community libraries',
+          path: sdkPath + 'client-libraries/unofficial-libraries',
         },
       ],
     },
@@ -1322,6 +1322,26 @@ module.exports = {
     {
       title: 'Пополнение баланса аккаунта в тестовой сети',
       path: ecosystemPath + 'waves-explorer/account-balance-top-up-in-the-test-network',
+    },
+    {
+      title: 'Waves Keeper',
+      path: ecosystemPath + 'waves-keeper',
+      children: [
+        {
+          title: 'Начало работы с Waves Keeper',
+          path: ecosystemPath + 'waves-keeper/getting-started-with-keeper',
+        },
+        {
+          title: 'Waves Keeper API',
+          path: '/en/waves-keeper/waves-keeper-api',
+          children: [
+            {
+              title: 'Формат транзакций',
+              path: ecosystemPath + 'waves-keeper/getting-started-with-keeper',
+            },
+          ],
+        },
+      ],
     },
     {
       title: 'Waves Oracles',

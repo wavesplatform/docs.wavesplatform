@@ -127,6 +127,10 @@ module.exports = deepmerge(mixin, {
                         text: 'Бесплатные WAVES в Testnet',
                         link: '/ru/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network',
                     },
+                    keeper: {
+                        text: 'Waves Keeper',
+                        link: '/ru/ecosystem/waves-keeper',
+                    },
                     oracles: {
                         text: 'Oracles',
                         link: '/ru/ecosystem/waves-oracles/about-waves-oracles',

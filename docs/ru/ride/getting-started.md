@@ -508,7 +508,7 @@ For further development, the following tools and utilities are useful:
 
 - Visual Studio Code plugin: waves-ride
 - The `surfboard` tool will allow you to REPL and run tests on your existing node: [https://github.com/wavesplatform/surfboard]
-- You should also install the Waves Keeper browser extension: <https://wavesprotocol.org/protocol/keeper>
+- You should also install the Waves Keeper browser extension: </ru/ecosystem/waves-keeper>
 - Online IDE with examples: [https://ide.wavesplatform.com/](https://ide.wavesplatform.com/)
 
 Further help and information about tools can be found here: <https://wavesprotocol.org/developers>
