@@ -607,7 +607,7 @@ API возвращает строки, а не объект, поскольку 
 - `*version`: 1,2,3.
 - `amount`: MoneyLike — количество amount-ассета.
 - `price`: MoneyLike — цена amount-ассета, выраженная в price-ассете.
-- `orderType`: 'sell'/'buy' – тип ордера.
+- `orderType`: 'sell'/'buy' — тип ордера.
 - `matcherFee`: MoneyLike — комиссия (не менее 0,003 WAVES).
 - `matcherPublicKey`: string — открытый ключ матчера.
 - `expiration`: string/number — время окончания срока действия ордера.
@@ -685,7 +685,7 @@ MoneyLike может иметь вид:
 
 ```
 
-- `id`:string – идентификатор ордера.
+- `id`:string — идентификатор ордера.
 - `*senderPublicKey`: string — открытый ключ пользователя в кодировке base58.
 
 Пример:

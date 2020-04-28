@@ -1333,11 +1333,11 @@ module.exports = {
         },
         {
           title: 'Waves Keeper API',
-          path: '/en/waves-keeper/waves-keeper-api',
+          path: ecosystemPath + 'waves-keeper/waves-keeper-api',
           children: [
             {
               title: 'Формат транзакций',
-              path: ecosystemPath + 'waves-keeper/getting-started-with-keeper',
+              path: ecosystemPath + 'waves-keeper/transaction',
             },
           ],
         },
