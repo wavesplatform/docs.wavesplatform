@@ -57,7 +57,7 @@ let targetHeight = 100500
 height >= targetHeight
 ```
 
-### Issue of burn-proof token
+### Burn-proof token
 
 For the example smart asset, the token burning transactions are prohibited.
 
