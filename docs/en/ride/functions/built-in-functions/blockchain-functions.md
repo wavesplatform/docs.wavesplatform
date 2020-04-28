@@ -81,7 +81,7 @@ calculateAssetId(issue: Issue): ByteVector
   
 @Callable(inv)
 func issueAndSend() = {
-  let issue = Issue(unit, "CryptoRouble", "Description", 1000, 2, true, 0)
+  let issue = Issue("CryptoRouble", "Description", 1000, 2, true, unit, 0)
   let id = calculateAssetId(issue)
   [
     issue,

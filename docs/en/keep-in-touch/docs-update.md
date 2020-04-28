@@ -14,6 +14,12 @@ Added how-to guides:
 * [Airdrop](/en/building-apps/how-to/assets/airdrop)
 * [Receiving Payments](/en/building-apps/how-to/assets/payment)
 
+### Ride
+
+#### Script actions
+
+* [SponsorFee](/en/ride/structures/script-actions/sponsor-fee)
+
 ## March articles
 
 ### Blockchain

@@ -978,6 +978,10 @@ module.exports = {
               path: ridePath + 'structures/script-actions/script-transfer',
             },
             {
+              title: 'SponsorFee (v4)',
+              path: ridePath + 'structures/script-actions/sponsor-fee',
+            },
+            {
               title: 'StringEntry (v4)',
               path: ridePath + 'structures/script-actions/string-entry',
             },

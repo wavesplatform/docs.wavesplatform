@@ -11,6 +11,7 @@ dApp-скрипт может содержать несколько вызыва�
 | Добавление и изменение записей в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage) | Добавление, изменение, удаление записей в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage) |
 | Переводы токенов | Переводы токенов |
 |   | Выпуск, довыпуск, сжигание токенов |
+|   | Настройка [спонсирования](/ru/blockchain/waves-protocol/sponsored-fee) |
 
 К транзакции вызова скрипта можно приложить платежи в пользу dApp. В переводы токенов могут быть включены средства, полученные в этих платежах.
 
@@ -30,13 +31,43 @@ dApp-скрипт может содержать несколько вызыва�
 
 ### Результат выполнения вызываемой функции
 
-Результат выполнения вызываемой функции представляет собой действия (добавление записи, перевод токена и т.п.), которые передаются в перечисленные ниже структуры Ride в качестве аргументов.
+Результат выполнения вызываемой функции в Стандартной библиотеке версии 3 представляет собой одну из следующих структур:
 
-| Структура Ride, задающая результат | Описание | Пример |
-|---|---|---|
-| [WriteSet](/ru/ride/structures/script-results/write-set) | Используется, если в результате выполнения вызываемой функции должны быть выполнены операции над записями хранилища данных аккаунта, заданные при помощи структур [DataEntry](/ru/ride/structures/script-actions/data-entry) | `WriteSet([DataEntry("key", true), DataEntry("another_key", base58'someBase58VaLue'), DataEntry("yet_another_key", 42), DataEntry("one_more_key", "value")])` |
-| [TransferSet](/ru/ride/structures/script-results/write-set) | Используется, если в результате выполнения вызываемой функции должны быть выполнены переводы токенов, заданные при помощи структур [ScriptTransfer](/ru/ride/structures/script-actions/script-transfer) | `TransferSet([ScriptTransfer(Address(base58'3Ms8fSfAxBLDjKvNVgACRzQoBLCtCWxtawu'), 100, base58'someAssetid')])` |
-| [ScriptResult](/ru/ride/structures/script-results/script-result) | Используется, если в результате выполнения вызываемой функции должны быть выполнены и операции над записями хранилища данных аккаунта, и переводы токенов, см. [пример](#example3) | `ScriptResult(WriteSet([DataEntry("key", true), DataEntry("other_key", base58'someBase58VaLue'), DataEntry("yet_another_key", 42), DataEntry("one_more_key", "value")]), TransferSet([ScriptTransfer(Address(base58'3Ms8fSfAxBLDjKvNVgACRzQoBLCtCWxtawu'), 100, base58'someAssetid')]))` |
+* [WriteSet](/ru/ride/structures/script-results/write-set) — содержит список действий над записями хранилища данных аккаунта.
+
+   Пример:
+   
+   ```
+   WriteSet([
+         DataEntry("key", true),
+         DataEntry("another_key", base58'someBase58VaLue'),
+         DataEntry("yet_another_key", 42),
+         DataEntry("one_more_key", "value")
+      ])
+   ```
+
+* [TransferSet](/ru/ride/structures/script-results/-set) — содержит список переводов.
+
+   Пример:
+
+   ```
+   TransferSet([ScriptTransfer(Address(base58'3Ms8fSfAxBLDjKvNVgACRzQoBLCtCWxtawu'), 100, base58'someAssetid')])
+   ```
+
+* [ScriptResult](/ru/ride/structures/script-results/script-result) — содержит `WriteSet` и `TransferSet`.
+
+   Пример:
+
+   ```
+   ScriptResult(
+        WriteSet([
+          DataEntry("key", true),
+          DataEntry("other_key", base58'someBase58VaLue'),
+          DataEntry("yet_another_key", 42), DataEntry("one_more_key", "value")
+        ]),
+        TransferSet([ScriptTransfer(Address(base58'3Ms8fSfAxBLDjKvNVgACRzQoBLCtCWxtawu'), 100, base58'someAssetid')])
+      )
+   ```
 
 ### Действия скрипта
 
@@ -120,11 +151,24 @@ func verify() = false
 
 ### Результат выполнения вызываемой функции
 
-Результат выполнения вызываемой функции представляет собой действия (добавление записи, выпуск токена и т.п.), объединенные в список.
+Результат выполнения вызываемой функции в Стандартной библиотеке версии 4 представляет собой список действий скрипта. Действия будут выполнены в порядке, в котором они перечислены в списке.
 
-| Структура Ride, задающая результат | Описание | Пример |
-|---|---|---|
-| [List](/ru/ride/data-types/list) | Объединяет предназначенные для выполнения [действия скрипта](#actions4), см. [пример](#example4). Действия будут выполнены в порядке, в котором они перечислены в этом списке | `[BooleanEntry("key1", true), IntegerEntry("key2", 42), StringEntry("key3", "some string"), BinaryEntry("key4", base58'encoded'), DeleteEntry("key4"), ScriptTransfer(Address(base58'3Ms8fSfAxBLDjKvNVgACRzQoBLCtCWxtawu'), 100, base58'someAssetid'), Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 0), Reissue("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", true, 1000), Burn("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", 1000)]` |
+Пример:
+
+```
+[
+   BooleanEntry("key1", true),
+   IntegerEntry("key2", 42),
+   StringEntry("key3", "some string"),
+   BinaryEntry("key4", base58'encoded'),
+   DeleteEntry("key4"),
+   ScriptTransfer(Address(base58'3Ms8fSfAxBLDjKvNVgACRzQoBLCtCWxtawu'), 100, base58'someAssetid'),
+   Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 0),
+   Reissue("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", true, 1000),
+   Burn("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", 1000)]
+   SponsorFee("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", 300)
+]
+```
 
 ### Действия скрипта <a id="actions4"></a>
 

@@ -11,6 +11,7 @@ Callable functions features rely on [standard library](/en/ride/script/standard-
 | Adding and modifying of [account data storage](/en/blockchain/account/account-data-storage) entries | Adding, modifying, deleting of [account data storage](/en/blockchain/account/account-data-storage) entries |
 | Token transfers | Token transfers |
 |   | Issue, reissue, burning tokens |
+|   | [Sponsorship](/en/blockchain/waves-protocol/sponsored-fee) setup|
 
 The invoke script transaction can have payments in favor of dApp applied. Funds obtained in this payments can be included in token transfers.
 
@@ -28,15 +29,45 @@ Callable function can have arguments of the following types:
 * [String](/en/ride/data-types/string),
 * [Union](/en/ride/data-types/union) with elements whose types are listed above.
 
-### Callable function invocation results
+### Callable function invocation result
 
-Callable function invocation results are actions (adding entry, token transfer etc.) which are passed as arguments to the Ride structures listed below.
+Callable function invocation result in Standard library version 3 is one of the following structures:
 
-| Ride structure setting the result | Description | Example |
-|---|---|---|
-| [WriteSet](/en/ride/structures/script-results/write-set) | Used when actions on account data storage entries set by the [DataEntry](/en/ride/structures/script-actions/data-entry) structures must be performed as the result of the callable function invocation | `WriteSet([DataEntry("key", true), DataEntry("another_key", base58'someBase58VaLue'), DataEntry("yet_another_key", 42), DataEntry("one_more_key", "value")])` |
-| [TransferSet](/en/ride/structures/script-results/write-set) | Used when token transfers set by the [ScriptTransfer](/en/ride/structures/script-actions/script-transfer) structures must be performed as the result of the callable function invocation | `TransferSet([ScriptTransfer(Address(base58'3Ms8fSfAxBLDjKvNVgACRzQoBLCtCWxtawu'), 100, base58'someAssetid')])` |
-| [ScriptResult](/en/ride/structures/script-results/script-result) | Used when both actions on account data storage entries and token transfers must be performed as the result of the callable function invocation, see [example](#example3) | `ScriptResult(WriteSet([DataEntry("key", true), DataEntry("other_key", base58'someBase58VaLue'), DataEntry("yet_another_key", 42), DataEntry("one_more_key", "value")]), TransferSet([ScriptTransfer(Address(base58'3Ms8fSfAxBLDjKvNVgACRzQoBLCtCWxtawu'), 100, base58'someAssetid')]))` |
+* [WriteSet](/ru/ride/structures/script-results/write-set) — contains a list of actions for account data storage entries.
+
+   Example:
+   
+   ```
+   WriteSet([
+         DataEntry("key", true),
+         DataEntry("another_key", base58'someBase58VaLue'),
+         DataEntry("yet_another_key", 42),
+         DataEntry("one_more_key", "value")
+      ])
+   ```
+
+* [TransferSet](/ru/ride/structures/script-results/-set) — contains a list of transfers.
+
+   Example:
+
+   ```
+   TransferSet([ScriptTransfer(Address(base58'3Ms8fSfAxBLDjKvNVgACRzQoBLCtCWxtawu'), 100, base58'someAssetid')])
+   ```
+
+* [ScriptResult](/ru/ride/structures/script-results/script-result) — contains `WriteSet` and `TransferSet` structures.
+
+   Example:
+
+   ```
+   ScriptResult(
+        WriteSet([
+          DataEntry("key", true),
+          DataEntry("other_key", base58'someBase58VaLue'),
+          DataEntry("yet_another_key", 42), DataEntry("one_more_key", "value")
+        ]),
+        TransferSet([ScriptTransfer(Address(base58'3Ms8fSfAxBLDjKvNVgACRzQoBLCtCWxtawu'), 100, base58'someAssetid')])
+      )
+   ```
 
 ### Script actions <a id="scriptactions3"></a>
 
@@ -118,13 +149,26 @@ Callable function can have arguments of the following types:
   * [String](/en/ride/data-types/string),
   * [List](/en/ride/data-types/list).
 
-### Callable function invocation results
+### Callable function invocation result
 
-Callable function invocation results are actions (adding entry, token transfer etc.) which are enclosed to a list.
+Callable function invocation result in Standard library version 4 is a list of script actions. Actions are executed in the same order as the elements in the list.
 
-| Ride structure setting the result | Description | Example |
-|---|---|---|
-| [List](/en/ride/data-types/list) | Combines [callable function actions](#scriptactions4) which must be executed, see the [example](#example4). Actions execution order will correspond to the list elements order | `[BooleanEntry("key1", true), IntegerEntry("key2", 42), StringEntry("key3", "some string"), BinaryEntry("key4", base58'encoded'), DeleteEntry("key4"), ScriptTransfer(Address(base58'3Ms8fSfAxBLDjKvNVgACRzQoBLCtCWxtawu'), 100, base58'someAssetid'), Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 0), Reissue("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", true, 1000), Burn("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", 1000)]` |
+Example:
+
+```
+[
+   BooleanEntry("key1", true),
+   IntegerEntry("key2", 42),
+   StringEntry("key3", "some string"),
+   BinaryEntry("key4", base58'encoded'),
+   DeleteEntry("key4"),
+   ScriptTransfer(Address(base58'3Ms8fSfAxBLDjKvNVgACRzQoBLCtCWxtawu'), 100, base58'someAssetid'),
+   Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 0),
+   Reissue("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", true, 1000),
+   Burn("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", 1000)]
+   SponsorFee("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", 300)
+]
+```
 
 ### Script actions <a id="scriptactions4"></a>
 

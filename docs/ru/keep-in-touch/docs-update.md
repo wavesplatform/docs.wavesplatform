@@ -14,6 +14,12 @@
 * [Распространение токена (airdrop)](/ru/building-apps/how-to/assets/airdrop)
 * [Прием платежей](/ru/building-apps/how-to/assets/payment)
 
+### Ride
+
+#### Действия скрипта
+
+* [SponsorFee](/ru/ride/structures/script-actions/sponsor-fee)
+
 ## Мартовские статьи
 
 ### Блокчейн

@@ -37,7 +37,8 @@
 
    `"applicationStatus": "scriptExecutionFailed"` means that the dApp script or the asset script failed.
 
-* The following endpoints return the `errorMessage` structure indicating script failure reason for failed transactions:
+* The following endpoints return results of token issue, reisse, burning and sponsorship setups for invoke script transactions, and
+the `errorMessage` structure indicating script failure reason for failed transactions:
    * `/debug/stateChanges/address/{address}/limit/{limit}`
    * `/debug/stateChanges/info/{id}`
 
@@ -57,6 +58,7 @@
    * [Issue](/en/ride/structures/script-actions/issue)
    * [Reissue](/en/ride/structures/script-actions/reissue)
    * [Burn](/en/ride/structures/script-actions/burn)
+   * [SponsorFee](/en/ride/structures/script-actions/sponsor-fee)
    * [BooleanEntry](/en/ride/structures/script-actions/boolean-entry), [BinaryEntry](/en/ride/structures/script-actions/binary-entry), [IntegerEntry](/en/ride/structures/script-actions/int-entry), [StringEntry](/en/ride/structures/script-actions/string-entry) that add or update the [account data storage](/en/blockchain/account/account-data-storage) entries of the corresponding type. These actions replace [DataEntry](/en/ride/structures/script-actions/data-entry) that is not supported in version 4.
    * [DeleteEntry](/en/ride/structures/script-actions/delete-entry) that deletes the account data storage entry.
 * The [callable](/en/ride/functions/callable-function) function result format is modified. Since version 4 the result is the list of script actions. The `ScriptResult`, `WriteSet` and `TransferSet` structures are not supported.
