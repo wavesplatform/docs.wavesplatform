@@ -84,7 +84,7 @@ Example:
    });
 ```
 
-In case of a success, we are issuing a new asset in the quantity of 1,000,000, and your balance will show 10,000.00 Best Token.
+In case of a success, we are issuing a new asset in the quantity of 1,000,000, and the user balance will show 10,000.00 Best Token.
 
 ## Transfer Transaction (type 4)
 
@@ -263,7 +263,8 @@ In case of a success, an alias (another name) is created.
 ## Mass Transfer Transaction (Тype 11)
 
 - `totalAmount`: MoneyLike – total to be sent // instead of calculating the amount you may insert { `assetId`: "ID of the asset to be sent", `coin`s: 0}`.
-- `transfers`: an array of objects { `recipient`: string – address/alias, `amount`: number/string/moneyLike }.
+- `transfers`: an array of objects:
+   { `recipient`: string – address/alias, `amount`: number/string/MoneyLike }.
 - `*fee`: MoneyLike – fee.
 - `attachment`: [,140 bytes в base58] string – additional info.
 - `*senderPublicKey`: string – sender's public key in base58.
@@ -485,4 +486,4 @@ Example:
 
 ```
 
-In case of a success, invoke script function `tellme` in testnet account `3N27HUMt4ddx2X7foQwZRmpFzg5PSzLrUgU`.
+In case of a success, callable function `tellme` of Testnet account `3N27HUMt4ddx2X7foQwZRmpFzg5PSzLrUgU` will be invoked.
