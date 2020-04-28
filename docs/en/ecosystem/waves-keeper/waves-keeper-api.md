@@ -83,7 +83,7 @@ or
       const result = await getPublicState();
 ```
 
-REPLY:
+Response:
 
 ```js
 {
@@ -496,7 +496,7 @@ API returns lines, not an object, as in JavaScript precision is lost in operatio
 
 In the example, we are signing a transaction for transferring WAVES to the alias `test` in Waves network.
 
-REPLY:
+Response:
 
 `{"version":2,"assetId":"", "amount":156700000,"feeAssetId":"",fee:100000, "recipient":"recipient","attachment":"", "timestamp":1548770230589,"senderPublicKey":"public key","proofs":["signature"],"type":4}`
 
@@ -534,7 +534,7 @@ Example:
        });
 ```
 
-REPLY:
+Response:
 
 A line containing the entire past transaction.
 
@@ -587,7 +587,7 @@ Sign two transaction:
 - Transfer 1.567 WAVES to the alias test
 - Transfer 0.51 WAVES to the alias merry
 
-REPLY:
+Response:
 
 A unit of two lines – transactions that are signed and ready to be broadcasted.
 
@@ -838,6 +838,7 @@ Possible errors:
   - `value` /string/string/number/boolean
 
 Bytes to sign: [255, 255, 255, 2, ...(from data Array to bin)]
+
 [waves-transaction library](https://github.com/wavesplatform/waves-transactions/blob/master/src/requests/custom-data.ts)
 
 Example:
@@ -896,7 +897,9 @@ Example:
     }).then(result => { console.log(result) });
 ```
 
-REPLY: true/false
+Response: true/false.
+
+Possible errors:
 
 - `{ message: "User denied message", code: 10 }` – the user rejected the request
 - `{ message: "Api rejected by user", code: 12 }` – The website is not trusted
@@ -911,7 +914,7 @@ Example:
     WavesKeeper.resourceIsApproved().then(result => { console.log(result) });
 ```
 
-REPLY: true/false
+Response: true/false.
 
 ### resourceIsBlocked
 
@@ -923,4 +926,4 @@ Example:
     WavesKeeper.resourceIsBlocked().then(result => { console.log(result) });
 ```
 
-REPLY: true/false
+Response: true/false.

@@ -49,7 +49,7 @@ If the field contains other types than MoneyLike, for instance, string/MoneyLike
 
 [Calculating transaction fees](/en/blockchain/transaction/transaction-fee).
 
-## Issue Transaction (type 3)
+## Issue Transaction (Type 3)
 
 - `name`: [4, 16] string – token name.
 - `description`: [0, 1000] string – token description.
@@ -86,7 +86,7 @@ Example:
 
 In case of a success, we are issuing a new asset in the quantity of 1,000,000, and the user balance will show 10,000.00 Best Token.
 
-## Transfer Transaction (type 4)
+## Transfer Transaction (Type 4)
 
 - `amount`: MoneyLike – amount.
 - `recipient`: string – recipient's address or alias.
