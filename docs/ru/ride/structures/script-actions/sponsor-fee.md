@@ -14,8 +14,8 @@ SponsorFee(assetId: ByteVector, minSponsoredAssetFee: Int|Unit)
 
 | # | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | assetId | [ByteVector](/ru/ride/data-types/byte-vector) | Идентификатор ассета. Можно указать любой ассет, выпущенный аккаунтом dApp, в том числе в рамках этого же вызова скрипта |
-| 2 | minSponsoredAssetFee | [Int](/ru/ride/data-types/int)&#124;[Unit](/ru/ride/data-types/unit) | Количество спонсорского ассета, эквивалентное 0,001 WAVES. Указывается в минимальных единицах («копейках») спонсорского ассета.<br>Значение `unit` — отключение спонсирования. |
+| 1 | assetId | [ByteVector](/ru/ride/data-types/byte-vector) | Идентификатор ассета. Допускается любой ассет, выпущенный аккаунтом dApp, в том числе в рамках этого же вызова скрипта |
+| 2 | minSponsoredAssetFee | [Int](/ru/ride/data-types/int)&#124;[Unit](/ru/ride/data-types/unit) | Количество спонсорского ассета, эквивалентное 0,001 WAVES. Указывается в минимальных единицах («копейках») спонсорского ассета.<br>Значение `unit` — отключение спонсирования |
 
 ## Пример
 
