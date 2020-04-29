@@ -9,7 +9,7 @@ When developing applications, it is recommended to use transactions of the lates
 | Transaction type | Available versions |
 | :--- | :--- |
 | [Burn transaction](/en/blockchain/transaction-type/burn-transaction) | 1, 2, 3 |
-| [Create alias transaction](/en/blockchain/transaction-type/create-alias-transaction) | | 1, 2, 3 |
+| [Create alias transaction](/en/blockchain/transaction-type/create-alias-transaction) | 1, 2, 3 |
 | [Data transaction](/en/blockchain/transaction-type/data-transaction) | 1, 2 |
 | [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) | 1, 2, 3 |
 | [Genesis transaction](/en/blockchain/transaction-type/genesis-transaction) | Has no version |
@@ -25,5 +25,5 @@ When developing applications, it is recommended to use transactions of the lates
 | [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 1, 2, 3 |
 | [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) | 1* |
 
-> * The Update Asset Info transaction has been added in node version 1.2.0. The functionality that implements it is called "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16). Version 1.2.x is currently available on [stagenet](/en/blockchain/blockchain-network/stage-network).
+> * The update asset info transaction type has been added in node version 1.2.0. The functionality that implements it is called "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16). Version 1.2.x is currently available on [stagenet](/en/blockchain/blockchain-network/stage-network).
 

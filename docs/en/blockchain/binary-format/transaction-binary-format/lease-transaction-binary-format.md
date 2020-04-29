@@ -24,7 +24,7 @@ message Recipient {
 
 | Field | Size | Description |
 | :--- | :--- | :--- |
-| recipient.public_key_hash | 20 байт | Recipient's account public key hash (a component of address, see the [Address binary format](/en/blockchain/binary-format/address-binary-format) article) |
+| recipient.public_key_hash | 20 байт | Recipient's account public key hash (a component of an address, see the [Address binary format](/en/blockchain/binary-format/address-binary-format) article) |
 | recipient.alias | From 4 to 30 bytes | Recipient's [alias](/en/blockchain/account/alias) |
 | amount | 8 байт | Amount of WAVELETs to lease (that is, amount of WAVES multiplied by 10<sup>8</sup>) |
 

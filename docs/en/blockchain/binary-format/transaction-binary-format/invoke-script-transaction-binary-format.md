@@ -30,7 +30,7 @@ message Amount {
 
 | Field | Size | Description |
 | :--- | :--- | :--- |
-| d_app.public_key_hash | 20 bytes | dApp account public key hash (a component of address, see the [Address binary format](/en/blockchain/binary-format/address-binary-format) article) |
+| d_app.public_key_hash | 20 bytes | dApp account public key hash (a component of an address, see the [Address binary format](/en/blockchain/binary-format/address-binary-format) article) |
 | d_app.alias | From 4 to 30 bytes | dApp [alias](/en/blockchain/account/alias) |
 | function_call | | Function name and arguments. Binary format of function call is the same as in [version 1](#version-1) (see item 13 in table) |
 | payments.asset_id | • 32 bytes for asset<br>• 0 for WAVES | ID of token in payment |

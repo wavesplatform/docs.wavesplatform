@@ -38,7 +38,7 @@ message Attachment {
 | Field | Size | Description |
 | :--- | :--- | :--- |
 | asset_id | 32 bytes | ID of token to transfer |
-| transfers.recipient.public_key_hash | 20 bytes | Recipient's account public key hash (a component of address, see the [Address binary format](/en/blockchain/binary-format/address-binary-format) article) |
+| transfers.recipient.public_key_hash | 20 bytes | Recipient's account public key hash (a component of an address, see the [Address binary format](/en/blockchain/binary-format/address-binary-format) article) |
 | transfers.recipient.alias | From 4 to 30 bytes | Recipient's [alias](/en/blockchain/account/alias) |
 | transfers.amount | 8 bytes | Amount of token to transfer, specified in the minimum fraction (“cents”) |
 | attachment | Up to 140 bytes | Arbitrary data (typically a comment to transfer) |

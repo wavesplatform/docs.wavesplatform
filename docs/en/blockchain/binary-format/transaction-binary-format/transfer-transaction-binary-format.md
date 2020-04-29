@@ -38,7 +38,7 @@ message Attachment {
 
 | Field | Size | Description |
 | :--- | :--- | :--- |
-| recipient.public_key_hash | 20 bytes | Recipient's account public key hash (a component of address, see the [Address binary format](/en/blockchain/binary-format/address-binary-format) article) |
+| recipient.public_key_hash | 20 bytes | Recipient's account public key hash (a component of an address, see the [Address binary format](/en/blockchain/binary-format/address-binary-format) article) |
 | recipient.alias | From 4 to 30 bytes | Recipient's [alias](/en/blockchain/account/alias) |
 | amount.asset_id |32 bytes | ID of token to transfer |
 | amount.amount | 8 bytes | Amount of token to transfer, specified in the minimum fraction (“cents”) |
@@ -48,7 +48,7 @@ message Attachment {
 
 | Field order number | Field | JSON field name | Field type | Field size in bytes | Comment |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | Version flag | | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Indicates the[ transaction version](/en/blockchain/transaction/transaction-version) is version 2 or higher.<br>Value must be 0 |
+| 1 | Version flag | | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Indicates the [transaction version](/en/blockchain/transaction/transaction-version) is version 2 or higher.<br>Value must be 0 |
 | 2 | [Transaction type ID](/en/blockchain/transaction-type) | type | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 4 |
 | 3 | [Transaction version](/en/blockchain/transaction/transaction-version) | version | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 2 |
 | 4 | Public key of the transaction sender  | senderPublicKey | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 | |

@@ -22,10 +22,10 @@ message IssueTransactionData {
 | Field | Size | Description |
 | :--- | :--- | :--- |
 | name | From 4 to 16 bytes | Token name |
-| description | From 0 to 1000 bytesт | Token description |
+| description | From 0 to 1000 bytes | Token description |
 | amount | 8 bytes | Amount of token to issue, specified in the minimum fraction (“cents”) |
 | decimals | 1 byte | Number of decimal places |
-| reissuable | 1 byte | Flag for reissue availability |
+| reissuable | 1 byte | Reissue availability flag |
 | script | Up to 8192 bytes | [Asset script](/en/ride/script/script-types/asset-script) |
 
 ## Version 2

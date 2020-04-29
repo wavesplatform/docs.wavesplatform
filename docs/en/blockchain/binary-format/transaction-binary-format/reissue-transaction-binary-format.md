@@ -24,7 +24,7 @@ message Amount {
 | :--- | :--- | :--- |
 | asset_amount.asset_id | 32 bytes | ID of token to reissue |
 | asset_amount.amount | 8 bytes | Amount of token to reissue, specified in the minimum fraction (“cents”) |
-| reissuable | 1 byte | Flag for reissue availability |
+| reissuable | 1 byte | Reissue availability flag |
 
 ## Version 2
 
