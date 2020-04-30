@@ -1,4 +1,4 @@
-# Order binary format
+# Order Binary Format
 
 > Learn more about [order](/en/blockchain/order).
 
@@ -10,7 +10,7 @@ An exchange transaction of [version 1](/en/blockchain/binary-format/transaction-
 
 ## Version 4 <a id="v4"></a>
 
-Binary format of order version 4 is defined in [order.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/order.proto). For information about `proto` see [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=en).
+Binary format of order version 4 is defined in [order.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/order.proto) protobuf scheme. For information about `proto` see [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=en).
 
 Version 4 is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
@@ -84,7 +84,7 @@ message Amount {
 | 13 | Matcher fee token | matcherFeeAssetId | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `F` | If token is not WAVES, then `F` = 32, else the field should be absent |
 | 14 | [Proofs](/en/blockchain/transaction/transaction-proof) | proofs | Array[[Proof](/en/blockchain/transaction/transaction-proof)] | `S` | If the array is empty, then `S` = 3.<br>If the array is not empty, then `S` = 3 + 2 × `N` + (`P`<sub>1</sub> + `P`<sub>2</sub> + ... + `P`<sub>n</sub>),<br>where<br>`N` is amount of proofs in the array,<br>`P`<sub>n</sub> — size N-th proof in bytes.<br>Maximum amount of proofs in the array is 8. Maximum length of each proof is 64 bytes |
 
-## JSON representation of order version 3
+## JSON Representation of Order Version 3
 
 ``` json
 {

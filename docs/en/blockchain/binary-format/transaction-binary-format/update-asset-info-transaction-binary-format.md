@@ -1,4 +1,4 @@
-# Update asset info transaction binary format
+# Update Asset Info Transaction Binary Format
 
 > Learn more about [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction).
 
@@ -6,7 +6,7 @@ Update asset info transaction is added since node version 1.2.0 and becomes avai
 
 ## Version 1
 
-Binary format is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). The fields that are common to all types of transactions are described in the [Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format) article.
+Binary format is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) protobuf scheme. The fields that are common to all types of transactions are described in the [Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format) article.
 
 ```
 message UpdateAssetInfoTransactionData {

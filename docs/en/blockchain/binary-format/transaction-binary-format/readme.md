@@ -1,4 +1,4 @@
-# Transaction binary format
+# Transaction Binary Format
 
 > Learn more about [transaction](/en/blockchain/transaction).
 
@@ -10,7 +10,7 @@ All strings are UTF-8 encoded.
 
 ### Protobuf
 
-Binary format of the latest versions of transactions is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Protobuf facilitates the development of client libraries for the Waves blockchain, as it avoids serialization errors and streamlines the creation of a correctly signed transaction.
+Binary format of the latest versions of transactions is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) protobuf scheme. Protobuf facilitates the development of client libraries for the Waves blockchain, as it avoids serialization errors and streamlines the creation of a correctly signed transaction.
 
 How to generate a transacton signature using Protobuf:
 
