@@ -1,4 +1,4 @@
-# Transaction version
+# Transaction Version
 
 All [transactions](/en/blockchain/transaction), with the exception of the [genesis transaction](/en/blockchain/transaction-type/genesis-transaction), have versions.
 
@@ -21,9 +21,8 @@ When developing applications, it is recommended to use transactions of the lates
 | [Reissue transaction](/en/blockchain/transaction-type/reissue-transaction) | 1, 2, 3 |
 | [Set asset script transaction](/en/blockchain/transaction-type/set-asset-script-transaction) | 1, 2 |
 | [Set script transaction](/en/blockchain/transaction-type/set-script-transaction) | 1, 2 |
-| Sponsor fee transaction | 1 |
+| Sponsor fee transaction | 1, 2 |
 | [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 1, 2, 3 |
 | [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) | 1* |
 
-> * The update asset info transaction type has been added in node version 1.2.0. The functionality that implements it is called "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16). Version 1.2.x is currently available on [stagenet](/en/blockchain/blockchain-network/stage-network).
-
+> * Update asset info transaction is added since node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.

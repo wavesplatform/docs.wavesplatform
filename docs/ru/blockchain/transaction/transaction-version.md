@@ -17,10 +17,12 @@
 | [Транзакция лизинга](/ru/blockchain/transaction-type/lease-transaction) | 1, 2, 3 |
 | [Транзакция массового перевода](/ru/blockchain/transaction-type/mass-transfer-transaction) | 1, 2 |
 | [Транзакция обмена](/ru/blockchain/transaction-type/exchange-transaction) | 1, 2, 3 |
-| [Транзакция обновления информации ассета](/ru/blockchain/transaction-type/update-asset-info-transaction) | 1 |
+| [Транзакция обновления информации ассета](/ru/blockchain/transaction-type/update-asset-info-transaction) | 1* |
 | [Транзакция перевода](/ru/blockchain/transaction-type/transfer-transaction) | 1, 2, 3 |
 | [Транзакция сжигания токена](/ru/blockchain/transaction-type/burn-transaction) | 1, 2, 3 |
 | [Транзакция создания псевдонима](/ru/blockchain/transaction-type/create-alias-transaction) | 1, 2, 3 |
 | Транзакция спонсирования | 1, 2 |
 | [Транзакция установки скрипта](/ru/blockchain/transaction-type/set-script-transaction) | 1, 2 |
 | [Транзакция установки скрипта ассета](/ru/blockchain/transaction-type/set-asset-script-transaction) | 1, 2 |
+
+* Транзакция обновления информации ассета добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
