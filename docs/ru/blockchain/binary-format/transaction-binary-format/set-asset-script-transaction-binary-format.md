@@ -1,8 +1,26 @@
 # Бинарный формат транзакции установки скрипта ассета
 
-> Узнать больше о [транзакции установки скрипта ассета](/ru/blockchain/transaction-type/set-asset-script-transaction)
+> Узнать больше о [транзакции установки скрипта ассета](/ru/blockchain/transaction-type/set-asset-script-transaction).
 
-## Транзакция версии 1
+## Версия 2
+
+Бинарный формат версии 2 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).
+
+Версия 2 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
+```
+message SetAssetScriptTransactionData {
+    bytes asset_id = 1;
+    bytes script = 2;
+};
+```
+
+| Поле | Размер | Описание |
+| :--- | :--- | :--- |
+| asset_id | 32 байта | ID токена |
+| script | До 8192 байт | [Скрипт ассета](/ru/ride/script/script-types/asset-script) |
+
+## Версия 1
 
 | Порядковый номер поля | Поле | Название JSON-поля | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- | :--- |

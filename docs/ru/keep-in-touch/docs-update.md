@@ -4,7 +4,8 @@
 
 ### Блокчейн
 
-Обновлена статья [Валидация транзакции](/ru/blockchain/transaction/transaction-validation).
+* Добавлены описания бинарных форматов новых версий [транзакций](/ru/blockchain/binary-format/transaction-binary-format) и [ордеров](/ru/blockchain/binary-format/order-binary-format).
+* Обновлена статья [Валидация транзакции](/ru/blockchain/transaction/transaction-validation).
 
 ### Разработка приложений на блокчейне
 

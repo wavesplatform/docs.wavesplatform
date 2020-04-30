@@ -1,6 +1,69 @@
-# Order binary format
+# Order Binary Format
 
-## Binary format version 3 <a id="v3"></a>
+> Learn more about [order](/en/blockchain/order).
+
+An exchange transaction of [version 3](/en/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format#version-3) can accept orders of versions [1](/ru/blockchain/binary-format/order-binary-format#v1)–[4](/ru/blockchain/binary-format/order-binary-format#v4).
+
+An exchange transaction of [version 2](/en/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format#version-2) can accept orders of versions [1](/ru/blockchain/binary-format/order-binary-format#v1)–[3](/ru/blockchain/binary-format/order-binary-format#v3).
+
+An exchange transaction of [version 1](/en/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format#version-1) can accept orders of version [1](/ru/blockchain/binary-format/order-binary-format#v1) only.
+
+## Version 4 <a id="v4"></a>
+
+Binary format of order version 4 is defined in [order.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/order.proto) protobuf scheme. For information about `proto` see [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=en).
+
+Version 4 is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+
+```protobuf
+message AssetPair {
+    bytes amount_asset_id = 1;
+    bytes price_asset_id = 2;
+};
+
+message Order {
+    enum Side {
+        BUY = 0;
+        SELL = 1;
+    };
+
+    int32 chain_id = 1;
+    bytes sender_public_key = 2;
+    bytes matcher_public_key = 3;
+    AssetPair asset_pair = 4;
+    Side order_side = 5;
+    int64 amount = 6;
+    int64 price = 7;
+    int64 timestamp = 8;
+    int64 expiration = 9;
+    Amount matcher_fee = 10;
+    int32 version = 11;
+    repeated bytes proofs = 12;
+};
+
+message Amount {
+    bytes asset_id = 1;
+    int64 amount = 2;
+};
+```
+
+| Field | Size | Description |
+| :--- | :--- | :--- |
+| chain_id | 1 byte | [Chain ID](/en/blockchain/blockchain-network/chain-id) |
+| sender_public_key | 32 bytes | Public key of the order sender |
+| matcher_public_key | 32 bytes | Public key of matcher |
+| asset_pair.amount_asset_id | • 32 bytes for asset<br>• 0 for WAVES | ID of the amount asset |
+| asset_pair.price_asset_id | • 32 bytes for asset<br>• 0 for WAVES | ID of the price asset |
+| order_side | 1 byte | Order type: buy or sell |
+| amount | 8 bytes | Amount of the amount asset, specified in the minimum fraction (“cent”) of asset |
+| price | 8 bytes | Price for the amount asset nominated in the price asset, multiplied by 10<sup>8</sup>. |
+| timestamp | 8 bytes | Order timestamp: Unix time in milliseconds |
+| expiration | 8 bytes | Unix time in milliseconds when the order will be expired |
+| matcher_fee.asset_id | • 32 bytes for asset<br>• 0 for WAVES | Matcher fee token ID |
+| matcher_fee.amount | 8 bytes | [Matcher fee](/en/blockchain/matcher-fee) |
+| version | 1 byte | Order version: 4 |
+| proofs | Each proof up to 64 bytes,<br>up to 8 proofs | Order proofs that are used to check the validity of the order |
+
+## Version 3 <a id="v3"></a>
 
 | # | Field name | JSON field name | Field type | Length in bytes | Description |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -21,7 +84,7 @@
 | 13 | Matcher fee token | matcherFeeAssetId | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `F` | If token is not WAVES, then `F` = 32, else the field should be absent |
 | 14 | [Proofs](/en/blockchain/transaction/transaction-proof) | proofs | Array[[Proof](/en/blockchain/transaction/transaction-proof)] | `S` | If the array is empty, then `S` = 3.<br>If the array is not empty, then `S` = 3 + 2 × `N` + (`P`<sub>1</sub> + `P`<sub>2</sub> + ... + `P`<sub>n</sub>),<br>where<br>`N` is amount of proofs in the array,<br>`P`<sub>n</sub> — size N-th proof in bytes.<br>Maximum amount of proofs in the array is 8. Maximum length of each proof is 64 bytes |
 
-## JSON representation of order version 3
+## JSON Representation of Order Version 3
 
 ``` json
 {
@@ -47,7 +110,7 @@
 }
 ```
 
-## Binary format version 2 <a id="order2"></a>
+## Version 2 <a id="order2"></a>
 
 | \# | Field name | Type | Length in Bytes |
 | --- | --- | --- | --- |
@@ -66,7 +129,7 @@
 | 11 | Matcher's fee | Long | 8
 | 12 | Proofs | Proofs | See Proofs structure
 
-## Binary format version 1 <a id="order1"></a>
+## Version 1 <a id="order1"></a>
 
 | \# | Field name | Type | Length in Bytes |
 | --- | --- | --- | --- |

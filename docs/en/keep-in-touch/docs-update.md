@@ -4,7 +4,8 @@
 
 ### Blockchain
 
-Updated the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
+* Added binary format descriptions for new versions of [transactions](/en/blockchain/binary-format/transaction-binary-format) and [orders](/en/blockchain/binary-format/order-binary-format).
+* Updated the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
 
 ### Building Apps
 
