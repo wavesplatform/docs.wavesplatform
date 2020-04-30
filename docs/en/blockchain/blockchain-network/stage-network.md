@@ -18,7 +18,7 @@ To use nodes on stagenet, you will need to:
 
 * Download the latest version of the Waves [node software](https://github.com/wavesplatform/Waves/releases)
 
-* Download [waves-StageNet.conf](https://github.com/wavesplatform/Waves/blob/version-0.17.x/node/waves-stagenet.conf) (Skip this step, if you use the DEB package for a node installation)
+* Download [waves-stagenet.conf](https://github.com/wavesplatform/Waves/blob/master/node/waves-stagenet.conf) (Skip this step, if you use the DEB package for a node installation)
 
 * Install the node as described in the [manual](/en/waves-node/how-to-install-a-node/how-to-install-a-node)
 
@@ -34,6 +34,6 @@ Stagenet has also been added to:
 
 * [Waves IDE](https://ide.wavesplatform.com/). To use IDE with stagenet, specify `Custom Nodes` as `https://nodes-stagenet.wavesnodes.com/` and `Network byte` as `S` in the Settings.
 
-* [Waves Keeper](https://wavesplatform.com/technology/keeper). To use Waves Keeper with stagenet, specify `Node address` as `https://nodes-stagenet.wavesnodes.com/` and `Matcher address` as `https://matcher-stagenet.wavesplatform.com` in Keeper’s settings.
+* [Waves Keeper](/en/ecosystem/keeper). To use Waves Keeper with stagenet, specify `Node address` as `https://nodes-stagenet.wavesnodes.com/` and `Matcher address` as `https://matcher-stagenet.wavesplatform.com` in Keeper’s settings.
 
 If you have any questions, feel free to ask them in Discord on the [stagenet channel](https://discordapp.com/channels/420933539375087617/615843628618612746).

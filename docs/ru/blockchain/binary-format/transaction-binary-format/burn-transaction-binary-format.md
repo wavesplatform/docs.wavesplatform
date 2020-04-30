@@ -41,7 +41,7 @@ message Amount {
 
 ## JSON-представление транзакции
 
-Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/csr25XQHT1c965Fg7cY2vJ7XHYVsudPYrUbdaFqgaqL) в Node API.
+Смотрите [пример](https://nodes.wavesnodes.com/transactions/info/csr25XQHT1c965Fg7cY2vJ7XHYVsudPYrUbdaFqgaqL) в Node API.
 
 ## Версия 1
 

@@ -9,4 +9,4 @@ Testnet это полнофункциональный блокчейн Waves с 
 
 ## Как получить токены Waves в Testnet
 
-> Токены Waves Testnet можно получить бесплатно на сайте [https://testnet.wavesexplorer.com/faucet](https://testnet.wavesexplorer.com/faucet)
+> Токены Waves Testnet можно получить бесплатно на сайте <https://wavesexplorer.com/testnet/faucet>.

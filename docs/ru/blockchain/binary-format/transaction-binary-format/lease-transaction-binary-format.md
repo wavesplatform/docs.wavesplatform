@@ -45,7 +45,7 @@ message Recipient {
 
 ## JSON-представление транзакции
 
-Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/J6jZCzLpWJX8EDVhopKFx1mcbFizLGHVb44dvqPzH4QS) в Node API.
+Смотрите [пример](https://nodes.wavesnodes.com/transactions/info/J6jZCzLpWJX8EDVhopKFx1mcbFizLGHVb44dvqPzH4QS) в Node API.
 
 ## Версия 1
 

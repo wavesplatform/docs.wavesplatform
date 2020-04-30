@@ -22,8 +22,7 @@ At the stage of [transaction validation](/en/blockchain/transaction/transaction-
 
 The `key` is being deleted when its `type` and `value` are not specified.
 
-> This feature is available from node version 1.2.0. This feature can be used after activation of the "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) functionality on the node.
-Version 1.2.x is currently available on [stagenet](/en/blockchain/blockchain-network/stage-network)
+> This functionality becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 When deleting a key using the JSON representation of a transaction, null is used as the type and value of the key. In one data transaction, keys can be used both for writing and deleting records. The maximum number of keys to be deleted in one transaction cannot exceed 100.
 

@@ -11,7 +11,7 @@ Testnet и mainnet будут иметь одинаковые версии и б
 Чтобы использовать stagenet, выполните следующие действия:
 
 * Скачайте [последнюю версию ноды](https://github.com/wavesplatform/Waves/releases)
-* Скачайте [waves-StageNet.conf](https://github.com/wavesplatform/Waves/blob/version-0.17.x/node/waves-stagenet.conf) (Пропустите этот шаг, если вы используете deb-пакет для развертывания ноды)
+* Скачайте [waves-stagenet.conf](https://github.com/wavesplatform/Waves/blob/master/node/waves-stagenet.conf) (Пропустите этот шаг, если вы используете deb-пакет для развертывания ноды)
 * Установите ноду согласно [руководству](/ru/waves-node/how-to-install-a-node/how-to-install-a-node)
 
 После этого нода начнёт скачивать блоки. Чтобы ускорить процесс, вы можете импортировать блоки согласно [руководству](/ru/waves-node/options-for-getting-actual-blockchain).
@@ -24,6 +24,6 @@ Stagenet также доступен на:
 
 * [Waves Explorer](https://wavesexplorer.com/stagenet)
 * [Waves IDE](https://ide.wavesplatform.com/). Чтобы использовать IDE со stagenet, в настройках укажите `Custom Nodes` как `https://nodes-stagenet.wavesnodes.com/`, а `Network byte` как `S`.
-* [Waves Keeper](https://wavesplatform.com/technology/keeper). Чтобы использовать Waves Keeper со stagenet, в настройках укажите `Node address` как `https://nodes-stagenet.wavesnodes.com/` и `Matcher address` как `https://matcher-stagenet.wavesplatform.com`.
+* [Waves Keeper](/en/ecosystem/waves-keeper). Чтобы использовать Waves Keeper со stagenet, в настройках укажите `Node address` как `https://nodes-stagenet.wavesnodes.com/` и `Matcher address` как `https://matcher-stagenet.wavesplatform.com`.
 
 Если у вас остались вопросы по stagenet, вы можете задать их в Discord на [канале stagenet](https://discordapp.com/channels/420933539375087617/615843628618612746).

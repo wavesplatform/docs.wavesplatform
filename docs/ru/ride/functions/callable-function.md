@@ -14,7 +14,7 @@ dApp-скрипт может содержать несколько вызыва�
 
 К транзакции вызова скрипта можно приложить платежи в пользу dApp. В переводы токенов могут быть включены средства, полученные в этих платежах.
 
-> Стандартная библиотека версии 4 доступна начиная с версии ноды 1.2.0 после активации функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№ 16). См. [Протокол активации](/ru/blockchain/waves-protocol/activation-protocol).
+> Стандартная библиотека версии 4 доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время работают только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ## Вызываемые функции в стандартной библиотеке v3
 
@@ -124,9 +124,9 @@ func verify() = false
 
 | Структура Ride, задающая результат | Описание | Пример |
 |---|---|---|
-| [List](/ru/ride/data-types/list) | Объединяет предназначенные для выполнения [действия вызываемой функции](), см. [пример](#example4). Действия будут выполнены в порядке, в котором они перечислены в этом списке | `[BooleanEntry("key1", true), IntegerEntry("key2", 42), StringEntry("key3", "some string"), BinaryEntry("key4", base58'encoded'), DeleteEntry("key4"), ScriptTransfer(Address(base58'3Ms8fSfAxBLDjKvNVgACRzQoBLCtCWxtawu'), 100, base58'someAssetid'), Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 0), Reissue("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", true, 1000), Burn("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", 1000)]` |
+| [List](/ru/ride/data-types/list) | Объединяет предназначенные для выполнения [действия скрипта](#actions4), см. [пример](#example4). Действия будут выполнены в порядке, в котором они перечислены в этом списке | `[BooleanEntry("key1", true), IntegerEntry("key2", 42), StringEntry("key3", "some string"), BinaryEntry("key4", base58'encoded'), DeleteEntry("key4"), ScriptTransfer(Address(base58'3Ms8fSfAxBLDjKvNVgACRzQoBLCtCWxtawu'), 100, base58'someAssetid'), Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 0), Reissue("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", true, 1000), Burn("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", 1000)]` |
 
-### Действия скрипта
+### Действия скрипта <a id="actions4"></a>
 
 Действия скрипта, выполняемые вызываемой функцией, задаются при помощи структур Ride.
 

@@ -20,8 +20,8 @@ For more theoretical and technical details please go to [_**Smart Contract Secti
 
 ## Hitchhiker’s Guide to Waves Smart Contracts
 
-1. [_**The First Part**_](https://blog.wavesplatform.com/the-hitchhikers-guide-to-waves-smart-contracts-part-1-b80aa47a745a)
-2. [_**The Second Part**_](https://blog.wavesplatform.com/the-hitchhikers-guide-to-waves-smart-contracts-part-2-44621fd5a007)
+1. [_**The First Part**_](https://medium.com/wavesprotocol/the-hitchhikers-guide-to-waves-smart-contracts-part-1-b80aa47a745a)
+2. [_**The Second Part**_](https://medium.com/wavesprotocol/the-hitchhikers-guide-to-waves-smart-contracts-part-2-44621fd5a007)
 
 ## Ride4Dapps
 

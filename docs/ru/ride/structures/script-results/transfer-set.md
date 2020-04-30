@@ -1,4 +1,4 @@
-# TransferSet
+# TransferSet (доступно в Стандартной библиотеке версии 3)
 
 > :warning: Структура TransferSet не входит в [Стандартную библиотеку](/ru/ride/script/standard-library) версии 4. Начиная с версии 4, используйте `ScriptTransfer` напрямую, см. раздел [Вызываемая функция](/ru/ride/functions/callable-function).
 
@@ -14,4 +14,4 @@ TransferSet(transfers: List[ScriptTransfer])
 
 |   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | transfers | [List](/ru/ride/data-types/list)[[ScriptTransfer](/ru/ride/structures/common-structures/script-transfer)] | Список переводов токенов |
+| 1 | transfers | [List](/ru/ride/data-types/list)[[ScriptTransfer](/ru/ride/structures/script-actions/script-transfer)] | Список переводов токенов |

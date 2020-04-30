@@ -17,7 +17,7 @@
 | :--- | :--- | :--- |
 | assetInfo(ByteVector): Аsset&#124;Unit | Получает информацию о [токене](/ru/blockchain/token) | 100 |
 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Получает информацию о [блоке](/ru/blockchain/block) по [высоте блока](/ru/blockchain/block/block-height) | 100 |
-| calculateAssetId(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/common-structures/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 10 |
+| calculateAssetId(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/script-actions/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 10 |
 | transactionHeightById(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 100 |
 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 100 |
 
@@ -27,7 +27,7 @@
 | :--- | :--- | :--- |
 | checkMerkleProof(ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что данные являются частью [дерева Меркла](https://ru.wikipedia.org/wiki/Дерево_хешей) | 30 |
 | createMerkleRoot(List[ByteVector], ByteVector, Int) : ByteVector | Вычисляет [корневой хеш дерева Меркла транзакций блока](/ru/blockchain/block/merkle-root) | 30 |
-| groth16Verify(ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Осуществляют проверку [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf) | 1900–3900 |
+| groth16Verify(ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Осуществляют проверку [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf) | 1200–2700 |
 | rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Проверяют, что цифровая подпись [RSA](https://ru.wikipedia.org/wiki/RSA) достоверна | 300 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>500–1000 для Стандартной библиотеки **версии 4** |
 | sigVerify(ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Проверяют, что цифровая подпись [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна | 100 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>100–200 для Стандартной библиотеки **версии 4** |
 
@@ -146,7 +146,7 @@
 | getBooleanValue(List[DataEntry], Int): Boolean | Возвращает логическое значение из списка записей данных по индексу. Выбрасывает исключение, если данных нет | 30 |
 | getBinary(List[DataEntry], String): ByteVector&#124;Unit | Возвращает массив байтов из списка записей данных по ключу | 10 |
 | getBinary(List[DataEntry], Int): ByteVector&#124;Unit | Возвращает массив байтов из списка записей данных по индексу | 30 |
-| getBinaryValue(ListDataEntry, String): ByteVector | Возвращает массив байтов из списка записей данных по ключу. Выбрасывает исключение, если данных нет | 10 |
+| getBinaryValue(List[DataEntry], String): ByteVector | Возвращает массив байтов из списка записей данных по ключу. Выбрасывает исключение, если данных нет | 10 |
 | getBinaryValue(List[DataEntry], Int): ByteVector | Возвращает массив байтов из списка записей данных по индексу. Выбрасывает исключение, если данных нет | 30 |
 | getString(List[DataEntry] String): String&#124;Unit | Возвращает строку из списка записей данных по ключу | 10 |
 | getString(List[DataEntry], Int): String&#124;Unit | Возвращает строку из списка записей данных по индексу | 30 |

@@ -1,11 +1,11 @@
 # Asset
 
-Структура [токена](/ru/blockchain/token).
+Структура [токена](/ru/blockchain/token), возвращаемая встроенной функцией [assetInfo](/ru/ride/functions/built-in-functions/blockchain-functions#assetinfo).
 
 ## Конструктор
 
 ``` ride
-Asset(quantity: Int, decimals: Int, issuer: Address, issuerPublicKey: ByteVector, reissuable: Boolean, scripted: Boolean, sponsored: Boolean)
+Asset(id: ByteVector, quantity: Int, decimals: Int, issuer: Address, issuerPublicKey: ByteVector, reissuable: Boolean, scripted: Boolean, sponsored: Boolean)
 ```
 
 ## Поля
@@ -13,8 +13,8 @@ Asset(quantity: Int, decimals: Int, issuer: Address, issuerPublicKey: ByteVector
 |   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
 | 1 | id | [ByteVector](/ru/ride/data-types/byte-vector) | [ID токена](/ru/blockchain/token/token-id)
-| 2 | quantity | [Int](/ru/ride/data-types/int) | Количество выпущенных [токенов](/ru/blockchain/token) |
-| 3 | decimals | [Int](/ru/ride/data-types/int) | Число знаков после запятой у токена |
+| 2 | quantity | [Int](/ru/ride/data-types/int) | Количество выпущенных [токенов](/ru/blockchain/token), умноженное на 10<sup>decimals</sup>. Не более 9&nbsp;223&nbsp;372&nbsp;036&nbsp;854&nbsp;775&nbsp;806 |
+| 3 | decimals | [Int](/ru/ride/data-types/int) | Число знаков после запятой у токена, от 0 до 8 |
 | 4 | issuer | [Address](/ru/ride/structures/common-structures/address) | Адрес аккаунта, который выпустил токен |
 | 5 | issuerPublicKey | [ByteVector](/ru/ride/data-types/byte-vector) | Открытый ключ аккаунта, выпустившего токен |
 | 6 | reissuable | [Boolean](/ru/ride/data-types/boolean) | true — токен можно довыпускать, false — нельзя довыпускать |

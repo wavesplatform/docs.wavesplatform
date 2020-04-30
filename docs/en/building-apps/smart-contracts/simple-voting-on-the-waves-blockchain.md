@@ -131,7 +131,7 @@ In the opened window, in the **Account** combo box, select the "Head of the HOA"
 
 ![](./_assets/voting/add-sign.png)
 
-Note that you can also sign a transaction with a seed phrase or using the [Waves Keeper](https://docs.waves.exchange/en/waves-keeper/).
+Note that you can also sign a transaction with a seed phrase or using the [Waves Keeper](/en/ecosystem/waves-keeper).
 
 ![](./_assets/voting/seed-and-waves-keeper.png)
 

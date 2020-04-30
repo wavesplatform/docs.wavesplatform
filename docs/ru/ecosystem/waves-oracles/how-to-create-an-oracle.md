@@ -1,6 +1,6 @@
 # Как создать оракул
 
-Waves Platform предоставляет каталог для поиска и создания карточек оракулов — [https://oracles.wavesexplorer.com](https://oracles.wavesexplorer.com). Благодаря [Waves Oracles](/ru/ecosystem/waves-oracles/about-waves-oracles) известно, какие оракулы уже созданы другими разработчиками и какие данные они записывают в блокчейн. Каждый может опубликовать карточку своего оракула, чтобы другие пользователи знали о его существовании и могли пользоваться его данными.
+[Waves Oracles](https://oracles.wavesexplorer.com) представляет собой каталог для поиска и создания карточек оракулов. Благодаря Waves Oracles известно, какие оракулы уже созданы другими разработчиками и какие данные они записывают в блокчейн. Каждый может опубликовать карточку своего оракула, чтобы другие пользователи знали о его существовании и могли пользоваться его данными.
 
 Создание самого оракула — микросервиса, который берет данные из внешнего источника и записывает их в блокчейн, остается за рамками сервиса Waves Oracles.
 
@@ -54,7 +54,7 @@ dataParams.push({ key: 'waves_btc_8', value: lastPrice * Math.pow(10, 8) });
 const signerDataTX = DataTX(params,'YOU ORACLE SEED HERE');
 ```
 
-Отправим подписанную транзакцию данных в блокчейн, Для [тестовой сети](/ru/blockchain/blockchain-network/test-network) — [pool.testnet.wavesnodes.com](https://pool.testnet.wavesnodes.com/api-docs/index.html), для [основной сети](/ru/blockchain/blockchain-network/main-network) — [https://nodes.wavesnodes.com](https://nodes.wavesnodes.com/api-docs/index.html).
+Отправим подписанную транзакцию данных в блокчейн, Для [тестовой сети](/ru/blockchain/blockchain-network/test-network) — [nodes-testnet.wavesnodes.com](https://nodes-testnet.wavesnodes.com/api-docs/index.html), для [основной сети](/ru/blockchain/blockchain-network/main-network) — [https://nodes.wavesnodes.com](https://nodes.wavesnodes.com/api-docs/index.html).
 
 ``` typescript
 const result = await broadcast(signerDataTX, 'https://nodes.wavesnodes.com');
@@ -163,7 +163,7 @@ _Рисунок 1_.
 
 Чтобы другие пользователи знали о нашем оракуле, используем Waves Oracles для создания карточки оракула.
 
-Waves Oracles использует расширение [Waves Keeper](https://docs.waves.exchange/ru/waves-keeper/).
+Waves Oracles использует расширение [Waves Keeper](/ru/ecosystem/waves-keeper/).
 
 Для создания карточки оракула используйте тот же аккаунт, который указывали для подписания транзакций в коде.
 

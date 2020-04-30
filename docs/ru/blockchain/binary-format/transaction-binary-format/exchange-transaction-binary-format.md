@@ -53,7 +53,7 @@ message ExchangeTransactionData {
 
 ## JSON-представление транзакции
 
-Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/9VJCXTdLqtsfvk1d68G5MT237ezQ4g9nuQhWZXR47vi9) в Node API.
+Смотрите [пример](https://nodes.wavesnodes.com/transactions/info/9VJCXTdLqtsfvk1d68G5MT237ezQ4g9nuQhWZXR47vi9) в Node API.
 
 ## Версия 1
 

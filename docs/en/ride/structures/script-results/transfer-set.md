@@ -14,4 +14,4 @@ TransferSet(transfers: List[ScriptTransfer])
 
 |   #   | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | transfers | [List](/en/ride/data-types/list)[[ScriptTransfer](/en/ride/structures/common-structures/script-transfer)] | List of token transfers |
+| 1 | transfers | [List](/en/ride/data-types/list)[[ScriptTransfer](/en/ride/structures/script-actions/script-transfer)] | List of token transfers |

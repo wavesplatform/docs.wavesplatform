@@ -356,6 +356,12 @@ module.exports = {
         {
           title: 'Комиссия за транзакцию',
           path: blockchainPath + 'transaction/transaction-fee',
+          children: [
+            {
+              title: 'Спонсирование комиссии',
+              path: blockchainPath + 'waves-protocol/sponsored-fee',
+            },
+          ]
         },
         {
           title: 'Подтверждение транзакции',
@@ -462,10 +468,6 @@ module.exports = {
           path: blockchainPath + 'waves-protocol/waves-ng-solution',
         },
         {
-          title: '[en] Sponsored fee',
-          path: blockchainPath + 'waves-protocol/sponsored-fee',
-        },
-        {
           title: 'Честный Proof-of-Stake',
           path: blockchainPath + 'waves-protocol/fair-pos',
         },
@@ -523,7 +525,7 @@ module.exports = {
         {
           title: 'Экспорт/Импорт блокчейна',
           path: nodePath + 'options-for-getting-actual-blockchain/import-from-the-blockchain',
-        },	  
+        },
         {
           title: 'Загрузка готовой актуальной базы данных',
           path: nodePath + 'options-for-getting-actual-blockchain/state-downloading-and-applying',
@@ -675,10 +677,6 @@ module.exports = {
       title: 'Базовые понятия',
       path: ridePath + 'base-concepts',
       children: [
-        {
-          title: 'Сложность',
-          path: ridePath + 'base-concepts/complexity',
-        },
         {
           title: 'Определение',
           path: ridePath + 'base-concepts/definition',
@@ -1062,6 +1060,20 @@ module.exports = {
       ],
     },
     {
+      title: 'Ограничения',
+      path: ridePath + 'limits',
+      children: [
+        {
+          title: 'Сложность',
+          path: ridePath + 'base-concepts/complexity',
+        },
+        {
+          title: 'Вес данных',
+          path: ridePath + 'limits/weight',
+        },
+      ],
+    },
+    {
       title: '[en] Script performance tests',
       path: ridePath + 'script-performance-tests',
     },
@@ -1083,6 +1095,18 @@ module.exports = {
         {
           title: 'Создание и отправка транзакций',
           path: buildingAppsPath + 'how-to/basic/transaction',
+        },
+        {
+          title: 'Выпуск токена',
+          path: buildingAppsPath + 'how-to/assets/issue',
+        },
+        {
+          title: 'Распространение токена (airdrop)',
+          path: buildingAppsPath + 'how-to/assets/airdrop',
+        },
+        {
+          title: 'Прием платежей',
+          path: buildingAppsPath + 'how-to/assets/payment',
         },
         {
           title: 'Покупка и продажа токенов',
@@ -1161,48 +1185,6 @@ module.exports = {
           path: sdkPath + 'waves-data-service-api',
         },
         {
-          title: 'Клиентские библиотеки',
-          path: sdkPath + 'client-libraries',
-          children: [
-            {
-              title: 'Signer',
-              path: sdkPath + 'client-libraries/signer',
-            },
-            {
-              title: '[en] PyWaves',
-              path: sdkPath + 'client-libraries/pywaves',
-            },
-            {
-              title: '[en] WavesJ',
-              path: sdkPath + 'client-libraries/wavesj',
-            },
-            {
-              title: '[en] WavesCS',
-              path: sdkPath + 'client-libraries/wavescs',
-            },
-            {
-              title: '[en] WavesC',
-              path: sdkPath + 'client-libraries/waves-c',
-            },
-            {
-              title: '[en] GoWaves',
-              path: sdkPath + 'client-libraries/gowaves',
-            },
-            {
-              title: '[en] WavesRS',
-              path: sdkPath + 'client-libraries/wavesrs',
-            },
-            {
-              title: '[en] Waves transactions',
-              path: sdkPath + 'client-libraries/waves-transactions',
-            },
-            {
-              title: '[en] Community libraries',
-              path: sdkPath + 'client-libraries/unofficial-libraries',
-            },
-          ],
-        },
-        {
           title: '[en] Waves Games',
           path: sdkPath + 'waves-gaming-api',
           children: [
@@ -1215,6 +1197,48 @@ module.exports = {
               path: sdkPath + 'waves-gaming-api/examples',
             },
           ],
+        },
+      ],
+    },
+    {
+      title: 'Клиентские библиотеки',
+      path: sdkPath + 'client-libraries',
+      children: [
+        {
+          title: 'Signer',
+          path: sdkPath + 'client-libraries/signer',
+        },
+        {
+          title: '[en] PyWaves',
+          path: sdkPath + 'client-libraries/pywaves',
+        },
+        {
+          title: '[en] WavesJ',
+          path: sdkPath + 'client-libraries/wavesj',
+        },
+        {
+          title: '[en] WavesCS',
+          path: sdkPath + 'client-libraries/wavescs',
+        },
+        {
+          title: '[en] WavesC',
+          path: sdkPath + 'client-libraries/waves-c',
+        },
+        {
+          title: '[en] GoWaves',
+          path: sdkPath + 'client-libraries/gowaves',
+        },
+        {
+          title: '[en] WavesRS',
+          path: sdkPath + 'client-libraries/wavesrs',
+        },
+        {
+          title: '[en] Waves transactions',
+          path: sdkPath + 'client-libraries/waves-transactions',
+        },
+        {
+          title: '[en] Community libraries',
+          path: sdkPath + 'client-libraries/unofficial-libraries',
         },
       ],
     },
@@ -1232,6 +1256,26 @@ module.exports = {
     {
       title: 'Пополнение баланса аккаунта в тестовой сети',
       path: ecosystemPath + 'waves-explorer/account-balance-top-up-in-the-test-network',
+    },
+    {
+      title: 'Waves Keeper',
+      path: ecosystemPath + 'waves-keeper',
+      children: [
+        {
+          title: 'Начало работы с Waves Keeper',
+          path: ecosystemPath + 'waves-keeper/getting-started-with-keeper',
+        },
+        {
+          title: 'Waves Keeper API',
+          path: ecosystemPath + 'waves-keeper/waves-keeper-api',
+          children: [
+            {
+              title: 'Формат транзакций',
+              path: ecosystemPath + 'waves-keeper/transaction',
+            },
+          ],
+        },
+      ],
     },
     {
       title: 'Waves Oracles',
@@ -1299,6 +1343,14 @@ module.exports = {
     {
       title: 'Release notes',
       path: keepInTouchPath + 'release-notes',
+    },
+    {
+      title: 'Release notes (Node Go)',
+      path: keepInTouchPath + 'release-notes-go',
+    },
+    {
+      title: 'Сохранение транзакций с неудачным результатом выполнения скрипта',
+      path: keepInTouchPath + 'april',
     },
     {
       title: 'Обновления в документации',

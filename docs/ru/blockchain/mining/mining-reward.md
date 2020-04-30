@@ -13,7 +13,7 @@
 Пример запроса:
 
 ```bash
-curl https://nodes.wavesplatform.com/blockchain/rewards
+curl https://nodes.wavesnodes.com/blockchain/rewards
 ```
 
 Пример ответа:

@@ -23,7 +23,7 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | :--- | :--- | :--- |
 | assetInfo(ByteVector): Аsset&#124;Unit | Gets the information about a [token](/en/blockchain/token) | 100 |
 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Gets the information about a [block](/en/blockchain/block) by the [block height](/en/blockchain/block/block-height) | 100 |
-| calculateAssetId(Issue): ByteVector | Calculates the ID of the asset, created by [Issue](/en/ride/structures/common-structures/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
+| calculateAssetId(Issue): ByteVector | Calculates the ID of the asset, created by [Issue](/en/ride/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
 | transactionHeightById(ByteVector):  Int&#124;Unit | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 100 |
 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Gets the data of a [transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 100 |
 
@@ -70,7 +70,7 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | getBooleanValue(List[DataEntry], Int): Boolean | Gets a boolean value from a list of data entires by index. Throws an exception if there is no data | 30 |
 | getBinary(List[DataEntry], String): ByteVector&#124;Unit | Gets a binary value from a list of data entires by key | 10 |
 | getBinary(List[DataEntry], Int): ByteVector&#124;Unit | Gets a binary value from a list of data entires by index | 30 |
-| getBinaryValue(ListDataEntry, String): ByteVector | Gets a binary value from a list of data entires by key. Throws an exception if there is no data | 10 |
+| getBinaryValue(List[DataEntry], String): ByteVector | Gets a binary value from a list of data entires by key. Throws an exception if there is no data | 10 |
 | getBinaryValue(List[DataEntry], Int): ByteVector | Gets a binary value from a list of data entires by index. Throws an exception if there is no data | 30 |
 | getString(List[DataEntry] String): String&#124;Unit | Gets a string value from a list of data entires by key | 10 |
 | getString(List[DataEntry], Int): String&#124;Unit | Gets a string value from a list of data entires by index | 30 |
@@ -156,6 +156,6 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | :--- | :--- | :--- |
 | checkMerkleProof(ByteVector, ByteVector, ByteVector): Boolean | Checks that the data is part of the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) | 30 |
 | createMerkleRoot(List[ByteVector], ByteVector, Int) : ByteVector | Calculates the [Merkle root hash](/en/blockchain/block/merkle-root) for transactions of block | 30 | 
-| groth16Verify(ByteVector, ByteVector, ByteVector): Boolean | Range of functions.<br>Check [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol | 1900–3900 |
+| groth16Verify(ByteVector, ByteVector, ByteVector): Boolean | Range of functions.<br>Check [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol | 1200–2700 |
 | rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Range of functions.<br>Check that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29) digital signature is valid, i.e. it was created by the owner of the public key | 300 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>500–1000 for Standard Library **version 4** |
 | sigVerify(ByteVector, ByteVector, ByteVector): Boolean | Range of functions.<br>Check that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid, i.e. it was created by the owner of the public key | 100 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>100–200 for Standard Library **version 4** |

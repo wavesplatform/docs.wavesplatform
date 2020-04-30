@@ -5,6 +5,15 @@
 ### Blockchain
 
 * Added binary format descriptions for new versions of [transactions](/en/blockchain/binary-format/transaction-binary-format) and [orders](/en/blockchain/binary-format/order-binary-format).
+* Updated the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
+
+### Building Apps
+
+Added how-to guides:
+
+* [Creating and Managing Custom Token](/en/building-apps/how-to/assets/issue)
+* [Airdrop](/en/building-apps/how-to/assets/airdrop)
+* [Receiving Payments](/en/building-apps/how-to/assets/payment)
 
 ## March articles
 
@@ -14,14 +23,18 @@
 
 ### Ride
 
+#### Limitations
+
+* [Data Weight](/en/ride/limits/weight)
+
 #### Built-in Functions
 
-* [createMerkleRoot](/en/ride/functions/built-in-functions/verification-functions#create-merkle-root)
+* [createMerkleRoot](/en/ride/functions/built-in-functions/verification-functions#createmerkleroot)
 * [transferTransactionFromProto](/en/ride/functions/built-in-functions/converting-functions#transfertransactionfromproto)
 
 Updated the the following descriptions:
 * [hashing functions](/en/ride/functions/built-in-functions/hashing-functions): `blake2b256`, `keccak256`, `sha256`;
-* [verification functions](/ru/ride/functions/built-in-functions/verification-functions): `groth16Verify`, `rsaVerify`, `sigVerify`.
+* [verification functions](/en/ride/functions/built-in-functions/verification-functions): `groth16Verify`, `rsaVerify`, `sigVerify`.
 
 ## February articles
 
@@ -64,14 +77,14 @@ Added how-to guides:
 * [FOLD&lt;N&gt; Macro](/en/ride/fold-macro)
 * Structures
   * Common structures
-    * [BinaryEntry](/en/ride/structures/common-structures/binary-entry)
-    * [BooleanEntry](/en/ride/structures/common-structures/boolean-entry)
-    * [Burn](/en/ride/structures/common-structures/burn)
-    * [DeleteEntry](/en/ride/structures/common-structures/delete-entry)
-    * [IntegerEntry](/en/ride/structures/common-structures/int-entry)
-    * [Issue](/en/ride/structures/common-structures/issue)
-    * [Reissue](/en/ride/structures/common-structures/reissue)
-    * [StringEntry](/en/ride/structures/common-structures/string-entry)
+    * [BinaryEntry](/en/ride/structures/script-actions/binary-entry)
+    * [BooleanEntry](/en/ride/structures/script-actions/boolean-entry)
+    * [Burn](/en/ride/structures/script-actions/burn)
+    * [DeleteEntry](/en/ride/structures/script-actions/delete-entry)
+    * [IntegerEntry](/en/ride/structures/script-actions/int-entry)
+    * [Issue](/en/ride/structures/script-actions/issue)
+    * [Reissue](/en/ride/structures/script-actions/reissue)
+    * [StringEntry](/en/ride/structures/script-actions/string-entry)
 
   * Transaction structures
     * [UpdateAssetInfoTransaction](/en/ride/structures/transaction-structures/update-asset-info-transaction)

@@ -4,6 +4,6 @@
 
 Сложность скрипта оценивается исходя из сложностей всех [операторов](/ru/ride/operators) и [функций](/ru/ride/functions), составляющих скрипт.
 
-Сложность скрипта можно посмотреть в [Waves IDE](https://ide.wavesplatform.com); в настоящий момент она ограничена 4000:
+Сложность скрипта можно посмотреть в [Waves IDE](https://ide.wavesplatform.com):
 
 ![](./_assets/complexity.png)

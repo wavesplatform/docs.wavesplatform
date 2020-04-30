@@ -10,7 +10,7 @@ An example of the default node configuration file is available [on Github](https
 | :--- | :--- | :--- |
 | 1 | Blockchain | Settings of [blockchain](/en/blockchain/blockchain) |
 | 2 | Extensions | Settings of [extensions](/en/waves-node/extensions) |
-| 3 | Features | Settings of [features](/en/waves-node/features/feature) |
+| 3 | Features | Settings of [features](/en/waves-node/features) |
 | 4 | Nodes synchronization | |
 | 5 | Non-aggregated data | |
 | 6 | NTP server | |

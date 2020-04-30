@@ -4,8 +4,7 @@ An **invoke script transaction** is a [transaction](/en/blockchain/transaction) 
 
 Payment may be attached to the invoke script transaction to transfer tokens to the account of the called dApp.
 
-> Starting from the fourth version of [Ride](/en/ride) language, up to two payments can be applied to invoke script transaction. This functionality becomes available after activation of "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) feature on the node.
-Ride 4.0 is currently available on [stagenet](/en/blockchain/blockchain-network/stage-network)
+> Up to two payments can be applied to invoke script transaction since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 ## Binary format
 

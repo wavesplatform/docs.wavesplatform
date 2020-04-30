@@ -16,4 +16,4 @@ Use [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide) or Visual Stu
 
 ## The history of creation
 
-Ride was created in 2018. The [white paper](https://wavesplatform.com/files/docs/white_paper_waves_smart_contracts.pdf) of the language was published at that time also.
+Ride was created in 2018. The [white paper](https://wavesprotocol.org/files/docs/white_paper_waves_smart_contracts.pdf) of the language was published at that time also.

@@ -356,6 +356,12 @@ module.exports = {
         {
           title: 'Transaction fee',
           path: blockchainPath + 'transaction/transaction-fee',
+          children: [
+            {
+              title: 'Sponsored fee',
+              path: blockchainPath + 'waves-protocol/sponsored-fee',
+            },
+          ]
         },
         {
           title: 'Transaction proof',
@@ -462,10 +468,6 @@ module.exports = {
           path: blockchainPath + 'waves-protocol/waves-ng-solution',
         },
         {
-          title: 'Sponsored fee',
-          path: blockchainPath + 'waves-protocol/sponsored-fee',
-        },
-        {
           title: 'Fair Proof of Stake',
           path: blockchainPath + 'waves-protocol/fair-pos',
         },
@@ -533,7 +535,7 @@ module.exports = {
         {
           title: 'Export/Import Blockchain',
           path: nodePath + 'options-for-getting-actual-blockchain/import-from-the-blockchain',
-        },	  
+        },
         {
           title: 'Download the Latest Blockchain',
           path: nodePath + 'options-for-getting-actual-blockchain/state-downloading-and-applying',
@@ -671,10 +673,6 @@ module.exports = {
       title: 'Base concepts',
       path: ridePath + 'base-concepts',
       children: [
-        {
-          title: 'Complexity',
-          path: ridePath + 'base-concepts/complexity',
-        },
         {
           title: 'Definition',
           path: ridePath + 'base-concepts/definition',
@@ -1058,6 +1056,20 @@ module.exports = {
       ],
     },
     {
+      title: 'Limitations',
+      path: ridePath + 'limits',
+      children: [
+        {
+          title: 'Complexity',
+          path: ridePath + 'base-concepts/complexity',
+        },
+        {
+          title: 'Data Weight',
+          path: ridePath + 'limits/weight',
+        },
+      ],
+    },
+    {
       title: 'Script performance tests',
       path: ridePath + 'script-performance-tests',
     },
@@ -1079,6 +1091,18 @@ module.exports = {
         {
           title: 'Creating & Broadcasting Transactions',
           path: buildingAppsPath + 'how-to/basic/transaction',
+        },
+        {
+          title: 'Tokenisation',
+          path: buildingAppsPath + 'how-to/assets/issue',
+        },
+        {
+          title: 'Airdrop',
+          path: buildingAppsPath + 'how-to/assets/airdrop',
+        },
+        {
+          title: 'Payments',
+          path: buildingAppsPath + 'how-to/assets/payment',
         },
         {
           title: 'Buying & Selling Tokens',
@@ -1189,48 +1213,6 @@ module.exports = {
           path: sdkPath + 'waves-data-service-api',
         },
         {
-          title: 'Client libraries',
-          path: sdkPath + 'client-libraries',
-          children: [
-            {
-              title: 'Signer',
-              path: sdkPath + 'client-libraries/signer',
-            },
-            {
-              title: 'PyWaves',
-              path: sdkPath + 'client-libraries/pywaves',
-            },
-            {
-              title: 'WavesJ',
-              path: sdkPath + 'client-libraries/wavesj',
-            },
-            {
-              title: 'WavesCS',
-              path: sdkPath + 'client-libraries/wavescs',
-            },
-            {
-              title: 'WavesC',
-              path: sdkPath + 'client-libraries/waves-c',
-            },
-            {
-              title: 'GoWaves',
-              path: sdkPath + 'client-libraries/gowaves',
-            },
-            {
-              title: 'WavesRS',
-              path: sdkPath + 'client-libraries/wavesrs',
-            },
-            {
-              title: 'Waves transactions',
-              path: sdkPath + 'client-libraries/waves-transactions',
-            },
-            {
-              title: 'Community libraries',
-              path: sdkPath + 'client-libraries/unofficial-libraries',
-            },
-          ],
-        },
-        {
           title: 'Waves Games',
           path: sdkPath + 'waves-gaming-api',
           children: [
@@ -1243,6 +1225,48 @@ module.exports = {
               path: sdkPath + 'waves-gaming-api/examples',
             },
           ],
+        },
+      ],
+    },
+    {
+      title: 'Client libraries',
+      path: sdkPath + 'client-libraries',
+      children: [
+        {
+          title: 'Signer',
+          path: sdkPath + 'client-libraries/signer',
+        },
+        {
+          title: 'PyWaves',
+          path: sdkPath + 'client-libraries/pywaves',
+        },
+        {
+          title: 'WavesJ',
+          path: sdkPath + 'client-libraries/wavesj',
+        },
+        {
+          title: 'WavesCS',
+          path: sdkPath + 'client-libraries/wavescs',
+        },
+        {
+          title: 'WavesC',
+          path: sdkPath + 'client-libraries/waves-c',
+        },
+        {
+          title: 'GoWaves',
+          path: sdkPath + 'client-libraries/gowaves',
+        },
+        {
+          title: 'WavesRS',
+          path: sdkPath + 'client-libraries/wavesrs',
+        },
+        {
+          title: 'Waves transactions',
+          path: sdkPath + 'client-libraries/waves-transactions',
+        },
+        {
+          title: 'Community libraries',
+          path: sdkPath + 'client-libraries/unofficial-libraries',
         },
       ],
     },
@@ -1260,6 +1284,26 @@ module.exports = {
     {
       title: 'Account balance top up in the test network',
       path: ecosystemPath + 'waves-explorer/account-balance-top-up-in-the-test-network',
+    },
+    {
+      title: 'Waves Keeper',
+      path: ecosystemPath + 'waves-keeper',
+      children: [
+        {
+          title: 'Getting started with Waves Keeper',
+          path: ecosystemPath + 'waves-keeper/getting-started-with-keeper',
+        },
+        {
+          title: 'Waves Keeper API',
+          path: ecosystemPath + 'waves-keeper/waves-keeper-api',
+          children: [
+            {
+              title: 'Transaction Format',
+              path: ecosystemPath + 'waves-keeper/transaction',
+            },
+          ],
+        },
+      ],
     },
     {
       title: 'Oracles',
@@ -1327,6 +1371,14 @@ module.exports = {
     {
       title: 'Release Notes',
       path: keepInTouchPath + 'release-notes',
+    },
+	{
+      title: 'Release Notes (Node Go)',
+      path: keepInTouchPath + 'release-notes-go',
+    },
+    {
+      title: 'Saving Failed Transactions',
+      path: keepInTouchPath + 'april',
     },
     {
       title: 'Documentation Updates',
