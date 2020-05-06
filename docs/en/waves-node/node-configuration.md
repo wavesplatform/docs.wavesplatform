@@ -239,7 +239,7 @@ The `utx` section allows to set unconfirmed transactions pool parameters.
 
 ### Features Settings
 
-The `features` section allows to set [features](/en/waves-node/features/readme) parameters
+The `features` section allows to set [features](/en/waves-node/features) parameters
 
 | Name                                 | Description                                                                                                                       | Default Value                  |
 |--------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|--------------------------------|

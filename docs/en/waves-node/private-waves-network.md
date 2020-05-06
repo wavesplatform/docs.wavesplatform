@@ -207,7 +207,7 @@ You can setup your custom blockchain with other services such as:
 
 * [dApps](/en/blockchain/account/dapp). For details, see [How to Build, Deploy and Test a Waves RIDE dApp](https://medium.com/wavesprotocol/how-to-build-deploy-and-test-a-waves-ride-dapp-785311f58c2) article.
 
-* [Waves explorer](/en/ecosystem/waves-explorer/about-waves-explorer) to view blockchain data in human-readable format.
+* [Waves Explorer](/en/ecosystem/waves-explorer/about-waves-explorer) to view blockchain data in human-readable format.
 
    You can deploy Waves explorer [docker container](https://hub.docker.com/r/wavesplatform/explorer) on localhost. Use the following comand:
 
@@ -215,6 +215,6 @@ You can setup your custom blockchain with other services such as:
    docker run -d -e API_NODE_URL=http://localhost:6869 -e NODE_LIST=http://localhost:6869 -p 3000:8080 wavesplatform/explorer
    ```
 
-* [DEX Extension](https://github.com/wavesplatform/dex): Interface for DEX Server to comunicate with the Node code.
+* [Matcher](https://github.com/wavesplatform/matcher).
 
 <!--* [Matcher](https://docs.waves.exchange/en/waves-matcher/) -->
