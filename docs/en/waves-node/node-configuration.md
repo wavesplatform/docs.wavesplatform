@@ -6,7 +6,6 @@ sidebarDepth: 2
 
 The **node configuration file** is a settings file of a [node](/en/blockchain/node).
 
-The configuration system of Waves Node uses HOCON format. HOCON stands for Human-Optimized Config Object Notation. The complete description of HOCON could be found in the [Official HOCON documentation](https://github.com/typesafehub/config/blob/master/HOCON). The advantages of HOCON are simple syntax and ability to use comments.
 The configuration system of Waves Node uses HOCON format. HOCON stands for Human-Optimized Config Object Notation. The complete description of HOCON could be found in the [Official HOCON documentation](https://github.com/lightbend/config/blob/master/HOCON.md). The advantages of HOCON are simple syntax and ability to use comments.
 
 ## Default Configs and Overrides
