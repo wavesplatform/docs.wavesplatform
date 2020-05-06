@@ -27,7 +27,7 @@ On browser pages that operate under the http/https (not local pages with file://
 - `resourceIsBlocked`
 - `on`
 
-All methods, except for `on` operate asynchronously and return [promises](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+All methods, except for `on` operate asynchronously and return [promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
 In code you can use [TypeScript types](https://github.com/wavesplatform/waveskeeper-types).
 

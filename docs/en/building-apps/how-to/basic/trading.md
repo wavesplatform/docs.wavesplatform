@@ -166,7 +166,7 @@ Use functions of `waves-transactions` library:
 
 See function descriptions in [waves-transactions documentation](https://wavesplatform.github.io/waves-transactions/index.html) on Github.
 
-**Exapmle:**
+**Example:**
 
 ```javascript
 import {cancelOrder, cancelSubmittedOrder } from "@waves/waves-transactions";

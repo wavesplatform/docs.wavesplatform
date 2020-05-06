@@ -18,12 +18,12 @@ Testnet и mainnet будут иметь одинаковые версии и б
 
 Если вы хотите стать майнером на stagenet, отправьте [запрос](https://wavesplatform.atlassian.net/servicedesk/customer/portal/11/create/178) чтобы получить токены WAVES для лизинга.
 
-Получить токены для stagenet-аккаунта можно при помощи [Waves Explorer](https://wavesexplorer.com/stagenet/faucet).
+Получить токены для stagenet-аккаунта можно при помощи [Waves Explorer](https://stagenet.wavesexplorer.com/stagenet/faucet).
 
 Stagenet также доступен на:
 
-* [Waves Explorer](https://wavesexplorer.com/stagenet)
-* [Waves IDE](https://ide.wavesplatform.com/). Чтобы использовать IDE со stagenet, в настройках укажите `Custom Nodes` как `https://nodes-stagenet.wavesnodes.com/`, а `Network byte` как `S`.
-* [Waves Keeper](/en/ecosystem/waves-keeper). Чтобы использовать Waves Keeper со stagenet, в настройках укажите `Node address` как `https://nodes-stagenet.wavesnodes.com/` и `Matcher address` как `https://matcher-stagenet.wavesplatform.com`.
+* [Waves Explorer](https://stagenet.wavesexplorer.com/stagenet)
+* [Waves IDE](https://ide-stagenet.wavesplatform.com)
+* [Waves Keeper](/ru/ecosystem/waves-keeper). Чтобы использовать Waves Keeper со stagenet, в настройках укажите `Node address` как `https://nodes-stagenet.wavesnodes.com/` и `Matcher address` как `https://matcher-stagenet.wavesplatform.com`.
 
 Если у вас остались вопросы по stagenet, вы можете задать их в Discord на [канале stagenet](https://discordapp.com/channels/420933539375087617/615843628618612746).

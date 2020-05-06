@@ -176,8 +176,8 @@ module.exports = {
               path: blockchainPath + 'binary-format/transaction-binary-format/set-script-transaction-binary-format',
             },
             {
-              title: 'Перевод',
-              path: blockchainPath + 'binary-format/transaction-binary-format/transfer-transaction-binary-format',
+              title: 'Установка скрипта ассета',
+              path: blockchainPath + 'binary-format/transaction-binary-format/set-asset-script-transaction-binary-format',
             },
           ],
         },

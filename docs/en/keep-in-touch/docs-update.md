@@ -66,11 +66,10 @@ Added how-to guides:
     * [Generation signature](/en/blockchain/block/block-generation/generation-signature)
 
 * Transaction type
-  * [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction)
+   * [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction)
 
 * Binary format
-  * Transaction protobuf scheme
-    * [Asset info update transaction protobuf scheme](/en/blockchain/binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme)
+   * [Update asset info transaction binary format](/en/blockchain/binary-format/transaction-binary-format/update-asset-info-transaction-binary-format)
 
 ### Ride
 

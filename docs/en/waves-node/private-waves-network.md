@@ -8,7 +8,7 @@ Follow the steps below to setup custom blockchain network.
 
 ### Step 1
 
-Install Git, [Java 8](https://java.com/en/download/) and [sbt](http://www.scala-sbt.org/).
+Install Git, [Java 8](https://java.com/en/download/) and [sbt](https://www.scala-sbt.org/).
 
 ### Step 2
 

@@ -6,7 +6,7 @@
 
 Binary format of version 3 is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) protobuf scheme. The fields that are common to all types of transactions are described in the [Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format) article.
 
-Exchange transaction of version 3 can accept orders of versions [1](/ru/blockchain/binary-format/order-binary-format#v1)–[4](/ru/blockchain/binary-format/order-binary-format#v4).
+Exchange transaction of version 3 can accept orders of versions [1](/en/blockchain/binary-format/order-binary-format#v1)–[4](/en/blockchain/binary-format/order-binary-format#v4).
 
 Version 3 is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
@@ -26,7 +26,7 @@ message ExchangeTransactionData {
 | price | 8 bytes | Price for the amount asset nominated in the price asset, multiplied by 10<sup>8</sup>. For more details see the [Order](/en/blockchain/order) article |
 | buy_matcher_fee | 8 bytes | Buy [matcher fee](/en/blockchain/matcher-fee). The fee token ID is indicated in buy order |
 | sell_matcher_fee | 8 bytes | Sell [matcher fee](/en/blockchain/matcher-fee) The fee token ID is indicated in sell order |
-| orders | | Buy order and sell order. See the [Order binary format](//blockchain/binary-format/order-binary-format) | 
+| orders | | Buy order and sell order. See the [Order binary format](/en/blockchain/binary-format/order-binary-format) | 
 
 ## Version 2 <a id="transaction2"></a>
 

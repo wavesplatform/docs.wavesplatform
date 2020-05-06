@@ -75,8 +75,7 @@
   * [Транзакция обновления информации ассета](/ru/blockchain/transaction-type/update-asset-info-transaction)
 
 * Бинарный формат
-  * Protobuf-схема транзакции
-    * [Protobuf-схема транзакции обновления информации ассета](/ru/blockchain/binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme)
+  * [Бинарный формат транзакции обновления информации ассета](/ru/blockchain/binary-format/transaction-binary-format/update-asset-info-transaction-binary-format)
 
 ### Нода
 

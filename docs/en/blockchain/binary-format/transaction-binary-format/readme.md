@@ -4,7 +4,7 @@
 
 Transactions are stored on the blockchain in a binary format (byte representation). [Node extensions](/en/waves-node/extensions) such as [gRPC server](/en/waves-node/extensions/grpc-server) can work directly with data in binary format.
 
-The transaction signature and ID are also formed on the basis of the binary format, namely bytes of the body of the transaction: all fields, except for the ID and the proofs (or the ID and the signature, depending on the version of the transaction). The guideline for generating a signature and ID is given in the [Cryptographic practical details](en/blockchain/waves-protocol/cryptographic-practical-details#signing) article.
+The transaction signature and ID are also formed on the basis of the binary format, namely bytes of the body of the transaction: all fields, except for the ID and the proofs (or the ID and the signature, depending on the version of the transaction). The guideline for generating a signature and ID is given in the [Cryptographic practical details](/en/blockchain/waves-protocol/cryptographic-practical-details#signing) article.
 
 All strings are UTF-8 encoded.
 

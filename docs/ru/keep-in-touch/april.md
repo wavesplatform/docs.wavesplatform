@@ -23,7 +23,7 @@
 
 **Как воспользоваться**: пул нод Waves с публичным API на Stagenet доступен по адресу <https://nodes-stagenet.wavesnodes.com/>.
 
-См. также [список изменений Node API в релизе 1.2](/ru/keep-in-touch/release-notes/#обновление-node-api)
+См. также [список изменений Node API в релизе 1.2](/ru/keep-in-touch/release-notes#обновление-node-api)
 
 ## Библиотеки
 
@@ -61,7 +61,7 @@ npm i @waves/node-api-js@beta
 
 **Как воспользоваться**: Waves Explorer для Stagenet доступен по адресу <https://stagenet.wavesexplorer.com/stagenet>.
 
-[Все изменения Waves Explorer](/ru/keep-in-touch/release-notes/#waves-explorer)
+[Все изменения Waves Explorer](/ru/keep-in-touch/release-notes#waves-explorer)
 
 ## Waves IDE (ide-stagenet.wavesplatform.com)
 
