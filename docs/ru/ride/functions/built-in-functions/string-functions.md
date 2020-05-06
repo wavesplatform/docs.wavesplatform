@@ -1,16 +1,18 @@
 # Функции строки
 
-| # | Название | Описание | Сложность |
+| Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
-| 1 | [contains(String, String): Boolean](#contains) | Проверяет, содержится ли строка в строке  | 20 |
-| 2 | [drop(String, Int): String](#drop)  | Удаляет первые `n` символов строки | 1 |
-| 3 | [dropRight(String, Int): String](#drop-right)  | Удаляет последние `n` символов строки | 19 |
-| 4 | [indexOf(String, String): Int&#124;Unit](#index-of-first)  | Возвращает индекс первого вхождения подстроки  | 20 |
-| 5 | [indexOf(String, String, Int): Int&#124;Unit](#index-after-index)  | Возвращает индекс первого вхождения подстроки после указанного индекса | 20 |
-| 6 | [size(String): Int](#size)  | Возвращает длину строки | 1 |
-| 7 | [split(String, String): List[String]](#split)  | Разбивает строку на список подстрок, используя разделитель | 100 |
-| 8 | [take(String, Int): String](#take)  | Возвращает первые `n` символов строки | 1 |
-| 9 | [takeRight(String, Int): String](#take-right)  | Возвращает последние `n` символов строки | 19 |
+| [contains(String, String): Boolean](#contains) | Проверяет, содержится ли строка в строке  | 20 |
+| [drop(String, Int): String](#drop)  | Удаляет первые `n` символов строки | 1 |
+| [dropRight(String, Int): String](#drop-right)  | Удаляет последние `n` символов строки | 19 |
+| [indexOf(String, String): Int&#124;Unit](#index-of-first)  | Возвращает индекс первого вхождения подстроки  | 20 |
+| [indexOf(String, String, Int): Int&#124;Unit](#index-after-index)  | Возвращает индекс первого вхождения подстроки после указанного индекса | 20 |
+| [lastIndexOf(String, String): Int&#124;Unit](#lastindexof-string-string-int-unit) | Возвращает индекс последнего вхождения подстроки | 20 |
+| [indexOf(String, String, Int): Int&#124;Unit](lastindexof-string-string-int-int-unit) | Возвращает индекс последнего вхождения подстроки после указанного индекса | 20 |
+| [size(String): Int](#size) | Возвращает длину строки | 1 |
+| [split(String, String): List[String]](#split) | Разбивает строку на список подстрок, используя разделитель | 100 |
+| [take(String, Int): String](#take) | Возвращает первые `n` символов строки | 1 |
+| [takeRight(String, Int): String](#take-right)  | Возвращает последние `n` символов строки | 19 |
 
 ## contains(String, String): Boolean<a id=contains></a>
 
@@ -22,13 +24,10 @@ contains(haystack: String, needle: String): Boolean
 
 ### Параметры
 
-#### `haystack`: String
-
-Строка, в которой осуществляется поиск.
-
-#### `needle`: String
-
-Искомая строка.
+| Параметр | Описание |
+| :--- | :--- |
+| `haystack`: String | Строка, в которой осуществляется поиск |
+| `needle`: String | Искомая строка |
 
 ### Примеры
 
@@ -51,13 +50,10 @@ drop(xs: String, number: Int): String
 
 ### Параметры
 
-#### `xs`: String
-
-Строка.
-
-#### `number`: Int
-
-Число `n`.
+| Параметр | Описание |
+| :--- | :--- |
+| `xs`: String | Строка |
+| `number`: Int | Число `n` |
 
 ### Примеры
 
@@ -79,13 +75,10 @@ dropRight(xs: String, number: Int): String
 
 ### Параметры
 
-#### `xs`: String
-
-Строка.
-
-#### `number`: Int
-
-Число `n`.
+| Параметр | Описание |
+| :--- | :--- |
+| `xs`: String | Строка |
+| `number`: Int | Число `n` |
 
 ### Примеры
 
@@ -107,13 +100,10 @@ indexOf(str: String, substr: String): Int|Unit
 
 ### Параметры
 
-#### `str`: String
-
-Строка.
-
-#### `substr`: String
-
-Подстрока.
+| Параметр | Описание |
+| :--- | :--- |
+| `str`: String | Строка |
+| `substr`: String | Подстрока |
 
 ### Примеры
 
@@ -133,17 +123,11 @@ indexOf(str: String, substr: String, offset: Int): Int|Unit
 
 ### Параметры
 
-#### `str`: String
-
-Строка.
-
-#### `substr`: String
-
-Подстрока.
-
-#### `offset`: Int
-
-Индекс.
+| Параметр | Описание |
+| :--- | :--- |
+| `str`: String | Строка |
+| `substr`: String | Подстрока |
+| `offset`: Int | Индекс |
 
 ### Примеры
 
@@ -151,6 +135,52 @@ indexOf(str: String, substr: String, offset: Int): Int|Unit
 indexOf("Apple","ple", 1) # Возвращает 2
 indexOf("Apple","le", 2) # Возвращает 3
 indexOf("Apple","e", 3) # Возвращает 4
+```
+
+## lastIndexOf(String, String): Int&#124;Unit
+
+Возвращает индекс последнего вхождения подстроки.
+
+``` ride
+lastIndexOf(str: String, substr: String): Int|Unit
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `str`: String | Строка |
+| `substr`: String | Подстрока |
+
+### Примеры
+
+```ride
+lastIndexOf("Apple","pp") # Возвращает 1
+lastIndexOf("Apple","p") # Возвращает 2
+lastIndexOf("Apple","s") # Возвращает unit
+```
+
+## lastIndexOf(String, String, Int): Int&#124;Unit
+
+Возвращает индекс последнего вхождения подстроки перед указанным индексом.
+
+``` ride
+lastIndexOf(str: String, substr: String, offset: Int): Int|Unit
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `str`: String | Строка |
+| `substr`: String | Подстрока |
+| `offset`: Int | Индекс |
+
+### Примеры
+
+```ride
+lastIndexOf("mamamama","ma",4) # Возвращает 4
+lastIndexOf("mamamama","ma",3) # Возвращает 2
 ```
 
 ## size(String): Int<a id=size></a>
@@ -163,9 +193,9 @@ size(xs: String): Int
 
 ### Параметры
 
-#### `xs`: String
-
-Строка.
+| Параметр | Описание |
+| :--- | :--- |
+| `xs`: String | Строка |
 
 ### Примеры
 
@@ -185,13 +215,10 @@ split(str: String, separator: String): List[String]
 
 ### Параметры
 
-#### `str`: String
-
-Строка.
-
-#### `separator`: Int
-
-Разделитель.
+| Параметр | Описание |
+| :--- | :--- |
+| `str`: String | Строка |
+| `separator`: Int | Разделитель |
 
 ### Примеры
 
@@ -212,13 +239,10 @@ take(xs: String, number: Int): String
 
 ### Параметры
 
-#### `xs`: String
-
-Строка.
-
-#### `number`: Int
-
-Число `n`.
+| Параметр | Описание |
+| :--- | :--- |
+| `xs`: String | Строка |
+| `number`: Int | Число `n` |
 
 ### Примеры
 
@@ -241,13 +265,10 @@ takeRight(xs: String, number: Int): String
 
 ### Параметры
 
-#### `xs`: String
-
-Строка.
-
-#### `number`: Int
-
-Число `n`.
+| Параметр | Описание |
+| :--- | :--- |
+| `xs`: String | Строка |
+| `number`: Int | Число `n` |
 
 ### Примеры
 

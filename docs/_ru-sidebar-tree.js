@@ -1140,6 +1140,10 @@ module.exports = {
       ],
     },
     {
+      title: 'Компоненты Ride',
+      path: ridePath + 'advanced/components',
+    },
+    {
       title: '[en] Script performance tests',
       path: ridePath + 'script-performance-tests',
     },
