@@ -1,20 +1,20 @@
 # String functions
 
-| Name | Description | Complexity |
+| Name | Description | Complexity | 
 | :--- | :--- | :--- |
-| [contains(String, String): Boolean](#contains) | Checks whether the string contains substring | 20 |
-| [drop(String, Int): String](#drop) | Drops the first `n` characters of a string | 1 |
-| [dropRight(String, Int): String](#drop-right) | Drops the last `n` characters of a string | 19 |
-| [indexOf(String, String): Int&#124;Unit](#index-of-string) | Returns the index of the first occurrence of a substring | 20 |
-| [indexOf(String, String, Int): Int&#124;Unit](#index-of-string-int) | Returns the index of the first occurrence of a substring after a certain index | 20 |
-| [lastIndexOf(String, String): Int&#124;Unit](#lastindexof-string-string-int-unit) | Returns the index of the last occurrence of a substring | 20 |
-| [lastindexOf(String, String, Int): Int&#124;Unit](lastindexof-string-string-int-int-unit) | Returns the index of the last occurrence of a substring before a certain index | 20 |
-| [size(String): Int](#size) | Returns the size of a string | 1 |
-| [split(String, String): List[String]](#split) | Splits a string delimited by a separator into a list of substrings | 100 |
+| [contains(String, String): Boolean](#containsstring-string-boolean) | Checks whether the string contains substring | 20 |
+| [drop(String, Int): String](#dropstring-int-string) | Drops the first `n` characters of a string | 1 |
+| [dropRight(String, Int): String](#droprightstring-int-string) | Drops the last `n` characters of a string | 19 |
+| [indexOf(String, String): Int&#124;Unit](#indexofstring-stringintunit) | Returns the index of the first occurrence of a substring | 20 |
+| [indexOf(String, String, Int): Int&#124;Unit](#indexofstring-string-intintunit) | Returns the index of the first occurrence of a substring after a certain index | 20 |
+| [lastIndexOf(String, String): Int&#124;Unit](#lastindexofstring-stringintunit) | Returns the index of the last occurrence of a substring | 20 |
+| [lastindexOf(String, String, Int): Int&#124;Unit](lastindexofstring-string-intintunit) | Returns the index of the last occurrence of a substring before a certain index | 20 |
+| [size(String): Int](#sizestring-int) | Returns the size of a string | 1 |
+| [split(String, String): List[String]](#splitstring-string-liststring) | Splits a string delimited by a separator into a list of substrings | 100 |
 | [take(String, Int): String](#take) | Takes the first `n` characters from a string | 1 |
 | [takeRight(String, Int): String](#take-right) | Takes the last `n` characters from a string | 19 |
 
-## contains(String, String): Boolean<a id="contains"></a>
+## contains(String, String): Boolean
 
 Checks whether the string contains substring.
 

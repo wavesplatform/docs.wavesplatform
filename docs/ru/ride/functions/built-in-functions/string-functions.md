@@ -2,19 +2,19 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
-| [contains(String, String): Boolean](#contains) | Проверяет, содержится ли строка в строке  | 20 |
-| [drop(String, Int): String](#drop)  | Удаляет первые `n` символов строки | 1 |
-| [dropRight(String, Int): String](#drop-right)  | Удаляет последние `n` символов строки | 19 |
-| [indexOf(String, String): Int&#124;Unit](#index-of-first)  | Возвращает индекс первого вхождения подстроки  | 20 |
-| [indexOf(String, String, Int): Int&#124;Unit](#index-after-index)  | Возвращает индекс первого вхождения подстроки после указанного индекса | 20 |
-| [lastIndexOf(String, String): Int&#124;Unit](#lastindexof-string-string-int-unit) | Возвращает индекс последнего вхождения подстроки | 20 |
-| [lastindexOf(String, String, Int): Int&#124;Unit](lastindexof-string-string-int-int-unit) | Возвращает индекс последнего вхождения подстроки перед указанным индексом | 20 |
-| [size(String): Int](#size) | Возвращает длину строки | 1 |
-| [split(String, String): List[String]](#split) | Разбивает строку на список подстрок, используя разделитель | 100 |
+| [contains(String, String): Boolean](#containsstring-string-boolean) | Проверяет, содержится ли строка в строке  | 20 |
+| [drop(String, Int): String](#dropstring-int-string)  | Удаляет первые `n` символов строки | 1 |
+| [dropRight(String, Int): String](#droprightstring-int-string)  | Удаляет последние `n` символов строки | 19 |
+| [indexOf(String, String): Int&#124;Unit](#indexofstring-stringintunit) | Возвращает индекс первого вхождения подстроки  | 20 |
+| [indexOf(String, String, Int): Int&#124;Unit](#indexofstring-string-intintunit)  | Возвращает индекс первого вхождения подстроки после указанного индекса | 20 |
+| [lastIndexOf(String, String): Int&#124;Unit](#lastindexofstring-stringintunit) | Возвращает индекс последнего вхождения подстроки | 20 |
+| [lastindexOf(String, String, Int): Int&#124;Unit](lastindexofstring-string-intintunit) | Возвращает индекс последнего вхождения подстроки перед указанным индексом | 20 |
+| [size(String): Int](#sizestring-int) | Возвращает длину строки | 1 |
+| [split(String, String): List[String]](#splitstring-string-liststring) | Разбивает строку на список подстрок, используя разделитель | 100 |
 | [take(String, Int): String](#take) | Возвращает первые `n` символов строки | 1 |
 | [takeRight(String, Int): String](#take-right)  | Возвращает последние `n` символов строки | 19 |
 
-## contains(String, String): Boolean<a id=contains></a>
+## contains(String, String): Boolean
 
 Проверяет, содержится ли строка в строке.
 
