@@ -2,15 +2,15 @@
 
 ## Parser
 
-Parser проверяет корректность синтаксиса скрипта Ride, наличие всех используемых переменных и функций, и формирует [абстрактное синтаксическое дерево](https://ru.wikipedia.org/wiki/Абстрактное_синтаксическое_дерево) скрипта, которое затем используют Estimator и Compiler.
+Parser проверяет корректность синтаксиса скрипта Ride, наличие всех используемых переменных и функций и формирует [абстрактное синтаксическое дерево](https://ru.wikipedia.org/wiki/Абстрактное_синтаксическое_дерево) скрипта, которое затем используют Estimator и Compiler.
 
 ## Estimator
 
 Estimator вычисляет [сложность скрипта](/ru/ride/base-concepts/complexity) и проверяет на соответствие ограничениям.
 
 В настоящее время используются две версии Estimator:
-* версия 2 — для Mainnet и Testnet (после активации фичи №&nbsp;14 “Block Reward and Community Driven Monetary Policy”)
-* версия 3 — для Stagenet (после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”).
+* версия 2 — на Mainnet и Testnet (после активации фичи №&nbsp;14 “Block Reward and Community Driven Monetary Policy”);
+* версия 3 — на Stagenet (после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”).
 
 ## Compiler
 

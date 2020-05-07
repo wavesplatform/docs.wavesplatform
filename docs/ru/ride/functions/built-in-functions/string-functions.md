@@ -8,7 +8,7 @@
 | [indexOf(String, String): Int&#124;Unit](#index-of-first)  | Возвращает индекс первого вхождения подстроки  | 20 |
 | [indexOf(String, String, Int): Int&#124;Unit](#index-after-index)  | Возвращает индекс первого вхождения подстроки после указанного индекса | 20 |
 | [lastIndexOf(String, String): Int&#124;Unit](#lastindexof-string-string-int-unit) | Возвращает индекс последнего вхождения подстроки | 20 |
-| [indexOf(String, String, Int): Int&#124;Unit](lastindexof-string-string-int-int-unit) | Возвращает индекс последнего вхождения подстроки после указанного индекса | 20 |
+| [lastindexOf(String, String, Int): Int&#124;Unit](lastindexof-string-string-int-int-unit) | Возвращает индекс последнего вхождения подстроки перед указанным индексом | 20 |
 | [size(String): Int](#size) | Возвращает длину строки | 1 |
 | [split(String, String): List[String]](#split) | Разбивает строку на список подстрок, используя разделитель | 100 |
 | [take(String, Int): String](#take) | Возвращает первые `n` символов строки | 1 |
@@ -17,6 +17,8 @@
 ## contains(String, String): Boolean<a id=contains></a>
 
 Проверяет, содержится ли строка в строке.
+
+> :warning: Функция `contains` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время работают только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ``` ride
 contains(haystack: String, needle: String): Boolean

@@ -1,20 +1,24 @@
 # String functions
 
-| # | Name | Description | Complexity |
-| :--- | :--- | :--- | :--- |
-| 1 | [contains(String, String): Boolean](#contains) | Checks whether the string contains substring | 20 |
-| 2 | [drop(String, Int): String](#drop) | Drops the first `n` characters of a string | 1 |
-| 3 | [dropRight(String, Int): String](#drop-right) | Drops the last `n` characters of a string | 19 |
-| 4 | [indexOf(String, String): Int&#124;Unit](#index-of-string) | Returns the index of the first occurrence of a substring | 20 |
-| 5 | [indexOf(String, String, Int): Int&#124;Unit](#index-of-string-int) | Returns the index of the first occurrence of a substring after a certain index | 20 |
-| 6 | [size(String): Int](#size) | Returns the size of a string | 1 |
-| 7 | [split(String, String): List[String]](#split) | Splits a string delimited by a separator into a list of substrings | 100 |
-| 8 | [take(String, Int): String](#take) | Takes the first `n` characters from a string | 1 |
-| 9 | [takeRight(String, Int): String](#take-right) | Takes the last `n` characters from a string | 19 |
+| Name | Description | Complexity |
+| :--- | :--- | :--- |
+| [contains(String, String): Boolean](#contains) | Checks whether the string contains substring | 20 |
+| [drop(String, Int): String](#drop) | Drops the first `n` characters of a string | 1 |
+| [dropRight(String, Int): String](#drop-right) | Drops the last `n` characters of a string | 19 |
+| [indexOf(String, String): Int&#124;Unit](#index-of-string) | Returns the index of the first occurrence of a substring | 20 |
+| [indexOf(String, String, Int): Int&#124;Unit](#index-of-string-int) | Returns the index of the first occurrence of a substring after a certain index | 20 |
+| [lastIndexOf(String, String): Int&#124;Unit](#lastindexof-string-string-int-unit) | Returns the index of the last occurrence of a substring | 20 |
+| [lastindexOf(String, String, Int): Int&#124;Unit](lastindexof-string-string-int-int-unit) | Returns the index of the last occurrence of a substring before a certain index | 20 |
+| [size(String): Int](#size) | Returns the size of a string | 1 |
+| [split(String, String): List[String]](#split) | Splits a string delimited by a separator into a list of substrings | 100 |
+| [take(String, Int): String](#take) | Takes the first `n` characters from a string | 1 |
+| [takeRight(String, Int): String](#take-right) | Takes the last `n` characters from a string | 19 |
 
 ## contains(String, String): Boolean<a id="contains"></a>
 
 Checks whether the string contains substring.
+
+> :warning: The `contains`function is added in Standard library **version 4** which becomes available becomes since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 ``` ride
 drop(haystack: String, needle: String): Boolean
@@ -22,13 +26,10 @@ drop(haystack: String, needle: String): Boolean
 
 ### Parameters
 
-#### `haystack`: String
-
-String to search in.
-
-#### `needle`: String
-
-String to search for.
+| Parameter | Description |
+| :--- | :--- |
+| `haystack`: String | String to search in |
+| `needle`: String | String to search for |
 
 ### Examples
 
@@ -51,13 +52,10 @@ drop(xs: String, number: Int): String
 
 ### Parameters
 
-#### `xs`: String
-
-The string.
-
-#### `number`: Int
-
-The number `n`.
+| Parameter | Description |
+| :--- | :--- |
+| `xs`: String | The string |
+| `number`: Int | The number `n` |
 
 ### Examples
 
@@ -79,13 +77,10 @@ dropRight(xs: String, number: Int): String
 
 ### Parameters
 
-#### `xs`: String
-
-The string.
-
-#### `number`: Int
-
-The number `n`.
+| Parameter | Description |
+| :--- | :--- |
+| `xs`: String | The string |
+| `number`: Int | The number `n` |
 
 ### Examples
 
@@ -107,13 +102,10 @@ indexOf(str: String, substr: String): Int|Unit
 
 ### Parameters
 
-#### `str`: String
-
-The string.
-
-#### `substr`: String
-
-The substring.
+| Parameter | Description |
+| :--- | :--- |
+| `str`: String | The string |
+| `substr`: String | The substring |
 
 ### Examples
 
@@ -133,17 +125,11 @@ indexOf(str: String, substr: String, offset: Int): Int|Unit
 
 ### Parameters
 
-#### `str`: String
-
-The string.
-
-#### `substr`: String
-
-The substring.
-
-#### `offset`: Int
-
-The index.
+| Parameter | Description |
+| :--- | :--- |
+| `str`: String | The string |
+| `substr`: String | The substring |
+| `offset`: Int | The index |
 
 ### Examples
 
@@ -151,6 +137,52 @@ The index.
 indexOf("Apple","ple", 1) # Returns 2
 indexOf("Apple","le", 2) # Returns 3
 indexOf("Apple","e", 3) # Returns 4
+```
+
+## lastIndexOf(String, String): Int&#124;Unit
+
+Returns the index of the last occurrence of a substring.
+
+``` ride
+lastIndexOf(str: String, substr: String): Int|Unit
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `str`: String | The string |
+| `substr`: String | The substring |
+
+### Examples
+
+```ride
+lastIndexOf("Apple","pp") # Returns 1
+lastIndexOf("Apple","p") # Returns 2
+lastIndexOf("Apple","s") # Returns unit
+```
+
+## lastIndexOf(String, String, Int): Int&#124;Unit
+
+Returns the index of the last occurrence of a substring before a certain index.
+
+``` ride
+lastIndexOf(str: String, substr: String, offset: Int): Int|Unit
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `str`: String | The string |
+| `substr`: String | The substring |
+| `offset`: Int | The index |
+
+### Examples
+
+```ride
+lastIndexOf("mamamama","ma",4) # Returns 4
+lastIndexOf("mamamama","ma",3) # Returns 2
 ```
 
 ## size(String): Int<a id="size"></a>
@@ -163,9 +195,9 @@ size(xs: String): Int
 
 ### Parameters
 
-#### `xs`: String
-
-The string.
+| Parameter | Description |
+| :--- | :--- |
+| `xs`: String | The string |
 
 ### Examples
 
@@ -185,13 +217,10 @@ split(str: String, separator: String): List[String]
 
 ### Parameters
 
-#### `str`: String
-
-The string.
-
-#### `separator`: Int
-
-The separator.
+| Parameter | Description |
+| :--- | :--- |
+| `str`: String | The string |
+| `separator`: Int | The separator |
 
 ### Examples
 
@@ -212,13 +241,10 @@ take(xs: String, number: Int): String
 
 ### Parameters
 
-#### `xs`: String
-
-The string.
-
-#### `number`: Int
-
-The number `n`.
+| Parameter | Description |
+| :--- | :--- |
+| `xs`: String | The string |
+| `number`: Int | The number `n` |
 
 ### Examples
 
@@ -241,13 +267,10 @@ takeRight(xs: String, number: Int): String
 
 ### Parameters
 
-#### `xs`: String
-
-The string.
-
-#### `number`: Int
-
-The number `n`.
+| Parameter | Description |
+| :--- | :--- |
+| `xs`: String | The string |
+| `number`: Int | The number `n` |
 
 ### Examples
 

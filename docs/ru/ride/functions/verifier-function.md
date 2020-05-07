@@ -34,7 +34,7 @@ dApp с приведенной ниже функцией-верификатор�
 @Verifier(tx)
 func verify() = {
     match tx {
-        case ttx:TransferTransaction => t.amount < 100 &&sigVerify(ttx.bodyBytes, ttx.proofs[0], ttx.senderPublicKey)
+        case ttx:TransferTransaction => ttx.amount < 100 && sigVerify(ttx.bodyBytes, ttx.proofs[0], ttx.senderPublicKey)
         case _ => false
     }
 }

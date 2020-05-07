@@ -4,7 +4,7 @@
 
 * [dApp-скрипт](/ru/ride/script/script-types/dapp-script) — содержит [вызываемые (сallable) функции](/ru/ride/functions/callable-function), которые могут быть вызваны путем отправки транзакции вызова скрипта. Также может содержать [функцию-верификатор](/ru/ride/functions/verifier-functions), которая проверяет транзакции и ордера, отправляемые аккаунтом.
 * [Скрипт аккаунта](/ru/ride/script/script-types/account-script) — проверяет транзакции и ордера, отправляемые аккаунтом.
-* [Скрипт ассета](/ru/ride/script/script-types/asset-script) проверяет транзакции с участием ассета.
+* [Скрипт ассета](/ru/ride/script/script-types/asset-script) — проверяет транзакции с участием ассета.
 
 Тип скрипта задается [директивой](/ru/ride/script/directives) `SCRIPT_TYPE`.
 
