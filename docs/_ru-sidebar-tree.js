@@ -597,15 +597,15 @@ module.exports = {
       path: nodePath + 'options-for-getting-actual-blockchain',
       children: [
         {
-          title: 'Экспорт/Импорт блокчейна',
+          title: 'Экспортировать и импортировать блокчейн',
           path: nodePath + 'options-for-getting-actual-blockchain/import-from-the-blockchain',
         },	  
         {
-          title: 'Загрузка актуального блокчейна',
+          title: 'Загрузить актуальный блокчейн',
           path: nodePath + 'options-for-getting-actual-blockchain/state-downloading-and-applying',
         },
 		{
-          title: 'Откатить ноду Waves',
+          title: 'Откатить ноду',
           path: nodePath + 'how-to-rollback-a-node',
         },
       ],
@@ -619,11 +619,11 @@ module.exports = {
       path: nodePath + 'node-configuration',
     },
     {
-      title: 'Конфигурация логировния',
+      title: 'Логирование',
       path: nodePath + 'logging-configuration',
     },
     {
-      title: 'Работа с кошельком ноды',
+      title: 'Кошелек ноды',
       path: nodePath + 'how-to-work-with-node-wallet',
     },	
     {
@@ -637,7 +637,7 @@ module.exports = {
 	  ],
     },
     {
-      title: 'Custom блокчейн',
+      title: 'Собственный блокчейн',
       path: nodePath + 'private-waves-network',
     },
     {

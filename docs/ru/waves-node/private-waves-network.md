@@ -208,7 +208,7 @@ waves
 
 * [dApps](/ru/blockchain/account/dapp). Подробнее в статье по ссылке [How to Build, Deploy and Test a Waves RIDE dApp](https://blog.wavesplatform.com/how-to-build-deploy-and-test-a-waves-ride-dapp-785311f58c2).
 
-* [Waves explorer](/en/ecosystem/waves-explorer/about-waves-explorer), который позволит просматривать данные блокчейна в удобочитаемом формате.
+* [Waves Explorer](/ru/ecosystem/waves-explorer/about-waves-explorer), который позволит просматривать данные блокчейна в удобочитаемом формате.
 
    Чтобы развернуть Waves explorer в [контейнере docker](https://hub.docker.com/r/wavesplatform/explorer) на localhost, используйте следующую команду:
 

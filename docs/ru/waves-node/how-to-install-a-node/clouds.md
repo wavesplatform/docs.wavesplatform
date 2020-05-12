@@ -1,9 +1,9 @@
 # Развернуть ноду в облаке
 
-Вы можете использовать любой доступный метод, описанный в статье [Установить ноду Waves](/ru/waves-node/how-to-install-a-node/how-to-install-a-node) чтобы установить ноду Waves на любую cloud-based виртуальную машину, которая соответствуюет [системным требованиям](/ru/waves-node/how-to-install-a-node/how-to-install-a-node#системные-требования).
+Вы можете использовать любой доступный способ, описанный в статье [Установить ноду Waves](/ru/waves-node/how-to-install-a-node/how-to-install-a-node), чтобы установить ноду Waves на любую виртуальную машину в облаке, которая соответствует [системным требованиям](/ru/waves-node/how-to-install-a-node/how-to-install-a-node#системные-требования).
 
-Также вы можете развернуть ноду Waves в Yandex.Cloud, как описано в статье [Развернуть ноду в Yandex.Cloud](/ru/waves-node/running-waves-node-in-yandex-cloud).
+Вы также можете развернуть ноду Waves:
 
-Вы можете развернуть [ноду Waves в Microsoft Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/waves.waves_docker?tab=Overview).
-
-Вы можете развернуть ноду в Digital Ocean. Подробнее по ссылке [Installing Waves Node in Digital Ocean](https://www.youtube.com/watch?v=CDmMeZlzKbk&feature=youtu.be).
+* в Яндекс.Облаке, как описано в статье [Развернуть ноду в Yandex.Cloud](/ru/waves-node/running-waves-node-in-yandex-cloud);
+* в [Microsoft Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/waves.waves_docker?tab=Overview);
+* в Digital Ocean, как показано в видео [Installing Waves Node in Digital Ocean](https://www.youtube.com/watch?v=CDmMeZlzKbk).
