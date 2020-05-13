@@ -95,7 +95,7 @@ java -cp ./node/target/waves-all-0.17.2-grpc-27-g0fab715-DIRTY.jar com.wavesplat
 
 > Параметр `address-scheme-character` должен быть таким же, как `network-type` в шаге 3.
 
-> Содержимое секции `genesis` — это то, сгенерировано на шаге 4. Вместо того чтобы вставить эту секцию, можно написать `include "genesis.conf"`, где `genesis.conf` — это имя файла из шага 4.
+> Содержимое секции `genesis` — это то, что сгенерировано в шаге 4. Вместо того чтобы вставить эту секцию, можно написать `include "genesis.conf"`, где `genesis.conf` — это имя файла из шага 4.
 
 **Пример**:
 
