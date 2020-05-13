@@ -649,7 +649,7 @@ module.exports = {
           path: nodePath + 'node-api/headers',
         },
         {
-          title: 'Активация',
+          title: 'Активация фич',
           path: nodePath + 'node-api/feature-activation',
         },	
         {
@@ -703,14 +703,10 @@ module.exports = {
           path: nodePath + 'node-api/example-transactions',
         },
         {
-          title: 'Активация фич',
-          path: nodePath + 'node-api/feature-activation',
-        },
-	    {
           title: 'API ограничения пула публичных нод',
           path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
-		},
-	  ],   
+        },
+      ],   
     },
     {
       title: 'Расширения',
