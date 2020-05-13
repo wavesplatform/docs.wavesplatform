@@ -577,7 +577,7 @@ module.exports = {
           path: nodePath + 'how-to-install-a-node/on-windows',
         },
         {
-          title: 'Установить из исходников (Сборка SBT)',
+          title: 'Установить из исходников (сборка SBT)',
           path: nodePath + 'how-to-build-and-test-a-node',
         },
         {
@@ -629,12 +629,12 @@ module.exports = {
     {
       title: 'Фичи',
       path: nodePath + 'features',
-	  children: [
-	    {
-	      title: 'Протокол активации',
+      children: [
+        {
+          title: 'Протокол активации',
           path: nodePath + 'activation-protocol',
         },
-	  ],
+      ],
     },
     {
       title: 'Собственный блокчейн',
@@ -645,7 +645,7 @@ module.exports = {
       path: nodePath + 'node-api',
       children: [
         {
-          title: 'Request headers',
+          title: 'Заголовки запроса',
           path: nodePath + 'node-api/headers',
         },
         {
@@ -703,7 +703,7 @@ module.exports = {
           path: nodePath + 'node-api/example-transactions',
         },
         {
-          title: 'Ауктивация фич',
+          title: 'Активация фич',
           path: nodePath + 'node-api/feature-activation',
         },
 	    {
