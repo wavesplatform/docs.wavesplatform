@@ -24,6 +24,6 @@ Stagenet также доступен на:
 
 * [Waves Explorer](https://stagenet.wavesexplorer.com/stagenet)
 * [Waves IDE](https://ide-stagenet.wavesplatform.com)
-* [Waves Keeper](/ru/ecosystem/waves-keeper). Чтобы использовать Waves Keeper со stagenet, в настройках укажите `Node address` как `https://nodes-stagenet.wavesnodes.com/` и `Matcher address` как `https://matcher-stagenet.wavesplatform.com`.
+* [Waves Keeper](/ru/ecosystem/waves-keeper)
 
 Если у вас остались вопросы по stagenet, вы можете задать их в Discord на [канале stagenet](https://discordapp.com/channels/420933539375087617/615843628618612746).
