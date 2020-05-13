@@ -72,7 +72,7 @@ match tx {
 
 This script allows the transfer of the smart asset only if the transfer transaction fee is in the sponsored asset `oWgJN6YGZFtZrV8BWQ1PGktZikgg7jzGmtm16Ktyvjd`.
 
-The sponsor sets up the ratio of WAVES and the sponsored asset. For each transfer of the smart asset, the sponsor receives the fee in the sponsored asset from the sender's account and pays the equivalent amount of WAVES. The sponsor can sell the sponsored asset at a higher price and thus make a profit.
+The sponsor sets up the ratio of WAVES and the sponsored asset. For each transfer of the smart asset, the sponsor receives the fee in the sponsored asset from the sender's account. The equivalent amount of WAVES is deducted from the sponsor's account in favor of block generators. The sponsor can sell the sponsored asset at a higher price and thus make a profit.
 
 [Learn more about sponsorship](/en/blockchain/waves-protocol/sponsored-fee)
 
