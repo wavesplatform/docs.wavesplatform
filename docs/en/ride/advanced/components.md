@@ -20,14 +20,14 @@ Parser, Estimator and Compiler are used in developer tools such as [Waves IDE](h
 
 ## Evaluator
 
-Evaluator исполняет код скрипта на ноде в ходе [валидации транзакции](/ru/blockchain/transaction/transaction-validation): в случае отправки транзакции со смарт-аккаунта, транзакции с участием смарт-ассета или транзакции вызова скрипта dApp.
+Evaluator executes the script on the node during [transaction validation](/en/blockchain/transaction/transaction-validation) and applying changes: in the case of sending a transaction from a smart account, a transaction within a smart asset or an invoke script transaction.
 
-Evaluator является компонентом ноды.
+Evaluator is a component of a node.
 
 ## Decompiler
 
-Decompiler преобразует код скрипта из бинарного формата в код на языке Ride.
+Decompiler converts script code from binary format to Ride code.
 
-Decompiler используется в [Waves Explorer](https://wavesexplorer.com/) для просмотра скрипта аккаунта, dApp или ассета.
+Decompiler is used in [Waves Explorer](https://wavesexplorer.com/) to view an account script, dApp script or asset script.
 
-> Декомпилированный код может не совпадать с исходным кодом и даже быть синтаксически некорректным. В частности, в нем отсутствуют типы аргументов в объявлении функций.
+> The decompiled code may not match the source code and may even have incorrect syntax. In particular, it lacks argument types in function declarations.
