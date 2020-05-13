@@ -1,5 +1,8 @@
 # Install Node on Windows
 
+This article explains how to install Waves node on Windows-based machines.
+You install Java first, then the node itself.
+
 ## Install OpenJDK 8
 
 **Note.** Do not install OpenJDK 8 If you already have OpenJDK 11 installed. The node Installation is supported in both versions 8 and 11.

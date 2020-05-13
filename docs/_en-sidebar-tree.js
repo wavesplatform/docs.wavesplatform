@@ -638,6 +638,10 @@ module.exports = {
           title: 'Examples of transactions',
           path: nodePath + 'node-api/example-transactions',
         },
+        {
+          title: 'Feature Activation',
+          path: nodePath + 'node-api/feature-activation',
+        },
 	    {
           title: 'API limitations of the pool of public nodes',
           path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',

@@ -38,7 +38,7 @@ If a new feature was activated but the node was not updated to support it, the n
 
 In version 1.0.0 a new cool feature was introduced. It has ID `123`.
 
-Mining pool `SuperMiners` with a total stake of 40% supports the feature. Administrator of `SuperMiners` updates the node from version 0.9.9 to 1.0.0. And adds `123` to the list of supported features in the configuration file. `SuperMiners` node starts to put ID `123` into each mined block since height 1228765. But no other miners supported the feature but some of them updated their nodes to version 1.0.0.
+Mining pool `SuperMiners` with a total stake of 40% supports the feature. Administrator of `SuperMiners` updates the node from version 0.9.9 to 1.0.0. And adds `123` to the list of supported features in the configuration file. `SuperMiners` node starts to put ID `123` into each mined block since height 1228765. Other miners did not support the feature and only some of them updated their nodes to version 1.0.0.
 
 At block number 1230000 the nodes calculated that only 50% of blocks support the feature `123`. So, the status of feature stays unchanged, the voting was unsuccessful for the period and it continues.
 

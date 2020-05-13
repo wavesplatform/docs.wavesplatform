@@ -5,4 +5,4 @@ A **node extension** is a software module that can be installed on a [node](/en/
 Available extensions:
 
 * [gRPC](/en/waves-node/extensions/grpc-server)
-* [Matcher](https://github.com/wavesplatform/matcher)
+* [DEX Extension](https://github.com/wavesplatform/dex): Interface for DEX Server to comunicate with the node code.
