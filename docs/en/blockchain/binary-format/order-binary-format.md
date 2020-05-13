@@ -71,7 +71,7 @@ message Amount {
 | 2 | Order sender public key | senderPublicKey | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 |  |
 | 3 | [Matcher](https://docs.waves.exchange/en/waves-matcher/) public key | matcherPublicKey | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 |  |
 | 4.1 | Token B flag |  | [Short](/en/blockchain/blockchain/blockchain-data-types) | 1 | If token is [WAVES](/en/blockchain/token/waves), then value is 0, else 1 |
-| 4.2 | [Token ID](/en/blockchain/token/token-id) Б | amountAsset | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | If token is not WAVES, then `S` = 32, else the field should be absent |
+| 4.2 | [Token B ID](/en/blockchain/token/token-id) | amountAsset | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | If token is not WAVES, then `S` = 32, else the field should be absent |
 | 5.1 | Token A flag |  | [Short](/en/blockchain/blockchain/blockchain-data-types) | 1 | If token is WAVES, then value is 0, else 1 |
 | 5.2 | Token A ID | priceAsset | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | If token is not WAVES, then `S` = 32, else the field should be absent |
 | 6 | Order type | orderType | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | If order is for buying, then value is 0, if order is for selling, then value is  1 |
