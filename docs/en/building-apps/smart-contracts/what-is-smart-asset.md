@@ -57,7 +57,7 @@ let targetHeight = 100500
 height >= targetHeight
 ```
 
-### Issue of burn-proof token
+### Burn-proof token
 
 For the example smart asset, the token burning transactions are prohibited.
 
@@ -68,9 +68,13 @@ match tx {
 }
 ```
 
-### Commission from each token transfer
+### Transfer fee only in the specified asset
 
-The issuer of the token involved in the transaction will receive a commission fee after the successful [transfer transaction](/en/blockchain/transaction-type/transfer-transaction).
+This script allows the transfer of the smart asset only if the transfer transaction fee is in the sponsored asset `oWgJN6YGZFtZrV8BWQ1PGktZikgg7jzGmtm16Ktyvjd`.
+
+The sponsor sets up the ratio of WAVES and the sponsored asset. For each transfer of the smart asset, the sponsor receives the fee in the sponsored asset from the sender's account. The equivalent amount of WAVES is deducted from the sponsor's account in favor of block generators. The sponsor can sell the sponsored asset at a higher price and thus make a profit.
+
+[Learn more about sponsorship](/en/blockchain/waves-protocol/sponsored-fee)
 
 ```ride
 match tx {
