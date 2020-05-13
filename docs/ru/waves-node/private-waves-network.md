@@ -23,16 +23,16 @@
 ```bash
 genesis-generator
 {
-  network-type: "L"  #your custom network identifier byte
-  initial-balance: 10000000000000000  #initial balance in wavelets
-  base-target: 153722867  #the initial complexity parameter
-  average-block-delay: 60s #average block delay
-  timestamp: 1500635421931 #comment this to use the current time
+  network-type: "L"  #сетевой идентификатор custom сети
+  initial-balance: 10000000000000000  #первоначальный баланс в wavelets
+  base-target: 153722867  #первоначальный параметр сложности
+  average-block-delay: 60s #средняя задержка блока
+  timestamp: 1500635421931 #закомментируйте, чтобы использовать текущее время
 
-  # the sum of shares should be = initial-balance
+  # сумма долей должна быть = initial-balance
   distributions
   {
-    foo0 { # name for this account. Will be printed in generator's output
+    foo0 { # имя аккаунта. Будет отображаться при генерации
       seed-text: "foo0"
       nonce: 0
       amount: 10000000000000000
@@ -100,10 +100,10 @@ java -cp ./node/target/waves-all-0.17.2-grpc-27-g0fab715-DIRTY.jar com.wavesplat
 **Пример**:
 
 ```bash
-# Waves node settings
+# настройки ноды Waves
 waves
 {
-  # data storage folder
+  # папка для хранения данных
   directory=/tmp/custom
 
   logging-level = DEBUG
@@ -113,7 +113,7 @@ waves
     type: CUSTOM
     custom
     {
-      address-scheme-character = "L" # это значение должно быть таким же, как `network-type` на шаге 3
+      address-scheme-character = "L" # это значение должно быть таким же, как `network-type` в шаге 3
       # различные параметры сетевого консенсуса
 
       functionality {
@@ -169,10 +169,10 @@ waves
 
   miner
   {
-    # Enable block generation only in the last block is not older the given period of time
+    # Включить генерацию блоков только только если последний блок не старше, чем заданный период времени
     interval-after-last-block-then-generation-is-allowed = 999d
-    # Required number of connections (both incoming and outgoing) to attempt block generation. Setting this value to 0
-    # enables "off-line generation".
+    # Необходимое количество подключений (входящих и исходящих) для попытки генерации блока. Если задать значение 0
+    # то будет включена "off-line генерация".
     quorum = 0
   }
 }
