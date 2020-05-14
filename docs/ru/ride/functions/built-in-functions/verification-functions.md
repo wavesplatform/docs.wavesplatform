@@ -78,7 +78,7 @@ createMerkleRoot(merkleProofs: List[ByteVector], valueBytes: ByteVector, index: 
 | :--- | :--- |
 | `vk`: ByteVector | Ключ для проверки.<br>Максимальный размер:<br>• Для функций `groth16Verify_<N>inputs` — не более 384 + 48 × `N` байт.<br>• Для функции `groth16Verify` — не более 384 + 48 × 16 =1152 байта |
 | `proof`: ByteVector | [Доказательство с нулевым разглашением](https://ru.wikipedia.org/wiki/Доказательство_с_нулевым_разглашением). Фиксированный размер: 192 байта |
-| `inputs`: ByteVector | Массив публичных входов доказательства с нулевым разглашением.<br>Максимальный размер:<br>• Для функций `groth16Verify_<N>inputs` — не более 32 × `N` байт.<br>• Для функции `groth16Verify_<N>inputs`— не более 512 байт. |
+| `inputs`: ByteVector | Массив публичных входов доказательства с нулевым разглашением.<br>Максимальный размер:<br>• Для функций `groth16Verify_<N>inputs` — не более 32 × `N` байт.<br>• Для функции `groth16Verify`— не более 512 байт. |
 
 ### Пример
 
