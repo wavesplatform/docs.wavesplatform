@@ -14,7 +14,7 @@ SponsorFee(assetId: ByteVector, minSponsoredAssetFee: Int|Unit)
 
 | # | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | assetId | [ByteVector](/en/ride/data-types/byte-vector) | Asset ID. Any asset issued by the dApp account is acceplable, including an asset issued by the same script invocation |
+| 1 | assetId | [ByteVector](/en/ride/data-types/byte-vector) | Asset ID. Any asset (except smart assets) issued by the dApp account is acceplable, including an asset issued by the same script invocation |
 | 2 | minSponsoredAssetFee | [Int](/en/ride/data-types/int)&#124;[Unit](/en/ride/data-types/unit) | Amount of sponsored asset that is equivalent to 0.001 WAVES, specified in the minimum fraction (“cent”) of the sponsored asset.<br>`unit` — disable the sponsorship |
 
 ## Example
