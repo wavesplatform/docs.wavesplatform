@@ -39,3 +39,5 @@ func verify() = {
     }
 }
 ```
+
+Доступные поля транзакции по ее типу можно посмотреть в разделе [Структуры транзакций](/ru/ride/structures/transaction-structures).
