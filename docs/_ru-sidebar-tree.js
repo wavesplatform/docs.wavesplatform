@@ -477,7 +477,7 @@ module.exports = {
         },
         {
           title: 'Протокол активации',
-          path: blockchainPath + 'waves-protocol/activation-protocol',
+          path: nodePath + 'activation-protocol',
         },
       ],
     },
