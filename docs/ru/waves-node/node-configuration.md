@@ -181,7 +181,7 @@ java -jar {*}.jar {*}.conf
 | # | Имя | Описание | Значение по умолчанию |
 | :--- | :--- | :--- | :--- |
 | 1 | `enable` | Активирует REST API. <br>Для деактивации REST API укажите значение `no` | `yes` |
-| 2 | `bind-address` | Cетевой адрес, по которому REST API будет принимать входящие подключения. <br>**Примечание**. Не рекомендуется менять значение по умолчанию. Используйте [Nginx’s proxy pass module](http://nginx.org/ru/docs/http/ngx_http_proxy_module.html) или [SSH port forwarding](http://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html) для внешнего доступа. | `"127.0.0.1"` |
+| 2 | `bind-address` | Cетевой адрес, по которому REST API будет принимать входящие подключения. <br>**Примечание**. Не рекомендуется менять значение по умолчанию. Используйте [Nginx’s proxy pass module](http://nginx.org/ru/docs/http/ngx_http_proxy_module.html) или [SSH port forwarding](https://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html) для внешнего доступа. | `"127.0.0.1"` |
 | 3 | `port` | Номер порта, через который REST API будет ожидать подключения. | `6869` |
 | 4 | `api-key-hash` | Хеш [API-ключа](https://en.wikipedia.org/wiki/Application_programming_interface_key), который предоставляется владельцем ноды.<br>Как сгенерировать хеш API-ключа, читайте в подразделе [Генерация хеша API-ключа](#генерация-хеша-api-ключа) | "" |
 | 5 | cors | Включение/выключение отправки кросс-доменных запросов CORS к ноде от JavaScript | yes |

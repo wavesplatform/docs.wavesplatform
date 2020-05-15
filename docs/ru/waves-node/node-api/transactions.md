@@ -328,7 +328,7 @@ or
 
 Подписывает транзакцию с помощью закрытого ключа сайнера. Для этого требуется, чтобы в теле запроса были указаны ключ API, адрес сайнера и тип транзакции.
 
-`signerAddress` следует создавать с помощью [POST /addresses](https://docs.wavesplatform.com/development-and-api/node-api/address.html#post-addresses).
+`signerAddress` следует создавать с помощью [POST /addresses](/ru/waves-node/node-api/address#post-addresses).
 
 Бывают следующие типы:
 
