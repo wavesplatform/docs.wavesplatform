@@ -13,7 +13,7 @@
 
 ## О платформе
 
-Ноды Waves используют для логирования платформу [logback](https://logback.qos.ch/documentation.html). Нода поставляется с [настройками логирования](https://logback.qos.ch/manual/configuration.html). См. стандартный файл [logback.xml](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/logback.xml) в качестве примера.
+Ноды Waves используют для логирования платформу [logback](http://logback.qos.ch/documentation.html). Нода поставляется с [настройками логирования](https://logback.qos.ch/manual/configuration.html). См. стандартный файл [logback.xml](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/logback.xml) в качестве примера.
 
 По умолчанию все логи пишутся в читаемом формате:
 
