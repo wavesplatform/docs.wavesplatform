@@ -206,7 +206,7 @@ makeString(arr: List[String], separator: String): String
 ### Пример
 
 ```ride
-makeString(["Apple","Orange","Mango"], " & ") # Возвращает "Apple & Orange & Mango"
+makeString(["Apple","Orange","Mango"], " & ") # Returns "Apple & Orange & Mango"
 ```
 
 ## size(String): Int<a id="size"></a>
