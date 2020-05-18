@@ -20,9 +20,9 @@ Issue(name: String, description: String, quantity: Int, decimals: Int, isReissua
 | :--- | :--- | :--- | :--- |
 | 1 | name | [String](/ru/ride/data-types/string) | Название токена |
 | 2 | description | [String](/ru/ride/data-types/string) | Описание токена |
-| 3 | quantity | [Int](/ru/ride/data-types/int) | Количество токена. Если токен является [NFT](/ru/blockchain/token/non-fungible-token), то значение должно быть `1` |
-| 4 | decimals | [Int](/ru/ride/data-types/int) | Количество знаков после запятой. Если [токеном](/ru/blockchain/token) является [NFT](/ru/blockchain/token/non-fungible-token), то значение должно быть `0` |
-| 5 | isReissuable | [Boolean](/ru/ride/data-types/boolean) | Флаг возможности довыпуска. Если токеном является [NFT](/ru/blockchain/token/non-fungible-token), то значение должно быть `0` |
+| 3 | quantity | [Int](/ru/ride/data-types/int) | Количество токена. Для [NFT](/ru/blockchain/token/non-fungible-token) должно быть равно `1` |
+| 4 | decimals | [Int](/ru/ride/data-types/int) | Количество знаков после запятой. Для NFT должно быть равно `0` |
+| 5 | isReissuable | [Boolean](/ru/ride/data-types/boolean) | Флаг возможности довыпуска. Для NFT должен быть равен `false` |
 | 6 | compiledScript | [Script](/ru/ride/script)&#124;[Unit](/ru/ride/data-types/unit) | Должно быть установлено значение `unit`. Выпуск [смарт-ассетов](/ru/blockchain/token/smart-asset) при помощи этой структуры пока недоступен |
 
 ## Примеры
@@ -40,7 +40,7 @@ Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit)
 * **Количество токенов для выпуска**: 100 (значение 10&nbsp;000 указано в минимальных неделимых единицах — «копейках» токена)
 * **Количество знаков после запятой у токена**: 2
 * **Скрипт ассета**: отсутствует
-* **Возможность довыпуска**: присутствует
+* **Возможность довыпуска**: есть
 
 ### Выпуск NFT-токена
 
@@ -55,4 +55,4 @@ Issue("UberToken", "The ultimate token. One and only", 1, 0, false, unit)
 * **Количество токенов для выпуска**: 1
 * **Количество знаков после запятой у токена**: 0
 * **Скрипт ассета**: отсутствует
-* **Возможность довыпуска**: отсутствует
+* **Возможность довыпуска**: нет
