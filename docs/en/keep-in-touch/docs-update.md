@@ -1,5 +1,13 @@
 # Documentation updates
 
+## May Articles
+
+### Ride
+
+#### Built-in Functions
+
+* [makeString](/en/ride/functions/built-in-functions/string-functions#makestringlist-string-string)
+
 ## April articles
 
 ### Blockchain
