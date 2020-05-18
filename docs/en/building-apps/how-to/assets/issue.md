@@ -95,7 +95,7 @@ In this example, `myToken` function issues a token with following params:
   
 @Callable(i)
 func myToken() = [
-  Issue("Spring_" + toBase58String(i.caller.bytes), "", 100000, 2, true, unit, 0)
+  Issue("Spring_" + toBase58String(i.caller.bytes), "", 100000, 2, true, unit)
 ]
 ```
 
