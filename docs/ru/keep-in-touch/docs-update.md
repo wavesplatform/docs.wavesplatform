@@ -6,7 +6,7 @@
 
 #### Встроенные функции
 
-* [makeString](/ru/ride/functions/built-in-functions/string-functions#makestringlist-string-string)
+* [makeString](/ru/ride/functions/built-in-functions/string-functions#makestringliststring-string-string)
 
 ## Апрельские статьи
 

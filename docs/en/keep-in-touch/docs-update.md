@@ -6,7 +6,7 @@
 
 #### Built-in Functions
 
-* [makeString](/en/ride/functions/built-in-functions/string-functions#makestringlist-string-string)
+* [makeString](/en/ride/functions/built-in-functions/string-functions#makestringliststring-string-string)
 
 ## April articles
 
