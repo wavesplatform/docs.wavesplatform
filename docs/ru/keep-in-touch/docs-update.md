@@ -1,5 +1,13 @@
 # Обновления в документации
 
+## Майские статьи
+
+### Ride
+
+#### Встроенные функции
+
+* [ecrecover](/ru/ride/functions/built-in-functions/verification-functions#ecrecover)
+
 ## Апрельские статьи
 
 ### Блокчейн

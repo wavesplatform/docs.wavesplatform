@@ -1,5 +1,13 @@
 # Documentation updates
 
+## May Articles
+
+### Ride
+
+#### Built-in Functions
+
+* [ecrecover](/en/ride/functions/built-in-functions/verification-functions#ecrecover)
+
 ## April articles
 
 ### Blockchain
