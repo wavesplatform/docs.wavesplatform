@@ -45,10 +45,10 @@ The minimum fee for an invoke script transaction:
 | [Lease cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction) | 9 | 0.001 |
 | [Lease transaction](/en/blockchain/transaction-type/lease-transaction) | 8 | 0.001 |
 | [Mass transfer transaction](/en/blockchain/transaction-type/mass-transfer-transaction) | 11 | 0.001 + 0.0005 × `N`<br>`N` is the number of transfers inside of the transaction.<br>The value is rounded up to the thousandths |
-| [Reissue transaction](/en/blockchain/transaction-type/reissue-transaction) | 5 | • 0.001 – starting from node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.<br>• 1 — before activation of feature #15. |
+| [Reissue transaction](/en/blockchain/transaction-type/reissue-transaction) | 5 | • 0.001 – after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.<br>• 1 — before activation of feature #15 |
 | [Set asset script transaction](/en/blockchain/transaction-type/set-asset-script-transaction) | 15 | 1 |
 | [Set script transaction](/en/blockchain/transaction-type/set-script-transaction) | 13 | 0.01 |
-| Sponsor fee transaction | 14 | 1 |
+| Sponsor fee transaction | 14 | • 0.001 – after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.<br>• 1 — before activation of feature #15 |
 | [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 4 | 0.001 |
 | [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) | 17 | 0.001<br>The update asset info transaction has been added in node version 1.2.0. It can be used after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only |
 
