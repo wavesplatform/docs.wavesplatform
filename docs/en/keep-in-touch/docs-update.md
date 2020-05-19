@@ -1,5 +1,11 @@
 # Documentation updates
 
+## May Articles
+
+### Ride
+
+* [Limitations](/en/ride/limits) updated
+
 ## April articles
 
 ### Blockchain

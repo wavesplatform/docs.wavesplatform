@@ -12,7 +12,7 @@
 
 |   #   | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | key | [String](/en/ride/data-types/string) | Record key |
+| 1 | key | [String](/en/ride/data-types/string) | Entry key. The maximum size is 400 bytes |
 
 ## Example
 

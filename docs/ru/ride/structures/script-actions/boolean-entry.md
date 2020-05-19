@@ -14,5 +14,5 @@ BooleanEntry(key: String, value: Boolean)
 
 |   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | key | [String](/ru/ride/data-types/string) | Ключ записи. Максимальная длина - 100 символов |
+| 1 | key | [String](/ru/ride/data-types/string) | Ключ записи. Максимальный размер — 400 байт |
 | 2 | value| [Boolean](/ru/ride/data-types/boolean) | Значение записи |

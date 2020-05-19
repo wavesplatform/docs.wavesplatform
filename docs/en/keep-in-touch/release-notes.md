@@ -48,10 +48,6 @@
 
 ## Ride Improvements
 
-* The maximum complexity of account script and verifier function of dApp script is changed to 3000.
-
-   The maximum complexity of asset script and callable function of dApp script remains 4000.
-
 * Version 4 of the Ride [standard library](/en/ride/script/standard-library) was issued.
 * Added script actions that the callable function of dApp can perform:
    * [Issue](/en/ride/structures/script-actions/issue)
@@ -75,6 +71,13 @@
 * Added the following list operators:
    * ++ for the concatenation of lists. Example: the result of `[1, 2] ++ [3, 4]` is `[1, 2, 3, 4]`. Complexity is 10.
    * `:+` for adding an element to the end of the list. Example: the result of `["foo","bar"] :+ "baz"` is `["foo", "bar", "baz"]`. Complexity is 3.
+* The maximum complexity of account script and verifier function of dApp script is changed to 3000.
+
+   The maximum complexity of asset script and callable function of dApp script remains 4000.
+* The maximum data size is changed:
+   * [String](/en/ride/data-types/string): 32,767 bytes
+   * [ByteVector](/en/ride/data-types/byte-vector): 32,767 bytes (for `DataTransaction.bodyBytes`: 165,996 bytes)
+
 
 ## Waves Explorer
 

@@ -14,5 +14,5 @@ BinaryEntry(key: String, value: String)
 
 |   #   | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | key | [String](/en/ride/data-types/string) | Key of a record. Maximum of 100 characters |
-| 2 | value| [String](/en/ride/data-types/byte-vector) | Value of a record. Maximum of 5 Kbytes |
+| 1 | key | [String](/en/ride/data-types/string) | Entry key. The maximum size is 400 bytes |
+| 2 | value| [String](/en/ride/data-types/byte-vector) | Entry value. Maximum of 5 Kbytes |

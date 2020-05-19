@@ -14,5 +14,5 @@ IntegerEntry(key: String, value: Int)
 
 |   #   | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | key | [String](/en/ride/data-types/string) | Key of a record. Maximum of 100 characters |
-| 2 | value | [Int](/en/ride/data-types/int) | Value of a record |
+| 1 | key | [String](/en/ride/data-types/string) | Entry key. The maximum size is 400 bytes |
+| 2 | value | [Int](/en/ride/data-types/int) | Entry value |

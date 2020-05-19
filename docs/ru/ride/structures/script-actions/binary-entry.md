@@ -14,5 +14,5 @@ BinaryEntry(key: String, value: ByteVector)
 
 |   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | key | [String](/ru/ride/data-types/string) | Ключ записи. Максимальная длина - 100 символов |
-| 2 | value| [ByteVector](/ru/ride/data-types/byte-vector) | Значение записи. Максимальный размер - 5 Кбайт |
+| 1 | key | [String](/ru/ride/data-types/string) | Ключ записи. Максимальный размер — 400 байт |
+| 2 | value| [ByteVector](/ru/ride/data-types/byte-vector) | Значение записи. Максимальный размер — 5 Кбайт |
