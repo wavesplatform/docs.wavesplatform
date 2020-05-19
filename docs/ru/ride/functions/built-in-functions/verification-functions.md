@@ -81,7 +81,6 @@ func check(t: ByteVector, signature: ByteVector, publicKey: ByteVector) = {
 }
 ```
 
-
 ## groth16Verify
 
 Семейство функций. Осуществляют проверку [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf).

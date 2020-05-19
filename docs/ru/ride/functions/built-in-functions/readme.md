@@ -159,5 +159,5 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | blake2b256(ByteVector): ByteVector | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |
-| keccak256(ByteVector): ByteVector | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [SHA3-256](https://en.wikipedia.org/wiki/SHA-3) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |
+| keccak256(ByteVector): ByteVector | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [Keccak-256](https://keccak.team/files/Keccak-submission-3.pdf) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |
 | sha256(ByteVector): ByteVector | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |

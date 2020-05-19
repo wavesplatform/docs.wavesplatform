@@ -3,7 +3,7 @@
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | [blake2b256](#blake2b256) | Range of functions.<br>Hash an array of bytes using [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10–200 for Standard Library **version 4** |
-| [keccak256](#keccak256) | Range of functions.<br>Hash an array of bytes using [SHA-3-256](https://en.wikipedia.org/wiki/SHA-3) | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10–200 for Standard Library **version 4** |
+| [keccak256](#keccak256) | Range of functions.<br>Hash an array of bytes using [Keccak-256](https://keccak.team/files/Keccak-submission-3.pdf) | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10–200 for Standard Library **version 4** |
 | [sha256](#sha256) | Range of functions.<br>Hash an array of bytes using [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10–200 for Standard Library **version 4** |
 
 ## blake2b256
@@ -38,7 +38,7 @@ blake2b256(base64'UmlkZQ==')  # Returns 6NSWRz5XthhFVm9uVQHuisdaseQJfc4WMGajN43
 
 ## keccak256
 
-Range of functions that hash an array of bytes using [SHA-3-256](https://en.wikipedia.org/wiki/SHA-3)
+Range of functions that hash an array of bytes using [Keccak-256](https://keccak.team/files/Keccak-submission-3.pdf).
 
 | Name | Max data size | Complexity |
 |:---| :--- | :--- |
