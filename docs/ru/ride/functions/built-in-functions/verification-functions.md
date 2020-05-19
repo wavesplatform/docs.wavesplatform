@@ -52,9 +52,9 @@ createMerkleRoot(merkleProofs: List[ByteVector], valueBytes: ByteVector, index: 
 
 > :warning: Функция `ecrecover` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
-Возвращает открытый ключ, восстановленный из хеша сообщения и цифровой подписи [ECDSA](https://ru.wikipedia.org/wiki/ECDSA). Выбрасывает исключение, если восстановить открытый ключ не удалось.
+Возвращает открытый ключ, восстановленный из хеша сообщения и цифровой подписи [ECDSA](https://ru.wikipedia.org/wiki/ECDSA) на основе эллиптической кривой secp256k1. В случае некорректных аргументов возвращает ошибку.
 
-Функцию можно использовать для проверки достоверности цифровой подписи транзакции блокчейна Ethereum, сравнив восстановленный открытый ключ с ключом отправителя.
+Функцию можно использовать для проверки достоверности цифровой подписи сообщения, сравнив восстановленный открытый ключ с ключом отправителя.
 
 ``` ride
 ecrecover(messageHash: ByteVector, signature: ByteVector): ByteVector
@@ -64,8 +64,23 @@ ecrecover(messageHash: ByteVector, signature: ByteVector): ByteVector
 
 | Параметр | Описание |
 | :--- | :--- |
-| `messageHash`: ByteVector | Хеш сообщения. Например, полученный с помощью функции [hashPersonalMessage](https://github.com/ethereumjs/ethereumjs-util/blob/master/docs/modules/_signature_.md#const-hashpersonalmessage). Фиксированный размер: 32 байта |
-| `signature`: ByteVector | Цифровая подпись ECDSA. Например, полученная с помощью функции [ecsign](https://github.com/ethereumjs/ethereumjs-util/blob/master/docs/modules/_signature_.md#const-ecsign). Фиксированный размер: 65 байт |
+| `messageHash`: ByteVector | SHA3-256-хеш сообщения. Фиксированный размер: 32 байта |
+| `signature`: ByteVector | Цифровая подпись ECDSA. Фиксированный размер: 65 байт |
+
+### Пример
+
+Для верификации транзакции блокчейна Ethereum нужны следующие данные:
+
+* транзакция;
+* подпись, полученная с помощью функции [ecsign](https://github.com/ethereumjs/ethereumjs-util/blob/master/docs/modules/_signature_.md#const-ecsign) (конкатенация байтов `r`, `s` и `v`);
+* открытый ключ отправителя.
+
+```
+func check(t: ByteVector, signature: ByteVector, publicKey: ByteVector) = {
+   ecrecover(keccak256(t), signature) == publicKey
+}
+```
+
 
 ## groth16Verify
 
