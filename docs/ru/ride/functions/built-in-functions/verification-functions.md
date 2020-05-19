@@ -52,7 +52,7 @@ createMerkleRoot(merkleProofs: List[ByteVector], valueBytes: ByteVector, index: 
 
 > :warning: Функция `ecrecover` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
-Возвращает открытый ключ, восстановленный из хеша сообщения и цифровой подписи [ECDSA](https://ru.wikipedia.org/wiki/ECDSA) на основе эллиптической кривой secp256k1. В случае некорректных аргументов возвращает ошибку.
+Возвращает открытый ключ, восстановленный из хеша сообщения и цифровой подписи [ECDSA](https://ru.wikipedia.org/wiki/ECDSA) на основе эллиптической кривой secp256k1. Выбрасывает исключение, если восстановить открытый ключ не удалось.
 
 Функцию можно использовать для проверки достоверности цифровой подписи сообщения, сравнив восстановленный открытый ключ с ключом отправителя.
 
@@ -64,7 +64,7 @@ ecrecover(messageHash: ByteVector, signature: ByteVector): ByteVector
 
 | Параметр | Описание |
 | :--- | :--- |
-| `messageHash`: ByteVector | SHA3-256-хеш сообщения. Фиксированный размер: 32 байта |
+| `messageHash`: ByteVector | Keccak-256-хеш сообщения. Фиксированный размер: 32 байта |
 | `signature`: ByteVector | Цифровая подпись ECDSA. Фиксированный размер: 65 байт |
 
 ### Пример
