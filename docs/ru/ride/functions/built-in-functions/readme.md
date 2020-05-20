@@ -114,9 +114,17 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| getElement(List[T], Int): T | Получает элемент по индексу | 2 |
 | cons(T, List[T]): List[T] | Вставляет элемент в начало списка | 2 |
+| containsElement(list: List[T], element: T): Boolean | Проверяет наличие элемента в списке | 5 |
+| getElement(List[T], Int): T | Получает элемент по индексу | 2 |
+| indexOf(list: List[T], element: T): Int&#124;Unit | Возвращает индекс первого вхождения элемента в списке | 5 |
+| lastIndexOf(list: List[T], element: T): Int&#124;Unit | Возвращает индекс последнего вхождения элемента в списке | 5 |
+| max(List[Int]): Int | Возвращает наибольший элемент в списке | 3 |
+| min(List[Int]): Int | Возвращает наименьший элемент в списке | 3 |
 | size(List[T]): Int | Возвращает размер списка | 2 |
+
+`T` — сокращенная запись для `Boolean|ByteVector|Int|String`.
+
 
 ## [Функции строки](/ru/ride/functions/built-in-functions/string-functions)
 

@@ -1,37 +1,19 @@
 # Функции списка
 
-| # | Название | Описание | Сложность |
-| :--- | :--- | :--- | :--- |
-| 1 | [getElement(List[T], Int): T](#get-element)  | Получает элемент [списка](/ru/ride/data-types/list) по индексу | 2 |
-| 2 | [cons(T, List[T]): List[T]](#cons)  | Вставляет элемент в начало [списка](/ru/ride/data-types/list) | 2 |
-| 3 | [size(List[T]): Int](#size)  | Возвращает размер [списка](/ru/ride/data-types/list) | 2 |
+| Название | Описание | Сложность |
+| :--- | :--- | :--- |
+| [cons](#cons)  | Вставляет элемент в начало [списка](/ru/ride/data-types/list) | 2 |
+| [containsElement](#containselement)  | Проверяет наличие элемента в списке | 5 |
+| [getElement](#getelement)  | Получает элемент списка по индексу | 2 |
+| [indexOf](#indexof)  | Возвращает индекс первого вхождения элемента в списке | 5 |
+| [lastIndexOf](#lastindexof)  | Возвращает индекс последнего вхождения элемента в списке | 5 |
+| [max](#max)  | Возвращает наибольший элемент в списке | 3 |
+| [min](#min)  | Возвращает наименьший элемент в списке | 3 |
+| [size](#size)  | Возвращает размер [списка](/ru/ride/data-types/list) | 2 |
 
-## getElement(List[T], Int): T<a id="get-element"></a>
+`T` — сокращенная запись для `Boolean|ByteVector|Int|String`.
 
-Получает элемент [списка](/ru/ride/data-types/list) по индексу.
-
-``` ride
-getElement(arr: List[T], pos: Int): T
-```
-
-### Параметры
-
-#### `arr`: [List[T]](/ru/ride/data-types/list)
-
-Список.
-
-#### `pos`: Int
-
-Индекс элемента.
-
-### Примеры
-
-```ride
-getElement(["Ride", "on", "Waves"], 0)  # Возвращает "Ride"
-getElement([false, true], 1) # Возвращает true
-```
-
-## cons(T, List[T]): List[T] <a id="cons"></a>
+## cons
 
 Вставляет элемент в начало [списка](/ru/ride/data-types/list).
 
@@ -41,13 +23,10 @@ cons(head:T, tail: List[T]): List[T]
 
 ### Параметры
 
-#### `head`: T
-
-Элемент.
-
-#### `tail`: [List[T]](/ru/ride/data-types/list)
-
-Список.
+| Параметр | Описание |
+| :--- | :--- |
+| `head`: T | Элемент |
+| `tail`: [List[T]](/ru/ride/data-types/list) | Список |
 
 ### Примеры
 
@@ -56,7 +35,122 @@ cons("Ride", ["on", "Waves"]) # Возвращает ["Ride", "on", "Waves"]
 cons(1, [2, 3, 4, 5]) # Возвращает [1, 2, 3, 4, 5]
 ```
 
-## size(List[T]): Int <a id="size"></a>
+## containsElement
+
+Проверяет наличие элемента в списке.
+
+> :warning: Функция `containsElement` добавлена в Стандартной библиотеке версии 4, которая доступна начиная с версии ноды 1.2.0 после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время работают только на Stagenet.
+
+```ride
+containsElement(list: List[T], element: T): Boolean
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `list`: [List[T]](/ru/ride/data-types/list) | Список |
+| `element`: T | Искомый элемент |
+
+
+
+## getElement
+
+Получает элемент [списка](/ru/ride/data-types/list) по индексу.
+
+``` ride
+getElement(arr: List[T], pos: Int): T
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `arr`: [List[T]](/ru/ride/data-types/list) | Список |
+| `pos`: Int | Индекс элемента |
+
+### Примеры
+
+```ride
+getElement(["Ride", "on", "Waves"], 0)  # Возвращает "Ride"
+getElement([false, true], 1) # Возвращает true
+```
+
+## indexOf
+
+Возвращает индекс первого вхождения элемента в списке или `unit`, если элемент отсутствует.
+
+> :warning: Функция `indexOf` добавлена в Стандартной библиотеке версии 4, которая доступна начиная с версии ноды 1.2.0 после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время работают только на Stagenet.
+
+``` ride
+indexOf(list: List[T], element: T): Int|Unit
+```
+
+| Параметр | Описание |
+| :--- | :--- |
+| `list`: [List[T]](/ru/ride/data-types/list) | Список |
+| `element`: T | Искомый элемент |
+
+
+### Примеры
+
+```ride
+let stringList = ["a","b","a","c"]
+indexOf("a", stringList) # Возвращает 0
+```
+
+## lastIndexOf
+
+Возвращает индекс последнего вхождения элемента в списке или `unit`, если элемент отсутствует.
+
+> :warning: Функция `lastIndexOf` добавлена в Стандартной библиотеке версии 4, которая доступна начиная с версии ноды 1.2.0 после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время работают только на Stagenet.
+
+``` ride
+lastIndexOf(list: List[T], element: T): Int|Unit
+```
+
+| Параметр | Описание |
+| :--- | :--- |
+| `list`: [List[T]](/ru/ride/data-types/list) | Список |
+| `element`: T | Искомый элемент |
+
+
+### Примеры
+
+```ride
+let stringList = ["a","b","a","c"]
+lastIndexOf("a", stringList) # Возвращает 2
+```
+
+## max
+
+Возвращает наибольший элемент в списке. Если список пустой, возвращает ошибку.
+
+``` ride
+max(List[Int]): Int
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `list`: [List[T]](/ru/ride/data-types/list) | Список |
+
+## min
+
+Возвращает наименьший элемент в списке. Если список пустой, возвращает ошибку.
+
+``` ride
+min(List[Int]): Int
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `list`: [List[T]](/ru/ride/data-types/list) | Список |
+
+## size
 
 Возвращает размер [списка](/ru/ride/data-types/list).
 
@@ -66,9 +160,9 @@ size(arr: List[T]): Int
 
 ### Параметры
 
-#### `arr`: [List[T]](/ru/ride/data-types/list)
-
-Список.
+| Параметр | Описание |
+| :--- | :--- |
+| `arr`: [List[T]](/ru/ride/data-types/list) | Список |
 
 ### Примеры
 
