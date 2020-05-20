@@ -95,7 +95,7 @@ my_address.issueAsset(
   
 @Callable(i)
 func myToken() = [
-  Issue("Spring_" + toBase58String(i.caller.bytes), "", 100000, 2, true, unit)
+  Issue("Spring_" + toBase58String(i.caller.bytes), "", 100000, 2, true)
 ]
 ```
 

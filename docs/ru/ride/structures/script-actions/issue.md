@@ -6,12 +6,16 @@
 
 Получить идентификатор выпускаемого токена можно с помощью функции [calculateAssetId](/ru/ride/functions/built-in-functions/blockchain-functions#calculate).
 
-В одном вызове функции можно выпустить несколько токенов. У этих токенов будут разные идентификаторы, даже если параметры токенов одинаковые, поскольку порядковый номер вызова конструктора используется в качестве nonce.
-
 ## Конструктор
 
 ```ride
-Issue(name: String, description: String, quantity: Int, decimals: Int, isReissuable: Boolean, compiledScript: Script|Unit)
+Issue(name: String, description: String, quantity: Int, decimals: Int, isReissuable: Boolean, compiledScript: Script|Unit, nonce: Int)
+```
+
+или 
+
+```ride
+Issue(name: String, description: String, quantity: Int, decimals: Int, isReissuable: Boolean)
 ```
 
 ## Поля
@@ -24,13 +28,14 @@ Issue(name: String, description: String, quantity: Int, decimals: Int, isReissua
 | 4 | decimals | [Int](/ru/ride/data-types/int) | Количество знаков после запятой. Для NFT должно быть равно `0` |
 | 5 | isReissuable | [Boolean](/ru/ride/data-types/boolean) | Флаг возможности довыпуска. Для NFT должен быть равен `false` |
 | 6 | compiledScript | [Script](/ru/ride/script)&#124;[Unit](/ru/ride/data-types/unit) | Должно быть установлено значение `unit`. Выпуск [смарт-ассетов](/ru/blockchain/token/smart-asset) при помощи этой структуры пока недоступен |
+| 7 | nonce | [Int](/ru/ride/data-types/int) | Nonce, который используется для генерации ID ассета. Если вызываемая функция вызывает несколько токенов с одинаковыми параметрами, нужно использовать разные nonce либо использовать конструкторы без nonce (в этом случае в качестве nonce автоматически подставляется порядковый номер вызова конструктора), см. (пример)[#выпуск-нескольких-токенов] |
 
 ## Примеры
 
 ### Выпуск обычного токена
 
 ```
-Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit)
+Issue("RegularToken", "This is an ordinary token", 10000, 2, true)
 ```
 
 В приведенной структуре заданы следующие параметры токена:
@@ -39,13 +44,31 @@ Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit)
 * **Описание**: This is an ordinary token
 * **Количество токенов для выпуска**: 100 (значение 10&nbsp;000 указано в минимальных неделимых единицах — «копейках» токена)
 * **Количество знаков после запятой у токена**: 2
-* **Скрипт ассета**: отсутствует
 * **Возможность довыпуска**: есть
+
+### Выпуск нескольких токенов
+
+```
+[
+   Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 0),
+   Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 1)
+]
+```
+
+или
+
+```
+[
+   Issue("RegularToken", "This is an ordinary token", 10000, 2, true),
+   Issue("RegularToken", "This is an ordinary token", 10000, 2, true)
+]
+```
+
 
 ### Выпуск NFT-токена
 
 ```
-Issue("UberToken", "The ultimate token. One and only", 1, 0, false, unit)
+Issue("UberToken", "The ultimate token. One and only", 1, 0, false)
 ```
 
 В приведенной структуре заданы следующие параметры токена:
@@ -54,5 +77,4 @@ Issue("UberToken", "The ultimate token. One and only", 1, 0, false, unit)
 * **Описание**: The ultimate token. One and only
 * **Количество токенов для выпуска**: 1
 * **Количество знаков после запятой у токена**: 0
-* **Скрипт ассета**: отсутствует
 * **Возможность довыпуска**: нет

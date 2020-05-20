@@ -11,7 +11,13 @@ You can issue several tokens in one function call. These tokens have different I
 ## Constructor
 
 ```ride
-Issue(name: String, description: String, quantity: Int, decimals: Int, isReissuable: Boolean, compiledScript: Script|Unit)
+Issue(name: String, description: String, quantity: Int, decimals: Int, isReissuable: Boolean, compiledScript: Script|Unit, nonce: Int)
+```
+
+or
+
+```ride
+Issue(name: String, description: String, quantity: Int, decimals: Int, isReissuable: Boolean)
 ```
 
 ## Fields

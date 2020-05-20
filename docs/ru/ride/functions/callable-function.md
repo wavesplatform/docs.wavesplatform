@@ -124,7 +124,7 @@ func verify() = false
 
 | Структура Ride, задающая результат | Описание | Пример |
 |---|---|---|
-| [List](/ru/ride/data-types/list) | Объединяет предназначенные для выполнения [действия скрипта](#actions4), см. [пример](#example4). Действия будут выполнены в порядке, в котором они перечислены в этом списке | `[BooleanEntry("key1", true), IntegerEntry("key2", 42), StringEntry("key3", "some string"), BinaryEntry("key4", base58'encoded'), DeleteEntry("key4"), ScriptTransfer(Address(base58'3Ms8fSfAxBLDjKvNVgACRzQoBLCtCWxtawu'), 100, base58'someAssetid'), Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit), Reissue("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", true, 1000), Burn("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", 1000)]` |
+| [List](/ru/ride/data-types/list) | Объединяет предназначенные для выполнения [действия скрипта](#actions4), см. [пример](#example4). Действия будут выполнены в порядке, в котором они перечислены в этом списке | `[BooleanEntry("key1", true), IntegerEntry("key2", 42), StringEntry("key3", "some string"), BinaryEntry("key4", base58'encoded'), DeleteEntry("key4"), ScriptTransfer(Address(base58'3Ms8fSfAxBLDjKvNVgACRzQoBLCtCWxtawu'), 100, base58'someAssetid'), Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 0), Reissue("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", true, 1000), Burn("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", 1000)]` |
 
 ### Действия скрипта <a id="actions4"></a>
 
