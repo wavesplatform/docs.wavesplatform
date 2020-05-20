@@ -8,7 +8,9 @@
 
 ## Минимальная комиссия
 
-Минимальная комиссия в WAVES для каждого типа транзакции представлена в таблице. Если транзакция верифицируется [скриптом аккаунта](/ru/ride/script/script-types/account-script) или [скриптом ассета](/ru/ride/script/script-types/asset-script), то минимальная комиссия увеличивается на 0,004 WAVES за каждое выполнение скрипта.
+Минимальная комиссия в WAVES для каждого типа транзакции представлена в таблице.
+
+:warning: Если транзакция верифицируется [скриптом аккаунта](/ru/ride/script/script-types/account-script) или [скриптом ассета](/ru/ride/script/script-types/asset-script), то минимальная комиссия увеличивается на 0,004 WAVES за каждое выполнение скрипта.
 
 **Пример 1.**
 
@@ -19,7 +21,7 @@
 * Перевод смарт-ассета: 0,001 + 0,004 = 0,005 WAVES.
 * Перевод смарт-ассета со смарт-аккаунта: 0,001 + 0,004 + 0,004 = 0,009 WAVES.
 
-**Пример 2.**
+**Пример 2.**<a id="example2"></a>
 
 Минимальная комиссия за транзакцию вызова скрипта:
 
@@ -36,7 +38,7 @@
 
 | Тип транзакции | ID типа транзакции | Минимальная комиссия в WAVES |
 | :--- | :--- | :--- |
-| [Транзакция вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 16 | 0,005 +`K`<br>`K` — количество обычных ассетов (не являющихся [NFT](/ru/blockchain/token/non-fungible-token)), выпущенных в результате вызова dApp-скрипта.<br>Возможность выпуска токена dApp-скриптом добавлена в версии ноды 1.2.0. Возможность включается после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”. На данный момент версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network) |
+| [Транзакция вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 16 | 0,005 +`K`<br>`K` — количество обычных ассетов (не являющихся [NFT](/ru/blockchain/token/non-fungible-token)), выпущенных в результате вызова dApp-скрипта.<br>Возможность выпуска токена dApp-скриптом добавлена в версии ноды 1.2.0. Возможность включается после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”. На данный момент версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network)<br>См. также [пример 2](#example2) выше |
 | [Транзакция выпуска](/ru/blockchain/transaction-type/issue-transaction) | 3 | • 1 за обычный токен <br>• 0,001 за [NFT](/ru/blockchain/token/non-fungible-token) |
 | [Транзакция данных](/ru/blockchain/transaction-type/data-transaction) | 12 | 0,001 за килобайт<br>Значение округляется вверх до тысячных |
 | [Транзакция довыпуска](/ru/blockchain/transaction-type/reissue-transaction) | 5 | • 0,001 — после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.<br>• 1 — до активации фичи № 15 |
