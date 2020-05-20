@@ -54,7 +54,10 @@ createMerkleRoot(merkleProofs: List[ByteVector], valueBytes: ByteVector, index: 
 
 Recovers public key from the message hash and the [ECDSA](https://en.wikipedia.org/wiki/ECDSA) digital signature based on the secp256k1 elliptic curve. Throws an exception if the recovery failed.
 
+The public key is returned in uncompressed format (64 bytes).
+
 The function can be used to verify the digital signature of a message by comparing the recovered public key with the sender’s key.
+
 
 ``` ride
 ecrecover(messageHash: ByteVector, signature: ByteVector): ByteVector
