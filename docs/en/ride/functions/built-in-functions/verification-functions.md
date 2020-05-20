@@ -68,7 +68,7 @@ ecrecover(messageHash: ByteVector, signature: ByteVector): ByteVector
 | Parameter | Description |
 | :--- | :--- |
 | `messageHash`: ByteVector | Keccak-256 hash of the message.  Fixed size: 32 bytes |
-| `signature`: ByteVector | Цифровая подпись ECDSA.  Fixed size: 65 bytes |
+| `signature`: ByteVector | ECDSA digital signature. Fixed size: 65 bytes |
 
 ### Example
 
