@@ -4,6 +4,8 @@
 
 ### Ride
 
+* Обновлены [ограничения](/ru/ride/limits/)
+
 #### Действия скрипта
 
 * [SponsorFee](/ru/ride/structures/script-actions/sponsor-fee)

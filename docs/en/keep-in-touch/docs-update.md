@@ -4,6 +4,8 @@
 
 ### Ride
 
+* [Limitations](/en/ride/limits) updated
+
 #### Script actions
 
 * [SponsorFee](/en/ride/structures/script-actions/sponsor-fee)

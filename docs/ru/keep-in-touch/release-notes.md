@@ -47,9 +47,6 @@
 
 ## Изменения Ride
 
-* Максимальная сложность скрипта аккаунта и функции-верификатора скрипта dApp изменена на 3000.
-
-   Максимальная сложность скрипта ассета и вызываемой функции скрипта dApp осталась прежней — 4000.
 * Выпущена версия 4 [Стандартной библиотеки](/ru/ride/script/standard-library).
 * Добавлены действия скрипта, которые может выполнять [вызываемая функция](/ru/ride/functions/callable-function) dApp-скрипта:
    * [Issue](/ru/ride/structures/script-actions/issue) — выпуск токена.
@@ -77,12 +74,18 @@
    * [min](/ru/ride/functions/built-in-functions/list-functions#max) — возвращает наименьший элемент в списке. Сложность 3.
    * [transferTransactionFromProto](/ru/ride/functions/built-in-functions/converting-functions#transfertransactionfromproto) — десериализует транзакцию перевода. Сложность 5.
    * [valueOrElse(t: T|Unit, t0 : T)](/ru/ride/functions/built-in-functions/union-functions#valueOrElse) — получение значения из параметра типа данных объединение. Сложность 13.
+* Встроенная функция [wavesBalance](/ru/ride/functions/built-in-functions/account-data-storage-functions#waves-balance) возвращает структуру [BalanceDetails](/ru/ride/structures/common-structures/balance-details), которая содержит все виды баланса WAVES.
+* В структуру [Asset](/ru/ride/structures/common-structures/asset), возвращаемую встроенной функцией [assetInfo](/ru/ride/functions/built-in-functions/blockchain-functions#assetinfo), добавлены поля `name` и `description`.
 * Для встроенных [функций хеширования](/ru/ride/functions/built-in-functions/hashing-functions) `blakeb256`, `keccak256`, `sha256` и встроенных [функций верификации](/ru/ride/functions/built-in-functions/verification-functions) `rsaVerify`, `sigVerify` в версии 4 изменена сложность и добавлены семейства аналогичных функций с различной сложностью в зависимости от размера аргумента. Если размер данных известен заранее, можно использовать более «дешевую» функцию.
 * Добавлены встроенные функции работы со списками:
    * Конкатенация при помощи оператора `++`. Пример: результатом выражения `[1, 2] ++ [3, 4]` будет `[1, 2, 3, 4]`. Сложность равна 10.
    * Добавление элемента в конец списка. Пример: результатом выражения `["foo","bar"] :+ "baz"` будет `["foo", "bar", "baz"]`. Сложность равна 3.
-* Встроенная функция [wavesBalance](/ru/ride/functions/built-in-functions/account-data-storage-functions#waves-balance) возвращает структуру [BalanceDetails](/ru/ride/structures/common-structures/balance-details), которая содержит все виды баланса WAVES.
-* В структуру [Asset](/ru/ride/structures/common-structures/asset), возвращаемую встроенной функцией [assetInfo](/ru/ride/functions/built-in-functions/blockchain-functions#assetinfo), добавлены поля `name` и `description`.
+* Максимальная сложность скрипта аккаунта и функции-верификатора скрипта dApp изменена на 3000.
+
+   Максимальная сложность скрипта ассета и вызываемой функции скрипта dApp осталась прежней — 4000.
+* Изменен максимальный размер данных:
+   * [String](/ru/ride/data-types/string) — 32&nbsp;767 байт
+   * [ByteVector]](/ru/ride/data-types/byte-vector) — 32&nbsp;767 байт (165&nbsp;947 байт для поля `bodyBytes` структуры транзакции)
 
 ## Waves Explorer
 

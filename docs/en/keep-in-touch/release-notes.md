@@ -48,10 +48,6 @@
 
 ## Ride Improvements
 
-* The maximum complexity of account script and verifier function of dApp script is changed to 3000.
-
-   The maximum complexity of asset script and callable function of dApp script remains 4000.
-
 * Version 4 of the Ride [standard library](/en/ride/script/standard-library) was issued.
 * Added script actions that the callable function of dApp can perform:
    * [Issue](/en/ride/structures/script-actions/issue)
@@ -79,12 +75,18 @@
    * [min](/en/ride/functions/built-in-functions/list-functions#max) that returns the smallest element in the list. Complexity is 3.
    * [transferTransactionFromProto](/en/ride/functions/built-in-functions/converting-functions#transfertransactionfromproto) — deserializes a transfer transaction. Complexity is 5.
    * [valueOrElse(t: T|Unit, t0 : T)](/en/ride/functions/built-in-functions/union-functions#valueOrElse) that returns a value from the union type if it's not [unit](/en/ride/data-types/unit). Complexity is 13.
+* The [wavesBalance](/en/ride/functions/built-in-functions/account-data-storage-functions#waves-balance) built-in function returns the [BalanceDetails](/en/ride/structures/common-structures/balance-details) structure which contains all types of WAVES balances.
+* Added `name` and `description` fields to the [Asset](/en/ride/structures/common-structures/asset) structure which is returned by the [assetInfo](/en/ride/functions/built-in-functions/blockchain-functions#assetinfo) built-in function.
 * For the built-in [hashing functions](/en/ride/functions/built-in-functions/hashing-functions) `blakeb256`, `keccak256`, `sha256` and the built-in [verification functions](/en/ride/functions/built-in-functions/verification-functions) `rsaVerify`, `sigVerify` the complexity is changed in version 4 along with adding the range of similar functions with different complexity depending on the argument size limit. When data size is known in advance, the “cheaper” function can be used.
 * Added the following list operators:
    * ++ for the concatenation of lists. Example: the result of `[1, 2] ++ [3, 4]` is `[1, 2, 3, 4]`. Complexity is 10.
    * `:+` for adding an element to the end of the list. Example: the result of `["foo","bar"] :+ "baz"` is `["foo", "bar", "baz"]`. Complexity is 3.
-* The [wavesBalance](/en/ride/functions/built-in-functions/account-data-storage-functions#waves-balance) built-in function returns the [BalanceDetails](/en/ride/structures/common-structures/balance-details) structure which contains all types of WAVES balances.
-* Added `name` and `description` fields to the [Asset](/en/ride/structures/common-structures/asset) structure which is returned by the [assetInfo](/en/ride/functions/built-in-functions/blockchain-functions#assetinfo) built-in function.
+* The maximum complexity of account script and verifier function of dApp script is changed to 3000.
+   The maximum complexity of asset script and callable function of dApp script remains 4000.
+* The maximum data size is changed:
+   * [String](/en/ride/data-types/string): 32,767 bytes
+   * [ByteVector](/en/ride/data-types/byte-vector): 32,767 bytes (for the `bodyBytes` field of the transaction structure: 165,947 bytes)
+
 
 ## Waves Explorer
 

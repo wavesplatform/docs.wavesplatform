@@ -2,7 +2,7 @@
 
 > :warning: The structure is introduced in Standard library **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
-**Reissue** is a structure that sets the parameters of the token reissue which is performed as the result of the [callable function](/en/ride/functions/callable-function) invocation.
+**Reissue** is a structure that sets the parameters of the token reissue. The token reissue is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#callable-function-invocation-results-2).
 
 ## Constructor
 

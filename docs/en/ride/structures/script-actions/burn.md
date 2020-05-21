@@ -2,7 +2,7 @@
 
 > :warning: The structure is introduced in Standard library **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/stage-network).
 
-**Burn** is a structure that sets the parameters of the token burn which is performed as the result of the [callable function](/en/ride/functions/callable-function) invocation.
+`Burn` is a structure that sets the parameters of the token burning. The token burning is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#callable-function-invocation-results-2).
 
 ## Constructor
 
