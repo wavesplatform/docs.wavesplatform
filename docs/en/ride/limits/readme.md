@@ -10,7 +10,7 @@
 | Complexity of verifier function of dApp script | 4000 for **version 3**<br>3000 for **version 4** |
 | Function name or variable name | 255 bytes |
 | Size of [String](/en/ride/data-types/string) variable | 32,767 characters for **version 3**<br>32,767 **bytes** for **version 4** |
-| Size of [ByteVector](/en/ride/data-types/string) variable | 65&nbsp;536 bytes for **version 3**<br>32&nbsp;767 bytes (165&nbsp;947 bytes for `bodyBytes` field of transaction structure) for **version&nbsp;4** |
+| Size of [ByteVector](/en/ride/data-types/string) variable | 65&nbsp;536 bytes for **version 3**<br>32&nbsp;767 bytes (except `bodyBytes` field of transaction structure) for **version&nbsp;4** |
 | Data weight | See [Data Weight](/en/ride/limits/weight) |
 | Number of callable function arguments | 22 |
 | Total number of [ScriptTransfer](/en/ride/structures/script-actions/script-transfer), [Issue](/en/ride/structures/script-actions/issue), [Reissue](/en/ride/structures/script-actions/reissue), [Burn](/en/ride/structures/script-actions/burn), and [SponsorFee](/en/ride/structures/script-actions/sponsor-fee) in callable function [invocation results](/en/ride/functions/callable-function#invocation-result-2) (applicable for **version&nbsp;4** ) | 10 |

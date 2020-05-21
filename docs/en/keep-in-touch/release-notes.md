@@ -85,8 +85,7 @@
    The maximum complexity of asset script and callable function of dApp script remains 4000.
 * The maximum data size is changed:
    * [String](/en/ride/data-types/string): 32,767 bytes
-   * [ByteVector](/en/ride/data-types/byte-vector): 32,767 bytes (for the `bodyBytes` field of the transaction structure: 165,947 bytes)
-
+   * [ByteVector](/en/ride/data-types/byte-vector): 32,767 bytes (except the `bodyBytes` field of the transaction structure)
 
 ## Waves Explorer
 
