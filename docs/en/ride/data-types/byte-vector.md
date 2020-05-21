@@ -2,7 +2,7 @@
 
 `ByteVector` is a [data type](/en/ride/data-types) for byte array.
 
-To assign a value to a `ByteVector` variable, you can use a string in [Base16](https://en.wikipedia.org/wiki/Hexadecimal#Base16_&#40;Transfer_encoding&#41;), [Base58](https://ru.wikipedia.org/wiki/Base58) the appropriate prefix:
+To assign a value to a `ByteVector` variable, you can use a string in [Base16](https://en.wikipedia.org/wiki/Hexadecimal#Base16_&#40;Transfer_encoding&#41;), [Base58](https://ru.wikipedia.org/wiki/Base58), or [Base64](https://ru.wikipedia.org/wiki/Base64) the appropriate prefix:
 
 ``` ride
 let a = base16'52696465'
@@ -26,6 +26,7 @@ The maximum size of a `ByteVector` variable is:
 
 * For [Standard library](/en/ride/script/standard-library) version 3 — 65,536 bytes.
 * For Standard library version 4 — 32,767 bytes.
-   Exception: the size of `bodyBytes` field of [transaction structure](/en/ride/structures/transaction-structures) can be up to 165,996 bytes. You can passed this value as an argument to the `rsaVerify` и `sigVerify` [verification functions](/en/ride/functions/built-in-functions/verification-functions) but cannot concatenate with other byte arrays.
+
+   Exception: the size of `bodyBytes` field of [transaction structure](/en/ride/structures/transaction-structures) can be up to 165,996 bytes. You can pass this value as an argument to the `rsaVerify` и `sigVerify` [verification functions](/en/ride/functions/built-in-functions/verification-functions) but cannot concatenate with other byte arrays.
 
 > :warning: Standard library version 4 becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
