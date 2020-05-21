@@ -4,6 +4,10 @@
 
 ### Ride
 
+#### Script actions
+
+* [SponsorFee](/en/ride/structures/script-actions/sponsor-fee)
+
 #### Built-in Functions
 
 * [ecrecover](/en/ride/functions/built-in-functions/verification-functions#ecrecover)
@@ -24,12 +28,6 @@ Added how-to guides:
 * [Creating and Managing Custom Token](/en/building-apps/how-to/assets/issue)
 * [Airdrop](/en/building-apps/how-to/assets/airdrop)
 * [Receiving Payments](/en/building-apps/how-to/assets/payment)
-
-### Ride
-
-#### Script actions
-
-* [SponsorFee](/en/ride/structures/script-actions/sponsor-fee)
 
 ## March articles
 
