@@ -4,6 +4,10 @@
 
 ### Ride
 
+#### Действия скрипта
+
+* [SponsorFee](/ru/ride/structures/script-actions/sponsor-fee)
+
 #### Встроенные функции
 
 * [ecrecover](/ru/ride/functions/built-in-functions/verification-functions#ecrecover)

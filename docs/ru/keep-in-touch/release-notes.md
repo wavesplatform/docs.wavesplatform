@@ -36,7 +36,7 @@
    * `POST /transactions/status`
 
    `"applicationStatus": "scriptExecutionFailed"` означает, что результат выполнения dApp-скрипта или скрипта ассета был неудачным.
-* Следующие методы возвращают для транзакций с неудачным результатом выполнения скрипта структуру `errorMessage` с описанием причины неудачи:
+* Следующие методы возвращают для транзакций вызова скрипта информацию о выпусках, довыпусках, сжиганиях токена и настройках спонсирования, а для транзакций с неудачным результатом выполнения скрипта — структуру `errorMessage` с описанием причины неудачи:
    * `/debug/stateChanges/address/{address}/limit/{limit}`
    * `/debug/stateChanges/info/{id}`
 
@@ -55,6 +55,7 @@
    * [Issue](/ru/ride/structures/script-actions/issue) — выпуск токена.
    * [Reissue](/ru/ride/structures/script-actions/reissue) — довыпуск токена.
    * [Burn](/ru/ride/structures/script-actions/burn) — сжигание токена.
+   * [SponsorFee](/ru/ride/structures/script-actions/sponsor-fee) — настройка спонсирования.
    * [BooleanEntry](/ru/ride/structures/script-actions/boolean-entry), [BinaryEntry](/ru/ride/structures/script-actions/binary-entry), [IntegerEntry](/ru/ride/structures/script-actions/int-entry), [StringEntry](/ru/ride/structures/script-actions/string-entry) — добавление или изменение записи соответствующего типа в хранилище данных аккаунта. Эти действия используются вместо [DataEntry](/ru/ride/structures/script-actions/data-entry), которая не поддерживается в версии 4.
    * [DeleteEntry](/ru/ride/structures/script-actions/delete-entry) — удаление записи из хранилища данных аккаунта.
 * Изменен формат результата вызываемой функции: в версии 4 результат представляет собой список действий скрипта. Структуры `ScriptResult`, `WriteSet` и `TransferSet` не поддерживаются.

@@ -4,6 +4,10 @@
 
 ### Ride
 
+#### Script actions
+
+* [SponsorFee](/en/ride/structures/script-actions/sponsor-fee)
+
 #### Built-in Functions
 
 * [ecrecover](/en/ride/functions/built-in-functions/verification-functions#ecrecover)
