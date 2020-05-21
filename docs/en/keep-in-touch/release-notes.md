@@ -68,6 +68,7 @@
    * [contains](/en/ride/functions/built-in-functions/string-functions#contains) that checks whether the second argument (substring) is contained in the first string argument. Complexity is 20.
    * [containsElement](/en/ride/functions/built-in-functions/list-functions#containselement) that check if the element is in the list. Complexity is 5.
    * [createMerkleRoot](/en/ride/functions/built-in-functions/verification-functions##createmerkleroot) that calculates [transactions root hash](/en/blockchain/block/merkle-root). Complexity is 30.
+   * [makeString](/en/ride/functions/built-in-functions/string-functions#makestringliststring-string-string) — concatenates list strings adding a separator. Complexity is 10.
    * [groth16verify](/en/ride/functions/built-in-functions/verification-functions#groth16verify) range of functions that verify the [zero-knowledge proof](https://en.wikipedia.org/wiki/Zero-knowledge_proof). Complexity is 1200–2700 depending on the argument size limit.
    * [indexOf](/en/ride/functions/built-in-functions/list-functions#indexof) that returns the index of the first occurrence of the element in the list. Complexity is 5.
    * [lastIndexOf](/en/ride/functions/built-in-functions/list-functions#lastindexof) that returns the index of the last occurrence of the element in the list. Complexity is 5.

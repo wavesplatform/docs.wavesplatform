@@ -135,6 +135,7 @@
 | dropRight(String, Int): String | Удаляет последние `n` символов строки | 19 |
 | indexOf(String, String): Int&#124;Unit | Возвращает индекс первого вхождения подстроки | 20 |
 | indexOf(String, String, Int): Int&#124;Unit | Возвращает индекс первого вхождения подстроки после указанного индекса | 20 |
+| makeString(List[String], String): String | Объединяет строки из списка, используя разделитель | 10 |
 | size(String): Int | Возвращает длину строки | 1 |
 | split(String, String): List[String] | Разбивает строку на список подстрок, используя разделитель | 100 |
 | take(String, Int): String | Возвращает первые `n` символов строки | 1 |

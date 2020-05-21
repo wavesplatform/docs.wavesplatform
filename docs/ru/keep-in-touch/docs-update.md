@@ -6,6 +6,7 @@
 
 #### Встроенные функции
 
+* [makeString](/ru/ride/functions/built-in-functions/string-functions#makestringliststring-string-string)
 * [Функции списка](/ru/ride/functions/built-in-functions/list-functions): `containsElement`, `indexOf`, `lastIndexOf`, `max`, `min`
 
 ## Апрельские статьи
