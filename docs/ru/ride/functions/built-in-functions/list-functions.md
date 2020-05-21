@@ -9,7 +9,7 @@
 | [lastIndexOf](#lastindexof)  | Возвращает индекс последнего вхождения элемента в списке | 5 |
 | [max](#max)  | Возвращает наибольший элемент в списке | 3 |
 | [min](#min)  | Возвращает наименьший элемент в списке | 3 |
-| [size](#size)  | Возвращает размер [списка](/ru/ride/data-types/list) | 2 |
+| [size](#size)  | Возвращает размер списка | 2 |
 
 `T` — сокращенная запись для `Boolean|ByteVector|Int|String`.
 
@@ -39,7 +39,7 @@ cons(1, [2, 3, 4, 5]) # Возвращает [1, 2, 3, 4, 5]
 
 Проверяет наличие элемента в списке.
 
-> :warning: Функция `containsElement` добавлена в Стандартной библиотеке версии 4, которая доступна начиная с версии ноды 1.2.0 после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время работают только на Stagenet.
+> :warning: Функция `containsElement` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4, которая доступна начиная с версии ноды 1.2.0 после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время работают только на Stagenet.
 
 ```ride
 containsElement(list: List[T], element: T): Boolean
@@ -51,8 +51,6 @@ containsElement(list: List[T], element: T): Boolean
 | :--- | :--- |
 | `list`: [List[T]](/ru/ride/data-types/list) | Список |
 | `element`: T | Искомый элемент |
-
-
 
 ## getElement
 
@@ -80,19 +78,20 @@ getElement([false, true], 1) # Возвращает true
 
 Возвращает индекс первого вхождения элемента в списке или `unit`, если элемент отсутствует.
 
-> :warning: Функция `indexOf` добавлена в Стандартной библиотеке версии 4, которая доступна начиная с версии ноды 1.2.0 после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время работают только на Stagenet.
+> :warning: Функция `indexOf` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4, которая доступна начиная с версии ноды 1.2.0 после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время работают только на Stagenet.
 
 ``` ride
 indexOf(list: List[T], element: T): Int|Unit
 ```
+
+### Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
 | `list`: [List[T]](/ru/ride/data-types/list) | Список |
 | `element`: T | Искомый элемент |
 
-
-### Примеры
+### Пример
 
 ```ride
 let stringList = ["a","b","a","c"]
@@ -103,19 +102,20 @@ indexOf("a", stringList) # Возвращает 0
 
 Возвращает индекс последнего вхождения элемента в списке или `unit`, если элемент отсутствует.
 
-> :warning: Функция `lastIndexOf` добавлена в Стандартной библиотеке версии 4, которая доступна начиная с версии ноды 1.2.0 после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время работают только на Stagenet.
+> :warning: Функция `lastIndexOf` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4, которая доступна начиная с версии ноды 1.2.0 после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время работают только на Stagenet.
 
 ``` ride
 lastIndexOf(list: List[T], element: T): Int|Unit
 ```
+
+### Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
 | `list`: [List[T]](/ru/ride/data-types/list) | Список |
 | `element`: T | Искомый элемент |
 
-
-### Примеры
+### Пример
 
 ```ride
 let stringList = ["a","b","a","c"]
@@ -125,6 +125,8 @@ lastIndexOf("a", stringList) # Возвращает 2
 ## max
 
 Возвращает наибольший элемент в списке. Если список пустой, возвращает ошибку.
+
+> :warning: Функция `max` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4, которая доступна начиная с версии ноды 1.2.0 после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время работают только на Stagenet.
 
 ``` ride
 max(List[Int]): Int
@@ -139,6 +141,8 @@ max(List[Int]): Int
 ## min
 
 Возвращает наименьший элемент в списке. Если список пустой, возвращает ошибку.
+
+> :warning: Функция `min` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4, которая доступна начиная с версии ноды 1.2.0 после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время работают только на Stagenet.
 
 ``` ride
 min(List[Int]): Int
@@ -164,7 +168,7 @@ size(arr: List[T]): Int
 | :--- | :--- |
 | `arr`: [List[T]](/ru/ride/data-types/list) | Список |
 
-### Примеры
+### Пример
 
 ```ride
 size(["Ride", "on", "Waves"]) # Возвращает 3

@@ -114,9 +114,16 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| getElement(List[T], Int): T | Gets the element by index | 2 |
-| cons(T, List[T]): List[T] | Inserts the element at the beginning of the list | 2 |
+| cons(T, List[T]): List[T] | Inserts element to the beginning of the [list](/en/ride/data-types/list) | 2 |
+| containsElement(list: List[T], element: T): Boolean | Check if the element is in the list | 5 |
+| getElement(List[T], Int): T | Gets element from the list | 2 |
+| indexOf(list: List[T], element: T): Int|Unit | Returns the index of the first occurrence of the element in the list | 5 |
+| lastIndexOf(list: List[T], element: T): Int|Unit | Returns the index of the last occurrence of the element in the list | 5 |
+| max(List[Int]): Int | Returns the largest element in the list | 3 |
+| min(List[Int]): Int | Returns the smallest item in the list | 3 |
 | size(List[T]): Int | Returns the size of the list | 2 |
+
+`T` is a short designation for `Boolean|ByteVector|Int|String`.
 
 ## [Math functions](/en/ride/functions/built-in-functions/math-functions)
 
