@@ -8,6 +8,6 @@ The asset name and/or description can be changed:
 * on Mainnet and Testnet – after 100,000 or more blocks from the last change (or the asset issue);
 * on Stagenet – after 10 or more blocks.
 
-## Protobuf scheme
+## Binary Format
 
-See [Update Asset Info transaction protobuf scheme](/en/blockchain/binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme) page.
+See the [Update Asset Info Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format/update-asset-info-transaction-binary-format) article.

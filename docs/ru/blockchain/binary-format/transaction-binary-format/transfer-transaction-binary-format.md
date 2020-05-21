@@ -1,8 +1,50 @@
 # Бинарный формат транзакции перевода
 
-> Узнать больше о [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction)
+> Узнать больше о [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction).
 
-## Транзакция версии 2
+## Версия 3
+
+Бинарный формат версии 3 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).
+
+Версия 3 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
+```
+message TransferTransactionData {
+    Recipient recipient = 1;
+    Amount amount = 2;
+    Attachment attachment = 3;
+};
+
+message Recipient {
+    oneof recipient {
+        bytes public_key_hash = 1;
+        string alias = 2;
+    };
+
+message Amount {
+    bytes asset_id = 1;
+    int64 amount = 2;
+};
+
+message Attachment {
+    oneof attachment {
+        int64 int_value = 1;
+        bool bool_value = 2;
+        bytes binary_value = 3;
+        string string_value = 4;
+    };
+};
+```
+
+| Поле | Размер | Описание |
+| :--- | :--- | :--- |
+| recipient.public_key_hash | 20 байт | Хеш открытого ключа аккаунта получателя (компонент адреса, см. раздел [Бинарный формат адреса](/ru/blockchain/binary-format/address-binary-format)) |
+| recipient.alias | От 4 до 30 байт | [Псевдоним адреса](/ru/blockchain/account/alias) получателя |
+| amount.asset_id | 32 байта | ID токена |
+| amount.amount | 8 байт | Количество токена для перевода, в минимальных единицах («копейках») |
+| attachment | До 140 байт | Произвольные данные (обычно комментарий к транзакции) |
+
+## Версия 2
 
 | Порядковый номер поля | Поле | Название JSON-поля | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -26,7 +68,7 @@
 
 Смотрите [пример](https://nodes.wavesnodes.com/transactions/info/2UMEGNXwiRzyGykG8voDgxnwHA7w5aX5gmxdcf9DZZjL) в Node API. В JSON-представлении значения полей `feeAsset` и `feeAssetId` идентичны.  
 
-## Транзакция версии 1
+## Версия 1
 
 | Порядковый номер поля | Название поля | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- |

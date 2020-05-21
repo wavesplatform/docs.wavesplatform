@@ -8,7 +8,9 @@ For invoke script transaction and transfer transaction, a sender can specify a t
 
 ## Minimum Fee
 
-The minimum fees in WAVES for each type of transaction are listed in the table below. If a transaction is verified by an [account script](/en/ride/script/script-types/account-script) or an [asset script](/en/ride/script/script-types/asset-script), then the fee is increased by 0.004 WAVES for each script execution.
+The minimum fees in WAVES for each type of transaction are listed in the table below.
+
+:warning: If a transaction is verified by an [account script](/en/ride/script/script-types/account-script) or an [asset script](/en/ride/script/script-types/asset-script), then the fee is increased by 0.004 WAVES for each script execution.
 
 **Example 1.**
 
@@ -19,7 +21,7 @@ The minimum fee for a transfer transaction:
 * Transfer of smart asset: 0.001 + 0.004 = 0.005 WAVES.
 * Transfer of smart asset sent from smart account: 0.001 + 0.004 + 0.004 = 0.009 WAVES.
 
-**Example 2.**
+**Example 2.**<a id="example2"></a>
 
 The minimum fee for an invoke script transaction:
 
@@ -40,15 +42,15 @@ The minimum fee for an invoke script transaction:
 | [Create alias transaction](/en/blockchain/transaction-type/create-alias-transaction) | 10 | 0.001 |
 | [Data transaction](/en/blockchain/transaction-type/data-transaction) | 12 | 0.001 per kilobyte | The value is rounded up to the thousandths |
 | [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) | 7 | 0.003 |
-| [Invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) | 16 | 0.005 + `K`<br>`K` is the number of assets issued as a result of dApp script invocation that are not [non-fungible tokens](/en/blockchain/token/non-fungible-token).<br>Asset issue by dApp script added to node version 1.2.0. The functionality can be used after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only |
+| [Invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) | 16 | 0.005 + `K`<br>`K` is the number of assets issued as a result of dApp script invocation that are not [non-fungible tokens](/en/blockchain/token/non-fungible-token).<br>Asset issue by dApp script added to node version 1.2.0. The functionality can be used after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.<br>See [example 2](#example2) above |
 | [Issue transaction](/en/blockchain/transaction-type/issue-transaction) | 3 | • 1 for reqular token <br>• 0.001 for [non-fungible token](/en/blockchain/token/non-fungible-token) |
 | [Lease cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction) | 9 | 0.001 |
 | [Lease transaction](/en/blockchain/transaction-type/lease-transaction) | 8 | 0.001 |
 | [Mass transfer transaction](/en/blockchain/transaction-type/mass-transfer-transaction) | 11 | 0.001 + 0.0005 × `N`<br>`N` is the number of transfers inside of the transaction.<br>The value is rounded up to the thousandths |
-| [Reissue transaction](/en/blockchain/transaction-type/reissue-transaction) | 5 | • 0.001 – starting from node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.<br>• 1 — before activation of feature #15. |
+| [Reissue transaction](/en/blockchain/transaction-type/reissue-transaction) | 5 | • 0.001 – after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.<br>• 1 — before activation of feature #15 |
 | [Set asset script transaction](/en/blockchain/transaction-type/set-asset-script-transaction) | 15 | 1 |
 | [Set script transaction](/en/blockchain/transaction-type/set-script-transaction) | 13 | 0.01 |
-| Sponsor fee transaction | 14 | 1 |
+| Sponsor fee transaction | 14 | • 0.001 – after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.<br>• 1 — before activation of feature #15 |
 | [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 4 | 0.001 |
 | [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) | 17 | 0.001<br>The update asset info transaction has been added in node version 1.2.0. It can be used after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only |
 

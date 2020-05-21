@@ -26,14 +26,14 @@ After that the node will begin downloading blocks. To speed up the process, you 
 
 If you’d like to become a miner on stagenet, please send a [request](https://wavesplatform.atlassian.net/servicedesk/customer/portal/11/create/178) for WAVES tokens for leasing.
 
-To get WAVES tokens for your stagenet account use the [faucet](https://wavesexplorer.com/stagenet/faucet).
+To get WAVES tokens for your stagenet account use the [faucet](https://stagenet.wavesexplorer.com/stagenet/faucet).
 
 Stagenet has also been added to:
 
-* [Waves Explorer](https://wavesexplorer.com/stagenet)
+* [Waves Explorer](https://stagenet.wavesexplorer.com/stagenet)
 
-* [Waves IDE](https://ide.wavesplatform.com/). To use IDE with stagenet, specify `Custom Nodes` as `https://nodes-stagenet.wavesnodes.com/` and `Network byte` as `S` in the Settings.
+* [Waves IDE](https://ide-stagenet.wavesplatform.com)
 
-* [Waves Keeper](https://wavesprotocol.org/protocol/keeper). To use Waves Keeper with stagenet, specify `Node address` as `https://nodes-stagenet.wavesnodes.com/` and `Matcher address` as `https://matcher-stagenet.wavesplatform.com` in Keeper’s settings.
+* [Waves Keeper](/en/ecosystem/waves-keeper)
 
 If you have any questions, feel free to ask them in Discord on the [stagenet channel](https://discordapp.com/channels/420933539375087617/615843628618612746).

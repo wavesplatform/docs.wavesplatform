@@ -8,6 +8,6 @@
 * на Mainnet и Testnet — не ранее чем через 100 000 блоков от последнего изменения (или выпуска ассета);
 * на Stagenet — не ранее чем через 10 блоков.
 
-## Protobuf-схема
+## Бинарный формат
 
-Смотрите страницу [Protobuf-схема транзакции обновления информации ассета](/ru/blockchain/binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme).
+Смотрите страницу [Бинарный формат транзакции обновления информации ассета](/ru/blockchain/binary-format/transaction-binary-format/update-asset-info-transaction-binary-format).

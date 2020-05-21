@@ -11,7 +11,7 @@ In the JSON representation of the transaction, the `applicationStatus` field is 
 * `succeed` – all checks are passed.
 * `scriptExecutionFailed` – dApp script or asset script failed. Such a transaction doesn't entail changes in balances (other than charging a fee) and account data storages.
 
-Failed transactions are implemented in the Waves protocol and are supported both by [Node Scala](https://github.com/wavesplatform/Waves/releases) and [Node Go](https://github.com/wavesplatform/gowaves/releases/) (scheduled for release on April 23), as well as by the following Waves tools.
+Failed transactions are implemented in the Waves protocol and are supported both by [Node Scala](https://github.com/wavesplatform/Waves/releases) and [Node Go](https://github.com/wavesplatform/gowaves/releases/), as well as by the following Waves tools.
 
 ## Node API
 
@@ -23,7 +23,7 @@ Added the `applicationStatus` field to the following endpoints:
 
 **How to access**: use the pool of Waves nodes with public API for Stagenet: <https://nodes-stagenet.wavesnodes.com/>.
 
-See also [the list of Node API changes in release 1.2](/en/keep-in-touch/release-notes/#rest-api-updates)
+See also [the list of Node API changes in release 1.2](/en/keep-in-touch/release-notes#rest-api-updates)
 
 ## Libraries
 
@@ -61,7 +61,7 @@ npm i @waves/node-api-js@beta
 
 **How to access**: use Waves Explorer for Stagenet <https://stagenet.wavesexplorer.com/stagenet>.
 
-[All changes in Waves Explorer](/en/keep-in-touch/release-notes/#waves-explorer)
+[All changes in Waves Explorer](/en/keep-in-touch/release-notes#waves-explorer)
 
 ## Waves IDE
 

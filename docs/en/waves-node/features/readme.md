@@ -41,10 +41,10 @@ Each feature can have one of the three statuses:
 
 ## Activation of New Features
 
-**Feature activation protocol** is a procedure according to which a new [feature](/en/waves-node/features/feature) gets activated, i.e. it gets the "activated" status.
+**Feature activation protocol** is a procedure according to which a new [feature](/en/waves-node/features) gets activated, i.e. it gets the "activated" status.
 
 * Activation process consists of voting and activation. Each mining node (which generates blocks) can vote for a new feature by having the voting parameter set in its configuration file. Such node generates blocks that  contain the vote for the feature. See [example](/en/waves-node/activation-protocol#configuration-file-changes) and more details in [Activation Protocol](/en/waves-node/activation-protocol) article.
 
 * If there are not less than 8000 blocks on Mainnet (2700 on Testnet and 40 on Stagenet) with support of the feature during the voting period (every 10000 blocks on Mainnet, 3000 on Testnet and 100 on Stagenet), the feature gets "approved" status on the blockchain.  An "approved" feature becomes "activated" after another 10000 blocks on Mainnet (3000 on Testnet and 100 on Stagenet). Then the feature starts working and all the nodes which can not support such feature (old versions) stop.
 
-For more details see [Activation protocol](/en/blockchain/waves-protocol/activation-protocol) article.
+For more details see [Activation protocol](/en/waves-node/activation-protocol) article.

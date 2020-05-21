@@ -2,7 +2,7 @@
 
 ## Install OpenJDK 8
 
-**Note.** Do not install OpenJDK 8 If you already have OpenJDK 11 installed. The node Installation is supported in both versions 8 and 11.
+**Note.** Do not install OpenJDK 8 if you already have OpenJDK 11 installed. The node Installation is supported in both versions 8 and 11.
 
 Install [OpenJDK 8](https://github.com/AdoptOpenJDK/homebrew-openjdk) with the following command:
 

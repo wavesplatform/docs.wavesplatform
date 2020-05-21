@@ -11,7 +11,7 @@
 * `succeed` — валидация прошла успешно.
 * `scriptExecutionFailed` — результат выполнения dApp-скрипта или скрипта ассета был неудачным. Такая транзакция не приводит к изменениям в балансах (кроме взимания комиссии с отправителя) и в хранилищах данных аккаунтов.
 
-Транзакции с неудачным результатом выполнения скрипта реализованы в протоколе Waves и поддержаны как в [Node Scala](https://github.com/wavesplatform/Waves/releases), так и в [Node Go](https://github.com/wavesplatform/gowaves/releases/) (релиз запланирован на 23 апреля), а также в следующих инструментах Waves.
+Транзакции с неудачным результатом выполнения скрипта реализованы в протоколе Waves и поддержаны как в [Node Scala](https://github.com/wavesplatform/Waves/releases), так и в [Node Go](https://github.com/wavesplatform/gowaves/releases/), а также в следующих инструментах Waves.
 
 ## Node API
 
@@ -23,7 +23,7 @@
 
 **Как воспользоваться**: пул нод Waves с публичным API на Stagenet доступен по адресу <https://nodes-stagenet.wavesnodes.com/>.
 
-См. также [список изменений Node API в релизе 1.2](/ru/keep-in-touch/release-notes/#обновление-node-api)
+См. также [список изменений Node API в релизе 1.2](/ru/keep-in-touch/release-notes#обновление-node-api)
 
 ## Библиотеки
 
@@ -61,7 +61,7 @@ npm i @waves/node-api-js@beta
 
 **Как воспользоваться**: Waves Explorer для Stagenet доступен по адресу <https://stagenet.wavesexplorer.com/stagenet>.
 
-[Все изменения Waves Explorer](/ru/keep-in-touch/release-notes/#waves-explorer)
+[Все изменения Waves Explorer](/ru/keep-in-touch/release-notes#waves-explorer)
 
 ## Waves IDE (ide-stagenet.wavesplatform.com)
 

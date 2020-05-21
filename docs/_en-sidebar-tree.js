@@ -136,7 +136,7 @@ module.exports = {
               path: blockchainPath + 'binary-format/transaction-binary-format/genesis-transaction-binary-format',
             },
             {
-              title: 'Invoke script binary format',
+              title: 'Invoke script transaction binary format',
               path: blockchainPath + 'binary-format/transaction-binary-format/invoke-script-transaction-binary-format',
             },
             {
@@ -175,81 +175,15 @@ module.exports = {
               title: 'Transfer transaction binary format',
               path: blockchainPath + 'binary-format/transaction-binary-format/transfer-transaction-binary-format',
             },
+            {
+              title: 'Update asset info transaction binary format',
+              path: blockchainPath + 'binary-format/transaction-binary-format/update-asset-info-transaction-binary-format',
+            },
           ],
         },
         {
           title: 'Transaction proof binary format',
           path: blockchainPath + 'binary-format/transaction-proof-binary-format',
-        },
-        {
-          title: 'Transaction protobuf scheme',
-          path: blockchainPath + 'binary-format/transaction-protobuf-scheme',
-          children: [
-              {
-                  title: 'Burn transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/burn-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Create alias transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/create-alias-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Data transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/data-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Exchange transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/exchange-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Genesis transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/genesis-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Invoke script transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/invoke-script-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Issue transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/issue-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Lease cancel transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/lease-cancel-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Lease transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/lease-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Mass transfer transaction protobuf scheme',
-                path: blockchainPath + 'binary-format/transaction-protobuf-scheme/mass-transfer-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Reissue transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/reissue-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Set asset script transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/set-asset-script-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Set script transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/set-script-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Sponsor fee transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/sponsor-fee-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Transfer transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/transfer-transaction-protobuf-scheme',
-              },
-              {
-                  title: 'Update asset info transaction protobuf scheme',
-                  path: blockchainPath + 'binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme',
-              },
-          ]
         },
       ],
     },
@@ -704,6 +638,10 @@ module.exports = {
           title: 'Examples of transactions',
           path: nodePath + 'node-api/example-transactions',
         },
+        {
+          title: 'Feature Activation',
+          path: nodePath + 'node-api/feature-activation',
+        },
 	    {
           title: 'API limitations of the pool of public nodes',
           path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
@@ -1026,6 +964,10 @@ module.exports = {
               path: ridePath + 'structures/common-structures/attached-payment',
             },
             {
+              title: 'BalanceDetails',
+              path: ridePath + 'structures/common-structures/balance-details',
+            },
+            {
               title: 'BlockInfo',
               path: ridePath + 'structures/common-structures/block-info',
             },
@@ -1283,48 +1225,6 @@ module.exports = {
           path: sdkPath + 'waves-data-service-api',
         },
         {
-          title: 'Client libraries',
-          path: sdkPath + 'client-libraries',
-          children: [
-            {
-              title: 'Signer',
-              path: sdkPath + 'client-libraries/signer',
-            },
-            {
-              title: 'PyWaves',
-              path: sdkPath + 'client-libraries/pywaves',
-            },
-            {
-              title: 'WavesJ',
-              path: sdkPath + 'client-libraries/wavesj',
-            },
-            {
-              title: 'WavesCS',
-              path: sdkPath + 'client-libraries/wavescs',
-            },
-            {
-              title: 'WavesC',
-              path: sdkPath + 'client-libraries/waves-c',
-            },
-            {
-              title: 'GoWaves',
-              path: sdkPath + 'client-libraries/gowaves',
-            },
-            {
-              title: 'WavesRS',
-              path: sdkPath + 'client-libraries/wavesrs',
-            },
-            {
-              title: 'Waves transactions',
-              path: sdkPath + 'client-libraries/waves-transactions',
-            },
-            {
-              title: 'Community libraries',
-              path: sdkPath + 'client-libraries/unofficial-libraries',
-            },
-          ],
-        },
-        {
           title: 'Waves Games',
           path: sdkPath + 'waves-gaming-api',
           children: [
@@ -1337,6 +1237,48 @@ module.exports = {
               path: sdkPath + 'waves-gaming-api/examples',
             },
           ],
+        },
+      ],
+    },
+    {
+      title: 'Client libraries',
+      path: sdkPath + 'client-libraries',
+      children: [
+        {
+          title: 'Signer',
+          path: sdkPath + 'client-libraries/signer',
+        },
+        {
+          title: 'PyWaves',
+          path: sdkPath + 'client-libraries/pywaves',
+        },
+        {
+          title: 'WavesJ',
+          path: sdkPath + 'client-libraries/wavesj',
+        },
+        {
+          title: 'WavesCS',
+          path: sdkPath + 'client-libraries/wavescs',
+        },
+        {
+          title: 'WavesC',
+          path: sdkPath + 'client-libraries/waves-c',
+        },
+        {
+          title: 'GoWaves',
+          path: sdkPath + 'client-libraries/gowaves',
+        },
+        {
+          title: 'WavesRS',
+          path: sdkPath + 'client-libraries/wavesrs',
+        },
+        {
+          title: 'Waves transactions',
+          path: sdkPath + 'client-libraries/waves-transactions',
+        },
+        {
+          title: 'Community libraries',
+          path: sdkPath + 'client-libraries/unofficial-libraries',
         },
       ],
     },
@@ -1354,6 +1296,26 @@ module.exports = {
     {
       title: 'Account balance top up in the test network',
       path: ecosystemPath + 'waves-explorer/account-balance-top-up-in-the-test-network',
+    },
+    {
+      title: 'Waves Keeper',
+      path: ecosystemPath + 'waves-keeper',
+      children: [
+        {
+          title: 'Getting started with Waves Keeper',
+          path: ecosystemPath + 'waves-keeper/getting-started-with-keeper',
+        },
+        {
+          title: 'Waves Keeper API',
+          path: ecosystemPath + 'waves-keeper/waves-keeper-api',
+          children: [
+            {
+              title: 'Transaction Format',
+              path: ecosystemPath + 'waves-keeper/transaction',
+            },
+          ],
+        },
+      ],
     },
     {
       title: 'Oracles',

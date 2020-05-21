@@ -1,10 +1,21 @@
 # Обновления в документации
 
+## Майские статьи
+
+### Ride
+
+#### Встроенные функции
+
+* [ecrecover](/ru/ride/functions/built-in-functions/verification-functions#ecrecover)
+* [makeString](/ru/ride/functions/built-in-functions/string-functions#makestringliststring-string-string)
+* [Функции списка](/ru/ride/functions/built-in-functions/list-functions): `containsElement`, `indexOf`, `lastIndexOf`, `max`, `min`
+
 ## Апрельские статьи
 
 ### Блокчейн
 
-Обновлена статья [Валидация транзакции](/ru/blockchain/transaction/transaction-validation).
+* Добавлены описания бинарных форматов новых версий [транзакций](/ru/blockchain/binary-format/transaction-binary-format) и [ордеров](/ru/blockchain/binary-format/order-binary-format).
+* Обновлена статья [Валидация транзакции](/ru/blockchain/transaction/transaction-validation).
 
 ### Разработка приложений на блокчейне
 
@@ -80,8 +91,7 @@
   * [Транзакция обновления информации ассета](/ru/blockchain/transaction-type/update-asset-info-transaction)
 
 * Бинарный формат
-  * Protobuf-схема транзакции
-    * [Protobuf-схема транзакции обновления информации ассета](/ru/blockchain/binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme)
+  * [Бинарный формат транзакции обновления информации ассета](/ru/blockchain/binary-format/transaction-binary-format/update-asset-info-transaction-binary-format)
 
 ### Нода
 

@@ -115,6 +115,10 @@ module.exports = {
                         text: 'Free Waves on Testnet',
                         link: '/en/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network',
                     },
+                    keeper: {
+                        text: 'Waves Keeper',
+                        link: '/en/ecosystem/waves-keeper',
+                    },
                     oracles: {
                         text: 'Oracles',
                         link: '/en/ecosystem/waves-oracles/about-waves-oracles',

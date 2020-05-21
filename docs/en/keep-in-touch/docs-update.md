@@ -1,10 +1,21 @@
 # Documentation updates
 
+## May Articles
+
+### Ride
+
+#### Built-in Functions
+
+* [ecrecover](/en/ride/functions/built-in-functions/verification-functions#ecrecover)
+* [makeString](/en/ride/functions/built-in-functions/string-functions#makestringliststring-string-string)
+* [List functions](/en/ride/functions/built-in-functions/list-functions): `containsElement`, `indexOf`, `lastIndexOf`, `max`, `min`
+
 ## April articles
 
 ### Blockchain
 
-Updated the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
+* Added binary format descriptions for new versions of [transactions](/en/blockchain/binary-format/transaction-binary-format) and [orders](/en/blockchain/binary-format/order-binary-format).
+* Updated the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
 
 ### Building Apps
 
@@ -71,11 +82,10 @@ Added how-to guides:
     * [Generation signature](/en/blockchain/block/block-generation/generation-signature)
 
 * Transaction type
-  * [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction)
+   * [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction)
 
 * Binary format
-  * Transaction protobuf scheme
-    * [Asset info update transaction protobuf scheme](/en/blockchain/binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme)
+   * [Update asset info transaction binary format](/en/blockchain/binary-format/transaction-binary-format/update-asset-info-transaction-binary-format)
 
 ### Ride
 

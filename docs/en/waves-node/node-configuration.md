@@ -6,7 +6,7 @@ sidebarDepth: 2
 
 The **node configuration file** is a settings file of a [node](/en/blockchain/node).
 
-The configuration system of Waves Node uses HOCON format. HOCON stands for Human-Optimized Config Object Notation. The complete description of HOCON could be found in the [Official HOCON documentation](https://github.com/typesafehub/config/blob/master/HOCON). The advantages of HOCON are simple syntax and ability to use comments.
+The configuration system of Waves Node uses HOCON format. HOCON stands for Human-Optimized Config Object Notation. The complete description of HOCON could be found in the [Official HOCON documentation](https://github.com/lightbend/config/blob/master/HOCON.md). The advantages of HOCON are simple syntax and ability to use comments.
 
 ## Default Configs and Overrides
 
@@ -178,7 +178,7 @@ The **REST API Section** is a section in the node configuration file with settin
 | Name | Description | Default value |
 | :--- | :--- | :--- |
 | `enable` | Activates REST API. <br>If you want to deactivate REST API, change the default value to `no` | yes |
-| `bind-address` | Sets the network address where the REST API will accept the incoming connections. <br>**Note.** It's not recommended to change the default value. Use [Nginx’s proxy pass module](http://nginx.org/ru/docs/http/ngx_http_proxy_module.html) or [SSH port forwarding](http://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html) for external access. | `"127.0.0.1"` |
+| `bind-address` | Sets the network address where the REST API will accept the incoming connections. <br>**Note.** It's not recommended to change the default value. Use [Nginx’s proxy pass module](http://nginx.org/ru/docs/http/ngx_http_proxy_module.html) or [SSH port forwarding](https://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html) for external access. | `"127.0.0.1"` |
 | `port` | Sets the port number where the REST API will await connections. | 6869 |
 | `api-key-hash` | Sets the hash of the [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key). For details about generating hash see [How to Generate Hash of the API Key](#how-to-generate-hash-of-the-api-key) section. | "" |
 | `cors` | This parameter allows to enable/disable sending cross-domain [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests to node from JavaScript. | yes |
@@ -239,7 +239,7 @@ The `utx` section allows to set unconfirmed transactions pool parameters.
 
 ### Features Settings
 
-The `features` section allows to set [features](/en/waves-node/features/readme) parameters
+The `features` section allows to set [features](/en/waves-node/features) parameters
 
 | Name                                 | Description                                                                                                                       | Default Value                  |
 |--------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
