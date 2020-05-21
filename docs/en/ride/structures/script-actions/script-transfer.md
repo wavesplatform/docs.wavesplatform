@@ -1,6 +1,6 @@
 # ScriptTransfer
 
-`ScriptTransfer` is a structure that sets the parameters of the token transfer. The token transfer is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#callable-function-invocation-results-2).
+`ScriptTransfer` is a structure that sets the parameters of the token transfer. The token transfer is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#invocation-result-2).
 
 ### Constructor
 
