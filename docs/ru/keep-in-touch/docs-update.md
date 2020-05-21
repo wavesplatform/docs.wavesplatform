@@ -6,6 +6,16 @@
 
 * Обновлены [ограничения](/ru/ride/limits/)
 
+#### Действия скрипта
+
+* [SponsorFee](/ru/ride/structures/script-actions/sponsor-fee)
+
+#### Встроенные функции
+
+* [ecrecover](/ru/ride/functions/built-in-functions/verification-functions#ecrecover)
+* [makeString](/ru/ride/functions/built-in-functions/string-functions#makestringliststring-string-string)
+* [Функции списка](/ru/ride/functions/built-in-functions/list-functions): `containsElement`, `indexOf`, `lastIndexOf`, `max`, `min`
+
 ## Апрельские статьи
 
 ### Блокчейн

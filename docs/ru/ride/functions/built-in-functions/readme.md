@@ -27,6 +27,7 @@
 | :--- | :--- | :--- |
 | checkMerkleProof(ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что данные являются частью [дерева Меркла](https://ru.wikipedia.org/wiki/Дерево_хешей) | 30 |
 | createMerkleRoot(List[ByteVector], ByteVector, Int) : ByteVector | Вычисляет [корневой хеш дерева Меркла транзакций блока](/ru/blockchain/block/merkle-root) | 30 |
+| ecrecover(messageHash: ByteVector, signature: ByteVector) | Восстанавливает открытый ключ из хеша сообщения и цифровой подписи [ECDSA](https://ru.wikipedia.org/wiki/ECDSA) | 70 |
 | groth16Verify(ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Осуществляют проверку [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf) | 1200–2700 |
 | rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Проверяют, что цифровая подпись [RSA](https://ru.wikipedia.org/wiki/RSA) достоверна | 300 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>500–1000 для Стандартной библиотеки **версии 4** |
 | sigVerify(ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Проверяют, что цифровая подпись [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна | 100 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>100–200 для Стандартной библиотеки **версии 4** |
@@ -114,9 +115,17 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| getElement(List[T], Int): T | Получает элемент по индексу | 2 |
 | cons(T, List[T]): List[T] | Вставляет элемент в начало списка | 2 |
+| containsElement(list: List[T], element: T): Boolean | Проверяет наличие элемента в списке | 5 |
+| getElement(List[T], Int): T | Получает элемент по индексу | 2 |
+| indexOf(list: List[T], element: T): Int&#124;Unit | Возвращает индекс первого вхождения элемента в списке | 5 |
+| lastIndexOf(list: List[T], element: T): Int&#124;Unit | Возвращает индекс последнего вхождения элемента в списке | 5 |
+| max(List[Int]): Int | Возвращает наибольший элемент в списке | 3 |
+| min(List[Int]): Int | Возвращает наименьший элемент в списке | 3 |
 | size(List[T]): Int | Возвращает размер списка | 2 |
+
+`T` — сокращенная запись для `Boolean|ByteVector|Int|String`.
+
 
 ## [Функции строки](/ru/ride/functions/built-in-functions/string-functions)
 
@@ -127,6 +136,7 @@
 | dropRight(String, Int): String | Удаляет последние `n` символов строки | 19 |
 | indexOf(String, String): Int&#124;Unit | Возвращает индекс первого вхождения подстроки | 20 |
 | indexOf(String, String, Int): Int&#124;Unit | Возвращает индекс первого вхождения подстроки после указанного индекса | 20 |
+| makeString(List[String], String): String | Объединяет строки из списка, используя разделитель | 10 |
 | size(String): Int | Возвращает длину строки | 1 |
 | split(String, String): List[String] | Разбивает строку на список подстрок, используя разделитель | 100 |
 | take(String, Int): String | Возвращает первые `n` символов строки | 1 |
@@ -158,5 +168,5 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | blake2b256(ByteVector): ByteVector | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |
-| keccak256(ByteVector): ByteVector | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [SHA3-256](https://en.wikipedia.org/wiki/SHA-3) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |
+| keccak256(ByteVector): ByteVector | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [Keccak-256](https://keccak.team/files/Keccak-submission-3.pdf) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |
 | sha256(ByteVector): ByteVector | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |
