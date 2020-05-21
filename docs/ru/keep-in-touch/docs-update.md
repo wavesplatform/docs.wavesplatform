@@ -4,6 +4,10 @@
 
 ### Ride
 
+#### Действия скрипта
+
+* [SponsorFee](/ru/ride/structures/script-actions/sponsor-fee)
+
 #### Встроенные функции
 
 * [ecrecover](/ru/ride/functions/built-in-functions/verification-functions#ecrecover)
@@ -24,12 +28,6 @@
 * [Выпуск своего токена. Управление токенами](/ru/building-apps/how-to/assets/issue)
 * [Распространение токена (airdrop)](/ru/building-apps/how-to/assets/airdrop)
 * [Прием платежей](/ru/building-apps/how-to/assets/payment)
-
-### Ride
-
-#### Действия скрипта
-
-* [SponsorFee](/ru/ride/structures/script-actions/sponsor-fee)
 
 ## Мартовские статьи
 
