@@ -65,6 +65,7 @@
    * [calculateAssetId](/ru/ride/functions/built-in-functions/blockchain-functions#calculate) — получает ID ассета, сформированного структурой [Issue](/ru/ride/structures/script-actions/issue) при выполнении транзакции вызова скрипта. Сложность равна 10.
    * [contains](/ru/ride/functions/built-in-functions/string-functions#contains) — проверяет, содержит ли строка заданную подстроку. Сложность 20.
    * [createMerkleRoot](/ru/ride/functions/built-in-functions/verification-functions##createmerkleroot) — вычисляет [корневой хеш дерева Меркла транзакций блока](/ru/blockchain/block/merkle-root). Сложность 30.
+   * [makeString](/ru/ride/functions/built-in-functions/string-functions#makestringliststring-string-string) — объединяет строки из списка, используя разделитель. Сложность 10.
    * [groth16verify](/ru/ride/functions/built-in-functions/verification-functions#groth16verify) — семейство функций верификации [доказательства с нулевым разглашением](https://ru.wikipedia.org/wiki/Доказательство_с_нулевым_разглашением). Сложность 1200–2700 в зависимости от размера массива публичных входов.
    * [median](/ru/ride/functions/built-in-functions/math-functions#median) — вычисление медианы списка целых чисел. Сложность 10.
    * [transferTransactionFromProto](/ru/ride/functions/built-in-functions/converting-functions#transfertransactionfromproto) — десериализует транзакцию перевода. Сложность 5.

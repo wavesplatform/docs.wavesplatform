@@ -1,5 +1,13 @@
 # Обновления в документации
 
+## Майские статьи
+
+### Ride
+
+#### Встроенные функции
+
+* [makeString](/ru/ride/functions/built-in-functions/string-functions#makestringliststring-string-string)
+
 ## Апрельские статьи
 
 ### Блокчейн
