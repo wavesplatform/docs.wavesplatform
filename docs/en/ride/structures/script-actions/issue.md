@@ -2,7 +2,7 @@
 
 > :warning: The `Issue` structure is added in Standard library **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
-`Issue` is a structure that sets the parameters of the token issue. The token issue is performed only if the structure is included in the resulting expression of the callable function. See details in the [Callable Function](/eb/ride/functions/callable-function) article.
+`Issue` is a structure that sets the parameters of the token issue. The token issue is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#callable-function-invocation-results-2).
 
 The minimum fee for an invoke script transaction is increased by 1 WAVES for each issued asset that is not [NFT](/en/blockchain/token/non-fungible-token).
 
