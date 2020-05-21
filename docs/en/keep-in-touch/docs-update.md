@@ -7,6 +7,7 @@
 #### Built-in Functions
 
 * [makeString](/en/ride/functions/built-in-functions/string-functions#makestringliststring-string-string)
+* [List functions](/en/ride/functions/built-in-functions/list-functions): `containsElement`, `indexOf`, `lastIndexOf`, `max`, `min`
 
 ## April articles
 
