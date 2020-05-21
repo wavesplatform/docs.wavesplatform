@@ -40,7 +40,7 @@ docker run -p 6869:6869 -p 6863:6863 -e WAVES_NETWORK=TESTNET -e WAVES_LOG_LEVEL
 
 |Env variable                 |Description   |
 |-----------------------------|--------------|
-|`WAVES_WALLET_SEED`               |Plain text seed for [node wallet](/en/waves-node/working-with-node-wallet). Container converts it to base58.   |
+|`WAVES_WALLET_SEED`               |Plain text seed for [node wallet](/en/waves-node/how-to-work-with-node-wallet). Container converts it to base58.   |
 |`WAVES_WALLET_SEED_BASE58`        |Base58 encoded seed.   |
 |`WAVES_WALLET_PASSWORD`           |Password for wallet file.    |
 |`WAVES_VERSION`                   |Node version. Default value is `latest`. You can find the list of available versions [here](https://github.com/wavesplatform/Waves/releases).|

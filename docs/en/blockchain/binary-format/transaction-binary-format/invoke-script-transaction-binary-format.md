@@ -1,8 +1,46 @@
-# Invoke script transaction binary format
+# Invoke Script Transaction Binary Format
 
-> Learn more about [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction)
+> Learn more about [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction).
 
-## Transaction version 1
+## Version 2
+
+Binary format of version 2 is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) protobuf scheme. The fields that are common to all types of transactions are described in the [Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format) article.
+
+Version 2 is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+
+```
+message InvokeScriptTransactionData {
+    Recipient d_app = 1;
+    bytes function_call = 2;
+    repeated Amount payments = 3;
+};
+
+message Recipient {
+    oneof recipient {
+        bytes public_key_hash = 1;
+        string alias = 2;
+    };
+};
+
+message Amount {
+    bytes asset_id = 1;
+    int64 amount = 2;
+};
+```
+
+| Field | Size | Description |
+| :--- | :--- | :--- |
+| d_app.public_key_hash | 20 bytes | dApp account public key hash (a component of an address, see the [Address binary format](/en/blockchain/binary-format/address-binary-format) article) |
+| d_app.alias | From 4 to 30 bytes | dApp [alias](/en/blockchain/account/alias) |
+| function_call | | Function name and arguments. Binary format of function call is the same as in [version 1](#version-1) (see item 13 in table) |
+| payments.asset_id | • 32 bytes for asset<br>• 0 for WAVES | ID of token in payment |
+| payments.amount | 8 bytes | Amount of token in payment, specified in the minimum fraction (“cents”) |
+
+The maximum number of payments is 2.
+
+The maximum size of `d_app` + `function_call` + `payments` is 5120 bytes.
+
+## Version 1
 
 | Field order number | Field | JSON field name | Field type | Field size in bytes | Comment |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -49,6 +87,6 @@
 | 17 | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) | timestamp | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 18 | [Transaction proofs](/en/blockchain/transaction/transaction-proof) | proofs | [Proofs](/en/blockchain/transaction/transaction-proof) | `S` | If the array is empty, then `S` = 3.<br>If the array is not empty, then `S` = 3 + 2 × `N` + (`P`<sub>1</sub> + `P`<sub>2</sub> + ... + `P`<sub>n</sub>),<br>where<br>`N` is the number of proofs in the array,<br>`P`<sub>n</sub> is the size on N-th proof in bytes.<br>The maximum number of proofs in the array is 8. The maximum size of each proof is 64 bytes |
 
-## JSON representation of the transaction
+## JSON Representation of Transaction
 
-See the [example](https://nodes.wavesplatform.com/transactions/info/7CVjf5KGRRYj6UyTC2Etuu4cUxx9qQnCJox8vw9Gy9yq) in Node API.
+See the [example](https://nodes.wavesnodes.com/transactions/info/7CVjf5KGRRYj6UyTC2Etuu4cUxx9qQnCJox8vw9Gy9yq) in Node API.

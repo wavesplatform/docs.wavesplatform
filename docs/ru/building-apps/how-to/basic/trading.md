@@ -22,7 +22,7 @@ sidebarDepth: 2
 
 Используйте следующий адрес матчера:
 
-* Для Testnet: <https://matcher-testnet.wavesnodes.com>
+* Для Testnet: <https://matcher-testnet.waves.exchange>
 * Для Mainnet: <https://matcher.waves.exchange>
 
 Чтобы получить публичный ключ матчера, используйте метод `GET /matcher` API матчера.
@@ -53,7 +53,7 @@ WAVES — главный токен платформы Waves — не имеет
 ```javascript
 import { order, submitOrder } from "@waves/waves-transactions";
 
-const matcherUrl = 'https://matcher-testnet.wavesnodes.com';
+const matcherUrl = 'https://matcher-testnet.waves.exchange';
 const matcherPublicKey: '8QUAqtTckM5B8gvcuP7mMswat9SjKUuafJMusEoSn1Gy';
 
 const amountAssetId: 'BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3'; // Идентификатор ETH на Testnet
@@ -82,7 +82,7 @@ console.log('ID ордера: '+ orderId);
 ```python
 import pywaves as pw
 
-matcher_url = 'https://matcher-testnet.wavesnodes.com'
+matcher_url = 'https://matcher-testnet.waves.exchange'
 pw.setMatcher(matcher_url)
 
 # ETH на Testnet
@@ -115,7 +115,7 @@ print(f'Buy order ID: {buy_order.orderId}')
 **Пример запроса:**
 
 ```
-curl 'https://matcher-testnet.wavesnodes.com/matcher/orderbook/BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3/WAVES/6hgoJMKAMPVZb11epd2vCjqk47dGcr9eT8cJQ2HpYnHp'
+curl 'https://matcher-testnet.waves.exchange/matcher/orderbook/BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3/WAVES/6hgoJMKAMPVZb11epd2vCjqk47dGcr9eT8cJQ2HpYnHp'
 ```
 
 Приведенный пример подходит для утилиты `cURL`. Вы можете адаптировать запрос для своего языка программирования.
@@ -123,7 +123,7 @@ curl 'https://matcher-testnet.wavesnodes.com/matcher/orderbook/BrmjyAWT5jjr3Wpsi
 ### С помощью JavaScript
 
 ```javascript
-const matcherUrl = 'https://matcher-testnet.wavesnodes.com';
+const matcherUrl = 'https://matcher-testnet.waves.exchange';
 
 const amountAssetId: 'BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3'; // Идентификатор ETH на Testnet
 const priceAssetId: 'WAVES';
@@ -169,7 +169,7 @@ print(buy_order.status())
 ```javascript
 import {cancelOrder, cancelSubmittedOrder } from "@waves/waves-transactions";
 
-const matcherUrl = 'https://matcher-testnet.wavesnodes.com';
+const matcherUrl = 'https://matcher-testnet.waves.exchange';
 
 const amountAssetId: 'BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3'; // Идентификатор ETH на Testnet
 const priceAssetId: 'WAVES';

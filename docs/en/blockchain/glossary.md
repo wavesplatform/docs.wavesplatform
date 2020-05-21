@@ -152,7 +152,7 @@ A **hash function** (or fold function) is a function that converts an array of i
 
 ### Leasing
 
-**Leasing** is a temporary reversible transfer of [WAVES](#waves) from one account to another to [increase the stability and security of the network](/en/blockchain/leasing), as well as potentially get [mining reward](/en/blockchain/mining/mining-reward). Note that the WAVES [tokens](#token) are not actually being transferred to another [account](#account), they remain on the sender's balance, however, they are 'frozen' and cannot participate in the buying and selling operations, as well as they cannot be sent to another account. The leased tokens provide the leasing recipient with a greater chance of [mining](#mining) a [block](#block). The recipient of the lease can share the income from mining with the one who leased WAVES to him. However, the Waves platform does not regulate the payment process for [LPoS](#lpos) [mining](#mining), this remains at the discretion of the [miner](#miner). At any time, the sender can 'unfreeze' tokens by invoking the [Lease Cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction).
+**Leasing** is a temporary reversible transfer of [WAVES](#waves) from one account to another to [increase the stability and security of the network](/en/blockchain/leasing), as well as potentially get [mining reward](/en/blockchain/mining/mining-reward). Note that the WAVES [tokens](#token) are not actually being transferred to another [account](#account), they remain on the sender's balance, however, they are 'frozen' and cannot participate in the buying and selling operations, as well as they cannot be sent to another account. The leased tokens provide the leasing recipient with a greater chance of [mining](#mining) a [block](#block). The recipient of the lease can share the income from mining with the one who leased WAVES to him. However, the Waves protocol does not regulate the payment process for [LPoS](#lpos) [mining](#mining), this remains at the discretion of the [miner](#miner). At any time, the sender can 'unfreeze' tokens by invoking the [Lease Cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction).
 
 ### LPoS
 
@@ -270,7 +270,7 @@ A **token** is a [blockchain](#blockchain) object that represents another object
 
 ### Token rating
 
-**Token Rating** is an online service (https://tokenrating.wavesexplorer.com) that displays the ratings of [tokens](#token) (projects) issued on the Waves platform. The service allows users to vote for a particular token.
+**Token Rating** is an online service (https://tokenrating.wavesexplorer.com) that displays the ratings of [tokens](#token) (projects) issued on the Waves blockchain. The service allows users to vote for a particular token.
 
 ### Transaction
 
@@ -296,7 +296,7 @@ A **validating node** is a [node](#node) that validates [transactions](#transact
 
 ### WAVES
 
-**WAVES** is the main [token](#token) of the Waves platform. 1 WAVES equals 100,000,000 [WAVELET](#wavelet). In April 2016, 100 million WAVES were released. WAVES cannot be burned using a [burn transaction](/en/blockchain/transaction-type/burn-transaction).
+**WAVES** is the main [token](#token) of the Waves blockchain. 1 WAVES equals 100,000,000 [WAVELET](#wavelet). In April 2016, 100 million WAVES were released. WAVES cannot be burned using a [burn transaction](/en/blockchain/transaction-type/burn-transaction).
 
 ### WCT
 

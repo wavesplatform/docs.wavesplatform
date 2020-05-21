@@ -1,16 +1,20 @@
 # Обновления в документации
 
+## Майские статьи
+
+### Ride
+
+#### Встроенные функции
+
+* [makeString](/ru/ride/functions/built-in-functions/string-functions#makestringliststring-string-string)
+* [Функции списка](/ru/ride/functions/built-in-functions/list-functions): `containsElement`, `indexOf`, `lastIndexOf`, `max`, `min`
+
 ## Апрельские статьи
 
 ### Блокчейн
 
-Обновлена статья [Валидация транзакции](/ru/blockchain/transaction/transaction-validation).
-
-### Ride
-
-* Добавлено описание структуры [BalanceDetails](/ru/ride/structures/common-structures/balance-details).
-* Обновлено описание структуры [Asset](/ru/ride/structures/common-structures/asset).
-* Обновлено описание функции [wavesBalance](/ru/ride/functions/built-in-functions/account-data-storage-functions#waves-balance).
+* Добавлены описания бинарных форматов новых версий [транзакций](/ru/blockchain/binary-format/transaction-binary-format) и [ордеров](/ru/blockchain/binary-format/order-binary-format).
+* Обновлена статья [Валидация транзакции](/ru/blockchain/transaction/transaction-validation).
 
 ### Разработка приложений на блокчейне
 
@@ -80,8 +84,7 @@
   * [Транзакция обновления информации ассета](/ru/blockchain/transaction-type/update-asset-info-transaction)
 
 * Бинарный формат
-  * Protobuf-схема транзакции
-    * [Protobuf-схема транзакции обновления информации ассета](/ru/blockchain/binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme)
+  * [Бинарный формат транзакции обновления информации ассета](/ru/blockchain/binary-format/transaction-binary-format/update-asset-info-transaction-binary-format)
 
 ### Нода
 
@@ -96,7 +99,7 @@
     * [Burn](/ru/ride/structures/script-actions/burn)
     * [DeleteEntry](/ru/ride/structures/script-actions/delete-entry)
     * [IntegerEntry](/ru/ride/structures/script-actions/int-entry)
-    * [Issue](/ru/ride/structures/common-structures/issue)
+    * [Issue](/ru/ride/structures/script-actions/issue)
     * [Reissue](/ru/ride/structures/script-actions/reissue)
     * [StringEntry](/ru/ride/structures/script-actions/string-entry)
   * Структуры транзакций

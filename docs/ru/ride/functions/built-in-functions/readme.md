@@ -17,7 +17,7 @@
 | :--- | :--- | :--- |
 | assetInfo(ByteVector): Аsset&#124;Unit | Получает информацию о [токене](/ru/blockchain/token) | 100 |
 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Получает информацию о [блоке](/ru/blockchain/block) по [высоте блока](/ru/blockchain/block/block-height) | 100 |
-| calculateAssetId(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/common-structures/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 10 |
+| calculateAssetId(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/script-actions/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 10 |
 | transactionHeightById(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 100 |
 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 100 |
 
@@ -114,9 +114,17 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| getElement(List[T], Int): T | Получает элемент по индексу | 2 |
 | cons(T, List[T]): List[T] | Вставляет элемент в начало списка | 2 |
+| containsElement(list: List[T], element: T): Boolean | Проверяет наличие элемента в списке | 5 |
+| getElement(List[T], Int): T | Получает элемент по индексу | 2 |
+| indexOf(list: List[T], element: T): Int&#124;Unit | Возвращает индекс первого вхождения элемента в списке | 5 |
+| lastIndexOf(list: List[T], element: T): Int&#124;Unit | Возвращает индекс последнего вхождения элемента в списке | 5 |
+| max(List[Int]): Int | Возвращает наибольший элемент в списке | 3 |
+| min(List[Int]): Int | Возвращает наименьший элемент в списке | 3 |
 | size(List[T]): Int | Возвращает размер списка | 2 |
+
+`T` — сокращенная запись для `Boolean|ByteVector|Int|String`.
+
 
 ## [Функции строки](/ru/ride/functions/built-in-functions/string-functions)
 
@@ -127,6 +135,7 @@
 | dropRight(String, Int): String | Удаляет последние `n` символов строки | 19 |
 | indexOf(String, String): Int&#124;Unit | Возвращает индекс первого вхождения подстроки | 20 |
 | indexOf(String, String, Int): Int&#124;Unit | Возвращает индекс первого вхождения подстроки после указанного индекса | 20 |
+| makeString(List[String], String): String | Объединяет строки из списка, используя разделитель | 10 |
 | size(String): Int | Возвращает длину строки | 1 |
 | split(String, String): List[String] | Разбивает строку на список подстрок, используя разделитель | 100 |
 | take(String, Int): String | Возвращает первые `n` символов строки | 1 |

@@ -4,7 +4,7 @@ sidebarDepth: 2
 
 # How to Create and Manage Your Own Token
 
-One of the key benefits of the Waves platform is the simplicity of issuing tokens. To launch your own token, you don't have to write a smart contract – just create issue transaction and send it to the blockchain. The only threshold for the issuer is to pay a fee: 1 WAVES for reqular token (asset) or 0.001 for non-fungible token (NFT).
+One of the key benefits of the Waves blockchain is the simplicity of issuing tokens. To launch your own token, you don't have to write a smart contract – just create issue transaction and send it to the blockchain. The only threshold for the issuer is to pay a fee: 1 WAVES for reqular token (asset) or 0.001 for non-fungible token (NFT).
 
 New tokens are immediately available:
 
@@ -95,7 +95,7 @@ In this example, `myToken` function issues a token with following params:
   
 @Callable(i)
 func myToken() = [
-  Issue("Spring_" + toBase58String(i.caller.bytes), "", 100000, 2, true, unit, 0)
+  Issue("Spring_" + toBase58String(i.caller.bytes), "", 100000, 2, true)
 ]
 ```
 

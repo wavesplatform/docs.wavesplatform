@@ -166,8 +166,3 @@ Creates signed lease cancel transaction.
   "txId" : "CYPYhYe9M94t958Nsa3DcYNBZTURwcFgQ3ojyjwEeZiK"
 }
 ```
-
-### 
-
-
-

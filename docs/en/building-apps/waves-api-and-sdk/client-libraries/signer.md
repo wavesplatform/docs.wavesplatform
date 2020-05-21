@@ -113,7 +113,7 @@ After that you will be able to use Signer features in the app.
 
 ### 3. Basic example
 
-Now your application is ready to work with Waves Platform. Let's test it by implementing basic functionality. For example, we could try to authenticate user, get his/her balances and transfer funds.
+Now your application is ready to work with Waves blockchain. Let's test it by implementing basic functionality. For example, we could try to authenticate user, get his/her balances and transfer funds.
 
 ```js
 const user = await signer.login();

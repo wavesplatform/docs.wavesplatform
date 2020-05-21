@@ -1,6 +1,6 @@
 # What is a Smart Asset
 
-Any user can not only create their own [token](/en/blockchain/token) on the Waves platform but also endow it with certain functionality by attaching a script to it. A token with an attached script is called a [smart asset](/en/blockchain/token/smart-asset), and an attached script is called an [asset script](/en/ride/script/script-types/asset-script). Examples of practical use of smart assets:
+Any user can not only create their own [token](/en/blockchain/token) on the Waves blockchain but also endow it with certain functionality by attaching a script to it. A token with an attached script is called a [smart asset](/en/blockchain/token/smart-asset), and an attached script is called an [asset script](/en/ride/script/script-types/asset-script). Examples of practical use of smart assets:
 
 - **Freezing**. [Transactions](/en/blockchain/transaction) with a smart asset can be prohibited before (or after) the moment when the [blockchain](/en/blockchain/blockchain) reaches a certain [height](/en/blockchain/blockchain/blockchain-height).
 - **Black / white lists**. Transfer of a smart asset can be prohibited to the specified [addresses](/en/blockchain/account/address) or, conversely, allowed only to the specified addresses.
@@ -57,7 +57,7 @@ let targetHeight = 100500
 height >= targetHeight
 ```
 
-### Issue of burn-proof token
+### Burn-proof token
 
 For the example smart asset, the token burning transactions are prohibited.
 
@@ -68,9 +68,13 @@ match tx {
 }
 ```
 
-### Commission from each token transfer
+### Transfer fee only in the specified asset
 
-The issuer of the token involved in the transaction will receive a commission fee after the successful [transfer transaction](/en/blockchain/transaction-type/transfer-transaction).
+This script allows the transfer of the smart asset only if the transfer transaction fee is in the sponsored asset `oWgJN6YGZFtZrV8BWQ1PGktZikgg7jzGmtm16Ktyvjd`.
+
+The sponsor sets up the ratio of WAVES and the sponsored asset. For each transfer of the smart asset, the sponsor receives the fee in the sponsored asset from the sender's account. The equivalent amount of WAVES is deducted from the sponsor's account in favor of block generators. The sponsor can sell the sponsored asset at a higher price and thus make a profit.
+
+[Learn more about sponsorship](/en/blockchain/waves-protocol/sponsored-fee)
 
 ```ride
 match tx {

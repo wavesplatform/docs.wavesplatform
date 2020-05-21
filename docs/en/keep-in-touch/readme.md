@@ -1,11 +1,13 @@
 ## Keep in Touch
 
-Keep up with the latest news and articles, and find out about [_**Waves Platform**_](https://wavesplatform.com/) events.
+Keep up with the latest news and articles about [Waves Protocol](https://wavesprotocol.org/) events.
 
-* [Community Portal](https://community.wavesplatform.com/)
-* [Community Forum](https://forum.wavesplatform.com/)
+* [Waves Blog](https://medium.com/wavesprotocol)
+* [Twitter](https://twitter.com/wavesprotocol)
+* [YouTube](https://www.youtube.com/wavesplatform)
+* [Telegram](https://t.me/wavesnews)
 * [Developer chat in Telegram](https://t.me/waves_ride_dapps_dev)
-* [Waves Blog](https://blog.wavesplatform.com/)
 * [Discord](https://discord.gg/cnFmDyA)
+* [Community Forum](https://forum.wavesplatform.com/)
 
 Please see the [**issues**](https://github.com/wavesplatform/docs.wavesplatform/issues) section to report any bugs or feature requests and to see the list of known issues.

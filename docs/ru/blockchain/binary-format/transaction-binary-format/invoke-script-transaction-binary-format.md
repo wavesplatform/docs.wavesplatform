@@ -1,8 +1,46 @@
 # Бинарный формат транзакции вызова скрипта
 
-> Узнать больше о [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction)
+> Узнать больше о [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction).
 
-## Транзакция версии 1
+## Версия 2
+
+Бинарный формат версии 2 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).
+
+Версия 2 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
+```
+message InvokeScriptTransactionData {
+    Recipient d_app = 1;
+    bytes function_call = 2;
+    repeated Amount payments = 3;
+};
+
+message Recipient {
+    oneof recipient {
+        bytes public_key_hash = 1;
+        string alias = 2;
+    };
+};
+
+message Amount {
+    bytes asset_id = 1;
+    int64 amount = 2;
+};
+```
+
+| Поле | Размер | Описание |
+| :--- | :--- | :--- |
+| d_app.public_key_hash | 20 байт | Хеш открытого ключа аккаунта dApp (компонент адреса, см. раздел [Бинарный формат адреса](/ru/blockchain/binary-format/address-binary-format)) |
+| d_app.alias | От 4 до 30 байт | [Псевдоним адреса](/ru/blockchain/account/alias) аккаунта dApp |
+| function_call | | Имя и аргументы вызываемой функции. Бинарный формат вызова аналогичен [версии 1](#версия-1) (см. п. 13 в таблице) |
+| payments.asset_id | • 32 байта для ассета<br>• 0 для WAVES | ID токена в платеже |
+| payments.amount | 8 байт | Количество токена в платеже, в минимальных единицах («копейках») токена |
+
+Количество платежей — не более 2.
+
+Максимальный размер `d_app` + `function_call` + `payments` — 5120 байт.
+
+## Версия 1
 
 | Порядковый номер поля | Поле | Название JSON-поля | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -51,4 +89,4 @@
 
 ## JSON-представление транзакции
 
-Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/7CVjf5KGRRYj6UyTC2Etuu4cUxx9qQnCJox8vw9Gy9yq) в Node API.
+Смотрите [пример](https://nodes.wavesnodes.com/transactions/info/7CVjf5KGRRYj6UyTC2Etuu4cUxx9qQnCJox8vw9Gy9yq) в Node API.

@@ -1,8 +1,6 @@
-# Genesis transaction binary format
+# Genesis Transaction Binary Format
 
-> Learn more about [genesis transaction](/en/blockchain/transaction-type/genesis-transaction)
-
-## Transaction version 1
+> Learn more about [genesis transaction](/en/blockchain/transaction-type/genesis-transaction).
 
 | Field order number | Field | JSON field name | Field type | Field size in bytes | Comment |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -13,7 +11,6 @@
 | 5 | [Transaction fee](/en/blockchain/transaction/transaction-fee) |fee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 6 | [Transaction signature](/en/blockchain/transaction/transaction-signature) | signature | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 64 |  | |
 
+## JSON Representation of Transaction
 
-## JSON representation of the transaction
-
-See the [example](https://nodes.wavesplatform.com/transactions/info/2DVtfgXjpMeFf2PQCqvwxAiaGbiDsxDjSdNQkc5JQ74eWxjWFYgwvqzC4dn7iB1AhuM32WxEiVi1SGijsBtYQwn8) in Node API.
+See the [example](https://nodes.wavesnodes.com/transactions/info/2DVtfgXjpMeFf2PQCqvwxAiaGbiDsxDjSdNQkc5JQ74eWxjWFYgwvqzC4dn7iB1AhuM32WxEiVi1SGijsBtYQwn8) in Node API.

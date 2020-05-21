@@ -1,16 +1,20 @@
 # Documentation updates
 
+## May Articles
+
+### Ride
+
+#### Built-in Functions
+
+* [makeString](/en/ride/functions/built-in-functions/string-functions#makestringliststring-string-string)
+* [List functions](/en/ride/functions/built-in-functions/list-functions): `containsElement`, `indexOf`, `lastIndexOf`, `max`, `min`
+
 ## April articles
 
 ### Blockchain
 
-Updated the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
-
-### Ride
-
-* Added the [BalanceDetails](/en/ride/structures/common-structures/balance-details) structure description.
-* Updated the [Asset](/en/ride/structures/common-structures/asset) structure description.
-* Updated the [wavesBalance](/en/ride/functions/built-in-functions/account-data-storage-functions#waves-balance) function description.
+* Added binary format descriptions for new versions of [transactions](/en/blockchain/binary-format/transaction-binary-format) and [orders](/en/blockchain/binary-format/order-binary-format).
+* Updated the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
 
 ### Building Apps
 
@@ -71,11 +75,10 @@ Added how-to guides:
     * [Generation signature](/en/blockchain/block/block-generation/generation-signature)
 
 * Transaction type
-  * [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction)
+   * [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction)
 
 * Binary format
-  * Transaction protobuf scheme
-    * [Asset info update transaction protobuf scheme](/en/blockchain/binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme)
+   * [Update asset info transaction binary format](/en/blockchain/binary-format/transaction-binary-format/update-asset-info-transaction-binary-format)
 
 ### Ride
 
@@ -87,7 +90,7 @@ Added how-to guides:
     * [Burn](/en/ride/structures/script-actions/burn)
     * [DeleteEntry](/en/ride/structures/script-actions/delete-entry)
     * [IntegerEntry](/en/ride/structures/script-actions/int-entry)
-    * [Issue](/en/ride/structures/common-structures/issue)
+    * [Issue](/en/ride/structures/script-actions/issue)
     * [Reissue](/en/ride/structures/script-actions/reissue)
     * [StringEntry](/en/ride/structures/script-actions/string-entry)
 

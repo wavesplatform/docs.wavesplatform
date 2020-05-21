@@ -23,7 +23,7 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | :--- | :--- | :--- |
 | assetInfo(ByteVector): Аsset&#124;Unit | Gets the information about a [token](/en/blockchain/token) | 100 |
 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Gets the information about a [block](/en/blockchain/block) by the [block height](/en/blockchain/block/block-height) | 100 |
-| calculateAssetId(Issue): ByteVector | Calculates the ID of the asset, created by [Issue](/en/ride/structures/common-structures/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
+| calculateAssetId(Issue): ByteVector | Calculates the ID of the asset, created by [Issue](/en/ride/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
 | transactionHeightById(ByteVector):  Int&#124;Unit | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 100 |
 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Gets the data of a [transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 100 |
 
@@ -114,9 +114,16 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| getElement(List[T], Int): T | Gets the element by index | 2 |
-| cons(T, List[T]): List[T] | Inserts the element at the beginning of the list | 2 |
+| cons(T, List[T]): List[T] | Inserts element to the beginning of the [list](/en/ride/data-types/list) | 2 |
+| containsElement(list: List[T], element: T): Boolean | Check if the element is in the list | 5 |
+| getElement(List[T], Int): T | Gets element from the list | 2 |
+| indexOf(list: List[T], element: T): Int|Unit | Returns the index of the first occurrence of the element in the list | 5 |
+| lastIndexOf(list: List[T], element: T): Int|Unit | Returns the index of the last occurrence of the element in the list | 5 |
+| max(List[Int]): Int | Returns the largest element in the list | 3 |
+| min(List[Int]): Int | Returns the smallest item in the list | 3 |
 | size(List[T]): Int | Returns the size of the list | 2 |
+
+`T` is a short designation for `Boolean|ByteVector|Int|String`.
 
 ## [Math functions](/en/ride/functions/built-in-functions/math-functions)
 
@@ -136,6 +143,7 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | dropRight(String, Int): String | Drops the last `n` characters of a string | 19 |
 | indexOf(String, String): Int&#124;Unit | Returns the index of the first occurrence of a substring | 20 |
 | indexOf(String, String, Int): Int&#124;Unit | Returns the index of the first occurrence of a substring after a certain index | 20 |
+| makeString(List[String], String): String | Concatenates list strings adding a separator | 10 |
 | size(String): Int | Returns the size of a string | 1 |
 | split(String, String): List[String] | Splits a string delimited by a separator into a list of substrings. | 100 |
 | take(String, Int): String | Takes the first `n` characters from a string | 1 |

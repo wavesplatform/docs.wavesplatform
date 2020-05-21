@@ -1,8 +1,24 @@
 # Бинарный формат транзакции создания псевдонима
 
-> Узнать больше о [транзакции создания псевдонима](/ru/blockchain/transaction-type/create-alias-transaction)
+> Узнать больше о [транзакции создания псевдонима](/ru/blockchain/transaction-type/create-alias-transaction).
 
-## Транзакция версии 2
+## Версия 3
+
+Бинарный формат версии 3 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).
+
+Версия 3 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
+```
+message CreateAliasTransactionData {
+    string alias = 1;
+};
+```
+
+| Поле | Размер | Описание |
+| :--- | :--- | :--- |
+| alias | От 4 до 30 байт | [Псевдоним адреса](/ru/blockchain/account/alias) |
+
+## Версия 2
 
 | Порядковый номер поля | Поле | Название JSON-поля | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -18,9 +34,9 @@
 
 ## JSON-представление транзакции
 
-Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/5CZV9RouJs7uaRkZY741WDy9zV69npX1FTZqxo5fsryL) в Node API.
+Смотрите [пример](https://nodes.wavesnodes.com/transactions/info/5CZV9RouJs7uaRkZY741WDy9zV69npX1FTZqxo5fsryL) в Node API.
 
-## Бинарный формат версии 1
+## Версия 1
 
 | Порядковый номер поля | Поле | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- |

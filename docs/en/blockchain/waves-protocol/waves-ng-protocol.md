@@ -65,9 +65,9 @@ Waves-NG is based on bitcoin next generation protocol that serializes transactio
 
 Waves approach this scalability matter by providing the miner with the ability to farm a block during the time of mining in continuous approach. This block continues increments called liquid block. This liquid block is unchangeable over time once the next block referencing is created and appended.
 
-This approach increases effective bandwidth and speed of block creation, which is described as being “especially significant for businesses” using the Waves platform since it allows for conducting micro transactions - without any delays that are typical with traditional blockchain systems.
+This approach increases effective bandwidth and speed of block creation, which is described as being “especially significant for businesses” using the Waves protocol since it allows for conducting micro-transactions - without any delays that are typical with traditional blockchain systems.
 
-Furthermore, it allows the platform to withstand high loads, such as distribution of tokens following crowdsales and airdrops of bonus tokens. The speed of processing trading transactions on exchange is increased as well.
+Furthermore, it allows the blockchain to withstand high loads, such as distribution of tokens following crowdsales and airdrops of bonus tokens. The speed of processing trading transactions on exchange is increased as well.
 
 ### 2.1 Waves-NG operations
 

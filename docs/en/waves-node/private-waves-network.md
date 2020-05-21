@@ -8,7 +8,7 @@ Follow the steps below to setup custom blockchain network.
 
 ### Step 1
 
-Install Git, [Java 8](https://java.com/en/download/) and [sbt](http://www.scala-sbt.org/).
+Install Git, [Java 8](https://java.com/en/download/) and [sbt](https://www.scala-sbt.org/).
 
 ### Step 2
 
@@ -205,9 +205,9 @@ You can setup your custom blockchain with other services such as:
 
 * [Data services](/en/building-apps/waves-api-and-sdk/waves-data-service-api) to retrieve data from the blockchain quickly and conveniently via REST API similar to Mainnet and Testnet described in [Waves Data Service API](/en/building-apps/waves-api-and-sdk/waves-data-service-api) article. For details, see [deploy examples](https://github.com/wavesplatform/deploy-examples) and [How to Run Data Services](https://wavestalk.ru/t/kak-zapustit-data-services-za-30-minut-iz-korobki/272) article (in Russian language).
 
-* [dApps](/en/blockchain/account/dapp). For details, see [How to Build, Deploy and Test a Waves RIDE dApp](https://blog.wavesplatform.com/how-to-build-deploy-and-test-a-waves-ride-dapp-785311f58c2) article.
+* [dApps](/en/blockchain/account/dapp). For details, see [How to Build, Deploy and Test a Waves RIDE dApp](https://medium.com/wavesprotocol/how-to-build-deploy-and-test-a-waves-ride-dapp-785311f58c2) article.
 
-* [Waves explorer](/en/ecosystem/waves-explorer/about-waves-explorer) to view blockchain data in human-readable format.
+* [Waves Explorer](/en/ecosystem/waves-explorer/about-waves-explorer) to view blockchain data in human-readable format.
 
    You can deploy Waves explorer [docker container](https://hub.docker.com/r/wavesplatform/explorer) on localhost. Use the following comand:
 
@@ -215,6 +215,6 @@ You can setup your custom blockchain with other services such as:
    docker run -d -e API_NODE_URL=http://localhost:6869 -e NODE_LIST=http://localhost:6869 -p 3000:8080 wavesplatform/explorer
    ```
 
-* [DEX Extension](https://github.com/wavesplatform/dex): Interface for DEX Server to comunicate with the Node code.
+* [Matcher](https://github.com/wavesplatform/matcher).
 
 <!--* [Matcher](https://docs.waves.exchange/en/waves-matcher/) -->
