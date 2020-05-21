@@ -37,8 +37,7 @@
 
    `"applicationStatus": "scriptExecutionFailed"` means that the dApp script or the asset script failed.
 
-* The following endpoints return results of token issue, reisse, burning and sponsorship setups for invoke script transactions, and
-the `errorMessage` structure indicating script failure reason for failed transactions:
+* The following endpoints return results of token issue, reisse, burning and sponsorship setups for invoke script transactions, and the `errorMessage` structure indicating script failure reason for failed transactions:
    * `/debug/stateChanges/address/{address}/limit/{limit}`
    * `/debug/stateChanges/info/{id}`
 
