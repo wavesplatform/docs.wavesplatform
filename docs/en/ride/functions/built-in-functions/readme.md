@@ -107,7 +107,7 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | blake2b256(ByteVector): ByteVector | Range of functions.<br>Hash an array of bytes using [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10–200 for Standard Library **version 4** |
-| keccak256(ByteVector): ByteVector | Range of functions.<br>Hash an array of bytes using [SHA-3-256](https://en.wikipedia.org/wiki/SHA-3) | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10–200 for Standard Library **version 4** |
+| keccak256(ByteVector): ByteVector | Range of functions.<br>Hash an array of bytes using [Keccak-256](https://keccak.team/files/Keccak-submission-3.pdf) | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10–200 for Standard Library **version 4** |
 | sha256(ByteVector): ByteVector | Range of functions.<br>Hash an array of bytes using [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10–200 for Standard Library **version 4** |
 
 ## [List functions](/en/ride/functions/built-in-functions/list-functions)
@@ -163,7 +163,8 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | checkMerkleProof(ByteVector, ByteVector, ByteVector): Boolean | Checks that the data is part of the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) | 30 |
-| createMerkleRoot(List[ByteVector], ByteVector, Int) : ByteVector | Calculates the [Merkle root hash](/en/blockchain/block/merkle-root) for transactions of block | 30 | 
+| createMerkleRoot(List[ByteVector], ByteVector, Int) : ByteVector | Calculates the [Merkle root hash](/en/blockchain/block/merkle-root) for transactions of block | 30 |
+| ecrecover(messageHash: ByteVector, signature: ByteVector) | Recovers public key from the message hash and the [ECDSA](https://en.wikipedia.org/wiki/ECDSA) digital signature | 70 |
 | groth16Verify(ByteVector, ByteVector, ByteVector): Boolean | Range of functions.<br>Check [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol | 1200–2700 |
 | rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Range of functions.<br>Check that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29) digital signature is valid, i.e. it was created by the owner of the public key | 300 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>500–1000 for Standard Library **version 4** |
 | sigVerify(ByteVector, ByteVector, ByteVector): Boolean | Range of functions.<br>Check that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid, i.e. it was created by the owner of the public key | 100 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>100–200 for Standard Library **version 4** |
