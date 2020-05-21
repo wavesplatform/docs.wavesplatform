@@ -1,4 +1,4 @@
-# Account balance
+# Account Balance
 
 An **account balance** is the amount of the [token](/en/blockchain/token) that is stored on the [account](/en/blockchain/account).
 
@@ -8,32 +8,32 @@ One account can store different tokens in different amounts. For example, an acc
 There are four balances in WAVES token:
 
 * regular
-* effective
 * available
+* effective
 * generating
 
 In addition to WAVES that belong to the account owner, the account may store WAVES that belong to other accounts — those are [leased](/en/blockchain/leasing) WAVES.
 
-The **regular balance** is the amount of WAVES on the account which belongs directly to the account owner.
+The **regular balance** is the amount of WAVES on the account belonging directly to the account owner.
 
-To explain the effective and available balances, we will introduce the following designations:
+To explain the available and effective balances, we will introduce the following designations:
 
-`A` — regular balance,
+`R` — regular balance,
 
-`L` — the amount of WAVES which account leased to other accounts,
+`Lo` — the amount of WAVES which account leased to other accounts,
 
-`R`— the amount of WAVES which were leased to the account by other accounts.
-
-The **effective balance** is:
-
-```
-A - L + R
-```
+`Li`— the amount of WAVES which were leased to the account by other accounts.
 
 The **available balance** is:
 
 ```
-A - L
+R - Lo
+```
+
+The **effective balance** is:
+
+```
+R - Lo + Li
 ```
 
 The **generating balance** is the minimum value of the effective balance during the last 1000 blocks.

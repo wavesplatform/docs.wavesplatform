@@ -115,9 +115,17 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| getElement(List[T], Int): T | Получает элемент по индексу | 2 |
 | cons(T, List[T]): List[T] | Вставляет элемент в начало списка | 2 |
+| containsElement(list: List[T], element: T): Boolean | Проверяет наличие элемента в списке | 5 |
+| getElement(List[T], Int): T | Получает элемент по индексу | 2 |
+| indexOf(list: List[T], element: T): Int&#124;Unit | Возвращает индекс первого вхождения элемента в списке | 5 |
+| lastIndexOf(list: List[T], element: T): Int&#124;Unit | Возвращает индекс последнего вхождения элемента в списке | 5 |
+| max(List[Int]): Int | Возвращает наибольший элемент в списке | 3 |
+| min(List[Int]): Int | Возвращает наименьший элемент в списке | 3 |
 | size(List[T]): Int | Возвращает размер списка | 2 |
+
+`T` — сокращенная запись для `Boolean|ByteVector|Int|String`.
+
 
 ## [Функции строки](/ru/ride/functions/built-in-functions/string-functions)
 
@@ -128,6 +136,7 @@
 | dropRight(String, Int): String | Удаляет последние `n` символов строки | 19 |
 | indexOf(String, String): Int&#124;Unit | Возвращает индекс первого вхождения подстроки | 20 |
 | indexOf(String, String, Int): Int&#124;Unit | Возвращает индекс первого вхождения подстроки после указанного индекса | 20 |
+| makeString(List[String], String): String | Объединяет строки из списка, используя разделитель | 10 |
 | size(String): Int | Возвращает длину строки | 1 |
 | split(String, String): List[String] | Разбивает строку на список подстрок, используя разделитель | 100 |
 | take(String, Int): String | Возвращает первые `n` символов строки | 1 |
