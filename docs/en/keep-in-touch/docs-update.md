@@ -13,7 +13,7 @@
 #### Built-in Functions
 
 * [ecrecover](/en/ride/functions/built-in-functions/verification-functions#ecrecover)
-* [makeString](/en/ride/functions/built-in-functions/string-functions#makestringliststring-string-string)
+* [makeString](/en/ride/functions/built-in-functions/string-functions#makestring-list-string-string-string)
 * [List functions](/en/ride/functions/built-in-functions/list-functions): `containsElement`, `indexOf`, `lastIndexOf`, `max`, `min`
 
 ## April articles

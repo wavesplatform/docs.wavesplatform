@@ -13,7 +13,7 @@
 #### Встроенные функции
 
 * [ecrecover](/ru/ride/functions/built-in-functions/verification-functions#ecrecover)
-* [makeString](/ru/ride/functions/built-in-functions/string-functions#makestringliststring-string-string)
+* [makeString](/ru/ride/functions/built-in-functions/string-functions#makestring-list-string-string-string)
 * [Функции списка](/ru/ride/functions/built-in-functions/list-functions): `containsElement`, `indexOf`, `lastIndexOf`, `max`, `min`
 
 ## Апрельские статьи
