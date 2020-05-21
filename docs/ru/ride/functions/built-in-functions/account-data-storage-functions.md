@@ -160,6 +160,18 @@ getStringValue(addressOrAlias: Address|Alias, key: String): String
 wavesBalance(addressOrAlias: Address|Alias): Int
 ```
 
+### В Стандартной библиотеке версии 4
+
+Возвращает все виды баланса [WAVES](/ru/blockchain/token/waves) аккаунта. О видах баланса см. в разделe [Баланс аккаунта](/ru/blockchain/account/account-balance).
+
+``` ride
+wavesBalance(addressOrAlias: Address|Alias): BalanceDetails
+```
+
+Описание возвращаемой структуры см. в разделе [BalanceDetails](/ru/ride/structures/common-structures/balance-details).
+
+> :warning: [Стандартная библиотека](/ru/ride/script/standard-library) **версии 4** доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время работают только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
 ### Параметры
 
 | Параметр | Описание |
