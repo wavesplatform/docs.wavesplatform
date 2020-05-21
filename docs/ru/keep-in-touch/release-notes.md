@@ -75,7 +75,7 @@
    Максимальная сложность скрипта ассета и вызываемой функции скрипта dApp осталась прежней — 4000.
 * Изменен максимальный размер данных:
    * [String](/ru/ride/data-types/string) — 32&nbsp;767 байт
-   * [ByteVector]](/ru/ride/data-types/byte-vector) — 32&nbsp;767 байт (165&nbsp;996 байт для `DataTransaction.bodyBytes`)
+   * [ByteVector]](/ru/ride/data-types/byte-vector) — 32&nbsp;767 байт (165&nbsp;996 байт для поля `bodyBytes` структуры транзакции)
 
 ## Waves Explorer
 

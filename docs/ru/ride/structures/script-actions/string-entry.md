@@ -2,7 +2,7 @@
 
 > :warning: Структура `StringEntry` представлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
-**StringEntry** - cтруктура, задающая ключ и значение записи [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage) строкового типа, которая создается или изменяется в результате вызова [вызываемой функции](/ru/ride/functions/callable-function).
+`StringEntry` — cтруктура, задающая ключ и значение записи [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage) строкового типа. Cоздание или изменение записи выполняется, только если структура включена в [результирующее выражение](/ru/ride/functions/callable-function#резуnьтат-выпоnнения-вызываемой-функции-2) вызываемой функции.
 
 ## Конструктор
 

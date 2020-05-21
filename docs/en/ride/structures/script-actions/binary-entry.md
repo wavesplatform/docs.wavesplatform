@@ -2,7 +2,7 @@
 
 > :warning: BinaryEntry structure is included in [Standard library](/en/ride/script/standard-library) **version 4**, which is currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
-**BinaryEntry** is a structure that sets key and value of [account data storage](/en/blockchain/account/account-data-storage) binary entry, which is created or modified as the result of the [callable function](/en/ride/functions/callable-function) invocation.
+`BinaryEntry` is a structure that sets key and value of [account data storage](/en/blockchain/account/account-data-storage) binary entry. Adding or changing an entry is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#callable-function-invocation-results-2).
 
 ## Constructor
 

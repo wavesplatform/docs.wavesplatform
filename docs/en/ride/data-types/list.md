@@ -1,6 +1,6 @@
 # List
 
-`List` is a keyword of the list data type.
+`List` is a list data type.
 
 The list may contain elements of various types, including nested lists.
 
