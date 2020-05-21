@@ -136,7 +136,7 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | dropRight(String, Int): String | Drops the last `n` characters of a string | 19 |
 | indexOf(String, String): Int&#124;Unit | Returns the index of the first occurrence of a substring | 20 |
 | indexOf(String, String, Int): Int&#124;Unit | Returns the index of the first occurrence of a substring after a certain index | 20 |
-| makeString(List[String], String): String | Concatenates list strings adding a separator | 30 |
+| makeString(List[String], String): String | Concatenates list strings adding a separator | 10 |
 | size(String): Int | Returns the size of a string | 1 |
 | split(String, String): List[String] | Splits a string delimited by a separator into a list of substrings. | 100 |
 | take(String, Int): String | Takes the first `n` characters from a string | 1 |
