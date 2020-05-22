@@ -2,13 +2,14 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
-| [contains(String, String): Boolean](#containsstring-string-boolean) | Проверяет, содержится ли строка в строке  | 20 |
+| [contains(String, String): Boolean](#contains-string-string-boolean) | Проверяет, содержится ли строка в строке  | 20 |
 | [drop(String, Int): String](#dropstring-int-string)  | Удаляет первые `n` символов строки | 1 |
 | [dropRight(String, Int): String](#droprightstring-int-string)  | Удаляет последние `n` символов строки | 19 |
 | [indexOf(String, String): Int&#124;Unit](#indexofstring-stringintunit) | Возвращает индекс первого вхождения подстроки  | 20 |
 | [indexOf(String, String, Int): Int&#124;Unit](#indexofstring-string-intintunit)  | Возвращает индекс первого вхождения подстроки после указанного индекса | 20 |
 | [lastIndexOf(String, String): Int&#124;Unit](#lastindexofstring-stringintunit) | Возвращает индекс последнего вхождения подстроки | 20 |
 | [lastindexOf(String, String, Int): Int&#124;Unit](lastindexofstring-string-intintunit) | Возвращает индекс последнего вхождения подстроки перед указанным индексом | 20 |
+| [makeString(List[String], String): String](#makestring-list-string-string-string) | Объединяет строки из списка, используя разделитель | 10 |
 | [size(String): Int](#sizestring-int) | Возвращает длину строки | 1 |
 | [split(String, String): List[String]](#splitstring-string-liststring) | Разбивает строку на список подстрок, используя разделитель | 100 |
 | [take(String, Int): String](#take) | Возвращает первые `n` символов строки | 1 |
@@ -183,6 +184,27 @@ lastIndexOf(str: String, substr: String, offset: Int): Int|Unit
 ```ride
 lastIndexOf("mamamama","ma",4) # Возвращает 4
 lastIndexOf("mamamama","ma",3) # Возвращает 2
+```
+
+## makeString(List[String], String): String
+
+Объединяет строки из списка, используя разделитель.
+
+```ride
+makeString(arr: List[String], separator: String): String
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `arr`: [List](/ru/ride/data-types/list)[[String](/ru/ride/data-types/string)] | Список строк для объединения |
+| `separator`: [String](/ru/ride/data-types/string) | Разделитель |
+
+### Пример
+
+```ride
+makeString(["Apple","Orange","Mango"], " & ") # Возвращает "Apple & Orange & Mango"
 ```
 
 ## size(String): Int<a id=size></a>

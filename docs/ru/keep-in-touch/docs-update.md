@@ -4,14 +4,29 @@
 
 ### Ride
 
-* Обновлены статьи [Стандартная библиотека](/ru/ride/script/standard-library) и [Типы скриптов](/ru/ride/script/script-types).
+* Обновлены статьи:
+   * [Стандартная библиотека](/ru/ride/script/standard-library)
+   * [Типы скриптов](/ru/ride/script/script-types)
+   * [Ограничения](/ru/ride/limits/)
+
 * Добавлена статья [Компоненты Ride](/ru/ride/advanced/components).
+
+#### Действия скрипта
+
+* [SponsorFee](/ru/ride/structures/script-actions/sponsor-fee)
+
+#### Встроенные функции
+
+* [ecrecover](/ru/ride/functions/built-in-functions/verification-functions#ecrecover)
+* [makeString](/ru/ride/functions/built-in-functions/string-functions#makestring-list-string-string-string)
+* [Функции списка](/ru/ride/functions/built-in-functions/list-functions): `containsElement`, `indexOf`, `lastIndexOf`, `max`, `min`
 
 ## Апрельские статьи
 
 ### Блокчейн
 
-Обновлена статья [Валидация транзакции](/ru/blockchain/transaction/transaction-validation).
+* Добавлены описания бинарных форматов новых версий [транзакций](/ru/blockchain/binary-format/transaction-binary-format) и [ордеров](/ru/blockchain/binary-format/order-binary-format).
+* Обновлена статья [Валидация транзакции](/ru/blockchain/transaction/transaction-validation).
 
 ### Разработка приложений на блокчейне
 
@@ -81,8 +96,7 @@
   * [Транзакция обновления информации ассета](/ru/blockchain/transaction-type/update-asset-info-transaction)
 
 * Бинарный формат
-  * Protobuf-схема транзакции
-    * [Protobuf-схема транзакции обновления информации ассета](/ru/blockchain/binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme)
+  * [Бинарный формат транзакции обновления информации ассета](/ru/blockchain/binary-format/transaction-binary-format/update-asset-info-transaction-binary-format)
 
 ### Нода
 

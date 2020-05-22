@@ -1,3 +1,3 @@
 # Boolean
 
-The **Boolean** is a keyword of the boolean data type.
+`Boolean` is a boolean data type.

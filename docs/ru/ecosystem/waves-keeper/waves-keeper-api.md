@@ -27,7 +27,7 @@ sidebarDepth: 2
 - `resourceIsBlocked`
 - `on`
 
-Все методы, кроме `on`, работают асинхронно и возвращают [promises](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+Все методы, кроме `on`, работают асинхронно и возвращают [promises](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
 В коде можно использовать [TypeScript types](https://github.com/wavesplatform/waveskeeper-types).
 
