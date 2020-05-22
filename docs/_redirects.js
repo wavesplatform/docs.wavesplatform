@@ -717,7 +717,7 @@ module.exports = [
     from: '/en/miscellaneous/waves-protocol/waves-ng-protocol.html',
   },
   {
-    to: '/en/blockchain/waves-protocol/activation-protocol',
+    to: '/en/waves-node/activation-protocol',
     from: '/en/miscellaneous/waves-protocol/activation-protocol.html',
   },
   {
@@ -891,7 +891,7 @@ module.exports = [
   },
   {
     from: '/ru/platform-features/activation-protocol.html',
-    to: '/ru/blockchain/waves-protocol/activation-protocol',
+    to: '/ru/waves-node/activation-protocol',
   },
   {
     from: '/ru/platform-features/assets-custom-tokens.html',
@@ -907,7 +907,11 @@ module.exports = [
   },
   { 
     from: '/en/blockchain/waves-protocol/activation-protocol',
-	to: '/en/waves-node/activation-protocol',
+    to: '/en/waves-node/activation-protocol',
+  },
+  { 
+    from: '/ru/blockchain/waves-protocol/activation-protocol',
+    to: '/ru/waves-node/activation-protocol',
   },
   { 
     from: '/en/waves-node/extensions/grpc-server/grpc-server-installation',

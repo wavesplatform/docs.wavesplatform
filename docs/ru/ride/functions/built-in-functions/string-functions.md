@@ -8,7 +8,7 @@
 | [indexOf(String, String): Int&#124;Unit](#indexofstring-stringintunit) | Возвращает индекс первого вхождения подстроки  | 20 |
 | [indexOf(String, String, Int): Int&#124;Unit](#indexofstring-string-intintunit)  | Возвращает индекс первого вхождения подстроки после указанного индекса | 20 |
 | [lastIndexOf(String, String): Int&#124;Unit](#lastindexofstring-stringintunit) | Возвращает индекс последнего вхождения подстроки | 20 |
-| [lastindexOf(String, String, Int): Int&#124;Unit](lastindexofstring-string-intintunit) | Возвращает индекс последнего вхождения подстроки перед указанным индексом | 20 |
+| [lastindexOf(String, String, Int): Int&#124;Unit](#lastindexofstring-string-intintunit) | Возвращает индекс последнего вхождения подстроки перед указанным индексом | 20 |
 | [makeString(List[String], String): String](#makestring-list-string-string-string) | Объединяет строки из списка, используя разделитель | 10 |
 | [size(String): Int](#sizestring-int) | Возвращает длину строки | 1 |
 | [split(String, String): List[String]](#splitstring-string-liststring) | Разбивает строку на список подстрок, используя разделитель | 100 |

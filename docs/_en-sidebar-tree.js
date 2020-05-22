@@ -475,10 +475,6 @@ module.exports = {
           title: 'Waves-NG protocol',
           path: blockchainPath + 'waves-protocol/waves-ng-protocol',
         },
-        {
-          title: 'Activation protocol',
-          path: blockchainPath + 'waves-protocol/activation-protocol',
-        },
       ],
     },
     {

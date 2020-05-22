@@ -8,7 +8,7 @@
 | [indexOf(String, String): Int&#124;Unit](#indexofstring-stringintunit) | Returns the index of the first occurrence of a substring | 20 |
 | [indexOf(String, String, Int): Int&#124;Unit](#indexofstring-string-intintunit) | Returns the index of the first occurrence of a substring after a certain index | 20 |
 | [lastIndexOf(String, String): Int&#124;Unit](#lastindexofstring-stringintunit) | Returns the index of the last occurrence of a substring | 20 |
-| [lastindexOf(String, String, Int): Int&#124;Unit](lastindexofstring-string-intintunit) | Returns the index of the last occurrence of a substring before a certain index | 20 |
+| [lastindexOf(String, String, Int): Int&#124;Unit](#lastindexofstring-string-intintunit) | Returns the index of the last occurrence of a substring before a certain index | 20 |
 | [makeString(List[String], String): String](#makestring-list-string-string-string) | Concatenates list strings adding a separator | 10 |
 | [size(String): Int](#sizestring-int) | Returns the size of a string | 1 |
 | [split(String, String): List[String]](#splitstring-string-liststring) | Splits a string delimited by a separator into a list of substrings | 100 |

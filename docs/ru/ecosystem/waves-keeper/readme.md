@@ -10,7 +10,7 @@ Waves Keeper разработан для удобства, чтобы польз
 
 * [Расширение для Google Chrome](https://chrome.google.com/webstore/detail/waves-keeper/lpilbniiabackdjcionkobglmddfbcjo) (подходит также для Brave и Yandex.Browser)
 * [Расширение для Firefox](https://addons.mozilla.org/en-US/firefox/addon/waves-keeper/)
-* [Расширение для Opera](https://addons.opera.com/en/extensions/details/waves-keeper)
+* [Расширение для Opera](https://addons.opera.com/en/extensions/details/waves-keeper/)
 * [Расширение для Microsoft Edge](https://www.microsoft.com/en-us/p/waves-keeper/9npz1hrq32nt?activetab=pivot:overviewtab)
 
 ## Исходный код

@@ -9,8 +9,8 @@ Waves Keeper is designed for convenience, so users can sign transactions with ju
 ## Download Waves Keeper
 
 * [Google Chrome extension](https://chrome.google.com/webstore/detail/waves-keeper/lpilbniiabackdjcionkobglmddfbcjo) (works with Brave and Yandex.Browser)
-* [Firefox extension](https://addons.mozilla.org/en-US/firefox/addon/waves-keeper)
-* [Opera extension](https://addons.opera.com/en/extensions/details/waves-keeper)
+* [Firefox extension](https://addons.mozilla.org/en-US/firefox/addon/waves-keeper/)
+* [Opera extension](https://addons.opera.com/en/extensions/details/waves-keeper/)
 * [Microsoft Edge extension](https://www.microsoft.com/en-us/p/waves-keeper/9npz1hrq32nt?activetab=pivot:overviewtab)
 
 ## Source Code

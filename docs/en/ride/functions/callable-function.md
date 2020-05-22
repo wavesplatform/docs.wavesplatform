@@ -46,7 +46,7 @@ Callable function invocation result in Standard library version 3 is one of the 
       ])
    ```
 
-* [TransferSet](/ru/ride/structures/script-results/-set) — contains a list of transfers.
+* [TransferSet](/ru/ride/structures/script-results/transfer-set) — contains a list of transfers.
 
    Example:
 

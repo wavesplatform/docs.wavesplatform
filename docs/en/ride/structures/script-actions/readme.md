@@ -3,7 +3,7 @@
 Script actions are executed, that is, they make changes on the blockchain only if they are included in the resulting expression of the callable function. See more details in the [Callable function](/en/ride/functions/callable-function) article.
 
 | Action | Standard library version | Description |
-|---|---|
+|---|---|---|
 | [BinaryEntry](/en/ride/structures/script-actions/binary-entry) | 4 | Add or modify a binary entry of the [account data storage](/en/blockchain/account/account-data-storage) |
 | [BooleanEntry](/en/ride/structures/script-actions/boolean-entry) | 4 | Add or modify a boolean entry |
 | [Burn](/en/ride/structures/script-actions/burn) | 4 | Burn a token |

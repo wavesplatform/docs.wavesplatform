@@ -3,7 +3,7 @@
 Действия скрипта выполняются, то есть приводят к изменениям на блокчейне, только если включены в результирующее выражение вызываемой функции. Подробнее см. в разделе [Вызываемая функция](/ru/ride/functions/callable-function).
 
 | Действие скрипта | Версия стандартной библиотеки | Описание |
-|---|---|
+|---|---|---|
 | [BinaryEntry](/ru/ride/structures/script-actions/binary-entry) | 4 | Добавление/изменение записи бинарного типа в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage)|
 | [BooleanEntry](/ru/ride/structures/script-actions/boolean-entry) | 4 | Добавление/изменение записи логического типа |
 | [Burn](/ru/ride/structures/script-actions/burn) | 4 | Сжигание токена |

@@ -111,7 +111,7 @@
 
 Описание заданных ассетов.
 
-> :warning: Данный метод доступен начиная с версии ноды 1.2.0, после активации фичи "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) см.[Протокол активации](/ru/blockchain/waves-protocol/activation-protocol). Версия 1.2.x в настоящий момент доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+> :warning: Данный метод доступен начиная с версии ноды 1.2.0, после активации фичи "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16) см.[Протокол активации](/ru/waves-node/activation-protocol). Версия 1.2.x в настоящий момент доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 **Параметры запроса:**
 
