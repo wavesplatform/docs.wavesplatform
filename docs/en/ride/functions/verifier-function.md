@@ -24,7 +24,7 @@ If dApp does not have the verifier function, then the default verification is pe
 * For Standard library **version 3**, if the verifier function is defined, only verification by this function is performed, proofs are not checked.
 * For Standard library **version 4** the first proof of the transaction or the order is always checked, whether or not a verifier function is defined.
 
-> :warning: Standard library version 4 becomes available becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on Stagenet [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+> :warning: Standard library version 4 becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on Stagenet [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
 ## Exmaple
 
