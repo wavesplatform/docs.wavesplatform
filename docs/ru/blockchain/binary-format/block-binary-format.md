@@ -37,7 +37,7 @@ message Block {
 | reference | • В первом блоке версии 5, то есть на высоте активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions” — `signature` предыдущего блока<br>• В последующих блоках: хеш BLAKE2b-256 заголовка предыдущего блока |
 | base_target | [Базовая цель](/ru/blockchain/block/block-generation/base-target) — переменная, используемая в алгоритме генерации блоков |
 | generation_signature | [Подпись генерирования](/ru/blockchain/block/block-generation/) — переменная, используемая в алгоритме генерации блоков (32 байта) |
-| feature_votes | 2 байта для каждой фичи | Список фич, за которые голосует генератор блока, см. раздел [Фичи](/ru/waves-node/features/) |
+| feature_votes | Список фич, за которые голосует генератор блока, см. раздел [Фичи](/ru/waves-node/features/) |
 | timestamp | [Временная метка блока](/ru/blockchain/block/block-timestamp): Unix-время в миллисекундах |
 | version | Версия блока: 5 |
 | generator | Открытый ключ аккаунта генератора блока (32 байта) |
