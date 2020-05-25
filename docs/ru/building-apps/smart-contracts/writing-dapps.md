@@ -22,7 +22,7 @@
 4. Нажмите **Show seed and private key** и сохраните секретную фразу в укромном месте — она потребуется для восстановления доступа к аккаунту.
 5. Пополните баланс аккаунта: в Testnet это бесплатно. Для этого:
 
-   * Скопируйте адрес аккаунта: нажмите на название аккаунта, затем нажмите кнопку ![](./_assets/copy-button.png).
+   * Скопируйте адрес аккаунта: нажмите на название аккаунта, затем нажмите кнопку ![](./_assets/сopy-button.png).
    * Перейдите на страницу <https://wavesexplorer.com/testnet/faucet>, вставьте адрес и нажмите **Request 10 WAVES**.
 
 ## Шаг 2. Написание dApp-скрипта
@@ -121,7 +121,7 @@ dApp-скрипт должен начинаться с директив:
 </p>
 </details>
 
-Подробнее о структуре dApp-скрипта читайте в разделе [Структура dApp-скрипта](/ru/building-apps/smart-contracts/dapp-structure).
+Подробнее о структуре dApp-скрипта читайте в разделе [Структура dApp-скрипта](/ru/building-apps/smart-contracts/what-is-a-dapp#структура-dapp-скрипта).
 
 ## Шаг 3. Установка скрипта
 
@@ -139,16 +139,18 @@ dApp-скрипт должен начинаться с директив:
 3. Выполните поиск по адресу аккаунта.
 4. Перейдите на вкладку **Script**.
 
-dApp готов к использованию — его функции можно вызывать извне блокчейна.
+dApp готов к использованию — его функции можно вызывать с помощью транзакции вызова скрипта.
 
 ## Шаг 4. Тестирование скрипта
 
 Для тестирования dApp-скрипта нужно отправить транзакцию вызова скрипта. Комиссия за вызов скрипта составляет от 0,005 WAVES и зависит от количества смарт-ассетов, используемых в вызове (в нашем примере они не используются). Формула расчета комиссии приведена в разделе [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee).
 
-Выполнить тесты также можно прямо из Waves IDE:
+Выполнить тесты можно прямо из Waves IDE. В тестах поддерживаются функции
+* `describe` и `it` из библиотеки [mocha](https://mochajs.org/);
+* `expect` из библиотеки [chai](https://www.chaijs.com/).
 
 1. Создайте аккаунт тестового пользователя и пополните баланс — для этого повторите шаг 1.
-2. Нажмите кнопку ![](../how-to/basic/_assets/settings.png) и переключитесь на ![](../how-to/basic/_assets/testnet.png).
+2. Нажмите кнопку ![](./_assets/settings.png) и переключитесь на ![](./_assets/testnet.png).
 3. Замените автоматически сгенерированный код на ваш тест.
 
    Код теста для скрипта Waves Magic 8 Ball можно скопировать из бибилиотеки: **Library → ride4dapps → 8ball → tests → 8ball_test.js**. Не забудьте заменить значение `ballAddress` на адрес своего dApp.
@@ -184,7 +186,7 @@ describe('8 ball', () => {
 Вы можете проверить результат выполнения dApp-скрипта в Waves Explorer:
 
 1. Откройте <https://wavesexplorer.com/>.
-2. Нажмите кнопку ![](../how-to/basic/_assets/settings.png) и переключитесь на ![](../how-to/basic/_assets/testnet.png).
+2. Нажмите кнопку ![](./_assets/settings.png) и переключитесь на ![](./_assets/testnet.png).
 3. Выполните поиск по адресу аккаунта dApp.
 4. Перейдите на вкладку **Data**.
 
@@ -196,11 +198,27 @@ describe('8 ball', () => {
 
 * Создайте веб-приложение, в котором пользователь сможет, нажав кнопку, подписать и отправить транзакцию вызова скрипта.
 * Добавьте ваш dApp на Mainnet.
-* Зарегистрируйте приложение в реестрах dAppOcean и DappRadar, чтобы как можно больше пользователей узнали о нем!
+* Зарегистрируйте приложение в реестрах [dAppOcean](https://www.dappocean.io/ru/dapps/submit) и [DappRadar])(https://dappradar.com/submit-dapp), чтобы как можно больше пользователей узнали о нем!
 
 ### 5.1. Создание веб-приложения
 
-Чтобы подписать транзакцию вызова скрипта от имени реального пользователя, подключите JS-бибилиотеку Signer.
+Чтобы подписать транзакцию вызова скрипта от имени реального пользователя, подключите JS-бибилиотеку [Signer](/ru/building-apps/waves-api-and-sdk/client-libraries/signer). Signer позволяет вашему веб-приложению подписать и отправить транзакцию от имени пользователя, не запрашивая его секретную фразу (seed) или закрытый ключ.
+
+<details><summary>Код вызова скрипта</summary>
+<p>
+<code>
+await signer.invoke({
+    dApp: ballAddress,
+    call: {
+        function: "tellme",
+        args:[{"type": "string", "value": question}]
+    }
+}).broadcast()
+</code>
+
+[Полный код приложения на Github](https://github.com/elenaili/waves8ball)
+</p>
+</details>
 
 ### 5.2. Добавление dApp на Mainnet
 
@@ -221,150 +239,4 @@ dApp на Mainnet получит другой адрес — не забудьт
 
 ## Что дальше
 
-API публичных нод WAVES имеет [ограничения на количество запросов в секунду](/ru/waves-node/api-limitations-of-the-pool-of-public-nodes). Поэтому, когда ваше приложение наберет популярность, мы рекомендуем [запустить собственную ноду](/ru/waves-node/how-to-install-a-node/how-to-install-a-node) и отправлять транзакции вызова скрипта на нее.
-
-## Объявление вызываемых функций
-
-Здесь мы можем объявлять функции, которые будут вызываться с помощью InvokeScript-транзакции. Такие функции помечаются аннотацией `@Callable(contextObj)`, где `contextObj` — произвольное имя объекта контекста. Объект контекста содержит поля:
-
-- `caller` — адрес аккаунта, который вызвал данную функцию.
-- `callerPublicKey` — открытый ключ аккаунта, который вызвал данную функцию.
-- `payment` — платёж, который приложен к данному вызову функции. Платёж может быть пустым (UNIT).
-
-Вызываемая функция может использовать функции и значения из контекста скрипта (см. выше) или из своего контекста (т.е. не может использовать другие вызываемые функции и функцию валидации).
-
-```
-@Callable(contextObj)
-func foo() = {
-   if (contextObj.caller == this)
-   then
-       ScriptResult(
-            WriteSet([DataEntry("someDataKey", 42)]),
-            TransferSet([ScriptTransfer(contextObj.caller, 100500, unit)])
-        )
-   else
-       throw("Only owner can use this function.")
-}
-```
-
-Ограничения для вызываемых функций:
-
-- Имя функции не может превышать 255 символов.
-- Каждая из функций может принимать не больше 22 аргументов.
-- Допустимые типы аргументов: Int, String, Boolean, ByteVector
-
-Возможные результаты выполнения (одно значение из списка): 
-
-- ScriptResult
-- WriteSet
-- TransferSet
-
-**WriteSet** — в результате записывает список DataEntry (ключ, значение) в аккаунт. 
-
-Ограничения:
-
-- Максимальная длина списка: 100.
-- Максимальный размер одного ключа: 100 символов. 
-
-
-**TransferSet** — в результате создаёт список платежей ScriptTransfer, которые будут применены после вызова функции.
-
-Ограничения:
-
-- Максимальная длина списка: 10.
-
-**ScriptResult** — содержит WriteSet и TransferSet.
-
-```
-@Callable(contextObj)
- 
-func foo() = {
-    val a = 0
- 
-    if (a == 1)
-    then ScriptResult(
-            WriteSet([DataEntry("someDataKey", 42)]),
-            TransferSet([ScriptTransfer(contextObj.caller, 100500, unit)])
-        )
- 
-    else if (a == 2)
-    then WriteSet([DataEntry("someDataKey", 42)]),
-    else
-        TransferSet([ScriptTransfer(contextObj.caller, 100500, unit)])
- 
-}
-```
-
-## Объявление функции валидации
-Функция валидации в dApp играет роль скрипта аккаунта — она валидирует все исходящие из данного аккаунта транзакции.
-
-Такая функция помечается аннотацией `@Verifier(tx)`, где `tx` — текущая транзакция, которую в данный момент функция проверяет. Доступные поля транзакции по её типу можно посмотреть в разделе [Структуры транзакций](/en/ride/structures/transaction-structures).
-
-Возможные результаты выполнения:
-
-- true
-- false
-- ошибка
-
-Если в dApp нет функции валидации, то выполняется алгоритм валидации по умолчанию (с помощью функции `sigVerify`).
-
-
-
-Пример функции, разрешающей только Transfer-транзакции (любая другая транзакция с данного аккаунта отправлена не будет):
-```
-@Verifier(tx)
-func verify() = {
-    match tx {
-        case ttx:TransferTransaction => sigVerify(ttx.bodyBytes, ttx.proofs[0], ttx.senderPublicKey)
-        case _ => false
-    }
-}
-```
-
-## Параметры функции InvokeScriptTransaction
-
-| Имя параметра | Тип параметра | Описание  |
-|---|---|---|
-|  type  |Int   |  тип транзакции (16 для InvokeScript) |
-| dApp   | Address  | адрес, по которому вызывается функция  |
-|  payment  | OPTION[AttachedPayment]  | отправляемый платеж (размер, ассет) |
-|  fee  |  Int | размер вознаграждения |
-| feeAssetId | OPTION[ByteVector] | идентификатор ассета вознаграждения (null для WAVES)|
-|  call: <br /> - function <br /> -args | <br /> String <br />LIST[UNION(Boolean,ByteVector,Int,String)]  | <br /> имя вызываемой функции <br /> список передаваемых аргументов |
-|  id  | ByteVector  |  идентификатор транзакции |
-|  timestamp  |  Int | время выполнения транзакции  |
-|  version  | Int  |  версия транзакции (на текущий момент 1) |
-|  sender  |  Address |  адрес вызывающего аккаунта |
-|  senderPublicKey  | ByteVector  |  открытый ключ вызывающего аккаунта |
-| proofs   | LIST[ByteVector]  |  набор подписей, подтверждающих подлинность транзакции |
-|  chainId |  Byte | идентификатор сети блокчейна <br /> "T" — тестовая <br /> "W" — боевая  |
-
-## JSON InvokeScript-транзакции
-
-```
-{
- 
-  "type": 16,
-  "version": 1,
-  "senderPublicKey": "2GEvUnpNpve2rSAs51c2HMTkaCYW9QRgwR16Z2HGJZgC",
-  "dApp": "3FYR1f5YydHXF8dtfRJRyX3PoDCoT7a36Kq",
-  "call": {
-    "function": "deposit",
-    "args": [{type:"integer", value: 600000000}]
-  },
-  "payment": [
-    {
-      "amount": 200000000,
-      "assetId": null
-    }
-  ],
-  "fee": 1000000,
-  "feeAssetId": null,
-  "timestamp": 1555073997308,
-  "chainId": 68,
-  "proofs": [
-      "42Tf6VSVi3Cq6yHK1ENcVtyQbt9Ap8fcu57gYoZWChJTPPz52qRDM5NThuhFDVB4qE2gPZonuvjEJVtWHVYyNvJC"
-  ],
-  "id": "2fcMC9ihuLAcGNsbiSLDgz8dekq2JkrtjihroUiyNYCp"
-}
-```
+API публичных нод WAVES имеет [ограничения на количество запросов в секунду](/ru/waves-node/api-limitations-of-the-pool-of-public-nodes). Поэтому, когда ваше приложение наберет популярность, рекомендуем [запустить собственную ноду](/ru/waves-node/how-to-install-a-node/how-to-install-a-node) и отправлять транзакции вызова скрипта на нее.
