@@ -1,4 +1,4 @@
-# Создание dApp: руководство
+# Создание dApp: полное пошаговое руководство
 
 В этом разделе вы узнаете, как создать и запустить реальное децентрализованное приложение, работающее на блокчейне.
 
@@ -10,11 +10,11 @@
 
 ## План действий
 
-1. Создать аккаунт dApp.
-2. Написать dApp-скрипт.
-3. Установить скрипт на аккаунт dApp.
-4. Протестировать скрипт.
-5. Выйти в реальный мир.
+1. Создание аккаунта dApp.
+2. Написание dApp-скрипта.
+3. Установка скрипта на аккаунт dApp.
+4. Тестирование скрипта.
+5. Выход в реальный мир.
 
 ## Шаг 1. Создание аккаунта dApp
 
@@ -34,7 +34,7 @@
 
 Файл скрипта сохраняется в Waves IDE автоматически.
 
-Код скрипта Waves Magic 8 Ball можно скопировать из бибилиотеки: **Library → ride4dapps → 8ball → ride → 8ball.ride**.
+Код скрипта Waves Magic 8 Ball можно скопировать из библиотеки: **Library → ride4dapps → 8ball → ride → 8ball.ride**.
 
 <details><summary>Код скрипта</summary>
 <p>
@@ -98,11 +98,11 @@ func tellme(question: String) = {<br>
 <p>
 dApp-скрипт должен начинаться с директив:
 
-<pre>
-{-# STDLIB_VERSION 4 #-}
-{-# CONTENT_TYPE DAPP #-}
-{-# SCRIPT_TYPE ACCOUNT #-}
-</pre>
+<code>
+{-# STDLIB_VERSION 4 #-}<br>
+{-# CONTENT_TYPE DAPP #-}<br>
+{-# SCRIPT_TYPE ACCOUNT #-}<br>
+</code>
 
 Между директивами и вызываемой функцией можно объявить переменные и вспомогательные функции.
 
@@ -142,33 +142,29 @@ dApp готов к использованию — его функции можн
 1. Нажмите кнопку ![](./_assets/add-script-button.png) и выберите **Test**.
 3. Замените автоматически сгенерированный код на ваш тест.
 
-   Код теста для скрипта Waves Magic 8 Ball можно скопировать из бибилиотеки: **Library → ride4dapps → 8ball → tests → 8ball_test.js**. Не забудьте заменить значение `ballAddress` на адрес своего dApp.
+   Код теста для скрипта Waves Magic 8 Ball можно скопировать из библиотеки: **Library → ride4dapps → 8ball → tests → 8ball_test.js**. Не забудьте заменить значение `ballAddress` на адрес своего dApp.
 
 4. Нажмите кнопку **Run full test**.
 
 <details><summary>Код теста</summary>
 <p>
-<pre>
-//
-// Waves dApp Magic 8 ball tests
-//
-
-describe('8 ball', () => {
-&nbsp;&nbsp;&nbsp;&nbsp;const ballAddress = "3N27HUMt4ddx2X7foQwZRmpFzg5PSzLrUgU"
-&nbsp;&nbsp;&nbsp;&nbsp;const question = "Test" + Date.now()
-&nbsp;&nbsp;&nbsp;&nbsp;const tx = invokeScript({fee: 500000, dApp: ballAddress, call:{function:"tellme", args:[{"type": "string", "value": question}]}, payment: null})
-
-&nbsp;&nbsp;&nbsp;&nbsp;it('Tx is mined in block', async function(){
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await broadcast(tx)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await waitForTx(tx.id)
-&nbsp;&nbsp;&nbsp;&nbsp;})
-
-&nbsp;&nbsp;&nbsp;&nbsp;it('Question is in ball', async function(){
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await accountDataByKey(address()+"_q", ballAddress)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.then(reslove => expect(reslove.value).to.equal(question))
-&nbsp;&nbsp;&nbsp;&nbsp;})
-})
-</pre>
+<code>
+describe('8 ball', () => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const ballAddress = "3N27HUMt4ddx2X7foQwZRmpFzg5PSzLrUgU"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const question = "Test" + Date.now()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const tx = invokeScript({fee: 500000, dApp: ballAddress, call:{function:"tellme", args:[{"type": "string", "value": question}]}, payment: null})<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;it('Tx is mined in block', async function(){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await broadcast(tx)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await waitForTx(tx.id)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;})<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;it('Question is in ball', async function(){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await accountDataByKey(address()+"_q", ballAddress)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.then(reslove => expect(reslove.value).to.equal(question))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;})<br>
+})<br>
+</code>
 </p>
 </details>
 
@@ -181,7 +177,7 @@ describe('8 ball', () => {
 
 ## Шаг 5. Выход в реальный мир
 
-Для выхода в реальный мир нужно сделать вот что:
+Для выхода в реальный мир:
 
 * Создайте веб-приложение, в котором пользователь сможет, нажав кнопку, подписать и отправить транзакцию вызова скрипта.
 * Добавьте ваш dApp на Mainnet.
@@ -189,23 +185,24 @@ describe('8 ball', () => {
 
 ### 5.1. Создание веб-приложения
 
-Чтобы подписать транзакцию вызова скрипта от имени реального пользователя, подключите JS-бибилиотеку [Signer](/ru/building-apps/waves-api-and-sdk/client-libraries/signer). Signer позволяет вашему веб-приложению подписать и отправить транзакцию от имени пользователя, не запрашивая его секретную фразу (seed) или закрытый ключ.
+Чтобы подписать транзакцию вызова скрипта от имени реального пользователя, подключите JS-библиотеку [Signer](/ru/building-apps/waves-api-and-sdk/client-libraries/signer). Signer позволяет вашему веб-приложению подписать и отправить транзакцию от имени пользователя, не запрашивая его секретную фразу (seed) или закрытый ключ.
 
 <details><summary>Код вызова скрипта</summary>
 <p>
-```
-await signer.invoke({
-&nbsp;&nbsp;&nbsp;&nbsp;dApp: ballAddress,
-&nbsp;&nbsp;&nbsp;&nbsp;call: {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function: "tellme",
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args:[{"type": "string", "value": question}]
-&nbsp;&nbsp;&nbsp;&nbsp;}
-}).broadcast()
-```
-
-[Полный код приложения на Github](https://github.com/elenaili/waves8ball)
+<code>
+await signer.invoke({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dApp: ballAddress,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;call: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function: "tellme",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args:[{"type": "string", "value": question}]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}).broadcast()<br>
+</code>
 </p>
 </details>
+
+[Полный код приложения на Github](https://github.com/elenaili/waves8ball)
+
 
 ### 5.2. Добавление dApp на Mainnet
 
