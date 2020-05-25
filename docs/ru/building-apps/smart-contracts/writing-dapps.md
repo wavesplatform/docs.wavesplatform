@@ -98,11 +98,11 @@ func tellme(question: String) = {
 <p>
 dApp-скрипт должен начинаться с директив:
 
-<code>
+<pre>
 {-# STDLIB_VERSION 4 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
-</code>
+</pre>
 
 Между директивами и вызываемой функцией можно объявить переменные и вспомогательные функции.
 
@@ -124,7 +124,7 @@ dApp-скрипт должен начинаться с директив:
 Вы можете проверить установленный dApp-скрипт в Waves Explorer:
 
 1. Откройте <https://wavesexplorer.com/>.
-2. Нажмите кнопку ![](../how-to/basic/_assets/settings.png) и переключитесь на ![](../how-to/basic/_assets/testnet.png).
+2. Нажмите кнопку ![](./_assets/settings.png) и переключитесь на ![](./_assets/testnet.png).
 3. Выполните поиск по адресу аккаунта.
 4. Перейдите на вкладку **Script**.
 
@@ -134,12 +134,12 @@ dApp готов к использованию — его функции можн
 
 Для тестирования dApp-скрипта нужно отправить транзакцию вызова скрипта. Комиссия за вызов скрипта составляет от 0,005 WAVES и зависит от количества смарт-ассетов, используемых в вызове (в нашем примере они не используются). Формула расчета комиссии приведена в разделе [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee).
 
-Выполнить тесты можно прямо из Waves IDE. В тестах поддерживаются функции
+Выполнить тесты можно прямо из Waves IDE. В тестах поддерживаются функции:
 * `describe` и `it` из библиотеки [mocha](https://mochajs.org/);
 * `expect` из библиотеки [chai](https://www.chaijs.com/).
 
 1. Создайте аккаунт тестового пользователя и пополните баланс — для этого повторите шаг 1.
-2. Нажмите кнопку ![](./_assets/settings.png) и переключитесь на ![](./_assets/testnet.png).
+1. Нажмите кнопку ![](./_assets/add-script-button.png) и выберите **Test**.
 3. Замените автоматически сгенерированный код на ваш тест.
 
    Код теста для скрипта Waves Magic 8 Ball можно скопировать из бибилиотеки: **Library → ride4dapps → 8ball → tests → 8ball_test.js**. Не забудьте заменить значение `ballAddress` на адрес своего dApp.
@@ -148,7 +148,7 @@ dApp готов к использованию — его функции можн
 
 <details><summary>Код теста</summary>
 <p>
-<code>
+<pre>
 //
 // Waves dApp Magic 8 ball tests
 //
@@ -168,7 +168,7 @@ describe('8 ball', () => {
             .then(reslove => expect(reslove.value).to.equal(question))
     })
 })
-</code>
+</pre>
 </p>
 </details>
 
@@ -179,15 +179,13 @@ describe('8 ball', () => {
 3. Выполните поиск по адресу аккаунта dApp.
 4. Перейдите на вкладку **Data**.
 
-Комиссия за вызов скрипта составляет от 0,005 WAVES и зависит от количества смарт-ассетов, используемых в вызове (в нашем примере они не используются). Формула расчета комиссии приведена в разделе [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee).
-
 ## Шаг 5. Выход в реальный мир
 
 Для выхода в реальный мир нужно сделать вот что:
 
 * Создайте веб-приложение, в котором пользователь сможет, нажав кнопку, подписать и отправить транзакцию вызова скрипта.
 * Добавьте ваш dApp на Mainnet.
-* Зарегистрируйте приложение в реестрах [dAppOcean](https://www.dappocean.io/ru/dapps/submit) и [DappRadar])(https://dappradar.com/submit-dapp), чтобы как можно больше пользователей узнали о нем!
+* Зарегистрируйте приложение в реестрах dApp, чтобы как можно больше пользователей узнали о нем!
 
 ### 5.1. Создание веб-приложения
 
@@ -195,7 +193,7 @@ describe('8 ball', () => {
 
 <details><summary>Код вызова скрипта</summary>
 <p>
-<code>
+<pre>
 await signer.invoke({
     dApp: ballAddress,
     call: {
@@ -203,7 +201,7 @@ await signer.invoke({
         args:[{"type": "string", "value": question}]
     }
 }).broadcast()
-</code>
+</pre>
 
 [Полный код приложения на Github](https://github.com/elenaili/waves8ball)
 </p>
@@ -220,11 +218,16 @@ await signer.invoke({
    * Перевести 0,01 WAVES с другого аккаунта, см. раздел [Переводы криптовалют](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-trs-gtw/online-desktop-trs-asset) документации Waves.Exchange.
    * Купить Neutrino с банковской карты, затем обменять на WAVES, см. разделы [Купить Neutrino с карты](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-staking#купить-neutrino-с-карты) и [Торговля на бирже](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-trading).
 
-4. Установите скрипт аккаунта — аналогично шагу 3.
+4. Установите dApp-скрипт на аккаунт — аналогично шагу 3.
 
 dApp на Mainnet получит другой адрес — не забудьте поменять его в веб-приложении. Кроме того, адрес ноды для отправки транзакции вызова скрипта нужно заменить на ` https://nodes.wavesnodes.com`.
 
 > :bulb: Если вы хотите сделать приложение бесплатным для пользователей и оплачивать вместо них комиссию за вызов скрипта, [включите спонсирование](/ru/blockchain/waves-protocol/sponsored-fee).
+
+### 5.3. Регистирация в реестрах
+
+* [dAppOcean](https://www.dappocean.io/ru/dapps/submit)
+* [DappRadar](https://dappradar.com/submit-dapp)
 
 ## Что дальше
 
