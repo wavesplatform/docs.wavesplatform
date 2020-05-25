@@ -196,13 +196,12 @@ await signer.invoke({<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function: "tellme",<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args:[{"type": "string", "value": question}]<br>
 &nbsp;&nbsp;&nbsp;&nbsp;}<br>
-}).broadcast()<br>
+}).broadcast();<br>
 </code>
 </p>
 </details>
 
 [Полный код приложения на Github](https://github.com/elenaili/waves8ball)
-
 
 ### 5.2. Добавление dApp на Mainnet
 
