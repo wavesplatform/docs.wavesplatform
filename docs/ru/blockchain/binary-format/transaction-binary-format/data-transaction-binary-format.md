@@ -1,8 +1,38 @@
 # Бинарный формат транзакции данных
 
-> Узнать больше о [транзакции данных](/ru/blockchain/transaction-type/data-transaction)
+> Узнать больше о [транзакции данных](/ru/blockchain/transaction-type/data-transaction).
 
-## Транзакция версии 1
+## Версия 2
+
+Бинарный формат версии 2 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).
+
+Версия 2 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
+```
+message DataTransactionData {
+    message DataEntry {
+        string key = 1;
+        oneof value {
+            int64 int_value = 10;
+            bool bool_value = 11;
+            bytes binary_value = 12;
+            string string_value = 13;
+        };
+    };
+    repeated DataEntry data = 1;
+};
+```
+
+| Поле | Размер | Описание |
+| :--- | :--- | :--- |
+| key | До 400 байт | Ключ записи |
+| value | До 32&nbsp;767 байт | Значение записи. Если отсутствует, запись будет удалена |
+
+Количество записей — не более 100.
+
+Максимальный размер данных — 165&nbsp;890 байт.
+
+## Версия 1
 
 | Порядковый номер поля | Поле | Название JSON-поля | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -36,4 +66,4 @@
 
 ## JSON-представление транзакции <a id="json-representation"></a>
 
-Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/EByjQAWDRGrmc8uy7xRGy2zsQXZQq59bav7h8oTTJyHC) в Node API.
+Смотрите [пример](https://nodes.wavesnodes.com/transactions/info/EByjQAWDRGrmc8uy7xRGy2zsQXZQq59bav7h8oTTJyHC) в Node API.

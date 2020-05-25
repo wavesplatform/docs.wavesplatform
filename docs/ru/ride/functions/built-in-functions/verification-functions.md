@@ -3,11 +3,15 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | [checkMerkleProof](#checkmerkleproof) | Проверяет, что данные являются частью [дерева Меркла](https://ru.wikipedia.org/wiki/Дерево_хешей) | 30 |
-| [groth16Verify](#groth16verify) | Семейство функций.<br>Осуществляют проверку [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf) | 1900–3900 |
-| [rsaVerify](#rsaverify) | Семейство функций.<br>Проверяют, что цифровая подпись [RSA](https://ru.wikipedia.org/wiki/RSA) достоверна | 300 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>500–1000 для Стандартной библиотеки **версии 4** |
-| [sigVerify](#sigverify) | Семейство функций.<br>Проверяют, что цифровая подпись [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна | 100 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>100–200 для Стандартной библиотеки **версии 4** |
+| [createMerkleRoot](#createmerkleroot) | Вычисляет [корневой хеш дерева Меркла транзакций блока](/ru/blockchain/block/merkle-root) | 30 |
+| [ecrecover](#ecrecover) | Восстанавливает открытый ключ из хеша сообщения и цифровой подписи [ECDSA](https://ru.wikipedia.org/wiki/ECDSA) | 70 |
+| [groth16Verify](#groth16verify) | Семейство функций.<br>Осуществляют проверку [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf) | 1200–2700 |
+| [rsaVerify](#rsaverify) | Семейство функций.<br>Проверяют достоверность цифровой подписи [RSA](https://ru.wikipedia.org/wiki/RSA) | 300 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>500–1000 для Стандартной библиотеки **версии 4** |
+| [sigVerify](#sigverify) | Семейство функций.<br>Проверяют достоверность цифровой подписи [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна | 100 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>100–200 для Стандартной библиотеки **версии 4** |
 
 ## checkMerkleProof
+
+> :warning: Функция `checkMerkleProof` не входит в [Стандартную библиотеку](/ru/ride/script/standard-library) версии 4. Используйте `createMerkleRoot` вместо нее.
 
 Проверяет, что данные являются частью [дерева Меркла](https://ru.wikipedia.org/wiki/Дерево_хешей).
 
@@ -25,6 +29,60 @@ checkMerkleProof(merkleRoot: ByteVector, merkleProof: ByteVector, valueBytes: By
 | `merkleProof`: ByteVector | Массив хешей. |
 | `valueBytes`: ByteVector | Данные для проверки.|
 
+## createMerkleRoot
+
+> :warning: Функция `createMerkleRoot` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
+Вычисляет корневой хеш транзакций блока на основе хеша транзакции и соседних хешей дерева Меркла, используя алгоритм хеширования [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29). Чтобы проверить присутствие транзакции в блоке, нужно сравнить вычисленный хеш с с полем `transactionsRoot` в заголовке блока. Подробное описание приведено в разделе [Корневой хеш транзакции](/ru/blockchain/block/merkle-root).
+
+
+``` ride
+createMerkleRoot(merkleProofs: List[ByteVector], valueBytes: ByteVector, index: Int): ByteVector
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `merkleProofs`: List[ByteVector] | Массив соседних хешей дерева Меркла |
+| `valueBytes`: ByteVector | Хеш транзакции. Для хеширования можно использовать функцию [blake2b256](/ru/ride/functions/built-in-functions/hashing-functions#blake2b256). Хешировать транзакцию нужно вместе с подписью |
+| `index`: Int | Порядковый номер транзакции в блоке |
+
+## ecrecover
+
+> :warning: Функция `ecrecover` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
+Возвращает открытый ключ, восстановленный из хеша сообщения и цифровой подписи [ECDSA](https://ru.wikipedia.org/wiki/ECDSA) на основе эллиптической кривой secp256k1. Выбрасывает исключение, если восстановить открытый ключ не удалось.
+
+Открытый ключ возвращается в несжатом формате (64 байта).
+
+Функцию можно использовать для проверки достоверности цифровой подписи сообщения, сравнив восстановленный открытый ключ с ключом отправителя.
+
+``` ride
+ecrecover(messageHash: ByteVector, signature: ByteVector): ByteVector
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `messageHash`: ByteVector | Keccak-256-хеш сообщения. Фиксированный размер: 32 байта |
+| `signature`: ByteVector | Цифровая подпись ECDSA. Фиксированный размер: 65 байт |
+
+### Пример
+
+Для верификации транзакции блокчейна Ethereum нужны следующие данные:
+
+* транзакция;
+* подпись, полученная с помощью функции [ecsign](https://github.com/ethereumjs/ethereumjs-util/blob/master/docs/modules/_signature_.md#const-ecsign) (конкатенация байтов `r`, `s` и `v`);
+* открытый ключ отправителя.
+
+```
+func check(t: ByteVector, signature: ByteVector, publicKey: ByteVector) = {
+   ecrecover(keccak256(t), signature) == publicKey
+}
+```
+
 ## groth16Verify
 
 Семейство функций. Осуществляют проверку [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf).
@@ -33,22 +91,22 @@ checkMerkleProof(merkleRoot: ByteVector, merkleProof: ByteVector, valueBytes: By
 
 | Название | Макс. кол-во входов | Сложность |
 |:---| :--- | :--- |
-| groth16Verify(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 16 | 3900 |
-| groth16Verify_1inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 1 | 1900 |
-| groth16Verify_2inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 2 | 2000 |
-| groth16Verify_3inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 3 | 2150 |
-| groth16Verify_4inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 4 | 2300 |
-| groth16Verify_5inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 5 | 2450 |
-| groth16Verify_6inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 6 | 2550 |
-| groth16Verify_7inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 7 | 2700 |
-| groth16Verify_8inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 8 | 2900 |
-| groth16Verify_9inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 9 | 3000 |
-| groth16Verify_10inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 10 | 3150 |
-| groth16Verify_11inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 11 | 3250 |
-| groth16Verify_12inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 12 | 3400 |
-| groth16Verify_13inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 13 | 3500 |
-| groth16Verify_14inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 14 | 3650 |
-| groth16Verify_15inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 15 | 3750 |
+| groth16Verify(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 16 | 2700 |
+| groth16Verify_1inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 1 | 1200 |
+| groth16Verify_2inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 2 | 1300 |
+| groth16Verify_3inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 3 | 1400 |
+| groth16Verify_4inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 4 | 1500 |
+| groth16Verify_5inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 5 | 1600 |
+| groth16Verify_6inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 6 | 1700 |
+| groth16Verify_7inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 7 | 1800 |
+| groth16Verify_8inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 8 | 1900 |
+| groth16Verify_9inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 9 | 2000 |
+| groth16Verify_10inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 10 | 2100 |
+| groth16Verify_11inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 11 | 2200 |
+| groth16Verify_12inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 12 | 2300 |
+| groth16Verify_13inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 13 | 2400 |
+| groth16Verify_14inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 14 | 2500 |
+| groth16Verify_15inputs(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 15 | 2600 |
 
 ### Параметры
 
@@ -56,7 +114,7 @@ checkMerkleProof(merkleRoot: ByteVector, merkleProof: ByteVector, valueBytes: By
 | :--- | :--- |
 | `vk`: ByteVector | Ключ для проверки.<br>Максимальный размер:<br>• Для функций `groth16Verify_<N>inputs` — не более 384 + 48 × `N` байт.<br>• Для функции `groth16Verify` — не более 384 + 48 × 16 =1152 байта |
 | `proof`: ByteVector | [Доказательство с нулевым разглашением](https://ru.wikipedia.org/wiki/Доказательство_с_нулевым_разглашением). Фиксированный размер: 192 байта |
-| `inputs`: ByteVector | Массив публичных входов доказательства с нулевым разглашением.<br>Максимальный размер:<br>• Для функций `groth16Verify_<N>inputs` — не более 32 × `N` байт.<br>• Для функции `groth16Verify_<N>inputs`— не более 512 байт. |
+| `inputs`: ByteVector | Массив публичных входов доказательства с нулевым разглашением.<br>Максимальный размер:<br>• Для функций `groth16Verify_<N>inputs` — не более 32 × `N` байт.<br>• Для функции `groth16Verify`— не более 512 байт. |
 
 ### Пример
 

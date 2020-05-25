@@ -1,6 +1,34 @@
 # Бинарный формат транзакции лизинга
 
-## Транзакция версии 2
+> Узнать больше о [транзакции лизинга](/ru/blockchain/transaction-type/lease-transaction).
+
+## Версия 3
+
+Бинарный формат версии 3 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).
+
+Версия 3 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
+```
+message LeaseTransactionData {
+     Recipient recipient = 1;
+     int64 amount = 2;
+};
+
+message Recipient {
+    oneof recipient {
+        bytes public_key_hash = 1;
+        string alias = 2;
+    };
+};
+```
+
+| Поле | Размер | Описание |
+| :--- | :--- | :--- |
+| recipient.public_key_hash | 20 байт | Хеш открытого ключа аккаунта получателя (компонент адреса, см. раздел [Бинарный формат адреса](/ru/blockchain/binary-format/address-binary-format)) |
+| recipient.alias | От 4 до 30 байт | [Псевдоним адреса](/ru/blockchain/account/alias) получателя |
+| amount | 8 байт | Количество WAVELET, отдаваемое в лизинг (то есть количество WAVES, умноженное на 10<sup>8</sup>) |
+
+## Версия 2
 
 | Порядковый номер поля | Поле | Название JSON-поля |Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -17,9 +45,9 @@
 
 ## JSON-представление транзакции
 
-Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/J6jZCzLpWJX8EDVhopKFx1mcbFizLGHVb44dvqPzH4QS) в Node API.
+Смотрите [пример](https://nodes.wavesnodes.com/transactions/info/J6jZCzLpWJX8EDVhopKFx1mcbFizLGHVb44dvqPzH4QS) в Node API.
 
-## Транзакция версии 1
+## Версия 1
 
 | Порядковый номер поля | Поле | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- |

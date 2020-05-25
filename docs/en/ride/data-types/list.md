@@ -1,27 +1,56 @@
 # List
 
-The **List** is a keyword of the list data type.
+`List` is a list data type.
 
-Lists support [concatenation](https://en.wikipedia.org/wiki/Concatenation), as well as adding operations to the beginning and end of the list.
+The list may contain elements of various types, including nested lists.
 
-| Operation  | Symbol  | Complexity  |
+The maximim number of list items is 1000. The nesting depth is not limited. For weight restrictions, see the [Data Weight](/en/ride/limits/weight).
+
+## List Operations
+
+Lists support [concatenation](https://en.wikipedia.org/wiki/Concatenation), as well as adding items to the beginning and the end.
+
+| Operation  | Symbol  | Complexity |
 |---|---|---|
 | Concatenation  | ++  | 10  |
-| Adding the element to the end of the list  | :+  | 3  |
-| Adding the element to the beginning of the list  | ::  | 3  |
+| Adding the element to the end of the list (the list is on the left, the element is on the right) | :+ | 3  |
+| Adding the element to the beginning of the list (the element is on the left, the list is on the right) | :: | 2 |
 
-The same list can store different types of data.
-
-When two lists are concatenated or an item is added to the list, their types are combined.
-
-The maximum size of the list as a result of these operations cannot exceed 1000 elements.
+> :warning: `++` and `:+` operators are added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions” (currently on [Stagenet](/ru/blockchain/blockchain-network/stage-network) only).
 
 ## Example
+
+```ride
+nil :+ 1 :+ 2 :+ 3
+```
+
+Result: [1, 2, 3]
+
+```ride
+1 :: 2 :: 3 :: nil
+```
+
+Result: [1, 2, 3]
 
 ```ride
 let intList  = [1, 2]             # List[Int]
 let strList  = ["3", "4"]         # List[String]
 let joined   = intList ++ strList # List[Int|String]
-let appended = joined :+ true     # List[Boolean|Int|String]
-let inner    = intList :: joined  # List[Int|List[Int]|String]
+joined
 ```
+
+Result: [1, 2, "3", "4"]
+
+```ride
+let appended = joined :+ true     # List[Boolean|Int|String]
+appended
+```
+
+Result: [1, 2, "3", "4", true]
+
+```ride
+let nested    = intList :: joined  # List[Int|List[Int]|String]
+nested
+```
+
+Result: [[1, 2], 1, 2, "3", "4"]

@@ -24,7 +24,7 @@ You can use online, desktop or mobile app. See the [Start Trading (Online & Desk
 
 Use the following matcher URL:
 
-* Testnet: <https://matcher.testnet.wavesnodes.com>
+* Testnet: <https://matcher-testnet.waves.exchange>
 * Mainnet: <https://matcher.waves.exchange>
 
 Use the `GET /matcher` method of matcher API to retrieve matcher public key.
@@ -55,7 +55,7 @@ See function descriptions in [waves-transactions documentation](https://wavespla
 ```javascript
 import { order, submitOrder } from "@waves/waves-transactions";
 
-const matcherUrl = 'https://matcher.testnet.wavesnodes.com';
+const matcherUrl = 'https://matcher-testnet.waves.exchange';
 const matcherPublicKey: '8QUAqtTckM5B8gvcuP7mMswat9SjKUuafJMusEoSn1Gy';
 
 const amountAssetId: 'BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3'; // asset ID of ETH on Testnet
@@ -84,7 +84,7 @@ console.log('Order ID: '+ orderId);
 ```python
 import pywaves as pw
 
-matcher_url = 'https://matcher.testnet.wavesnodes.com'
+matcher_url = 'https://matcher-testnet.waves.exchange'
 pw.setMatcher(matcher_url)
 
 # ETH asset on Testnet
@@ -117,7 +117,7 @@ See method description in [Matcher API](https://docs.waves.exchange/en/waves-mat
 **Request example:**
 
 ```
-curl 'https://matcher.testnet.wavesnodes.com/matcher/orderbook/BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3/WAVES/6hgoJMKAMPVZb11epd2vCjqk47dGcr9eT8cJQ2HpYnHp'
+curl 'https://matcher-testnet.waves.exchange/matcher/orderbook/BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3/WAVES/6hgoJMKAMPVZb11epd2vCjqk47dGcr9eT8cJQ2HpYnHp'
 ```
 
 The example is suitable for the `cURL` utility. You can adjust the proposed request to your app written in any programming language.
@@ -125,7 +125,7 @@ The example is suitable for the `cURL` utility. You can adjust the proposed requ
 ### Using JavaScript
 
 ```javascript
-const matcherUrl = 'https://matcher.testnet.wavesnodes.com';
+const matcherUrl = 'https://matcher-testnet.waves.exchange';
 
 const amountAssetId: 'BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3'; // asset ID of ETH on Testnet
 const priceAssetId: 'WAVES';
@@ -166,12 +166,12 @@ Use functions of `waves-transactions` library:
 
 See function descriptions in [waves-transactions documentation](https://wavesplatform.github.io/waves-transactions/index.html) on Github.
 
-**Exapmle:**
+**Example:**
 
 ```javascript
 import {cancelOrder, cancelSubmittedOrder } from "@waves/waves-transactions";
 
-const matcherUrl = 'https://matcher.testnet.wavesnodes.com';
+const matcherUrl = 'https://matcher-testnet.waves.exchange';
 
 const amountAssetId: 'BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3'; // asset ID of ETH on Testnet
 const priceAssetId: 'WAVES';

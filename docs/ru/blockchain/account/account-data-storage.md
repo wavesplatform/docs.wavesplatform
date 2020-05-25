@@ -33,12 +33,11 @@
 
 ## Удаление записей
 
-> С версии ноды 1.2.0 возможно удаление записей хранилища данных аккаунта. Возможность включается с активацией на ноде функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№16).
-На данный момент версии 1.2.x доступны на [stagenet](/ru/blockchain/blockchain-network/stage-network)
+> С версии ноды 1.2.0 возможно удаление записей хранилища данных аккаунта. Возможность включается с активацией на ноде фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”. На данный момент версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 Удаление записей хранилища данных аккаунта выполняется при помощи
 
 - [транзакции данных](/ru/blockchain/transaction-type/data-transaction),
-- структуры [DeleteEntry](/ru/ride/structures/common-structures/delete-entry).
+- структуры [DeleteEntry](/ru/ride/structures/script-actions/delete-entry).
 
 Удаление записи выполняется по ключу.

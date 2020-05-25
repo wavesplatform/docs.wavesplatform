@@ -23,7 +23,7 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | :--- | :--- | :--- |
 | assetInfo(ByteVector): Аsset&#124;Unit | Gets the information about a [token](/en/blockchain/token) | 100 |
 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Gets the information about a [block](/en/blockchain/block) by the [block height](/en/blockchain/block/block-height) | 100 |
-| calculateAssetId(Issue): ByteVector | Calculates the ID of the asset, created by [Issue](/en/ride/structures/common-structures/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
+| calculateAssetId(Issue): ByteVector | Calculates the ID of the asset, created by [Issue](/en/ride/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
 | transactionHeightById(ByteVector):  Int&#124;Unit | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 100 |
 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Gets the data of a [transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 100 |
 
@@ -54,6 +54,7 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | toString(Boolean): String | Converts a boolean to a string | 1 |
 | toString(Int): String | Converts an integer to a string | 1 |
 | toUtf8String(ByteVector): String | Converts an array of bytes to a UTF-8 string | 20 |
+| transferTransactionFromProto(ByteVector): TransferTransaction&#124;Unit | Deserializes transfer transaction | 5 |
 
 ## [Data transaction functions](/en/ride/functions/built-in-functions/data-transaction-functions)
 
@@ -69,7 +70,7 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | getBooleanValue(List[DataEntry], Int): Boolean | Gets a boolean value from a list of data entires by index. Throws an exception if there is no data | 30 |
 | getBinary(List[DataEntry], String): ByteVector&#124;Unit | Gets a binary value from a list of data entires by key | 10 |
 | getBinary(List[DataEntry], Int): ByteVector&#124;Unit | Gets a binary value from a list of data entires by index | 30 |
-| getBinaryValue(ListDataEntry, String): ByteVector | Gets a binary value from a list of data entires by key. Throws an exception if there is no data | 10 |
+| getBinaryValue(List[DataEntry], String): ByteVector | Gets a binary value from a list of data entires by key. Throws an exception if there is no data | 10 |
 | getBinaryValue(List[DataEntry], Int): ByteVector | Gets a binary value from a list of data entires by index. Throws an exception if there is no data | 30 |
 | getString(List[DataEntry] String): String&#124;Unit | Gets a string value from a list of data entires by key | 10 |
 | getString(List[DataEntry], Int): String&#124;Unit | Gets a string value from a list of data entires by index | 30 |
@@ -105,17 +106,24 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| blake2b256(ByteVector): ByteVector | Range of functions.<br>Hash an array of bytes using [BLAKE-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10–200 for Standard Library **version 4** |
-| keccak256(ByteVector): ByteVector | Range of functions.<br>Hash an array of bytes using [SHA-3-256](https://en.wikipedia.org/wiki/SHA-3) | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10–200 for Standard Library **version 4** |
+| blake2b256(ByteVector): ByteVector | Range of functions.<br>Hash an array of bytes using [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10–200 for Standard Library **version 4** |
+| keccak256(ByteVector): ByteVector | Range of functions.<br>Hash an array of bytes using [Keccak-256](https://keccak.team/files/Keccak-submission-3.pdf) | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10–200 for Standard Library **version 4** |
 | sha256(ByteVector): ByteVector | Range of functions.<br>Hash an array of bytes using [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10–200 for Standard Library **version 4** |
 
 ## [List functions](/en/ride/functions/built-in-functions/list-functions)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| getElement(List[T], Int): T | Gets the element by index | 2 |
-| cons(T, List[T]): List[T] | Inserts the element at the beginning of the list | 2 |
+| cons(T, List[T]): List[T] | Inserts element to the beginning of the [list](/en/ride/data-types/list) | 2 |
+| containsElement(list: List[T], element: T): Boolean | Check if the element is in the list | 5 |
+| getElement(List[T], Int): T | Gets element from the list | 2 |
+| indexOf(list: List[T], element: T): Int&#124;Unit | Returns the index of the first occurrence of the element in the list | 5 |
+| lastIndexOf(list: List[T], element: T): Int&#124;Unit | Returns the index of the last occurrence of the element in the list | 5 |
+| max(List[Int]): Int | Returns the largest element in the list | 3 |
+| min(List[Int]): Int | Returns the smallest item in the list | 3 |
 | size(List[T]): Int | Returns the size of the list | 2 |
+
+`T` is a short designation for `Boolean|ByteVector|Int|String`.
 
 ## [Math functions](/en/ride/functions/built-in-functions/math-functions)
 
@@ -135,6 +143,7 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | dropRight(String, Int): String | Drops the last `n` characters of a string | 19 |
 | indexOf(String, String): Int&#124;Unit | Returns the index of the first occurrence of a substring | 20 |
 | indexOf(String, String, Int): Int&#124;Unit | Returns the index of the first occurrence of a substring after a certain index | 20 |
+| makeString(List[String], String): String | Concatenates list strings adding a separator | 10 |
 | size(String): Int | Returns the size of a string | 1 |
 | split(String, String): List[String] | Splits a string delimited by a separator into a list of substrings. | 100 |
 | take(String, Int): String | Takes the first `n` characters from a string | 1 |
@@ -154,6 +163,8 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | checkMerkleProof(ByteVector, ByteVector, ByteVector): Boolean | Checks that the data is part of the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) | 30 |
-| groth16Verify(ByteVector, ByteVector, ByteVector): Boolean | Range of functions.<br>Check [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol | 1900–3900 |
+| createMerkleRoot(List[ByteVector], ByteVector, Int) : ByteVector | Calculates the [Merkle root hash](/en/blockchain/block/merkle-root) for transactions of block | 30 |
+| ecrecover(messageHash: ByteVector, signature: ByteVector) | Recovers public key from the message hash and the [ECDSA](https://en.wikipedia.org/wiki/ECDSA) digital signature | 70 |
+| groth16Verify(ByteVector, ByteVector, ByteVector): Boolean | Range of functions.<br>Check [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol | 1200–2700 |
 | rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Range of functions.<br>Check that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29) digital signature is valid, i.e. it was created by the owner of the public key | 300 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>500–1000 for Standard Library **version 4** |
 | sigVerify(ByteVector, ByteVector, ByteVector): Boolean | Range of functions.<br>Check that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid, i.e. it was created by the owner of the public key | 100 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>100–200 for Standard Library **version 4** |

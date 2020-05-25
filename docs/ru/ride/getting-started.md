@@ -2,7 +2,7 @@
 
 ## Введение
 
-Ride — лаконичный и дружественный язык для разработки смарт-контрактов и децентрализованных приложений (dApps) на платформе Waves. В нем устранены многие серьезные недостатки других популярных языков смарт-контрактов.
+Ride — лаконичный и дружественный язык для разработки смарт-контрактов и децентрализованных приложений (dApps) на блокчейне Waves. В нем устранены многие серьезные недостатки других популярных языков смарт-контрактов.
 
 Этот раздел содержит введение в Ride, примеры, описание дополнительных инструментов и ресурсов. Его изучение займет около часа.
 
@@ -362,7 +362,7 @@ let transferSet = TransferSet([ScriptTransfer("3P23fi1qfVw6RVDn4CH2a5nNouEtWNQ4T
 
 ## Итерации с макросом FOLD&lt;N&gt;
 
-Поскольку в виртуальной машине Ride не предусмотрены циклы, они реализованы на уровне компилятора с помощью макроса FOLD\<N\>. Этот макрос ведет себя как функция свертки `fold` в других языках программирования, принимая на вход количество итераций, начальные значения и сворачиваемую функцию.
+Поскольку в виртуальной машине Ride не предусмотрены циклы, они реализованы на уровне компилятора с помощью макроса `FOLD<N>`. Этот макрос ведет себя как функция свертки `fold` в других языках программирования, принимая на вход количество итераций, начальные значения и сворачиваемую функцию.
 
 Важный момент: `N` задает максимальное количество выполняемых итераций. Это необходимо для поддержания предсказуемой стоимости вычислений.
 
@@ -374,7 +374,7 @@ func foldFunc(acc: Int, e: Int) = acc + e
 FOLD<5>(a, 0, foldFunc) # returns 15
 ```
 
-`FOLD\<N\>` также может использоваться для фильтрации и преобразования данных. Вот пример инвертирования списка:
+`FOLD<N>` также может использоваться для фильтрации и преобразования данных. Вот пример инвертирования списка:
 
 ```scala
 let a = [1, 2, 3, 4, 5]
@@ -508,10 +508,10 @@ For further development, the following tools and utilities are useful:
 
 - Visual Studio Code plugin: waves-ride
 - The `surfboard` tool will allow you to REPL and run tests on your existing node: [https://github.com/wavesplatform/surfboard]
-- You should also install the Waves Keeper browser extension: [https://wavesplatform.com/products-keeper](https://wavesplatform.com/products-keeper)
+- You should also install the Waves Keeper browser extension: </ru/ecosystem/waves-keeper>
 - Online IDE with examples: [https://ide.wavesplatform.com/](https://ide.wavesplatform.com/)
 
-Further help and information about tools can be found here: [https://wavesplatform.com/developers](https://wavesplatform.com/developers)
+Further help and information about tools can be found here: <https://wavesprotocol.org/developers>
 
 
 ## Enjoy the Ride!

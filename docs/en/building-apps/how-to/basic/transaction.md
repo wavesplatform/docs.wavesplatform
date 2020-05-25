@@ -1,4 +1,4 @@
-# How to Create Transaction and Put It to Blockchain
+# How to Create Transaction and Broadcast It to Blockchain
 
 All events on the blockchain are represented as transactions. For example:
 
@@ -46,7 +46,7 @@ Use `waves-transactions` library. Transaction proof is generated using your seed
 See function descriptions in [documentation](https://wavesplatform.github.io/waves-transactions/index.html) on Github.
 
 ```javascript
-import { nodeInteraction } from "@waves/waves-transactions";
+import { broadcast } from "@waves/waves-transactions";
 import { data, transfer } from "@waves/waves-transactions";
 
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
@@ -62,7 +62,7 @@ const seed = 'insert your seed here';
 
   const dataTx = data({ data: records }, seed); // Create and sign data transaction
 
-  nodeInteraction.broadcast(dataTx,nodeUrl).then(resp => console.log(resp));
+  broadcast(dataTx,nodeUrl).then(resp => console.log(resp));
 
   // Transfer transaction: send 1 WAVES to the specified address
 
@@ -73,7 +73,7 @@ const seed = 'insert your seed here';
 
   const transferTx = transfer(money, seed); // Create and sign transfer transaction
 
-  nodeInteraction.broadcast(transferTx,nodeUrl).then(resp => console.log(resp));
+  broadcast(transferTx,nodeUrl).then(resp => console.log(resp));
 
 ```
 

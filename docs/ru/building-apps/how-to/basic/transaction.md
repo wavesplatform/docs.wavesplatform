@@ -46,7 +46,7 @@
 Описание функций приведено в [документации библиотеки](https://wavesplatform.github.io/waves-transactions/index.html) на Github.
 
 ```javascript
-import { nodeInteraction } from "@waves/waves-transactions";
+import { broadcast } from "@waves/waves-transactions";
 import { data, transfer } from "@waves/waves-transactions";
 
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
@@ -62,7 +62,7 @@ const seed = 'insert your seed here';
 
   const dataTx = data({ data: records }, seed); // Создание и подписание транзакции данных
 
-  nodeInteraction.broadcast(dataTx,nodeUrl).then(resp => console.log(resp));
+  broadcast(dataTx,nodeUrl).then(resp => console.log(resp));
 
   // Транзакция перевода: отправляет 1 WAVES на заданный адрес
 
@@ -73,7 +73,7 @@ const seed = 'insert your seed here';
 
   const transferTx = transfer(money, seed); // Создание и подписание транзакции перевода
 
-  nodeInteraction.broadcast(transferTx,nodeUrl).then(resp => console.log(resp));
+  broadcast(transferTx,nodeUrl).then(resp => console.log(resp));
 
 ```
 

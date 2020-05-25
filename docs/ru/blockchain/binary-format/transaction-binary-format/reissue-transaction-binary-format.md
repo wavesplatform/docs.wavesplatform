@@ -1,8 +1,32 @@
 # Бинарный формат транзакции довыпуска
 
-> Узнать больше о [транзакции довыпуска](/ru/blockchain/transaction-type/reissue-transaction)
+> Узнать больше о [транзакции довыпуска](/ru/blockchain/transaction-type/reissue-transaction).
 
-## Транзакция версии 2
+## Версия 3
+
+Бинарный формат версии 3 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).
+
+Версия 3 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
+```
+message ReissueTransactionData {
+    Amount asset_amount = 1;
+    bool reissuable = 2;
+};
+
+message Amount {
+    bytes asset_id = 1;
+    int64 amount = 2;
+};
+```
+
+| Поле | Размер | Описание |
+| :--- | :--- | :--- |
+| asset_amount.asset_id | 32 байта | ID довыпускаемого токена |
+| asset_amount.amount | 8 байт | Количество токена для довыпуска, в минимальных единицах («копейках») токена |
+| reissuable | 1 байт | Флаг возможности довыпуска |
+
+## Версия 2
 
 | Порядковый номер поля | Поле | Название JSON-поля | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -20,9 +44,9 @@
 
 ## JSON-представление транзакции
 
-Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/5CZV9RouJs7uaRkZY741WDy9zV69npX1FTZqxo5fsryL) в Node API.
+Смотрите [пример](https://nodes.wavesnodes.com/transactions/info/5CZV9RouJs7uaRkZY741WDy9zV69npX1FTZqxo5fsryL) в Node API.
 
-## Транзакция версии 1
+## Версия 1
 
 | Порядковый номер поля | Название поля | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- |

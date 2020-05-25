@@ -1,33 +1,47 @@
 # Макрос FOLD&lt;N&gt;
 
-**Макрос FOLD&lt;N&gt;** — конструкция для компилятора, позволяющая реализовать функциональность [функции высшего порядка](https://ru.wikipedia.org/wiki/Функция_высшего_порядка), известной в Scala (и многих других языках программирования) как `fold` или `reduce`.
+Макрос `FOLD<N>` позволяет реализовать операции над списком значений, такие как суммирование (`sum`), нахождение среднего (`avg`), фильтрация (`filter`), агрегация элементов (`zip`), проверка наличия (`exists`) и т.&thinsp;п. Он работает аналогично функции свертки `fold` или `reduce` в других языках программирования.
 
-С использованием FOLD&lt;N&gt;  могут выполняться вычисления в отношении массивов переменной длины, такие как суммирование (`sum`), нахождение среднего (`avg`), фильтрация (`filter`), агрегация элементов (`zip`), проверка наличия (`exists`) и т.п.
-
-## `sum`
-
-```ride
-func sum(a:Int, b:Int) = a + b
-let arr = [1,2,3,4,5]
-let folded_sum = FOLD<5>(arr, 0, sum)
-folded_sum # result: 15
+```
+FOLD<N>(list, start, foldFunc)
 ```
 
-## `mult`
+| Параметр | Описание |
+| :--- | :--- |
+| `N` | Максимальное количество итераций |
+| `list` | Список значений |
+| `start` | Начальное значение |
+| `foldFunc` | Cворачиваемая функция |
+
+Сложность `FOLD<N>` соответствует сложности функции `foldFunc`, умноженной на `N`, плюс накладные расходы.
+
+## Сумма
+
+```
+func sum(a:Int, b:Int) = a + b
+let arr = [1,2,3,4,5]
+FOLD<5>(arr, 0, sum)
+```
+
+Результат: 15
+
+## Произведение
 
 ```ride
 func mult(a:Int, b:Int) = a * b
 let arr = [1,2,3,4,5]
-let folded_mult = FOLD<5>(arr, 0, mult)
-folded_mult # result: 120
+FOLD<5>(arr, 1, mult)
 ```
 
-## `filter`
+Результат: 120
 
-```ride
-func filterStep(a: Int, accumulated: List[Int]) =
-   if (a % 2 == 0) then a :: acumulated else accumulated
+## Фильтр
+
+```
+func filterStep(accumulated: List[Int], a: Int) =
+   if (a % 2 == 0) then a :: accumulated else accumulated
 let arr = [1,2,3,4,5]
-let evens = FOLD<5>(arr, 0, filterStep)
-evens # result: [2,4]
+FOLD<5>(arr, [], filterStep)
 ```
+
+Результат: [4, 2]

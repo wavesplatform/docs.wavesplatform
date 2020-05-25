@@ -2,8 +2,8 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| [blake2b256](#blake2b256) | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [BLAKE-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |
-| [keccak256](#keccak256) | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [SHA3-256](https://en.wikipedia.org/wiki/SHA-3) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |
+| [blake2b256](#blake2b256) | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |
+| [keccak256](#keccak256) | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [Keccak-256](https://keccak.team/files/Keccak-submission-3.pdf) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |
 | [sha256](#sha256) | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |
 
 ## blake2b256
@@ -38,7 +38,7 @@ blake2b256(base64'UmlkZQ==') # Возвращает 6NSWRz5XthhFVm9uVQHuisdaseQJ
 
 ## keccak256
 
-Семейство функций. Хешируют массив байтов с помощью алгоритма [SHA-3-256](https://ru.wikipedia.org/wiki/SHA-3).
+Семейство функций. Хешируют массив байтов с помощью алгоритма [Keccak-256](https://keccak.team/files/Keccak-submission-3.pdf).
 
 | Название | Макс. объем данных | Сложность |
 |:---| :--- | :--- |

@@ -1,10 +1,10 @@
 {
     "description": "Wavesplatform documentation",
     "scripts": {
-        "dev": "vuepress dev docs",
-        "dev:dev": "isDev=true corePath=$PWD/../core.docs.wavesplatform port=3084 yarn dev",
-        "build": "yarn upgrade core.docs.wavesplatform && vuepress build docs",
-        "build:dev": "corePath=$PWD/../core.docs.wavesplatform yarn build",
+        "dev": "node --max-old-space-size=8096 node_modules/.bin/vuepress dev docs || node --max-old-space-size=8096 node_modules\\.bin\\vuepress dev docs",
+        "dev:dev": "isDev=true corePath=$PWD/../core.docs.wavesplatform port=3084 node --max-old-space-size=8096 node_modules/.bin/vuepress dev docs",
+        "build": "yarn upgrade core.docs.wavesplatform && node --max-old-space-size=8096 node_modules/.bin/vuepress build docs || set NODE_OPTIONS=--max_old_space_size=8096 .\\node_modules\\.bin\\vuepress.cmd build docs",
+        "build:dev": "corePath=$PWD/../core.docs.wavesplatform node --max-old-space-size=8096 node_modules/.bin/vuepress build docs",
         "server": "node docs/.vuepress/runServer",
         "server:dev": "corePath=$PWD/../core.docs.wavesplatform yarn server",
         "production": "yarn upgrade core.docs.wavesplatform && yarn build && yarn server"
@@ -15,8 +15,7 @@
     },
     "devDependencies": {
         "node-sass": "^4.13.0",
-        "raw-loader": "^4.0.0",
         "sass-loader": "^8.0.0",
-        "vuepress": "^1.3.0"
+        "vuepress": "^1.4.0"
     }
 }

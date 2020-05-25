@@ -2,7 +2,7 @@
 
 A running node requires up-to-date blockchain database for operation. One of the methods described in this article can be used to obtain actual blockchain.
 
-## 1. Synchronizing the Blockchain During Regular Node Operation
+## Synchronizing the Blockchain During Regular Node Operation
 
 This method implicates runnig the node from scratch. For detailed description of running the node, see [Install Waves Node](/en/waves-node/how-to-install-a-node/how-to-install-a-node) article.
 
@@ -15,7 +15,7 @@ In this case the following factors affect the duration of obtaining the data via
 
 The first one depends on the internet data provider, while the second one can be set with `max-outbound-connections` parameter. We believe that the default value of 30 is enough. The speed of internet connection (unless, you have a dial-up connection) has little duration effect on the process, compared to the time spent on the verification of the blocks and validation of the signatures.
 
-## 2. Importing Blockchain from Binary File
+## Importing Blockchain from Binary File
 
 Blockchain database (state) can be imported from a previously exported binary file. For detailed description of the export/import process, see [Export/Import Blockchain](/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain).
 
@@ -28,7 +28,7 @@ The speed of block verification and signature verification affects the time of r
 
 When synchronizing the blockchain database, an active writing to disk exceeds the IOPS values that the HDD gives. In particular, there may be delays when the operating system doesn't have enough physical memory. We recommend to use SSD and keep at least 30% of the total memory for the needs of the operating system (cache/buffers).
 
-## 3. Downloading the Latest Blockchain Database
+## Downloading the Latest Blockchain Database
 
 There is a way to download the latest database from the internet. For detailed description of the process, see [Download the Latest Blockchain](/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying).
 
