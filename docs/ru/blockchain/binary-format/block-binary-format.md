@@ -37,11 +37,11 @@ message Block {
 | reference | • В первом блоке версии 5, то есть на высоте активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions” — `signature` предыдущего блока<br>• В последующих блоках: хеш BLAKE2b-256 заголовка предыдущего блока |
 | base_target | [Базовая цель](/ru/blockchain/block/block-generation/base-target) — переменная, используемая в алгоритме генерации блоков |
 | generation_signature | [Подпись генерирования](/ru/blockchain/block/block-generation/) — переменная, используемая в алгоритме генерации блоков (32 байта) |
-| feature_votes | Список фич, за которые голосует генератор блока, см. раздел [Фичи](/ru/waves-node/features/) |
+| feature_votes | Список фич, за которые голосует генератор блока, см. раздел [Фичи](/ru/waves-node/features) |
 | timestamp | [Временная метка блока](/ru/blockchain/block/block-timestamp): Unix-время в миллисекундах |
 | version | Версия блока: 5 |
 | generator | Открытый ключ аккаунта генератора блока (32 байта) |
-| reward_vote | Размер [вознаграждения за генерацию блока](/ru/blockchain/mining/mining-reward), за который голосует генератор блока |
+| reward_vote | Размер [вознаграждения за генерацию блока](/ru/blockchain/mining/mining-reward), за который голосует генератор блока. Значение -1 означает, что генератор блока голосует за текущий размер вознаграждения |
 | transactions_root | [Корневой хеш транзакций блока](/ru/blockchain/block/merkle-root) (32 байта) |
 | signature | [Подпись заголовка блока](/ru/blockchain/block/block-signature) (64 байта) |
 | transactions | Для каждой транзакции:<br>• Тело транзакции — до 165&nbsp;487 байт<br>• Подтверждения (`proofs`) — до 531 байта.<br>См. раздел [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format/) |
@@ -60,11 +60,11 @@ message Block {
 | 7.2 | Транзакция 2 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | Тело транзакции — до 165&nbsp;996 байт<br>Подтверждения (`proofs`) — до 531 байта | Байты второй транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format) |
 | ... | ... | ... | ... | ... |
 | 7.[N] | Транзакция N | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | Тело транзакции — до 165&nbsp;996 байт<br>Подтверждения (`proofs`) — до 531 байта | Байты N-й транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format) |
-| 8 | Количество [фич](/ru/waves-node/features/), за которые голосует генератор блока | 4 | [Integer](/ru/blockchain/blockchain/blockchain-data-types) | |
+| 8 | Количество [фич](/ru/waves-node/features), за которые голосует генератор блока | 4 | [Integer](/ru/blockchain/blockchain/blockchain-data-types) | |
 | 9.1 | Фича 1 | 2 | [Short](/ru/blockchain/blockchain/blockchain-data-types) | |
 | ... | ... | ... | ... | ... |
 | 9.[M] | Фича M | 2 | [Short](/ru/blockchain/blockchain/blockchain-data-types) | |
-| 10 | Размер [вознаграждения за генерацию блока](/ru/blockchain/mining/mining-reward), за который голосует генератор блока | 8 | [Long](/ru/blockchain/blockchain/blockchain-data-types)| |
+| 10 | Размер [вознаграждения за генерацию блока](/ru/blockchain/mining/mining-reward), за который голосует генератор блока. Значение -1 означает, что генератор блока голосует за текущий размер вознаграждения | 8 | [Long](/ru/blockchain/blockchain/blockchain-data-types)| |
 | 11 | Открытый ключ аккаунта генератора блока | 32 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | |
 | 12 | [Подпись блока](/en/blockchain/block/block-signature) | 64  | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)]| | |
 
