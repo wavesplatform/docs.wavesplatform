@@ -1,10 +1,12 @@
-# Создание dApp: полный цикл
+# Создание dApp: руководство
 
 В этом разделе вы узнаете, как создать и запустить реальное децентрализованное приложение, работающее на блокчейне.
 
 Для создания и тестирования dApp мы используем [Waves IDE](https://ide.wavesplatform.com/). Для создания веб-приложения, которое вызывает функции dApp, мы используем JavaScript.
 
-Процесс разработки dApp состоит из пяти простых шагов. Мы пройдем их один за другим. В результате должно получиться простое приложение Waves Magic 8 Ball — генератор превдослучайных ответов. В дальнейшем, повторяя эти шаги, вы сможете создать приложение любой сложности. Больше о возможностях dApp читайте в разделе [Что такое dApp](/ru/building-apps/smart-contracts/what-is-dapp).
+Процесс разработки dApp состоит из пяти простых шагов. Мы пройдем их один за другим. В результате должно получиться простое приложение Waves Magic 8 Ball — генератор превдослучайных ответов. В дальнейшем, повторяя эти шаги, вы сможете создать приложение любой сложности.
+
+О возможностях dApp читайте в разделе [Что такое dApp](/ru/building-apps/smart-contracts/what-is-dapp).
 
 ## План действий
 
@@ -36,18 +38,10 @@
 
 <details><summary>Код скрипта</summary>
 <p>
-<code>
+<pre>
 {-# STDLIB_VERSION 3 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
-
-#
-# Waves dApp version of famous Magic 8 ball toy!
-# Function name: tellme(question: String)
-# Question and answer will be written to dApp data state
-#
-# Example on Testnet: 3N27HUMt4ddx2X7foQwZRmpFzg5PSzLrUgU
-#
 
 let answersCount = 20
 let answers = 
@@ -72,10 +66,6 @@ let answers =
     "Outlook not so good.",
     "Very doubtful."]
 
-
-#
-# Simple pseudorandom answer generator
-#
 func getAnswer(question: String, previousAnswer: String) = {
     let hash = sha256(toBytes(question + previousAnswer))
     let index = toInt(hash)
@@ -99,7 +89,7 @@ func tellme(question: String) = {
         DataEntry(callerAddress + "_a", answer)
         ])
 }
-</code>
+</pre>
 
 </p>
 </details>
@@ -109,7 +99,6 @@ func tellme(question: String) = {
 dApp-скрипт должен начинаться с директив:
 
 <code>
-```ride
 {-# STDLIB_VERSION 4 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}

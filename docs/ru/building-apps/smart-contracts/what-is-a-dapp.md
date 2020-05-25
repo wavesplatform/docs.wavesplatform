@@ -2,7 +2,7 @@
 
 dApp — это аккаунт Waves с установленным dApp-скриптом.
 
-dApp-скрипт представляет собой код на языке Ride. Он содержит вызываемые (сallable) функции, которые могут быть вызваны путем отправки транзакции вызова скрипта.
+dApp-скрипт представляет собой код на языке Ride. Он содержит вызываемые (сallable) функции, которые могут быть вызваны извне путем отправки [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction).
 
 Транзакция вызова скрипта содержит:
 
@@ -16,8 +16,10 @@ dApp-скрипт представляет собой код на языке Rid
 
 * добавление, редактирование, изменение записей в хранилище данных аккаунта dApp;
 * переводы средств;
-* выпуск, довыпуск, сжигание токена;
+* выпуск, довыпуск, сжигание токенjd;
 * настройка спонсирования.
+
+> Набор доступных действий скрипта зависит от версии [Стандартной библиотеки](/ru/ride/script/standard-library).
 
 ![](./_assets/dapp.png)
 
@@ -39,7 +41,7 @@ dApp-скрипт содержит одну или несколько вызыв
 {-# SCRIPT_TYPE ACCOUNT #-}
 ```
 
-Приведенная директива сообщает компилятору, что:
+Приведенные директивы сообщают компилятору, что:
 
 - в скрипте будет использоваться Стандартная библиотека версии 3 (версия 4 в настоящее время доступна только на Stagenet);
 - тип скрипта — dApp;
@@ -47,9 +49,7 @@ dApp-скрипт содержит одну или несколько вызыв
 
 ### Контекст скрипта
 
-Контекст скрипта всегда включает [встроенные переменные](/ru/ride/variables/built-in-variables) и [встроенные функции](/ru/ride/functions/built-in-functions).
-
-Кроме того, между директивами и вызываемой функцией можно объявить собственные переменные и вспомогательные функции, которые будут доступны в пределах всего dApp.
+Контекст скрипта включает [встроенные переменные](/ru/ride/variables/built-in-variables) и [встроенные функции](/ru/ride/functions/built-in-functions). Кроме того, между директивами и вызываемой функцией можно объявить собственные переменные и вспомогательные функции, которые будут доступны в пределах всего dApp.
 
 Пример:
 
@@ -62,25 +62,29 @@ func doSomething() = {
 
 ### Вызываемые функции
 
-dApp-скрипт может содержать несколько вызываемых функций. Вызываемая функция сопровождается [аннотацией](/ru/ride/functions/annotations) `@Callable(i)`, где `i` — структура [Invocation](/ru/ride/structures/common-structures/invocation), которая содержит поля транзакции вызова скрипта, которые может использовать вызываемая функция.
+Вызываемая функция сопровождается аннотацией `@Callable(i)`, где `i` — структура [Invocation](/ru/ride/structures/common-structures/invocation), которая содержит поля транзакции вызова скрипта, доступные вызываемой функции.
 
 Результат выполнения вызываемой функции — набор [действий скрипта](/ru/ride/structures/script-actions), которые будут выполнены на блокчейне: добавление записей в хранилище данных аккаунта, переводы токенов и др. Формат результата и доступные действия зависят от версии Стандартной библиотеки.
 
 Подробное описание приведено в разделе [Вызываемая функция](/ru/ride/functions/callable-function).
 
-Ниже приведен пример вызываемой функции, которая записывает в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage) значение `42` по ключу `someDataKey`, если ее вызывает владелец аккаунта. Если это пытается сделать кто-то другой, функция выбрасывает исключение.
+Ниже приведен пример вызываемой функции, которая переводит вызвавшему ее аккаунту 1 WAVES и записывает информацию об этом в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage). Если тот же аккаунт снова пытается вызвать функцию, она выбрасывает исключение.
 
 ```ride
 @Callable(i)
-func foo() = {
-   if (i.caller == this)
-   then
-       ScriptResult(
-            WriteSet([DataEntry("someDataKey", 42)]),
-            TransferSet([ScriptTransfer(i.caller, 100500, unit)])
+func faucet () = {
+    let isKnownCaller =  match getBoolean(this, toBase58String(i.caller.bytes)) {
+        case hist: Boolean => 
+            hist
+        case _ => 
+            false
+    }
+    if (isKnownCaller) then throw("Can be used only once")
+    else
+        ScriptResult(
+           WriteSet([DataEntry(toBase58String(i.caller.bytes), true)]),
+           TransferSet([ScriptTransfer(i.caller, 100000000, unit)])
         )
-   else
-       throw("Only owner can use this function.")
 }
 ```
 
@@ -113,21 +117,21 @@ dApp может использовать данные блокчейна:
 * Ассеты.
 * Высота блокчейна.
 * Заголовки блоков.
-* Транзакции перевода.
+* Транзакции перевода (по идентификатору транзакции).
 
 См. разделы [Функции хранилища данных аккаунта](/ru/ride/functions/built-in-functions/account-data-storage-functions) и [Функции блокчейна](/ru/ride/functions/built-in-functions/blockchain-functions).
 
 Кроме того:
 
-* Вызываемая функция имеет доступ к данным транзакции, которая вызвала dApp-скрипт. Cм. раздел [Invocation](/ru/ride/structures/common-structures/invocation).
-* Функция-верификатор имеет доступ к данным транзакции или ордера, отправляемой с аккаунта dApp.
+* Вызываемая функция имеет доступ к полям транзакции, которая вызвала dApp-скрипт. Cм. раздел [Invocation](/ru/ride/structures/common-structures/invocation).
+* Функция-верификатор имеет доступ к полям транзакции или ордера, отправляемых с аккаунта dApp, включая [подтверждения (proofs)](/ru/blockchain/transaction/transaction-proof).
 
 ## Установка dApp-скрипта
 
 Чтобы прикрепить dApp к аккаунту, отправьте с этого аккаунта [транзакцию установки скрипта](/ru/blockchain/transaction-type/set-script-transaction):
 
-Создать транзакцию установки скрипта можно:
-* В [Waves IDE](https://ide.wavesplatform.com/): откройте dApp-скрипт и нажмите **Deploy**.
+Отправить транзакцию установки скрипта можно:
+* В [Waves IDE](https://ide.wavesplatform.com/): создайте или импортируйте аккаунт, откройте dApp-скрипт и нажмите **Deploy**.
 * С помощью одной из [клиентских библиотек](/ru/building-apps/waves-api-and-sdk/client-libraries/). См. также примеры в разделе [Создание и отправка транзакций](/ru/building-apps/how-to/basic/transaction).
 
 [Пример транзакции](https://wavesexplorer.com/testnet/tx/213JdqCLq6qGLUvoXkMaSA2wLSwdzH24BuhHBhcBeHUR)
@@ -148,4 +152,4 @@ dApp может использовать данные блокчейна:
 * В [Waves IDE](https://ide.wavesplatform.com/) в меню **Library**.
 * На Github в репозитории [ride-examples](https://github.com/wavesplatform/ride-examples/blob/master/welcome.md).
 
-Руководство по созданию dApp приведено в разделе [Создание dApp: быстрый старт](/ru/building-apps/smart-contracts/writing-dapps).
+Руководство по созданию dApp приведено в разделе [Создание dApp](/ru/building-apps/smart-contracts/writing-dapps).
