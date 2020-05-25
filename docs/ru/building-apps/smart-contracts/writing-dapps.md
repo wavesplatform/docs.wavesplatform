@@ -38,58 +38,58 @@
 
 <details><summary>Код скрипта</summary>
 <p>
-<pre>
-{-# STDLIB_VERSION 3 #-}
-{-# CONTENT_TYPE DAPP #-}
-{-# SCRIPT_TYPE ACCOUNT #-}
-
-let answersCount = 20
-let answers = 
-    ["It is certain.",
-    "It is decidedly so.",
-    "Without a doubt.",
-    "Yes - definitely.",
-    "You may rely on it.",
-    "As I see it, yes.",
-    "Most likely.",
-    "Outlook good.",
-    "Yes.",
-    "Signs point to yes.",
-    "Reply hazy, try again.",
-    "Ask again later.",
-    "Better not tell you now.",
-    "Cannot predict now.",
-    "Concentrate and ask again.",
-    "Don't count on it.",
-    "My reply is no.",
-    "My sources say no.",
-    "Outlook not so good.",
-    "Very doubtful."]
-
-func getAnswer(question: String, previousAnswer: String) = {
-    let hash = sha256(toBytes(question + previousAnswer))
-    let index = toInt(hash)
-    answers[index % answersCount]
-}
-
-func getPreviousAnswer(address: String) = {
-  match getString(this, address + "_a") {
-    case a: String => a
-    case _ => address
-  }
-}
-
-@Callable(i)
-func tellme(question: String) = {
-    let callerAddress = toBase58String(i.caller.bytes)
-    let answer = getAnswer(question, getPreviousAnswer(callerAddress))
-
-    WriteSet([
-        DataEntry(callerAddress + "_q", question),
-        DataEntry(callerAddress + "_a", answer)
-        ])
-}
-</pre>
+<code>
+{-# STDLIB_VERSION 3 #-}<br>
+{-# CONTENT_TYPE DAPP #-}<br>
+{-# SCRIPT_TYPE ACCOUNT #-}<br>
+<br>
+let answersCount = 20<br>
+let answers = <br>
+&nbsp;&nbsp;&nbsp;&nbsp;["It is certain.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"It is decidedly so.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Without a doubt.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Yes - definitely.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"You may rely on it.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"As I see it, yes.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Most likely.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Outlook good.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Yes.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Signs point to yes.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Reply hazy, try again.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Ask again later.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Better not tell you now.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Cannot predict now.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Concentrate and ask again.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Don't count on it.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"My reply is no.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"My sources say no.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Outlook not so good.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Very doubtful."]<br>
+<br>
+func getAnswer(question: String, previousAnswer: String) = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;let hash = sha256(toBytes(question + previousAnswer))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;let index = toInt(hash)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;answers[index % answersCount]<br>
+}<br>
+<br>
+func getPreviousAnswer(address: String) = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;match getString(this, address + "_a") {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case a: String => a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case _ => address<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+<br>
+@Callable(i)<br>
+func tellme(question: String) = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;let callerAddress = toBase58String(i.caller.bytes)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;let answer = getAnswer(question, getPreviousAnswer(callerAddress))<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;WriteSet([<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DataEntry(callerAddress + "_q", question),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DataEntry(callerAddress + "_a", answer)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;])<br>
+}<br>
+</code>
 
 </p>
 </details>
@@ -154,19 +154,19 @@ dApp готов к использованию — его функции можн
 //
 
 describe('8 ball', () => {
-    const ballAddress = "3N27HUMt4ddx2X7foQwZRmpFzg5PSzLrUgU"
-    const question = "Test" + Date.now()
-    const tx = invokeScript({fee: 500000, dApp: ballAddress, call:{function:"tellme", args:[{"type": "string", "value": question}]}, payment: null})
+&nbsp;&nbsp;&nbsp;&nbsp;const ballAddress = "3N27HUMt4ddx2X7foQwZRmpFzg5PSzLrUgU"
+&nbsp;&nbsp;&nbsp;&nbsp;const question = "Test" + Date.now()
+&nbsp;&nbsp;&nbsp;&nbsp;const tx = invokeScript({fee: 500000, dApp: ballAddress, call:{function:"tellme", args:[{"type": "string", "value": question}]}, payment: null})
 
-    it('Tx is mined in block', async function(){
-        await broadcast(tx)
-        await waitForTx(tx.id)
-    })
+&nbsp;&nbsp;&nbsp;&nbsp;it('Tx is mined in block', async function(){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await broadcast(tx)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await waitForTx(tx.id)
+&nbsp;&nbsp;&nbsp;&nbsp;})
 
-    it('Question is in ball', async function(){
-        await accountDataByKey(address()+"_q", ballAddress)
-            .then(reslove => expect(reslove.value).to.equal(question))
-    })
+&nbsp;&nbsp;&nbsp;&nbsp;it('Question is in ball', async function(){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await accountDataByKey(address()+"_q", ballAddress)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.then(reslove => expect(reslove.value).to.equal(question))
+&nbsp;&nbsp;&nbsp;&nbsp;})
 })
 </pre>
 </p>
@@ -195,11 +195,11 @@ describe('8 ball', () => {
 <p>
 ```
 await signer.invoke({
-    dApp: ballAddress,
-    call: {
-        function: "tellme",
-        args:[{"type": "string", "value": question}]
-    }
+&nbsp;&nbsp;&nbsp;&nbsp;dApp: ballAddress,
+&nbsp;&nbsp;&nbsp;&nbsp;call: {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function: "tellme",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args:[{"type": "string", "value": question}]
+&nbsp;&nbsp;&nbsp;&nbsp;}
 }).broadcast()
 ```
 
