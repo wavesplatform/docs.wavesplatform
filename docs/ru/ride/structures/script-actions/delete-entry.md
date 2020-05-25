@@ -1,9 +1,8 @@
 # DeleteEntry
 
-> Возможность использования DeleteEntry доступна с версии ноды 1.2.0. Возможность включается с активацией на ноде функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№16).
-На данный момент версии 1.2.x доступны на [stagenet](/ru/blockchain/blockchain-network/stage-network)
+> :warning: Структура `DeleteEntry` представлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
-**DeleteEntry** - cтруктура, задающая параметры удаления записи из [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage), которое выполняется в результате вызова [вызываемой функции](/ru/ride/functions/callable-function).
+`DeleteEntry` — cтруктура, задающая параметры удаления записи из [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage). Удаление записи выполняется, только если структура включена в [результирующее выражение](/ru/ride/functions/callable-function#резуnьтат-выпоnнения-2) вызываемой функции.
 
 ## Конструктор
 
@@ -13,7 +12,7 @@
 
 |   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | key | [String](/ru/ride/data-types/string) | Ключ записи |
+| 1 | key | [String](/ru/ride/data-types/string) | Ключ записи.  Максимальный размер — 400 байт |
 
 ## Пример
 

@@ -1,8 +1,6 @@
 # Бинарный формат транзакции генезиса
 
-> Узнать больше о [транзакции генезиса](/ru/blockchain/transaction-type/genesis-transaction)
-
-## Транзакция версии 1
+> Узнать больше о [транзакции генезиса](/ru/blockchain/transaction-type/genesis-transaction).
 
 | Порядковый номер поля | Поле | Название JSON-поля |Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -15,4 +13,4 @@
 
 ## JSON-представление транзакции
 
-Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/2DVtfgXjpMeFf2PQCqvwxAiaGbiDsxDjSdNQkc5JQ74eWxjWFYgwvqzC4dn7iB1AhuM32WxEiVi1SGijsBtYQwn8) в Node API.
+Смотрите [пример](https://nodes.wavesnodes.com/transactions/info/2DVtfgXjpMeFf2PQCqvwxAiaGbiDsxDjSdNQkc5JQ74eWxjWFYgwvqzC4dn7iB1AhuM32WxEiVi1SGijsBtYQwn8) в Node API.

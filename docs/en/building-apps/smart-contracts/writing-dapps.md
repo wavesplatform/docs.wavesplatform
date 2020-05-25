@@ -1,4 +1,5 @@
 # Writing dApps
+
 ## Default transactions validation
 After the creation of a Waves account, each transaction that's sent from this account goes through the process of validation. If a transaction is valid, then it goes to generated block in the blockchain, if not — it's rejected by blockchain.
 

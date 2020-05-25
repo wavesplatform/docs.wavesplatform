@@ -12,7 +12,7 @@ DataTransaction(data: List[DataEntry], id: ByteVector, fee: Int, timestamp: Int,
 
 | # | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | data | [List](/ru/ride/data-types/list)[[DataEntry](/ru/ride/structures/common-structures/data-entry)] | [Массив данных транзакции](/ru/blockchain/transaction-type/data-transaction) |
+| 1 | data | [List](/ru/ride/data-types/list)[[DataEntry](/ru/ride/structures/script-actions/data-entry)] | [Массив данных транзакции](/ru/blockchain/transaction-type/data-transaction) |
 | 2 | id | [ByteVector](/ru/ride/data-types/byte-vector) | [ID транзакции](/ru/blockchain/transaction/transaction-id) |
 | 3 | fee | [Int](/ru/ride/data-types/int) | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) |
 | 4 | timestamp | [Int](/ru/ride/data-types/int) | [Временная метка транзакции](/ru/blockchain/transaction/transaction-timestamp) |

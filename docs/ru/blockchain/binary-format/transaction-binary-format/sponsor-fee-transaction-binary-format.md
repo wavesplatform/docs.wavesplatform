@@ -1,8 +1,30 @@
 # Бинарный формат транзакции спонсирования
 
-> Узнать больше о [транзакции спонсирования](/ru/blockchain/transaction-type/set-asset-script-transaction)
+> Узнать больше о [спонсировании](/ru/blockchain/waves-protocol/sponsored-fee).
 
-## Транзакция версии 1
+## Версия 2
+
+Бинарный формат версии 2 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).
+
+Версия 2 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
+```
+message SponsorFeeTransactionData {
+    Amount min_fee = 1;
+};
+
+message Amount {
+    bytes asset_id = 1;
+    int64 amount = 2;
+};
+```
+
+| Поле | Размер | Описание |
+| :--- | :--- | :--- |
+| min_fee.asset_id | 32 байта | ID ассета |
+| min_fee.amount | 8 байт | Количество спонсорского ассета, эквивалентное 0,001 WAVES (100&nbsp;000 WAVELET), в минимальных единицах («копейках») ассета. См. раздел [Спонсирование комиссии](/ru/blockchain/waves-protocol/sponsored-fee) |
+
+## Версия 1
 
 | Порядковый номер поля | Поле | Название JSON-поля | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -18,4 +40,4 @@
 
 ## JSON-представление транзакции
 
-Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/7EL2XEGP1By427BeLcHPYeVnBzGsXen4egMAwQpWGBVR) в Node API.
+Смотрите [пример](https://nodes.wavesnodes.com/transactions/info/7EL2XEGP1By427BeLcHPYeVnBzGsXen4egMAwQpWGBVR) в Node API.

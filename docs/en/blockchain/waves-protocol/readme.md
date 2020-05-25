@@ -6,4 +6,4 @@
 * [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee)
 * [Fair Proof of Stake](/en/blockchain/waves-protocol/fair-pos)
 * [Waves-NG Protocol](/en/blockchain/waves-protocol/waves-ng-protocol)
-* [Activation Protocol](/en/blockchain/waves-protocol/activation-protocol)
+* [Activation Protocol](/en/waves-node/activation-protocol)

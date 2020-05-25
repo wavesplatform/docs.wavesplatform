@@ -8,7 +8,9 @@
 
 ## Минимальная комиссия
 
-Минимальная комиссия в WAVES для каждого типа транзакции представлена в таблице. Если транзакция верифицируется [скриптом аккаунта](/ru/ride/script/script-types/account-script) или [скриптом ассета](/ru/ride/script/script-types/asset-script), то минимальная комиссия увеличивается на 0,004 WAVES за каждое выполнение скрипта.
+Минимальная комиссия в WAVES для каждого типа транзакции представлена в таблице.
+
+:warning: Если транзакция верифицируется [скриптом аккаунта](/ru/ride/script/script-types/account-script) или [скриптом ассета](/ru/ride/script/script-types/asset-script), то минимальная комиссия увеличивается на 0,004 WAVES за каждое выполнение скрипта.
 
 **Пример 1.**
 
@@ -19,7 +21,7 @@
 * Перевод смарт-ассета: 0,001 + 0,004 = 0,005 WAVES.
 * Перевод смарт-ассета со смарт-аккаунта: 0,001 + 0,004 + 0,004 = 0,009 WAVES.
 
-**Пример 2.**
+**Пример 2.**<a id="example2"></a>
 
 Минимальная комиссия за транзакцию вызова скрипта:
 
@@ -32,14 +34,14 @@
 * Вызов, в котором dApp-скрипт выпустил новый ассет (не являющийся [NFT](/ru/blockchain/token/non-fungible-token)): 0,005 + 1 = 1,005 WAVES.
 * Вызов со смарт-аккаунта, приложено два платежа в смарт-ассетах, dApp-скрипт выпустил 10 ассетов (не являющихся [NFT](/ru/blockchain/token/non-fungible-token)): 0,005 + 0,004 + 2 × 0,004 + 10 × 1 = 10,017 WAVES.
 
-> Возможность выпуска/довыпуска/cжигания токена dApp-скриптом добавлена в версии ноды 1.2.0. Возможность включается с активацией на ноде функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№16). На данный момент версии 1.2.x доступны на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+> Возможность выпуска/довыпуска/cжигания токена dApp-скриптом добавлена в версии ноды 1.2.0. Возможность включается после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 | Тип транзакции | ID типа транзакции | Минимальная комиссия в WAVES |
 | :--- | :--- | :--- |
-| [Транзакция вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 16 | 0,005 +`K`<br>`K` — количество обычных ассетов (не являющихся [NFT](/ru/blockchain/token/non-fungible-token)), выпущенных в результате вызова dApp-скрипта.<br>Возможность выпуска токена dApp-скриптом добавлена в версии ноды 1.2.0. Возможность включается с активацией на ноде функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№16). На данный момент версии 1.2.x доступны на [Stagenet](/ru/blockchain/blockchain-network/stage-network) |
+| [Транзакция вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 16 | 0,005 +`K`<br>`K` — количество обычных ассетов (не являющихся [NFT](/ru/blockchain/token/non-fungible-token)), выпущенных в результате вызова dApp-скрипта.<br>Возможность выпуска токена dApp-скриптом добавлена в версии ноды 1.2.0. Возможность включается после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”. На данный момент версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network)<br>См. также [пример 2](#example2) выше |
 | [Транзакция выпуска](/ru/blockchain/transaction-type/issue-transaction) | 3 | • 1 за обычный токен <br>• 0,001 за [NFT](/ru/blockchain/token/non-fungible-token) |
 | [Транзакция данных](/ru/blockchain/transaction-type/data-transaction) | 12 | 0,001 за килобайт<br>Значение округляется вверх до тысячных |
-| [Транзакция довыпуска](/ru/blockchain/transaction-type/reissue-transaction) | 5 | • 0,001 — начиная с версии ноды 1.2.0, после активации функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№ 16). См. раздел [Протокол активации](/ru/blockchain/waves-protocol/activation-protocol).<br>• 1 — до активации функциональности № 16 |
+| [Транзакция довыпуска](/ru/blockchain/transaction-type/reissue-transaction) | 5 | • 0,001 — после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.<br>• 1 — до активации фичи № 15 |
 | [Транзакция закрытия лизинга](/ru/blockchain/transaction-type/lease-cancel-transaction) | 9 | 0,001 |
 | [Транзакция лизинга](/ru/blockchain/transaction-type/lease-transaction) | 8 | 0,001 |
 | [Транзакция массового перевода](/ru/blockchain/transaction-type/mass-transfer-transaction) | 11 | 0,001 + 0,0005 × `N`<br>`N` — количество переводов внутри транзакции.<br>Значение округляется вверх до тысячных |
@@ -47,13 +49,19 @@
 | [Транзакция перевода](/ru/blockchain/transaction-type/transfer-transaction) | 4 | 0,001 |
 | [Транзакция сжигания токена](/ru/blockchain/transaction-type/burn-transaction) | 6 | 0,001 |
 | [Транзакция создания псевдонима](/ru/blockchain/transaction-type/create-alias-transaction) | 10 | 0,001 |
-| Транзакция спонсирования | 14 | 1 |
+| Транзакция спонсирования | 14 | • 0,001 — после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.<br>• 1 — до активации фичи № 15 |
 | [Транзакция установки скрипта](/ru/blockchain/transaction-type/set-script-transaction) | 13 | 0,01 |
 | [Транзакция установки скрипта ассета](/ru/blockchain/transaction-type/set-asset-script-transaction) | 15 | 1 |
-| [Транзакция обновления информации ассета](/en/blockchain/transaction-type/update-asset-info-transaction) | 17 | 0.001<br>Транзакция обновления информации ассета добавлена в версии ноды 1.2.0. Возможность включается с активацией на ноде функциональности "Ride V4 and multiple attached payments for Invoke Script Transaction" (№16). На данный момент версии 1.2.x доступны на [Stagenet](/ru/blockchain/blockchain-network/stage-network) |
+| [Транзакция обновления информации ассета](/en/blockchain/transaction-type/update-asset-info-transaction) | 17 | 0.001<br>Транзакция обновления информации ассета добавлена в версии ноды 1.2.0. Возможность включается после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network) |
 
 ## Комиссия в спонсорском ассете
 
 Эмитент ассета (аккаунт, выпустивший ассет) может сделать его спонсорским — разрешить любым пользователям платить в этом ассете комиссию за транзакции вызова скрипта и транзакции перевода.
 
-Для включения спонсирования эмитент отправляет транзакцию спонсирования, в которой указывает количество ассета, эквивалентное минимальной комиссии 0,001 WAVES. Например, в случае `minSponsoredAssetFee: 5` комиссия в этом ассете за транзакцию обмена составит 5 × 0,003 / 0,001 = 15. Подробнее см. раздел [Спонсирование комиссии](/ru/blockchain/waves-protocol/sponsored-fee).
+Для включения спонсирования эмитент отправляет транзакцию спонсирования, в которой указывает количество ассета, эквивалентное минимальной комиссии 0,001 WAVES. Например, в случае `minSponsoredAssetFee: 5` комиссия в этом ассете за транзакцию обмена составит 5 × 0,003 / 0,001 = 15. Подробнее см. раздел [Sponsor Fee Transactions](/en/blockchain/waves-protocol/sponsored-fee).
+
+## Комиссия за транзакцию с неудачным результатом выполнения скрипта
+
+Транзакции вызова скрипта и транзакции обмена сохраняются в блокчейне и отправитель платит комиссию, если результат выполнения dApp-скрипта или скрипта ассета был неудачным. Подробнее см. раздел [Валидация транзакции](/ru/blockchain/transaction/transaction-validation). В случае транзакции обмена с матчера взимается комиссия за транзакцию, однако [комиссия матчера](https://docs.waves.exchange/ru/waves-matcher/matcher-fee) не взимается с отправителей ордеров.
+
+Сохранение невалидных транзакций и взимание комиссии за них вводится в версии ноды 1.2.4, после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”. В данный момент версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).

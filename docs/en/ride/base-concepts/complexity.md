@@ -4,6 +4,6 @@
 
 The complexity of a script is estimated based on complexities of all the [operators](/en/ride/operators) and [functions](/en/ride/functions) it consists of.
 
-The complexity of a script can be seen in the [Waves IDE](https://ide.wavesplatform.com); it is currently limited to 4000:
+The complexity of a script can be seen in the [Waves IDE](https://ide.wavesplatform.com):
 
 ![](./_assets/complexity.png)

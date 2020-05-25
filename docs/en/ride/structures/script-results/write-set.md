@@ -14,4 +14,4 @@ WriteSet(data: List[DataEntry])
 
 | # | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | data | [List](/en/ride/data-types/list)[[DataEntry](/en/ride/structures/common-structures/data-entry)] | List of data records of an account data storage |
+| 1 | data | [List](/en/ride/data-types/list)[[DataEntry](/en/ride/structures/script-actions/data-entry)] | List of data records of an account data storage |

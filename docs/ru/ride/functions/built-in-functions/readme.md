@@ -17,7 +17,7 @@
 | :--- | :--- | :--- |
 | assetInfo(ByteVector): Аsset&#124;Unit | Получает информацию о [токене](/ru/blockchain/token) | 100 |
 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Получает информацию о [блоке](/ru/blockchain/block) по [высоте блока](/ru/blockchain/block/block-height) | 100 |
-| calculateAssetId(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/common-structures/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 10 |
+| calculateAssetId(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/script-actions/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 10 |
 | transactionHeightById(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 100 |
 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 100 |
 
@@ -27,7 +27,8 @@
 | :--- | :--- | :--- |
 | checkMerkleProof(ByteVector, ByteVector, ByteVector): Boolean | Проверяет, что данные являются частью [дерева Меркла](https://ru.wikipedia.org/wiki/Дерево_хешей) | 30 |
 | createMerkleRoot(List[ByteVector], ByteVector, Int) : ByteVector | Вычисляет [корневой хеш дерева Меркла транзакций блока](/ru/blockchain/block/merkle-root) | 30 |
-| groth16Verify(ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Осуществляют проверку [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf) | 1900–3900 |
+| ecrecover(messageHash: ByteVector, signature: ByteVector) | Восстанавливает открытый ключ из хеша сообщения и цифровой подписи [ECDSA](https://ru.wikipedia.org/wiki/ECDSA) | 70 |
+| groth16Verify(ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Осуществляют проверку [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf) | 1200–2700 |
 | rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Проверяют, что цифровая подпись [RSA](https://ru.wikipedia.org/wiki/RSA) достоверна | 300 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>500–1000 для Стандартной библиотеки **версии 4** |
 | sigVerify(ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Проверяют, что цифровая подпись [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна | 100 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>100–200 для Стандартной библиотеки **версии 4** |
 
@@ -114,9 +115,17 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| getElement(List[T], Int): T | Получает элемент по индексу | 2 |
 | cons(T, List[T]): List[T] | Вставляет элемент в начало списка | 2 |
+| containsElement(list: List[T], element: T): Boolean | Проверяет наличие элемента в списке | 5 |
+| getElement(List[T], Int): T | Получает элемент по индексу | 2 |
+| indexOf(list: List[T], element: T): Int&#124;Unit | Возвращает индекс первого вхождения элемента в списке | 5 |
+| lastIndexOf(list: List[T], element: T): Int&#124;Unit | Возвращает индекс последнего вхождения элемента в списке | 5 |
+| max(List[Int]): Int | Возвращает наибольший элемент в списке | 3 |
+| min(List[Int]): Int | Возвращает наименьший элемент в списке | 3 |
 | size(List[T]): Int | Возвращает размер списка | 2 |
+
+`T` — сокращенная запись для `Boolean|ByteVector|Int|String`.
+
 
 ## [Функции строки](/ru/ride/functions/built-in-functions/string-functions)
 
@@ -127,6 +136,7 @@
 | dropRight(String, Int): String | Удаляет последние `n` символов строки | 19 |
 | indexOf(String, String): Int&#124;Unit | Возвращает индекс первого вхождения подстроки | 20 |
 | indexOf(String, String, Int): Int&#124;Unit | Возвращает индекс первого вхождения подстроки после указанного индекса | 20 |
+| makeString(List[String], String): String | Объединяет строки из списка, используя разделитель | 10 |
 | size(String): Int | Возвращает длину строки | 1 |
 | split(String, String): List[String] | Разбивает строку на список подстрок, используя разделитель | 100 |
 | take(String, Int): String | Возвращает первые `n` символов строки | 1 |
@@ -146,7 +156,7 @@
 | getBooleanValue(List[DataEntry], Int): Boolean | Возвращает логическое значение из списка записей данных по индексу. Выбрасывает исключение, если данных нет | 30 |
 | getBinary(List[DataEntry], String): ByteVector&#124;Unit | Возвращает массив байтов из списка записей данных по ключу | 10 |
 | getBinary(List[DataEntry], Int): ByteVector&#124;Unit | Возвращает массив байтов из списка записей данных по индексу | 30 |
-| getBinaryValue(ListDataEntry, String): ByteVector | Возвращает массив байтов из списка записей данных по ключу. Выбрасывает исключение, если данных нет | 10 |
+| getBinaryValue(List[DataEntry], String): ByteVector | Возвращает массив байтов из списка записей данных по ключу. Выбрасывает исключение, если данных нет | 10 |
 | getBinaryValue(List[DataEntry], Int): ByteVector | Возвращает массив байтов из списка записей данных по индексу. Выбрасывает исключение, если данных нет | 30 |
 | getString(List[DataEntry] String): String&#124;Unit | Возвращает строку из списка записей данных по ключу | 10 |
 | getString(List[DataEntry], Int): String&#124;Unit | Возвращает строку из списка записей данных по индексу | 30 |
@@ -158,5 +168,5 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | blake2b256(ByteVector): ByteVector | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |
-| keccak256(ByteVector): ByteVector | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [SHA3-256](https://en.wikipedia.org/wiki/SHA-3) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |
+| keccak256(ByteVector): ByteVector | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [Keccak-256](https://keccak.team/files/Keccak-submission-3.pdf) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |
 | sha256(ByteVector): ByteVector | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10–200 для Стандартной библиотеки **версии 4** |

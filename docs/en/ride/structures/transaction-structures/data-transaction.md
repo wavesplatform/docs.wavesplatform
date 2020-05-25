@@ -12,7 +12,7 @@ DataTransaction(data: List[DataEntry], id: ByteVector, fee: Int, timestamp: Int,
 
 | # | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | data | [List](/en/ride/data-types/list)[[DataEntry](/en/ride/structures/common-structures/data-entry)] | [Transaction](/en/blockchain/transaction)'s data array |
+| 1 | data | [List](/en/ride/data-types/list)[[DataEntry](/en/ride/structures/script-actions/data-entry)] | [Transaction](/en/blockchain/transaction)'s data array |
 | 2 | id | [ByteVector](/en/ride/data-types/byte-vector) | [Transaction ID](/en/blockchain/transaction/transaction-id) |
 | 3 | fee | [Int](/en/ride/data-types/int) | [Transaction fee](/en/blockchain/transaction/transaction-fee) |
 | 4 | timestamp | [Int](/en/ride/data-types/int) | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) |

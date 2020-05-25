@@ -1,8 +1,30 @@
 # Бинарный формат транзакции сжигания токена
 
-> Узнать больше о [транзакции сжигания токена](/ru/blockchain/transaction-type/burn-transaction)
+> Узнать больше о [транзакции сжигания токена](/ru/blockchain/transaction-type/burn-transaction).
 
-## Транзакция версии 2
+## Версия 3
+
+Бинарный формат версии 3 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).
+
+Версия 3 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
+```
+message BurnTransactionData {
+    Amount asset_amount = 1;
+};
+
+message Amount {
+    bytes asset_id = 1;
+    int64 amount = 2;
+};
+```
+
+| Поле | Размер | Описание |
+| :--- | :--- | :--- |
+| asset_amount.amount | 8 байт | Количество сжигаемого токена в минимальных единицах («копейках») токена |
+| asset_amount.asset_id | 32 байта | ID сжигаемого токена |
+
+## Версия 2
 
 | Порядковый номер поля | Поле | Название JSON-поля |Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -19,9 +41,9 @@
 
 ## JSON-представление транзакции
 
-Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/csr25XQHT1c965Fg7cY2vJ7XHYVsudPYrUbdaFqgaqL) в Node API.
+Смотрите [пример](https://nodes.wavesnodes.com/transactions/info/csr25XQHT1c965Fg7cY2vJ7XHYVsudPYrUbdaFqgaqL) в Node API.
 
-## Бинарный формат версии 1
+## Версия 1
 
 | Порядковый номер поля | Поле | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- |

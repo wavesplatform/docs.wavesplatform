@@ -16,4 +16,4 @@ Ride используется для написания [скриптов](/ru/r
 
 ## История создания
 
-Язык Ride появился в 2018 году. Тогда же была опубликована [белая книга](https://wavesplatform.com/files/docs/white_paper_waves_smart_contracts.pdf) по языку.  
+Язык Ride появился в 2018 году. Тогда же была опубликована [белая книга](https://wavesprotocol.org/files/docs/white_paper_waves_smart_contracts.pdf) по языку.  

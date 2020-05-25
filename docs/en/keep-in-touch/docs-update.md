@@ -1,5 +1,36 @@
 # Documentation updates
 
+## May Articles
+
+### Ride
+
+* [Limitations](/en/ride/limits) updated
+
+#### Script actions
+
+* [SponsorFee](/en/ride/structures/script-actions/sponsor-fee)
+
+#### Built-in Functions
+
+* [ecrecover](/en/ride/functions/built-in-functions/verification-functions#ecrecover)
+* [makeString](/en/ride/functions/built-in-functions/string-functions#makestring-list-string-string-string)
+* [List functions](/en/ride/functions/built-in-functions/list-functions): `containsElement`, `indexOf`, `lastIndexOf`, `max`, `min`
+
+## April articles
+
+### Blockchain
+
+* Added binary format descriptions for new versions of [transactions](/en/blockchain/binary-format/transaction-binary-format) and [orders](/en/blockchain/binary-format/order-binary-format).
+* Updated the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
+
+### Building Apps
+
+Added how-to guides:
+
+* [Creating and Managing Custom Token](/en/building-apps/how-to/assets/issue)
+* [Airdrop](/en/building-apps/how-to/assets/airdrop)
+* [Receiving Payments](/en/building-apps/how-to/assets/payment)
+
 ## March articles
 
 ### Blockchain
@@ -19,7 +50,7 @@
 
 Updated the the following descriptions:
 * [hashing functions](/en/ride/functions/built-in-functions/hashing-functions): `blake2b256`, `keccak256`, `sha256`;
-* [verification functions](/ru/ride/functions/built-in-functions/verification-functions): `groth16Verify`, `rsaVerify`, `sigVerify`.
+* [verification functions](/en/ride/functions/built-in-functions/verification-functions): `groth16Verify`, `rsaVerify`, `sigVerify`.
 
 ## February articles
 
@@ -51,25 +82,24 @@ Added how-to guides:
     * [Generation signature](/en/blockchain/block/block-generation/generation-signature)
 
 * Transaction type
-  * [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction)
+   * [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction)
 
 * Binary format
-  * Transaction protobuf scheme
-    * [Asset info update transaction protobuf scheme](/en/blockchain/binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme)
+   * [Update asset info transaction binary format](/en/blockchain/binary-format/transaction-binary-format/update-asset-info-transaction-binary-format)
 
 ### Ride
 
 * [FOLD&lt;N&gt; Macro](/en/ride/fold-macro)
 * Structures
   * Common structures
-    * [BinaryEntry](/en/ride/structures/common-structures/binary-entry)
-    * [BooleanEntry](/en/ride/structures/common-structures/boolean-entry)
-    * [Burn](/en/ride/structures/common-structures/burn)
-    * [DeleteEntry](/en/ride/structures/common-structures/delete-entry)
-    * [IntegerEntry](/en/ride/structures/common-structures/int-entry)
-    * [Issue](/en/ride/structures/common-structures/issue)
-    * [Reissue](/en/ride/structures/common-structures/reissue)
-    * [StringEntry](/en/ride/structures/common-structures/string-entry)
+    * [BinaryEntry](/en/ride/structures/script-actions/binary-entry)
+    * [BooleanEntry](/en/ride/structures/script-actions/boolean-entry)
+    * [Burn](/en/ride/structures/script-actions/burn)
+    * [DeleteEntry](/en/ride/structures/script-actions/delete-entry)
+    * [IntegerEntry](/en/ride/structures/script-actions/int-entry)
+    * [Issue](/en/ride/structures/script-actions/issue)
+    * [Reissue](/en/ride/structures/script-actions/reissue)
+    * [StringEntry](/en/ride/structures/script-actions/string-entry)
 
   * Transaction structures
     * [UpdateAssetInfoTransaction](/en/ride/structures/transaction-structures/update-asset-info-transaction)

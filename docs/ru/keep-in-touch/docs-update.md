@@ -1,5 +1,36 @@
 # Обновления в документации
 
+## Майские статьи
+
+### Ride
+
+* Обновлены [ограничения](/ru/ride/limits/)
+
+#### Действия скрипта
+
+* [SponsorFee](/ru/ride/structures/script-actions/sponsor-fee)
+
+#### Встроенные функции
+
+* [ecrecover](/ru/ride/functions/built-in-functions/verification-functions#ecrecover)
+* [makeString](/ru/ride/functions/built-in-functions/string-functions#makestring-list-string-string-string)
+* [Функции списка](/ru/ride/functions/built-in-functions/list-functions): `containsElement`, `indexOf`, `lastIndexOf`, `max`, `min`
+
+## Апрельские статьи
+
+### Блокчейн
+
+* Добавлены описания бинарных форматов новых версий [транзакций](/ru/blockchain/binary-format/transaction-binary-format) и [ордеров](/ru/blockchain/binary-format/order-binary-format).
+* Обновлена статья [Валидация транзакции](/ru/blockchain/transaction/transaction-validation).
+
+### Разработка приложений на блокчейне
+
+Добавлены практические руководства:
+
+* [Выпуск своего токена. Управление токенами](/ru/building-apps/how-to/assets/issue)
+* [Распространение токена (airdrop)](/ru/building-apps/how-to/assets/airdrop)
+* [Прием платежей](/ru/building-apps/how-to/assets/payment)
+
 ## Мартовские статьи
 
 ### Блокчейн
@@ -60,8 +91,7 @@
   * [Транзакция обновления информации ассета](/ru/blockchain/transaction-type/update-asset-info-transaction)
 
 * Бинарный формат
-  * Protobuf-схема транзакции
-    * [Protobuf-схема транзакции обновления информации ассета](/ru/blockchain/binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme)
+  * [Бинарный формат транзакции обновления информации ассета](/ru/blockchain/binary-format/transaction-binary-format/update-asset-info-transaction-binary-format)
 
 ### Нода
 
@@ -71,14 +101,14 @@
 
 * Структура
   * Общие структруры
-    * [BinaryEntry](/ru/ride/structures/common-structures/binary-entry)
-    * [BooleanEntry](/ru/ride/structures/common-structures/boolean-entry)
-    * [Burn](/ru/ride/structures/common-structures/burn)
-    * [DeleteEntry](/ru/ride/structures/common-structures/delete-entry)
-    * [IntegerEntry](/ru/ride/structures/common-structures/int-entry)
-    * [Issue](/ru/ride/structures/common-structures/issue)
-    * [Reissue](/ru/ride/structures/common-structures/reissue)
-    * [StringEntry](/ru/ride/structures/common-structures/string-entry)
+    * [BinaryEntry](/ru/ride/structures/script-actions/binary-entry)
+    * [BooleanEntry](/ru/ride/structures/script-actions/boolean-entry)
+    * [Burn](/ru/ride/structures/script-actions/burn)
+    * [DeleteEntry](/ru/ride/structures/script-actions/delete-entry)
+    * [IntegerEntry](/ru/ride/structures/script-actions/int-entry)
+    * [Issue](/ru/ride/structures/script-actions/issue)
+    * [Reissue](/ru/ride/structures/script-actions/reissue)
+    * [StringEntry](/ru/ride/structures/script-actions/string-entry)
   * Структуры транзакций
     * [UpdateAssetInfoTransaction](/ru/ride/structures/transaction-structures/update-asset-info-transaction)
 

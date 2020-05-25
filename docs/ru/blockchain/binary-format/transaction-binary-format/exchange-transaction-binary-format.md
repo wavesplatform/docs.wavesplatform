@@ -1,10 +1,36 @@
 # Бинарный формат транзакции обмена
 
-> Подробнее о [транзакции обмена](/ru/blockchain/transaction-type/exchange-transaction)
+> Подробнее о [транзакции обмена](/ru/blockchain/transaction-type/exchange-transaction).
 
-## Транзакция версии 2 <a id="v2"></a>
+## Версия 3
 
-Транзакция версии 2 может принимать ордера версии [1](/ru/blockchain/binary-format/order-binary-format#v1), [2](/ru/blockchain/binary-format/order-binary-format#v2) и [3](/ru/blockchain/binary-format/order-binary-format#v3).
+Бинарный формат версии 3 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).
+
+Транзакция версии 3 может сoдержать ордера версий [1](/ru/blockchain/binary-format/order-binary-format#v1)–[4](/ru/blockchain/binary-format/order-binary-format#v4).
+
+Версия 3 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
+```
+message ExchangeTransactionData {
+    int64 amount = 1;
+    int64 price = 2;
+    int64 buy_matcher_fee = 3;
+    int64 sell_matcher_fee = 4;
+    repeated Order orders = 5;
+};
+```
+
+| Поле | Размер | Описание |
+| :--- | :--- | :--- |
+| amount | 8 байт | Количество amount-ассета в минимальных единицах («копейках») |
+| price | 8 байт | Стоимость 1 amount-ассета, выраженная в price-ассете, умноженная на 10<sup>8</sup>. Подробнее см. в разделе [Биржевая заявка](/ru/blockchain/order) |
+| buy_matcher_fee | 8 байт | [Комиссия матчера](/ru/blockchain/matcher-fee) за покупку. ID токена комиссии указан в ордере на покупку |
+| sell_matcher_fee | 8 байт | [Комиссия матчера](/ru/blockchain/matcher-fee) за продажу. ID токена комиссии указан в ордере на продажу |
+| orders | | Ордер на покупку и ордер на продажу. См. раздел [Бинарный формат ордера](/ru/blockchain/binary-format/order-binary-format) | 
+
+## Версия 2
+
+Транзакция версии 2 может сoдержать ордера версии [1](/ru/blockchain/binary-format/order-binary-format#v1), [2](/ru/blockchain/binary-format/order-binary-format#v2) и [3](/ru/blockchain/binary-format/order-binary-format#v3).
 
 | Порядковый номер поля | Поле | Название JSON-поля | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -27,9 +53,9 @@
 
 ## JSON-представление транзакции
 
-Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/9VJCXTdLqtsfvk1d68G5MT237ezQ4g9nuQhWZXR47vi9) в Node API.
+Смотрите [пример](https://nodes.wavesnodes.com/transactions/info/9VJCXTdLqtsfvk1d68G5MT237ezQ4g9nuQhWZXR47vi9) в Node API.
 
-## Транзакция версии 1 <a id="v1"></a>
+## Версия 1
 
 Транзакция версии 1 может принимать ордера только версии 1.
 

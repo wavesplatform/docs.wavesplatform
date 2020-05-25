@@ -1,6 +1,6 @@
 # How to create an oracle
 
-The Waves Platform provides a catalog for the searching and creating of oracle cards — [https://oracles.wavesexplorer.com](https://oracles.wavesexplorer.com). Using the [Waves Oracles](/en/ecosystem/waves-oracles/about-waves-oracles) service, you know which oracles have already been created by other developers and what data they write on the blockchain. Anyone can create their oracle card so that other users know it exists and can use it.
+[Waves Oracles](https://oracles.wavesexplorer.com) is a catalog for the searching and creating of oracle cards. Using this service, you know which oracles have already been created by other developers and what data they write on the blockchain. Anyone can create their oracle card so that other users know it exists and can use it.
 
 Creating the [oracle](/en/blockchain/oracle) as microservice which takes data from an outside source and writes on the blockchain, remains outside the scope of Waves Oracles.
 
@@ -163,7 +163,7 @@ _Figure 1_.
 
 For other users to know about our oracle, we use Waves Oracles to create an oracle card.
 
-Waves Oracles is a service that utilizes [Waves Keeper](https://docs.waves.exchange/en/waves-keeper/).
+Waves Oracles is a service that utilizes [Waves Keeper](/en/ecosystem/waves-keeper/).
 
 To create an oracle card, use the same account you used to sign transactions in the code.
 

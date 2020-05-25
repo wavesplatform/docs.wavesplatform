@@ -241,12 +241,20 @@ module.exports = [
   },
   {
     /*===============================  Keeper  =====================================*/
-    from: '/en/waves-keeper()',
-    to: 'https://docs.waves.exchange/en/waves-keeper',
+    from: '/en/waves-keeper/about-waves-keeper.html',
+    to: '/en/ecosystem/waves-keeper',
   },
   {
-    from: '/ru/waves-keeper()',
-    to: 'https://docs.waves.exchange/ru/waves-keeper',
+    from: '/ru/waves-keeper/about-waves-keeper.html',
+    to: '/ru/ecosystem/waves-keeper',
+  },
+  {
+    from: '/en/waves-keeper/how-to-use-waves-keeper.html',
+    to: '/en/ecosystem/waves-keeper/getting-started-with-keeper',
+  },
+  {
+    from: '/ru/waves-keeper/how-to-use-waves-keeper.html',
+    to: '/ru/ecosystem/waves-keeper/getting-started-with-keeper',
   },
   {
     /*===============================  Matcher  =====================================*/
@@ -566,7 +574,7 @@ module.exports = [
     from: '/en/waves-environment/waves-node/what-is-a-full-node.html',
   },
   {
-    to: '/en/waves-node',
+	to: '/en/waves-node',
     from: '/en/waves-node/what-is-a-full-node',
   },
   {
@@ -709,7 +717,7 @@ module.exports = [
     from: '/en/miscellaneous/waves-protocol/waves-ng-protocol.html',
   },
   {
-    to: '/en/blockchain/waves-protocol/activation-protocol',
+    to: '/en/waves-node/activation-protocol',
     from: '/en/miscellaneous/waves-protocol/activation-protocol.html',
   },
   {
@@ -807,7 +815,7 @@ module.exports = [
   },
   {
     from: '/en/waves-api-and-sdk/waves-keeper-api.html',
-    to: 'https://docs.waves.exchange/en/waves-keeper/waves-keeper-api',
+    to: '/en/ecosystem/waves-keeper/waves-keeper-api',
   },
   {
     from: '/en/waves-api-and-sdk/waves-data-service-api.html',
@@ -883,7 +891,7 @@ module.exports = [
   },
   {
     from: '/ru/platform-features/activation-protocol.html',
-    to: '/ru/blockchain/waves-protocol/activation-protocol',
+    to: '/ru/waves-node/activation-protocol',
   },
   {
     from: '/ru/platform-features/assets-custom-tokens.html',
@@ -899,7 +907,11 @@ module.exports = [
   },
   { 
     from: '/en/blockchain/waves-protocol/activation-protocol',
-	to: '/en/waves-node/activation-protocol',
+    to: '/en/waves-node/activation-protocol',
+  },
+  { 
+    from: '/ru/blockchain/waves-protocol/activation-protocol',
+    to: '/ru/waves-node/activation-protocol',
   },
   { 
     from: '/en/waves-node/extensions/grpc-server/grpc-server-installation',

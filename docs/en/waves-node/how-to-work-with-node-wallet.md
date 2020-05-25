@@ -12,6 +12,7 @@ In this article, the following use cases of wallet are reviewed:
 * [creating a new wallet from scratch](#new).
 * [creating wallet using existing seed](#existing-seed).
 * [using existing wallet](#existing-wallet).
+* [updating wallet's settings](#wallet-settings).
 * [changing node's account](#re-create).
 
 ## Creating a New Wallet From Scratch <a id="new"></a>
@@ -47,7 +48,7 @@ As a result, the wallet.dat will be generated in the selected directory based on
 
 If you already have the wallet.dat created before, then just put it in the directory listed in the `wallet` section, and specify a password for it with the `password` parameter. Additional actions are not required.
 
-## Updating Wallet's Settings
+## Updating Wallet's Settings <a id="wallet-settings"></a>
 
 If you want to run the node with another wallet, use one of the following instuctions:
 

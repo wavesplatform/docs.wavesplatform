@@ -1,5 +1,7 @@
 # Asset Transactions
 
-К сожалению, эта статья еще не переведена на русский язык.
+В этой главе описаны публичные и приватные функции:
 
-[Читать на английском](/en/waves-node/node-api/asset-transactions)
+* [Публичные функции](/ru/waves-node/node-api/asset-transactions/public-functions)
+* [Приватные функции](/ru/waves-node/node-api/asset-transactions/private-functions)
+* [Методы распределения](/ru/waves-node/node-api/asset-transactions/distribution-methods)

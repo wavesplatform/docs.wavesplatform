@@ -6,7 +6,7 @@ sidebarDepth: 2
 
 The **node configuration file** is a settings file of a [node](/en/blockchain/node).
 
-The configuration system of Waves Node uses HOCON format. HOCON stands for Human-Optimized Config Object Notation. The complete description of HOCON could be found in the [Official HOCON documentation](https://github.com/typesafehub/config/blob/master/HOCON). The advantages of HOCON are simple syntax and ability to use comments.
+The configuration system of Waves Node uses HOCON format. HOCON stands for Human-Optimized Config Object Notation. The complete description of HOCON could be found in the [Official HOCON documentation](https://github.com/lightbend/config/blob/master/HOCON.md). The advantages of HOCON are simple syntax and ability to use comments.
 
 ## Default Configs and Overrides
 
@@ -178,7 +178,7 @@ The **REST API Section** is a section in the node configuration file with settin
 | Name | Description | Default value |
 | :--- | :--- | :--- |
 | `enable` | Activates REST API. <br>If you want to deactivate REST API, change the default value to `no` | yes |
-| `bind-address` | Sets the network address where the REST API will accept the incoming connections. <br>**Note.** It's not recommended to change the default value. Use [Nginx’s proxy pass module](http://nginx.org/ru/docs/http/ngx_http_proxy_module.html) or [SSH port forwarding](http://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html) for external access. | `"127.0.0.1"` |
+| `bind-address` | Sets the network address where the REST API will accept the incoming connections. <br>**Note.** It's not recommended to change the default value. Use [Nginx’s proxy pass module](http://nginx.org/ru/docs/http/ngx_http_proxy_module.html) or [SSH port forwarding](https://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html) for external access. | `"127.0.0.1"` |
 | `port` | Sets the port number where the REST API will await connections. | 6869 |
 | `api-key-hash` | Sets the hash of the [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key). For details about generating hash see [How to Generate Hash of the API Key](#how-to-generate-hash-of-the-api-key) section. | "" |
 | `cors` | This parameter allows to enable/disable sending cross-domain [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests to node from JavaScript. | yes |
@@ -206,7 +206,7 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 
 #### How to Generate Hash of the API Key
 
-[API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) of the node owner is highly important just like the [seed](http://confluence.wavesplatform.com/display/WDOCS/Seed+phrase) phrase and the password of the wallet.
+[API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) of the node owner is highly important just like the [seed phrase](/en/blockchain/glossary#secret-phrase) and the password of the wallet.
 
 Follow these steps to generate the hash of the API key:<br> 1. Go to [Swagger web interface](/en/waves-node/node-api)<br> 2. Click on [utils](https://nodes.wavesnodes.com/api-docs/index.html#/utils) section<br>3. Click on the API method [/utils/hash/secure](https://nodes.wavesnodes.com/api-docs/index.html#!/utils/hashSecure_1)<br>4. Create a unique [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) as a string value and include it in the `message` parameter<br> 5. Get the hash of the [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) and paste it in your node configuration file<br>6. Restart the node
 
@@ -239,7 +239,7 @@ The `utx` section allows to set unconfirmed transactions pool parameters.
 
 ### Features Settings
 
-The `features` section allows to set [features](/en/waves-node/features/readme) parameters
+The `features` section allows to set [features](/en/waves-node/features) parameters
 
 | Name                                 | Description                                                                                                                       | Default Value                  |
 |--------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|--------------------------------|

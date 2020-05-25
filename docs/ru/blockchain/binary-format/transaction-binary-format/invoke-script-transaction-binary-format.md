@@ -1,8 +1,46 @@
 # Бинарный формат транзакции вызова скрипта
 
-> Узнать больше о [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction)
+> Узнать больше о [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction).
 
-## Транзакция версии 1
+## Версия 2
+
+Бинарный формат версии 2 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format).
+
+Версия 2 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+
+```
+message InvokeScriptTransactionData {
+    Recipient d_app = 1;
+    bytes function_call = 2;
+    repeated Amount payments = 3;
+};
+
+message Recipient {
+    oneof recipient {
+        bytes public_key_hash = 1;
+        string alias = 2;
+    };
+};
+
+message Amount {
+    bytes asset_id = 1;
+    int64 amount = 2;
+};
+```
+
+| Поле | Размер | Описание |
+| :--- | :--- | :--- |
+| d_app.public_key_hash | 20 байт | Хеш открытого ключа аккаунта dApp (компонент адреса, см. раздел [Бинарный формат адреса](/ru/blockchain/binary-format/address-binary-format)) |
+| d_app.alias | От 4 до 30 байт | [Псевдоним адреса](/ru/blockchain/account/alias) аккаунта dApp |
+| function_call | | Имя и аргументы вызываемой функции. Бинарный формат вызова аналогичен [версии 1](#версия-1) (см. п. 13 в таблице) |
+| payments.asset_id | • 32 байта для ассета<br>• 0 для WAVES | ID токена в платеже |
+| payments.amount | 8 байт | Количество токена в платеже, в минимальных единицах («копейках») токена |
+
+Количество платежей — не более 2.
+
+Максимальный размер `d_app` + `function_call` + `payments` — 5120 байт.
+
+## Версия 1
 
 | Порядковый номер поля | Поле | Название JSON-поля | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -23,12 +61,12 @@
 | 13.3 | Идентификатор типа функции |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Константа. Значение должно быть равно 1 |
 | 13.4 | Имя функции | function | [String](/ru/blockchain/blockchain/blockchain-data-types) | До 255 |  |
 | 13.5.1 | Количество аргументов функции |  | [Integer](/ru/blockchain/blockchain/blockchain-data-types) | 4 |  |
-| 13.5.2 | ID типа аргумента 1 | type | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — типом аргумента является длинное целое.<br>1 — типом аргумента является массив байтов.<br>2 — типом аргумента является строка.<br>6 — типом аргумента является логическое значение True.<br>7 — типом аргумента является логическое значение False.<br>11 - типом аргумента является список.<br>Возможность передавать список в качестве аргумента появляется после активации возможности "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16). См. [Протокол активации](/ru/blockchain/waves-protocol/activation-protocol) |
+| 13.5.2 | ID типа аргумента 1 | type | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — типом аргумента является длинное целое.<br>1 — типом аргумента является массив байтов.<br>2 — типом аргумента является строка.<br>6 — типом аргумента является логическое значение True.<br>7 — типом аргумента является логическое значение False.<br>11 - типом аргумента является список.<br>Возможность передавать список в качестве аргумента добавлена в версии ноды 1.2.3 и включается после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network) |
 | 13.5.3 | Аргумент 1 | value | - [Long](/ru/blockchain/blockchain/blockchain-data-types)<br>- Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)]<br>- [String](/ru/blockchain/blockchain/blockchain-data-types)<br>- логическое значение True<br>- логическое значение False<br>- [List](/ru/ride/data-types/list) | `S` | `S` = 8, если типом является длинное целое.<br>Eсли типом является массив байтов, строка или список, то ограничение на размер поля отсутствует. Объем хранимых в поле данных не должен превышать 5 Килобайт.<br>Если типом является список, то<br>- его длина не должна превышать 1000 элементов,<br>- количество элементов в нем представляют первые 4 байта текущего поля,<br>- каждый элемент сериализуется так же, как и аргумент функции: сначала размещается ID типа элемента, затем его значение.<br>`S` = 0, если типом является логическое значение True или False |
-| 13.5.4 | ID типа аргумента 2 | type | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — типом аргумента является длинное целое.<br>1 — типом аргумента является массив байтов.<br>2 — типом аргумента является строка.<br>6 — типом аргумента является логическое значение True.<br>7 — типом аргумента является логическое значение False.<br>11 - типом аргумента является список.<br>Возможность передавать список в качестве аргумента появляется после активации возможности "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16). См. [Протокол активации](/ru/blockchain/waves-protocol/activation-protocol) |
+| 13.5.4 | ID типа аргумента 2 | type | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — типом аргумента является длинное целое.<br>1 — типом аргумента является массив байтов.<br>2 — типом аргумента является строка.<br>6 — типом аргумента является логическое значение True.<br>7 — типом аргумента является логическое значение False.<br>11 - типом аргумента является список.<br>Возможность передавать список в качестве аргумента добавлена в версии ноды 1.2.3 и включается после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network) |
 | 13.5.5 | Аргумент 2 | value | - [Long](/ru/blockchain/blockchain/blockchain-data-types)<br>- Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)]<br>- [String](/ru/blockchain/blockchain/blockchain-data-types)<br>- логическое значение True<br>- логическое значение False<br>- [List](/ru/ride/data-types/list) | `S` | `S` = 8, если типом является длинное целое.<br>Eсли типом является массив байтов, строка или список, то ограничение на размер поля отсутствует. Объем хранимых в поле данных не должен превышать 5 Килобайт.<br>Если типом является список, то<br>- его длина не должна превышать 1000 элементов,<br>- количество элементов в нем представляют первые 4 байта текущего поля,<br>- каждый элемент сериализуется так же, как и аргумент функции: сначала размещается ID типа элемента, затем его значение.<br>`S` = 0, если типом является логическое значение True или False |
 | ... | ... | ... | ... | ... | ... |
-| 13.5.[2 × N] | ID типа аргумента N | type | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — типом аргумента является длинное целое.<br>1 — типом аргумента является массив байтов.<br>2 — типом аргумента является строка.<br>6 — типом аргумента является логическое значение True.<br>7 — типом аргумента является логическое значение False.<br>11 - типом аргумента является список.<br>Возможность передавать список в качестве аргумента появляется после активации возможности "Ride V4 and multiple attached payments for Invoke Script Transaction" (No. 16). См. [Протокол активации](/ru/blockchain/waves-protocol/activation-protocol) |
+| 13.5.[2 × N] | ID типа аргумента N | type | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — типом аргумента является длинное целое.<br>1 — типом аргумента является массив байтов.<br>2 — типом аргумента является строка.<br>6 — типом аргумента является логическое значение True.<br>7 — типом аргумента является логическое значение False.<br>11 - типом аргумента является список.<br>Возможность передавать список в качестве аргумента добавлена в версии ноды 1.2.3 и включается после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network) |
 | 13.5.[2 × N + 1] | Аргумент N | value | - [Long](/ru/blockchain/blockchain/blockchain-data-types)<br>- Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)]<br>- [String](/ru/blockchain/blockchain/blockchain-data-types)<br>- логическое значение True<br>- логическое значение False<br>- [List](/ru/ride/data-types/list) | `S` | `S` = 8, если типом является длинное целое.<br>Eсли типом является массив байтов, строка или список, то ограничение на размер поля отсутствует. Объем хранимых в поле данных не должен превышать 5 Килобайт.<br>Если типом является список, то<br>- его длина не должна превышать 1000 элементов,<br>- количество элементов в нем представляют первые 4 байта текущего поля,<br>- каждый элемент сериализуется так же, как и аргумент функции: сначала размещается ID типа элемента, затем его значение.<br>`S` = 0, если типом является логическое значение True или False |
 | 14.1 | Количество платежей |  | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 14.2 | Количество токена в платеже 1 | amount | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
@@ -51,4 +89,4 @@
 
 ## JSON-представление транзакции
 
-Смотрите [пример](https://nodes.wavesplatform.com/transactions/info/7CVjf5KGRRYj6UyTC2Etuu4cUxx9qQnCJox8vw9Gy9yq) в Node API.
+Смотрите [пример](https://nodes.wavesnodes.com/transactions/info/7CVjf5KGRRYj6UyTC2Etuu4cUxx9qQnCJox8vw9Gy9yq) в Node API.

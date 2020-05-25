@@ -116,26 +116,6 @@ module.exports = {
           path: blockchainPath + 'binary-format/transaction-binary-format',
           children: [
             {
-              title: 'Cоздание псевдонима',
-              path: blockchainPath + 'binary-format/transaction-binary-format/create-alias-transaction-binary-format',
-            },
-            {
-              title: 'Сжигание токена',
-              path: blockchainPath + 'binary-format/transaction-binary-format/burn-transaction-binary-format',
-            },
-            {
-              title: 'Транзакция данных',
-              path: blockchainPath + 'binary-format/transaction-binary-format/data-transaction-binary-format',
-            },
-            {
-              title: 'Обмен',
-              path: blockchainPath + 'binary-format/transaction-binary-format/exchange-transaction-binary-format',
-            },
-            {
-              title: 'Генезис',
-              path: blockchainPath + 'binary-format/transaction-binary-format/genesis-transaction-binary-format',
-            },
-            {
               title: 'Вызов скрипта',
               path: blockchainPath + 'binary-format/transaction-binary-format/invoke-script-transaction-binary-format',
             },
@@ -144,8 +124,16 @@ module.exports = {
               path: blockchainPath + 'binary-format/transaction-binary-format/issue-transaction-binary-format',
             },
             {
-              title: 'Отмена лизинга',
-              path: blockchainPath + 'binary-format/transaction-binary-format/lease-cancel-transaction-binary-format',
+              title: 'Генезис',
+              path: blockchainPath + 'binary-format/transaction-binary-format/genesis-transaction-binary-format',
+            },
+            {
+              title: 'Данные',
+              path: blockchainPath + 'binary-format/transaction-binary-format/data-transaction-binary-format',
+            },
+            {
+              title: 'Довыпуск',
+              path: blockchainPath + 'binary-format/transaction-binary-format/reissue-transaction-binary-format',
             },
             {
               title: 'Лизинг',
@@ -156,16 +144,24 @@ module.exports = {
               path: blockchainPath + 'binary-format/transaction-binary-format/mass-transfer-transaction-binary-format',
             },
             {
-              title: 'Довыпуск',
-              path: blockchainPath + 'binary-format/transaction-binary-format/reissue-transaction-binary-format',
+              title: 'Обмен',
+              path: blockchainPath + 'binary-format/transaction-binary-format/exchange-transaction-binary-format',
             },
             {
-              title: 'Установка скрипта ассета',
-              path: blockchainPath + 'binary-format/transaction-binary-format/set-asset-script-transaction-binary-format',
+              title: 'Обновление информации ассета',
+              path: blockchainPath + 'binary-format/transaction-binary-format/update-asset-info-transaction-binary-format',
             },
             {
-              title: 'Установка скрипта',
-              path: blockchainPath + 'binary-format/transaction-binary-format/set-script-transaction-binary-format',
+              title: 'Отмена лизинга',
+              path: blockchainPath + 'binary-format/transaction-binary-format/lease-cancel-transaction-binary-format',
+            },
+            {
+              title: 'Сжигание токена',
+              path: blockchainPath + 'binary-format/transaction-binary-format/burn-transaction-binary-format',
+            },
+            {
+              title: 'Cоздание псевдонима',
+              path: blockchainPath + 'binary-format/transaction-binary-format/create-alias-transaction-binary-format',
             },
             {
               title: 'Спонсирование',
@@ -175,81 +171,19 @@ module.exports = {
               title: 'Перевод',
               path: blockchainPath + 'binary-format/transaction-binary-format/transfer-transaction-binary-format',
             },
+            {
+              title: 'Установка скрипта',
+              path: blockchainPath + 'binary-format/transaction-binary-format/set-script-transaction-binary-format',
+            },
+            {
+              title: 'Установка скрипта ассета',
+              path: blockchainPath + 'binary-format/transaction-binary-format/set-asset-script-transaction-binary-format',
+            },
           ],
         },
         {
           title: '[en] Transaction proof binary format',
           path: blockchainPath + 'binary-format/transaction-proof-binary-format',
-        },
-        {
-          title: 'Protobuf-схема транзакции',
-          path: blockchainPath + 'binary-format/transaction-protobuf-scheme',
-          children: [
-            {
-               title: 'Создание псевдонима',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/create-alias-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Сжигание токена',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/burn-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Транзакция данных',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/data-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Обмен',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/exchange-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Генезис',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/genesis-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Вызов скрипта',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/invoke-script-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Выпуск',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/issue-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Отмена лизинга',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/lease-cancel-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Лизинг',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/lease-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Массовый перевод',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/mass-transfer-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Довыпуск',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/reissue-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Установка скрипта ассета',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/set-asset-script-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Установка скрипта',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/set-script-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Спонсирование',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/sponsor-fee-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Перевод',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/transfer-transaction-protobuf-scheme',
-            },
-            {
-               title: 'Обновление информации ассета',
-               path: blockchainPath + 'binary-format/transaction-protobuf-scheme/update-asset-info-transaction-protobuf-scheme',
-             },
-          ],
         },
       ],
     },
@@ -422,6 +356,12 @@ module.exports = {
         {
           title: 'Комиссия за транзакцию',
           path: blockchainPath + 'transaction/transaction-fee',
+          children: [
+            {
+              title: 'Спонсирование комиссии',
+              path: blockchainPath + 'waves-protocol/sponsored-fee',
+            },
+          ]
         },
         {
           title: 'Подтверждение транзакции',
@@ -528,10 +468,6 @@ module.exports = {
           path: blockchainPath + 'waves-protocol/waves-ng-solution',
         },
         {
-          title: '[en] Sponsored fee',
-          path: blockchainPath + 'waves-protocol/sponsored-fee',
-        },
-        {
           title: 'Честный Proof-of-Stake',
           path: blockchainPath + 'waves-protocol/fair-pos',
         },
@@ -541,7 +477,7 @@ module.exports = {
         },
         {
           title: 'Протокол активации',
-          path: blockchainPath + 'waves-protocol/activation-protocol',
+          path: nodePath + 'activation-protocol',
         },
       ],
     },
@@ -555,177 +491,173 @@ module.exports = {
     {
       title: 'Руководство владельца ноды',
       path: nodePath,
-    },
-    {
-      title: 'Full нода Waves',
-      path: nodePath + 'what-is-a-full-node',
-    },
-	  {
-      title: 'Как установить ноду',
+	},
+	{
+      title: 'Установить ноду Waves',
       path: nodePath + 'how-to-install-a-node/how-to-install-a-node',
       children: [
         {
-          title: 'Установка ноды на Mac',
+          title: 'Развернуть ноду в Docker',
+          path: nodePath + 'waves-node-in-docker',
+        },
+        {
+          title: 'Установить ноду на Ubuntu',
+          path: nodePath + 'how-to-install-a-node/on-ubuntu',
+        },	
+        {
+          title: 'Установить ноду на macOS',
           path: nodePath + 'how-to-install-a-node/on-mac',
         },
         {
-          title: 'Установка ноды на Windows',
+          title: 'Установить ноду на Windows',
           path: nodePath + 'how-to-install-a-node/on-windows',
         },
         {
-          title: 'Установка ноды на Ubuntu',
-          path: nodePath + 'how-to-install-a-node/on-ubuntu',
-        }
+          title: 'Установить из исходников (сборка SBT)',
+          path: nodePath + 'how-to-build-and-test-a-node',
+        },
+        {
+          title: 'Развернуть ноду в облаке',
+          path: nodePath + 'how-to-install-a-node/clouds',
+		  children: [
+		    {
+              title: 'Развернуть ноду в Yandex.Cloud',
+              path: nodePath + 'running-waves-node-in-yandex-cloud',
+            },
+		  ]			
+        },	
       ],
     },
-    {
-      title: '[en] How to build and test a node',
-      path: nodePath + 'how-to-build-and-test-a-node',
-    },
-    {
-      title: 'Способы загрузки актуального блокчейна',
+	{
+      title: 'Загрузить блокчейн Waves',
       path: nodePath + 'options-for-getting-actual-blockchain',
       children: [
         {
-          title: 'Экспорт/Импорт блокчейна',
+          title: 'Экспортировать и импортировать блокчейн',
           path: nodePath + 'options-for-getting-actual-blockchain/import-from-the-blockchain',
         },
         {
-          title: 'Загрузка готовой актуальной базы данных',
+          title: 'Загрузить актуальный блокчейн',
           path: nodePath + 'options-for-getting-actual-blockchain/state-downloading-and-applying',
         },
+		{
+          title: 'Откатить ноду',
+          path: nodePath + 'how-to-rollback-a-node',
+        },
       ],
     },
     {
-      title: 'Обновление ноды Waves',
+      title: 'Обновить ноду',
       path: nodePath + 'upgrading',
-    },
-    {
-     title: 'Как откатить ноду',
-     path: nodePath + 'how-to-rollback-a-node',
-    },
-    {
-      title: 'Работа с кошельком ноды',
-      path: nodePath + 'working-with-node-wallet',
-    },
-    {
-      title: 'Запуск ноды в Docker',
-      path: nodePath + 'waves-node-in-docker',
-    },
-    {
-      title: 'Про Waves Testnet',
-      path: nodePath + 'joining-testnet',
-    },
-    {
-      title: '[en] Private Waves network',
-      path: nodePath + 'private-waves-network',
-    },
-	  {
-      title: 'Расширения',
-      path: nodePath + 'extensions',
-      children: [
-        {
-          title: 'gRPC Server',
-          path: nodePath + 'extensions/grpc-server',
-          children: [
-            {
-              title: 'Установка gRPC Server',
-              path: nodePath + 'extensions/grpc-server/grpc-server-installation',
-            },
-          ],
-        },
-      ]
-    },
-    {
-      title: '[en] Features',
-      path: nodePath + 'features/features',
-      children: [
-        {
-          title: '[en] Feature',
-          path: nodePath + 'features/feature',
-        },
-        {
-          title: '[en] Feature activation protocol',
-          path: nodePath + 'features/feature-activation-protocol',
-        }
-      ],
     },
     {
       title: 'Конфигурация ноды',
       path: nodePath + 'node-configuration',
     },
     {
-      title: '[en] Logging configuration',
+      title: 'Логирование',
       path: nodePath + 'logging-configuration',
     },
     {
-      title: 'Node API',
+      title: 'Кошелек ноды',
+      path: nodePath + 'how-to-work-with-node-wallet',
+    },	
+    {
+      title: 'Фичи',
+      path: nodePath + 'features',
+      children: [
+        {
+          title: 'Протокол активации',
+          path: nodePath + 'activation-protocol',
+        },
+      ],
+    },
+    {
+      title: 'Собственный блокчейн',
+      path: nodePath + 'private-waves-network',
+    },
+    {
+      title: 'API ноды',
       path: nodePath + 'node-api',
       children: [
         {
-          title: '[en] Request headers',
+          title: 'Заголовки запроса',
           path: nodePath + 'node-api/headers',
         },
         {
-          title: '[en] Address',
+          title: 'Активация фич',
+          path: nodePath + 'node-api/feature-activation',
+        },	
+        {
+          title: 'Адрес',
           path: nodePath + 'node-api/address',
         },
         {
-          title: '[en] Lease Transactions',
+          title: 'Транзакции лизинга',
           path: nodePath + 'node-api/lease-transactions',
         },
         {
-          title: '[en] Assets',
+          title: 'Ассеты',
           path: nodePath + 'node-api/asset-transactions',
           children: [
             {
-              title: '[en] Public Functions',
+              title: 'Публичные функции',
               path: nodePath + 'node-api/asset-transactions/public-functions',
             },
             {
-              title: '[en] Private Functions',
+              title: 'Приватные функции',
               path: nodePath + 'node-api/asset-transactions/private-functions',
             },
             {
-              title: '[en] Distribution Methods',
+              title: 'Методы распределения',
               path: nodePath + 'node-api/asset-transactions/distribution-methods',
             }
           ],
         },
         {
-          title: '[en] Alias Transaction',
+          title: 'Транзакция Alias',
           path: nodePath + 'node-api/alias-transaction',
         },
         {
-          title: '[en] Transactions',
+          title: 'Транзакции',
           path: nodePath + 'node-api/transactions',
         },
         {
-          title: '[en] Peers',
+          title: 'Пиры',
           path: nodePath + 'node-api/peers',
         },
         {
-          title: '[en] Blocks',
+          title: 'Блоки',
           path: nodePath + 'node-api/blocks',
         },
         {
-          title: '[en] Utils',
+          title: 'Utils',
           path: nodePath + 'node-api/utils',
         },
         {
-          title: '[en] Examples of transactions',
+          title: 'Примеры транзакций',
           path: nodePath + 'node-api/example-transactions',
-        }
-      ],
+        },
+        {
+          title: 'API ограничения пула публичных нод',
+          path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
+        },
+      ],   
     },
     {
-      title: 'Запуск ноды Waves в Яндекс.Облаке',
-      path: nodePath + 'running-waves-node-in-yandex-cloud',
+      title: 'Расширения',
+      path: nodePath + 'extensions',
+      children: [
+        {
+          title: 'gRPC Server',
+          path: nodePath + 'extensions/grpc-server',
+        },
+      ]
     },
-    {
-      title: 'Ограничения API пула публичных нод',
-      path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
-    },
+	{
+      title: 'Устранение неполадок',
+      path: nodePath + 'node-troubleshooting',
+	},
   ],
 
   [ridePath]: [
@@ -976,6 +908,10 @@ module.exports = {
               path: ridePath + 'structures/script-actions/script-transfer',
             },
             {
+              title: 'SponsorFee (v4)',
+              path: ridePath + 'structures/script-actions/sponsor-fee',
+            },
+            {
               title: 'StringEntry (v4)',
               path: ridePath + 'structures/script-actions/string-entry',
             },
@@ -1022,6 +958,10 @@ module.exports = {
             {
               title: 'AttachedPayment',
               path: ridePath + 'structures/common-structures/attached-payment',
+            },
+            {
+              title: 'BalanceDetails',
+              path: ridePath + 'structures/common-structures/balance-details',
             },
             {
               title: 'BlockInfo',
@@ -1161,6 +1101,18 @@ module.exports = {
           path: buildingAppsPath + 'how-to/basic/transaction',
         },
         {
+          title: 'Выпуск токена',
+          path: buildingAppsPath + 'how-to/assets/issue',
+        },
+        {
+          title: 'Распространение токена (airdrop)',
+          path: buildingAppsPath + 'how-to/assets/airdrop',
+        },
+        {
+          title: 'Прием платежей',
+          path: buildingAppsPath + 'how-to/assets/payment',
+        },
+        {
           title: 'Покупка и продажа токенов',
           path: buildingAppsPath + 'how-to/basic/trading',
         },
@@ -1237,48 +1189,6 @@ module.exports = {
           path: sdkPath + 'waves-data-service-api',
         },
         {
-          title: 'Клиентские библиотеки',
-          path: sdkPath + 'client-libraries',
-          children: [
-            {
-              title: 'Signer',
-              path: sdkPath + 'client-libraries/signer',
-            },
-            {
-              title: '[en] PyWaves',
-              path: sdkPath + 'client-libraries/pywaves',
-            },
-            {
-              title: '[en] WavesJ',
-              path: sdkPath + 'client-libraries/wavesj',
-            },
-            {
-              title: '[en] WavesCS',
-              path: sdkPath + 'client-libraries/wavescs',
-            },
-            {
-              title: '[en] WavesC',
-              path: sdkPath + 'client-libraries/waves-c',
-            },
-            {
-              title: '[en] GoWaves',
-              path: sdkPath + 'client-libraries/gowaves',
-            },
-            {
-              title: '[en] WavesRS',
-              path: sdkPath + 'client-libraries/wavesrs',
-            },
-            {
-              title: '[en] Waves transactions',
-              path: sdkPath + 'client-libraries/waves-transactions',
-            },
-            {
-              title: '[en] Community libraries',
-              path: sdkPath + 'client-libraries/unofficial-libraries',
-            },
-          ],
-        },
-        {
           title: '[en] Waves Games',
           path: sdkPath + 'waves-gaming-api',
           children: [
@@ -1291,6 +1201,48 @@ module.exports = {
               path: sdkPath + 'waves-gaming-api/examples',
             },
           ],
+        },
+      ],
+    },
+    {
+      title: 'Клиентские библиотеки',
+      path: sdkPath + 'client-libraries',
+      children: [
+        {
+          title: 'Signer',
+          path: sdkPath + 'client-libraries/signer',
+        },
+        {
+          title: '[en] PyWaves',
+          path: sdkPath + 'client-libraries/pywaves',
+        },
+        {
+          title: '[en] WavesJ',
+          path: sdkPath + 'client-libraries/wavesj',
+        },
+        {
+          title: '[en] WavesCS',
+          path: sdkPath + 'client-libraries/wavescs',
+        },
+        {
+          title: '[en] WavesC',
+          path: sdkPath + 'client-libraries/waves-c',
+        },
+        {
+          title: '[en] GoWaves',
+          path: sdkPath + 'client-libraries/gowaves',
+        },
+        {
+          title: '[en] WavesRS',
+          path: sdkPath + 'client-libraries/wavesrs',
+        },
+        {
+          title: '[en] Waves transactions',
+          path: sdkPath + 'client-libraries/waves-transactions',
+        },
+        {
+          title: '[en] Community libraries',
+          path: sdkPath + 'client-libraries/unofficial-libraries',
         },
       ],
     },
@@ -1308,6 +1260,26 @@ module.exports = {
     {
       title: 'Пополнение баланса аккаунта в тестовой сети',
       path: ecosystemPath + 'waves-explorer/account-balance-top-up-in-the-test-network',
+    },
+    {
+      title: 'Waves Keeper',
+      path: ecosystemPath + 'waves-keeper',
+      children: [
+        {
+          title: 'Начало работы с Waves Keeper',
+          path: ecosystemPath + 'waves-keeper/getting-started-with-keeper',
+        },
+        {
+          title: 'Waves Keeper API',
+          path: ecosystemPath + 'waves-keeper/waves-keeper-api',
+          children: [
+            {
+              title: 'Формат транзакций',
+              path: ecosystemPath + 'waves-keeper/transaction',
+            },
+          ],
+        },
+      ],
     },
     {
       title: 'Waves Oracles',
@@ -1379,6 +1351,10 @@ module.exports = {
     {
       title: 'Release notes (Node Go)',
       path: keepInTouchPath + 'release-notes-go',
+    },
+    {
+      title: 'Сохранение транзакций с неудачным результатом выполнения скрипта',
+      path: keepInTouchPath + 'april',
     },
     {
       title: 'Обновления в документации',

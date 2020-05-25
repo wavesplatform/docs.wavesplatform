@@ -2,7 +2,7 @@
 
 > :warning: The structure is disabled in Standard library version 4. Use `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, and `StringEntry` instead of it.
 
-**DataEntry** is a structure that sets key and value of [account data storage](/en/blockchain/account/account-data-storage) entry, which is created or modified as the result of the [callable function](/en/ride/functions/callable-function) invocation.
+`DataEntry` is a structure that sets key and value of [account data storage](/en/blockchain/account/account-data-storage) entry. Adding or changing an entry is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#invocation-result).
 
 ## Constructor
 
