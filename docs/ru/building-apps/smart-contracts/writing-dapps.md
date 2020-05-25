@@ -193,7 +193,7 @@ describe('8 ball', () => {
 
 <details><summary>Код вызова скрипта</summary>
 <p>
-<pre>
+```
 await signer.invoke({
     dApp: ballAddress,
     call: {
@@ -201,7 +201,7 @@ await signer.invoke({
         args:[{"type": "string", "value": question}]
     }
 }).broadcast()
-</pre>
+```
 
 [Полный код приложения на Github](https://github.com/elenaili/waves8ball)
 </p>
