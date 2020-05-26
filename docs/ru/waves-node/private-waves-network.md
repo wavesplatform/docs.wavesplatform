@@ -45,7 +45,9 @@ genesis-generator
 
 Запустите команду генерации блока генезиса:
 
-```sbt "node/runMain com.wavesplatform.GenesisBlockGenerator node/src/test/resources/genesis.example.conf genesis.conf"```
+```
+sbt "node/runMain com.wavesplatform.GenesisBlockGenerator src/test/resources/genesis.example.conf genesis.conf"
+```
 
 Результат будет записан в файл `genesis.conf` (можно использовать произвольное имя файла) и будет выглядеть примерно так:
 
@@ -75,7 +77,7 @@ genesis {
 При сборке fat JAR вы можете сгенерировать блок генезиса следующим образом.
 
 ```bash
-java -cp ./node/target/waves-all-0.17.2-grpc-27-g0fab715-DIRTY.jar com.wavesplatform.GenesisBlockGenerator node/src/test/resources/genesis.example.conf
+java -cp waves-all-1.1.10.jar com.wavesplatform.GenesisBlockGenerator genesis.example.conf
 ```
 
 Вывод будет аналогичным.
