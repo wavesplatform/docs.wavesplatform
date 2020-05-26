@@ -2,7 +2,7 @@
 
 > Подробнее о [блоке](/ru/blockchain/block).
 
-Блоки хранятся в блокчейне в бинарном формате (байтовом представлении). [Расширения](/ru/waves-node/extensions) ноды, в частности [gRPC-сервер](/ru/waves-node/extensions/grpc-server), могут работать непосредственно с данными в бинарном формате.
+Блоки хранятся на блокчейне в бинарном формате (байтовом представлении). [Расширения](/ru/waves-node/extensions) ноды, в частности [gRPC-сервер](/ru/waves-node/extensions/grpc-server), могут работать непосредственно с данными в бинарном формате.
 
 ## Версия 5
 
@@ -64,7 +64,7 @@ message Block {
 | 9.1 | Фича 1 | 2 | [Short](/ru/blockchain/blockchain/blockchain-data-types) | |
 | ... | ... | ... | ... | ... |
 | 9.[M] | Фича M | 2 | [Short](/ru/blockchain/blockchain/blockchain-data-types) | |
-| 10 | Размер [вознаграждения за генерацию блока](/ru/blockchain/mining/mining-reward), за который голосует генератор блока. Значение -1 означает, что генератор блока голосует за текущий размер вознаграждения | 8 | [Long](/ru/blockchain/blockchain/blockchain-data-types)| |
+| 10 | Размер [вознаграждения за генерацию блока](/ru/blockchain/mining/mining-reward), за который голосует генератор блока | 8 | [Long](/ru/blockchain/blockchain/blockchain-data-types)| Значение -1 означает, что генератор блока голосует за текущий размер вознаграждения |
 | 11 | Открытый ключ аккаунта генератора блока | 32 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | |
 | 12 | [Подпись блока](/en/blockchain/block/block-signature) | 64  | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)]| | |
 

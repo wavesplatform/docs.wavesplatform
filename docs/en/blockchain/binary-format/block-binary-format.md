@@ -6,7 +6,7 @@ Blocks are stored on the blockchain in a binary format (byte representation). [N
 
 ## Version 5
 
-Binary format of block version 5 is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) protobuf scheme. For more information about protobuf see [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=ru).
+Binary format of block version 5 is defined in [block.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) protobuf scheme. For more information about protobuf see [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=ru).
 
 Version 5 is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
@@ -34,7 +34,7 @@ message Block {
 | Field | Description |
 | :--- | :--- |
 | chain_id | [Chain ID](/en/blockchain/blockchain-network/chain-id) |
-| reference | • For the first block of version 5, that is, at the height of activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”: `signature` of the previous block<br>• Foк the next blocks: BLAKE2b-256 hash of the previous block header |
+| reference | • For the first block of version 5, that is, at the height of activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”: `signature` of the previous block.<br>• For the next blocks: BLAKE2b-256 hash of the previous block header |
 | base_target | [Base target](/en/blockchain/block/block-generation/base-target): а variable that is used in the block generation algorithm |
 | generation_signature | [Generation signature](/en/blockchain/block/block-generation/): а variable that is used in the block generation algorithm (32 bytes) |
 | feature_votes | List of features for which the block generator votes. See the [Features](/en/waves-node/features) |
@@ -64,7 +64,7 @@ message Block {
 | 9.1 | Feature 1 | 2 | [Short](/en/blockchain/blockchain/blockchain-data-types) | |
 | ... | ... | ... | ... | ... |
 | 9.[M] | Feature M | 2 | [Short](/en/blockchain/blockchain/blockchain-data-types) | |
-| 10 | [Block generation reward](/en/blockchain/mining/mining-reward) for which the block generator votes. -1 means that block generator votes for the current reward size | 8 | [Long](/en/blockchain/blockchain/blockchain-data-types)| |
+| 10 | [Block generation reward](/en/blockchain/mining/mining-reward) for which the block generator votes | 8 | [Long](/en/blockchain/blockchain/blockchain-data-types)| -1 means that block generator votes for the current reward size |
 | 11 | Block generator’s account public key | 32 | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | |
 | 12 | [Block signature](/en/blockchain/block/block-signature) | 64  | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)]| | |
 
