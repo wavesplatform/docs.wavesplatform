@@ -2,6 +2,10 @@
 
 ## Майские статьи
 
+### Блокчейн
+
+* [Бинарный формат блока](/ru/blockchain/binary-format/block-binary-format)
+
 ### Ride
 
 * Обновлены [ограничения](/ru/ride/limits/)
