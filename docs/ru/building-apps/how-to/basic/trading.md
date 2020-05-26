@@ -190,7 +190,6 @@ console.log(cancelledOrder.status);
 buy_order.cancel()
 ```
 
-
 ## Получение списка ордеров
 
 ### С помощью Waves.Exchange
@@ -199,9 +198,9 @@ buy_order.cancel()
 
 ### С помощью JavaScript
 
-Для получения списка ордеров, отправленных аккаунтом, предназначен метод `GET /matcher/orderbook/{publicKey}`. Описание метода приведено в разделе [Matcher API](https://docs.waves.exchange/ru/waves-matcher/matcher-api) документации Waves.Exchange.
+Для получения списка размещенных аккаунтом ордеров предназначен метод `GET /matcher/orderbook/{publicKey}`. Описание метода приведено в разделе [Matcher API](https://docs.waves.exchange/ru/waves-matcher/matcher-api) документации Waves.Exchange.
 
-В заголовке запроса необходимо указать подпись массива байтов, состоящего из байтов публичного ключа и байтов текущей временной метки. Для генерации подписи используется функция [signBytes](https://github.com/wavesplatform/ts-lib-crypto#signbytes) и секретная фраза (seed) аккаунта.
+В заголовке запроса необходимо указать подпись массива байтов, состоящего из байтов публичного ключа аккаунта и байтов текущей временной метки. Для генерации подписи используется функция [signBytes](https://github.com/wavesplatform/ts-lib-crypto#signbytes) и секретная фраза (seed) аккаунта.
 
 ```javascript
 import { libs } from '@waves/waves-transactions';
@@ -224,7 +223,7 @@ const getOrdersApiSignature = (seed, senderPublicKey, timestamp) => {
 const timestamp = Date.now();
 const senderPublicKey = libs.crypto.publicKey(seed);
 const signature = getOrdersApiSignature(seed, senderPublicKey, timestamp);
-const url = `${matcherUrl}/matcher/orderbook/${senderPublicKey}`; // Добавьте ?activeOnly=true для получения только актвных ордеров
+const url = `${matcherUrl}/matcher/orderbook/${senderPublicKey}`; // Добавьте ?activeOnly=true для получения только активных ордеров
 
 let response = await fetch(url, {
         headers: {
@@ -249,8 +248,8 @@ my_address = pw.Address(seed = 'insert your seed here')
 matcher_url = 'https://matcher-testnet.waves.exchange'
 pw.setMatcher(matcher_url)
 
-btc = pw.Asset('DWgwcZTMhSvnyYCoWLRUXXSH1RSkzThXLJhww9gwkqdn') // BTС на Testnet
-usdn = pw.Asset('DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p') // USDN на Testnet
+btc = pw.Asset('DWgwcZTMhSvnyYCoWLRUXXSH1RSkzThXLJhww9gwkqdn') # BTС на Testnet
+usdn = pw.Asset('3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC') # USDN на Testnet
 
 asset_pair = pw.AssetPair(btc, usdn)
 my_address.getOrderHistory(asset_pair)

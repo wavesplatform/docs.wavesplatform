@@ -2,6 +2,12 @@
 
 ## May Articles
 
+### Building Apps
+
+Added how-to guide:
+
+* [Get Order List](/ru/building-apps/how-to/basic/trading#get-order-list)
+
 ### Ride
 
 * [Limitations](/en/ride/limits) updated
