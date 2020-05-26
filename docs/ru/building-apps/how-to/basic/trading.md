@@ -189,3 +189,69 @@ console.log(cancelledOrder.status);
 # используем ордер из предыдущего примера
 buy_order.cancel()
 ```
+
+
+## Получение списка ордеров
+
+### С помощью Waves.Exchange
+
+Список ордеров можно посмотреть на вкладках **Мои открытые ордера** и **Моя история ордеров** в online/desktop-приложении или на вкладке **Мои ордера** в мобильном приложении. См. разделы [Торговля на бирже (online/desktop-приложение)](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) и [Торговля на бирже (мобильные приложения)](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-mobile/mobile-trading/mobile-start-trading) документации Waves.Exchange.
+
+### С помощью JavaScript
+
+Для получения списка ордеров, отправленных аккаунтом, предназначен метод `GET /matcher/orderbook/{publicKey}`. Описание метода приведено в разделе [Matcher API](https://docs.waves.exchange/ru/waves-matcher/matcher-api) документации Waves.Exchange.
+
+В заголовке запроса необходимо указать подпись массива байтов, состоящего из байтов публичного ключа и байтов текущей временной метки. Для генерации подписи используется функция [signBytes](https://github.com/wavesplatform/ts-lib-crypto#signbytes) и секретная фраза (seed) аккаунта.
+
+```javascript
+import { libs } from '@waves/waves-transactions';
+
+const matcherUrl = 'https://matcher-testnet.waves.exchange';
+const seed = 'insert your seed here';
+
+const { LONG, BASE58_STRING } = libs.marshall.serializePrimitives;
+
+const getOrdersApiSignature = (seed, senderPublicKey, timestamp) => {
+    const pBytes = BASE58_STRING(senderPublicKey);
+    const timestampBytes = LONG(timestamp);
+    const bytes = Uint8Array.from([
+        ...Array.from(pBytes),
+        ...Array.from(timestampBytes),
+    ]);
+    return libs.crypto.signBytes(seed, bytes);
+};
+
+const timestamp = Date.now();
+const senderPublicKey = libs.crypto.publicKey(seed);
+const signature = getOrdersApiSignature(seed, senderPublicKey, timestamp);
+const url = `${matcherUrl}/matcher/orderbook/${senderPublicKey}`; // Добавьте ?activeOnly=true для получения только актвных ордеров
+
+let response = await fetch(url, {
+        headers: {
+            "Timestamp": timestamp,
+            "Signature": signature
+        }
+    });
+
+let json = await response.json();
+console.table(json);
+```
+
+### С помощью Python
+
+Получить список ордеров по заданной ассетной паре, отправленных аккаунтом, можно с помощью функции `getOrderHistory` библиотеки [PyWaves](https://github.com/PyWaves/PyWaves/).
+
+```python
+import pywaves as pw
+
+my_address = pw.Address(seed = 'insert your seed here')
+
+matcher_url = 'https://matcher-testnet.waves.exchange'
+pw.setMatcher(matcher_url)
+
+btc = pw.Asset('DWgwcZTMhSvnyYCoWLRUXXSH1RSkzThXLJhww9gwkqdn') // BTС на Testnet
+usdn = pw.Asset('DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p') // USDN на Testnet
+
+asset_pair = pw.AssetPair(btc, usdn)
+my_address.getOrderHistory(asset_pair)
+```
