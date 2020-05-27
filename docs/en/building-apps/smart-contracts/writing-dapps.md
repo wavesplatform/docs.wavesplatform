@@ -1,224 +1,237 @@
-# Writing dApps
+# Create dApp: Complete Tutorial
 
-## Default transactions validation
-After the creation of a Waves account, each transaction that's sent from this account goes through the process of validation. If a transaction is valid, then it goes to generated block in the blockchain, if not — it's rejected by blockchain.
+This tutorial explains how to create and launch a dApp based on Waves blockchain.
 
-By default, _only_ the fact that the transaction belongs to the owner of the account from which it was sent, is checked. To check that, the transaction's binary data, the account owner's public key and the digital signature of the transaction are being run through special `sigVerify` function. If the `sigVerify` function returns `true` — the transaction is considered valid, otherwise — invalid.
+In this tutorial, we use [Waves IDE](https://ide.wavesplatform.com/) to develop and test the dApp and JavaScript to deploy the web app that calls dApp functions.
 
-## Transactions validation using account scripts
-If a validation algorithm has to have some additional logic that goes beyond only the detection of transaction's ownership, then a special script written in Ride is used. This script is attached to the account. That kind of script is called the **account script**. After the attachment of the script to the account, all the transactions that are sent from this account will be verified with this script.
+dApp development consists of five simple steps. Let's complete them one by one. We'll create a simple Waves Magic 8 Ball application that generates pseudorandom answers. Repeating these steps, you can create advanced applications.
 
-## IDE for writing account scripts
-We are using [Waves IDE](https://ide.wavesplatform.com/) as our IDE for writing Ride scripts. To create a new script let's click the **New** button and select the **Account script** option.
+[Learn more about dApp features](/en/building-apps/smart-contracts/what-is-dapp)
 
-![](./_assets/ide1.png)
+## Roadmap
 
-A new tab will open, inside of which we can start writing our Ride script.
+1. Create the dApp account.
+2. Write the dApp script.
+3. Set the script on the dApp account.
+4. Test the script.
+5. Release the real-world application.
 
-![](./_assets/ide2.png)
+## Step 1. Create dApp Account
 
-## Working with transaction object inside of the account script
-An account script has the context containing a few useful variables. One of such variables is the variable `tx`, that contains within itself the information about the transaction that's validated by the account script. There are [several types of transactions](/en/waves-node/node-api/transactions) exist in the Waves blockchain. Inside of the account script we have to have an ability to determine the type of a transaction. Type casting is possible due to the `match` operator:
-```
-let accountPubKey = base58'9xPqZ7fhgKxRsgkbahawNMsgHhM9TMYa3SXwNmn3bvyS'
- 
-match (tx)
-{
-    case t: TransferTransaction =>
-        sigVerify(tx.proofs[0], tx.bodyBytes, accountPubKey)
-        &&
-        t.amount < 100
- 
-    case t: IssueTransaction =>
-        sigVerify(tx.proofs[0], tx.bodyBytes, accountPubKey)
- 
-    case _ =>
-        false
-}
-```
-In the example above we are stating that if the sent transaction is a Transfer-transaction, and also the sum of the transfer is less than a 100 of tokens, then we are allowing such a transaction. We are also allowing any transaction of Issue type. All other types of transactions we are forbidding to send from the account.
+1. Open [Waves IDE](https://ide.wavesplatform.com/).
+2. Click ![](./_assets/ide-settings.png) and make sure that Testnet is selected.
+3. Click **Add account → Generate new account**.
+4. Click **Show seed and private key** and backup the seed phrase to a secure location. You will need the seed phrase to restore access to the account.
+5. Top up account balance. It's free on Testnet.
 
-## The structure of a decentralised application
-A decentralised application consists of the following elements:
-- Directives
-- The context of the script
-- Definitions of the callable functions
-- Definition of the validation function
+   * Copy address: click account name and then click ![](./_assets/сopy-button.png).
+   * Go to <https://wavesexplorer.com/testnet/faucet>, paste address, and click **Request 10 WAVES**.
 
-The order in which the elements are defined inside of a dApp is important — elements have to be put in the exact same order as listed above.
+## Step 2. Write dApp Script
 
-## Directives
-Because the compiler works with the different kinds of Ride scripts, it needs additional information to work properly. That's why it's recommended to use directives in all of the scripts, otherwise, the default values will be applied, and that may cause some unexpected behaviour.
+1. Click ![](./_assets/add-script-button.png) and select **dApp script**.
+2. Replace the automatically generated code with your script.
 
-Here is the set of directives for dApps:
-```
-{-# STDLIB_VERSION 3 #-}
-{-# SCRIPT_TYPE ACCOUNT #-}
-{-# CONTENT_TYPE DAPP #-}
-```
-STDLIB_VERSION 3 — version of the Standard Library.
+The file is saved in Waves IDE automatically.
 
-SCRIPT_TYPE ACCOUNT — directive that indicates that we are working with an account script (not an asset script).
+You can copy Waves Magic 8 Ball script from IDE library: **Library → ride4dapps → 8ball → ride → 8ball.ride**.
 
-CONTENT_TYPE DAPP — directive that indicates that the script we are working with is a dApp.
+<details><summary>Script code</summary>
+<p>
+<code>
+{-# STDLIB_VERSION 3 #-}<br>
+{-# CONTENT_TYPE DAPP #-}<br>
+{-# SCRIPT_TYPE ACCOUNT #-}<br>
+<br>
+let answersCount = 20<br>
+let answers = <br>
+&nbsp;&nbsp;&nbsp;&nbsp;["It is certain.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"It is decidedly so.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Without a doubt.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Yes - definitely.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"You may rely on it.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"As I see it, yes.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Most likely.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Outlook good.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Yes.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Signs point to yes.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Reply hazy, try again.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Ask again later.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Better not tell you now.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Cannot predict now.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Concentrate and ask again.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Don't count on it.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"My reply is no.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"My sources say no.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Outlook not so good.",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Very doubtful."]<br>
+<br>
+func getAnswer(question: String, previousAnswer: String) = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;let hash = sha256(toBytes(question + previousAnswer))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;let index = toInt(hash)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;answers[index % answersCount]<br>
+}<br>
+<br>
+func getPreviousAnswer(address: String) = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;match getString(this, address + "_a") {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case a: String => a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case _ => address<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+<br>
+@Callable(i)<br>
+func tellme(question: String) = {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;let callerAddress = toBase58String(i.caller.bytes)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;let answer = getAnswer(question, getPreviousAnswer(callerAddress))<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;WriteSet([<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DataEntry(callerAddress + "_q", question),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DataEntry(callerAddress + "_a", answer)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;])<br>
+}<br>
+</code>
 
-## Script context
+</p>
+</details>
 
-Script context is a context where some immutable variables and functions could be defined, that will be accessible within the boundaries of the entire dApp.
-```
-let someConstant = 42
-func doSomething() = {
-    1+1
-}
-```
+<details><summary>Explanation of the code</summary>
+<p>
+dApp-script should start with the following directives:
 
-## Definitions of the callable functions
+<code>
+{-# STDLIB_VERSION 3 #-}<br>
+{-# CONTENT_TYPE DAPP #-}<br>
+{-# SCRIPT_TYPE ACCOUNT #-}<br>
+</code>
 
-Here we can define functions, that will be called with Invoke Script-transactions. Such functions are adorned with `@Callable(contextObj)`, where `contextObj` is an arbitrary name of the context object. The context object contains the following fields:
+After directives you can declare variables and auxiliary functions.
 
-- `caller` — the account address, which called the function.
-- `callerPublicKey` — the public key of the account, which called the function.
-- `payment` — the payment that's attached to the function call. The payment can be empty (UNIT).
+Callable functions should be adorned with `@Callable(i)` annotation. The `i` object contains invoke script transaction fields that the callable function can use. In this example we use the `i.caller.bytes`field that contains address of user account that called the function.
+</p>
+</details>
 
-A callable function can use the functions and the values from the script context (see above) and from its own context.
+For more information about the structure of the dApp script, see the [Structure of dApp Script](/en/building-apps/smart-contracts/what-is-a-dapp#structure-of-dapp-script).
 
-```
-@Callable(contextObj)
-func foo() = {
-   if (contextObj.caller == this)
-   then
-       ScriptResult(
-            WriteSet([DataEntry("someDataKey", 42)]),
-            TransferSet([ScriptTransfer(contextObj.caller, 100500, unit)])
-        )
-   else
-       throw("Only owner can use this function.")
-}
-```
+## Step 3. Set Script on Account
 
-## Definition of the validation function
+To attach dApp script to account, send a set script transaction from this account. The fee for the script setup is 0.01 WAVES.
 
-The validation function in a dApp plays the role of the account script — it validates all the outgoing from this account transactions.
+You can send a set script transaction directly from Waves IDE:
 
-Such a function is adorned with the `@Verifier(tx)` annotation, where `tx` is the transaction, which the function is currently validating. Available fields of the transaction (different by transaction type) you can see in the [Transaction structures](/en/ride/structures/transaction-structures) section.
+1. Open dApp script and click **Deploy**.
+2. Click **Add sign** to sign the transaction. Then click **Publish**.
 
-Possible execution results:
+You can check the attached script in Waves Explorer:
 
-- `true`
-- `false`
-- an error
+1. Go to <https://wavesexplorer.com/>.
+2. Click ![](./_assets/settings.png) and switch to ![](./_assets/testnet.png).
+3. Use search bar to find the dApp account by address.
+4. Switch to **Script** tab.
 
-If a dApp doesn't have the validation function, then the default validation algorithm is applied to all the outgoing transactions (see the `sigVerify` function mentioned earlier).
+Now dApp is ready — users can call dApp functions using invoke script transactions.
 
-The example of a function, that permits only Transfer-transactions (any other types of transactions will not be allowed to be sent from such an account):
-```
+## Step 4. Test Script
 
-@Verifier(tx)
-func verify() = {
-    match tx {
-        case ttx:TransferTransaction => sigVerify(ttx.bodyBytes, ttx.proofs[0], ttx.senderPublicKey)
-        case _ => false
-    }
-}
-```
+To test the dApp script send an invoke script transaction. The fee for the script invocation starts from 0.005 WAVES and depends on the number of smart assets involved (in this example, smart assets are not used). Fee calculation is described in the [Transaction Fee](/en/blockchain/transaction/transaction-fee) article.
 
-## InvokeScriptTransaction function parameters
+You can run test directly in Waves IDE. Tests support the following fuctions:
+* `describe` and `it` from [mocha](https://mochajs.org/) library;
+* `expect` from [chai](https://www.chaijs.com/) library.
 
-| Parameter name |Parameter type |Description  |
-|---|---|---|
-|  type  |Int   |  transaction type (16 for the InvokeScript) |
-| dApp   | Address  | address of the account to which dApp is attached  |
-|  payment  | OPTION[AttachedPayment]  | payment (amount, asset type) |
-|  fee  |  Int | fee amount  |
-| feeAssetId | OPTION[ByteVector] | fee asset identifier (null for WAVES)|
-|  call: <br /> - function <br /> -args | <br /> String <br />LIST[UNION(Boolean,ByteVector,Int,String)]  | <br /> the name of the callable function <br /> the list of the passed arguments |
-|  id  | ByteVector  |  transaction identifier |
-|  timestamp  |  Int | transaction execution time  |
-|  version  | Int  |  the version of the transaction (currently it's 1) |
-|  sender  |  Address |  the address of the account that makes a call to the function |
-|  senderPublicKey  | ByteVector  |  the public key of the account that makes a call to the function |
-| proofs   | LIST[ByteVector]  |  the list of signatures that prove the authenticity of the transaction |
-|  chainId |  Byte | blockchain network identifier<br>"T" — [test network](/en/blockchain/blockchain-network/test-network) <br>"W" — [main network](/en/blockchain/blockchain-network/main-network)<br>"S" — [stage network](/en/blockchain/blockchain-network/main-network) |
+1. Create an account for test user and top up its balance. To do this, repeat step 1.
+2. Click ![](./_assets/add-script-button.png) and select **Test**.
+3. Replace the automatically generated code with your script.
 
-## JSON of the InvokeScript-transaction
+   You can copy Waves Magic 8 Ball test from IDE library: **Library → ride4dapps → 8ball → tests → 8ball_test.js**. Remember to replace the `ballAddress` value with the address of your dApp.
 
-```
-{
- 
-  "type": 16,
-  "version": 1,
-  "senderPublicKey": "2GEvUnpNpve2rSAs51c2HMTkaCYW9QRgwR16Z2HGJZgC",
-  "dApp": "3FYR1f5YydHXF8dtfRJRyX3PoDCoT7a36Kq",
-  "call": {
-    "function": "deposit",
-    "args": []
-  },
-  "payment": [
-    {
-      "amount": 200000000,
-      "assetId": null
-    }
-  ],
-  "fee": 1000000,
-  "feeAssetId": null,
-  "timestamp": 1555073997308,
-  "chainId": 68,
-  "proofs": [
-      "42Tf6VSVi3Cq6yHK1ENcVtyQbt9Ap8fcu57gYoZWChJTPPz52qRDM5NThuhFDVB4qE2gPZonuvjEJVtWHVYyNvJC"
-  ],
-  "id": "2fcMC9ihuLAcGNsbiSLDgz8dekq2JkrtjihroUiyNYCp"
-}
-```
+4. Click **Run full test**.
 
-## The example of a dApp
+<details><summary>Test code</summary>
+<p>
+<code>
+describe('8 ball', () => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const ballAddress = "3N27HUMt4ddx2X7foQwZRmpFzg5PSzLrUgU"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const question = "Test" + Date.now()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;const tx = invokeScript({fee: 500000, dApp: ballAddress, call:{function:"tellme", args:[{"type": "string", "value": question}]}, payment: null})<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;it('Tx is mined in block', async function(){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await broadcast(tx)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await waitForTx(tx.id)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;})<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;it('Question is in ball', async function(){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await accountDataByKey(address()+"_q", ballAddress)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.then(reslove => expect(reslove.value).to.equal(question))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;})<br>
+})<br>
+</code>
+</p>
+</details>
 
-```
-# Directives
-{-# STDLIB_VERSION 3 #-}
-{-# CONTENT_TYPE DAPP #-}
-{-# SCRIPT_TYPE ACCOUNT #-}
- 
-# Block of the context script.
-# The block is empty.
- 
-# Callable function that accepts payments from other accounts and deposits them to the account to which the dApp is attached to.
-@Callable(i)        # Context object with the name "i".
-func deposit() = {
-   let pmt = extract(i.payment)
-   if (isDefined(pmt.assetId)) then throw("can hold waves only at the moment")
-   else {
-        let currentKey = toBase58String(i.caller.bytes)
-        let currentAmount = match getInteger(this, currentKey) {
-            case a:Int => a
-            case _ => 0
-        }
-        let newAmount = currentAmount + pmt.amount
-        WriteSet([DataEntry(currentKey, newAmount)])
-   }
-}
- 
-# Callable function that withdraws from the account, to which the dApp is attached to.
-@Callable(i)                    # Context object with the name "i".
-func withdraw(amount: Int) = {
-        let currentKey = toBase58String(i.caller.bytes)
-        let currentAmount = match getInteger(this, currentKey) {
-            case a:Int => a
-            case _ => 0
-        }
-        let newAmount = currentAmount - amount
-     if (amount < 0)
-            then throw("Can't withdraw negative amount")
-    else if (newAmount < 0)
-            then throw("Not enough balance")
-            else ScriptResult(
-                    WriteSet([DataEntry(currentKey, newAmount)]),
-                    TransferSet([ScriptTransfer(i.caller, amount, unit)])
-                )
-    }
- 
-# Valiation function — validates all the outgoing from the account transactions.
-@Verifier(tx)
-func verify() = {
-    sigVerify(tx.bodyBytes, tx.proofs[0], tx.senderPublicKey)
-}
-```
+You can check the result of script execution in Waves Explorer:
+
+1. Go to <https://wavesexplorer.com/>.
+2. Click ![](./_assets/settings.png) and switch to ![](./_assets/testnet.png).
+3. Use search bar to find the dApp account by address.
+4. Switch to **Data** tab.
+
+## Step 5. Release the real-world application
+
+To release your app:
+
+* Deploy the wep app that allows user to sign and send an invoke script transaction by simply clicking the button.
+* Add your dApp on Mainnet.
+* Register your application in dApp directories to make it known to as many users as possible!
+
+### 5.1. Deploy Web App
+
+To sign an invoke script transaction on behalf of a real user, подключите JS-библиотеку [Signer](/ru/building-apps/waves-api-and-sdk/client-libraries/signer). Signer позволяет вашему веб-приложению подписать и отправить транзакцию от имени пользователя, не запрашивая его секретную фразу (seed) или закрытый ключ.
+
+<details><summary>Код вызова скрипта</summary>
+<p>
+<code>
+await signer.invoke({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dApp: ballAddress,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;call: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function: "tellme",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args:[{"type": "string", "value": question}]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}).broadcast();<br>
+</code>
+</p>
+</details>
+
+[Полный код приложения на Github](https://github.com/elenaili/waves8ball)
+
+### 5.2. Добавление dApp на Mainnet
+
+1. В Waves IDE нажмите ![](./_assets/ide-settings.png) и переключитесь на Mainnet.
+2. Создайте аккаунт dApp на Mainnet — аналогично шагу 1.
+3. Пополните баланс аккаунта, чтобы оплатить комиссию за установку скрипта.
+
+   Например, с помощью приложения [Waves.Exchange](https://waves.exchange/), разработанного командой Waves.Exchange, вы можете:
+   
+   * Перевести 0,01 WAVES с другого аккаунта, см. раздел [Переводы криптовалют](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-trs-gtw/online-desktop-trs-asset) документации Waves.Exchange.
+   * Купить Neutrino с банковской карты, затем обменять на WAVES, см. разделы [Купить Neutrino с карты](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-staking#купить-neutrino-с-карты) и [Торговля на бирже](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-trading).
+
+4. Установите dApp-скрипт на аккаунт — аналогично шагу 3.
+
+dApp на Mainnet получит другой адрес — не забудьте поменять его в веб-приложении. Кроме того, адрес ноды для отправки транзакции вызова скрипта нужно заменить на ` https://nodes.wavesnodes.com`.
+
+> :bulb: Если вы хотите сделать приложение бесплатным для пользователей и оплачивать вместо них комиссию за вызов скрипта, [включите спонсирование](/ru/blockchain/waves-protocol/sponsored-fee).
+
+### 5.3. Регистрация в каталогах
+
+Зарегистрируйте приложение в каталогах dApp, чтобы как можно больше пользователей узнали о нем:
+
+* [dAppOcean](https://www.dappocean.io) — каталог приложений на блокчейне Waves.
+
+   [Отправить заявку](https://www.dappocean.io/ru/dapps/submit)
+
+* [DappRadar](https://dappradar.com) — крупнейший портал с рейтингом децентрализованных приложений.
+
+   [Отправить заявку](https://dappradar.com/submit-dapp)
+
+## Что дальше
+
+API публичных нод WAVES имеет [ограничения на количество запросов в секунду](/ru/waves-node/api-limitations-of-the-pool-of-public-nodes). Поэтому, когда ваше приложение наберет популярность, рекомендуем [запустить собственную ноду](/ru/waves-node/how-to-install-a-node/how-to-install-a-node) и отправлять транзакции вызова скрипта на нее.
