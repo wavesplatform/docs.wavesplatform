@@ -77,6 +77,7 @@ In the `.jar` file location folder create `*.conf` file with any name (for examp
 See [Node Configuration](/en/waves-node/node-configuration) article for more information about Waves configuration file.
 
 If the `directory` parameter is not redefined, the default node folder is:
+
 | *nix | macOS | Windows |
 | :--- | :--- | :--- |
 | `$XDG_DATA_HOME/waves-custom-<character>*` or `$HOME/.local/share/waves-custom-<character>*` | `$HOME/Library/Application Support/waves-custom-<character>*` | `%LOCALAPPDATA%/waves-custom-<character>*` |
