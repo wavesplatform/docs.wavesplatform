@@ -84,13 +84,13 @@ If the `directory` parameter is not redefined, the default node folder is:
 
 The `waves.blockchain.custom.functionality` section contains parameters allowing to enable/disable features in your cutom blockchain system. In this section developers can add new parameters, which are not present in the standard node configuration. You can enable features on your node by modifying the `pre-activated-features` parameter in the file. The supported features are listed in [Features](/en/waves-node/features) article.
 
-The contents of the `genesis` section of configuration file is generated in [Step 4](#step-4). Instead of pasting this section manually, you can write `include "genesis.conf"`, where the `genesis.conf` is a filename from the Step 4.
+Paste the content generated in [Step 4](#step-4) in `genesis` section of configuration file. Instead of pasting the section manually, you can write `include "genesis.conf"`, where the `genesis.conf` is a filename from the Step 4.
 
-The values of `waves.blockchain.custom.address-scheme-character`, `waves.blockchain.custom.genesis` and `waves.wallet.seed` parameters are also generated with genesis generator tool from the Step 4.
+The values of `waves.blockchain.custom.address-scheme-character` and `waves.wallet.seed` parameters are also generated with genesis generator tool in the Step 4.
 
 In `waves.network` section set `port`, `known-peers` (list the nodes of your custom network), `node-name` and `declared-address` parameters.
 
-Set `waves.wallet` parameter.
+Set `waves.wallet` parameters.
 
 To enable REST API set `enable`, `port` and `api-key-hash` (can be created [here](https://nodes.wavesnodes.com/api-docs/index.html#/utils/hashSecure_1)) parameters in `waves.rest-api` section.
 
