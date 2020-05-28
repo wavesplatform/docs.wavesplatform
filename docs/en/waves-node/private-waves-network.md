@@ -1,22 +1,26 @@
 # Custom Blockchain
 
-This article explains how to setup custom Waves blockchain network that can be used for experimental activities. Follow the steps below to proceed.
+This article explains how to setup custom Waves node to be used for experimental activities.
 
-## Step 0
+For basic tasks such as getting familiar with blockchain, sending transactions and developing smart-contracts its enough to [deploy one custom node in Docker](#deploy-custom-node-in-docker).
+
+To setup private blockchain with multiple nodes proceed with [Setup Custom Jar Node](setup-custom-jar-node) section.
+
+## Deploy Custom Node in Docker
 
 The easiest way to setup custom Waves blockchain with one private node is to [install docker](https://docs.docker.com/engine/install/) and [run Waves private node docker container](https://hub.docker.com/r/wavesplatform/waves-private-node).
 
-Proceed with the next step to setup private blockchain with multiple nodes.
+## Setup Custom Jar Node
 
-## Step 1
+### Step 1
 
 Install [Java 8 or 11](https://java.com/en/download/).
 
-## Step 2
+### Step 2
 
 Download the latest version of [jar node](https://github.com/wavesplatform/Waves/releases) (`waves-all-{version}.jar` file).
 
-## Step 3
+### Step 3
 
 Create `genesis.example.conf` file with genesis block parameters in the `.jar` file location folder.
 
@@ -43,7 +47,7 @@ genesis-generator
 }
 ```
 
-## Step 4
+### Step 4
 
 Run the genesis block generator command:
 
@@ -78,7 +82,7 @@ genesis {
 
 The `Addresses` section lists the accounts to which the assets are distributed in the genesis block, the `genesis` section will be used later in [Step 5](#step-5).
 
-## Step 5
+### Step 5
 
 In the `.jar` file location folder create `*.conf` file with any name (for example `waves-custom-network.conf`) and edit it with a text editor. Use [example configuration file](https://github.com/wavesplatform/private-node-docker-image/blob/stagenet/waves.custom.conf) for reference.
 
@@ -102,7 +106,7 @@ Set `waves.wallet` parameters.
 
 To enable REST API set `enable`, `port` and `api-key-hash` (can be created [here](https://nodes.wavesnodes.com/api-docs/index.html#/utils/hashSecure_1)) parameters in `waves.rest-api` section.
 
-## Step 6
+### Step 6
 
 Start your custom blockchain with the following command:
 
@@ -112,7 +116,7 @@ java -jar waves-all-{version}.jar waves-custom-network.conf
 
 **Note**: You can run an existing node (deb or jar) with your custom configuration file manually.
 
-## Add Nodes to Your Network
+### Add Nodes to Your Network
 
 You can add more nodes to your network using `waves.network.known-peers` parameter. Specify the address and port of the existing node with the same network parameters like "127.0.0.1:6860". If you are making several nodes locally, then do not forget to change for the new nodes the network port `waves.network.port`, the API port `waves.rest-api.port`, folder for the data `waves.directory` and wallet seed `waves.wallet.seed`.
 
