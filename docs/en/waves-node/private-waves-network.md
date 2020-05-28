@@ -2,6 +2,12 @@
 
 This article explains how to setup custom Waves blockchain network that can be used for experimental activities. Follow the steps below to proceed.
 
+## Step 0
+
+The easiest way to setup custom Waves blockchain with one private node is to [install docker](https://docs.docker.com/engine/install/) and [run Waves private node docker container](https://hub.docker.com/r/wavesplatform/waves-private-node).
+
+Proceed with the next step to setup private blockchain with multiple nodes.
+
 ## Step 1
 
 Install [Java 8 or 11](https://java.com/en/download/).
@@ -70,6 +76,8 @@ genesis {
 }
 ```
 
+The `Addresses` section lists the accounts to which the assets are distributed in the genesis block, the `genesis` section will be used later in [Step 5](#step-5).
+
 ## Step 5
 
 In the `.jar` file location folder create `*.conf` file with any name (for example `waves-custom-network.conf`) and edit it with a text editor. Use [example configuration file](https://github.com/wavesplatform/private-node-docker-image/blob/stagenet/waves.custom.conf) for reference.
@@ -88,7 +96,7 @@ Paste the content generated in [Step 4](#step-4) in `genesis` section of configu
 
 The values of `waves.blockchain.custom.address-scheme-character` and `waves.wallet.seed` parameters are also generated with genesis generator tool in the Step 4.
 
-In `waves.network` section set `port`, `known-peers` (list the nodes of your custom network), `node-name` and `declared-address` parameters.
+In `waves.network` section set `port`, `known-peers` (list the [nodes of your custom network](#add-nodes-to-your-network)), `node-name` and `declared-address` parameters.
 
 Set `waves.wallet` parameters.
 
