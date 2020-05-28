@@ -2,6 +2,10 @@
 
 ## May Articles
 
+### Building Apps
+
+* [How to Create dApp: Complete Tutorial](/en/building-apps/smart-contracts/writing-dapps)
+
 ### Ride
 
 * [Limitations](/en/ride/limits) updated

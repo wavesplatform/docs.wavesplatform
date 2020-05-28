@@ -1,4 +1,4 @@
-# Create dApp: Complete Tutorial
+# How to Create and Launch dApp: Complete Tutorial
 
 This tutorial explains how to create and launch a dApp based on Waves blockchain.
 
@@ -185,9 +185,11 @@ To release your app:
 
 ### 5.1. Deploy Web App
 
-To sign an invoke script transaction on behalf of a real user, подключите JS-библиотеку [Signer](/ru/building-apps/waves-api-and-sdk/client-libraries/signer). Signer позволяет вашему веб-приложению подписать и отправить транзакцию от имени пользователя, не запрашивая его секретную фразу (seed) или закрытый ключ.
+Чтобы вызывать функции dApp от имени реального пользователя, подключите TypeScript/JavaScript-библиотеку [Signer](/ru/building-apps/waves-api-and-sdk/client-libraries/signer). Signer позволяет вашему веб-приложению подписать и отправить транзакцию вызова скрипта, не запрашивая у пользователя его секретную фразу (seed) или закрытый ключ.
 
-<details><summary>Код вызова скрипта</summary>
+To invoke dApp functions on behalf of a real user use [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer) TypeScript/JavaScript library. Signer enables signing and broadcasting transactions without asking user's seed phrase or private key.
+
+<details><summary>Invocation code</summary>
 <p>
 <code>
 await signer.invoke({<br>
@@ -201,37 +203,37 @@ await signer.invoke({<br>
 </p>
 </details>
 
-[Полный код приложения на Github](https://github.com/elenaili/waves8ball)
+[Full code on Github](https://github.com/elenaili/waves8ball)
 
-### 5.2. Добавление dApp на Mainnet
+### 5.2. Add dApp on Mainnet
 
-1. В Waves IDE нажмите ![](./_assets/ide-settings.png) и переключитесь на Mainnet.
-2. Создайте аккаунт dApp на Mainnet — аналогично шагу 1.
-3. Пополните баланс аккаунта, чтобы оплатить комиссию за установку скрипта.
+1. In Waves IDE click ![](./_assets/ide-settings.png) and switch to Mainnet.
+2. Crate dApp account on Mainnet – similar to step 1.
+3. Top up account balance to pay the fee for the script setup.
 
-   Например, с помощью приложения [Waves.Exchange](https://waves.exchange/), разработанного командой Waves.Exchange, вы можете:
+   For example, use [Waves.Exchange](https://waves.exchange/) app developed by Waves.Exchange team to:
    
-   * Перевести 0,01 WAVES с другого аккаунта, см. раздел [Переводы криптовалют](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-trs-gtw/online-desktop-trs-asset) документации Waves.Exchange.
-   * Купить Neutrino с банковской карты, затем обменять на WAVES, см. разделы [Купить Neutrino с карты](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-staking#купить-neutrino-с-карты) и [Торговля на бирже](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-trading).
+   * Transfer 0.01 WAVES from another account, see the [Cryptocurrency Transfers](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trs-gtw/online-desktop-trs-asset) article of the Waves.Exchange documentation.
+   * Buy Neutrino with a credit card and then exchange for WAVES, see the [Buy Neutrino with Card](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-staking#buy-neutrino-with-card) and [Start Trading on Waves.Exchange](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) articles.
 
-4. Установите dApp-скрипт на аккаунт — аналогично шагу 3.
+4. Attach dApp script to account — similar to step 3.
 
-dApp на Mainnet получит другой адрес — не забудьте поменять его в веб-приложении. Кроме того, адрес ноды для отправки транзакции вызова скрипта нужно заменить на ` https://nodes.wavesnodes.com`.
+dApp on Mainnet will have a different addredd  — remember to change the address in your web app. In addition, replace the node address to ` https://nodes.wavesnodes.com`.
 
-> :bulb: Если вы хотите сделать приложение бесплатным для пользователей и оплачивать вместо них комиссию за вызов скрипта, [включите спонсирование](/ru/blockchain/waves-protocol/sponsored-fee).
+> :bulb: If you want to make the application free for users and pay fees for script invocations yourself, [enable sponsorship](/en/blockchain/waves-protocol/sponsored-fee).
 
-### 5.3. Регистрация в каталогах
+### 5.3. Register in dApp Directories
 
-Зарегистрируйте приложение в каталогах dApp, чтобы как можно больше пользователей узнали о нем:
+To promote your application, add it to popular dApp directories:
 
-* [dAppOcean](https://www.dappocean.io) — каталог приложений на блокчейне Waves.
+* [dAppOcean](https://www.dappocean.io) — the ecosystem of decentralized applications based on the Waves blockchain.
 
-   [Отправить заявку](https://www.dappocean.io/ru/dapps/submit)
+   [Submit dApp](https://www.dappocean.io/en/dapps/submit)
 
-* [DappRadar](https://dappradar.com) — крупнейший портал с рейтингом децентрализованных приложений.
+* [DappRadar](https://dappradar.com) — the leading global platform for discovering and analyzing dApps.
 
-   [Отправить заявку](https://dappradar.com/submit-dapp)
+   [Submit dApp](https://dappradar.com/submit-dapp)
 
-## Что дальше
+## What's next
 
-API публичных нод WAVES имеет [ограничения на количество запросов в секунду](/ru/waves-node/api-limitations-of-the-pool-of-public-nodes). Поэтому, когда ваше приложение наберет популярность, рекомендуем [запустить собственную ноду](/ru/waves-node/how-to-install-a-node/how-to-install-a-node) и отправлять транзакции вызова скрипта на нее.
+Waves public nodes have [limitations on the number of requests per second](/en/waves-node/api-limitations-of-the-pool-of-public-nodes). So when your application becomes popular, we recommend [launching your own node](/en/waves-node/how-to-install-a-node/how-to-install-a-node) and send invoke script transactions to it.

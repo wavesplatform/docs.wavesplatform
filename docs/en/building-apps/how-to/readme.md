@@ -38,6 +38,11 @@ This trading bot implements scalping trading strategy that exploits small change
 
 ## dApps
 
+[**Creating and Launching dApp**](/en/building-apps/smart-contracts/writing-dapps)
+
+The complete cycle of launching a decentralized application: from creating a dApp account to writing a web application that calls dApp functions.
+
 [**Simple voting on the Waves blockchain**](/en/building-apps/smart-contracts/simple-voting-on-the-waves-blockchain)
 
 This dApp implements voting among HOA (homeowners association) members on the Waves blockchain. The dApp script checks if a voter has rights to vote and writes voting results to the dApp data storage.
+
