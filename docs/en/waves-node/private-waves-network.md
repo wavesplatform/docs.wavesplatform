@@ -2,15 +2,17 @@
 
 This article explains how to setup custom Waves node to be used for experimental activities.
 
-For basic tasks such as getting familiar with blockchain, sending transactions and developing smart-contracts its enough to [deploy one custom node in Docker](#deploy-custom-node-in-docker).
+For most tasks such as getting familiar with blockchain, sending transactions and developing smart contracts its enough to [deploy one custom node in Docker](#deploy-custom-node-in-docker).
 
-To setup private blockchain with multiple nodes proceed with [Setup Custom Jar Node](setup-custom-jar-node) section.
+To setup private blockchain with multiple nodes proceed with [Setup Custom Jar Node](#setup-custom-jar-node) section.
 
 ## Deploy Custom Node in Docker
 
 The easiest way to setup custom Waves blockchain with one private node is to [install docker](https://docs.docker.com/engine/install/) and [run Waves private node docker container](https://hub.docker.com/r/wavesplatform/waves-private-node).
 
 ## Setup Custom Jar Node
+
+You can setup your own Java-based node with customized configuration file.
 
 ### Step 1
 
@@ -94,7 +96,7 @@ If the `directory` parameter is not redefined, the default node folder is:
 | :--- | :--- | :--- |
 | `$XDG_DATA_HOME/waves-custom-<character>*` or `$HOME/.local/share/waves-custom-<character>*` | `$HOME/Library/Application Support/waves-custom-<character>*` | `%LOCALAPPDATA%/waves-custom-<character>*` |
 
-The `waves.blockchain.custom.functionality` section contains parameters allowing to enable/disable features in your cutom blockchain system. In this section developers can add new parameters, which are not present in the standard node configuration. You can enable features on your node by modifying the `pre-activated-features` parameter in the file. The supported features are listed in [Features](/en/waves-node/features) article.
+The `waves.blockchain.custom.functionality` section contains parameters allowing to enable/disable features in your custom blockchain. In this section developers can add new parameters, which are not present in the standard node configuration. You can enable features on your node by modifying the `pre-activated-features` parameter in the file. The supported features are listed in [Features](/en/waves-node/features) article.
 
 Paste the content generated in [Step 4](#step-4) in `genesis` section of configuration file. Instead of pasting the section manually, you can write `include "genesis.conf"`, where the `genesis.conf` is a filename from the Step 4.
 
@@ -136,6 +138,6 @@ You can setup your custom blockchain with other services such as:
    docker run -d -e API_NODE_URL=http://localhost:6869 -e NODE_LIST=http://localhost:6869 -p 3000:8080 wavesplatform/explorer
    ```
 
-* [Matcher](https://github.com/wavesplatform/matcher).
+* [Matcher](https://github.com/wavesplatform/matcher) that executes buy and sell orders.
 
 <!--* [Matcher](https://docs.waves.exchange/en/waves-matcher/) -->
