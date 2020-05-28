@@ -185,8 +185,6 @@ To release your app:
 
 ### 5.1. Deploy Web App
 
-Чтобы вызывать функции dApp от имени реального пользователя, подключите TypeScript/JavaScript-библиотеку [Signer](/ru/building-apps/waves-api-and-sdk/client-libraries/signer). Signer позволяет вашему веб-приложению подписать и отправить транзакцию вызова скрипта, не запрашивая у пользователя его секретную фразу (seed) или закрытый ключ.
-
 To invoke dApp functions on behalf of a real user use [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer) TypeScript/JavaScript library. Signer enables signing and broadcasting transactions without asking user's seed phrase or private key.
 
 <details><summary>Invocation code</summary>

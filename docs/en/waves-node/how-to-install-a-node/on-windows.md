@@ -42,6 +42,6 @@ For added security, it is recommended to store your wallet and configuration app
 
 Also, you may want to limit the use of node folders to designated users only. You can read about it [here](https://technet.microsoft.com/en-us/library/cc754344%28v=ws.11%29.aspx).
 
-If you decide to use RPC, you should protect it with Windows embedded or any other firewall. You can read about it [here](http://www.howtogeek.com/112564/how-to-create-advanced-firewall-rules-in-the-windows-firewall/). If your server is public and available to the Internet and you decide to enable and use RPC, then allow only certain methods using [Nginx's proxy\_pass module](http://nginx.org/ru/docs/http/ngx_http_proxy_module.html) and do not forget to set the API key hash in waves config.
+If you decide to use RPC, you should protect it with Windows embedded or any other firewall. You can read about it [here](http://www.howtogeek.com/112564/how-to-create-advanced-firewall-rules-in-the-windows-firewall/). If your server is public and available to the Internet and you decide to enable and use RPC, then allow only certain methods using [Nginx's proxy\_pass module](http://nginx.org/en/docs/http/ngx_http_proxy_module.html) and do not forget to set the API key hash in waves config.
 
 Also, do not forget to install an anti-virus and to keep the OS and security software up-to-date.

@@ -93,7 +93,7 @@ Verifier function checks transactions and orders that are sent from dApp account
 
 For a detailed description, see the [Verifier Function](/en/ride/functions/verifier-function) article.
 
-In the example below the verifier fuction allows [transfer transactions](/en/blockchain/transaction-type/transfer-transaction) and denies other types of transactions. The [match](/en/ride/operators/match-case) operator is used to specify verification rules depending on the type of transaction (or order).
+In the example below the verifier fuction allows [transfer transactions](/en/blockchain/transaction-type/transfer-transaction) and denies orders and other types of transactions. The [match](/en/ride/operators/match-case) operator is used to specify verification rules depending on the type of transaction (or order).
 
 ```ride
 @Verifier(tx)
