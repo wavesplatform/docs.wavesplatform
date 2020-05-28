@@ -26,9 +26,10 @@ If dApp does not have the verifier function, then the default verification is pe
 
 > :warning: Standard library version 4 becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on Stagenet [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
-## Exmaple
+## Example
 
-dApp with the verifier function listed below only allows [transfer transactions](/en/blockchain/transaction-type/transfer-transaction) with amount of token less than 100. Sending orders and other transactions is prohibited. The [match](/en/ride/operators/match-case) is used to spot a transaction type.
+dApp with the verifier function listed below only allows [transfer transactions](/en/blockchain/transaction-type/transfer-transaction) with amount of token less than 100. Orders and other transactions are denied. The [match](/en/ride/operators/match-case) operator is used to specify verification rules depending on the type of transaction (or order).
+
 
 ```ride
 @Verifier(tx)
