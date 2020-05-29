@@ -1,20 +1,20 @@
 # How to Create and Launch dApp: Complete Tutorial
 
-This tutorial explains how to create and launch a dApp based on Waves blockchain.
+In this tutorial, you'll learn how to create and launch a dApp based on Waves blockchain.
 
-In this tutorial, we use [Waves IDE](https://ide.wavesplatform.com/) to develop and test the dApp and JavaScript to deploy the web app that calls dApp functions.
+We use [Waves IDE](https://ide.wavesplatform.com/) to develop and test the dApp and JavaScript to deploy the web app that calls the dApp functions.
 
-dApp development consists of five simple steps. Let's complete them one by one. We'll create a simple Waves Magic 8 Ball application that generates pseudorandom answers. Repeating these steps, you can create advanced applications.
+Let's follow five simple steps of dApp development to create a simple Waves Magic 8 Ball application to generate pseudorandom answers. You  can then repeat those steps to create more advanced applications.
 
 [Learn more about dApp features](/en/building-apps/smart-contracts/what-is-dapp)
 
 ## Roadmap
 
-1. Create the dApp account.
-2. Write the dApp script.
-3. Set the script on the dApp account.
+1. Create a dApp account.
+2. Write a dApp script.
+3. Assign a script to the dApp account.
 4. Test the script.
-5. Release the real-world application.
+5. Release a real-world application.
 
 ## Step 1. Create dApp Account
 
