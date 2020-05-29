@@ -2,17 +2,18 @@
 
 В данной статье описан процесс установки собственного (custom) блокчейна Waves, который можно использовать для экспериментальной деятельности.
 
-Для большинства задач, таких как знакомство с блокчейном, отправка транзакций, разработка смарт-контрактов, достаточно развернуть [одну собственную ноду в Docker](#развернуть-собственную-ноду-в-docker).
+Для большинства задач, таких как знакомство с блокчейном, отправка транзакций, разработка смарт-контрактов, достаточно развернуть [одну ноду с собственным блокчейном в Docker](#развернуть-ноду-с-собственным-блокчейном-в-docker).
 
-Для настройки собственной сети блокчейн с несколькими нодами выполните шаги, описанные в секции [Установить собственную jar ноду](setup-custom-jar-node).
+Для настройки собственной сети блокчейн с несколькими нодами выполните шаги, описанные в секции [Установить jar ноду с собственным блокчейном](#установить-jar-ноду-с-собственным-блокчейном).
 
-## Развернуть собственную ноду в Docker
+## Развернуть ноду с собственным блокчейном в Docker
 
-Самый простой способ запустить собственный блокчейн Waves с одной нодой это [установить docker](https://docs.docker.com/engine/install/) и [запустить docker контейнер custom ноды Waves](https://hub.docker.com/r/wavesplatform/waves-private-node).
+Самый простой способ запустить собственную блокчейн сеть Waves с одной нодой — это [установить Docker](https://docs.docker.com/engine/install/) и [развернуть  Docker-контейнер ноды Waves с настройками для собственной сети](https://hub.docker.com/r/wavesplatform/waves-private-node).
 
-## Установить собственную jar ноду
+## Установить Jar ноду с собственным блокчейном
 
-Вы можете установить собственную Jar ноду с измененным блоком генезиса, файлом конфигурации и блокчейном.
+Вы можете запустить одну или несколько Jar-нод для создания собственного (частного) блокчейна.
+Для этого нужно создать блок генезиса и задать настройки блокчейна в файле конфигурации.
 
 ### Шаг 1
 
@@ -20,7 +21,7 @@
 
 ### Шаг 2
 
-Загрузите последнюю версию [jar ноды](https://github.com/wavesplatform/Waves/releases) (файл `waves-all-{version}.jar`).
+Загрузите [последнюю версию Jar-ноды](https://github.com/wavesplatform/Waves/releases) (файл `waves-all-{version}.jar`).
 
 ### Шаг 3
 
@@ -31,7 +32,7 @@
 ```bash
 genesis-generator
 {
-  network-type: "L"  #сетевой идентификатор custom сети
+  network-type: "L"  #байт сети (идентификатор) вашего блокчейна
   initial-balance: 10000000000000000  #первоначальный баланс в wavelets
   base-target: 153722867  #первоначальный параметр сложности
   average-block-delay: 60s #средняя задержка блока
@@ -82,13 +83,13 @@ genesis {
 }
 ```
 
-Секция `Addresses` содержит список аккаунтов, на которые распределены средства в генезис блоке, секция `genesis` понадобится далее в [шаге 5](#step-5).
+Секция `Addresses` содержит список аккаунтов, на которые распределены средства в блоке генезиса, секция `genesis` понадобится далее в [шаге 5](#step-5).
 
 ### Шаг 5
 
-В папке с файлом `.jar` создайте файл `*.conf` с произвольным именем (например `waves-custom-network.conf`) и откройте его текстовым редактором. Используйте [пример файла конфигурации](https://github.com/wavesplatform/private-node-docker-image/blob/stagenet/waves.custom.conf) в качестве образца.
+В папке с файлом `.jar` создайте файл `*.conf` с произвольным именем (например, `waves-custom-network.conf`) и откройте его текстовым редактором. Используйте [пример файла конфигурации](https://github.com/wavesplatform/private-node-docker-image/blob/stagenet/waves.custom.conf) в качестве образца.
 
-Больше информации про файл конфигурации- в статье [Конфигурация ноды](/ru/waves-node/node-configuration).
+Больше информации про файл конфигурации см. в статье [Конфигурация ноды](/ru/waves-node/node-configuration).
 
 Если основная папка приложения (параметр `directory`) не задана, то она будет создана по адресу:
 
@@ -96,9 +97,11 @@ genesis {
 | :--- | :--- | :--- |
 | `$XDG_DATA_HOME/waves-custom-<character>*` or `$HOME/.local/share/waves-custom-<character>*` | `$HOME/Library/Application Support/waves-custom-<character>*` | `%LOCALAPPDATA%/waves-custom-<character>*` |
 
-Секция `waves.blockchain.custom.functionality` содержит параметры, позволяющие включить/выключить фичи вашего блокчейна. В данную секцию можно добавлять новые параметры, которых нет в конфигурации стандартных нод. Вы можете включать фичи ноды с помощью параметра `pre-activated-features`. Поддерживаемые фичи описаны в статье [Фичи](/ru/waves-node/features).
+Секция `waves.blockchain.custom.functionality` позволяет настроить временные метки активации различных валидаций блокчейна. В данную секцию можно добавлять новые параметры, которых нет в конфигурации стандартных нод. Вы можете включать/выключать фичи ноды с помощью параметра `pre-activated-features`. Поддерживаемые фичи описаны в статье [Фичи](/ru/waves-node/features).
 
-Вставьте контент, сгенерированный в [шаге 4](#шаг-4) в секцию `waves.blockchain.custom.genesis` файла конфигурации. Вместо того чтобы вставить эту секцию, можно написать `include "genesis.conf"`, где `genesis.conf` — это имя файла из шага 4.
+указать фичи, которые будут активированы на вашем блокчейне
+
+Вставьте контент, сгенерированный в [шаге 4](#шаг-4), в секцию `waves.blockchain.custom.genesis` файла конфигурации. Вместо того чтобы вставить эту секцию, можно написать `include "genesis.conf"`, где `genesis.conf` — это имя файла из шага 4.
 
 Значение параметра `waves.blockchain.custom.address-scheme-character` должно быть таким же, как `network-type` в [шаге 3](#шаг-3).
 
@@ -106,7 +109,7 @@ genesis {
 
 В секции `waves.network` задайте значения параметров `port`, `known-peers` (список [нод вашего блокчейна](#добавление-нод-в-свою-сеть)), `node-name` и `declared-address`.
 
-Чтобы включить REST API задайте параметры `enable`, `port` и `api-key-hash` (можно создать здесь [тут](https://nodes.wavesnodes.com/api-docs/index.html#/utils/hashSecure_1)) в секции `waves.rest-api`.
+Чтобы включить REST API вашей ноды, задайте параметры `enable`, `port` и `api-key-hash` (можно создать [тут](https://nodes.wavesnodes.com/api-docs/index.html#/utils/hashSecure_1)) в секции `waves.rest-api`.
 
 ### Шаг 6
 
@@ -126,7 +129,7 @@ java -jar waves-all-{version}.jar waves-custom-network.conf
 
 Вы можете подключить к своему блокчейну дополнительные сервисы, такие как:
 
-* [Дата-сервис](/ru/building-apps/waves-api-and-sdk/waves-data-service-api), которые позволят быстро и удобно получать данные из блокчейна через REST API, аналогично Mainnet и Testnet, описанным в статье [Waves Data Service API](/ru/building-apps/waves-api-and-sdk/waves-data-service-api). Подробнее по ссылкам [deploy examples](https://github.com/wavesplatform/deploy-examples) и [How to Run Data Services](https://wavestalk.ru/t/kak-zapustit-data-services-za-30-minut-iz-korobki/272).
+* [Cервис данных](/ru/building-apps/waves-api-and-sdk/waves-data-service-api) (Data Service), который позволит быстро и удобно получать данные из блокчейна через REST API, аналогично Mainnet и Testnet, как описано в статье [Waves Data Service API](/ru/building-apps/waves-api-and-sdk/waves-data-service-api). Подробнее по ссылкам [deploy examples](https://github.com/wavesplatform/deploy-examples) и [How to Run Data Services](https://wavestalk.ru/t/kak-zapustit-data-services-za-30-minut-iz-korobki/272).
 
 * [dApps](/ru/blockchain/account/dapp). Подробнее в статье [How to Build, Deploy and Test a Waves RIDE dApp](https://medium.com/wavesprotocol/how-to-build-deploy-and-test-a-waves-ride-dapp-785311f58c2).
 
@@ -138,6 +141,6 @@ java -jar waves-all-{version}.jar waves-custom-network.conf
    docker run -d -e API_NODE_URL=http://localhost:6869 -e NODE_LIST=http://localhost:6869 -p 3000:8080 wavesplatform/explorer
    ```
 
-* [Матчер](https://github.com/wavesplatform/matcher), который исполняет ордеры (биржевые заявки) на покупку и продажу активов.
+* [Матчер](https://github.com/wavesplatform/matcher), который исполняет ордера (биржевые заявки) на покупку и продажу активов.
 
 <!--* [Matcher](https://docs.waves.exchange/en/waves-matcher/) -->
