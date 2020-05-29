@@ -27,7 +27,7 @@ The callable function result may be:
 
 dApp script comprises one or more callable function.
 
-In addition, dApp script can comprise a verifier function that check transactions and orders that are sent from dApp account (in other words it does the same as the account script).
+In addition, dApp script can comprise a verifier function that checks transactions and orders that are sent from dApp account (in other words it does the same as the account script).
 
 ![](./_assets/dapp-structure.png)
 
@@ -48,7 +48,7 @@ These directives tell the compiler that:
 
 ### Script context
 
-Script context includes [built-in variables](/en/ride/variables/built-in-variables) and [built-in functions](/en/ride/functions/built-in-functions). In addition, user variables and functions could be declared between ditectives and callable function. These variables and functions are accessible within the entire dApp.
+Script context includes [built-in variables](/en/ride/variables/built-in-variables) and [built-in functions](/en/ride/functions/built-in-functions). In addition, user variables and functions could be declared between directives and callable function. These variables and functions are accessible within the entire dApp.
 
 Example:
 
@@ -61,7 +61,7 @@ func doSomething() = {
 
 ### Callable functions
 
-Callable function can be called externally by the invoke script transaction. A callable function is adorned with the `@Callable(i)` annotation, where `i`is an [Invocation](/en/ride/structures/common-structures/invocation) structure that contains invoke script transaction fields that are available to the callable function.
+Callable function can be called externally by the invoke script transaction. The callable function should be adorned with the `@Callable(i)` annotation, where `i`is an [Invocation](/en/ride/structures/common-structures/invocation) structure that contains invoke script transaction fields that are available to the callable function.
 
 A callable function result is a set of [script actions](/en/ride/structures/script-actions) that are performed on the blockchain: adding entries to the account data storages, token transfers and others. The result format and the possible actions depend on the Standard library version used.
 
@@ -89,7 +89,7 @@ func faucet () = {
 
 ### Verifier function
 
-Verifier function checks transactions and orders that are sent from dApp account (in other words it does the same as the account script). A verifier function is adorned with the `@Verifier(tx)` annotation, where `tx` is a transaction or an order that that the function is currently checking.
+Verifier function checks transactions and orders that are sent from dApp account (in other words it does the same as the account script). The verifier function should be adorned with the `@Verifier(tx)` annotation, where `tx` is the transaction or the order that that the function is currently checking.
 
 For a detailed description, see the [Verifier Function](/en/ride/functions/verifier-function) article.
 
