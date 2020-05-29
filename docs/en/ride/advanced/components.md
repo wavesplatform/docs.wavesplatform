@@ -20,7 +20,7 @@ Parser, Compiler and Estimator are used in developer tools such as [Waves IDE](h
 
 ## Evaluator
 
-Evaluator executes the script on the node in the case of sending a transaction from a smart account, a transaction within a smart asset, or an invoke script transaction. Script execution is a part of [transaction validation](/en/blockchain/transaction/transaction-validation) and transaction execution, that is, calculating a new state of the blockchain as a result of transaction.
+Evaluator executes the script on the node in the case of sending a transaction from a smart account, a transaction invloving a smart asset, or an invoke script transaction. Script execution is a part of [transaction validation](/en/blockchain/transaction/transaction-validation) and transaction execution, that is, calculating a new state of the blockchain as a result of transaction.
 
 Evaluator is a component of a node.
 

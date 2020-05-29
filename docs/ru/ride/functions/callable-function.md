@@ -1,6 +1,6 @@
 # Вызываемая функция
 
-**Вызываемая функция** — функция [dApp-скрипта](/ru/ride/script/script-types/dapp-script), которая может быть вызвана извне при помощи [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction).
+**Вызываемая функция** — функция [dApp-скрипта](/ru/ride/script/script-types/dapp-script), которая может быть вызвана извне при помощи [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction). Вызываемая функция помечается аннотацией `@Callable(i)`, где `i` — структура [Invocation](/ru/ride/structures/common-structures/invocation), которая содержит поля транзакции вызова скрипта, доступные вызываемой функции.
 
 dApp-скрипт может содержать несколько вызываемых функций.
 
