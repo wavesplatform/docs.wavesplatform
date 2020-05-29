@@ -8,7 +8,12 @@
 
 ### Ride
 
-* Обновлены [ограничения](/ru/ride/limits/)
+* Обновлены статьи:
+   * [Стандартная библиотека](/ru/ride/script/standard-library)
+   * [Типы скриптов](/ru/ride/script/script-types)
+   * [Ограничения](/ru/ride/limits/)
+
+* Добавлена статья [Компоненты Ride](/ru/ride/advanced/components).
 
 #### Действия скрипта
 

@@ -1,4 +1,4 @@
-# Documentation updates
+# Documentation Updates
 
 ## May Articles
 
@@ -8,9 +8,13 @@
 
 ### Ride
 
-* [Limitations](/en/ride/limits) updated
+* Updated articles:
+   * [Standard Library](/en/ride/script/standard-library)
+   * [Script Types](/en/ride/script/script-types)
+   * [Limitations](/en/ride/limits)
+* Added the [Ride Components](/en/ride/advanced/components) article
 
-#### Script actions
+#### Script Actions
 
 * [SponsorFee](/en/ride/structures/script-actions/sponsor-fee)
 
@@ -35,7 +39,7 @@ Added how-to guides:
 * [Airdrop](/en/building-apps/how-to/assets/airdrop)
 * [Receiving Payments](/en/building-apps/how-to/assets/payment)
 
-## March articles
+## March Articles
 
 ### Blockchain
 
@@ -56,7 +60,7 @@ Updated the the following descriptions:
 * [hashing functions](/en/ride/functions/built-in-functions/hashing-functions): `blake2b256`, `keccak256`, `sha256`;
 * [verification functions](/en/ride/functions/built-in-functions/verification-functions): `groth16Verify`, `rsaVerify`, `sigVerify`.
 
-## February articles
+## February Articles
 
 ### Building Apps
 
@@ -73,7 +77,7 @@ Added how-to guides:
 * [calculateAssetId](/en/ride/functions/built-in-functions/blockchain-functions#calculate)
 * [groth16Verify](/en/ride/functions/built-in-functions/verification-functions#groth16Verify)
 
-## December articles
+## December Articles
 
 ### Blockchain network
 

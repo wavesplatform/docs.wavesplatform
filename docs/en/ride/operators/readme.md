@@ -2,60 +2,66 @@
 
 ## Arithmetic operators
 
-| # | Symbol | Operator |
-| :--- | :---: | :--- |
-| 1 | + | Addition |
-| 2 | - | Subtraction |
-| 3 | \* | Multiplication |
-| 4 | / | Division |
-| 5 | % | Remainder |
+| Operator | Description |
+| :---: | :--- |
+| + | Addition |
+| - | Subtraction |
+| \* | Multiplication |
+| / | Division |
+| % | Remainder |
 
 ## Comparison operators
 
-| # | Symbol | Operator |
-| :--- | :---: | :--- |
-| 1 | &lt; | Less than |
-| 2 | &gt; | Greater than |
-| 3 | &lt;= | Less than or equal |
-| 4 | &gt;= | Greater than or equal |
+| Operator | Description |
+| :---: | :--- |
+| &lt; | Less than |
+| &gt; | Greater than |
+| &lt;= | Less than or equal |
+| &gt;= | Greater than or equal |
 
 ## Equality operators
 
-| # | Symbol | Operator |
-| :--- | :---: | :--- |
-| 1 | == | Equality |
-| 2 | != | Inequality |
+| Operator | Description |
+| :---: | :--- |
+| == | Equality |
+| != | Inequality |
 
 ## Local definition operators
 
-| # | Keyword | Operator |
-| :--- | :---: | :--- |
-| 1 | let | Variable local definition operator |
-| 2 | func | Function local definition operator |
+| Operator | Description |
+| :--- | :--- |
+| let | Variable local definition |
+| func | Function local definition |
 
 ## Conditional operators
 
-| # | Keyword | Operator |
-| :--- | :---: | :--- |
-| 1 | if-then-else | if-then-else |
-| 2 | match-case | match-case |
+| Operator | Description |
+| :---: | :--- |
+| if-then-else | Conditional statement |
+| match-case | [Spot a type from Union](/en/ride/operators/match-case) |
 
-## List constructor operator
+## List operators
 
-| # | Symbol | Operator |
-| :--- | :---: | :--- |
-| 1 | :: | List constructor operator |
+| Operator | Description |
+| :---: | :--- |
+| ++ | Concatenation |
+| :+ | Adding the element to the end of the list |
+| :: | Adding the element to the beginning of the list |
+
+> :warning: `++` and `:+` operators are added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions” (currently on [Stagenet](/ru/blockchain/blockchain-network/stage-network) only).
+
+See examples of the [List](/en/ride/data-types/list) article.
 
 ## Unary operators
 
-| # | Symbol | Operator |
-| :--- | :---: | :--- |
-| 1 | - | Unary minus |
-| 2 | ! | Logical negation |
+| Operator | Description |
+| :---: | :--- |
+| - | Unary minus |
+| ! | Logical negation |
 
 ## Logical operators
 
-| # | Symbol | Operator |
-| :--- | :---: | :--- |
-| 1 | && | Logical AND |
-| 2 | &#124;&#124; | Logical OR |
+| Operator | Description |
+| :---: | :--- |
+| && | Logical AND |
+| &#124;&#124; | Logical OR |
