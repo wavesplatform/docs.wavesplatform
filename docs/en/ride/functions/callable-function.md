@@ -4,7 +4,7 @@
 
 dApp script can contain multiple callable functions.
 
-A callable function should be adorned with the `@Callable(i)` annotation, where `i`is an [Invocation](/en/ride/structures/common-structures/invocation) structure that contains invoke script transaction fields that are available to the callable function.
+The callable function should be adorned with the `@Callable(i)` annotation, where `i`is an [Invocation](/en/ride/structures/common-structures/invocation) structure that contains invoke script transaction fields that are available to the callable function.
 
 Callable functions features rely on [standard library](/en/ride/script/standard-library) version:
 

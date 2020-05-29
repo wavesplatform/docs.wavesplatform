@@ -6,7 +6,7 @@ Parser checks the Ride script syntax, the presence of all the variables and func
 
 ## Compiler
 
-Compiler generates executable script code based on an abstract syntax tree. The compiled script can be set on an account or asset.
+Compiler generates executable script code based on an abstract syntax tree. The compiled script can be assigned to an account or asset.
 
 ## Estimator
 
@@ -20,9 +20,7 @@ Parser, Compiler and Estimator are used in developer tools such as [Waves IDE](h
 
 ## Evaluator
 
-Evaluator executes the script on the node in the case of sending a transaction from a smart account, a transaction invloving a smart asset, or an invoke script transaction. Script execution is a part of [transaction validation](/en/blockchain/transaction/transaction-validation) and transaction execution, that is, calculating a new state of the blockchain as a result of transaction.
-
-Evaluator is a component of a node.
+Evaluator is a node component that executes the script in cases of sending a transaction from smart account, invoke script transaction, or transaction involving smart asset. Script execution is a part of [transaction validation](/en/blockchain/transaction/transaction-validation) and transaction execution, that is, calculating new state of the blockchain as a result of transaction.
 
 ## Decompiler
 

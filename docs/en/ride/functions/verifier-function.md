@@ -1,18 +1,18 @@
 # Verifier Function
 
-**Verifier function** is a function of a [dApp script](/en/ride/script/script-types/dapp-script) that is responsible for [verification of transactions](/en/blockchain/transaction/transaction-validation) and orders sent from [dApp](/en/blockchain/account/dapp) account. The verifier function does the same as an [account script](/en/ride/script/script-types/account-script).
+**Verifier function** is a function of [dApp script](/en/ride/script/script-types/dapp-script) that is responsible for [verification of transactions](/en/blockchain/transaction/transaction-validation) and orders sent from [dApp](/en/blockchain/account/dapp) account. The verifier function does the same as an [account script](/en/ride/script/script-types/account-script).
 
-A dApp script can have only one verifier function. The verifier function should be adorned with the `@Verifier(tx)` [annotation](/en/ride/functions/annotations), where `tx: Transaction|Order` is the transaction or the order that the function is currently checking.
+dApp script can have only one verifier function. The verifier function should be adorned with the `@Verifier(tx)` [annotation](/en/ride/functions/annotations), where `tx: Transaction|Order` is the transaction or the order that the function is currently checking.
 
-A verifier function has no arguments.
+Verifier function has no arguments.
 
-Possible results of the verifier function execution are:
+Verifier function can have one of the following execution results:
 
 - `true` (the transaction or the order is allowed),
 - `false` (the transaction or the order is denied),
 - error (the transaction or the order is denied).
 
-If the dApp does not have a verifier function, then the default verification is performed, that is, checking that the first [proof](/en/blockchain/transaction/transaction-proof) of the transaction/order is the sender's signature. The following function does the same as the default implementation:
+dApp that has no verifier function performs default verification, that is, checking that the first [proof](/en/blockchain/transaction/transaction-proof) of the transaction/order has the correct sender's signature. The following function does the same as the default implementation:
 
    ```ride
    @Verifier(tx)
