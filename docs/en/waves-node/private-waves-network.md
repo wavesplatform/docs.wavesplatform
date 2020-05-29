@@ -1,6 +1,6 @@
 # Custom Blockchain
 
-This article explains how to setup custom Waves node to be used for experimental activities.
+This article explains how to setup custom Waves blockchain to be used for experimental activities.
 
 For most tasks such as getting familiar with blockchain, sending transactions and developing smart contracts its enough to [deploy one custom node in Docker](#deploy-custom-node-in-docker).
 
@@ -12,7 +12,7 @@ The easiest way to setup custom Waves blockchain with one private node is to [in
 
 ## Setup Custom Jar Node
 
-You can setup your own Java-based node with customized configuration file.
+You can setup your own Jar node with customized genesis block, configuration file and blockchain.
 
 ### Step 1
 
@@ -98,19 +98,19 @@ If the `directory` parameter is not redefined, the default node folder is:
 
 The `waves.blockchain.custom.functionality` section contains parameters allowing to enable/disable features in your custom blockchain. In this section developers can add new parameters, which are not present in the standard node configuration. You can enable features on your node by modifying the `pre-activated-features` parameter in the file. The supported features are listed in [Features](/en/waves-node/features) article.
 
-Paste the content generated in [Step 4](#step-4) in `genesis` section of configuration file. Instead of pasting the section manually, you can write `include "genesis.conf"`, where the `genesis.conf` is a filename from the Step 4.
+Paste the content generated in [Step 4](#step-4) in `waves.blockchain.custom.genesis` section of configuration file. Instead of pasting the section manually, you can write `include "genesis.conf"`, where the `genesis.conf` is a filename from the Step 4.
 
-The values of `waves.blockchain.custom.address-scheme-character` and `waves.wallet.seed` parameters are also generated with genesis generator tool in the Step 4.
+The `waves.blockchain.custom.address-scheme-character` parameter value must be the same as the `network-type` value in [Step 3](#step-3).
+
+Set `waves.wallet` parameters. Use `Seed` (`Seed text` in base58) value generated with genesis generator tool in [Step 4](#step-4) as the value of `waves.wallet.seed` parameter.
 
 In `waves.network` section set `port`, `known-peers` (list the [nodes of your custom network](#add-nodes-to-your-network)), `node-name` and `declared-address` parameters.
-
-Set `waves.wallet` parameters.
 
 To enable REST API set `enable`, `port` and `api-key-hash` (can be created [here](https://nodes.wavesnodes.com/api-docs/index.html#/utils/hashSecure_1)) parameters in `waves.rest-api` section.
 
 ### Step 6
 
-Start your custom blockchain with the following command:
+Start your custom node with the following command:
 
 ```
 java -jar waves-all-{version}.jar waves-custom-network.conf
