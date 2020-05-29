@@ -31,11 +31,11 @@ sidebarDepth: 2
 
 Ассетную пару образуют два ассета, которые вы хотите обменять: amount-ассет и price-ассет. Который из двух ассетов является price-ассетом, не зависит от того, какой ассет вы отдаете и какой получаете.
 
-На Mainnet вы можете посмотреть ассетные пары и идентификаторы ассетов в Waves.Exchange на странице **Торговля**. Первый ассет в паре — это amount-ассет, второй — price-ассет.
+Вы можете посмотреть ассетные пары и идентификаторы ассетов в Waves.Exchange [для Mainnet](https://waves.exchange) и [для Testnet](https://testnet.waves.exchange) на странице **Торговля**. Первый ассет в паре — это amount-ассет, второй — price-ассет.
 
 ![](./_assets/asset-pair.png)
 
-Как на Mainnet, так и на Testnet вы можете получить ассетные пары с помощью метода `GET /matcher/orderbook` или `GET /matcher/settings`. Подробнее см. раздел [Matcher API](https://docs.waves.exchange/ru/waves-matcher/matcher-api) документации Waves.Exchange.
+Вы также можете получить ассетные пары с помощью метода `GET /matcher/orderbook` или `GET /matcher/settings`. Подробнее см. раздел [Matcher API](https://docs.waves.exchange/ru/waves-matcher/matcher-api) документации Waves.Exchange.
 
 > :warning: Идентификаторы ассетов отличаются на Mainnet и на Testnet.
 
@@ -53,17 +53,18 @@ WAVES — главный токен платформы Waves — не имеет
 ```javascript
 import { order, submitOrder } from "@waves/waves-transactions";
 
-const matcherUrl = 'https://matcher-testnet.waves.exchange';
-const matcherPublicKey: '8QUAqtTckM5B8gvcuP7mMswat9SjKUuafJMusEoSn1Gy';
+const matcherUrl = 'https://matcher-testnet.waves.exchange'; // Укажите 'https://matcher.waves.exchange' для Mainnet
 
-const amountAssetId: 'BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3'; // Идентификатор ETH на Testnet
-const priceAssetId: 'WAVES';
+const matcherPublicKey: '8QUAqtTckM5B8gvcuP7mMswat9SjKUuafJMusEoSn1Gy'; // Укажите '9cpfKN9suPNvfeUNphzxXMjcnn974eme8ZhWUjaktzU5' для Mainnet
+
+const amountAssetId: 'WAVES';
+const priceAssetId: '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet; для Mainnet укажите 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
 
 const seed = 'insert your seed here';
 
 const orderParams = {
-    amount: 100000000, // 1 ETH: фактическое количество amount-ассета нужно умножить на 10^amountAssetDecimals
-    price: 19900000000, // 199 WAVES за один 1 ETH: цену, выраженную в price-ассете, нужно умножить на 10^(8 + priceAssetDecimals – amountAssetDecimals)                                             
+    amount: 100000000, // 1 WAVES: фактическое количество amount-ассета нужно умножить на 10^amountAssetDecimals
+    price: 1100000, // 1,1 USDN за один WAVES: цену, выраженную в price-ассете, нужно умножить на 10^(8 + priceAssetDecimals – amountAssetDecimals)                                             
     amountAsset: amountAssetId,
     priceAsset: priceAssetId,
     matcherPublicKey: matcherPublicKey,
@@ -85,17 +86,14 @@ import pywaves as pw
 matcher_url = 'https://matcher-testnet.waves.exchange'
 pw.setMatcher(matcher_url)
 
-# ETH на Testnet
-amount_asset = pw.Asset('BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3')
+waves = pw.Asset('WAVES')
+usdn = pw.Asset('3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC') # USDN на Testnet; укажите 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p' для Mainnet
 
-# WAVES
-price_asset = pw.Asset('')
+asset_pair = pw.AssetPair(waves, usdn)
 
-asset_pair = pw.AssetPair(amount_asset, price_asset)
+my_address = pw.Address(privateKey='your_private_key')
 
-my_address = pw.Address(privateKey='some_private_key')
-
-buy_order = my_address.buy(asset_pair=asset_pair, amount=1e8, price=50e8)
+buy_order = my_address.buy(asset_pair=asset_pair, amount=1e8, price=1.1)
 
 print(f'Buy order ID: {buy_order.orderId}')
 ```
@@ -125,8 +123,8 @@ curl 'https://matcher-testnet.waves.exchange/matcher/orderbook/BrmjyAWT5jjr3Wpsi
 ```javascript
 const matcherUrl = 'https://matcher-testnet.waves.exchange';
 
-const amountAssetId: 'BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3'; // Идентификатор ETH на Testnet
-const priceAssetId: 'WAVES';
+const amountAssetId: 'WAVES';
+const priceAssetId: '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet; для Mainnet укажите 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
 
 const orderId= '6hgoJMKAMPVZb11epd2vCjqk47dGcr9eT8cJQ2HpYnHp';
 
@@ -171,8 +169,8 @@ import {cancelOrder, cancelSubmittedOrder } from "@waves/waves-transactions";
 
 const matcherUrl = 'https://matcher-testnet.waves.exchange';
 
-const amountAssetId: 'BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3'; // Идентификатор ETH на Testnet
-const priceAssetId: 'WAVES';
+const amountAssetId: 'WAVES';
+const priceAssetId: '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet;для Mainnet укажите 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
 
 const seed = 'insert your seed here';
 const orderId= '6hgoJMKAMPVZb11epd2vCjqk47dGcr9eT8cJQ2HpYnHp';
@@ -243,14 +241,14 @@ console.table(json);
 ```python
 import pywaves as pw
 
-my_address = pw.Address(seed = 'insert your seed here')
+my_address = pw.Address(seed='insert your seed here')
 
-matcher_url = 'https://matcher-testnet.waves.exchange'
+matcher_url = 'https://matcher-testnet.waves.exchange' # Укажите 'https://matcher.waves.exchange' для Mainnet
 pw.setMatcher(matcher_url)
 
-btc = pw.Asset('DWgwcZTMhSvnyYCoWLRUXXSH1RSkzThXLJhww9gwkqdn') # BTС на Testnet
-usdn = pw.Asset('3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC') # USDN на Testnet
+waves = pw.Asset('WAVES')
+usdn = pw.Asset('3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC') # USDN на Testnet; укажите 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p' для Mainnet
 
-asset_pair = pw.AssetPair(btc, usdn)
-my_address.getOrderHistory(asset_pair)
+asset_pair = pw.AssetPair(waves, usdn)
+my_orders = my_address.getOrderHistory(asset_pair)
 ```

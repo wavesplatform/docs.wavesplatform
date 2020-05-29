@@ -33,11 +33,11 @@ Use the `GET /matcher` method of matcher API to retrieve matcher public key.
 
 An asset pair consists of two assets you want to exchange: amount asset and price asset. Under the order, you can either sell or buy the amount asset for the price asset.
 
-For Mainnet, you can see asset pairs and asset IDs on the **Trading** page of Waves.Exchange. The first asset in pair is the amount asset and the second one is the price asset.
+You can see asset pairs and asset IDs on the **Trading** page of Waves.Exchange [on Mainnet](https://waves.exchange) and [on Testnet](https://testnet.waves.exchange). The first asset in pair is the amount asset and the second one is the price asset.
 
 ![](./_assets/asset-pair.png)
 
-For both Mainnet and Testnet, you can get asset pairs using `GET /matcher/orderbook` or `GET /matcher/settings` API method. For more information, see [matcher API](https://docs.waves.exchange/en/waves-matcher/matcher-api) article of Waves.Exchange documentation.
+You can also get asset pairs using `GET /matcher/orderbook` or `GET /matcher/settings` API method. For more information, see [matcher API](https://docs.waves.exchange/en/waves-matcher/matcher-api) article of Waves.Exchange documentation.
 
 > :warning: Asset IDs differ on Mainnet and Testnet.
 
@@ -55,17 +55,18 @@ See function descriptions in [waves-transactions documentation](https://wavespla
 ```javascript
 import { order, submitOrder } from "@waves/waves-transactions";
 
-const matcherUrl = 'https://matcher-testnet.waves.exchange';
-const matcherPublicKey: '8QUAqtTckM5B8gvcuP7mMswat9SjKUuafJMusEoSn1Gy';
+const matcherUrl = 'https://matcher-testnet.waves.exchange'; // Set 'https://matcher.waves.exchange' for Mainnet
 
-const amountAssetId: 'BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3'; // asset ID of ETH on Testnet
-const priceAssetId: 'WAVES';
+const matcherPublicKey: '8QUAqtTckM5B8gvcuP7mMswat9SjKUuafJMusEoSn1Gy'; // Set '9cpfKN9suPNvfeUNphzxXMjcnn974eme8ZhWUjaktzU5' for Mainnet
+
+const amountAssetId: 'WAVES';
+const priceAssetId: '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet; for Mainnet set 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
 
 const seed = 'insert your seed here';
 
 const orderParams = {
-    amount: 100000000, // 1 ETH: actual volume of amount asset multiplied by 10^amountAssetDecimals
-    price: 19900000000, // 199 WAVES for 1 ETH: actual price denominated in priceAsset and multiplied by 10^(8 + priceAssetDecimals – amountAssetDecimals)
+    amount: 100000000, // 1 WAVES: actual volume of amount asset multiplied by 10^amountAssetDecimals
+    price: 1100000, // 1.1 USDN for 1 WAVES: actual price denominated in priceAsset and multiplied by 10^(8 + priceAssetDecimals – amountAssetDecimals)
     amountAsset: amountAssetId,
     priceAsset: priceAssetId,
     matcherPublicKey: matcherPublicKey,
@@ -87,17 +88,14 @@ import pywaves as pw
 matcher_url = 'https://matcher-testnet.waves.exchange'
 pw.setMatcher(matcher_url)
 
-# ETH asset on Testnet
-amount_asset = pw.Asset('BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3')
+waves = pw.Asset('WAVES')
+usdn = pw.Asset('3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC') # USDN on Testnet; set 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p' for Mainnet
 
-# WAVES
-price_asset = pw.Asset('')
+asset_pair = pw.AssetPair(waves, usdn)
 
-asset_pair = pw.AssetPair(amount_asset, price_asset)
+my_address = pw.Address(privateKey='your_private_key')
 
-my_address = pw.Address(privateKey='some_private_key')
-
-buy_order = my_address.buy(asset_pair=asset_pair, amount=1e8, price=50e8)
+buy_order = my_address.buy(asset_pair=asset_pair, amount=1e8, price=1.1)
 
 print(f'Buy order ID: {buy_order.orderId}')
 ```
@@ -127,8 +125,8 @@ The example is suitable for the `cURL` utility. You can adjust the proposed requ
 ```javascript
 const matcherUrl = 'https://matcher-testnet.waves.exchange';
 
-const amountAssetId: 'BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3'; // asset ID of ETH on Testnet
-const priceAssetId: 'WAVES';
+const amountAssetId: 'WAVES';
+const priceAssetId: '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet; for Mainnet set 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
 
 const orderId= '6hgoJMKAMPVZb11epd2vCjqk47dGcr9eT8cJQ2HpYnHp';
 
@@ -173,8 +171,8 @@ import {cancelOrder, cancelSubmittedOrder } from "@waves/waves-transactions";
 
 const matcherUrl = 'https://matcher-testnet.waves.exchange';
 
-const amountAssetId: 'BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3'; // asset ID of ETH on Testnet
-const priceAssetId: 'WAVES';
+const amountAssetId: 'WAVES';
+const priceAssetId: '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet; for Mainnet set 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
 
 const seed = 'insert your seed here';
 const orderId= '6hgoJMKAMPVZb11epd2vCjqk47dGcr9eT8cJQ2HpYnHp';
@@ -251,15 +249,14 @@ To get order list by a certain asset pair and account public key use the `getOrd
 ```python
 import pywaves as pw
 
-my_address = pw.Address(seed = 'insert your seed here')
+my_address = pw.Address(seed='insert your seed here')
 
-matcher_url = 'https://matcher-testnet.waves.exchange'
+matcher_url = 'https://matcher-testnet.waves.exchange' # Set 'https://matcher.waves.exchange' for Mainnet
 pw.setMatcher(matcher_url)
 
-btc = pw.Asset('DWgwcZTMhSvnyYCoWLRUXXSH1RSkzThXLJhww9gwkqdn') # BTС on Testnet
-usdn = pw.Asset('3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC') # USDN on Testnet
+waves = pw.Asset('WAVES')
+usdn = pw.Asset('3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC') # USDN on Testnet; set 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p' on Mainnet
 
-asset_pair = pw.AssetPair(btc, usdn)
-my_address.getOrderHistory(asset_pair)
+asset_pair = pw.AssetPair(waves, usdn)
+my_orders = my_address.getOrderHistory(asset_pair)
 ```
-

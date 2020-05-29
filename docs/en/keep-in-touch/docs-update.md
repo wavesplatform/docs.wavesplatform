@@ -1,12 +1,14 @@
 # Documentation updates
 
-## May Articles
+## June Articles
 
 ### Building Apps
 
-Added how-to guide:
+Added guides:
 
 * [Get Order List](/ru/building-apps/how-to/basic/trading#get-order-list)
+
+## May Articles
 
 ### Ride
 
