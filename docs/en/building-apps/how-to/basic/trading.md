@@ -57,10 +57,10 @@ import { order, submitOrder } from "@waves/waves-transactions";
 
 const matcherUrl = 'https://matcher-testnet.waves.exchange'; // Set 'https://matcher.waves.exchange' for Mainnet
 
-const matcherPublicKey: '8QUAqtTckM5B8gvcuP7mMswat9SjKUuafJMusEoSn1Gy'; // Set '9cpfKN9suPNvfeUNphzxXMjcnn974eme8ZhWUjaktzU5' for Mainnet
+const matcherPublicKey = '8QUAqtTckM5B8gvcuP7mMswat9SjKUuafJMusEoSn1Gy'; // Set '9cpfKN9suPNvfeUNphzxXMjcnn974eme8ZhWUjaktzU5' for Mainnet
 
-const amountAssetId: 'WAVES';
-const priceAssetId: '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet; for Mainnet set 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
+const amountAssetId = 'WAVES';
+const priceAssetId = '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet; for Mainnet set 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
 
 const seed = 'insert your seed here';
 
@@ -125,8 +125,8 @@ The example is suitable for the `cURL` utility. You can adjust the proposed requ
 ```javascript
 const matcherUrl = 'https://matcher-testnet.waves.exchange';
 
-const amountAssetId: 'WAVES';
-const priceAssetId: '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet; for Mainnet set 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
+const amountAssetId = 'WAVES';
+const priceAssetId = '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet; for Mainnet set 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
 
 const orderId= '6hgoJMKAMPVZb11epd2vCjqk47dGcr9eT8cJQ2HpYnHp';
 
@@ -171,8 +171,8 @@ import {cancelOrder, cancelSubmittedOrder } from "@waves/waves-transactions";
 
 const matcherUrl = 'https://matcher-testnet.waves.exchange';
 
-const amountAssetId: 'WAVES';
-const priceAssetId: '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet; for Mainnet set 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
+const amountAssetId = 'WAVES';
+const priceAssetId = '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet; for Mainnet set 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
 
 const seed = 'insert your seed here';
 const orderId= '6hgoJMKAMPVZb11epd2vCjqk47dGcr9eT8cJQ2HpYnHp';

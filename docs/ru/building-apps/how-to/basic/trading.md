@@ -55,10 +55,10 @@ import { order, submitOrder } from "@waves/waves-transactions";
 
 const matcherUrl = 'https://matcher-testnet.waves.exchange'; // Укажите 'https://matcher.waves.exchange' для Mainnet
 
-const matcherPublicKey: '8QUAqtTckM5B8gvcuP7mMswat9SjKUuafJMusEoSn1Gy'; // Укажите '9cpfKN9suPNvfeUNphzxXMjcnn974eme8ZhWUjaktzU5' для Mainnet
+const matcherPublicKey = '8QUAqtTckM5B8gvcuP7mMswat9SjKUuafJMusEoSn1Gy'; // Укажите '9cpfKN9suPNvfeUNphzxXMjcnn974eme8ZhWUjaktzU5' для Mainnet
 
-const amountAssetId: 'WAVES';
-const priceAssetId: '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet; для Mainnet укажите 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
+const amountAssetId = 'WAVES';
+const priceAssetId = '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet; для Mainnet укажите 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
 
 const seed = 'insert your seed here';
 
@@ -123,8 +123,8 @@ curl 'https://matcher-testnet.waves.exchange/matcher/orderbook/BrmjyAWT5jjr3Wpsi
 ```javascript
 const matcherUrl = 'https://matcher-testnet.waves.exchange';
 
-const amountAssetId: 'WAVES';
-const priceAssetId: '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet; для Mainnet укажите 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
+const amountAssetId = 'WAVES';
+const priceAssetId = '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet; для Mainnet укажите 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
 
 const orderId= '6hgoJMKAMPVZb11epd2vCjqk47dGcr9eT8cJQ2HpYnHp';
 
@@ -169,8 +169,8 @@ import {cancelOrder, cancelSubmittedOrder } from "@waves/waves-transactions";
 
 const matcherUrl = 'https://matcher-testnet.waves.exchange';
 
-const amountAssetId: 'WAVES';
-const priceAssetId: '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet;для Mainnet укажите 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
+const amountAssetId = 'WAVES';
+const priceAssetId = '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet;для Mainnet укажите 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
 
 const seed = 'insert your seed here';
 const orderId= '6hgoJMKAMPVZb11epd2vCjqk47dGcr9eT8cJQ2HpYnHp';
