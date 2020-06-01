@@ -105,7 +105,7 @@ dApp-script should start with the following directives:<br>
 
 After directives you can declare variables and auxiliary functions.
 
-Callable functions should be adorned with the `@Callable(i)` annotation. The `i` object contains invoke script transaction fields that the callable function can use. In this example we use the `i.caller.bytes` field that contains address of user account that called the function.
+Callable functions should be marked with the `@Callable(i)` annotation. The `i` object contains invoke script transaction fields that the callable function can use. In this example we use the `i.caller.bytes` field that contains address of user account that called the function.
 </p>
 </details>
 

@@ -1,8 +1,8 @@
 # What is dApp
 
-dApp is a Waves account that has dApp script assigned to it.
+dApp is Waves account assigned with dApp script.
 
-dApp script is a Ride script that comprises сallable functions that can be called externally by the [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction).
+dApp script is a Ride script that contains сallable functions that can be called externally by the [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction).
 
 An invoke script transaction contains:
 
@@ -12,12 +12,11 @@ An invoke script transaction contains:
 
 [Invoke script transaction example](https://nodes.wavesnodes.com/transactions/info/7CVjf5KGRRYj6UyTC2Etuu4cUxx9qQnCJox8vw9Gy9yq)
 
-The callable function results can be as follows:
+You can use callable functions to:
 
-* Adding, modifying, deleting of dApp [account data storage](/en/blockchain/account/account-data-storage) entries.
-* Token transfers.
-* Token issue, reissue, burning.
-* Sponsorship setup.
+* Add, modify or delete dApp [account data storage](/en/blockchain/account/account-data-storage) entries.
+* Transfer, issue, reissue, burn tokens.
+* Setup sponsorship.
 
 > Available script actions depend on [Standard library](/en/ride/script/standard-library) version used.
 
@@ -62,13 +61,13 @@ func doSomething() = {
 
 ### Callable Functions
 
-Callable function can be called externally by the invoke script transaction. The callable function should be adorned with the `@Callable(i)` annotation, where `i` is an [Invocation](/en/ride/structures/common-structures/invocation) structure that contains invoke script transaction fields that are available to the callable function.
+Callable function can be called externally by the invoke script transaction. The callable function should be marked with the `@Callable(i)` annotation, where `i` is an [Invocation](/en/ride/structures/common-structures/invocation) structure that contains invoke script transaction fields that are available to the callable function.
 
 Callable function result is a set of [script actions](/en/ride/structures/script-actions) that are performed on the blockchain: adding entries to the account data storages, token transfers and others. The result format and the possible actions depend on the Standard library version used.
 
 For a detailed description, see the [Callable Function](/en/ride/functions/callable-function) article.
 
-In the example below the callable function transfers 1 WAVES to an account that called it and writes information about this to the account data storage. If the same account tries to call the function again, it does nothing.
+In the example below the callable function transfers 1 WAVES to an account that called it and records the request information in the account data storage. If the same account tries to call the function again, the callable function does nothing.
 
 ```ride
 @Callable(i)
@@ -90,7 +89,7 @@ func faucet () = {
 
 ### Verifier Function
 
-Verifier function checks transactions and orders that are sent from dApp account (in other words it does the same as the account script). The verifier function should be adorned with the `@Verifier(tx)` annotation, where `tx` is the transaction or the order that that the function is currently checking.
+Verifier function checks transactions and orders that are sent from dApp account (in other words it does the same as the account script). The verifier function should be marked with the `@Verifier(tx)` annotation, where `tx` is the transaction or the order that that the function is currently checking.
 
 For a detailed description, see the [Verifier Function](/en/ride/functions/verifier-function) article.
 
@@ -110,7 +109,7 @@ dApp that has no verifier function performs default verification, that is, check
 
 ## Data Accessible by dApp
 
-A dApp can read the following blockchain data:
+dApps can read the following blockchain data:
 
 * Entries in account data storages (both dApp's account and any other account).
 * Balances of accounts.
@@ -119,21 +118,21 @@ A dApp can read the following blockchain data:
 * Headers of blocks.
 * Transfer transactions (by transaction ID).
 
-See the [Account Data Storage Functions](/en/ride/functions/built-in-functions/account-data-storage-functions) and [Blockchain Functions](/en/ride/functions/built-in-functions/blockchain-functions) articles.
+Appropriate fuctions are described in the [Account Data Storage Functions](/en/ride/functions/built-in-functions/account-data-storage-functions) and [Blockchain Functions](/en/ride/functions/built-in-functions/blockchain-functions) articles.
 
 Furthermore:
 
-* The callable function has access to some fields of the transaction that called the dApp script. See the [Invocation](/en/ride/structures/common-structures/invocation) article.
+* The callable function has access to some fields of the transaction that called the dApp script. See the [Invocation](/en/ride/structures/common-structures/invocation) article for the fields description.
 * The verifier function has access to the fields of the outgoing transaction or order, including [proofs](/en/blockchain/transaction/transaction-proof).
 
 ## Assigning dApp Script to Account
 
 To assign dApp script to an account you need to send a [set script transaction](/en/blockchain/transaction-type/set-script-transaction) from this account.
 
-There are the following options to put the transaction:
+There are the following options to send the transaction:
 
 * In [Waves IDE](https://ide.wavesplatform.com/) create or import an account, open the dApp script and click **Deploy**.
-* Using [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/). See also the [Creating & Broadcasting Transactions](/en/building-apps/how-to/basic/transaction) article.
+* Using [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/). See some examples of sending a transaction in the [Creating & Broadcasting Transactions](/en/building-apps/how-to/basic/transaction) article.
 
 [Set script transaction example](https://wavesexplorer.com/testnet/tx/213JdqCLq6qGLUvoXkMaSA2wLSwdzH24BuhHBhcBeHUR)
 
