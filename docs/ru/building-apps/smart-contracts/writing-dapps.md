@@ -96,7 +96,7 @@ func tellme(question: String) = {<br>
 
 <details><summary>Пояснения к коду</summary>
 <p>
-dApp-скрипт должен начинаться с директив:
+dApp-скрипт должен начинаться с директив:<br>
 
 <code>
 {-# STDLIB_VERSION 3 #-}<br>

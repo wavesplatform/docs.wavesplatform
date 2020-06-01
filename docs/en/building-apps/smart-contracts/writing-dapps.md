@@ -12,7 +12,7 @@ Let's follow five simple steps of dApp development to create a simple Waves Magi
 
 1. Create a dApp account.
 2. Write a dApp script.
-3. Assign a script to the dApp account.
+3. Assign the script to the dApp account.
 4. Test the script.
 5. Release a real-world application.
 
@@ -96,8 +96,7 @@ func tellme(question: String) = {<br>
 
 <details><summary>Explanation of the code</summary>
 <p>
-dApp-script should start with the following directives:
-
+dApp-script should start with the following directives:<br>
 <code>
 {-# STDLIB_VERSION 3 #-}<br>
 {-# CONTENT_TYPE DAPP #-}<br>
@@ -106,22 +105,22 @@ dApp-script should start with the following directives:
 
 After directives you can declare variables and auxiliary functions.
 
-Callable functions should be adorned with `@Callable(i)` annotation. The `i` object contains invoke script transaction fields that the callable function can use. In this example we use the `i.caller.bytes`field that contains address of user account that called the function.
+Callable functions should be adorned with the `@Callable(i)` annotation. The `i` object contains invoke script transaction fields that the callable function can use. In this example we use the `i.caller.bytes` field that contains address of user account that called the function.
 </p>
 </details>
 
 For more information about the structure of the dApp script, see the [Structure of dApp Script](/en/building-apps/smart-contracts/what-is-a-dapp#structure-of-dapp-script).
 
-## Step 3. Set Script on Account
+## Step 3. Assign Script to Account
 
-To attach dApp script to account, send a set script transaction from this account. The fee for the script setup is 0.01 WAVES.
+To assign dApp script to the account, send a set script transaction from this account. The fee for the set script transaction is 0.01 WAVES.
 
 You can send a set script transaction directly from Waves IDE:
 
 1. Open dApp script and click **Deploy**.
 2. Click **Add sign** to sign the transaction. Then click **Publish**.
 
-You can check the attached script in Waves Explorer:
+You can check the assigned script in Waves Explorer:
 
 1. Go to <https://wavesexplorer.com/>.
 2. Click ![](./_assets/settings.png) and switch to ![](./_assets/testnet.png).
@@ -134,11 +133,11 @@ Now dApp is ready — users can call dApp functions using invoke script transact
 
 To test the dApp script send an invoke script transaction. The fee for the script invocation starts from 0.005 WAVES and depends on the number of smart assets involved (in this example, smart assets are not used). Fee calculation is described in the [Transaction Fee](/en/blockchain/transaction/transaction-fee) article.
 
-You can run test directly in Waves IDE. Tests support the following fuctions:
+You can run tests directly in Waves IDE. Tests support the following fuctions:
 * `describe` and `it` from [mocha](https://mochajs.org/) library;
 * `expect` from [chai](https://www.chaijs.com/) library.
 
-1. Create an account for test user and top up its balance. To do this, repeat step 1.
+1. Create a test user account and top up its balance. To do this, repeat step 1.
 2. Click ![](./_assets/add-script-button.png) and select **Test**.
 3. Replace the automatically generated code with your script.
 
@@ -214,9 +213,9 @@ await signer.invoke({<br>
    * Transfer 0.01 WAVES from another account, see the [Cryptocurrency Transfers](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trs-gtw/online-desktop-trs-asset) article of the Waves.Exchange documentation.
    * Buy Neutrino with a credit card and then exchange for WAVES, see the [Buy Neutrino with Card](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-staking#buy-neutrino-with-card) and [Start Trading on Waves.Exchange](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) articles.
 
-4. Attach dApp script to account — similar to step 3.
+4. Attach dApp script to the account — similar to step 3.
 
-dApp on Mainnet will have a different addredd  — remember to change the address in your web app. In addition, replace the node address to ` https://nodes.wavesnodes.com`.
+dApp on Mainnet will have a different address  — remember to change the address in your web app. In addition, replace the node address to ` https://nodes.wavesnodes.com`.
 
 > :bulb: If you want to make the application free for users and pay fees for script invocations yourself, [enable sponsorship](/en/blockchain/waves-protocol/sponsored-fee).
 
@@ -234,4 +233,4 @@ To promote your application, add it to popular dApp directories:
 
 ## What's next
 
-Waves public nodes have [limitations on the number of requests per second](/en/waves-node/api-limitations-of-the-pool-of-public-nodes). So when your application becomes popular, we recommend [launching your own node](/en/waves-node/how-to-install-a-node/how-to-install-a-node) and send invoke script transactions to it.
+Waves public nodes have [limitations on the number of requests per second](/en/waves-node/api-limitations-of-the-pool-of-public-nodes). So when your application becomes popular, we recommend to [launch your own node](/en/waves-node/how-to-install-a-node/how-to-install-a-node) and send invoke script transactions to it.
