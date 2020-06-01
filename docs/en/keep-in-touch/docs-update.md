@@ -6,7 +6,7 @@
 
 Added guides:
 
-* [Get Order List](/ru/building-apps/how-to/basic/trading#get-order-list)
+* [Get Order List](/en/building-apps/how-to/basic/trading#get-order-list)
 
 ## May Articles
 
