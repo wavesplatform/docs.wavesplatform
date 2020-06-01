@@ -1,10 +1,8 @@
 # How to Create and Launch dApp: Complete Tutorial
 
-In this tutorial, you'll learn how to create and launch a dApp based on Waves blockchain.
+This tutorial provides steps to develop and launch sample dApp based on Waves blockchain. You can then repeat the steps to create more advanced dApps.
 
-We use [Waves IDE](https://ide.wavesplatform.com/) to develop and test the dApp and JavaScript to deploy the web app that calls the dApp functions.
-
-Let's follow five simple steps of dApp development to create a simple Waves Magic 8 Ball application to generate pseudorandom answers. You  can then repeat those steps to create more advanced applications.
+The sample dApp you'll create is the Waves Magic 8 Ball application that generates pseudorandom answers. You will use [Waves IDE](https://ide.wavesplatform.com/) to develop and test dApp and then use JavaScript to deploy the web app that calls the dApp functions.
 
 [Learn more about dApp features](/en/building-apps/smart-contracts/what-is-dapp)
 
@@ -133,11 +131,11 @@ Now dApp is ready — users can call dApp functions using invoke script transact
 
 To test the dApp script send an invoke script transaction. The fee for the script invocation starts from 0.005 WAVES and depends on the number of smart assets involved (in this example, smart assets are not used). Fee calculation is described in the [Transaction Fee](/en/blockchain/transaction/transaction-fee) article.
 
-You can run tests directly in Waves IDE. Tests support the following fuctions:
+You can run tests directly in Waves IDE. Tests support the following functions:
 * `describe` and `it` from [mocha](https://mochajs.org/) library;
 * `expect` from [chai](https://www.chaijs.com/) library.
 
-1. Create a test user account and top up its balance. To do this, repeat step 1.
+1. Create a test user account and top up its balance as described in [Step 1](#step-1-create-dapp-account).
 2. Click ![](./_assets/add-script-button.png) and select **Test**.
 3. Replace the automatically generated code with your script.
 
@@ -178,9 +176,9 @@ You can check the result of script execution in Waves Explorer:
 
 To release your app:
 
-* Deploy the wep app that allows user to sign and send an invoke script transaction by simply clicking the button.
-* Add your dApp on Mainnet.
-* Register your application in dApp directories to make it known to as many users as possible!
+* [Deploy the wep app](#51-deploy-web-app) that allows user to sign and send an invoke script transaction by simply clicking the button.
+* [Add your dApp on Mainnet](#52-add-dapp-on-mainnet).
+* [Register your application](#53-register-in-dapp-directories) in dApp directories to make it known to as many users as possible!
 
 ### 5.1. Deploy Web App
 
@@ -205,19 +203,19 @@ await signer.invoke({<br>
 ### 5.2. Add dApp on Mainnet
 
 1. In Waves IDE click ![](./_assets/ide-settings.png) and switch to Mainnet.
-2. Crate dApp account on Mainnet – similar to step 1.
+2. Create dApp account on Mainnet as described in [Step 1](#step-1-create-dapp-account).
 3. Top up account balance to pay the fee for the script setup.
 
    For example, use [Waves.Exchange](https://waves.exchange/) app developed by Waves.Exchange team to:
    
    * Transfer 0.01 WAVES from another account, see the [Cryptocurrency Transfers](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trs-gtw/online-desktop-trs-asset) article of the Waves.Exchange documentation.
-   * Buy Neutrino with a credit card and then exchange for WAVES, see the [Buy Neutrino with Card](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-staking#buy-neutrino-with-card) and [Start Trading on Waves.Exchange](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) articles.
+   * Buy Neutrino with a credit card and then exchange for WAVES, see the [Buy Neutrino with Card](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-staking#buy-neutrino-with-card) and [Start Trading on Waves.Exchange](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) articles for details.
 
-4. Attach dApp script to the account — similar to step 3.
+4. Attach dApp script to the account as described in [Step 3](#step-3-assign-script-to-account).
 
 dApp on Mainnet will have a different address  — remember to change the address in your web app. In addition, replace the node address to ` https://nodes.wavesnodes.com`.
 
-> :bulb: If you want to make the application free for users and pay fees for script invocations yourself, [enable sponsorship](/en/blockchain/waves-protocol/sponsored-fee).
+> :bulb: You can [enable sponsorship](/en/blockchain/waves-protocol/sponsored-fee) to make the application free for users and pay the script invocations fees yourself.
 
 ### 5.3. Register in dApp Directories
 
@@ -225,11 +223,11 @@ To promote your application, add it to popular dApp directories:
 
 * [dAppOcean](https://www.dappocean.io) — the ecosystem of decentralized applications based on the Waves blockchain.
 
-   [Submit dApp](https://www.dappocean.io/en/dapps/submit)
+   <input value="Submit dApp" type="button" onclick="location.href='https://www.dappocean.io/en/dapps/submit'" />
 
 * [DappRadar](https://dappradar.com) — the leading global platform for discovering and analyzing dApps.
 
-   [Submit dApp](https://dappradar.com/submit-dapp)
+   <input value="Submit dApp" type="button" onclick="location.href='https://dappradar.com/submit-dapp" />
 
 ## What's next
 
