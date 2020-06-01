@@ -23,7 +23,7 @@ InvokeScriptTransaction(dApp: Address|Alias, payments: List[AttachedPayments], f
 | # | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
 | 1 | dApp | [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the [account](/en/blockchain/account) which is calling a function |
-| 2 | payment | [AttachedPayment](/ride/structures/common-structures/attached-payment.md)&#124;[Unit](/ride/data-types/unit.md) | Payment attached to the transaction.<br>:warning: The field is deleted in Standard library version 4 |
+| 2 | payment | [AttachedPayment](/en/ride/structures/common-structures/attached-payment)&#124;[Unit](/en/ride/data-types/unit) | Payment attached to the transaction.<br>:warning: The field is deleted in Standard library version 4 |
 | 2 | payments | List[[AttachedPayment](/en/ride/structures/common-structures/attached-payment)] | Payments attached to the transaction.<br>The field is added in Standard library version 4 |
 | 3 | feeAssetId | [ByteVector](/en/ride/data-types/byte-vector)&#124;[Unit](/en/ride/data-types/unit) | [Token](/en/blockchain/token) to pay the commission. Currently, it can be only in [WAVES](/en/blockchain/token/waves) |
 | 4 | function | [String](/en/ride/data-types/string) | Name of the [function](/en/ride/functions) |

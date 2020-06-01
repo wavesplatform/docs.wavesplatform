@@ -2,7 +2,7 @@
 
 Существует три типа [скриптов](/ru/ride/script):
 
-* [dApp-скрипт](/ru/ride/script/script-types/dapp-script) — содержит [вызываемые (сallable) функции](/ru/ride/functions/callable-function), которые могут быть вызваны путем отправки транзакции вызова скрипта. Также может содержать [функцию-верификатор](/ru/ride/functions/verifier-functions), которая проверяет транзакции и ордера, отправляемые аккаунтом.
+* [dApp-скрипт](/ru/ride/script/script-types/dapp-script) — содержит [вызываемые (сallable) функции](/ru/ride/functions/callable-function), которые могут быть вызваны путем отправки транзакции вызова скрипта. Также может содержать [функцию-верификатор](/ru/ride/functions/verifier-function), которая проверяет транзакции и ордера, отправляемые аккаунтом.
 * [Скрипт аккаунта](/ru/ride/script/script-types/account-script) — проверяет транзакции и ордера, отправляемые аккаунтом (то есть работает аналогично функции-верификатору dApp-скрипта).
 * [Скрипт ассета](/ru/ride/script/script-types/asset-script) — проверяет транзакции с участием ассета.
 

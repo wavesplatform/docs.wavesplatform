@@ -140,7 +140,7 @@ indexOf("Apple","le", 2) # Returns 3
 indexOf("Apple","e", 3) # Returns 4
 ```
 
-## lastIndexOf(String, String): Int&#124;Unit
+## lastIndexOf(String, String): Int|Unit
 
 Returns the index of the last occurrence of a substring.
 
@@ -163,7 +163,7 @@ lastIndexOf("Apple","p") # Returns 2
 lastIndexOf("Apple","s") # Returns unit
 ```
 
-## lastIndexOf(String, String, Int): Int&#124;Unit
+## lastIndexOf(String, String, Int): Int|Unit
 
 Returns the index of the last occurrence of a substring before a certain index.
 

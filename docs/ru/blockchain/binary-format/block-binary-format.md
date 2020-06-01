@@ -8,7 +8,7 @@
 
 Бинарный формат блока версии 5 соответствует protobuf-схеме [block.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto). См. [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=ru).
 
-Версия 5 добавлена в версии ноды 1.2.0 и включается с активацией [фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”](/ru/waves-node/features/features). В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+Версия 5 добавлена в версии ноды 1.2.0 и включается с активацией [фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”](/ru/waves-node/features/). В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ```protobuf
 message Block {
