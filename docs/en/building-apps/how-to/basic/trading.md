@@ -55,18 +55,26 @@ See function descriptions in [waves-transactions documentation](https://wavespla
 ```javascript
 import { order, submitOrder } from "@waves/waves-transactions";
 
-const matcherUrl = 'https://matcher-testnet.waves.exchange'; // Set 'https://matcher.waves.exchange' for Mainnet
+const matcherUrl = 'https://matcher-testnet.waves.exchange';
+// For Mainnet, specify 'https://matcher.waves.exchange'
 
-const matcherPublicKey = '8QUAqtTckM5B8gvcuP7mMswat9SjKUuafJMusEoSn1Gy'; // Set '9cpfKN9suPNvfeUNphzxXMjcnn974eme8ZhWUjaktzU5' for Mainnet
+const matcherPublicKey = '8QUAqtTckM5B8gvcuP7mMswat9SjKUuafJMusEoSn1Gy';
+// For Mainnet, specify '9cpfKN9suPNvfeUNphzxXMjcnn974eme8ZhWUjaktzU5'
 
 const amountAssetId = 'WAVES';
-const priceAssetId = '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet; for Mainnet set 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
+const priceAssetId = '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet
+// For Mainnet, specify 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
 
 const seed = 'insert your seed here';
 
 const orderParams = {
-    amount: 100000000, // 1 WAVES: actual volume of amount asset multiplied by 10^amountAssetDecimals
-    price: 1100000, // 1.1 USDN for 1 WAVES: actual price denominated in priceAsset and multiplied by 10^(8 + priceAssetDecimals – amountAssetDecimals)
+
+    // Actual volume of amount asset multiplied by 10^amountAssetDecimals
+    amount: 100000000, // 1 WAVES
+
+    // Actual price denominated in priceAsset and multiplied by 10^(8 + priceAssetDecimals – amountAssetDecimals)
+    price: 1100000, // 1.1 USDN for 1 WAVES
+
     amountAsset: amountAssetId,
     priceAsset: priceAssetId,
     matcherPublicKey: matcherPublicKey,
@@ -89,13 +97,14 @@ matcher_url = 'https://matcher-testnet.waves.exchange'
 pw.setMatcher(matcher_url)
 
 waves = pw.Asset('WAVES')
-usdn = pw.Asset('3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC') # USDN on Testnet; set 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p' for Mainnet
+usdn = pw.Asset('3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC') # USDN on Testnet
+# For Mainnet, specify 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
 
 asset_pair = pw.AssetPair(waves, usdn)
 
 my_address = pw.Address(privateKey='your_private_key')
 
-buy_order = my_address.buy(asset_pair=asset_pair, amount=1e8, price=1.1)
+buy_order = my_address.buy(asset_pair=asset_pair, amount=1e8, price=1.1e6)
 
 print(f'Buy order ID: {buy_order.orderId}')
 ```
@@ -115,7 +124,7 @@ See method description in [Matcher API](https://docs.waves.exchange/en/waves-mat
 **Request example:**
 
 ```
-curl 'https://matcher-testnet.waves.exchange/matcher/orderbook/BrmjyAWT5jjr3Wpsiyivyvg5vDuzoX2s93WgiexXetB3/WAVES/6hgoJMKAMPVZb11epd2vCjqk47dGcr9eT8cJQ2HpYnHp'
+curl 'https://matcher-testnet.waves.exchange/matcher/orderbook/WAVES/3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC/9kRXfmrhWhsGBohygMoo91RgcnmJUB37K4rQQN4rEidT'
 ```
 
 The example is suitable for the `cURL` utility. You can adjust the proposed request to your app written in any programming language.
@@ -126,9 +135,10 @@ The example is suitable for the `cURL` utility. You can adjust the proposed requ
 const matcherUrl = 'https://matcher-testnet.waves.exchange';
 
 const amountAssetId = 'WAVES';
-const priceAssetId = '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet; for Mainnet set 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
+const priceAssetId = '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet
+// For Mainnet, specify 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
 
-const orderId= '6hgoJMKAMPVZb11epd2vCjqk47dGcr9eT8cJQ2HpYnHp';
+const orderId= '9kRXfmrhWhsGBohygMoo91RgcnmJUB37K4rQQN4rEidT';
 
 let response = await fetch(matcherUrl + '/matcher/orderbook/' + amountAsset + '/' + priceAsset + '/' + orderId);
 let json = await response.json();
@@ -138,7 +148,7 @@ console.log('Order status: ' + json.status);
 ### Using Python
 
 ```python
-# using order from previous example
+# Using order from previous example
 print(buy_order.status())
 ```
 
@@ -172,10 +182,11 @@ import {cancelOrder, cancelSubmittedOrder } from "@waves/waves-transactions";
 const matcherUrl = 'https://matcher-testnet.waves.exchange';
 
 const amountAssetId = 'WAVES';
-const priceAssetId = '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet; for Mainnet set 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
+const priceAssetId = '3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC'; // USDN on Testnet
+// For Mainnet, specify 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
 
 const seed = 'insert your seed here';
-const orderId= '6hgoJMKAMPVZb11epd2vCjqk47dGcr9eT8cJQ2HpYnHp';
+const orderId= '9kRXfmrhWhsGBohygMoo91RgcnmJUB37K4rQQN4rEidT';
 
 const co = cancelOrder({ orderId: orderId }, seed);
 const cancelledOrder = await cancelSubmittedOrder(co, amountAsset, priceAsset, matcherUrl);
@@ -186,7 +197,7 @@ console.log(cancelledOrder.status);
 ### Using Python
 
 ```python
-# using order from previous example
+# Using order from previous example
 buy_order.cancel()
 ```
 
@@ -195,12 +206,6 @@ buy_order.cancel()
 ### Using Waves.Exchange
 
 Your orders are displayed in the **My Open Orders** tab and **My Order History** (Online & Desktop app) or in the **My Orders** tab (Mobile) until it is completed. See the [Start Trading (Online & Desktop)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) and [Start Trading (Mobile)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-mobile/mobile-trading/mobile-start-trading) articles of the Waves.Exchange documentation.
-
-### Using Matcher API
-
-To get order status, you need to know order ID and asset pair. Use `GET /matcher/orderbook/{amountAsset}/{priceAsset}/{orderId}` method. Status is returned for orders submitted not earlier than 30 days ago. For partially filled orders, the method aslo returns filled amount.
-
-See method description in [Matcher API](https://docs.waves.exchange/en/waves-matcher/matcher-api) article of Waves.Exchange documentation.
 
 ### Using JavaScript
 
@@ -251,11 +256,13 @@ import pywaves as pw
 
 my_address = pw.Address(seed='insert your seed here')
 
-matcher_url = 'https://matcher-testnet.waves.exchange' # Set 'https://matcher.waves.exchange' for Mainnet
+matcher_url = 'https://matcher-testnet.waves.exchange'
+# For Mainnet, specify 'https://matcher.waves.exchange'
 pw.setMatcher(matcher_url)
 
 waves = pw.Asset('WAVES')
-usdn = pw.Asset('3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC') # USDN on Testnet; set 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p' on Mainnet
+usdn = pw.Asset('3KFXBGGLCjA5Z2DuW4Dq9fDDrHjJJP1ZEkaoajSzuKsC') # USDN on Testnet
+# For Mainnet, specify 'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p'
 
 asset_pair = pw.AssetPair(waves, usdn)
 my_orders = my_address.getOrderHistory(asset_pair)
