@@ -1,5 +1,13 @@
 # Documentation Updates
 
+## June Articles
+
+### Building Apps
+
+Added guides:
+
+* [Get Order List](/en/building-apps/how-to/basic/trading#get-order-list)
+
 ## May Articles
 
 ### Blockchain

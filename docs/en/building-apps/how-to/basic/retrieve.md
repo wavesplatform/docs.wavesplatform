@@ -17,7 +17,7 @@ Each account on the Waves blockchain has an account data storage that stores dat
 ### Using Waves Explorer
 
 1. Open <https://wavesexplorer.com/>.
-2. Press ![](./_assets/settings.png) button and switch to ![](./_assets/mainnet.png) or ![](./_assets/testnet.png).
+2. Click ![](./_assets/settings.png) and switch to ![](./_assets/mainnet.png) or ![](./_assets/testnet.png).
 3. Use search bar to find the account by address or alias.
 4. Switch to **Data** tab.
 
@@ -80,7 +80,7 @@ Each account can store different assets (also called tokens) in different amount
 ### Using Waves Explorer
 
 1. Open <https://wavesexplorer.com/>.
-2. Press ![](./_assets/settings.png) button and switch to ![](./_assets/mainnet.png) or ![](./_assets/testnet.png).
+2. Click ![](./_assets/settings.png) and switch to ![](./_assets/mainnet.png) or ![](./_assets/testnet.png).
 3. Use search bar to find the account by address or alias.
 4. Balances in WAVES are displayed below the address. Switch to **Assets** tab to see balances in other tokens.
 
@@ -189,7 +189,7 @@ You can get a list of transactions related to the specified account: outgoing tr
 ### Using Waves Explorer
 
 1. Open <https://wavesexplorer.com/>.
-2. Press ![](./_assets/settings.png) button and switch to ![](./_assets/mainnet.png) or ![](./_assets/testnet.png).
+2. Click ![](./_assets/settings.png) and switch to ![](./_assets/mainnet.png) or ![](./_assets/testnet.png).
 3. Use search bar to find the account by address or alias.
 4. Switch to **Transactions** tab.
 
@@ -249,7 +249,7 @@ You can use timestamp of the last block as current time of the blockchain.
 ### Using Waves Explorer
 
 1. Open <https://wavesexplorer.com/>.
-2. Press ![](./_assets/settings.png) button and switch to ![](./_assets/mainnet.png) or ![](./_assets/testnet.png).
+2. Click ![](./_assets/settings.png) and switch to ![](./_assets/mainnet.png) or ![](./_assets/testnet.png).
 3. Current height is displayed above the block list. If you don't see block timestamps, click last block number.
 
 ### Using Node REST API
