@@ -223,11 +223,11 @@ To promote your application, add it to popular dApp directories:
 
 * [dAppOcean](https://www.dappocean.io) — the ecosystem of decentralized applications based on the Waves blockchain.
 
-   <input value="Submit dApp" type="button" onclick="location.href='https://www.dappocean.io/en/dapps/submit'" />
+   <input value="Submit dApp" type="button" onclick="location.href='https://www.dappocean.io/dapps/submit'" />
 
 * [DappRadar](https://dappradar.com) — the leading global platform for discovering and analyzing dApps.
 
-   <input value="Submit dApp" type="button" onclick="location.href='https://dappradar.com/submit-dapp" />
+   <input value="Submit dApp" type="button" onclick="location.href='https://dappradar.com/submit-dapp'" />
 
 ## What's next
 
