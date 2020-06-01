@@ -1078,6 +1078,10 @@ module.exports = {
       ],
     },
     {
+      title: 'Ride Components',
+      path: ridePath + 'advanced/components',
+    },
+    {
       title: 'Script performance tests',
       path: ridePath + 'script-performance-tests',
     },

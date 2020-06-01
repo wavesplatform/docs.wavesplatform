@@ -140,7 +140,7 @@ indexOf("Apple","le", 2) # Возвращает 3
 indexOf("Apple","e", 3) # Возвращает 4
 ```
 
-## lastIndexOf(String, String): Int&#124;Unit
+## lastIndexOf(String, String): Int|Unit
 
 Возвращает индекс последнего вхождения подстроки.
 
@@ -163,7 +163,7 @@ lastIndexOf("Apple","p") # Возвращает 2
 lastIndexOf("Apple","s") # Возвращает unit
 ```
 
-## lastIndexOf(String, String, Int): Int&#124;Unit
+## lastIndexOf(String, String, Int): Int|Unit
 
 Возвращает индекс последнего вхождения подстроки перед указанным индексом.
 

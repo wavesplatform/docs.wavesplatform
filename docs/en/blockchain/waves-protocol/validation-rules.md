@@ -62,6 +62,7 @@ Block's consensus data is valid then:
 5. Block's generator signature is valid.
 6. Generator's balance is more or equal then _MinimalEffectiveBalanceForGeneration _\(1000000000000 wavelets\). This rule always works on Testnet and works only after 1479168000000 on Mainnet.
 7. Block's hit is less then calculated block's target.
+8. Voted features are sorted in ascending order and are not repeated.
 
 ### Transactions data validation
 

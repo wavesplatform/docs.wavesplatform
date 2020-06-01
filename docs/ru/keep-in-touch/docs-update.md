@@ -1,14 +1,28 @@
 # Обновления в документации
 
-## Майские статьи
+## Июньские статьи
 
 ### Разработка приложений на блокчейне
 
+Добавлены руководства:
+
 * [Как создать dApp: полное пошаговое руководство](/ru/building-apps/smart-contracts/writing-dapps)
+* [Получение списка ордеров](/ru/building-apps/how-to/basic/trading#получение-списка-ордеров)
+
+## Майские статьи
+
+### Блокчейн
+
+* [Бинарный формат блока](/ru/blockchain/binary-format/block-binary-format)
 
 ### Ride
 
-* Обновлены [ограничения](/ru/ride/limits/)
+* Обновлены статьи:
+   * [Стандартная библиотека](/ru/ride/script/standard-library)
+   * [Типы скриптов](/ru/ride/script/script-types)
+   * [Ограничения](/ru/ride/limits/)
+
+* Добавлена статья [Компоненты Ride](/ru/ride/advanced/components).
 
 #### Действия скрипта
 

@@ -1,6 +1,7 @@
 # Бинарный формат
 
 * [Бинарный формат адреса](/ru/blockchain/binary-format/address-binary-format)
+* [Бинарный формат блока](/ru/blockchain/binary-format/block-binary-format)
 * [Бинарный формат псевдонима](/ru/blockchain/binary-format/alias-binary-format)
 * [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format)
   * [Бинарный формат транзакции вызова скрипта](/ru/blockchain/binary-format/transaction-binary-format/invoke-script-transaction-binary-format)

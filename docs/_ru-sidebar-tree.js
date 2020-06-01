@@ -58,7 +58,7 @@ module.exports = {
           path: blockchainPath + 'binary-format/alias-binary-format',
         },
         {
-          title: '[en] Block binary format',
+          title: 'Бинарный формат блока',
           path: blockchainPath + 'binary-format/block-binary-format',
         },
         {
@@ -1076,6 +1076,10 @@ module.exports = {
           path: ridePath + 'limits/weight',
         },
       ],
+    },
+    {
+      title: 'Компоненты Ride',
+      path: ridePath + 'advanced/components',
     },
     {
       title: '[en] Script performance tests',
