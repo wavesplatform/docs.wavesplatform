@@ -19,7 +19,7 @@
 
 * Обновлены статьи:
    * [Стандартная библиотека](/ru/ride/script/standard-library)
-   * [Типы скриптов](/ru/ride/script/script-types)
+   * [Типы скриптов](/ru/ride/script/script-types/)
    * [Ограничения](/ru/ride/limits/)
 
 * Добавлена статья [Компоненты Ride](/ru/ride/advanced/components).
@@ -38,7 +38,7 @@
 
 ### Блокчейн
 
-* Добавлены описания бинарных форматов новых версий [транзакций](/ru/blockchain/binary-format/transaction-binary-format) и [ордеров](/ru/blockchain/binary-format/order-binary-format).
+* Добавлены описания бинарных форматов новых версий [транзакций](/ru/blockchain/binary-format/transaction-binary-format/) и [ордеров](/ru/blockchain/binary-format/order-binary-format).
 * Обновлена статья [Валидация транзакции](/ru/blockchain/transaction/transaction-validation).
 
 ### Разработка приложений на блокчейне
@@ -164,7 +164,7 @@
 
 ### Блокчейн
 
-* [Майнинг](/ru/blockchain/mining) — <span style="color:green">обновлено</span>
+* [Майнинг](/ru/blockchain/mining/) — <span style="color:green">обновлено</span>
   * [Вознаграждение за майнинг](/ru/blockchain/mining/mining-reward) — <span style="color:green">обновлено</span>
 
 ### Глоссарий
@@ -175,7 +175,7 @@
 
 ### Блокчейн
 
-* [Аккаунт](/ru/blockchain/account) — <span style="color:green">обновлено</span>
+* [Аккаунт](/ru/blockchain/account/) — <span style="color:green">обновлено</span>
   * [Баланс аккаунта](/ru/blockchain/account/account-balance)
 * Бинарный формат
   * [Бинарный формат ордера](/ru/blockchain/binary-format/order-binary-format)
@@ -205,7 +205,7 @@
   * Типы скриптов
     * [Скрипт аккаунта](/ru/ride/script/script-types/account-script) — <span style="color:green">обновлено</span>
 * Функции
-  * [Встроенные функции](/ru/ride/functions/built-in-functions) — <span style="color:green">обновлено</span>
+  * [Встроенные функции](/ru/ride/functions/built-in-functions/) — <span style="color:green">обновлено</span>
     * [Функции верификации](/ru/ride/functions/built-in-functions/verification-functions) — <span style="color:green">обновлено</span>
 
 > Посмотреть репозиторий документации на [Github](https://github.com/wavesplatform/docs.wavesplatform)

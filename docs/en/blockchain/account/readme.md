@@ -1,8 +1,8 @@
 # Account
 
-An **account** is a [cryptographically bound](https://en.wikipedia.org/wiki/Public-key_cryptography) pair of a public and a private keys on the [blockchain](/en/blockchain/blockchain).
+An **account** is a [cryptographically bound](https://en.wikipedia.org/wiki/Public-key_cryptography) pair of a public and a private keys on the [blockchain](/en/blockchain/blockchain/).
 
-Accounts unambiguously correlate [transactions](/en/blockchain/transaction) and [orders](/en/ride/structures/common-structures/order) with their senders.
+Accounts unambiguously correlate [transactions](/en/blockchain/transaction/) and [orders](/en/ride/structures/common-structures/order) with their senders.
 
 ## Account public and private keys
 
@@ -28,11 +28,11 @@ _All_ transactions have a _single_ sender; the only exception is [genesis transa
 
 A transaction contains the sender's _public key_. Before sending the transaction, the sender signs it with his _private key_. The account that signed the transaction is called the **transaction sender**. The signature that results from signing the transaction is called the **transaction digital signature**. If account Y is the sender of the transaction, it is said that the **transaction was sent from account Y**.
 
-The transaction is sent to the [blockchain network](/en/blockchain/blockchain-network) along with its digital signature. The digital signature and the sender's public key are used to verify the authenticity of the transaction data.
+The transaction is sent to the [blockchain network](/en/blockchain/blockchain-network/) along with its digital signature. The digital signature and the sender's public key are used to verify the authenticity of the transaction data.
 
 ## Account balance
 
-An account may store different [tokens](/en/blockchain/token) in different amounts. The amount of the token on the account is called the [account balance](/en/blockchain/account/account-balance) in this token.
+An account may store different [tokens](/en/blockchain/token/) in different amounts. The amount of the token on the account is called the [account balance](/en/blockchain/account/account-balance) in this token.
 
 ## Account address
 
@@ -48,7 +48,7 @@ When transferring a token from one account to another, instead of using the publ
 
 ## Scripted account
 
-Using the [set script transaction](/en/blockchain/transaction-type/set-script-transaction) you can attach a [script](/en/ride/script) to the account. An account with a script attached to it is called a **scripted account**. An account without a script is called a **simple account**.
+Using the [set script transaction](/en/blockchain/transaction-type/set-script-transaction) you can attach a [script](/en/ride/script/) to the account. An account with a script attached to it is called a **scripted account**. An account without a script is called a **simple account**.
 
 There are two types of scripts that can be attached to an account: an [account script](/en/ride/script/script-types/account-script) and a [dApp script](/en/ride/script/script-types/dapp-script). The account to which an account script is attached is called a [smart account](/en/blockchain/account/smart-account). An account with dApp script attached to it is called a [dApp](/en/blockchain/account/dapp).
 

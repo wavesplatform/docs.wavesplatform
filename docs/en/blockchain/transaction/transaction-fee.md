@@ -1,8 +1,8 @@
 # Transaction fee
 
-**Transaction fee** is a fee that an [account](/en/blockchain/account) owner pays to send a [transaction](/en/blockchain/transaction).
+**Transaction fee** is a fee that an [account](/en/blockchain/account/) owner pays to send a [transaction](/en/blockchain/transaction/).
 
-A transaction sender can specify any amount of fee but not less than a minimum amount. The larger the fee is, the quicker the transaction will be added to the new [block](/en/blockchain/block).
+A transaction sender can specify any amount of fee but not less than a minimum amount. The larger the fee is, the quicker the transaction will be added to the new [block](/en/blockchain/block/).
 
 For invoke script transaction and transfer transaction, a sender can specify a transaction fee nominated in a sponsored asset instead of WAVES, see the section [Fee in Sponsored Asset](#fee-in-sponsored-asset) below.
 

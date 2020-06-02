@@ -14,7 +14,7 @@ Order(id: ByteVector, matcherPublicKey: ByteVector, assetPair: AssetPair, orderT
 | :--- | :--- | :--- | :--- |
 | 1 | id | [ByteVector](/en/ride/data-types/byte-vector) | ID of an order |
 | 2 | matcherPublicKey | [ByteVector](/en/ride/data-types/byte-vector) | Public key of a matcher |
-| 3 | assetPair | [AssetPair](/en/ride/structures/common-structures/asset-pair) | Pair of [tokens](/en/blockchain/token) |
+| 3 | assetPair | [AssetPair](/en/ride/structures/common-structures/asset-pair) | Pair of [tokens](/en/blockchain/token/) |
 | 4 | orderType | Buy&#124;Sell | Type of an order — selling or buying |
 | 5 | price | [Int](/en/ride/data-types/int) | Price of a token to exchange |
 | 6 | amount | [Int](/en/ride/data-types/int) | Number of tokens to exchange |

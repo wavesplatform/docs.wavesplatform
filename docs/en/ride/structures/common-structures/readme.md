@@ -3,11 +3,11 @@
 | Name | Description |
 | :--- | :--- |
 | [Address](/en/ride/structures/common-structures/address) | Account [address](/en/blockchain/account/address) |
-| [Asset](/en/ride/structures/common-structures/asset) | [Token](/en/blockchain/token) info |
+| [Asset](/en/ride/structures/common-structures/asset) | [Token](/en/blockchain/token/) info |
 | [AssetPair](/en/ride/structures/common-structures/asset-pair) | Pair of tokens in an order |
 | [AttachedPayment](/en/ride/structures/common-structures/attached-payment) | Invoke script transaction payment |
 | [BinaryEntry](/en/ride/structures/script-actions/binary-entry) (for Standard Library version 4) | Adds a binary data record of an [account data storage](/en/blockchain/account/account-data-storage) |
-| [BlockInfo](/en/ride/structures/common-structures/block-info) | Values of [block](/en/blockchain/block) headers that are immutable |
+| [BlockInfo](/en/ride/structures/common-structures/block-info) | Values of [block](/en/blockchain/block/) headers that are immutable |
 | [BooleanEntry](/en/ride/structures/script-actions/boolean-entry) (for Standard Library version 4) | Adds a boolean data record of an [account data storage](/en/blockchain/account/account-data-storage) |
 | [Burn](/en/ride/structures/script-actions/burn) (for Standard Library version 4) | Burns token |
 | [DataEntry](/en/ride/structures/script-actions/data-entry) (for Standard Library version 3) | Adds a data record of an  [account data storage](/en/blockchain/account/account-data-storage) |

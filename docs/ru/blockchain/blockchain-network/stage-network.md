@@ -14,7 +14,7 @@ Testnet и mainnet будут иметь одинаковые версии и б
 * Скачайте [waves-stagenet.conf](https://github.com/wavesplatform/Waves/blob/master/node/waves-stagenet.conf) (Пропустите этот шаг, если вы используете deb-пакет для развертывания ноды)
 * Установите ноду согласно [руководству](/ru/waves-node/how-to-install-a-node/how-to-install-a-node)
 
-После этого нода начнёт скачивать блоки. Чтобы ускорить процесс, вы можете импортировать блоки согласно [руководству](/ru/waves-node/options-for-getting-actual-blockchain).
+После этого нода начнёт скачивать блоки. Чтобы ускорить процесс, вы можете импортировать блоки согласно [руководству](/ru/waves-node/options-for-getting-actual-blockchain/).
 
 Если вы хотите стать майнером на stagenet, отправьте [запрос](https://wavesplatform.atlassian.net/servicedesk/customer/portal/11/create/178) чтобы получить токены WAVES для лизинга.
 
@@ -24,6 +24,6 @@ Stagenet также доступен на:
 
 * [Waves Explorer](https://stagenet.wavesexplorer.com/stagenet)
 * [Waves IDE](https://ide-stagenet.wavesplatform.com)
-* [Waves Keeper](/ru/ecosystem/waves-keeper)
+* [Waves Keeper](/ru/ecosystem/waves-keeper/)
 
 Если у вас остались вопросы по stagenet, вы можете задать их в Discord на [канале stagenet](https://discordapp.com/channels/420933539375087617/615843628618612746).

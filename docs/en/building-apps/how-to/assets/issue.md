@@ -78,7 +78,7 @@ my_address.issueAsset(
 
 ### Using dApp
 
-Since Standard library version 4, dApp callable function can issue a token. See [Callable Function](/en/ride/functions/callable-function) and [Issue](/en/ride/structures/script-actions/issue) articles of [Ride](/en/ride) chapter for more information.
+Since Standard library version 4, dApp callable function can issue a token. See [Callable Function](/en/ride/functions/callable-function) and [Issue](/en/ride/structures/script-actions/issue) articles of [Ride](/en/ride/) chapter for more information.
 
 > :warning: Standard ibrary Version 4 becomes available from node version 1.2.0, after activation of feature #16 “Ride V4 and multiple attached payments for Invoke Script Transaction”. Versions 1.2.x are currently available on Stagenet only.
 

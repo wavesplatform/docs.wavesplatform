@@ -951,7 +951,7 @@ batch([{
 
 | Parameter name | Default value | Description |
 | :--- | :--- | :--- |
-| type* | | [Transaction type ID](/en/blockchain/transaction-type) |
+| type* | | [Transaction type ID](/en/blockchain/transaction-type/) |
 
 \* Required field
 

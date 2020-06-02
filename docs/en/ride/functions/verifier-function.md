@@ -41,4 +41,4 @@ func verify() = {
 }
 ```
 
-See available fields for each transaction type in the [Transaction Structures](/en/ride/structures/transaction-structures) article.
+See available fields for each transaction type in the [Transaction Structures](/en/ride/structures/transaction-structures/) article.

@@ -4,5 +4,5 @@
 
 Список доступных расширений:
 
-* [gRPC](/ru/waves-node/extensions/grpc-server)
+* [gRPC](/ru/waves-node/extensions/grpc-server/)
 * [Матчер](https://github.com/wavesplatform/matcher), который исполняет ордера (биржевые заявки) на покупку и продажу активов.

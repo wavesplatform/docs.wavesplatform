@@ -28,4 +28,4 @@ Invocation(caller: Address, callerPublicKey: ByteVector, payments: List[Attached
 | 3 | payments | List[[AttachedPayment](/ru/ride/structures/common-structures/attached-payment)] | Приложенные платежи.<br>Поле добавлено в Стандартной библиотеке версии 4 |
 | 4 | transactionId | [ByteVector](/ru/ride/data-types/byte-vector) | ID транзакции |
 | 5 | fee | [Int](/ru/ride/data-types/int) | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) |
-| 6 | feeAssetId | [ByteVector](/ru/ride/data-types/byte-vector)&#124;[Unit](/ru/ride/data-types/unit) | [Токен](/ru/blockchain/token) комиссии за отправку транзакции |
+| 6 | feeAssetId | [ByteVector](/ru/ride/data-types/byte-vector)&#124;[Unit](/ru/ride/data-types/unit) | [Токен](/ru/blockchain/token/) комиссии за отправку транзакции |

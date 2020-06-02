@@ -2,13 +2,13 @@
 
 Waves provides client libraries to work with the blockchain from your applications.
 
-Also, you can create decentralized applications (dApps) on the blockchain using [Ride](/en/ride) language. The dApps functions can be called from applications using client libraries.
+Also, you can create decentralized applications (dApps) on the blockchain using [Ride](/en/ride/) language. The dApps functions can be called from applications using client libraries.
 
 ## Client libraries
 
 Send transactions and read blockchain data from your applications on Python, Java, C#, Swift, Kotlin.
 
-See the list of supported programming languages on the [Client libraries](/en/building-apps/waves-api-and-sdk/client-libraries) page.
+See the list of supported programming languages on the [Client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/) page.
 
 ## Development of decentralised applications
 

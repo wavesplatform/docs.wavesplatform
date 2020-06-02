@@ -4,7 +4,7 @@ sidebarDepth: 2
 
 # Node Configuration
 
-The **node configuration file** is a settings file of a [node](/en/blockchain/node).
+The **node configuration file** is a settings file of a [node](/en/blockchain/node/).
 
 The configuration system of Waves Node uses HOCON format. HOCON stands for Human-Optimized Config Object Notation. The complete description of HOCON could be found in the [Official HOCON documentation](https://github.com/lightbend/config/blob/master/HOCON.md). The advantages of HOCON are simple syntax and ability to use comments.
 
@@ -173,7 +173,7 @@ In `miner` section it is possible to configure parameters of the new blocks gene
 
 ### REST API Settings
 
-The **REST API Section** is a section in the node configuration file with settings of [node API](/en/waves-node/node-api).
+The **REST API Section** is a section in the node configuration file with settings of [node API](/en/waves-node/node-api/).
 
 | Name | Description | Default value |
 | :--- | :--- | :--- |
@@ -208,7 +208,7 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 
 [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) of the node owner is highly important just like the [seed phrase](/en/blockchain/glossary#secret-phrase) and the password of the wallet.
 
-Follow these steps to generate the hash of the API key:<br> 1. Go to [Swagger web interface](/en/waves-node/node-api)<br> 2. Click on [utils](https://nodes.wavesnodes.com/api-docs/index.html#/utils) section<br>3. Click on the API method [/utils/hash/secure](https://nodes.wavesnodes.com/api-docs/index.html#!/utils/hashSecure_1)<br>4. Create a unique [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) as a string value and include it in the `message` parameter<br> 5. Get the hash of the [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) and paste it in your node configuration file<br>6. Restart the node
+Follow these steps to generate the hash of the API key:<br> 1. Go to [Swagger web interface](/en/waves-node/node-api/)<br> 2. Click on [utils](https://nodes.wavesnodes.com/api-docs/index.html#/utils) section<br>3. Click on the API method [/utils/hash/secure](https://nodes.wavesnodes.com/api-docs/index.html#!/utils/hashSecure_1)<br>4. Create a unique [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) as a string value and include it in the `message` parameter<br> 5. Get the hash of the [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) and paste it in your node configuration file<br>6. Restart the node
 
 **Note:** The API key is transmitted in the HTTP header as unprotected plain text. An attacker can intercept it in the network transit and use it to transfer your money to any address! So it's highly important to protect the transmission using HTTPS or SSH port forwarding.
 
@@ -239,7 +239,7 @@ The `utx` section allows to set unconfirmed transactions pool parameters.
 
 ### Features Settings
 
-The `features` section allows to set [features](/en/waves-node/features) parameters
+The `features` section allows to set [features](/en/waves-node/features/) parameters
 
 | Name                                 | Description                                                                                                                       | Default Value                  |
 |--------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|--------------------------------|

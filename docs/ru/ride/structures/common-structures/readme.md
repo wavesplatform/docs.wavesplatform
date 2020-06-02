@@ -3,11 +3,11 @@
 | Название | Описание |
 | :--- | :--- |
 | [Address](/ru/ride/structures/common-structures/address) | [Адрес](/ru/blockchain/account/address) аккаунта |
-| [Asset](/ru/ride/structures/common-structures/asset) | [Токен](/ru/blockchain/token) |
+| [Asset](/ru/ride/structures/common-structures/asset) | [Токен](/ru/blockchain/token/) |
 | [AssetPair](/ru/ride/structures/common-structures/asset-pair) | Ассетная пара в [ордере](/ru/blockchain/order) |
 | [AttachedPayment](/ru/ride/structures/common-structures/attached-payment) | Платеж [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) |
 | [BinaryEntry](/ru/ride/structures/script-actions/binary-entry) | Добавляет в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage) запись в двоичном формате. Применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) версии 4 |
-| [BlockInfo](/ru/ride/structures/common-structures/block-info) | Значения заголовков [блока](/ru/blockchain/block). Значения являются неизменяемыми |
+| [BlockInfo](/ru/ride/structures/common-structures/block-info) | Значения заголовков [блока](/ru/blockchain/block/). Значения являются неизменяемыми |
 | [BooleanEntry](/ru/ride/structures/script-actions/boolean-entry) | Добавляет в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage) запись логического типа. Применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) версии 4 |
 | [Burn](/ru/ride/structures/script-actions/burn) | Сжигает токен. Применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) версии 4 |
 | [DataEntry](/ru/ride/structures/script-actions/data-entry) | Добавляет запись в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage). Применимо для [Стандартной библиотеки](/ru/ride/script/standard-library) версии 3 |

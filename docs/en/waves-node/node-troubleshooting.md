@@ -29,4 +29,4 @@ then reboot your machine.
 
 ## Other Issues
 
-If you have other node-related issues to report or discuss with Waves community, see [Keep in Touch](/en/keep-in-touch) chapter for contact information.
+If you have other node-related issues to report or discuss with Waves community, see [Keep in Touch](/en/keep-in-touch/) chapter for contact information.

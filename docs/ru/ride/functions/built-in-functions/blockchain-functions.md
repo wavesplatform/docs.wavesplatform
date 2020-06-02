@@ -2,15 +2,15 @@
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
-| 1 | [assetInfo](#assetinfo)(ByteVector): Аsset&#124;Unit | Получает информацию о [токене](/ru/blockchain/token) | 100 |
-| 2 | [blockInfoByHeight](#blockinfobyheight)(Int): BlockInfo &#124;Unit | Получает информацию о [блоке](/ru/blockchain/block) по [высоте блока](/ru/blockchain/block/block-height) | 100 |
+| 1 | [assetInfo](#assetinfo)(ByteVector): Аsset&#124;Unit | Получает информацию о [токене](/ru/blockchain/token/) | 100 |
+| 2 | [blockInfoByHeight](#blockinfobyheight)(Int): BlockInfo &#124;Unit | Получает информацию о [блоке](/ru/blockchain/block/) по [высоте блока](/ru/blockchain/block/block-height) | 100 |
 | 3 | [calculateAssetId](#calculateassetid)(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/script-actions/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 10 |
 | 4 | [transactionHeightById](#transactionheightbyid)(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 100 |
 | 5 | [transferTransactionById](#transfertransactionbyid)(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 100 |
 
 ## assetInfo
 
-Получает информацию о [токене](/ru/blockchain/token).
+Получает информацию о [токене](/ru/blockchain/token/).
 
 ```
 assetInfo(id: ByteVector): Аsset|Unit
@@ -20,7 +20,7 @@ assetInfo(id: ByteVector): Аsset|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `id`: ByteVector | ID [токена](/ru/blockchain/token) |
+| `id`: ByteVector | ID [токена](/ru/blockchain/token/) |
 
 ### Пример
 
@@ -35,7 +35,7 @@ let x = match assetInfo(bitcoinId) {
 
 ## blockInfoByHeight
 
-Получает информацию о [блоке](/ru/blockchain/block) по [высоте блока](/ru/blockchain/block/block-height).
+Получает информацию о [блоке](/ru/blockchain/block/) по [высоте блока](/ru/blockchain/block/block-height).
 
 ```
 blockInfoByHeight(height: Int): BlockInfo|Unit

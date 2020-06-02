@@ -97,7 +97,7 @@ If the `directory` parameter is not redefined, the default node folder is:
 | :--- | :--- | :--- |
 | `$XDG_DATA_HOME/waves-custom-<character>*` or `$HOME/.local/share/waves-custom-<character>*` | `$HOME/Library/Application Support/waves-custom-<character>*` | `%LOCALAPPDATA%/waves-custom-<character>*` |
 
-The `waves.blockchain.custom.functionality` section allows to set the timestamps of activation of different blockchain validations. In this section developers can add new parameters, which are not present in the standard node configuration. You can enable/disable features on your node by modifying the `pre-activated-features` parameter. The supported features are listed in [Features](/en/waves-node/features) article.
+The `waves.blockchain.custom.functionality` section allows to set the timestamps of activation of different blockchain validations. In this section developers can add new parameters, which are not present in the standard node configuration. You can enable/disable features on your node by modifying the `pre-activated-features` parameter. The supported features are listed in [Features](/en/waves-node/features/) article.
 
 Paste the content generated in [Step 4](#step-4) in `waves.blockchain.custom.genesis` section of configuration file. Instead of pasting the section manually, you can write `include "genesis.conf"`, where the `genesis.conf` is a filename from the Step 4.
 

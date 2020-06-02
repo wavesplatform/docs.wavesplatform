@@ -20,7 +20,7 @@ The following checks are performed:
 
 3. The sender's signature verification for ordinary account (without script), or account script execution if the sender is [smart account](/en/blockchain/account/smart-account), or the [verifier function](/en/ride/functions/verifier-function) execution if the sender is [dApp](/en/blockchain/account/dapp). A similar check is performed for orders in an exchange transaction.
 
-4. Execution of asset scripts if the transaction uses [smart assets](/en/blockchain/token/smart-asset), except scripts of assets used in [dApp script actions](/en/ride/structures/script-actions) that are executed in step 6.
+4. Execution of asset scripts if the transaction uses [smart assets](/en/blockchain/token/smart-asset), except scripts of assets used in [dApp script actions](/en/ride/structures/script-actions/) that are executed in step 6.
 5. Sender's balance check.
 
    The sender should have enough funds to pay the fee. If a sponsored asset is used for the fee, the sponsor's balance is also checked.
@@ -28,8 +28,8 @@ The following checks are performed:
    Depending on the type of transaction, the sender should have enough asset for transfer or exchange or for payments attached to the invoke script transaction.
 6. For an invoke script transaction:
    * Execution of the dApp script.
-   * Execution of asset scripts if [dApp script actions](/en/ride/structures/script-actions) use smart assets.
-   * dApp balance check: dApp account should have enough funds for [script actions](/en/ride/structures/script-actions).
+   * Execution of asset scripts if [dApp script actions](/en/ride/structures/script-actions/) use smart assets.
+   * dApp balance check: dApp account should have enough funds for [script actions](/en/ride/structures/script-actions/).
    * Sender's balance check: the sender should have enough funds to pay the additional fee for script actions.
 
 A transaction is saved on the blockchain and the transaction fee is charged if all checks are passed.
@@ -55,7 +55,7 @@ The following checks are performed:
 4. The sender's signature verification for ordinary account (without script), or account script execution if the sender is [smart account](/en/blockchain/account/smart-account), or the [verifier function](/en/ride/functions/verifier-function) execution if the sender is [dApp](/en/blockchain/account/dapp). A similar check is performed for orders in an exchange transaction.
 5. For the invoke script transaction:
    * Execution of the dApp script.
-   * dApp balance check: dApp account should have enough funds for [script actions](/en/ride/structures/script-actions).
+   * dApp balance check: dApp account should have enough funds for [script actions](/en/ride/structures/script-actions/).
    * Sender's balance check: the sender should have enough funds to pay the additional fee for script actions.
 6. Execution of asset scripts if the transaction uses [smart assets](/en/blockchain/token/smart-asset), including scripts of assets used in dApp script actions.
 

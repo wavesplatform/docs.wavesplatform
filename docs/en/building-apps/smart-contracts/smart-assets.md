@@ -57,7 +57,7 @@ If an ExchangeTransaction's sender \(the Matcher or any other account\) has a sc
 
 ## Validation
 
-A smart asset’s script validates any of the following [transaction types](/en/blockchain/transaction-type) with the asset:
+A smart asset’s script validates any of the following [transaction types](/en/blockchain/transaction-type/) with the asset:
 
 1. ReissueTransaction
 2. BurnTransaction

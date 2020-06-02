@@ -1,6 +1,6 @@
 # Built-in variables
 
-A **built-in variable** is a [variable](/en/ride/variables) of the [script context](/en/ride/script/script-context).
+A **built-in variable** is a [variable](/en/ride/variables/) of the [script context](/en/ride/script/script-context).
 
 ## List of built-in variables
 <table style="width:100%">

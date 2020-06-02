@@ -4,7 +4,7 @@
 
 ## Version 3
 
-Binary format of version 3 is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) protobuf scheme. The fields that are common to all types of transactions are described in the [Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format) article.
+Binary format of version 3 is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) protobuf scheme. The fields that are common to all types of transactions are described in the [Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format/) article.
 
 Version 3 is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
@@ -33,16 +33,16 @@ message IssueTransactionData {
 | Field order number | Field | JSON field name | Field type | Field size in bytes | Comment |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Version flag | | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Indicates the [transaction version](/en/blockchain/transaction/transaction-version) is version 2 or higher.<br>Value must be 0 |
-| 2 | [Transaction type ID](/en/blockchain/transaction-type) | type | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 3 |
+| 2 | [Transaction type ID](/en/blockchain/transaction-type/) | type | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 3 |
 | 3 | [Transaction version](/en/blockchain/transaction/transaction-version) | version | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 2 |
 | 4 | [Chain ID](/en/blockchain/blockchain-network/chain-id) | chainId | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | 84 — for [test network](/en/blockchain/blockchain-network/test-network)<br>87 — for [main network](/en/blockchain/blockchain-network/main-network)<br>83 — for [stage network](/en/blockchain/blockchain-network/stage-network) |
 | 5 | Public key of the transaction sender  | senderPublicKey | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 | |
-| 6.1 | [Token](/en/blockchain/token) name length | | [Short](/en/blockchain/blockchain/blockchain-data-types) | 2 | |
+| 6.1 | [Token](/en/blockchain/token/) name length | | [Short](/en/blockchain/blockchain/blockchain-data-types) | 2 | |
 | 6.2 | Token name | name | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | From 4 to 16 | |
 | 7.1 | Token description length | | [Short](/en/blockchain/blockchain/blockchain-data-types) | 2 | |
 | 7.2 | Token description | description | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | From 0 to 1000 | |
 | 8 | Amount of the token that will be issued | quantity | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
-| 9 | Number of decimal places of the [token](/en/blockchain/token) | decimals | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | |
+| 9 | Number of decimal places of the [token](/en/blockchain/token/) | decimals | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | |
 | 10 | Reissue flag | reissuable | [Boolean](/en/blockchain/blockchain/blockchain-data-types) | 1 | If the value is 0, then token reissue is not possible.<br>If the value is 1, then token reissue is possible |
 | 11 | [Transaction fee](/en/blockchain/transaction/transaction-fee) | fee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 | 12 | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) | timestamp | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
@@ -59,14 +59,14 @@ See the [example](https://nodes.wavesnodes.com/transactions/info/FTQvw9zdYirRksU
 
 | Field order number | Field | Field type | Field size in bytes | Comment |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | [Transaction type ID](/en/blockchain/transaction-type) | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 3 |
+| 1 | [Transaction type ID](/en/blockchain/transaction-type/) | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 3 |
 | 2 | Public key of the transaction sender  | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 | |
-| 3.1 | [Token](/en/blockchain/token) name length | [Short](/en/blockchain/blockchain/blockchain-data-types) | 2 | |
+| 3.1 | [Token](/en/blockchain/token/) name length | [Short](/en/blockchain/blockchain/blockchain-data-types) | 2 | |
 | 3.2 | Token name | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | From 4 to 16 | |
 | 4.1 | Token description length | [Short](/en/blockchain/blockchain/blockchain-data-types) | 2 | |
 | 4.2 | Token description | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | From 0 to 1000 | |
-| 5 | Amount of the [token](/en/blockchain/token) that will be issued | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
-| 6 | Number of decimal places of the [token](/en/blockchain/token) | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | |
+| 5 | Amount of the [token](/en/blockchain/token/) that will be issued | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
+| 6 | Number of decimal places of the [token](/en/blockchain/token/) | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | |
 | 7 | Reissue flag | [Boolean](/en/blockchain/blockchain/blockchain-data-types) | 1 | |
 | 8 | [Transaction fee](/en/blockchain/transaction/transaction-fee) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 | 9 | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |

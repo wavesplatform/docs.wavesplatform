@@ -10,7 +10,7 @@ Waves Keeper is designed for convenience, so you can sign transactions with just
 
 ## Get Started
 
-[Download](/en/ecosystem/waves-keeper) and launch Waves Keeper, then click **Get Started**.
+[Download](/en/ecosystem/waves-keeper/) and launch Waves Keeper, then click **Get Started**.
 
 ![](./_assets/waves_keeper_01.png)
 

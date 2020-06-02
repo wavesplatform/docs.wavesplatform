@@ -1,6 +1,6 @@
 # Транзакция установки скрипта ассета
 
-**Транзакция установки скрипта ассета** — [транзакция](/ru/blockchain/transaction), которая прикрепляет [скрипт ассета](/ru/ride/script/script-types/asset-script) к [токену](/ru/blockchain/token).
+**Транзакция установки скрипта ассета** — [транзакция](/ru/blockchain/transaction/), которая прикрепляет [скрипт ассета](/ru/ride/script/script-types/asset-script) к [токену](/ru/blockchain/token/).
 
 ## Бинарный формат
 

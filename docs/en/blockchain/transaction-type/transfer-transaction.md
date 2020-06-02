@@ -1,6 +1,6 @@
 # Transfer transaction
 
-A **transfer transaction** is a [transaction](/en/blockchain/transaction) that transfers a certain amount of the [token](/en/blockchain/token) from one [account](/en/blockchain/account) to another.
+A **transfer transaction** is a [transaction](/en/blockchain/transaction/) that transfers a certain amount of the [token](/en/blockchain/token/) from one [account](/en/blockchain/account/) to another.
 
 ## Binary format
 

@@ -10,13 +10,13 @@ This article based on a simple sample will shortly introduce you to full-cycle h
 
 As a small example, the following use case should be considered now: imagine you have dApp and you want in it to access data of exchange rates: [WAVES](/en/blockchain/token/waves) per USD and WAVES per BTC, e.g.
 
-If off-chain data is required for dApp to be executed, this data must be obtained and write on the [blockchain](/en/blockchain/blockchain), because dApp have access only to data stored on the blockchain. To get data from off-chain to blockchain implements small programs called [oracles](/en/blockchain/oracle).
+If off-chain data is required for dApp to be executed, this data must be obtained and write on the [blockchain](/en/blockchain/blockchain/), because dApp have access only to data stored on the blockchain. To get data from off-chain to blockchain implements small programs called [oracles](/en/blockchain/oracle).
 
 Our dApp requires quotation data on the blockchain. Therefore, we will create a new oracle, which will receive the relevant quotation data from the public Waves Data Service API (you can use any other source) once an hour and write it on the blockchain. In addition, we will create an oracle card so that other users can alse use the data in their decentralized applications.
 
 ## Implementation of the program part of the oracle
 
-The main part of the oracle is a program that has access to the API and records exchange rates in the oracles account data storage. Here use TypeScript with Node.js, but you can use Python or any other programming language. List of [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries).
+The main part of the oracle is a program that has access to the API and records exchange rates in the oracles account data storage. Here use TypeScript with Node.js, but you can use Python or any other programming language. List of [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/).
 
 ### Cron
 
@@ -187,7 +187,7 @@ Coming down below and fill in the Specification and Example.
 
 In our case, the oracle must write two quotation values: WAVES/USD and WAVES/BTC. Therefore, we define these two parameters, as shown in fig. 4.
 
-Here we need some explanations: dApp on [Ride](/en/ride) cannot use float value, that's why we use an integer type with point shift by the necessary number of digits. Also in the key, we specify the number of digits by which the point shifts: for USD by two digits, for BTC by eight digits. It'll be easy to parse keys like this by Ride and realize how many characters the point is shifted.
+Here we need some explanations: dApp on [Ride](/en/ride/) cannot use float value, that's why we use an integer type with point shift by the necessary number of digits. Also in the key, we specify the number of digits by which the point shifts: for USD by two digits, for BTC by eight digits. It'll be easy to parse keys like this by Ride and realize how many characters the point is shifted.
 
 The key like this is not unique and the [account data storage](/en/blockchain/account/account-data-storage) will always retain the last value. You can add a timestamp to make the key unique and save historical values.
 

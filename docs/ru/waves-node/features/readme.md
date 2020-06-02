@@ -1,6 +1,6 @@
 # Фичи
 
-**Фича** — это функциональность, добавленная в [блокчейн Waves](/ru/blockchain/blockchain) во время нового [релиза](https://github.com/wavesplatform/Waves/releases).
+**Фича** — это функциональность, добавленная в [блокчейн Waves](/ru/blockchain/blockchain/) во время нового [релиза](https://github.com/wavesplatform/Waves/releases).
 
 Каждая фича имеет уникальный идентификатор — порядковый номер. Активировать фичи можно с помощью параметра `supported` в секции `features` файла конфигурации. Подробнее в подразделе [Настройки фич](/ru/waves-node/node-configuration#настройки-фич) статьи [Конфигурация ноды](/ru/waves-node/node-configuration).
 

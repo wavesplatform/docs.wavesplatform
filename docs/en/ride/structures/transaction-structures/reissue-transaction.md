@@ -12,7 +12,7 @@ ReissueTransaction(quantity: Int, assetId: ByteVector, reissuable: Boolean, id: 
 
 | # | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | quantity | [Int](/en/ride/data-types/int) | Amount of the [token](/en/blockchain/token) |
+| 1 | quantity | [Int](/en/ride/data-types/int) | Amount of the [token](/en/blockchain/token/) |
 | 2 | assetId | [ByteVector](/en/ride/data-types/byte-vector) | [Token ID](/en/blockchain/token/token-id) |
 | 3 | reissuable | [Boolean](/en/ride/data-types/boolean) | Reissue flag |
 | 4 | id | [ByteVector](/en/ride/data-types/byte-vector) | [Transaction ID](/en/blockchain/transaction/transaction-id) |

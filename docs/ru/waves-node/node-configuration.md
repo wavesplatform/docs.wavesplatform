@@ -176,7 +176,7 @@ java -jar {*}.jar {*}.conf
 
 ### Настройки REST API
 
-Секция `rest-api` файла конфигурации ноды содержит настройки [Node REST API](/ru/waves-node/node-api).
+Секция `rest-api` файла конфигурации ноды содержит настройки [Node REST API](/ru/waves-node/node-api/).
 
 | # | Имя | Описание | Значение по умолчанию |
 | :--- | :--- | :--- | :--- |
@@ -213,7 +213,7 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 
 Чтобы сгенерировать хеш API-ключа:
 
-1. Перейдите в [Swagger web interface](/ru/waves-node/node-api).
+1. Перейдите в [Swagger web interface](/ru/waves-node/node-api/).
 2. Нажмите на секцию [`utils`](https://nodes.wavesnodes.com/api-docs/index.html#/utils).
 3. Нажмите на метод [`/utils/hash/secure`](https://nodes.wavesnodes.com/api-docs/index.html#!/utils/hashSecure_1).
 4. В параметре `message` укажите уникальный API-ключ как строку.
@@ -249,7 +249,7 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 
 ### Настройки фич
 
-Секция `features` задает параметры работы с [фичами](/ru/waves-node/features).
+Секция `features` задает параметры работы с [фичами](/ru/waves-node/features/).
 
 | Имя | Описание | Значение по умолчанию |
 |--------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|--------------------------------|

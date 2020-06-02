@@ -2,15 +2,15 @@
 
 |   #  | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
-|   1  | [assetInfo(ByteVector): Аsset&#124;Unit](#assetinfo) | Gets the information about a [token](/en/blockchain/token) | 100 |
-|   2  | [blockInfoByHeight(Int): BlockInfo&#124;Unit](#blockinfobyheight) | Gets the information about a [block](/en/blockchain/block) by the [block height](/en/blockchain/block/block-height) | 100 |
+|   1  | [assetInfo(ByteVector): Аsset&#124;Unit](#assetinfo) | Gets the information about a [token](/en/blockchain/token/) | 100 |
+|   2  | [blockInfoByHeight(Int): BlockInfo&#124;Unit](#blockinfobyheight) | Gets the information about a [block](/en/blockchain/block/) by the [block height](/en/blockchain/block/block-height) | 100 |
 |   3  | [calculateAssetId(Issue): ByteVector](#calculateassetid) | Calculates the ID of the asset, created by [Issue](/en/ride/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
 |   4  | [transactionHeightById(ByteVector): Int&#124;Unit](#transactionheightbyid) | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 100 |
 |   5  | [transferTransactionById(ByteVector): TransferTransaction&#124;Unit](#transfertransactionbyid) | Gets the data of a transfer transaction | 100 |
 
 ## assetInfo
 
-Gets the information about a [token](/en/blockchain/token).
+Gets the information about a [token](/en/blockchain/token/).
 
 ```
 assetInfo(id: ByteVector): Аsset|Unit
@@ -20,7 +20,7 @@ assetInfo(id: ByteVector): Аsset|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `id`: ByteVector | ID of the [token](/en/blockchain/token) |
+| `id`: ByteVector | ID of the [token](/en/blockchain/token/) |
 
 ### Example
 
@@ -36,7 +36,7 @@ let x = match assetInfo(bitcoinId) {
 
 ## blockInfoByHeight
 
-Gets the information about a [block](/en/blockchain/block) by the [block height](/en/blockchain/block/block-height).
+Gets the information about a [block](/en/blockchain/block/) by the [block height](/en/blockchain/block/block-height).
 
 ```
 blockInfoByHeight(height: Int): BlockInfo|Unit

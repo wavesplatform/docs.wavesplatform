@@ -48,7 +48,7 @@ These directives tell the compiler that:
 
 ### Script Context
 
-Script context includes [built-in variables](/en/ride/variables/built-in-variables) and [built-in functions](/en/ride/functions/built-in-functions). In addition, user variables and functions could be declared between directives and callable function. These variables and functions are accessible within the entire script.
+Script context includes [built-in variables](/en/ride/variables/built-in-variables) and [built-in functions](/en/ride/functions/built-in-functions/). In addition, user variables and functions could be declared between directives and callable function. These variables and functions are accessible within the entire script.
 
 Example:
 
@@ -63,7 +63,7 @@ func doSomething() = {
 
 Callable function can be called externally by the invoke script transaction. The callable function should be marked with the `@Callable(i)` annotation, where `i` is an [Invocation](/en/ride/structures/common-structures/invocation) structure that contains invoke script transaction fields that are available to the callable function.
 
-Callable function result is a set of [script actions](/en/ride/structures/script-actions) that are performed on the blockchain: adding entries to the account data storages, token transfers and others. The result format and the possible actions depend on the Standard library version used.
+Callable function result is a set of [script actions](/en/ride/structures/script-actions/) that are performed on the blockchain: adding entries to the account data storages, token transfers and others. The result format and the possible actions depend on the Standard library version used.
 
 For a detailed description, see the [Callable Function](/en/ride/functions/callable-function) article.
 
@@ -142,7 +142,7 @@ After assigning the script, the minimum fee for each transaction sent from  dApp
 
 ## Limitations
 
-Limitations on the size, complexity of the script, as well as on functions and variables are given in the [Limitations](/en/ride/limits) article.
+Limitations on the size, complexity of the script, as well as on functions and variables are given in the [Limitations](/en/ride/limits/) article.
 
 ## Examples
 

@@ -5,7 +5,7 @@ All events on the blockchain are represented as transactions. For example:
 * data transaction writes data to an account data storage;
 * transfer transaction moves a certain amount of the token from one account to another.
 
-Waves provides variety of transaction types. See the [Transaction Type](/en/blockchain/transaction-type) article for more information. Depending on the type, transactions may contain different fields.
+Waves provides variety of transaction types. See the [Transaction Type](/en/blockchain/transaction-type/) article for more information. Depending on the type, transactions may contain different fields.
 
 **Transaction Proof**
 

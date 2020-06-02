@@ -1,6 +1,6 @@
 # Data transaction
 
-**Data transaction** is a [transaction](/en/blockchain/transaction) that writes data to an [account data storage](/en/blockchain/account/account-data-storage).
+**Data transaction** is a [transaction](/en/blockchain/transaction/) that writes data to an [account data storage](/en/blockchain/account/account-data-storage).
 
 Each data transaction has a **data array** that contains data to be written. In [JSON representation](/en/blockchain/binary-format/transaction-binary-format/data-transaction-binary-format#json-representation) of a transaction the data array is the field `data`.
 

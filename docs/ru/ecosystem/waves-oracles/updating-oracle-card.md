@@ -2,7 +2,7 @@
 
 Чтобы перейти к обновлению [карточки оракула](/ru/ecosystem/waves-oracles/oracle-card), выполните следующие действия:
 
-1. Авторизуйтесь при помощи [Waves Keeper](/ru/ecosystem/waves-keeper).
+1. Авторизуйтесь при помощи [Waves Keeper](/ru/ecosystem/waves-keeper/).
 2. Нажмите **Update my oracle**.
 
 Для обновления доступны следующие данные карточки:

@@ -1,6 +1,6 @@
 # Create alias transaction
 
-**Create alias transaction** is a [transaction](/en/blockchain/transaction) that creates [alias](/en/blockchain/account/alias) for an [address](/en/blockchain/account/address).
+**Create alias transaction** is a [transaction](/en/blockchain/transaction/) that creates [alias](/en/blockchain/account/alias) for an [address](/en/blockchain/account/address).
 
 > A created alias cannot be deleted
 

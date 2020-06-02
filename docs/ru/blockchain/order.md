@@ -1,6 +1,6 @@
 # Биржевая заявка
 
-**Биржевая заявка** или **ордер** — инструкция [владельца аккаунта](/ru/blockchain/account) [матчеру](https://docs.waves.exchange/en/waves-matcher/) на покупку или продажу [токена](/ru/blockchain/token) на [Waves Exchange](https://waves.exchange/).
+**Биржевая заявка** или **ордер** — инструкция [владельца аккаунта](/ru/blockchain/account/) [матчеру](https://docs.waves.exchange/en/waves-matcher/) на покупку или продажу [токена](/ru/blockchain/token/) на [Waves Exchange](https://waves.exchange/).
 
 ## Ассетная пара
 

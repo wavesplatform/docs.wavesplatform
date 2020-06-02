@@ -1,14 +1,14 @@
 # gRPC Server
 
-**gRPC Server** is a [node extension](/en/waves-node/extensions)  that allows running [gRPC](https://en.wikipedia.org/wiki/GRPC) services on a [node](/en/blockchain/node).  gRPC interaface can be used to run apps on your own node.
+**gRPC Server** is a [node extension](/en/waves-node/extensions/)  that allows running [gRPC](https://en.wikipedia.org/wiki/GRPC) services on a [node](/en/blockchain/node/).  gRPC interaface can be used to run apps on your own node.
 
 gRPC services provide information about:
 
-* [accounts](/en/blockchain/account)
-* [blockchain](/en/blockchain/blockchain)
-* [blocks](/en/blockchain/block)
-* [tokens](/en/blockchain/token)
-* [transactions](/en/blockchain/transaction)
+* [accounts](/en/blockchain/account/)
+* [blockchain](/en/blockchain/blockchain/)
+* [blocks](/en/blockchain/block/)
+* [tokens](/en/blockchain/token/)
+* [transactions](/en/blockchain/transaction/)
 
 ## Client Generation
 
@@ -21,7 +21,7 @@ Examples of usage of gRPC clients generated from .proto files:
 
 ## gRPC Server Installation
 
-The [gRPC Server](/en/waves-node/extensions/grpc-server) extension can be installed on the [node](/en/blockchain/node) by two methods: using Deb package or ZIP file.
+The [gRPC Server](/en/waves-node/extensions/grpc-server/) extension can be installed on the [node](/en/blockchain/node/) by two methods: using Deb package or ZIP file.
 
 ### Installation via Deb Package
 

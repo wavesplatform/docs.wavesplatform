@@ -4,7 +4,7 @@
 
 Основные объекты блокчейна:
 
-* [Аккаунт](/ru/blockchain/account)
-* [Транзакция](/ru/blockchain/transaction)
-* [Блок](/ru/blockchain/block)
-* [Нода](/ru/blockchain/node)
+* [Аккаунт](/ru/blockchain/account/)
+* [Транзакция](/ru/blockchain/transaction/)
+* [Блок](/ru/blockchain/block/)
+* [Нода](/ru/blockchain/node/)

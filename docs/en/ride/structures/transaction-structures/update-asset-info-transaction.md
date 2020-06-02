@@ -12,7 +12,7 @@ UpdateAssetInfoTransaction(name: String, assetId: ByteVector, description: Strin
 
 | # | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | name | [String](/en/ride/data-types/string) | Name of the [token](/en/blockchain/token) |
+| 1 | name | [String](/en/ride/data-types/string) | Name of the [token](/en/blockchain/token/) |
 | 2 | assetId | [ByteVector](/en/ride/data-types/byte-vector) | [Token ID](/en/blockchain/token/token-id) |
 | 3 | description | [String](/en/ride/data-types/string) | Description of the token |
 | 4 | id | [ByteVector](/en/ride/data-types/byte-vector) | [Transaction ID](/en/blockchain/transaction/transaction-id) |

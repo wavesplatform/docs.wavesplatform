@@ -12,7 +12,7 @@ ExchangeTransaction(buyOrder: Order, sellOrder: Order, price: Int, amount: Int, 
 
 | # | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | buyOrder | [Order](/ru/ride/structures/common-structures/order) | [Бинарный формат ордера](/ru/blockchain/binary-format/transaction-binary-format) на покупку |
+| 1 | buyOrder | [Order](/ru/ride/structures/common-structures/order) | [Бинарный формат ордера](/ru/blockchain/binary-format/transaction-binary-format/) на покупку |
 | 2 | sellOrder | [Order](/ru/ride/structures/common-structures/order) | Ордер на продажу |
 | 3 | price | [Int](/ru/ride/data-types/int) | Стоимость токена |
 | 4 | amount | [Int](/ru/ride/data-types/int) | Количество токенов |

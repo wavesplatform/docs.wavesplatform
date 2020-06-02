@@ -8,7 +8,7 @@ You can write in the console any JavaScript code.
 
 The console has built-in functions which you can use to:
 
-* sign and send [transactions](/en/blockchain/transaction)
+* sign and send [transactions](/en/blockchain/transaction/)
 * get account balance
 * read data from [account data storage](/en/blockchain/account/account-data-storage)
 

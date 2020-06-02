@@ -40,19 +40,19 @@ module.exports = deepmerge(mixin, {
                 buttonSet: {
                     account: {
                         text: 'Аккаунт',
-                        link: '/ru/blockchain/account'
+                        link: '/ru/blockchain/account/'
                     },
                     token: {
                         text: 'Токены',
-                        link: '/ru/blockchain/token'
+                        link: '/ru/blockchain/token/'
                     },
                     mining: {
                         text: 'Майнинг',
-                        link: '/ru/blockchain/mining'
+                        link: '/ru/blockchain/mining/'
                     },
                     transaction: {
                         text: 'Транзакции',
-                        link: '/ru/blockchain/transaction'
+                        link: '/ru/blockchain/transaction/'
                     }
                 }
             },
@@ -75,7 +75,7 @@ module.exports = deepmerge(mixin, {
                     },
                     howTo: {
                         text: 'Практические руководства',
-                        link: '/ru/building-apps/how-to'
+                        link: '/ru/building-apps/how-to/'
                     },
                     signer: {
                         text: 'Signer',
@@ -106,11 +106,11 @@ module.exports = deepmerge(mixin, {
                     },
                     grpc: {
                         text: 'gRPC server',
-                        link: '/ru/waves-node/extensions/grpc-server',
+                        link: '/ru/waves-node/extensions/grpc-server/',
                     },
                     nodeApi: {
                         text: 'Node REST API',
-                        link: '/ru/waves-node/node-api',
+                        link: '/ru/waves-node/node-api/',
                     },
                 },
             },
@@ -129,7 +129,7 @@ module.exports = deepmerge(mixin, {
                     },
                     keeper: {
                         text: 'Waves Keeper',
-                        link: '/ru/ecosystem/waves-keeper',
+                        link: '/ru/ecosystem/waves-keeper/',
                     },
                     oracles: {
                         text: 'Oracles',

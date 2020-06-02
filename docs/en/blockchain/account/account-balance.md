@@ -1,6 +1,6 @@
 # Account Balance
 
-An **account balance** is the amount of the [token](/en/blockchain/token) that is stored on the [account](/en/blockchain/account).
+An **account balance** is the amount of the [token](/en/blockchain/token/) that is stored on the [account](/en/blockchain/account/).
 
 One account can store different tokens in different amounts. For example, an account can have 50 [WAVES](/en/blockchain/token/waves) and 200 [WCTs](/en/blockchain/token/wct) at the same time. The amount of the Y token on the account is called the **account balance in Y token**. If there is no Y token on the account, it is said that the **account balance in Y token is equal to zero**.
 
@@ -42,7 +42,7 @@ The **generating balance** is the minimum value of the effective balance during 
 
 You can buy and sell tokens using [Waves.Exchange](https://waves.exchange/) developed by Waves.Exchange team or at one of the [centralized exchanges](https://coinmarketcap.com/currencies/waves/#markets).
 
-You can view your account balance in Waves.Exchange or in the [Waves Keeper](/en/ecosystem/waves-keeper) browser extension.
+You can view your account balance in Waves.Exchange or in the [Waves Keeper](/en/ecosystem/waves-keeper/) browser extension.
 
 Example of the Wallet window with the list of tokens on the account:
 

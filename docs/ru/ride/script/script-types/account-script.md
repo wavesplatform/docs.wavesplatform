@@ -1,6 +1,6 @@
 # Скрипт аккаунта
 
-**Скрипт аккаунта** — [скрипт](/ru/ride/script), у которого есть следующие [директивы](/ru/ride/script/directives):
+**Скрипт аккаунта** — [скрипт](/ru/ride/script/), у которого есть следующие [директивы](/ru/ride/script/directives):
 
 ``` ride
 {-# CONTENT_TYPE EXPRESSION #-}
@@ -11,7 +11,7 @@
 
 ## Прикрепление скрипта аккаунта
 
-Скрипт аккаунта прикрепляется к [аккаунту](/ru/blockchain/account) с помощью [транзакции установки скрипта](/ru/blockchain/transaction-type/set-script-transaction).
+Скрипт аккаунта прикрепляется к [аккаунту](/ru/blockchain/account/) с помощью [транзакции установки скрипта](/ru/blockchain/transaction-type/set-script-transaction).
 
 Аккаунт с прикрепленным к нему скриптом аккаунта называется [смарт-аккаунтом](/ru/blockchain/account/smart-account).
 

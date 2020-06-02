@@ -1,6 +1,6 @@
 # Definition
 
-A **definition** is a linking of the name to the value or to the [function](/en/ride/functions) body.
+A **definition** is a linking of the name to the value or to the [function](/en/ride/functions/) body.
 
 ## Examples
 

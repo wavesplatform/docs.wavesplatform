@@ -1,8 +1,8 @@
 # Block binary format
 
-> Learn more about [block](/en/blockchain/block).
+> Learn more about [block](/en/blockchain/block/).
 
-Blocks are stored on the blockchain in a binary format (byte representation). [Node extensions](/en/waves-node/extensions) such as [gRPC server](/en/waves-node/extensions/grpc-server) can work directly with data in binary format.
+Blocks are stored on the blockchain in a binary format (byte representation). [Node extensions](/en/waves-node/extensions/) such as [gRPC server](/en/waves-node/extensions/grpc-server/) can work directly with data in binary format.
 
 ## Version 5
 
@@ -37,7 +37,7 @@ message Block {
 | reference | • For the first block of version 5, that is, at the height of activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”: `signature` of the previous block.<br>• For the next blocks: BLAKE2b-256 hash of the previous block header |
 | base_target | [Base target](/en/blockchain/block/block-generation/base-target): а variable that is used in the block generation algorithm |
 | generation_signature | [Generation signature](/en/blockchain/block/block-generation/): а variable that is used in the block generation algorithm (32 bytes) |
-| feature_votes | List of features for which the block generator votes. See the [Features](/en/waves-node/features) |
+| feature_votes | List of features for which the block generator votes. See the [Features](/en/waves-node/features/) |
 | timestamp | [Block timestamp](/en/blockchain/block/block-timestamp): Unix time in milliseconds |
 | version | Block version: 5 |
 | generator | Block generator’s account public key (32 bytes) |
@@ -56,11 +56,11 @@ message Block {
 | 4 | [Base target](/en/blockchain/block/block-generation/base-target) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 | 5 | [Genaration signature](/en/blockchain/block/block-generation/) | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 | |
 | 6 | Number of transactions in the block | [Integer](/en/blockchain/blockchain/blockchain-data-types) | 4 | |
-| 7.1 | Transaction 1 | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | Body bytes: up to 165,996 bytes<br>Proofs: up to 531 bytes | Bytes of the 1st transaction in [binary format](/en/blockchain/binary-format/transaction-binary-format) |
+| 7.1 | Transaction 1 | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | Body bytes: up to 165,996 bytes<br>Proofs: up to 531 bytes | Bytes of the 1st transaction in [binary format](/en/blockchain/binary-format/transaction-binary-format/) |
 | 7.2 | Transaction 2 | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | Body bytes: up to 165,996 bytes<br>Proofs: up to 531 bytes| Bytes of the 2nd transaction in binary format |
 | ... | ... | ... | ... | ... |
 | 7.[N] | Transaction N | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | Body bytes: up to 165,996 bytes<br>Proofs: up to 531 bytes | Bytes of the Nth transaction in binary format |
-| 8 | Number of [features](/en/waves-node/features) for which the block generator votes | 4 | [Integer](/en/blockchain/blockchain/blockchain-data-types) | |
+| 8 | Number of [features](/en/waves-node/features/) for which the block generator votes | 4 | [Integer](/en/blockchain/blockchain/blockchain-data-types) | |
 | 9.1 | Feature 1 | 2 | [Short](/en/blockchain/blockchain/blockchain-data-types) | |
 | ... | ... | ... | ... | ... |
 | 9.[M] | Feature M | 2 | [Short](/en/blockchain/blockchain/blockchain-data-types) | |
@@ -78,7 +78,7 @@ message Block {
 | 4 | [Base target](/en/blockchain/block/block-generation/base-target) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 | 5 | [Generation signature](/en/blockchain/block/block-generation/) | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 | |
 | 6 | Number of transactions in the block | [Integer](/en/blockchain/blockchain/blockchain-data-types) | 4 | |
-| 7.1 | Transaction 1 | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | Body bytes: up to 165,996 bytes<br>Proofs: up to 531 bytes | Bytes of the 1st transaction in [binary format](/en/blockchain/binary-format/transaction-binary-format) |
+| 7.1 | Transaction 1 | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | Body bytes: up to 165,996 bytes<br>Proofs: up to 531 bytes | Bytes of the 1st transaction in [binary format](/en/blockchain/binary-format/transaction-binary-format/) |
 | 7.2 | Transaction 2 | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | Body bytes: up to 165,996 bytes<br>Proofs: up to 531 bytes | Bytes of the 2nd transaction in binary format |
 | ... | ... | ... | ... | ... |
 | 7.[N] | Transaction N | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | Body bytes: up to 165,996 bytes<br>Proofs: up to 531 bytes | Bytes of the Nth transaction in binary format |

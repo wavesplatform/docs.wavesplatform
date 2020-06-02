@@ -1,8 +1,8 @@
 # Бинарный формат блока
 
-> Подробнее о [блоке](/ru/blockchain/block).
+> Подробнее о [блоке](/ru/blockchain/block/).
 
-Блоки хранятся на блокчейне в бинарном формате (байтовом представлении). [Расширения](/ru/waves-node/extensions) ноды, в частности [gRPC-сервер](/ru/waves-node/extensions/grpc-server), могут работать непосредственно с данными в бинарном формате.
+Блоки хранятся на блокчейне в бинарном формате (байтовом представлении). [Расширения](/ru/waves-node/extensions/) ноды, в частности [gRPC-сервер](/ru/waves-node/extensions/grpc-server/), могут работать непосредственно с данными в бинарном формате.
 
 ## Версия 5
 
@@ -37,7 +37,7 @@ message Block {
 | reference | • В первом блоке версии 5, то есть на высоте активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions” — `signature` предыдущего блока<br>• В последующих блоках: хеш BLAKE2b-256 заголовка предыдущего блока |
 | base_target | [Базовая цель](/ru/blockchain/block/block-generation/base-target) — переменная, используемая в алгоритме генерации блоков |
 | generation_signature | [Подпись генерирования](/ru/blockchain/block/block-generation/) — переменная, используемая в алгоритме генерации блоков (32 байта) |
-| feature_votes | Список фич, за которые голосует генератор блока, см. раздел [Фичи](/ru/waves-node/features) |
+| feature_votes | Список фич, за которые голосует генератор блока, см. раздел [Фичи](/ru/waves-node/features/) |
 | timestamp | [Временная метка блока](/ru/blockchain/block/block-timestamp): Unix-время в миллисекундах |
 | version | Версия блока: 5 |
 | generator | Открытый ключ аккаунта генератора блока (32 байта) |
@@ -56,11 +56,11 @@ message Block {
 | 4 | [Базовая цель](/en/blockchain/block/block-generation/base-target) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | |
 | 5 | [Подпись генерирования](/ru/blockchain/block/block-generation/) | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 | |
 | 6 | Количество транзакций в блоке | [Integer](/ru/blockchain/blockchain/blockchain-data-types) | 4 | |
-| 7.1 | Транзакция 1 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | Тело транзакции — до 165&nbsp;996 байт<br>Подтверждения (`proofs`) — до 531 байта | Байты первой транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format) |
-| 7.2 | Транзакция 2 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | Тело транзакции — до 165&nbsp;996 байт<br>Подтверждения (`proofs`) — до 531 байта | Байты второй транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format) |
+| 7.1 | Транзакция 1 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | Тело транзакции — до 165&nbsp;996 байт<br>Подтверждения (`proofs`) — до 531 байта | Байты первой транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format/) |
+| 7.2 | Транзакция 2 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | Тело транзакции — до 165&nbsp;996 байт<br>Подтверждения (`proofs`) — до 531 байта | Байты второй транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format/) |
 | ... | ... | ... | ... | ... |
-| 7.[N] | Транзакция N | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | Тело транзакции — до 165&nbsp;996 байт<br>Подтверждения (`proofs`) — до 531 байта | Байты N-й транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format) |
-| 8 | Количество [фич](/ru/waves-node/features), за которые голосует генератор блока | 4 | [Integer](/ru/blockchain/blockchain/blockchain-data-types) | |
+| 7.[N] | Транзакция N | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | Тело транзакции — до 165&nbsp;996 байт<br>Подтверждения (`proofs`) — до 531 байта | Байты N-й транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format/) |
+| 8 | Количество [фич](/ru/waves-node/features/), за которые голосует генератор блока | 4 | [Integer](/ru/blockchain/blockchain/blockchain-data-types) | |
 | 9.1 | Фича 1 | 2 | [Short](/ru/blockchain/blockchain/blockchain-data-types) | |
 | ... | ... | ... | ... | ... |
 | 9.[M] | Фича M | 2 | [Short](/ru/blockchain/blockchain/blockchain-data-types) | |
@@ -78,9 +78,9 @@ message Block {
 | 4 | [Базовая цель](/en/blockchain/block/block-generation/base-target) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | |
 | 5 | [Подпись генерирования](/ru/blockchain/block/block-generation/) | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 | |
 | 6 | Количество транзакций в блоке | [Integer](/ru/blockchain/blockchain/blockchain-data-types) | 4 | |
-| 7.1 | Транзакция 1 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | Тело транзакции — до 165&nbsp;996 байт<br>Подтверждения (`proofs`) — до 531 байта | Байты первой транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format) |
-| 7.2 | Транзакция 2 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | Тело транзакции — до 165&nbsp;996 байт<br>Подтверждения (`proofs`) — до 531 байта | Байты второй транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format) |
+| 7.1 | Транзакция 1 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | Тело транзакции — до 165&nbsp;996 байт<br>Подтверждения (`proofs`) — до 531 байта | Байты первой транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format/) |
+| 7.2 | Транзакция 2 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | Тело транзакции — до 165&nbsp;996 байт<br>Подтверждения (`proofs`) — до 531 байта | Байты второй транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format/) |
 | ... | ... | ... | ... | ... |
-| 7.[N] | Транзакция N | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | Тело транзакции — до 165&nbsp;996 байт<br>Подтверждения (`proofs`) — до 531 байта | Байты N-й транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format) |
+| 7.[N] | Транзакция N | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | Тело транзакции — до 165&nbsp;996 байт<br>Подтверждения (`proofs`) — до 531 байта | Байты N-й транзакции в [бинарном формате](/ru/blockchain/binary-format/transaction-binary-format/) |
 | 8 | Открытый ключ аккаунта генератора блока | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 | |
 | 9 | [Подпись блока](/en/blockchain/block/block-signature) | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 64 | | |

@@ -10,7 +10,7 @@
 
    Пополняет баланс аккаунта в тестовой сети фиксированной суммой в 10 WAVES.
 
-* [Waves Keeper](/ru/ecosystem/waves-keeper)
+* [Waves Keeper](/ru/ecosystem/waves-keeper/)
 
    Расширение браузера для безопасного хранения ключей Waves и взаимодействия со сторонними веб-сервисами. [Waves Keeper API](/ru/ecosystem/waves-keeper/waves-keeper-api) позволяет веб-сервисам работать с учетными записями пользователей, в чьем браузере установлен Waves Keeper.
 

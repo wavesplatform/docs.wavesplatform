@@ -12,7 +12,7 @@ ReissueTransaction(quantity: Int, assetId: ByteVector, reissuable: Boolean, id: 
 
 | № | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | quantity | [Int](/ru/ride/data-types/int) | Количество [токена](/ru/blockchain/token) |
+| 1 | quantity | [Int](/ru/ride/data-types/int) | Количество [токена](/ru/blockchain/token/) |
 | 2 | assetId | [ByteVector](/ru/ride/data-types/byte-vector) | [ID токена](/ru/blockchain/token/token-id) |
 | 3 | reissuable | [Boolean](/ru/ride/data-types/boolean) | Флаг довыпуска |
 | 4 | id | [ByteVector](/ru/ride/data-types/byte-vector) | [ID транзакции](/ru/blockchain/transaction/transaction-id) |

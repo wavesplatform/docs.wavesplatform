@@ -28,19 +28,19 @@ module.exports = {
                 buttonSet: {
                     account: {
                         text: 'Account',
-                        link: '/en/blockchain/account'
+                        link: '/en/blockchain/account/'
                     },
                     token: {
                         text: 'Tokens',
-                        link: '/en/blockchain/token'
+                        link: '/en/blockchain/token/'
                     },
                     mining: {
                         text: 'Mining',
-                        link: '/en/blockchain/mining'
+                        link: '/en/blockchain/mining/'
                     },
                     transaction: {
                         text: 'Transactions',
-                        link: '/en/blockchain/transaction'
+                        link: '/en/blockchain/transaction/'
                     }
                 }
             },
@@ -63,7 +63,7 @@ module.exports = {
                     },
                     howTo: {
                         text: 'How-to guides',
-                        link: '/en/building-apps/how-to'
+                        link: '/en/building-apps/how-to/'
                     },
                     signer: {
                         text: 'Signer library',
@@ -94,11 +94,11 @@ module.exports = {
                     },
                     grpc: {
                         text: 'gRPC server',
-                        link: '/en/waves-node/extensions/grpc-server',
+                        link: '/en/waves-node/extensions/grpc-server/',
                     },
                     nodeApi: {
                         text: 'Node REST API',
-                        link: '/en/waves-node/node-api',
+                        link: '/en/waves-node/node-api/',
                     },
                 },
             },
@@ -117,7 +117,7 @@ module.exports = {
                     },
                     keeper: {
                         text: 'Waves Keeper',
-                        link: '/en/ecosystem/waves-keeper',
+                        link: '/en/ecosystem/waves-keeper/',
                     },
                     oracles: {
                         text: 'Oracles',

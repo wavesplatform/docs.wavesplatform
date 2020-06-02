@@ -4,7 +4,7 @@
 
 ## Version 3
 
-Binary format of version 3 is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) protobuf scheme. The fields that are common to all types of transactions are described in the [Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format) article.
+Binary format of version 3 is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) protobuf scheme. The fields that are common to all types of transactions are described in the [Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format/) article.
 
 Version 3 is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
@@ -23,7 +23,7 @@ message CreateAliasTransactionData {
 | Field order number | Field | JSON field name | Field type | Field size in bytes | Comment |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Version flag| | [Byte](/en/blockchain/blockchain/blockchain-data-types)  | 1 | Indicates the [transaction version](/en/blockchain/transaction/transaction-version) is version 2 or higher.<br> Value must be 0 |
-| 2 | [Transaction type ID](/en/blockchain/transaction-type) | type | [Byte](/en/blockchain/blockchain/blockchain-data-types)  | 1 | Value must be 10 |
+| 2 | [Transaction type ID](/en/blockchain/transaction-type/) | type | [Byte](/en/blockchain/blockchain/blockchain-data-types)  | 1 | Value must be 10 |
 | 3 | [Transaction version](/en/blockchain/transaction/transaction-version) | version | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be  2 |
 | 4 | Public key of the transaction sender |senderPublicKey| Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 |  |
 | 5 | [Alias](/en/blockchain/account/alias) length | | [Short](/en/blockchain/blockchain/blockchain-data-types) | 2 | Number of characters in the alias name |
@@ -40,7 +40,7 @@ See the [example](https://nodes.wavesnodes.com/transactions/info/5CZV9RouJs7uaRk
 
 | Field order number | Field | Field type | Field size in bytes | Comment |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | [Transaction type ID](/en/blockchain/transaction-type) | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | The value must be 10 |
+| 1 | [Transaction type ID](/en/blockchain/transaction-type/) | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | The value must be 10 |
 | 2 | Public key of the transaction sender | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 |  |
 | 3 | [Alias](/en/blockchain/account/alias) length | [Short](/en/blockchain/blockchain/blockchain-data-types) | 2 | Number of characters in the alias name |
 | 4 | Alias | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | from 4 to 30 |  |

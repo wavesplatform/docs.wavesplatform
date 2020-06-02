@@ -1,8 +1,8 @@
 # Версия транзакции
 
-У всех [транзакций](/ru/blockchain/transaction), за исключением [транзакции генезиса](/ru/blockchain/transaction-type/genesis-transaction), есть версии.
+У всех [транзакций](/ru/blockchain/transaction/), за исключением [транзакции генезиса](/ru/blockchain/transaction-type/genesis-transaction), есть версии.
 
-Транзакции одного [типа](/ru/blockchain/transaction-type), но разных версий, имеют разные [бинарные форматы](/ru/blockchain/binary-format/transaction-binary-format).
+Транзакции одного [типа](/ru/blockchain/transaction-type/), но разных версий, имеют разные [бинарные форматы](/ru/blockchain/binary-format/transaction-binary-format/).
 
 При разработке приложений рекомендуется использовать транзакции последних версий.
 

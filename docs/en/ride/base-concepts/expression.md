@@ -1,6 +1,6 @@
 # Expression
 
-An **expression** is a combination of one or more [constants](/en/ride/constants), [variables](/en/ride/variables), [operators](/en/ride/operators) and [function](/en/ride/functions) _calls_.
+An **expression** is a combination of one or more [constants](/en/ride/constants), [variables](/en/ride/variables/), [operators](/en/ride/operators/) and [function](/en/ride/functions/) _calls_.
 
 Ride interprets the expression and calculates its _result_.
 
@@ -12,7 +12,7 @@ An **expression result** is a value, which is obtained by the [fold](https://en.
 <a id="expression-type"></a>
 ## Expression type
 
-An **expression type** is a [data type](/en/ride/data-types) of the expression result.
+An **expression type** is a [data type](/en/ride/data-types/) of the expression result.
 
 ## Examples
 

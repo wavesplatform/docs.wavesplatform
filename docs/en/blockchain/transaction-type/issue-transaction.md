@@ -1,6 +1,6 @@
 # Issue transaction
 
-An **issue transaction** is a [transaction](/en/blockchain/transaction) that [issues token](/en/blockchain/token).
+An **issue transaction** is a [transaction](/en/blockchain/transaction/) that [issues token](/en/blockchain/token/).
 
 ## Issue of NFT <a id="nft"></a>
 

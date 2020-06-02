@@ -1,8 +1,8 @@
 # Transaction Version
 
-All [transactions](/en/blockchain/transaction), with the exception of the [genesis transaction](/en/blockchain/transaction-type/genesis-transaction), have versions.
+All [transactions](/en/blockchain/transaction/), with the exception of the [genesis transaction](/en/blockchain/transaction-type/genesis-transaction), have versions.
 
-Transactions of the same [type](/en/blockchain/transaction-type), but of different versions, have different [binary formats](/en/blockchain/binary-format/transaction-binary-format).
+Transactions of the same [type](/en/blockchain/transaction-type/), but of different versions, have different [binary formats](/en/blockchain/binary-format/transaction-binary-format/).
 
 When developing applications, it is recommended to use transactions of the latest versions.
 

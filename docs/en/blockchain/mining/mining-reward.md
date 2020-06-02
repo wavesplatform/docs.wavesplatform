@@ -1,6 +1,6 @@
 # Mining reward
 
-The **mining reward** is a blockchain feature under which [miners](/en/blockchain/mining/miner) receive a fixed fee in [WAVES](/en/blockchain/token/waves) for each [generated block](/en/blockchain/block/block-generation).
+The **mining reward** is a blockchain feature under which [miners](/en/blockchain/mining/miner) receive a fixed fee in [WAVES](/en/blockchain/token/waves) for each [generated block](/en/blockchain/block/block-generation/).
 
 Mining rewards are paid due to the additional issue of the WAVES token.
 
@@ -8,7 +8,7 @@ The community of miners can change the size of reward through [voting](#voting).
 
 ## Current reward size
 
-You can view the current reward size by making a request to the [Node API](/en/waves-node/node-api). In response to the request, JSON is returned, the value of the `currentReward` field of which is the current mining reward size in [WAVELET](/en/blockchain/token/wavelet)s.
+You can view the current reward size by making a request to the [Node API](/en/waves-node/node-api/). In response to the request, JSON is returned, the value of the `currentReward` field of which is the current mining reward size in [WAVELET](/en/blockchain/token/wavelet)s.
 
 Example of request:
 

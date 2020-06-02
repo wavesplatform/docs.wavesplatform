@@ -12,7 +12,7 @@ ExchangeTransaction(buyOrder: Order, sellOrder: Order, price: Int, amount: Int, 
 
 | # | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | buyOrder | [Order](/en/ride/structures/common-structures/order) | [Token](/en/blockchain/token) purchase [order](/en/blockchain/order) |
+| 1 | buyOrder | [Order](/en/ride/structures/common-structures/order) | [Token](/en/blockchain/token/) purchase [order](/en/blockchain/order) |
 | 2 | sellOrder | [Order](/en/ride/structures/common-structures/order) | Token sell order |
 | 3 | price | [Int](/en/ride/data-types/int) | Price of exchanging token |
 | 4 | amount | [Int](/en/ride/data-types/int) | Amount of exchanging tokens |

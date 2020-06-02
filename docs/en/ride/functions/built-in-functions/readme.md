@@ -1,6 +1,6 @@
 # Built-in functions
 
-A **built-in function** is a [function](/en/ride/functions) of the [script context](/en/ride/script/script-context).
+A **built-in function** is a [function](/en/ride/functions/) of the [script context](/en/ride/script/script-context).
 
 ## [Account data storage functions](/en/ride/functions/built-in-functions/account-data-storage-functions)
 
@@ -21,8 +21,8 @@ A **built-in function** is a [function](/en/ride/functions) of the [script conte
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| assetInfo(ByteVector): Аsset&#124;Unit | Gets the information about a [token](/en/blockchain/token) | 100 |
-| blockInfoByHeight(Int): BlockInfo &#124;Unit | Gets the information about a [block](/en/blockchain/block) by the [block height](/en/blockchain/block/block-height) | 100 |
+| assetInfo(ByteVector): Аsset&#124;Unit | Gets the information about a [token](/en/blockchain/token/) | 100 |
+| blockInfoByHeight(Int): BlockInfo &#124;Unit | Gets the information about a [block](/en/blockchain/block/) by the [block height](/en/blockchain/block/block-height) | 100 |
 | calculateAssetId(Issue): ByteVector | Calculates the ID of the asset, created by [Issue](/en/ride/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
 | transactionHeightById(ByteVector):  Int&#124;Unit | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 100 |
 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Gets the data of a [transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 100 |

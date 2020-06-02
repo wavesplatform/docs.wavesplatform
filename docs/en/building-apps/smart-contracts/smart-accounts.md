@@ -88,5 +88,5 @@ match tx {
 }
 ```
 
-**Note.** To understand our language better, you can check our [Ride Language Section](/en/ride) and go through our [video tutorials](/en/building-apps/smart-contracts/video-tutorials) and [articles](/en/building-apps/smart-contracts/articles-on-dapps).
+**Note.** To understand our language better, you can check our [Ride Language Section](/en/ride/) and go through our [video tutorials](/en/building-apps/smart-contracts/video-tutorials/) and [articles](/en/building-apps/smart-contracts/articles-on-dapps).
 

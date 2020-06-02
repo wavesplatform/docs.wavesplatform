@@ -22,7 +22,7 @@ IssueTransaction(quantity: Int, name: String, description: String, reissuable: B
 
 | # | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | quantity | [Int](/ru/ride/data-types/int) | Количество [токена](/ru/blockchain/token) |
+| 1 | quantity | [Int](/ru/ride/data-types/int) | Количество [токена](/ru/blockchain/token/) |
 | 2 | name | В версии 3: [ByteVector](/ru/ride/data-types/byte-vector)<br>В версии 4: [String](/ru/ride/data-types/string) | Название токена |
 | 3 | description | В версии 3: [ByteVector](/ru/ride/data-types/byte-vector)<br>В версии 4: [String](/ru/ride/data-types/string) | Описание токена |
 | 4 | reissuable | [Boolean](/ru/ride/data-types/boolean) | Флаг возможности довыпуска токена |

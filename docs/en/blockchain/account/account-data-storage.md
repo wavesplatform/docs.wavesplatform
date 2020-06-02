@@ -1,6 +1,6 @@
 # Account data storage
 
-An **account data storage** is a storage, associated with an [account](/en/blockchain/account),  of data records.
+An **account data storage** is a storage, associated with an [account](/en/blockchain/account/),  of data records.
 
 Each account has a _single_ account data storage.
 

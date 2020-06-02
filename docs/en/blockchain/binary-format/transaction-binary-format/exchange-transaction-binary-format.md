@@ -4,7 +4,7 @@
 
 ## Version 3
 
-Binary format of version 3 is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) protobuf scheme. The fields that are common to all types of transactions are described in the [Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format) article.
+Binary format of version 3 is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) protobuf scheme. The fields that are common to all types of transactions are described in the [Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format/) article.
 
 Exchange transaction of version 3 can accept orders of versions [1](/en/blockchain/binary-format/order-binary-format#v1)–[4](/en/blockchain/binary-format/order-binary-format#v4).
 
@@ -35,7 +35,7 @@ Transaction version 2 can accept orders of version [1](/en/blockchain/binary-for
 | Field order number | Field | JSON field name | Field type | Field size in bytes | Comment |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Version flag | | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Indicates the [transaction version](/en/blockchain/transaction/transaction-version) is version 2 or higher.<br>Value must be 0 |
-| 2 | [Transaction type ID](/en/blockchain/transaction-type) | type | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 7 |
+| 2 | [Transaction type ID](/en/blockchain/transaction-type/) | type | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 7 |
 | 3 | [Transaction version](/en/blockchain/transaction/transaction-version) | version | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 2 |
 | 4.1 | Buy order size |  | [Integer](/en/blockchain/blockchain/blockchain-data-types) | 4 |  |
 | 4.2 | Buy [order version](/en/blockchain/binary-format/order-binary-format) flag | order1.version | [Byte](/en/blockchain/blockchain/blockchain-data-types) | `S` | `S` = 1 if the order version is 1.<br>`S` = 0 if the order version is 2 |
@@ -43,7 +43,7 @@ Transaction version 2 can accept orders of version [1](/en/blockchain/binary-for
 | 5.1 | Sell order size  |  | [Integer](/en/blockchain/blockchain/blockchain-data-types) | 4 |  |
 | 5.2 | Sell [order version](/en/blockchain/binary-format/order-binary-format) flag | order2.version | [Byte](/en/blockchain/blockchain/blockchain-data-types) | `S` | `S` = 1 if the order version is 1.<br>`S` = 0 if the order version is 2 |
 | 5.3 | Order for selling a token | order2 | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | See [order binary format](/en/blockchain/binary-format/order-binary-format) |  |
-| 6 | Price | price | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | Amount of [token](/en/blockchain/token) B which order sender offers for one token A |
+| 6 | Price | price | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | Amount of [token](/en/blockchain/token/) B which order sender offers for one token A |
 | 7 | Amount | amount | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | Amount of token A which order sender wants to buy |
 | 8 | Buy [matcher fee](/en/blockchain/matcher-fee) | buyMatcherFee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 9 | Sell [matcher fee](/en/blockchain/matcher-fee) | sellMatcherFee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
@@ -61,12 +61,12 @@ Transaction version 1 can accept orders of version [1](/en/blockchain/binary-for
 
 | Field order number | Field | Field type | Field size in bytes | Comment |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | [Transaction type ID](/en/blockchain/transaction-type) | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 6 |
+| 1 | [Transaction type ID](/en/blockchain/transaction-type/) | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 6 |
 | 2 | Buy order size  | [Integer](/en/blockchain/blockchain/blockchain-data-types) | 4 |  |
 | 3 | Sell order size | [Integer](/en/blockchain/blockchain/blockchain-data-types) | 4 |  |
 | 4 | Order for buying a token | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | See [order binary format](/en/blockchain/binary-format/order-binary-format) |  |
 | 5 | Order for selling a token | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | See [order binary format](/en/blockchain/binary-format/order-binary-format) |  |
-| 6 | Price | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | Amount of [token](/en/blockchain/token) B which order sender offers for one token A |
+| 6 | Price | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | Amount of [token](/en/blockchain/token/) B which order sender offers for one token A |
 | 7 | Amount | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | Amount of token A which order sender wants to buy |
 | 8 | Buy [matcher fee](/en/blockchain/matcher-fee) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 9 | Sell [matcher fee](/en/blockchain/matcher-fee) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |

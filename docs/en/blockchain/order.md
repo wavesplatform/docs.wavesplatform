@@ -1,6 +1,6 @@
 # Order
 
-**Order** is the instruction from the [account owner](/en/blockchain/account) to [matcher](https://docs.waves.exchange/en/waves-matcher/) to buy or sell a [token](/en/blockchain/token) on [Waves Exchange](https://waves.exchange/).
+**Order** is the instruction from the [account owner](/en/blockchain/account/) to [matcher](https://docs.waves.exchange/en/waves-matcher/) to buy or sell a [token](/en/blockchain/token/) on [Waves Exchange](https://waves.exchange/).
 
 ## Asset pair
 

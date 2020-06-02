@@ -1,6 +1,6 @@
 # Lease cancel transaction
 
-A **lease cancel transaction** is a [transaction](/en/blockchain/transaction) that cancels the [leasing](/en/blockchain/leasing).
+A **lease cancel transaction** is a [transaction](/en/blockchain/transaction/) that cancels the [leasing](/en/blockchain/leasing).
 
 ## Binary format
 

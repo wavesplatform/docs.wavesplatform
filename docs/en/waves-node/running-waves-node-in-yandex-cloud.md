@@ -20,7 +20,7 @@ You can run Waves node in Yandex.Cloud for mining or development and testing of 
 
 ![](./_assets/search-bar.png)
 
-5.&nbsp;Set the parameters of the virtual machine. See the hardware requirements on the [Node Owner Guide](/en/waves-node) page for minimum hardware requirements to start the node.
+5.&nbsp;Set the parameters of the virtual machine. See the hardware requirements on the [Node Owner Guide](/en/waves-node/) page for minimum hardware requirements to start the node.
 
 ![](./_assets/virtual-machine-parameters.png)
 

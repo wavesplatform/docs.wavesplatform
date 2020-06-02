@@ -16,7 +16,7 @@ Waves Keeper API поддерживает следующие типы транз
 - 15 — транзакция установки скрипта ассета.
 - 16 — транзакция вызова скрипта.
 
-Формат транзакции отличается от [Node REST API](/ru/waves-node/node-api). Функции `signTransaction`, `signAndPublishTransaction`, `signTransactionPackage` принимают транзакции в следующем формате:
+Формат транзакции отличается от [Node REST API](/ru/waves-node/node-api/). Функции `signTransaction`, `signAndPublishTransaction`, `signTransactionPackage` принимают транзакции в следующем формате:
 
 ```js
 {

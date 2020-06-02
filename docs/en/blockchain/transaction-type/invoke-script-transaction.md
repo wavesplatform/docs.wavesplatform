@@ -1,6 +1,6 @@
 # Invoke script transaction
 
-An **invoke script transaction** is a [transaction](/en/blockchain/transaction) that invokes the [callable function](/en/ride/functions/callable-function) of the [dApp](/en/blockchain/account/dapp).
+An **invoke script transaction** is a [transaction](/en/blockchain/transaction/) that invokes the [callable function](/en/ride/functions/callable-function) of the [dApp](/en/blockchain/account/dapp).
 
 Payment may be attached to the invoke script transaction to transfer tokens to the account of the called dApp.
 

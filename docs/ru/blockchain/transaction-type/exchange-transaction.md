@@ -1,6 +1,6 @@
 # Транзакция обмена
 
-**Транзакция обмена** — [транзакция](/ru/blockchain/transaction), которая обменивает два различных [токена](/ru/blockchain/token) между двумя [аккаунтами](/ru/blockchain/account).
+**Транзакция обмена** — [транзакция](/ru/blockchain/transaction/), которая обменивает два различных [токена](/ru/blockchain/token/) между двумя [аккаунтами](/ru/blockchain/account/).
 
 ## Бинарный формат
 

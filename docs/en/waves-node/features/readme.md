@@ -1,6 +1,6 @@
 # Features
 
-**Feature** is a functionality added to the [Waves blockchain](/en/blockchain/blockchain) during a new [release](https://github.com/wavesplatform/Waves/releases).
+**Feature** is a functionality added to the [Waves blockchain](/en/blockchain/blockchain/) during a new [release](https://github.com/wavesplatform/Waves/releases).
 
 Features have names and unique IDs and can be enabled by setting `supported` parameter in the `features` section of the node configuration file. For details see [Features Settings](/en/waves-node/node-configuration#features-section) section of the [Node Configuration](/en/waves-node/node-configuration) article.
 
@@ -41,7 +41,7 @@ Each feature can have one of the three statuses:
 
 ## Activation of New Features
 
-**Feature activation protocol** is a procedure according to which a new [feature](/en/waves-node/features) gets activated, i.e. it gets the "activated" status.
+**Feature activation protocol** is a procedure according to which a new [feature](/en/waves-node/features/) gets activated, i.e. it gets the "activated" status.
 
 * Activation process consists of voting and activation. Each mining node (which generates blocks) can vote for a new feature by having the voting parameter set in its configuration file. Such node generates blocks that  contain the vote for the feature. See [example](/en/waves-node/activation-protocol#configuration-file-changes) and more details in [Activation Protocol](/en/waves-node/activation-protocol) article.
 

@@ -8,7 +8,7 @@
 | 4 | [List](/en/ride/data-types/list) | List |
 | 5 | [String](/en/ride/data-types/string) | String |
 | 6 | [Empty value](/en/ride/data-types/unit) | Unit |
-| 7 | [Structure](/en/ride/structures) | — |
+| 7 | [Structure](/en/ride/structures/) | — |
 | 8 | [Union](/en/ride/data-types/union) | — |
 
 For each value, depending on the data type, the weight is determined. The weight is used in [limitations](#limitations) on creating and comparing values. For more information see the [Data Weight](/en/ride/limits/weight).

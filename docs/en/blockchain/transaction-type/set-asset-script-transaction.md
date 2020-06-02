@@ -1,6 +1,6 @@
 # Set asset script transaction
 
-A **set asset script transaction** is a [transaction](/en/blockchain/transaction) that attaches an [asset script](/en/ride/script/script-types/asset-script) to the [token](/en/blockchain/token).
+A **set asset script transaction** is a [transaction](/en/blockchain/transaction/) that attaches an [asset script](/en/ride/script/script-types/asset-script) to the [token](/en/blockchain/token/).
 
 ## Binary format
 

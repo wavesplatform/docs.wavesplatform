@@ -1,6 +1,6 @@
 # Oracle
 
-**Oracle** is a data provider from the outside world on the [blockchain](/en/blockchain/blockchain).
+**Oracle** is a data provider from the outside world on the [blockchain](/en/blockchain/blockchain/).
 
 ## Sources of the outside world
 

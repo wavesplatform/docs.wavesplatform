@@ -1,6 +1,6 @@
 # WAVES
 
-**WAVES** is the main [token](/en/blockchain/token) of the Waves blockchain.
+**WAVES** is the main [token](/en/blockchain/token/) of the Waves blockchain.
 
 1 WAVES equals 100,000,000 [WAVELETs](/en/blockchain/token/wavelet).
 

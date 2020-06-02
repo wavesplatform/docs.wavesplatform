@@ -1,14 +1,14 @@
 # gRPC Server
 
-**gRPC Server** — [расширение ноды](/ru/waves-node/extensions), которое позволяет запускать [gRPC](https://en.wikipedia.org/wiki/GRPC)-сервисы.
+**gRPC Server** — [расширение ноды](/ru/waves-node/extensions/), которое позволяет запускать [gRPC](https://en.wikipedia.org/wiki/GRPC)-сервисы.
 
 gRPC-сервисы предоставляют информацию про:
 
-* [аккаунты](/ru/blockchain/account)
-* [блоки](/ru/blockchain/block)
-* [блокчейн](/ru/blockchain/blockchain)
-* [токены](/ru/blockchain/token)
-* [транзакции](/ru/blockchain/transaction)
+* [аккаунты](/ru/blockchain/account/)
+* [блоки](/ru/blockchain/block/)
+* [блокчейн](/ru/blockchain/blockchain/)
+* [токены](/ru/blockchain/token/)
+* [транзакции](/ru/blockchain/transaction/)
 
 ## Генерация клиента
 

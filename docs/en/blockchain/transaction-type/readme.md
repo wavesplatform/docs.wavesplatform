@@ -1,6 +1,6 @@
 # Transaction type
 
-Each [transaction](/en/blockchain/transaction) on the blockchain is of a specific type.
+Each [transaction](/en/blockchain/transaction/) on the blockchain is of a specific type.
 
 ## List of transaction types
 

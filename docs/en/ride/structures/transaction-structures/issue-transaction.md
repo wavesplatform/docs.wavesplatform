@@ -22,12 +22,12 @@ IssueTransaction(quantity: Int, name: String, description: String, reissuable: B
 
 | # | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | quantity | [Int](/en/ride/data-types/int) | Amount of the [token](/en/blockchain/token) |
+| 1 | quantity | [Int](/en/ride/data-types/int) | Amount of the [token](/en/blockchain/token/) |
 | 2 | name | For version 3: [ByteVector](/en/ride/data-types/byte-vector)<br>For version 4: [String](/en/ride/data-types/string) | Token name |
 | 3 | description | For version 3: [ByteVector](/en/ride/data-types/byte-vector)<br>For version 4: [String](/en/ride/data-types/string) | Token description |
 | 4 | reissuable | [Boolean](/en/ride/data-types/boolean) | Reissue ability flag |
 | 5 | decimals | [Int](/en/ride/data-types/int) | Number of digits in decimal part |
-| 6 | script | [ByteVector](/en/ride/data-types/byte-vector)&#124;[Unit](/en/ride/data-types/unit) | [Script](/en/ride/script) that must be set for the generated token |
+| 6 | script | [ByteVector](/en/ride/data-types/byte-vector)&#124;[Unit](/en/ride/data-types/unit) | [Script](/en/ride/script/) that must be set for the generated token |
 | 7 | id | [ByteVector](/en/ride/data-types/byte-vector) | [Transaction ID](/en/blockchain/transaction/transaction-id) |
 | 8 | fee | [Int](/en/ride/data-types/int) | [Transaction fee](/en/blockchain/transaction/transaction-fee) |
 | 9 | timestamp | [Int](/en/ride/data-types/int) | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) |

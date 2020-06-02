@@ -19,8 +19,8 @@ Added guides:
 
 * Updated articles:
    * [Standard Library](/en/ride/script/standard-library)
-   * [Script Types](/en/ride/script/script-types)
-   * [Limitations](/en/ride/limits)
+   * [Script Types](/en/ride/script/script-types/)
+   * [Limitations](/en/ride/limits/)
 * Added the [Ride Components](/en/ride/advanced/components) article
 
 #### Script Actions
@@ -37,7 +37,7 @@ Added guides:
 
 ### Blockchain
 
-* Added binary format descriptions for new versions of [transactions](/en/blockchain/binary-format/transaction-binary-format) and [orders](/en/blockchain/binary-format/order-binary-format).
+* Added binary format descriptions for new versions of [transactions](/en/blockchain/binary-format/transaction-binary-format/) and [orders](/en/blockchain/binary-format/order-binary-format).
 * Updated the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
 
 ### Building Apps
@@ -145,7 +145,7 @@ Added how-to guides:
 
 ### Blockchain
 
-* [Mining](/en/blockchain/mining) — <span style="color:green">updated</span>
+* [Mining](/en/blockchain/mining/) — <span style="color:green">updated</span>
   * [Mining reward](/en/blockchain/mining/mining-reward) — <span style="color:green">updated</span>
 
 ### Oracles
@@ -172,7 +172,7 @@ Added how-to guides:
 
 ### Blockchain
 
-* [Account](/en/blockchain/account) — <span style="color:green">updated</span>
+* [Account](/en/blockchain/account/) — <span style="color:green">updated</span>
   * [Account balance](/en/blockchain/account/account-balance)
 * [Leasing](/en/blockchain/leasing) — <span style="color:green">updated</span>
 * [Order](/en/blockchain/order) — <span style="color:green">updated</span>
@@ -186,7 +186,7 @@ Added how-to guides:
     * [Account script](/en/ride/script/script-types/account-script) — <span style="color:green">updated</span>
   * [Standard Library](/en/ride/script/standard-library)
 * Functions
-  * [Built-in functions](/en/ride/functions/built-in-functions) — <span style="color:green">updated</span>
+  * [Built-in functions](/en/ride/functions/built-in-functions/) — <span style="color:green">updated</span>
     * [Verification functions](/en/ride/functions/built-in-functions/verification-functions) — <span style="color:green">updated</span>
 * Variables
   * [Built-in variables](/en/ride/variables/built-in-variables)

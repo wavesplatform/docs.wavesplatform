@@ -4,7 +4,7 @@ Nodes are the critical components of Waves ecosystem. By running a node, you can
 
 Every Waves node is a full node that takes part in the decentralized process of block creation by storing full blockchain data, passing the data to other nodes (relay blocks and transactions to miners), and checking that the newly added blocks are valid. Validation implicates ensuring that the format of the block is correct, all hashes in the new block were computed correctly, the new block contains the hash of the previous block, and each transaction in the block is [validated](/en/blockchain/transaction/transaction-validation) and signed by the appropriate parties (answer end user queries about the state of the blockchain). Any node can propose new transactions, and these proposed transactions are propagated between nodes until they are eventually added to a block.
 
-Nodes can be used for [mining](/en/blockchain/mining) \(generating new blocks\). A mining node checks that each transaction is self-valid since the other nodes would reject the block if it includes invalid transactions. A node can have zero balance, but to start mining, a node must have the minimum balance of **1000 WAVES** (including Waves that are [leased](/en/blockchain/leasing) to the node). The WAVES you own \(or that have been leased to you\) reflect your mining power, the more you own, the higher your chances of processing the next block and receiving the transaction fees as a reward. The final amount also depends on overall network activity and the amout of generated fees.
+Nodes can be used for [mining](/en/blockchain/mining/) \(generating new blocks\). A mining node checks that each transaction is self-valid since the other nodes would reject the block if it includes invalid transactions. A node can have zero balance, but to start mining, a node must have the minimum balance of **1000 WAVES** (including Waves that are [leased](/en/blockchain/leasing) to the node). The WAVES you own \(or that have been leased to you\) reflect your mining power, the more you own, the higher your chances of processing the next block and receiving the transaction fees as a reward. The final amount also depends on overall network activity and the amout of generated fees.
 
 **Note:** You can find the list of the existing nodes at [dev.pywaves.org](http://dev.pywaves.org/generators/).
 
@@ -23,7 +23,7 @@ There are different options to install Waves node. The installation methods are 
 
 ## Get Actual Blockchain
 
-A running node requires blockchain database. Use one of the methods described in [Get Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain) article to get the latest blockchain database.
+A running node requires blockchain database. Use one of the methods described in [Get Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article to get the latest blockchain database.
 
 ## Upgrade a Node
 
@@ -39,4 +39,4 @@ You can check the blockchain height or the last 100 signatures of blocks to unde
 Your node can be on fork with height **less** than 2000 blocks or **more** than 2000 blocks.
 
 * In case that your node is on fork with a height less than 2000 blocks, you can implement rollback and restart the node to begin generating blocks as described in [Rollback Waves Node](/en/waves-node/how-to-rollback-a-node) article.
-* Otherwise, you need to go with one of the options described in [Get Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain) article.
+* Otherwise, you need to go with one of the options described in [Get Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article.

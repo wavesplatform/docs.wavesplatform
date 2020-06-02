@@ -49,7 +49,7 @@ b =50 000 000 000 000,
 
 c = 250 0000.
 
-The following formula, with [operators](/en/ride/operators) `*` and `/`, will throw integer overflow exception:
+The following formula, with [operators](/en/ride/operators/) `*` and `/`, will throw integer overflow exception:
 
 ```ride
 let result = a * b # integer overflow, because a * b exceeds max integer type value 9 223 372 036 854 755 807
@@ -72,7 +72,7 @@ Calculates logarithm of the number `a` with the base `b`.
 log(value: Int, ep: Int, base: Int, bp: Int, rp: Int, round: Union): Int
 ```
 
-In Ride, there is no [data type](/en/ride/data-types) with the floating point. That is why, for example, when you need to calculate `log<sub>2,7</sub>(16,25)` then the number `a` = 1625, and the logarithm base `b` = 27.
+In Ride, there is no [data type](/en/ride/data-types/) with the floating point. That is why, for example, when you need to calculate `log<sub>2,7</sub>(16,25)` then the number `a` = 1625, and the logarithm base `b` = 27.
 
 If the `log` function returns, for example, 64391, and the parameter of function `rp` = 4, then the result is  — 6,4391; in the number 64391 the last 4 digits (`rp` = 4) — fractional part. The `rp` parameter specifies the calculation accuracy of the result of the function, — number of decimals in the result.
 
@@ -151,7 +151,7 @@ Raises the number `a` to the power `b`.
 pow(base: Int, bp: Int, exponent: Int, ep: Int, rp: Int, round: Union): Int
 ```
 
-there is no [data type](/en/ride/data-types) with the floating point. That is why, for example, when you need to calculate, 16,25<sup>2,7</sup>, then the number `a` = 1625, and the logarithm base `b` = 27.
+there is no [data type](/en/ride/data-types/) with the floating point. That is why, for example, when you need to calculate, 16,25<sup>2,7</sup>, then the number `a` = 1625, and the logarithm base `b` = 27.
 
  If the `pow` function returns, for example, 64391, and the parameter of function `rp` = 4, then the result is  — 6,4391; in the number 64391 the last 4 digits (`rp` = 4) — fractional part. The `rp` parameter specifies the calculation accuracy of the result of the function, — number of decimals in the result.
 

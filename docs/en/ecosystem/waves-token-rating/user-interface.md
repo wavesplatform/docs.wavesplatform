@@ -84,7 +84,7 @@ This section is displayed only if the token has a ticker or is traded on the [Wa
 | Decimal points | Number of decimal places of token |
 | Type | Tells if the [reissue transaction](/en/blockchain/transaction-type/reissue-transaction) is possible. <br>Takes one of two values: "Reissuable" or "Not reissuable" |
 | Issuer | Address from which the token was issued |
-| Block | The [blockchain height](/en/blockchain/blockchain/blockchain-height) at which the [issue transaction](/en/blockchain/transaction-type/issue-transaction) went to the [block](/en/blockchain/block) |
+| Block | The [blockchain height](/en/blockchain/blockchain/blockchain-height) at which the [issue transaction](/en/blockchain/transaction-type/issue-transaction) went to the [block](/en/blockchain/block/) |
 | Issue date | Token issue date |
 | Description | Token description |
 | Additional information | Additional information from the issuer about the token or project. Displayed only if the issuer adds it |

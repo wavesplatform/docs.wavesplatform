@@ -6,7 +6,7 @@ sidebarDepth: 2
 
 ## Features
 
-New versions of Waves software bring new features. Those new features should be activated by many nodes at the same time. Previously the features were activated by timestamps. That put node owners in a tight time frame to update their nodes. Failure to update a node in time led to unintentional forks. The Feature Activation Protocol gives Waves community the ability to apply new features with a suitable pace. Or not apply some of them at all. For details about API methods related to Feature Activation Protocol, see [Activation](/en/waves-node/node-api/feature-activation) article of the [Node API](/en/waves-node/node-api) chapter.
+New versions of Waves software bring new features. Those new features should be activated by many nodes at the same time. Previously the features were activated by timestamps. That put node owners in a tight time frame to update their nodes. Failure to update a node in time led to unintentional forks. The Feature Activation Protocol gives Waves community the ability to apply new features with a suitable pace. Or not apply some of them at all. For details about API methods related to Feature Activation Protocol, see [Activation](/en/waves-node/node-api/feature-activation) article of the [Node API](/en/waves-node/node-api/) chapter.
 
 ### Features Identification
 

@@ -1,6 +1,6 @@
 # Node API
 
-The **Node API** or the **Waves Node API** is a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) API of the web services of a [node](/en/blockchain/node).
+The **Node API** or the **Waves Node API** is a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) API of the web services of a [node](/en/blockchain/node/).
 
 ## Swagger web interface
 

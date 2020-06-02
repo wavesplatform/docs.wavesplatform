@@ -1,8 +1,8 @@
 # What is a Smart Asset
 
-Any user can not only create their own [token](/en/blockchain/token) on the Waves blockchain but also endow it with certain functionality by attaching a script to it. A token with an attached script is called a [smart asset](/en/blockchain/token/smart-asset), and an attached script is called an [asset script](/en/ride/script/script-types/asset-script). Examples of practical use of smart assets:
+Any user can not only create their own [token](/en/blockchain/token/) on the Waves blockchain but also endow it with certain functionality by attaching a script to it. A token with an attached script is called a [smart asset](/en/blockchain/token/smart-asset), and an attached script is called an [asset script](/en/ride/script/script-types/asset-script). Examples of practical use of smart assets:
 
-- **Freezing**. [Transactions](/en/blockchain/transaction) with a smart asset can be prohibited before (or after) the moment when the [blockchain](/en/blockchain/blockchain) reaches a certain [height](/en/blockchain/blockchain/blockchain-height).
+- **Freezing**. [Transactions](/en/blockchain/transaction/) with a smart asset can be prohibited before (or after) the moment when the [blockchain](/en/blockchain/blockchain/) reaches a certain [height](/en/blockchain/blockchain/blockchain-height).
 - **Black / white lists**. Transfer of a smart asset can be prohibited to the specified [addresses](/en/blockchain/account/address) or, conversely, allowed only to the specified addresses.
 - **Commission**. The creator of the smart asset can set a commission that will be paid to him for each operation with his smart asset.
 - **Multi-signature**. A smart asset may require the [signing](/en/blockchain/transaction/transaction-signature) of multiple accounts to complete a transaction.
@@ -14,7 +14,7 @@ The features of smart assets are not limited to the examples given.
 
 ## Creating a Smart Asset
 
-You can attach a script to a token only at the time the token is created. The script can be updated at any time. To create a token, you can use both [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide) and libraries ([WavesJ](https://github.com/wavesplatform/WavesJ), [WavesCS](https://github.com/wavesplatform/WavesCS), and others). The asset script must be written in [Ride](/en/ride) and attached to the token using the [set asset script transaction](/en/blockchain/transaction-type/set-asset-script-transaction). A commission of 1 [WAVES](/en/blockchain/token/waves) is charged for the execution of an asset script installation transaction.
+You can attach a script to a token only at the time the token is created. The script can be updated at any time. To create a token, you can use both [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide) and libraries ([WavesJ](https://github.com/wavesplatform/WavesJ), [WavesCS](https://github.com/wavesplatform/WavesCS), and others). The asset script must be written in [Ride](/en/ride/) and attached to the token using the [set asset script transaction](/en/blockchain/transaction-type/set-asset-script-transaction). A commission of 1 [WAVES](/en/blockchain/token/waves) is charged for the execution of an asset script installation transaction.
 
 ## Asset Script Structure
 

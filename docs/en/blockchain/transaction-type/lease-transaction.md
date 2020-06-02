@@ -1,6 +1,6 @@
 # Lease transaction
 
-A **lease transaction** is a [transaction](/en/blockchain/transaction) that [leases](/en/blockchain/leasing) [WAVES](/en/blockchain/token/waves) to another [account](/en/blockchain/account).
+A **lease transaction** is a [transaction](/en/blockchain/transaction/) that [leases](/en/blockchain/leasing) [WAVES](/en/blockchain/token/waves) to another [account](/en/blockchain/account/).
 
 ## Binary format
 

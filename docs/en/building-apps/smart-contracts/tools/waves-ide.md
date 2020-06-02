@@ -1,6 +1,6 @@
 # Waves IDE
 
- **Waves IDE** is a development environment (<https://ide.wavesplatform.com>) that allows creating and testing [Ride scripts](/en/ride/script).
+ **Waves IDE** is a development environment (<https://ide.wavesplatform.com>) that allows creating and testing [Ride scripts](/en/ride/script/).
 
 ## Debugging
 

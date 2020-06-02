@@ -1,6 +1,6 @@
 # Exchange transaction
 
-An **exchange transaction** is a [transaction](/en/blockchain/transaction) that exchanges two different [tokens](/en/blockchain/token) among two [accounts](/en/blockchain/account).
+An **exchange transaction** is a [transaction](/en/blockchain/transaction/) that exchanges two different [tokens](/en/blockchain/token/) among two [accounts](/en/blockchain/account/).
 
 ## Binary format
 

@@ -4,7 +4,7 @@
 
 ## Version 2
 
-Binary format of version 2 is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) protobuf scheme. The fields that are common to all types of transactions are described in the [Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format) article.
+Binary format of version 2 is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) protobuf scheme. The fields that are common to all types of transactions are described in the [Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format/) article.
 
 Version 2 is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
@@ -49,15 +49,15 @@ The maximim number of transfers is 100.
 
 | Field order number | Field | JSON field name | Field type | Field size in bytes | Comment |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [Transaction type ID](/en/blockchain/transaction-type) | type | Byte | 1 | Value must be 11 |
+| 1 | [Transaction type ID](/en/blockchain/transaction-type/) | type | Byte | 1 | Value must be 11 |
 | 2 | [Transaction version](/en/blockchain/transaction/transaction-version) | version | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 1 |
 | 3 | Public key of the transaction sender  | senderPublicKey | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 | |
-| 4.1 | Flag [WAVES](/en/blockchain/token/waves)/[token](/en/blockchain/token) | | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value is 0 for transferring [WAVES](/en/blockchain/token/waves).<br>Value is 1 for transferring other [tokens](/en/blockchain/token) |
+| 4.1 | Flag [WAVES](/en/blockchain/token/waves)/[token](/en/blockchain/token/) | | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value is 0 for transferring [WAVES](/en/blockchain/token/waves).<br>Value is 1 for transferring other [tokens](/en/blockchain/token/) |
 | 4.2 | [Token ID](/en/blockchain/token/token-id) | assetId | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | `S` = 0 if the value of the "flag WAVES/token" field is 0.<br>`S` = 32 if the value of the "flag WAVES/token" field is 1 |
 | 5.1 | Number of transfers | transferCount | [Short](/en/blockchain/blockchain/blockchain-data-types) | 2 | |
 | 5.2 | Sum of all transfers | totalAmount | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 | 5.3 | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the recipient |  recipient | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | If the first byte of the field is 1, then it is followed by address. `S` in this case equals 26<br>If the first byte of the field is 2, then it is followed by alias. In this case 8 <= `S` <= 34 |
-| 5.4 | Amount of [tokens](/en/blockchain/token) in the transfer 1 | amount | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
+| 5.4 | Amount of [tokens](/en/blockchain/token/) in the transfer 1 | amount | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 | 5.5 | Address or alias of the recipient |  recipient | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | If the first byte of the field is 1, then it is followed by address. `S` in this case equals 26<br>If the first byte of the field is 2, then it is followed by alias. In this case 8 <= `S` <= 34 |
 | 5.6 | Amount of tokens in the transfer 2 | amount | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 | ... | ... | ... | ... | ... | ... |

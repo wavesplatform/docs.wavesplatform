@@ -1,8 +1,8 @@
 # Transaction Binary Format
 
-> Learn more about [transaction](/en/blockchain/transaction).
+> Learn more about [transaction](/en/blockchain/transaction/).
 
-Transactions are stored on the blockchain in a binary format (byte representation). [Node extensions](/en/waves-node/extensions) such as [gRPC server](/en/waves-node/extensions/grpc-server) can work directly with data in binary format.
+Transactions are stored on the blockchain in a binary format (byte representation). [Node extensions](/en/waves-node/extensions/) such as [gRPC server](/en/waves-node/extensions/grpc-server/) can work directly with data in binary format.
 
 The transaction signature and ID are also formed on the basis of the binary format, namely bytes of the body of the transaction: all fields, except for the ID and the proofs (or the ID and the signature, depending on the version of the transaction). The guideline for generating a signature and ID is given in the [Cryptographic practical details](/en/blockchain/waves-protocol/cryptographic-practical-details#signing) article.
 
@@ -29,7 +29,7 @@ How to generate a transacton signature using Protobuf:
 
 Send the signed transaction to a node:
 
-* If you use your own node and [gRPC server](/en/waves-node/extensions/grpc-server), send the `SignedTransaction` object.
+* If you use your own node and [gRPC server](/en/waves-node/extensions/grpc-server/), send the `SignedTransaction` object.
 * If you use Node REST API, compose the JSON representation of transaction and add the base58-encoded signature to the `proofs` array. Send the transactrion to a node using `POST ​/transactions​/broadcast` method.
 
 The protobuf-based binary format is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.

@@ -1,6 +1,6 @@
 # Waves IDE
 
-**Waves IDE** — среда разработки (<https://ide.wavesplatform.com>), которая позволяет создавать и тестировать [скрипты на Ride](/ru/ride/script).
+**Waves IDE** — среда разработки (<https://ide.wavesplatform.com>), которая позволяет создавать и тестировать [скрипты на Ride](/ru/ride/script/).
 
 ## Отладка
 

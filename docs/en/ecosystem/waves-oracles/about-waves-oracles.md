@@ -7,7 +7,7 @@ In the current version it is possible to register an [oracle card](/en/ecosystem
 Waves Oracles features:
 
 - Viewing public [oracle](/en/blockchain/oracle) cards.
-- Searching oracles by name or [account](/en/blockchain/account).
+- Searching oracles by name or [account](/en/blockchain/account/).
 - Filtering of oracles by category, status, network type.
 - [Creating an oracle card](/en/ecosystem/waves-oracles/create-an-oracle-card-with-waves-oracle).
 - [Sending data transaction by the specification of the oracle](/en/ecosystem/waves-oracles/data-transaction-tool).

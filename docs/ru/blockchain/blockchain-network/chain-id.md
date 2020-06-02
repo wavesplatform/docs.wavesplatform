@@ -2,7 +2,7 @@
 
 **Байт сети** — настройка блокчейна, которая влияет на формирование [адреса](/ru/blockchain/account/address).
 
-Связка адреса и байта сети в [бинарном формате транзакции](/ru/blockchain/binary-format/transaction-binary-format) делает невозможным перенос транзакций между разными [сетями блокчейна](/ru/blockchain/blockchain-network).
+Связка адреса и байта сети в [бинарном формате транзакции](/ru/blockchain/binary-format/transaction-binary-format/) делает невозможным перенос транзакций между разными [сетями блокчейна](/ru/blockchain/blockchain-network/).
 
 В качестве байта сети используется любой [ASCII](https://ru.wikipedia.org/wiki/ASCII)-символ за исключением [управляющих символов](https://ru.wikipedia.org/wiki/ASCII#Управляющие_символы). Байт сети задается настройкой `address-scheme-character` в файле конфигурации ноды.
 

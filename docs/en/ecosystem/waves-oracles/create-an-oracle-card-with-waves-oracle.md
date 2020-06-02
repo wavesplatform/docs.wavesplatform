@@ -1,6 +1,6 @@
 # Create an oracle card with Waves Oracle
 
-Only authorized users can create an [oracle card](/en/ecosystem/waves-oracles/oracle-card). Authorization is performed using [Waves Keeper](/en/ecosystem/waves-keeper).
+Only authorized users can create an [oracle card](/en/ecosystem/waves-oracles/oracle-card). Authorization is performed using [Waves Keeper](/en/ecosystem/waves-keeper/).
 
 The account can create no more than one oracle card.
 
@@ -8,7 +8,7 @@ If the authorization is done through a test network account, the oracle card wil
 
 ## Create an oracle card
 
-1. Install [Waves Keeper](/en/ecosystem/waves-keeper) if this extension is not already installed.
+1. Install [Waves Keeper](/en/ecosystem/waves-keeper/) if this extension is not already installed.
 2. Determine which Waves account you will use to create your oracle card. This can be an existing account or a newly created one. Use the instructions to create a new Waves account.
 3. Go to Waves Oracles and log in.
 4. Select **Create an oracle**.

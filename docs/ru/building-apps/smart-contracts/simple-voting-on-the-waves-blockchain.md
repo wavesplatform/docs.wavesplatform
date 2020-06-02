@@ -6,7 +6,7 @@
 
 ## План действий
 
-1. Создадим [аккаунт](/ru/blockchain/account) главы ТСЖ.
+1. Создадим [аккаунт](/ru/blockchain/account/) главы ТСЖ.
 2. Создадим аккаунты жильцов дома.
 3. Создадим [dApp-скрипт](/ru/ride/script/script-types/dapp-script) с методом `vote`.
 4. Привяжем dApp-скрипт к аккаунту главы ТСЖ, создав таким образом [dApp](/ru/blockchain/account/dapp).
@@ -31,7 +31,7 @@
 
 ![](./_assets/voting/account-chief.png)
 
-Скопируйте [адрес](/ru/blockchain/account/address) главы ТСЖ и [с помощью Faucet](/ru/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network) пополните его баланс на 10 [WAVES](/ru/blockchain/token/waves). [Токены](/ru/blockchain/token) понадобятся главе ТСЖ для оплаты [комиссии](/ru/blockchain/transaction/transaction-fee) за [транзакцию установки скрипта](/ru/blockchain/transaction-type/set-script-transaction), когда он будет привязывать [dApp-скрипт](/ru/ride/script/script-types/dapp-script) к своему аккаунту.
+Скопируйте [адрес](/ru/blockchain/account/address) главы ТСЖ и [с помощью Faucet](/ru/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network) пополните его баланс на 10 [WAVES](/ru/blockchain/token/waves). [Токены](/ru/blockchain/token/) понадобятся главе ТСЖ для оплаты [комиссии](/ru/blockchain/transaction/transaction-fee) за [транзакцию установки скрипта](/ru/blockchain/transaction-type/set-script-transaction), когда он будет привязывать [dApp-скрипт](/ru/ride/script/script-types/dapp-script) к своему аккаунту.
 
 ![](./_assets/voting/account-chief-balance.png)
 
@@ -93,7 +93,7 @@ func vote(theVote: Int) = {
 
 #### Функция `vote`
 
-Функция `vote` возвращает [структуру](/ru/ride/structures) `WriteSet`, внутри которой происходит запись голоса в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage) главы ТСЖ.
+Функция `vote` возвращает [структуру](/ru/ride/structures/) `WriteSet`, внутри которой происходит запись голоса в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage) главы ТСЖ.
 
 Перед функцией `vote` указана аннотация `@Callable`, которая делает данную функцию вызываемой у dApp. У данной аннотации `i` — переменная, содержащая информацию о транзакции, которая вызвала функцию `vote`. Мы используем переменную `i` в коде для получения открытого ключа аккаунта `i.callerPublicKey`, который отправил транзакцию вызова скрипта.
 
@@ -131,7 +131,7 @@ let dataFromStorage = this.getInteger(i.callerPublicKey.toBase58String())
 
 ![](./_assets/voting/add-sign.png)
 
-Отметим, что подписать транзакцию можно также секретной фразой или с помощью [Waves Keeper](/ru/ecosystem/waves-keeper).
+Отметим, что подписать транзакцию можно также секретной фразой или с помощью [Waves Keeper](/ru/ecosystem/waves-keeper/).
 
 ![](./_assets/voting/seed-and-waves-keeper.png)
 

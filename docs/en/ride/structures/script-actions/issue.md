@@ -28,10 +28,10 @@ In the second case, `compiledScript` and `nonce` values are inserted automatical
 | :--- | :--- | :--- | :--- |
 | 1 | name | [String](/en/ride/data-types/string) | Token name |
 | 2 | description | [String](/en/ride/data-types/string) | Token description |
-| 3 | quantity | [Int](/en/ride/data-types/int) | Amount of the [token](/en/blockchain/token). Set to `1` for NFT |
+| 3 | quantity | [Int](/en/ride/data-types/int) | Amount of the [token](/en/blockchain/token/). Set to `1` for NFT |
 | 4 | decimals | [Int](/en/ride/data-types/int) | Number of digits in decimal part. Set to `0` for NFT |
 | 5 | isReissuable | [Boolean](/en/ride/data-types/boolean) | Reissue ability flag. Set to `0` for [NFT](/en/blockchain/token/non-fungible-token) |
-| 6 | compiledScript | [Script](/en/ride/script)&#124;[Unit](/en/ride/data-types/unit) | Set it to `unit`. Smart asset issue is currently unavailable |
+| 6 | compiledScript | [Script](/en/ride/script/)&#124;[Unit](/en/ride/data-types/unit) | Set it to `unit`. Smart asset issue is currently unavailable |
 | 7 | nonce | [Int](/en/ride/data-types/int) | Nonce that is used for token ID generation. If the callable function issues several tokens with the same parameters, you should use different nonce or constructors without nonce (in this case, the sequence number of the constructor call is used as a nonce), see the [example](#multiple-tokens-issue) |
 
 ## Examples

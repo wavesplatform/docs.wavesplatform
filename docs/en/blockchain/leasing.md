@@ -4,7 +4,7 @@
 
 ## Leasing benefits for the node owner
 
-[Nodes](/en/blockchain/node) can use the leased tokens to generate blocks and get the [mining reward](/en/blockchain/mining/mining-reward). For that purpose, the generating balance of a node must be at least 1000 WAVES.
+[Nodes](/en/blockchain/node/) can use the leased tokens to generate blocks and get the [mining reward](/en/blockchain/mining/mining-reward). For that purpose, the generating balance of a node must be at least 1000 WAVES.
 
 > In the [node configuration file](/en/waves-node/node-configuration), Use the `enable` parameter to start generating blocks on your node. By default, it’s enabled, but if you disable it your node won’t generate blocks.
 
@@ -35,4 +35,4 @@ There are two types of transactions which are used in the LPoS:
 1. [Lease transaction](/en/blockchain/transaction-type/lease-transaction) to activate the leasing process.
 2. [Lease cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction) to deactivate the leasing process.
 
-> These transactions can be used directly from the wallet (See [Lease Waves Tokens](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-account/online-desktop-lease) page) or from the [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries).
+> These transactions can be used directly from the wallet (See [Lease Waves Tokens](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-account/online-desktop-lease) page) or from the [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/).

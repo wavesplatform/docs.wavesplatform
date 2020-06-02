@@ -22,7 +22,7 @@ To use nodes on stagenet, you will need to:
 
 * Install the node as described in the [manual](/en/waves-node/how-to-install-a-node/how-to-install-a-node)
 
-After that the node will begin downloading blocks. To speed up the process, you can import blocks as described in the [manual](/en/waves-node/options-for-getting-actual-blockchain).
+After that the node will begin downloading blocks. To speed up the process, you can import blocks as described in the [manual](/en/waves-node/options-for-getting-actual-blockchain/).
 
 If you’d like to become a miner on stagenet, please send a [request](https://wavesplatform.atlassian.net/servicedesk/customer/portal/11/create/178) for WAVES tokens for leasing.
 
@@ -34,6 +34,6 @@ Stagenet has also been added to:
 
 * [Waves IDE](https://ide-stagenet.wavesplatform.com)
 
-* [Waves Keeper](/en/ecosystem/waves-keeper)
+* [Waves Keeper](/en/ecosystem/waves-keeper/)
 
 If you have any questions, feel free to ask them in Discord on the [stagenet channel](https://discordapp.com/channels/420933539375087617/615843628618612746).
