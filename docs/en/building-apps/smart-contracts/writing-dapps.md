@@ -22,7 +22,7 @@ The sample dApp you'll create is the Waves Magic 8 Ball application that generat
 4. Click **Show seed and private key** and backup the seed phrase to a secure location. You will need the seed phrase to restore access to the account.
 5. Top up account balance. It's free on Testnet.
 
-   * Copy address: click account name and then click ![](./_assets/сopy-button.png).
+   * Copy address: click account name and then click ![](./_assets/copy-button.png).
    * Go to <https://wavesexplorer.com/testnet/faucet>, paste address, and click **Request 10 WAVES**.
 
 ## Step 2. Write dApp Script
