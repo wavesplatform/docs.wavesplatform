@@ -1,22 +1,38 @@
-# What is a dApp
+# What is dApp
 
-Before getting acquainted with [dApp](/en/blockchain/account/dapp), let's review the features of related entities — [account](/en/blockchain/account) and [smart account](/en/blockchain/account/smart-account).
+dApp is Waves account assigned with dApp script.
 
-An account provides the functionality to verify that an issued [transaction](/en/blockchain/transaction) was indeed sent from this account.
+dApp script is a Ride script that contains сallable functions that can be called externally by the [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction).
 
-Smart account, i.e. an account with an [account script](/en/ride/script/script-types/account-script) attached, provides the functionality to check outgoing transactions for compliance with the conditions specified in the script. For example, an account owner can set a rule according to which transactions can be sent from an [address](/en/blockchain/account/address) only if the blockchain height exceeds N. Another example —  you can allow transactions only of a certain type. Or cancel any check by establishing a rule according to which all transactions sent from the address should be considered valid.
+An invoke script transaction contains:
 
-The features of a dApp are even wider. Besides validating the outgoing transactions it also allows other accounts to invoke the functions contained in it. From this point of view, dApp is a real blockchain application.
+* dApp address;
+* name of the callable function and the argument values;
+* in addition, an invoke script transaction can contain payments to be credited to the dApp balance.
 
-## General Requirements to Write dApp
+[Invoke script transaction example](https://nodes.wavesnodes.com/transactions/info/7CVjf5KGRRYj6UyTC2Etuu4cUxx9qQnCJox8vw9Gy9yq)
 
-dApps are written in [Ride](/en/ride). To create dApp, you need an account that has enough [WAVES](/en/blockchain/token/waves) on its balance to pay for the set script transaction (1 WAVES). To start writing dApp right away, use the [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide).
+You can use callable functions to:
 
-## dApp Structure
+* Add, modify or delete dApp [account data storage](/en/blockchain/account/account-data-storage) entries.
+* Transfer, issue, reissue, burn tokens.
+* Setup sponsorship.
 
-### Directive
+> Available script actions depend on [Standard library](/en/ride/script/standard-library) version used.
 
-Each Ride script must begin with a directive. Review the directive example:
+![](./_assets/dapp.png)
+
+## Structure of dApp Script
+
+dApp script comprises one or more callable functions.
+
+In addition, dApp script can comprise a verifier function that checks transactions and orders that are sent from dApp account.
+
+![](./_assets/dapp-structure.png)
+
+### Directives
+
+Each Ride script should start with directives. Here is the set of directives for the dApp script:
 
 ```ride
 {-# STDLIB_VERSION 3 #-}
@@ -24,120 +40,116 @@ Each Ride script must begin with a directive. Review the directive example:
 {-# SCRIPT_TYPE ACCOUNT #-}
 ```
 
-The directive listed above tells the compiler that
+These directives tell the compiler that:
 
-- the script will use the third version of the library of standard functions
-- the type of this script is dApp
-- the script will be attached to the account (and not to the asset).
+- The script uses Standard library version 3 (version 4 is currently available on Stagenet only).
+- Type of the script is dApp.
+- The script will be assigned to an account (not asset).
 
 ### Script Context
 
-The directive is followed by a script context. The context of the script is where the functions that will be available within the entire dApp are defined and the variables are declared.  In addition to the variables and functions declared by the developer, the script context includes [built-in variables](/en/ride/variables/built-in-variables) and [built-in functions](/en/ride/functions/built-in-functions). The developer doesn't have to declare their variables or define their functions — this will not affect the presence of built-in variables and functions.
+Script context includes [built-in variables](/en/ride/variables/built-in-variables) and [built-in functions](/en/ride/functions/built-in-functions). In addition, user variables and functions could be declared between directives and callable function. These variables and functions are accessible within the entire script.
 
-### Declaring Callable Functions
+Example:
 
-As it was mentioned before, dApps provide the functionality to call functions to other accounts. These functions are marked with the `@Callable(invocation)` [annotation](/en/ride/functions/annotations), where `invocation` is an arbitrary script context object.
-
-The following is an example of a callable function, which assigns `42` to `someDataKey` and writes it to the [account data storage](/en/blockchain/account/account-data-storage) if the account owner calls it. If someone else tries to do this, the function throws an exception. The transaction, in this case, will not be valid and will not be recorded into the blockchain:
-
-```ride
-@Callable(invocation)
-func foo() = {
-   if (invocation.caller == this)
-   then
-       ScriptResult(
-            WriteSet([DataEntry("someDataKey", 42)]),
-            TransferSet([ScriptTransfer(invocation.caller, 100500, unit)])
-        )
-   else
-       throw("Only owner can use this function.")
+```
+let someConstant = 42
+func doSomething() = {
+    1+1
 }
 ```
 
-### Declaring Validation Function
+### Callable Functions
 
-The validation function does the same as a smart account, i.e. validates outgoing transactions. This function is marked with the `@Verifier(tx)` annotation, where `tx` is the current transaction that the function is currently checking. Possible results of the validation function execution are:
+Callable function can be called externally by the invoke script transaction. The callable function should be marked with the `@Callable(i)` annotation, where `i` is an [Invocation](/en/ride/structures/common-structures/invocation) structure that contains invoke script transaction fields that are available to the callable function.
 
-- `true` (transaction is allowed)
-- `false` (transaction is not allowed)
-- error
+Callable function result is a set of [script actions](/en/ride/structures/script-actions) that are performed on the blockchain: adding entries to the account data storages, token transfers and others. The result format and the possible actions depend on the Standard library version used.
 
-If dApp does not have the validation function, then the default validation is performed (that is, checking that the transaction is indeed signed by this account).
+For a detailed description, see the [Callable Function](/en/ride/functions/callable-function) article.
 
-dApp with the validation function listed below will only allow [transfer transactions](/en/blockchain/transaction-type/transfer-transaction) (sending transactions of other types will be prohibited):
+In the example below the callable function transfers 1 WAVES to an account that called it and records the request information in the account data storage. If the same account tries to call the function again, the callable function does nothing.
+
+```ride
+@Callable(i)
+func faucet () = {
+    let isKnownCaller =  match getBoolean(this, toBase58String(i.caller.bytes)) {
+        case hist: Boolean =>
+            hist
+        case _ =>
+            false
+    }
+    if (!isKnownCaller) then 
+        ScriptResult(
+           WriteSet([DataEntry(toBase58String(i.caller.bytes), true)]),
+           TransferSet([ScriptTransfer(i.caller, 100000000, unit)])
+        )
+    else WriteSet([])
+}
+```
+
+### Verifier Function
+
+Verifier function checks transactions and orders that are sent from dApp account (in other words it does the same as the account script). The verifier function should be marked with the `@Verifier(tx)` annotation, where `tx` is the transaction or the order that that the function is currently checking.
+
+For a detailed description, see the [Verifier Function](/en/ride/functions/verifier-function) article.
+
+In the example below the verifier fuction allows [transfer transactions](/en/blockchain/transaction-type/transfer-transaction) and denies orders and other types of transactions. The [match](/en/ride/operators/match-case) operator is used to specify verification rules depending on the type of transaction (or order).
 
 ```ride
 @Verifier(tx)
 func verify() = {
-    match tx {
-        case ttx:TransferTransaction => sigVerify(ttx.bodyBytes, ttx.proofs[0], ttx.senderPublicKey)
-        case _ => false
-    }
+    match tx {
+        case ttx:TransferTransaction => sigVerify(ttx.bodyBytes, ttx.proofs[0], ttx.senderPublicKey)
+        case _ => false
+    }
 }
 ```
 
-## dApp limitations
+dApp that has no verifier function performs default verification, that is, checking that the transaction or the order is indeed signed by this account.
+
+## Data Accessible by dApp
+
+dApps can read the following blockchain data:
+
+* Entries in account data storages (both dApp's account and any other account).
+* Balances of accounts.
+* Parameters of assets.
+* Blockchain height.
+* Headers of blocks.
+* Transfer transactions (by transaction ID).
+
+Appropriate fuctions are described in the [Account Data Storage Functions](/en/ride/functions/built-in-functions/account-data-storage-functions) and [Blockchain Functions](/en/ride/functions/built-in-functions/blockchain-functions) articles.
+
+Furthermore:
+
+* The callable function has access to some fields of the transaction that called the dApp script. See the [Invocation](/en/ride/structures/common-structures/invocation) article for the fields description.
+* The verifier function has access to the fields of the outgoing transaction or order, including [proofs](/en/blockchain/transaction/transaction-proof).
+
+## Assigning dApp Script to Account
+
+To assign dApp script to an account you need to send a [set script transaction](/en/blockchain/transaction-type/set-script-transaction) from this account.
+
+There are the following options to send the transaction:
+
+* In [Waves IDE](https://ide.wavesplatform.com/) create or import an account, open the dApp script and click **Deploy**.
+* Using [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/). See some examples of sending a transaction in the [Creating & Broadcasting Transactions](/en/building-apps/how-to/basic/transaction) article.
+
+[Set script transaction example](https://wavesexplorer.com/testnet/tx/213JdqCLq6qGLUvoXkMaSA2wLSwdzH24BuhHBhcBeHUR)
+
+The fee for the set script transaction is 0.01 WAVES.
+
+After assigning the script, the minimum fee for each transaction sent from  dApp account increases by 0.004 WAVES.
+
+## Limitations
 
 Limitations on the size, complexity of the script, as well as on functions and variables are given in the [Limitations](/en/ride/limits) article.
 
-An additional 0.004 WAVES is charged for each transaction sent with dApp. The minimum fee for most transactions is 0.001 WAVES. Thus, the cost of sending each of these transactions will be 0.005 WAVES for the owner of dApp.
+## Examples
 
-## dApp Example
+Find dApp script examples:
 
-dApp in the example below allows us to deposit WAVES and withdraw them back while withdrawing WAVES that belong to another account is not possible.
+* In the [How-to Guides](/en/building-apps/how-to#dapps) chapter.
+* In [Waves IDE](https://ide.wavesplatform.com/) in the **Library** menu.
+* In Github repository [ride-examples](https://github.com/wavesplatform/ride-examples/blob/master/welcome.md).
 
-```ride
-# Directives
-{-# STDLIB_VERSION 3 #-}
-{-# CONTENT_TYPE DAPP #-}
-{-# SCRIPT_TYPE ACCOUNT #-}
-
-# Script context block
-# (Empty)
-
-# Callable function. Implements funds deposit
-@Callable(i)	# Context object named i
-func deposit() = {
-   let pmt = extract(i.payment)
-   if (isDefined(pmt.assetId)) then throw("can hold waves only at the moment")
-   else {
-        let currentKey = toBase58String(i.caller.bytes)
-        let currentAmount = match getInteger(this, currentKey) {
-            case a:Int => a
-            case _ => 0
-        }
-        let newAmount = currentAmount + pmt.amount
-        WriteSet([DataEntry(currentKey, newAmount)])
-   }
-}
-
-# Callable function. Implements funds withdraw 
-@Callable(i)	# Объект контекста с именем i
-func withdraw(amount: Int) = {
-        let currentKey = toBase58String(i.caller.bytes)
-        let currentAmount = match getInteger(this, currentKey) {
-            case a:Int => a
-            case _ => 0
-        }
-        let newAmount = currentAmount - amount
-     if (amount < 0)
-            then throw("Can't withdraw negative amount")
-    else if (newAmount < 0)
-            then throw("Not enough balance")
-            else ScriptResult(
-                    WriteSet([DataEntry(currentKey, newAmount)]),
-                    TransferSet([ScriptTransfer(i.caller, amount, unit)])
-                )
-    }
-
-# Outgoing transactions validation function. Is similar to basic function of verification of the ownership of the transaction to the account holder
-
-@Verifier(tx)
-func verify() = {
-    sigVerify(tx.bodyBytes, tx.proofs[0], tx.senderPublicKey)
-}
-```
-
-## Attaching dApp script to Account
-
-To attach dApp script to an account, use the [set script transaction](/en/blockchain/transaction-type/set-script-transaction).
+For tutorial on creating dApp, see the [Creating & Launching dApp](/en/building-apps/smart-contracts/writing-dapps) article.

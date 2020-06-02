@@ -6,6 +6,7 @@
 
 Added guides:
 
+* [How to Create dApp: Complete Tutorial](/en/building-apps/smart-contracts/writing-dapps)
 * [Get Order List](/en/building-apps/how-to/basic/trading#get-order-list)
 
 ## May Articles

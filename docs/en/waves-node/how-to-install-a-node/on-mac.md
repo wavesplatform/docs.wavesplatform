@@ -44,6 +44,6 @@ For added security, it is recommended to store your wallet and configuration app
 
 Also, you may want to limit the use of these folders to designated users only. You can read about it [here](http://ss64.com/osx/chown.html).
 
-If you decide to use RPC, you should protect it with macOS embedded or any other firewall. You can read about it [here](https://support.apple.com/en-us/HT201642). If your server is public and available to the Internet and you decide to enable and use RPC, then allow only certain methods using [Nginx's proxy\_pass module](http://nginx.org/ru/docs/http/ngx_http_proxy_module.html) and do not forget to set the API key hash in the configuration file.
+If you decide to use RPC, you should protect it with macOS embedded or any other firewall. You can read about it [here](https://support.apple.com/en-us/HT201642). If your server is public and available to the Internet and you decide to enable and use RPC, then allow only certain methods using [Nginx's proxy\_pass module](http://nginx.org/en/docs/http/ngx_http_proxy_module.html) and do not forget to set the API key hash in the configuration file.
 
 Also, do not forget to keep the OS and other security software up-to-date.

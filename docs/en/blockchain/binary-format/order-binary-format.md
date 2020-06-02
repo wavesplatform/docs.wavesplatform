@@ -2,11 +2,11 @@
 
 > Learn more about [order](/en/blockchain/order).
 
-An exchange transaction of [version 3](/en/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format#version-3) can accept orders of versions [1](/ru/blockchain/binary-format/order-binary-format#v1)–[4](/ru/blockchain/binary-format/order-binary-format#v4).
+An exchange transaction of [version 3](/en/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format#version-3) can accept orders of versions [1](/en/blockchain/binary-format/order-binary-format#v1)–[4](/en/blockchain/binary-format/order-binary-format#v4).
 
-An exchange transaction of [version 2](/en/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format#version-2) can accept orders of versions [1](/ru/blockchain/binary-format/order-binary-format#v1)–[3](/ru/blockchain/binary-format/order-binary-format#v3).
+An exchange transaction of [version 2](/en/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format#version-2) can accept orders of versions [1](/en/blockchain/binary-format/order-binary-format#v1)–[3](/en/blockchain/binary-format/order-binary-format#v3).
 
-An exchange transaction of [version 1](/en/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format#version-1) can accept orders of version [1](/ru/blockchain/binary-format/order-binary-format#v1) only.
+An exchange transaction of [version 1](/en/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format#version-1) can accept orders of version [1](/en/blockchain/binary-format/order-binary-format#v1) only.
 
 ## Version 4 <a id="v4"></a>
 

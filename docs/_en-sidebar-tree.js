@@ -1193,7 +1193,7 @@ module.exports = {
       path: programmingPath + 'what-is-a-dapp',
       children: [
         {
-          title: 'Writing dApps',
+          title: 'Creating & Launching dApp',
           path: programmingPath + 'writing-dapps',
         },
       ],

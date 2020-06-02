@@ -35,7 +35,7 @@ Callable function can have arguments of the following types:
 
 Callable function invocation result in Standard library version 3 is one of the following structures:
 
-* [WriteSet](/ru/ride/structures/script-results/write-set) — contains a list of actions for account data storage entries.
+* [WriteSet](/en/ride/structures/script-results/write-set) — contains a list of actions for account data storage entries.
 
    Example:
    
@@ -48,7 +48,7 @@ Callable function invocation result in Standard library version 3 is one of the 
       ])
    ```
 
-* [TransferSet](/ru/ride/structures/script-results/transfer-set) — contains a list of transfers.
+* [TransferSet](/en/ride/structures/script-results/transfer-set) — contains a list of transfers.
 
    Example:
 
@@ -56,7 +56,7 @@ Callable function invocation result in Standard library version 3 is one of the 
    TransferSet([ScriptTransfer(Address(base58'3Ms8fSfAxBLDjKvNVgACRzQoBLCtCWxtawu'), 100, base58'someAssetid')])
    ```
 
-* [ScriptResult](/ru/ride/structures/script-results/script-result) — contains `WriteSet` and `TransferSet` structures.
+* [ScriptResult](/en/ride/structures/script-results/script-result) — contains `WriteSet` and `TransferSet` structures.
 
    Example:
 

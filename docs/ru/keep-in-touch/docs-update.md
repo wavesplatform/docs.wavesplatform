@@ -6,6 +6,7 @@
 
 Добавлены руководства:
 
+* [Как создать dApp: полное пошаговое руководство](/ru/building-apps/smart-contracts/writing-dapps)
 * [Получение списка ордеров](/ru/building-apps/how-to/basic/trading#получение-списка-ордеров)
 
 ## Майские статьи

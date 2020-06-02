@@ -16,7 +16,7 @@ Waves Keeper API supports the following types of transactions:
 - 15 – set asset script transaction.
 - 16 – invoke script.
 
-In Waves Keeper API transaction format is different from [Node REST API](/ru/waves-node/node-api). The `signTransaction`, `signAndPublishTransaction`, and `signTransactionPackage` accept transactions as follows
+In Waves Keeper API transaction format is different from [Node REST API](/en/waves-node/node-api). The `signTransaction`, `signAndPublishTransaction`, and `signTransactionPackage` accept transactions as follows
 
 ```js
 {

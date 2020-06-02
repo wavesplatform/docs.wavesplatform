@@ -28,7 +28,7 @@ assetBalance(addressOrAlias: Address|Alias, assetId: ByteVector): Int
 | Parameter | Description |
 | :--- | :--- |
 | `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
-| `assetId`: [ByteVector](/ru/ride/data-types/byte-vector) | Token ID |
+| `assetId`: [ByteVector](/en/ride/data-types/byte-vector) | Token ID |
 
 ## getBinary <a id="get-binary"></a>
 
@@ -168,7 +168,7 @@ Gets all types of [WAVES](/en/blockchain/token/waves) balances. For description 
 wavesBalance(addressOrAlias: Address|Alias): BalanceDetails
 ```
 
-For a description of the return value, see the [BalanceDetails](/ru/ride/structures/common-structures/balance-details) article.
+For a description of the return value, see the [BalanceDetails](/en/ride/structures/common-structures/balance-details) article.
 
 > :warning: [Standard library](/en/ride/script/standard-library) **version 4** is available since node version 1.2.0 after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Node versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
