@@ -4,7 +4,7 @@ This tutorial provides steps to develop and launch sample dApp based on Waves bl
 
 The sample dApp you'll create is the Waves Magic 8 Ball application that generates pseudorandom answers. You will use [Waves IDE](https://ide.wavesplatform.com/) to develop and test dApp and then use JavaScript to deploy the web app that calls the dApp functions.
 
-[Learn more about dApp features](/en/building-apps/smart-contracts/what-is-dapp)
+[Learn more about dApp features](/en/building-apps/smart-contracts/what-is-a-dapp)
 
 ## Roadmap
 
@@ -176,9 +176,9 @@ You can check the result of script execution in Waves Explorer:
 
 To release your app:
 
-* [Deploy the wep app](#51-deploy-web-app) that allows user to sign and send an invoke script transaction by simply clicking the button.
-* [Add your dApp on Mainnet](#52-add-dapp-on-mainnet).
-* [Register your application](#53-register-in-dapp-directories) in dApp directories to make it known to as many users as possible!
+* [Deploy the wep app](#_5-1-deploy-web-app) that allows user to sign and send an invoke script transaction by simply clicking the button.
+* [Add your dApp on Mainnet](#_5-2-add-dapp-on-mainnet).
+* [Register your application](#_5-3-register-in-dapp-directories) in dApp directories to make it known to as many users as possible!
 
 ### 5.1. Deploy Web App
 
