@@ -126,6 +126,7 @@ sudo zgrep -i "OutOfMemory" /var/log/waves/*
    **Примечание**: Чтобы узнать PID нужного процесса, выполните команду: `pgrep -f waves`
 
    В данном примере размер heap ~ 378.6 Мбайт:
+   
    ![1](_assets/node-troubleshooting-001.png)
 
 3. Если размер heap меньше чем `maximum heap size`, отправьте нам heap dump. `Maximum heap size` можно посмотреть в файле `/etc/waves/application.ini`, параметр `-J-Xmx`. Например: `-J-Xmx2g` означает, что `maximum heap size` = 2 Гбайт.
