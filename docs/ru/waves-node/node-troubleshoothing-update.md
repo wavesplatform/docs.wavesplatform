@@ -126,7 +126,7 @@ sudo zgrep -i "OutOfMemory" /var/log/waves/*
    **Примечание**: Чтобы узнать PID нужного процесса, выполните команду: `pgrep -f waves`
 
    В данном примере размер heap ~ 378.6 Мбайт:
-   ![1](_assets\node-troubleshooting-001.png)
+   ![1](_assets/node-troubleshooting-001.png)
 
 3. Если размер heap меньше чем `maximum heap size`, отправьте нам heap dump. `Maximum heap size` можно посмотреть в файле `/etc/waves/application.ini`, параметр `-J-Xmx`. Например: `-J-Xmx2g` означает, что `maximum heap size` = 2 Гбайт.
 
@@ -139,10 +139,10 @@ sudo zgrep -i "OutOfMemory" /var/log/waves/*
 **Так же возможен следующий сценарий**:
 
 При запуске ноды с помощью `команды sudo systemctl start waves` утилита htop показывает, что занятая память резко растёт:
-![2](_assets\node-troubleshooting-002.png)
+![2](_assets/node-troubleshooting-002.png)
 
 После этого процесс waves выключается, в `journalctl`:
-![3](_assets\node-troubleshooting-003.png)
+![3](_assets/node-troubleshooting-003.png)
 
 `Решение`:
 
