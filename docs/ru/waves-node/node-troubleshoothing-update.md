@@ -10,25 +10,25 @@
 
 * Убедитесь, что нода запущена. Если команда `ps aux | egrep '[w]aves'`  возвращает пустой вывод, запустите ноду с помощью команды:
 
-```bash
-sudo systemctl start waves
-```
+   ```bash
+   sudo systemctl start waves
+   ```
 
 * Убедитесь, что на диске не закончилось место с помощью команды:
 
-```bash
-df -h --output=avail /
-```
+   ```bash
+   df -h --output=avail /
+   ```
 
 * Убедитесь, что нода работает с корректным файлом конфигурации. Подробно про файл конфигурации в статье: https://docs.wavesprotocol.org/en/waves-node/node-configuration.
 
 * Если в waves.log присутствует строка с ошибкой `Storage version $version is not compatible with expected version $StorageVersion! Please, rebuild node's state, use import or sync from scratch.`, выполните действия описанные в статье: https://docs.wavesprotocol.org/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying.
 
-Быстро найти ошибку в логе можно с помощью команды:
+   Быстро найти ошибку в логе можно с помощью команды:
 
-```bash
-sudo grep -e 'Storage version .* is not compatible' /var/log/waves/waves.log`
-```
+   ```bash
+   sudo grep -e 'Storage version .* is not compatible' /var/log/waves/waves.log`
+   ```
 
 ## Нода набирает высоту и отвечает на запросы, но возможно оказалась на форке <a name="anchor1"></a>
 
@@ -89,11 +89,11 @@ sudo grep -e 'Storage version .* is not compatible' /var/log/waves/waves.log`
 * Выполните действия описанные в статье https://docs.wavesprotocol.org/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying.
 * Если в логах отображается ошибка, отличная от указанных в пункте 4 выше, отправьте нам waves.log (либо кусок лога от записи `Appended Block({signature}` до ошибки).
 
-**Примечание**: ошибка `BlockAppendError (Block is not a child of last block ...)` не может привести к форку. На такие записи не стоит обращать внимания. Логирование подобных случаев будет доработано в будущих версиях ноды.
+   **Примечание**: ошибка `BlockAppendError (Block is not a child of last block ...)` не может привести к форку. На такие записи не стоит обращать внимания. Логирование подобных случаев будет доработано в будущих версиях ноды.
 
 ## Проблемы, связанные с утечкой памяти (OutOfMemoryError) <a name="anchor2"></a>
 
-Если нода остановилась и не отвечает на запросы. Проверьте логи на предмет ошибки `OutOfMemoryError`:
+Если нода остановилась и не отвечает на запросы. Проверьте логи на наличие ошибки `OutOfMemoryError`:
 
 i. Ошибка может отображаться в логе за текущий день в файле `/var/log/waves/waves.log`. Найти ошибку в этом логе можно с помощью команды:
 
@@ -145,7 +145,7 @@ sudo zgrep -i "OutOfMemory" /var/log/waves/*
 После этого процесс waves выключается, в `journalctl`:
 ![3](_assets/node-troubleshooting-003.png)
 
-`Решение`:
+**Решение**:
 
 1. Сразу после запуска процесса снимите `heap dump` с помощью команды:
 
@@ -160,4 +160,6 @@ sudo zgrep -i "OutOfMemory" /var/log/waves/*
 
 ### Как снять thread dump процесса
 
-Thread dump процесса можно снять с помощью стандартной java-утилиты `jstack $PID > thread_dump.txt` (`pid` процесса - `pgrep -f waves`).
+В некоторых случаях команде Waves для диагностики утечки памяти может потребоваться thread dump.
+
+Снять thread dump процесса можно с помощью стандартной java-утилиты `jstack $PID > thread_dump.txt` (`pid` процесса - `pgrep -f waves`).
