@@ -130,7 +130,7 @@ sudo zgrep -i "OutOfMemory" /var/log/waves/*
 
    ![1](_assets/node-troubleshooting-001.png)
 
-3. Если размер heap меньше чем `maximum heap size`, отправьте нам heap dump. `Maximum heap size` можно посмотреть в файле `/etc/waves/application.ini`, параметр `-J-Xmx`. **Например**: `-J-Xmx2g` означает, что `maximum heap size` = 2 Гбайт.
+3. Если размер heap меньше чем `maximum heap size`, отправьте команде Waves heap dump. `Maximum heap size` можно посмотреть в файле `/etc/waves/application.ini`, параметр `-J-Xmx`. **Например**: `-J-Xmx2g` означает, что `maximum heap size` = 2 Гбайт.
 
 4. Если размер heap больше чем `maximum heap size`, перезапустите процесс с помощью команды:
 
@@ -157,7 +157,7 @@ sudo zgrep -i "OutOfMemory" /var/log/waves/*
    **Примечание**: чтобы узнать `PID` нужного процесса, выполните команду: `pgrep -f waves`.
 
 2. Найдите лог `/tmp/hs_err_pid{pid}.log`, где `{pid}` = pid процесса waves.
-3. Отправьте нам файл c `heap dump` из первого шага (`heap.bin3`) и лог `hs_err_pid{pid}.log` из второго шага.
+3. Отправьте команде Waves файл c `heap dump` из первого шага (`heap.bin3`) и лог `hs_err_pid{pid}.log` из второго шага.
 
 ### Как снять thread dump процесса
 
