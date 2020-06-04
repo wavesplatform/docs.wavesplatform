@@ -126,7 +126,7 @@ sudo zgrep -i "OutOfMemory" /var/log/waves/*
 
    **Примечание**: Чтобы узнать `PID` нужного процесса, выполните команду: `pgrep -f waves`
 
-   В данном примере размер heap ~ 378.6 Мбайт:
+   В данном примере размер `heap` ~ 378.6 Мбайт:
 
    ![1](_assets/node-troubleshooting-001.png)
 

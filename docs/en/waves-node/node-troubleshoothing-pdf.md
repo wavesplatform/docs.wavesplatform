@@ -8,7 +8,7 @@ This article describes known issues of Waves node and their possible solutions:
 
 ## Node does not achieve height and does not respond to requests
 
-* Make sure that the node is running. If the command `ps aux | egrep '[w]aves'` returns empty output, run the with the following command:
+* Make sure that the node is running. If the command `ps aux | egrep '[w]aves'` returns empty output, run the node with the following command:
 
    ```bash
    sudo systemctl start waves
@@ -20,7 +20,7 @@ This article describes known issues of Waves node and their possible solutions:
    df -h --output=avail /
    ```
 
-* Make sure that the node is running with corect configuration file. See node configuration file description in the following article: https://docs.wavesprotocol.org/en/waves-node/node-configuration.
+* Make sure that the node is running with correct configuration file. See node configuration file description in the following article: https://docs.wavesprotocol.org/en/waves-node/node-configuration.
 
 * If the `waves.log` file contains the `Storage version $version is not compatible with expected version $StorageVersion! Please, rebuild node's state, use import or sync from scratch.` error message perform the activities described in the following article: https://docs.wavesprotocol.org/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying.
 
@@ -60,7 +60,7 @@ For details see the following article: https://github.com/wavesplatform/gowaves
 
 ### Alternative method to detect fork
 
-1. Compare block signature at the second-last height of your node with the block signature of official node pool at the same height with the following command:
+1. Compare block signature at the second-last height of your node with the block signature of the official node pool at the same height with the following command:
 
    ```bash
    curl -X GET "https://nodes.wavesnodes.com/blocks/headers/at/{last - 1 height}" | less
@@ -70,8 +70,8 @@ For details see the following article: https://github.com/wavesplatform/gowaves
 
    If the signatures differ, then your node is on fork. In this case:
 
-2. Detect the latest common block that has similar height and signature with the same block in official node pool.
-3. Find log record about the first rejected block after the latest common block with the following command:
+2. Determine the latest common block that has similar height and signature with the same block in official node pool.
+3. Find the log record about the first rejected block after the latest common block with the following command:
 
    ```bash
    grep -A 1000 "Appended Block({signature}" | grep -m 1 "Error appending .* GenericError(Block Block(" waves.log
@@ -108,7 +108,7 @@ ii. The error can be found in previous days logs archived files `/var/log/waves/
 sudo zgrep -i "OutOfMemory" /var/log/waves/*
 ```
 
-If you found `OutOfMemoryError` error and the memory, used by the process (heap) exceedes `maximum heap size`, as described in step 2-4 below, выполните диагностику утечек памяти.
+If you found `OutOfMemoryError` error and the memory, used by the process (heap) exceedes `maximum heap size`, as described in step 2-4 below, you need to troubleshoot memory leaks.
 
 ### Detecting memory leaks
 
@@ -121,18 +121,18 @@ If you found `OutOfMemoryError` error and the memory, used by the process (heap)
 2. If the process was not killed with OOM-Killer, take `heap dump` with the following command:
 
    ```bash
-   sudo -u $user_запустивший_процесс jmap -histo:live $PID
+   sudo -u $user_running_the_process jmap -histo:live $PID
    ```
 
    **Note**: To determine `PID` of the desired process execute the following command: `pgrep -f waves`
 
-   In this example the heap size is ~ 378.6 Mb:
+   In this example the `heap size` is ~ 378.6 Mb:
 
    ![1](_assets/node-troubleshooting-001.png)
 
-3. If the heap size is less than `maximum heap size`, send the heap dump to Waves team. You can check your `Maximum heap size` in `/etc/waves/application.ini` file, `-J-Xmx` parameter. **Example**: `-J-Xmx2g` means that `maximum heap size` = 2 Gb.
+3. If the `heap size` is less than `maximum heap size`, send the heap dump to Waves team. You can check your `Maximum heap size` in `/etc/waves/application.ini` file, `-J-Xmx` parameter. **Example**: `-J-Xmx2g` means that `maximum heap size` = 2 Gb.
 
-4. If the heap size is more than `maximum heap size`, restart the process with the following command:
+4. If the `heap size` is more than `maximum heap size`, restart the process with the following command:
 
    ```bash
    sudo systemctl restart waves
@@ -161,6 +161,6 @@ After that waves process fails in `journalctl`:
 
 ### How to take thread dump of the process
 
-In some cases Waves team requires `thread dump` to detect momory leaks.
+In some cases Waves team requires `thread dump` to troubleshoot momory leaks.
 
 To take `thread dump` of the process you can use standard java-utility `jstack $PID > thread_dump.txt` (`pid` of the process - `pgrep -f waves`).
