@@ -7,7 +7,6 @@
 REPL встроен в инструменты разработки:
 
 * [Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide#repl-интерактивная-консоль-ride)
-* [Расширение для Visual Studio Code](/ru/building-apps/smart-contracts/tools/ride-vscode#repl-интерактивная-консоль-ride)
 * [Surfboard](/ru/building-apps/smart-contracts/tools/surfboard#repl-интерактивная-консоль-ride)
 
 В Ride REPL можно объявлять переменные, функции, а также использовать результаты предыдущих вычислений:
