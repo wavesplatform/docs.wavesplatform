@@ -222,6 +222,31 @@ module.exports = [
     from: '/en/technical-details/data-transaction.html',
   },
   {
+    /*===============================  Убираем однострочные топики  =====================================*/
+    from: '/ru/blockchain/transaction/transaction-body-bytes',
+    to: '/ru/blockchain/glossary#байты-тела-транзакции',
+  },
+  {
+    from: '/en/blockchain/transaction/transaction-body-bytes',
+    to: '/en/blockchain/glossary#transaction-body-bytes',
+  },
+  {
+    from: '/ru/blockchain/transaction/transaction-id',
+    to: '/en/blockchain/waves-protocol/cryptographic-practical-details#calculating-transaction-id',
+  },
+  {
+    from: '/ru/blockchain/transaction/transaction-signature',
+    to: '/ru/blockchain/transaction/transaction-proof',
+  },
+  {
+    from: '/ru/blockchain/transaction/transaction-timestamp',
+    to: '/ru/blockchain/transaction/#json-представление-транзакции',
+  },
+  {
+    from: '/ru/blockchain/transaction/transaction-version',
+    to: '/ru/blockchain/transaction/#json-представление-транзакции',
+  },
+  {
     /*===============================  Client  =====================================*/
     from: '/ru/waves-client()',
     to: 'https://docs.waves.exchange/ru',
