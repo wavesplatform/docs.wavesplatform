@@ -6,7 +6,7 @@ Ride — расширение Visual Studio Code для работы с Ride и 
 
 * Подсветка синтаксиса и ошибок.
 * Автозавершение ввода и подсказки.
-* Интерактивная консоль JavaScript. Расширение из коробки поддерживает функции [js-test-env](https://wavesplatform.github.io/js-test-env/globals.html).
+* Интерактивная консоль JavaScript со встроенными функциями взаимодействия с блокчейном.
 
 ![](./_assets/completion.gif)
 
@@ -41,14 +41,14 @@ const ssTx = setScript({script}, env.SEED);
 await broadcast(ssTx);
 ```
 
+* Функция `contract()` получает код скрипта с текущей активной вкладки редактора, где открыт файл `.ride`.
+* Функция `setScript()` создает транзакцию вызова скрипта и подписывает с помощью секретной фразы, указанной в настройках расширения.
+* Функция `broadcast()` отправляет транзакцию на ноду, указанную в настройках расширения.
+
 ## Интерактивная консоль JavaScript
 
-В консоли Ride REPL можно ввести любое выражение на языке Ride и сразу увидеть результат.
+В консоли можно запускать команды JavaScript.
 
-Чтобы запустить Ride REPL, выполните команду:
+Чтобы открыть консоль, перейдите в **Command Palette** (Ctrl&nbsp;+&nbsp;Shift&nbsp;+&nbsp;P или Cmd&nbsp;⌘&nbsp;+&nbsp;Shift&nbsp;+&nbsp;P) и выполните команду **Start Waves JS Console**.
 
-```bash
-surfboard repl
-```
-
-[Подробнее о REPL](/ru/building-apps/smart-contracts/tools/repl)
+Консоль из коробки поддерживает функции взаимодействия с блокчейном Waves: подписание и отправку транзакций, чтение данных блокчейна, работу с ключами аккаунта и др. См. [Список функций js-test-env](https://wavesplatform.github.io/js-test-env/globals.html).
