@@ -2,7 +2,7 @@
 
 A running Waves node requires up-to-date blockchain database with verified blocks and valid signatures synchronized to the current blockchain state.
 
-You can [synchronize your blockchain during regular node operation](#synchronizing-the-blockchain-during-regular-node-operation) or speed up (by ~10%) the synchronization process by [downloading the latest blockchain](#download-the-latest-blockchain-database) database and manually implementing it on your node. If you have a running node you can [export or import blockchain](#export/import-blockchain) database.
+You can [synchronize your blockchain during regular node operation](#synchronize-blockchain-database-during-regular-node-operation) or speed up (by ~10%) the synchronization process by [downloading the latest blockchain](#download-the-latest-blockchain-database) database and manually implementing it on your node. If you have a running node you can [export or import blockchain](#export/import-blockchain) database.
 
 **Important**: Full synchronization time can take 1-3 days and depends on CPU frequency. The most CPU-significant single-threaded process during blockchain synchronization is block verification, so high-frequency CPUs provide better performance. The signature validation process is multi-threaded, but it has insignificant duration effect compared to the block verification. In other words, there is almost no difference between using 8 or 16-core CPUs operating at the same frequency. During synchronization of the blockchain database, writing to disk can exceed the IOPS values supported by an HDD which can cause delays when the operating system doesn't have enough physical memory. Waves team recommends using SSD and keep at least 30% of the total memory for the needs of the operating system (cache/buffers).
 
@@ -17,7 +17,7 @@ Block verification is not a linear operation, “heavy” blocks take more time 
 
 ![1](./_assets/statistics_blocks_receiving.png)
 
-## Synchronizing the Blockchain During Regular Node Operation
+## Synchronize Blockchain Database During Regular Node Operation
 
 This method implicates runnig the node from scratch. For detailed description of running the node, see [Install Waves Node](/en/waves-node/how-to-install-a-node/how-to-install-a-node) article.
 
