@@ -54,14 +54,15 @@ To download and manually implement the latest blockchain database, complete the 
 
 2. Run the checksum with some tool to test files (checksum of the **blockchain_last.tar** file should be the same as inside **blockchain_last.tar.SHA1SUM** file).
 
-3. Empty the existing data folder. By default the blockchain data is stored in `data` folder that is located in base application directory.
-See the default base application directory for different operating systems in [Default Application Directory](/en/waves-node/node-configuration#default-application-directory) section of the [Node Configuration](/en/waves-node/node-configuration) article.
+3. Empty the existing data folder.
 
    <details>
      <summary>Linux console command</summary>
   
      ```sudo rm -rdf /var/lib/waves/data```.
    </details>
+
+   By default the blockchain data is stored in `data` folder in [base application directory](/en/waves-node/node-configuration#default-application-directory).
 
 4. Unpack the database files in the `data` folder.
 
@@ -74,7 +75,7 @@ See the default base application directory for different operating systems in [D
    <details>
      <summary>Alternative downloading and unpacking method (Linux)</summary>
   
-     Traditional method of downloading and unpacking requires a lot of disc space. In some cases the disc space is only enough for the blockchain itself and very little extra.
+     Traditional downloading and unpacking method requires much disc space. In some cases the disc space is only enough for the blockchain itself and very little extra.
      Linux users can save disc space by using one of the following commands to unpack the archive during the downloading, so that the unpacked database files will be saved on disc without storing the archive.
 
      If the node is installed from **DEB** package, run the following commands:
