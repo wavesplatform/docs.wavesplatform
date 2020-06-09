@@ -59,11 +59,3 @@ To download and manually implement the latest blockchain database, complete the 
      ```
   
     </details>
-
-5. Run the node.
-
-   <details>
-     <summary>Linux console command</summary>
-  
-     ```sudo systemctl start waves```.
-   </details>
