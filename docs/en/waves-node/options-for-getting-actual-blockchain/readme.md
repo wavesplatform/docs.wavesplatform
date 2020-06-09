@@ -2,9 +2,9 @@
 
 A running Waves node requires up-to-date blockchain database with verified blocks and valid signatures synchronized to the current blockchain state.
 
-You can [synchronize your blockchain during regular node operation](#synchronize-blockchain-database-during-regular-node-operation) or speed up (by ~10%) the synchronization process by [downloading the latest blockchain](#download-the-latest-blockchain-database) database and manually implementing it on your node. If you have a running node you can [export or import blockchain](#export/import-blockchain) database.
+You can [synchronize your blockchain during regular node operation](#synchronize-blockchain-database-during-regular-node-operation) or speed up (by ~10%) the synchronization by [importing blockchain from binary file](#export/import-blockchain). The import process implies the same execution of transactions that happens during normal node operation. You can skip the time consuming execution of transactions (validation of signatures, balances etc.) by [downloading the latest blockchain database and manually implementing](#download-the-latest-blockchain-database) it on your node. You can also export blockchain database from your  running node.
 
-**Important**: Full synchronization time can take 1-3 days and depends on CPU frequency. The most CPU-significant single-threaded process during blockchain synchronization is block verification, so high-frequency CPUs provide better performance. The signature validation process is multi-threaded, but it has insignificant duration effect compared to the block verification. In other words, there is almost no difference between using 8 or 16-core CPUs operating at the same frequency. During synchronization of the blockchain database, writing to disk can exceed the IOPS values supported by an HDD which can cause delays when the operating system doesn't have enough physical memory. Waves team recommends using SSD and keep at least 30% of the total memory for the needs of the operating system (cache/buffers).
+**Important**: Full synchronization time can take 1-3 days and mostly depends on CPU frequency. The single-threaded CPU load process during blockchain synchronization is block verification, so high-frequency CPUs provide better performance. The signature validation process is multi-threaded, but it has insignificant duration effect compared to the block verification. In other words, there is almost no difference between using 8 or 16-core CPUs operating at the same frequency. During synchronization of the blockchain database, writing to disk can exceed the IOPS values supported by an HDD which can cause delays when the operating system doesn't have enough physical memory. Waves team recommends using SSD and keep at least 30% of the total memory for the needs of the operating system (cache/buffers).
 
 The time to reach the block 1220000 on different CPUs (number of cores and frequencies) in numbers:
 
@@ -19,7 +19,7 @@ Block verification is not a linear operation, “heavy” blocks take more time 
 
 ## Synchronize Blockchain Database During Regular Node Operation
 
-This method implicates runnig the node from scratch. For detailed description of running the node, see [Install Waves Node](/en/waves-node/how-to-install-a-node/how-to-install-a-node) article.
+This method implies runnig the node from scratch. For detailed description of running the node, see [Install Waves Node](/en/waves-node/how-to-install-a-node/how-to-install-a-node) article.
 
 After the first run, your node will start automatically receiving all the necessary data from the peer nodes as well as it will verify the blocks and validate signatures untill the blockchain is fully sychronized with the current state.
 
@@ -29,6 +29,14 @@ In this case the following factors affect the duration of obtaining the data via
 * Number of connected peers
 
 The first factor depends on the internet data provider, while the second one can be set with `max-outbound-connections` parameter in node configuration file. Waves team believes that the default value of `30` is optimal. The internet connection speed has less effect on the process duration then the verification of the blocks and validation of the signatures.
+
+## Import/Export Blockchain
+
+You can import blockchain database from binary file to speed up your node synchronization process. Binary files contain blockchain database in verifiable format (include all the transactions with signatures and blocks with signatures of the block generators). The Import process implies the same execution of every transaction that happens during normal node operation. That includes validation of signatures, balances etc. If you have a running Waves node that is synchronized to current state, you can export the node's blockchain database to a binary file and then import it on another node.
+
+For detailed description of the import/export process, see [Import/Export Blockchain](/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain) article.
+
+**Warning**: If your node is [on fork](/en/waves-node#deal-with-forks) with a height more than 2000 blocks, do not export/import your own blockchain but update the node as described in [Upgrade Waves Node](/en/waves-node/upgrading) article. Then perform the activities described in [Download the Latest Blockchain Database](#download-the-latest-blockchain-database) section.
 
 ## Download the Latest Blockchain Database
 
@@ -97,9 +105,3 @@ To download and manually implement the latest blockchain database, complete the 
   
      ```sudo systemctl start waves```.
    </details>
-
-## Export/Import Blockchain
-
-If you have a running Waves node that is synchronized to actual blockchain, you can export the node's blockchain database to a binary file and then import it on another node. For detailed description of the export/import process, see [Export/Import Blockchain](/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain) article.
-
-**Warning**: If your node is [on fork](/en/waves-node#deal-with-forks) with a height more than 2000 blocks, do not export/import your own blockchain but update the node as described in [Upgrade Waves Node](/en/waves-node/upgrading) article. Then perform the activities described in [Download the Latest Blockchain Database](#download-the-latest-blockchain-database) section.
