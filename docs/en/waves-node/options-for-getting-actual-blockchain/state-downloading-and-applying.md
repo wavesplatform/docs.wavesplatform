@@ -1,6 +1,6 @@
 # Download the Latest Blockchain
 
-A running node requires up-to-date blockchain database for operation. You can download and manually implement the latest database rather than synchronizing your blockchain state during regular node operation. In this case you will skip execution of transactions (validation of signatures, balances etc.) that happens during normal node operation or importing blockchain from binary file.
+A running node requires up-to-date blockchain database for operation. You can download and manually implement the latest database rather than synchronizing your blockchain state. In this case you will skip execution of transactions (validation of signatures, balances etc.) that happens during normal node operation or importing blockchain from binary file.
 
 To download and manually implement the latest blockchain database, complete the following steps:
 
