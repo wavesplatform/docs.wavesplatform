@@ -24,7 +24,7 @@ To download and manually implement the latest blockchain database, complete the 
 3. Empty the existing data folder.
 
    <details>
-     <summary>Linux console command</summary>
+     <summary>On Linux</summary>
   
      ```sudo rm -rdf /var/lib/waves/data```.
    </details>
@@ -34,7 +34,7 @@ To download and manually implement the latest blockchain database, complete the 
 4. Unpack the database files in the `data` folder.
 
    <details>
-     <summary>Linux console command</summary>
+     <summary>On Linux</summary>
   
      ```tar -xvf blockchain_last.tar -C /var/lib/waves/data```.
    </details>
