@@ -17,7 +17,7 @@ In this article, the following use cases of wallet are reviewed:
 
 ## Creating a New Wallet From Scratch <a id="new"></a>
 
-On startup a node creates wallet if the directory listed in `wallet` section of [node's configuration file](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf) does not already contain `wallet.dat` file. In this case the node will also .
+On startup a node creates wallet if the directory listed in `wallet` section of [node's configuration file](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf) does not already contain `wallet.dat` file.
 
 During the wallet creation the node will:
 
