@@ -39,7 +39,7 @@ To import database, do the following:
 
    </details>
 
-Use the name of the desired binary file instead of ```binary-file-name```. For example, use ```mainnet_last``` to import the latest Mainnet blockchain. See the names of other binary files available for import below.
+Use the name of the desired binary file instead of ```binary-file-name```. For example, use ```mainnet_last``` to import the latest Mainnet blockchain. Follow the links below to see the names of other binary files available for import.
 
    <details>
      <summary>Latest Downloadable Database (current state from nodes.wavesnodes.com)</summary>
