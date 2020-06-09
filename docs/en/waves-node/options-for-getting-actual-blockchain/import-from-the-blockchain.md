@@ -2,7 +2,7 @@
 
 A running node requires up-to-date blockchain database for operation. You can speed up (by ~10%) your node synchronization process by [importing blockchain database from binary file](#import-blockchain-from-binary-file) rather than synchronizing your blockchain state during regular node operation. Binary files contain blockchain database in verifiable format (include all the transactions with signatures and blocks with signatures of the block generators).
 
-If you have a running Waves node that is synchronized to current state, you can [export your blockchain database to a binary file](export-blockchain-to-binary-file).
+If you have a running Waves node that is synchronized to current state, you can [export your blockchain database to a binary file](#export-blockchain-to-binary-file).
 
 ## Import Blockchain from Binary File
 
@@ -53,7 +53,7 @@ Use the name of the desired binary file instead of ```binary-file-name```. For e
 
 ### Import Blockchain Up to a Certain Height
 
-It is possible to set target height. If the height parameter is not set, all the blocks will be imported.
+It is possible to set target height. If the `height` parameter is not set, all the blocks will be imported.
 
 To import database up to a ceratin height, do the following:
 
@@ -117,6 +117,6 @@ To export the existing blockchain to a binary file, do the following:
       ```java -cp waves-all-<version>.jar com.wavesplatform.Exporter -c [configuration-file-name] -o [output-file-name] -h [height]```
    </details>
 
-The height parameter allows to specify maximum height of the blocks during exporting. If the parameter is not set, all the blocks will be exported.
+The `height` parameter allows to specify maximum height of the blocks during exporting. If the parameter is not set, all the blocks will be exported.
 
-The output-file-name parameter is optional ('blockchain' is used by default). The resulting export file with the `<output-file-name>-<height>` name will be created in the `data` folder.
+The `output-file-name` parameter is optional ('blockchain' is used by default). The resulting export file with the `<output-file-name>-<height>` name will be created in the `data` folder.
