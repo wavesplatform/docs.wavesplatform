@@ -13,9 +13,9 @@ To download and manually implement the latest blockchain database, complete the 
      * Testnet: [http://blockchain-testnet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
      * Stagenet: [http://blockchain-stagenet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
 
-   **Warning**: Please use trusted sources to download blockchain database. Unknown sources can contain incorrect data or balances.
-
    </details>
+
+   **Warning**: Please use trusted sources to download blockchain database. Unknown sources can contain incorrect data or balances.
 
    Approxmate size of the latest database is 48 GB (in June 2020).
 
