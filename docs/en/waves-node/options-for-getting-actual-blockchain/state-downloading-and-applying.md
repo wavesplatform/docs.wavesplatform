@@ -1,8 +1,8 @@
 # Download the Latest Blockchain
 
-A running node requires up-to-date blockchain database for operation. You can download and manually implement the latest database rather than synchronizing your blockchain state. In this case you will skip execution of transactions (validation of signatures, balances etc.) that happens during normal node operation or importing blockchain from binary file.
+A running node requires up-to-date blockchain database for operation. You can download and manually deploy the latest database rather than synchronizing your blockchain state. In this case you will skip execution of transactions (validation of signatures, balances etc.) that happens during normal node operation or importing blockchain from binary file.
 
-To download and manually implement the latest blockchain database, complete the following steps:
+To download and manually deploy the latest blockchain database, complete the following steps:
 
 1. Download the **blockchain_last.tar** archive containing the latest database from one of the trusted links below.
 
@@ -21,7 +21,7 @@ To download and manually implement the latest blockchain database, complete the 
 
 2. Run the checksum with some tool to test files (checksum of the **blockchain_last.tar** file should be the same as inside **blockchain_last.tar.SHA1SUM** file).
 
-3. Empty the existing data folder.
+3. Empty the existing `data` folder.
 
    <details>
      <summary>On Linux</summary>
