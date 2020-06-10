@@ -16,10 +16,6 @@
 
    [Подробнее о расширении](/ru/building-apps/smart-contracts/tools/ride-vscode)
 
-* [vim-ride](https://github.com/rosmanov/vim-ride)
-
-   Расширение для редактора vim для подсветки синтаксиса Ride.
-
 * [Surfboard](https://www.npmjs.com/package/@waves/surfboard)
 
    Профессиональный инструмент командной строки для компиляции смарт-контрактов на языке Ride и запуска тестов.
@@ -29,3 +25,5 @@
 * [Waves Dapp Ui](https://waves-dapp.com/)
 
    Визуальный интерфейс для вызова функций dApp.
+
+[Больше инструментов](https://github.com/msmolyakov/awesome-waves)
