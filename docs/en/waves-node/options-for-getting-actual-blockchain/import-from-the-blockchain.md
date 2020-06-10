@@ -49,9 +49,7 @@ Use the name of the desired binary file instead of ```binary-file-name```. For e
      * Stagenet: [http://blockchain-stagenet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
    </details>
 
-### Turn Off Block and Transaction Validation
-
-You can speed up the import by 5-20% at your own risk. To do so, use ```-no-verify``` importer option to turn off block and transaction validation. Use with caution and only if you trust the blockchain binary file.
+**Note**: You can speed up the import by 5-20% at your own risk. To do so, use ```-no-verify``` importer option to turn off block and transaction validation. Use with caution and only if you trust the blockchain binary file.
 
 ### Import Blockchain Up to a Certain Height
 

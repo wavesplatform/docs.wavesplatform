@@ -2,7 +2,13 @@
 
 A running Waves node requires up-to-date blockchain database for operation.
 
-You can [synchronize your blockchain to the current state during regular node operation](#synchronize-blockchain-database-during-regular-node-operation) to get the chain of verified blocks and valid signatures. To speed up the synchronization by ~10% you can [import blockchain from binary file](#import-blockchain). The import process implies the same execution of transactions and validations that happens during normal node operation. You can skip the time-consuming execution of transactions (validation of signatures, balances etc.) by [downloading the latest blockchain database and deploying](#download-the-latest-blockchain-database) it on your node. You can also [export blockchain](/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain#export-blockchain-to-binary-file) from your running node.
+Use one of the following methods to synchronize your blochchain to current state:
+
+* [Synchronize your blockchain during regular node operation](#synchronize-blockchain-database-during-regular-node-operation) to get all the necessary data from the peer nodes, verify the blocks and validate signatures.
+
+* [Import blockchain from binary file](#import-blockchain). Importing is a time-consuming process that implies the same execution of transactions and validations that happen during normal node operation. This method is ~10% faster compared to the synchronization during regular node operation.
+
+* [Download the latest blockchain database and deploy](#download-the-latest-blockchain-database) it on your node. This is the fastest method. In this case your node will skip the time-consuming execution of transactions and validations of the downloaded blockchain state. Please use trusted sources to download blockchain database. Unknown sources can contain databases with incorrect data or balances.
 
 **Important**: Full synchronization can take 1-3 days and mostly depends on CPU frequency. The most significant process (block verification) is single-threaded, so high-frequency CPUs provide better performance. The signature validation process is multi-threaded, but it has insignificant duration effect compared to the block verification. In other words, there is almost no difference between using 8 or 16-core CPUs operating at the same frequency. Block verification is not a linear operation, “heavy” blocks take more time to be verified. The ”heaviness" of a block is determined by the number and type of transactions it contains. Empty blocks (for example, the first 200.000) are verified much faster than the same number of blocks after one million. During synchronization of the blockchain database, writing to disk can exceed the IOPS values supported by an HDD which can cause delays when the operating system doesn't have enough physical memory. Waves team recommends using SSD and keep at least 30% of the total memory for the needs of the operating system (cache/buffers).
 
@@ -19,7 +25,7 @@ Block verification is not a linear operation, “heavy” blocks take more time 
 ![1](./_assets/statistics_blocks_receiving.png)
 --->
 
-## Synchronize Blockchain Database During Regular Node Operation
+## Synchronize Blockchain During Regular Node Operation
 
 This method implies runnig the node from scratch. For detailed description of running the node, see [Install Waves Node](/en/waves-node/how-to-install-a-node/how-to-install-a-node) article.
 
@@ -42,4 +48,4 @@ For detailed description of the import/export process, see [Import/Export Blockc
 
 ## Download the Latest Blockchain Database
 
-You can download and manually deploy the latest blockchain state on your node. In this case you will skip execution of transactions (validation of signatures, balances etc.) that happens during normal node operation or importing blockchain from binary file. For detailed description of the process, see [Download the Latest Blockchain](/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying) article.
+You can download and manually deploy the latest blockchain state on your node. In this case you will skip the time-consuming execution of transactions (validation of signatures, balances etc.) that happens during normal node operation or importing blockchain from binary file. For detailed description of the process, see [Download the Latest Blockchain](/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying) article.
