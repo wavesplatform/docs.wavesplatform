@@ -15,7 +15,7 @@ To download and manually deploy the latest blockchain database, complete the fol
 
    </details>
 
-   **Warning**: Please use trusted sources to download blockchain database. Unknown sources can contain databases with incorrect data or balances.
+   **Warning**: Download the blockchain database only from a trusted source. Databases from unknown sources may contain incorrect data or balances.
 
    Approxmate size of the latest database is 48 GB (in June 2020).
 
