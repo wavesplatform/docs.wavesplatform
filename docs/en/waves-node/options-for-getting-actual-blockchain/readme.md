@@ -2,7 +2,7 @@
 
 A running Waves node requires up-to-date blockchain database for operation.
 
-Use one of the following methods to synchronize your blochchain to current state:
+Use one of the following methods to synchronize your blockchain to current state:
 
 * [Synchronize your blockchain during regular node operation](#synchronize-blockchain-database-during-regular-node-operation) to get all the necessary data from the peer nodes, verify the blocks and validate signatures.
 
