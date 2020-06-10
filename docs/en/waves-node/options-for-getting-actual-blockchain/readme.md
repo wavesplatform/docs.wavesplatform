@@ -48,4 +48,4 @@ For detailed description of the import/export process, see [Import/Export Blockc
 
 ## Download the Latest Blockchain Database
 
-You can download and manually deploy the latest blockchain state on your node. In this case you will skip the time-consuming execution of transactions (validation of signatures, balances etc.) that happens during normal node operation or importing blockchain from binary file. For detailed description of the process, see [Download the Latest Blockchain](/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying) article.
+You can download and manually deploy the latest blockchain state on your node. In this case your node will use the downloaded blockchain state "as is" and skip the execution of transactions (validation of signatures, balances etc.) that happens during normal node operation or importing blockchain from binary file. For detailed description of the process, see [Download the Latest Blockchain](/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying) article.
