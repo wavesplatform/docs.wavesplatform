@@ -1,18 +1,18 @@
 # Ride REPL: интерактивная консоль Ride
 
-В консоли Ride [REPL (от read-eval-print loop)](https://ru.wikipedia.org/wiki/REPL) можно ввести любое выражение на языке Ride и сразу увидеть результат. 
+В консоли Ride [REPL (от read-eval-print loop)](https://ru.wikipedia.org/wiki/REPL) можно ввести любое выражение на языке Ride и сразу увидеть результат.
 
-![](./_assets/repl.png)
-
-REPL встроен в инструменты разработки:
+Консоль Ride REPL встроена в инструменты разработки:
 
 * [Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide#repl-интерактивная-консоль-ride)
 * [Surfboard](/ru/building-apps/smart-contracts/tools/surfboard#repl-интерактивная-консоль-ride)
 
+![](./_assets/repl.png)
+
 В Ride REPL можно объявлять переменные, функции, а также использовать результаты предыдущих вычислений:
 
 ```
-RIDE > let x =42
+RIDE > let x = 42
 defined let x: Int
 RIDE > func inc(i:Int) = { i + 1 }
 defined func inc(i: Int): Int
@@ -26,7 +26,7 @@ res2: Int = 44
 
 ## Стандартная библиотека
 
-REPL поддерживает [встроенные переменные](/ru/ride/variables/built-in-variables), [функции](/ru/ride/functions/built-in-functions/) и [операторы](/ru/ride/operators) Ride:
+REPL поддерживает [встроенные функции](/ru/ride/functions/built-in-functions/), [операторы](/ru/ride/operators), [переменные](/ru/ride/variables/built-in-variables) и [структуры](/ru/ride/structures/) Ride:
 
 ```
 RIDE > max([2,12,85,6])
@@ -63,20 +63,3 @@ res6: BalanceDetails = BalanceDetails(
     effective = 8978000000
 )
 ```
-
-:bulb: Команда `.editor` активирует многострочный режим, в котором можно ввести сразу несколько определений или вставить большой блок кода.
-
-
-**REPL** ([_read–eval–print loop_](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)) — консоль [Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide).
-
-![](./_assets/repl/repl.png)
-
-В консоли можно писать любой код на JavaScript.
-
-В консоли есть встроенные функции, с помощью которых можно:
-
-* подписывать и отправлять [транзакции](/ru/blockchain/transaction/)
-* получать баланс аккаунта
-* читать данные из [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage)
-
-Документация по функциям консоли доступна на [GitHub](https://wavesplatform.github.io/js-test-env/).
