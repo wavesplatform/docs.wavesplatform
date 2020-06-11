@@ -102,7 +102,7 @@ surfboard repl
 
 Чтобы выйти из режима REPL, выполните команду `.exit`.
 
-[Подробнее о REPL](/ru/building-apps/smart-contracts/tools/repl)
+[Подробнее о Ride REPL](/ru/building-apps/smart-contracts/tools/repl)
 
 ## Все команды
 

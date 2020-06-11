@@ -56,46 +56,46 @@ Script file is saved in Waves IDE automatically. To save the file on your comput
 
 ## Ride REPL: interactive console
 
-В консоли Ride REPL можно ввести любое выражение на языке Ride и сразу увидеть результат.
+Ride REPL is the easiest way to try out Ride language and its execution semantic.
 
-Перейдите на вкладку **Ride REPL** в нижней части окна. Введите выражение и нажмите Enter.
+Switch to the **Ride REPL** tab at the bottom of the window. Type an expression and press Enter.
 
-[Подробнее о REPL](/ru/building-apps/smart-contracts/tools/repl)
+[Learn more about Ride REPL](/en/building-apps/smart-contracts/tools/repl)
 
-## Установка dApp-скрипта или скрипта аккаунта
+## Assigning dApp Script or Account Script
 
-1. Откройте dApp-скрипт или скрипт аккаунта и нажмите **Deploy**.
-2. В окне **Sign and publish** выберите аккаунт и нажмите **Add sign**, чтобы добавить подпись к транзакции установки скрипта.
-3. Нажмите **Publish**, чтобы отправить транзакцию.
+1. Open the dApp script or the account script and click **Deploy**.
+2. In the **Sign and publish** window, choose the account and click **Add sign** to generate the signature for the set script transaction.
+3. Click **Publish** to send the transaction.
 
-## Выпуск смарт-ассета
+## Issuing Smart Asset
 
-1. Откройте скрипт ассета и нажмите **Issue**.
-2. В окне **Sign and publish** добавьте в JSON-представление транзакции выпуска поля `name`, `description`, `quantity`. Описание полей см. в разделе [Транзакция выпуска](/ru/blockchain/transaction-type/issue-transaction).
-3. Выберите аккаунт и нажмите **Add sign**, чтобы добавить подпись к транзакции.
-4. Нажмите **Publish**, чтобы отправить транзакцию.
+1. Open the asset script and click **Issue**.
+2. In the **Sign and publish** edit the JSON representation of transaction^ add the `name`, `description`, and `quantity` fields. See the fields description in the [Issue Transaction](/en/blockchain/transaction-type/issue-transaction) article.
+3. Choose the issuer's account and click **Add sign** to generate the signature for the issue transaction.
+4. Click **Publish** to send the transaction.
 
-## Подписание и отправка транзакций
+## Signing and Sending Transactions
 
-1. Нажмите кнопку ![](./_assets/sign.png).
-2. В окне **Sign and publish** вставьте JSON-представление транзакции. <!-- Описание полей для каждого типа транзакции приведено в разделе [Транзакция](/ru/blockchain/transaction/). -->
-3. Выберите аккаунт и нажмите **Add sign**, чтобы добавить подпись к транзакции.
-4. Нажмите **Publish**, чтобы отправить транзакцию.
+1. Click ![](./_assets/sign.png).
+2. In the **Sign and publish** window, paste the JSON representation of the transaction. <!-- Fields of each type of transaction are described in the [Transaction](/en/blockchain/transaction/) article. -->
+3. Select the sender's account and click **Add sign**.
+4. Click **Publish** to send the transaction.
 
-## Интерактивная консоль JavaScript
+## JavaScript Interactive Console
 
-Перейдите на вкладку **Console** в нижней части окна. Введите команду и нажмите Enter.
+Switch to the **Console** tab at the bottom of the window. Type a command and press Enter.
 
-Консоль поддерживает функции для взаимодействия с блокчейном Waves: подписание и отправку транзакций, чтение данных блокчейна, работу с ключами аккаунта и другие. См. [Список функций js-test-env](https://wavesplatform.github.io/js-test-env/globals.html).
+The console provides built-in functions for Waves blockchain: signing and sending transactions, reading blockchain data, working with account keys and others. See the list of functions of [js-test-env](https://wavesplatform.github.io/js-test-env/globals.html).
 
-## Запуск тестов
+## Running Tests
 
-В JS-тестах поддерживаются функции `describe`, `before`, `it`, `expect` и другие функции библиотек [mocha](https://mochajs.org/) и [chai](https://www.chaijs.com/). Примеры тестов вы найдете в в меню **Library** справа.
+In JS tests, you can use `describe`, `before`, `it`, `expect` and other functions of [mocha](https://mochajs.org/) and [chai](https://www.chaijs.com/) libraries. You can find test examples in the **Library** menu on the right.
 
-Чтобы выполнить тест:
+To run test:
 
-1. Нажмите кнопку ![](./_assets/add-script-button.png) и выберите **Test**.
-2. Замените автоматически сгенерированный код на свой тест.
-3. Нажмите **Run full test**.
+1. Click ![](./_assets/add-script-button.png) and select **Test**.
+2. Replace the automatically generated code with your test.
+3. Click **Run full test**.
 
-Результат теста отображается в нижней части окна на вкладке **Tests**.
+Test result is displayed on the **Tests** tab at the bottom of the window.

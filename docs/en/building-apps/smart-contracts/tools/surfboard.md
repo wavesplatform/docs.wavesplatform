@@ -102,7 +102,7 @@ surfboard repl
 
 To leave REPL, type `.exit`.
 
-[Learn more about REPL](/en/building-apps/smart-contracts/tools/repl)
+[Learn more about Ride REPL](/en/building-apps/smart-contracts/tools/repl)
 
 ## All Surfboard Commands
 
