@@ -16,7 +16,7 @@ TransferTransaction(feeAssetId: ByteVector|Unit, amount: Int, assetId: ByteVecto
 | 2 | amount | [Int](/ru/ride/data-types/int) | Количество токенов для перевода |
 | 3 | assetId | [ByteVector](/ru/ride/data-types/byte-vector)&#124;[Unit](/ru/ride/data-types/unit) | ID токена |
 | 4 | recipient | [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) получателя |
-| 5 | attachment | [ByteVector](/en/ride/data-types/byte-vector) | Произвольные данные, которые могут быть прикреплены к переводу |
+| 5 | attachment | [ByteVector](/en/ride/data-types/byte-vector) | Произвольные данные, которые могут быть прикреплены к переводу.<br>Максимальный размер данных — 140 байт |
 | 6 | id | [ByteVector](/ru/ride/data-types/byte-vector) | [ID транзакции](/ru/blockchain/transaction/transaction-id) |
 | 7 | fee | [Int](/ru/ride/data-types/int) | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) |
 | 8 | timestamp | [Int](/ru/ride/data-types/int) | [Временная метка транзакции](/ru/blockchain/transaction/transaction-timestamp) |

@@ -16,7 +16,7 @@ TransferTransaction(feeAssetId: ByteVector|Unit, amount: Int, assetId: ByteVecto
 | 2 | amount | [Int](/en/ride/data-types/int) | Amount of tokens to transfer |
 | 3 | assetId | [ByteVector](/en/ride/data-types/byte-vector)&#124;[Unit](/en/ride/data-types/unit) | ID of a token |
 | 4 | recipient | [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the recipient |
-| 5 | attachment | [ByteVector](/en/ride/data-types/byte-vector) | Arbitrary data attached to transfer |
+| 5 | attachment | [ByteVector](/en/ride/data-types/byte-vector) | Arbitrary data attached to transfer.<br>The maximum data size is 140 bytes |
 | 6 | id | [ByteVector](/en/ride/data-types/byte-vector) | [Transaction ID](/en/blockchain/transaction/transaction-id) |
 | 7 | fee | [Int](/en/ride/data-types/int) | [Transaction fee](/en/blockchain/transaction/transaction-fee) |
 | 8 | timestamp | [Int](/en/ride/data-types/int) | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) |
