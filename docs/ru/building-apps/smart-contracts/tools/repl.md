@@ -4,8 +4,8 @@
 
 Консоль Ride REPL встроена в инструменты разработки:
 
-* [Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide#repl-интерактивная-консоль-ride)
-* [Surfboard](/ru/building-apps/smart-contracts/tools/surfboard#repl-интерактивная-консоль-ride)
+* [Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide)
+* [Surfboard](/ru/building-apps/smart-contracts/tools/surfboard)
 
 ![](./_assets/repl.png)
 

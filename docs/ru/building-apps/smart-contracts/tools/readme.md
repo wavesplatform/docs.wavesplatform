@@ -8,7 +8,7 @@
 
    [Подробнее о Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide)
 
-   [Создание dApp с помощью Waves IDE](/ru/smart-contracts/writing-dapps)
+   [Создание dApp с помощью Waves IDE](/ru/building-apps/smart-contracts/writing-dapps)
 
 * [Расширение для Visual Studio Code](https://github.com/wavesplatform/ride-vscode)
 

@@ -9,6 +9,14 @@
 * [Как создать dApp: полное пошаговое руководство](/ru/building-apps/smart-contracts/writing-dapps)
 * [Получение списка ордеров](/ru/building-apps/how-to/basic/trading#получение-списка-ордеров)
 
+Инструменты:
+
+* [Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide)
+* [Расширение для Visual Studio Code](/ru/building-apps/smart-contracts/tools/ride-vscode)
+* [Surfboard](/ru/building-apps/smart-contracts/tools/surfboard)
+* [Ride REPL](/ru/building-apps/smart-contracts/tools/repl)
+
+
 ## Майские статьи
 
 ### Блокчейн
