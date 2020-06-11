@@ -17,14 +17,14 @@ To download and manually deploy the latest blockchain database, complete the fol
 
    **Warning**: Download the blockchain database only from a trusted source. Databases from unknown sources may contain incorrect data or balances.
 
-   Approxmate size of the latest database is 48 GB (in June 2020).
+   Approxmate size of the latest database is 48 Gb (in June 2020).
 
 2. Run the checksum with some tool to test files (checksum of the **blockchain_last.tar** file should be the same as inside **blockchain_last.tar.SHA1SUM** file).
 
 3. Empty the existing `data` folder.
 
    <details>
-     <summary>On Linux</summary>
+     <summary>Linux</summary>
   
      ```sudo rm -rdf /var/lib/waves/data```.
    </details>
@@ -34,7 +34,7 @@ To download and manually deploy the latest blockchain database, complete the fol
 4. Unpack the database files in the `data` folder.
 
    <details>
-     <summary>On Linux</summary>
+     <summary>Linux</summary>
   
      ```tar -xvf blockchain_last.tar -C /var/lib/waves/data```.
    </details>

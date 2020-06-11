@@ -40,7 +40,7 @@ The first factor depends on the internet data provider, while the second one can
 
 ## Import Blockchain
 
-You can import blockchain from binary file to speed up (by ~10%) your node synchronization process. Binary files contain chain of transaction blocks in verifiable format (include the original sequence of all the transactions with signatures and blocks with signatures of the block generators). The import process implies the same execution of every transaction that happens during normal node operation. That includes validation of signatures, balances etc. If you have a running Waves node that is synchronized to current state, you can export the node's blockchain database to a binary file and then import it on another node.
+You can import blockchain from binary file to speed up (by ~10%) your blockchain synchronization process. Binary files contain chain of transaction blocks in verifiable format (include the original sequence of all the transactions with signatures and blocks with signatures of the block generators). The import process implies the same execution of every transaction that happens during normal node operation. That includes validation of signatures, balances etc. If you have a running Waves node that is synchronized to current state, you can export the node's blockchain database to a binary file and then import it on another node.
 
 For detailed description of the import/export process, see [Import/Export Blockchain](/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain) article.
 

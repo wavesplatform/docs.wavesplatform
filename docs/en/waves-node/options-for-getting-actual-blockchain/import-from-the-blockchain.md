@@ -1,6 +1,6 @@
 # Import/Export Blockchain
 
-A running node requires up-to-date blockchain database for operation. You can speed up (by ~10%) your node synchronization process by [importing blockchain from binary file](#import-blockchain-from-binary-file) rather than synchronizing your blockchain state during regular node operation. Binary files contain chain of transaction blocks in verifiable format (include the original sequence of all the transactions with signatures and blocks with signatures of the block generators).
+A running node requires up-to-date blockchain database for operation. You can speed up (by ~10%) your blockchain synchronization by [importing blockchain from binary file](#import-blockchain-from-binary-file) rather than synchronizing your blockchain state during regular node operation. Binary files contain chain of transaction blocks in verifiable format (include the original sequence of all the transactions with signatures and blocks with signatures of the block generators).
 
 If you have a running Waves node that is synchronized to current state, you can [export your blockchain to a binary file](#export-blockchain-to-binary-file).
 
@@ -14,16 +14,16 @@ To import blockchain, do the following:
 
 1. Stop the node with `service waves stop` command.
 
-2. Execute the following console command:
+2. Execute the following command:
   
    <details>
-    <summary>On Windows</summary>
+    <summary>Windows</summary>
 
       ```java -cp waves-all-<version>.jar com.wavesplatform.Importer -c [configuration-file-name] -i [binary-file-name]```
    </details>
 
    <details>
-    <summary>On Linux</summary>
+    <summary>Linux</summary>
 
     Mainnet:
       ```sudo -u waves waves import -c /etc/waves/waves.conf -i [binary-file-name]```
@@ -33,7 +33,7 @@ To import blockchain, do the following:
    </details>
 
    <details>
-    <summary>On Mac</summary>
+    <summary>Mac</summary>
 
       ```java -cp waves-all-<version>.jar com.wavesplatform.Importer -c [configuration-file-name] -i [binary-file-name]```
 
@@ -49,7 +49,7 @@ Use the name of the desired binary file instead of ```binary-file-name```. For e
      * Stagenet: [http://blockchain-stagenet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
    </details>
 
-**Note**: You can speed up the import by 5-20% at your own risk. To do so, use ```-no-verify``` importer option to turn off block and transaction validation. Use with caution and only if you trust the blockchain binary file.
+**Note**: You can speed up the import by 5-20% at your own risk. To do so, use ```-no-verify``` option of the ```Importer``` parameter to turn off block and transaction validation. Use with caution and only if you trust the blockchain binary file.
 
 ### Import Blockchain Up to a Certain Height
 
@@ -57,18 +57,18 @@ It is possible to set target height. If the `height` parameter is not set, all t
 
 To import blockchain up to a ceratin height, do the following:
 
-1. Stop the node with `service waves stop` command before importing.
+1. Stop the node with `service waves stop` command.
 
-2. Execute the following console command:
+2. Execute the following command:
 
    <details>
-    <summary>On Windows</summary>
+    <summary>Windows</summary>
 
       ```java com.wavesplatform.Importer -c <config_file> -i <blockchain_file> -h <height>```
    </details>
 
    <details>
-    <summary>On Linux</summary>
+    <summary>Linux</summary>
 
     Mainnet:
       ```sudo -u waves waves import -c /etc/waves/waves.conf -i /path/to/mainnet-1234688```
@@ -79,7 +79,7 @@ To import blockchain up to a ceratin height, do the following:
    </details>
 
    <details>
-    <summary>On Mac</summary>
+    <summary>Mac</summary>
 
       ```java com.wavesplatform.Importer -c <config_file> -i <blockchain_file> -h <height>```
    </details>
@@ -91,18 +91,18 @@ Exporting is quite a fast operation, but the resulting binary file can take up t
 
 To export the existing blockchain to a binary file, do the following:
 
-1. Stop the node with `service waves stop` command before exporting.
+1. Stop the node with `service waves stop` command.
 
-2. Execute the following console command:
+2. Execute the following command:
 
    <details>
-    <summary>On Windows</summary>
+    <summary>Windows</summary>
 
       ```java -cp waves-all-<version>.jar com.wavesplatform.Exporter -c [configuration-file-name] -o [output-file-name] -h [height]```
    </details>
 
       <details>
-    <summary>On Linux</summary>
+    <summary>Linux</summary>
 
     Mainnet:
       ```sudo -u waves waves export -c /etc/waves/waves.conf -o [output-file-name] -h [height]```
@@ -112,7 +112,7 @@ To export the existing blockchain to a binary file, do the following:
    </details>
 
       <details>
-    <summary>On Mac</summary>
+    <summary>Mac</summary>
 
       ```java -cp waves-all-<version>.jar com.wavesplatform.Exporter -c [configuration-file-name] -o [output-file-name] -h [height]```
    </details>
