@@ -7,12 +7,12 @@ Waves IDE features:
 * Code completion (snippets).
 * Syntax and error highlighting.
 * Sharing files.
-* Examples library.
+* Library of exapmles.
 * Ride REPL interactive console.
-* Ride scripts compilation and assigning.
+* Ride script compilation and assigning to an account or asset.
 * Signing and sending transactions.
 * JavaScript console with built-in functions for interaction with the Waves blockchain.
-* Running JavaScript test.
+* Running JavaScript tests.
 
 Waves IDE address:
 * <https://ide.wavesplatform.com/> – the major environment.
@@ -33,9 +33,9 @@ Configure the settings for blockchain operation:
 
 To import an existing account, click the account avatar or the **Add account** button, select **Import account** and paste your seed phrase.
 
-:bulb: To top up account balance on Testnet or Stagenet.
+:bulb: To top up account balance on Testnet or Stagenet, do the following:
 
-   * Copy address: click account avatar and then click ![](./_assets/copy-button.png).
+   * Copy address: click the account avatar and then click ![](./_assets/copy-button.png).
    * Go to the page:
       * <https://wavesexplorer.com/testnet/faucet> for Testnet;
       * <https://stagenet.wavesexplorer.com/faucet> for Stagenet.
@@ -54,7 +54,7 @@ Script file is saved in Waves IDE automatically. To save the file on your comput
 
 :bulb: Find script examples in the **Library** menu.
 
-## Ride REPL: interactive console
+## Ride REPL: Interactive Console
 
 Ride REPL is the easiest way to try out Ride language and its execution semantic.
 
@@ -62,7 +62,7 @@ Switch to the **Ride REPL** tab at the bottom of the window. Type an expression 
 
 [Learn more about Ride REPL](/en/building-apps/smart-contracts/tools/repl)
 
-## Assigning dApp Script or Account Script
+## Assigning Script to Account
 
 1. Open the dApp script or the account script and click **Deploy**.
 2. In the **Sign and publish** window, choose the account and click **Add sign** to generate the signature for the set script transaction.
@@ -71,7 +71,7 @@ Switch to the **Ride REPL** tab at the bottom of the window. Type an expression 
 ## Issuing Smart Asset
 
 1. Open the asset script and click **Issue**.
-2. In the **Sign and publish** edit the JSON representation of transaction^ add the `name`, `description`, and `quantity` fields. See the fields description in the [Issue Transaction](/en/blockchain/transaction-type/issue-transaction) article.
+2. In the **Sign and publish** edit the JSON representation of transaction: add the `name`, `description`, and `quantity` fields. See the fields description in the [Issue Transaction](/en/blockchain/transaction-type/issue-transaction) article.
 3. Choose the issuer's account and click **Add sign** to generate the signature for the issue transaction.
 4. Click **Publish** to send the transaction.
 
@@ -86,7 +86,7 @@ Switch to the **Ride REPL** tab at the bottom of the window. Type an expression 
 
 Switch to the **Console** tab at the bottom of the window. Type a command and press Enter.
 
-The console provides built-in functions for Waves blockchain: signing and sending transactions, reading blockchain data, working with account keys and others. See the list of functions of [js-test-env](https://wavesplatform.github.io/js-test-env/globals.html).
+The console provides built-in functions for interaction with the Waves blockchain: signing and sending transactions, reading blockchain data, working with account keys and others. See the list of functions of [js-test-env](https://wavesplatform.github.io/js-test-env/globals.html).
 
 ## Running Tests
 

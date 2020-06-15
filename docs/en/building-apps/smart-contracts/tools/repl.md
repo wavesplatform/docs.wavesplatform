@@ -9,7 +9,7 @@ Ride REPL is built into the following developer tools:
 
 ![](./_assets/repl.png)
 
-In Ride REPL, you can define variables and functions as well as use the results of previous calculations:
+In Ride REPL, you can define variables and functions and use the results of previous calculations:
 
 ```
 RIDE > let x = 42
@@ -44,7 +44,7 @@ func getInteger(data: List[DataEntry], key: String): Int|Unit
 func getInteger(data: List[DataEntry], index: Int): Int|Unit
 ```
 
-The `??` command dumps all the existing definition.
+The `??` command dumps all the existing definitions.
 
 ## Blockchain Data
 

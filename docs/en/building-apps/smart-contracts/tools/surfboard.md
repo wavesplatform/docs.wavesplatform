@@ -19,7 +19,7 @@ Surfboard provides built-in JavaScript functions for interaction with the Waves 
    nmp i -g @waves/surfboard
    ```
 
-3. Create and empty directory and type:
+3. Create and empty folder and type:
 
    ```bash
    surfboard init
@@ -27,9 +27,9 @@ Surfboard provides built-in JavaScript functions for interaction with the Waves 
 
 The command will initialize the project structure:
 
-* Under the `ride` subdirectory you can find the dApp script example.
-* Under the `script` subdirectory you can find the JS script example that assigns the dApp script to account.
-* Under the `test` subdirectory you can find JS test example.
+* Under the `ride` folder you can find the dApp script example.
+* Under the `script` folder you can find the JS script example that assigns the dApp script to account.
+* Under the `test` folder you can find the JS test example.
 * The `surfboarf.config.json` file contains the settings for blockchain operation.
 
 To configure the settings, edit the `surfboarf.config.json` file or use the following command:
@@ -42,13 +42,13 @@ surfboard config:change KEY VALUE
 2. If necessary, change the [blockchain network](/en/blockchain/blockchain-network/chain-id) and node URL.
 3. Specify the seed phrase for your account.
 
-:bulb: Working Working with a local node is described in the [How to Build, Deploy and Test a Waves RIDE dApp](https://medium.com/wavesprotocol/how-to-build-deploy-and-test-a-waves-ride-dapp-785311f58c2) article.
+:bulb: Working with a local node is described in the [How to Build, Deploy and Test a Waves RIDE dApp](https://medium.com/wavesprotocol/how-to-build-deploy-and-test-a-waves-ride-dapp-785311f58c2) article.
 
 ## Compiling Ride Script
 
-You can write the script code in any text editor, for example, in Visual Studio Code with [Ride extension](/en/building-apps/smart-contracts/tools/ride-vscode).
+You can write the script code using any text editor, for example, Visual Studio Code with [Ride extension](/en/building-apps/smart-contracts/tools/ride-vscode).
 
-Before assigning the script to an account or asset, compile it. Use the built-in JS function `compile` (find an example of a JS script in the ` script` folder), or the following command:
+Before assigning the script to an account or asset, compile it. Use the built-in JS function `compile` (see the example of in the ` script` folder), or the following command:
 
 ```bash
 surfboard compile FILE
@@ -62,9 +62,9 @@ surfboard compile ride/wallet.ride > wallet.compiled
 
 This command compiles the Ride script example and writes it to the `wallet.compiled` file in base64. This output can be included in the set script transaction.
 
-## Assigning Ride Script
+## Assigning Ride Script to Account or Asset
 
-You can send a set script transaction or a set asset script transaction by running JS script or JS test. To run JS script, use the command:
+You can send a set script transaction, issue transaction, or set asset script transaction by running JS script or JS test. To run JS script, use the command:
 
 ```bash
 surfboard run FILE
@@ -76,11 +76,11 @@ For example:
 surfboard run scripts/wallet.deploy.js  --variables 'dappSeed=insert your seed here'
 ```
 
-This command executes the JS script example that compiles the Ride script and sends the script installation transaction from the account whose seed phrase is specified in the `dappSeed` variable.
+This command executes the JS script example that compiles the Ride script and sends the set script transaction from the account whose seed phrase is specified in the `dappSeed` variable.
 
 ## Running Tests
 
-In JS tests, you can use `describe`, `before`, `it`, `expect` and other functions of [mocha](https://mochajs.org/) and [chai](https://www.chaijs.com/) libraries. You can find test example in the `test` directory.
+In JS tests, you can use `describe`, `before`, `it`, `expect` and other functions of [mocha](https://mochajs.org/) and [chai](https://www.chaijs.com/) libraries. You can find test example in the `test` folder.
 
 To run test, use the command:
 
@@ -88,7 +88,7 @@ To run test, use the command:
 surfboard test FILE
 ```
 
-## Ride REPL: interactive console
+## Ride REPL: Interactive Console
 
 Ride REPL is the easiest way to try out Ride language and its execution semantic.
 

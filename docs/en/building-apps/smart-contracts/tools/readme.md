@@ -12,7 +12,7 @@ The Waves ecosystem includes tools for developing and debugging decentralized ap
 
 * [Visual Studio Code Extension](https://github.com/wavesplatform/ride-vscode)
 
-   An extension for the popular editor that provides Ride language support and an interactive JavaScript console with built-in functions for interaction with the Waves blockchain.
+   An extension for the popular editor that provides Ride language support and JavaScript console with built-in functions for interaction with the Waves blockchain.
 
    [More about the extension](/en/building-apps/smart-contracts/tools/ride-vscode)
 
@@ -26,4 +26,4 @@ The Waves ecosystem includes tools for developing and debugging decentralized ap
 
    Visual interface for calling dApp functions.
 
-> See also [collection of useful resources and tools](https://github.com/msmolyakov/awesome-waves) for Waves blockchain.
+> See also [collection of useful resources and tools](https://github.com/msmolyakov/awesome-waves) for the Waves blockchain.

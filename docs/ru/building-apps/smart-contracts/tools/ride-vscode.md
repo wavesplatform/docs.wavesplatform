@@ -15,7 +15,7 @@ Ride — расширение Visual Studio Code для работы с Ride и 
 1. Скачайте и установите Visual Studio Code: <https://code.visualstudio.com/>.
 2. Перейдите в раздел **Extensions** (Ctrl&nbsp;+&nbsp;Shift&nbsp;+&nbsp;X или Cmd&nbsp;⌘&nbsp;+&nbsp;Shift&nbsp;+&nbsp;X), найдите и установите расширение Ride.
 
-![](./_assets/vcsode.png)
+![](./_assets/vscode.png)
 
 Чтобы изменить настройки для работы с блокчейном:
 
