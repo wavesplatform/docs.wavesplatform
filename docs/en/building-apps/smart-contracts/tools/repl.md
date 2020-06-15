@@ -1,11 +1,11 @@
 # Ride REPL: Interactive Ride Console
 
-Ride [REPL (от read-eval-print loop)](https://ru.wikipedia.org/wiki/REPL) is the easiest way to try out Ride language and its execution semantic.
+Ride [REPL (read-eval-print loop)](https://en.wikipedia.org/wiki/REPL) is the easiest way to try out Ride language and its execution semantic.
 
 Ride REPL is built into the following developer tools:
 
-* [Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide)
-* [Surfboard](/ru/building-apps/smart-contracts/tools/surfboard)
+* [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide)
+* [Surfboard](/en/building-apps/smart-contracts/tools/surfboard)
 
 ![](./_assets/repl.png)
 

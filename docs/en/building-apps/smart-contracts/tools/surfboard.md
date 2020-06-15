@@ -12,7 +12,7 @@ Surfboard provides built-in JavaScript functions for interaction with the Waves 
 
 ## Installation and Configuration
 
-1. Download and install Node.js: <https://nodejs.org/ru/download/>.
+1. Download and install Node.js: <https://nodejs.org/en/download/>.
 2. Install Surfboard:
 
    ```bash
