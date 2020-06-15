@@ -6,14 +6,11 @@ To download and manually deploy the latest blockchain database, complete the fol
 
 1. Download the **blockchain_last.tar** archive containing the latest database from one of the trusted links below.
 
-   <details>
-     <summary>Latest Downloadable Database (current state from nodes.wavesnodes.com)</summary>
-  
-     * Mainnet: [http://blockchain.wavesnodes.com/](http://blockchain.wavesnodes.com/)
-     * Testnet: [http://blockchain-testnet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
-     * Stagenet: [http://blockchain-stagenet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
+   Latest Downloadable Database (current state from nodes.wavesnodes.com)
 
-   </details>
+   * Mainnet: [http://blockchain.wavesnodes.com/](http://blockchain.wavesnodes.com/)
+   * Testnet: [http://blockchain-testnet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
+   * Stagenet: [http://blockchain-stagenet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
 
    **Warning**: Download the blockchain database only from a trusted source. Databases from unknown sources may contain incorrect data or balances.
 
@@ -36,7 +33,7 @@ To download and manually deploy the latest blockchain database, complete the fol
    <details>
      <summary>Linux</summary>
   
-     ```tar -xvf blockchain_last.tar -C /var/lib/waves/data```.
+     ```tar -xvf blockchain_last.tar -C /var/lib/waves/data```
    </details>
 
    <details>

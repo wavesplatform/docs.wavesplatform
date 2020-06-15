@@ -19,35 +19,33 @@ To import blockchain, do the following:
    <details>
     <summary>Windows</summary>
 
-      ```java -cp waves-all-<version>.jar com.wavesplatform.Importer -c [configuration-file-name] -i [binary-file-name]```
+      ```java -cp waves-all-<version>.jar com.wavesplatform.Importer -c <configuration-file-name> -i <binary-file-name>```
    </details>
 
    <details>
     <summary>Linux</summary>
 
     Mainnet:
-      ```sudo -u waves waves import -c /etc/waves/waves.conf -i [binary-file-name]```
+      ```sudo -u waves waves import -c /etc/waves/waves.conf -i <binary-file-name>```
 
     Testnet:
-      ```sudo -u waves-testnet waves-testnet import -c /etc/waves-testnet/waves.conf -i [binary-file-name]```
+      ```sudo -u waves-testnet waves-testnet import -c /etc/waves-testnet/waves.conf -i <binary-file-name>```
    </details>
 
    <details>
-    <summary>Mac</summary>
+    <summary>macOS</summary>
 
-      ```java -cp waves-all-<version>.jar com.wavesplatform.Importer -c [configuration-file-name] -i [binary-file-name]```
+      ```java -cp waves-all-<version>.jar com.wavesplatform.Importer -c <configuration-file-name> -i <binary-file-name>```
 
    </details>
 
 Use the name of the desired binary file instead of ```binary-file-name```. For example, use ```mainnet_last``` to import the latest Mainnet blockchain. Follow the links below to see the names of other binary files available for import.
 
-   <details>
-     <summary>Latest Downloadable Database (current state from nodes.wavesnodes.com)</summary>
-  
-     * Mainnet: [http://blockchain.wavesnodes.com/](http://blockchain.wavesnodes.com/)
-     * Testnet: [http://blockchain-testnet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
-     * Stagenet: [http://blockchain-stagenet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
-   </details>
+Latest Downloadable Database (current state from nodes.wavesnodes.com)
+
+* Mainnet: [http://blockchain.wavesnodes.com/](http://blockchain.wavesnodes.com/)
+* Testnet: [http://blockchain-testnet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
+* Stagenet: [http://blockchain-stagenet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
 
 **Note**: You can speed up the import by 5-20% at your own risk. To do so, use ```-no-verify``` option of the ```Importer``` parameter to turn off block and transaction validation. Use with caution and only if you trust the blockchain binary file.
 
@@ -55,7 +53,7 @@ Use the name of the desired binary file instead of ```binary-file-name```. For e
 
 It is possible to set target height. If the `height` parameter is not set, all the blocks will be imported.
 
-To import blockchain up to a ceratin height, do the following:
+To import blockchain up to a certain height, do the following:
 
 1. Stop the node with `service waves stop` command.
 
@@ -64,24 +62,24 @@ To import blockchain up to a ceratin height, do the following:
    <details>
     <summary>Windows</summary>
 
-      ```java com.wavesplatform.Importer -c <config_file> -i <blockchain_file> -h <height>```
+      ```java com.wavesplatform.Importer -c <configuration-file-name> -i <blockchain_file> -h <height>```
    </details>
 
    <details>
     <summary>Linux</summary>
 
     Mainnet:
-      ```sudo -u waves waves import -c /etc/waves/waves.conf -i /path/to/mainnet-1234688```
+      ```sudo -u waves waves import -c /etc/waves/waves.conf -i <blockchain_file> -h <height>```
   
     Testnet:
-      ```sudo -u waves-testnet waves-testnet import -c /etc/waves-testnet/waves.conf -i /path/to/testnet-1234688```
+      ```sudo -u waves-testnet waves-testnet import -c /etc/waves-testnet/waves.conf -i <blockchain_file> -h <height>```
 
    </details>
 
    <details>
-    <summary>Mac</summary>
+    <summary>macOS</summary>
 
-      ```java com.wavesplatform.Importer -c <config_file> -i <blockchain_file> -h <height>```
+      ```java com.wavesplatform.Importer -c <configuration-file-name> -i <blockchain_file> -h <height>```
    </details>
 
 ## Export Blockchain to Binary File
@@ -98,23 +96,23 @@ To export the existing blockchain to a binary file, do the following:
    <details>
     <summary>Windows</summary>
 
-      ```java -cp waves-all-<version>.jar com.wavesplatform.Exporter -c [configuration-file-name] -o [output-file-name] -h [height]```
+      ```java -cp waves-all-<version>.jar com.wavesplatform.Exporter -c <configuration-file-name> -o <output-file-name> -h <height>```
    </details>
 
       <details>
     <summary>Linux</summary>
 
     Mainnet:
-      ```sudo -u waves waves export -c /etc/waves/waves.conf -o [output-file-name] -h [height]```
+      ```sudo -u waves waves export -c /etc/waves/waves.conf -o <output-file-name> -h <height>```
 
     Testnet:
-      ```sudo -u waves-testnet waves-testnet export -c /etc/waves-testnet/waves.conf -o [output-file-name] -h [height]```
+      ```sudo -u waves-testnet waves-testnet export -c /etc/waves-testnet/waves.conf -o <output-file-name> -h <height>```
    </details>
 
       <details>
-    <summary>Mac</summary>
+    <summary>macOS</summary>
 
-      ```java -cp waves-all-<version>.jar com.wavesplatform.Exporter -c [configuration-file-name] -o [output-file-name] -h [height]```
+      ```java -cp waves-all-<version>.jar com.wavesplatform.Exporter -c <configuration-file-name> -o <output-file-name> -h <height>```
    </details>
 
 The `height` parameter allows to specify maximum height of the blocks during exporting. If the parameter is not set, all the blocks will be exported.
