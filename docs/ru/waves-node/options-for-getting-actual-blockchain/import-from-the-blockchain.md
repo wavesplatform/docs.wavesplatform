@@ -45,7 +45,7 @@
 
 * Mainnet: [http://blockchain.wavesnodes.com/](http://blockchain.wavesnodes.com/)
 * Testnet: [http://blockchain-testnet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
-* Stagenet: [http://blockchain-stagenet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
+* Stagenet: [http://blockchain-stagenet.wavesnodes.com/](http://blockchain-stagenet.wavesnodes.com/)
 
 **Примечание**: Вы можете ускорить импорт на 5–20% на свой страх и риск. Для этого используйте опцию ```-no-verify``` параметра ```Importer```, чтобы отключить проверку блока и транзакции. Используйте с осторожностью и только если вы доверяете файлу блокчейна.
 

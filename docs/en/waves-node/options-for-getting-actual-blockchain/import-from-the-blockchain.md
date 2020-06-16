@@ -45,7 +45,7 @@ Latest Downloadable Database (current state from nodes.wavesnodes.com)
 
 * Mainnet: [http://blockchain.wavesnodes.com/](http://blockchain.wavesnodes.com/)
 * Testnet: [http://blockchain-testnet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
-* Stagenet: [http://blockchain-stagenet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
+* Stagenet: [http://blockchain-stagenet.wavesnodes.com/](http://blockchain-stagenet.wavesnodes.com/)
 
 **Note**: You can speed up the import by 5-20% at your own risk. To do so, use ```-no-verify``` option of the ```Importer``` parameter to turn off block and transaction validation. Use with caution and only if you trust the blockchain binary file.
 
