@@ -38,10 +38,10 @@ message ExchangeTransactionData {
 | **2** | [ID типа транзакции](/ru/blockchain/transaction-type/) | type | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Значение должно быть равно 7 |
 | **3** | [Версия транзакции](/ru/blockchain/transaction/transaction-version) | version | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Значение должно быть равно 2 |
 | **4.1** | Размер ордера на покупку |  | [Int](/ru/blockchain/blockchain/blockchain-data-types) | 4 |  |
-| **4.2** | Флаг версии ордера на покупку | order1.version | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | `S` | `S` = 1 если версия ордера 1.<br>`S` = 0 если версия ордера 2 или 3 |
+| **4.2** | Флаг версии ордера на покупку | order1.version | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | `S` | `S` = 1, если версия ордера 1.<br>`S` = 0, если версия ордера 2 или 3 |
 | **4.3** | Ордер на покупку токена | order1 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] |  |  |
 | **5.1** | Размер ордера на продажу |  | [Int](/ru/blockchain/blockchain/blockchain-data-types) | 4 |  |
-| **5.2** | Флаг [версии ордера](/ru/blockchain/binary-format/order-binary-format) на продажу | order2.version | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | `S` | `S` = 1 если версия ордера 1.<br>`S` = 0 если версия ордера 2 или 3 |
+| **5.2** | Флаг [версии ордера](/ru/blockchain/binary-format/order-binary-format) на продажу | order2.version | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | `S` | `S` = 1, если версия ордера 1.<br>`S` = 0, если версия ордера 2 или 3 |
 | **5.3** | Ордер на продажу токена | order2 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] |  |  |
 | **6** | Стоимость токена для покупки или продажи | price | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Количество [токена](/ru/blockchain/token/) Б, которое отправитель ордера предлагает за один токен А |
 | **7** | Количество | amount | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Количество токена А, которое отправитель ордера хочет купить |

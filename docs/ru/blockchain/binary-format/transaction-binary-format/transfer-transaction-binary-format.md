@@ -53,9 +53,9 @@ message Attachment {
 | **3** | [Версия транзакции](/ru/blockchain/transaction/transaction-version) | version | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Значение должно быть равно 2 |
 | **4** | Открытый ключ аккаунта отправителя транзакции | senderPublicKey | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
 | **5.1** | Флаг типа переводимого токена |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — [WAVES](/ru/blockchain/token/waves)<br>1 — другой токен |
-| **5.2** | [ID](/ru/blockchain/token/token-id) переводимого токена | assetId | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | `S` = 0 если значение поля 5 равно 0.<br>`S` = 32 если значение поля 5 не равно 0 |
+| **5.2** | [ID](/ru/blockchain/token/token-id) переводимого токена | assetId | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | `S` = 0, если значение поля 5 равно 0.<br>`S` = 32, если значение поля 5 не равно 0 |
 | **6.1** | Флаг типа токена комиссии |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — WAVES<br>1 — другой токен |
-| **6.2** | ID токена комиссии | feeAssetId | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | `S` = 0 если значение поля 7 равно 0.<br>`S` = 32 если значение поля 7 не равно 0 |
+| **6.2** | ID токена комиссии | feeAssetId | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | `S` = 0, если значение поля 7 равно 0.<br>`S` = 32, если значение поля 7 не равно 0 |
 | **7** | [Временная метка транзакции](/ru/blockchain/transaction/transaction-timestamp) | timestamp | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **8** | Количество токена для перевода | amount | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **9** | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) | fee | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
@@ -79,9 +79,9 @@ message Attachment {
 | **3** | ID типа транзакции| [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Дублирует поле 1 |
 | **4** | Открытый ключ аккаунта отправителя транзакции | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
 | **5** | Флаг типа переводимого токена | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — [WAVES](/ru/blockchain/token/waves)<br>1 — другой токен |
-| **6** | [ID](/ru/blockchain/token/token-id) переводимого токена | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | `S` = 0 если значение поля 4 равно 0.<br>`S` = 32 если значение поля 4 не равно 0 |
+| **6** | [ID](/ru/blockchain/token/token-id) переводимого токена | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | `S` = 0, если значение поля 4 равно 0.<br>`S` = 32, если значение поля 4 не равно 0 |
 | **7** | Флаг типа токена комиссии | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — WAVES<br>1 — другой токен |
-| **8** | ID токена комиссии | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | `S` = 0 если значение поля 4 равно 0.<br>`S` = 32 если значение поля 4 не равно 0 |
+| **8** | ID токена комиссии | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | `S` = 0, если значение поля 4 равно 0.<br>`S` = 32, если значение поля 4 не равно 0 |
 | **9** | [Временная метка транзакции](/ru/blockchain/transaction/transaction-timestamp) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **10** | Количество токена для перевода | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **11** | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
