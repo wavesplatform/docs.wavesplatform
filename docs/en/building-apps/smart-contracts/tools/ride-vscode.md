@@ -2,7 +2,7 @@
 
 Ride extension for Visual Studio Code provides Ride language support and interaction with the Waves blockchain.
 
-Extension features:
+Key features:
 
 * Code completion (snippets).
 * Syntax and error highlighting.
@@ -19,7 +19,7 @@ Extension features:
 
 Configure the settings for blockchain operation:
 
-1. In **Extensions** find Ride and click ![](./_assets/vscode-settings.png).
+1. In the **Extensions** view find Ride and click ![](./_assets/vscode-settings.png).
 2. If necessary, change the [blockchain network](/en/blockchain/blockchain-network/chain-id) and node URL.
 3. Specify the seed phrase for your account.
 
@@ -43,11 +43,11 @@ await broadcast(ssTx);
 
 * The `contract()` function retrieves the script code from the current active editor tab with `.ride` file.
 * The `compile()` function compiles the script code.
-* The `setScript()` function creates the set script transaction and signs it using the seed phrase specified in extension settings.
-* The `broadcast()` function send the transaction to the node specified in extension settings.
+* The `setScript()` function creates the set script transaction and signs it using the seed phrase specified in the extension settings.
+* The `broadcast()` function sends the transaction to the node specified in the extension settings.
 
 ## Interactive JavaScript Console
 
-In the console, you can run JavaScript commands. The console provides built-in functions for interaction with the Waves blockchain: signing and sending transactions, reading blockchain data, working with account keys and others. See the list of functions of [js-test-env](https://wavesplatform.github.io/js-test-env/globals.html).
+You can use the extension console to run JavaScript commands. The console provides functions for interacting with the Waves blockchain, such as signing and sending transactions, reading blockchain data, working with account keys etc. See the list of functions of [js-test-env](https://wavesplatform.github.io/js-test-env/globals.html).
 
-To open the console, go to **Command Palette** (Ctrl&nbsp;+&nbsp;Shift&nbsp;+&nbsp;P or Cmd&nbsp;⌘&nbsp;+&nbsp;Shift&nbsp;+&nbsp;P) and run **Start Waves JS Console** command.
+To open the JavaScript console, go to **Command Palette** (Ctrl&nbsp;+&nbsp;Shift&nbsp;+&nbsp;P or Cmd&nbsp;⌘&nbsp;+&nbsp;Shift&nbsp;+&nbsp;P) and run the **Start Waves JS Console** command.

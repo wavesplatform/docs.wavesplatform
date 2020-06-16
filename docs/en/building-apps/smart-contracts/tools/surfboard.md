@@ -2,7 +2,7 @@
 
 Surfboard is a command line interface for working with Ride smart contracts and the Waves blockchain.
 
-Surfboard features:
+Key features:
 
 * Ride smart contracts compilation.
 * Ride REPL interactive console.
@@ -19,18 +19,18 @@ Surfboard provides built-in JavaScript functions for interaction with the Waves 
    nmp i -g @waves/surfboard
    ```
 
-3. Create and empty folder and type:
+3. Create an empty folder and run the following command:
 
    ```bash
    surfboard init
    ```
 
-The command will initialize the project structure:
+The command will create the project structure:
 
-* Under the `ride` folder you can find the dApp script example.
-* Under the `script` folder you can find the JS script example that assigns the dApp script to account.
-* Under the `test` folder you can find the JS test example.
-* The `surfboarf.config.json` file contains the settings for blockchain operation.
+* the `ride` folder containing the dApp script example,
+* the `script` folder containing the JS script example that assigns the dApp script to account,
+* the `test` folder containing the JS test example,
+* the `surfboarf.config.json` file containing the settings for blockchain operation.
 
 To configure the settings, edit the `surfboarf.config.json` file or use the following command:
 
@@ -38,9 +38,9 @@ To configure the settings, edit the `surfboarf.config.json` file or use the foll
 surfboard config:change KEY VALUE
 ```
 
-1. The file supports multiple environments. Set the default environment using the `defaultEnv` parameter.
-2. If necessary, change the [blockchain network](/en/blockchain/blockchain-network/chain-id) and node URL.
-3. Specify the seed phrase for your account.
+* The file supports multiple environments. Set the default environment using the `defaultEnv` parameter.
+* If necessary, change the [blockchain network](/en/blockchain/blockchain-network/chain-id) and node URL.
+* Specify the seed phrase for your account.
 
 :bulb: Working with a local node is described in the [How to Build, Deploy and Test a Waves RIDE dApp](https://medium.com/wavesprotocol/how-to-build-deploy-and-test-a-waves-ride-dapp-785311f58c2) article.
 
@@ -90,7 +90,7 @@ surfboard test FILE
 
 ## Ride REPL: Interactive Console
 
-Ride REPL is the easiest way to try out Ride language and its execution semantic.
+Ride REPL is the easiest way to try out the Ride language and its execution semantic.
 
 To run Ride REPL, use the command:
 
@@ -98,9 +98,9 @@ To run Ride REPL, use the command:
 surfboard repl
 ```
 
-:bulb: Type `.editor` to enter multiline mode so you can type or paste a larger code block or multiple definitions.
+:bulb: Run the `.editor` command to enter multiline mode so you can type or paste a larger code block or multiple definitions.
 
-To leave REPL, type `.exit`.
+To leave REPL, run the `.exit` command.
 
 [Learn more about Ride REPL](/en/building-apps/smart-contracts/tools/repl)
 

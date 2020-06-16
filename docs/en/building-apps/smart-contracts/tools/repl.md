@@ -1,6 +1,6 @@
 # Ride REPL: Interactive Ride Console
 
-Ride [REPL (read-eval-print loop)](https://en.wikipedia.org/wiki/REPL) is the easiest way to try out Ride language and its execution semantic.
+Ride [REPL (read-eval-print loop)](https://en.wikipedia.org/wiki/REPL) is the easiest way to try out the Ride language and its execution semantic.
 
 Ride REPL is built into the following developer tools:
 
@@ -22,11 +22,11 @@ RIDE > inc(res1)
 res2: Int = 44
 ```
 
-The `:reset` command clears REPL state, removing all existing definitions.
+The `:reset` command clears REPL state, removing all the existing definitions.
 
 ## Standard Library
 
-REPL features all the [built-in functions](/en/ride/functions/built-in-functions/), [operators](/en/ride/operators), [variables](/en/ride/variables/built-in-variables), and [structures](/en/ride/structures/) of Ride language:
+REPL features all the [built-in functions](/en/ride/functions/built-in-functions/), [operators](/en/ride/operators), [variables](/en/ride/variables/built-in-variables), and [structures](/en/ride/structures/) of the Ride language:
 
 ```
 RIDE > max([2,12,85,6])
@@ -48,7 +48,7 @@ The `??` command dumps all the existing definitions.
 
 ## Blockchain Data
 
-The results of blockchain-based functions and variables depend on the account and blockchain network (Mainnet, Testnet, or other) configured in tool settings.
+The results of blockchain-based functions and variables depend on the account and blockchain network (Mainnet, Testnet, or other) configured in tool settings. For example:
 
 ```
 RIDE > this

@@ -2,7 +2,7 @@
 
 Waves IDE is an online environment for developing and testing Ride smart contracts.
 
-Waves IDE features:
+Key features:
 
 * Code completion (snippets).
 * Syntax and error highlighting.
@@ -35,11 +35,11 @@ To import an existing account, click the account avatar or the **Add account** b
 
 :bulb: To top up account balance on Testnet or Stagenet, do the following:
 
-   * Copy address: click the account avatar and then click ![](./_assets/copy-button.png).
-   * Go to the page:
-      * <https://wavesexplorer.com/testnet/faucet> for Testnet;
-      * <https://stagenet.wavesexplorer.com/faucet> for Stagenet.
-   *  Paste the address, then click **Request 10 WAVES**.
+1. Copy address: click the account avatar and then click ![](./_assets/copy-button.png).
+2. Go to the page:
+   * <https://wavesexplorer.com/testnet/faucet> for Testnet;
+   * <https://stagenet.wavesexplorer.com/faucet> for Stagenet.
+3. Paste the address, then click **Request 10 WAVES**.
 
 ## Writing Ride Script
 
@@ -56,7 +56,7 @@ Script file is saved in Waves IDE automatically. To save the file on your comput
 
 ## Ride REPL: Interactive Console
 
-Ride REPL is the easiest way to try out Ride language and its execution semantic.
+Ride REPL is the easiest way to try out the Ride language and its execution semantic.
 
 Switch to the **Ride REPL** tab at the bottom of the window. Type an expression and press Enter.
 
@@ -65,14 +65,14 @@ Switch to the **Ride REPL** tab at the bottom of the window. Type an expression 
 ## Assigning Script to Account
 
 1. Open the dApp script or the account script and click **Deploy**.
-2. In the **Sign and publish** window, choose the account and click **Add sign** to generate the signature for the set script transaction.
+2. In the **Sign and publish** window, select the appropriate account and click **Add sign** to generate the signature for the set script transaction.
 3. Click **Publish** to send the transaction.
 
 ## Issuing Smart Asset
 
 1. Open the asset script and click **Issue**.
-2. In the **Sign and publish** edit the JSON representation of transaction: add the `name`, `description`, and `quantity` fields. See the fields description in the [Issue Transaction](/en/blockchain/transaction-type/issue-transaction) article.
-3. Choose the issuer's account and click **Add sign** to generate the signature for the issue transaction.
+2. In the **Sign and publish** window, edit the JSON representation of transaction: add the `name`, `description`, and `quantity` fields. See the fields description in the [Issue Transaction](/en/blockchain/transaction-type/issue-transaction) article.
+3. Select the issuer's account and click **Add sign** to generate the signature for the issue transaction.
 4. Click **Publish** to send the transaction.
 
 ## Signing and Sending Transactions
