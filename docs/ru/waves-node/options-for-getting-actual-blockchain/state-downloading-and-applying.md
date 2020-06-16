@@ -6,11 +6,14 @@
 
 1. Загрузите архив **blockchain_last.tar**, содержащий актуальную базу данных по одной из надежных ссылок ниже.
 
-    Актуальные базы данных для загрузки (nodes.wavesnodes.com)
+   <details>
+     <summary>Актуальные базы данных для загрузки (nodes.wavesnodes.com)</summary>
+  
+     * Mainnet: [http://blockchain.wavesnodes.com/](http://blockchain.wavesnodes.com/)
+     * Testnet: [http://blockchain-testnet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
+     * Stagenet: [http://blockchain-stagenet.wavesnodes.com/](http://blockchain-stagenet.wavesnodes.com/)
 
-    * Mainnet: [http://blockchain.wavesnodes.com/](http://blockchain.wavesnodes.com/)
-    * Testnet: [http://blockchain-testnet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
-    * Stagenet: [http://blockchain-stagenet.wavesnodes.com/](http://blockchain-stagenet.wavesnodes.com/)
+   </details>
 
     **Внимание!** Загружайте блокчейн только из надёжных источников. Базы данных из неизвестных источников могут содержать неправильные данные или балансы.
 
