@@ -1179,7 +1179,15 @@ module.exports = {
           path: programmingPath + 'tools/waves-ide',
         },
         {
-          title: 'REPL',
+          title: 'Расширение для VS Code',
+          path: programmingPath + 'tools/ride-vscode',
+        },
+        {
+          title: 'Surfboard',
+          path: programmingPath + 'tools/surfboard',
+        },
+        {
+          title: 'Ride REPL',
           path: programmingPath + 'tools/repl',
         },
       ],
