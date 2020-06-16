@@ -6,15 +6,15 @@
 
 1. Загрузите архив **blockchain_last.tar**, содержащий актуальную базу данных по одной из надежных ссылок ниже.
 
-   Актуальные базы данных для загрузки (nodes.wavesnodes.com)
+    Актуальные базы данных для загрузки (nodes.wavesnodes.com)
 
-   * Mainnet: [http://blockchain.wavesnodes.com/](http://blockchain.wavesnodes.com/)
-   * Testnet: [http://blockchain-testnet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
-   * Stagenet: [http://blockchain-stagenet.wavesnodes.com/](http://blockchain-stagenet.wavesnodes.com/)
+    * Mainnet: [http://blockchain.wavesnodes.com/](http://blockchain.wavesnodes.com/)
+    * Testnet: [http://blockchain-testnet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
+    * Stagenet: [http://blockchain-stagenet.wavesnodes.com/](http://blockchain-stagenet.wavesnodes.com/)
 
-   **Внимание!** Загружайте блокчейн только из надёжных источников. Базы данных из неизвестных источников могут содержать неправильные данные или балансы.
+    **Внимание!** Загружайте блокчейн только из надёжных источников. Базы данных из неизвестных источников могут содержать неправильные данные или балансы.
 
-   Приблизительный размер базы данных — 48 Гбайт (в июне 2020).
+    Приблизительный размер базы данных — 48 Гбайт (в июне 2020).
 
 2. Проверьте контрольную сумму с помощью любого подходящего инструмента. Контрольная сумма файла `blockchain_last.tar` должна совпадать с указанной в файле `blockchain_last.tar.SHA1SUM`.
 
