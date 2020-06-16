@@ -10,7 +10,7 @@
 
    * Mainnet: [http://blockchain.wavesnodes.com/](http://blockchain.wavesnodes.com/)
    * Testnet: [http://blockchain-testnet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
-   * Stagenet: [http://blockchain-stagenet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
+   * Stagenet: [http://blockchain-stagenet.wavesnodes.com/](http://blockchain-stagenet.wavesnodes.com/)
 
    **Внимание!** Загружайте блокчейн только из надёжных источников. Базы данных из неизвестных источников могут содержать неправильные данные или балансы.
 
