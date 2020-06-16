@@ -525,11 +525,11 @@ module.exports = {
       ],
     },
 	{
-      title: 'Get Waves Blockchain',
+      title: 'Synchronize Waves Blockchain',
       path: nodePath + 'options-for-getting-actual-blockchain',
       children: [
         {
-          title: 'Export/Import Blockchain',
+          title: 'Import/Export Blockchain',
           path: nodePath + 'options-for-getting-actual-blockchain/import-from-the-blockchain',
         },
         {

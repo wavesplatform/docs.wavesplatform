@@ -11,7 +11,7 @@ You can implement rollback under the following default condition: **the rollback
       }
    ```
 
-If you have to rollback more than 2000 blocks, then follow the instructions provided in [Get Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article to get the actual blockchain state.
+If you have to rollback more than 2000 blocks, then follow the instructions provided in [Synchronize Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article to get the actual blockchain state.
 
 Use [Chaincmp](https://github.com/wavesplatform/gowaves/releases/tag/v0.1.2)  utility to compare blockchains on the node and reference nodes.
 

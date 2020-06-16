@@ -529,11 +529,11 @@ module.exports = {
       ],
     },
 	{
-      title: 'Загрузить блокчейн Waves',
+      title: 'Синхронизировать блокчейн Waves',
       path: nodePath + 'options-for-getting-actual-blockchain',
       children: [
         {
-          title: 'Экспортировать и импортировать блокчейн',
+          title: 'Импортировать и экспортировать блокчейн',
           path: nodePath + 'options-for-getting-actual-blockchain/import-from-the-blockchain',
         },
         {
