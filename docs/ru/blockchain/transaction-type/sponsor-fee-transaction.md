@@ -12,6 +12,8 @@
 • 0,001 — после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
 • 1 — до активации фичи № 15.
 
+Если отправитель транзакции —  [dApp](/ru/blockchain/account/dapp) или [смарт-аккаунт](/ru/blockchain/account/smart-account), минимальная комиссия увеличивается на 0,004 WAVES.
+
 ## JSON-представление
 
 ```json

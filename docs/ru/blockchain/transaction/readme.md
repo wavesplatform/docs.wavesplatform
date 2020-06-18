@@ -19,7 +19,7 @@
 
 ## JSON-представление транзакции
 
-В [Waves Node REST API](/ru/waves-node/node-api/) используется JSON-представление транзакции. Пример JSON-представления:
+В [API ноды Waves](/ru/waves-node/node-api/) используется JSON-представление транзакции. Пример JSON-представления:
 
 ```json
 {
@@ -32,6 +32,7 @@
     "id":"AD7KmXwoVNc2fXsmaxsHsrnT1tfPF3HsWYtfjFijVsvM",
     "type":10,
     "version":2,
+    "applicationStatus": "succeed",
     "timestamp":1548443069053,
     "height":466104
 }
@@ -41,12 +42,13 @@
 | :--- | :--- |
 | senderPublicKey | [Открытый ключ](/ru/blockchain/account/#открытый-и-закрытый-кnючи-аккаунта) отправителя транзакции в кодировке base58 |
 | sender | [Адрес](/ru/blockchain/account/address) отправителя транзакции в кодировке base58 |
-| feeAssetId | ID токена, в котором указана комиссия.<br>null означает, что комиссия указана в WAVES.<br>Для транзакций вызова скрипта и транзакций перевода комиссия может быть указана в спонсорском ассете, см. раздел [Спонсирование комиссии](/ru/blockchain/waves-protocol/sponsored-fee) |
+| feeAssetId | ID токена, в котором указана комиссия.<br>`null` означает, что комиссия указана в WAVES.<br>Для транзакций вызова скрипта и транзакций перевода комиссия может быть указана в спонсорском ассете, см. раздел [Спонсирование комиссии](/ru/blockchain/waves-protocol/sponsored-fee) |
 | proofs | Массив [подтверждений транзакции](/ru/blockchain/transaction/transaction-proof), используемых для проверки валидности. Может содержать подписи транзакции (но не ограничивается только подписями) |
 | fee | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee). Всегда целое число, выраженное в минимальных неделимых единицах («копейках») ассета. Например, если комиссия составляет 0,001 WAVES, в JSON-представлении указывается 100000 |
 | id | Идентификатор транзакции. Вычисляется как хеш BLAKE2b-256 от [байтов тела транзакции](/ru/blockchain/transaction/transaction-body-bytes). Подробнее в разделе [Вычисление ID транзакции](/en/blockchain/waves-protocol/cryptographic-practical-details#calculating-transaction-id).
 | type | Тип транзакции. Номера типов представлены в разделе [Тип транзакции](/ru/blockchain/transaction-type/) |
 | version | Версия транзакции.<br>Список версий для каждого типа транзакции см. в описании [бинарных форматов транзакции](/ru/blockchain/binary-format/transaction-binary-format) |
+| applicationStatus | Результат валидации:<br>- succeed — валидация прошла успешно.<br>- scriptExecutionFailed — результат выполнения dApp-скрипта или скрипта ассета был неудачным.<br>Поле появилось в версии ноды 1.2.4, после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. [Подробнее о валидации транзакций](/ru/blockchain/transaction/transaction-validation) |
 | timestamp | Временная метка транзакции, указанная отправителем: Unix-время в миллисекундах. Транзакция не будет добавлена в блокчейн, если значение временной метки транзакции отличается от временной метки текущего блока более чем на 2 часа назад или 1,5 часа вперед. |
 | hieght | Порядковый номер блока, в который была добавлена транзакция |
 

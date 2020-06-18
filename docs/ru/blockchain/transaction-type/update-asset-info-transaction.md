@@ -1,13 +1,158 @@
 # Транзакция обновления информации ассета
 
-**Транзакция обновления информации ассета** — [транзакция](/ru/blockchain/transaction/), которая изменяет наименование и описание выпущенного ранее [ассета](/ru/blockchain/token/).
+Транзакция обновления информации ассета которая изменяет название и описание [токена](/ru/blockchain/token/).
 
 > Транзакция обновления информации ассета добавлена в версии ноды 1.2.0. Возможность использовать эту транзакцию включается после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
-Изменить наименование и/или описание ассета можно:
+Изменить наименование и/или описание токена можно:
 * на Mainnet и Testnet — не ранее чем через 100 000 блоков от последнего изменения (или выпуска ассета);
 * на Stagenet — не ранее чем через 10 блоков.
 
+## Комиссия за транзакцию
+
+Минимальная комиссия за транзакцию обновления информации ассета — 0,001 WAVES, в случае [смарт-ассета](/ru/blockchain/token/smart-asset) — 0,005 WAVES.
+
+Если отправитель транзакции —  [dApp](/ru/blockchain/account/dapp) или [смарт-аккаунт](/ru/blockchain/account/smart-account), минимальная комиссия увеличивается на 0,004 WAVES.
+
+## JSON-представление
+
+```json
+{
+  "senderPublicKey": "6a6r9d3r2ccyE9SvuxmdZbfSHXmKPUoExnigvippJLfu",
+  "fee": 100000,
+  "description": "xxxXXXxxx",
+  "type": 17,
+  "version": 1,
+  "applicationStatus": "succeed",
+  "sender": "3MQdH4MAmM5RNz5TAT43UXXCvMtCa9YgHq9",
+  "feeAssetId": null,
+  "chainId": 83,
+  "proofs": [
+    "4DfvJL4cVisQaMuMB7ar15EtYZTvTZzAUQQMkq4RA3uTMzziVYLrbNHSL2a1eCqBV3YQb7dddXdjywETXHuu65ij"
+  ],
+  "assetId": "syXBywr2HVY7wxqkaci1jKY73KMpoLh46cp1peJAZNJ",
+  "name": "zzzz",
+  "id": "4DL8K4bRvYb9Qrys9Auq7hSGuLGq8XsUYZqDDBBfVGMf",
+  "timestamp": 1591886337668,
+  "height": 411389
+}
+```
+
+| Поле | Описание |
+| :--- | :--- |
+| name | Название токена. От 4 до 16 байт |
+| description | Описание токена. От 0 до 1000 байт |
+| chainId | [Байт сети](/ru/blockchain/) |
+| assetId | ID токена в кодировке base58 |
+
+Описание полей, общих для всех типов транзакций, представлено в разделе [JSON-представление транзакции](/ru/blockchain/transaction/#json-представление-транзакции).
+
 ## Бинарный формат
 
-Смотрите страницу [Бинарный формат транзакции обновления информации ассета](/ru/blockchain/binary-format/transaction-binary-format/update-asset-info-transaction-binary-format).
+См. раздел [Бинарный формат транзакции выпуска](/ru/blockchain/binary-format/transaction-binary-format/update-asset-info-transaction-binary-format).
+
+## Структура Ride
+
+Для операций с транзакцией в смарт-контрактах используется структура [IssueTransaction](/ru/ride/structures/transaction-structures/update-asset-info-transaction).
+
+
+## Бинарный формат
+
+Смотрите страницу ## Комиссия за транзакцию
+
+Минимальная комиссия за транзакцию выпуска — 1 WAVES, в случае выпуска [невзаимозаменяемого токена (NFT)](/ru/blockchain/token/non-fungible-token) — 0,001 WAVES.
+
+## JSON-представление
+
+```json
+{
+  "senderPublicKey": "2M25DqL2W4rGFLCFadgATboS8EPqyWAN3DjH12AH5Kdr",
+  "quantity": 50000,
+  "fee": 100000000,
+  "description": "Script true.",
+  "type": 3,
+  "version": 2,
+  "reissuable": true,
+  "script": "base64:AQa3b8tH",
+  "sender": "3Mz9N7YPfZPWGd4yYaX6H53Gcgrq6ifYiH7",
+  "feeAssetId": null,
+  "chainId": 84,
+  "proofs": [
+    "4yjVxzrLuXUq5y2QCa2LDn1Fp9P63hPBmqDLGQCqn41EB1uZ1pys79NP81h7FxRBnZSbpNGbz1xjwckHcPAQHmFX"
+  ],
+  "assetId": "7Xpp9PPeZbG4wboJrcbRQdq3SxCJqbeFRUjjKccM1DsD",
+  "decimals": 2,
+  "name": "Smart",
+  "id": "7Xpp9PPeZbG4wboJrcbRQdq3SxCJqbeFRUjjKccM1DsD",
+  "timestamp": 1548653407494,
+  "height": 469677
+}
+```
+
+| Поле | Описание |
+| :--- | :--- |
+| name | Название токена. От 4 до 16 байт |
+| description | Описание токена. От 0 до 1000 байт |
+| quantity | Количество токена. Всегда целое число, выраженное в минимальных неделимых единицах («копейках») токена, то есть фактическое количество, умноженное на 10<sup>decimals</sup>. От 1 до 9&nbsp;223&nbsp;372&nbsp;036&nbsp;854&nbsp;775&nbsp;807 |
+| decimals | Количество знаков после запятой, от 0 до 8 |
+| reissuable | Флаг возможности довыпуска, см. [Транзакция довыпуска](/ru/blockchain/transaction-type/reissue-transaction) |
+| script | Для [смарт-ассета](/ru/blockchain/token/smart) — скомпилированный [скрипт ассета](/ru/ride/script/script-types/asset-script), до 8192 байт, в кодировке base64.<br>`null` — токен без скрипта. Если при выпуске к ассету не прикреплен скрипт, то в дальнейшем его нельзя сделать смарт-ассетом. |
+| chainId | [Байт сети](/ru/blockchain/) |
+| assetId | ID токена в кодировке base58. Вычисляется автоматически, совпадает с идентификатором транзакции выпуска |
+
+Описание полей, общих для всех типов транзакций, представлено в разделе [JSON-представление транзакции](/ru/blockchain/transaction/#json-представление-транзакции).
+
+## Бинарный формат
+
+См. раздел [Бинарный формат транзакции выпуска](/ru/blockchain/binary-format/transaction-binary-format/issue-transaction-binary-format).
+## Комиссия за транзакцию
+
+Минимальная комиссия за транзакцию выпуска — 1 WAVES, в случае выпуска [невзаимозаменяемого токена (NFT)](/ru/blockchain/token/non-fungible-token) — 0,001 WAVES.
+
+## JSON-представление
+
+```json
+{
+  "senderPublicKey": "2M25DqL2W4rGFLCFadgATboS8EPqyWAN3DjH12AH5Kdr",
+  "quantity": 50000,
+  "fee": 100000000,
+  "description": "Script true.",
+  "type": 3,
+  "version": 2,
+  "reissuable": true,
+  "script": "base64:AQa3b8tH",
+  "sender": "3Mz9N7YPfZPWGd4yYaX6H53Gcgrq6ifYiH7",
+  "feeAssetId": null,
+  "chainId": 84,
+  "proofs": [
+    "4yjVxzrLuXUq5y2QCa2LDn1Fp9P63hPBmqDLGQCqn41EB1uZ1pys79NP81h7FxRBnZSbpNGbz1xjwckHcPAQHmFX"
+  ],
+  "assetId": "7Xpp9PPeZbG4wboJrcbRQdq3SxCJqbeFRUjjKccM1DsD",
+  "decimals": 2,
+  "name": "Smart",
+  "id": "7Xpp9PPeZbG4wboJrcbRQdq3SxCJqbeFRUjjKccM1DsD",
+  "timestamp": 1548653407494,
+  "height": 469677
+}
+```
+
+| Поле | Описание |
+| :--- | :--- |
+| name | Название токена. От 4 до 16 байт |
+| description | Описание токена. От 0 до 1000 байт |
+| quantity | Количество токена. Всегда целое число, выраженное в минимальных неделимых единицах («копейках») токена, то есть фактическое количество, умноженное на 10<sup>decimals</sup>. От 1 до 9&nbsp;223&nbsp;372&nbsp;036&nbsp;854&nbsp;775&nbsp;807 |
+| decimals | Количество знаков после запятой, от 0 до 8 |
+| reissuable | Флаг возможности довыпуска, см. [Транзакция довыпуска](/ru/blockchain/transaction-type/reissue-transaction) |
+| script | Для [смарт-ассета](/ru/blockchain/token/smart) — скомпилированный [скрипт ассета](/ru/ride/script/script-types/asset-script), до 8192 байт, в кодировке base64.<br>`null` — токен без скрипта. Если при выпуске к ассету не прикреплен скрипт, то в дальнейшем его нельзя сделать смарт-ассетом. |
+| chainId | [Байт сети](/ru/blockchain/) |
+| assetId | ID токена в кодировке base58. Вычисляется автоматически, совпадает с идентификатором транзакции выпуска |
+
+Описание полей, общих для всех типов транзакций, представлено в разделе [JSON-представление транзакции](/ru/blockchain/transaction/#json-представление-транзакции).
+
+## Бинарный формат
+
+См. раздел [Бинарный формат транзакции обновления информации ассета](/ru/blockchain/binary-format/transaction-binary-format/update-asset-info-transaction-binary-format).
+
+## Структура Ride
+
+Для операций с транзакцией в смарт-контрактах используется структура [UpdateAssetInfoTransaction](/ru/ride/structures/transaction-structures/update-asset-info-transaction).

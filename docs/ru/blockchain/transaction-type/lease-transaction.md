@@ -1,7 +1,47 @@
 # Транзакция лизинга
 
-**Транзакция лизинга** — [транзакция](/ru/blockchain/transaction/), которая передаёт [WAVES](/ru/blockchain/token/waves) в [лизинг](/ru/blockchain/leasing) другому [аккаунту](/ru/blockchain/account/).
+Транзакция лизинга передает WAVES в лизинг другому аккаунту. [Подробнее о лизинге](/ru/blockchain/leasing)
+
+## Комиссия за транзакцию
+
+Минимальная комиссия за транзакцию лизинга — 0,001 WAVES.
+
+Если отправитель транзакции —  [dApp](/ru/blockchain/account/dapp) или [смарт-аккаунт](/ru/blockchain/account/smart-account), минимальная комиссия увеличивается на 0,004 WAVES.
+
+## JSON-представление
+
+```json
+{
+  "senderPublicKey": "b8AB1PQWE7kH55cS48uDTV5fezrAyDTCf7iePyXNzNm",
+  "amount": 500000000,
+  "signature": "3n34MYd3Acx1JpTtvYffdVYCVySuRgZvSbHMA3AxqQwr4xvfZedv9UbqSB9k84PGY5C8RSwGRjDnMGcYwQu2x7B5",
+  "fee": 100000,
+  "type": 8,
+  "version": 1,
+  "sender": "3P6iv9tYo3ELne7tc9HR8BzhK3LE2aDDu1A",
+  "feeAssetId": null,
+  "proofs": [
+    "3n34MYd3Acx1JpTtvYffdVYCVySuRgZvSbHMA3AxqQwr4xvfZedv9UbqSB9k84PGY5C8RSwGRjDnMGcYwQu2x7B5"
+  ],
+  "recipient": "3P2HNUd5VUPLMQkJmctTPEeeHumiPN2GkTb",
+  "id": "7k4EPgA3VxoE56TMJLjvF9FMpywyfeS5qRJSEEN9XGuU",
+  "timestamp": 1528813353617,
+  "status": "canceled",
+  "height": 1038624
+}
+```
+
+| Поле | Описание |
+| :--- | :--- |
+| amount | Количество WAVELET, отдаваемое в лизинг (то есть количество WAVES, умноженное на 10<sup>8</sup>) |
+| recipient | Адрес получателя в кодировке base58 или псевдоним адреса |
+
+Описание полей, общих для всех типов транзакций, представлено в разделе [JSON-представление транзакции](/ru/blockchain/transaction/#json-представление-транзакции).
 
 ## Бинарный формат
 
-Смотрите страницу [Бинарный формат транзакции лизинга](/ru/blockchain/binary-format/transaction-binary-format/lease-transaction-binary-format).
+См. раздел [Бинарный формат транзакции лизинга](/ru/blockchain/binary-format/transaction-binary-format/lease-transaction-binary-format).
+
+## Структура Ride
+
+Для операций с транзакцией в смарт-контрактах используется структура [LeaseTransaction](/ru/ride/structures/transaction-structures/lease-transaction).
