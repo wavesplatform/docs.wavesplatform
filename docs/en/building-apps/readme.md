@@ -22,7 +22,7 @@ Start creating decentralised applications following the steps:
 ## Tools for programming in Ride
 
 - [Visual Studio Code](https://code.visualstudio.com/) with [Ride](https://github.com/wavesplatform/ride-vscode) plugin
-- [Waves IDE](https://ide.wavesplatform.com/) — online application for developing and deploying applications on the blockchain.
+- [Waves IDE](https://waves-ide.com/) — online application for developing and deploying applications on the blockchain.
 - [Surfboard](https://github.com/wavesplatform/Surfboard) — command-line interface for testing and deploying applications on the blockchain.
 
 ## Community

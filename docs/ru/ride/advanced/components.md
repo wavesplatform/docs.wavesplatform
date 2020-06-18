@@ -16,7 +16,7 @@ Estimator вычисляет [сложность](/ru/ride/base-concepts/complex
 * версия 2 — на Mainnet и Testnet (после активации фичи №&nbsp;14 “Block Reward and Community Driven Monetary Policy”);
 * версия 3 — на Stagenet (после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”).
 
-Parser, Compiler и Estimator используется в инструментах разработки, таких как [Waves IDE](https://ide.wavesplatform.com/) и [Surfboard](https://github.com/wavesplatform/surfboard).
+Parser, Compiler и Estimator используется в инструментах разработки, таких как [Waves IDE](https://waves-ide.com/) и [Surfboard](https://github.com/wavesplatform/surfboard).
 
 ## Evaluator
 

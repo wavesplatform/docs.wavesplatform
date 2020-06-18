@@ -182,7 +182,7 @@ module.exports = {
                     },
                     WavesIde: {
                         title: 'Waves IDE',
-                        link: 'https://ide.wavesplatform.com/',
+                        link: 'https://waves-ide.com/',
                     },
                     wavesExplorer: {
                         title: 'Waves Explorer',
