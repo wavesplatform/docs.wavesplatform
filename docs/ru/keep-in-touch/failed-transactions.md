@@ -4,7 +4,7 @@
 
 * Транзакции вызова скрипта и транзакции обмена сохраняются на блокчейне и за них взимается комиссия, даже если результат выполнения dApp-скрипта или скрипта ассета был неудачным (при условии что транзакция прошла проверку подписи отправителя или проверку скриптом аккаунта).
   
-   Однако если вызываемая функция завершилась ошибкой или [выбрасыванием исключения](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/ru/ride/exceptions.md) прежде, чем [сложность](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/ru/ride/base-concepts/complexity.md) выполненных вычислений превысила «бесплатный» лимит, транзакция вызова скрипта отклоняется и комиссия не взимается.
+   Однако если вызываемая функция завершилась ошибкой или [выбрасыванием исключения](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/ru/ride/exceptions.md) прежде, чем [сложность](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/ru/ride/base-concepts/complexity.md) выполненных вычислений превысила [порог для сохранения неуспешных транзакций](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/ru/ride/limits/readme.md), транзакция вызова скрипта отклоняется и комиссия не взимается.
 
 * Становится невозможной оплата комиссии за транзакцию вызова скрипта за счет средств, переведенных dApp-скриптом отправителю. Если баланс отправителя недостаточен для оплаты комиссии, dApp-скрипт не выполняется.
 
