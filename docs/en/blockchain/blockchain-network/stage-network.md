@@ -32,7 +32,7 @@ Stagenet has also been added to:
 
 * [Waves Explorer](https://stagenet.wavesexplorer.com/stagenet)
 
-* [Waves IDE](https://ide-stagenet.wavesplatform.com)
+* [Waves IDE](https://stagenet.waves-ide.com)
 
 * [Waves Keeper](/en/ecosystem/waves-keeper/)
 

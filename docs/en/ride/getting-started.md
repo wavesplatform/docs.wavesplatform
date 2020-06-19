@@ -513,7 +513,7 @@ a.assetId == AssetInfo(base58'3P9DEDP5VbyXQyKtXDUt2crRPn5B7gs6ujc').assetId # tr
 
 ## Testing and tools
 
-You can try out Ride in REPL both online at [https://ide.wavesplatform.com/](https://ide.wavesplatform.com/) and on desktop via terminal with `surfboard`:
+You can try out Ride in REPL both online at [https://waves-ide.com/](https://waves-ide.com/) and on desktop via terminal with `surfboard`:
 
 ```scala
 > npm i -g @waves/surfboard
@@ -525,7 +525,7 @@ For further development, the following tools and utilities are useful:
 - Visual Studio Code plugin: waves-ride
 - The `surfboard` tool will allow you to REPL and run tests on your existing node: [https://github.com/wavesplatform/surfboard]
 - You should also install the Waves Keeper browser extension: </en/ecosystem/waves-keeper>
-- Online IDE with examples: [https://ide.wavesplatform.com/](https://ide.wavesplatform.com/)
+- Online IDE with examples: [https://waves-ide.com/](https://waves-ide.com/)
 
 Further help and information about tools can be found here: <https://wavesprotocol.org/developers>
 

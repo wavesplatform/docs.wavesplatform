@@ -2,7 +2,7 @@
 
 This tutorial provides steps to develop and launch sample dApp based on Waves blockchain. You can then repeat the steps to create more advanced dApps.
 
-The sample dApp you'll create is the Waves Magic 8 Ball application that generates pseudorandom answers. You will use [Waves IDE](https://ide.wavesplatform.com/) to develop and test dApp and then use JavaScript to deploy the web app that calls the dApp functions.
+The sample dApp you'll create is the Waves Magic 8 Ball application that generates pseudorandom answers. You will use [Waves IDE](https://waves-ide.com/) to develop and test dApp and then use JavaScript to deploy the web app that calls the dApp functions.
 
 [Learn more about dApp features](/en/building-apps/smart-contracts/what-is-a-dapp)
 
@@ -16,7 +16,7 @@ The sample dApp you'll create is the Waves Magic 8 Ball application that generat
 
 ## Step 1. Create dApp Account
 
-1. Open [Waves IDE](https://ide.wavesplatform.com/).
+1. Open [Waves IDE](https://waves-ide.com/).
 2. Click ![](./_assets/ide-settings.png) and make sure that Testnet is selected.
 3. Click **Add account → Generate new account**.
 4. Click **Show seed and private key** and backup the seed phrase to a secure location. You will need the seed phrase to restore access to the account.
