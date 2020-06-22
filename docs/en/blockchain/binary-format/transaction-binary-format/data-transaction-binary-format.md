@@ -25,10 +25,10 @@ message DataTransactionData {
 
 | Field | Size | Description |
 | :--- | :--- | :--- |
-| key | Up to 400 bytes | Key of the record |
-| value | Up to 32,767 bytes | Value of the record. If omitted, the record will be deleted |
+| key | Up to 400 bytes | Entry key |
+| value | Up to 32,767 bytes | Entry value. If omitted, the transaction deletes the entry |
 
-The maximum number of records is 100.
+The maximum number of entries is 100.
 
 The maximum data size (keys + values) is 165,890 bytes.
 
