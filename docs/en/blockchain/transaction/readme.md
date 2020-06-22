@@ -11,9 +11,9 @@ Each transaction has a [timestamp](/en/blockchain/transaction/transaction-timest
 All transactions, with the exception of the [genesis transaction](/en/blockchain/transaction-type/genesis-transaction), have [versions](/en/blockchain/transaction/transaction-version).
 
 
-## JSON-представление транзакции
+## JSON Representation
 
-В [REST API](/ru/waves-node/node-api/) ноды Waves используется JSON-представление транзакции. Пример JSON-представления:
+The [REST API](/en/waves-node/node-api/) of Waves nodes uses the JSON representation of transactions. Here is the example of JSON representation:
 
 ```json
 {
@@ -36,12 +36,12 @@ All transactions, with the exception of the [genesis transaction](/en/blockchain
 | :--- | :--- |
 | senderPublicKey | Base58 encoded [public key](/en/blockchain/account/#account-public-and-private-keys) of transaction sender |
 | *sender* | Base58 encoded [address](/en/blockchain/account/address) of transaction sender |
-| feeAssetId | ID of the token of the fee.<br>`null` means that thr fee is in WAVES.<br>For invoke script transactions and transfer transactions, the sender may specify the fee in a sponsored asset, see the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article for details |
+| feeAssetId | ID of the token of the fee.<br>`null` means that the fee is in WAVES.<br>For invoke script transactions and transfer transactions, the sender may specify the fee in a sponsored asset, see the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article for details |
 | proofs | The array of [transaction proofs](/en/blockchain/transaction/transaction-proof) that are used to check the validity of the transaction. The array can contain several transaction signatures (but not limited to signatures only) |
 | fee | [Transaction fee](/en/blockchain/transaction/transaction-fee), always integer, in the minimum fraction (“cent”) of the fee asset. For example, if the fee is 0.001 WAVES, 100000 is indicated in the JSON representation |
-| *id* | Transaction ID. See the [Calculating Transaction Id](/en/blockchain/waves-protocol/cryptographic-practical-details#calculating-transaction-id) section for details.
-| type | Transaction type. Type numbers are listed in the [Transaction Type](/en/blockchain/transaction-type/) article |
-| version | Transaction version.<br>Versions for each type of transaction are listed in [transaction binary format](/en/blockchain/binary-format/transaction-binary-format) descriptions |
+| *id* | Transaction ID. See the [Calculating Transaction Id](/en/blockchain/waves-protocol/cryptographic-practical-details#calculating-transaction-id) section for details |
+| type | Transaction type. Type IDs are listed in the [Transaction Type](/en/blockchain/transaction-type/) article |
+| version | Transaction version. See the list of versions for each type of transaction in [transaction binary format](/en/blockchain/binary-format/transaction-binary-format) descriptions |
 | applicationStatus | Result of transaction validation:<br>- succeed — transaction is successful.<br>- scriptExecutionFailed — the dApp script or the asset script failed.<br>The field is added in node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. [More about transaction validation](/en/blockchain/transaction/transaction-validation) |
 | timestamp | Transaction timestamp specified by sender: Unix time in milliseconds. The transaction cannot be added to the blockchain if the timestamp value is more than 2 hours back or 1.5 hours forward of current block timestamp |
 | *height* | The sequence number of the block into which the transaction is added |
