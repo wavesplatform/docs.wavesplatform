@@ -28,10 +28,10 @@ Tokens are burned _only_ on the [account](/en/blockchain/account/) of the sender
 
 | Field | Description |
 | :--- | :--- |
-| amount | Amount of token to burn, integer, specified in the minimum fraction (“cents”) of token |
+| amount | Amount of token to burn: an integer value specified in the minimum fraction (“cents”) of token |
 | assetId | Base58 encoded token ID |
 
- The fields that are common to all types of transactions are described in the [JSON Representation](/en/blockchain/transaction/#json-representation) section.
+The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 
 ## Binary Format
 

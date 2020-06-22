@@ -39,7 +39,7 @@ The asset name and/or description can be changed:
 | chainId | [Chain ID](/en/blockchain/blockchain-network/chain-id) |
 | assetId | Base58 encoded token ID |
 
-The fields that are common to all types of transactions are described in the [JSON Representation](/en/blockchain/transaction/#json-representation) section.
+The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 
 ## Binary Format
 

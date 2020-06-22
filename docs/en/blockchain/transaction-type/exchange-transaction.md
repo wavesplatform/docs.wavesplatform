@@ -71,13 +71,13 @@ An **exchange transaction** is a [transaction](/en/blockchain/transaction/) that
 
 | Field | Description |
 | :--- | :--- |
-| amount | Amount of the amount asset, integer, specified in the minimum fraction (“cent”) of asset |
-| price | Price for the amount asset nominated in the price asset, multiplied by the factor:<br>- 10<sup>8</sup>for exchange transaction version 3;<br>- 10<sup>8 + priceAssetDecimals – amountAssetDecimals</sup>, where `amountAssetDecimals`, `priceAssetDecimals` are `decimals` of the assets, for exchange transaction version 2 or 1 |
+| amount | Amount of the amount asset: an integervalue specified in the minimum fraction (“cent”) of asset |
+| price | Price for the amount asset nominated in the price asset, multiplied by the factor:<br>- 10<sup>8</sup> for exchange transaction version 3;<br>- 10<sup>8 + priceAssetDecimals – amountAssetDecimals</sup>, where `amountAssetDecimals`, `priceAssetDecimals` are `decimals` of the assets, for exchange transaction version 2 or 1 |
 | buyMatcherFee | Matcher fee for the buy order execution. The fee token ID is indicated in buy order |
 | sellMatcherFee | Matcher fee for the sell order execution. The fee token ID is indicated in sell order |
 | order1, order2 | Buy and sell orders. See the [Order](/en/blockchain/order) article for details |
 
-The fields that are common to all types of transactions are described in the [JSON Representation](/en/blockchain/transaction/#json-representation) section.
+The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 
 ## Binary Format
 

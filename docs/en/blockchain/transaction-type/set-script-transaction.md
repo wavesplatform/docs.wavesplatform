@@ -28,7 +28,7 @@ A **set script transaction** is a [transaction](/en/blockchain/transaction/) tha
 | chainId | [Chain ID](/en/blockchain/blockchain-network/chain-id) |
 | script | The compiled script, up to 8192 bytes, base64 encoded.<br>`null` – delete script |
 
-The fields that are common to all types of transactions are described in the [JSON Representation](/en/blockchain/transaction/#json-representation) section.
+The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 
 ## Binary Format
 

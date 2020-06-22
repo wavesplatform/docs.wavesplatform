@@ -38,7 +38,7 @@ If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart a
 | minSponsoredAssetFee | Amount of asset that is equivalent to 0.001 WAVES (100,000 WAVELET): an integer value specified in the minimum fraction (“cents”) of asset.<br>`null` – disable sponsorship |
 | assetId | Base58 encoded asset ID |
 
-The fields that are common to all types of transactions are described in the [JSON Representation](/en/blockchain/transaction/#json-representation) section.
+The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 
 ## Binary Format
 

@@ -30,7 +30,7 @@ A **lease transaction** is a [transaction](/en/blockchain/transaction/) that [le
 | amount | Amount of WAVELETs to lease (that is, amount of WAVES multiplied by 10<sup>8</sup>) |
 | recipient | Recipient address base58 encoded or recipient alias |
 
-The fields that are common to all types of transactions are described in the [JSON Representation](/en/blockchain/transaction/#json-representation) section.
+The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 
 ## Binary Format
 

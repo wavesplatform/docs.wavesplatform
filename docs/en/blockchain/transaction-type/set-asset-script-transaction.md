@@ -30,7 +30,7 @@ A **set asset script transaction** is a [transaction](/en/blockchain/transaction
 | chainId | [Chain ID](/en/blockchain/blockchain-network/chain-id) |
 | script | The compiled [asset script](/en/ride/script/script-types/asset-script), up to 8192 bytes, base64 encoded |
 
-The fields that are common to all types of transactions are described in the [JSON Representation](/en/blockchain/transaction/#json-representation) section.
+The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 
 ## Binary Format
 

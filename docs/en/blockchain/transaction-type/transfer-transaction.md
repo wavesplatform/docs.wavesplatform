@@ -36,7 +36,7 @@ A **transfer transaction** is a [transaction](/en/blockchain/transaction/) that 
 
 The `transferCount`, `totalAmount` are not needed when sending a transaction, and they are not stored on the blockchain. The node calculates these fields when providing transaction data via the REST API.
 
-The fields that are common to all types of transactions are described in the [JSON Representation](/en/blockchain/transaction/#json-representation) section.
+The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 
 ## Binary Format
 

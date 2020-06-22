@@ -30,11 +30,11 @@ A **reissue transaction** is a [transaction](/en/blockchain/transaction/) that i
 | Field | Description |
 | :--- | :--- |
 | assetId | Base58 encoded token ID |
-| quantity | Amount of token to reissue: integer value specified in the minimum fraction (“cents”) of token. The total amount of token as a result of the reissue should not exceed 9,223,372,036,854,775,807 |
+| quantity | Amount of token to reissue: an integer value specified in the minimum fraction (“cents”) of token. The total amount of token as a result of the reissue should not exceed 9,223,372,036,854,775,807 |
 | chainId | [Chain ID](/en/blockchain/blockchain-network/chain-id) |
 | reissuable | Reissue availability flag |
 
-The fields that are common to all types of transactions are described in the [JSON Representation](/en/blockchain/transaction/#json-representation) section.
+The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 
 ## Binary Format
 

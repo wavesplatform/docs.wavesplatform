@@ -81,10 +81,10 @@ The size of `value` field can be from 0 to 32767 bytes.
 | Field | Description |
 | :--- | :--- |
 | data.key | Entry key. String, up to 400 bytes |
-| data.type | Entry type:<br>- binary<br>- boolean<br>- integer<br>- string<br>`null` — delete entry |
-| data.value | Entry value. Up to 32 767 байт. Binary value is base64 encoded.<br>`null` — delete entry |
+| data.type | Entry type:<br>- binary<br>- boolean<br>- integer<br>- string<br>`null` – delete entry |
+| data.value | Entry value. Up to 32 767 байт. Binary value is base64 encoded.<br>`null` – delete entry |
 
-The fields that are common to all types of transactions are described in the [JSON Representation](/en/blockchain/transaction/#json-representation) section.
+The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 
 ## Binary Format
 

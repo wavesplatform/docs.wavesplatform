@@ -26,7 +26,7 @@
 | :--- | :--- |
 | alias | Alias. From 4 to 30 bytes (1 character can take up to 4 bytes) |
 
-The fields that are common to all types of transactions are described in the [JSON Representation](/en/blockchain/transaction/#json-representation) section.
+The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 
 ## Binary Format
 

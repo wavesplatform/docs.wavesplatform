@@ -42,7 +42,7 @@ The [REST API](/en/waves-node/node-api/) of Waves nodes uses the JSON representa
 | *id* | Transaction ID. See the [Calculating Transaction Id](/en/blockchain/waves-protocol/cryptographic-practical-details#calculating-transaction-id) section for details |
 | type | Transaction type. Type IDs are listed in the [Transaction Type](/en/blockchain/transaction-type/) article |
 | version | Transaction version. See the list of versions for each type of transaction in [transaction binary format](/en/blockchain/binary-format/transaction-binary-format) descriptions |
-| applicationStatus | Result of transaction validation:<br>- succeed — transaction is successful.<br>- scriptExecutionFailed — the dApp script or the asset script failed.<br>The field is added in node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. [More about transaction validation](/en/blockchain/transaction/transaction-validation) |
+| applicationStatus | Result of transaction validation:<br>- succeed – transaction is successful.<br>- scriptExecutionFailed – the dApp script or the asset script failed.<br>The field is added in node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. [More about transaction validation](/en/blockchain/transaction/transaction-validation) |
 | timestamp | Transaction timestamp specified by sender: Unix time in milliseconds. The transaction cannot be added to the blockchain if the timestamp value is more than 2 hours back or 1.5 hours forward of current block timestamp |
 | *height* | The sequence number of the block into which the transaction is added |
 

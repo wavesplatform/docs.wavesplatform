@@ -49,14 +49,14 @@ Payment may be attached to the invoke script transaction to transfer tokens to t
 
 | Field | Description |
 | :--- | :--- |
-| call.function | Callale function name. Up to 255 bytes (1 character can take up to 4 bytes) |
+| call.function | Callable function name. Up to 255 bytes (1 character can take up to 4 bytes) |
 | call.args.type | Argument type:<br>- binary<br>- boolean<br>- integer<br>- string<br>- list (lists are available after activation of feature #15) |
-| call.args.value | Argument value.<br>integer: from -9,223,372,036,854,775,808 до 9,223,372,036,854,755,807 inclusive.<br>string or binary: — up to 32,767 bytes. Binary value should be base64 encoded.<br>list: up to 1000 elements |
+| call.args.value | Argument value.<br>integer: from -9,223,372,036,854,775,808 до 9,223,372,036,854,755,807 inclusive.<br>string or binary: up to 32,767 bytes. Binary value should be base64 encoded.<br>list: up to 1000 elements |
 | dApp | dApp address base58 encoded or dApp [alias](/en/blockchain/account/alias) |
-| payment.amount | Amount of token in payment, integer value specified in the minimum fraction (“cents”) |
+| payment.amount | Amount of token in payment, integer value specified in the minimum fraction (“cents”) of token |
 | payment.assetId | ID of token in payment, base58 encoded. `null` means that the payment is in WAVES |
 
-The fields that are common to all types of transactions are described in the [JSON Representation](/en/blockchain/transaction/#json-representation) section.
+The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 
 ## Binary Format
 
