@@ -51,7 +51,7 @@ A mass transfer transaction contains from 1 to 100 transfers inclusive. The numb
 | *transferCount* | Number of recipients |
 | *totalAmount* | Total amount of transfers in transaction |
 
-The `transferCount`, `totalAmount` are not needed when sending a transaction, and they are not stored on the blockchain. The node calculates these fields when providing transaction data via the REST API.
+The `transferCount` and `totalAmount` fields are not needed when sending a transaction, and they are not stored on the blockchain. The node calculates these fields when providing transaction data via the REST API.
 
 The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 

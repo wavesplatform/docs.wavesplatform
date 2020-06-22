@@ -9,8 +9,8 @@
 ## Комиссия за транзакцию
 
 Минимальная комиссия за транзакцию спонсирования:
-• 0,001 — после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
-• 1 — до активации фичи № 15.
+• 0,001 WAVES — после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
+• 1 WAVES — до активации фичи № 15.
 
 Если отправитель транзакции —  [dApp](/ru/blockchain/account/dapp) или [смарт-аккаунт](/ru/blockchain/account/smart-account), минимальная комиссия увеличивается на 0,004 WAVES.
 
@@ -18,18 +18,20 @@
 
 ```json
 {
-    "senderPublicKey": "5HNegWomhj1nzyggf1oAvujNJGCqbzFjM72BLYtrBecw",
-    "sender": "3N3ErpmUdJWy6DW4ruAr14YDis9UaiTwHd6",
-    "feeAssetId": null,
-    "proofs": ["5jF8WpF7jxf5SBMHMbc2WcfqX3R6fRvssBGSNfzAM8p3uSmno9XzYy5b565ez5fG9vqUGrENFvcrbhk36bzCaqkP"],
-    "assetId": "p1vuxnGyfH9VFiuyKmsh25rn6MedjGbQu7d6Zt1sY4U",
-    "fee": 100000000,
-    "minSponsoredAssetFee": 100,
-    "id": "5gHUMzmBfn4KP3tELzHtw3EYR947rzWUp5PuyF7hUW23",
-    "type": 14,
-    "version": 1,
-    "timestamp": 1585725309659,
-    "height": 934757
+  "senderPublicKey": "5HNegWomhj1nzyggf1oAvujNJGCqbzFjM72BLYtrBecw",
+  "sender": "3N3ErpmUdJWy6DW4ruAr14YDis9UaiTwHd6",
+  "feeAssetId": null,
+  "proofs": [
+    "5jF8WpF7jxf5SBMHMbc2WcfqX3R6fRvssBGSNfzAM8p3uSmno9XzYy5b565ez5fG9vqUGrENFvcrbhk36bzCaqkP"
+  ],
+  "assetId": "p1vuxnGyfH9VFiuyKmsh25rn6MedjGbQu7d6Zt1sY4U",
+  "fee": 100000000,
+  "minSponsoredAssetFee": 100,
+  "id": "5gHUMzmBfn4KP3tELzHtw3EYR947rzWUp5PuyF7hUW23",
+  "type": 14,
+  "version": 1,
+  "timestamp": 1585725309659,
+  "height": 934757
 }
 ```
 

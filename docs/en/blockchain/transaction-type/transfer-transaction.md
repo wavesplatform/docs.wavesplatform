@@ -30,11 +30,9 @@ A **transfer transaction** is a [transaction](/en/blockchain/transaction/) that 
 | Field | Description |
 | :--- | :--- |
 | assetId | Base58 encoded token ID. `null` means WAVES |
-| amount | Amount of token to transfer: integer value specified in the minimum fraction (“cents”) of token |
+| amount | Amount of token to transfer: an integer value specified in the minimum fraction (“cents”) of token |
 | attachment | Base58 encoded arbitrary data (typically a comment to transfer), up to 140 bytes |
 | recipient | Recipient address base58 encoded or recipient [alias](/en/blockchain/account/alias) |
-
-The `transferCount`, `totalAmount` are not needed when sending a transaction, and they are not stored on the blockchain. The node calculates these fields when providing transaction data via the REST API.
 
 The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 
