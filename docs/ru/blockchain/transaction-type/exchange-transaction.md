@@ -16,73 +16,73 @@
 
 ```json
 {
-    "senderPublicKey": "9cpfKN9suPNvfeUNphzxXMjcnn974eme8ZhWUjaktzU5",
-    "amount": 100000000,
-    "fee": 300000,
-    "type": 7,
-    "version": 2,
-    "sellMatcherFee": 750,
-    "sender": "3PEjHv3JGjcWNpYEEkif2w8NXV4kbhnoGgu",
-    "feeAssetId": null,
-    "proofs": [
-        "LQD8VoFhHEW2b6o2e2ujzDHdZatwMMwigC2tmoSHcFNRGXrowA1yyVxD6nZBNeABLWjs59dnuLhgNP7UMfFKDuR"
-    ],
+  "senderPublicKey": "9cpfKN9suPNvfeUNphzxXMjcnn974eme8ZhWUjaktzU5",
+  "amount": 100000000,
+  "fee": 300000,
+  "type": 7,
+  "version": 2,
+  "sellMatcherFee": 750,
+  "sender": "3PEjHv3JGjcWNpYEEkif2w8NXV4kbhnoGgu",
+  "feeAssetId": null,
+  "proofs": [
+    "LQD8VoFhHEW2b6o2e2ujzDHdZatwMMwigC2tmoSHcFNRGXrowA1yyVxD6nZBNeABLWjs59dnuLhgNP7UMfFKDuR"
+  ],
+  "price": 1134500,
+  "id": "EHLccXcemZPEvUpM9UkASG1GciwMt9R5B3QuYFxywj9g",
+  "order2": {
+    "version": 3,
+    "id": "JCiF3gmprLc8u7xdWR7KUkJ3YfM6yfgxB6CvhJYGJFAa",
+    "sender": "3PRBeeFD64wvTMfS3HEoDDFPXfJs3gFdAxk",
+    "senderPublicKey": "ytgWVbKG9e6TSsQ5buMryr2QyxNoL3RezXP3f9RJ2As",
+    "matcherPublicKey": "9cpfKN9suPNvfeUNphzxXMjcnn974eme8ZhWUjaktzU5",
+    "assetPair": {
+      "amountAsset": null,
+      "priceAsset": "DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p"
+    },
+    "orderType": "sell",
+    "amount": 40000000000,
     "price": 1134500,
-    "id": "EHLccXcemZPEvUpM9UkASG1GciwMt9R5B3QuYFxywj9g",
-    "order2": {
-        "version": 3,
-        "id": "JCiF3gmprLc8u7xdWR7KUkJ3YfM6yfgxB6CvhJYGJFAa",
-        "sender": "3PRBeeFD64wvTMfS3HEoDDFPXfJs3gFdAxk",
-        "senderPublicKey": "ytgWVbKG9e6TSsQ5buMryr2QyxNoL3RezXP3f9RJ2As",
-        "matcherPublicKey": "9cpfKN9suPNvfeUNphzxXMjcnn974eme8ZhWUjaktzU5",
-        "assetPair": {
-            "amountAsset": null,
-            "priceAsset": "DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p"
-        },
-        "orderType": "sell",
-        "amount": 40000000000,
-        "price": 1134500,
-        "timestamp": 1591356602063,
-        "expiration": 1593862202062,
-        "matcherFee": 300000,
-        "matcherFeeAssetId": null,
-        "signature": "3D2Ngr7H6MQRs1izMQSix3dMHmDfg4bcRjxamFXFsb4Ku28neNWHdtwE6LtR3eq69Jqr1CvEsAKCWkQEeEEomcoK",
-        "proofs": [
-            "3D2Ngr7H6MQRs1izMQSix3dMHmDfg4bcRjxamFXFsb4Ku28neNWHdtwE6LtR3eq69Jqr1CvEsAKCWkQEeEEomcoK"
-        ]
+    "timestamp": 1591356602063,
+    "expiration": 1593862202062,
+    "matcherFee": 300000,
+    "matcherFeeAssetId": null,
+    "signature": "3D2Ngr7H6MQRs1izMQSix3dMHmDfg4bcRjxamFXFsb4Ku28neNWHdtwE6LtR3eq69Jqr1CvEsAKCWkQEeEEomcoK",
+    "proofs": [
+      "3D2Ngr7H6MQRs1izMQSix3dMHmDfg4bcRjxamFXFsb4Ku28neNWHdtwE6LtR3eq69Jqr1CvEsAKCWkQEeEEomcoK"
+    ]
+  },
+  "order1": {
+    "version": 3,
+    "id": "FNvEGPgUqEWnrnpxevZQnaZS3DUTBGE2wa6L75xCw7mo",
+    "sender": "3PDxxx7eSeYLgzTAtuAV7gUCtHeeXeU85fP",
+    "senderPublicKey": "3WEkbavP3Sw4y5tsgxbZvKkWh87BdB3CPVVxhcRUDBsJ",
+    "matcherPublicKey": "9cpfKN9suPNvfeUNphzxXMjcnn974eme8ZhWUjaktzU5",
+      "assetPair": {
+      "amountAsset": null,
+      "priceAsset": "DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p"
     },
-    "order1": {
-        "version": 3,
-        "id": "FNvEGPgUqEWnrnpxevZQnaZS3DUTBGE2wa6L75xCw7mo",
-        "sender": "3PDxxx7eSeYLgzTAtuAV7gUCtHeeXeU85fP",
-        "senderPublicKey": "3WEkbavP3Sw4y5tsgxbZvKkWh87BdB3CPVVxhcRUDBsJ",
-        "matcherPublicKey": "9cpfKN9suPNvfeUNphzxXMjcnn974eme8ZhWUjaktzU5",
-        "assetPair": {
-            "amountAsset": null,
-            "priceAsset": "DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p"
-        },
-        "orderType": "buy",
-        "amount": 100000000,
-        "price": 1134500,
-        "timestamp": 1591356752271,
-        "expiration": 1593862352271,
-        "matcherFee": 300000,
-        "matcherFeeAssetId": null,
-        "signature": "2gvqaYy2BFbK4BJZS8taRJnhgfQ1z2CytF2RqjcyEfzFiu9tkTjN5q4UyFXpPqS3E6eD2WQBUaYCTYDKv98iW1sy",
-        "proofs": [
-            "2gvqaYy2BFbK4BJZS8taRJnhgfQ1z2CytF2RqjcyEfzFiu9tkTjN5q4UyFXpPqS3E6eD2WQBUaYCTYDKv98iW1sy"
-        ]
-    },
-    "buyMatcherFee": 300000,
-    "timestamp": 1591356752456,
-    "height": 2093333
+    "orderType": "buy",
+    "amount": 100000000,
+    "price": 1134500,
+    "timestamp": 1591356752271,
+    "expiration": 1593862352271,
+    "matcherFee": 300000,
+    "matcherFeeAssetId": null,
+    "signature": "2gvqaYy2BFbK4BJZS8taRJnhgfQ1z2CytF2RqjcyEfzFiu9tkTjN5q4UyFXpPqS3E6eD2WQBUaYCTYDKv98iW1sy",
+    "proofs": [
+      "2gvqaYy2BFbK4BJZS8taRJnhgfQ1z2CytF2RqjcyEfzFiu9tkTjN5q4UyFXpPqS3E6eD2WQBUaYCTYDKv98iW1sy"
+    ]
+  },
+  "buyMatcherFee": 300000,
+  "timestamp": 1591356752456,
+  "height": 2093333
 }
 ```
 
 | Поле | Описание |
 | :--- | :--- |
 | amount | Количество amount-ассета. Всегда целое число, выраженное в минимальных неделимых единицах («копейках») amount-ассета |
-| price | Стоимость 1 amount-ассета, выраженная в price-ассете, умноженная на коэффициент:<br>- 10<sup>8</sup> для транзакции обмена версии 3;<br>- 10<sup>8 + priceAssetDecimals – amountAssetDecimals</sup>, где `amountAssetDecimals`, `priceAssetDecimals` — количество знаков после запятой (параметр ассета) |
+| price | Стоимость 1 amount-ассета, выраженная в price-ассете, умноженная на коэффициент:<br>- 10<sup>8</sup> для транзакции обмена версии 3;<br>- 10<sup>8 + priceAssetDecimals – amountAssetDecimals</sup>, где `amountAssetDecimals`, `priceAssetDecimals` — количество знаков после запятой (параметр ассета), для транзакции обмена версии 2 или 1 |
 | buyMatcherFee | Комиссия матчера за исполнение ордера на покупку. ID токена комиссии указан в ордере на покупку |
 | sellMatcherFee | Комиссия матчера за исполнение ордера на продажу. ID токена комиссии указан в ордере на продажу |
 | order1, order2 | Ордеры на покупку и ордер на продажу. См. раздел [Oрдер](/ru/blockchain/order) |

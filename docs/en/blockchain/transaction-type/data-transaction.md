@@ -39,6 +39,57 @@ The `type` field specifies the type of the `value` field:
 
 The size of `value` field can be from 0 to 32767 bytes.
 
-## Binary format
+## JSON Representation
 
-See the page [Data transaction binary format](/en/blockchain/binary-format/transaction-binary-format/data-transaction-binary-format).
+```json
+{
+  "senderPublicKey": "38bYRUxFCaoa9h822nMnsoTX1qfczqtHJLgouNcNnd8h",
+  "data": [
+    {
+      "type": "boolean",
+      "value": true,
+      "key": "bool"
+    },
+    {
+      "type": "binary",
+      "value": "base64:SGVsbG8gV2F2ZXM=",
+      "key": "bin"
+    },
+    {
+      "type": "integer",
+      "value": 1234567,
+      "key": "int"
+    },
+    {
+      "type": "string",
+      "value": "some text",
+      "key": "str"
+    }
+  ],
+  "sender": "3N4iKL6ikwxiL7yNvWQmw7rg3wGna8uL6LU",
+  "feeAssetId": null,
+  "proofs": ["kE1hjN1yW68j8DsYGNB7Gg1ydC4hqRmt3wBaFQUPkftnbiM7QfJCn1gTHgveJ7pCLXvvqffhKBmiF8qS1Uqk6SR"],
+  "fee": 100000,
+  "id": "3EPJuvQiJYiu9Y5g6mYDQgHVu8GFUfnZurHrVwwF1ViH",
+  "type": 12,
+  "version": 2,
+  "timestamp": 1591351545000,
+  "height": 1029815
+}
+```
+
+| Field | Description |
+| :--- | :--- |
+| data.key | Entry key. String, up to 400 bytes |
+| data.type | Entry type:<br>- binary<br>- boolean<br>- integer<br>- string<br>`null` — delete entry |
+| data.value | Entry value. Up to 32 767 байт. Binary value is base64 encoded.<br>`null` — delete entry |
+
+The fields that are common to all types of transactions are described in the [JSON Representation](/en/blockchain/transaction/#json-representation) section.
+
+## Binary Format
+
+See the [Data Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format/data-transaction-binary-format).
+
+## Ride Structure
+
+The [DataTransaction](/en/ride/structures/transaction-structures/data-transaction) structure is used for transaction handling in smart contracts.

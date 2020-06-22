@@ -65,9 +65,9 @@
 | Поле | Описание |
 | :--- | :--- |
 | call.function | Имя вызываемой функции. До 255 байт (1 символ может занимать до 4 байт) |
-| call.args.type | Тип аргумента:<br>- binary<br>- boolean<br>- integer<br>- string<br>- list |
-| call.args.value | Значение аргумента.<br>integer — от -9 223 372 036 854 775 808 до 9 223 372 036 854 755 807 включительно.<br>string или binary — до 32 767 байт. Бинарное значение должно быть в кодировке base64.<br>list — до 1000 элементов (включается после активации фичи №&nbsp;15) |
-| dApp | Адрес или [псевдоним](/ru/blockchain/account/alias) dApp |
+| call.args.type | Тип аргумента:<br>- binary<br>- boolean<br>- integer<br>- string<br>- list (доступно после активации фичи №&nbsp;15) |
+| call.args.value | Значение аргумента.<br>integer — от -9&nbsp;223&nbsp;372&nbsp;036&nbsp;854&nbsp;775&nbsp;808 до 9&nbsp;223&nbsp;372&nbsp;036&nbsp;854&nbsp;755&nbsp;807 включительно.<br>string или binary — до 32&nbsp;767 байт. Бинарное значение должно быть в кодировке base64.<br>list — до 1000 элементов |
+| dApp | Адрес dApp в кодировке base58 или [псевдоним](/ru/blockchain/account/alias) адреса |
 | payment.amount | Количество токена в платеже, в минимальных неделимых единицах («копейках») токена |
 | payment.assetId | ID токена в платеже. `null` — означает, что платеж в WAVES |
 

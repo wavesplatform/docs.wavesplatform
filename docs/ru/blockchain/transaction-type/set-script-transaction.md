@@ -11,7 +11,6 @@
 ## JSON-представление
 
 ```json
-
 {
   "senderPublicKey": "7nLAwoiRA4fWF4VHd6gRsbwF2UFFmRADXHqRcgy3h27w",
   "sender": "3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk",
@@ -33,7 +32,7 @@
 | Поле | Описание |
 | :--- | :--- |
 | chainId | [Байт сети](/ru/blockchain/) |
-| script | Скомпилированный скрипт , до 8192 байт, в кодировке base64 |
+| script | Скомпилированный скрипт, до 8192 байт, в кодировке base64.<br>`null` — удалить скрипт |
 
 Описание полей, общих для всех типов транзакций, представлено в разделе [JSON-представление транзакции](/ru/blockchain/transaction/#json-представление-транзакции).
 
