@@ -60,12 +60,13 @@
 * Реализована возможность использовать список в качестве аргумента вызываемой функции.
 * Реализована возможность обрабатывать в dApp до двух платежей, приложенных к транзакции вызова скрипта.
 * Добавлены встроенные функции:
+   * [bn256groth16Verify](/ru/ride/functions/built-in-functions/verification-functions#bn256groth16verify) — семейство функций верификации [доказательства с нулевым разглашением](https://ru.wikipedia.org/wiki/Доказательство_с_нулевым_разглашением). Сложность 800–1650 в зависимости от размера массива публичных входов.
    * [calculateAssetId](/ru/ride/functions/built-in-functions/blockchain-functions#calculate) — получает ID ассета, сформированного структурой [Issue](/ru/ride/structures/script-actions/issue) при выполнении транзакции вызова скрипта. Сложность равна 10.
    * [contains](/ru/ride/functions/built-in-functions/string-functions#contains-string-string-boolean) — проверяет, содержит ли строка заданную подстроку. Сложность 20.
    * [containsElement](/ru/ride/functions/built-in-functions/list-functions#containselement) — проверяет наличие элемента в списке. Сложность 5.
    * [createMerkleRoot](/ru/ride/functions/built-in-functions/verification-functions##createmerkleroot) — вычисляет [корневой хеш дерева Меркла транзакций блока](/ru/blockchain/block/merkle-root). Сложность 30.
    * [ecrecover](/ru/ride/functions/built-in-functions/verification-functions#ecrecover) — возвращает открытый ключ, восстановленный из хеша сообщения и цифровой подписи [ECDSA](https://ru.wikipedia.org/wiki/ECDSA). Сложность 70.
-   * [groth16verify](/ru/ride/functions/built-in-functions/verification-functions#groth16verify) — семейство функций верификации [доказательства с нулевым разглашением](https://ru.wikipedia.org/wiki/Доказательство_с_нулевым_разглашением). Сложность 1200–2700 в зависимости от размера массива публичных входов.
+   * [groth16Verify](/ru/ride/functions/built-in-functions/verification-functions#groth16verify) — семейство функций верификации [доказательства с нулевым разглашением](https://ru.wikipedia.org/wiki/Доказательство_с_нулевым_разглашением). Сложность 1200–2700 в зависимости от размера массива публичных входов.
    * [indexOf](/ru/ride/functions/built-in-functions/list-functions#indexof) — возвращает индекс первого вхождения элемента в списке. Сложность 5.
    * [lastIndexOf](/ru/ride/functions/built-in-functions/list-functions#lastindexof) — возвращает индекс последнего вхождения элемента в списке. Сложность 5.
    * [makeString](/ru/ride/functions/built-in-functions/string-functions#makestring-list-string-string-string) — объединяет строки из списка, используя разделитель. Сложность 10.

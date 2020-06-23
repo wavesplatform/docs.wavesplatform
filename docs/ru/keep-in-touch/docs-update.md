@@ -16,6 +16,11 @@
 * [Surfboard](/ru/building-apps/smart-contracts/tools/surfboard)
 * [Ride REPL](/ru/building-apps/smart-contracts/tools/repl)
 
+### Ride
+
+#### Встроенные функции
+
+* [bn256groth16Verify](/ru/ride/functions/built-in-functions/verification-functions#bn256groth16verify)
 
 ## Майские статьи
 
