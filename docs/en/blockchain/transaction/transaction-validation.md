@@ -1,10 +1,10 @@
 # Transaction Validation
 
-Waves nodes validate each transaction. Depending on the validation result the transactions can be put in the blockchain or rejected.
+Waves nodes validate each transaction. Depending on the validation result the transaction can be saved on the blockchain or rejected.
 
 Since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions” the transaction validation procedure is changed. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
-> :warning: After activation of the feature #15, a fee for the invoke script transaction cannot be funded by transfer from dApp to the transaction sender. If sender's balance is insufficient to pay the fee, dApp script is not executed.
+> :warning: After activation of the feature #15, the fee for the invoke script transaction cannot be funded by transfer from the dApp to the transaction sender. If sender's balance is insufficient to pay the fee, dApp script is not executed.
 
 ![](./_assets/tx-validaton.png)
 
@@ -38,7 +38,7 @@ The following checks are performed:
 
    6.4. Check that the transaction fee is not less than the minimum fee based on script actions.
 
-A transaction is saved on the blockchain and the transaction fee is charged if all checks passed.
+The transaction is saved on the blockchain and the transaction fee is charged if all checks passed.
 
 ## After Activation of Feature #15
 
@@ -73,15 +73,15 @@ The following checks are performed:
 
 For the invoke script transaction:
 * If one of the checks 1–4 failed, the transaction is rejected.
-* If checks 1-4 passed, and the calculation of the result of the dApp callable function (check 5.1) failed with an error or [throwing an exception](/en/ride/exceptions) before the [complexity](/en/ride/base-concepts/complexity) of performed calculations exceeded the [threshold for saving failed transactions](/en/ride/limits/), the transaction is also rejected.
-* If checks 1-4 passed, but checks 5-6 failed, and withal the result of the callable function is calculated successfully or the complexity exceeded the threshold, the transaction is saved on the blockchain but marked as failed. The sender is charged the transaction fee. The transaction doesn't entail any other changes to the state of the blockchain.
+* If checks 1–4 passed, and the calculation of the result of the dApp callable function (check 5.1) failed with an error or [throwing an exception](/en/ride/exceptions) before the [complexity](/en/ride/base-concepts/complexity) of performed calculations exceeded the [threshold for saving failed transactions](/en/ride/limits/), the transaction is also rejected.
+* If checks 1–4 passed but checks 5–6 failed and besides the result of the callable function is calculated successfully or the complexity exceeded the threshold, the transaction is saved on the blockchain but marked as failed. The sender is charged the transaction fee. The transaction doesn't entail any other changes to the state of the blockchain.
 * If all checks passed, the transaction is saved on the blockchain as successful and the sender is charged the fee.
 
 For the exchange transaction:
 * If one of the checks 1–4 failed, the transaction is rejected.
-* If checks 1-4 passed, but check 6 failed, the transaction is saved on the blockchain but marked as failed. The sender of the transaction (matcher) is charged the transaction fee. The transaction doesn't entail any other changes in balances, in particular, the order senders don't pay the [matcher fee](https://docs.waves.exchange/en/waves-matcher/matcher-fee).
+* If checks 1–4 passed but check 6 failed, the transaction is saved on the blockchain but marked as failed. The sender of the transaction (matcher) is charged the transaction fee. The transaction doesn't entail any other changes in balances, in particular, the order senders don't pay the [matcher fee](https://docs.waves.exchange/en/waves-matcher/matcher-fee).
 * If all checks passed, the transaction is saved on the blockchain as successful. The matcher is charged the transaction fee as well as the order senders are charged the matcher fee.
 
-For other transaction:
+For the other transaction:
 * If one of the checks failed, the transaction is rejected.
 * If all checks passed, the transaction is saved on the blockchain as successful and the sender is charged the fee.

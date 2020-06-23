@@ -245,4 +245,4 @@ After activation of feature # 15 â€œRide V4, VRF, Protobuf, Failed transactionsâ
 
 However if the callable function failed with an error or [throwing an exception](/en/ride/exceptions) before the [complexity](/en/ride/base-concepts/complexity) of performed calculations exceeded the [threshold for saving failed transactions](/en/ride/limits/), the transaction is rejected and the fee is not charged.
 
-This rules does not depend on the Standard library used. Keep it in mind when developing a dApp script. For more information, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article.
+This rule doesn't depend on the Standard library version used. Keep it in mind when developing a dApp script. For more information, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article.
