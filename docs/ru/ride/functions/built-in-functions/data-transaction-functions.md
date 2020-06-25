@@ -3,21 +3,21 @@
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
 | 1 | [getInteger(List[DataEntry], String): Int&#124;Unit](#get-integer-key) | Возвращает целое число из списка записей данных по ключу | 10 |
-| 2 | [getInteger(List[DataEntry], Int): Int&#124;Unit](#get-integer-index) | Возвращает целое число из списка записей данных по индексу | 30 |
+| 2 | [getInteger(List[DataEntry], Int): Int&#124;Unit](#get-integer-index) | Возвращает целое число из списка записей данных по индексу | 30 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>4 для Стандартной библиотеки **версии 4** |
 | 3 | [getIntegerValuе(List[DataEntry], String): Int](#get-integer-value-key) | Возвращает целое число из списка записей данных по ключу. Выбрасывает исключение, если данных нет | 10 |
-| 4 | [getIntegerValue(List[DataEntry], Int): Int](#get-integer-value-index) | Возвращает целое число из списка записей данных по индексу. Выбрасывает исключение, если данных нет | 30 |
+| 4 | [getIntegerValue(List[DataEntry], Int): Int](#get-integer-value-index) | Возвращает целое число из списка записей данных по индексу. Выбрасывает исключение, если данных нет | 30 для Стандартной библиотеки **версии 3**<br>4 для Стандартной библиотеки **версии 4** |
 | 5 | [getBoolean(List[DataEntry], String): Boolean&#124;Unit](#get-boolean-key) | Возвращает логическое значение из списка записей данных по ключу | 10 |
-| 6 | [getBoolean(List[DataEntry], Int): Boolean&#124;Unit](#get-boolean-index) | Возвращает логическое значение из списка записей данных по индексу | 30 |
+| 6 | [getBoolean(List[DataEntry], Int): Boolean&#124;Unit](#get-boolean-index) | Возвращает логическое значение из списка записей данных по индексу | 30 для Стандартной библиотеки **версии 3**<br>4 для Стандартной библиотеки **версии 4** |
 | 7 | [getBooleanValue(List[DataEntry], String): Boolean](#get-boolean-value-key) | Возвращает логическое значение из списка записей данных по ключу. Выбрасывает исключение, если данных нет | 10 |
-| 8 | [getBooleanValue(List[DataEntry], Int): Boolean](#get-boolean-value-index) | Возвращает логическое значение из списка записей данных по индексу. Выбрасывает исключение, если данных нет | 30 |
+| 8 | [getBooleanValue(List[DataEntry], Int): Boolean](#get-boolean-value-index) | Возвращает логическое значение из списка записей данных по индексу. Выбрасывает исключение, если данных нет | 30 для Стандартной библиотеки **версии 3**<br>4 для Стандартной библиотеки **версии 4** |
 | 9 | [getBinary(List[DataEntry], String): ByteVector&#124;Unit](#get-binary-key) | Возвращает массив байтов из списка записей данных по ключу | 10 |
-| 10 | [getBinary(List[DataEntry], Int): ByteVector&#124;Unit](#get-binary-index) | Возвращает массив байтов из списка записей данных по индексу | 30 |
+| 10 | [getBinary(List[DataEntry], Int): ByteVector&#124;Unit](#get-binary-index) | Возвращает массив байтов из списка записей данных по индексу | 30 для Стандартной библиотеки **версии 3**<br>4 для Стандартной библиотеки **версии 4** |
 | 11 | [getBinaryValue(List[DataEntry], String): ByteVector](#get-binary-value-key) | Возвращает массив байтов из списка записей данных по ключу. Выбрасывает исключение, если данных нет | 10 |
-| 12 | [getBinaryValue(List[DataEntry], Int): ByteVector](#get-binary-value-index) | Возвращает массив байтов из списка записей данных по индексу. Выбрасывает исключение, если данных нет | 30 |
+| 12 | [getBinaryValue(List[DataEntry], Int): ByteVector](#get-binary-value-index) | Возвращает массив байтов из списка записей данных по индексу. Выбрасывает исключение, если данных нет | 30 для Стандартной библиотеки **версии 3**<br>4 для Стандартной библиотеки **версии 4** |
 | 13 | [getString(List[DataEntry], String): String&#124;Unit](#get-string-key) | Возвращает строку из списка записей данных по ключу | 10 |
-| 14 | [getString(List[DataEntry], Int): String&#124;Unit](#get-string-index) | Возвращает строку из списка записей данных по индексу | 30 |
+| 14 | [getString(List[DataEntry], Int): String&#124;Unit](#get-string-index) | Возвращает строку из списка записей данных по индексу | 30 для Стандартной библиотеки **версии 3**<br>4 для Стандартной библиотеки **версии 4** |
 | 15 | [getStringValue(List[DataEntry], String) : String](#get-string-value-key) | Возвращает строку из списка записей данных по ключу. Выбрасывает исключение, если данных нет | 10 |
-| 16 | [getStringValue(List[DataEntry], Int): String](#get-string-value-index) | Возвращает строку из списка записей данных по индексу. Выбрасывает исключение, если данных нет | 30 |
+| 16 | [getStringValue(List[DataEntry], Int): String](#get-string-value-index) | Возвращает строку из списка записей данных по индексу. Выбрасывает исключение, если данных нет | 30 для Стандартной библиотеки **версии 3**<br>4 для Стандартной библиотеки **версии 4** |
 
 ## getInteger(List[DataEntry], String): Int|Unit <a id="get-integer-key"></a>
 

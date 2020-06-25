@@ -2,7 +2,7 @@
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| [cons](#cons) | Inserts element to the beginning of the [list](/en/ride/data-types/list) | 2 |
+| [cons](#cons) | Inserts element to the beginning of the [list](/en/ride/data-types/list) | 2 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>1 for Standard Library **version 4** |
 | [containsElement](#containselement)  | Check if the element is in the list | 5 |
 | [getElement](#getelement) | Gets the element from the list | 2 |
 | [indexOf](#indexof) | Returns the index of the first occurrence of the element in the list | 5 |

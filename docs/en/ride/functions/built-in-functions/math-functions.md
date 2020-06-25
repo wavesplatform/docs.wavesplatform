@@ -4,7 +4,7 @@
 |:---| :--- | :--- | :--- |
 | 1 | [fraction(Int, Int, Int): Int](#fraction) | Multiplies [integers](/en/ride/data-types/int) `a`, `b` and divides the result by the integer `c` to avoid the integer overflow | 1 |
 | 2 | [log(Int, Int, Int, Int, Int, Union): Int](#log)|  Calculates logarithm of the number `a` with the base `b` | 100 |
-| 3 | [median(List[Int]): Int](#median)|  Returns the median of a list of integers | 10 |
+| 3 | [median(List[Int]): Int](#median)|  Returns the median of a list of integers | 20 |
 | 4 | [pow(Int, Int, Int, Int, Int, Union): Int](#pow) | Raises the number `a` to the power `b`| 100 |
 
 ## fraction(Int, Int, Int): Int<a id="fraction"></a>
