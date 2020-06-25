@@ -2,7 +2,7 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| [bn254groth16Verify](#bn254groth16verify) | Семейство функций.<br>Осуществляют проверку [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу groth16 на кривой bn254 | 800–1650 |
+| [bn256groth16Verify](#bn256groth16verify) | Семейство функций.<br>Осуществляют проверку [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу groth16 на кривой bn254 | 800–1650 |
 | [checkMerkleProof](#checkmerkleproof) | Проверяет, что данные являются частью [дерева Меркла](https://ru.wikipedia.org/wiki/Дерево_хешей) | 30 |
 | [createMerkleRoot](#createmerkleroot) | Вычисляет [корневой хеш дерева Меркла транзакций блока](/ru/blockchain/block/merkle-root) | 30 |
 | [ecrecover](#ecrecover) | Восстанавливает открытый ключ из хеша сообщения и цифровой подписи [ECDSA](https://ru.wikipedia.org/wiki/ECDSA) | 70 |
@@ -12,9 +12,9 @@
 
 ## bn256groth16Verify
 
-Семейство функций. Осуществляют проверку [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) ([доказательства с нулевым разглашением](https://ru.wikipedia.org/wiki/Доказательство_с_нулевым_разглашением)) по протоколу groth16 на кривой bn254.
+Семейство функций. Осуществляют проверку доказательства с нулевым разглашением [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу groth16 на кривой bn254.
 
-> :warning: Семейство функций `bn254groth16Verify` появилось в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+> :warning: Семейство функций `bn256groth16Verify` появилось в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 | Название | Макс. кол-во входов | Сложность |
 |:---| :--- | :--- |
