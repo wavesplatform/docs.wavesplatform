@@ -27,7 +27,7 @@ MassTransferTransaction(feeAssetId: ByteVector|Unit, assetId: ByteVector|Unit, t
 | 3 | totalAmount | [Int](/ru/ride/data-types/int) | Количество переводимого токена |
 | 4 | transfers | [List](/ru/ride/data-types/list)[[Transfer](/ru/ride/structures/common-structures/transfer)] | Переводы |
 | 5 | transferCount | [Int](/ru/ride/data-types/int) | Число переводов |
-| 6 | attachment | В версии 3: [ByteVector](/en/ride/data-types/byte-vector)<br>В версии 4: [Boolean](/en/ride/data-types/boolean)&#124;[ByteVector](/en/ride/data-types/byte-vector)&#124;[Int](/en/ride/data-types/int)&#124;[String](/en/ride/data-types/string) | Произвольные данные, прикрепленные к транзакции. Часто поле используется для прикрепления комментария к транзакции.<br>Максимальный размер данных — 140 байт |
+| 6 | attachment | В версии 3: [ByteVector](/ru/ride/data-types/byte-vector)<br>В версии 4: [Boolean](/ru/ride/data-types/boolean)&#124;[ByteVector](/ru/ride/data-types/byte-vector)&#124;[Int](/ru/ride/data-types/int)&#124;[String](/ru/ride/data-types/string) | Произвольные данные, прикрепленные к транзакции. Часто поле используется для прикрепления комментария к транзакции.<br>Максимальный размер данных — 140 байт |
 | 7 | id | [ByteVector](/ru/ride/data-types/byte-vector) | [ID транзакции](/ru/blockchain/transaction/transaction-id) |
 | 8 | fee | [Int](/ru/ride/data-types/int) | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) |
 | 9 | timestamp | [Int](/ru/ride/data-types/int) | [Временная метка транзакции](/ru/blockchain/transaction/transaction-timestamp) |

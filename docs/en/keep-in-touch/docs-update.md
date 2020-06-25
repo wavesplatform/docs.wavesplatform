@@ -20,7 +20,7 @@ Tools:
 
 #### Built-in Functions
 
-* [bn256groth16Verify](/ru/ride/functions/built-in-functions/verification-functions#bn256groth16verify)
+* [bn256groth16Verify](/en/ride/functions/built-in-functions/verification-functions#bn256groth16verify)
 
 ## May Articles
 
