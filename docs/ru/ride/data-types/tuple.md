@@ -7,6 +7,7 @@
 ```
 Tuple2[T₁,T₂]
 Tuple3[T₁,T₂,T₃]
+...
 Tuple22[T₁,T₂, ..., T₂₂]
 ```
 
