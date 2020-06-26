@@ -3,6 +3,9 @@
 Since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions” the transaction validation procedure is changed.
 
 * Invoke script transactions and exchange transactions are saved on the blockchain and a fee is charged for them even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed.
+
+   However if the callable function failed with an error or [throwing an exception](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/en/ride/exceptions.md) before the [complexity](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/en/ride/base-concepts/complexity.md) of performed calculations exceeded the [threshold for saving failed transactions](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/en/ride/limits/readme.md), the transaction is rejected and the fee is not charged.
+
 * A fee for the invoke script transaction cannot be funded by transfer from dApp to the transaction sender. If sender's balance is insufficient to pay the fee, dApp script is not executed.
 
 [More details about transaction validation](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/en/blockchain/transaction/transaction-validation.md)
