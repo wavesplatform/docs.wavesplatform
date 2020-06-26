@@ -131,7 +131,7 @@ dApp может использовать данные блокчейна:
 Чтобы прикрепить dApp к аккаунту, отправьте с этого аккаунта [транзакцию установки скрипта](/ru/blockchain/transaction-type/set-script-transaction).
 
 Отправить транзакцию установки скрипта можно:
-* В [Waves IDE](https://ide.wavesplatform.com/): создайте или импортируйте аккаунт, откройте dApp-скрипт и нажмите **Deploy**.
+* В [Waves IDE](https://waves-ide.com/): создайте или импортируйте аккаунт, откройте dApp-скрипт и нажмите **Deploy**.
 * С помощью одной из [клиентских библиотек](/ru/building-apps/waves-api-and-sdk/client-libraries/). См. также примеры в разделе [Создание и отправка транзакций](/ru/building-apps/how-to/basic/transaction).
 
 [Пример транзакции](https://wavesexplorer.com/testnet/tx/213JdqCLq6qGLUvoXkMaSA2wLSwdzH24BuhHBhcBeHUR)
@@ -149,7 +149,7 @@ dApp может использовать данные блокчейна:
 Примеры dApp-скриптов можно найти:
 
 * В разделе [Практические руководства](/ru/building-apps/how-to#dapps).
-* В [Waves IDE](https://ide.wavesplatform.com/) в меню **Library**.
+* В [Waves IDE](https://waves-ide.com/) в меню **Library**.
 * На Github в репозитории [ride-examples](https://github.com/wavesplatform/ride-examples/blob/master/welcome.md).
 
 Руководство по созданию dApp приведено в разделе [Создание и запуск dApp](/ru/building-apps/smart-contracts/writing-dapps).

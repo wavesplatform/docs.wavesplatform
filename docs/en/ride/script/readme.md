@@ -16,4 +16,4 @@ See the page [Complexity](/en/ride/base-concepts/complexity).
 
 ## IDE
 
-Use [Waves IDE](https://ide.wavesplatform.com) or Visual Studio Code with [Ride extension](https://marketplace.visualstudio.com/items?itemName=wavesplatform.waves-ride) for writing scripts.
+Use [Waves IDE](https://waves-ide.com) or Visual Studio Code with [Ride extension](https://marketplace.visualstudio.com/items?itemName=wavesplatform.waves-ride) for writing scripts.

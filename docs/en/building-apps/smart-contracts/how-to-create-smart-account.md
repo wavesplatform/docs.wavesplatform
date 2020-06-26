@@ -4,7 +4,7 @@ In this article, we will review the creation of [smart account](/en/blockchain/a
 
 To create smart account in Waves IDE, complete the following steps:
 
-1. Open <https://ide.wavesplatform.com/> in the browser.
+1. Open <https://waves-ide.com/> in the browser.
 2. Click **Add account** in the upper right screen area to open the following drop-down list.
 
 ![](./_assets/add_account.png)

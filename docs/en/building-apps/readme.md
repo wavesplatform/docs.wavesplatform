@@ -22,16 +22,8 @@ Start creating decentralised applications following the steps:
 ## Tools for programming in Ride
 
 - [Visual Studio Code](https://code.visualstudio.com/) with [Ride](https://github.com/wavesplatform/ride-vscode) plugin
-- [Waves IDE](https://ide.wavesplatform.com/) — online application for developing and deploying applications on the blockchain.
+- [Waves IDE](https://waves-ide.com/) — online application for developing and deploying applications on the blockchain.
 - [Surfboard](https://github.com/wavesplatform/Surfboard) — command-line interface for testing and deploying applications on the blockchain.
-
-## Crowdfunding
-
-Place your Waves project and raise funds for it on the crowdfunding platform [Ventuary DAO](https://beta.ventuary.space/).
-
-To place a project, first become a member of the DAO (_Decentralised Autonomous Organization_). Ask any [active user](https://beta.ventuary.space/community) to register you or contact the Ventuary DAO [group](https://t.me/ventuary_dao) in Telegram.
-
-After you become a member of the DAO, you will be able to create projects, vote and invite new users to the Ventuary DAO platform.
 
 ## Community
 

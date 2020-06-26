@@ -2,7 +2,7 @@
 
 Waves ecosystem provides variety of tools for developing and debugging decentralized applications.
 
-* [Waves IDE](https://ide.wavesplatform.com/) is an online environment for developing and testing Ride smart contracts. It also enables creating accounts, signing and sending transactions. It contains a library of code samples. This tool is optimal for starting development on the Waves blockchain. [More about Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide)
+* [Waves IDE](https://waves-ide.com/) is an online environment for developing and testing Ride smart contracts. It also enables creating accounts, signing and sending transactions. It contains a library of code samples. This tool is optimal for starting development on the Waves blockchain. [More about Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide)
 
    [How to create a dApp using Waves IDE](/en/building-apps/smart-contracts/writing-dapps)
 

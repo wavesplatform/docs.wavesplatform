@@ -15,7 +15,7 @@
 
 ## 1. Создание аккаунта главы ТСЖ
 
-Зайдите в настройки [Waves IDE](https://ide.wavesplatform.com/).
+Зайдите в настройки [Waves IDE](https://waves-ide.com/).
 
 ![](./_assets/voting/account-settings.png)
 

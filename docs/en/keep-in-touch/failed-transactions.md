@@ -72,7 +72,7 @@ The `applicationStatus` field for transactions that is added to the blockchain i
 
 Please note: tests now need to check not only that the transaction is added to the blockchain, but also the success of the script.
 
-**How to access**: use Waves IDE for Stagenet <https://ide-stagenet.wavesplatform.com/>.
+**How to access**: use Waves IDE for Stagenet <https://stagenet.waves-ide.com/>.
 
 ## Surfboard
 

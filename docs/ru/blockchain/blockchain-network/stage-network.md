@@ -23,7 +23,7 @@ Testnet и mainnet будут иметь одинаковые версии и б
 Stagenet также доступен на:
 
 * [Waves Explorer](https://stagenet.wavesexplorer.com/stagenet)
-* [Waves IDE](https://ide-stagenet.wavesplatform.com)
+* [Waves IDE](https://stagenet.waves-ide.com)
 * [Waves Keeper](/ru/ecosystem/waves-keeper/)
 
 Если у вас остались вопросы по stagenet, вы можете задать их в Discord на [канале stagenet](https://discordapp.com/channels/420933539375087617/615843628618612746).
