@@ -19,6 +19,8 @@ The invoke script transaction can have payments in favor of dApp applied. Funds 
 
 > Standard library v4 is available starting from node version 1.2.0 after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Node versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
 
+:warning: After activation of the feature #15, the fee for the invoke script transaction cannot be funded by transfer from the dApp to the transaction sender. If sender's balance is insufficient to pay the fee, dApp script is not executed.
+
 ## Version 3
 
 ### Arguments
@@ -238,3 +240,11 @@ func withdraw(amount: Int) = {
 @Verifier(tx)
 func verify() = false
 ```
+
+## Threshold for Saving Failed Transactions
+
+After activation of feature # 15 “Ride V4, VRF, Protobuf, Failed transactions” the invoke script transaction is saved on the blockchain and a fee is charged for it even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed.
+
+However if the callable function failed with an error or [throwing an exception](/en/ride/exceptions) before the [complexity](/en/ride/base-concepts/complexity) of performed calculations exceeded the [threshold for saving failed transactions](/en/ride/limits/), the transaction is rejected and the fee is not charged.
+
+This rule doesn't depend on the Standard library version used. Keep it in mind when developing a dApp script. For more information, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article.

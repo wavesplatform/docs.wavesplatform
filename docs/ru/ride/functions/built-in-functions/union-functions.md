@@ -4,9 +4,9 @@
 | :--- | :--- | :--- | :--- |
 | 1 | [extract(T&#124;Unit): T](#extract) | Возвращает значение из параметра типа данных [объединение](/ru/ride/data-types/union).<br>Выбрасывает исключение, если параметром является [unit](/ru/ride/data-types/unit) | 13 |
 | 2 | [isDefined(List[T]&#124;Unit): Boolean](#isDefined) | Проверяет, относится ли значение параметра к типу [unit](/ru/ride/data-types/unit) | 1 |
-| 3 | [value(T&#124;Unit): T](#value) | Возвращает значение из параметра типа данных [объединение](/ru/ride/data-types/union).<br>Выбрасывает исключение, если параметром является [unit](/ru/ride/data-types/unit) | 13 |
-| 4 | [valueOrElse(T&#124;Unit, T): T](#valueOrElse) | Возвращает из параметра [типа данных объединение](/ru/ride/data-types/union) значение, если оно не является к типу [unit](/ru/ride/data-types/unit). Если значение является пустым, возвращает второй параметр | 13 |
-| 5 | [valueOrErrorMessage(T&#124;Unit, String): T](#value-error) | Возвращает значение из параметра типа данных [объединение](/ru/ride/data-types/union).<br>Если параметром является [unit](/ru/ride/data-types/unit), возвращает сообщение об ошибке, заданное во втором параметре | 13 |
+| 3 | [value(T&#124;Unit): T](#value) | Возвращает значение из параметра типа данных [объединение](/ru/ride/data-types/union).<br>Выбрасывает исключение, если параметром является [unit](/ru/ride/data-types/unit) | 13 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>2 для Стандартной библиотеки **версии 4** |
+| 4 | [valueOrElse(T&#124;Unit, T): T](#valueOrElse) | Возвращает из параметра [типа данных объединение](/ru/ride/data-types/union) значение, если оно не является к типу [unit](/ru/ride/data-types/unit). Если значение является пустым, возвращает второй параметр | 2 |
+| 5 | [valueOrErrorMessage(T&#124;Unit, String): T](#value-error) | Возвращает значение из параметра типа данных [объединение](/ru/ride/data-types/union).<br>Если параметром является [unit](/ru/ride/data-types/unit), возвращает сообщение об ошибке, заданное во втором параметре | 13 для Стандартной библиотеки **версии 3**<br>2 для Стандартной библиотеки **версии 4** |
 
 ## extract(T|Unit): T<a id="extract"></a>
 

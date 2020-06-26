@@ -12,7 +12,7 @@ Version 3 is added in node version 1.2.0 and becomes available after activation 
 message TransferTransactionData {
     Recipient recipient = 1;
     Amount amount = 2;
-    Attachment attachment = 3;
+    bytes attachment = 3;
 };
 
 message Recipient {
@@ -24,15 +24,6 @@ message Recipient {
 message Amount {
     bytes asset_id = 1;
     int64 amount = 2;
-};
-
-message Attachment {
-    oneof attachment {
-        int64 int_value = 1;
-        bool bool_value = 2;
-        bytes binary_value = 3;
-        string string_value = 4;
-    };
 };
 ```
 
