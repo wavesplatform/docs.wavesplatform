@@ -32,9 +32,9 @@ c
 Результат: true
 
 ```
-match x {
-   case _: (String, Int, Boolean) => true
-   case _: (Int, Int, Int)        => false
+match (if true then (1, 2) else (true, "q")) {
+   case _: (Boolean, String) => false
+   case _: (Int, Int)        => true
 }
 ```
 
