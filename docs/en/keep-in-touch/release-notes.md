@@ -31,6 +31,14 @@
   * `GET /blocks/last`
   * `GET /blocks/seq/{from}/{to}`
 * Added the `applicationStatus` field to the following endpoints:
+   * `GET /blocks/{id}`
+   * `GET /blocks/address/{address}/{from}/{to}`
+   * `GET /blocks/at/{height}`
+   * `GET /blocks/last`
+   * `GET /blocks/seq/{from}/{to}`
+   * `GET /debug/stateChanges/address/{address}/limit/{limit}`
+   * `GET /debug/stateChanges/info/{id}`
+   * `GET /transactions/address/{address}/limit/{limit}`
    * `GET /transactions/info/{id}`
    * `GET /transactions/status`
    * `POST /transactions/status`

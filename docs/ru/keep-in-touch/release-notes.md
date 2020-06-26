@@ -30,12 +30,18 @@
    * `GET /blocks/address/{address}/{from}/{to}`
    * `GET /blocks/last`
    * `GET /blocks/seq/{from}/{to}`
-* В следующие методы добавлено поле `applicationStatus`:
+* В методы, которые возвращают транзакции, добавлено поле `applicationStatus`. `"applicationStatus": "scriptExecutionFailed"` означает, что результат выполнения dApp-скрипта или скрипта ассета был неудачным. Список методов:
+   * `GET /blocks/{id}`
+   * `GET /blocks/address/{address}/{from}/{to}`
+   * `GET /blocks/at/{height}`
+   * `GET /blocks/last`
+   * `GET /blocks/seq/{from}/{to}`
+   * `GET /debug/stateChanges/address/{address}/limit/{limit}`
+   * `GET /debug/stateChanges/info/{id}`
+   * `GET /transactions/address/{address}/limit/{limit}`
    * `GET /transactions/info/{id}`
    * `GET /transactions/status`
    * `POST /transactions/status`
-
-   `"applicationStatus": "scriptExecutionFailed"` означает, что результат выполнения dApp-скрипта или скрипта ассета был неудачным.
 * Следующие методы возвращают для транзакций вызова скрипта информацию о выпусках, довыпусках, сжиганиях токена и настройках спонсирования, а для транзакций с неудачным результатом выполнения скрипта — структуру `errorMessage` с описанием причины неудачи:
    * `/debug/stateChanges/address/{address}/limit/{limit}`
    * `/debug/stateChanges/info/{id}`
