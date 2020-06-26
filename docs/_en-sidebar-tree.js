@@ -708,16 +708,20 @@ module.exports = {
           path: ridePath + 'data-types/int',
         },
         {
-          title: 'List',
-          path: ridePath + 'data-types/list',
-        },
-        {
           title: 'String',
           path: ridePath + 'data-types/string',
         },
         {
           title: 'Unit',
           path: ridePath + 'data-types/unit',
+        },
+        {
+          title: 'List',
+          path: ridePath + 'data-types/list',
+        },
+        {
+          title: 'Tuple',
+          path: ridePath + 'data-types/tuple',
         },
         {
           title: 'Union',
