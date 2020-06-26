@@ -5,21 +5,21 @@ The functions listed below retrieve data from the [data transaction](/en/blockch
 | # | Name | Description | Complexity |
 | :--- | :--- | :--- | :--- |
 | 1 | [getInteger(List[DataEntry], String): Int&#124;Unit](#get-integer-string) | Gets an integer value from a list of data entires by key | 10 |
-| 2 | [getInteger(List[DataEntry], Int): Int&#124;Unit](#get-integer-integer) | Gets an integer value from a list of data entires by index | 30 |
+| 2 | [getInteger(List[DataEntry], Int): Int&#124;Unit](#get-integer-integer) | Gets an integer value from a list of data entires by index | 30 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>4 for Standard Library **version 4** |
 | 3 | [getIntegerValue(List[DataEntry], String): Int](#get-integer-value-string) | Gets an integer value from a list of data entires by key. Throws an exception if there is no data | 10 |
-| 4 | [getIntegerValue(List[DataEntry], Int): Int](#get-integer-value-integer) | Gets an integer value from a list of data entires by index. Throws an exception if there is no data | 30 |
+| 4 | [getIntegerValue(List[DataEntry], Int): Int](#get-integer-value-integer) | Gets an integer value from a list of data entires by index. Throws an exception if there is no data | 30 for Standard Library **version 3**<br>4 for Standard Library **version 4** |
 | 5 | [getBoolean(List[DataEntry], String): Boolean&#124;Unit](#get-boolean-string) | Gets a boolean value from a list of data entires by key | 10 |
-| 6 | [getBoolean(List[DataEntry], Int): Boolean&#124;Unit](#get-boolean-integer) | Gets a boolean value from a list of data entires by index | 30 |
+| 6 | [getBoolean(List[DataEntry], Int): Boolean&#124;Unit](#get-boolean-integer) | Gets a boolean value from a list of data entires by index | 30 for Standard Library **version 3**<br>4 for Standard Library **version 4** |
 | 7 | [getBooleanValue(List[DataEntry], String): Boolean](#get-boolean-value-string) | Gets a boolean value from a list of data entires by key. Throws an exception if there is no data | 10 |
-| 8 | [getBooleanValue(List[DataEntry], Int: Boolean](#get-boolean-value-integer) | Gets a boolean value from a list of data entires by index. Throws an exception if there is no data | 30 |
+| 8 | [getBooleanValue(List[DataEntry], Int: Boolean](#get-boolean-value-integer) | Gets a boolean value from a list of data entires by index. Throws an exception if there is no data | 30 for Standard Library **version 3**<br>4 for Standard Library **version 4** |
 | 9 | [getBinary(List[DataEntry], String): ByteVector&#124;Unit](#get-binary-string) | Gets a binary value from a list of data entires by key | 10 |
-| 10 | [getBinary(List[DataEntry], Int): ByteVector&#124;Unit](#get-binary-integer) | Gets a binary value from a list of data entires by index | 30 |
+| 10 | [getBinary(List[DataEntry], Int): ByteVector&#124;Unit](#get-binary-integer) | Gets a binary value from a list of data entires by index | 30 for Standard Library **version 3**<br>4 for Standard Library **version 4** |
 | 11 | [getBinaryValue(List[DataEntry], String): ByteVector](#get-binary-value-string) | Gets a binary value from a list of data entires by key. Throws an exception if there is no data | 10 |
-| 12 | [getBinaryValue(List[DataEntry], Int): ByteVector](#get-binary-value-integer) | Gets a binary value from a list of data entires by index. Throws an exception if there is no data | 30 |
+| 12 | [getBinaryValue(List[DataEntry], Int): ByteVector](#get-binary-value-integer) | Gets a binary value from a list of data entires by index. Throws an exception if there is no data | 30 for Standard Library **version 3**<br>4 for Standard Library **version 4** |
 | 13 | [getString(List[DataEntry] String): String&#124;Unit](#get-string-string) | Gets a string value from a list of data entires by key | 10 |
-| 14 | [getString(List[DataEntry], Int): String&#124;Unit](#get-string-integer) | Gets a string value from a list of data entires by index | 30 |
+| 14 | [getString(List[DataEntry], Int): String&#124;Unit](#get-string-integer) | Gets a string value from a list of data entires by index | 30 for Standard Library **version 3**<br>4 for Standard Library **version 4** |
 | 15 | [getStringValue(List[DataEntry], String): String](#get-string-value-string) | Gets a string value from a list of data entires by key. Throws an exception if there is no data | 10 |
-| 16 | [getStringValue(List[DataEntry], Int): String](#get-string-value-integer) | Gets a string value from a list of data entires by index. Throws an exception if there is no data | 30 |
+| 16 | [getStringValue(List[DataEntry], Int): String](#get-string-value-integer) | Gets a string value from a list of data entires by index. Throws an exception if there is no data | 30 for Standard Library **version 3**<br>4 for Standard Library **version 4** |
 
 ## getInteger(List[DataEntry], String): Int|Unit<a id="get-integer-string"></a>
 
