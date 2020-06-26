@@ -30,3 +30,12 @@ c
 ```
 
 Result: true
+
+```
+match x {
+   case _: (String, Int, Boolean) => true
+   case _: (Int, Int, Int)        => false
+}
+```
+
+Result: true
