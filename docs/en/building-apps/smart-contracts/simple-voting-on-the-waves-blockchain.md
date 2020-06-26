@@ -15,7 +15,7 @@ Objective: implement such voting among tenants on the Waves blockchain.
 
 ## 1. Creation of the account of the head of the HOA
 
-Go to the [Waves IDE](https://ide.wavesplatform.com) settings.
+Go to the [Waves IDE](https://waves-ide.com) settings.
 
 ![](./_assets/voting/account-settings.png)
 

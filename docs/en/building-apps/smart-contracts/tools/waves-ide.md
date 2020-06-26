@@ -15,8 +15,8 @@ Key features:
 * Running JavaScript tests.
 
 Waves IDE address:
-* <https://ide.wavesplatform.com/> – the major environment.
-* <https://ide-stagenet.wavesplatform.com/> – the environment with support for new features of [Standart library version 4](/en/ride/script/standard-library) which is added in node version 1.2 and now available on Stagenet only.
+* <https://waves-ide.com/> – the major environment.
+* <https://stagenet.waves-ide.com/> – the environment with support for new features of [Standart library version 4](/en/ride/script/standard-library) which is added in node version 1.2 and now available on Stagenet only.
 
 ## Configuration
 

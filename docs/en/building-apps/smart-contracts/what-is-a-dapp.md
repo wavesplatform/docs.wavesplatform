@@ -131,7 +131,7 @@ To assign dApp script to an account you need to send a [set script transaction](
 
 There are the following options to send the transaction:
 
-* In [Waves IDE](https://ide.wavesplatform.com/) create or import an account, open the dApp script and click **Deploy**.
+* In [Waves IDE](https://waves-ide.com/) create or import an account, open the dApp script and click **Deploy**.
 * Using [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/). See some examples of sending a transaction in the [Creating & Broadcasting Transactions](/en/building-apps/how-to/basic/transaction) article.
 
 [Set script transaction example](https://wavesexplorer.com/testnet/tx/213JdqCLq6qGLUvoXkMaSA2wLSwdzH24BuhHBhcBeHUR)
@@ -149,7 +149,7 @@ Limitations on the size, complexity of the script, as well as on functions and v
 Find dApp script examples:
 
 * In the [How-to Guides](/en/building-apps/how-to#dapps) chapter.
-* In [Waves IDE](https://ide.wavesplatform.com/) in the **Library** menu.
+* In [Waves IDE](https://waves-ide.com/) in the **Library** menu.
 * In Github repository [ride-examples](https://github.com/wavesplatform/ride-examples/blob/master/welcome.md).
 
 For tutorial on creating dApp, see the [Creating & Launching dApp](/en/building-apps/smart-contracts/writing-dapps) article.
