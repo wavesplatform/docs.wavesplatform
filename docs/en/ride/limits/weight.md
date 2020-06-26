@@ -25,9 +25,9 @@ where:
 * Q is a number of elements.
 * W<sub>elems</sub> is a total weight of elements.
 
-### Weight of Structure
+### Weight of Tuple or Structure
 
-The weight of the structure is calculated as follows:
+The weight of the tuple or structure is calculated as follows:
 
 W<sub>struct</sub> = 40 + 30 × Q + W<sub>fields</sub>
 
