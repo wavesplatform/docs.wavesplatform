@@ -16,6 +16,9 @@ Tools:
 * [Surfboard](/en/building-apps/smart-contracts/tools/surfboard)
 * [Ride REPL](/en/building-apps/smart-contracts/tools/repl)
 
+### Ride
+
+* [Tuple](/en/ride/data-types/tuple)
 
 ## May Articles
 

@@ -4,7 +4,7 @@
 
 The list may contain elements of various types, including nested lists.
 
-The maximim number of list items is 1000. The nesting depth is not limited. For weight restrictions, see the [Data Weight](/en/ride/limits/weight).
+The maximim number of list items is 1000. The nesting depth is not limited. For weight restrictions, see the [Data Weight](/en/ride/limits/weight) article.
 
 ## List Operations
 
