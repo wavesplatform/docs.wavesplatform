@@ -23,7 +23,7 @@ There are different options to install Waves node. The installation methods are 
 
 ## Get Actual Blockchain
 
-A running node requires blockchain database. Use one of the methods described in [Get Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article to get the latest blockchain database.
+A running node requires blockchain database. Use one of the methods described in [Synchronize Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article to get the latest blockchain database.
 
 ## Upgrade a Node
 
@@ -39,4 +39,4 @@ You can check the blockchain height or the last 100 signatures of blocks to unde
 Your node can be on fork with height **less** than 2000 blocks or **more** than 2000 blocks.
 
 * In case that your node is on fork with a height less than 2000 blocks, you can implement rollback and restart the node to begin generating blocks as described in [Rollback Waves Node](/en/waves-node/how-to-rollback-a-node) article.
-* Otherwise, you need to go with one of the options described in [Get Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article.
+* Otherwise, you need to go with one of the options described in [Synchronize Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article.

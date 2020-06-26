@@ -9,6 +9,14 @@ Added guides:
 * [How to Create dApp: Complete Tutorial](/en/building-apps/smart-contracts/writing-dapps)
 * [Get Order List](/en/building-apps/how-to/basic/trading#get-order-list)
 
+Tools:
+
+* [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide)
+* [Visual Studio Code Extension](/en/building-apps/smart-contracts/tools/ride-vscode)
+* [Surfboard](/en/building-apps/smart-contracts/tools/surfboard)
+* [Ride REPL](/en/building-apps/smart-contracts/tools/repl)
+
+
 ## May Articles
 
 ### Blockchain

@@ -525,11 +525,11 @@ module.exports = {
       ],
     },
 	{
-      title: 'Get Waves Blockchain',
+      title: 'Synchronize Waves Blockchain',
       path: nodePath + 'options-for-getting-actual-blockchain',
       children: [
         {
-          title: 'Export/Import Blockchain',
+          title: 'Import/Export Blockchain',
           path: nodePath + 'options-for-getting-actual-blockchain/import-from-the-blockchain',
         },
         {
@@ -1211,7 +1211,15 @@ module.exports = {
           path: programmingPath + 'tools/waves-ide',
         },
         {
-          title: 'REPL',
+          title: 'Visual Studio Code Extension',
+          path: programmingPath + 'tools/ride-vscode',
+        },
+        {
+          title: 'Surfboard',
+          path: programmingPath + 'tools/surfboard',
+        },
+        {
+          title: 'Ride REPL',
           path: programmingPath + 'tools/repl',
         },
       ],

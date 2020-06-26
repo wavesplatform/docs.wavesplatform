@@ -63,13 +63,13 @@ npm i @waves/node-api-js@beta
 
 [Все изменения Waves Explorer](/ru/keep-in-touch/release-notes#waves-explorer)
 
-## Waves IDE (ide-stagenet.wavesplatform.com)
+## Waves IDE (stagenet.waves-ide.com)
 
 Поле `applicationStatus` поддерживается для транзакций, добавленных на блокчейн, в JavaScript-консоли и в тестах.
 
 Обратите внимание: в тестах теперь необходимо проверять не только появление транзакции на блокчейне, но и успешность выполнения скрипта.
 
-**Как воспользоваться**: Waves IDE для Stagenet доступна по адресу <https://ide-stagenet.wavesplatform.com/>.
+**Как воспользоваться**: Waves IDE для Stagenet доступна по адресу <https://stagenet.waves-ide.com/>.
 
 ## Surfboard
 

@@ -529,11 +529,11 @@ module.exports = {
       ],
     },
 	{
-      title: 'Загрузить блокчейн Waves',
+      title: 'Синхронизировать блокчейн Waves',
       path: nodePath + 'options-for-getting-actual-blockchain',
       children: [
         {
-          title: 'Экспортировать и импортировать блокчейн',
+          title: 'Импортировать и экспортировать блокчейн',
           path: nodePath + 'options-for-getting-actual-blockchain/import-from-the-blockchain',
         },
         {
@@ -1179,7 +1179,15 @@ module.exports = {
           path: programmingPath + 'tools/waves-ide',
         },
         {
-          title: 'REPL',
+          title: 'Расширение для VS Code',
+          path: programmingPath + 'tools/ride-vscode',
+        },
+        {
+          title: 'Surfboard',
+          path: programmingPath + 'tools/surfboard',
+        },
+        {
+          title: 'Ride REPL',
           path: programmingPath + 'tools/repl',
         },
       ],

@@ -338,7 +338,7 @@ In case of a success, new data will be stored in the state.
 - `*senderPublicKey`: string – sender's public key in base58.
 - `*timestamp`: number/string – time in ms.
 
-For cancelling a script the field `script` has to be "". [Script development on RIDE](https://ide.wavesplatform.com/)
+For cancelling a script the field `script` has to be "". [Script development on RIDE](https://waves-ide.com/)
 
 Example:
 
@@ -421,7 +421,7 @@ In case of a success, a transfer fee can be paid in the asset.
 - `*senderPublicKey`: string – sender's public key in base58.
 - `*timestamp`: number/string – time in ms.
 
-It's now impossible to cancel a script, you can only add a new script. [Script development on RIDE](https://ide.wavesplatform.com/)
+It's now impossible to cancel a script, you can only add a new script. [Script development on RIDE](https://waves-ide.com/)
 
 Example:
 
