@@ -45,7 +45,7 @@
 
 * Децентрализованная биржа [Waves.Exchange](https://docs.waves.exchange/ru/), разработанная командой Waves.Exchange: 
 
-   | Сеть блокчейна | Адрес онлайн-приложения Waves.Exchange |
+   | Сеть блокчейна | Адрес онлайн-приложения |
    | :--- | :--- |
    | Mainnet | <https://waves.exchange/> |
    | Testnet | <https://testnet.waves.exchange/> |
@@ -53,12 +53,16 @@
 
 * API [матчера](/ru/blockchain/glossary#матчер) Waves.Exchange:
 
+   | Сеть блокчейна | Адрес матчера |
+   | :--- | :--- |
    | Mainnet | <https://matcher.waves.exchange/> |
    | Testnet | <https://matcher-testnet.wavesnodes.com/> |
    | Stagenet | <https://matcher-stagenet.wavesplatform.com/> |
 
 * [Waves Explorer](/ru/ecosystem/waves-explorer/about-waves-explorer):
 
+   | Сеть блокчейна | Waves Explorer |
+   | :--- | :--- |
    | Mainnet | <https://wavesexplorer.com/><br>Нажмите ![](./_assets/settings.png) и переключитесь на ![](./_assets/mainnet.png) |
    | Testnet | <https://wavesexplorer.com/><br>Нажмите ![](./_assets/settings.png) и переключитесь на ![](./_assets/testnet.png) |
    | Stagenet | <https://stagenet.wavesexplorer.com/> |
@@ -66,22 +70,28 @@
 
 * Получение токенов
 
-   | Mainnet | <https://matcher.waves.exchange/> |
-   | Testnet | <https://matcher-testnet.wavesnodes.com/> |
-   | Stagenet | <https://matcher-stagenet.wavesplatform.com/> |
+   |  |  |
+   | :--- | :--- |
+   | Mainnet | Купить на Waves.Exchange |
+   | Testnet | [Получить 10 WAVES](https://wavesexplorer.com/testnet/faucet) |
+   | Stagenet |  [Получить 10 WAVES](https://stagenet.wavesexplorer.com/faucet) |
 
 * [Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide)
 
-   | Сеть блокчейна | Waves IDE |
+   | | |
    | :--- | :--- |
-   | Mainnet | <https://wavesexplorer.com/><br>Нажмите ![](./_assets/settings.png) и переключитесь на ![](./_assets/mainnet.png) |
-   | Testnet | <https://wavesexplorer.com/><br>Нажмите ![](./_assets/settings.png) и переключитесь на ![](./_assets/testnet.png) |
-   | Stagenet | <https://stagenet.wavesexplorer.com/> |
-   | Custom | Нажмите ![](./_assets/explorer-custom.png) и укажите URL ноды*, затем переключитесь на Custom<br>Или запустите Waves Explorer из Docker, см. [инструкцию](https://habr.com/ru/company/waves/blog/459773/) |
+   | Mainnet | <https://waves-ide.com/><br>Нажмите ![](./_assets/ide-settings.png) и отметьте Mainnet |
+   | Testnet | <https://waves-ide.com/><br>Нажмите ![](./_assets/ide-settings.png) и отметьте Testnet |
+   | Stagenet | <https://stagenet.waves-ide.com/> |
+   | Custom | Нажмите ![](./_assets/ide-settings.png), в секции **Custom nodes** укажите URL ноды и байт сети* |
 
-| [Waves Explorer](/ru/ecosystem/waves-explorer/about-waves-explorer) | |  |  | <br> |
-| Получение токенов | Купить на Waves.Exchange | [Получить 10 WAVES](https://wavesexplorer.com/testnet/faucet) | [Получить 10 WAVES](https://stagenet.wavesexplorer.com/faucet) | — | 
-|  | <https://waves-ide.com/><br>Нажмите ![](./_assets/ide-settings.png) и отметьте Mainnet | <https://waves-ide.com/><br>Нажмите ![](./_assets/ide-settings.png) и отметьте Testnet | <https://stagenet.waves-ide.com/> | Нажмите ![](./_assets/ide-settings.png), в секции **Custom nodes** укажите URL ноды и байт сети* |
-| [Waves Keeper](/ru/ecosystem/waves-keeper/) | В окне Waves Keeper переключитесь на ![](./_assets/keeper-mainnet.png) | В окне Waves Keeper переключитесь на ![](./_assets/keeper-testnet.png) | В окне Waves Keeper переключитесь на ![](./_assets/keeper-stagenet.png) |В окне Waves Keeper переключитесь на ![](./_assets/keeper-custom.png). Укажите URL ноды и матчера
+* [Waves Keeper](/ru/ecosystem/waves-keeper/)
+
+   | Сеть блокчейна | Адрес матчера |
+   | :--- | :--- |
+   | Mainnet | В окне Waves Keeper переключитесь на ![](./_assets/keeper-mainnet.png) |
+   | Testnet | В окне Waves Keeper переключитесь на ![](./_assets/keeper-testnet.png) |
+   | Stagenet | В окне Waves Keeper переключитесь на ![](./_assets/keeper-stagenet.png) |
+   | Custom |В окне Waves Keeper переключитесь на ![](./_assets/keeper-custom.png)<br>Укажите URL ноды и матчера |
 
 \* Подходит только для нод с поддержкой HTTPS.
