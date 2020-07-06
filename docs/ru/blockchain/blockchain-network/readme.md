@@ -33,65 +33,77 @@
 
 ## Инструменты
 
-Приложения, составляющие экосистему Waves, предоставляют возможность работать с разными сетями блокчейна.
+Приложения экосистемы Waves предоставляют возможность работать с разными сетями блокчейна.
 
-* API пула публичных нод: адрес для отправки транзакций и чтения данных блокчейна:
+### API пула публичных нод
 
-   | Сеть блокчейна | Адрес пула |
-   | :--- | :--- |
-   | Mainnet | <https://nodes.wavesnodes.com/> |
-   | Testnet | <https://nodes-testnet.wavesnodes.com/> |
-   | Stagenet | <https://nodes-stagenet.wavesnodes.com/> |
+Адрес для отправки транзакций и чтения данных блокчейна:
 
-* Децентрализованная биржа [Waves.Exchange](https://docs.waves.exchange/ru/), разработанная командой Waves.Exchange: 
+| | |
+| :--- | :--- |
+| Mainnet | <https://nodes.wavesnodes.com/> |
+| Testnet | <https://nodes-testnet.wavesnodes.com/> |
+| Stagenet | <https://nodes-stagenet.wavesnodes.com/> |
 
-   | Сеть блокчейна | Адрес онлайн-приложения |
-   | :--- | :--- |
-   | Mainnet | <https://waves.exchange/> |
-   | Testnet | <https://testnet.waves.exchange/> |
-   | Stagenet | <https://stagenet.waves.exchange/> |
+### Waves.Exchange
 
-* API [матчера](/ru/blockchain/glossary#матчер) Waves.Exchange:
+[Waves.Exchange](https://docs.waves.exchange/ru/) — децентрализованная биржа, разработанная командой Waves.Exchange:
 
-   | Сеть блокчейна | Адрес матчера |
-   | :--- | :--- |
-   | Mainnet | <https://matcher.waves.exchange/> |
-   | Testnet | <https://matcher-testnet.wavesnodes.com/> |
-   | Stagenet | <https://matcher-stagenet.wavesplatform.com/> |
+| | |
+| :--- | :--- |
+| Mainnet | <https://waves.exchange/> |
+| Testnet | <https://testnet.waves.exchange/> |
+| Stagenet | <https://stagenet.waves.exchange/> |
 
-* [Waves Explorer](/ru/ecosystem/waves-explorer/about-waves-explorer):
+### API матчера Waves.Exchange
 
-   | Сеть блокчейна | Waves Explorer |
-   | :--- | :--- |
-   | Mainnet | <https://wavesexplorer.com/><br>Нажмите ![](./_assets/settings.png) и переключитесь на ![](./_assets/mainnet.png) |
-   | Testnet | <https://wavesexplorer.com/><br>Нажмите ![](./_assets/settings.png) и переключитесь на ![](./_assets/testnet.png) |
-   | Stagenet | <https://stagenet.wavesexplorer.com/> |
-   | Custom | Нажмите ![](./_assets/explorer-custom.png) и укажите URL ноды*, затем переключитесь на Custom<br>Или запустите Waves Explorer из Docker, см. [инструкцию](https://habr.com/ru/company/waves/blog/459773/) |
+Адрес для отправки ордеров и получения рыночных данных:
 
-* Получение токенов
+| | |
+| :--- | :--- |
+| Mainnet | <https://matcher.waves.exchange/> |
+| Testnet | <https://matcher-testnet.wavesnodes.com/> |
+| Stagenet | <https://matcher-stagenet.wavesplatform.com/> |
 
-   |  |  |
-   | :--- | :--- |
-   | Mainnet | Купить на Waves.Exchange |
-   | Testnet | [Получить 10 WAVES](https://wavesexplorer.com/testnet/faucet) |
-   | Stagenet |  [Получить 10 WAVES](https://stagenet.wavesexplorer.com/faucet) |
+### Waves Explorer
 
-* [Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide)
+[Waves Explorer](/ru/ecosystem/waves-explorer/about-waves-explorer) — сервис для просмотра данных блокчейна:
 
-   | | |
-   | :--- | :--- |
-   | Mainnet | <https://waves-ide.com/><br>Нажмите ![](./_assets/ide-settings.png) и отметьте Mainnet |
-   | Testnet | <https://waves-ide.com/><br>Нажмите ![](./_assets/ide-settings.png) и отметьте Testnet |
-   | Stagenet | <https://stagenet.waves-ide.com/> |
-   | Custom | Нажмите ![](./_assets/ide-settings.png), в секции **Custom nodes** укажите URL ноды и байт сети* |
+| | |
+| :--- | :--- |
+| Mainnet | <https://wavesexplorer.com/><br>Нажмите ![](./_assets/settings.png) и переключитесь на ![](./_assets/mainnet.png) |
+| Testnet | <https://wavesexplorer.com/><br>Нажмите ![](./_assets/settings.png) и переключитесь на ![](./_assets/testnet.png) |
+| Stagenet | <https://stagenet.wavesexplorer.com/> |
+| Custom | Нажмите ![](./_assets/explorer-custom.png) и укажите URL ноды*, затем переключитесь на Custom<br>Или запустите Waves Explorer из Docker, см. [инструкцию](https://habr.com/ru/company/waves/blog/459773/) |
 
-* [Waves Keeper](/ru/ecosystem/waves-keeper/)
+### Получение токенов
 
-   | Сеть блокчейна | Адрес матчера |
-   | :--- | :--- |
-   | Mainnet | В окне Waves Keeper переключитесь на ![](./_assets/keeper-mainnet.png) |
-   | Testnet | В окне Waves Keeper переключитесь на ![](./_assets/keeper-testnet.png) |
-   | Stagenet | В окне Waves Keeper переключитесь на ![](./_assets/keeper-stagenet.png) |
-   | Custom |В окне Waves Keeper переключитесь на ![](./_assets/keeper-custom.png)<br>Укажите URL ноды и матчера |
+|  |  |
+| :--- | :--- |
+| Mainnet | Купить на Waves.Exchange |
+| Testnet | [Получить 10 WAVES](https://wavesexplorer.com/testnet/faucet) |
+| Stagenet |  [Получить 10 WAVES](https://stagenet.wavesexplorer.com/faucet) |
+
+### Waves IDE
+
+[Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide) — онлайн-среда для разработки и тестирования смарт-контрактов:
+
+| | |
+| :--- | :--- |
+| Mainnet | <https://waves-ide.com/><br>Нажмите ![](./_assets/ide-settings.png) и отметьте Mainnet |
+| Testnet | <https://waves-ide.com/><br>Нажмите ![](./_assets/ide-settings.png) и отметьте Testnet |
+| Stagenet | <https://stagenet.waves-ide.com/> |
+| Custom | Нажмите ![](./_assets/ide-settings.png), в секции **Custom nodes** укажите URL ноды и байт сети* |
+
+### Waves Keeper
+
+[Waves Keeper](/ru/ecosystem/waves-keeper/) — расширение браузера для подписания транзакций и управления ключами аккаунта.
+
+| | |
+| :--- | :--- |
+| Mainnet | В окне Waves Keeper переключитесь на ![](./_assets/keeper-mainnet.png) |
+| Testnet | В окне Waves Keeper переключитесь на ![](./_assets/keeper-testnet.png) |
+| Stagenet | В окне Waves Keeper переключитесь на ![](./_assets/keeper-stagenet.png) |
+| Custom | В окне Waves Keeper переключитесь на ![](./_assets/keeper-custom.png).<br>Укажите URL ноды и матчера |
 
 \* Подходит только для нод с поддержкой HTTPS.
