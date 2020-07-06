@@ -10,6 +10,8 @@
 
 ## extract(T|Unit): T<a id="extract"></a>
 
+> :warning: Функция `extract` не входит в [Стандартную библиотеку](/ru/ride/script/standard-library) версии 4. Используйте `value` вместо нее.
+
 Возвращает значение из параметра типа данных [объединение](/ru/ride/data-types/union).
 
 Выбрасывает исключение, если параметром является [unit](/ru/ride/data-types/unit).

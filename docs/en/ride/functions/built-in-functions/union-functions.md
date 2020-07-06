@@ -10,6 +10,8 @@
 
 ## extract(T|Unit): T<a id="extract"></a>
 
+> :warning: This function is disabled in [Standard library](/en/ride/script/standard-library) version 4. Use `value]` instead of it.
+
 Gets a data type from a [union](/en/ride/data-types/union).
 
 ``` ride
