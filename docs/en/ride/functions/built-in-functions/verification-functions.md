@@ -11,7 +11,7 @@
 
 ## checkMerkleProof
 
-> :warning: This function is disabled in [Standard library](/en/ride/script/standard-library) version 4. Use `createMerkleRoot]` instead of it.
+> :warning: This function is disabled in [Standard library](/en/ride/script/standard-library) version 4. Use `createMerkleRoot` instead of it.
 
 Checks that the data is part of the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree).
 
