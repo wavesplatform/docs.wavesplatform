@@ -14,12 +14,14 @@ The price data originates from [data requests](https://github.com/bandprotocol/b
 
 These prices are automatically updated every 5 minutes. The smart contract itself is currently deployed on Waves testnet at [`3N54eKW5ZucDaRaGVUfzX8xRXv6Ve8M71tM`](https://wavesexplorer.com/testnet/address/3N54eKW5ZucDaRaGVUfzX8xRXv6Ve8M71tM/script).
 
-The prices themselves are the mean of the values retrieved by BandChain's validators from [CoinGecko](https://www.coingecko.com/api/documentations/v3), [CryptoCompare](https://min-api.cryptocompare.com/), and [Binance](https://github.com/binance-exchange/binance-official-api-docs/blob/master/rest-api.md) APIs. The data request is then made by executing Band's [Crypto Price in USD oracle script](https://docs.bandchain.org/built-in-oracle-scripts/crypto-price-1), the code of which you can view on [their devnet](https://guanyu-devnet.cosmoscan.io/oracle-script/1). Along with the price data, developers will also have access to the following parameters:
+The prices themselves are the mean of the values retrieved by BandChain's validators from [CoinGecko](https://www.coingecko.com/api/documentations/v3), [CryptoCompare](https://min-api.cryptocompare.com/), and [Binance](https://github.com/binance-exchange/binance-official-api-docs/blob/master/rest-api.md) APIs. The data request is then made by executing Band's [Crypto Price in USD oracle script](https://docs.bandchain.org/built-in-oracle-scripts/crypto-price-1), the code of which you can view on [their devnet](https://guanyu-devnet.cosmoscan.io/oracle-script/1).
+
+Price data are stored in the smart contract's account data storage as the entries with the following keys: `BTC/value`, `WAVES/value`, `WAVES/value`. Along with the price data, developers will also have access to the following parameters:
 
 - The symbol of the token associated with the price
 - The multiplier used to calculate the stored price value
-- The timestamp of when the specific price request was resolved on BandChain
-- The Waves network block time at which the specific price data was updated
+- The timestamp of when the specific price request was resolved on BandChain (`BTC/latest_update_time`, `WAVES/latest_update_time`, `WAVES/latest_update_time` entries)
+- The Waves network block height at which the specific price data was updated (`BTC/latest_block`, `WAVES/latest_block`, `WAVES/latest_block` entries)
 
 These parameters are intended to act as security parameters to help anyone using the data to verify that the data they are using is what they expect and, perhaps more importantly, actually valid.
 
@@ -60,7 +62,7 @@ func readFromBridge(symbol: String) = {
 
 Looking at the example contract above in more detail, it consists of two main functions.
 
-First, there is the `getBridgeAddress` helper function. The function simply to retrieve address of the bridge contract. If the retrieval is successful, it returns the address. Otherwise, it throws an error and reverts the transaction.
+First, there is the `getBridgeAddress` helper function. The function simply to retrieve address of the bridge contract. If the retrieval is successful, it returns the address. Otherwise, it throws an exception and reverts the transaction.
 
 The contract's main application logic is then specified in `readFromBridge`. The function starts off by setting `maxBlockHeightDeviation`. This is the maximum difference between the currenct block height and the block height at which the price data was updated that we'll allow. 
 
