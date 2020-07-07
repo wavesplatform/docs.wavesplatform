@@ -1131,7 +1131,11 @@ module.exports = {
         {
           title: 'Simple Voting',
           path: programmingPath + 'simple-voting-on-the-waves-blockchain',
-        }
+        },
+        {
+          title: 'Reading Band's Price Data',
+          path: programmingPath + 'how-to/dapp/band-price-oracle',
+        },
       ]
     },
     {

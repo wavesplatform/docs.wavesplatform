@@ -1,5 +1,13 @@
 # Documentation Updates
 
+## July Articles
+
+### Building Apps
+
+Added guides:
+
+* [How to Read Price Data Provided by Band Protocol’s Oracle](/en/building-apps/smart-contracts/dapp/band-price-oracle)
+
 ## June Articles
 
 ### Building Apps
