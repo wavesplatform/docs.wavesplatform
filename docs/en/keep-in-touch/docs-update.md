@@ -6,7 +6,7 @@
 
 Added guides:
 
-* [How to Read Price Data Provided by Band Protocol’s Oracle](/en/building-apps/smart-contracts/dapp/band-price-oracle)
+* [How to Read Price Data Provided by Band Protocol’s Oracle](/en/building-apps/how-to/dapp/band-price-oracle)
 
 ## June Articles
 
