@@ -1134,7 +1134,7 @@ module.exports = {
         },
         {
           title: 'Reading Band’s Price Data',
-          path: programmingPath + 'how-to/dapp/band-price-oracle',
+          path: buildingAppsPath + 'how-to/dapp/band-price-oracle',
         },
       ]
     },
