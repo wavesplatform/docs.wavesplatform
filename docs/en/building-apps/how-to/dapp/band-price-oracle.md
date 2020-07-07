@@ -20,8 +20,8 @@ Price data are stored in the smart contract's account data storage as the entrie
 
 - The symbol of the token associated with the price
 - The multiplier used to calculate the stored price value
-- The timestamp of when the specific price request was resolved on BandChain (`BTC/latest_update_time`, `WAVES/latest_update_time`, `WAVES/latest_update_time` entries)
-- The Waves network block height at which the specific price data was updated (`BTC/latest_block`, `WAVES/latest_block`, `WAVES/latest_block` entries)
+- The timestamp of when the specific price request was resolved on BandChain: `BTC/latest_update_time`, `WAVES/latest_update_time`, `WAVES/latest_update_time` entries
+- The Waves network block height at which the specific price data was updated: `BTC/latest_block`, `WAVES/latest_block`, `WAVES/latest_block` entries
 
 These parameters are intended to act as security parameters to help anyone using the data to verify that the data they are using is what they expect and, perhaps more importantly, actually valid.
 
@@ -33,7 +33,7 @@ For the ease of development, the Band Foundation will be maintaining and updatin
 
 The code below shows an example of a relatively simple price database smart contract on Waves which retrieve price data from Band's bridge contract and store it in the contract's state. 
 
-Specifically, the contract is set to only store price data from the bridge contract if the token symbol is one of `BTC`,`ETH`, or `WAVES`. For more information on what oracle scripts are and how data requests work on BandChain in general, please see their [wiki](https://github.com/bandprotocol/bandchain/wiki/System-Overview#oracle-data-request) and [developer documentation](https://docs.bandchain.org/dapp-developers/requesting-data-from-bandchain)
+Specifically, the contract is set to only store price data from the bridge contract if the token symbol is one of `BTC`, `ETH`, or `WAVES`. For more information on what oracle scripts are and how data requests work on BandChain in general, please see their [wiki](https://github.com/bandprotocol/bandchain/wiki/System-Overview#oracle-data-request) and [developer documentation](https://docs.bandchain.org/dapp-developers/requesting-data-from-bandchain)
 
 ```python
 {-# STDLIB_VERSION 3 #-}
