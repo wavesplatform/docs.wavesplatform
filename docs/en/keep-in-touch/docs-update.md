@@ -8,6 +8,12 @@ Added guides:
 
 * [How to Read Price Data Provided by Band Protocol’s Oracle](/en/building-apps/how-to/dapp/band-price-oracle)
 
+### Ride
+
+#### Built-in Functions
+
+* [removeByIndex](/en/ride/functions/built-in-functions/list-functions#removeByIndex)
+
 ## June Articles
 
 ### Building Apps

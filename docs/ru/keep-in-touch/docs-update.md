@@ -1,5 +1,13 @@
 # Обновления в документации
 
+## Июльские статьи
+
+### Ride
+
+#### Встроенные функции
+
+* [removeByIndex](/ru/ride/functions/built-in-functions/list-functions#removeByIndex)
+
 ## Июньские статьи
 
 ### Разработка приложений на блокчейне
