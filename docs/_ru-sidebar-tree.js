@@ -216,11 +216,51 @@ module.exports = {
       ],
     },
     {
+      title: 'Блок',
+      path: blockchainPath + 'block',
+      children: [
+        {
+          title: 'Генерация блока',
+          path: blockchainPath + 'block/block-generation',
+          children: [
+            {
+              title: 'Базовая цель',
+              path: blockchainPath + 'block/block-generation/base-target',
+            },
+            {
+              title: '[en] Generation signature',
+              path: blockchainPath + 'block/block-generation/generation-signature',
+            },
+          ],
+        },
+        {
+          title: 'Высота блока',
+          path: blockchainPath + 'block/block-height',
+        },
+        {
+          title: 'Подпись блока',
+          path: blockchainPath + 'block/block-signature',
+        },
+        {
+          title: 'Временная метка блока',
+          path: blockchainPath + 'block/block-timestamp',
+        },
+        {
+          title: 'Корневой хеш транзакций',
+          path: blockchainPath + 'block/merkle-root',
+        },
+        {
+          title: 'Блок генезиса',
+          path: blockchainPath + 'block/genesis-block',
+        },
+      ]
+    },
+    {
       title: 'Оракул',
       path: blockchainPath + 'oracle',
     },
     {
-      title: 'Форматы и протоколы',
+      title: 'Форматы данных и протоколы',
       path: blockchainPath + 'waves-protocol',
       children: [
         {
@@ -242,46 +282,6 @@ module.exports = {
         {
           title: 'Лизинг',
           path: blockchainPath + 'leasing',
-        },
-        {
-          title: 'Блок',
-          path: blockchainPath + 'block',
-          children: [
-            {
-              title: 'Генерация блока',
-              path: blockchainPath + 'block/block-generation',
-              children: [
-                {
-                  title: 'Базовая цель',
-                  path: blockchainPath + 'block/block-generation/base-target',
-                },
-                {
-                  title: '[en] Generation signature',
-                  path: blockchainPath + 'block/block-generation/generation-signature',
-                },
-              ],
-            },
-            {
-              title: 'Высота блока',
-              path: blockchainPath + 'block/block-height',
-            },
-            {
-              title: 'Подпись блока',
-              path: blockchainPath + 'block/block-signature',
-            },
-            {
-              title: 'Временная метка блока',
-              path: blockchainPath + 'block/block-timestamp',
-            },
-            {
-              title: 'Корневой хеш транзакций',
-              path: blockchainPath + 'block/merkle-root',
-            },
-            {
-              title: 'Блок генезиса',
-              path: blockchainPath + 'block/genesis-block',
-            },
-          ]
         },
         {
           title: 'Типы данных блокчейна',

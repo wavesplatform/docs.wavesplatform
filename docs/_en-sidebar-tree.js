@@ -212,11 +212,51 @@ module.exports = {
       ],
     },
     {
+      title: 'Block',
+      path: blockchainPath + 'block',
+      children: [
+        {
+          title: 'Block generation',
+          path: blockchainPath + 'block/block-generation',
+          children: [
+            {
+              title: 'Base target',
+              path: blockchainPath + 'block/block-generation/base-target',
+            },
+            {
+              title: 'Generation signature',
+              path: blockchainPath + 'block/block-generation/generation-signature',
+            },
+          ],
+        },
+        {
+          title: 'Block height',
+          path: blockchainPath + 'block/block-height',
+        },
+        {
+          title: 'Block signature',
+          path: blockchainPath + 'block/block-signature',
+        },
+        {
+          title: 'Block timestamp',
+          path: blockchainPath + 'block/block-timestamp',
+        },
+        {
+          title: 'Transations Root Hash',
+          path: blockchainPath + 'block/merkle-root',
+        },
+        {
+          title: 'Genesis block',
+          path: blockchainPath + 'block/genesis-block',
+        },
+      ]
+    },
+    {
       title: 'Oracle',
       path: blockchainPath + 'oracle',
     },
     {
-      title: 'Protocols & Formats',
+      title: 'Protocols & Data Formats',
       path: blockchainPath + 'waves-protocol',
       children: [
         {
@@ -238,46 +278,6 @@ module.exports = {
         {
           title: 'Leased Proof of Stake',
           path: blockchainPath + 'leasing',
-        },
-        {
-          title: 'Block',
-          path: blockchainPath + 'block',
-          children: [
-            {
-              title: 'Block generation',
-              path: blockchainPath + 'block/block-generation',
-              children: [
-                {
-                  title: 'Base target',
-                  path: blockchainPath + 'block/block-generation/base-target',
-                },
-                {
-                  title: 'Generation signature',
-                  path: blockchainPath + 'block/block-generation/generation-signature',
-                },
-              ],
-            },
-            {
-              title: 'Block height',
-              path: blockchainPath + 'block/block-height',
-            },
-            {
-              title: 'Block signature',
-              path: blockchainPath + 'block/block-signature',
-            },
-            {
-              title: 'Block timestamp',
-              path: blockchainPath + 'block/block-timestamp',
-            },
-            {
-              title: 'Transations Root Hash',
-              path: blockchainPath + 'block/merkle-root',
-            },
-            {
-              title: 'Genesis block',
-              path: blockchainPath + 'block/genesis-block',
-            },
-          ]
         },
         {
           title: 'Blockchain data types',
