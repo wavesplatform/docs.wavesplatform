@@ -74,7 +74,7 @@ valueOrElse(t: T|Unit, t0: T): T
 
 | Параметр | Описание |
 | :--- | :--- |
-| `t`: T&#124;Unit | Параметр типа данных объединение](/ru/ride/data-types/union) |
+| `t`: T&#124;Unit | Параметр типа данных объединение |
 | `t0`: T | Возвращается, если параметр `t` равен [unit](/ru/ride/data-types/unit) |
 
 ## valueOrErrorMessage(T|Unit, String): T<a id="value-error"></a>
