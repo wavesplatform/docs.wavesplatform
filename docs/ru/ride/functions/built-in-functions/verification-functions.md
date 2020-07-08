@@ -12,7 +12,7 @@
 
 ## bn256groth16Verify
 
-Семейство функций. Осуществляют проверку доказательства с нулевым разглашением [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу groth16 на кривой bn254.
+Семейство функций. Осуществляют проверку доказательства с нулевым разглашением [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу groth16 на кривой bn254. (Несмотря на то что в научной литературе кривая называется bn254, в коде принято использовать обозначение bn256.)
 
 > :warning: Семейство функций `bn256groth16Verify` появилось в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
