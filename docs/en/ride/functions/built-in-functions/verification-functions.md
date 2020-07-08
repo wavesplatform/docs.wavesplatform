@@ -40,7 +40,7 @@ Range of functions. Check [zk-SNARK](https://media.consensys.net/introduction-to
 | Parameter | Description |
 | :--- | :--- |
 | `vk`: ByteVector | Key for the check.<br>Maximum size:<br>• For `bn256groth16Verify_<N>inputs` function — 256 + 32 × `N` bytes.<br>• For `bn256groth16Verify` function — 256 + 32 × 16 =768 bytes |
-| `proof`: ByteVector | [Zero-knowledge proof](https://en.wikipedia.org/wiki/Zero-knowledge_proof). Fixed size: 192 bytes |
+| `proof`: ByteVector | [Zero-knowledge proof](https://en.wikipedia.org/wiki/Zero-knowledge_proof). Fixed size: 128 bytes |
 | `inputs`: ByteVector | Zero-knowledge proof's public inputs array. For example, array of UTXO hashes in case of shielded transactions.<br>Maximum size:<br>• For `bn256groth16Verify_<N>inputs` function – 32 × `N` bytes.<br>• For `bn256groth16Verify` function – 512 bytes |
 
 ## checkMerkleProof
