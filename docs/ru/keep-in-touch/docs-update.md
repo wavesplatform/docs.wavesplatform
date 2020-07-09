@@ -16,6 +16,9 @@
 * [Surfboard](/ru/building-apps/smart-contracts/tools/surfboard)
 * [Ride REPL](/ru/building-apps/smart-contracts/tools/repl)
 
+### Ride
+
+* [Кортеж](/ru/ride/data-types/tuple)
 
 ## Майские статьи
 

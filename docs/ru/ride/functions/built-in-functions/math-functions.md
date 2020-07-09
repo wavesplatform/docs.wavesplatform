@@ -4,7 +4,7 @@
 | :--- | :--- | :--- | :--- |
 | 1 | [fraction(Int, Int, Int): Int](#fraction) | Конвертирует произвольно большое знаковое целое число в целое число | 1 |
 | 2 | [log(Int, Int, Int, Int, Int, Union): Int](#log)  | Находит логарифм числа | 100 |
-| 3 | [median(List[Int]): Int](#median) | Возвращает медиану списка целых чисел | 10 |
+| 3 | [median(List[Int]): Int](#median) | Возвращает медиану списка целых чисел | 20 |
 | 4 | [pow(Int, Int, Int, Int, Int, Union): Int](#pow) | Возводит число в степень | 100 |
 
 ## fraction(Int, Int, Int): Int<a id="fraction"></a>

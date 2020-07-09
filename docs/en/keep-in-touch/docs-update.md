@@ -1,5 +1,13 @@
 # Documentation Updates
 
+## July Articles
+
+### Building Apps
+
+Added guides:
+
+* [How to Read Price Data Provided by Band Protocol’s Oracle](/en/building-apps/how-to/dapp/band-price-oracle)
+
 ## June Articles
 
 ### Building Apps
@@ -16,6 +24,9 @@ Tools:
 * [Surfboard](/en/building-apps/smart-contracts/tools/surfboard)
 * [Ride REPL](/en/building-apps/smart-contracts/tools/repl)
 
+### Ride
+
+* [Tuple](/en/ride/data-types/tuple)
 
 ## May Articles
 

@@ -16,21 +16,13 @@ message MassTransferTransactionData {
     };
     bytes asset_id = 1;
     repeated Transfer transfers = 2;
-    Attachment attachment = 3;
+    bytes attachment = 3;
 };
 
 message Recipient {
     oneof recipient {
         bytes public_key_hash = 1;
         string alias = 2;
-    };
-
-message Attachment {
-    oneof attachment {
-        int64 int_value = 1;
-        bool bool_value = 2;
-        bytes binary_value = 3;
-        string string_value = 4;
     };
 }
 ```

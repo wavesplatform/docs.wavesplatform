@@ -4,9 +4,9 @@
 | :--- | :--- | :--- | :--- |
 | 1 | [extract(T&#124;Unit): T](#extract) | Gets a data type from a [union](/en/ride/data-types/union) | 13 |
 | 2 | [isDefined(List[T]&#124;Unit): Boolean](#is-defined) | Checks if a value is not [unit](/en/ride/data-types/unit) | 1 |
-| 3 | [value(T&#124;Unit): T](#value) | Gets a data type from a [union](/en/ride/data-types/union) | 13 |
-| 4 | [valueOrElse(T&#124;Unit, T): T](#valueOrElse) | Returns value from [union](/en/ride/data-types/union) type argument if it's not [unit](/en/ride/data-types/unit). Otherwise, returns the second argument | 13 |
-| 5 | [valueOrErrorMessage(T&#124;Unit, String): T](#value-error) | Gets a data type from a [union](/en/ride/data-types/union). Throws an exception if there is no data | 13 |
+| 3 | [value(T&#124;Unit): T](#value) | Gets a data type from a [union](/en/ride/data-types/union) | 13 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>2 for Standard Library **version 4** |
+| 4 | [valueOrElse(T&#124;Unit, T): T](#valueOrElse) | Returns value from [union](/en/ride/data-types/union) type argument if it's not [unit](/en/ride/data-types/unit). Otherwise, returns the second argument | 2 |
+| 5 | [valueOrErrorMessage(T&#124;Unit, String): T](#value-error) | Gets a data type from a [union](/en/ride/data-types/union). Throws an exception if there is no data | 13 for Standard Library **version 3**<br>2 for Standard Library **version 4** |
 
 ## extract(T|Unit): T<a id="extract"></a>
 

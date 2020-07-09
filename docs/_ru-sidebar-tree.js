@@ -672,10 +672,6 @@ module.exports = {
           path: ridePath + 'data-types/int',
         },
         {
-          title: 'List',
-          path: ridePath + 'data-types/list',
-        },
-        {
           title: 'String',
           path: ridePath + 'data-types/string',
         },
@@ -684,7 +680,15 @@ module.exports = {
           path: ridePath + 'data-types/unit',
         },
         {
-          title: 'Тип данных объединения',
+          title: 'List',
+          path: ridePath + 'data-types/list',
+        },
+        {
+          title: 'Кортеж',
+          path: ridePath + 'data-types/tuple',
+        },
+        {
+          title: 'Объединение',
           path: ridePath + 'data-types/union',
         },
       ],

@@ -676,16 +676,20 @@ module.exports = {
           path: ridePath + 'data-types/int',
         },
         {
-          title: 'List',
-          path: ridePath + 'data-types/list',
-        },
-        {
           title: 'String',
           path: ridePath + 'data-types/string',
         },
         {
           title: 'Unit',
           path: ridePath + 'data-types/unit',
+        },
+        {
+          title: 'List',
+          path: ridePath + 'data-types/list',
+        },
+        {
+          title: 'Tuple',
+          path: ridePath + 'data-types/tuple',
         },
         {
           title: 'Union',
@@ -1095,7 +1099,11 @@ module.exports = {
         {
           title: 'Simple Voting',
           path: programmingPath + 'simple-voting-on-the-waves-blockchain',
-        }
+        },
+        {
+          title: 'Reading Band’s Price Data',
+          path: buildingAppsPath + 'how-to/dapp/band-price-oracle',
+        },
       ]
     },
     {
