@@ -6,7 +6,7 @@ The following blockchain networks are based on the Waves protocol:
 
 * **Mainnet** is the core Waves network where cryptocurrencies possess real economic value and nodes that generate blocks are rewarded with native coins from the protocol and also the transaction fees paid by the participants.
 * **Testnet** is the network for application testing. Testnet provides the same functionalities as Mainnet. However, on Testnet you can obtain WAVES tokens for free using [Faucet](https://wavesexplorer.com/testnet/faucet), so you can run in your project without risk of losing real money.
-* **Stagenet** is the experimental network. On Stagenet Waves team tests protocol functionalities before they are deployed on Testnet and Mainnet. So you can try out the new features and give a feedback. If you want to launch a Stagenet node, get WAVES tokens on lease, ask a question or leave a comment, join the [stagenet](https://discord.gg/3g8XR6B) channel in Discord. Please note: experimental functionalities may work unstably, so blockchain height rollbacks are possible.
+* **Stagenet** is the experimental network. Waves team tests protocol functionalities on Stagenet before they are deployed on Testnet and Mainnet, so you can try out the new features and give a feedback. If you want to launch a Stagenet node, get WAVES tokens on lease, ask a question or leave a comment, join the [stagenet](https://discord.gg/3g8XR6B) channel in Discord. Please note: experimental functionalities may work unstably and blockchain height rollbacks are possible.
 
 Moreover, you can setup your own custom blockchain network based on WAVES protocol.
 
@@ -20,9 +20,9 @@ For installing a node, see the [Install Waves Node](/en/waves-node/how-to-instal
 
 ## Chain ID
 
-Chain ID is a symbol that passed over a network during a handshake and allow nodes not to connect to the nodes of other networks.
+Chain ID is a symbol that is passed over a network during a handshake and allows nodes not to connect to the nodes of other networks.
 
-The chain ID is used while building account addresses, therefore, an address on one blockchain network cannot be used on another network. The chain ID is also indicated in transactions si it is impossible to move transactions between different blockchain networks.
+The chain ID is used while building account addresses, therefore, an address on one blockchain network cannot be used on another network. The chain ID is also indicated in transactions so it is impossible to move transactions between different blockchain networks.
 
 | Blockchain Network | Chain ID |
 | :--- | :--- |
@@ -37,7 +37,7 @@ The applications that make up the Waves ecosystem provide the ability to work wi
 
 ### API of Pool of Public Nodes
 
-For the convenience of users and developers who are not yet ready to launch their own node, the Waves team provides the pool of nodes with the public API. You can use the api to obtain information from the blockchain and send transactions.
+For the convenience of users and developers who are not yet ready to launch their own node, the Waves team provides the pool of nodes with public API. You can use the API to read blockchain data and send transactions.
 
 Addresses of the pool of public nodes are as follows:
 
@@ -69,7 +69,7 @@ Addresses for order sending and obtaining of market data are as follows:
 
 ### Waves Explorer
 
-[Waves Explorer](/en/ecosystem/waves-explorer/about-waves-explorer) in service for browsing blockchain data.
+[Waves Explorer](/en/ecosystem/waves-explorer/about-waves-explorer) is a service for browsing blockchain data.
 
 | | |
 | :--- | :--- |
@@ -93,9 +93,9 @@ Addresses for order sending and obtaining of market data are as follows:
 | | |
 | :--- | :--- |
 | Mainnet | <https://waves-ide.com/><br>Click ![](./_assets/ide-settings.png) and check Mainnet |
-| Testnet | <https://waves-ide.com/><br>Нажмите ![](./_assets/ide-settings.png) and check Testnet |
+| Testnet | <https://waves-ide.com/><br>Click ![](./_assets/ide-settings.png) and check Testnet |
 | Stagenet | <https://stagenet.waves-ide.com/> |
-| Custom | Ckick ![](./_assets/ide-settings.png), scroll to the **Custom nodes** section, and specify the node URL and chain ID (applicable for HTTPS node only) |
+| Custom | Click ![](./_assets/ide-settings.png), scroll to the **Custom nodes** section, and specify the node URL and chain ID (applicable for HTTPS node only) |
 
 ### Waves Keeper
 
