@@ -1,4 +1,4 @@
-# Blockchain networks: Mainnet, Testnet, Stagenet
+# Blockchain Networks: Mainnet, Testnet, Stagenet
 
 **Blockchain network** consists of [nodes](/en/blockchain/node/) interacting with each other.
 
