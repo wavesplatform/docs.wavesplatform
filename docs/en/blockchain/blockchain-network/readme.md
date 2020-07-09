@@ -5,8 +5,8 @@
 The following blockchain networks are based on the Waves protocol:
 
 * **Mainnet** is the core Waves network where cryptocurrencies possess real economic value and nodes that generate blocks are rewarded with native coins from the protocol and also the transaction fees paid by the participants.
-* **Testnet** is the network for application testing. Testnet provides the same functionalities as Mainnet. However, on Testnet you can obtain WAVES tokens for free using [Faucet](https://wavesexplorer.com/testnet/faucet), so you can run in your project without risk of losing real money.
-* **Stagenet** is the experimental network. Waves team tests protocol functionalities on Stagenet before they are deployed on Testnet and Mainnet, so you can try out the new features and give a feedback. If you want to launch a Stagenet node, get WAVES tokens on lease, ask a question or leave a comment, join the [stagenet](https://discord.gg/3g8XR6B) channel in Discord. Please note: experimental functionalities may work unstably and blockchain height rollbacks are possible.
+* **Testnet** is the network for application testing. Testnet provides the same functionalities as Mainnet. However, on Testnet you can obtain WAVES tokens for free using [Faucet](https://wavesexplorer.com/testnet/faucet), so you can run in your project without the risk of losing real money.
+* **Stagenet** is the experimental network. Waves team tests protocol functionalities on Stagenet before they are deployed on Testnet and Mainnet, so you can try out the new features and give your feedback. If you want to launch a Stagenet node, get WAVES tokens on lease, ask a question or leave a comment, join the [stagenet](https://discord.gg/3g8XR6B) channel in Discord. Please note: experimental functionalities may work unstably and blockchain height rollbacks are possible.
 
 Moreover, you can setup your own custom blockchain network based on WAVES protocol.
 
@@ -29,7 +29,7 @@ The chain ID is used while building account addresses, therefore, an address on 
 | Mainnet | `W` or 87 (ASCII code of `W`) |
 | Testnet | `T` or 84 (ASCII code of `T`) |
 | Stagenet | `S` or 83 (ASCII code of `S`) |
-| Custom | Symbol choosen by the network owner and specified in the `address-scheme-character` setting |
+| Custom | Symbol chosen by the network owner and specified in the `address-scheme-character` setting |
 
 ## Tools
 
@@ -39,7 +39,7 @@ The applications that make up the Waves ecosystem provide the ability to work wi
 
 For the convenience of users and developers who are not yet ready to launch their own node, the Waves team provides the pool of nodes with public API. You can use the API to read blockchain data and send transactions.
 
-Addresses of the pool of public nodes are as follows:
+The addresses of the pool of public nodes are as follows:
 
 | | |
 | :--- | :--- |
@@ -59,7 +59,7 @@ Addresses of the pool of public nodes are as follows:
 
 ### API of Waves.Exchange Matcher
 
-Addresses for order sending and obtaining of market data are as follows:
+The addresses for order sending and market data obtaining are as follows:
 
 | | |
 | :--- | :--- |
