@@ -8,6 +8,12 @@ Added guides:
 
 * [How to Read Price Data Provided by Band Protocol’s Oracle](/en/building-apps/how-to/dapp/band-price-oracle)
 
+### Ride
+
+#### Built-in Functions
+
+* [bn256groth16Verify](/en/ride/functions/built-in-functions/verification-functions#bn256groth16verify)
+
 ## June Articles
 
 ### Building Apps

@@ -4,8 +4,8 @@ Testnet это полнофункциональный блокчейн Waves с 
 
 ## Как подключиться к Waves Testnet
 
-1. Самый простой способ подключиться к Waves Testnet - с помощью **docker container image**, как описано [тут](/en/waves-node/waves-node-in-docker).
-2. Другой способ описан в статье [Как установить ноду](/en/waves-node/how-to-install-a-node/how-to-install-a-node).
+1. Самый простой способ подключиться к Waves Testnet - с помощью **docker container image**, как описано [тут](/ru/waves-node/waves-node-in-docker).
+2. Другой способ описан в статье [Как установить ноду](/ru/waves-node/how-to-install-a-node/how-to-install-a-node).
 
 **Примечание**: Основное различие между Mainnet, Testnet и Stagenet нодами заключается в используемом файле конфигурации (.conf)
 
