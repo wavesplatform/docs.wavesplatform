@@ -30,6 +30,10 @@ module.exports = [
     to: '/en/blockchain/blockchain-network/#chain-id',
   },
   {
+    from: '/ru/blockchain/blockchain-network/chain-id',
+    to: '/ru/blockchain/blockchain-network/#байт-сети',
+  },
+  {
     from: '/en/blockchain/blockchain-network/main-network',
     to: '/en/blockchain/blockchain-network/',
   },
@@ -40,10 +44,6 @@ module.exports = [
   {
     from: '/ru/blockchain/blockchain-network/stage-network',
     to: '/en/blockchain/blockchain-network/',
-  },
-  {
-    from: '/ru/blockchain/blockchain-network/chain-id',
-    to: '/ru/blockchain/blockchain-network/#байт-сети',
   },
   {
     from: '/ru/blockchain/blockchain-network/main-network',
