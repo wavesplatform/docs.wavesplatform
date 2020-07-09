@@ -84,6 +84,14 @@ module.exports = {
       path: blockchainPath + 'transaction',
       children: [
         {
+          title: 'Transaction ID',
+          path: blockchainPath + 'transaction/transaction-id',
+        },
+        {
+          title: 'Transaction body bytes',
+          path: blockchainPath + 'transaction/transaction-body-bytes',
+        },
+        {
           title: 'Transaction fee',
           path: blockchainPath + 'transaction/transaction-fee',
           children: [
@@ -94,86 +102,92 @@ module.exports = {
           ]
         },
         {
-          title: 'Signature and proofs',
+          title: 'Transaction proof',
           path: blockchainPath + 'transaction/transaction-proof',
         },
         {
-          title: 'Transaction type',
-          path: blockchainPath + 'transaction-type',
-          children: [
-            {
-              title: 'Burn transaction',
-              path: blockchainPath + 'transaction-type/burn-transaction',
-            },
-            {
-              title: 'Create alias transaction',
-              path: blockchainPath + 'transaction-type/create-alias-transaction',
-            },
-            {
-              title: 'Data transaction',
-              path: blockchainPath + 'transaction-type/data-transaction',
-            },
-            {
-              title: 'Exchange transaction',
-              path: blockchainPath + 'transaction-type/exchange-transaction',
-              children: [
-                {
-                  title: 'Order',
-                  path: blockchainPath + 'order',
-                },
-              ],
-            },
-            {
-              title: 'Genesis transaction',
-              path: blockchainPath + 'transaction-type/genesis-transaction',
-            },
-            {
-              title: 'Invoke script transaction',
-              path: blockchainPath + 'transaction-type/invoke-script-transaction',
-            },
-            {
-              title: 'Issue transaction',
-              path: blockchainPath + 'transaction-type/issue-transaction',
-            },
-            {
-              title: 'Lease cancel transaction',
-              path: blockchainPath + 'transaction-type/lease-cancel-transaction',
-            },
-            {
-              title: 'Lease transaction',
-              path: blockchainPath + 'transaction-type/lease-transaction',
-            },
-            {
-              title: 'Mass transfer transaction',
-              path: blockchainPath + 'transaction-type/mass-transfer-transaction',
-            },
-            {
-              title: 'Reissue transaction',
-              path: blockchainPath + 'transaction-type/reissue-transaction',
-            },
-            {
-              title: 'Set asset script transaction',
-              path: blockchainPath + 'transaction-type/set-asset-script-transaction',
-            },
-            {
-              title: 'Set script transaction',
-              path: blockchainPath + 'transaction-type/set-script-transaction',
-            },
-            {
-              title: 'Transfer transaction',
-              path: blockchainPath + 'transaction-type/transfer-transaction',
-            },
-            {
-              title: 'Update asset info transaction',
-              path: blockchainPath + 'transaction-type/update-asset-info-transaction',
-            },
-          ]
+          title: 'Transaction signature',
+          path: blockchainPath + 'transaction/transaction-signature',
+        },
+        {
+          title: 'Transaction timestamp',
+          path: blockchainPath + 'transaction/transaction-timestamp',
         },
         {
           title: 'Transaction validation',
           path: blockchainPath + 'transaction/transaction-validation',
         },
-      ],
+        {
+          title: 'Transaction version',
+          path: blockchainPath + 'transaction/transaction-version',
+        },
+      ]
+    },
+    {
+      title: 'Transaction type',
+      path: blockchainPath + 'transaction-type',
+      children: [
+        {
+          title: 'Burn transaction',
+          path: blockchainPath + 'transaction-type/burn-transaction',
+        },
+        {
+          title: 'Create alias transaction',
+          path: blockchainPath + 'transaction-type/create-alias-transaction',
+        },
+        {
+          title: 'Data transaction',
+          path: blockchainPath + 'transaction-type/data-transaction',
+        },
+        {
+          title: 'Exchange transaction',
+          path: blockchainPath + 'transaction-type/exchange-transaction',
+        },
+        {
+          title: 'Genesis transaction',
+          path: blockchainPath + 'transaction-type/genesis-transaction',
+        },
+        {
+          title: 'Invoke script transaction',
+          path: blockchainPath + 'transaction-type/invoke-script-transaction',
+        },
+        {
+          title: 'Issue transaction',
+          path: blockchainPath + 'transaction-type/issue-transaction',
+        },
+        {
+          title: 'Lease cancel transaction',
+          path: blockchainPath + 'transaction-type/lease-cancel-transaction',
+        },
+        {
+          title: 'Lease transaction',
+          path: blockchainPath + 'transaction-type/lease-transaction',
+        },
+        {
+          title: 'Mass transfer transaction',
+          path: blockchainPath + 'transaction-type/mass-transfer-transaction',
+        },
+        {
+          title: 'Reissue transaction',
+          path: blockchainPath + 'transaction-type/reissue-transaction',
+        },
+        {
+          title: 'Set asset script transaction',
+          path: blockchainPath + 'transaction-type/set-asset-script-transaction',
+        },
+        {
+          title: 'Set script transaction',
+          path: blockchainPath + 'transaction-type/set-script-transaction',
+        },
+        {
+          title: 'Transfer transaction',
+          path: blockchainPath + 'transaction-type/transfer-transaction',
+        },
+        {
+          title: 'Update asset info transaction',
+          path: blockchainPath + 'transaction-type/update-asset-info-transaction',
+        },
+      ]
     },
     {
       title: 'Blockchain network',
