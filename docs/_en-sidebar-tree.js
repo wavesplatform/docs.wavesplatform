@@ -190,7 +190,7 @@ module.exports = {
       ]
     },
     {
-      title: 'Blockchain networks:\nMainnet, Testnet, Stagenet',
+      title: 'Mainnet, Testnet, Stagenet',
       path: blockchainPath + 'blockchain-network',
     },
     {
