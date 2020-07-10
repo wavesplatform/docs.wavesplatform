@@ -274,6 +274,10 @@ module.exports = {
       path: blockchainPath + 'oracle',
     },
     {
+      title: 'Ордер',
+      path: blockchainPath + 'order',
+    },
+    {
       title: 'Protocols & Data formats',
       path: blockchainPath + 'waves-protocol',
       children: [
