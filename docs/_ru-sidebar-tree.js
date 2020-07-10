@@ -190,7 +190,7 @@ module.exports = {
       ]
     },
     {
-      title: 'Сети блокчейна: Mainnet, Testnet, Stagenet',
+      title: 'Сети блокчейна:\nMainnet, Testnet, Stagenet',
       path: blockchainPath + 'blockchain-network',
     },
     {
@@ -198,12 +198,16 @@ module.exports = {
       path: blockchainPath + 'node',
       children: [
         {
-          title: 'Генерирующая нода',
+          title: 'Майнящая нода',
           path: blockchainPath + 'node/mining-node',
         },
         {
           title: 'Валидирующая нода',
           path: blockchainPath + 'node/validating-node',
+        },
+        {
+          title: 'Лизинг',
+          path: blockchainPath + 'leasing',
         },
       ],
     },
@@ -288,10 +292,6 @@ module.exports = {
         {
           title: 'Честный Proof-of-Stake',
           path: blockchainPath + 'waves-protocol/fair-pos',
-        },
-        {
-          title: 'Лизинг',
-          path: blockchainPath + 'leasing',
         },
         {
           title: 'Типы данных блокчейна',

@@ -190,7 +190,7 @@ module.exports = {
       ]
     },
     {
-      title: 'Blockchain networks: Mainnet, Testnet, Stagenet',
+      title: 'Blockchain networks:\nMainnet, Testnet, Stagenet',
       path: blockchainPath + 'blockchain-network',
     },
     {
@@ -204,6 +204,10 @@ module.exports = {
         {
           title: 'Validating node',
           path: blockchainPath + 'node/validating-node',
+        },
+        {
+          title: 'Leased Proof of Stake',
+          path: blockchainPath + 'leasing',
         },
       ],
     },
@@ -270,7 +274,7 @@ module.exports = {
       path: blockchainPath + 'oracle',
     },
     {
-      title: 'Protocols & Data Formats',
+      title: 'Protocols & Data formats',
       path: blockchainPath + 'waves-protocol',
       children: [
         {
@@ -288,10 +292,6 @@ module.exports = {
         {
           title: 'Fair Proof of Stake',
           path: blockchainPath + 'waves-protocol/fair-pos',
-        },
-        {
-          title: 'Leased Proof of Stake',
-          path: blockchainPath + 'leasing',
         },
         {
           title: 'Blockchain data types',
