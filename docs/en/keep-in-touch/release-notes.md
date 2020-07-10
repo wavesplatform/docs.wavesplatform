@@ -92,7 +92,7 @@
    * ++ for the concatenation of lists. Example: the result of `[1, 2] ++ [3, 4]` is `[1, 2, 3, 4]`. Complexity is 4.
    * `:+` for adding an element to the end of the list. Example: the result of `["foo","bar"] :+ "baz"` is `["foo", "bar", "baz"]`. Complexity is 1.
 * Added the [Tuple](/en/ride/data-types/tuple) data type.
-* The maximum complexity of account script and verifier function of dApp script is changed to 3000, regardless of the Standard library version.
+* The maximum complexity of account script and verifier function of dApp script is changed to 2000 for new scripts, regardless of the Standard library version.
    The maximum complexity of asset script and callable function of dApp script remains 4000.
 * The maximum data size is changed:
    * [String](/en/ride/data-types/string): 32,767 bytes

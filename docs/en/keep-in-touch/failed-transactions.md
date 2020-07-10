@@ -94,6 +94,6 @@ For the invoke script transaction, in addition to the transaction status on the 
 
 ## Ride limitations
 
-The maximum complexity of account script and verifier function of dApp script is changed to 3000, regardless of the Standard library version.
+The maximum complexity of account script and verifier function of dApp script is changed to 2000  for new scripts, regardless of the Standard library version.
 
 The maximum complexity of asset script and callable function of dApp script remains 4000.
