@@ -6,7 +6,7 @@
 
 Минимальная комиссия за транзакцию установки скрипта — 0,01 WAVES.
 
-Если отправитель транзакции —  [dApp](/ru/blockchain/account/dapp) или [смарт-аккаунт](/ru/blockchain/account/smart-account), минимальная комиссия увеличивается на 0,004 WAVES.
+Если на аккаунте отправителя уже установлен скрипт, минимальная комиссия увеличивается на 0,004 WAVES.
 
 ## JSON-представление
 
@@ -43,8 +43,3 @@
 ## Структура Ride
 
 Для операций с транзакцией в смарт-контрактах используется структура [SetScriptTransaction](/ru/ride/structures/transaction-structures/set-script-transaction).
-
-
-## Бинарный формат
-
-Смотрите страницу [Бинарный формат транзакции установки скрипта](/ru/blockchain/binary-format/transaction-binary-format/set-script-transaction-binary-format).

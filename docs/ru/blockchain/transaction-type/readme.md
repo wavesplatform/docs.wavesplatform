@@ -33,11 +33,11 @@
 | ID типа транзакции | Название | Описание |
 | :--- | :--- | :--- |
 | 8 |[Транзакция лизинга](/ru/blockchain/transaction-type/lease-transaction) | Передает WAVES в лизинг |
-| 9 | [Транзакция закрытия лизинга](/ru/blockchain/transaction-type/lease-cancel-transaction) | |
+| 9 | [Транзакция закрытия лизинга](/ru/blockchain/transaction-type/lease-cancel-transaction) | Прекращает лизинг |
 | 14 | [Транзакция спонсирования](/ru/blockchain/transaction-type/sponsor-fee-transaction) | Устанавливает или отменяет спонсирование |
 
 ## Генезис
 
 | ID типа транзакции | Название | Описание |
 | :--- | :--- | :--- |
-| 1 | [Транзакция генезиса](/ru/blockchain/transaction-type/genesis-transaction) | Начисляет [WAVES](/ru/blockchain/token/waves) на [аккаунт](/ru/blockchain/account/) при первоначальном распределении |
+| 1 | [Транзакция генезиса](/ru/blockchain/transaction-type/genesis-transaction) | Начисляет [WAVES](/ru/blockchain/token/waves) на [аккаунт](/ru/blockchain/account/) при первоначальном распределении во время создания блокчейна |

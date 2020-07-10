@@ -5,8 +5,8 @@
 ## Комиссия за транзакцию
 
 Минимальная комиссия за транзакцию довыпуска:
-• 0,001 — после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
-• 1 — до активации фичи № 15
+* 0,001 — после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
+* 1 — до активации фичи № 15.
 
 В случае довыпуска [смарт-ассета](/ru/blockchain/token/smart-asset) минимальная комиссия увеличивается на 0,004 WAVES. 
 
@@ -50,5 +50,5 @@
 
 ## Структура Ride
 
-Для операций с транзакцией в смарт-контрактах используется структура [BurnTransaction](/ru/ride/structures/transaction-structures/burn-transaction).
+Для операций с транзакцией в смарт-контрактах используется структура [ReissueTransaction](/ru/ride/structures/transaction-structures/reissue-transaction).
 

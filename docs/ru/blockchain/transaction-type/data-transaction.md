@@ -1,12 +1,14 @@
 # Транзакция данных
 
-Транзакция данных добавляет, удаляет или изменяет записи в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage).
+Транзакция данных добавляет, удаляет или изменяет записи в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage) отправителя.
 
-Количество записей — не более 100. Максимальный размер данных (ключи + значения) — 165 890 байт.
+Количество записей — не более 100. Максимальный размер данных (ключи + значения) — 165&nbsp;890 байт.
 
 ## Комиссия за транзакцию
 
 Минимальная комиссия за транзакцию данных — 0,001 WAVES за килобайт. Значение округляется вверх до тысячных.
+
+Если отправитель транзакции —  [dApp](/ru/blockchain/account/dapp) или [смарт-аккаунт](/ru/blockchain/account/smart-account), минимальная комиссия увеличивается на 0,004 WAVES.
 
 ## JSON-представление
 
@@ -37,7 +39,9 @@
   ],
   "sender": "3N4iKL6ikwxiL7yNvWQmw7rg3wGna8uL6LU",
   "feeAssetId": null,
-  "proofs": ["kE1hjN1yW68j8DsYGNB7Gg1ydC4hqRmt3wBaFQUPkftnbiM7QfJCn1gTHgveJ7pCLXvvqffhKBmiF8qS1Uqk6SR"],
+  "proofs": [
+    "kE1hjN1yW68j8DsYGNB7Gg1ydC4hqRmt3wBaFQUPkftnbiM7QfJCn1gTHgveJ7pCLXvvqffhKBmiF8qS1Uqk6SR"
+  ],
   "fee": 100000,
   "id": "3EPJuvQiJYiu9Y5g6mYDQgHVu8GFUfnZurHrVwwF1ViH",
   "type": 12,

@@ -8,21 +8,25 @@
 
 Минимальная комиссия за транзакцию создания псевдонима — 0,001 WAVES.
 
+Если отправитель транзакции — [dApp](/ru/blockchain/account/dapp) или [смарт-аккаунт](/ru/blockchain/account/smart-account), минимальная комиссия увеличивается на 0,004 WAVES.
+
 ## JSON-представление
 
 ```json
 {
-  "senderPublicKey":"BVv1ZuE3gKFa6krwWJQwEmrLYUESuUabNCXgYTmCoBt6",
-  "sender":"3N8S4UtauvDAzpLiaRyDdHn9muexWHhBP4D",
-  "feeAssetId":null,
-  "proofs":["22QJfRKX7kUQt4qjdnUqZAnhqukqhnofE27uvP8Q5xnBf8M6PCNtWVGq2ngm6m7Voe7duys59D1yU9jhKrmdXDCe"],
-  "fee":100000,
-  "alias":"91f452553298770f",
-  "id":"AD7KmXwoVNc2fXsmaxsHsrnT1tfPF3HsWYtfjFijVsvM",
-  "type":10,
-  "version":2,
-  "timestamp":1548443069053,
-  "height":466104
+  "senderPublicKey": "BVv1ZuE3gKFa6krwWJQwEmrLYUESuUabNCXgYTmCoBt6",
+  "sender": "3N8S4UtauvDAzpLiaRyDdHn9muexWHhBP4D",
+  "feeAssetId": null,
+  "proofs": [
+    "22QJfRKX7kUQt4qjdnUqZAnhqukqhnofE27uvP8Q5xnBf8M6PCNtWVGq2ngm6m7Voe7duys59D1yU9jhKrmdXDCe"
+  ],
+  "fee": 100000,
+  "alias": "91f452553298770f",
+  "id": "AD7KmXwoVNc2fXsmaxsHsrnT1tfPF3HsWYtfjFijVsvM",
+  "type": 10,
+  "version": 2,
+  "timestamp": 1548443069053,
+  "height": 466104
 }
 ```
 

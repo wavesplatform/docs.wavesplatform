@@ -6,29 +6,33 @@
 
 Минимальная комиссия за транзакцию сжигания токена — 0,001 WAVES. В случае сжигания [смарт-ассета](/ru/blockchain/token/smart-asset) — 0,005 WAVES.
 
+Если отправитель транзакции —  [dApp](/ru/blockchain/account/dapp) или [смарт-аккаунт](/ru/blockchain/account/smart-account), минимальная комиссия увеличивается на 0,004 WAVES.
+
 ## JSON-представление
 
 ```json
 {
-    "senderPublicKey":"9GaQj7gktEiiS1TTTjGbVjU9bva3AbCiawZ11qFZenBX",
-    "amount":9999,
-    "fee":100000,
-    "type":6,
-    "version":2,
-    "sender":"3P9QZNrHbyxXj8P9VrJZmVu2euodNtA11UW",
-    "feeAssetId":null,
-    "chainId":87,
-    "proofs":["61jCivdv3KTuTY6QHgxt4jaGrXcszWg3vb9TmUR26xv7mjWWwjyqs7X5VDUs9c2ksndaPogmdunHDdjWCuG1GGhh"],
-    "assetId":"FVxhjrxZYTFCa9Bd4JYhRqXTjwKuhYbSAbD2DWhsGidQ",
-    "id":"csr25XQHT1c965Fg7cY2vJ7XHYVsudPYrUbdaFqgaqL",
-    "timestamp":1548660675277,
-    "height":1370971
+  "senderPublicKey": "9GaQj7gktEiiS1TTTjGbVjU9bva3AbCiawZ11qFZenBX",
+  "amount": 9999,
+  "fee": 100000,
+  "type": 6,
+  "version": 2,
+  "sender": "3P9QZNrHbyxXj8P9VrJZmVu2euodNtA11UW",
+  "feeAssetId": null,
+  "chainId": 87,
+  "proofs": [
+    "61jCivdv3KTuTY6QHgxt4jaGrXcszWg3vb9TmUR26xv7mjWWwjyqs7X5VDUs9c2ksndaPogmdunHDdjWCuG1GGhh"
+  ],
+  "assetId": "FVxhjrxZYTFCa9Bd4JYhRqXTjwKuhYbSAbD2DWhsGidQ",
+  "id": "csr25XQHT1c965Fg7cY2vJ7XHYVsudPYrUbdaFqgaqL",
+  "timestamp": 1548660675277,
+  "height": 1370971
 }
 ```
 
 | Поле | Описание |
 | :--- | :--- |
-| amount | Количество сжигаемого токена. Всегда целое число, выраженное в минимальных неделимых единицах («копейках») токена |
+| amount | Количество сжигаемого токена. Целое число, выраженное в минимальных неделимых единицах («копейках») токена |
 | assetId | ID сжигаемого токена в кодировке base58 |
 
 Описание полей, общих для всех типов транзакций, представлено в разделе [JSON-представление транзакции](/ru/blockchain/transaction/#json-представление-транзакции).

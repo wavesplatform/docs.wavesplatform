@@ -4,7 +4,7 @@
 
 Кроме имени функции и аргументов, транзакция вызова скрипта может содержать платеж в пользу dApp.
 
-> Начиная с четвертой версии языка [Ride](/ru/ride/) к транзакции вызова скрипта может быть приложено до двух платежей. Эта возможность доступна с версии ноды 1.2.0 и включается после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+> Начиная с версии ноды 1.2.0 к транзакции вызова скрипта может быть приложено до двух платежей. Эта возможность включается после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
 
 ## Комиссия за транзакцию
 
@@ -23,7 +23,7 @@
 
 ## JSON-представление
 
-```json
+<!--```json
 {
   "senderPublicKey": "7K3VcWABomhNkKo7Vsfy51MPAVvjWEJTvXCk8MdRxiVf",
   "fee": 500000,
@@ -60,6 +60,34 @@
   ],
   "timestamp": 1591699765359
 }
+```-->
+
+```json
+{
+  "senderPublicKey": "4kKN9G7cZXGQujLQm9ss5gqB7TKX4A9jtFGt7DnHUoQ6",
+  "fee": 500000,
+  "type": 16,
+  "version": 1,
+  "call": {
+    "function": "returnSellVST",
+    "args": [
+      {
+        "type": "string",
+        "value": "GiEBRfGhEeGqhPmLCjwJcYuakyvaz2GHGCfCzuinSKD"
+      }
+    ]
+  },
+  "dApp": "3PJbknfXMsJzZmksmsKSMz56tVdDqF5GdNM",
+  "sender": "3P5rWeMzoaGBrXJDMifQDDjCMKWJGKTiVJU",
+  "feeAssetId": null,
+  "proofs": [
+    "28s21sisoa7yHWWmmX8U78fbNHW4KXAS9GHD8XmaN77gJxbnP2Q3DssNWpmSQ6hBq6xS985W4YiTmgvENhfWPNt5"
+  ],
+  "payment": [],
+  "id": "7CVjf5KGRRYj6UyTC2Etuu4cUxx9qQnCJox8vw9Gy9yq",
+  "timestamp": 1565537422938,
+  "height": 1656369
+}
 ```
 
 | Поле | Описание |
@@ -69,7 +97,7 @@
 | call.args.value | Значение аргумента.<br>integer — от -9&nbsp;223&nbsp;372&nbsp;036&nbsp;854&nbsp;775&nbsp;808 до 9&nbsp;223&nbsp;372&nbsp;036&nbsp;854&nbsp;755&nbsp;807 включительно.<br>string или binary — до 32&nbsp;767 байт. Бинарное значение должно быть в кодировке base64.<br>list — до 1000 элементов |
 | dApp | Адрес dApp в кодировке base58 или [псевдоним](/ru/blockchain/account/alias) адреса |
 | payment.amount | Количество токена в платеже, в минимальных неделимых единицах («копейках») токена |
-| payment.assetId | ID токена в платеже. `null` — означает, что платеж в WAVES |
+| payment.assetId | ID токена в платеже. `null` означает, что платеж в WAVES |
 
 Описание полей, общих для всех типов транзакций, представлено в разделе [JSON-представление транзакции](/ru/blockchain/transaction/#json-представление-транзакции).
 
