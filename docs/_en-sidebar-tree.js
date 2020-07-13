@@ -274,7 +274,7 @@ module.exports = {
       path: blockchainPath + 'oracle',
     },
     {
-      title: 'Ордер',
+      title: 'Order',
       path: blockchainPath + 'order',
     },
     {

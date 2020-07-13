@@ -4,7 +4,7 @@
 
 ### Блокчейн Waves
 
-* Обновлена статья [Сети блокчейна: Mainnet, Testnet, Stagenet](/ru/blockchain/blockchain-network/) article.
+* Обновлена статья [Сети блокчейна: Mainnet, Testnet, Stagenet](/ru/blockchain/blockchain-network/).
 
 ### Ride
 
