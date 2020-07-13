@@ -2,7 +2,6 @@
 
 ## Июльские статьи
 
-=======
 ### Блокчейн Waves
 
 * Обновлена статья [Сети блокчейна: Mainnet, Testnet, Stagenet](/ru/blockchain/blockchain-network/) article.
