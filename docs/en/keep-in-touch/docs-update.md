@@ -2,6 +2,10 @@
 
 ## July Articles
 
+### Blockchain Waves
+
+* Updated the [Blockchain Networks: Mainnet, Testnet, Stagenet](/en/blockchain/blockchain-network/) article.
+
 ### Building Apps
 
 Added guides:
