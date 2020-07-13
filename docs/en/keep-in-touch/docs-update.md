@@ -1,5 +1,24 @@
 # Documentation Updates
 
+## July Articles
+
+### Blockchain Waves
+
+* Updated the [Blockchain Networks: Mainnet, Testnet, Stagenet](/en/blockchain/blockchain-network/) article.
+
+### Building Apps
+
+Added guides:
+
+* [How to Read Price Data Provided by Band Protocol’s Oracle](/en/building-apps/how-to/dapp/band-price-oracle)
+
+### Ride
+
+#### Built-in Functions
+
+* [removeByIndex](/en/ride/functions/built-in-functions/list-functions#removeByIndex)
+* [bn256groth16Verify](/en/ride/functions/built-in-functions/verification-functions#bn256groth16verify)
+
 ## June Articles
 
 ### Building Apps

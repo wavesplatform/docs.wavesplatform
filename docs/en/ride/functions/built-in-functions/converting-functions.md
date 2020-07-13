@@ -3,7 +3,7 @@
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | [addressFromPublicKey(ByteVector): Address](#address-from-public-key)| Gets the corresponding [address](/en/blockchain/account/address) of the account public key | 82 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>63 for Standard Library **version 4** |
-| [addressFromRecipient(Address&#124;Alias): Address](#address-from-recipient) | Gets the corresponding [address](/en/blockchain/account/address) of the [alias](/en/blockchain/account/alias) | 100 for Standard Library **version 3**<br>10 for Standard Library **version 4** |
+| [addressFromRecipient(Address&#124;Alias): Address](#address-from-recipient) | Gets the corresponding [address](/en/blockchain/account/address) of the [alias](/en/blockchain/account/alias) | 100 for Standard Library **version 3**<br>5 for Standard Library **version 4** |
 | [parseInt(String): Int&#124;Unit](#parse-int) | Converts the string representation of a number to its integer equivalent | 20 for Standard Library **version 3**<br>2 for Standard Library **version 4** |
 | [parseIntValue(String): Int](#parse-int-value) | Converts the string representation of a number to its integer equivalent.<br>Raises an exception if the string cannot be parsed | 20 for Standard Library **version 3**<br>2 for Standard Library **version 4** |
 | [toBytes(Boolean): ByteVector](#tobytes-bool) | Converts a boolean value to an array of bytes | 1 |

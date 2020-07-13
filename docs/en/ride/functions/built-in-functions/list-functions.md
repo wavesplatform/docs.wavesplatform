@@ -9,6 +9,7 @@
 | [lastIndexOf](#lastindexof)  | Returns the index of the last occurrence of the element in the list | 5 |
 | [max](#max)  | Returns the largest element in the list | 3 |
 | [min](#min)  | Returns the smallest item in the list | 3 |
+| [removeByIndex](#removebyindex) | Removes an element from the list by index | 7 |
 | [size](#size) | Returns the size of the list | 2 |
 
 `T` is a short designation for `Boolean|ByteVector|Int|String`.
@@ -149,6 +150,27 @@ min(List[Int]): Int
 | Parameter | Description |
 | :--- | :--- |
 | `list`: [List[T]](/en/ride/data-types/list) | List |
+
+## removeByIndex
+
+Removes an element from the list by index.
+
+``` ride
+removeByIndex(list: List[T], index: Int): List[T]
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `list`: [List[T]](/en/ride/data-types/list) | List |
+| `index`: T | Index of the element |
+
+### Examlpes
+
+```ride
+removeByIndex(["Waves", 42, true], 1) # Returns ["Waves", true]
+```
 
 ## size
 

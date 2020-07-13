@@ -6,25 +6,25 @@ A **built-in function** is a [function](/en/ride/functions/) of the [script cont
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| assetBalancе(Address&#124;Alias, ByteVector): Int | Gets account balance by token ID | 100 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>15 for Standard Library **version&nbsp;4** |
-| getBinary(Address&#124;Alias, String): ByteVector&#124;Unit | Gets an array of bytes by key | 100 for Standard Library **version&nbsp;3**<br>25 for Standard Library **version&nbsp;4** |
-| getBinaryValue(Address&#124;Alias, String): ByteVector | Gets an array of bytes by key. Throws an exception if there is no data | 100 for Standard Library **version&nbsp;3**<br>25 for Standard Library **version&nbsp;4** |
-| getBoolean(Address&#124;Alias, String): Boolean&#124;Unit | Gets a boolean value by key | 100 for Standard Library **version&nbsp;3**<br>25 for Standard Library **version&nbsp;4** |
-| getBooleanValue(Address&#124;Alias, String): Boolean | Gets a boolean value by key. Throws an exception if there is no data | 100 for Standard Library **version&nbsp;3**<br>25 for Standard Library **version&nbsp;4** |
-| getInteger(Address&#124;Alias, String): Int&#124;Unit | Gets an integer by key | 100 for Standard Library **version&nbsp;3**<br>25 for Standard Library **version&nbsp;4** |
-| getIntegerValue(Address&#124;Alias, String): Int | Gets an integer by key. Throws an exception if there is no data | 100 for Standard Library **version&nbsp;3**<br>25 for Standard Library **version&nbsp;4** |
-| getString(Address&#124;Alias, String): String&#124;Unit | Gets a string by key | 100 for Standard Library **version&nbsp;3**<br>25 for Standard Library **version&nbsp;4** |
-| getStringValue(Address&#124;Alias, String): String | Gets a string by key. Throws an exception if there is no data | 100 for Standard Library **version&nbsp;3**<br>25 for Standard Library **version&nbsp;4** |
+| assetBalancе(Address&#124;Alias, ByteVector): Int | Gets account balance by token ID | 100 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
+| getBinary(Address&#124;Alias, String): ByteVector&#124;Unit | Gets an array of bytes by key | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
+| getBinaryValue(Address&#124;Alias, String): ByteVector | Gets an array of bytes by key. Throws an exception if there is no data | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
+| getBoolean(Address&#124;Alias, String): Boolean&#124;Unit | Gets a boolean value by key | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
+| getBooleanValue(Address&#124;Alias, String): Boolean | Gets a boolean value by key. Throws an exception if there is no data | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
+| getInteger(Address&#124;Alias, String): Int&#124;Unit | Gets an integer by key | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
+| getIntegerValue(Address&#124;Alias, String): Int | Gets an integer by key. Throws an exception if there is no data | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
+| getString(Address&#124;Alias, String): String&#124;Unit | Gets a string by key | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
+| getStringValue(Address&#124;Alias, String): String | Gets a string by key. Throws an exception if there is no data | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
 | wavesBalance(Address&#124;Alias): Int | Gets account balance in [WAVES](/en/blockchain/token/waves) | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
 
 ## [Blockchain functions](/en/ride/functions/built-in-functions/blockchain-functions)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| assetInfo(ByteVector): Аsset&#124;Unit | Gets the information about a [token](/en/blockchain/token/) | 100 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>50 for Standard Library **version&nbsp;4** |
+| assetInfo(ByteVector): Аsset&#124;Unit | Gets the information about a [token](/en/blockchain/token/) | 100 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>15 for Standard Library **version&nbsp;4** |
 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Gets the information about a [block](/en/blockchain/block/) by the [block height](/en/blockchain/block/block-height) | 100 for Standard Library **version&nbsp;3**<br>5 for Standard Library **version&nbsp;4** |
 | calculateAssetId(Issue): ByteVector | Calculates the ID of the asset, created by [Issue](/en/ride/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
-| transactionHeightById(ByteVector):  Int&#124;Unit | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 100 for Standard Library **version&nbsp;3**<br>15 for Standard Library **version&nbsp;4** |
+| transactionHeightById(ByteVector):  Int&#124;Unit | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 100 for Standard Library **version&nbsp;3**<br>20 for Standard Library **version&nbsp;4** |
 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Gets the data of a [transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 100 for Standard Library **version&nbsp;3**<br>60 for Standard Library **version&nbsp;4** |
 
 ## [Byte array functions](/en/ride/functions/built-in-functions/byte-array-functions)
@@ -42,7 +42,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [script cont
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | addressFromPublicKey(ByteVector): Address | Converts account public key to [address](/en/blockchain/account/address) | 82 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>63 for Standard Library **version&nbsp;4** |
-| addressFromRecipient(Address&#124;Alias): Address | Gets the corresponding [address](/en/blockchain/account/address) of the [alias](/en/blockchain/account/alias) | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
+| addressFromRecipient(Address&#124;Alias): Address | Gets the corresponding [address](/en/blockchain/account/address) of the [alias](/en/blockchain/account/alias) | 100 for Standard Library **version&nbsp;3**<br>5 for Standard Library **version&nbsp;4** |
 | parseInt(String): Int&#124;Unit | Converts the string representation of a number to its integer equivalent | 20 for Standard Library **version&nbsp;3**<br>2 for Standard Library **version&nbsp;4** |
 | parseIntValue(String): Int | Converts the string representation of a number to its integer equivalent.Raises an exception if the string cannot be parsed | 20 for Standard Library **version&nbsp;3**<br>2 for Standard Library **version&nbsp;4** |
 | toBytes(Boolean): ByteVector | Converts a boolean to an array of bytes | 1 |
@@ -121,6 +121,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [script cont
 | lastIndexOf(list: List[T], element: T): Int&#124;Unit | Returns the index of the last occurrence of the element in the list | 5 |
 | max(List[Int]): Int | Returns the largest element in the list | 3 |
 | min(List[Int]): Int | Returns the smallest item in the list | 3 |
+| removeByIndex(list: List[T], index: Int): List[T] | Removes an element from the list by index | 7 |
 | size(List[T]): Int | Returns the size of the list | 2 |
 
 `T` is a short designation for `Boolean|ByteVector|Int|String`.
@@ -165,9 +166,10 @@ A **built-in function** is a [function](/en/ride/functions/) of the [script cont
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
+| bn256groth16Verify(ByteVector, ByteVector, ByteVector): Boolean | Range of functions.<br>Check [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by groth16 protocol on the bn254 curve | 800–1650 |
 | checkMerkleProof(ByteVector, ByteVector, ByteVector): Boolean | Checks that the data is part of the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) | 30 |
 | createMerkleRoot(List[ByteVector], ByteVector, Int) : ByteVector | Calculates the [Merkle root hash](/en/blockchain/block/merkle-root) for transactions of block | 30 |
 | ecrecover(messageHash: ByteVector, signature: ByteVector) | Recovers public key from the message hash and the [ECDSA](https://en.wikipedia.org/wiki/ECDSA) digital signature | 70 |
-| groth16Verify(ByteVector, ByteVector, ByteVector): Boolean | Range of functions.<br>Check [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol | 1200–2700 |
-| rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Range of functions.<br>Check that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29) digital signature is valid, i.e. it was created by the owner of the public key | 300 for [Standard library](/en/ride/script/standard-library) **version&nbsp;3**<br>500–1000 for Standard Library **version&nbsp;4** |
-| sigVerify(ByteVector, ByteVector, ByteVector): Boolean | Range of functions.<br>Check that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid, i.e. it was created by the owner of the public key | 100 for Standard library **version&nbsp;3**<br>100–200 for Standard Library **version&nbsp;4** |
+| groth16Verify(ByteVector, ByteVector, ByteVector): Boolean | Range of functions.<br>Check [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol on the bls12-381 curve | 1200–2700 |
+| rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Range of functions.<br>Check that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29) digital signature is valid, i.e. it was created by the owner of the public key | 300 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>500–1000 for Standard Library **version&nbsp;4** |
+| sigVerify(ByteVector, ByteVector, ByteVector): Boolean | Range of functions.<br>Check that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid, i.e. it was created by the owner of the public key | 100 for Standard library **version&nbsp;3**<br>47–200 for Standard Library **version&nbsp;4** |

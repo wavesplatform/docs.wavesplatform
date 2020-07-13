@@ -7,7 +7,7 @@
 ## Конструктор
 
 ```ride
-Reissuen(assetId: ByteVector, isReissuable: Boolean, quantity: Int)
+Reissue(assetId: ByteVector, quantity: Int, isReissuable: Boolean)
 ```
 
 ## Поля
@@ -15,5 +15,5 @@ Reissuen(assetId: ByteVector, isReissuable: Boolean, quantity: Int)
 | # | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
 | 1 | assetId | [ByteVector](/ru/ride/data-types/byte-vector) | [ID токена](/ru/blockchain/token/token-id) для довыпуска |
-| 2 | isReissuable | [Boolean](/ru/ride/data-types/boolean) | Флаг возможности довыпуска |
-| 3 | quantity | [Int](/ru/ride/data-types/int) | Количество токена |
+| 2 | quantity | [Int](/ru/ride/data-types/int) | Количество токена |
+| 3 | isReissuable | [Boolean](/ru/ride/data-types/boolean) | Флаг возможности довыпуска |
