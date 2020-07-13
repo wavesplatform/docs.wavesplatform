@@ -3,7 +3,7 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | [addressFromPublicKey(ByteVector): Address](#address-from-public-key) | Получает [адрес](/ru/blockchain/account/address), соответствующий открытому ключу аккаунта | 82 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>63 для Стандартной библиотеки **версии 4** |
-| [addressFromRecipient(Address&#124;Alias): Address](#address-from-recipient) | Получает [адрес](/ru/blockchain/account/address), соответствующий [псевдониму](/ru/blockchain/account/alias) | 100 для Стандартной библиотеки **версии 3**<br>10 для Стандартной библиотеки **версии 4** |
+| [addressFromRecipient(Address&#124;Alias): Address](#address-from-recipient) | Получает [адрес](/ru/blockchain/account/address), соответствующий [псевдониму](/ru/blockchain/account/alias) | 100 для Стандартной библиотеки **версии 3**<br>5 для Стандартной библиотеки **версии 4** |
 | [parseInt(String): Int&#124;Unit](#parse-int) | Конвертирует строковое представление числа в эквивалентное целое число | 20 для Стандартной библиотеки **версии 3**<br>2 для Стандартной библиотеки **версии 4** |
 | [parseIntValue(String): Int](#parse-int-value) | Конвертирует строковое представление числа в эквивалентное целое число.<br>Выбрасывает исключение, если строка не может быть спарсена | 20 для Стандартной библиотеки **версии 3**<br>2 для Стандартной библиотеки **версии 4** |
 | [toBytes(Boolean): ByteVector](#to-bytes-boolean) | Конвертирует логическое значение в массив байтов | 1 |
