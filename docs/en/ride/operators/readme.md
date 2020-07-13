@@ -48,7 +48,7 @@
 | :+ | Adding the element to the end of the list |
 | :: | Adding the element to the beginning of the list |
 
-> :warning: `++` and `:+` operators are added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions” (currently on [Stagenet](/ru/blockchain/blockchain-network/stage-network) only).
+> :warning: `++` and `:+` operators are added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions” (currently on [Stagenet](/en/blockchain/blockchain-network/stage-network) only).
 
 See examples of the [List](/en/ride/data-types/list) article.
 
