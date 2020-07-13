@@ -45,7 +45,7 @@ Range of functions. Check [zk-SNARK](https://media.consensys.net/introduction-to
 
 ## checkMerkleProof
 
-> :warning: The structure is disabled in [Standard library](/en/ride/script/standard-library) version 4. Use `createMerkleRoot]` instead of it.
+> :warning: This function is disabled in [Standard library](/en/ride/script/standard-library) version 4. Use `createMerkleRoot` instead of it.
 
 Checks that the data is part of the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree).
 

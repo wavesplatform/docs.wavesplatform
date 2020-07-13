@@ -156,11 +156,11 @@ A **built-in function** is a [function](/en/ride/functions/) of the [script cont
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| extract(T&#124;Unit): T | Gets a data type from an union | 13 |
-| isDefined(List[T]&#124;Unit): Boolean | Checks if a value is not an union | 1 |
-| value(T&#124;Unit): T | Gets a data type from an union | 13 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>2 for Standard Library **version&nbsp;4** |
-| valueOrElse(T&#124;Unit, T): T | Returns value from [union](/en/ride/data-types/union) type argument if it's not [unit](/en/ride/data-types/unit). Otherwise, returns the second argument | 2 |
-| valueOrErrorMessage(T&#124;Unit, String): T | Gets a data type from an union. Throws an exception if there is no data | 13 for Standard Library **version&nbsp;3**<br>2 for Standard Library **version&nbsp;4** |
+| extract(T&#124;Unit): T | Gets a value from a [union](/en/ride/data-types/union) type argument. Fails if it is [unit](/en/ride/data-types/unit) | 13 |
+| isDefined(T&#124;Unit): Boolean | Checks if an argument is not `unit` | 1 |
+| value(T&#124;Unit): T | Gets a value from a `union` type argument. Fails if it is `unit` | 13 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>2 for Standard Library **version&nbsp;4** |
+| valueOrElse(T&#124;Unit, T): T | Returns a value from a `union` type argument if it's not `unit`. Otherwise, returns the second argument | 2 |
+|[valueOrErrorMessage(T&#124;Unit, String): T | Gets a value from a `union` type argument if it's not `unit`. Otherwise, fails with the message specified in the second argument | 13 for Standard Library **version&nbsp;3**<br>2 for Standard Library **version&nbsp;4** |
 
 ## [Verification functions](/en/ride/functions/built-in-functions/verification-functions)
 
