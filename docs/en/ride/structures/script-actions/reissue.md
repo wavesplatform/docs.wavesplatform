@@ -7,7 +7,7 @@
 ## Constructor
 
 ```ride
-Reissuen(assetId: ByteVector, isReissuable: Boolean, quantity: Int)
+Reissue(assetId: ByteVector, quantity: Int, isReissuable: Boolean)
 ```
 
 ## Fields
@@ -15,5 +15,5 @@ Reissuen(assetId: ByteVector, isReissuable: Boolean, quantity: Int)
 | # | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
 | 1 | assetId | [ByteVector](/en/ride/data-types/byte-vector) | [ID of the token](/en/blockchain/token/token-id) to reissue |
-| 2 | isReissuable | [Boolean](/en/ride/data-types/boolean) | Reissue ability flag |
-| 3 | quantity | [Int](/en/ride/data-types/int) | Amount of the token |
+| 2 | quantity | [Int](/en/ride/data-types/int) | Amount of the token |
+| 3 | isReissuable | [Boolean](/en/ride/data-types/boolean) | Reissue ability flag |
