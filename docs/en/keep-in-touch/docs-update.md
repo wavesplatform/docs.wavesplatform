@@ -16,7 +16,7 @@ Added guides:
 
 #### Built-in Functions
 
-* [removeByIndex](/en/ride/functions/built-in-functions/list-functions#removeByIndex)
+* [removeByIndex](/en/ride/functions/built-in-functions/list-functions#removebyindex)
 * [bn256groth16Verify](/en/ride/functions/built-in-functions/verification-functions#bn256groth16verify)
 
 ## June Articles

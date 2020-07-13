@@ -10,7 +10,7 @@
 
 #### Встроенные функции
 
-* [removeByIndex](/ru/ride/functions/built-in-functions/list-functions#removeByIndex)
+* [removeByIndex](/ru/ride/functions/built-in-functions/list-functions#removebyindex)
 * [bn256groth16Verify](/ru/ride/functions/built-in-functions/verification-functions#bn256groth16verify)
 
 ## Июньские статьи
