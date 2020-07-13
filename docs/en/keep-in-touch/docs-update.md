@@ -2,6 +2,10 @@
 
 ## July Articles
 
+### Blockchain Waves
+
+* Updated the [Blockchain Networks: Mainnet, Testnet, Stagenet](/en/blockchain/blockchain-network/) article.
+
 ### Building Apps
 
 Added guides:
@@ -13,6 +17,7 @@ Added guides:
 #### Built-in Functions
 
 * [removeByIndex](/en/ride/functions/built-in-functions/list-functions#removeByIndex)
+* [bn256groth16Verify](/en/ride/functions/built-in-functions/verification-functions#bn256groth16verify)
 
 ## June Articles
 

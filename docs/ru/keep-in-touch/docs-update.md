@@ -2,11 +2,17 @@
 
 ## Июльские статьи
 
+=======
+### Блокчейн Waves
+
+* Обновлена статья [Сети блокчейна: Mainnet, Testnet, Stagenet](/ru/blockchain/blockchain-network/) article.
+
 ### Ride
 
 #### Встроенные функции
 
 * [removeByIndex](/ru/ride/functions/built-in-functions/list-functions#removeByIndex)
+* [bn256groth16Verify](/ru/ride/functions/built-in-functions/verification-functions#bn256groth16verify)
 
 ## Июньские статьи
 
