@@ -124,6 +124,7 @@
 | lastIndexOf(list: List[T], element: T): Int&#124;Unit | Возвращает индекс последнего вхождения элемента в списке | 5 |
 | max(List[Int]): Int | Возвращает наибольший элемент в списке | 3 |
 | min(List[Int]): Int | Возвращает наименьший элемент в списке | 3 |
+| removeByIndex(list: List[T], index: Int): List[T] | Удаляет элемент из списка по индексу | 7 |
 | size(List[T]): Int | Возвращает размер списка | 2 |
 
 `T` — сокращенная запись для `Boolean|ByteVector|Int|String`.

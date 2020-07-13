@@ -10,6 +10,7 @@
 
 #### Встроенные функции
 
+* [removeByIndex](/ru/ride/functions/built-in-functions/list-functions#removeByIndex)
 * [bn256groth16Verify](/ru/ride/functions/built-in-functions/verification-functions#bn256groth16verify)
 
 ## Июньские статьи
@@ -27,6 +28,8 @@
 * [Расширение для Visual Studio Code](/ru/building-apps/smart-contracts/tools/ride-vscode)
 * [Surfboard](/ru/building-apps/smart-contracts/tools/surfboard)
 * [Ride REPL](/ru/building-apps/smart-contracts/tools/repl)
+
+### Ride
 
 * [Кортеж](/ru/ride/data-types/tuple)
 

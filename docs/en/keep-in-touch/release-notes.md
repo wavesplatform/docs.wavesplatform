@@ -82,6 +82,7 @@
    * [max](/en/ride/functions/built-in-functions/list-functions#max) that returns the largest element in the list. Complexity is 3.
    * [median](/en/ride/functions/built-in-functions/math-functions#median) that calculates a median of the list of integers. Complexity is 20.
    * [min](/en/ride/functions/built-in-functions/list-functions#min) that returns the smallest element in the list. Complexity is 3.
+   * [removeByIndex](/en/ride/functions/built-in-functions/list-functions#removebyindex) that removes an element from the list by index. Complexity is 7.
    * [transferTransactionFromProto](/en/ride/functions/built-in-functions/converting-functions#transfertransactionfromproto) — deserializes a transfer transaction. Complexity is 5.
    * [valueOrElse(t: T|Unit, t0 : T)](/en/ride/functions/built-in-functions/union-functions#valueOrElse) that returns a value from the union type if it's not [unit](/en/ride/data-types/unit). Complexity is 2.
 * The [wavesBalance](/en/ride/functions/built-in-functions/account-data-storage-functions#waves-balance) built-in function returns the [BalanceDetails](/en/ride/structures/common-structures/balance-details) structure which contains all types of WAVES balances.

@@ -121,6 +121,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [script cont
 | lastIndexOf(list: List[T], element: T): Int&#124;Unit | Returns the index of the last occurrence of the element in the list | 5 |
 | max(List[Int]): Int | Returns the largest element in the list | 3 |
 | min(List[Int]): Int | Returns the smallest item in the list | 3 |
+| removeByIndex(list: List[T], index: Int): List[T] | Removes an element from the list by index | 7 |
 | size(List[T]): Int | Returns the size of the list | 2 |
 
 `T` is a short designation for `Boolean|ByteVector|Int|String`.
