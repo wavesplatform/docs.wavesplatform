@@ -19,7 +19,7 @@
 
 ![](./_assets/voting/account-settings.png)
 
-Убедитесь, что выбрана [тестовая сеть](/ru/blockchain/blockchain-network/test-network).
+Убедитесь, что выбрана [тестовая сеть](/ru/blockchain/blockchain-network/).
 
 ![](./_assets/voting/account-settings-test.png)
 

@@ -71,7 +71,7 @@ The mining reward is increased/decreased only if more than half of the 10,000 vo
 
 ### Example 1
 
-At the [blockchain height](/en/blockchain/blockchain/blockchain-height) of 2,000,000, the mining reward equals 5 WAVES. At the height of 2,090,000, another voting starts.
+At the [blockchain height](/en/blockchain/glossary#blockchain-height) of 2,000,000, the mining reward equals 5 WAVES. At the height of 2,090,000, another voting starts.
 
 During the 10,000 blocks of voting 6,000 votes were given for reward increase, 1,000 — for decrease, 3,000 — for keeping the current reward size.
 

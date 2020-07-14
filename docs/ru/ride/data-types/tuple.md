@@ -1,6 +1,6 @@
 # Кортеж
 
-> :warning: Кортежи добавлены в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая доступна после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions” (в настоящее время только на [Stagenet](/ru/blockchain/blockchain-network/stage-network)).
+> :warning: Кортежи добавлены в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая доступна после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions” (в настоящее время только на [Stagenet](/ru/blockchain/blockchain-network/)).
 
 Кортеж — упорядоченный набор элементов. Элементы могут быть любого типа. Длина кортежа  — от 2 до 22 элементов.
 

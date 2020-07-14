@@ -39,7 +39,7 @@ surfboard config:change KEY VALUE
 ```
 
 * Файл настроек поддерживает несколько сред. Укажите среду по умолчанию в параметре `defaultEnv`.
-* Если требуется, измените [сеть блокчейна](/ru/blockchain/blockchain-network/chain-id) URL ноды.
+* Если требуется, измените [сеть блокчейна](/ru/blockchain/blockchain-network/#байт-сети) URL ноды.
 * Укажите секретную фразу (seed) аккаунта.
 
 :bulb: Работа с локальной нодой описана в статье [Как строить, развертывать и тестировать Waves RIDE dApp](https://habr.com/ru/company/waves/blog/459773/).

@@ -20,7 +20,7 @@ Key features:
 Configure the settings for blockchain operation:
 
 1. In the **Extensions** view find Ride and click ![](./_assets/vscode-settings.png).
-2. If necessary, change the [blockchain network](/en/blockchain/blockchain-network/chain-id) and node URL.
+2. If necessary, change the [blockchain network](/en/blockchain/blockchain-network/#chain-id) and node URL.
 3. Specify the seed phrase for your account.
 
 ## Writing Ride Script

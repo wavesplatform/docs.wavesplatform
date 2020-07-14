@@ -125,7 +125,7 @@
 
 ### Сеть блокчейна
 
-* [Экспериментальная сеть](/ru/blockchain/blockchain-network/stage-network)
+* [Экспериментальная сеть](/ru/blockchain/blockchain-network/)
 
 ### Блокчейн
 

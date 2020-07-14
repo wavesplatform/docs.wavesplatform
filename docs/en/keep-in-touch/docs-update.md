@@ -120,7 +120,7 @@ Added how-to guides:
 
 ### Blockchain network
 
-* [Stage network](/en/blockchain/blockchain-network/stage-network)
+* [Stage network](/en/blockchain/blockchain-network/)
 
 ### Blockchain
 

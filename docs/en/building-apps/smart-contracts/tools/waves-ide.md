@@ -23,7 +23,7 @@ Waves IDE address:
 Configure the settings for blockchain operation:
 
 1. Click ![](./_assets/ide-settings.png) or press **Ctrl&nbsp;+&nbsp;Shift&nbsp;+&nbsp;,** (**Cmd&nbsp;⌘&nbsp;+&nbsp;Shift&nbsp;+&nbsp;,** for macOS).
-2. If necessary, change the [blockchain network](/en/blockchain/blockchain-network/chain-id) and node URL.
+2. If necessary, change the [blockchain network](/en/blockchain/blockchain-network/#chain-id) and node URL.
 
 ## Creating Account
 

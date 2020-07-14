@@ -46,7 +46,7 @@ lastPrice = await this.getLastprice('https://api.wavesplatform.com/v0/pairs/WAVE
 dataParams.push({ key: 'waves_btc_8', value: lastPrice * Math.pow(10, 8) });
 ```
 
-Вы можете создать аккаунт, например, в Waves.Exchange, см. раздел [Создать аккаунт](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-account/online-desktop-creation) section.
+Вы можете создать аккаунт, например, в Waves.Exchange, см. раздел [Создать аккаунт](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-account/online-desktop-creation).
 
 Подпишем [транзакцию данных](/ru/blockchain/transaction-type/data-transaction) при помощи SEED от аккаунта оракула:
 
@@ -54,7 +54,9 @@ dataParams.push({ key: 'waves_btc_8', value: lastPrice * Math.pow(10, 8) });
 const signerDataTX = DataTX(params,'YOU ORACLE SEED HERE');
 ```
 
-Отправим подписанную транзакцию данных в блокчейн, Для [тестовой сети](/ru/blockchain/blockchain-network/test-network) — [nodes-testnet.wavesnodes.com](https://nodes-testnet.wavesnodes.com/api-docs/index.html), для [основной сети](/ru/blockchain/blockchain-network/main-network) — [https://nodes.wavesnodes.com](https://nodes.wavesnodes.com/api-docs/index.html).
+Отправим подписанную транзакцию данных в блокчейн:
+* На Testnet — [nodes-testnet.wavesnodes.com](https://nodes-testnet.wavesnodes.com/api-docs/index.html).
+* На Mainnet — [nodes.wavesnodes.com](https://nodes.wavesnodes.com/api-docs/index.html).
 
 ``` typescript
 const result = await broadcast(signerDataTX, 'https://nodes.wavesnodes.com');

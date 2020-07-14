@@ -39,7 +39,7 @@ surfboard config:change KEY VALUE
 ```
 
 * The file supports multiple environments. Set the default environment using the `defaultEnv` parameter.
-* If necessary, change the [blockchain network](/en/blockchain/blockchain-network/chain-id) and node URL.
+* If necessary, change the [blockchain network](/en/blockchain/blockchain-network/#chain-id) and node URL.
 * Specify the seed phrase for your account.
 
 :bulb: Working with a local node is described in the [How to Build, Deploy and Test a Waves RIDE dApp](https://medium.com/wavesprotocol/how-to-build-deploy-and-test-a-waves-ride-dapp-785311f58c2) article.

@@ -40,7 +40,7 @@ A seed string is involved with the creation of private keys. To create private k
 
 Waves uses `Curve25519`-`ED25519` signature with X25519 keys \(Montgomery form\), but most of embedded cryptography devices and libraries don't support X25519 keys.
 
-There're [libraries with conversion functions](https://download.libsodium.org/doc/advanced/ed25519-curve25519) from:
+There're [libraries with conversion functions](https://doc.libsodium.org/advanced/ed25519-curve25519) from:
 
 * ED25519 keys to X25519 \(Curve25519\) crypto\_sign\_ed25519\_pk\_to\_curve25519\(curve25519\_pk, ed25519\_pk\) for **public key.**
 * Crypto\_sign\_ed25519\_sk\_to\_curve25519\(curve25519\_sk, ed25519\_skpk\) for **private key**.

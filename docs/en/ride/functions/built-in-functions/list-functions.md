@@ -40,7 +40,7 @@ cons(1, [2, 3, 4, 5]) # Returns [1, 2, 3, 4, 5]
 
 Check if the element is in the list.
 
-> :warning: The `containsElement` function is added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+> :warning: The `containsElement` function is added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
 
 ```ride
 containsElement(list: List[T], element: T): Boolean
@@ -79,7 +79,7 @@ getElement([false, true], 1) # Returns true
 
 Returns the index of the first occurrence of the element in the list or `unit` if the element is missing.
 
-> :warning: The `indexOf` function is added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+> :warning: The `indexOf` function is added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
 
 ``` ride
 indexOf(list: List[T], element: T): Int|Unit
@@ -103,7 +103,7 @@ indexOf("a", stringList) # Returns 0
 
 Returns the index of the last occurrence of the element in the list or `unit` if the element is missing.
 
-> :warning: The `lastIndexOf` function is added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+> :warning: The `lastIndexOf` function is added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
 
 ``` ride
 lastIndexOf(list: List[T], element: T): Int|Unit

@@ -81,19 +81,19 @@ A **built-in function** is a [function](/en/ride/functions/) of the [script cont
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| addressFromString(String): Address&#124;Unit | Decodes address from [Base58](https://en.wikipedia.org/wiki/Base58) string | 124 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>1 for Standard Library **version&nbsp;4** |
-| addressFromStringValue(String): Address | Decodes address from [Base58](https://en.wikipedia.org/wiki/Base58) string. Raises an exception if the address cannot be decoded | 124 for Standard Library **version&nbsp;3**<br>1 for Standard Library **version&nbsp;4** |
-| fromBase16String(String): ByteVector | Decodes [Base16](https://en.wikipedia.org/wiki/Hexadecimal) string to an array of bytes | 10 |
-| fromBase58String(String): ByteVector | Decodes [Base58](https://en.wikipedia.org/wiki/Base58) string to an array of bytes | 10 for Standard Library **version&nbsp;3**<br>1 for Standard Library **version&nbsp;4** |
-| fromBase64String(String): ByteVector | Decodes [Base64](https://en.wikipedia.org/wiki/Base64) string to an array of bytes | 10 for Standard Library **version&nbsp;3**<br>40 for Standard Library **version&nbsp;4** |
+| addressFromString(String): Address&#124;Unit | Decodes address from [base58](https://tools.ietf.org/id/draft-msporny-base58-01.html) string | 124 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>1 for Standard Library **version&nbsp;4** |
+| addressFromStringValue(String): Address | Decodes address from base58 string. Raises an exception if the address cannot be decoded | 124 for Standard Library **version&nbsp;3**<br>1 for Standard Library **version&nbsp;4** |
+| fromBase16String(String): ByteVector | Decodes [base16](https://en.wikipedia.org/wiki/Hexadecimal) string to an array of bytes | 10 |
+| fromBase58String(String): ByteVector | Decodes [base58](https://tools.ietf.org/id/draft-msporny-base58-01.html) string to an array of bytes | 10 for Standard Library **version&nbsp;3**<br>1 for Standard Library **version&nbsp;4** |
+| fromBase64String(String): ByteVector | Decodes [base64](https://en.wikipedia.org/wiki/Base64) string to an array of bytes | 10 for Standard Library **version&nbsp;3**<br>40 for Standard Library **version&nbsp;4** |
 
 ## [Encoding functions](/en/ride/functions/built-in-functions/encoding-functions)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| toBase16String(ByteVector): String | Encodes array of bytes to [Base16](https://en.wikipedia.org/wiki/Hexadecimal) string | 10 |
-| toBase58String(ByteVector): String | Encodes array of bytes to [Base58](https://en.wikipedia.org/wiki/Base58) string | 10 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>3 for Standard Library **version&nbsp;4** |
-| toBase64String(ByteVector): String | Encodes array of bytes to [Base64](https://en.wikipedia.org/wiki/Base64) string | 10 for Standard Library **version&nbsp;3**<br>35 for Standard Library **version&nbsp;4** |
+| toBase16String(ByteVector): String | Encodes array of bytes to [base16](https://en.wikipedia.org/wiki/Hexadecimal) string | 10 |
+| toBase58String(ByteVector): String | Encodes array of bytes to [base58](https://tools.ietf.org/id/draft-msporny-base58-01.html) string | 10 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>3 for Standard Library **version&nbsp;4** |
+| toBase64String(ByteVector): String | Encodes array of bytes to [base64](https://en.wikipedia.org/wiki/Base64) string | 10 for Standard Library **version&nbsp;3**<br>35 for Standard Library **version&nbsp;4** |
 
 ## [Exception functions](/en/ride/functions/built-in-functions/exception-functions)
 

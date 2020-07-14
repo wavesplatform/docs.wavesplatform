@@ -20,7 +20,7 @@ Ride — расширение Visual Studio Code для работы с Ride и 
 Чтобы изменить настройки для работы с блокчейном:
 
 1. В списке расширений найдите Ride и нажмите кнопку ![](./_assets/vscode-settings.png).
-2. Если требуется, измените [сеть блокчейна](/ru/blockchain/blockchain-network/chain-id) и URL ноды.
+2. Если требуется, измените [сеть блокчейна](/ru/blockchain/blockchain-network/#байт-сети) и URL ноды.
 3. Укажите секретную фразу (seed) аккаунта.
 
 ## Написание Ride-скрипта

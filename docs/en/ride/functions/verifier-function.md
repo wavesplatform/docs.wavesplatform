@@ -24,7 +24,7 @@ dApp that has no verifier function performs default verification, that is, check
 * For Standard library **version 3**, if the verifier function is defined, only verification by this function is performed, proofs are not checked additionally.
 * For Standard library **version 4** the first proof is always checked, whether or not a verifier function is defined.
 
-> :warning: Standard library version 4 becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+> :warning: Standard library version 4 becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
 
 ## Example
 

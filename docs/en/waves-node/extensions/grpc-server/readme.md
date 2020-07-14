@@ -25,7 +25,7 @@ The [gRPC Server](/en/waves-node/extensions/grpc-server/) extension can be insta
 
 ### Installation via Deb Package
 
-1. Download deb package from the Releases page (Assets section) on [Github](https://github.com/wavesplatform/Waves/releases). For the [Mainnet](/en/blockchain/blockchain-network/main-network) it is grpc-server\_{version number}\_all.deb file, for [test network](/en/blockchain/blockchain-network/test-network) it is grpc-server-testnet\_{version number}\_all.deb.
+1. Download deb package from the Releases page (Assets section) on [Github](https://github.com/wavesplatform/Waves/releases). For Mainnet it is grpc-server\_{version number}\_all.deb file, for Testnet it is grpc-server-testnet\_{version number}\_all.deb.
 
 2. Install the package using the command:
 

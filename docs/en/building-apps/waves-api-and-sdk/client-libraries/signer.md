@@ -1022,7 +1022,7 @@ In this example:
 
 #### getNetworkByte
 
-Obtains [chain ID](/en/blockchain/blockchain-network/chain-id).
+Obtains [chain ID](/en/blockchain/blockchain-network/#chain-id).
 
 ```js
 getNetworkByte();

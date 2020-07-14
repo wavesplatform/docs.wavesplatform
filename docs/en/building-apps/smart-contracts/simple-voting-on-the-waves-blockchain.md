@@ -19,7 +19,7 @@ Go to the [Waves IDE](https://waves-ide.com) settings.
 
 ![](./_assets/voting/account-settings.png)
 
-Make sure that the [test network](/en/blockchain/blockchain-network/test-network) is selected.
+Make sure that the [test network](/en/blockchain/blockchain-network/) is selected.
 
 ![](./_assets/voting/account-settings-test.png)
 

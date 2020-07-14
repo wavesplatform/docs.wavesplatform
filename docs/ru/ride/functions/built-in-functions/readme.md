@@ -37,11 +37,11 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| addressFromString(String): Address&#124;Unit | Декодирует адрес из строки [Base58](https://en.wikipedia.org/wiki/Base58) | 124 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии&nbsp;3**<br>1 для Стандартной библиотеки **версии&nbsp;4** |
-| addressFromStringValue(String): Address | Декодирует адрес из строки [Base58](https://en.wikipedia.org/wiki/Base58). <br>Выбрасывает исключение, если адрес невозможно декодировать | 124 для Стандартной библиотеки **версии&nbsp;3**<br>1 для Стандартной библиотеки **версии&nbsp;4** |
-| fromBase16String(String): ByteVector | Декодирует строку [Base16](https://en.wikipedia.org/wiki/Hexadecimal) в массив байтов | 10 |
-| fromBase58String(String): ByteVector | Декодирует строку [Base58](https://en.wikipedia.org/wiki/Base58) в массив байтов | 10 для Стандартной библиотеки **версии&nbsp;3**<br>1 для Стандартной библиотеки **версии&nbsp;4** |
-| fromBase64String(String): ByteVector | Декодирует строку [Base64](https://en.wikipedia.org/wiki/Base64) в массив байтов | 10 для Стандартной библиотеки **версии&nbsp;3**<br>40 для Стандартной библиотеки **версии&nbsp;4** |
+| addressFromString(String): Address&#124;Unit | Декодирует адрес из строки [base58](https://ru.wikipedia.org/wiki/Base58) | 124 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии&nbsp;3**<br>1 для Стандартной библиотеки **версии&nbsp;4** |
+| addressFromStringValue(String): Address | Декодирует адрес из строки [base58](https://ru.wikipedia.org/wiki/Base58). <br>Выбрасывает исключение, если адрес невозможно декодировать | 124 для Стандартной библиотеки **версии&nbsp;3**<br>1 для Стандартной библиотеки **версии&nbsp;4** |
+| fromBase16String(String): ByteVector | Декодирует строку [base16](https://ru.wikipedia.org/wiki/Шестнадцатеричная_система_счисления) в массив байтов | 10 |
+| fromBase58String(String): ByteVector | Декодирует строку [base58](https://ru.wikipedia.org/wiki/Base58) в массив байтов | 10 для Стандартной библиотеки **версии&nbsp;3**<br>1 для Стандартной библиотеки **версии&nbsp;4** |
+| fromBase64String(String): ByteVector | Декодирует строку [base64](https://ru.wikipedia.org/wiki/Base64) в массив байтов | 10 для Стандартной библиотеки **версии&nbsp;3**<br>40 для Стандартной библиотеки **версии&nbsp;4** |
 
 ## [Функции исключения](/ru/ride/functions/built-in-functions/exception-functions)
 
