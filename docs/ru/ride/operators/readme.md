@@ -48,7 +48,7 @@
 | :+ | Добавление элемента в конец списка |
 | :: | Добавление элемента в начало списка |
 
-> :warning: Операторы `++` и `:+` добавлены в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая доступна после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions” (в настоящее время только на [Stagenet](/ru/blockchain/blockchain-network/)).
+> :warning: Операторы `++` и `:+` добавлены в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая доступна после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 См. примеры в разделе [List](/ru/ride/data-types/list).
 

@@ -1,4 +1,4 @@
-# Version 1.2 (Stagenet)
+# Version 1.2
 
 ## Node Improvements
 
@@ -100,8 +100,6 @@
    * [ByteVector](/en/ride/data-types/byte-vector): 32,767 bytes (except the `bodyBytes` field of the transaction structure)
 
 ## Waves Explorer
-
-<https://stagenet.wavesexplorer.com/stagenet>
 
 * Transactions with failed dApp script or asset script results are now displayed, and marked with ![](./_assets/stop.png) icon in lists of transactions.
 * Added support of two payments for invoke script transactions. The dApp script result is displayed as a table.

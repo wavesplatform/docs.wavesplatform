@@ -14,7 +14,7 @@
 
 Range of functions. Check [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol on the bn254 curve. (Although the curve is called bn254 in the scientific literature, it is commonly referred to as bn256 in the code.)
 
-> :warning: The `bn256groth16Verify` range of functions is introduced in [Standard Library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/) only.
+> :warning: The `bn256groth16Verify` range of functions is introduced in [Standard Library](/en/ride/script/standard-library) **version 4**.
 
 | Name | Max number of inputs | Complexity |
 |:---| :--- | :--- |
@@ -65,7 +65,7 @@ checkMerkleProof(merkleRoot: ByteVector, merkleProof: ByteVector, valueBytes: By
 
 ## createMerkleRoot
 
-> :warning: The function is introduced in [Standard library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/) only.
+> :warning: The function is introduced in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 Calculates the [Merkle root hash](/en/blockchain/block/merkle-root) for transactions of block on the basis of the transaction hash and the sibling hashes of the Merkle tree. [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) algorithm is used for hashing. To check for the  transaction in the block, you need to compare the calculated hash with the `transactionsRoot` field in the block header. For more informtion see the [Transactions Root Hash](/en/blockchain/block/merkle-root).
 
@@ -84,7 +84,7 @@ createMerkleRoot(merkleProofs: List[ByteVector], valueBytes: ByteVector, index: 
 
 ## ecrecover
 
-> :warning: The function is introduced in [Standard library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/) only.
+> :warning: The function is introduced in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 Recovers public key from the message hash and the [ECDSA](https://en.wikipedia.org/wiki/ECDSA) digital signature based on the secp256k1 elliptic curve. Throws an exception if the recovery failed.
 
@@ -122,7 +122,7 @@ func check(t: ByteVector, signature: ByteVector, publicKey: ByteVector) = {
 
 Range of functions. Check [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol.
 
-> :warning: The `groth16verify` range of functions is introduced in [Standard Library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/) only.
+> :warning: The `groth16verify` range of functions is introduced in [Standard Library](/en/ride/script/standard-library) **version 4**.
 
 | Name | Max number of inputs | Complexity |
 |:---| :--- | :--- |
@@ -173,7 +173,7 @@ Range of functions. Check that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cr
 | rsaVerify_64Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 64 kB | 625 |
 | rsaVerify_128Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 128 kB | 750 |
 
-> :warning: The `rsaVerify_16Kb`, `rsaVerify_32Kb`, `rsaVerify_64Kb`, `rsaVerify_128Kb` functions are introduced in [Standard Library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/) only.
+> :warning: The `rsaVerify_16Kb`, `rsaVerify_32Kb`, `rsaVerify_64Kb`, `rsaVerify_128Kb` functions are introduced in [Standard Library](/en/ride/script/standard-library) **version 4**.
 
 The recommended RSA key module length is at least 2048 bits.
 
@@ -205,7 +205,7 @@ Data can be hashed before signing using one of the following algorithms:
 
 Range of functions. Check that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid, i.e. it was created by the owner of the public key.
 
-> :warning: The `sigVerify_8Kb`, `sigVerify_16Kb`, `sigVerify_32Kb`, `sigVerify_64Kb`, `sigVerify_128Kb` functions are introduced in [Standard Library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/) only.
+> :warning: The `sigVerify_8Kb`, `sigVerify_16Kb`, `sigVerify_32Kb`, `sigVerify_64Kb`, `sigVerify_128Kb` functions are introduced in [Standard Library](/en/ride/script/standard-library) **version 4**.
 
 | Name | Max `message` size | Complexity |
 |:---| :--- | :--- |

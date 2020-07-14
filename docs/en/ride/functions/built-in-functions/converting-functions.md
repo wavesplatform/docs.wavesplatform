@@ -299,7 +299,7 @@ toUtf8String(bytes) # Returns "Ride on Waves"
 
 Deserializes transfer transaction: converts protobuf-encoded [binary format](/en/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format) specified in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) to a [TransferTransaction](/en/ride/structures/transaction-structures/transfer-transaction) structure. Returns `unit` if deserialization failed.
 
-> :warning: The functions is introduced in [Standard Library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/) only.
+> :warning: The functions is introduced in [Standard Library](/en/ride/script/standard-library) **version 4**.
 
 ```ride
 transferTransactionFromProto(b: ByteVector): TransferTransaction|Unit

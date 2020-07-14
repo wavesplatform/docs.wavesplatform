@@ -6,7 +6,7 @@ The version of the Standard library in the script is set by the `STDLIB_VERSION`
 
 We recommend to use version 3 of the Standard Library when developing applications; versions 1 and 2 are required for backward compatibility.
 
-> :warning: Standard library version 4 becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
+> :warning: Standard library version 4 becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 Changes in versions are shown in the table.
 

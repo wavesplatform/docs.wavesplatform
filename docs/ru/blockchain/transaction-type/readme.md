@@ -23,4 +23,4 @@
 | [Транзакция установки скрипта](/ru/blockchain/transaction-type/set-script-transaction) | 13 |
 | [Транзакция установки скрипта ассета](/ru/blockchain/transaction-type/set-asset-script-transaction) | 15 |
 
-> Транзакция обновления информации ассета добавлена в версии ноды 1.2.0. Возможность использовать эту транзакцию включается после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время доступны только на [Stagenet](/ru/blockchain/blockchain-network/).
+> Транзакция обновления информации ассета добавлена в версии ноды 1.2.0. Возможность использовать эту транзакцию включается после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.

@@ -12,9 +12,9 @@ Compiler generates executable script code based on an abstract syntax tree. The 
 
 Estimator calculates the [complexity](/en/ride/base-concepts/complexity) of the compiled script.
 
-Currently the two versions of Estimator are used:
-* version 2 – on Mainnet and Testnet (after activation of feature #14 “Block Reward and Community Driven Monetary Policy”);
-* version 3 – on Stagenet (after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”).
+Currently the two versions of Estimator are supported:
+* version 2 is used after activation of feature #14 “Block Reward and Community Driven Monetary Policy”;
+* version 3 is used after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 Parser, Compiler and Estimator are used in developer tools such as [Waves IDE](https://waves-ide.com/) and [Surfboard](https://github.com/wavesplatform/surfboard).
 

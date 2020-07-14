@@ -1,6 +1,6 @@
 # DeleteEntry
 
-> :warning: The structure is introduced in Standard library **version 4** that is currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
+> :warning: The structure is introduced in Standard library **version 4**.
 
 `DeleteEntry` is a structure that sets the paramaters of deletion of entry from the [account data storage](/en/blockchain/account/account-data-storage). Deleting an entry is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#invocation-result-2).
 

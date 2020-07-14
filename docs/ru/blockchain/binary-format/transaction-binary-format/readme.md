@@ -32,7 +32,7 @@
 * Если вы используете собственную ноду и [gRPC-сервер](/ru/waves-node/extensions/grpc-server/), отправьте объект `SignedTransaction`.
 * Если вы используете Node REST API, сформируйте JSON-представление транзакции. Подпись укажите в массиве `proofs` в кодировке base58. Передайте подписанную транзакцию с помощью метода `POST ​/transactions​/broadcast`.
 
-Protobuf-схема для бинарного формата добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/).
+Protobuf-схема для бинарного формата добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ```protobuf
 message SignedTransaction {

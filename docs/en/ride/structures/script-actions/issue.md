@@ -1,6 +1,6 @@
 # Issue
 
-> :warning: The `Issue` structure is added in Standard library **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
+> :warning: The structure is introduced in Standard library **version 4**.
 
 `Issue` is a structure that sets the parameters of the token issue. The token issue is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#invocation-result-2).
 
