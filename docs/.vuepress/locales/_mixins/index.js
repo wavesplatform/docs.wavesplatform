@@ -203,7 +203,7 @@ module.exports = {
                     },
                     web3Course: {
                         title: 'Web3 Course',
-                        link: 'https://stepik.org/course/54415/promo',
+                        link: 'https://www.coursera.org/learn/mastering-web3-waves',
                     },
                 },
             },
