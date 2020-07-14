@@ -168,33 +168,48 @@ Return block data at the given height
 
 ```js
 {
-  "id": "JcwMn1qVtGZqJMV4LGcWncRnaBDdDrziQTGr27z87y7dSDa9iSX7P6GbQZJjZtcEv8kjxNdGCgpexi6ztERjHLf",
+  "blocksize": 450,
+  "reward": 600000000,
+  "signature": "58sTXJfXP6MLZDBsyWRexDMuyxAoinS6G7r6g3AYD4VqzDtxGgTx6cEJdEEfMbvQVYUp56uuxwXhppdGWP3deeCG",
+  "fee": 100000,
+  "generator": "3Mi63XiwniEj6mTC557pxdRDddtpj7fZMMw",
+  "generatorPublicKey": "6CixnBTJeWC85SvqrwXUpquYW57PRPGyumcPYtMcqgZh",
+  "VRF": "2QLVWdxoBR8YFbFVBmg98Kmjh2q3mWjrP9fBTQCWV6JN",
   "transactions": [
     {
-      "id": "string",
-      "timestamp": 0,
+      "senderPublicKey": "J8UMVioZFSSvxHeTsZkPK2uwL91H9HA3Gae9Mkk3LTav",
+      "amount": 1000000000,
+      "applicationStatus": "succeed",
+      "fee": 100000,
+      "type": 4,
       "version": 2,
-      "...": "..."
+      "attachment": "",
+      "sender": "3MgSuT5FfeMrwwZCbztqLhQpcJNxySaFEiT",
+      "feeAssetId": null,
+      "proofs": [
+        "2xEy28NK6Yv32VK5Z4P62dEA4UbnGp5pia1kPbjScggL3Cosmgq7AGCoZauPHqo9DSS2Rw6vRDy9gLMgWDQhSQP2"
+      ],
+      "assetId": null,
+      "recipient": "3Mm2tJ6BQ4o7GuxWggA75iYedkSQVHFnfyT",
+      "feeAsset": null,
+      "id": "DbxyFtMZ4KybtVtSefTk5ubfSFSrbiq5UKTwgQj2cmaf",
+      "timestamp": 1591706446879
     }
   ],
-  "timestamp": 0,
-  "version": 0,
-  "height": 0,
-  "totalFee": 0,
-  "reference": "string",
-  "generator": "string",
-  "signature": "string",
+  "version": 5,
+  "reference": "KFVsiHwAc9Rk1uY2AbWXVQq8Q2WbRbWY5bYdGWSqHZv",
+  "features": [],
+  "totalFee": 100000,
+  "transactionsRoot": "CpjLaM3z5Umt9yGjZtEmgbtMvKXTUCz8wUSC2j53iQqx",
   "nxt-consensus": {
-    "base-target": 0,
-    "generation-signature": "string"
+    "base-target": 1233,
+    "generation-signature": "iiG3xMgM8Lng9ohSXDkXsferirtz56scQKRbDbUhC2bNxFRkkeV4JsK9TnjyXSEw5GvstgbKhRkBxznPaDjXRKSCKFP2nXBBzSvzS8wEEkHHVn3fQaoXHbNHg6Vsda74bDC"
   },
-  "blocksize": 0,
-  "transactionCount": 0,
-  "features": [
-    0
-  ],
-  "reward": 0,
-  "desiredReward": 0
+  "desiredReward": 700000000,
+  "id": "BmxLQiYiXYAZGZYd5zHHPjDYqYSrmuKNwg4MBmYshXT2",
+  "transactionCount": 1,
+  "timestamp": 1591706375932,
+  "height": 408226
 }
 ```
 

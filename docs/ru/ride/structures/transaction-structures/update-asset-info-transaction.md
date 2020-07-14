@@ -12,9 +12,9 @@ UpdateAssetInfoTransaction(name: String, assetId: ByteVector, description: Strin
 
 | # | Имя | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | name | [String](/en/ride/data-types/string) | Name of the [token](/ru/blockchain/token/) |
+| 1 | name | [String](/ru/ride/data-types/string) | Name of the [token](/ru/blockchain/token/) |
 | 2 | assetId | [ByteVector](/ru/ride/data-types/byte-vector) | [Token ID](/ru/blockchain/token/token-id) |
-| 3 | description | [String](/en/ride/data-types/string) | Description of the token |
+| 3 | description | [String](/ru/ride/data-types/string) | Description of the token |
 | 4 | id | [ByteVector](/ru/ride/data-types/byte-vector) | [Transaction ID](/ru/blockchain/transaction/transaction-id) |
 | 5 | fee | [Int](/ru/ride/data-types/int) | [Transaction fee](/ru/blockchain/transaction/transaction-fee) |
 | 6 | timestamp | [Int](/ru/ride/data-types/int) | [Transaction timestamp](/ru/blockchain/transaction/transaction-timestamp) |

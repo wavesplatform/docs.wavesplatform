@@ -25,7 +25,7 @@ gRPC Server можно установить на ноду двумя спосо�
 
 ## Установка с помощью DEB-пакета
 
-1.&nbsp;Скачайте DEB-пакет со страницы [Releases](https://github.com/wavesplatform/Waves/releases) (секция Assets) на GitHub. Для [Mainnet](/ru/blockchain/blockchain-network/main-network) это файл `grpc-server_{номер версии}_all.deb`, для [Testnet](/ru/blockchain/blockchain-network/test-network) — `grpc-server-testnet_{номер версии}_all.deb`.
+1.&nbsp;Скачайте DEB-пакет со страницы [Releases](https://github.com/wavesplatform/Waves/releases) (секция Assets) на GitHub. Для Mainnet это файл `grpc-server_{номер версии}_all.deb`, для Testnet — `grpc-server-testnet_{номер версии}_all.deb`.
 
 2.&nbsp;Установите пакет с помощью команды:
 

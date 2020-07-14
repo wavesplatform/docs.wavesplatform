@@ -2,13 +2,14 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| [cons](#cons)  | Вставляет элемент в начало [списка](/ru/ride/data-types/list) | 2 |
+| [cons](#cons)  | Вставляет элемент в начало [списка](/ru/ride/data-types/list) | 2 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>1 для Стандартной библиотеки **версии 4** |
 | [containsElement](#containselement)  | Проверяет наличие элемента в списке | 5 |
 | [getElement](#getelement)  | Получает элемент списка по индексу | 2 |
 | [indexOf](#indexof)  | Возвращает индекс первого вхождения элемента в списке | 5 |
 | [lastIndexOf](#lastindexof)  | Возвращает индекс последнего вхождения элемента в списке | 5 |
 | [max](#max)  | Возвращает наибольший элемент в списке | 3 |
 | [min](#min)  | Возвращает наименьший элемент в списке | 3 |
+| [removeByIndex](#removebyindex) | Удаляет элемент из списка по индексу | 7 |
 | [size](#size)  | Возвращает размер списка | 2 |
 
 `T` — сокращенная запись для `Boolean|ByteVector|Int|String`.
@@ -153,6 +154,27 @@ min(List[Int]): Int
 | Параметр | Описание |
 | :--- | :--- |
 | `list`: [List[T]](/ru/ride/data-types/list) | Список |
+
+## removeByIndex
+
+Удаляет элемент из списка по индексу.
+
+``` ride
+removeByIndex(list: List[T], index: Int): List[T]
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `list`: [List[T]](/ru/ride/data-types/list) | Список |
+| `index`: T | Индекс элемента |
+
+### Примеры
+
+```ride
+removeByIndex(["Waves", 42, true], 1) # Возвращает ["Waves", true]
+```
 
 ## size
 

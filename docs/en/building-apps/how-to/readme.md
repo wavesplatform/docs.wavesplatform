@@ -46,3 +46,6 @@ The complete cycle of launching a decentralized application: from creating a dAp
 
 This dApp implements voting among HOA (homeowners association) members on the Waves blockchain. The dApp script checks if a voter has rights to vote and writes voting results to the dApp data storage.
 
+[**Reading Price Data Provided by Band Protocol’s Oracle**](/en/building-apps/how-to/dapp/band-price-oracle)
+
+Band's bridge smart contract on the Waves blockchain provides the following price data: BTC/USD, ETH/USD, WAVES/USD.

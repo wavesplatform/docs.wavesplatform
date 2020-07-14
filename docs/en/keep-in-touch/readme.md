@@ -4,7 +4,7 @@ Keep up with the latest news and articles about [Waves Protocol](https://wavespr
 
 * [Waves Blog](https://medium.com/wavesprotocol)
 * [Twitter](https://twitter.com/wavesprotocol)
-* [YouTube](https://www.youtube.com/wavesplatform)
+* [YouTube](https://www.youtube.com/channel/UCYDQN4Fo4rGnOZ22L5plNIw)
 * [Telegram](https://t.me/wavesnews)
 * [Developer chat in Telegram](https://t.me/waves_ride_dapps_dev)
 * [Discord](https://discord.gg/cnFmDyA)

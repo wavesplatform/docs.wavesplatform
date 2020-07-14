@@ -32,7 +32,7 @@
 * Если вы используете собственную ноду и [gRPC-сервер](/ru/waves-node/extensions/grpc-server/), отправьте объект `SignedTransaction`.
 * Если вы используете Node REST API, сформируйте JSON-представление транзакции. Подпись укажите в массиве `proofs` в кодировке base58. Передайте подписанную транзакцию с помощью метода `POST ​/transactions​/broadcast`.
 
-Protobuf-схема для бинарного формата добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+Protobuf-схема для бинарного формата добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/).
 
 ```protobuf
 message SignedTransaction {
@@ -76,7 +76,7 @@ message Amount {
 
 | Поле | Размер | Описание |
 | :--- | :--- | :--- |
-| chain_id | 1 байт | [Байт сети](/ru/blockchain/blockchain-network/chain-id) |
+| chain_id | 1 байт | [Байт сети](/ru/blockchain/blockchain-network/#байт-сети) |
 | sender_public_key | 32 байта | Открытый ключ аккаунта отправителя транзакции |
 | fee.amount | 8 байт | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) в минимальных единицах («копейках») ассета |
 | fee.asset_id | • 32 байта, если комиссия в спонсорском ассете<br> • 0, если комиссия в WAVES | ID токена комиссии.<br>Комиссия в спонсорском ассете доступна только для транзакций вызова скрипта и транзакций перевода. См. раздел [Спонсирование комиссии](/ru/blockchain/waves-protocol/sponsored-fee) |

@@ -32,7 +32,7 @@ Send the signed transaction to a node:
 * If you use your own node and [gRPC server](/en/waves-node/extensions/grpc-server/), send the `SignedTransaction` object.
 * If you use Node REST API, compose the JSON representation of transaction and add the base58-encoded signature to the `proofs` array. Send the transactrion to a node using `POST ​/transactions​/broadcast` method.
 
-The protobuf-based binary format is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+The protobuf-based binary format is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
 
 ```protobuf
 message SignedTransaction {
@@ -76,7 +76,7 @@ message Amount {
 
 | Field | Size | Description |
 | :--- | :--- | :--- |
-| chain_id | 1 byte | [Chain ID](/en/blockchain/blockchain-network/chain-id) |
+| chain_id | 1 byte | [Chain ID](/en/blockchain/blockchain-network/#chain-id) |
 | sender_public_key | 32 bytes | Public key of the transaction sender |
 | fee.amount | 8 bytes | [Transaction fee ](/en/blockchain/transaction/transaction-fee) in the minimum fraction (“cent”) of the fee asset |
 | fee.asset_id | • 32 bytes for the fee in a sponsored asset<br> • 0 for the fee in WAVES | ID of the token of the fee.<br>The fee in a sponsored asset is only available for invoke script transactions and transfer transactions. See the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article |

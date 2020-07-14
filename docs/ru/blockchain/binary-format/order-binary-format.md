@@ -12,7 +12,7 @@
 
 Бинарный формат ордера версии 4 соответствует protobuf-схеме [order.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/order.proto). См. [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=ru).
 
-Версия 4 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+Версия 4 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/).
 
 ```protobuf
 message AssetPair {
@@ -48,7 +48,7 @@ message Amount {
 
 | Поле | Размер | Описание |
 | :--- | :--- | :--- |
-| chain_id | 1 байт | [Байт сети](/ru/blockchain/blockchain-network/chain-id) |
+| chain_id | 1 байт | [Байт сети](/ru/blockchain/blockchain-network/#байт-сети) |
 | sender_public_key | 32 байта | Открытый ключ аккаунта отправителя ордера |
 | matcher_public_key | 32 байта | Открытый ключ матчера |
 | asset_pair.amount_asset_id | • 32 байта для ассета<br>• 0 для WAVES | ID amount-ассета |

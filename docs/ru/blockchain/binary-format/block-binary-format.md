@@ -8,7 +8,7 @@
 
 Бинарный формат блока версии 5 соответствует protobuf-схеме [block.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto). См. [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=ru).
 
-Версия 5 добавлена в версии ноды 1.2.0 и включается с активацией [фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”](/ru/waves-node/features/). В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+Версия 5 добавлена в версии ноды 1.2.0 и включается с активацией [фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”](/ru/waves-node/features/). В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/).
 
 ```protobuf
 message Block {
@@ -33,7 +33,7 @@ message Block {
 
 | Поле | Описание |
 | :--- | :--- |
-| chain_id | [Байт сети](/ru/blockchain/blockchain-network/chain-id) |
+| chain_id | [Байт сети](/ru/blockchain/blockchain-network/#байт-сети) |
 | reference | • В первом блоке версии 5, то есть на высоте активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions” — `signature` предыдущего блока<br>• В последующих блоках: хеш BLAKE2b-256 заголовка предыдущего блока |
 | base_target | [Базовая цель](/ru/blockchain/block/block-generation/base-target) — переменная, используемая в алгоритме генерации блоков |
 | generation_signature | [Подпись генерирования](/ru/blockchain/block/block-generation/) — переменная, используемая в алгоритме генерации блоков (32 байта) |

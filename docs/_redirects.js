@@ -10,12 +10,60 @@ module.exports = [
     from: '/en/waves-environment/waves-protocol/data-transaction.html',
   },
   {
-    to: '/en/blockchain/blockchain/blockchain-height',
     from: '/en/blockchain/blockchain-height.html',
+    to: '/en/blockchain/glossary#b',
   },
   {
-    to: '/ru/blockchain/blockchain/blockchain-height',
+    from: '/en/blockchain/blockchain/blockchain-height',
+    to: '/en/blockchain/glossary#b',
+  },
+  {
     from: '/ru/blockchain/blockchain-height.html',
+    to: '/ru/blockchain/glossary#в',
+  },
+  {
+    from: '/ru/blockchain/blockchain/blockchain-height',
+    to: '/ru/blockchain/glossary#в',
+  },
+  {
+    from: '/en/blockchain/blockchain-network/chain-id',
+    to: '/en/blockchain/blockchain-network/#c',
+  },
+  {
+    from: '/ru/blockchain/blockchain-network/chain-id',
+    to: '/ru/blockchain/blockchain-network/#б',
+  },
+  {
+    from: '/en/blockchain/blockchain-network/main-network',
+    to: '/en/blockchain/blockchain-network/',
+  },
+  {
+    from: '/en/blockchain/blockchain-network/test-network',
+    to: '/en/blockchain/blockchain-network/',
+  },
+  {
+    from: '/en/blockchain/blockchain-network/stage-network',
+    to: '/en/blockchain/blockchain-network/',
+  },
+  {
+    from: '/ru/blockchain/blockchain-network/main-network',
+    to: '/ru/blockchain/blockchain-network/',
+  },
+  {
+    from: '/ru/blockchain/blockchain-network/test-network',
+    to: '/ru/blockchain/blockchain-network/',
+  },
+  {
+    from: '/ru/blockchain/blockchain-network/stage-network',
+    to: '/ru/blockchain/blockchain-network/',
+  },
+  {
+    from: '/en/blockchain/matcher-fee',
+    to: '/en/blockchain/glossary#m',
+  },
+  {
+    from: '/ru/blockchain/matcher-fee',
+    to: '/ru/blockchain/glossary#к',
   },
   {
     to: '/en/blockchain/transaction/transaction-validation',

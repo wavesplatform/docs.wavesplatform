@@ -33,7 +33,7 @@ Return transaction data by transaction ID.
 }
 ```
 
-> The `applicationStatus` field is added since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+> The `applicationStatus` field is added since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
 > `"applicationStatus": "scriptExecutionFailed"` means that the dApp script or the asset script failed. For more information, see the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
 
 ## GET /transactions/address/{address}/limit/{limit}
@@ -464,7 +464,7 @@ Returns the list of transactions statuses, by transaction IDs. The resulting tra
 - `height` – transaction's height in the blockchain.
 - `applicationStatus` – transaction validation status. `succeed` — transaction is valid, `scriptExecutionFailed` — the dApp script or the asset script failed. For more information, see the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
 
-> The `applicationStatus` field is added since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+> The `applicationStatus` field is added since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
 
 ```js
 [
@@ -502,7 +502,7 @@ Returns the list of transactions statuses, by transaction IDs. The resulting tra
 - `height` – transaction's height in the blockchain.
 - `applicationStatus` – transaction validation status. `succeed` — transaction is valid, `scriptExecutionFailed` — the dApp script or the asset script failed. For more information, see the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
 
-> The `applicationStatus` field is added since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+> The `applicationStatus` field is added since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
 
 ```js
 [

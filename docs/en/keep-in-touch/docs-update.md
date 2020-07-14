@@ -1,5 +1,24 @@
 # Documentation Updates
 
+## July Articles
+
+### Blockchain Waves
+
+* Updated the [Blockchain Networks: Mainnet, Testnet, Stagenet](/en/blockchain/blockchain-network/) article.
+
+### Building Apps
+
+Added guides:
+
+* [How to Read Price Data Provided by Band Protocol’s Oracle](/en/building-apps/how-to/dapp/band-price-oracle)
+
+### Ride
+
+#### Built-in Functions
+
+* [removeByIndex](/en/ride/functions/built-in-functions/list-functions#removebyindex)
+* [bn256groth16Verify](/en/ride/functions/built-in-functions/verification-functions#bn256groth16verify)
+
 ## June Articles
 
 ### Building Apps
@@ -8,6 +27,17 @@ Added guides:
 
 * [How to Create dApp: Complete Tutorial](/en/building-apps/smart-contracts/writing-dapps)
 * [Get Order List](/en/building-apps/how-to/basic/trading#get-order-list)
+
+Tools:
+
+* [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide)
+* [Visual Studio Code Extension](/en/building-apps/smart-contracts/tools/ride-vscode)
+* [Surfboard](/en/building-apps/smart-contracts/tools/surfboard)
+* [Ride REPL](/en/building-apps/smart-contracts/tools/repl)
+
+### Ride
+
+* [Tuple](/en/ride/data-types/tuple)
 
 ## May Articles
 
@@ -90,7 +120,7 @@ Added how-to guides:
 
 ### Blockchain network
 
-* [Stage network](/en/blockchain/blockchain-network/stage-network)
+* [Stage network](/en/blockchain/blockchain-network/)
 
 ### Blockchain
 

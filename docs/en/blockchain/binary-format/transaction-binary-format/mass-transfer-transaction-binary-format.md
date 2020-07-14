@@ -6,7 +6,7 @@
 
 Binary format of version 2 is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) protobuf scheme. The fields that are common to all types of transactions are described in the [Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format/) article.
 
-Version 2 is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+Version 2 is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
 
 ```
 message MassTransferTransactionData {
@@ -16,21 +16,13 @@ message MassTransferTransactionData {
     };
     bytes asset_id = 1;
     repeated Transfer transfers = 2;
-    Attachment attachment = 3;
+    bytes attachment = 3;
 };
 
 message Recipient {
     oneof recipient {
         bytes public_key_hash = 1;
         string alias = 2;
-    };
-
-message Attachment {
-    oneof attachment {
-        int64 int_value = 1;
-        bool bool_value = 2;
-        bytes binary_value = 3;
-        string string_value = 4;
     };
 }
 ```

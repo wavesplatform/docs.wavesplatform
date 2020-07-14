@@ -3,6 +3,9 @@
 Since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions” the transaction validation procedure is changed.
 
 * Invoke script transactions and exchange transactions are saved on the blockchain and a fee is charged for them even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed.
+
+   However if the callable function failed with an error or [throwing an exception](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/en/ride/exceptions.md) before the [complexity](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/en/ride/base-concepts/complexity.md) of performed calculations exceeded the [threshold for saving failed transactions](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/en/ride/limits/readme.md), the transaction is rejected and the fee is not charged.
+
 * A fee for the invoke script transaction cannot be funded by transfer from dApp to the transaction sender. If sender's balance is insufficient to pay the fee, dApp script is not executed.
 
 [More details about transaction validation](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/en/blockchain/transaction/transaction-validation.md)
@@ -69,7 +72,7 @@ The `applicationStatus` field for transactions that is added to the blockchain i
 
 Please note: tests now need to check not only that the transaction is added to the blockchain, but also the success of the script.
 
-**How to access**: use Waves IDE for Stagenet <https://ide-stagenet.wavesplatform.com/>.
+**How to access**: use Waves IDE for Stagenet <https://stagenet.waves-ide.com/>.
 
 ## Surfboard
 
@@ -91,6 +94,6 @@ For the invoke script transaction, in addition to the transaction status on the 
 
 ## Ride limitations
 
-The maximum complexity of account script and verifier function of dApp script is changed to 3000.
+The maximum complexity of account script and verifier function of dApp script is changed to 2000  for new scripts, regardless of the Standard library version.
 
 The maximum complexity of asset script and callable function of dApp script remains 4000.

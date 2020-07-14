@@ -8,7 +8,7 @@ Blocks are stored on the blockchain in a binary format (byte representation). [N
 
 Binary format of block version 5 is defined in [block.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) protobuf scheme. For more information about protobuf see [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=ru).
 
-Version 5 is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+Version 5 is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
 
 ```protobuf
 message Block {
@@ -33,7 +33,7 @@ message Block {
 
 | Field | Description |
 | :--- | :--- |
-| chain_id | [Chain ID](/en/blockchain/blockchain-network/chain-id) |
+| chain_id | [Chain ID](/en/blockchain/blockchain-network/#chain-id) |
 | reference | • For the first block of version 5, that is, at the height of activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”: `signature` of the previous block.<br>• For the next blocks: BLAKE2b-256 hash of the previous block header |
 | base_target | [Base target](/en/blockchain/block/block-generation/base-target): а variable that is used in the block generation algorithm |
 | generation_signature | [Generation signature](/en/blockchain/block/block-generation/): а variable that is used in the block generation algorithm (32 bytes) |

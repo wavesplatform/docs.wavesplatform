@@ -182,7 +182,7 @@ module.exports = {
                     },
                     WavesIde: {
                         title: 'Waves IDE',
-                        link: 'https://ide.wavesplatform.com/',
+                        link: 'https://waves-ide.com/',
                     },
                     wavesExplorer: {
                         title: 'Waves Explorer',
@@ -200,6 +200,10 @@ module.exports = {
                     stackOverflow: {
                         title: 'Stack Overflow',
                         link: 'https://stackoverflow.com/questions/tagged/wavesplatform',
+                    },
+                    web3Course: {
+                        title: 'Web3 Course',
+                        link: 'https://www.coursera.org/learn/mastering-web3-waves',
                     },
                 },
             },

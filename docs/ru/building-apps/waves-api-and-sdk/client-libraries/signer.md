@@ -1027,7 +1027,7 @@ await signer.broadcast([transfer1, transfer2], {chain: true, confirmations: 2});
 
 #### getNetworkByte
 
-Получает [байт сети](/ru/blockchain/blockchain-network/chain-id).
+Получает [байт сети](/ru/blockchain/blockchain-network/#байт-сети).
 
 ```js
 getNetworkByte();

@@ -17,13 +17,17 @@ In this article, the following use cases of wallet are reviewed:
 
 ## Creating a New Wallet From Scratch <a id="new"></a>
 
-On startup a node creates wallet if the directory listed in `wallet` section of [node's configuration file](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf) does not already contain wallet.dat file. In this case the node will also generate random seed.
+On startup a node creates wallet if the directory listed in `wallet` section of [node's configuration file](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf) does not already contain `wallet.dat` file.
 
-When wallet.dat is created, the node will request in the console a password which must be set for newly created wallet.dat. This password will be used to encrypt file contents to prevent stealing seed.
+During the wallet creation the node will:
 
-As a result, the full-featured account capable of signing transactions will be created.
+* generate random seed;
+* write the generated seed to STDOUT;
+* request in the console password to encrypt seed.
 
-**Warning:** Wallet is a critical part of your node. It is better to create its file in a safe and protected location. Don’t forget to backup your wallet’s file. It’s recommended to remove the seed from the configuration file immediately after the start of the node. If an attacker gains access to the seed string, he will have access to your funds on all your addresses!
+> The seed phrase written to STDOUT should be stored in a safe location. The seed phrase can not be restored. You can only restore the hash of the seed phrase: you can get it with `GET /addresses/seed/{address}` [Node REST API](/en/waves-node/node-api/) method. You can then use the hash to [get the accout private key](/en/blockchain/waves-protocol/cryptographic-practical-details).
+
+Encripted seed phrase will be saved in `wallet.dat` file. To avoid entering password every time you run the node it is recommended to specify it in `wallet` section of the node configuration file.
 
 ## Creating Wallet Using Existing Seed <a id="existing-seed"></a>
 
