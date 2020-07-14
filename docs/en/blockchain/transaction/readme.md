@@ -1,15 +1,21 @@
 # Transaction
 
-A **transaction** is an action on the [blockchain](/en/blockchain/) on behalf of the [account](/en/blockchain/account/).
+**Transaction** is an action on the [blockchain](/en/blockchain/blockchain/) on behalf of the [account](/en/blockchain/account/). 
 
-Transactions can be sent _only_ from an account — thus, any transaction can be associated with some account.
+The Waves blockchain provides many types of transactions. For example:
 
-There are several [transaction types](/en/blockchain/transaction-type/).
+* data transaction writed data to the account data storage;
+* tarnsfer transaction sends a certain amount of the token to another account.
 
-Each transaction has a [timestamp](/en/blockchain/transaction/transaction-timestamp) and a [unique ID](/en/blockchain/transaction/transaction-id).
+Content of transaction depends on its type. Transaction types are listed in the [Transaction Type](/en/blockchain/transaction-type/) article.
 
-All transactions, with the exception of the [genesis transaction](/en/blockchain/transaction-type/genesis-transaction), have [versions](/en/blockchain/transaction/transaction-version).
+## Sender and Signature
 
+Each transaction contains the public key of sender account, on behalf of which the action is performed on the blockchain. Transaction that is sent from ordinary account (without script) must contain the sender's digital signature. Smart accounts and dApps can set their own rules for verification of outgoing transations. See the [Signature and Proofs of Transaction](/en/blockchain/transaction/transaction-proof) article for more information.
+
+## Transaction Fee
+
+Waves transactions are very cheap but not free: the sender is charged a fee. The sender can specify any amount of fee but not less than the minimum amount specified in the [Transaction Fee](/en/blockchain/transaction/transaction-fee) article.
 
 ## JSON Representation
 
