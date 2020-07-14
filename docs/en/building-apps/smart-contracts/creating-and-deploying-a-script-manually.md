@@ -28,7 +28,7 @@ The idea here is to create a script and attach it to the account so this account
 
 **Now let's Start our 2 of 2 MultiSig Example:**
 
-1. Use our [IDE](https://ide.wavesplatform.com) to write your script \(you can find some script examples there\)
+1. Use our [IDE](https://waves-ide.com) to write your script \(you can find some script examples there\)
 2. For this example we will use the following script: In the first two lines, we defined 2 public keys encoded in base58 for both alice and bob. After that, users gather 2 public keys  in proofs\[0\] and proofs\[1\]. The account is funded by the team members and after that, when 2 of 3 team members decide to spend money, they provide their signatures in a single transaction. The Smart account script, using sigVerify function, validates these signatures with proofs and if 2 of 2 are valid then the transaction is valid too, else the transaction does not pass to the blockchain.
 
 ```

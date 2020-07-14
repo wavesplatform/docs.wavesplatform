@@ -3,6 +3,9 @@
 Начиная с версии ноды 1.2.4, после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions” меняется порядок валидации транзакций:
 
 * Транзакции вызова скрипта и транзакции обмена сохраняются на блокчейне и за них взимается комиссия, даже если результат выполнения dApp-скрипта или скрипта ассета был неудачным (при условии что транзакция прошла проверку подписи отправителя или проверку скриптом аккаунта).
+  
+   Однако если вызываемая функция завершилась ошибкой или [выбрасыванием исключения](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/ru/ride/exceptions.md) прежде, чем [сложность](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/ru/ride/base-concepts/complexity.md) выполненных вычислений превысила [порог для сохранения неуспешных транзакций](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/ru/ride/limits/readme.md), транзакция вызова скрипта отклоняется и комиссия не взимается.
+
 * Становится невозможной оплата комиссии за транзакцию вызова скрипта за счет средств, переведенных dApp-скриптом отправителю. Если баланс отправителя недостаточен для оплаты комиссии, dApp-скрипт не выполняется.
 
 [Подробнее о валидации транзакций](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/ru/blockchain/transaction/transaction-validation.md)
@@ -63,13 +66,13 @@ npm i @waves/node-api-js@beta
 
 [Все изменения Waves Explorer](https://github.com/wavesplatform/docs.wavesplatform/blob/master/docs/ru/keep-in-touch/release-notes.md/#waves-explorer)
 
-## Waves IDE (ide-stagenet.wavesplatform.com)
+## Waves IDE (stagenet.waves-ide.com)
 
 Поле `applicationStatus` поддерживается для транзакций, добавленных на блокчейн, в JavaScript-консоли и в тестах.
 
 Обратите внимание: в тестах теперь необходимо проверять не только появление транзакции на блокчейне, но и успешность выполнения скрипта.
 
-**Как воспользоваться**: Waves IDE для Stagenet доступна по адресу <https://ide-stagenet.wavesplatform.com/>.
+**Как воспользоваться**: Waves IDE для Stagenet доступна по адресу <https://stagenet.waves-ide.com/>.
 
 ## Surfboard
 
@@ -91,6 +94,6 @@ npm i @waves/surfboard@beta
 
 ## Ограничения Ride
 
-Максимальная сложность скрипта аккаунта и функции-верификатора скрипта dApp изменена на 3000.
+Максимальная сложность скрипта аккаунта и функции-верификатора скрипта dApp изменена на 2000 для новых скриптов, независимо от версии Стандартной библиотеки.
 
 Максимальная сложность скрипта ассета и вызываемой функции скрипта dApp осталась прежней — 4000.

@@ -60,6 +60,8 @@ A **block** is a unit of the [blockchain](#blockchain) chain. The block contains
 
 A **blockchain** is a continuous sequential chain of [blocks](#block), that are linked using cryptography.
 
+The blockchain has the [height](#blockchain-height).
+
 ### Block height
 
 A **block height** is a [block](#block) sequence number in the [blockchain](#blockchain).
@@ -167,6 +169,10 @@ The **mainnet** (or main network) is the main Waves [blockchain network](#blockc
 ### Matcher
 
 A **matcher** is a [node](#node) extension that executes [orders](#order) on the exchange. See the [About Waves.Exchange Matcher](https://docs.waves.exchange/en/waves-matcher/) section in the Waves.Exchange documentation.
+
+### Matcher fee
+
+A **matcher fee** is a fee that [matcher](#matcher) takes from both [accounts](#account) that participate in the exchange of the pair of [tokens](#token).
 
 ### Miner
 

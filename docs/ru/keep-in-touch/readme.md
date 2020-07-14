@@ -5,7 +5,7 @@
 * [Официальный блог](https://medium.com/wavesprotocol)
 * [Twitter](https://twitter.com/wavesprotocol)
 * [ВКонтакте](https://vk.com/wavesprotocol)
-* [YouTube](https://www.youtube.com/wavesplatform)
+* [YouTube](https://www.youtube.com/channel/UCYDQN4Fo4rGnOZ22L5plNIw)
 * [Telegram](https://t.me/wavesnews)
 * [Telegram (Новости RU)](https://t.me/WavesNewsRU)
 * [Чат разработчиков в Telegram](https://t.me/waves_ride_dapps_dev)

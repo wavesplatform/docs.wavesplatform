@@ -6,7 +6,7 @@
 
 Бинарный формат версии 2 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format/).
 
-Версия 2 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+Версия 2 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/).
 
 ```
 message InvokeScriptTransactionData {
@@ -47,16 +47,16 @@ message Amount {
 | 1 | Флаг версии |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Указывает, что [версия транзакции](/ru/blockchain/transaction/transaction-version) является второй или выше.<br>Значение должно быть равно 0 |
 | **2** | [ID типа транзакции](/ru/blockchain/transaction-type/) | type | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Значение должно быть равно 16 |
 | **3** | [Версия транзакции](/ru/blockchain/transaction/transaction-version) | version | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Значение должно быть равно 1 |
-| **4** | [Байт сети](/ru/blockchain/blockchain-network/chain-id) |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 84 — для [тестовой сети](/ru/blockchain/blockchain-network/test-network)<br>87 — для [основной сети](/ru/blockchain/blockchain-network/main-network)<br>83 — для [экспериментальной сети](/ru/blockchain/blockchain-network/stage-network) |
+| **4** | [Байт сети](/ru/blockchain/blockchain-network/#байт-сети) |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 87 — для Mainnet<br>84 — для Testnet<br>83 — для Stagenet |
 | **5** | Открытый ключ аккаунта отправителя транзакции | senderPublicKey | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
 | **6** | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) | dApp | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | Если первым байтом поля является 1, то за ним следует адрес. `S` в этом случае равняется 26.<br>Если первым байтом поля является 2, то за ним следует псевдоним. В этом случае 8 <= `S` <= 34 |
-| **7** | Флаг адреса или псевдонима |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 1 — для идентификации отправителя используется адрес.<br>2 — для идентификации отправителя используется псевдоним. |
+| **7** | Флаг адреса или псевдонима |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 1 — для идентификации отправителя используется адрес.<br>2 — для идентификации отправителя используется псевдоним |
 | **8** | Байт сети |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Дублирует указанный выше байт сети |
 | **9** | Хеш адреса |  | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 20 |  |
 | **10** | [Контрольная сумма](https://ru.wikipedia.org/wiki/Контрольная_сумма) адреса |  | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 4 |  |
 | **11** | Длина псевдонима |  | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 2 |  |
 | **12** | Имя псевдонима |  | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | От 4 до 30 байтов |  |
-| **13.1** | Флаг наличия функции |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — в dApp должна быть вызвана функция по умолчанию.<br>1 — в dApp должна быть вызвана функция из текущей транзакции. |
+| **13.1** | Флаг наличия функции |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — в dApp должна быть вызвана функция по умолчанию.<br>1 — в dApp должна быть вызвана функция из текущей транзакции |
 | **13.2** | Идентификатор вызова функции |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Константа. Значение должно быть равно 9 |
 | **13.3** | Идентификатор типа функции |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Константа. Значение должно быть равно 1 |
 | **13.4** | Длина имени функции | | [Int](/ru/blockchain/blockchain/blockchain-data-types) | 4 |  |

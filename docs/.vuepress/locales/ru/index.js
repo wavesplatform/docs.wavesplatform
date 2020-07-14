@@ -124,7 +124,7 @@ module.exports = deepmerge(mixin, {
                         link: '/ru/ecosystem/waves-explorer/about-waves-explorer',
                     },
                     faucet: {
-                        text: 'Бесплатные WAVES в Testnet',
+                        text: 'Бесплатные WAVES на Testnet',
                         link: '/ru/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network',
                     },
                     keeper: {

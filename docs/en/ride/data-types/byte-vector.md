@@ -29,4 +29,4 @@ The maximum size of a `ByteVector` variable is:
 
    Exception: the `bodyBytes` field of [transaction structure](/en/ride/structures/transaction-structures/). You can pass this value as an argument to the `rsaVerify` и `sigVerify` [verification functions](/en/ride/functions/built-in-functions/verification-functions) (but cannot concatenate with other byte arrays in case the limit is exceeded).
 
-> :warning: Standard library version 4 becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+> :warning: Standard library version 4 becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.

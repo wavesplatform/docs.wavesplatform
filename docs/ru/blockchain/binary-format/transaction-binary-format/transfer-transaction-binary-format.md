@@ -6,13 +6,13 @@
 
 Бинарный формат версии 3 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format/).
 
-Версия 3 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/stage-network).
+Версия 3 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/).
 
 ```
 message TransferTransactionData {
     Recipient recipient = 1;
     Amount amount = 2;
-    Attachment attachment = 3;
+    bytes attachment = 3;
 };
 
 message Recipient {
@@ -24,15 +24,6 @@ message Recipient {
 message Amount {
     bytes asset_id = 1;
     int64 amount = 2;
-};
-
-message Attachment {
-    oneof attachment {
-        int64 int_value = 1;
-        bool bool_value = 2;
-        bytes binary_value = 3;
-        string string_value = 4;
-    };
 };
 ```
 

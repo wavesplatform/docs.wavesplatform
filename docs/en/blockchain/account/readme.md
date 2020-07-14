@@ -6,7 +6,7 @@ Accounts unambiguously correlate [transactions](/en/blockchain/transaction/) and
 
 ## Account public and private keys
 
-Private and public keys have the same size — 32 bytes. The bytes of the keys are converted to a [Base58](https://en.wikipedia.org/wiki/Base58) character string; in this form, the keys are displayed in the interfaces of programs.
+Private and public keys have the same size — 32 bytes. The bytes of the keys are converted to a [base58](https://tools.ietf.org/id/draft-msporny-base58-01.html) character string; in this form, the keys are displayed in the interfaces of programs.
 
 Example of a public key in Base58:
 
@@ -38,7 +38,7 @@ An account may store different [tokens](/en/blockchain/token/) in different amou
 
 Each account has a _single_ [address](/en/blockchain/account/address).
 
-Example of address in [Base58](https://en.wikipedia.org/wiki/Base58):
+Example of address in base58:
 
 ```
 3MsoC9tFzt4jcfHvmv4DBCap2ttokY5Ve9S

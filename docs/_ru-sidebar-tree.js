@@ -15,6 +15,10 @@ module.exports = {
       title: 'О блокчейне Waves',
       path: blockchainPath,
     },
+/*    {
+      title: 'Что такое блокчейн',
+      path: blockchainPath + 'blockchain',
+    }, */
     {
       title: 'Аккаунт',
       path: blockchainPath + 'account',
@@ -46,273 +50,7 @@ module.exports = {
       ],
     },
     {
-      title: 'Бинарный формат',
-      path: blockchainPath + 'binary-format',
-      children: [
-        {
-          title: 'Бинарный формат адреса',
-          path: blockchainPath + 'binary-format/address-binary-format',
-        },
-        {
-          title: 'Бинарный формат псевдонима',
-          path: blockchainPath + 'binary-format/alias-binary-format',
-        },
-        {
-          title: 'Бинарный формат блока',
-          path: blockchainPath + 'binary-format/block-binary-format',
-        },
-        {
-          title: '[en] Network message binary format',
-          path: blockchainPath + 'binary-format/network-message-binary-format',
-          children: [
-            {
-              title: '[en] Block message binary format',
-              path: blockchainPath + 'binary-format/network-message-binary-format/block-message-binary-format',
-            },
-            {
-              title: '[en] Checkpoint message binary format',
-              path: blockchainPath + 'binary-format/network-message-binary-format/checkpoint-message-binary-format',
-            },
-            {
-              title: '[en] Get block message binary format',
-              path: blockchainPath + 'binary-format/network-message-binary-format/get-block-message-binary-format',
-            },
-            {
-              title: '[en] Get peers message binary format',
-              path: blockchainPath + 'binary-format/network-message-binary-format/get-peers-message-binary-format',
-            },
-            {
-              title: '[en] Get signatures message binary format',
-              path: blockchainPath + 'binary-format/network-message-binary-format/get-signatures-message-binary-format',
-            },
-            {
-              title: '[en] Handshake message binary format',
-              path: blockchainPath + 'binary-format/network-message-binary-format/handshake-message-binary-format',
-            },
-            {
-              title: '[en] Peers message binary format',
-              path: blockchainPath + 'binary-format/network-message-binary-format/peers-message-binary-format',
-            },
-            {
-              title: '[en] Score message binary format',
-              path: blockchainPath + 'binary-format/network-message-binary-format/score-message-binary-format',
-            },
-            {
-              title: '[en] Signatures message binary format',
-              path: blockchainPath + 'binary-format/network-message-binary-format/signatures-message-binary-format',
-            },
-            {
-              title: '[en] Transaction message binary format',
-              path: blockchainPath + 'binary-format/network-message-binary-format/transaction-message-binary-format',
-            },
-          ]
-        },
-        {
-          title: 'Бинарный формат ордера',
-          path: blockchainPath + 'binary-format/order-binary-format',
-        },
-        {
-          title: 'Бинарный формат транзакции',
-          path: blockchainPath + 'binary-format/transaction-binary-format',
-          children: [
-            {
-              title: 'Вызов скрипта',
-              path: blockchainPath + 'binary-format/transaction-binary-format/invoke-script-transaction-binary-format',
-            },
-            {
-              title: 'Выпуск',
-              path: blockchainPath + 'binary-format/transaction-binary-format/issue-transaction-binary-format',
-            },
-            {
-              title: 'Генезис',
-              path: blockchainPath + 'binary-format/transaction-binary-format/genesis-transaction-binary-format',
-            },
-            {
-              title: 'Данные',
-              path: blockchainPath + 'binary-format/transaction-binary-format/data-transaction-binary-format',
-            },
-            {
-              title: 'Довыпуск',
-              path: blockchainPath + 'binary-format/transaction-binary-format/reissue-transaction-binary-format',
-            },
-            {
-              title: 'Лизинг',
-              path: blockchainPath + 'binary-format/transaction-binary-format/lease-transaction-binary-format',
-            },
-            {
-              title: 'Массовый перевод',
-              path: blockchainPath + 'binary-format/transaction-binary-format/mass-transfer-transaction-binary-format',
-            },
-            {
-              title: 'Обмен',
-              path: blockchainPath + 'binary-format/transaction-binary-format/exchange-transaction-binary-format',
-            },
-            {
-              title: 'Обновление информации ассета',
-              path: blockchainPath + 'binary-format/transaction-binary-format/update-asset-info-transaction-binary-format',
-            },
-            {
-              title: 'Отмена лизинга',
-              path: blockchainPath + 'binary-format/transaction-binary-format/lease-cancel-transaction-binary-format',
-            },
-            {
-              title: 'Сжигание токена',
-              path: blockchainPath + 'binary-format/transaction-binary-format/burn-transaction-binary-format',
-            },
-            {
-              title: 'Cоздание псевдонима',
-              path: blockchainPath + 'binary-format/transaction-binary-format/create-alias-transaction-binary-format',
-            },
-            {
-              title: 'Спонсирование',
-              path: blockchainPath + 'binary-format/transaction-binary-format/sponsor-fee-transaction-binary-format',
-            },
-            {
-              title: 'Перевод',
-              path: blockchainPath + 'binary-format/transaction-binary-format/transfer-transaction-binary-format',
-            },
-            {
-              title: 'Установка скрипта',
-              path: blockchainPath + 'binary-format/transaction-binary-format/set-script-transaction-binary-format',
-            },
-            {
-              title: 'Установка скрипта ассета',
-              path: blockchainPath + 'binary-format/transaction-binary-format/set-asset-script-transaction-binary-format',
-            },
-          ],
-        },
-        {
-          title: '[en] Transaction proof binary format',
-          path: blockchainPath + 'binary-format/transaction-proof-binary-format',
-        },
-      ],
-    },
-    {
-      title: 'Блок',
-      path: blockchainPath + 'block',
-      children: [
-        {
-          title: 'Генерация блока',
-          path: blockchainPath + 'block/block-generation',
-          children: [
-            {
-              title: 'Базовая цель',
-              path: blockchainPath + 'block/block-generation/base-target',
-            },
-            {
-              title: '[en] Generation signature',
-              path: blockchainPath + 'block/block-generation/generation-signature',
-            },
-          ],
-        },
-        {
-          title: 'Высота блока',
-          path: blockchainPath + 'block/block-height',
-        },
-        {
-          title: 'Подпись блока',
-          path: blockchainPath + 'block/block-signature',
-        },
-        {
-          title: 'Временная метка блока',
-          path: blockchainPath + 'block/block-timestamp',
-        },
-        {
-          title: 'Корневой хеш транзакций',
-          path: blockchainPath + 'block/merkle-root',
-        },
-        {
-          title: 'Блок генезиса',
-          path: blockchainPath + 'block/genesis-block',
-        },
-      ]
-    },
-    {
-      title: 'Блокчейн',
-      path: blockchainPath + 'blockchain',
-      children: [
-        {
-          title: 'Типы данных блокчейна',
-          path: blockchainPath + 'blockchain/blockchain-data-types',
-        },
-        {
-          title: 'Высота блокчейна',
-          path: blockchainPath + 'blockchain/blockchain-height',
-        },
-      ],
-    },
-    {
-      title: 'Сеть блокчейна',
-      path: blockchainPath + 'blockchain-network',
-      children: [
-        {
-          title: 'Байт сети',
-          path: blockchainPath + 'blockchain-network/chain-id',
-        },
-        {
-          title: 'Основная сеть',
-          path: blockchainPath + 'blockchain-network/main-network',
-        },
-        {
-          title: 'Тестовая сеть',
-          path: blockchainPath + 'blockchain-network/test-network',
-        },
-        {
-          title: 'Экспериментальная сеть',
-          path: blockchainPath + 'blockchain-network/stage-network',
-        },
-      ],
-    },
-    {
-      title: 'Лизинг',
-      path: blockchainPath + 'leasing',
-    },
-    {
-      title: 'Майнинг',
-      path: blockchainPath + 'mining',
-      children: [
-        {
-          title: 'Майнер',
-          path: blockchainPath + 'mining/miner',
-        },
-        {
-          title: 'Майнящий аккаунт',
-          path: blockchainPath + 'mining/mining-account',
-        },
-        {
-          title: 'Вознаграждение за майнинг',
-          path: blockchainPath + 'mining/mining-reward',
-        },
-      ],
-    },
-    {
-      title: 'Комиссия матчера',
-      path: blockchainPath + 'matcher-fee',
-    },
-    {
-      title: 'Нода',
-      path: blockchainPath + 'node',
-      children: [
-        {
-          title: 'Майнящая нода',
-          path: blockchainPath + 'node/mining-node',
-        },
-        {
-          title: 'Валидирующая нода',
-          path: blockchainPath + 'node/validating-node',
-        },
-      ],
-    },
-    {
-      title: 'Оракул',
-      path: blockchainPath + 'oracle',
-    },
-    {
-      title: 'Биржевая заявка',
-      path: blockchainPath + 'order',
-    },
-    {
-      title: 'Токен',
+      title: 'Токены (ассеты)',
       path: blockchainPath + 'token',
       children: [
         {
@@ -452,7 +190,95 @@ module.exports = {
       ]
     },
     {
-      title: 'Протокол Waves',
+      title: 'Mainnet, Testnet, Stagenet',
+      path: blockchainPath + 'blockchain-network',
+    },
+    {
+      title: 'Нода',
+      path: blockchainPath + 'node',
+      children: [
+        {
+          title: 'Майнящая нода',
+          path: blockchainPath + 'node/mining-node',
+        },
+        {
+          title: 'Валидирующая нода',
+          path: blockchainPath + 'node/validating-node',
+        },
+        {
+          title: 'Лизинг',
+          path: blockchainPath + 'leasing',
+        },
+      ],
+    },
+    {
+      title: 'Майнинг',
+      path: blockchainPath + 'mining',
+      children: [
+        {
+          title: 'Майнер',
+          path: blockchainPath + 'mining/miner',
+        },
+        {
+          title: 'Майнящий аккаунт',
+          path: blockchainPath + 'mining/mining-account',
+        },
+        {
+          title: 'Вознаграждение за майнинг',
+          path: blockchainPath + 'mining/mining-reward',
+        },
+      ],
+    },
+    {
+      title: 'Блок',
+      path: blockchainPath + 'block',
+      children: [
+        {
+          title: 'Генерация блока',
+          path: blockchainPath + 'block/block-generation',
+          children: [
+            {
+              title: 'Базовая цель',
+              path: blockchainPath + 'block/block-generation/base-target',
+            },
+            {
+              title: '[en] Generation signature',
+              path: blockchainPath + 'block/block-generation/generation-signature',
+            },
+          ],
+        },
+        {
+          title: 'Высота блока',
+          path: blockchainPath + 'block/block-height',
+        },
+        {
+          title: 'Подпись блока',
+          path: blockchainPath + 'block/block-signature',
+        },
+        {
+          title: 'Временная метка блока',
+          path: blockchainPath + 'block/block-timestamp',
+        },
+        {
+          title: 'Корневой хеш транзакций',
+          path: blockchainPath + 'block/merkle-root',
+        },
+        {
+          title: 'Блок генезиса',
+          path: blockchainPath + 'block/genesis-block',
+        },
+      ]
+    },
+    {
+      title: 'Оракул',
+      path: blockchainPath + 'oracle',
+    },
+    {
+      title: 'Ордер',
+      path: blockchainPath + 'order',
+    },
+    {
+      title: 'Форматы данных и протоколы',
       path: blockchainPath + 'waves-protocol',
       children: [
         {
@@ -460,24 +286,166 @@ module.exports = {
           path: blockchainPath + 'waves-protocol/cryptographic-practical-details',
         },
         {
-          title: '[en] Validation rules',
-          path: blockchainPath + 'waves-protocol/validation-rules',
-        },
-        {
           title: '[en] Waves-NG solution',
           path: blockchainPath + 'waves-protocol/waves-ng-solution',
-        },
-        {
-          title: 'Честный Proof-of-Stake',
-          path: blockchainPath + 'waves-protocol/fair-pos',
         },
         {
           title: 'Протокол Waves-NG',
           path: blockchainPath + 'waves-protocol/waves-ng-protocol',
         },
         {
-          title: 'Протокол активации',
-          path: nodePath + 'activation-protocol',
+          title: 'Честный Proof-of-Stake',
+          path: blockchainPath + 'waves-protocol/fair-pos',
+        },
+        {
+          title: 'Типы данных блокчейна',
+          path: blockchainPath + 'blockchain/blockchain-data-types',
+        },
+        {
+          title: 'Бинарные форматы',
+          path: blockchainPath + 'binary-format',
+          children: [
+            {
+              title: 'Бинарный формат адреса',
+              path: blockchainPath + 'binary-format/address-binary-format',
+            },
+            {
+              title: 'Бинарный формат псевдонима',
+              path: blockchainPath + 'binary-format/alias-binary-format',
+            },
+            {
+              title: 'Бинарный формат блока',
+              path: blockchainPath + 'binary-format/block-binary-format',
+            },
+            {
+              title: '[en] Network message binary format',
+              path: blockchainPath + 'binary-format/network-message-binary-format',
+              children: [
+                {
+                  title: '[en] Block message binary format',
+                  path: blockchainPath + 'binary-format/network-message-binary-format/block-message-binary-format',
+                },
+                {
+                  title: '[en] Checkpoint message binary format',
+                  path: blockchainPath + 'binary-format/network-message-binary-format/checkpoint-message-binary-format',
+                },
+                {
+                  title: '[en] Get block message binary format',
+                  path: blockchainPath + 'binary-format/network-message-binary-format/get-block-message-binary-format',
+                },
+                {
+                  title: '[en] Get peers message binary format',
+                  path: blockchainPath + 'binary-format/network-message-binary-format/get-peers-message-binary-format',
+                },
+                {
+                  title: '[en] Get signatures message binary format',
+                  path: blockchainPath + 'binary-format/network-message-binary-format/get-signatures-message-binary-format',
+                },
+                {
+                  title: '[en] Handshake message binary format',
+                  path: blockchainPath + 'binary-format/network-message-binary-format/handshake-message-binary-format',
+                },
+                {
+                  title: '[en] Peers message binary format',
+                  path: blockchainPath + 'binary-format/network-message-binary-format/peers-message-binary-format',
+                },
+                {
+                  title: '[en] Score message binary format',
+                  path: blockchainPath + 'binary-format/network-message-binary-format/score-message-binary-format',
+                },
+                {
+                  title: '[en] Signatures message binary format',
+                  path: blockchainPath + 'binary-format/network-message-binary-format/signatures-message-binary-format',
+                },
+                {
+                  title: '[en] Transaction message binary format',
+                  path: blockchainPath + 'binary-format/network-message-binary-format/transaction-message-binary-format',
+                },
+              ]
+            },
+            {
+              title: 'Бинарный формат ордера',
+              path: blockchainPath + 'binary-format/order-binary-format',
+            },
+            {
+              title: 'Бинарный формат транзакции',
+              path: blockchainPath + 'binary-format/transaction-binary-format',
+              children: [
+                {
+                  title: 'Вызов скрипта',
+                  path: blockchainPath + 'binary-format/transaction-binary-format/invoke-script-transaction-binary-format',
+                },
+                {
+                  title: 'Выпуск',
+                  path: blockchainPath + 'binary-format/transaction-binary-format/issue-transaction-binary-format',
+                },
+                {
+                  title: 'Генезис',
+                  path: blockchainPath + 'binary-format/transaction-binary-format/genesis-transaction-binary-format',
+                },
+                {
+                  title: 'Данные',
+                  path: blockchainPath + 'binary-format/transaction-binary-format/data-transaction-binary-format',
+                },
+                {
+                  title: 'Довыпуск',
+                  path: blockchainPath + 'binary-format/transaction-binary-format/reissue-transaction-binary-format',
+                },
+                {
+                  title: 'Лизинг',
+                  path: blockchainPath + 'binary-format/transaction-binary-format/lease-transaction-binary-format',
+                },
+                {
+                  title: 'Массовый перевод',
+                  path: blockchainPath + 'binary-format/transaction-binary-format/mass-transfer-transaction-binary-format',
+                },
+                {
+                  title: 'Обмен',
+                  path: blockchainPath + 'binary-format/transaction-binary-format/exchange-transaction-binary-format',
+                },
+                {
+                  title: 'Обновление информации ассета',
+                  path: blockchainPath + 'binary-format/transaction-binary-format/update-asset-info-transaction-binary-format',
+                },
+                {
+                  title: 'Отмена лизинга',
+                  path: blockchainPath + 'binary-format/transaction-binary-format/lease-cancel-transaction-binary-format',
+                },
+                {
+                  title: 'Сжигание токена',
+                  path: blockchainPath + 'binary-format/transaction-binary-format/burn-transaction-binary-format',
+                },
+                {
+                  title: 'Cоздание псевдонима',
+                  path: blockchainPath + 'binary-format/transaction-binary-format/create-alias-transaction-binary-format',
+                },
+                {
+                  title: 'Спонсирование',
+                  path: blockchainPath + 'binary-format/transaction-binary-format/sponsor-fee-transaction-binary-format',
+                },
+                {
+                  title: 'Перевод',
+                  path: blockchainPath + 'binary-format/transaction-binary-format/transfer-transaction-binary-format',
+                },
+                {
+                  title: 'Установка скрипта',
+                  path: blockchainPath + 'binary-format/transaction-binary-format/set-script-transaction-binary-format',
+                },
+                {
+                  title: 'Установка скрипта ассета',
+                  path: blockchainPath + 'binary-format/transaction-binary-format/set-asset-script-transaction-binary-format',
+                },
+              ],
+            },
+            {
+              title: '[en] Transaction proof binary format',
+              path: blockchainPath + 'binary-format/transaction-proof-binary-format',
+            },
+          ],
+        },
+        {
+          title: '[en] Validation rules',
+          path: blockchainPath + 'waves-protocol/validation-rules',
         },
       ],
     },
@@ -529,11 +497,11 @@ module.exports = {
       ],
     },
 	{
-      title: 'Загрузить блокчейн Waves',
+      title: 'Синхронизировать блокчейн Waves',
       path: nodePath + 'options-for-getting-actual-blockchain',
       children: [
         {
-          title: 'Экспортировать и импортировать блокчейн',
+          title: 'Импортировать и экспортировать блокчейн',
           path: nodePath + 'options-for-getting-actual-blockchain/import-from-the-blockchain',
         },
         {
@@ -708,10 +676,6 @@ module.exports = {
           path: ridePath + 'data-types/int',
         },
         {
-          title: 'List',
-          path: ridePath + 'data-types/list',
-        },
-        {
           title: 'String',
           path: ridePath + 'data-types/string',
         },
@@ -720,7 +684,15 @@ module.exports = {
           path: ridePath + 'data-types/unit',
         },
         {
-          title: 'Тип данных объединения',
+          title: 'List',
+          path: ridePath + 'data-types/list',
+        },
+        {
+          title: 'Кортеж',
+          path: ridePath + 'data-types/tuple',
+        },
+        {
+          title: 'Объединение',
           path: ridePath + 'data-types/union',
         },
       ],
@@ -1179,7 +1151,15 @@ module.exports = {
           path: programmingPath + 'tools/waves-ide',
         },
         {
-          title: 'REPL',
+          title: 'Расширение для VS Code',
+          path: programmingPath + 'tools/ride-vscode',
+        },
+        {
+          title: 'Surfboard',
+          path: programmingPath + 'tools/surfboard',
+        },
+        {
+          title: 'Ride REPL',
           path: programmingPath + 'tools/repl',
         },
       ],

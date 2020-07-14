@@ -12,7 +12,7 @@ An exchange transaction of [version 1](/en/blockchain/binary-format/transaction-
 
 Binary format of order version 4 is defined in [order.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/order.proto) protobuf scheme. For information about `proto` see [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=en).
 
-Version 4 is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+Version 4 is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
 
 ```protobuf
 message AssetPair {
@@ -48,7 +48,7 @@ message Amount {
 
 | Field | Size | Description |
 | :--- | :--- | :--- |
-| chain_id | 1 byte | [Chain ID](/en/blockchain/blockchain-network/chain-id) |
+| chain_id | 1 byte | [Chain ID](/en/blockchain/blockchain-network/#chain-id) |
 | sender_public_key | 32 bytes | Public key of the order sender |
 | matcher_public_key | 32 bytes | Public key of matcher |
 | asset_pair.amount_asset_id | • 32 bytes for asset<br>• 0 for WAVES | ID of the amount asset |

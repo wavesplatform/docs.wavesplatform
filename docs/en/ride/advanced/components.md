@@ -16,7 +16,7 @@ Currently the two versions of Estimator are used:
 * version 2 – on Mainnet and Testnet (after activation of feature #14 “Block Reward and Community Driven Monetary Policy”);
 * version 3 – on Stagenet (after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”).
 
-Parser, Compiler and Estimator are used in developer tools such as [Waves IDE](https://ide.wavesplatform.com/) and [Surfboard](https://github.com/wavesplatform/surfboard).
+Parser, Compiler and Estimator are used in developer tools such as [Waves IDE](https://waves-ide.com/) and [Surfboard](https://github.com/wavesplatform/surfboard).
 
 ## Evaluator
 

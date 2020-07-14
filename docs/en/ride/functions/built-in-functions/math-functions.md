@@ -4,7 +4,7 @@
 |:---| :--- | :--- | :--- |
 | 1 | [fraction(Int, Int, Int): Int](#fraction) | Multiplies [integers](/en/ride/data-types/int) `a`, `b` and divides the result by the integer `c` to avoid the integer overflow | 1 |
 | 2 | [log(Int, Int, Int, Int, Int, Union): Int](#log)|  Calculates logarithm of the number `a` with the base `b` | 100 |
-| 3 | [median(List[Int]): Int](#median)|  Returns the median of a list of integers | 10 |
+| 3 | [median(List[Int]): Int](#median)|  Returns the median of a list of integers | 20 |
 | 4 | [pow(Int, Int, Int, Int, Int, Union): Int](#pow) | Raises the number `a` to the power `b`| 100 |
 
 ## fraction(Int, Int, Int): Int<a id="fraction"></a>
@@ -123,7 +123,7 @@ log(1625, 2, 27, 1, 5, HALFUP) # function returns 280703542, so, the result is: 
 
 Returns the median of the [list](/en/ride/data-types/list). The list can't be empty, otherwise, the script will be finished with the error.
 
-> The `median` function becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/stage-network) only.
+> The `median` function becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
 
 ```ride
 median(arr: List[Int]): Int

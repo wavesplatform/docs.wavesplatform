@@ -4,10 +4,11 @@
 |---|---|
 | dApp script size | 32 Kbytes |
 | Account script or asset script size | 8 Kbytes |
-| [Complexity](/en/ride/base-concepts/complexity) of account script | 4000 for [Standard library](/en/ride/script/standard-library) **version&nbsp;3**<br>3000 for **version 4** |
+| [Complexity](/en/ride/base-concepts/complexity) of account script | 2000 |
 | Complexity of asset script | 4000 |
 | Complexity of each callable function of dApp script | 4000 |
-| Complexity of verifier function of dApp script | 4000 for **version 3**<br>3000 for **version 4** |
+| Complexity threshold for saving failed transactions: if the callable function failed with an error or throwing an exception before the threshold exceeded, the invoke script transaction is rejected and the fee is not charged | 1500 |
+| Complexity of verifier function of dApp script | 2000 |
 | Function name or variable name | 255 bytes |
 | Size of [String](/en/ride/data-types/string) variable | 32,767 characters for **version 3**<br>32,767 **bytes** for **version 4** |
 | Size of [ByteVector](/en/ride/data-types/byte-vector) variable | 65,536 bytes for **version 3**<br>32,767 bytes (except `bodyBytes` field of transaction structure) for **version&nbsp;4** |

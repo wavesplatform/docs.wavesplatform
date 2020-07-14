@@ -8,7 +8,7 @@ FOLD<N>(list, start, foldFunc)
 
 | Parameter | Description |
 | :--- | :--- |
-| `N` | Maximum number of iterations |
+| `N` | Maximum number of iterations, up to 1000 |
 | `list` | List of values |
 | `start` | Initial value |
 | `foldFunc` | Folded function |

@@ -54,7 +54,9 @@ Sign the [data transaction](/en/blockchain/transaction-type/data-transaction) by
 const signerDataTX = DataTX(params,'YOU ORACLE SEED HERE');
 ```
 
-Send the signed data transaction on the blockchain. [Test network](/en/blockchain/blockchain-network/test-network) — [nodes-testnet.wavesnodes.com](https://nodes-testnet.wavesnodes.com/api-docs/index.html), [main network](/en/blockchain/blockchain-network/main-network) — [https://nodes.wavesnodes.com](https://nodes.wavesnodes.com/api-docs/index.html).
+Send the signed data transaction to the blockchain:
+* Testnet — [nodes-testnet.wavesnodes.com](https://nodes-testnet.wavesnodes.com/api-docs/index.html)
+* Mainnet — [nodes.wavesnodes.com](https://nodes.wavesnodes.com/api-docs/index.html).
 
 ``` typescript
 const result = await broadcast(signerDataTX, 'https://nodes.wavesnodes.com');
@@ -133,7 +135,7 @@ This part sets the project dependencies:
 
 ## Launching oracle
 
-First, install Node.js, if it is not yet installed: [https://nodejs.org/en](https://nodejs.org/en).
+First, install Node.js, if it is not yet installed: [https://nodejs.org/en](https://nodejs.org/en/).
 
 Setting project dependencies:
 
