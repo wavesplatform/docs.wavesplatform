@@ -283,16 +283,32 @@ module.exports = [
     to: '/en/blockchain/waves-protocol/cryptographic-practical-details#calculating-transaction-id',
   },
   {
+    from: '/en/blockchain/transaction/transaction-id',
+    to: '/en/blockchain/waves-protocol/cryptographic-practical-details#calculating-transaction-id',
+  },
+  {
     from: '/ru/blockchain/transaction/transaction-signature',
     to: '/ru/blockchain/transaction/transaction-proof',
+  },
+  {
+    from: '/en/blockchain/transaction/transaction-signature',
+    to: '/en/blockchain/transaction/transaction-proof',
   },
   {
     from: '/ru/blockchain/transaction/transaction-timestamp',
     to: '/ru/blockchain/transaction/#json-представление-транзакции',
   },
   {
+    from: '/en/blockchain/transaction/transaction-timestamp',
+    to: '/en/blockchain/transaction/#json-representation',
+  },
+  {
     from: '/ru/blockchain/transaction/transaction-version',
     to: '/ru/blockchain/transaction/#json-представление-транзакции',
+  },
+  {
+    from: '/en/blockchain/transaction/transaction-version',
+    to: '/en/blockchain/transaction/#json-representation',
   },
   {
     /*===============================  Client  =====================================*/

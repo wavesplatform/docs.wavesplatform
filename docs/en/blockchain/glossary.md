@@ -280,7 +280,13 @@ A **token** is a [blockchain](#blockchain) object that represents another object
 
 ### Transaction
 
-The **transaction** is an action on the [blockchain](#blockchain) on behalf of the [account](#account). Transactions can be sent only from the account — thus, any transaction can be correlated with a certain account.
+**Transaction** is an action on the [blockchain](#blockchain) on behalf of the [account](#account). Transactions can be sent only from the account — thus, any transaction can be correlated with a certain account.
+
+### Transaction body bytes
+
+**Transaction body bytes** are the bytes of all the fields of the [binary representation](/en/blockchain/binary-format/transaction-binary-format/) of transaction except the ID and proofs (or ID and signature, depending on the transaction version).
+
+Based on the transaction body bytes, the transaction ID and the transaction signature are generated, see the [Cryptographic Practical Details](/en/blockchain/waves-protocol/cryptographic-practical-details) article for detail.
 
 ## U
 

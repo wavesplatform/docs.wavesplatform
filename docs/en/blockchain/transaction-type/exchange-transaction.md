@@ -1,6 +1,20 @@
-# Exchange transaction
+# Exchange Transaction
 
-An **exchange transaction** is a [transaction](/en/blockchain/transaction/) that exchanges two different [tokens](/en/blockchain/token/) among two [accounts](/en/blockchain/account/).
+Exchange transaction exchanges two different tokens among two accounts.
+
+Commonly the exchange transaction is created by the matcher service that executes orders to buy and sell tokens. For detailed information about how the matcher works see the [Waves.Exchange documentation](https://docs.waves.exchange/en/waves-matcher/). See also examples in the [How to buy and sell tokens](/en/building-apps/how-to/basic/trading) article.
+
+The exchange transaction contains two counter orders: a buy order and a sell order. The blockchain guarantees that the terms of the exchange are not worse than those indicated in each order.
+
+One of the two exchanged tokens is an amount asset (base currency): : it represents the amount of tokens in orders and in the exchange transaction. Another token is a price asset (quote currency): it represents the price.
+
+![](./_assets/exchange-tx.png)
+
+## Fee
+
+The minimum fee for an exchange transaction is 0.003 WAVES. In case of exchange of a [smart asset](/en/blockchain/token/smart-asset) for an ordinary asset the minimum fee is 0.007 WAVES, in case of exchange of two smart assets the minimum fee is 0.011 WAVES/
+
+If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), by minimum fee is increased by 0.004 WAVES.
 
 ## JSON Representation
 
@@ -71,8 +85,8 @@ An **exchange transaction** is a [transaction](/en/blockchain/transaction/) that
 
 | Field | Description |
 | :--- | :--- |
-| amount | Amount of the amount asset: an integervalue specified in the minimum fraction (“cent”) of asset |
-| price | Price for the amount asset nominated in the price asset, multiplied by the factor:<br>- 10<sup>8</sup> for exchange transaction version 3;<br>- 10<sup>8 + priceAssetDecimals – amountAssetDecimals</sup>, where `amountAssetDecimals`, `priceAssetDecimals` are `decimals` of the assets, for exchange transaction version 2 or 1 |
+| amount | Amount of the amount asset: an integer value specified in the minimum fraction (“cent”) of asset |
+| price | Price for the amount asset nominated in the price asset, multiplied by the factor:<br>- 10<sup>8</sup> for the exchange transaction version 3;<br>- 10<sup>8 + priceAssetDecimals – amountAssetDecimals</sup>, where `amountAssetDecimals`, `priceAssetDecimals` are `decimals` of the assets, for the exchange transaction version 2 or 1 |
 | buyMatcherFee | Matcher fee for the buy order execution. The fee token ID is indicated in buy order |
 | sellMatcherFee | Matcher fee for the sell order execution. The fee token ID is indicated in sell order |
 | order1, order2 | Buy and sell orders. See the [Order](/en/blockchain/order) article for details |
@@ -81,7 +95,7 @@ The fields that are common to all types of transactions are described in the [Tr
 
 ## Binary Format
 
-See the [Exchange Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format).
+See the [Exchange Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format) article.
 
 ## Ride Structure
 

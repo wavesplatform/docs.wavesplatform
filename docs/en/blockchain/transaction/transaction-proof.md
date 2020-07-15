@@ -1,26 +1,19 @@
-# Transaction proof
+# Transaction Signature and Proofs
 
-A **transaction proof** is an array of bytes that is used to check the validity of a transaction.
+**Transaction proofs** are used for transaction verification, that is, the check that transaction is allowed by sender's account. The array of proofs can contain the transaction signature, or several signatures, or other data. The maximum nunber of proofs is 8.
 
-An array of proofs can consist of several [transaction signatures](/en/blockchain/transaction/transaction-signature) (but not limited to only signatures).
+> In earlier versions of some types of transactions the `signature` field is used instead of `proofs`.
 
-One of the examples of proofs usage is multisignature which stores several transaction signatures from different accounts.
+## Signature
 
-Transactions with [data structures](/en/blockchain/binary-format/transaction-binary-format/) of version 2 and above are signed by proofs instead of signatures.
+If the transaction sender is an ordinary account (without script), the array of proofs must contain the sender's digital signature.
 
-> The number of proofs in the array cannot exceed 8
+The sender generates a signature using account's private key. Waves protocol uses Curve25519 (ED25519 with X25519 keys) to create and verify signatures. Signature generation is described in the [Cryptographic Practical Details](/en/blockchain/waves-protocol/cryptographic-practical-details) article. For  [Как подписать и отправить транзакцию](/ru/blockchain/transaction/#как-подписать-и-отправить-транзакцию).
 
-## The data structure of an array of `N` proofs
+Along with signature, the transaction contains the sender public key, so the node (and anyone) can verify the integrity of the transaction data and the authenticity of the signature, that is, make sure that the signature of the transaction matches the public key.
 
-| Field order number | Field name | Field type | Field size in bytes | Field description |
-| :--- | :--- | :--- | :--- | :--- |
-| 1 | Proofs version | Byte | 1 | A special technical marker which determines the format of the array of proofs. <br>The value must be 0 |
-| 2 | Proofs count | Short | 2 | Number `N` of proofs in the array of proofs |
-| 3 | 1st proof length | Short | 2 | Length in bytes of the 1st proof |
-| 4 | 1st proof bytes | Array of bytes | up to 64 | Array of bytes of the 1st proof |
-| 5 | 2nd proof length | Short | 2 | Length in bytes of the 2nd proof |
-| 6 | 2nd proof bytes | Array of bytes | up to 64 | Array of bytes of the 2nd proof |
-| ... | ... | ... | ... | ... |
-| ... | ... | ... | ... | ... |
-| 2 × `N` + 1 | `N`-th proof length | Short | 2 | Length in bytes of the `N`-th proof |
-| 2 × `N` + 2 | `N`-th proof bytes | Array of bytes | up to 64 | Array of bytes of the `N`-th proof |
+## Proofs
+
+If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/ru/blockchain/account/smart-account) the transaction is verified by the script assigned to the account instead of signature verification. The script allows or denies the transaction depending on whether it meets the specified conditions. In particular, the script can perform various checks of the confirmation array.
+
+The widespread example is a smart account with multisignature where three co-owner users store shared funds. The account script allows the transaction on behalf of the smart account if the array of proofs contains valid signatures of at least two of the three co-owner accounts. The script code is available in [Waves IDE](https://waves-ide.com/): **Library → smart-accounts → Multisig.ride**.

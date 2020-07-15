@@ -1,4 +1,4 @@
-# Invoke script transaction
+# Invoke Script Transaction
 
 An **invoke script transaction** is a [transaction](/en/blockchain/transaction/) that invokes the [callable function](/en/ride/functions/callable-function) of the [dApp](/en/blockchain/account/dapp).
 
@@ -60,7 +60,7 @@ The fields that are common to all types of transactions are described in the [Tr
 
 ## Binary Format
 
-See the [Invoke Script Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format/invoke-script-transaction-binary-format).
+See the [Invoke Script Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format/invoke-script-transaction-binary-format) article.
 
 ## Ride Structure
 

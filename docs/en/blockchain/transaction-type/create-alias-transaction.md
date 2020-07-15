@@ -1,8 +1,14 @@
-# Create alias transaction
+# Create Alias Transaction
 
-**Create alias transaction** is a [transaction](/en/blockchain/transaction/) that creates [alias](/en/blockchain/account/alias) for an [address](/en/blockchain/account/address).
+**Create Alias Transaction** that creates an [alias](/en/blockchain/account/alias) for the sender's address.
 
-> A created alias cannot be deleted
+A created alias cannot be deleted.
+
+## Fee
+
+The minimum fee for a create alias transaction is 0.001 WAVES.
+
+If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), by minimum fee is increased by 0.004 WAVES.
 
 ## JSON Representation
 
@@ -30,7 +36,7 @@ The fields that are common to all types of transactions are described in the [Tr
 
 ## Binary Format
 
-See the [Create Alias Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format/create-alias-transaction-binary-format).
+See the [Create Alias Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format/create-alias-transaction-binary-format) article.
 
 ## Ride Structure
 
