@@ -1,6 +1,6 @@
 # Data transaction
 
-Data transaction creates, modifies and deletes data entries in sender's [account data storage](/en/blockchain/account/account-data-storage).
+Data transaction adds, modifies and deletes data entries in sender's [account data storage](/en/blockchain/account/account-data-storage).
 
 > Entry deletion becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
@@ -11,9 +11,9 @@ Limitations are as follows:
 
 ## Fee
 
-The minimum fee for a data transaction is 0.001 WAVES per kilobyte, the value is rounded up to the thousandths.
+The minimum fee for a data transaction is 0.001 WAVES per kilobyte, the fee value is rounded up to the thousandths.
 
-If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), by minimum fee is increased by 0.004 WAVES.
+If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
 
 ## JSON Representation
 

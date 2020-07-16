@@ -1,8 +1,12 @@
-# Mass transfer transaction
+# Mass Transfer Transaction
 
-A **mass transfer transaction** is a [transaction](/en/blockchain/transaction/) that transfers a certain amount of [token](/en/blockchain/token/) from one [account](/en/blockchain/account/) to several accounts simultaneously.
+Mass transfer transaction transfers a [token](/en/blockchain/token/) to several accounts, from 1 to 100.
 
-A mass transfer transaction contains from 1 to 100 transfers inclusive. The number of tokens to be transferred and the address of the recipient are specified for each transfer individually.
+## Fee
+
+The minimum fee for a mass transfer transaction is 0.001 + 0.0005 × N WAVES, in case of transfer a [smart asset](/en/blockchain/token/smart-asset) 0.005  + 0.0005 × N WAVES, where N is the number of recipients. The fee value is rounded up to the thousandths.
+
+If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
 
 ## JSON Representation
 
@@ -44,14 +48,14 @@ A mass transfer transaction contains from 1 to 100 transfers inclusive. The numb
 
 | Field | Description |
 | :--- | :--- |
-| assetId | Base58 encoded token ID. `null` means WAVES |
-| attachment | Base58 encoded arbitrary data (typically a comment to transfer), up to 140 bytes |
+| assetId | Token ID base58 encoded. `null` means WAVES |
+| attachment | Arbitrary binary data (typically a comment to transfer) base58 encoded, up to 140 bytes |
 | transfers.recipient | Recipient address base58 encoded or recipient [alias](/en/blockchain/account/alias) |
 | transfers.amount | Amount of token to transfer: an integer value specified in the minimum fraction (“cents”) of token |
 | *transferCount* | Number of recipients |
 | *totalAmount* | Total amount of transfers in transaction |
 
-The `transferCount` and `totalAmount` fields are not needed when sending a transaction, and they are not stored on the blockchain. The node calculates these fields when providing transaction data via the REST API.
+The `transferCount` and `totalAmount` fields do not need to be filled when sending a transaction, and they are not stored on the blockchain. The node calculates these fields when providing transaction data via the REST API.
 
 The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 

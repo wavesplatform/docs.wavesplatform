@@ -6,7 +6,7 @@ Burn transaction decreases the amount of the token on sender's account and there
 
 The minimum fee for a burn transaction is 0.001 WAVES, in case of burning a [smart asset](/en/blockchain/token/smart-asset) 0.005 WAVES.
 
-If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), by minimum fee is increased by 0.004 WAVES.
+If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
 
 ## JSON Representation
 
@@ -33,7 +33,7 @@ If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart a
 | Field | Description |
 | :--- | :--- |
 | amount | Amount of token to burn: an integer value specified in the minimum fraction (“cents”) of token |
-| assetId | Base58 encoded token ID |
+| assetId | Token ID base 58 encoded |
 
 The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 

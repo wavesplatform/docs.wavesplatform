@@ -1,6 +1,12 @@
-# Lease cancel transaction
+# Lease Cancel Transaction
 
-A **lease cancel transaction** is a [transaction](/en/blockchain/transaction/) that cancels the [leasing](/en/blockchain/leasing).
+Lease cancel transaction cancels the leasing. See the [Lease Transaction](/en/blockchain/transaction-type/lease-transaction) article.
+
+## Fee
+
+The minimum fee for a lease cancel transaction is 0.001 WAVES.
+
+If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
 
 ## JSON Representation
 
@@ -44,7 +50,7 @@ A **lease cancel transaction** is a [transaction](/en/blockchain/transaction/) t
 | leaseId | Lease transaction ID |
 | *lease* | Lease transaction fields |
 
-The `lease` structure is not needed when sending a transaction. The node returns this structure when providing transaction data via the REST API.
+The `lease` structure does not need to be filled when sending a transaction, and it is not stored on the blockchain. The node returns this structure when providing transaction data via the REST API.
 
 The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 

@@ -37,7 +37,7 @@ The asset name and/or description can be changed:
 | name | Token name. From 4 to 16 bytes |
 | description | Token description. From 0 to 1000 bytes |
 | chainId | [Chain ID](/en/blockchain/blockchain-network/chain-id) |
-| assetId | Base58 encoded token ID |
+| assetId | Token ID base58 encoded |
 
 The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 

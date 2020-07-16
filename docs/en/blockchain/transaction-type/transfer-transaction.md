@@ -2,6 +2,9 @@
 
 A **transfer transaction** is a [transaction](/en/blockchain/transaction/) that transfers a certain amount of the [token](/en/blockchain/token/) from one [account](/en/blockchain/account/) to another.
 
+The sender can specify a transaction fee nominated in a sponsored asset instead of WAVES, see the [Sponsored Fee](/en/blockchain/waves-prototol/sponsored-fee) article.
+
+
 ## JSON Representation
 
 ```json
@@ -29,9 +32,9 @@ A **transfer transaction** is a [transaction](/en/blockchain/transaction/) that 
 
 | Field | Description |
 | :--- | :--- |
-| assetId | Base58 encoded token ID. `null` means WAVES |
+| assetId | Token ID base58 encoded. `null` means WAVES |
 | amount | Amount of token to transfer: an integer value specified in the minimum fraction (“cents”) of token |
-| attachment | Base58 encoded arbitrary data (typically a comment to transfer), up to 140 bytes |
+| attachment | Arbitrary binary data (typically a comment to transfer) base58 encoded, up to 140 bytes |
 | recipient | Recipient address base58 encoded or recipient [alias](/en/blockchain/account/alias) |
 
 The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.

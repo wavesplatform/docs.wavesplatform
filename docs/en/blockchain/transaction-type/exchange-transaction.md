@@ -6,7 +6,7 @@ Commonly the exchange transaction is created by the matcher service that execute
 
 The exchange transaction contains two counter orders: a buy order and a sell order. The blockchain guarantees that the terms of the exchange are not worse than those indicated in each order.
 
-One of the two exchanged tokens is an amount asset (base currency): : it represents the amount of tokens in orders and in the exchange transaction. Another token is a price asset (quote currency): it represents the price.
+One of the two exchanged tokens is an amount asset (base currency): it represents the amount of tokens in orders and in the exchange transaction. Another token is a price asset (quote currency): it represents the price.
 
 ![](./_assets/exchange-tx.png)
 
@@ -14,7 +14,7 @@ One of the two exchanged tokens is an amount asset (base currency): : it represe
 
 The minimum fee for an exchange transaction is 0.003 WAVES. In case of exchange of a [smart asset](/en/blockchain/token/smart-asset) for an ordinary asset the minimum fee is 0.007 WAVES, in case of exchange of two smart assets the minimum fee is 0.011 WAVES/
 
-If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), by minimum fee is increased by 0.004 WAVES.
+If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
 
 ## JSON Representation
 

@@ -26,7 +26,7 @@ A **set asset script transaction** is a [transaction](/en/blockchain/transaction
 
 | Field | Description |
 | :--- | :--- |
-| assetId | Base58 encoded token ID |
+| assetId | Token ID base58 encoded |
 | chainId | [Chain ID](/en/blockchain/blockchain-network/chain-id) |
 | script | The compiled [asset script](/en/ride/script/script-types/asset-script), up to 8192 bytes, base64 encoded |
 
