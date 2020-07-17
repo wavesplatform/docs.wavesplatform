@@ -548,6 +548,10 @@ module.exports = {
       title: 'API ноды',
       path: nodePath + 'node-api',
       children: [
+	    {
+          title: 'API ключ',
+          path: nodePath + 'node-api/api-key',
+        }, 
         {
           title: 'Заголовки запроса',
           path: nodePath + 'node-api/headers',

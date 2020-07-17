@@ -552,7 +552,6 @@ module.exports = {
           title: 'API Key',
           path: nodePath + 'node-api/api-key',
         },
-
         {
           title: 'Request headers',
           path: nodePath + 'node-api/headers',
