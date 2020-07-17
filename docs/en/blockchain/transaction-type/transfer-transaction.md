@@ -1,9 +1,14 @@
-# Transfer transaction
+# Transfer Transaction
 
-A **transfer transaction** is a [transaction](/en/blockchain/transaction/) that transfers a certain amount of the [token](/en/blockchain/token/) from one [account](/en/blockchain/account/) to another.
+Transfer transaction transfers a certain amount of token to another account.
+
+## Fee
+
+The minimum fee for a transfer transaction is 0.001 WAVES, in case of transfer a [smart asset](/en/blockchain/token/smart-asset) 0.005 WAVES.
+
+If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
 
 The sender can specify a transaction fee nominated in a sponsored asset instead of WAVES, see the [Sponsored Fee](/en/blockchain/waves-prototol/sponsored-fee) article.
-
 
 ## JSON Representation
 

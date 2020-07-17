@@ -1,6 +1,12 @@
-# Set script transaction
+# Set Script Transaction
 
-A **set script transaction** is a [transaction](/en/blockchain/transaction/) that attaches [dApp script](/en/ride/script/script-types/dapp-script) or [account script](/en/ride/script/script-types/account-script) to the [account](/en/blockchain/account/).
+Set script transaction assigns the [dApp script](/en/ride/script/script-types/dapp-script) or [account script](/en/ride/script/script-types/account-script) to the sender's account.
+
+## Fee
+
+The minimum fee for a set script transaction is 0.01 WAVES.
+
+If the sender's account already has a script assigned, the minimum fee is increased by 0.004 WAVES.
 
 ## JSON Representation
 
@@ -25,7 +31,7 @@ A **set script transaction** is a [transaction](/en/blockchain/transaction/) tha
 
 | Field | Description |
 | :--- | :--- |
-| chainId | [Chain ID](/en/blockchain/blockchain-network/chain-id) |
+| chainId | [Chain ID](/en/blockchain/blockchain-network/#chain-id) |
 | script | The compiled script, up to 8192 bytes, base64 encoded.<br>`null` – delete script |
 
 The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.

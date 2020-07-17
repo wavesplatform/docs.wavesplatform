@@ -1,6 +1,12 @@
-# Set asset script transaction
+# Set Asset Script Transaction
 
-A **set asset script transaction** is a [transaction](/en/blockchain/transaction/) that attaches an [asset script](/en/ride/script/script-types/asset-script) to the [token](/en/blockchain/token/).
+Set asset script transaction replaces the [asset script](/en/ride/script/script-types/asset-script). Only the token issuer can send an asset script transaction. If a token is issued without a script, then no script can be assigned to it.
+
+## Fee
+
+The minimum fee for a set asset script transaction is 1 WAVES.
+
+If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
 
 ## JSON Representation
 
@@ -27,7 +33,7 @@ A **set asset script transaction** is a [transaction](/en/blockchain/transaction
 | Field | Description |
 | :--- | :--- |
 | assetId | Token ID base58 encoded |
-| chainId | [Chain ID](/en/blockchain/blockchain-network/chain-id) |
+| chainId | [Chain ID](/en/blockchain/blockchain-network/#chain-id) |
 | script | The compiled [asset script](/en/ride/script/script-types/asset-script), up to 8192 bytes, base64 encoded |
 
 The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.

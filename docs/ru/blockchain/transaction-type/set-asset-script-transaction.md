@@ -33,7 +33,7 @@
 | Поле | Описание |
 | :--- | :--- |
 | assetId | ID токена в кодировке base58 |
-| chainId | [Байт сети](/ru/blockchain/blockchain-network/chain-id) |
+| chainId | [Байт сети](/ru/blockchain/blockchain-network/#байт-сети) |
 | script | Скомпилированный скрипт ассета, до 8192 байт, в кодировке base64 |
 
 Описание полей, общих для всех типов транзакций, представлено в разделе [JSON-представление транзакции](/ru/blockchain/transaction/#json-представление-транзакции).

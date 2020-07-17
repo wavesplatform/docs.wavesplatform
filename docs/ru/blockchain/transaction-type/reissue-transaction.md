@@ -10,7 +10,7 @@
 
 В случае довыпуска [смарт-ассета](/ru/blockchain/token/smart-asset) минимальная комиссия увеличивается на 0,004 WAVES. 
 
-Если отправитель транзакции —  [dApp](/ru/blockchain/account/dapp) или [смарт-аккаунт](/ru/blockchain/account/smart-account), минимальная комиссия увеличивается на 0,004 WAVES.
+Если отправитель транзакции —  [dApp](/ru/blockchain/account/dapp) или [смарт-аккаунт](/ru/blockchain/account/smart-account), минимальная комиссия также увеличивается на 0,004 WAVES.
 
 ## JSON-представление
 
