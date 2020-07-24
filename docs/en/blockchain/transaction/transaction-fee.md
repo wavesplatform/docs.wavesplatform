@@ -11,6 +11,7 @@ For invoke script transaction and transfer transaction, a sender can specify a t
 The minimum fees in WAVES for each type of transaction are listed in the table below.
 
 :warning: If a transaction is verified by an [account script](/en/ride/script/script-types/account-script) or an [asset script](/en/ride/script/script-types/asset-script), then the fee is increased by 0.004 WAVES for each script execution.
+The fee is not increased by 0,004 WAVES for [exchange transactions](/en/blockchain/transaction-type/exchange-transaction) if the order is sent from a smart account or if the matcher fee is a smart asset.
 
 **Example 1.**
 
@@ -29,7 +30,7 @@ The minimum fee for an invoke script transaction:
 * dApp script invocation is sent from a smart account: 0.005 + 0.004 = 0.009 WAVES.
 * dApp script invocation with an attached payment that is nominated in a smart asset: 0.005 + 0.004 = 0.009 WAVES.
 * dApp script invocation with two attached payments in smart assets: 0.005 + 2 × 0.004 = 0.013 WAVES.
-* dApp script invocation that performed two smart assset transfers and one smart asset burn: 0.005 + 3 × 0.004 = 0.017 WAVES.
+* dApp script invocation that performed two smart asset transfers and one smart asset burn: 0.005 + 3 × 0.004 = 0.017 WAVES.
 * dApp script invocation is sent from a smart account, with two attached payment in smart assets, and 10 smart assets transfers/reissues/burns are performed: 0.005 + 0.004 + 2 × 0.004 + 10 × 0.004 = 0.057 WAVES.
 * dApp script invocation issued an asset that is not [non-fungible token](/en/blockchain/token/non-fungible-token): 0.005 + 1 = 1.005 WAVES.
 * dApp script invocation is sent from smart account, with two attached payment in smart assets, and 10 asssets that are not [non-fungible token](/en/blockchain/token/non-fungible-token) are issued: 0.005 + 0.004 + 2 × 0.004 + 10 × 1 = 10.017 WAVES.
@@ -58,7 +59,7 @@ The minimum fee for an invoke script transaction:
 
 An issuer of an asset can set up sponsorship — so that any user can specify a transaction fee in this asset for invoke script transactions and transfer transactions.
 
-To activate sposorship, the issuer puts a sponsor fee transaction that specifies an amount of asset that is equivalent to the minimum fee of 0.001 WAVES. For exmaple, if `minSponsoredAssetFee: 5`, then the fee in this asset for exchange transaction equals 5 × 0.003 / 0.001 = 15. See the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article for details.
+To activate sponsorship, the issuer puts a sponsor fee transaction that specifies an amount of asset that is equivalent to the minimum fee of 0.001 WAVES. For example, if `minSponsoredAssetFee: 5`, then the fee in this asset for exchange transaction equals 5 × 0.003 / 0.001 = 15. See the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article for details.
 
 ## Fee for Failed Transactions
 

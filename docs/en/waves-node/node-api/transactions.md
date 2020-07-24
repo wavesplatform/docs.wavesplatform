@@ -393,6 +393,9 @@ and all the other parameters appropriate for a transaction of the given type.
 
 Broadcasts a signed transaction of any type.
 
+<!--- The following logic applies to [Stagenet](/en/blockchain/blockchain-network/) only. When broadcasting, the node performs full validation of the transaction with all the scripts. If the node detects failure during validation, the transaction returns code 400 error with the failure description.
+--->
+
 **Request params**
 
 ```
