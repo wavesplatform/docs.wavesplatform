@@ -56,7 +56,7 @@ If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart a
 
 | Field | Description |
 | :--- | :--- |
-| data.key | Entry key. String, up to 400 bytes for version 2, up to 200 bytes for version 1 |
+| data.key | Entry key. String, up to 400 bytes for version 2, up to 100 characters for version 1 |
 | data.type | Entry type:<br>- binary<br>- boolean<br>- integer<br>- string<br>`null` – delete entry |
 | data.value | Entry value. Up to 32 767 байт. Binary value is base64 encoded.<br>`null` – delete entry |
 
