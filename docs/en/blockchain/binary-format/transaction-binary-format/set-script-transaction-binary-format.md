@@ -16,7 +16,7 @@ message SetScriptTransactionData {
 
 | Field | Size | Description |
 | :--- | :--- | :--- |
-| script | Up to 8192 bytes | [Account script](/en/ride/script/script-types/account-script) or [dApp script](/en/ride/script/script-types/dapp-script) |
+| script | Up to 32,767 bytes | [Account script](/en/ride/script/script-types/account-script) or [dApp script](/en/ride/script/script-types/dapp-script) |
 
 ## Version 1
 
@@ -29,7 +29,7 @@ message SetScriptTransactionData {
 | 5 | Public key of the transaction sender  | senderPublicKey | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 | |
 | 6.1 | Script existence flag | | [Boolean](/en/blockchain/blockchain/blockchain-data-types) | 1 | If the value is 0, then the token does not have a script.<br>If the value is 1, then the token has a script |
 | 6.2 | Script length | | [Short](/en/blockchain/blockchain/blockchain-data-types) | S | `S = 0` if the value of the "Script existence flag" field is 0.<br>`S = 2` if the value of the "Script existence flag" field is 1 |
-| 6.3 | [Script](/en/ride/script/) | script | [String](/en/blockchain/blockchain/blockchain-data-types) | S | `S = 0` if the value of the "Script existence flag" field is 0.<br>0 &lt; `S` ≤ 8192, if the value of the "Script existence flag" field is 1 |
+| 6.3 | [Script](/en/ride/script/) | script | [String](/en/blockchain/blockchain/blockchain-data-types) | S | `S = 0` if the value of the "Script existence flag" field is 0.<br>0 &lt; `S` ≤ 32,767, if the value of the "Script existence flag" field is 1 |
 | 7 | [Transaction fee](/en/blockchain/transaction/transaction-fee) | fee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 | 8 | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) | timestamp | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 | 9 | [Transaction proofs](/en/blockchain/transaction/transaction-proof) | proofs | See [Transaction Proofs Binary Format](/en/blockchain/binary-format/transaction-proof-binary-format) | `S` | If the array is empty, then `S`= 3. <br>If the array is not empty, then `S`= 3 + 2 × `N` + 64 × `N`, where `N` is the number of proofs in the array.<br>The maximum number of proofs in the array is 8. The size of each proof is 64 bytes |

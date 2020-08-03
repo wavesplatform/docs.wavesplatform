@@ -16,7 +16,7 @@ message SetScriptTransactionData {
 
 | Поле | Размер | Описание |
 | :--- | :--- | :--- |
-| script | До 8192 байт | [Скрипт аккаунта](/ru/ride/script/script-types/account-script) или [dApp-скриптt](/ru/ride/script/script-types/dapp-script) |
+| script | До 32&nbsp;767 байт | [Скрипт аккаунта](/ru/ride/script/script-types/account-script) или [dApp-скриптt](/ru/ride/script/script-types/dapp-script) |
 
 ## Версия 1
 
@@ -29,7 +29,7 @@ message SetScriptTransactionData {
 | **5** | Открытый ключ аккаунта отправителя транзакции | senderPublicKey | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
 | **6** | Флаг наличия скрипта |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — скрипт не установлен<br>1 — скрипт установлен |
 | **7** | Длина скрипта |  | [Short](/ru/blockchain/blockchain/blockchain-data-types) | `S` | `S` = 0 если значение поля 6 равно 0.<br>S = 2 если значение поля 6 равно 1 |
-| **8** | Скрипт | script | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | `S` = 0 если значение поля 6 равно 0.<br>1 <= `S` <= 8192 если значение поля 6 равно 1 |
+| **8** | Скрипт | script | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | `S` = 0 если значение поля 6 равно 0.<br>1 <= `S` <= 32&nbsp;767, если значение поля 6 равно 1 |
 | **9** | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) | fee | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **10** | [Временная метка транзакции](/ru/blockchain/transaction/transaction-timestamp) | timestamp | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 11 | [Подтверждения транзакции](/ru/blockchain/transaction/transaction-proof) | proofs | См. раздел [Бинарный формат подтверждений](/ru/blockchain/binary-format/transaction-proof-binary-format) | `S` | Если массив пустой, то `S`= 3. <br>Если массив не пустой, то `S`= 3 + 2 × `N` + 64 × `N`, где `N` — количество подтверждений в массиве.<br>Максимальное количество подтверждений в массиве — 8. Размер каждого подтверждения — 64 байта |
