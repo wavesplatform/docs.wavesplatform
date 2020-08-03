@@ -22,8 +22,8 @@ message ExchangeTransactionData {
 
 | Field | Size | Description |
 | :--- | :--- | :--- |
-| amount | 8 bytes | Amount of the amount asset, specified in the minimum fraction (“cent”) of asset |
-| price | 8 bytes | Price for the amount asset nominated in the price asset, multiplied by 10<sup>8</sup>. For more details see the [Order](/en/blockchain/order) article |
+| amount | 8 bytes | Amount of the amount asset (base currency) that the buyer received from the seller, specified in the minimum fraction (“cent”) of asset |
+| price | 8 bytes | Price for the amount asset (base currency) nominated in the price asset (quote currency), multiplied by 10<sup>8</sup>. For more details see the [Order](/en/blockchain/order) article |
 | buy_matcher_fee | 8 bytes | Buy [matcher fee](/en/blockchain/matcher-fee). The fee token ID is indicated in buy order |
 | sell_matcher_fee | 8 bytes | Sell [matcher fee](/en/blockchain/matcher-fee) The fee token ID is indicated in sell order |
 | orders | | Buy order and sell order. See the [Order binary format](/en/blockchain/binary-format/order-binary-format) | 
@@ -37,14 +37,14 @@ Transaction version 2 can accept orders of version [1](/en/blockchain/binary-for
 | 1 | Version flag | | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Indicates the [transaction version](/en/blockchain/transaction/transaction-version) is version 2 or higher.<br>Value must be 0 |
 | 2 | [Transaction type ID](/en/blockchain/transaction-type/) | type | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 7 |
 | 3 | [Transaction version](/en/blockchain/transaction/transaction-version) | version | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 2 |
-| 4.1 | Buy order size |  | [Integer](/en/blockchain/blockchain/blockchain-data-types) | 4 |  |
+| 4.1 | Buy order size |  | [Integer](/en/blockchain/blockchain/blockchain-data-types) | 4 | Size including flag 4.2 |
 | 4.2 | Buy [order version](/en/blockchain/binary-format/order-binary-format) flag | order1.version | [Byte](/en/blockchain/blockchain/blockchain-data-types) | `S` | `S` = 1 if the order version is 1.<br>`S` = 0 if the order version is 2 |
 | 4.3 | Order for buying a token | order1 | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | See [order binary format](/en/blockchain/binary-format/order-binary-format) |  |
-| 5.1 | Sell order size  |  | [Integer](/en/blockchain/blockchain/blockchain-data-types) | 4 |  |
+| 5.1 | Sell order size  |  | [Integer](/en/blockchain/blockchain/blockchain-data-types) | 4 | Size including flag 5.2 |
 | 5.2 | Sell [order version](/en/blockchain/binary-format/order-binary-format) flag | order2.version | [Byte](/en/blockchain/blockchain/blockchain-data-types) | `S` | `S` = 1 if the order version is 1.<br>`S` = 0 if the order version is 2 |
 | 5.3 | Order for selling a token | order2 | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | See [order binary format](/en/blockchain/binary-format/order-binary-format) |  |
-| 6 | Price | price | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | Amount of [token](/en/blockchain/token/) B which order sender offers for one token A |
-| 7 | Amount | amount | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | Amount of token A which order sender wants to buy |
+| 6 | Price | price | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | Price for the amount asset (base currency) nominated in the price asset (quote currency) |
+| 7 | Amount | amount | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | Amount of the amount asset (base currency) that the buyer received from the seller |
 | 8 | Buy [matcher fee](/en/blockchain/matcher-fee) | buyMatcherFee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 9 | Sell [matcher fee](/en/blockchain/matcher-fee) | sellMatcherFee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 10 | [Transaction fee](/en/blockchain/transaction/transaction-fee) | fee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
@@ -66,8 +66,8 @@ Transaction version 1 can accept orders of version [1](/en/blockchain/binary-for
 | 3 | Sell order size | [Integer](/en/blockchain/blockchain/blockchain-data-types) | 4 |  |
 | 4 | Order for buying a token | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | See [order binary format](/en/blockchain/binary-format/order-binary-format) |  |
 | 5 | Order for selling a token | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | See [order binary format](/en/blockchain/binary-format/order-binary-format) |  |
-| 6 | Price | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | Amount of [token](/en/blockchain/token/) B which order sender offers for one token A |
-| 7 | Amount | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | Amount of token A which order sender wants to buy |
+| 6 | Price | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | Price for the amount asset (base currency) nominated in the price asset (quote currency) |
+| 7 | Amount | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | Amount of the amount asset (base currency) that the buyer received from the seller |
 | 8 | Buy [matcher fee](/en/blockchain/matcher-fee) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 9 | Sell [matcher fee](/en/blockchain/matcher-fee) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 10 | [Transaction fee](/en/blockchain/transaction/transaction-fee) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |

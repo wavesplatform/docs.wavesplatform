@@ -22,8 +22,8 @@ message ExchangeTransactionData {
 
 | Поле | Размер | Описание |
 | :--- | :--- | :--- |
-| amount | 8 байт | Количество amount-ассета в минимальных единицах («копейках») |
-| price | 8 байт | Стоимость 1 amount-ассета, выраженная в price-ассете, умноженная на 10<sup>8</sup>. Подробнее см. в разделе [Биржевая заявка](/ru/blockchain/order) |
+| amount | 8 байт | Количество amount-ассета (базовой валюты), которое получил отправитель ордера на покупку от отправителя ордера на продажу, в минимальных единицах («копейках») |
+| price | 8 байт |  Цена сделки: стоимость amount-ассета (базовой валюты), выраженная в price-ассете (валюте котировки), умноженная на 10<sup>8</sup>. Подробнее см. в разделе [Биржевая заявка](/ru/blockchain/order) |
 | buy_matcher_fee | 8 байт | [Комиссия матчера](/ru/blockchain/matcher-fee) за покупку. ID токена комиссии указан в ордере на покупку |
 | sell_matcher_fee | 8 байт | [Комиссия матчера](/ru/blockchain/matcher-fee) за продажу. ID токена комиссии указан в ордере на продажу |
 | orders | | Ордер на покупку и ордер на продажу. См. раздел [Бинарный формат ордера](/ru/blockchain/binary-format/order-binary-format) | 
@@ -37,14 +37,14 @@ message ExchangeTransactionData {
 | **1** | Флаг версии |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Указывает, что [версия транзакции](/ru/blockchain/transaction/transaction-version) является второй или выше.<br>Значение должно быть равно 0 |
 | **2** | [ID типа транзакции](/ru/blockchain/transaction-type/) | type | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Значение должно быть равно 7 |
 | **3** | [Версия транзакции](/ru/blockchain/transaction/transaction-version) | version | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Значение должно быть равно 2 |
-| **4.1** | Размер ордера на покупку |  | [Int](/ru/blockchain/blockchain/blockchain-data-types) | 4 |  |
+| **4.1** | Размер ордера на покупку |  | [Int](/ru/blockchain/blockchain/blockchain-data-types) | 4 | Размер с учетом флага 4.2 |
 | **4.2** | Флаг версии ордера на покупку | order1.version | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | `S` | `S` = 1, если версия ордера 1.<br>`S` = 0, если версия ордера 2 или 3 |
 | **4.3** | Ордер на покупку токена | order1 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] |  |  |
-| **5.1** | Размер ордера на продажу |  | [Int](/ru/blockchain/blockchain/blockchain-data-types) | 4 |  |
+| **5.1** | Размер ордера на продажу |  | [Int](/ru/blockchain/blockchain/blockchain-data-types) | 4 | Размер с учетом флага 5.2 |
 | **5.2** | Флаг [версии ордера](/ru/blockchain/binary-format/order-binary-format) на продажу | order2.version | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | `S` | `S` = 1, если версия ордера 1.<br>`S` = 0, если версия ордера 2 или 3 |
 | **5.3** | Ордер на продажу токена | order2 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] |  |  |
-| **6** | Стоимость токена для покупки или продажи | price | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Количество [токена](/ru/blockchain/token/) Б, которое отправитель ордера предлагает за один токен А |
-| **7** | Количество | amount | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Количество токена А, которое отправитель ордера хочет купить |
+| **6** | Стоимость токена для покупки или продажи | price | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Цена сделки: стоимость amount-ассета (базовой валюты), выраженная в price-ассете (валюте котировки) |
+| **7** | Количество | amount | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Количество amount-ассета (базовой валюты), которое получил отправитель ордера на покупку от отправителя ордера на продажу |
 | **8** | [Комиссия матчера](/ru/blockchain/matcher-fee) за покупку | buyMatcherFee | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **9** | Комиссия матчера за продажу | sellMatcherFee | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **10** | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) | fee | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
@@ -68,8 +68,8 @@ message ExchangeTransactionData {
 | **3** | Размер ордера на продажу в байтах | [Int](/ru/blockchain/blockchain/blockchain-data-types) | 4 |  |
 | **4** | Ордер на покупку | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] |  |  |
 | **5** | Ордер на продажу | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] |  |  |
-| **6** | Стоимость | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Количество [токена](/ru/blockchain/token/) А, которое отправитель ордера предлагает за один токен Б |
-| **7** | Количество | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Количество токена Б, которое отправитель ордера хочет купить |
+| **6** | Стоимость | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  Цена сделки: стоимость amount-ассета (базовой валюты), выраженная в price-ассете (валюте котировки) |
+| **7** | Количество | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Количество amount-ассета (базовой валюты), которое получил отправитель ордера на покупку от отправителя ордера на продажу |
 | **8** | [Комиссия матчера](/ru/blockchain/matcher-fee) за покупку | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **9** | Комиссия матчера за продажу | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **10** | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
