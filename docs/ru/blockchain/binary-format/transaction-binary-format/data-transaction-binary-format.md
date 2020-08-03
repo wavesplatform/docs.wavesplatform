@@ -50,7 +50,7 @@ message DataTransactionData {
 | **6.7** | Ключ 2-го элемента | key | [String](/ru/blockchain/blockchain/blockchain-data-types) | До 400 | Не более 100 символов |
 | **6.8** | Тип данных 2-го элемента | type | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — [Long](/ru/blockchain/blockchain/blockchain-data-types)<br>1 — [Boolean](/ru/blockchain/blockchain/blockchain-data-types)<br>2 — Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)]<br>3 — [String](/ru/blockchain/blockchain/blockchain-data-types) |
 | **6.9** | Длина данных 2-го элемента |  | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 2 | Поле присутствует, только если значением поля данных является массив байтов или строка.<br>Поле отсутствует, если значением поля данных является целое число или логический тип |
-| **6.10** | Данные 2-го элемента | value | `T` | `T` | `S` | `T` — один из следующих: <br> - [Long](/ru/blockchain/blockchain/blockchain-data-types), `S = 8`<br> - [Boolean](/ru/blockchain/blockchain/blockchain-data-types), `S = 1` <br> - Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)], `S ⩽ 32767`<br>- [String](/ru/blockchain/blockchain/blockchain-data-types), `S ⩽ 32767` |
+| **6.10** | Данные 2-го элемента | value | `T` | | `S` | `T` — один из следующих: <br> - [Long](/ru/blockchain/blockchain/blockchain-data-types), `S = 8`<br> - [Boolean](/ru/blockchain/blockchain/blockchain-data-types), `S = 1` <br> - Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)], `S ⩽ 32767`<br>- [String](/ru/blockchain/blockchain/blockchain-data-types), `S ⩽ 32767` |
 | ... | ... | ... | ... | ... | ... |
 | ... | ... | ... | ... | ... | ... |
 | ... | ... | ... | ... | ... | ... |
