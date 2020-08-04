@@ -1,13 +1,15 @@
 
 # API Key
 
-[Node API](/en/waves-node/node-api/) private methods require [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) to be provided in HTTP request. Node owner can set API key and other API parameters in the [REST API Settings](/en/waves-node/node-configuration#rest-api-settings) section of the node configuration file.
+[Node API](/en/waves-node/node-api/) private methods require [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) to be provided in HTTP request. Node owner can [set API key](#specify-api-key) and other parameters in the [REST API Settings](/en/waves-node/node-configuration#rest-api-settings) section of the node configuration file.
 
 Your node API key is very important just like the [seed phrase](/en/blockchain/glossary#secret-phrase) and the wallet password.
 
 **Note:** The API key is transmitted in the HTTP header as unprotected plain text. An attacker can intercept your network transit and use it to steal your assets! It is highly important to protect the transmission using HTTPS or SSH port forwarding.
 
-## Generate API Key Hash
+## Set API Key
+
+To set API key, you need to generate API key hash and then use it in your node configuration.
 
 1. Create unique string value that you will use as `API key`.
 
@@ -17,9 +19,9 @@ Your node API key is very important just like the [seed phrase](/en/blockchain/g
 
 3. Open the [/utils/hash/secure](https://nodes.wavesnodes.com/api-docs/index.html#!/utils/hashSecure_1) API method and input your unique string in the `message` field.
 
-4. Click **Execute** to get the hashed API key.
+4. Click **Execute** to get the `hashed API key`.
 
-5. Use the hashed API key as the value of `api-key-hash` parameter in your [node configuration](/en/waves-node/node-configuration) file.
+5. Use the `hashed API key` as the value of the `api-key-hash` parameter in your [node configuration](/en/waves-node/node-configuration) file.
 
 6. Restart your node.
 
