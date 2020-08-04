@@ -76,7 +76,7 @@ The maximum size of `d_app` + `function_call` + `payments` is 5120 bytes.
 | **10.1** | Flag of fee token | | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | 0 — WAVES.<br>1 — other token |
 | **10.2** | Fee token ID | feeAssetId | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | `S` = 0, if token is WAVES.<br>`S` = 32, if it is other token |
 | **11** | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) | timestamp | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| 12 | [Transaction proofs](/en/blockchain/transaction/transaction-proof) | proofs | See [Transaction Proofs Binary Format](/en/blockchain/binary-format/transaction-proof-binary-format) | `S` | If the array is empty, then `S`= 3. <br>If the array is not empty, then `S`= 3 + 2 × `N` + 64 × `N`, where `N` is the number of proofs in the array.<br>The maximum number of proofs in the array is 8. The size of each proof is 64 bytes |
+| 12 | [Transaction proofs](/en/blockchain/transaction/transaction-proof) | proofs | See [Transaction Proofs Binary Format](/en/blockchain/binary-format/transaction-proof-binary-format) | `S` | If the array is empty, then `S` = 3. <br>If the array is not empty, then `S` = 3 + 2 × `N` + 64 × `N`, where `N` is the number of proofs in the array.<br>The maximum number of proofs in the array is 8. The size of each proof is 64 bytes |
 
 > The fields numbered in bold are the transaction body bytes.
 
