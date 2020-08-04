@@ -282,6 +282,17 @@ A **token** is a [blockchain](#blockchain) object that represents another object
 
 The **transaction** is an action on the [blockchain](#blockchain) on behalf of the [account](#account). Transactions can be sent only from the account — thus, any transaction can be correlated with a certain account.
 
+### Transaction body bytes
+
+**Transaction body bytes** normally consist of all the fields of the transaction [binary format](/en/blockchain/binary-format/transaction-binary-format/) with the exception of the following fields:
+- transaction ID (it is not stored on the blockchain),
+- version flag,
+- `proofs` or `signature`, depending on the version of the transaction.
+
+The contents of transaction body bytes is given in the description of the binary format of each type and version of the transaction.
+
+Based on the transaction body bytes, the [transaction ID](/en/blockchain/transaction/transaction-id) and the [transaction signature](/en/blockchain/transaction/transaction-signature) are generated. The guideline for generating a signature and ID is given in the [Cryptographic practical details](/en/blockchain/waves-protocol/cryptographic-practical-details#signing) article.
+
 ## U
 
 ### UTX pool

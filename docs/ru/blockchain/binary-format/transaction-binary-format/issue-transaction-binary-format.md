@@ -65,14 +65,14 @@ message IssueTransactionData {
 | 2 | Подпись транзакции | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 64 |  |
 | **3** | ID типа транзакции | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Дублирует поле 1 |
 | **4** | Открытый ключ аккаунта отправителя транзакции | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
-| **5** | Длина имени токена | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 2 |  |
-| **6** | Имя токена | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | От 4 до 16 включительно |  |
-| **7** | Длина описания токена | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 2 |  |
-| **8** | Описание токена | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | От 0 до 1000 включительно |  |
-| **9** | Количество токенов | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| **10** | Количество знаков после запятой у токена | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 |  |
-| **11** | Флаг возможности довыпуска | [Boolean](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Если значение равно 0, то довыпуск невозможен.<br>Если значение равно 1, то довыпуск возможен |
-| **12** | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| **13** | [Временная метка транзакции](/ru/blockchain/transaction/transaction-timestamp) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |  |
+| **5.1** | Длина имени токена | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 2 |  |
+| **5.2** | Имя токена | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | От 4 до 16 включительно |  |
+| **6.1** | Длина описания токена | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 2 |  |
+| **6.2** | Описание токена | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | От 0 до 1000 включительно |  |
+| **7** | Количество токенов | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
+| **8** | Количество знаков после запятой у токена | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 |  |
+| **9** | Флаг возможности довыпуска | [Boolean](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Если значение равно 0, то довыпуск невозможен.<br>Если значение равно 1, то довыпуск возможен |
+| **10** | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
+| **11** | [Временная метка транзакции](/ru/blockchain/transaction/transaction-timestamp) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |  |
 
 > Поля, номера которых выделены жирным шрифтом, составляют байты тела транзакции.

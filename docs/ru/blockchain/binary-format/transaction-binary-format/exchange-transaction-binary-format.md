@@ -39,11 +39,11 @@ message ExchangeTransactionData {
 | **3** | [Версия транзакции](/ru/blockchain/transaction/transaction-version) | version | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Значение должно быть равно 2 |
 | **4.1** | Размер ордера на покупку |  | [Int](/ru/blockchain/blockchain/blockchain-data-types) | 4 | Размер с учетом флага 4.2 |
 | **4.2** | Флаг версии ордера на покупку | order1.version | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | `S` | `S` = 1, если версия ордера 1.<br>`S` = 0, если версия ордера 2 или 3 |
-| **4.3** | Ордер на покупку токена | order1 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] |  |  |
+| **4.3** | Ордер на покупку токена | order1 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] |  | См. [Бинарный формат ордера](/ru/blockchain/binary-format/order-binary-format) |
 | **5.1** | Размер ордера на продажу |  | [Int](/ru/blockchain/blockchain/blockchain-data-types) | 4 | Размер с учетом флага 5.2 |
-| **5.2** | Флаг [версии ордера](/ru/blockchain/binary-format/order-binary-format) на продажу | order2.version | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | `S` | `S` = 1, если версия ордера 1.<br>`S` = 0, если версия ордера 2 или 3 |
-| **5.3** | Ордер на продажу токена | order2 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] |  |  |
-| **6** | Стоимость токена для покупки или продажи | price | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Цена сделки: стоимость amount-ассета (базовой валюты), выраженная в price-ассете (валюте котировки) |
+| **5.2** | Флаг версии ордера на продажу | order2.version | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | `S` | `S` = 1, если версия ордера 1.<br>`S` = 0, если версия ордера 2 или 3 |
+| **5.3** | Ордер на продажу токена | order2 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] |  | См. [Бинарный формат ордера](/ru/blockchain/binary-format/order-binary-format) |
+| **6** | Цена сделки | price | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Стоимость amount-ассета (базовой валюты), выраженная в price-ассете (валюте котировки) |
 | **7** | Количество | amount | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Количество amount-ассета (базовой валюты), которое получил отправитель ордера на покупку от отправителя ордера на продажу |
 | **8** | [Комиссия матчера](/ru/blockchain/matcher-fee) за покупку | buyMatcherFee | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **9** | Комиссия матчера за продажу | sellMatcherFee | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
@@ -68,7 +68,7 @@ message ExchangeTransactionData {
 | **3** | Размер ордера на продажу в байтах | [Int](/ru/blockchain/blockchain/blockchain-data-types) | 4 |  |
 | **4** | Ордер на покупку | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] |  |  |
 | **5** | Ордер на продажу | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] |  |  |
-| **6** | Стоимость | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  Цена сделки: стоимость amount-ассета (базовой валюты), выраженная в price-ассете (валюте котировки) |
+| **6** | Цена сделки | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Стоимость amount-ассета (базовой валюты), выраженная в price-ассете (валюте котировки) |
 | **7** | Количество | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Количество amount-ассета (базовой валюты), которое получил отправитель ордера на покупку от отправителя ордера на продажу |
 | **8** | [Комиссия матчера](/ru/blockchain/matcher-fee) за покупку | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **9** | Комиссия матчера за продажу | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
