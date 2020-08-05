@@ -1,7 +1,7 @@
 # Функции строки
 
 | Название | Описание | Сложность |
-| :--- | :--- | :--- | :--- |
+| :--- | :--- | :--- |
 | [contains(String, String): Boolean](#contains-string-string-boolean) | Проверяет, содержится ли строка в строке | 3 |
 | [drop(String, Int): String](#dropstring-int-string)  | Удаляет первые `n` символов строки | 1 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>20 для Стандартной библиотеки **версии 4** |
 | [dropRight(String, Int): String](#droprightstring-int-string)  | Удаляет последние `n` символов строки | 19 для Стандартной библиотеки **версии 3**<br>20 для Стандартной библиотеки **версии 4** |
