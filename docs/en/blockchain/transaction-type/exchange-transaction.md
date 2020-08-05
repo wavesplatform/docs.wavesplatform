@@ -6,15 +6,25 @@ Commonly the exchange transaction is created by the matcher service that execute
 
 The exchange transaction contains two counter orders: a buy order and a sell order. The blockchain guarantees that the terms of the exchange are not worse than those indicated in each order.
 
+An order can be filled partially. An order can participate in several exchange transactions, with different counter orders.
+
 One of the two exchanged tokens is an amount asset (base currency): it represents the amount of tokens in orders and in the exchange transaction. Another token is a price asset (quote currency): it represents the price.
 
 ![](./_assets/exchange-tx.png)
 
-## Fee
+## Transaction Fee
 
 The minimum fee for an exchange transaction is 0.003 WAVES. In case of exchange of a [smart asset](/en/blockchain/token/smart-asset) for an ordinary asset the minimum fee is 0.007 WAVES, in case of exchange of two smart assets the minimum fee is 0.011 WAVES/
 
 If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
+
+## Matcher Fee
+
+The matcher receives a fee for order execution from each order senders. The minimum matcher fee is set by the matcher. The order sender specifies the fee not less than the minimum amount.
+
+If the order is fully filled with one exchange transaction, the matcher receives the entire fee specified in the order. If the order is partially filled, the matcher receives a part of the fee. The blockchain guarantees that the total matcher fee received from the order sender in all exchange transactions does not exceed the fee specified in the order.
+
+![](./_assets/exchange-tx-fee.png)
 
 ## JSON Representation
 

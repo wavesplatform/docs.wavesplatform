@@ -48,7 +48,7 @@ Here is the example of JSON representation:
 | *sender* | [Address](/en/blockchain/account/address) of the transaction sender: base58 encoded byte array |
 | feeAssetId | ID of the token of the fee.<br>`null` means that the fee is in WAVES.<br>For invoke script transactions and transfer transactions, the sender may specify the fee in a sponsored asset, see the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article for details |
 | proofs | Array of [transaction proofs](/en/blockchain/transaction/transaction-proof). Up to 8 proofs, each proof up to 64 bytes base58 encoded |
-| fee | [Transaction fee](/en/blockchain/transaction/transaction-fee): an integer value indicated in the minimum fraction (“cent”) of the fee asset. For example, if the fee is 0.001 WAVES, 100000 is indicated in the JSON representation |
+| fee | [Transaction fee](/en/blockchain/transaction/transaction-fee): an integer value indicated in the minimum fraction (“cent”) of the fee asset. For example, if the fee is 0.001 WAVES, 100000 is indicated in the JSON representation, so far as 1 WAVES = 10<sup>8</sup> WAVELET |
 | *id* | Transaction ID. For how the transaction ID is calculated, see the [Cryptographic Practical Details](/en/blockchain/waves-protocol/cryptographic-practical-details#calculating-transaction-id) article |
 | type | Transaction type. Type IDs are listed in the [Transaction Type](/en/blockchain/transaction-type/) article |
 | version | Transaction version. Versions for each type of transaction are listed in [transaction binary format](/en/blockchain/binary-format/transaction-binary-format) descriptions |
@@ -79,13 +79,19 @@ You can get the transaction by ID, or the list of transactions by certain accoun
 * In [Waves Explorer](https://wavesexplorer.com/).
 * Via [Node REST API](/en/waves-node/node-api/) using the following methods:
 
-   * `GET /transactions/info/{id}`
-   * `GET /transactions/address/{address}/limit/{limit}`
-   * `GET /blocks/at/{height}`
+   * `GET /transactions/info/{id}` returns transaction data by transaction ID.
+   * `GET /transactions/address/{address}/limit/{limit}` returns list of transactions where specified address is involved.
+   * `GET /blocks/at/{height}` returns block data at the specified height including all transactions in the block.
 
 ## How to Sign and Send Transaction
 
 * Using [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/). See some examples of sending a transaction in the [Creating & Broadcasting Transactions](/en/building-apps/how-to/basic/transaction) article.
+
+   :bulb: You can sign and send transactions on behalf of users without asking them for their seed phrases or private keys using one of the following frameworks:
+   
+   * [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer) library;
+   * [Waves Keeper API](/en/ecosystem/waves-keeper/waves-keeper-api) (requires that the Waves Keeper extension is installed in the user's browser).
+
 * In [Waves IDE](https://waves-ide.com/) using [JavaScript interactive console](/en/building-apps/smart-contracts/tools/waves-ide#javascript-interactive-console).
 * In [Waves.Exchange](https://waves.exchange/) app developed by Waves.Exchange team you can create some types of transactions such as transfer, issue/reissue/burn, sponsor fee transaction, set asset script, create alias.
 * Via [Node REST API](/en/waves-node/node-api/):
@@ -101,4 +107,4 @@ Due to block size limitation (1 MB) the transaction may not get to the block imm
 
 After being added to a block, the transaction changes the blockchain state: account balances, records in the account data storage, and so on.
 
-The transaction may never be added to a block if it becomes invalid while waiting in the UTX pool. For example, the transaction has expired (the timestamp is more than 2 hours in the past) or another transaction has changed the blockchain state and the sender's balance is now insufficient to execute the transaction.
+The transaction may never be added to a block if it becomes invalid while waiting in the UTX pool. For example, the transaction has expired (the timestamp is more than 2 hours in the past) or another transaction has changed the blockchain state and the sender's balance is now insufficient to execute the transaction or the account or asset script denies the transaction.
