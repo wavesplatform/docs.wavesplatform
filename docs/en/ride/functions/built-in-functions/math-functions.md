@@ -38,7 +38,7 @@ c = 2,500,000.
 The following formula, with [operators](/en/ride/operators/) `*` and `/`, fails due to overflow:
 
 ```ride
-a * b / c #  overflow, because a × b exceeds max integer type value 9,223,372,036,854,755,807
+a * b / c #  overflow, because a × b exceeds max integer value
 ```
 
 The fraction function with no overflow:
@@ -60,6 +60,7 @@ In Ride, there is no [data type](/en/ride/data-types/) with the floating point.
 More examples:
 
 | a | value | vp |
+| :--- | :--- | :--- |
 | 16.25 | 1625 | 2 |
 | 5 | 5 | 0 |
 | 5.00 | 500 | 2 |
