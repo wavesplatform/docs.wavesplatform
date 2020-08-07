@@ -13,8 +13,6 @@ To set API key, you need to generate API key hash and then use it in your node c
 
 1. Create unique string value that you will use as `API key`.
 
-    **Note**: Default API Key is `ridethewaves!`.
-
 2. Go to [Swagger web interface](/en/waves-node/node-api#swagger-web-interface).
 
 3. Open the [/utils/hash/secure](https://nodes.wavesnodes.com/api-docs/index.html#!/utils/hashSecure_1) API method and input your unique string in the `message` field.
@@ -49,3 +47,6 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 "timestamp": 1568020044350 \
 }' 'http://nodes.wavesnodes.com/transactions/sign'
 ```
+
+
+**Note**: Node API allows to sign transactions only with the keys that are stored on the node. If you want to sign your transaction/other user transaction, but the node is not yours, see libraries.
