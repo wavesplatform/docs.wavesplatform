@@ -2,22 +2,22 @@
 
 Transaction `proofs` array can contain the transaction signature, or several signatures, or other data.
 
-Transaction proofs are used for transaction verification, that is, the check that transaction is allowed by sender's account:
+Transaction proofs are used for transaction verification, that is, the check that the transaction is allowed by sender's account:
 
 * In case of ordinary account (without script) the sender's signature is verified, see [Transaction Signature](#transaction-signature) below.
 * In case of dApp or smart account the transaction is verified by the script assigned to the account. The script can use the `proofs` array, see [Proofs: Verification by Script](#proofs-verification-by-script).
 
-The array of proofs The maximum nunber of proofs is 8. Each proof is up to 64 bytes.
+The maximum number of proofs is 8. Each proof is up to 64 bytes.
 
 > In earlier versions of some types of transactions the `signature` field is used instead of `proofs`.
 
 ## Transaction Signature
 
-If the transaction sender is an ordinary account (without script), the array of proofs must contain the sender's digital signature.
+If the transaction sender is an ordinary account (without script), the array of proofs must contain sender's digital signature.
 
-The sender generates a signature using account's private key. Waves protocol uses Curve25519 (ED25519 with X25519 keys) to create and verify signatures. Signature generation is described in the [Cryptographic Practical Details](/en/blockchain/waves-protocol/cryptographic-practical-details) article. For  [Как подписать и отправить транзакцию](/ru/blockchain/transaction/#как-подписать-и-отправить-транзакцию).
+The sender generates a signature using account's private key. Waves protocol uses Curve25519 (ED25519 with X25519 keys) to create and verify signatures. Signature generation is described in the [Cryptographic Practical Details](/en/blockchain/waves-protocol/cryptographic-practical-details) article.
 
-Along with signature, the transaction contains the sender public key, so the node (and anyone) can verify the integrity of the transaction data and the authenticity of the signature, that is, make sure that the signature of the transaction matches the public key.
+Along with the signature, the transaction contains sender's public key, so the node (and anyone) can verify the integrity of the transaction data and the authenticity of the signature, that is, make sure that the signature of the transaction matches the public key.
 
 ## Proofs: Verification by Script
 

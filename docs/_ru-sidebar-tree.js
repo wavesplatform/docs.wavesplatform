@@ -98,7 +98,7 @@ module.exports = {
           path: blockchainPath + 'transaction/transaction-proof',
         },
         {
-          title: 'Тип транзакции',
+          title: 'Типы транзакций',
           path: blockchainPath + 'transaction-type',
           children: [
             {

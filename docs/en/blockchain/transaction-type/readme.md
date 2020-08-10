@@ -10,7 +10,7 @@ There are many types of transactions implemented on the Waves blockchain. Types 
 | :--- | :--- | :--- |
 | 3 | [Issue transaction](/en/blockchain/transaction-type/issue-transaction) | Issues a token |
 | 5 | [Reissue transaction](/en/blockchain/transaction-type/reissue-transaction) | Reissues a token |
-| 6 | [Burn transaction](/en/blockchain/transaction-type/burn-transaction) | Descreases the amount of token |
+| 6 | [Burn transaction](/en/blockchain/transaction-type/burn-transaction) | Decreases the amount of token |
 | 15 | [Set asset script transaction](/en/blockchain/transaction-type/set-asset-script-transaction) | Modifies the asset script |
 | 17 | [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) | Changes the token name and description |
 
@@ -21,7 +21,7 @@ There are many types of transactions implemented on the Waves blockchain. Types 
 | Type ID | Name | Description |
 | :--- | :--- | :--- |
 | 4 | [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | Transfers a token to another account |
-| 7 | [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) | exchanges two different tokens among two accounts. Contains two counter orders: a buy order and a sell order |
+| 7 | [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) | Exchanges two different tokens among two accounts. Contains two counter orders: a buy order and a sell order |
 | 10 | [Create alias transaction](/en/blockchain/transaction-type/create-alias-transaction) | Creates alias for the sender's address |
 | 11 | [Mass transfer transaction](/en/blockchain/transaction-type/mass-transfer-transaction) | Transfers a token, up to 100 recipients |
 | 12 | [Data transaction](/en/blockchain/transaction-type/data-transaction) | Adds, modifies and deletes data entries in the sender's account data storage |

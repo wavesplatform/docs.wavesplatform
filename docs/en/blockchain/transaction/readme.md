@@ -1,8 +1,8 @@
 # Transaction
 
-**Transaction** is an action on the [blockchain](/en/blockchain/blockchain/) on behalf of the [account](/en/blockchain/account/). 
+**Transaction** is an action on the [blockchain](/en/blockchain/blockchain/) on behalf of an [account](/en/blockchain/account/). 
 
-The Waves blockchain provides many types of transactions. For example:
+The Waves blockchain provides various types of transactions. For example:
 
 * data transaction writes data to the account data storage;
 * transfer transaction sends a certain amount of token to another account.
@@ -11,11 +11,11 @@ Content of transaction depends on its type. Transaction types are listed in the 
 
 ## Sender and Signature
 
-Each transaction contains the public key of sender account, on behalf of which the action is performed on the blockchain. Transaction that is sent from ordinary account (without script) must contain the sender's digital signature. Smart accounts and dApps can set their own rules for verification of outgoing transactions. See the [Signature and Proofs of Transaction](/en/blockchain/transaction/transaction-proof) article for more information.
+Each transaction contains the public key of sender account, on behalf of which the action is performed on the blockchain. Transaction that is sent from ordinary account (without script) must contain the sender's digital signature. Smart accounts and dApps can set their own rules for verification of outgoing transactions. See the [Transaction Signature and Proofs](/en/blockchain/transaction/transaction-proof) article for more information.
 
 ## Transaction Fee
 
-Waves transactions are very cheap but not free: the sender is charged a fee. The sender can specify any amount of fee but not less than the minimum amount specified in the [Transaction Fee](/en/blockchain/transaction/transaction-fee) article.
+Waves transactions are very cheap but not free: the sender is charged a fee. The sender can specify any amount of fee but not less than the minimum amount. The minimum fees are listed in the [Transaction Fee](/en/blockchain/transaction/transaction-fee) article.
 
 ## JSON Representation
 
@@ -52,11 +52,11 @@ Here is the example of JSON representation:
 | *id* | Transaction ID. For how the transaction ID is calculated, see the [Cryptographic Practical Details](/en/blockchain/waves-protocol/cryptographic-practical-details#calculating-transaction-id) article |
 | type | Transaction type. Type IDs are listed in the [Transaction Type](/en/blockchain/transaction-type/) article |
 | version | Transaction version. Versions for each type of transaction are listed in [transaction binary format](/en/blockchain/binary-format/transaction-binary-format) descriptions |
-| *applicationStatus* | Result of transaction validation:<br>- succeed – transaction is successful.<br>- scriptExecutionFailed – the dApp script or the asset script failed.<br>The field is added in node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. [More about transaction validation](/en/blockchain/transaction/transaction-validation) |
+| *applicationStatus* | Result of transaction validation:<br>- succeed – transaction is successful.<br>- scriptExecutionFailed – the dApp script or the asset script failed.<br>The field is added in node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. See the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article for details |
 | timestamp | Transaction timestamp specified by the sender: Unix time in milliseconds. The transaction cannot be added to the blockchain if the timestamp value is more than 2 hours back or 1.5 hours forward of current block timestamp |
 | *height* | The sequence number of the block that contains the transaction |
 
-The `sender`, `id`, `applicationStatus`,and `height` fields do not need to be filled when sending a transaction, and they are not stored on the blockchain. The node calculates these fields when providing transaction data via the REST API.
+The `sender`, `id`, `applicationStatus`, and `height` fields do not need to be filled when sending a transaction, and they are not stored on the blockchain. The node calculates these fields when providing transaction data via the REST API.
 
 > In earlier versions of some types of transactions the `signature` field is used instead of `proofs`.
 
@@ -64,7 +64,7 @@ The fields that depend on the type of transaction are listed in the description 
 
 ## Binary Format
 
-Transactions are stored on the blockchain in a binary format (byte representation). [Node extensions](/en/waves-node/extensions/) such as [gRPC server](/en/waves-node/extensions/grpc-server/) can work directly with data in binary format.
+Transactions are stored on the blockchain in the binary format (byte representation). [Node extensions](/en/waves-node/extensions/) such as [gRPC server](/en/waves-node/extensions/grpc-server/) can work directly with data in binary format.
 
 The transaction signature and ID are also formed on the basis of the binary format. The guideline for generating a signature and ID is given in the [Cryptographic Practical Details](/en/blockchain/waves-protocol/cryptographic-practical-details#signing) article.
 
@@ -107,4 +107,4 @@ Due to block size limitation (1 MB) the transaction may not get to the block imm
 
 After being added to a block, the transaction changes the blockchain state: account balances, records in the account data storage, and so on.
 
-The transaction may never be added to a block if it becomes invalid while waiting in the UTX pool. For example, the transaction has expired (the timestamp is more than 2 hours in the past) or another transaction has changed the blockchain state and the sender's balance is now insufficient to execute the transaction or the account or asset script denies the transaction.
+The transaction may never be added to a block if it becomes invalid while waiting in the UTX pool. For example, the transaction has expired (the timestamp is more than 2 hours in the past) or another transaction has changed the blockchain state and now the sender's balance is insufficient to execute the transaction or the account or asset script denies the transaction.
