@@ -262,7 +262,7 @@ module.exports = {
       path: blockchainPath + 'order',
     },
     {
-      title: 'Форматы данных и протоколы',
+      title: 'Протоколы и форматы данных',
       path: blockchainPath + 'waves-protocol',
       children: [
         {
