@@ -20,4 +20,4 @@ message UpdateAssetInfoTransactionData {
 | :--- | :--- | :--- |
 | asset_id | 32 bytes | Token ID |
 | name | From 4 to 16 bytes | Token name |
-| description | От 0 до 1000 байт | Token description |
+| description | From 0 to 1000 bytes | Token description |
