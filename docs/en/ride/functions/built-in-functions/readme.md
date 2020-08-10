@@ -130,10 +130,10 @@ A **built-in function** is a [function](/en/ride/functions/) of the [script cont
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| fraction(Int, Int, Int): Int | Multiplies and divides an integer to avoid the integer overflow | 1 |
-| log(Int, Int, Int, Int, Int, Union): Int | Calculates logarithm of the number | 100 |
+| fraction(Int, Int, Int): Int | Multiplies and divides integers to avoid overflow | 1 |
+| log(Int, Int, Int, Int, Int, Union): Int | Calculates logarithm of a number with a base | 100 |
 | median(List[Int]): Int | Returns the median of a list of integers | 20 |
-| pow(Int, Int, Int, Int, Int, Union): Int | Raises the number to a power | 100 |
+| pow(Int, Int, Int, Int, Int, Union): Int | Raises a number to a given power | 100 |
 
 ## [String functions](/en/ride/functions/built-in-functions/string-functions)
 
