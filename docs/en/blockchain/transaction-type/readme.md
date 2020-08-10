@@ -1,6 +1,6 @@
 # Transaction Type
 
-There are many types of transactions implemented on the Waves blockchain. Types division into categories is shown in the diagram.
+There are various types of transactions implemented on the Waves blockchain. Types division into categories is shown in the diagram.
 
 ![](./_assets/types.png)
 
