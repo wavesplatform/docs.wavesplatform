@@ -6,7 +6,7 @@ Accounts unambiguously correlate [transactions](/en/blockchain/transaction/) and
 
 ## Account public and private keys
 
-Private and public keys have the same size — 32 bytes. The bytes of the keys are converted to a [base58](https://tools.ietf.org/id/draft-msporny-base58-01.html) character string; in this form, the keys are displayed in the interfaces of programs.
+Private and public keys have the same size — 32 bytes. The bytes of the keys are converted to a [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) character string; in this form, the keys are displayed in the interfaces of programs.
 
 Example of a public key in Base58:
 

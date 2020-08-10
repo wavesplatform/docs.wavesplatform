@@ -38,7 +38,7 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | addressFromString(String): Address&#124;Unit | Декодирует адрес из строки [base58](https://ru.wikipedia.org/wiki/Base58) | 124 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии&nbsp;3**<br>1 для Стандартной библиотеки **версии&nbsp;4** |
-| addressFromStringValue(String): Address | Декодирует адрес из строки [base58](https://ru.wikipedia.org/wiki/Base58). <br>Выбрасывает исключение, если адрес невозможно декодировать | 124 для Стандартной библиотеки **версии&nbsp;3**<br>1 для Стандартной библиотеки **версии&nbsp;4** |
+| addressFromStringValue(String): Address | Декодирует адрес из строки base58. <br>Выбрасывает исключение, если адрес невозможно декодировать | 124 для Стандартной библиотеки **версии&nbsp;3**<br>1 для Стандартной библиотеки **версии&nbsp;4** |
 | fromBase16String(String): ByteVector | Декодирует строку [base16](https://ru.wikipedia.org/wiki/Шестнадцатеричная_система_счисления) в массив байтов | 10 |
 | fromBase58String(String): ByteVector | Декодирует строку [base58](https://ru.wikipedia.org/wiki/Base58) в массив байтов | 10 для Стандартной библиотеки **версии&nbsp;3**<br>1 для Стандартной библиотеки **версии&nbsp;4** |
 | fromBase64String(String): ByteVector | Декодирует строку [base64](https://ru.wikipedia.org/wiki/Base64) в массив байтов | 10 для Стандартной библиотеки **версии&nbsp;3**<br>40 для Стандартной библиотеки **версии&nbsp;4** |
@@ -54,9 +54,9 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| toBase16String(ByteVector): String | Кодирует массив байтов в строку [Base16](https://en.wikipedia.org/wiki/Hexadecimal) | 10 |
-| toBase58String(ByteVector): String | Кодирует массив байтов в строку [Base58](https://en.wikipedia.org/wiki/Base58) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии&nbsp;3**<br>3 для Стандартной библиотеки **версии&nbsp;4** |
-| toBase64String(ByteVector): String | Кодирует массив байтов в строку [Base64](https://en.wikipedia.org/wiki/Base64) | 10 для Стандартной библиотеки **версии&nbsp;3**<br>35 для Стандартной библиотеки **версии&nbsp;4** |
+| toBase16String(ByteVector): String | Кодирует массив байтов в строку [base16](https://ru.wikipedia.org/wiki/Шестнадцатеричная_система_счисления) | 10 |
+| toBase58String(ByteVector): String | Кодирует массив байтов в строку [base58](https://ru.wikipedia.org/wiki/Base58) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии&nbsp;3**<br>3 для Стандартной библиотеки **версии&nbsp;4** |
+| toBase64String(ByteVector): String | Кодирует массив байтов в строку [base64](https://ru.wikipedia.org/wiki/Base64) | 10 для Стандартной библиотеки **версии&nbsp;3**<br>35 для Стандартной библиотеки **версии&nbsp;4** |
 
 ## [Функции конвертации](/ru/ride/functions/built-in-functions/converting-functions)
 
