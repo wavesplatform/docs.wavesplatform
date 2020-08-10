@@ -55,11 +55,11 @@ message DataTransactionData {
 | ... | ... | ... | ... | ... | ... |
 | ... | ... | ... | ... | ... | ... |
 | ... | ... | ... | ... | ... | ... |
-| **6.[5 × N - 4]** | Длина ключа N-го элемента | | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 2 | |
-| **6.[5 × N - 3]** | Ключ N-го элемента | key | [String](/ru/blockchain/blockchain/blockchain-data-types) | 4 × `L` | `L` — длина ключа, не более 100 символов |
-| **6.[5 × N - 2]** | Тип данных N-го элемента | type | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | |
-| **6.[5 × N - 1]** | Длина данных N-го элемента |  | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 2 | Поле присутствует, только если значением поля данных является массив байтов или строка.<br>Поле отсутствует, если значением поля данных является целое число или логический тип |
-| **6.[5 × N]** | Данные N-го элемента | value | `T` | До 32&nbsp;767 | `T` — один из следующих: <br> - [Long](/ru/blockchain/blockchain/blockchain-data-types)<br> - Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)]<br> - [Boolean](/ru/blockchain/blockchain/blockchain-data-types)<br> - [String](/ru/blockchain/blockchain/blockchain-data-types) |
+| **6.[5&nbsp;×&nbsp;N&nbsp;-&nbsp;4]** | Длина ключа N-го элемента | | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 2 | |
+| **6.[5&nbsp;×&nbsp;N&nbsp;-&nbsp;3]** | Ключ N-го элемента | key | [String](/ru/blockchain/blockchain/blockchain-data-types) | 4 × `L` | `L` — длина ключа, не более 100 символов |
+| **6.[5&nbsp;×&nbsp;N&nbsp;-&nbsp;2]** | Тип данных N-го элемента | type | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | |
+| **6.[5&nbsp;×&nbsp;N&nbsp;-&nbsp;1]** | Длина данных N-го элемента |  | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 2 | Поле присутствует, только если значением поля данных является массив байтов или строка.<br>Поле отсутствует, если значением поля данных является целое число или логический тип |
+| **6.[5&nbsp;×&nbsp;N]** | Данные N-го элемента | value | `T` | До 32&nbsp;767 | `T` — один из следующих: <br> - [Long](/ru/blockchain/blockchain/blockchain-data-types)<br> - Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)]<br> - [Boolean](/ru/blockchain/blockchain/blockchain-data-types)<br> - [String](/ru/blockchain/blockchain/blockchain-data-types) |
 | **7** | [Временная метка транзакции](/ru/blockchain/transaction/transaction-timestamp) | timestamp | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **8** | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) | fee | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 9 | [Подтверждения транзакции](/ru/blockchain/transaction/transaction-proof) | proofs | См. раздел [Бинарный формат подтверждений](/ru/blockchain/binary-format/transaction-proof-binary-format) | `S` | Если массив пустой, то `S` = 3. <br>Если массив не пустой, то `S` = 3 + 2 × `N` + 64 × `N`, где `N` — количество подтверждений в массиве.<br>Максимальное количество подтверждений в массиве — 8. Размер каждого подтверждения — 64 байта |

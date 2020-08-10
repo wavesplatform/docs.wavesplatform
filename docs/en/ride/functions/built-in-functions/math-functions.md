@@ -5,7 +5,7 @@
 | [fraction](#fraction) | Multiplies and divides [integers](/en/ride/data-types/int) to avoid overflow | 1 |
 | [log](#log)| Calculates logarithm of a number with a given base | 100 |
 | [median](#median)| Returns the median of a list of integers | 20 |
-| [pow(#pow) | Raises a number to a given power | 100 |
+| [pow](#pow) | Raises a number to a given power | 100 |
 
 ## fraction
 
