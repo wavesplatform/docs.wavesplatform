@@ -89,6 +89,10 @@ message Amount {
 | version | 1 байт | [Версия транзакции](/ru/blockchain/transaction/transaction-version) |
 | proofs | Размер каждого подтверждения — до 64 байт,<br>до 8 подтверждений | [Подтверждения транзакции](/ru/blockchain/transaction/transaction-proof), используемые для проверки валидности. Массив может содержать подписи транзакции (но не ограничивается только подписями) |
 
+> Если значение поля равно значению по умолчанию для этого типа данных, то при сериализации по protobuf-схеме оно опускается. Таким образом, байтовое представление транзакции содержит только значения, отличные от значений по умолчанию. Значения по умолчанию приведены в разделе [Default Values](https://developers.google.com/protocol-buffers/docs/proto3#default) документации Protocol Buffers.
+
+Значения есть в спеке ПБ: https://developers.google.com/protocol-buffers/docs/proto3?hl=ru#default
+
 Описание полей, зависящих от типа транзакции, представлено в следующих разделах:
 
 * [Транзакция вызова скрипта](/ru/blockchain/binary-format/transaction-binary-format/invoke-script-transaction-binary-format)

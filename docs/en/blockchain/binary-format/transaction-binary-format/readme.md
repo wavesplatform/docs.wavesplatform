@@ -89,6 +89,8 @@ message Amount {
 | version | 1 byte | [Transaction version](/en/blockchain/transaction/transaction-version) |
 | proofs | Each proof up to 64 bytes,<br>up to 8 proofs | [Transaction proofs](/en/blockchain/transaction/transaction-proof) that are used to check the validity of the transaction. The array can contain several transaction signatures (but not limited to signatures only) |
 
+> If the field value equals to the default value for this data type, then it is omitted during serialization based on the the protobuf scheme. Thus, the byte representation of a transaction contains only values other than the default. The default values are listed in the [Default Values](https://developers.google.com/protocol-buffers/docs/proto3#default) section in the Protocol Buffers documentation.
+
 The fields that depend on the type of transaction are described in the following articles:
 
 * [Burn transaction binary format](/en/blockchain/binary-format/transaction-binary-format/burn-transaction-binary-format)
