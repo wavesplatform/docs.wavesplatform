@@ -27,6 +27,16 @@ This article describes known issues of Waves Node and their possible solutions.
 
 then reboot your machine.
 
+## Node Deployed in Docker Crashes After Running
+
+If your node deployed in Docker (wavesplatform/waves-private-node:stagenet) crashes immediately after running, your Docker app might be out of memory.
+
+Solution: Change Docker preferences, so that it can use more memory.
+
+1. In your Docker desktop app navigate to **Settings** >> **Resources** >> **Advanced**.
+
+2. Set **Memory** value to 4GB or more and click **Apply & Restart**.
+
 ## Other Issues
 
 If you have other node-related issues to report or discuss with Waves community, see [Keep in Touch](/en/keep-in-touch/) chapter for contact information.

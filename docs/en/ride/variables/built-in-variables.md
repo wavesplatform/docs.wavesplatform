@@ -34,7 +34,7 @@ A **built-in variable** is a [variable](/en/ride/variables/) of the [script cont
   <tr>
     <td>3</td>
     <td>height</td>
-    <td><a href="/en/blockchain/blockchain/blockchain-height">Blockchain height</a> at the script execution time</td>
+    <td><a href="/en/blockchain/glossary#b">Blockchain height</a> at the script execution time</td>
   </tr>
   <tr>
     <td>4</td>
