@@ -438,7 +438,7 @@ module.exports = {
               ],
             },
             {
-              title: '[en] Transaction proof binary format',
+              title: 'Бинарный формат подтверждений',
               path: blockchainPath + 'binary-format/transaction-proof-binary-format',
             },
           ],

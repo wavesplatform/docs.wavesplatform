@@ -40,7 +40,7 @@ ssh <username>@<virtual_machine_ip_address>
 
 9.&nbsp;Set the necessary settings. When ready, click **Run my node!**. The docker container will start with the settings you have specified.
 
-10.&nbsp;Make sure that the container is running by running the [docker ps](https://docs.docker.com/engine/reference/commandline/ps) command in the virtual machine console.
+10.&nbsp;Make sure that the container is running by running the [docker ps](https://docs.docker.com/engine/reference/commandline/ps/) command in the virtual machine console.
 
 ```bash
 sudo docker ps

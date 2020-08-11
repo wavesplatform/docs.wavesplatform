@@ -33,7 +33,7 @@ For the ease of development, the Band Foundation will be maintaining and updatin
 
 The code below shows an example of a relatively simple price database smart contract on Waves which retrieve price data from Band's bridge contract and store it in the contract's state. 
 
-Specifically, the contract is set to only store price data from the bridge contract if the token symbol is one of `BTC`, `ETH`, or `WAVES`. For more information on what oracle scripts are and how data requests work on BandChain in general, please see their [wiki](https://github.com/bandprotocol/bandchain/wiki/System-Overview#oracle-data-request) and [developer documentation](https://docs.bandchain.org/dapp-developers/requesting-data-from-bandchain)
+Specifically, the contract is set to only store price data from the bridge contract if the token symbol is one of `BTC`, `ETH`, or `WAVES`. For more information on what oracle scripts are and how data requests work on BandChain in general, please see their [wiki](https://github.com/bandprotocol/bandchain/wiki/System-Overview#oracle-data-request) and [developer documentation](https://docs.bandchain.org/developer/dapp-developers/requesting-data-from-bandchain.html)
 
 ```python
 {-# STDLIB_VERSION 3 #-}
