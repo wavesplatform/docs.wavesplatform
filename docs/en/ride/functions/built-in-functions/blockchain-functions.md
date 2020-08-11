@@ -62,6 +62,8 @@ let x = match blockInfoByHeight(1234567) {
 
 Calculates the ID of the asset, created by [Issue](/en/ride/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution.
 
+> :warning: The `calculateAssetId` function is added in Standard library **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+
 ```
 calculateAssetId(issue: Issue): ByteVector
 ```

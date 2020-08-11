@@ -155,6 +155,8 @@ min(List[Int]): Int
 
 Removes an element from the list by index.
 
+> :warning: The `removeByIndex` function is added in Standard library **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+
 ``` ride
 removeByIndex(list: List[T], index: Int): List[T]
 ```

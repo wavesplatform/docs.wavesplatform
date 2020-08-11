@@ -1,6 +1,6 @@
 # DeleteEntry
 
-> :warning: Структура `DeleteEntry` представлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
+> :warning: Структура `DeleteEntry` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 `DeleteEntry` — cтруктура, задающая параметры удаления записи из [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage). Удаление записи выполняется, только если структура включена в [результирующее выражение](/ru/ride/functions/callable-function#резуnьтат-выпоnнения-2) вызываемой функции.
 

@@ -190,6 +190,8 @@ lastIndexOf("mamamama","ma",3) # Returns 2
 
 Concatenates list strings adding a separator.
 
+> :warning: The `makeString` function is added in Standard library **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+
 ```ride
 makeString(arr: List[String], separator: String): String
 ```

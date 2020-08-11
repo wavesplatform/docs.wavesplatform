@@ -1,6 +1,6 @@
 # Reissue
 
-> :warning: Структура `Reissue` представлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
+> :warning: Структура `Reissue` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 `Reissue` — cтруктура, задающая параметры довыпуска токена. Довыпуск выполняется, только если структура включена в [результирующее выражение](/ru/ride/functions/callable-function#резуnьтат-выпоnнения-2) вызываемой функции.
 

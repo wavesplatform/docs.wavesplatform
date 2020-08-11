@@ -159,6 +159,8 @@ min(List[Int]): Int
 
 Удаляет элемент из списка по индексу.
 
+> :warning: Функция `removeByIndex` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
+
 ``` ride
 removeByIndex(list: List[T], index: Int): List[T]
 ```

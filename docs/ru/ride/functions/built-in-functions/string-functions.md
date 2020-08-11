@@ -190,6 +190,8 @@ lastIndexOf("mamamama","ma",3) # Возвращает 2
 
 Объединяет строки из списка, используя разделитель.
 
+> :warning: Функция `makeString` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
+
 ```ride
 makeString(arr: List[String], separator: String): String
 ```
