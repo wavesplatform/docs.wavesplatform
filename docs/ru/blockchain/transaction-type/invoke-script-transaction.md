@@ -10,7 +10,7 @@
 
 Минимальная комиссия за транзакцию вызова скрипта рассчитывается по формуле:
 
-0,005 + B + 0,004 × C + 0,004 × D + K
+`Fee` = 0,005 + `B` + 0,004 × `C` + 0,004 × `D` + `K`
 
 * Если отправитель транзакции —  [dApp](/ru/blockchain/account/dapp) или [смарт-аккаунт](/ru/blockchain/account/smart-account), то `B` = 0,004, в ином случае `B` = 0.
 * Транзакция вызова скрипта может содержать платежи. `C` — количество платежей в [смарт-ассетах](/ru/blockchain/token/smart-asset).
@@ -94,7 +94,7 @@
 | :--- | :--- |
 | call.function | Имя вызываемой функции. До 255 байт (1 символ может занимать до 4 байт) |
 | call.args.type | Тип аргумента:<br>- binary<br>- boolean<br>- integer<br>- string<br>- list (доступно после активации фичи №&nbsp;15) |
-| call.args.value | Значение аргумента.<br>integer — от -9&nbsp;223&nbsp;372&nbsp;036&nbsp;854&nbsp;775&nbsp;808 до 9&nbsp;223&nbsp;372&nbsp;036&nbsp;854&nbsp;755&nbsp;807 включительно.<br>string или binary — до 32&nbsp;767 байт. Бинарное значение должно быть в кодировке base64.<br>list — до 1000 элементов |
+| call.args.value | Значение аргумента.<br>- integer — от -9&nbsp;223&nbsp;372&nbsp;036&nbsp;854&nbsp;775&nbsp;808 до 9&nbsp;223&nbsp;372&nbsp;036&nbsp;854&nbsp;755&nbsp;807 включительно.<br>- string или binary — до 32&nbsp;767 байт. Бинарное значение должно быть в кодировке base64.<br>- list — до 1000 элементов |
 | dApp | Адрес dApp в кодировке base58 или [псевдоним](/ru/blockchain/account/alias) адреса |
 | payment.amount | Количество токена в платеже, в минимальных неделимых единицах («копейках») токена |
 | payment.assetId | ID токена в платеже в кодировке base58. `null` означает, что платеж в WAVES |

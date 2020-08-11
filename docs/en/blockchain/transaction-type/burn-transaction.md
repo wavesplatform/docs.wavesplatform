@@ -1,6 +1,6 @@
 # Burn Transaction
 
-Burn transaction decreases the amount of the token on sender's account and thereby the total amount of the token on the blockchain. Any account that owns a token (not necessarily the token issuer) can send the burn transaction. Burned tokens cannot be restored back to the account.
+Burn transaction decreases the amount of token on sender's account and thereby the total amount of the token on the blockchain. Any account that owns a token (not necessarily the token issuer) can send the burn transaction. Burned tokens cannot be restored back to the account.
 
 ## Fee
 

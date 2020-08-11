@@ -8,13 +8,13 @@ The exchange transaction contains two counter orders: a buy order and a sell ord
 
 An order can be filled partially. An order can participate in several exchange transactions, with different counter orders.
 
-One of the two exchanged tokens is an amount asset (base currency): it represents the amount of tokens in orders and in the exchange transaction. Another token is a price asset (quote currency): it represents the price.
+One of the two exchanged tokens is an amount asset (base currency): it represents the amount of token in orders and in the exchange transaction. Another token is a price asset (quote currency): it represents the price.
 
 ![](./_assets/exchange-tx.png)
 
 ## Transaction Fee
 
-The minimum fee for an exchange transaction is 0.003 WAVES. In case of exchange of a [smart asset](/en/blockchain/token/smart-asset) for an ordinary asset the minimum fee is 0.007 WAVES, in case of exchange of two smart assets the minimum fee is 0.011 WAVES/
+The minimum fee for an exchange transaction is 0.003 WAVES. In case of exchange of a [smart asset](/en/blockchain/token/smart-asset) for an ordinary asset the minimum fee is 0.007 WAVES, in case of exchange of two smart assets the minimum fee is 0.011 WAVES.
 
 If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
 
