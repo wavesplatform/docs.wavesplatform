@@ -107,7 +107,6 @@
 * Failed transactions are now displayed. They are marked with ![](./_assets/stop.png) icon in lists of transactions.
 * Added support of two payments for invoke script transactions. The dApp script result is displayed as a table.
 * Added display of the new transaction type: update asset info transaction.
-* Added support of all types of attachements for transfer transactions and mass transfer transactions.
 * Added the link to the issue transaction on the asset information page.
 * Added Block ID field to the block information page.
 
