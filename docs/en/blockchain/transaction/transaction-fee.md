@@ -35,7 +35,7 @@ The minimum fee for an invoke script transaction:
 * dApp script invocation issued an asset that is not [non-fungible token](/en/blockchain/token/non-fungible-token): 0.005 + 1 = 1.005 WAVES.
 * dApp script invocation is sent from smart account, with two attached payment in smart assets, and 10 asssets that are not [non-fungible token](/en/blockchain/token/non-fungible-token) are issued: 0.005 + 0.004 + 2 × 0.004 + 10 × 1 = 10.017 WAVES.
 
-> Asset issue/reissue/burn by dApp script added to node version 1.2.0. The functionality can be used after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
+> Asset issue/reissue/burn by dApp script added to node version 1.2.0. The functionality can be used after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 | Transaction type | Transaction type ID | Minimum transaction fee in WAVES |
 | :--- | :--- | :--- |
@@ -43,7 +43,7 @@ The minimum fee for an invoke script transaction:
 | [Create alias transaction](/en/blockchain/transaction-type/create-alias-transaction) | 10 | 0.001 |
 | [Data transaction](/en/blockchain/transaction-type/data-transaction) | 12 | 0.001 per kilobyte | The value is rounded up to the thousandths |
 | [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) | 7 | 0.003 |
-| [Invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) | 16 | 0.005 + `K`<br>`K` is the number of assets issued as a result of dApp script invocation that are not [non-fungible tokens](/en/blockchain/token/non-fungible-token).<br>Asset issue by dApp script added to node version 1.2.0. The functionality can be used after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.<br>See [example 2](#example2) above |
+| [Invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) | 16 | 0.005 + `K`<br>`K` is the number of assets issued as a result of dApp script invocation that are not [non-fungible tokens](/en/blockchain/token/non-fungible-token).<br>Asset issue by dApp script added to node version 1.2.0. The functionality can be used after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.<br>See [example 2](#example2) above |
 | [Issue transaction](/en/blockchain/transaction-type/issue-transaction) | 3 | • 1 for reqular token <br>• 0.001 for [non-fungible token](/en/blockchain/token/non-fungible-token) |
 | [Lease cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction) | 9 | 0.001 |
 | [Lease transaction](/en/blockchain/transaction-type/lease-transaction) | 8 | 0.001 |
@@ -53,7 +53,7 @@ The minimum fee for an invoke script transaction:
 | [Set script transaction](/en/blockchain/transaction-type/set-script-transaction) | 13 | 0.01 |
 | Sponsor fee transaction | 14 | • 0.001 – after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.<br>• 1 — before activation of feature #15 |
 | [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 4 | 0.001 |
-| [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) | 17 | 0.001<br>The update asset info transaction has been added in node version 1.2.0. It can be used after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only |
+| [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) | 17 | 0.001<br>The update asset info transaction has been added in node version 1.2.0. It can be used after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions” |
 
 ## Fee in Sponsored Asset
 
@@ -65,5 +65,4 @@ To activate sponsorship, the issuer puts a sponsor fee transaction that specifie
 
 Invoke script transactions and exchange transactions are saved on the blockchain and the transaction sender pays the fee if the dApp script or the asset script failed. For more information see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article. For an exchange transaction, the matcher is charged the transaction fee but the order senders are not charged the [matcher fee](https://docs.waves.exchange/en/waves-matcher/matcher-fee).
 
-Saving failed transactions and charging fees for them is introduced in node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”
-. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
+Saving failed transactions and charging fees for them is introduced in node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.

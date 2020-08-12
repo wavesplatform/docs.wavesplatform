@@ -42,7 +42,7 @@ Each Ride script should start with directives. Here is the set of directives for
 
 These directives tell the compiler that:
 
-- The script uses Standard library version 3 (version 4 is currently available on Stagenet only).
+- The script uses Standard library version 3.
 - Type of the script is dApp.
 - The script will be assigned to an account (not asset).
 

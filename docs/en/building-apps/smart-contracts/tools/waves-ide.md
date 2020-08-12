@@ -16,7 +16,7 @@ Key features:
 
 Waves IDE address:
 * <https://waves-ide.com/> – the major environment.
-* <https://stagenet.waves-ide.com/> – the environment with support for new features of [Standart library version 4](/en/ride/script/standard-library) which is added in node version 1.2 and now available on Stagenet only.
+* <https://stagenet.waves-ide.com/> – the environment with support for new features of Waves protocol which are now available on Stagenet only.
 
 ## Configuration
 

@@ -8,8 +8,7 @@ This version of Node Go is compatible with [version 1.2.4](https://github.com/wa
 
 ## Version 0.5.0
 
-Node Go 0.5.0 supports Waves blockchain version 1.2 that is in testing on StageNet now.
-The release is aimed at StageNet but can be used for testing on TestNet and MainNet.
+Node Go 0.5.0 supports Waves blockchain version 1.2. The release is aimed at Stagenet but can be used for testing on Testnet and Mainnet.
 
  * Full blockchain support of Waves version 1.2
  * Support of RIDE version 4 (except for the script estimation)

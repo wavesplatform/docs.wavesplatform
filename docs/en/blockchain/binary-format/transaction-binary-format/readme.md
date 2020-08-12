@@ -37,7 +37,7 @@ Send the signed transaction to a node:
 * If you use your own node and [gRPC server](/en/waves-node/extensions/grpc-server/), send the `SignedTransaction` object.
 * If you use Node REST API, compose the JSON representation of transaction and add the base58-encoded signature to the `proofs` array. Send the transactrion to a node using `POST ​/transactions​/broadcast` method.
 
-The protobuf-based binary format is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
+The protobuf-based binary format is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ```protobuf
 message SignedTransaction {

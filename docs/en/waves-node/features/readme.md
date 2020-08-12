@@ -25,7 +25,7 @@ Waves Mainnet nodes currently support the following features:
 
 >*Mainnet blockchain height where the feature was activated.
 
-:warning: The following features are available starting from node version  1.2.x currently supported on Stagenet:
+:warning: The following feature is available starting from node version 1.2.x:
 
 | Feature ID | Name | Description |
 |------------|:-------------------------------------------------:|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

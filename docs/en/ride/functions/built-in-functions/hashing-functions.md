@@ -18,7 +18,7 @@ Range of functions that hash an array of bytes using [BLAKE2b-256](https://en.wi
 | blake2b256_64Kb(bytes: ByteVector): ByteVector | 64 kB | 50 |
 | blake2b256_128Kb(bytes: ByteVector): ByteVector | 128 kB | 100 |
 
-> :warning: The `blake2b256_16Kb`, `blake2b256_32Kb`, `blake2b256_64Kb`, `blake2b256_128Kb` functions are introduced in [Standard Library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/) only.
+> :warning: The `blake2b256_16Kb`, `blake2b256_32Kb`, `blake2b256_64Kb`, `blake2b256_128Kb` functions are added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ### Parameters
 
@@ -48,7 +48,7 @@ Range of functions that hash an array of bytes using [Keccak-256](https://keccak
 | keccak256_64Kb(bytes: ByteVector): ByteVector | 64 kB | 50 |
 | keccak256_128Kb(bytes: ByteVector): ByteVector | 128 kB | 100 |
 
-> :warning: The `keccak256_16Kb`, `keccak256_32Kb`, `keccak256_64Kb`, `keccak256_128Kb` functions are introduced in [Standard Library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/) only.
+> :warning: The `keccak256_16Kb`, `keccak256_32Kb`, `keccak256_64Kb`, `keccak256_128Kb` functions are added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ### Parameters
 
@@ -78,7 +78,7 @@ Range of functions that hash an array of bytes using [SHA-256](https://en.wikipe
 | sha256_64Kb(bytes: ByteVector): ByteVector | 64 kB | 50 |
 | sha256_128Kb(bytes: ByteVector): ByteVector | 128 kB | 100 |
 
-> :warning: The `sha256_16Kb`, `sha256_32Kb`, `sha256_64Kb`, `sha256_128Kb` functions are introduced in [Standard Library](/en/ride/script/standard-library) **version 4** that is currenlty available on [Stagenet](/en/blockchain/blockchain-network/) only.
+> :warning: The `sha256_16Kb`, `sha256_32Kb`, `sha256_64Kb`, `sha256_128Kb` functions are added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ### Parameters
 

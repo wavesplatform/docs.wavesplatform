@@ -16,4 +16,4 @@
 | [SponsorFee](/ru/ride/structures/script-actions/sponsor-fee) | 4 | Настройка спонсирования |
 | [StringEntry](/ru/ride/structures/script-actions/string-entry) | 4 | Добавление/изменение записи строкового типа |
 
-> :warning: Стандартная библиотека версии 4 доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время работают только на [Stagenet](/ru/blockchain/blockchain-network/).
+> :warning: Стандартная библиотека версии 4 доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
