@@ -15,44 +15,162 @@
 * Changed the scheme for signing the block transactions by the generating node. Previously, the generating node needed to sign the block header along with all transactions. For now, the [transactions root hash](/en/blockchain/block/merkle-root) is added to the header, so it is enough to sign only the header.
 * The BLAKE2b-256 hash of the block header is used as the block unique identifier.
 * When a transaction is validated before adding to the UTX pool, the blockchain state changes made by the transactions that were previously added to the block but then returned to the UTX pool due to the appearance of a new key block that refers to one of the previous microblocks, are taken into account.
+* Removed the possibility of calling dApp himself by invoke script transaction.
 
 ## REST API Updates
 
-* Updated `GET /assets/details/{assetId}` endpoint. Multiple assets details can be obtained by passing the array of `assetId`. Response JSON now contains `originTransactionId` field with the ID of the transaction that issued the `{assetId}` asset. Also, the endpoint supports POST requests.
-* Updated `GET /assets/nft/{address}/limit/{limit}` endpoint. Response JSON now includes `assetDetails` array containing the list of NFT assets belonging to the designated address. Also, the POST request can be made to this endpoint.
-* Implemented the `GET /transactions/merkleProof?id=some1&id=some2` endpoint. This endpoint gets the transaction ID or the array of transactions IDs and returns the array of proofs for checking that the transaction is in a block.
-* Added the `id` and `transactionsRoot` to the following endpoints:
-  * `GET /blocks/headers/last`
-  * `GET /blocks/headers/seq/{from}/{to}`
-  * `GET /blocks/headers/at/{height}`
-  * `GET /blocks/at/{height}`
-  * `GET /blocks/signature/{signature}`
-  * `GET /blocks/address/{address}/{from}/{to}`
-  * `GET /blocks/last`
-  * `GET /blocks/seq/{from}/{to}`
-* Added the `applicationStatus` field to the following endpoints:
-   * `GET /blocks/{id}`
-   * `GET /blocks/address/{address}/{from}/{to}`
-   * `GET /blocks/at/{height}`
-   * `GET /blocks/last`
-   * `GET /blocks/seq/{from}/{to}`
-   * `GET /debug/stateChanges/address/{address}/limit/{limit}`
-   * `GET /debug/stateChanges/info/{id}`
-   * `GET /transactions/address/{address}/limit/{limit}`
-   * `GET /transactions/info/{id}`
-   * `GET /transactions/status`
-   * `POST /transactions/status`
+In the Node 1.2 release, we have some **semantic and breaking changes** in the API. Please read the following changes very attentively as it can affect your working application when migrating from Node 1.1 API to the Node 1.2 API.
 
-   `"applicationStatus": "scriptExecutionFailed"` means that the dApp script or the asset script failed.
+### Semantic Changes
 
-* The following endpoints return results of token issue, reisse, burning and sponsorship setups for invoke script transactions, and the `errorMessage` structure indicating script failure reason for failed transactions:
+* Invoke script transactions and exchange transaction [can be failed](/en/keep-in-touch/april), so their presence on the blockchain does not mean they are successful. Check the new field `applicationStatus` which is added to the output of the following endpoints:
+   * `/blocks/{id}`
+   * `/blocks/address/{address}/{from}/{to}`
+   * `/blocks/at/{height}`
+   * `/blocks/last`
+   * `/blocks/seq/{from}/{to}`
+   * `/debug/stateChanges/address/{address}/limit/{limit}`
+   * `/debug/stateChanges/info/{id}`
+   * `/transactions/address/{address}/limit/{limit}`
+   * `/transactions/info/{id}`
+   * `/transactions/status`
+
+* For failed invoke script transactions, the reason of failure is indicated in the `error` structure in the following endpoints:
    * `/debug/stateChanges/address/{address}/limit/{limit}`
    * `/debug/stateChanges/info/{id}`
 
-* The following endpoints, in addition to the total script complexity, provide the complexity of each callable function and the verifier function of dApp scripts:
-   * `GET /addresses/scriptInfo/{address}`
-   * `POST /utils/script/compileCode`
-   * `POST /utils/script/estimate`
+   Format:
+
+   ```json
+   "stateChanges": {
+      "error": { "code": number, "text": string }
+   }
+   ```
+
+   Error codes are as follows:
+
+   1: dApp script error
+
+   2: insufficient fee for script actions
+
+   3: asset script in dApp script actions denied the transaction
+
+   4: asset script in attached payments denied the transaction
+
+* For invoke script transactions, the results of new [script actions](/en/ride/structures/script-actions/) are represented in the `stateChanges` structure in the following endpoints:
+   * `/debug/stateChanges/address/{address}/limit/{limit}`
+   * `/debug/stateChanges/info/{id}`
+
+   Format:
+
+   ```json
+   "stateChanges": {
+      "data": [],
+      "transfers": [],
+      "issues": [],
+      "reissues": [],
+      "burns": [],
+      "sponsorFees": []
+   }
+   ```
+
+* For block version 5, the `reference` field corresponds to `id` of the previous block instead of `signature` for block version 4.
+
+### Breaking Changes
+
+* Retrieve blocks by `id` instead of `signature`.
+
+   Deleted endpoints:
+   * `/blocks/signature/{signature}` — use `/blocks/{id}` instead
+   * `/blocks/child/{signature}`
+
+   Affected endpoints:
+   * `/blocks/delay/{id}/{blockNum}`
+   * `/blocks/height/{id}`
+   * `/debug/rollback-to/{id}`
+
+* Deleted the `/consensus/generationsignature` endpoint.
+* Changed the `meta` structure format in the `/addresses/scriptInfo/{address}/meta` endpoint. The argument list is represented as an object array, not the map.
+
+   Before:
+   
+   ```json
+   "meta": {
+      "callableFuncTypes": {
+         "funcName": { 
+            "arg1": string,
+            "arg2": string
+         }
+      }
+   }
+   ```
+
+   Now:
+
+   ```json
+   "meta": {
+      "callableFuncTypes": {
+         "funcName": [ 
+            { "name": string, "type": string },
+            { "name": string, "type": string }
+         ]
+      }
+   }
+   ```
+
+* Added the new transaction type: Update Asset Info.
+* Invoke script transaction now can have arguments of `List` type.
+
+   Example:
+
+   ```json
+   { "call": { "function": string, "args": [ ["arg1-item1", "arg1-item2", "arg1-item3"] ] } }
+   ```
+
+* Account data storage entries can be deleted by data transactions and invoke script transactions. Entry deletion is represented as follows: `{ "key": string, "value": null }`, `value` is null, no `type` field. Can be found in:
+   * `/blocks/{id}`
+   * `/blocks/address/{address}/{from}/{to}`
+   * `/blocks/at/{height}`
+   * `/blocks/last`
+   * `/blocks/seq/{from}/{to}`
+   * `/debug/stateChanges/address/{address}/limit/{limit}`
+   * `/debug/stateChanges/info/{id}`
+   * `/transactions/address/{address}/limit/{limit}`
+   * `/transactions/info/{id}`
+
+* Exchange transaction version 3 can include buy and sell orders in any order: buy/sell or sell/buy.
+
+### Improvements 
+
+* `/debug/validate` endpoint does not require API-key.
+* `/assets/details` endpoint can provide multiple assets info at once. The `originTransactionId` field containing the ID of the transaction that issued the asset is added to the response. Also, the endpoint supports POST requests.
+* `/addresses/balance` endpoint can provide balances for several addresses for specific height not more than 2000 from current.
+* `/assets/nft/{address}/limit/{limit}` endpoint returns the `assetDetails` array containing the list of NFTs belonging to the address is added to the response. Also, the endpoint supports POST requests.
+* Complexity of each annotated function is returned by the following endpoints:
+   * `/addresses/scriptInfo/{address}`
+   * `/utils/script/compileCode`
+   * `/utils/script/estimate`
+
+   Format:
+
+   ```json
+   {
+      "complexity": number,
+      "callableComplexities": { "funcName1": number, "funcName2": number },
+      "verifierComplexity": number
+   }
+   ```
+
+* Added the `/transactions/merkleProof` endpoint that accepts the transaction ID or the array of transactions IDs and returns the array of proofs for checking that the transaction is in a block.
+* Added the `id` and `transactionsRoot` fields to the following endpoints:
+   * `/blocks/{id}`
+   * `/blocks/headers/last`
+   * `/blocks/headers/seq/{from}/{to}`
+   * `/blocks/headers/at/{height}`
+   * `/blocks/at/{height}`
+   * `/blocks/address/{address}/{from}/{to}`
+   * `/blocks/last`
+   * `/blocks/seq/{from}/{to}`
 
 ## Ride Improvements
 
