@@ -2,19 +2,19 @@
 
 ## Node Improvements
 
-* Failed transactions. Invoke script transactions and exchange transactions are saved on the blockchain and a fee is charged for them even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed and the complexity of calculations performed during script invocation exceeded the threshold for saving failed transactions. [More details](/en/keep-in-touch/april)
-* Implemented the feature of deletion of entries from the account data storage. This action can be performed using a [data transaction](/en/blockchain/transaction-type/data-transaction) or the [DeleteEntry](/en/ride/structures/script-actions/delete-entry) structure of the Ride language.
+* Improved the mechanism for [generating blocks](/en/blockchain/block/block-generation/) using [VRF](https://en.wikipedia.org/wiki/Verifiable_random_function) (Verifiable random function). This improvement allows withstanding stake grinding attacks, which are used by the attackers to try to increase the probability of generating a block for themselves.
+* Implemented saving failed transactions. Invoke script transactions and exchange transactions are saved on the blockchain and a fee is charged for them even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed and the complexity of calculations performed during script invocation exceeded the threshold for saving failed transactions. [More details](/en/keep-in-touch/april)
 * Implemented the feature of changing the asset name and description. For this means, the [update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) is used. Change is possible after 10 or more blocks on Stagenet and after 100,000 or more blocks on Mainnet and Testnet.
-* The [minimum fee](/en/blockchain/transaction/transaction-fee) for the reissue transaction and sponsor fee transaction is reduced from 1 to 0.001 WAVES.
-* Binary transaction formats based on [protobuf](https://developers.google.com/protocol-buffers/docs/overview) are implemented.
+* Implemented the feature of deletion of entries from the account data storage. This action can be performed by the [data transaction](/en/blockchain/transaction-type/data-transaction) or [DeleteEntry](/en/ride/structures/script-actions/delete-entry) structure of the Ride language.
+* Reduced the [minimum fee](/en/blockchain/transaction/transaction-fee) from 1 to 0.001 WAVES for the reissue transaction and sponsor fee transaction.
+* Implemented transaction binary formats based on [protobuf](https://developers.google.com/protocol-buffers/docs/overview).
 * [Issue transaction](/en/blockchain/transaction-type/issue-transaction)'s `name` and `description` fields type changed from bytes to string.
 * The maximum data size in [data transaction](/en/blockchain/transaction-type/data-transaction) increased to 165,890 bytes.
 * [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) may contain buy and sell orders in any order.
 * Changed the [orders](/en/blockchain/order)' price calculation formula. Earlier, when determining the price for assets with different numbers of decimal places, there was a price value size issue. The maximum value depended on the difference of decimal digits of assets. For example, the price for an [NFT](/en/blockchain/token/non-fungible-token) asset could not exceed 1000 WAVES. The modified formula corrects this problem. Decimal places no longer affect the maximum price.
-* The mechanism for [generating blocks](/en/blockchain/block/block-generation/) has been improved by the using of [VRF](https://en.wikipedia.org/wiki/Verifiable_random_function) (Verifiable random function). This improvement allows withstanding stake grinding attacks, which are used by the attackers to try to increase the probability of generating a block for themselves.
-* Changed the scheme for signing the block transactions by the generating node. Previously, the generating node needed to sign the block header along with all transactions. Now [transactions root hash](/en/blockchain/block/merkle-root) is added to the header, so it is enough to sign only the header.
+* Changed the scheme for signing the block transactions by the generating node. Previously, the generating node needed to sign the block header along with all transactions. For now, the [transactions root hash](/en/blockchain/block/merkle-root) is added to the header, so it is enough to sign only the header.
 * The BLAKE2b-256 hash of the block header is used as the block unique identifier.
-* Now when a transaction is validated before adding to the UTX pool, the blockchain state changes made by the transactions that were previously added to the block but then returned to the UTX pool due to the appearance of a new key block that refers to one of the previous microblocks, are taken into account.
+* When a transaction is validated before adding to the UTX pool, the blockchain state changes made by the transactions that were previously added to the block but then returned to the UTX pool due to the appearance of a new key block that refers to one of the previous microblocks, are taken into account.
 
 ## REST API Updates
 
@@ -56,7 +56,7 @@
 
 ## Ride Improvements
 
-* Version 4 of the Ride [standard library](/en/ride/script/standard-library) was issued.
+* Issued version 4 of the Ride [Standard library](/en/ride/script/standard-library).
 * Added script actions that the callable function of dApp can perform:
    * [Issue](/en/ride/structures/script-actions/issue)
    * [Reissue](/en/ride/structures/script-actions/reissue)
@@ -66,8 +66,8 @@
    * [DeleteEntry](/en/ride/structures/script-actions/delete-entry) that deletes the account data storage entry.
 * The [callable](/en/ride/functions/callable-function) function result format is modified. Since version 4 the result is the list of script actions. The `ScriptResult`, `WriteSet` and `TransferSet` structures are not supported.
 * Invoke script transaction's fee increased by 1 WAVES for each non-NFT asset issued by the transaction's Issue structure.
-* List of primitives can be used as a callable function argument.
-* dApp can process up to two payments attached to the invoke script transaction.
+* Enabled processing up to two payments attached to the invoke script transaction.
+* Added support of list of primitives as a callable function argument.
 * Added the following built-in functions:
    * [bn256groth16Verify](/en/ride/functions/built-in-functions/verification-functions#bn256groth16verify) range of functions that verify the zero-knowledge proof [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by groth16 protocol on the bn254 curve. Complexity is 800–1650 depending on the argument size limit.
    * [calculateAssetId](/en/ride/functions/built-in-functions/blockchain-functions#calculateassetid) that calculates ID of asset generated by the [Issue](/en/ride/structures/script-actions/issue) structure when executing a dApp script. Complexity is 10.
@@ -96,8 +96,8 @@
    * ++ for the concatenation of lists. Example: the result of `[1, 2] ++ [3, 4]` is `[1, 2, 3, 4]`. Complexity is 4.
    * `:+` for adding an element to the end of the list. Example: the result of `["foo","bar"] :+ "baz"` is `["foo", "bar", "baz"]`. Complexity is 1.
 * Added the [Tuple](/en/ride/data-types/tuple) data type.
-* The maximum complexity of account script and verifier function of dApp script is changed to 2000 for new scripts, regardless of the Standard library version.
-   The maximum complexity of asset script and callable function of dApp script remains 4000.
+* The maximum complexity of an account script and verifier function of dApp script is changed to 2000 for new scripts, regardless of the Standard library version.
+   The maximum complexity of an asset script and callable function of dApp script remains 4000.
 * The maximum data size is changed:
    * [String](/en/ride/data-types/string): 32,767 bytes
    * [ByteVector](/en/ride/data-types/byte-vector): 32,767 bytes (except the `bodyBytes` field of the transaction structure)
