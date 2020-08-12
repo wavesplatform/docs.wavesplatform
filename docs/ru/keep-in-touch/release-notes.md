@@ -16,40 +16,160 @@
 * В качестве идентификатора блока используется хеш BLAKE2b-256 заголовка блока.
 * Теперь при валидации транзакции перед ее добавлением в пул неподтвержденных транзакций учитываются изменения состояния блокчейна, внесенные транзакциями, которые были ранее добавлены в блок, но затем возвращены в пул неподтвержденных транзакций из-за появления нового ключевого блока, ссылающегося на один из предшествующих микроблоков.
 
-## Обновление Node API
+## Обновления REST API
 
-* Доработан метод `GET /assets/details/{assetId}`. Теперь он позволяет получать информацию по нескольким ассетам, перечисленным в списке. Для запроса к `/assets/details/{assetId}` теперь можно использовать метод POST. В JSON ответа добавлен объект `originTransactionId`, содержащий ID транзакции, выпустившей ассет с `{assetId}`.
-* Доработан метод `GET /assets/nft/{address}/limit/{limit}`. В JSON ответа добавлен массив `assetDetails`, содержащий список NFT-ассетов, принадлежащих указанному адресу. Кроме того, добавлена возможность совершать запрос к `/assets/nft/{address}/limit/{limit}` при помощи метода POST.
-* Реализован метод `GET /transactions/merkleProof?id=some1&id=some2`. Данный метод принимает на вход ID транзакции или массив ID транзакций и возвращает массив доказательств для проверки присутствия транзакции в блоке.
-* В методы, которые возвращают заголовок блока, добавлены поля `id` и `transactionsRoot`. Список методов:
-   * `GET /blocks/headers/last`
-   * `GET /blocks/headers/seq/{from}/{to}`
-   * `GET /blocks/headers/at/{height}`
-   * `GET /blocks/at/{height}`
-   * `GET /blocks/signature/{signature}`
-   * `GET /blocks/address/{address}/{from}/{to}`
-   * `GET /blocks/last`
-   * `GET /blocks/seq/{from}/{to}`
-* В методы, которые возвращают транзакции, добавлено поле `applicationStatus`. `"applicationStatus": "scriptExecutionFailed"` означает, что результат выполнения dApp-скрипта или скрипта ассета был неудачным. Список методов:
-   * `GET /blocks/{id}`
-   * `GET /blocks/address/{address}/{from}/{to}`
-   * `GET /blocks/at/{height}`
-   * `GET /blocks/last`
-   * `GET /blocks/seq/{from}/{to}`
-   * `GET /debug/stateChanges/address/{address}/limit/{limit}`
-   * `GET /debug/stateChanges/info/{id}`
-   * `GET /transactions/address/{address}/limit/{limit}`
-   * `GET /transactions/info/{id}`
-   * `GET /transactions/status`
-   * `POST /transactions/status`
-* Следующие методы возвращают для транзакций вызова скрипта информацию о выпусках, довыпусках, сжиганиях токена и настройках спонсирования, а для транзакций с неудачным результатом выполнения скрипта — структуру `errorMessage` с описанием причины неудачи:
+В релизе ноды 1.2 внесены **семантические и ломающие изменения** в API. Прочитайте внимательно описание изменений: они могут повлиять на работу приложений при миграции с версии 1.1.
+
+### Семантические изменения
+
+* Транзакции вызова скрипта и транзакции обмена могут быть [сохранены как неуспешные](/ru/keep-in-touch/april). Их присутствие на блокчейне не означает, что изменения применены: нужно проверить также поле `applicationStatus`. Его возвращают следующие методы:
+   * `/blocks/{id}`
+   * `/blocks/address/{address}/{from}/{to}`
+   * `/blocks/at/{height}`
+   * `/blocks/last`
+   * `/blocks/seq/{from}/{to}`
+   * `/debug/stateChanges/address/{address}/limit/{limit}`
+   * `/debug/stateChanges/info/{id}`
+   * `/transactions/address/{address}/limit/{limit}`
+   * `/transactions/info/{id}`
+   * `/transactions/status`
+
+* Для неуспешных транзакций вызова скрипта причина ошибки указывается в структуре `error` в ответе методов:
    * `/debug/stateChanges/address/{address}/limit/{limit}`
    * `/debug/stateChanges/info/{id}`
 
-* Следующие методы, в дополнение к общей сложности скрипта, возвращают для dApp-скриптов сложность каждой вызываемой функции и функции-верификатора:
-   * `GET /addresses/scriptInfo/{address}`
-   * `POST /utils/script/compileCode`
-   * `POST /utils/script/estimate`
+   Формат:
+
+   ```json
+   "stateChanges": {
+      "error": { "code": number, "text": string }
+   }
+   ```
+
+   Коды ошибок:
+
+   1 — ошибка выполнения dApp-скрипта
+
+   2 — недостаточно комиссии для оплаты действий скрипта
+
+   3 — скрипт ассета в действиях dApp-скрипта отклонил транзакцию
+
+   4 — скрипт ассета в приложенных платежах отклонил транзакцию
+
+* Для транзакции вызова скрипта результат новых [действий скрипта](/ru/ride/structures/script-actions/) отображается в ответе методов:
+   * `/debug/stateChanges/address/{address}/limit/{limit}`
+   * `/debug/stateChanges/info/{id}`
+
+   Формат:
+
+   ```json
+   "stateChanges": {
+      "data": [],
+      "transfers": [],
+      "issues": [],
+      "reissues": [],
+      "burns": [],
+      "sponsorFees": []
+   }
+   ```
+
+* Для блока версии 5 поле `reference` ссылается на `id` предыдущего блока, а не на `signature`, как в версии 4.
+
+### Ломающие изменения
+
+* Получение блока по `id` вместо `signature`.
+
+   Удалены методы:
+   * `/blocks/signature/{signature}` — вместо него используйте `/blocks/{id}`
+   * `/blocks/child/{signature}`
+
+   Затронуты методы:
+   * `/blocks/delay/{id}/{blockNum}`
+   * `/blocks/height/{id}`
+   * `/debug/rollback-to/{id}`
+
+* Удален метод `/consensus/generationsignature`.
+* Изменена структура `meta` в ответе метода `/addresses/scriptInfo/{address}/meta`. Список аргументов теперь представлен в виде массива объектов, а не map.
+
+   Было:
+   
+   ```json
+   "meta": {
+      "callableFuncTypes": {
+         "funcName": { 
+            "arg1": string,
+            "arg2": string
+         }
+      }
+   }
+   ```
+
+   Стало:
+
+   ```json
+   "meta": {
+      "callableFuncTypes": {
+         "funcName": [ 
+            { "name": string, "type": string },
+            { "name": string, "type": string }
+         ]
+      }
+   }
+   ```
+
+* Добавлен новый тип транзакции: транзакция обновления информации ассета.
+* Транзакция вызова скрипта может содержать аргументы типа `List`.
+
+   Пример:
+
+   ```json
+   { "call": { "function": string, "args": [ ["arg1-item1", "arg1-item2", "arg1-item3"] ] } }
+   ```
+
+* Записи в хранилище данных аккаунта могут быть удалены транзакциями данных и транзакциями вызова скрипта. Удаление записи выглядит как структура `{ "key": string, "value": null }`, где `value` равно null, а `type` отсутствует. Затронуты методы:
+   * `/blocks/{id}`
+   * `/blocks/address/{address}/{from}/{to}`
+   * `/blocks/at/{height}`
+   * `/blocks/last`
+   * `/blocks/seq/{from}/{to}`
+   * `/debug/stateChanges/address/{address}/limit/{limit}`
+   * `/debug/stateChanges/info/{id}`
+   * `/transactions/address/{address}/limit/{limit}`
+   * `/transactions/info/{id}`
+
+* Транзакция обмена версии 3 может содержать ордера на покупку и продажу в любом порядке.
+
+### Улучшения
+
+* Метод `/debug/validate` не требует указания API-key.
+* Метод `/assets/details` позволяет получать информацию сразу по нескольким ассетам. В ответ добавлено поле `originTransactionId`, содержащее ID транзакции, выпустившей ассет. Кроме того, поддерживаются POST-запросы.
+* Метод `/addresses/balance` позволяет получать балансы сразу для нескольких адресов на заданной высоте, не далее 2000 от текущей.
+* В ответ метода `/assets/nft/{address}/limit/{limit}` добавлен массив `assetDetails` со списком NFT, принадлежащих адресу. Также поддерживаются POST-запросы.
+* Следующие методы возвращают сложность каждой вызываемой функции и функции-верификатора:
+   * `/addresses/scriptInfo/{address}`
+   * `/utils/script/compileCode`
+   * `/utils/script/estimate`
+
+   Формат:
+
+   ```json
+   {
+      "complexity": number,
+      "callableComplexities": { "funcName1": number, "funcName2": number },
+      "verifierComplexity": number
+   }
+   ```
+
+* Новый метод `/transactions/merkleProof` принимает на вход ID транзакции или массив ID транзакций и возвращает массив доказательств для проверки присутствия транзакции в блоке.
+* В следующие методы добавлены поля `id` и `transactionsRoot`:
+   * `/blocks/{id}`
+   * `/blocks/headers/last`
+   * `/blocks/headers/seq/{from}/{to}`
+   * `/blocks/headers/at/{height}`
+   * `/blocks/at/{height}`
+   * `/blocks/address/{address}/{from}/{to}`
+   * `/blocks/last`
+   * `/blocks/seq/{from}/{to}`
 
 ## Изменения Ride
 

@@ -23,7 +23,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
 
 ### Semantic Changes
 
-* Invoke script transactions and exchange transaction can be failed, so their presence on the blockchain does not mean they are successful. Check the new field `applicationStatus` which is added to the output of the following endpoints:
+* Invoke script transactions and exchange transaction [can be failed](/en/keep-in-touch/april), so their presence on the blockchain does not mean they are successful. Check the new field `applicationStatus` which is added to the output of the following endpoints:
    * `/blocks/{id}`
    * `/blocks/address/{address}/{from}/{to}`
    * `/blocks/at/{height}`
@@ -57,7 +57,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
 
    4: asset script in attached payments denied the transaction
 
-* For invoke script transactions, the results of new script actions are represented in the `stateChanges` structure in the following endpoints:
+* For invoke script transactions, the results of new [script actions](/en/ride/structures/script-actions/) are represented in the `stateChanges` structure in the following endpoints:
    * `/debug/stateChanges/address/{address}/limit/{limit}`
    * `/debug/stateChanges/info/{id}`
 
@@ -74,14 +74,14 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    }
    ```
 
-* For block version 5, the `reference` field corresponds to `id` of the previous block instead of `signature` for block version 4. 
+* For block version 5, the `reference` field corresponds to `id` of the previous block instead of `signature` for block version 4.
 
 ### Breaking Changes
 
 * Retrieve blocks by `id` instead of `signature`.
 
    Deleted endpoints:
-   * `/blocks/signature/{signature}` deleted, use `/blocks/{id}` instead
+   * `/blocks/signature/{signature}` — use `/blocks/{id}` instead
    * `/blocks/child/{signature}`
 
    Affected endpoints:
@@ -90,7 +90,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    * `/debug/rollback-to/{id}`
 
 * Deleted the `/consensus/generationsignature` endpoint.
-* Changed the `meta` structure format in the `/addresses/scriptInfo/{address}/meta`. The argument list is represented as an object array, not the map.
+* Changed the `meta` structure format in the `/addresses/scriptInfo/{address}/meta` endpoint. The argument list is represented as an object array, not the map.
 
    Before:
    
@@ -138,13 +138,14 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    * `/transactions/address/{address}/limit/{limit}`
    * `/transactions/info/{id}`
 
-* Exchange transaction v3 can include buy and sell orders in any order: buy/sell or sell/buy.
+* Exchange transaction version 3 can include buy and sell orders in any order: buy/sell or sell/buy.
 
 ### Improvements 
 
 * `/debug/validate` endpoint does not require API-key.
 * `/assets/details` endpoint can provide multiple assets info at once. The `originTransactionId` field containing the ID of the transaction that issued the asset is added to the response. Also, the endpoint supports POST requests.
-* Updated `/assets/nft/{address}/limit/{limit}` endpoint. The `assetDetails` array containing the list of NFTs belonging to the address is added to the response. Also, the endpoint supports POST requests.
+* `/addresses/balance` endpoint can provide balances for several addresses for specific height not more than 2000 from current.
+* `/assets/nft/{address}/limit/{limit}` endpoint returns the `assetDetails` array containing the list of NFTs belonging to the address is added to the response. Also, the endpoint supports POST requests.
 * Complexity of each annotated function is returned by the following endpoints:
    * `/addresses/scriptInfo/{address}`
    * `/utils/script/compileCode`
@@ -160,7 +161,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    }
    ```
 
-* `/transactions/merkleProof` endpoint accepts the transaction ID or the array of transactions IDs and returns the array of proofs for checking that the transaction is in a block.
+* Added the `/transactions/merkleProof` endpoint that accepts the transaction ID or the array of transactions IDs and returns the array of proofs for checking that the transaction is in a block.
 * Added the `id` and `transactionsRoot` fields to the following endpoints:
    * `/blocks/{id}`
    * `/blocks/headers/last`
