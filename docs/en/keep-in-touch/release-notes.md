@@ -21,9 +21,9 @@
 
 In the Node 1.2 release, we have some **semantic and breaking changes** in the API. Please read the following changes very attentively as it can affect your working application when migrating from Node 1.1 API to the Node 1.2 API.
 
-### Semantic changes
+### Semantic Changes
 
-* Invoke script transactions and exchange transaction can be failed, so their presence on the blockchain does not mean they are successful. Check the new field `applicationStatus`. `"applicationStatus": "scriptExecutionFailed"` means that the dApp script or the asset script failed. The field is added to the output of the following endpoints:
+* Invoke script transactions and exchange transaction can be failed, so their presence on the blockchain does not mean they are successful. Check the new field `applicationStatus` which is added to the output of the following endpoints:
    * `/blocks/{id}`
    * `/blocks/address/{address}/{from}/{to}`
    * `/blocks/at/{height}`
@@ -35,27 +35,48 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    * `/transactions/info/{id}`
    * `/transactions/status`
 
-* For failed invoke script transactions, the reason of failure is indicated in the `"error": { "code": number, "text": string }` structure in the following endpoints:
+* For failed invoke script transactions, the reason of failure is indicated in the `error` structure in the following endpoints:
    * `/debug/stateChanges/address/{address}/limit/{limit}`
    * `/debug/stateChanges/info/{id}`
+
+   Format:
+
+   ```json
+   "stateChanges": {
+      "error": { "code": number, "text": string }
+   }
+   ```
 
    Error codes are as follows:
 
-   1 — dApp script error
+   1: dApp script error
 
-   2 — insufficient fee for script actions
+   2: insufficient fee for script actions
 
-   3 — asset script in dApp script actions denied the transaction
+   3: asset script in dApp script actions denied the transaction
 
-   4 — asset script in attached payments denied the transaction
+   4: asset script in attached payments denied the transaction
 
-* For invoke script transactions, the results of new script actions are represented in the `"stateChanges": { "data": [], "transfers": [], "issues": [], "reissues": [], "burns": [], "sponsorFees": [], "error": {"code": number, "text": string} } ` structure in the following endpoints:
+* For invoke script transactions, the results of new script actions are represented in the `stateChanges` structure in the following endpoints:
    * `/debug/stateChanges/address/{address}/limit/{limit}`
    * `/debug/stateChanges/info/{id}`
 
+   Format:
+
+   ```json
+   "stateChanges": {
+      "data": [],
+      "transfers": [],
+      "issues": [],
+      "reissues": [],
+      "burns": [],
+      "sponsorFees": []
+   }
+   ```
+
 * For block version 5, the `reference` field corresponds to `id` of the previous block instead of `signature` for block version 4. 
 
-### Breaking changes
+### Breaking Changes
 
 * Retrieve blocks by `id` instead of `signature`.
 
@@ -66,17 +87,47 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    Affected endpoints:
    * `/blocks/delay/{id}/{blockNum}`
    * `/blocks/height/{id}`
-   * `/block/signature`
    * `/debug/rollback-to/{id}`
 
 * Deleted the `/consensus/generationsignature` endpoint.
 * Changed the `meta` structure format in the `/addresses/scriptInfo/{address}/meta`. The argument list is represented as an object array, not the map.
-   Before: `"meta": { "callableFuncTypes": { "funcName": { "arg1": string, "arg2": string } } }`
-   Now: `"meta": { "callableFuncTypes": { "finalizeCurrentPrice": [ { "name": string, "type": string }, { "name": string, "type": string } ] } }`
+
+   Before:
+   
+   ```json
+   "meta": {
+      "callableFuncTypes": {
+         "funcName": { 
+            "arg1": string,
+            "arg2": string
+         }
+      }
+   }
+   ```
+
+   Now:
+
+   ```json
+   "meta": {
+      "callableFuncTypes": {
+         "funcName": [ 
+            { "name": string, "type": string },
+            { "name": string, "type": string }
+         ]
+      }
+   }
+   ```
 
 * Added the new transaction type: Update Asset Info.
-* Invoke script transaction now can have arguments of `List` type. Example: `{ "call": { "function": string, "args": [ ["arg1-item1", "arg1-item2", "arg1-item3"] ] } }`.
-* Account data storage entries can be deleted by data transactions and invoke script transactions. Entry deletion is represented as follows: `{ "key": string, "value": null }`, `value` in null, no `type` field. Can be found in:
+* Invoke script transaction now can have arguments of `List` type.
+
+   Example:
+
+   ```json
+   { "call": { "function": string, "args": [ ["arg1-item1", "arg1-item2", "arg1-item3"] ] } }
+   ```
+
+* Account data storage entries can be deleted by data transactions and invoke script transactions. Entry deletion is represented as follows: `{ "key": string, "value": null }`, `value` is null, no `type` field. Can be found in:
    * `/blocks/{id}`
    * `/blocks/address/{address}/{from}/{to}`
    * `/blocks/at/{height}`
@@ -94,12 +145,22 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
 * `/debug/validate` endpoint does not require API-key.
 * `/assets/details` endpoint can provide multiple assets info at once. The `originTransactionId` field containing the ID of the transaction that issued the asset is added to the response. Also, the endpoint supports POST requests.
 * Updated `/assets/nft/{address}/limit/{limit}` endpoint. The `assetDetails` array containing the list of NFTs belonging to the address is added to the response. Also, the endpoint supports POST requests.
-* Complexity of each annotated function is returned as `{ "complexity": number, "callableComplexities": { "funcName1": number, "funcName2": number }, "verifierComplexity": number }` by the following endpoints:
+* Complexity of each annotated function is returned by the following endpoints:
    * `/addresses/scriptInfo/{address}`
    * `/utils/script/compileCode`
    * `/utils/script/estimate`
 
-* Implemented the `/transactions/merkleProof?id=some1&id=some2` endpoint. This endpoint gets the transaction ID or the array of transactions IDs and returns the array of proofs for checking that the transaction is in a block.
+   Format:
+
+   ```json
+   {
+      "complexity": number,
+      "callableComplexities": { "funcName1": number, "funcName2": number },
+      "verifierComplexity": number
+   }
+   ```
+
+* `/transactions/merkleProof` endpoint accepts the transaction ID or the array of transactions IDs and returns the array of proofs for checking that the transaction is in a block.
 * Added the `id` and `transactionsRoot` fields to the following endpoints:
    * `/blocks/{id}`
    * `/blocks/headers/last`
