@@ -1,10 +1,10 @@
 # Burn Transaction
 
-Burn transaction decreases the amount of token on sender's account and thereby the total amount of the token on the blockchain. Any account that owns a token (not necessarily the token issuer) can send the burn transaction. Burned tokens cannot be restored back to the account.
+Burn transaction decreases the amount of token on sender's account and thereby the total amount of the token on the blockchain. Any account that owns a token (not necessarily the token issuer) can send the Burn transaction. Burned tokens cannot be restored back to the account.
 
 ## Fee
 
-The minimum fee for a burn transaction is 0.001 WAVES, in case of burning a [smart asset](/en/blockchain/token/smart-asset) 0.005 WAVES.
+The minimum fee for a Burn transaction is 0.001 WAVES, in case of burning a [smart asset](/en/blockchain/token/smart-asset) 0.005 WAVES.
 
 If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
 

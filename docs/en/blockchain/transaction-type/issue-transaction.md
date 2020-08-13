@@ -4,7 +4,7 @@ Issue transaction creates a new [token](/en/blockchain/token/).
 
 ## Fee
 
-The minimum fee for an issue transaction is 1 WAVES, in case of issue of a [non-fungible token (NFT)](/en/blockchain/token/non-fungible-token) 0.001 WAVES.
+The minimum fee for an Issue transaction is 1 WAVES, in case of issue of a [non-fungible token (NFT)](/en/blockchain/token/non-fungible-token) 0.001 WAVES.
 
 If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
 
@@ -44,7 +44,7 @@ If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart a
 | reissuable | Reissue availability flag, see the [Reissue Transaction](/en/blockchain/transaction-type/reissue-transaction) article.<br>false for NFT |
 | script | For the [smart asset](/en/blockchain/token/smart): the compiled [asset script](/en/ride/script/script-types/asset-script), up to 8192 bytes, base64 encoded.<br>For token without a script: `null`. Token issued without a script cannot be converted to a smart asset |
 | chainId | [Chain ID](/en/blockchain/blockchain-network/#chain-id) |
-| *assetId* | Token ID base58 encoded. The token ID is the same as the issue transaction ID |
+| *assetId* | Token ID base58 encoded. The token ID is the same as the Issue transaction ID |
 
 The `assetId` field does not need to be filled when sending a transaction, and it is not stored on the blockchain. The node calculates these fields when providing transaction data via the REST API.
 

@@ -1,12 +1,12 @@
 # Create Alias Transaction
 
-Create alias transaction creates an [alias](/en/blockchain/account/alias) for the sender's address.
+Create Alias transaction creates an [alias](/en/blockchain/account/alias) for the sender's address.
 
 A created alias cannot be deleted.
 
 ## Fee
 
-The minimum fee for a create alias transaction is 0.001 WAVES.
+The minimum fee for a Create Alias transaction is 0.001 WAVES.
 
 If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
 

@@ -1,10 +1,10 @@
 # Lease Cancel Transaction
 
-Lease cancel transaction cancels the leasing. See the [Lease Transaction](/en/blockchain/transaction-type/lease-transaction) article.
+Lease Cancel transaction cancels the leasing. See the [Lease Transaction](/en/blockchain/transaction-type/lease-transaction) article.
 
 ## Fee
 
-The minimum fee for a lease cancel transaction is 0.001 WAVES.
+The minimum fee for a Lease Cancel transaction is 0.001 WAVES.
 
 If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
 

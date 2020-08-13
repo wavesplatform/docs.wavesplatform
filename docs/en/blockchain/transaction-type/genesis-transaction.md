@@ -1,6 +1,6 @@
 # Genesis Transaction
 
-Genesis transaction accrues WAVES to account upon the initial distribution of WAVES during the creation of the blockchain. The first block of the blockchain, the genesis block, consists of genesis transactions. For more details about initial WAVES distribution see the [Custom Blockchain](/en/waves-node/private-waves-network) article.
+Genesis transaction accrues WAVES to account upon the initial distribution of WAVES during the creation of the blockchain. The first block of the blockchain, the Genesis block, consists of Genesis transactions. For more details about initial WAVES distribution see the [Custom Blockchain](/en/waves-node/private-waves-network) article.
 
 ## Binary Format
 

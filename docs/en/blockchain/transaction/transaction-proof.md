@@ -21,6 +21,6 @@ Along with the signature, the transaction contains sender's public key, so the n
 
 ## Proofs: Verification by Script
 
-If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/ru/blockchain/account/smart-account), then the transaction is verified by the script assigned to the account instead of signature verification. The script allows or denies the transaction depending on whether it meets the specified conditions. In particular, the script can perform various checks of the confirmation array.
+If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/ru/blockchain/account/smart-account), then the transaction is verified by the script assigned to the account instead of signature verification. The script allows or denies the transaction depending on whether it meets the specified conditions. In particular, the script can run various verifications of the proofs.
 
-The widespread example is a smart account with multisignature where three co-owner users store shared funds. The account script allows the transaction on behalf of the smart account if the array of proofs contains valid signatures of at least two of the three co-owner accounts. The script code is available in [Waves IDE](https://waves-ide.com/): **Library → smart-accounts → Multisig.ride**.
+A common example is a smart account with a multisignature where three co-owner users store shared funds. The account script allows the transaction on behalf of the smart account if the array of proofs contains valid signatures of at least two of the three co-owner accounts. The script code is available in [Waves IDE](https://waves-ide.com/): **Library → smart-accounts → Multisig.ride**.
