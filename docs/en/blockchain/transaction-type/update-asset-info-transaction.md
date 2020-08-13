@@ -1,8 +1,8 @@
 # Update Asset Info Transaction
 
-Update asset info transaction modifies the name and description of token.
+Update Asset Info transaction modifies the name and description of token.
 
-> The update asset info transaction type is added since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> The Update Asset Info transaction type is added starting from node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 The token name and/or description can be changed:
 * on Mainnet and Testnet: after 100,000 or more blocks from the last change (or the token issue);
@@ -10,7 +10,7 @@ The token name and/or description can be changed:
 
 ## Fee
 
-The minimum fee for an update asset info transaction is 0.001 WAVES, in case of a [smart asset](/en/blockchain/token/smart-asset) 0.005 WAVES.
+The minimum fee for an Update Asset Info transaction is 0.001 WAVES, in case of a [smart asset](/en/blockchain/token/smart-asset) 0.005 WAVES.
 
 If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
 

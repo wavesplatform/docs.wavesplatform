@@ -2,11 +2,11 @@
 
 Lease transaction leases WAVES to another account. After 1000 block the leased tokens are accounted for the recipient's generating balance. The larger the generating balance of the node is, the higher the chances for that node to be selected to generate the next block. Commonly node owners share the reward for generated blocks with lessors. [More about leasing](/en/blockchain/leasing)
 
-Leased tokens are locked and remained in the sender address with the full control of their owner. The sender can cancel the lease at any time by the [lease cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction).
+Leased tokens are locked and remained in the sender address with the full control of their owner. The sender can cancel the lease at any time by the [Lease Cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction).
 
 ## Fee
 
-The minimum fee for a lease transaction is 0.001 WAVES.
+The minimum fee for a Lease transaction is 0.001 WAVES.
 
 If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
 

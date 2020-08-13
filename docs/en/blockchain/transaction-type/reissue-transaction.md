@@ -1,10 +1,10 @@
 # Reissue Transaction
 
-Reissue transaction increases the amount of the [token](/en/blockchain/token/) on the blockchain and/or prohibits its reissue. Only the token issuer can send a reissue transaction. The `reissuable` field determines whether the token can be reissued.
+Reissue transaction increases the amount of the [token](/en/blockchain/token/) on the blockchain and/or prohibits its reissue. Only the token issuer can send a Reissue transaction. The `reissuable` field of token determines whether the token can be reissued.
 
 ## Fee
 
-The minimum fee for a reissue transaction is:
+The minimum fee for a Reissue transaction is:
 * 0.001 WAVES after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 * 1 WAVES before activation of feature #15.
 
@@ -38,7 +38,7 @@ If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart a
 | Field | Description |
 | :--- | :--- |
 | assetId | Token ID base58 encoded |
-| quantity | Amount of token to reissue: an integer value specified in the minimum fraction (“cents”) of token. The total amount of token as a result of the reissue should not exceed 9,223,372,036,854,775,807 |
+| quantity | Amount of token to reissue: an integer value specified in the minimum fraction (“cents”) of token. The total quantity of token as a result of the reissue should not exceed 9,223,372,036,854,775,807 |
 | chainId | [Chain ID](/en/blockchain/blockchain-network/#chain-id) |
 | reissuable | Reissue availability flag |
 

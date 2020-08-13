@@ -1,6 +1,6 @@
 # Sponsor Fee Transation
 
-Sponsor fee transaction enables or disables sponsorship. Sponsorship allows any user to pay a fee in the sponsored asset (instead of WAVES) for invoke script transactions and transfer transactions. [More about sponsorship](/en/blockchain/waves-protocol/sponsored-fee)
+Sponsor Fee transaction enables or disables sponsorship. Sponsorship allows any user to pay a fee in the sponsored asset (instead of WAVES) for Invoke Script transactions and Transfer transactions. [More about sponsorship](/en/blockchain/waves-protocol/sponsored-fee)
 
 Only the asset issuer can set up sponsorship.
 
@@ -8,12 +8,12 @@ Smart asset cannot be a sponsored asset.
 
 ## Transaction Fee
 
-The minimum fee for the sponsor fee transaction is:
+The minimum fee for the Sponsor Fee transaction is:
 
 * 0.001 WAVES after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 * 1 WAVES before activation of feature #15.
 
-If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee increases by 0.004 WAVES.
+If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
 
 ## JSON Representation
 

@@ -1,6 +1,6 @@
 # Exchange Transaction
 
-Exchange transaction exchanges two different tokens among two accounts.
+Exchange transaction exchanges two different tokens between two accounts.
 
 Commonly the Exchange transaction is created by the matcher service that executes orders to buy and sell tokens. For detailed information about how the matcher works see the [Waves.Exchange documentation](https://docs.waves.exchange/en/waves-matcher/). See also examples in the [How to buy and sell tokens](/en/building-apps/how-to/basic/trading) article.
 
