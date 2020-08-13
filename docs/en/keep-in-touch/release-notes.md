@@ -12,10 +12,11 @@
 * The maximum data size in [data transaction](/en/blockchain/transaction-type/data-transaction) increased to 165,890 bytes.
 * [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) may contain buy and sell orders in any order.
 * Changed the [orders](/en/blockchain/order)' price calculation formula. Earlier, when determining the price for assets with different numbers of decimal places, there was a price value size issue. The maximum value depended on the difference of decimal digits of assets. For example, the price for an [NFT](/en/blockchain/token/non-fungible-token) asset could not exceed 1000 WAVES. The modified formula corrects this problem. Decimal places no longer affect the maximum price.
+* The minimum interval between blocks is increased from 5 to 15 seconds. Average block time is targeted 60 seconds instead of ~59 seconds.
 * Changed the scheme for signing the block transactions by the generating node. Previously, the generating node needed to sign the block header along with all transactions. For now, the [transactions root hash](/en/blockchain/block/merkle-root) is added to the header, so it is enough to sign only the header.
 * The BLAKE2b-256 hash of the block header is used as the block unique identifier.
 * When a transaction is validated before adding to the UTX pool, the blockchain state changes made by the transactions that were previously added to the block but then returned to the UTX pool due to the appearance of a new key block that refers to one of the previous microblocks, are taken into account.
-* Removed the possibility of calling dApp himself by invoke script transaction.
+* dApp can't call itself with InvokeScript transaction with attached payments. Also dApp can't transfer funds to itself by `ScriptTransfer` script action.
 
 ## REST API Updates
 
