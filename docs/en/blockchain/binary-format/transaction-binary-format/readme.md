@@ -32,6 +32,8 @@ How to generate a transacton signature using Protobuf:
 
 4. Generate the signature for the transaction body bytes with the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) function using sender private key bytes.
 
+:warning: The byte representation of a transaction based on the protobuf schema must not contain default values. Make sure that your Protocol Buffers compiler does not write the field value when serializing if it is equal to the default value for this data type, otherwise the transaction signature will be invalid. For default values, see the [Default Values](https://developers.google.com/protocol-buffers/docs/proto3#default) section in the Protocol Buffers documentation.
+
 Send the signed transaction to a node:
 
 * If you use your own node and [gRPC server](/en/waves-node/extensions/grpc-server/), send the `SignedTransaction` object.
@@ -88,8 +90,6 @@ message Amount {
 | timestamp | 8 bytes | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp): Unix time in milliseconds. The transaction won't be added to the blockchain if the timestamp value is more than 2 hours back or 1.5 hours forward of the current block timestamp |
 | version | 1 byte | [Transaction version](/en/blockchain/transaction/transaction-version) |
 | proofs | Each proof up to 64 bytes,<br>up to 8 proofs | [Transaction proofs](/en/blockchain/transaction/transaction-proof) that are used to check the validity of the transaction. The array can contain several transaction signatures (but not limited to signatures only) |
-
-> If the field value equals to the default value for this data type, then it is omitted during serialization based on the the protobuf scheme. Thus, the byte representation of a transaction contains only values other than the default. The default values are listed in the [Default Values](https://developers.google.com/protocol-buffers/docs/proto3#default) section in the Protocol Buffers documentation.
 
 The fields that depend on the type of transaction are described in the following articles:
 
