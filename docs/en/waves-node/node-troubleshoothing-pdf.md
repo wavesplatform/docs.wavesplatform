@@ -82,7 +82,7 @@ For details see the following article: https://github.com/wavesplatform/gowaves
 4. Find the error describing the block rejection reason at the end of the record.
 
    Fixing fork is required in case of the following errors:
-   i. `Block time 1589438183183 less than expected`. This error inderectly says that the miner has insufficient WAVES balance for mining.
+   i. `Block time 1589438183183 less than expected`. This error indirectly says that the miner has insufficient WAVES balance for mining.
    ii.`Attempt to transfer unavailable funds: Transaction application leads to negative waves balance` (and other errors containing `balance` word).
 
 ### Fixing fork
@@ -94,7 +94,7 @@ For details see the following article: https://github.com/wavesplatform/gowaves
 
 ## Problems related to OutOfMemoryError <a name="anchor2"></a>
 
-If the node stopped and does not reply to requests сheck logs to determine if there is `OutOfMemoryError` error:
+If the node stopped and does not reply to requests check logs to determine if there is `OutOfMemoryError` error:
 
 i. The error can be found in the current day log in `/var/log/waves/waves.log` file. Find the error with the following command:
 
@@ -108,7 +108,7 @@ ii. The error can be found in previous days logs archived files `/var/log/waves/
 sudo zgrep -i "OutOfMemory" /var/log/waves/*
 ```
 
-If you found `OutOfMemoryError` error and the memory, used by the process (heap) exceedes `maximum heap size`, as described in step 2-4 below, you need to troubleshoot memory leaks.
+If you found `OutOfMemoryError` error and the memory, used by the process (heap) exceeds `maximum heap size`, as described in step 2-4 below, you need to troubleshoot memory leaks.
 
 ### Detecting memory leaks
 
@@ -151,7 +151,7 @@ After that waves process fails in `journalctl`:
 1. Take `heap dump` right after starting the process with the following command:
 
    ```bash
-   sudo -u $user_запустивший_процесс jmap -dump:format=b,file=heap.bin3 $PID
+   sudo -u $user_runninig_the_process jmap -dump:format=b,file=heap.bin3 $PID
    ```
 
    **Note**: to determine `PID` of the desired process execute the following command: `pgrep -f waves`.
@@ -161,6 +161,20 @@ After that waves process fails in `journalctl`:
 
 ### How to take thread dump of the process
 
-In some cases Waves team requires `thread dump` to troubleshoot momory leaks.
+In some cases Waves team requires `thread dump` to troubleshoot memory leaks.
 
-To take `thread dump` of the process you can use standard java-utility `jstack $PID > thread_dump.txt` (`pid` of the process - `pgrep -f waves`).
+To take `thread dump` of the process you can use standard java-utility `jstack $PID > thread_dump.txt`.
+
+If the process is being run by a different user, use the following command:
+
+```bash
+sudo -u waves jstack $PID > thread_dump.txt
+```
+
+Use `-u waves-testnet` for `testnet` and `-u waves-stagenet` for `stagenet` with the appropriate user id.
+
+You can get `PID` of the process with the following command:
+
+```bash
+pgrep -f waves
+```

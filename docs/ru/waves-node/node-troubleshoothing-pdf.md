@@ -163,4 +163,18 @@ sudo zgrep -i "OutOfMemory" /var/log/waves/*
 
 В некоторых случаях команде Waves для диагностики утечки памяти может потребоваться thread dump.
 
-Снять thread dump процесса можно с помощью стандартной java-утилиты `jstack -F $PID > thread_dump.txt` (`pid` процесса - `pgrep -f waves`).
+Снять thread dump процесса можно с помощью стандартной java-утилиты `jstack $PID > thread_dump.txt`.
+
+Если процесс запущен от имени другого пользователя, воспользуйтесь командой:
+
+```bash
+sudo -u waves jstack $PID > thread_dump.txt
+```
+
+Используйте `-u waves-testnet` для `testnet` и `-u waves-stagenet` для `stagenet` от имени соответствующего пользователя.
+
+Получить `PID` процесса можно с помощью команды:
+
+```bash
+pgrep -f waves
+```
