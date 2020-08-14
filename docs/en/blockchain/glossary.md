@@ -318,7 +318,3 @@ A **validating node** is a [node](#node) that validates [transactions](#transact
 ### WCT
 
 **WCT** (or Waves Community Token) is a [token](#token) used by members of the Waves community during voting and other activities.
-
-### WRT
-
-**WRT** (or Waves Reward Token) is a [token](#token) that is used to reward contributors. Contributors can participate in the creation of [dApps](#dapp), serve as external auditors or assist in events and receive rewards for this. The more difficult the contributor’s task is, the more WRT tokens they can get. Also, with the help of WRT, Waves community members can thank the most influential and useful members of the Waves ecosystem.
