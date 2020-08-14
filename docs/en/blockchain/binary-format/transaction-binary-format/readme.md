@@ -32,6 +32,8 @@ How to generate a transacton signature using Protobuf:
 
 4. Generate the signature for the transaction body bytes with the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) function using sender private key bytes.
 
+:warning: The byte representation of a transaction based on the protobuf schema must not contain default values. Make sure that your Protocol Buffers compiler does not write the field value when serializing if it is equal to the default value for this data type, otherwise the transaction signature will be invalid. For default values, see the [Default Values](https://developers.google.com/protocol-buffers/docs/proto3#default) section in the Protocol Buffers documentation.
+
 Send the signed transaction to a node:
 
 * If you use your own node and [gRPC server](/en/waves-node/extensions/grpc-server/), send the `SignedTransaction` object.
