@@ -36,6 +36,10 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    * `/transactions/info/{id}`
    * `/transactions/status`
 
+   `applicationStatus` values:
+   * `succeeded` — the transaction is successful
+   * `script_execution_failed` — the dApp script or the asset script failed.
+
 * For failed invoke script transactions, the reason of failure is indicated in the `error` structure in the following endpoints:
    * `/debug/stateChanges/address/{address}/limit/{limit}`
    * `/debug/stateChanges/info/{id}`

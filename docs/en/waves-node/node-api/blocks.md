@@ -179,7 +179,7 @@ Return block data at the given height
     {
       "senderPublicKey": "J8UMVioZFSSvxHeTsZkPK2uwL91H9HA3Gae9Mkk3LTav",
       "amount": 1000000000,
-      "applicationStatus": "succeed",
+      "applicationStatus": "succeeded",
       "fee": 100000,
       "type": 4,
       "version": 2,

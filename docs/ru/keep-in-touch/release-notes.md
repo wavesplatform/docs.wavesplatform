@@ -36,6 +36,10 @@
    * `/transactions/info/{id}`
    * `/transactions/status`
 
+   Значения `applicationStatus`:
+   * `succeeded` — транзакция успешна;
+   * `script_execution_failed` — результат выполнения dApp-скрипта или скрипта ассета был неудачным.
+
 * Для неуспешных транзакций вызова скрипта причина ошибки указывается в структуре `error` в ответе методов:
    * `/debug/stateChanges/address/{address}/limit/{limit}`
    * `/debug/stateChanges/info/{id}`
