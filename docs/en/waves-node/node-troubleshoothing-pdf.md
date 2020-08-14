@@ -171,7 +171,7 @@ If the process is being run by a different user, use the following command:
 sudo -u waves jstack $PID > thread_dump.txt
 ```
 
-Use `-u waves-testnet` for `testnet` and `-u waves-stagenet` for `stagenet` with the appropriate user id.
+Use `-u waves-testnet` for `testnet` and `-u waves-stagenet` for `stagenet`.
 
 You can get `PID` of the process with the following command:
 

@@ -171,7 +171,7 @@ sudo zgrep -i "OutOfMemory" /var/log/waves/*
 sudo -u waves jstack $PID > thread_dump.txt
 ```
 
-Используйте `-u waves-testnet` для `testnet` и `-u waves-stagenet` для `stagenet` от имени соответствующего пользователя.
+Используйте `-u waves-testnet` для `testnet` и `-u waves-stagenet` для `stagenet`.
 
 Получить `PID` процесса можно с помощью команды:
 
