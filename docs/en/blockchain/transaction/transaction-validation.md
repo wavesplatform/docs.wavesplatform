@@ -72,13 +72,13 @@ The following checks are performed:
 For the Invoke Script transaction:
 * If one of the checks 1–3 failed, the transaction is **rejected**.
 * If checks 1–3 passed, and the calculation of the result of the dApp callable function (check 4.1) failed with an error or [throwing an exception](/en/ride/exceptions) before the [complexity](/en/ride/base-concepts/complexity) of performed calculations exceeded the [threshold for saving failed transactions](/en/ride/limits/), the transaction is also **rejected**.
-* If checks 1–3 passed but checks 4–5 failed and besides the result of the callable function is calculated successfully or the complexity exceeded the threshold, the transaction is **saved on the blockchain but marked as failed**: `"applicationStatus": "scriptExecutionFailed"`. The sender is charged the transaction fee. The transaction doesn't entail any other changes to the state of the blockchain.
-* If all checks passed, the transaction is saved on the blockchain as **successful**: `"applicationStatus": "succeed"` and the sender is charged the fee.
+* If checks 1–3 passed but checks 4–5 failed and besides the result of the callable function is calculated successfully or the complexity exceeded the threshold, the transaction is **saved on the blockchain but marked as failed**: `"applicationStatus": "script_execution_failed"`. The sender is charged the transaction fee. The transaction doesn't entail any other changes to the state of the blockchain.
+* If all checks passed, the transaction is saved on the blockchain as **successful**: `"applicationStatus": "succeeded"` and the sender is charged the fee.
 
 For the Exchange transaction:
 * If one of the checks 1–3 failed, the transaction is **rejected**.
-* If checks 1–3 passed but check 5 failed, the transaction is **saved on the blockchain but marked as failed**: `"applicationStatus": "scriptExecutionFailed"`. The sender of the transaction (matcher) is charged the transaction fee. The transaction doesn't entail any other changes in balances, in particular, the order senders don't pay the [matcher fee](/ru/blockchain/transaction-type/exchange-transaction#matcher-fee).
-* If all checks passed, the transaction is saved on the blockchain as **successful**: `"applicationStatus": "succeed"`. The matcher is charged the transaction fee as well as the order senders are charged the matcher fee.
+* If checks 1–3 passed but check 5 failed, the transaction is **saved on the blockchain but marked as failed**: `"applicationStatus": "script_execution_failed"`. The sender of the transaction (matcher) is charged the transaction fee. The transaction doesn't entail any other changes in balances, in particular, the order senders don't pay the [matcher fee](/ru/blockchain/transaction-type/exchange-transaction#matcher-fee).
+* If all checks passed, the transaction is saved on the blockchain as **successful**: `"applicationStatus": "succeeded"`. The matcher is charged the transaction fee as well as the order senders are charged the matcher fee.
 
 For the other transaction:
 * If one of the checks failed, the transaction is rejected.

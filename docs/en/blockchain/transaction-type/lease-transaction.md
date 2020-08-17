@@ -37,6 +37,9 @@ If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart a
 | :--- | :--- |
 | amount | Amount of WAVELETs to lease (that is, amount of WAVES multiplied by 10<sup>8</sup>) |
 | recipient | Recipient address base58 encoded or recipient alias |
+| *status* | Lease status: <br>- `active` : lease is active.<br>- `canceled`: lease is cancelled, see [Lease Cancel Transaction](/en/blockchain/transaction-type/lease-cancel-transaction). |
+
+The `status` field does not need to be filled when sending a transaction, and it is not stored on the blockchain. The node calculates these fields when providing transaction data via the REST API.
 
 The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 

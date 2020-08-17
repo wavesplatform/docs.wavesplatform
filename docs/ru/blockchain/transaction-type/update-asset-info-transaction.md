@@ -23,7 +23,7 @@
   "description": "xxxXXXxxx",
   "type": 17,
   "version": 1,
-  "applicationStatus": "succeed",
+  "applicationStatus": "succeeded",
   "sender": "3MQdH4MAmM5RNz5TAT43UXXCvMtCa9YgHq9",
   "feeAssetId": null,
   "chainId": 83,

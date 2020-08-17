@@ -52,7 +52,7 @@ Here is an example of JSON representation:
 | *id* | Transaction ID. For the transaction ID calculation method, see the [Cryptographic Practical Details](/en/blockchain/waves-protocol/cryptographic-practical-details#calculating-transaction-id) article |
 | type | Transaction type. Type IDs are listed in the [Transaction Type](/en/blockchain/transaction-type/) article |
 | version | Transaction version. Versions for each type of transaction are listed in [transaction binary format](/en/blockchain/binary-format/transaction-binary-format) descriptions |
-| *applicationStatus* | Result of transaction validation:<br>- `succeed` – transaction is successful.<br>- `scriptExecutionFailed` – the dApp script or the asset script failed.<br>The field is added starting from node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. See the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article for details |
+| *applicationStatus* | Result of transaction validation:<br>- `succeeded`: transaction is successful.<br>- `script_execution_failed`: the dApp script or the asset script failed.<br>The field is added starting from node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. See the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article for details |
 | timestamp | Transaction timestamp specified by the sender: Unix time in milliseconds. The transaction cannot be added to the blockchain if the timestamp value is more than 2 hours behind or 1.5 hours ahead of current block timestamp |
 | *height* | The sequence number of the block that contains the transaction |
 

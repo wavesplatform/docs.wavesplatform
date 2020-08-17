@@ -52,7 +52,7 @@
 | *id* | Идентификатор транзакции: байты в кодировке base58. Как вычисляется идентификатор транзакции, см. в разделе [Cryptographic practical details](/en/blockchain/waves-protocol/cryptographic-practical-details#calculating-transaction-id) |
 | type | Тип транзакции. Номера типов см. в разделе [Тип транзакции](/ru/blockchain/transaction-type/) |
 | version | Версия транзакции.<br>Список версий для каждого типа транзакции см. в описании [бинарных форматов транзакции](/ru/blockchain/binary-format/transaction-binary-format) |
-| *applicationStatus* | Результат валидации:<br>- succeed — валидация прошла успешно.<br>- scriptExecutionFailed — результат выполнения dApp-скрипта или скрипта ассета был неудачным.<br>Поле появилось в версии ноды 1.2.4, после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. [Подробнее о валидации транзакций](/ru/blockchain/transaction/transaction-validation) |
+| *applicationStatus* | Результат валидации:<br>- succeeded — транзакция успешна.<br>- script_execution_failed — результат выполнения dApp-скрипта или скрипта ассета был неудачным.<br>Поле появилось в версии ноды 1.2.4, после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. [Подробнее о валидации транзакций](/ru/blockchain/transaction/transaction-validation) |
 | timestamp | Временная метка транзакции, указанная отправителем: Unix-время в миллисекундах. Транзакция не будет добавлена в блокчейн, если значение временной метки транзакции отличается от временной метки текущего блока более чем на 2 часа назад или 1,5 часа вперед |
 | *height* | Порядковый номер блока, в который была добавлена транзакция |
 

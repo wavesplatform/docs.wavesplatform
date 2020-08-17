@@ -48,6 +48,7 @@ If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart a
 | Field | Description |
 | :--- | :--- |
 | leaseId | Lease transaction ID |
+| chainId | [Chain ID](/en/blockchain/blockchain-network/#chain-id) |
 | *lease* | Lease transaction fields |
 
 The `lease` structure does not need to be filled when sending a transaction, and it is not stored on the blockchain. The node returns this structure when providing transaction data via the REST API.
