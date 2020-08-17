@@ -10,7 +10,7 @@ Smart asset cannot be a sponsored asset.
 
 The minimum fee for the Sponsor Fee transaction is:
 
-* 0.001 WAVES after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+* 0.001 WAVES after the activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 * 1 WAVES before activation of feature #15.
 
 If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.

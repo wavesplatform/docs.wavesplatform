@@ -5,7 +5,7 @@ Reissue transaction increases the amount of the [token](/en/blockchain/token/) o
 ## Fee
 
 The minimum fee for a Reissue transaction is:
-* 0.001 WAVES after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+* 0.001 WAVES after the activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 * 1 WAVES before activation of feature #15.
 
 If the token is a [smart asset](/en/blockchain/token/smart-asset), the minimum fee is increased by 0.004 WAVES.

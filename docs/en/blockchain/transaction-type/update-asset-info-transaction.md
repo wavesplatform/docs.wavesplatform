@@ -2,7 +2,7 @@
 
 Update Asset Info transaction modifies the name and description of token.
 
-> The Update Asset Info transaction type is added starting from node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> The Update Asset Info transaction type is added starting from node version 1.2.0, after the activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 The token name and/or description can be changed:
 * on Mainnet and Testnet: after 100,000 or more blocks from the last change (or the token issue);
