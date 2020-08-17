@@ -24,8 +24,8 @@ message ExchangeTransactionData {
 | :--- | :--- | :--- |
 | amount | 8 байт | Количество amount-ассета (базовой валюты), которое получил отправитель ордера на покупку от отправителя ордера на продажу, в минимальных единицах («копейках») |
 | price | 8 байт |  Цена сделки: стоимость amount-ассета (базовой валюты), выраженная в price-ассете (валюте котировки), умноженная на 10<sup>8</sup>. Подробнее см. в разделе [Биржевая заявка](/ru/blockchain/order) |
-| buy_matcher_fee | 8 байт | [Комиссия матчера](/ru/blockchain/matcher-fee) за покупку. ID токена комиссии указан в ордере на покупку |
-| sell_matcher_fee | 8 байт | [Комиссия матчера](/ru/blockchain/matcher-fee) за продажу. ID токена комиссии указан в ордере на продажу |
+| buy_matcher_fee | 8 байт | [Комиссия матчера](/ru/blockchain/glossary#к) за покупку. ID токена комиссии указан в ордере на покупку |
+| sell_matcher_fee | 8 байт | [Комиссия матчера](/ru/blockchain/glossary#к) за продажу. ID токена комиссии указан в ордере на продажу |
 | orders | | Ордер на покупку и ордер на продажу. См. раздел [Бинарный формат ордера](/ru/blockchain/binary-format/order-binary-format) | 
 
 ## Версия 2
@@ -45,7 +45,7 @@ message ExchangeTransactionData {
 | **5.3** | Ордер на продажу токена | order2 | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] |  | См. [Бинарный формат ордера](/ru/blockchain/binary-format/order-binary-format) |
 | **6** | Цена сделки | price | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Стоимость amount-ассета (базовой валюты), выраженная в price-ассете (валюте котировки) |
 | **7** | Количество | amount | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Количество amount-ассета (базовой валюты), которое получил отправитель ордера на покупку от отправителя ордера на продажу |
-| **8** | [Комиссия матчера](/ru/blockchain/matcher-fee) за покупку | buyMatcherFee | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
+| **8** | [Комиссия матчера](/ru/blockchain/glossary#к) за покупку | buyMatcherFee | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **9** | Комиссия матчера за продажу | sellMatcherFee | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **10** | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) | fee | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **11** | [Временная метка транзакции](/ru/blockchain/transaction/transaction-timestamp) | timestamp | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
@@ -70,7 +70,7 @@ message ExchangeTransactionData {
 | **5** | Ордер на продажу | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] |  |  |
 | **6** | Цена сделки | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Стоимость amount-ассета (базовой валюты), выраженная в price-ассете (валюте котировки) |
 | **7** | Количество | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Количество amount-ассета (базовой валюты), которое получил отправитель ордера на покупку от отправителя ордера на продажу |
-| **8** | [Комиссия матчера](/ru/blockchain/matcher-fee) за покупку | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
+| **8** | [Комиссия матчера](/ru/blockchain/glossary#к) за покупку | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **9** | Комиссия матчера за продажу | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **10** | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **11** | [Временная метка транзакции](/ru/blockchain/transaction/transaction-timestamp) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |

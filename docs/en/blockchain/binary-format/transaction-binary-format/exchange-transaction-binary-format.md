@@ -24,8 +24,8 @@ message ExchangeTransactionData {
 | :--- | :--- | :--- |
 | amount | 8 bytes | Amount of the amount asset (base currency) that the buyer received from the seller, specified in the minimum fraction (“cent”) of asset |
 | price | 8 bytes | Price for the amount asset (base currency) nominated in the price asset (quote currency), multiplied by 10<sup>8</sup>. For more details see the [Order](/en/blockchain/order) article |
-| buy_matcher_fee | 8 bytes | Buy [matcher fee](/en/blockchain/matcher-fee). The fee token ID is indicated in buy order |
-| sell_matcher_fee | 8 bytes | Sell [matcher fee](/en/blockchain/matcher-fee) The fee token ID is indicated in sell order |
+| buy_matcher_fee | 8 bytes | Buy [matcher fee](/en/blockchain/glossary#m). The fee token ID is indicated in buy order |
+| sell_matcher_fee | 8 bytes | Sell [matcher fee](/en/blockchain/glossary#m) The fee token ID is indicated in sell order |
 | orders | | Buy order and sell order. See the [Order binary format](/en/blockchain/binary-format/order-binary-format) | 
 
 ## Version 2 <a id="transaction2"></a>
@@ -45,8 +45,8 @@ Transaction version 2 can accept orders of version [1](/en/blockchain/binary-for
 | **5.3** | Sell order | order2 | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | See [Order Binary Format](/en/blockchain/binary-format/order-binary-format) |  |
 | **6** | Deal price | price | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | Price for the amount asset (base currency) nominated in the price asset (quote currency) |
 | **7** | Amount | amount | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | Amount of the amount asset (base currency) that the buyer received from the seller |
-| **8** | Buy [matcher fee](/en/blockchain/matcher-fee) | buyMatcherFee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| **9** | Sell [matcher fee](/en/blockchain/matcher-fee) | sellMatcherFee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
+| **8** | Buy [matcher fee](/en/blockchain/glossary#m) | buyMatcherFee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
+| **9** | Sell [matcher fee](/en/blockchain/glossary#m) | sellMatcherFee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **10** | [Transaction fee](/en/blockchain/transaction/transaction-fee) | fee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **11** | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) | timestamp | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 12 | [Transaction proofs](/en/blockchain/transaction/transaction-proof) | proofs | See [Transaction Proofs Binary Format](/en/blockchain/binary-format/transaction-proof-binary-format) | `S` | If the array is empty, then `S` = 3. <br>If the array is not empty, then `S` = 3 + 2 × `N` + 64 × `N`, where `N` is the number of proofs in the array.<br>The maximum number of proofs in the array is 8. The size of each proof is 64 bytes |
@@ -70,8 +70,8 @@ Transaction version 1 can accept orders of version [1](/en/blockchain/binary-for
 | **5** | Sell order | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | See [order binary format](/en/blockchain/binary-format/order-binary-format) |  |
 | **6** | Deal price | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | Price for the amount asset (base currency) nominated in the price asset (quote currency) |
 | **7** | Amount | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | Amount of the amount asset (base currency) that the buyer received from the seller |
-| **8** | Buy [matcher fee](/en/blockchain/matcher-fee) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| **9** | Sell [matcher fee](/en/blockchain/matcher-fee) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
+| **8** | Buy [matcher fee](/en/blockchain/glossary#m) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
+| **9** | Sell [matcher fee](/en/blockchain/glossary#m) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **10** | [Transaction fee](/en/blockchain/transaction/transaction-fee) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **11** | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 12 | [Transaction signature](/en/blockchain/transaction/transaction-signature) | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 64 |  | |
