@@ -34,6 +34,7 @@ If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart a
 | :--- | :--- |
 | amount | Amount of token to burn: an integer value specified in the minimum fraction (“cents”) of token |
 | assetId | Token ID base 58 encoded |
+| chainId | [Chain ID](/en/blockchain/blockchain-network/#chain-id) |
 
 The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 
