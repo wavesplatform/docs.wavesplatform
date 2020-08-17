@@ -106,6 +106,14 @@ module.exports = [
     from: '/ru/blockchain/smart-asset.html',
   },
   {
+    from: '/en/blockchain/token/wct',
+    to: '/en/blockchain/glossary#w',
+  },
+  {
+    from: '/ru/blockchain/token/wct',
+    to: '/ru/blockchain/glossary#w',
+  },
+  {
     to: '/en/blockchain/binary-format/transaction-binary-format',
     from: '/en/blockchain/transaction-data-structure.html',
   },

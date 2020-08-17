@@ -317,4 +317,4 @@ A **validating node** is a [node](#node) that validates [transactions](#transact
 
 ### WCT
 
-**WCT** (or Waves Community Token) is a [token](#token) used by members of the Waves community during voting and other activities.
+**WCT** (or Waves Community Token) is a [token](#token) used by Waves community members during voting and other activities.

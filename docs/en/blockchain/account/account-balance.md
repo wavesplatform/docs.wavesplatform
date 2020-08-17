@@ -2,7 +2,7 @@
 
 An **account balance** is the amount of the [token](/en/blockchain/token/) that is stored on the [account](/en/blockchain/account/).
 
-One account can store different tokens in different amounts. For example, an account can have 50 [WAVES](/en/blockchain/token/waves) and 200 [WCTs](/en/blockchain/token/wct) at the same time. The amount of the Y token on the account is called the **account balance in Y token**. If there is no Y token on the account, it is said that the **account balance in Y token is equal to zero**.
+One account can store different tokens in different amounts. For example, an account can have 50 [WAVES](/en/blockchain/token/waves) and 200 [WCTs](/en/blockchain/glossary#w) at the same time. The amount of the Y token on the account is called the **account balance in Y token**. If there is no Y token on the account, it is said that the **account balance in Y token is equal to zero**.
 
 ## Account balance in WAVES token
 There are four balances in WAVES token:

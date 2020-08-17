@@ -73,10 +73,6 @@ module.exports = {
           title: 'WAVELET',
           path: blockchainPath + 'token/wavelet',
         },
-        {
-          title: 'WCT',
-          path: blockchainPath + 'token/wct',
-        },
       ],
     },
     {
