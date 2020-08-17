@@ -549,6 +549,10 @@ module.exports = {
           path: nodePath + 'node-api/headers',
         },
         {
+          title: 'CORS',
+          path: nodePath + 'node-api/cors',
+        },
+        {
           title: 'Активация фич',
           path: nodePath + 'node-api/feature-activation',
         },	
