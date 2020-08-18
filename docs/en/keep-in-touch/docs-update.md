@@ -4,7 +4,7 @@
 
 ### Node
 
-* [How to Configure CORS: Support For Cross-Domain Requests](/ru/waves-node/node-api/cors)
+* [How to Configure CORS: Support For Cross Domain Requests](/en/waves-node/node-api/cors)
 
 ## July Articles
 
