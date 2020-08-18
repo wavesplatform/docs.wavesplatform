@@ -1,6 +1,6 @@
 # How to Configure CORS: Support For Cross Domain Requests
 
-CORS (Cross-origin resource sharing) is a mechanism that allows a web application to make cross domain requests, that is, to access the HTTP resources of another domain. By default, browsers restrict cross domain requests for security, so web applications can only request resources from the domain from which they were loaded.
+CORS (Cross-origin resource sharing) is a mechanism that allows a web application to make cross domain requests, that is, to access the HTTP resources of another domain. By default, browsers restrict cross domain requests for security, so web applications can only request resources from the domain from which they are loaded.
 
 So, in order for web applications from other domains to make a request to your node's REST API, you need to configure CORS. Otherwise, the request will get the **Cors origin policy error**.
 
