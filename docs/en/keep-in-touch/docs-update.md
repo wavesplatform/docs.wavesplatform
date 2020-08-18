@@ -1,5 +1,11 @@
 # Documentation Updates
 
+## August
+
+### Node
+
+* [How to Configure CORS: Support For Cross Domain Requests](/en/waves-node/node-api/cors)
+
 ## July Articles
 
 ### Blockchain Waves
