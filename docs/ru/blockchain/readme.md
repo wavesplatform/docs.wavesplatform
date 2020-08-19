@@ -28,10 +28,7 @@ Waves используется алгоритм консенсуса Proof-of-St
 
 Кроме самого блокчейна и лежащих в его основе протоколов, экосистема Waves предлагает множество инструментов, продуктов и компонентов, которые делают создание и запуск dApp легкими и доступными. Инструменты разработаны как командой Waves, так и сообществом.
 
-<picture>
-   <img usemap="#ecosystem" src="./_assets/ecosystem.png" width="703" height="755" />
-</picture>
-
+<img usemap="#ecosystem" src="./_assets/ecosystem.png" width="703" height="755" />
 <map name="ecosystem">
    <area shape="rect" coords="20,20,71,61" title="Waves Ecosystem" href="#green_link">
 </map>
@@ -44,7 +41,7 @@ Waves используется алгоритм консенсуса Proof-of-St
 
 Разработчик приложения может платить комиссию за вызов скрипта dApp вместо пользователей и тем самым снизить порог входа для них — например, сделать бесплатный пробный период. [Подробнее](/ru/blockchain/waves-protocol/sponsored-fee)-->
 
-## Присоединяйтесь к экосистеме Waves
+## Присоединяйтесь к сообществу Waves
 
 * [Запустите собственную ноду](/ru/waves-node/) и получайте вознаграждение за генерацию блоков.
 * Извлекайте прибыль от [лизинга WAVES](/en/blockchain/leasing) и [стейкинга USDN](https://neutrino.at/staking).
