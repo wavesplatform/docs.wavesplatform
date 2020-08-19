@@ -4,8 +4,8 @@
 
 ### Блокчейн Waves
 
-* [O Waves](/ru/blockchain/)
-* [Как устроен блокчейн](/ru/blockchain/blockchain)
+* [Почему Waves](/ru/blockchain/)
+* [Основные понятия](/ru/blockchain/blockchain)
 
 ## Июль
 
