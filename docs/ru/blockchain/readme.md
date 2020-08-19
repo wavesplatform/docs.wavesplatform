@@ -28,10 +28,7 @@ Waves используется алгоритм консенсуса Proof-of-St
 
 Кроме самого блокчейна и лежащих в его основе протоколов, экосистема Waves предлагает множество инструментов, продуктов и компонентов, которые делают создание и запуск dApp легкими и доступными. Инструменты разработаны как командой Waves, так и сообществом.
 
-<img usemap="#ecosystem" src="./_assets/ecosystem.png" width="703" height="755" />
-<map name="ecosystem">
-   <area shape="rect" coords="20,20,71,61" title="Waves Ecosystem" href="#green_link">
-</map>
+![](./_assets/ecosystem.png)
 
 [Приложения](/ru/ecosystem/)
 
