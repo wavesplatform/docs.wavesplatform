@@ -7,7 +7,7 @@
 * Updated the following articles about transaction:
    * [Transaction](/en/blockchain/transaction/)
    * [Transaction Signature and Proofs](/en/blockchain/transaction/transaction-proof)
-   * [Transaction Types](/en/blockchain/transaction-type/) descriptions of all types
+   * [Transaction Types](/en/blockchain/transaction-type/) as well as descriptions of all types
 
 ## July
 

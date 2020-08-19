@@ -40,13 +40,13 @@ The minimum fee for an Invoke Script transaction:
 | :--- | :--- | :--- | :--- |
 | [Burn transaction](/en/blockchain/transaction-type/burn-transaction) | 6 | 0.001 |
 | [Create Alias transaction](/en/blockchain/transaction-type/create-alias-transaction) | 10 | 0.001 |
-| [Data transaction](/en/blockchain/transaction-type/data-transaction) | 12 | 0.001 per kilobyte | The value is rounded up to the thousandths |
+| [Data transaction](/en/blockchain/transaction-type/data-transaction) | 12 | 0.001 per kilobyte | The value is rounded up to three decimals |
 | [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) | 7 | 0.003 |
 | [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) | 16 | 0.005 + `K`<br>`K` is the number of assets issued as a result of dApp script invocation that are not [non-fungible tokens](/en/blockchain/token/non-fungible-token).<br>Asset issue by dApp script added to node version 1.2.0. The functionality can be used after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.<br>See [example 2](#example2) above |
 | [Issue transaction](/en/blockchain/transaction-type/issue-transaction) | 3 | • 1 for reqular token <br>• 0.001 for [non-fungible token](/en/blockchain/token/non-fungible-token) |
 | [Lease Cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction) | 9 | 0.001 |
 | [Lease transaction](/en/blockchain/transaction-type/lease-transaction) | 8 | 0.001 |
-| [Mass Transfer transaction](/en/blockchain/transaction-type/mass-transfer-transaction) | 11 | 0.001 + 0.0005 × `N`<br>`N` is the number of transfers inside of the transaction.<br>The value is rounded up to the thousandths |
+| [Mass Transfer transaction](/en/blockchain/transaction-type/mass-transfer-transaction) | 11 | 0.001 + 0.0005 × `N`<br>`N` is the number of transfers inside of the transaction.<br>The value is rounded up to the three decimals |
 | [Reissue transaction](/en/blockchain/transaction-type/reissue-transaction) | 5 | • 0.001 – after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.<br>• 1 — before activation of feature #15 |
 | [Set Asset Script transaction](/en/blockchain/transaction-type/set-asset-script-transaction) | 15 | 1 |
 | [Set Script transaction](/en/blockchain/transaction-type/set-script-transaction) | 13 | 0.01 |

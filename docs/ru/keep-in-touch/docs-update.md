@@ -2,15 +2,16 @@
 
 ## Август
 
+### Блокчейн
+
 * Обновлены статьи о транзакциях:
    * [Транзакция](/ru/blockchain/transaction/)
    * [Подпись и подтверждения транзакции](/ru/blockchain/transaction/transaction-proof)
    * [Типы транзакций](/ru/blockchain/transaction-type/) и описания всех типов
 
-
 ## Июль
 
-### Блокчейн Waves
+### Блокчейн
 
 * Обновлена статья [Сети блокчейна: Mainnet, Testnet, Stagenet](/ru/blockchain/blockchain-network/).
 

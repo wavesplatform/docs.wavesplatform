@@ -4,7 +4,7 @@ Mass Transfer transaction transfers a [token](/en/blockchain/token/) to several 
 
 ## Fee
 
-The minimum fee for a Mass Transfer transaction is 0.001 + 0.0005 × N WAVES, in case of transfer a [smart asset](/en/blockchain/token/smart-asset) 0.005  + 0.0005 × N WAVES, where N is the number of recipients. The fee value is rounded up to the thousandths.
+The minimum fee for a Mass Transfer transaction is 0.001 + 0.0005 × N WAVES, in case of transfer a [smart asset](/en/blockchain/token/smart-asset) 0.005  + 0.0005 × N WAVES, where N is the number of recipients. The fee value is rounded up to three decimals.
 
 If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
 
