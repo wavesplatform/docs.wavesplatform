@@ -68,6 +68,8 @@ value(a: T|Unit): T
 
 Если параметр равен [unit](/ru/ride/data-types/unit), возвращает второй параметр.
 
+> :warning: Функция `valueOrElse` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
+
 ``` ride
 valueOrElse(t: T|Unit, t0: T): T
 ```

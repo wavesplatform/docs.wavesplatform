@@ -73,10 +73,6 @@ module.exports = {
           title: 'WAVELET',
           path: blockchainPath + 'token/wavelet',
         },
-        {
-          title: 'WCT',
-          path: blockchainPath + 'token/wct',
-        },
       ],
     },
     {
@@ -443,8 +439,8 @@ module.exports = {
     {
       title: 'Node Owner Guide',
       path: nodePath,
-	},
-	{
+    },
+    {
       title: 'Install Waves Node',
       path: nodePath + 'how-to-install-a-node/how-to-install-a-node',
       children: [
@@ -471,16 +467,16 @@ module.exports = {
         {
           title: 'Deploy Node in Cloud',
           path: nodePath + 'how-to-install-a-node/clouds',
-		  children: [
-		    {
+          children: [
+            {
               title: 'Deploy Node in Yandex.Cloud',
               path: nodePath + 'running-waves-node-in-yandex-cloud',
             },
-		  ]			
-        },	
+          ]
+        },
       ],
     },
-	{
+    {
       title: 'Synchronize Waves Blockchain',
       path: nodePath + 'options-for-getting-actual-blockchain',
       children: [
@@ -492,7 +488,7 @@ module.exports = {
           title: 'Download the Latest Blockchain',
           path: nodePath + 'options-for-getting-actual-blockchain/state-downloading-and-applying',
         },
-		{
+        {
           title: 'Rollback Waves Node',
           path: nodePath + 'how-to-rollback-a-node',
         },
@@ -517,12 +513,12 @@ module.exports = {
     {
       title: 'Features',
       path: nodePath + 'features',
-	  children: [
-	    {
-	      title: 'Activation protocol',
+      children: [
+      {
+        title: 'Activation protocol',
           path: nodePath + 'activation-protocol',
         },
-	  ],
+      ],
     },
     {
       title: 'Custom Blockchain',
@@ -537,9 +533,13 @@ module.exports = {
           path: nodePath + 'node-api/headers',
         },
         {
-          title: 'Activation',
+          title: 'CORS',
+          path: nodePath + 'node-api/cors',
+        },
+        {
+          title: 'Feature Activation',
           path: nodePath + 'node-api/feature-activation',
-        },	
+        },
         {
           title: 'Address',
           path: nodePath + 'node-api/address',
@@ -591,14 +591,10 @@ module.exports = {
           path: nodePath + 'node-api/example-transactions',
         },
         {
-          title: 'Feature Activation',
-          path: nodePath + 'node-api/feature-activation',
-        },
-	    {
           title: 'API limitations of the pool of public nodes',
           path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
-		},
-	  ],   
+        },
+      ],
     },
     {
       title: 'Extensions',

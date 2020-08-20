@@ -127,7 +127,7 @@ java -jar waves-all-{version}.jar waves-custom-network.conf
 
 Вы можете подключить к своему блокчейну дополнительные сервисы, такие как:
 
-* [Cервис данных](/ru/building-apps/waves-api-and-sdk/waves-data-service-api) (Data Service), который позволит быстро и удобно получать данные из блокчейна через REST API, аналогично Mainnet и Testnet, как описано в статье [Waves Data Service API](/ru/building-apps/waves-api-and-sdk/waves-data-service-api). Подробнее по ссылкам [deploy examples](https://github.com/wavesplatform/deploy-examples) и [How to Run Data Services](https://wavestalk.ru/t/kak-zapustit-data-services-za-30-minut-iz-korobki/272).
+* [Cервис данных](/ru/building-apps/waves-api-and-sdk/waves-data-service-api) (Data Service), который позволит быстро и удобно получать данные из блокчейна через REST API, аналогично Mainnet и Testnet, как описано в статье [Waves Data Service API](/ru/building-apps/waves-api-and-sdk/waves-data-service-api). Подробнее по ссылке [deploy examples](https://github.com/wavesplatform/deploy-examples).
 
 * [dApps](/ru/blockchain/account/dapp). Подробнее в статье [How to Build, Deploy and Test a Waves RIDE dApp](https://medium.com/wavesprotocol/how-to-build-deploy-and-test-a-waves-ride-dapp-785311f58c2).
 

@@ -69,7 +69,6 @@
 
 Возвращает объект `transactionsRoot` содержащий Merkle Root Hash транзакций блока.
 
-> Данный endpoint доступен на stagenet.
 **Параметры запроса**
 
 `id` - ID транзакции.

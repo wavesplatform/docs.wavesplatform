@@ -29,12 +29,12 @@ Return transaction data by transaction ID.
   "attachment": "string",
   "signature": "GknccUA79dBcwWgKjqB7vYHcnsj7caYETfncJhRkkaetbQon7DxbpMmvK9LYqUkirJp17geBJCRTNkHEoAjtsUm",
   "height": 7782,
-  "applicationStatus": "succeed"
+  "applicationStatus": "succeeded"
 }
 ```
 
-> The `applicationStatus` field is added since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
-> `"applicationStatus": "scriptExecutionFailed"` means that the dApp script or the asset script failed. For more information, see the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
+> The `applicationStatus` field is added since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> `"applicationStatus": "script_execution_failed"` means that the dApp script or the asset script failed. For more information, see the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
 
 ## GET /transactions/address/{address}/limit/{limit}
 
@@ -73,7 +73,6 @@ Return the specified number of the latest transactions by the given account addr
 
 Returns `transactionsRoot` object containing Merkle Root Hash of block transactions.
 
-> Current endpoint is available on stagenet.
 **Request parameters**
 
 `id` - transaction ID.
@@ -393,6 +392,9 @@ and all the other parameters appropriate for a transaction of the given type.
 
 Broadcasts a signed transaction of any type.
 
+<!--- The following logic applies to [Stagenet](/en/blockchain/blockchain-network/) only. When broadcasting, the node performs full validation of the transaction with all the scripts. If the node detects failure during validation, the transaction returns code 400 error with the failure description.
+--->
+
 **Request params**
 
 ```
@@ -462,9 +464,9 @@ Returns the list of transactions statuses, by transaction IDs. The resulting tra
 - `status` – transaction status. `not_found` – transaction not found, `unconfirmed` – transaction is in UTX-pool, `confirmed` – transaction is in the block or microblock.
 - `confirmations` – current blockchain height minus height of block the transaction was included in.
 - `height` – transaction's height in the blockchain.
-- `applicationStatus` – transaction validation status. `succeed` — transaction is valid, `scriptExecutionFailed` — the dApp script or the asset script failed. For more information, see the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
+- `applicationStatus` – transaction validation status. `succeeded` — transaction is successful, `script_execution_failed` — the dApp script or the asset script failed. For more information, see the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
 
-> The `applicationStatus` field is added since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
+> The `applicationStatus` field is added since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ```js
 [
@@ -473,7 +475,7 @@ Returns the list of transactions statuses, by transaction IDs. The resulting tra
     "status": "confirmed",
     "confirmations": 120,
     "height": 1772853,
-    "applicationStatus": "succeed"
+    "applicationStatus": "succeeded"
   },
   {
     "id": "Bi2vXQdUTsUPRDLE4tWkCFNVNkLjRtvy9PuvWd5iNP63",
@@ -500,9 +502,9 @@ Returns the list of transactions statuses, by transaction IDs. The resulting tra
 - `status` – transaction status. `not_found` – transaction not found, `unconfirmed` – transaction is in UTX pool, `confirmed` – transaction is in the block or microblock.
 - `confirmations` – current blockchain height minus height of block the transaction was included in.
 - `height` – transaction's height in the blockchain.
-- `applicationStatus` – transaction validation status. `succeed` — transaction is valid, `scriptExecutionFailed` — the dApp script or the asset script failed. For more information, see the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
+- `applicationStatus` – transaction validation status. `succeeded` — transaction is successful, `script_execution_failed` — the dApp script or the asset script failed. For more information, see the [Transaction validation](/en/blockchain/transaction/transaction-validation) article.
 
-> The `applicationStatus` field is added since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
+> The `applicationStatus` field is added since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ```js
 [
@@ -511,7 +513,7 @@ Returns the list of transactions statuses, by transaction IDs. The resulting tra
     "status": "confirmed",
     "confirmations": 120,
     "height": 1772853,
-    "applicationStatus": "succeed"
+    "applicationStatus": "succeeded"
   },
   {
     "id": "Bi2vXQdUTsUPRDLE4tWkCFNVNkLjRtvy9PuvWd5iNP63",

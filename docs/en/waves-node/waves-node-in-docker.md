@@ -16,7 +16,7 @@ Please, follow the installation steps described on the [Docker website](https://
 
 ## Running the Image
 
-It is highly recommended to read more about [Waves Node configuration](/en/waves-node/node-configuration) before running the container.
+It is highly recommended to learn about Waves node configuration in [Node Configuration](/en/waves-node/node-configuration) article before running the container.
 
 To start the container, execute the following command:
 
@@ -36,7 +36,7 @@ For **Testnet**:
 docker run -p 6869:6869 -p 6863:6863 -e WAVES_NETWORK=TESTNET -e WAVES_LOG_LEVEL=DEBUG -e WAVES_HEAP_SIZE=2g -v YOUR_LOCAL_PATH_HERE:/waves wavesplatform/node
 ```
 
-**You can run the container with the following predefined environment variables:**
+**You can use the following optional predefined environment variables when running the container:**
 
 |Env variable                 |Description   |
 |-----------------------------|--------------|
@@ -52,17 +52,15 @@ docker run -p 6869:6869 -p 6863:6863 -e WAVES_NETWORK=TESTNET -e WAVES_LOG_LEVEL
 |`WAVES_AUTODETECT_ADDRESS`        |Set `yes` if you want to get your public address and set value `declared-address` with it.|
 |`WAVES_AUTODETECT_ADDRESS_PORT`   |`WAVES_AUTODETECT_ADDRESS` can get only an IP address of the node, but not port number, so define your real port number with this variable.|
 
-**Note**: All the variables are optional.
+**Note**: If your node crashes immediately after running, your Docker desktop app might be out of memory. You can [change Docker preferences](/en/waves-node/node-troubleshooting#node-deployed-in-docker-crashed-after-running), so that it can use more memory.
 
 ## Configuration
 
-Depending on the env values the image generates `local.conf` file and stores it in `/waves/configs` directory.
-The simple rule of how to set a value in the configuration file:
+Depending on the env values the image generates `local.conf` file and stores it in `/waves/configs` directory. Follow the rules to set a value in the configuration file:
 
-1. Determine the path to variable in configuration file ([complete configuration file](/en/waves-node/node-configuration)).
-
-2. Join all section names with two underscores (`__`).
-3. Replace all dashes with one underscore (`_`).
-4. Capitalize the final string.
+* Determine the path to variable in configuration file. See [example](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf).
+* Join all section names with two underscores (`__`).
+* Replace all dashes with one underscore (`_`).
+* Capitalize the final string.
 
 For instance, if you want to set the value of `waves.rest-api.enable`, pass an environment variable `WAVES__REST_API__ENABLE=no`;

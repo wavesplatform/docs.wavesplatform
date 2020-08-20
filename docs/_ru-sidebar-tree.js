@@ -73,10 +73,6 @@ module.exports = {
           title: 'WAVELET',
           path: blockchainPath + 'token/wavelet',
         },
-        {
-          title: 'WCT',
-          path: blockchainPath + 'token/wct',
-        },
       ],
     },
     {
@@ -422,7 +418,7 @@ module.exports = {
               ],
             },
             {
-              title: '[en] Transaction proof binary format',
+              title: 'Бинарный формат подтверждений',
               path: blockchainPath + 'binary-format/transaction-proof-binary-format',
             },
           ],
@@ -535,6 +531,10 @@ module.exports = {
         {
           title: 'Заголовки запроса',
           path: nodePath + 'node-api/headers',
+        },
+        {
+          title: 'CORS',
+          path: nodePath + 'node-api/cors',
         },
         {
           title: 'Активация фич',

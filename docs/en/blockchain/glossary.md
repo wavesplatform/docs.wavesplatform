@@ -288,6 +288,17 @@ A **token** is a [blockchain](#blockchain) object that represents another object
 
 Based on the transaction body bytes, the transaction ID and the transaction signature are generated, see the [Cryptographic Practical Details](/en/blockchain/waves-protocol/cryptographic-practical-details) article for detail.
 
+### Transaction body bytes
+
+**Transaction body bytes** normally consist of all the fields of the transaction [binary format](/en/blockchain/binary-format/transaction-binary-format/) with the exception of the following fields:
+- transaction ID (it is not stored on the blockchain),
+- version flag,
+- `proofs` or `signature`, depending on the version of the transaction.
+
+The contents of transaction body bytes is given in the description of the binary format of each type and version of the transaction.
+
+Based on the transaction body bytes, the [transaction ID](/en/blockchain/transaction/transaction-id) and the [transaction signature](/en/blockchain/transaction/transaction-signature) are generated. The guideline for generating a signature and ID is given in the [Cryptographic practical details](/en/blockchain/waves-protocol/cryptographic-practical-details#signing) article.
+
 ## U
 
 ### UTX pool
@@ -312,8 +323,4 @@ A **validating node** is a [node](#node) that validates [transactions](#transact
 
 ### WCT
 
-**WCT** (or Waves Community Token) is a [token](#token) used by members of the Waves community during voting and other activities.
-
-### WRT
-
-**WRT** (or Waves Reward Token) is a [token](#token) that is used to reward contributors. Contributors can participate in the creation of [dApps](#dapp), serve as external auditors or assist in events and receive rewards for this. The more difficult the contributor’s task is, the more WRT tokens they can get. Also, with the help of WRT, Waves community members can thank the most influential and useful members of the Waves ecosystem.
+**WCT** (or Waves Community Token) is a [token](#token) used by Waves community members during voting and other activities.

@@ -9,6 +9,10 @@
    * [Подпись и подтверждения транзакции](/ru/blockchain/transaction/transaction-proof)
    * [Типы транзакций](/ru/blockchain/transaction-type/) и описания всех типов
 
+### Нода
+
+* [Настройка CORS: поддержка кросс-доменных запросов](/ru/waves-node/node-api/cors)
+
 ## Июль
 
 ### Блокчейн

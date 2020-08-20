@@ -9,6 +9,10 @@
    * [Transaction Signature and Proofs](/en/blockchain/transaction/transaction-proof)
    * [Transaction Types](/en/blockchain/transaction-type/) as well as descriptions of all types
 
+### Node
+
+* [How to Configure CORS: Support For Cross Domain Requests](/en/waves-node/node-api/cors)
+
 ## July
 
 ### Blockchain
