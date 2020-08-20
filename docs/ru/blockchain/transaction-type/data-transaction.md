@@ -1,44 +1,73 @@
 # Транзакция данных
 
-**Транзакция данных** — [транзакция](/ru/blockchain/transaction/), которая записывает данные в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage).
+Транзакция данных добавляет, удаляет или изменяет записи в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage) отправителя.
 
-У каждой транзакции данных есть **массив данных**, который содержит данные для записи. В [JSON-представлении транзакции](#json-representation) массив данных — поле `data`.
+> Удаление записи доступно начиная с версии ноды 1.2.0 после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
-## Массив данных
+Ограничения:
+* Количество записей — не более 100.
+* Для транзакции версии 2 максимальный размер данных (ключи + значения) — 165&nbsp;890 байт.
+* Для транзакции версии 1 максимальный размер транзакции (исключая подтверждения) — 153&nbsp;600 байт.
 
-Максимальная длина массива — 100 элементов.
+## Комиссия за транзакцию
 
-Максимальный размер массива — 150 килобайт.
+Минимальная комиссия за транзакцию данных — 0,001 WAVES за килобайт. Значение округляется вверх до тысячных.
 
-Каждый элемент массива представляет собой объект, у которого есть 3 поля — `key`, `type`, `value`.
+Если отправитель транзакции —  [dApp](/ru/blockchain/account/dapp) или [смарт-аккаунт](/ru/blockchain/account/smart-account), минимальная комиссия увеличивается на 0,004 WAVES.
 
-Массив не может содержать элементы с одинаковым значением поля key.
+## JSON-представление
 
-### Поле `key`
+```json
+{
+  "senderPublicKey": "38bYRUxFCaoa9h822nMnsoTX1qfczqtHJLgouNcNnd8h",
+  "data": [
+    {
+      "type": "boolean",
+      "value": true,
+      "key": "bool"
+    },
+    {
+      "type": "binary",
+      "value": "base64:SGVsbG8gV2F2ZXM=",
+      "key": "bin"
+    },
+    {
+      "type": "integer",
+      "value": 1234567,
+      "key": "int"
+    },
+    {
+      "type": "string",
+      "value": "some text",
+      "key": "str"
+    }
+  ],
+  "sender": "3N4iKL6ikwxiL7yNvWQmw7rg3wGna8uL6LU",
+  "feeAssetId": null,
+  "proofs": [
+    "kE1hjN1yW68j8DsYGNB7Gg1ydC4hqRmt3wBaFQUPkftnbiM7QfJCn1gTHgveJ7pCLXvvqffhKBmiF8qS1Uqk6SR"
+  ],
+  "fee": 100000,
+  "id": "3EPJuvQiJYiu9Y5g6mYDQgHVu8GFUfnZurHrVwwF1ViH",
+  "type": 12,
+  "version": 2,
+  "timestamp": 1591351545000,
+  "height": 1029815
+}
+```
 
-Поле `key` — непустая строка в кодировке [UTF-8](https://ru.wikipedia.org/wiki/UTF-8).
+| Поле | Описание |
+| :--- | :--- |
+| data.key | Ключ записи. Строка, до 400 байт для версии 2, до 100 символов для версии 1 |
+| data.type | Тип данных:<br>- binary<br>- boolean<br>- integer<br>- string<br>`null` — удаление записи |
+| data.value | Значение записи. До 32 767 байт. Бинарное значение должно быть в кодировке base64.<br>`null` — удаление записи |
 
-На этапе [валидации транзакции](/ru/blockchain/transaction/transaction-validation) поле `key` конвертируется из кодировки UTF-8 в [UTF-16](https://ru.wikipedia.org/wiki/UTF-16). Размер получившегося массива 16-битных слов не должен превышать 100 элементов. Таким образом, размер ключа должен быть от 1 до 200 байтов включительно.
-
-При отправке ключа без `type` и `value` выполняется удаление записи по ключу.
-
-> Эта возможность доступна с версии ноды 1.2.0 и включается после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
-
-При удалении ключа с использованием JSON-представления транзакции в качестве `type` и `value` ключа используется `null`. В одной транзакции данных возможно использование ключей как для записи, так и для удаления.
-
-### Поле `type`
-
-Поле type определяет тип поля value:
-
-- binary
-- boolean
-- integer
-- string
-
-### Поле `value`
-
-Размер поля `value` может составлять от 0 до 32767 байт.
+Описание полей, общих для всех типов транзакций, представлено в разделе [JSON-представление транзакции](/ru/blockchain/transaction/#json-представление-транзакции).
 
 ## Бинарный формат
 
-Смотрите страницу [Бинарный формат транзакции данных](/ru/blockchain/binary-format/transaction-binary-format/data-transaction-binary-format).
+См. раздел [Бинарный формат транзакции данных](/ru/blockchain/binary-format/transaction-binary-format/data-transaction-binary-format).
+
+## Структура Ride
+
+Для операций с транзакцией в смарт-контрактах используется структура [DataTransaction](/ru/ride/structures/transaction-structures/data-transaction).

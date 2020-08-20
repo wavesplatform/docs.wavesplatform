@@ -1,26 +1,26 @@
-# Transaction proof
+# Transaction Signature and Proofs
 
-A **transaction proof** is an array of bytes that is used to check the validity of a transaction.
+Transaction `proofs` array can contain the transaction signature, or several signatures, or other data.
 
-An array of proofs can consist of several [transaction signatures](/en/blockchain/transaction/transaction-signature) (but not limited to only signatures).
+Transaction proofs are used for transaction verification, that is, the check that the transaction is allowed by sender's account:
 
-One of the examples of proofs usage is multisignature which stores several transaction signatures from different accounts.
+* In case of ordinary account (without script) the sender's signature is verified, see [Transaction Signature](#transaction-signature) below.
+* In case of dApp or smart account the transaction is verified by the script assigned to the account. The script can use the `proofs` array, see [Proofs: Verification by Script](#proofs-verification-by-script).
 
-Transactions with [data structures](/en/blockchain/binary-format/transaction-binary-format/) of version 2 and above are signed by proofs instead of signatures.
+The maximum number of proofs is 8. Each proof is up to 64 bytes.
 
-> The number of proofs in the array cannot exceed 8
+> In earlier versions of some types of transactions the `signature` field is used instead of `proofs`.
 
-## The data structure of an array of `N` proofs
+## Transaction Signature
 
-| Field order number | Field name | Field type | Field size in bytes | Field description |
-| :--- | :--- | :--- | :--- | :--- |
-| 1 | Proofs version | Byte | 1 | A special technical marker which determines the format of the array of proofs. <br>The value must be 0 |
-| 2 | Proofs count | Short | 2 | Number `N` of proofs in the array of proofs |
-| 3 | 1st proof length | Short | 2 | Length in bytes of the 1st proof |
-| 4 | 1st proof bytes | Array of bytes | up to 64 | Array of bytes of the 1st proof |
-| 5 | 2nd proof length | Short | 2 | Length in bytes of the 2nd proof |
-| 6 | 2nd proof bytes | Array of bytes | up to 64 | Array of bytes of the 2nd proof |
-| ... | ... | ... | ... | ... |
-| ... | ... | ... | ... | ... |
-| 2 × `N` + 1 | `N`-th proof length | Short | 2 | Length in bytes of the `N`-th proof |
-| 2 × `N` + 2 | `N`-th proof bytes | Array of bytes | up to 64 | Array of bytes of the `N`-th proof |
+If the transaction sender is an ordinary account (without script), the array of proofs must contain sender's digital signature.
+
+The sender generates a signature using account's private key. Waves protocol uses Curve25519 (ED25519 with X25519 keys) to create and verify signatures. Signature generation is described in the [Cryptographic Practical Details](/en/blockchain/waves-protocol/cryptographic-practical-details) article.
+
+Along with the signature, the transaction contains sender's public key, so the node (and anyone) can verify the integrity of the transaction data and the authenticity of the signature, that is, make sure that the signature of the transaction matches the public key.
+
+## Proofs: Verification by Script
+
+If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/ru/blockchain/account/smart-account), then the transaction is verified by the script assigned to the account instead of signature verification. The script allows or denies the transaction depending on whether it meets the specified conditions. In particular, the script can run various verifications of the proofs.
+
+A common example is a smart account with a multisignature where three co-owner users store shared funds. The account script allows the transaction on behalf of the smart account if the array of proofs contains valid signatures of at least two of the three co-owner accounts. The script code is available in [Waves IDE](https://waves-ide.com/): **Library → smart-accounts → Multisig.ride**.

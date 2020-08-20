@@ -2,13 +2,20 @@
 
 ## Август
 
+### Блокчейн
+
+* Обновлены статьи о транзакциях:
+   * [Транзакция](/ru/blockchain/transaction/)
+   * [Подпись и подтверждения транзакции](/ru/blockchain/transaction/transaction-proof)
+   * [Типы транзакций](/ru/blockchain/transaction-type/) и описания всех типов
+
 ### Нода
 
 * [Настройка CORS: поддержка кросс-доменных запросов](/ru/waves-node/node-api/cors)
 
-## Июльские статьи
+## Июль
 
-### Блокчейн Waves
+### Блокчейн
 
 * Обновлена статья [Сети блокчейна: Mainnet, Testnet, Stagenet](/ru/blockchain/blockchain-network/).
 
@@ -19,7 +26,7 @@
 * [removeByIndex](/ru/ride/functions/built-in-functions/list-functions#removebyindex)
 * [bn256groth16Verify](/ru/ride/functions/built-in-functions/verification-functions#bn256groth16verify)
 
-## Июньские статьи
+## Июнь
 
 ### Разработка приложений на блокчейне
 
@@ -39,7 +46,7 @@
 
 * [Кортеж](/ru/ride/data-types/tuple)
 
-## Майские статьи
+## Май
 
 ### Блокчейн
 
@@ -64,7 +71,7 @@
 * [makeString](/ru/ride/functions/built-in-functions/string-functions#makestring-list-string-string-string)
 * [Функции списка](/ru/ride/functions/built-in-functions/list-functions): `containsElement`, `indexOf`, `lastIndexOf`, `max`, `min`
 
-## Апрельские статьи
+## Апрель
 
 ### Блокчейн
 
@@ -79,7 +86,7 @@
 * [Распространение токена (airdrop)](/ru/building-apps/how-to/assets/airdrop)
 * [Прием платежей](/ru/building-apps/how-to/assets/payment)
 
-## Мартовские статьи
+## Март
 
 ### Блокчейн
 
@@ -100,7 +107,7 @@
 * [функций хеширования](/ru/ride/functions/built-in-functions/hashing-functions) `blake2b256`, `keccak256`, `sha256`;
 * [функций верификации](/ru/ride/functions/built-in-functions/verification-functions) `groth16Verify`, `rsaVerify`, `sigVerify`.
 
-## Февральские статьи
+## Февраль
 
 ### Разработка приложений на блокчейне
 
@@ -117,13 +124,13 @@
 * [calculateAssetId](/ru/ride/functions/built-in-functions/blockchain-functions#calculate)
 * [groth16Verify](/ru/ride/functions/built-in-functions/verification-functions#groth16Verify)
 
-## Январские статьи
+## Январь
 
 ### API & SDK
 
 * [Signer](/ru/building-apps/waves-api-and-sdk/client-libraries/signer) — библиотека для создания, подписания и отправки транзакций.
 
-## Декабрьские статьи
+## Декабрь
 
 ### Ride
 
@@ -160,7 +167,7 @@
   * Структуры транзакций
     * [UpdateAssetInfoTransaction](/ru/ride/structures/transaction-structures/update-asset-info-transaction)
 
-## Ноябрьские статьи
+## Ноябрь
 
 ### Программирование
 
@@ -168,7 +175,7 @@
 * [Создание смарт-аккаунта](/ru/building-apps/smart-contracts/how-to-create-smart-account)
 )
 
-## Октябрьские статьи
+## Октябрь
 
 ### Программирование
 
@@ -201,7 +208,7 @@
 
 * [Глоссарий](/ru/blockchain/glossary)
 
-## Сентябрьские статьи
+## Сентябрь
 
 ### Блокчейн
 
