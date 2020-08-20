@@ -2,7 +2,7 @@
 
 Lease transaction leases WAVES to another account. After 1000 block the leased tokens are accounted for the recipient's generating balance. The larger the generating balance of the node is, the higher the chances for that node to be selected to generate the next block. Commonly node owners share the reward for generated blocks with lessors. [More about leasing](/en/blockchain/leasing)
 
-Leased tokens are locked and remained in the sender address with the full control of their owner. The sender can cancel the lease at any time by the [Lease Cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction).
+Leased tokens remain locked on the sender's account with the full control of their owner. The sender can cancel the lease at any time by the [Lease Cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction).
 
 ## Fee
 
@@ -37,7 +37,7 @@ If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart a
 | :--- | :--- |
 | amount | Amount of WAVELETs to lease (that is, amount of WAVES multiplied by 10<sup>8</sup>) |
 | recipient | Recipient address base58 encoded or recipient alias |
-| *status* | Lease status: <br>- `active` : lease is active.<br>- `canceled`: lease is cancelled, see [Lease Cancel Transaction](/en/blockchain/transaction-type/lease-cancel-transaction). |
+| *status* | Lease status: <br>- `active`: lease is active.<br>- `canceled`: lease is cancelled, see [Lease Cancel Transaction](/en/blockchain/transaction-type/lease-cancel-transaction). |
 
 The `status` field does not need to be filled when sending a transaction, and it is not stored on the blockchain. The node calculates these fields when providing transaction data via the REST API.
 

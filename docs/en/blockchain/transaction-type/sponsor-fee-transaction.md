@@ -1,4 +1,4 @@
-# Sponsor Fee Transation
+# Sponsor Fee Transaction
 
 Sponsor Fee transaction enables or disables sponsorship. Sponsorship allows any user to pay a fee in the sponsored asset (instead of WAVES) for Invoke Script transactions and Transfer transactions. [More about sponsorship](/en/blockchain/waves-protocol/sponsored-fee)
 
