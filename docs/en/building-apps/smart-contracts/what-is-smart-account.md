@@ -52,8 +52,6 @@ The expression checks the transactions sent by the account for compliance with t
 - `false` (transaction is not allowed)
 - `error`
 
-An account script may contain several expressions.
-
 ## Smart accounts and trading
 
 Along with transactions, smart contracts allow to set rules (limitations) for the account trading operations. Examples of these rules are listed below.
