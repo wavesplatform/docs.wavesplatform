@@ -23,7 +23,7 @@ The sample dApp you'll create is the Waves Magic 8 Ball application that generat
 5. Top up account balance. It's free on Testnet.
 
    * Copy address: click account name and then click ![](./_assets/copy-button.png).
-   * Go to <https://wavesexplorer.com/testnet/faucet>, paste address, and click **Request 10 WAVES**.
+   * Go to <https://testnet.wavesexplorer.com/faucet>, paste address, and click **Request 10 WAVES**.
 
 ## Step 2. Write dApp Script
 

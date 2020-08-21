@@ -60,7 +60,7 @@ The `sender`, `id`, `applicationStatus`, and `height` fields do not need to be f
 
 > In earlier versions of some types of transactions the `signature` field is used instead of `proofs`.
 
-The fields that depend on the type of transaction are listed in the description of each [type of transaction](/en/blockchain/transaction/transaction-type/).
+The fields that depend on the type of transaction are listed in the description of each [type of transaction](/en/blockchain/transaction-type/).
 
 ## Binary Format
 

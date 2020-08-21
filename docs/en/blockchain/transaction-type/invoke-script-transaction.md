@@ -19,7 +19,7 @@ The minimum fee for an Invoke Script transaction is calculated as follows:
 
 See also the example in the [Transaction Fee](/en/blockchain/transaction/transaction-fee) article.
 
-The sender can specify a transaction fee nominated in a sponsored asset instead of WAVES, see the [Sponsored Fee](/en/blockchain/waves-prototol/sponsored-fee) article.
+The sender can specify a transaction fee nominated in a sponsored asset instead of WAVES, see the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article.
 
 ## JSON Representation
 

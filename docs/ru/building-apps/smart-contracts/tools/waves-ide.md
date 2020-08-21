@@ -37,7 +37,7 @@ Waves IDE — онлайн-среда для разработки и тести�
 
 1. Скопируйте адрес аккаунта: нажмите на название аккаунта, затем нажмите кнопку ![](./_assets/copy-button.png).
 2. Перейдите на страницу:
-   * <https://wavesexplorer.com/testnet/faucet> для Testnet;
+   * <https://testnet.wavesexplorer.com/faucet> для Testnet;
    * <https://stagenet.wavesexplorer.com/faucet> для Stagenet.
 3. Вставьте адрес и нажмите **Request 10 WAVES**.
 

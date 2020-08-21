@@ -42,7 +42,7 @@ If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart a
 | quantity | Token quantity: an integer value specified in the minimum fraction (“cents”), that is, the real quantity multiplied by 10<sup>decimals</sup>. From 1 to 9,223,372,036,854,775,807.<br>1 for NFT |
 | decimals | Number of decimal places, from 0 to 8.<br>0 for NFT |
 | reissuable | Reissue availability flag, see the [Reissue Transaction](/en/blockchain/transaction-type/reissue-transaction) article.<br>`false` for NFT |
-| script | For the [smart asset](/en/blockchain/token/smart): the compiled [asset script](/en/ride/script/script-types/asset-script), up to 8192 bytes, base64 encoded.<br>For the token without a script: `null`. The token issued without a script cannot be converted to a smart asset |
+| script | For the [smart asset](/en/blockchain/token/smart-asset): the compiled [asset script](/en/ride/script/script-types/asset-script), up to 8192 bytes, base64 encoded.<br>For the token without a script: `null`. The token issued without a script cannot be converted to a smart asset |
 | chainId | [Chain ID](/en/blockchain/blockchain-network/#chain-id) |
 | *assetId* | Token ID base58 encoded. The token ID is the same as the Issue transaction ID |
 

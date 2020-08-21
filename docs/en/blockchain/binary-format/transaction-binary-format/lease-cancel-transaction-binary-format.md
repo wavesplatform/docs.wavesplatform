@@ -47,6 +47,6 @@ See the [example](https://nodes.wavesnodes.com/transactions/info/7siEtrJAvmVzM1W
 | **3** | [Transaction fee](/en/blockchain/transaction/transaction-fee) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 | **4** | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 | **5** | Lease ID | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 | |
-| 6 | [Transaction signature](/en/blockchain/transaction/transaction-signature) | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 64 | | |
+| 6 | [Transaction signature](/en/blockchain/transaction/transaction-proof) | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 64 | | |
 
 > The fields numbered in bold are the transaction body bytes.

@@ -66,7 +66,7 @@ See the [example](https://nodes.wavesnodes.com/transactions/info/2UMEGNXwiRzyGyk
 | # | Field | Field type | Field size in bytes | Comment |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | [Transaction type ID](/en/blockchain/transaction-type/) | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 4 |
-| 2 | [Transaction signature](/en/blockchain/transaction/transaction-signature) | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 64 | | |
+| 2 | [Transaction signature](/en/blockchain/transaction/transaction-proof) | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 64 | | |
 | **3** | Transaction type ID | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | This field duplicates field 1 |
 | **4** | Public key of the transaction sender  | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 | |
 | **5.1** | Transferring token type flag | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Value is 0 for transferring [WAVES](/en/blockchain/token/waves).<br>Value is 1 for transferring other [token](/en/blockchain/token/) |

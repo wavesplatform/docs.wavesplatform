@@ -166,7 +166,7 @@ module.exports = {
 
     footer: {
         broughtToYouByWavesTeam: 'Brought to you by Waves Team.',
-        copyright: '© 2020 Waves Association',
+        copyright: '© 2019—2020 Waves Technologies',
         email: '',
         resourcesCategories: {
             productsAndTools: {
@@ -178,7 +178,7 @@ module.exports = {
                     },
                     wavesBlockchain: {
                         title: 'Waves Blockchain',
-                        link: 'https://wavesprotocol.org/protocol',
+                        link: 'https://waves.tech/waves-protocol',
                     },
                     WavesIde: {
                         title: 'Waves IDE',

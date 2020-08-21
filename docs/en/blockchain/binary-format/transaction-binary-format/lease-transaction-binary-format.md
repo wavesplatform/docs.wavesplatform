@@ -59,6 +59,6 @@ See the [example](https://nodes.wavesnodes.com/transactions/info/J6jZCzLpWJX8EDV
 | **4** | Amount of [WAVES](/en/blockchain/token/waves) that will be leased to the [account](/en/blockchain/account/) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 | **5** | [Transaction fee](/en/blockchain/transaction/transaction-fee) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 | **6** | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
-| 7 | [Transaction signature](/en/blockchain/transaction/transaction-signature) | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 64 | | |
+| 7 | [Transaction signature](/en/blockchain/transaction/transaction-proof) | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 64 | | |
 
 > The fields numbered in bold are the transaction body bytes.

@@ -74,6 +74,6 @@ message ExchangeTransactionData {
 | **9** | Комиссия матчера за продажу | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **10** | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **11** | [Временная метка транзакции](/ru/blockchain/transaction/transaction-timestamp) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| 12 | [Подпись транзакции](/ru/blockchain/transaction/transaction-signature) | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 64 |  |  |
+| 12 | [Подпись транзакции](/ru/blockchain/transaction/transaction-proof) | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 64 |  |  |
 
 > Поля, номера которых выделены жирным шрифтом, составляют байты тела транзакции.

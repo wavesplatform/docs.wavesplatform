@@ -48,6 +48,6 @@ message CreateAliasTransactionData {
 | **4** | Псевдоним | [String](/ru/blockchain/blockchain/blockchain-data-types) | от 4 до 30 |  |
 | **5** | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **6** | [Временная метка транзакции](/ru/blockchain/transaction/transaction-timestamp) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| 7 | [Подпись транзакции](/ru/blockchain/transaction/transaction-signature) | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 64 |  |  |
+| 7 | [Подпись транзакции](/ru/blockchain/transaction/transaction-proof) | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 64 |  |  |
 
 > Поля, номера которых выделены жирным шрифтом, составляют байты тела транзакции.

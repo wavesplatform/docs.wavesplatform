@@ -48,6 +48,6 @@ See the [example](https://nodes.wavesnodes.com/transactions/info/5CZV9RouJs7uaRk
 | **4** | Alias | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | from 4 to 30 |  |
 | **5** | [Transaction fee](/en/blockchain/transaction/transaction-fee) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **6** | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| 7 | [Transaction signature](/en/blockchain/transaction/transaction-signature) | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 64 |  |  |
+| 7 | [Transaction signature](/en/blockchain/transaction/transaction-proof) | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 64 |  |  |
 
 > The fields numbered in bold are the transaction body bytes.

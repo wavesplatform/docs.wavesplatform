@@ -6,8 +6,7 @@
 
 Для проверок могут быть использованы следующие параметры:
 
-- [Подпись транзакции](/ru/blockchain/transaction/transaction-signature).
-- [Подтверждение транзакции](/ru/blockchain/transaction/transaction-proof).
+- [Подтверждения или подпись транзакции](/ru/blockchain/transaction/transaction-proof).
 - Текущая высота блокчейна.
 - Произвольные данные, существующие в блокчейне, например, данные [оракулов](/ru/blockchain/oracle).
 

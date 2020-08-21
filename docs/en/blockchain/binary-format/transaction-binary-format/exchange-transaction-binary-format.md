@@ -74,6 +74,6 @@ Transaction version 1 can accept orders of version [1](/en/blockchain/binary-for
 | **9** | Sell [matcher fee](/en/blockchain/glossary#m) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **10** | [Transaction fee](/en/blockchain/transaction/transaction-fee) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **11** | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| 12 | [Transaction signature](/en/blockchain/transaction/transaction-signature) | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 64 |  | |
+| 12 | [Transaction signature](/en/blockchain/transaction/transaction-proofs) | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 64 |  | |
 
 > The fields numbered in bold are the transaction body bytes.
