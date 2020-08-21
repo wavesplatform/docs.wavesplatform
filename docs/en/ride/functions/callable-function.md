@@ -4,8 +4,6 @@
 
 dApp script can contain multiple callable functions.
 
-The callable function should be adorned with the `@Callable(i)` annotation, where `i` is an [Invocation](/en/ride/structures/common-structures/invocation) structure that contains invoke script transaction fields that are available to the callable function.
-
 Callable functions features rely on [standard library](/en/ride/script/standard-library) version:
 
 | Standard library v3 | Standard library v4 |
@@ -20,6 +18,10 @@ The invoke script transaction can have payments in favor of dApp applied. Funds 
 > Standard library v4 is available starting from node version 1.2.0 after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 :warning: After activation of the feature #15, the fee for the invoke script transaction cannot be funded by transfer from the dApp to the transaction sender. If sender's balance is insufficient to pay the fee, dApp script is not executed.
+
+## Annotation
+
+The callable function should be  marked with the `@Callable(i)` annotation, where `i` is an [Invocation](/en/ride/structures/common-structures/invocation) structure that contains invoke script transaction fields that are available to the callable function. The variable name in the annotation is required even if the called function does not use it.
 
 ## Version 3
 

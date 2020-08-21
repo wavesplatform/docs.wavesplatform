@@ -1,15 +1,53 @@
 # Directives
 
-A **directive** is an instruction that sets the compilation mode of the [script](/en/ride/script/).
+Every Ride script should start with directives for the compiler. The directives define the script format, what data is available to the script, what functions, structures and variables can be used.
+
+Directive format is as follows:
 
 ``` ride
 {-# DIRECTIVE_NAME VALUE #-}
 ```
 
-## Directives list
+## Directives List
 
-| # | Directive name | Directive function | Possible values |
-| :--- | :--- | :--- | :--- |
-| 1 | CONTENT_TYPE | Defines whether the [script body](/en/ride/script/script-body) is an [expression](/en/ride/base-concepts/expression) or a _set_ of [definitions](/en/ride/base-concepts/definition) | `EXPRESSION` — Boolean expression<br>`DAPP` — set of definitions |
-| 2 | SCRIPT_TYPE | Defines the [script context](/en/ride/script/script-context) | `ACCOUNT`<br>`ASSET` |
-| 3 | STDLIB_VERSION | Sets the version of the [Standard Library](/en/ride/script/standard-library) | `4` (available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”)<br>`3`<br>`2`<br>`1` |
+| Directive name | Directive function | Possible values |
+| :--- | :--- | :--- |
+| STDLIB_VERSION | Version of the [Standard Library](/en/ride/script/standard-library) | `4` (available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”)<br>`3`<br>`2`<br>`1` |
+| CONTENT_TYPE | Script content type | `DAPP`: the script is a set of definitions and contains functions that can be invoked from another account.<br>`EXPRESSION`: the script is a boolean expression, the script is used for transaction verification |
+| SCRIPT_TYPE | Entity that the script is attached to | `ACCOUNT`<br>`ASSET` |
+
+## Directives Examples
+
+For a [dApp script](/en/ride/script/script-types/dapp-script):
+
+```scala
+{-# STDLIB_VERSION 4 #-}
+{-# CONTENT_TYPE DAPP #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+```
+
+For an [account script](/en/ride/script/script-types/account-script):
+
+```scala
+{-# STDLIB_VERSION 4 #-}
+{-# CONTENT_TYPE EXPRESSION #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+```
+
+For an [asset script](/en/ride/script/script-types/account-script):
+
+```scala
+{-# STDLIB_VERSION 4 #-}
+{-# CONTENT_TYPE EXPRESSION #-}
+{-# SCRIPT_TYPE ASSET #-}
+```
+
+Not all combinations of directives are correct. The example below won’t work, because `DAPP` content type is allowed only for accounts:
+
+```scala
+# Wrong example, won’t work
+
+{-# STDLIB_VERSION 4 #-}
+{-# CONTENT_TYPE DAPP #-}
+{-# SCRIPT_TYPE ASSET #-}
+```

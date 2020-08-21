@@ -4,11 +4,11 @@ An **annotation** is a form of metadata that is added to a [function](/en/ride/f
 
 At the present moment, there are two annotations: `@Callable` and `@Verifier`.
 
-## @Callable(inv: [Invocation](/en/ride/structures/common-structures/invocation))
+## @Callable(i: [Invocation](/en/ride/structures/common-structures/invocation))
 
 Annotation of a [callable function](/en/ride/functions/callable-function).
 
-Variable `inv` contains information about the transaction that invoked the function of a [dApp](/en/blockchain/account/dapp).
+Variable `i` contains information about the transaction that invoked the function of a [dApp](/en/blockchain/account/dapp). The variable name in the annotation is required even if the called function does not use it.
 
 ## @Verifier(tx: Transaction|[Order](/en/ride/structures/common-structures/order))
 

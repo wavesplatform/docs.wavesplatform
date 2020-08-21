@@ -6,11 +6,11 @@
 
 Аннотированная функция не может быть вызвана внутри dApp-скрипта.
 
-## @Callable(inv: [Invocation](/ru/ride/structures/common-structures/invocation))
+## @Callable(i: [Invocation](/ru/ride/structures/common-structures/invocation))
 
 Аннотация [вызываемой функции](/ru/ride/functions/callable-function).
 
-Переменная `inv` содержит информацию о транзакции, которая вызвала функцию [dApp](/ru/blockchain/account/dapp).
+Переменная `i` содержит информацию о транзакции, которая вызвала функцию [dApp](/ru/blockchain/account/dapp). Имя переменной в аннотации обязательно, даже если вызываемая функция ее не использует.
 
 ## @Verifier(tx: Transaction|[Order](/ru/ride/structures/common-structures/order))
 

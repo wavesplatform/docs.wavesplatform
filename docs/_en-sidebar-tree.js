@@ -646,6 +646,10 @@ module.exports = {
       path: ridePath + 'base-concepts',
       children: [
         {
+          title: 'Directives',
+          path: ridePath + 'script/directives',
+        },
+        {
           title: 'Definition',
           path: ridePath + 'base-concepts/definition',
         },
@@ -653,15 +657,41 @@ module.exports = {
           title: 'Expression',
           path: ridePath + 'base-concepts/expression',
         },
+        {
+          title: 'Comments',
+          path: ridePath + 'comments',
+        },
+        {
+          title: 'Constants',
+          path: ridePath + 'constants',
+        },
+        {
+          title: 'Exceptions',
+          path: ridePath + 'exceptions',
+        },
       ],
     },
     {
-      title: 'Comments',
-      path: ridePath + 'comments',
+      title: 'Ride Script. Script Types',
+      path: ridePath + 'script',
+      children: [
+        {
+          title: 'dApp script',
+          path: ridePath + 'script/script-types/dapp-script',
+        },
+        {
+          title: 'Account script',
+          path: ridePath + 'script/script-types/account-script',
+        },
+        {
+          title: 'Asset script',
+          path: ridePath + 'script/script-types/asset-script',
+        },
+      ],
     },
     {
-      title: 'Constants',
-      path: ridePath + 'constants',
+      title: 'Standard Library',
+      path: ridePath + 'script/standard-library',
     },
     {
       title: 'Data types',
@@ -700,10 +730,6 @@ module.exports = {
           path: ridePath + 'data-types/union',
         },
       ],
-    },
-    {
-      title: 'Exceptions',
-      path: ridePath + 'exceptions',
     },
     {
       title: 'Functions',
@@ -798,46 +824,6 @@ module.exports = {
           path: ridePath + 'operators/match-case',
         },
       ]
-    },
-    {
-      title: 'Script',
-      path: ridePath + 'script',
-      children: [
-        {
-          title: 'Directives',
-          path: ridePath + 'script/directives',
-        },
-        {
-          title: 'Script body',
-          path: ridePath + 'script/script-body',
-        },
-        {
-          title: 'Script context',
-          path: ridePath + 'script/script-context',
-        },
-        {
-          title: 'Script types',
-          path: ridePath + 'script/script-types',
-          children: [
-            {
-              title: 'Account script',
-              path: ridePath + 'script/script-types/account-script',
-            },
-            {
-              title: 'Asset script',
-              path: ridePath + 'script/script-types/asset-script',
-            },
-            {
-              title: 'dApp script',
-              path: ridePath + 'script/script-types/dapp-script',
-            },
-          ],
-        },
-        {
-          title: 'Standard Library',
-          path: ridePath + 'script/standard-library',
-        },
-      ],
     },
     {
       title: 'Structures',

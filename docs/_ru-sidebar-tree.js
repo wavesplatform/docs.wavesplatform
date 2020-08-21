@@ -642,6 +642,10 @@ module.exports = {
       path: ridePath + 'base-concepts',
       children: [
         {
+          title: 'Директивы',
+          path: ridePath + 'script/directives',
+        },
+        {
           title: 'Определение',
           path: ridePath + 'base-concepts/definition',
         },
@@ -649,15 +653,41 @@ module.exports = {
           title: 'Выражение',
           path: ridePath + 'base-concepts/expression',
         },
+        {
+          title: 'Комментарии',
+          path: ridePath + 'comments',
+        },
+        {
+          title: 'Константы',
+          path: ridePath + 'constants',
+        },
+        {
+          title: 'Исключения',
+          path: ridePath + 'exceptions',
+        },
       ],
     },
     {
-      title: 'Комментарии',
-      path: ridePath + 'comments',
+      title: 'Скрипт Ride. Типы скриптов',
+      path: ridePath + 'script',
+      children: [
+        {
+          title: 'dApp-скрипт',
+          path: ridePath + 'script/script-types/dapp-script',
+        },
+        {
+          title: 'Скрипт аккаунта',
+          path: ridePath + 'script/script-types/account-script',
+        },
+        {
+          title: 'Скрипт ассета',
+          path: ridePath + 'script/script-types/asset-script',
+        },
+      ],
     },
     {
-      title: 'Константы',
-      path: ridePath + 'constants',
+      title: 'Стандартная библиотека',
+      path: ridePath + 'script/standard-library',
     },
     {
       title: 'Типы данных',
@@ -696,10 +726,6 @@ module.exports = {
           path: ridePath + 'data-types/union',
         },
       ],
-    },
-    {
-      title: 'Исключения',
-      path: ridePath + 'exceptions',
     },
     {
       title: 'Функции',
@@ -794,46 +820,6 @@ module.exports = {
           path: ridePath + 'operators/match-case',
         },
       ]
-    },
-    {
-      title: 'Скрипт',
-      path: ridePath + 'script',
-      children: [
-        {
-          title: 'Директивы',
-          path: ridePath + 'script/directives',
-        },
-        {
-          title: 'Тело скрипта',
-          path: ridePath + 'script/script-body',
-        },
-        {
-          title: 'Контекст скрипта',
-          path: ridePath + 'script/script-context',
-        },
-        {
-          title: 'Типы скриптов',
-          path: ridePath + 'script/script-types',
-          children: [
-            {
-              title: 'Скрипт аккаунта',
-              path: ridePath + 'script/script-types/account-script',
-            },
-            {
-              title: 'Скрипт ассета',
-              path: ridePath + 'script/script-types/asset-script',
-            },
-            {
-              title: 'dApp-скрипт',
-              path: ridePath + 'script/script-types/dapp-script',
-            },
-          ],
-        },
-        {
-          title: 'Стандартная библиотека',
-          path: ridePath + 'script/standard-library',
-        },
-      ],
     },
     {
       title: 'Структуры',
