@@ -14,10 +14,13 @@ The following checks are performed:
 
 1. Transaction fields check including:
 
-   * Timestamp check: the transaction timestamp should be not more than 2 hours ago or 1.5 hours ahead from the current block timestamp.
-   * Transaction version check: all the features required to support this version should be activated.
-   * Transaction type check: all the features required to support this type should be activated.
-   * Check of fields depending on the transaction type.
+   • Timestamp check: the transaction timestamp should be not more than 2 hours ago or 1.5 hours ahead from the current block timestamp.
+
+   • Transaction version check: all the features required to support this version should be activated.
+
+   • Transaction type check: all the features required to support this type should be activated.
+
+   • Check of fields depending on the transaction type.
 
 2. The sender's signature verification for ordinary account (without script), or account script execution if the sender is [smart account](/en/blockchain/account/smart-account), or the [verifier function](/en/ride/functions/verifier-function) execution if the sender is [dApp](/en/blockchain/account/dapp). A similar check is performed for orders in an Exchange transaction.
 
@@ -45,10 +48,13 @@ The following checks are performed:
 
 1. Transaction fields check including:
 
-   * Timestamp check: the transaction timestamp should be not more than 2 hours ago or 1.5 hours ahead from the current block timestamp.
-   * Transaction version check: all the features required to support this version should be activated.
-   * Transaction type check: all the features required to support this type should be activated.
-   * Check of fields depending on the transaction type.
+   • Timestamp check: the transaction timestamp should be not more than 2 hours ago or 1.5 hours ahead from the current block timestamp.
+
+   • Transaction version check: all the features required to support this version should be activated.
+
+   • Transaction type check: all the features required to support this type should be activated.
+
+   • Check of fields depending on the transaction type.
 
 2. Sender's balance check.
 

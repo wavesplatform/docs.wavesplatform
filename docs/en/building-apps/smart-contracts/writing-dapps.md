@@ -22,8 +22,9 @@ The sample dApp you'll create is the Waves Magic 8 Ball application that generat
 4. Click **Show seed and private key** and backup the seed phrase to a secure location. You will need the seed phrase to restore access to the account.
 5. Top up account balance. It's free on Testnet.
 
-   * Copy address: click account name and then click ![](./_assets/copy-button.png).
-   * Go to <https://testnet.wavesexplorer.com/faucet>, paste address, and click **Request 10 WAVES**.
+   • Copy address: click account name and then click ![](./_assets/copy-button.png).
+
+   • Go to <https://testnet.wavesexplorer.com/faucet>, paste address, and click **Request 10 WAVES**.
 
 ## Step 2. Write dApp Script
 
@@ -207,9 +208,10 @@ await signer.invoke({<br>
 3. Top up account balance to pay the fee for the script setup.
 
    For example, use [Waves.Exchange](https://waves.exchange/) app developed by Waves.Exchange team to:
-   
-   * Transfer 0.01 WAVES from another account, see the [Cryptocurrency Transfers](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trs-gtw/online-desktop-trs-asset) article of the Waves.Exchange documentation.
-   * Buy Neutrino with a credit card and then exchange for WAVES, see the [Buy Neutrino with Card](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-staking#buy-neutrino-with-card) and [Start Trading on Waves.Exchange](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) articles for details.
+
+   • Transfer 0.01 WAVES from another account, see the [Cryptocurrency Transfers](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trs-gtw/online-desktop-trs-asset) article of the Waves.Exchange documentation.
+
+   • Buy Neutrino with a credit card and then exchange for WAVES, see the [Buy Neutrino with Card](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-staking#buy-neutrino-with-card) and [Start Trading on Waves.Exchange](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) articles for details.
 
 4. Attach dApp script to the account as described in [Step 3](#step-3-assign-script-to-account).
 
