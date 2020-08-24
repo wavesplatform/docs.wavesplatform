@@ -41,7 +41,7 @@ waves[31236] – this is the node process. Check the message from this process b
 
 ![5](_assets/node-troubleshooting-005.png)
 
-The `waves` process can indicate the error, that caused the node to crash. See example below:
+The `waves` process can indicate the error, that caused the node to crash. See example:
 
 ![6](_assets/node-troubleshooting-006.png)
 
