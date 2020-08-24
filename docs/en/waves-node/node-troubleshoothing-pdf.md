@@ -2,9 +2,63 @@
 
 This article describes known issues of Waves node and their possible solutions:
 
+* [Node crashed (node process suddenly stopped)](#node-crashed)
 * [Node does not achieve height and does not respond to requests](#node-achieves-height-and-does-not-respond-to-requests)
 * [Node achieves height and responds to requests, but is possibly on fork](#anchor1)
 * [Problems related to OutOfMemoryError](#anchor2)
+
+## Node crashed
+
+In this case "node crashed" means that the node process suddenly stopped (not something else, for example the process froze or the process does not respond to API calls, the process is stuck at a height). Follow the activities described bellow to make sure that the process actually stopped.
+If your node crashed, search the [journalctl](https://www.digitalocean.com/community/tutorials/how-to-use-journalctl-to-view-and-manipulate-systemd-logs) log to find the errors or the similar ones as described bellow.
+
+Since the journalctl logs are very long, we recommend to filter search by date/time and the unit systemd (in this case waves/waves-stagenet/waves-testnet accordingly node unit mainnet/stagenet/testnet).
+
+To output journalctl log with all the node messages starting from `23 august 2020 17:15:00` until the current moment, use the following command:
+
+```bash
+$ journalctl -u waves --since "2020-08-23 17:15:00"
+```
+
+To output journalctl log with all the node messages starting from `23 august 2020 17:15:00` until `24 august 2020 03:00:00`, use the following command:
+
+```bash
+$ journalctl -u waves --since "2020-08-23 17:15:00" --until "2020-08-24 03:00:00"
+```
+
+**Note**: Read more about journalctl log flags - https://www.linode.com/docs/quick-answers/linux/how-to-use-journalctl
+
+In journalctl log check `systemd[1]` messages about the process being killed/stopped/restarted.
+
+**Note**: search logs with "/search_request" in journalctl or `journalctl | grep 'search_request'`
+
+On the screenshot below see `Stopped Waves node` message from `systemd` – this means that the node actually crashed.
+The reason to crash is described in the message from `systemd` - `waves.service: Main process exited, code=killed, status=6/ABRT`.
+
+![4](_assets/node-troubleshooting-004.png)
+
+waves[31236] – this is the node process. Check the message from this process before the node crashed. If there is `An error report file with more information is saved as: /tmp/hs_err_pid*****.log` message in the log, similar to the example below, then send the log to Waves team.
+
+![5](_assets/node-troubleshooting-005.png)
+
+The `waves` process can indicate the error, that caused the node to crash. See example below:
+
+![6](_assets/node-troubleshooting-006.png)
+
+The node crash can also be caused by memory error (OutOfMemory). The messages about such problems can be found in `kernel` logs. To output `kernel` log messages, add `-k` flag to `journalctl` as in the request below:
+
+```bash
+$ journalctl -k | grep 'Kill'
+```
+
+If you have memory errors, the log output should contain lines similar to the following:
+
+```bash
+kernel: Out of memory: Kill process 6033 (java) score 367 or sacrifice child
+kernel: Killed process 6033 (java) total-vm:29930040kB, anon-rss:10625048kB, file-rss:0kB, shmem-rss:24kB
+```
+
+If you have detected any of the errors described above, send to Waves team the fragments of your logs and the fragment of waves.log containing the records before the node crashed.
 
 ## Node does not achieve height and does not respond to requests
 
