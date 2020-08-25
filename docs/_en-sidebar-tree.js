@@ -610,11 +610,11 @@ module.exports = {
           title: 'Feature Activation',
           path: nodePath + 'node-api/feature-activation',
         },
-	    {
+        {
           title: 'API limitations of the pool of public nodes',
           path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
-		},
-	  ],   
+        },
+      ],
     },
     {
       title: 'Extensions',
@@ -642,7 +642,7 @@ module.exports = {
       path: ridePath + 'getting-started',
     },
     {
-      title: 'Base concepts',
+      title: 'Syntax Basics',
       path: ridePath + 'base-concepts',
       children: [
         {
@@ -658,16 +658,24 @@ module.exports = {
           path: ridePath + 'base-concepts/expression',
         },
         {
-          title: 'Comments',
-          path: ridePath + 'comments',
-        },
-        {
-          title: 'Constants',
+          title: 'Constant',
           path: ridePath + 'constants',
         },
         {
-          title: 'Exceptions',
+          title: 'Variable',
+          path: ridePath + 'variables',
+        },
+        {
+          title: 'Function',
+          path: ridePath + 'functions',
+        },
+        {
+          title: 'Exception',
           path: ridePath + 'exceptions',
+        },
+        {
+          title: 'Comment',
+          path: ridePath + 'comments',
         },
       ],
     },
@@ -678,6 +686,20 @@ module.exports = {
         {
           title: 'dApp script',
           path: ridePath + 'script/script-types/dapp-script',
+          children: [
+            {
+              title: 'Annotations',
+              path: ridePath + 'functions/annotations',
+            },
+            {
+              title: 'Callable function',
+              path: ridePath + 'functions/callable-function',
+            },
+            {
+              title: 'Verifier function',
+              path: ridePath + 'functions/verifier-function',
+            },
+          ],
         },
         {
           title: 'Account script',
@@ -730,100 +752,6 @@ module.exports = {
           path: ridePath + 'data-types/union',
         },
       ],
-    },
-    {
-      title: 'Functions',
-      path: ridePath + 'functions',
-      children: [
-        {
-          title: 'Annotations',
-          path: ridePath + 'functions/annotations',
-        },
-        {
-          title: 'Built-in functions',
-          path: ridePath + 'functions/built-in-functions',
-          children: [
-            {
-              title: 'Account data storage functions',
-              path: ridePath + 'functions/built-in-functions/account-data-storage-functions',
-            },
-            {
-              title: 'Blockchain functions',
-              path: ridePath + 'functions/built-in-functions/blockchain-functions',
-            },
-            {
-              title: 'Byte array functions',
-              path: ridePath + 'functions/built-in-functions/byte-array-functions',
-            },
-            {
-              title: 'Converting functions',
-              path: ridePath + 'functions/built-in-functions/converting-functions',
-            },
-            {
-              title: 'Data transaction functions',
-              path: ridePath + 'functions/built-in-functions/data-transaction-functions',
-            },
-            {
-              title: 'Decoding functions',
-              path: ridePath + 'functions/built-in-functions/decoding-functions',
-            },
-            {
-              title: 'Encoding functions',
-              path: ridePath + 'functions/built-in-functions/encoding-functions',
-            },
-            {
-              title: 'Exception functions',
-              path: ridePath + 'functions/built-in-functions/exception-functions',
-            },
-            {
-              title: 'Hashing functions',
-              path: ridePath + 'functions/built-in-functions/hashing-functions',
-            },
-            {
-              title: 'List functions',
-              path: ridePath + 'functions/built-in-functions/list-functions',
-            },
-            {
-              title: 'Math functions',
-              path: ridePath + 'functions/built-in-functions/math-functions',
-            },
-            {
-              title: 'String functions',
-              path: ridePath + 'functions/built-in-functions/string-functions',
-            },
-            {
-              title: 'Union functions',
-              path: ridePath + 'functions/built-in-functions/union-functions',
-            },
-            {
-              title: 'Verification functions',
-              path: ridePath + 'functions/built-in-functions/verification-functions',
-            },
-          ],
-        },
-        {
-          title: 'Callable function',
-          path: ridePath + 'functions/callable-function',
-        },
-        {
-          title: 'Verifier function',
-          path: ridePath + 'functions/verifier-function',
-        },
-      ],
-    },
-    {
-      title: 'FOLD<N> Macro',
-      path: ridePath + 'fold-macro',
-    },
-    {
-      title: 'Operators',
-      path: ridePath + 'operators',
-      children: [
-        {
-          title: 'match-case',
-          path: ridePath + 'operators/match-case',
-        },
-      ]
     },
     {
       title: 'Structures',
@@ -1016,14 +944,82 @@ module.exports = {
       ],
     },
     {
-      title: 'Variables',
-      path: ridePath + 'variables',
+      title: 'Built-in variables',
+      path: ridePath + 'variables/built-in-variables',
+    },
+    {
+      title: 'Built-in functions',
+      path: ridePath + 'functions/built-in-functions',
       children: [
         {
-          title: 'Built-in variables',
-          path: ridePath + 'variables/built-in-variables',
+          title: 'Account data storage functions',
+          path: ridePath + 'functions/built-in-functions/account-data-storage-functions',
+        },
+        {
+          title: 'Blockchain functions',
+          path: ridePath + 'functions/built-in-functions/blockchain-functions',
+        },
+        {
+          title: 'Byte array functions',
+          path: ridePath + 'functions/built-in-functions/byte-array-functions',
+        },
+        {
+          title: 'Converting functions',
+          path: ridePath + 'functions/built-in-functions/converting-functions',
+        },
+        {
+          title: 'Data transaction functions',
+          path: ridePath + 'functions/built-in-functions/data-transaction-functions',
+        },
+        {
+          title: 'Decoding functions',
+          path: ridePath + 'functions/built-in-functions/decoding-functions',
+        },
+        {
+          title: 'Encoding functions',
+          path: ridePath + 'functions/built-in-functions/encoding-functions',
+        },
+        {
+          title: 'Exception functions',
+          path: ridePath + 'functions/built-in-functions/exception-functions',
+        },
+        {
+          title: 'Hashing functions',
+          path: ridePath + 'functions/built-in-functions/hashing-functions',
+        },
+        {
+          title: 'List functions',
+          path: ridePath + 'functions/built-in-functions/list-functions',
+        },
+        {
+          title: 'Math functions',
+          path: ridePath + 'functions/built-in-functions/math-functions',
+        },
+        {
+          title: 'String functions',
+          path: ridePath + 'functions/built-in-functions/string-functions',
+        },
+        {
+          title: 'Union functions',
+          path: ridePath + 'functions/built-in-functions/union-functions',
+        },
+        {
+          title: 'Verification functions',
+          path: ridePath + 'functions/built-in-functions/verification-functions',
         },
       ],
+    },
+    {
+      title: 'Operators',
+      path: ridePath + 'operators',
+    },
+    {
+      title: 'Pattern matching: match-case',
+      path: ridePath + 'operators/match-case',
+    },
+    {
+      title: 'Interations with FOLD<N>',
+      path: ridePath + 'fold-macro',
     },
     {
       title: 'Limitations',

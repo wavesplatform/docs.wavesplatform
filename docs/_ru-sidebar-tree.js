@@ -638,7 +638,7 @@ module.exports = {
       path: ridePath + 'getting-started',
     },
     {
-      title: 'Базовые понятия',
+      title: 'Основы синтаксиса',
       path: ridePath + 'base-concepts',
       children: [
         {
@@ -654,16 +654,24 @@ module.exports = {
           path: ridePath + 'base-concepts/expression',
         },
         {
-          title: 'Комментарии',
-          path: ridePath + 'comments',
-        },
-        {
-          title: 'Константы',
+          title: 'Константа',
           path: ridePath + 'constants',
         },
         {
-          title: 'Исключения',
+          title: 'Переменная',
+          path: ridePath + 'variables',
+        },
+        {
+          title: 'Функция',
+          path: ridePath + 'functions',
+        },
+        {
+          title: 'Исключение',
           path: ridePath + 'exceptions',
+        },
+        {
+          title: 'Комментарий',
+          path: ridePath + 'comments',
         },
       ],
     },
@@ -674,6 +682,20 @@ module.exports = {
         {
           title: 'dApp-скрипт',
           path: ridePath + 'script/script-types/dapp-script',
+          children: [
+            {
+              title: 'Аннотации',
+              path: ridePath + 'functions/annotations',
+            },
+            {
+              title: 'Вызываемая функция',
+              path: ridePath + 'functions/callable-function',
+            },
+            {
+              title: 'Функция-верификатор',
+              path: ridePath + 'functions/verifier-function',
+            },
+          ],
         },
         {
           title: 'Скрипт аккаунта',
@@ -726,100 +748,6 @@ module.exports = {
           path: ridePath + 'data-types/union',
         },
       ],
-    },
-    {
-      title: 'Функции',
-      path: ridePath + 'functions',
-      children: [
-        {
-          title: 'Аннотации',
-          path: ridePath + 'functions/annotations',
-        },
-        {
-          title: 'Встроенные функции',
-          path: ridePath + 'functions/built-in-functions',
-          children: [
-            {
-              title: 'Функции хранилища данных аккаунта',
-              path: ridePath + 'functions/built-in-functions/account-data-storage-functions',
-            },
-            {
-              title: 'Функции блокчейна',
-              path: ridePath + 'functions/built-in-functions/blockchain-functions',
-            },
-            {
-              title: 'Функции массива байтов',
-              path: ridePath + 'functions/built-in-functions/byte-array-functions',
-            },
-            {
-              title: 'Функции конвертации',
-              path: ridePath + 'functions/built-in-functions/converting-functions',
-            },
-            {
-              title: 'Функции транзакции данных',
-              path: ridePath + 'functions/built-in-functions/data-transaction-functions',
-            },
-            {
-              title: 'Функции декодирования',
-              path: ridePath + 'functions/built-in-functions/decoding-functions',
-            },
-            {
-              title: 'Функции кодирования',
-              path: ridePath + 'functions/built-in-functions/encoding-functions',
-            },
-            {
-              title: 'Функции исключения',
-              path: ridePath + 'functions/built-in-functions/exception-functions',
-            },
-            {
-              title: 'Функции хеширования',
-              path: ridePath + 'functions/built-in-functions/hashing-functions',
-            },
-            {
-              title: 'Функции списка',
-              path: ridePath + 'functions/built-in-functions/list-functions',
-            },
-            {
-              title: 'Математические функции',
-              path: ridePath + 'functions/built-in-functions/math-functions',
-            },
-            {
-              title: 'Функции строки',
-              path: ridePath + 'functions/built-in-functions/string-functions',
-            },
-            {
-              title: 'Функции объединения',
-              path: ridePath + 'functions/built-in-functions/union-functions',
-            },
-            {
-              title: 'Функции верификации',
-              path: ridePath + 'functions/built-in-functions/verification-functions',
-            },
-          ],
-        },
-        {
-          title: 'Вызываемая функция',
-          path: ridePath + 'functions/callable-function',
-        },
-        {
-          title: 'Функция-верификатор',
-          path: ridePath + 'functions/verifier-function',
-        },
-      ],
-    },
-    {
-      title: 'Макрос FOLD<N>',
-      path: ridePath + 'fold-macro',
-    },
-    {
-      title: 'Операторы',
-      path: ridePath + 'operators',
-      children: [
-        {
-          title: 'match-case',
-          path: ridePath + 'operators/match-case',
-        },
-      ]
     },
     {
       title: 'Структуры',
@@ -1012,15 +940,84 @@ module.exports = {
       ],
     },
     {
-      title: 'Переменные',
-      path: ridePath + 'variables',
+      title: 'Встроенные переменные',
+      path: ridePath + 'variables/built-in-variables',
+    },
+    {
+      title: 'Встроенные функции',
+      path: ridePath + 'functions/built-in-functions',
       children: [
         {
-          title: 'Встроенные переменные',
-          path: ridePath + 'variables/built-in-variables',
+          title: 'Функции хранилища данных аккаунта',
+          path: ridePath + 'functions/built-in-functions/account-data-storage-functions',
+        },
+        {
+          title: 'Функции блокчейна',
+          path: ridePath + 'functions/built-in-functions/blockchain-functions',
+        },
+        {
+          title: 'Функции массива байтов',
+          path: ridePath + 'functions/built-in-functions/byte-array-functions',
+        },
+        {
+          title: 'Функции конвертации',
+          path: ridePath + 'functions/built-in-functions/converting-functions',
+        },
+        {
+          title: 'Функции транзакции данных',
+          path: ridePath + 'functions/built-in-functions/data-transaction-functions',
+        },
+        {
+          title: 'Функции декодирования',
+          path: ridePath + 'functions/built-in-functions/decoding-functions',
+        },
+        {
+          title: 'Функции кодирования',
+          path: ridePath + 'functions/built-in-functions/encoding-functions',
+        },
+        {
+          title: 'Функции исключения',
+          path: ridePath + 'functions/built-in-functions/exception-functions',
+        },
+        {
+          title: 'Функции хеширования',
+          path: ridePath + 'functions/built-in-functions/hashing-functions',
+        },
+        {
+          title: 'Функции списка',
+          path: ridePath + 'functions/built-in-functions/list-functions',
+        },
+        {
+          title: 'Математические функции',
+          path: ridePath + 'functions/built-in-functions/math-functions',
+        },
+        {
+          title: 'Функции строки',
+          path: ridePath + 'functions/built-in-functions/string-functions',
+        },
+        {
+          title: 'Функции объединения',
+          path: ridePath + 'functions/built-in-functions/union-functions',
+        },
+        {
+          title: 'Функции верификации',
+          path: ridePath + 'functions/built-in-functions/verification-functions',
         },
       ],
     },
+    {
+      title: 'Операторы',
+      path: ridePath + 'operators',
+    },
+    {
+      title: 'Сопоставление с шаблоном: match-case',
+      path: ridePath + 'operators/match-case',
+    },
+    {
+      title: 'Итерации: FOLD<N>',
+      path: ridePath + 'fold-macro',
+    },
+
     {
       title: 'Ограничения',
       path: ridePath + 'limits',

@@ -1,6 +1,6 @@
 # Directives
 
-Every Ride script should start with directives for the compiler. The directives define the script format, what data is available to the script, what functions, structures and variables can be used.
+Every Ride script should start with directives for the compiler. The directives define the script format and available functions, structures and variables.
 
 Directive format is as follows:
 
