@@ -4,22 +4,17 @@ A running node requires up-to-date blockchain database for operation. You can do
 
 To download and manually deploy the latest blockchain database, complete the following steps:
 
-1. Download the **blockchain_last.tar** archive containing the latest database from one of the trusted links below.
-
-   <details>
-     <summary>Latest Downloadable Database (current state from nodes.wavesnodes.com)</summary>
+1. Download the **blockchain_last.tar** archive containing the latest database from one of the trusted links below (current state from nodes.wavesnodes.com).
   
-     Mainnet: [http://blockchain.wavesnodes.com/](http://blockchain.wavesnodes.com/)
+   Mainnet: [http://blockchain.wavesnodes.com/](http://blockchain.wavesnodes.com/)
 
-     Testnet: [http://blockchain-testnet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
+   Testnet: [http://blockchain-testnet.wavesnodes.com/](http://blockchain-testnet.wavesnodes.com/)
 
-     Stagenet: [http://blockchain-stagenet.wavesnodes.com/](http://blockchain-stagenet.wavesnodes.com/)
-
-   </details>
+   Stagenet: [http://blockchain-stagenet.wavesnodes.com/](http://blockchain-stagenet.wavesnodes.com/)
 
    **Warning**: Download the blockchain database only from a trusted source. Databases from unknown sources may contain incorrect data or balances.
 
-   Approxmate size of the latest database is 48 Gb (in June 2020).
+   Approximate size of the latest database is 48 Gb (in June 2020).
 
 2. Run the checksum with some tool to test files (checksum of the **blockchain_last.tar** file should be the same as inside **blockchain_last.tar.SHA1SUM** file).
 

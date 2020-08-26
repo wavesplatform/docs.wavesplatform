@@ -19,3 +19,4 @@
   * [Бинарный формат транзакции спонсирования](/ru/blockchain/binary-format/transaction-binary-format/sponsor-fee-transaction-binary-format)
   * [Бинарный формат транзакции установки скрипта](/ru/blockchain/binary-format/transaction-binary-format/set-script-transaction-binary-format)
   * [Бинарный формат транзакции установки скрипта ассета](/ru/blockchain/binary-format/transaction-binary-format/set-asset-script-transaction-binary-format)
+* [Бинарный формат подтверждений](/ru/blockchain/binary-format/transaction-proof-binary-format)

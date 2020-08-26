@@ -16,4 +16,4 @@ Script actions are executed, that is, they make changes on the blockchain only i
 | [SponsorFee](/en/ride/structures/script-actions/sponsor-fee) | 4 | Set up a sponsorship |
 | [StringEntry](/en/ride/structures/script-actions/string-entry) | 4 | Add or modify a string entry |
 
-> :warning: Standard Library Version 4 becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
+> :warning: Standard Library Version 4 becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.

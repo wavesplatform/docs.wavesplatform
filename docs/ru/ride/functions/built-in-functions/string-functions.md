@@ -1,7 +1,7 @@
 # Функции строки
 
 | Название | Описание | Сложность |
-| :--- | :--- | :--- | :--- |
+| :--- | :--- | :--- |
 | [contains(String, String): Boolean](#contains-string-string-boolean) | Проверяет, содержится ли строка в строке | 3 |
 | [drop(String, Int): String](#dropstring-int-string)  | Удаляет первые `n` символов строки | 1 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>20 для Стандартной библиотеки **версии 4** |
 | [dropRight(String, Int): String](#droprightstring-int-string)  | Удаляет последние `n` символов строки | 19 для Стандартной библиотеки **версии 3**<br>20 для Стандартной библиотеки **версии 4** |
@@ -19,7 +19,7 @@
 
 Проверяет, содержится ли строка в строке.
 
-> :warning: Функция `contains` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”. Версии 1.2.x в настоящее время работают только на [Stagenet](/ru/blockchain/blockchain-network/).
+> :warning: Функция `contains` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ``` ride
 contains(haystack: String, needle: String): Boolean
@@ -189,6 +189,8 @@ lastIndexOf("mamamama","ma",3) # Возвращает 2
 ## makeString(List[String], String): String
 
 Объединяет строки из списка, используя разделитель.
+
+> :warning: Функция `makeString` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ```ride
 makeString(arr: List[String], separator: String): String

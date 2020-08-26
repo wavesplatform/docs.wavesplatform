@@ -1,9 +1,7 @@
 # Транзакция генезиса
 
-**Транзакция генезиса** — [транзакция](/ru/blockchain/transaction/) [блока генезиса](/ru/blockchain/block/genesis-block), которая начисляет [WAVES](/ru/blockchain/token/waves) на [аккаунт](/ru/blockchain/account/).
-
-Транзакции генезиса отвечают за первоначальное распределение WAVES между аккаунтами во время создания [блокчейна](/ru/blockchain/blockchain/).
+Транзакция генезиса начисляет WAVES на аккаунт при первоначальном распределении WAVES во время создания блокчейна. Из транзакций генезиса состоит первый блок блокчейна — блок генезиса. Подробнее о первоначальном распределении см. в разделе [Собственный блокчейн](/ru/waves-node/private-waves-network).
 
 ## Бинарный формат
 
-Смотрите страницу [Бинарный формат транзакции генезиса](/ru/blockchain/binary-format/transaction-binary-format/genesis-transaction-binary-format).
+См. раздел [Бинарный формат транзакции генезиса](/ru/blockchain/binary-format/transaction-binary-format/genesis-transaction-binary-format).

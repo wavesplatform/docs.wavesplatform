@@ -6,8 +6,7 @@ The functionality of a regular [account](/en/blockchain/account/) only allows yo
 
 The following parameters can be used for checks:
 
-- [Transaction Signature](/en/blockchain/transaction/transaction-signature).
-- [Transaction proof](/en/blockchain/transaction/transaction-proof).
+- [Transaction proofs or signature](/en/blockchain/transaction/transaction-proofs).
 - The current blockchain height.
 - Arbitrary data existing in the blockchain, for example, [oracle](/en/blockchain/oracle) data.
 
@@ -52,8 +51,6 @@ The expression checks the transactions sent by the account for compliance with t
 - `true` (transaction is allowed)
 - `false` (transaction is not allowed)
 - `error`
-
-An account script may contain several expressions.
 
 ## Smart accounts and trading
 

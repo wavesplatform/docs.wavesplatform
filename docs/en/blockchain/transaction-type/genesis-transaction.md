@@ -1,9 +1,7 @@
-# Genesis transaction
+# Genesis Transaction
 
-A **genesis transaction** is a [transaction](/en/blockchain/transaction/) of the [genesis block](/en/blockchain/block/genesis-block) that assigns [WAVES](/en/blockchain/token/waves) to the [account](/en/blockchain/account/).
+Genesis transaction accrues WAVES to account upon the initial distribution of WAVES during the creation of the blockchain. The first block of the blockchain, the Genesis block, consists of Genesis transactions. For more details about initial WAVES distribution see the [Custom Blockchain](/en/waves-node/private-waves-network) article.
 
-Genesis transactions are responsible for the initial distribution of WAVES between accounts during the creation of the [blockchain](/en/blockchain/blockchain/).
+## Binary Format
 
-## Binary format
-
-See the page [Genesis transaction binary format](/en/blockchain/binary-format/transaction-binary-format/genesis-transaction-binary-format).
+See the [Genesis Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format/genesis-transaction-binary-format) article.

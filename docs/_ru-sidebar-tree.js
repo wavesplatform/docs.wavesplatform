@@ -73,24 +73,12 @@ module.exports = {
           title: 'WAVELET',
           path: blockchainPath + 'token/wavelet',
         },
-        {
-          title: 'WCT',
-          path: blockchainPath + 'token/wct',
-        },
       ],
     },
     {
       title: 'Транзакция',
       path: blockchainPath + 'transaction',
       children: [
-        {
-          title: 'ID транзакции',
-          path: blockchainPath + 'transaction/transaction-id',
-        },
-        {
-          title: 'Байты тела транзакции',
-          path: blockchainPath + 'transaction/transaction-body-bytes',
-        },
         {
           title: 'Комиссия за транзакцию',
           path: blockchainPath + 'transaction/transaction-fee',
@@ -102,90 +90,82 @@ module.exports = {
           ]
         },
         {
-          title: 'Подтверждение транзакции',
+          title: 'Подпись и подтверждения',
           path: blockchainPath + 'transaction/transaction-proof',
         },
         {
-          title: 'Подпись транзакции',
-          path: blockchainPath + 'transaction/transaction-signature',
-        },
-        {
-          title: 'Временная метка транзакции',
-          path: blockchainPath + 'transaction/transaction-timestamp',
+          title: 'Типы транзакций',
+          path: blockchainPath + 'transaction-type',
+          children: [
+            {
+              title: 'Вызов скрипта',
+              path: blockchainPath + 'transaction-type/invoke-script-transaction',
+            },
+            {
+              title: 'Выпуск',
+              path: blockchainPath + 'transaction-type/issue-transaction',
+            },
+            {
+              title: 'Генезис',
+              path: blockchainPath + 'transaction-type/genesis-transaction',
+            },
+            {
+              title: 'Данные',
+              path: blockchainPath + 'transaction-type/data-transaction',
+            },
+            {
+              title: 'Довыпуск',
+              path: blockchainPath + 'transaction-type/reissue-transaction',
+            },
+            {
+              title: 'Закрытие лизинга',
+              path: blockchainPath + 'transaction-type/lease-cancel-transaction',
+            },
+            {
+              title: 'Лизинг',
+              path: blockchainPath + 'transaction-type/lease-transaction',
+            },
+            {
+              title: 'Массовый перевод',
+              path: blockchainPath + 'transaction-type/mass-transfer-transaction',
+            },
+            {
+              title: 'Обмен',
+              path: blockchainPath + 'transaction-type/exchange-transaction',
+            },
+            {
+              title: 'Обновление информации ассета',
+              path: blockchainPath + 'transaction-type/update-asset-info-transaction',
+            },
+            {
+              title: 'Перевод',
+              path: blockchainPath + 'transaction-type/transfer-transaction',
+            },
+            {
+              title: 'Сжигание токена',
+              path: blockchainPath + 'transaction-type/burn-transaction',
+            },
+            {
+              title: 'Cоздание псевдонима',
+              path: blockchainPath + 'transaction-type/create-alias-transaction',
+            },
+            {
+              title: 'Спонсирование',
+              path: blockchainPath + 'transaction-type/create-alias-transaction',
+            },
+            {
+              title: 'Установка скрипта',
+              path: blockchainPath + 'transaction-type/set-script-transaction',
+            },
+            {
+              title: 'Установка скрипта ассета',
+              path: blockchainPath + 'transaction-type/set-asset-script-transaction',
+            },
+          ]
         },
         {
           title: 'Валидация транзакции',
           path: blockchainPath + 'transaction/transaction-validation',
-        },
-        {
-          title: 'Версия транзакции',
-          path: blockchainPath + 'transaction/transaction-version',
-        },
-      ]
-    },
-    {
-      title: 'Тип транзакции',
-      path: blockchainPath + 'transaction-type',
-      children: [
-        {
-          title: 'Транзакция создания псевдонима',
-          path: blockchainPath + 'transaction-type/create-alias-transaction',
-        },
-        {
-          title: 'Транзакция сжигания токена',
-          path: blockchainPath + 'transaction-type/burn-transaction',
-        },
-        {
-          title: 'Транзакция данных',
-          path: blockchainPath + 'transaction-type/data-transaction',
-        },
-        {
-          title: 'Транзакция обмена',
-          path: blockchainPath + 'transaction-type/exchange-transaction',
-        },
-        {
-          title: 'Транзакция генезиса',
-          path: blockchainPath + 'transaction-type/genesis-transaction',
-        },
-        {
-          title: 'Транзакция вызова скрипта',
-          path: blockchainPath + 'transaction-type/invoke-script-transaction',
-        },
-        {
-          title: 'Транзакция выпуска',
-          path: blockchainPath + 'transaction-type/issue-transaction',
-        },
-        {
-          title: 'Транзакция закрытия лизинга',
-          path: blockchainPath + 'transaction-type/lease-cancel-transaction',
-        },
-        {
-          title: 'Транзакция лизинга',
-          path: blockchainPath + 'transaction-type/lease-transaction',
-        },
-        {
-          title: 'Транзакция массового перевода',
-          path: blockchainPath + 'transaction-type/mass-transfer-transaction',
-        },
-        {
-          title: 'Транзакция обновления информации ассета',
-          path: blockchainPath + 'transaction-type/update-asset-info-transaction',
-        },
-        {
-          title: 'Транзакция довыпуска',
-          path: blockchainPath + 'transaction-type/reissue-transaction',
-        },
-        {
-          title: 'Транзакция установки скрипта ассета',
-          path: blockchainPath + 'transaction-type/set-asset-script-transaction',
-        },
-        {
-          title: 'Транзакция установки скрипта',
-          path: blockchainPath + 'transaction-type/set-script-transaction',
-        },
-        {
-          title: 'Транзакция перевода',
-          path: blockchainPath + 'transaction-type/transfer-transaction',
         },
       ]
     },
@@ -278,7 +258,7 @@ module.exports = {
       path: blockchainPath + 'order',
     },
     {
-      title: 'Форматы данных и протоколы',
+      title: 'Протоколы и форматы данных',
       path: blockchainPath + 'waves-protocol',
       children: [
         {
@@ -438,7 +418,7 @@ module.exports = {
               ],
             },
             {
-              title: '[en] Transaction proof binary format',
+              title: 'Бинарный формат подтверждений',
               path: blockchainPath + 'binary-format/transaction-proof-binary-format',
             },
           ],
@@ -555,6 +535,10 @@ module.exports = {
         {
           title: 'Заголовки запроса',
           path: nodePath + 'node-api/headers',
+        },
+        {
+          title: 'CORS',
+          path: nodePath + 'node-api/cors',
         },
         {
           title: 'Активация фич',

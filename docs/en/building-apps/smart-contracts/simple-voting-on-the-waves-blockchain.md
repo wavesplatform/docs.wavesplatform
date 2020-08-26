@@ -139,7 +139,7 @@ Send a [set script transaction](/en/blockchain/transaction-type/set-script-trans
 
 ![](./_assets/voting/publish.png)
 
-In the [Waves Explorer](https://wavesexplorer.com/testnet), in the _test network_, find the information about the activity on the account of the head of the HOA. Enter the address of the head of the HOA in the search bar and press **Enter**.
+In the [Waves Explorer](https://testnet.wavesexplorer.com/) for Testnet, find the information about the activity on the account of the head of the HOA. Enter the address of the head of the HOA in the search bar and press **Enter**.
 
 ![](./_assets/voting/testnet-address.png)
 

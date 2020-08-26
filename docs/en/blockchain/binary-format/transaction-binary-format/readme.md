@@ -4,7 +4,12 @@
 
 Transactions are stored on the blockchain in a binary format (byte representation). [Node extensions](/en/waves-node/extensions/) such as [gRPC server](/en/waves-node/extensions/grpc-server/) can work directly with data in binary format.
 
-The transaction signature and ID are also formed on the basis of the binary format, namely bytes of the body of the transaction: all fields, except for the ID and the proofs (or the ID and the signature, depending on the version of the transaction). The guideline for generating a signature and ID is given in the [Cryptographic practical details](/en/blockchain/waves-protocol/cryptographic-practical-details#signing) article.
+The transaction signature and ID are also formed on the basis of the binary format, namely the transaction body bytes. The contents of transaction body bytes is given in the description of the binary format of each type and version of the transaction. Normally the transaction body bytes include all transaction fields, with the exception of the following fields:
+- transaction ID (it is not stored on the blockchain),
+- version flag,
+- `proofs` or `signature`, depending on the version of the transaction.
+
+The guideline for generating a signature and ID is given in the [Cryptographic practical details](/en/blockchain/waves-protocol/cryptographic-practical-details#signing) article.
 
 All strings are UTF-8 encoded.
 
@@ -27,12 +32,14 @@ How to generate a transacton signature using Protobuf:
 
 4. Generate the signature for the transaction body bytes with the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) function using sender private key bytes.
 
+:warning: The byte representation of a transaction based on the protobuf schema must not contain default values. Make sure that your Protocol Buffers compiler does not write the field value when serializing if it is equal to the default value for this data type, otherwise the transaction signature will be invalid. For default values, see the [Default Values](https://developers.google.com/protocol-buffers/docs/proto3#default) section in the Protocol Buffers documentation.
+
 Send the signed transaction to a node:
 
 * If you use your own node and [gRPC server](/en/waves-node/extensions/grpc-server/), send the `SignedTransaction` object.
 * If you use Node REST API, compose the JSON representation of transaction and add the base58-encoded signature to the `proofs` array. Send the transactrion to a node using `POST ​/transactions​/broadcast` method.
 
-The protobuf-based binary format is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
+The protobuf-based binary format is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ```protobuf
 message SignedTransaction {

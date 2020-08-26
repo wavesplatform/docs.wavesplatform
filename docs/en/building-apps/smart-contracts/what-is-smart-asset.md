@@ -5,7 +5,6 @@ Any user can not only create their own [token](/en/blockchain/token/) on the Wav
 - **Freezing**. [Transactions](/en/blockchain/transaction/) with a smart asset can be prohibited before (or after) the moment when the [blockchain](/en/blockchain/blockchain/) reaches a certain [height](/en/blockchain/glossary#blockchain-height).
 - **Black / white lists**. Transfer of a smart asset can be prohibited to the specified [addresses](/en/blockchain/account/address) or, conversely, allowed only to the specified addresses.
 - **Commission**. The creator of the smart asset can set a commission that will be paid to him for each operation with his smart asset.
-- **Multi-signature**. A smart asset may require the [signing](/en/blockchain/transaction/transaction-signature) of multiple accounts to complete a transaction.
 - **Purchase restriction**. A rule can be established according to which a smart asset can only be purchased for certain tokens. Buying a smart asset for other tokens may be prohibited.
 - **Restriction on the matcher**. A rule may be established according to which the purchase and sale transaction of a smart asset can be carried out only by a specific matcher.
 - **Gaming**. For a smart asset used as game currency, permission can be set to make transactions only in specified game locations or only between characters with certain properties.

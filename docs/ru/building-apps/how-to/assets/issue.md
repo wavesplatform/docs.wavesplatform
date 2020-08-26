@@ -80,7 +80,7 @@ my_address.issueAsset(
 
 В Стандартной библиотеке версии 4 вызываемая функция может выпустить токен. Подробнее см. разделы [Вызываемая функция](/ru/ride/functions/callable-function) и [Issue](/ru/ride/structures/script-actions/issue) главы [Ride](/ru/ride/).
 
-> :warning: Стандартная библиотека версии 4 доступна начиная с версии ноды 1.2.0, после активации фичи №&nbsp;16 “Ride V4 and multiple attached payments for Invoke Script Transaction”. В настоящее время версии 1.2.x доступны только на Stagenet.
+> :warning: Стандартная библиотека версии 4 доступна начиная с версии ноды 1.2.0, после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 В следующем примере функция `myToken`выпускает токен со следующими параметрами:
 

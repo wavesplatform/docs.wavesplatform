@@ -19,7 +19,7 @@
 
 Checks whether the string contains substring.
 
-> :warning: The `contains` function is added in Standard library **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
+> :warning: The `contains` function is added in Standard library **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ``` ride
 drop(haystack: String, needle: String): Boolean
@@ -189,6 +189,8 @@ lastIndexOf("mamamama","ma",3) # Returns 2
 ## makeString(List[String], String): String
 
 Concatenates list strings adding a separator.
+
+> :warning: The `makeString` function is added in Standard library **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ```ride
 makeString(arr: List[String], separator: String): String

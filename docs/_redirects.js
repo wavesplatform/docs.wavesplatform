@@ -106,6 +106,14 @@ module.exports = [
     from: '/ru/blockchain/smart-asset.html',
   },
   {
+    from: '/en/blockchain/token/wct',
+    to: '/en/blockchain/glossary#w',
+  },
+  {
+    from: '/ru/blockchain/token/wct',
+    to: '/ru/blockchain/glossary#w',
+  },
+  {
     to: '/en/blockchain/binary-format/transaction-binary-format',
     from: '/en/blockchain/transaction-data-structure.html',
   },
@@ -270,6 +278,67 @@ module.exports = [
     from: '/en/technical-details/data-transaction.html',
   },
   {
+    /* link found in blog */
+    from: '/en/technical-details/mass-transfer-transaction.html',
+    to: '/en/blockchain/transaction-type/mass-transfer-transaction',
+  },
+  {
+    /* link found in blog */
+    from: '/technical-details/mass-transfer-transaction.html',
+    to: '/en/blockchain/transaction-type/mass-transfer-transaction',
+  },
+  {
+    /* link found in blog */
+    from: '/developers-guide/mass-transfer-transaction.html',
+    to: '/en/blockchain/transaction-type/mass-transfer-transaction',
+  },
+  {
+    /* link found on github */
+    from: '/en/technical-details/validation-rules.html',
+    to: '/en/blockchain/waves-protocol/validation-rules',
+  },
+  {
+    /*===============================  Убираем однострочные топики  =====================================*/
+    from: '/ru/blockchain/transaction/transaction-body-bytes',
+    to: '/ru/blockchain/glossary#байты-тела-транзакции',
+  },
+  {
+    from: '/en/blockchain/transaction/transaction-body-bytes',
+    to: '/en/blockchain/glossary#transaction-body-bytes',
+  },
+  {
+    from: '/ru/blockchain/transaction/transaction-id',
+    to: '/en/blockchain/waves-protocol/cryptographic-practical-details#calculating-transaction-id',
+  },
+  {
+    from: '/en/blockchain/transaction/transaction-id',
+    to: '/en/blockchain/waves-protocol/cryptographic-practical-details#calculating-transaction-id',
+  },
+  {
+    from: '/ru/blockchain/transaction/transaction-signature',
+    to: '/ru/blockchain/transaction/transaction-proof',
+  },
+  {
+    from: '/en/blockchain/transaction/transaction-signature',
+    to: '/en/blockchain/transaction/transaction-proof',
+  },
+  {
+    from: '/ru/blockchain/transaction/transaction-timestamp',
+    to: '/ru/blockchain/transaction/#json-представление-транзакции',
+  },
+  {
+    from: '/en/blockchain/transaction/transaction-timestamp',
+    to: '/en/blockchain/transaction/#json-representation',
+  },
+  {
+    from: '/ru/blockchain/transaction/transaction-version',
+    to: '/ru/blockchain/transaction/#json-представление-транзакции',
+  },
+  {
+    from: '/en/blockchain/transaction/transaction-version',
+    to: '/en/blockchain/transaction/#json-representation',
+  },
+  {
     /*===============================  Client  =====================================*/
     from: '/ru/waves-client()',
     to: 'https://docs.waves.exchange/ru',
@@ -277,6 +346,10 @@ module.exports = [
   {
     from: '/en/waves-client()',
     to: 'https://docs.waves.exchange/en',
+  },
+  { /* link found on github */
+    from: '/waves-client/assets-management/issue-an-asset.html',
+    to: 'https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-token-creation',
   },
   {
     /*===============================  DEX  =====================================*/
@@ -303,6 +376,10 @@ module.exports = [
   {
     from: '/ru/waves-keeper/how-to-use-waves-keeper.html',
     to: '/ru/ecosystem/waves-keeper/getting-started-with-keeper',
+  },
+  {  /* link found on kardanovir.github.io */
+    from: '/en/development-and-api/waves-keeper-api/waves-keeper-api.html',
+    to: '/en/ecosystem/waves-keeper/waves-keeper-api',
   },
   {
     /*===============================  Matcher  =====================================*/
@@ -629,6 +706,10 @@ module.exports = [
     to: '/en/waves-node/how-to-install-a-node/how-to-install-a-node',
     from: '/en/waves-full-node/how-to-install-a-node/how-to-install-a-node.html',
   },
+  {  /* link found on stakingrewards.com */
+    to: '/en/waves-node/how-to-install-a-node/how-to-install-a-node',
+    from: '/waves-full-node/how-to-install-a-node/how-to-install-a-node.html',
+  },
   {
     to: '/en/waves-node/how-to-install-a-node/on-windows',
     from: '/en/waves-full-node/how-to-install-a-node/on-windows.html',
@@ -677,6 +758,10 @@ module.exports = [
     to: '/en/waves-node/node-api/transactions',
     from: '/en/waves-api-and-sdk/waves-node-rest-api/transactions.html',
   },
+  {  /* link found on github */
+    to: '/en/waves-node/node-api/utils',
+    from: '/en/development-and-api/waves-node-rest-api/utils.html',
+  },
   {
     to: '/en/waves-node/node-api',
     from: '/en/waves-api-and-sdk/waves-node-rest-api.html',
@@ -689,9 +774,33 @@ module.exports = [
     to: '/en/waves-node/private-waves-network',
     from: '/en/waves-full-node/private-waves-network.html',
   },
+  {  /* link found on github */
+    from: '/en/technical-details/creating-a-private-waves-blockchain-network.html',
+    to: '/en/waves-node/private-waves-network',
+  },
   {
     to: '/en/waves-node/node-configuration',
     from: '/en/waves-node/configuration-parameters.html',
+  },
+  {  /* link found on https://hub.docker.com/r/wavesplatform/wavesnode */
+    from: '/en/waves-Node/Node-configuration.html',
+    to: '/en/waves-node/node-configuration',
+  },
+  {  /* link found on https://hub.docker.com/r/wavesplatform/wavesnode */
+    from: '/en/waves-Node/logging-configuration.html',
+    to: '/en/waves-node/logging-configuration',
+  },
+  {  /* link found on github */
+    to: '/en/waves-node/node-configuration',
+    from: '/en/waves-full-node/how-to-configure-a-node.html',
+  },
+  {  /* link found on github */
+    to: '/en/waves-node/node-configuration',
+    from: '/en/waves-full-node/configuration-parameters.html',
+  },
+  {  /* link found on github */
+    from: '/en/waves-node/logging.html',
+    to: '/en/waves-node/logging-configuration',
   },
   {
     /*=============================== Developer tools  =====================================*/
@@ -714,6 +823,17 @@ module.exports = [
     to: '/ru/building-apps/smart-contracts/tools/waves-ide',
     from: '/ru/developer-tools/repl.html',
   },
+  {  /* link found in blog */
+    from: '/development-and-api/waves-node-rest-api/asset-transactions/private-functions.html',
+    to: '/en/waves-node/node-api/asset-transactions/private-functions',
+  },
+  {  /* link found in blog */
+    from: '/development-and-api/waves-node-rest-api/transactions.html',
+    to: '/en/waves-node/node-api/transactions',
+  },
+  {  /* link found on reddit */
+    from: '/development-and-api/dex-api/matcher.html',
+    to: 'https://docs.waves.exchange/en/waves-matcher/',
   {
     /*===============================  API & SDK  =====================================*/
     to: 'https://docs.waves.exchange/en/waves-matcher/matcher-api',
@@ -809,6 +929,9 @@ module.exports = [
     from: '/en/waves-node/options-for-getting-actual-blockchain/export-and-import-from-the-blockchain.html',
     to: '/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain',
   },
+  { /* link found on github */
+    from: '/en/waves-full-node/export-and-import-from-the-blockchain.html',
+    to: '/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain',
   {
     from: '/en/waves-node/prerequisites.html',
     to: '/en/waves-node',
@@ -948,6 +1071,10 @@ module.exports = [
   {
     from: '/ru/platform-features/decentralized-cryptocurrency-exchange-dex.html',
     to: 'https://docs.waves.exchange/ru/',
+  },
+  {
+    from: '/en/platform-features/leased-proof-of-stake-lpos.html',
+    to: '/en/blockchain/leasing',
   },
   {
     from: '/ru/platform-features/leased-proof-of-stake-lpos.html',
