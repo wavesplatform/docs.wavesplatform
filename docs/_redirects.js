@@ -352,11 +352,11 @@ module.exports = [
     to: '/ru/ride/script',
   },
   {
-    from: '/en/ride/script/script-type',
+    from: '/en/ride/script/script-types',
     to: '/en/ride/script',
   },
   {
-    from: '/ru/ride/script/script-type',
+    from: '/ru/ride/script/script-types',
     to: '/ru/ride/script',
   },
   {

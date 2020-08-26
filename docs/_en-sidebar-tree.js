@@ -638,7 +638,7 @@ module.exports = {
       path: ridePath,
     },
     {
-      title: 'Getting started',
+      title: 'Getting Started',
       path: ridePath + 'getting-started',
     },
     {
@@ -680,11 +680,11 @@ module.exports = {
       ],
     },
     {
-      title: 'Ride Script. Script Types',
+      title: 'Script Types',
       path: ridePath + 'script',
       children: [
         {
-          title: 'dApp script',
+          title: 'dApp Script',
           path: ridePath + 'script/script-types/dapp-script',
           children: [
             {
@@ -692,21 +692,21 @@ module.exports = {
               path: ridePath + 'functions/annotations',
             },
             {
-              title: 'Callable function',
+              title: 'Callable Function',
               path: ridePath + 'functions/callable-function',
             },
             {
-              title: 'Verifier function',
+              title: 'Verifier Function',
               path: ridePath + 'functions/verifier-function',
             },
           ],
         },
         {
-          title: 'Account script',
+          title: 'Account Script',
           path: ridePath + 'script/script-types/account-script',
         },
         {
-          title: 'Asset script',
+          title: 'Asset Script',
           path: ridePath + 'script/script-types/asset-script',
         },
       ],
@@ -758,7 +758,7 @@ module.exports = {
       path: ridePath + 'structures',
       children: [
         {
-          title: 'Script actions',
+          title: 'Script Actions',
           path: ridePath + 'structures/script-actions',
           children: [
             {
@@ -808,7 +808,7 @@ module.exports = {
           ],
         },
         {
-          title: 'Script results (v3)',
+          title: 'Script Results (v3)',
           path: ridePath + 'structures/script-results',
           children: [
             {
@@ -826,7 +826,7 @@ module.exports = {
           ],
         },        
         {
-          title: 'Common structures',
+          title: 'Common Structures',
           path: ridePath + 'structures/common-structures',
           children: [
             {
@@ -872,7 +872,7 @@ module.exports = {
           ],
         },
         {
-          title: 'Transaction structures',
+          title: 'Transaction Structures',
           path: ridePath + 'structures/transaction-structures',
           children: [
             {
@@ -944,67 +944,67 @@ module.exports = {
       ],
     },
     {
-      title: 'Built-in variables',
+      title: 'Built-in Variables',
       path: ridePath + 'variables/built-in-variables',
     },
     {
-      title: 'Built-in functions',
+      title: 'Built-in Functions',
       path: ridePath + 'functions/built-in-functions',
       children: [
         {
-          title: 'Account data storage functions',
+          title: 'Account Data Storage Functions',
           path: ridePath + 'functions/built-in-functions/account-data-storage-functions',
         },
         {
-          title: 'Blockchain functions',
+          title: 'Blockchain Functions',
           path: ridePath + 'functions/built-in-functions/blockchain-functions',
         },
         {
-          title: 'Byte array functions',
+          title: 'Byte Array Functions',
           path: ridePath + 'functions/built-in-functions/byte-array-functions',
         },
         {
-          title: 'Converting functions',
+          title: 'Converting Functions',
           path: ridePath + 'functions/built-in-functions/converting-functions',
         },
         {
-          title: 'Data transaction functions',
+          title: 'Data Transaction Functions',
           path: ridePath + 'functions/built-in-functions/data-transaction-functions',
         },
         {
-          title: 'Decoding functions',
+          title: 'Decoding Functions',
           path: ridePath + 'functions/built-in-functions/decoding-functions',
         },
         {
-          title: 'Encoding functions',
+          title: 'Encoding Functions',
           path: ridePath + 'functions/built-in-functions/encoding-functions',
         },
         {
-          title: 'Exception functions',
+          title: 'Exception Functions',
           path: ridePath + 'functions/built-in-functions/exception-functions',
         },
         {
-          title: 'Hashing functions',
+          title: 'Hashing Functions',
           path: ridePath + 'functions/built-in-functions/hashing-functions',
         },
         {
-          title: 'List functions',
+          title: 'List Functions',
           path: ridePath + 'functions/built-in-functions/list-functions',
         },
         {
-          title: 'Math functions',
+          title: 'Math Functions',
           path: ridePath + 'functions/built-in-functions/math-functions',
         },
         {
-          title: 'String functions',
+          title: 'String Functions',
           path: ridePath + 'functions/built-in-functions/string-functions',
         },
         {
-          title: 'Union functions',
+          title: 'Union Functions',
           path: ridePath + 'functions/built-in-functions/union-functions',
         },
         {
-          title: 'Verification functions',
+          title: 'Verification Functions',
           path: ridePath + 'functions/built-in-functions/verification-functions',
         },
       ],
@@ -1014,7 +1014,7 @@ module.exports = {
       path: ridePath + 'operators',
     },
     {
-      title: 'Pattern matching: match-case',
+      title: 'Pattern Matching: match-case',
       path: ridePath + 'operators/match-case',
     },
     {

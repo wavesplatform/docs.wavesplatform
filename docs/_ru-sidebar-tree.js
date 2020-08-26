@@ -676,11 +676,11 @@ module.exports = {
       ],
     },
     {
-      title: 'Скрипт Ride. Типы скриптов',
+      title: 'Типы скриптов',
       path: ridePath + 'script',
       children: [
         {
-          title: 'dApp-скрипт',
+          title: 'Скрипт dApp',
           path: ridePath + 'script/script-types/dapp-script',
           children: [
             {
