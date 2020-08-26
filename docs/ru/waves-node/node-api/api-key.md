@@ -1,7 +1,7 @@
 
 # API ключ
 
-Для использования приватных методов [API ноды](/ru/waves-node/node-api/) необходимо предоставить [API ключ](https://en.wikipedia.org/wiki/Application_programming_interface_key) в HTTP запросе. Владелец ноды может [задать API ключ](#задать-api-ключ) и другие параметры в секции [Настройки REST API](/ru/waves-node/node-configuration#настройки-rest-api) файла конфигурации ноды.
+Приватные методы [API ноды](/ru/waves-node/node-api/) (например, подписание транзакции от имени ноды или экспорт seed) доступны только владельцу ноды и требуют [API ключ](https://en.wikipedia.org/wiki/Application_programming_interface_key) в HTTP запросе. Владелец ноды может [задать API ключ](#задать-api-ключ) и другие параметры в секции [Настройки REST API](/ru/waves-node/node-configuration#настройки-rest-api) файла конфигурации ноды. Если вы не владелец ноды, то вам доступны только публичные методы.
 
 Ваш API ключ ноды очень важен, как и [seed фраза](/ru/blockchain/glossary#secret-phrase) и пароль кошелька.
 
