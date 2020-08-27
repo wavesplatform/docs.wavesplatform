@@ -109,4 +109,4 @@
 
 ## Структура Ride
 
-Для операций с транзакцией в смарт-контрактах используется структура [ExchangeTransaction](/ru/ride/structures/transaction-structures/exchange-transaction-binary-format).
+Для операций с транзакцией в смарт-контрактах используется структура [ExchangeTransaction](/ru/ride/structures/transaction-structures/exchange-transaction).

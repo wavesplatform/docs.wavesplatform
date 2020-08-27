@@ -34,9 +34,9 @@ Transaction version 2 can accept orders of version [1](/en/blockchain/binary-for
 
 | # | Field | JSON field name | Field type | Field size in bytes | Comment |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **1** | Version flag | | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Indicates the [transaction version](/en/blockchain/transaction/transaction-version) is version 2 or higher.<br>Value must be 0 |
+| **1** | Version flag | | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Indicates the transaction version is 2 or higher.<br>Value must be 0 |
 | **2** | [Transaction type ID](/en/blockchain/transaction-type/) | type | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 7 |
-| **3** | [Transaction version](/en/blockchain/transaction/transaction-version) | version | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 2 |
+| **3** | Transaction version | version | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | Value must be 2 |
 | **4.1** | Buy order size |  | [Int](/en/blockchain/blockchain/blockchain-data-types) | 4 | Size including flag 4.2 |
 | **4.2** | Buy order version flag | order1.version | [Byte](/en/blockchain/blockchain/blockchain-data-types) | `S` | `S` = 1 if the order version is 1.<br>`S` = 0 if the order version is 2 or 3 |
 | **4.3** | Buy order | order1 | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | See [Order Binary Format](/en/blockchain/binary-format/order-binary-format) |  |
@@ -48,7 +48,7 @@ Transaction version 2 can accept orders of version [1](/en/blockchain/binary-for
 | **8** | Buy [matcher fee](/en/blockchain/glossary#m) | buyMatcherFee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **9** | Sell [matcher fee](/en/blockchain/glossary#m) | sellMatcherFee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **10** | [Transaction fee](/en/blockchain/transaction/transaction-fee) | fee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| **11** | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) | timestamp | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
+| **11** | Transaction timestamp | timestamp | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 12 | [Transaction proofs](/en/blockchain/transaction/transaction-proof) | proofs | See [Transaction Proofs Binary Format](/en/blockchain/binary-format/transaction-proof-binary-format) | `S` | If the array is empty, then `S` = 3. <br>If the array is not empty, then `S` = 3 + 2 × `N` + 64 × `N`, where `N` is the number of proofs in the array.<br>The maximum number of proofs in the array is 8. The size of each proof is 64 bytes |
 
 > The fields numbered in bold are the transaction body bytes.
@@ -73,7 +73,7 @@ Transaction version 1 can accept orders of version [1](/en/blockchain/binary-for
 | **8** | Buy [matcher fee](/en/blockchain/glossary#m) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **9** | Sell [matcher fee](/en/blockchain/glossary#m) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **10** | [Transaction fee](/en/blockchain/transaction/transaction-fee) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| **11** | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
+| **11** | Transaction timestamp | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 12 | [Transaction signature](/en/blockchain/transaction/transaction-proofs) | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 64 |  | |
 
 > The fields numbered in bold are the transaction body bytes.

@@ -222,15 +222,15 @@ module.exports = [
     from: '/en/waves-environment/waves-protocol/leased-proof-of-stake-lpos.html',
   },
   {
-    to: '/en/blockchain/transaction/transaction-body-bytes',
+    to: '/en/blockchain/transaction/',
     from: '/en/blockchain/waves-protocol/versioned-transactions.html',
   },
   {
-    to: '/en/blockchain/transaction/transaction-body-bytes',
+    to: '/en/blockchain/glossary#t',
     from: '/en/blockchain/transaction-body-bytes.html',
   },
   {
-    to: '/ru/blockchain/transaction/transaction-body-bytes',
+    to: '/ru/blockchain/glossary#t',
     from: '/ru/blockchain/transaction-body-bytes.html',
   },
   {
@@ -300,11 +300,11 @@ module.exports = [
   {
     /*===============================  Убираем однострочные топики  =====================================*/
     from: '/ru/blockchain/transaction/transaction-body-bytes',
-    to: '/ru/blockchain/glossary#байты-тела-транзакции',
+    to: '/ru/blockchain/glossary#б',
   },
   {
     from: '/en/blockchain/transaction/transaction-body-bytes',
-    to: '/en/blockchain/glossary#transaction-body-bytes',
+    to: '/en/blockchain/glossary#t',
   },
   {
     from: '/ru/blockchain/transaction/transaction-id',

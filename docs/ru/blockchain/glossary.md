@@ -25,7 +25,7 @@
 
 Состав байтов тела транзакции приведен в описании бинарного представления каждого типа и версии транзакции.
 
-На основе байтов тела транзакции формируется идентификатор и [подпись](/ru/blockchain/transaction/transaction-signature) транзакции. Правила генерации идентификатора и подписи рассмотрены в разделе [Cryptographic practical details](/en/blockchain/waves-protocol/cryptographic-practical-details#signing).
+На основе байтов тела транзакции формируется идентификатор и [подпись](/ru/blockchain/transaction/transaction-proof) транзакции. Правила генерации идентификатора и подписи рассмотрены в разделе [Cryptographic practical details](/en/blockchain/waves-protocol/cryptographic-practical-details#signing).
 
 ### Блок
 
