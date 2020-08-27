@@ -834,6 +834,7 @@ module.exports = [
   {  /* link found on reddit */
     from: '/development-and-api/dex-api/matcher.html',
     to: 'https://docs.waves.exchange/en/waves-matcher/',
+  },
   {
     /*===============================  API & SDK  =====================================*/
     to: 'https://docs.waves.exchange/en/waves-matcher/matcher-api',
@@ -932,6 +933,7 @@ module.exports = [
   { /* link found on github */
     from: '/en/waves-full-node/export-and-import-from-the-blockchain.html',
     to: '/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain',
+  },
   {
     from: '/en/waves-node/prerequisites.html',
     to: '/en/waves-node',
