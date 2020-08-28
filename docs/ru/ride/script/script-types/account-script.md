@@ -48,8 +48,7 @@ func doSomething() = {
 
 ```scala
 match tx {
-  case t : Order => false
-  case t : SetScriptTransaction => false
+  case t : Order|SetScriptTransaction => false
   case _ => sigVerify(tx.bodyBytes, tx.proofs[0], tx.senderPublicKey)
 }
 ```
@@ -61,7 +60,7 @@ match tx {
 * Поля текущей верифицируемой транзакции/ордера, в том числе подтверждения (`proofs`). Встроенная переменная `tx` содержит эту транзакцию или ордер. Набор полей зависит от типа транзакции/ордера, см. разделы [Структуры транзакций](/ru/ride/structures/transaction-structures/), [Order](/ru/ride/structures/common-structures/order).
 * [Данные блокчейна](/ru/ride/#работа-с-бокчейном): текущая высота, балансы аккаунтов, записи в хранилищах данных аккаунтов, параметры токенов и др.
 
-   :warning: Данные блокчейна доступны только при проверке транзакции и недоступны при проверке ордера.
+   :warning: Данные блокчейна доступны только при проверке транзакции и недоступны при проверке ордера (`case t: Order`).
 
 ## Примеры
 

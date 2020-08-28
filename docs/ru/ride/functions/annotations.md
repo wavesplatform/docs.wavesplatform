@@ -1,10 +1,10 @@
 # Аннотации
 
-**Аннотация** — форма метаданных, которая добавляется к [функции](/ru/ride/functions/) [dApp-скрипта](/ru/ride/script/script-types/dapp-script).
+**Аннотация** — форма метаданных, которая добавляется к [функции](/ru/ride/functions/) [скрипта dApp](/ru/ride/script/script-types/dapp-script).
 
 В настоящее время существуют две аннотации: `@Callable(i)` и `@Verifier(tx)`. Имя переменной в аннотации обязательно, даже если вызываемая функция ее не использует.
 
-Аннотированная функция не может быть вызвана внутри dApp-скрипта.
+Аннотированная функция не может быть вызвана внутри скрипта dApp.
 
 ## @Callable(i: [Invocation](/ru/ride/structures/common-structures/invocation))
 
