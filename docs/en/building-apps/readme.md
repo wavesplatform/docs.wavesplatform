@@ -1,8 +1,14 @@
 # Developer guide
 
-Waves provides client libraries to work with the blockchain from your applications.
+Waves provides client libraries and APIs to work with the blockchain from your applications.
 
 Also, you can create decentralized applications (dApps) on the blockchain using [Ride](/en/ride/) language. The dApps functions can be called from applications using client libraries.
+
+## Node API
+
+You can use Node REST API to send transactions and use various node utils. For details see [Node API](/en/waves-node/node-api/) article.
+
+You can also use other APIs provided by Waves for retrieving data from blockchain, integrating blockchain operations into your games, setup web services to interact with user accounts if their browser has Waves Keeper installed and more. For details see [Waves API & SDK](/en/building-apps/waves-api-and-sdk/) article.
 
 ## Client libraries
 
