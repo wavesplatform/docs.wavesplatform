@@ -21,7 +21,7 @@ The invoke script transaction can have payments in favor of dApp applied. Funds 
 
 ## Annotation
 
-The callable function should be  marked with the `@Callable(i)` annotation, where `i` is an [Invocation](/en/ride/structures/common-structures/invocation) structure that contains invoke script transaction fields that are available to the callable function. The variable name in the annotation is required even if the called function does not use it.
+The callable function should be marked with the `@Callable(i)` annotation, where `i` is an [Invocation](/en/ride/structures/common-structures/invocation) structure that contains invoke script transaction fields that are available to the callable function. The variable name in the annotation is required even if the called function does not use it.
 
 ## Version 3
 

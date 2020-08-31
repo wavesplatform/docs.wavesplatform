@@ -6,7 +6,7 @@ Ride features:
 
 * [strong](https://en.wikipedia.org/wiki/Strong_and_weak_typing) [static typing](https://en.wikipedia.org/wiki/Type_system#Static_type_checking)
 * no loops, recursions and goto-like expressions, and therefore Ride is not [Turing complete](https://en.wikipedia.org/wiki/Turing_completeness)
-* [case-sensitivity](https://en.wikipedia.org/wiki/Case_sensitivity)
+* [case-sensitivity](https://en.wikipedia.org/wiki/Case_sensitivity).
 
 Base concepts:
 

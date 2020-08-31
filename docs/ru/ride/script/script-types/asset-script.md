@@ -8,7 +8,7 @@
 
 ## Формат скрипта ассета
 
-![](./_assets/contract-structure.png)
+![](./_assets/asset-script-format.png)
 
 ### Директивы
 

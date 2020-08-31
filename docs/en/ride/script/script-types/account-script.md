@@ -1,6 +1,8 @@
-# Account script
+# Account Script
 
-An **account script** is a [script](/en/ride/script/) that has the following [directives](/en/ride/script/directives):
+**Account script** verifies transactions and orders that are sent on behalf of the account. That is, the account script allows or denies the transaction or the order depending on whether it meets the specified conditions.
+
+Account with an account script assigned to it is called **smart account**. 
 
 ``` ride
 {-# CONTENT_TYPE EXPRESSION #-}
