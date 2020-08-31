@@ -41,6 +41,6 @@ Waves использует алгоритм консенсуса Proof-of-Stake 
 ## Присоединяйтесь к сообществу Waves
 
 * [Запустите собственную ноду](/ru/waves-node/) и получайте вознаграждение за генерацию блоков.
-* Извлекайте прибыль от [лизинга WAVES](/en/blockchain/leasing) и [стейкинга USDN](https://neutrino.at/staking).
+* Извлекайте прибыль от [лизинга WAVES](/en/blockchain/leasing) и [стейкинга USDN](https://waves.exchange/investments/staking/USDN).
 * [Создавайте децентрализованные приложения](/ru/building-apps/) — для игр, финансов, цифровой идентификации, цепочек поставок и любые другие.
 * Пользуйтесь [приложениями на блокчейне Waves](https://www.dappocean.io/ru).
