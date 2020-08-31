@@ -32,6 +32,6 @@ To create an account, store keys and sign transactions, you can use the followin
 
 ## dApp
 
-A decentralized application or dApp is an application that runs on the blockchain. A dApp can store data on the blockchain and invoke a smart contract assigned to an account. There is therefore no centralized database to hack or be compromised. Any user can view the script code and the result of its invocation.
+A decentralized application or dApp is a blockchain-empowered application. A dApp can store data on the blockchain and invoke a script assigned to an account. There is therefore no centralized database to hack or be compromised. Any user can view the script code and the result of its invocation.
 
-To learn more about Waves technology and gain the hands-on skills needed to build blockchain-empowered applications, join the free [Mastering Web3 with Waves] course (https://www.coursera.org/learn/mastering-web3-waves) on Coursera.
+To learn more about Waves technology and gain the hands-on skills needed to build dApps, join the free [Mastering Web3 with Waves] course (https://www.coursera.org/learn/mastering-web3-waves) on Coursera.

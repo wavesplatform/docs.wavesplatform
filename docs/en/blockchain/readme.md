@@ -8,8 +8,7 @@ Issuing your own token on the Waves blockchain takes one minute and does not req
 
 ## Smart Сontracts
 
-Ride is Waves’ functional purpose-designed smart contract language for dApp development, designed for applying scripts to assets and accounts on the Waves blockchain, as well as for creating sophisticated programmable logic for a decentralized environment. Waves has a unique approach to decentralized application development whereby the absence of gas and non-Turing complete language help to keep the system secure and predictable. 
-[More about Ride](/en/ride/getting-started)
+Waves has a unique approach to decentralized application development whereby the absence of gas and non-Turing complete language help to keep the system secure and predictable. Waves' smart contract language that is called Ride is straightforward and developer-friendly and makes blockchain development totally easy. [More about Ride](/en/ride/getting-started)
 
 ## Leased Proof of Stake
 
@@ -35,7 +34,7 @@ In addition to the blockchain itself and the underlying protocols, the Waves eco
 
 [Applications] (/en/ecosystem/)
 
-[Developer tools] (/en/building-apps/smart-contracts/tools/)
+[Developer tools](/en/building-apps/smart-contracts/tools/)
 
 <! - ## Sponsoring
 
