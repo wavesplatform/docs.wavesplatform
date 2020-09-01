@@ -2,7 +2,7 @@
 
 **Annotation** is a form of metadata that is added to a [function](/en/ride/functions/) of a [dApp script](/en/ride/script/script-types/dapp-script).
 
-At the present moment, there are two annotations: `@Callable(i)` and `@Verifier(tx)`. The variable name in the annotation is required even if the called function does not use it.
+At the present moment, there are two annotations: `@Callable(i)` and `@Verifier(tx)`. The variable name in the annotation is required even if the function does not use it.
 
 An annotated function cannot be called inside a dApp script.
 

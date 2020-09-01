@@ -2,7 +2,7 @@
 
 There are three types of [scripts](/en/ride/script/):
 
-* [dApp script](/en/ride/script/script-types/dapp-script) enables you to define [сallable functions](/en/ride/functions/callable-function) that can be called from other accounts by the [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction), accept payments to be credited to the dApp balance and perform various actions on the blockchain. Also dApp script can comprise a [verifier function](/en/ride/functions/verifier-function) that allows or denies transactions and orders that are sent on behalf of the dApp account.
+* [dApp script](/en/ride/script/script-types/dapp-script) enables you to define [сallable functions](/en/ride/functions/callable-function) that can be called from other accounts by the [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction), accept payments to the dApp and perform various actions on the blockchain. Also dApp script can comprise a [verifier function](/en/ride/functions/verifier-function) that allows or denies transactions and orders that are sent on behalf of the dApp account.
 * [Account script](/en/ride/script/script-types/account-script) allows or denies transactions and orders that are sent on behalf of the account (like a verifier function of a dApp script).
 * [Asset script](/en/ride/script/script-types/asset-script) allows or denies transactions involving the asset.
 
