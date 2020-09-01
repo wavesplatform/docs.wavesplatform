@@ -56,7 +56,7 @@ The sender can specify a transaction fee nominated in a sponsored asset instead 
 | call.function | Callable function name. Up to 255 bytes (1 character can take up to 4 bytes) |
 | call.args.type | Argument type:<br>- binary<br>- boolean<br>- integer<br>- string<br>- list (lists are available after activation of feature #15) |
 | call.args.value | Argument value.<br>- integer: from -9,223,372,036,854,775,808 to 9,223,372,036,854,755,807 inclusive.<br>- string or binary: up to 32,767 bytes. Binary value should be base64 encoded.<br>- list: up to 1000 elements |
-| dApp | dApp address base58 encoded or dApp [alias](/en/blockchain/account/alias) |
+| dApp | dApp address base58 encoded or dApp [alias](/en/blockchain/account/alias) with `alias:<chain_id>:` prefix, for example `alias:T:merry` (see [Chain ID](/en/blockchain/blockchain-network/#chain-id)) |
 | payment.amount | Amount of token in payment: an integer value specified in the minimum fraction (“cents”) of token |
 | payment.assetId | ID of token in payment, base58 encoded. `null` means that the payment is in WAVES |
 
