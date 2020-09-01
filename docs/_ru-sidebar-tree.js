@@ -151,7 +151,7 @@ module.exports = {
             },
             {
               title: 'Спонсирование',
-              path: blockchainPath + 'transaction-type/create-alias-transaction',
+              path: blockchainPath + 'transaction-type/sponsor-fee-transaction',
             },
             {
               title: 'Установка скрипта',
