@@ -9,7 +9,7 @@ An account with an account script assigned to it is called a [smart account](/en
 The script code is composed of the following parts:
 
 * [Directives](#directives)
-* [Auxiliary definitions] (#auxiliary-definitions)
+* [Auxiliary definitions](#auxiliary-definitions)
 * [Boolean expression](#boolean-expression)
 
 ![](./_assets/account-script-format.png)
@@ -26,8 +26,8 @@ The account script should start with [directives](/en/ride/script/directives):
 
 The above directives tell the compiler that:
 
-- the script uses the Standard Library version 4;
-- the script contains a boolean expression;
+- the script uses the Standard Library version 4,
+- the script contains a boolean expression,
 - the script will be assigned to an account (not asset).
 
 ### Auxiliary Definitions
@@ -49,7 +49,7 @@ The expression checks transactions and orders that are sent on behalf of the acc
 
 * true: the transaction/order is allowed,
 * false: the transaction/order is denied,
-* error: the transaction/order denied.
+* error: the transaction/order is denied.
 
 Using the [match ... case](/en/ride/operators/match-case), you can set up different conditions depending on the type of the transaction/order. For example, the following expression prohibits sending orders and changing the account script, and allows other transactions, provided that the array of confirmations (`proofs`) contains the correct signature of the account at position 0:
 
@@ -64,13 +64,13 @@ match tx {
 
 The following data can be used for checks:
 
-* Fields of the current verified transaction/order, including `proofs`. The built-in variable `tx` contains this transaction or order. The set of fields depends on the type of transaction/order, see the [Transaction Structures](/en/ride/structures/transaction-structures/) and [Order](/en/ride/structures/common-structures/order) articles.
-* [Blockchain data](/en/ride/#blockchain-operation): current height, account balances, account data storage entries, token fields, etc.
+* Fields of the current verified transaction/order, including `proofs`. The built-in variable `tx` contains this transaction or order. The set of fields depends on the type of transaction/order, see the [Transaction Structures](/en/ride/structures/transaction-structures/) chapter and [Order](/en/ride/structures/common-structures/order) article.
+* [Blockchain data](/en/ride/#blockchain-operation): current height, account balances, entries in account data storages, parameters of tokens, etc.
 
    : warning: Blockchain data is available only when checking a transaction and not available when checking an order (`case t: Order`).
 
 ## Examples
 
 Find the account scripts examples:
-* in the [Smart Account](/en/building-apps/ smart-contracts/what-is-smart-account) article;
+* in the [Smart Account](/en/building-apps/smart-contracts/what-is-smart-account) article,
 * in [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide): **Library → smart-accounts**.

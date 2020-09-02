@@ -13,7 +13,7 @@ Directive format is as follows:
 | Directive name | Directive function | Possible values |
 | :--- | :--- | :--- |
 | STDLIB_VERSION | Version of the [Standard Library](/en/ride/script/standard-library) | `4` (available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”)<br>`3`<br>`2`<br>`1` |
-| CONTENT_TYPE | Script content type | `DAPP`: the script is a set of definitions and contains functions that can be invoked from another account.<br>`EXPRESSION`: the script is a boolean expression, the script is used for transaction verification |
+| CONTENT_TYPE | Script content type | `DAPP`: the script is a set of definitions and contains functions that can be invoked from another account.<br>`EXPRESSION`: the script is a boolean expression used for transaction verification |
 | SCRIPT_TYPE | Entity that the script is attached to | `ACCOUNT`<br>`ASSET` |
 
 ## Directives Examples

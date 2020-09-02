@@ -70,10 +70,10 @@ func faucet () = {
             false
     }
     if (!isKnownCaller) then 
-        ScriptResult(
-           WriteSet([DataEntry(toBase58String(i.caller.bytes), true)]),
-           TransferSet([ScriptTransfer(i.caller, 100000000, unit)])
-        )
+        [
+           BooleanEntry(toBase58String(i.caller.bytes), true),
+           ScriptTransfer(i.caller, 100000000, unit)
+        ]
     else throw("Can be used only once")
 }
 ```
