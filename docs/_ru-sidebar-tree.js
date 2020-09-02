@@ -1204,11 +1204,11 @@ module.exports = {
         },
         {
           title: '[en] Waves SDK for Android 🡥',
-          path: 'https://github.com/wavesplatform/WavesSDK-android'
+          path: sdkPath + 'client-libraries/sdk-android',
         },
         {
           title: '[en] Waves SDK for iOS 🡥',
-          path: 'https://github.com/wavesplatform/WavesSDK-iOS'
+          path: sdkPath + 'client-libraries/sdk-iOS',
         },
         {
           title: '[en] PyWaves',
