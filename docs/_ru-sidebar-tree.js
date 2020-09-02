@@ -1203,14 +1203,6 @@ module.exports = {
           path: sdkPath + 'client-libraries/signer',
         },
         {
-          title: '[en] Waves SDK for Android 🡥',
-          path: sdkPath + 'client-libraries/sdk-android',
-        },
-        {
-          title: '[en] Waves SDK for iOS 🡥',
-          path: sdkPath + 'client-libraries/sdk-iOS',
-        },
-        {
           title: '[en] PyWaves',
           path: sdkPath + 'client-libraries/pywaves',
         },
