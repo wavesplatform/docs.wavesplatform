@@ -1093,6 +1093,12 @@ module.exports = {
     {
       title: '[en] Waves Smart Contracts',
       path: programmingPath + 'waves-smart-contracts-overview',
+      children: [
+        {
+          title: 'Статьи о смарт-контрактах',
+          path: programmingPath + 'articles-on-dapps',
+        },
+      ],
     },
     {
       title: 'Cмарт-аккаунт',
@@ -1127,11 +1133,7 @@ module.exports = {
       ],
     },
     {
-      title: 'Статьи о смарт-контрактах',
-      path: programmingPath + 'articles-on-dapps',
-    },
-    {
-      title: 'Инструменты',
+      title: 'Инструменты разработчика',
       path: programmingPath + 'tools',
       children: [
         {
@@ -1153,9 +1155,21 @@ module.exports = {
       ],
     },
     {
-      title: 'API & SDK',
+      title: 'Signer ◆',
+      path: sdkPath + 'client-libraries/signer',
+    },
+    {
+      title: 'API',
       path: sdkPath,
       children: [
+        {
+          title: 'Node REST API 🡥',
+          path: nodePath + 'node-api',
+        },
+        {
+          title: 'Waves Keeper API 🡥',
+          path: ecosystemPath + 'waves-keeper/waves-keeper-api',
+        },
         {
           title: '[en] Waves data service API',
           path: sdkPath + 'waves-data-service-api',
@@ -1174,6 +1188,10 @@ module.exports = {
             },
           ],
         },
+        {
+          title: 'Node gRPC Server 🡥',
+          path: nodePath + 'extensions/grpc-server',
+        },
       ],
     },
     {
@@ -1183,6 +1201,14 @@ module.exports = {
         {
           title: 'Signer',
           path: sdkPath + 'client-libraries/signer',
+        },
+        {
+          title: '[en] Waves SDK for Android 🡥',
+          path: 'https://github.com/wavesplatform/WavesSDK-android'
+        },
+        {
+          title: '[en] Waves SDK for iOS 🡥',
+          path: 'https://github.com/wavesplatform/WavesSDK-iOS'
         },
         {
           title: '[en] PyWaves',

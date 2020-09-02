@@ -1065,7 +1065,7 @@ module.exports = {
           path: buildingAppsPath + 'how-to/basic/transaction',
         },
         {
-          title: 'Tokenisation',
+          title: 'Tokenization',
           path: buildingAppsPath + 'how-to/assets/issue',
         },
         {
@@ -1097,6 +1097,12 @@ module.exports = {
     {
       title: 'Waves Smart Contracts',
       path: programmingPath + 'waves-smart-contracts-overview',
+      children: [
+        {
+          title: 'Articles on Smart Contracts',
+          path: programmingPath + 'articles-on-dapps',
+        },
+      ],
     },
     {
       title: 'Smart Account',
@@ -1163,11 +1169,7 @@ module.exports = {
       ],
     },
     {
-      title: 'Articles on Smart Contracts',
-      path: programmingPath + 'articles-on-dapps',
-    },
-    {
-      title: 'Tools',
+      title: 'Developer Tools',
       path: programmingPath + 'tools',
       children: [
         {
@@ -1189,9 +1191,21 @@ module.exports = {
       ],
     },
     {
-      title: 'API & SDK',
+      title: 'Signer ◆',
+      path: sdkPath + 'client-libraries/signer',
+    },
+    {
+      title: 'API',
       path: sdkPath,
       children: [
+        {
+          title: 'Node REST API 🡥',
+          path: nodePath + 'node-api',
+        },
+        {
+          title: 'Waves Keeper API 🡥',
+          path: ecosystemPath + 'waves-keeper/waves-keeper-api',
+        },
         {
           title: 'Waves data service API',
           path: sdkPath + 'waves-data-service-api',
@@ -1210,6 +1224,10 @@ module.exports = {
             },
           ],
         },
+        {
+          title: 'Node gRPC Server 🡥',
+          path: nodePath + 'extensions/grpc-server',
+        },
       ],
     },
     {
@@ -1219,6 +1237,14 @@ module.exports = {
         {
           title: 'Signer',
           path: sdkPath + 'client-libraries/signer',
+        },
+        {
+          title: 'Waves SDK for Android 🡥',
+          path: 'https://github.com/wavesplatform/WavesSDK-android'
+        },
+        {
+          title: 'Waves SDK for iOS 🡥',
+          path: 'https://github.com/wavesplatform/WavesSDK-iOS'
         },
         {
           title: 'PyWaves',
