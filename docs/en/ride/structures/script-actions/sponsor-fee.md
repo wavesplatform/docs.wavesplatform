@@ -4,6 +4,8 @@
 
 `SponsorFee` is a structure that sets up sponsorship. For information about sponsorship, see the [Spensored Fee](/en/blockchain/waves-protocol/sponsored-fee) article. The sponsorship setup is performed only if the structure is included in the resulting expression of the callable function. See details in the [Callable Function](/en/ride/functions/callable-function) article.
 
+The sponsorship setup is only available for an asset that is issued by a dApp account and is not a smart asset.
+
 ## Constructor
 
 ```ride
