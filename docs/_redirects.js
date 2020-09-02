@@ -1003,11 +1003,11 @@ module.exports = [
     to: '/en/building-apps/waves-api-and-sdk/client-libraries$1',
   },
   {
-    from: '/en/buildingAppsPath/waves-api-and-sdk/client-libraries/sdk-android',
+    from: '/en/building-apps/waves-api-and-sdk/client-libraries/sdk-android',
     to: 'https://github.com/wavesplatform/WavesSDK-android',
   },
   {
-    from: '/en/buildingAppsPath/waves-api-and-sdk/client-libraries/sdk-ios',
+    from: '/en/building-apps/waves-api-and-sdk/client-libraries/sdk-ios',
     to: 'https://github.com/wavesplatform/WavesSDK-iOS',
   },
   {
