@@ -83,7 +83,7 @@ The addresses for order sending and market data obtaining are as follows:
 |  |  |
 | :--- | :--- |
 | Mainnet | — |
-| Testnet | [Request 10 WAVES](https://wavesexplorer.com/testnet/faucet) |
+| Testnet | [Request 10 WAVES](https://testnet.wavesexplorer.com/faucet) |
 | Stagenet | [Request 10 WAVES](https://stagenet.wavesexplorer.com/faucet) |
 
 ### Waves IDE

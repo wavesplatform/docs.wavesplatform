@@ -83,7 +83,7 @@
 |  |  |
 | :--- | :--- |
 | Mainnet | — |
-| Testnet | [Получить 10 WAVES](https://wavesexplorer.com/testnet/faucet) |
+| Testnet | [Получить 10 WAVES](https://testnet.wavesexplorer.com/faucet) |
 | Stagenet |  [Получить 10 WAVES](https://stagenet.wavesexplorer.com/faucet) |
 
 ### Waves IDE

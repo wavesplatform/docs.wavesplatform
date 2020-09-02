@@ -6,7 +6,7 @@ The functionality of a regular [account](/en/blockchain/account/) only allows yo
 
 The following parameters can be used for checks:
 
-- [Transaction proofs or signature](/en/blockchain/transaction/transaction-proofs).
+- [Transaction proofs or signature](/en/blockchain/transaction/transaction-proof).
 - The current blockchain height.
 - Arbitrary data existing in the blockchain, for example, [oracle](/en/blockchain/oracle) data.
 
