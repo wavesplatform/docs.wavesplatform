@@ -111,7 +111,7 @@ Asset description.
 
 Description of specified assets.
 
-> :warning: This method becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
+> :warning: This method becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 **Request params:**
 
@@ -445,7 +445,7 @@ Publish signed Asset transfer from one address to another as a transaction to th
     ```
     "type" - Transaction type (4 for TransferTransaction)
     "id" - Id(hash) of transaction, Base58-encoded
-    "assetId" - Asset ID in Base58 format, effectively equals transaction id
+    "assetId" - Asset ID in Base58 format, `null` means WAVES
     "timestamp" - Transaction timestamp
     "sender" - Sender account's address, Base58-encoded
     "senderPublicKey" - Sender account's public key, Base58-encoded
@@ -468,7 +468,7 @@ Publish signed Asset transfer from one address to another as a transaction to th
     "proofs" - Array of Base58-encoded proofs
     "version" - Version of transaction (Always 2)
     "recipient" - Recipient account's address, Base58-encoded
-    "assetId" - Asset ID in Base58 format, effectively equals transaction id
+    "assetId" - Asset ID in Base58 format, `null` means WAVES
     "amount" - Amount of wavelets to transfer
     "attachment" - Attachment, Base58-encoded
     ```
@@ -570,7 +570,7 @@ Array of JSON Objects:
     ```
     "type" - Transaction type (4 for TransferTransaction)
     "id" - Id(hash) of transaction, Base58-encoded
-    "assetId" - Asset ID in Base58 format, effectively equals transaction id
+    "assetId" - Asset ID in Base58 format, `null` means WAVES
     "timestamp" - Transaction timestamp
     "sender" - Sender account's address, Base58-encoded
     "senderPublicKey" - Sender account's public key, Base58-encoded
@@ -593,7 +593,7 @@ Array of JSON Objects:
     "proofs" - Array of Base58-encoded proofs
     "version" - Version of transaction (Always 2)
     "recipient" - Recipient account's address, Base58-encoded
-    "assetId" - Asset ID in Base58 format, effectively equals transaction id
+    "assetId" - Asset ID in Base58 format, `null` means WAVES
     "amount" - Amount of wavelets to transfer
     "attachment" - Attachment, Base58-encoded
     ```

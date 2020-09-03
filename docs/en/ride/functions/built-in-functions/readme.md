@@ -81,10 +81,10 @@ A **built-in function** is a [function](/en/ride/functions/) of the [script cont
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| addressFromString(String): Address&#124;Unit | Decodes address from [base58](https://tools.ietf.org/id/draft-msporny-base58-01.html) string | 124 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>1 for Standard Library **version&nbsp;4** |
+| addressFromString(String): Address&#124;Unit | Decodes address from [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) string | 124 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>1 for Standard Library **version&nbsp;4** |
 | addressFromStringValue(String): Address | Decodes address from base58 string. Raises an exception if the address cannot be decoded | 124 for Standard Library **version&nbsp;3**<br>1 for Standard Library **version&nbsp;4** |
 | fromBase16String(String): ByteVector | Decodes [base16](https://en.wikipedia.org/wiki/Hexadecimal) string to an array of bytes | 10 |
-| fromBase58String(String): ByteVector | Decodes [base58](https://tools.ietf.org/id/draft-msporny-base58-01.html) string to an array of bytes | 10 for Standard Library **version&nbsp;3**<br>1 for Standard Library **version&nbsp;4** |
+| fromBase58String(String): ByteVector | Decodes [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) string to an array of bytes | 10 for Standard Library **version&nbsp;3**<br>1 for Standard Library **version&nbsp;4** |
 | fromBase64String(String): ByteVector | Decodes [base64](https://en.wikipedia.org/wiki/Base64) string to an array of bytes | 10 for Standard Library **version&nbsp;3**<br>40 for Standard Library **version&nbsp;4** |
 
 ## [Encoding functions](/en/ride/functions/built-in-functions/encoding-functions)
@@ -92,7 +92,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [script cont
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | toBase16String(ByteVector): String | Encodes array of bytes to [base16](https://en.wikipedia.org/wiki/Hexadecimal) string | 10 |
-| toBase58String(ByteVector): String | Encodes array of bytes to [base58](https://tools.ietf.org/id/draft-msporny-base58-01.html) string | 10 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>3 for Standard Library **version&nbsp;4** |
+| toBase58String(ByteVector): String | Encodes array of bytes to [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) string | 10 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>3 for Standard Library **version&nbsp;4** |
 | toBase64String(ByteVector): String | Encodes array of bytes to [base64](https://en.wikipedia.org/wiki/Base64) string | 10 for Standard Library **version&nbsp;3**<br>35 for Standard Library **version&nbsp;4** |
 
 ## [Exception functions](/en/ride/functions/built-in-functions/exception-functions)
@@ -130,10 +130,10 @@ A **built-in function** is a [function](/en/ride/functions/) of the [script cont
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| fraction(Int, Int, Int): Int | Multiplies and divides an integer to avoid the integer overflow | 1 |
-| log(Int, Int, Int, Int, Int, Union): Int | Calculates logarithm of the number | 100 |
+| fraction(Int, Int, Int): Int | Multiplies and divides integers to avoid overflow | 1 |
+| log(Int, Int, Int, Int, Int, Union): Int | Calculates logarithm of a number with a base | 100 |
 | median(List[Int]): Int | Returns the median of a list of integers | 20 |
-| pow(Int, Int, Int, Int, Int, Union): Int | Raises the number to a power | 100 |
+| pow(Int, Int, Int, Int, Int, Union): Int | Raises a number to a given power | 100 |
 
 ## [String functions](/en/ride/functions/built-in-functions/string-functions)
 
@@ -160,7 +160,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [script cont
 | isDefined(T&#124;Unit): Boolean | Checks if an argument is not `unit` | 1 |
 | value(T&#124;Unit): T | Gets a value from a `union` type argument. Fails if it is `unit` | 13 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>2 for Standard Library **version&nbsp;4** |
 | valueOrElse(T&#124;Unit, T): T | Returns a value from a `union` type argument if it's not `unit`. Otherwise, returns the second argument | 2 |
-|[valueOrErrorMessage(T&#124;Unit, String): T | Gets a value from a `union` type argument if it's not `unit`. Otherwise, fails with the message specified in the second argument | 13 for Standard Library **version&nbsp;3**<br>2 for Standard Library **version&nbsp;4** |
+| valueOrErrorMessage(T&#124;Unit, String): T | Gets a value from a `union` type argument if it's not `unit`. Otherwise, fails with the message specified in the second argument | 13 for Standard Library **version&nbsp;3**<br>2 for Standard Library **version&nbsp;4** |
 
 ## [Verification functions](/en/ride/functions/built-in-functions/verification-functions)
 

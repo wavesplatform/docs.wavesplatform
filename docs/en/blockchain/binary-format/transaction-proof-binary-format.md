@@ -1,11 +1,13 @@
-# Transaction proof binary format
+# Transaction Proofs Binary Format
 
-| \# | Field name | Type | Length in Bytes |
-| --- | --- | --- | --- |
-| 1 | Proofs version | Byte \(constant, value = 1\) | 1
-| 2 | Proofs count |  | 2
-| 3 | Proof 1 length \(P1\) |  | 2
-| 4 | Proof 1 | ByteStr \(Array[Byte]\) | P1 <= 64
-| 5 | Proof 2 length \(P2\) |  | 2
-| 6 | Proof 2  | ByteStr \(Array[Byte]\) | P2 <= 64
-| ... | ... | ... | ... |
+| \# | Field | Type | Size in bytes | Comment |
+| --- | --- | --- | --- | --- |
+| 1 | Proofs version | Byte | 1 | Value is 1 |
+| 2 | Proofs count | Short | 2 | |
+| 3 | Proof 1 length | Short | 2 | Value is 64 |
+| 4 | Proof 1 | Array[Byte] | 64 | |
+| 5 | Proof 2 length | Short | 2 | |
+| 6 | Proof 2 | Array[Byte] | 64 |
+| ... | ... | ... | ... | ... |
+
+The maximum number of proofs is 8.

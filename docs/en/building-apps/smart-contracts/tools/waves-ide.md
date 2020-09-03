@@ -16,7 +16,7 @@ Key features:
 
 Waves IDE address:
 * <https://waves-ide.com/> – the major environment.
-* <https://stagenet.waves-ide.com/> – the environment with support for new features of [Standart library version 4](/en/ride/script/standard-library) which is added in node version 1.2 and now available on Stagenet only.
+* <https://stagenet.waves-ide.com/> – the environment with support for new features of Waves protocol which are now available on Stagenet only.
 
 ## Configuration
 
@@ -37,7 +37,7 @@ To import an existing account, click the account avatar or the **Add account** b
 
 1. Copy address: click the account avatar and then click ![](./_assets/copy-button.png).
 2. Go to the page:
-   * <https://wavesexplorer.com/testnet/faucet> for Testnet;
+   * <https://testnet.wavesexplorer.com/faucet> for Testnet;
    * <https://stagenet.wavesexplorer.com/faucet> for Stagenet.
 3. Paste the address, then click **Request 10 WAVES**.
 

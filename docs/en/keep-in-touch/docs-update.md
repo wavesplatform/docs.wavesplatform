@@ -1,11 +1,24 @@
 # Documentation Updates
 
-## August
+## September
 
 ### Blockchain
 
 * [Why Waves](/en/blockchain/)
 * [Waves Basics](/en/blockchain/blockchain)
+
+## August
+
+### Blockchain
+
+Updated the following articles about transaction:
+   * [Transaction](/en/blockchain/transaction/)
+   * [Transaction Signature and Proofs](/en/blockchain/transaction/transaction-proof)
+   * [Transaction Types](/en/blockchain/transaction-type/) as well as descriptions of all types
+
+### Node
+
+* [How to Configure CORS: Support For Cross Domain Requests](/en/waves-node/node-api/cors)
 
 ## July
 
@@ -168,7 +181,7 @@ Added how-to guides:
 
 ## November
 
-### Smart contracts
+### Smart Contracts
 
 * [What is a Smart Account](/en/building-apps/smart-contracts/what-is-smart-account)
 * [Creating smart account](/en/building-apps/smart-contracts/how-to-create-smart-account)

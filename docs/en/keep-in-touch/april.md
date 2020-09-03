@@ -11,8 +11,8 @@ Since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Proto
 [More details about transaction validation](/en/blockchain/transaction/transaction-validation)
 
 In the JSON representation of the transaction, the `applicationStatus` field is added, which contains the result of validation:
-* `succeed` – all checks are passed.
-* `scriptExecutionFailed` – dApp script or asset script failed. Such a transaction doesn't entail changes in balances (other than charging a fee) and account data storages.
+* `succeeded` – the transaction is successful.
+* `script_execution_failed` – dApp script or asset script failed. Such a transaction doesn't entail changes in balances (other than charging a fee) and account data storages.
 
 Failed transactions are implemented in the Waves protocol and are supported both by [Node Scala](https://github.com/wavesplatform/Waves/releases) and [Node Go](https://github.com/wavesplatform/gowaves/releases/), as well as by the following Waves tools.
 
@@ -20,9 +20,16 @@ Failed transactions are implemented in the Waves protocol and are supported both
 
 Added the `applicationStatus` field to the following endpoints:
 
-   * `GET /transactions/info/{id}`
-   * `GET /transactions/status`
-   * `POST /transactions/status`
+   * `/blocks/{id}`
+   * `/blocks/address/{address}/{from}/{to}`
+   * `/blocks/at/{height}`
+   * `/blocks/last`
+   * `/blocks/seq/{from}/{to}`
+   * `/debug/stateChanges/address/{address}/limit/{limit}`
+   * `/debug/stateChanges/info/{id}`
+   * `/transactions/address/{address}/limit/{limit}`
+   * `/transactions/info/{id}`
+   * `/transactions/status`
 
 **How to access**: use the pool of Waves nodes with public API for Stagenet: <https://nodes-stagenet.wavesnodes.com/>.
 

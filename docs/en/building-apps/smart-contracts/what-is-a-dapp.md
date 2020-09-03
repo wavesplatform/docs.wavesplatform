@@ -42,7 +42,7 @@ Each Ride script should start with directives. Here is the set of directives for
 
 These directives tell the compiler that:
 
-- The script uses Standard library version 3 (version 4 is currently available on Stagenet only).
+- The script uses Standard library version 3.
 - Type of the script is dApp.
 - The script will be assigned to an account (not asset).
 
@@ -134,7 +134,7 @@ There are the following options to send the transaction:
 * In [Waves IDE](https://waves-ide.com/) create or import an account, open the dApp script and click **Deploy**.
 * Using [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/). See some examples of sending a transaction in the [Creating & Broadcasting Transactions](/en/building-apps/how-to/basic/transaction) article.
 
-[Set script transaction example](https://wavesexplorer.com/testnet/tx/213JdqCLq6qGLUvoXkMaSA2wLSwdzH24BuhHBhcBeHUR)
+[Set script transaction example](https://testnet.wavesexplorer.com/tx/213JdqCLq6qGLUvoXkMaSA2wLSwdzH24BuhHBhcBeHUR)
 
 The fee for the set script transaction is 0.01 WAVES.
 

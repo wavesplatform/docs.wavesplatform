@@ -183,44 +183,8 @@ java -jar {*}.jar {*}.conf
 | 1 | `enable` | Активирует REST API. <br>Для деактивации REST API укажите значение `no` | `yes` |
 | 2 | `bind-address` | Cетевой адрес, по которому REST API будет принимать входящие подключения. <br>**Примечание**. Не рекомендуется менять значение по умолчанию. Используйте [Nginx’s proxy pass module](http://nginx.org/ru/docs/http/ngx_http_proxy_module.html) или [SSH port forwarding](https://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html) для внешнего доступа. | `"127.0.0.1"` |
 | 3 | `port` | Номер порта, через который REST API будет ожидать подключения. | `6869` |
-| 4 | `api-key-hash` | Хеш [API-ключа](https://en.wikipedia.org/wiki/Application_programming_interface_key), который предоставляется владельцем ноды.<br>Как сгенерировать хеш API-ключа, читайте в подразделе [Генерация хеша API-ключа](#генерация-хеша-api-ключа) | "" |
+| 4 | `api-key-hash` | Хеш [API ключа](https://en.wikipedia.org/wiki/Application_programming_interface_key), который предоставляется владельцем ноды. [Подробнее про хэш API ключа](/ru/waves-node/node-api/api-key) | "" |
 | 5 | cors | Включение/выключение отправки кросс-доменных запросов CORS к ноде от JavaScript | yes |
-
-**Примечание.** В запросах к Node REST API нужно указывать сам [API-ключ](https://en.wikipedia.org/wiki/Application_programming_interface_key), а не его хеш.
-
-Пример подписания транзакции, отправляемой с кошелька ноды, с помощью команды curl:
-
-```bash
-curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'X-API-Key: YOUR UNIQUE API KEY'
--d '{ \
-"amount": 5800000000, \
-"fee": 100000, \
-"type": 4, \
-"version": 1, \
-"attachment": "", \
-"sender": "3P3pUKEAKxegWr3PZkGYNq1mzQQaQ5zxZbw", \
-"feeAssetId": null, \
-"assetId": null, \
-"recipient": "3P9p39MwZ5JjwdBSYEWC6XYri4jpovzcAbs", \
-"feeAsset": null, \
-"timestamp": 1568020044350 \
-}' 'http://nodes.wavesnodes.com/transactions/sign'
-```
-
-#### Генерация хеша API-ключа
-
-[API-ключ](https://en.wikipedia.org/wiki/Application_programming_interface_key) владельца ноды — это важнейший параметр, так же как и [секретная фраза](/en/blockchain/waves-protocol/cryptographic-practical-details#creating-a-private-key-from-a-seed) и пароль кошелька.<br>
-
-Чтобы сгенерировать хеш API-ключа:
-
-1. Перейдите в [Swagger web interface](/ru/waves-node/node-api/).
-2. Нажмите на секцию [`utils`](https://nodes.wavesnodes.com/api-docs/index.html#/utils).
-3. Нажмите на метод [`/utils/hash/secure`](https://nodes.wavesnodes.com/api-docs/index.html#!/utils/hashSecure_1).
-4. В параметре `message` укажите уникальный API-ключ как строку.
-5. Получите хеш API-ключа и вставьте его в файл конфигурации ноды.
-6. Перезапустите ноду.
-
-**Внимание!** API-ключ передается в HTTP-заголовке в виде незащищенного текста. Злоумышленник может перехватить его при передаче по сети и использовать для перевода ваших средств на любой адрес. Очень важно защитить передачу данных с помощью переадресации портов HTTPS или SSH.
 
 ### Настройки синхронизации
 
@@ -271,7 +235,7 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 
 В данной секции вы можете указать желаемый размер вознаграждения за генерацию блоков в параметре `desired`. Значение указывается в [WAVELET](/ru/blockchain/token/wavelet).
 
-Если значение больше текущего размера вознаграждения, то майнер голосует за увеличение вознаграждения; если меньше — за уменьшение.
+Если значение больше текущего размера вознаграждения, то генератор блоков голосует за увеличение вознаграждения; если меньше — за уменьшение.
 
 **Пример**: желаемый размер вознаграждения 7 WAVES:
 

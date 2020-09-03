@@ -180,37 +180,8 @@ The **REST API Section** is a section in the node configuration file with settin
 | `enable` | Activates REST API. <br>If you want to deactivate REST API, change the default value to `no` | yes |
 | `bind-address` | Sets the network address where the REST API will accept the incoming connections. <br>**Note.** It's not recommended to change the default value. Use [Nginx’s proxy pass module](http://nginx.org/en/docs/http/ngx_http_proxy_module.html) or [SSH port forwarding](https://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html) for external access. | `"127.0.0.1"` |
 | `port` | Sets the port number where the REST API will await connections. | 6869 |
-| `api-key-hash` | Sets the hash of the [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key). For details about generating hash see [How to Generate Hash of the API Key](#how-to-generate-hash-of-the-api-key) section. | "" |
+| `api-key-hash` | Sets the hash of the [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key). For details about generating hash see [API Key](/en/waves-node/node-api/api-key) article. | "" |
 | `cors` | This parameter allows to enable/disable sending cross-domain [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) requests to node from JavaScript. | yes |
-
-**Note**: During REST API calls the node owner must provide the API key itself, not the the hashed value.
-
-This is an example for signing a transaction that already exists in the wallet of the node owner as a CURL command:
-
-```bash
-curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'X-API-Key: YOUR UNIQUE API KEY'
--d '{ \
-"amount": 5800000000, \
-"fee": 100000, \
-"type": 4, \
-"version": 1, \
-"attachment": "", \
-"sender": "3P3pUKEAKxegWr3PZkGYNq1mzQQaQ5zxZbw", \
-"feeAssetId": null, \
-"assetId": null, \
-"recipient": "3P9p39MwZ5JjwdBSYEWC6XYri4jpovzcAbs", \
-"feeAsset": null, \
-"timestamp": 1568020044350 \
-}' 'http://nodes.wavesnodes.com/transactions/sign'
-```
-
-#### How to Generate Hash of the API Key
-
-[API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) of the node owner is highly important just like the [seed phrase](/en/blockchain/glossary#secret-phrase) and the password of the wallet.
-
-Follow these steps to generate the hash of the API key:<br> 1. Go to [Swagger web interface](/en/waves-node/node-api/)<br> 2. Click on [utils](https://nodes.wavesnodes.com/api-docs/index.html#/utils) section<br>3. Click on the API method [/utils/hash/secure](https://nodes.wavesnodes.com/api-docs/index.html#!/utils/hashSecure_1)<br>4. Create a unique [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) as a string value and include it in the `message` parameter<br> 5. Get the hash of the [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) and paste it in your node configuration file<br>6. Restart the node
-
-**Note:** The API key is transmitted in the HTTP header as unprotected plain text. An attacker can intercept it in the network transit and use it to transfer your money to any address! So it's highly important to protect the transmission using HTTPS or SSH port forwarding.
 
 ### Synchronization Settings
 

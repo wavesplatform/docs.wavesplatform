@@ -2,7 +2,7 @@
 
 > Learn more about [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction).
 
-Update asset info transaction is added since node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
+Update asset info transaction is added since node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ## Version 1
 
@@ -20,4 +20,4 @@ message UpdateAssetInfoTransactionData {
 | :--- | :--- | :--- |
 | asset_id | 32 bytes | Token ID |
 | name | From 4 to 16 bytes | Token name |
-| description | От 0 до 1000 байт | Token description |
+| description | From 0 to 1000 bytes | Token description |

@@ -18,11 +18,11 @@ ExchangeTransaction(buyOrder: Order, sellOrder: Order, price: Int, amount: Int, 
 | 4 | amount | [Int](/en/ride/data-types/int) | Amount of exchanging tokens |
 | 5 | buyMatcherFee | [Int](/en/ride/data-types/int) | [Matcher](https://docs.waves.exchange/en/waves-matcher/)'s purchase fee |
 | 6 | sellMatcherFee | [Int](/en/ride/data-types/int) | Matcher's sell fee |
-| 7 | id | [ByteVector](/en/ride/data-types/byte-vector) | [Transaction ID](/en/blockchain/transaction/transaction-id) |
+| 7 | id | [ByteVector](/en/ride/data-types/byte-vector) | Transaction ID |
 | 8 | fee | [Int](/en/ride/data-types/int) | [Transaction fee](/en/blockchain/transaction/transaction-fee) |
-| 9 | timestamp | [Int](/en/ride/data-types/int) | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) |
-| 10 | version | [Int](/en/ride/data-types/int) | [Transaction version](/en/blockchain/transaction/transaction-version) |
+| 9 | timestamp | [Int](/en/ride/data-types/int) | Transaction timestamp |
+| 10 | version | [Int](/en/ride/data-types/int) | Transaction version |
 | 11 | sender | [Address](/en/ride/structures/common-structures/address) | [Address](/en/blockchain/account/address) of a transaction sender |
 | 12 | senderPublicKey | [ByteVector](/en/ride/data-types/byte-vector) | Account public key of a sender |
-| 13 | bodyBytes | [ByteVector](/en/ride/data-types/byte-vector) | [Transaction body bytes](/en/blockchain/transaction/transaction-body-bytes) |
+| 13 | bodyBytes | [ByteVector](/en/ride/data-types/byte-vector) | [Transaction body bytes](/en/blockchain/glossary#t) |
 | 14 | proofs | [List](/en/ride/data-types/list)[[ByteVector](/en/ride/data-types/byte-vector)] | Array of [proofs](/en/blockchain/transaction/transaction-proof) |

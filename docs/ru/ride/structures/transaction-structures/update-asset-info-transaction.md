@@ -12,14 +12,14 @@ UpdateAssetInfoTransaction(name: String, assetId: ByteVector, description: Strin
 
 | # | Имя | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | name | [String](/ru/ride/data-types/string) | Name of the [token](/ru/blockchain/token/) |
-| 2 | assetId | [ByteVector](/ru/ride/data-types/byte-vector) | [Token ID](/ru/blockchain/token/token-id) |
-| 3 | description | [String](/ru/ride/data-types/string) | Description of the token |
-| 4 | id | [ByteVector](/ru/ride/data-types/byte-vector) | [Transaction ID](/ru/blockchain/transaction/transaction-id) |
-| 5 | fee | [Int](/ru/ride/data-types/int) | [Transaction fee](/ru/blockchain/transaction/transaction-fee) |
-| 6 | timestamp | [Int](/ru/ride/data-types/int) | [Transaction timestamp](/ru/blockchain/transaction/transaction-timestamp) |
-| 7 | version | [Int](/ru/ride/data-types/int) | [Transaction version](/ru/blockchain/transaction/transaction-version) |
-| 8 | sender | [Address](/ru/ride/structures/common-structures/address) | [Address](/ru/blockchain/account/address) of a transaction sender |
-| 9 | senderPublicKey | [ByteVector](/ru/ride/data-types/byte-vector) | Account public key of a sender |
-| 10 | bodyBytes | [ByteVector](/ru/ride/data-types/byte-vector) | [Transaction body bytes](/ru/blockchain/transaction/transaction-body-bytes) |
-| 11 | proofs | [List](/ru/ride/data-types/list)[[ByteVector](/ru/ride/data-types/byte-vector)] | Array of [proofs](/ru/blockchain/transaction/transaction-proof) |
+| 1 | name | [String](/ru/ride/data-types/string) | Название [токена](/ru/blockchain/token/) |
+| 2 | assetId | [ByteVector](/ru/ride/data-types/byte-vector) | [ID токена](/ru/blockchain/token/token-id) |
+| 3 | description | [String](/ru/ride/data-types/string) | Описание токена |
+| 4 | id | [ByteVector](/ru/ride/data-types/byte-vector) | ID транзакции |
+| 5 | fee | [Int](/ru/ride/data-types/int) | [[Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) |
+| 6 | timestamp | [Int](/ru/ride/data-types/int) | Временная метка транзакции |
+| 7 | version | [Int](/ru/ride/data-types/int) | Версия транзакции |
+| 8 | sender | [Address](/ru/ride/structures/common-structures/address) | [Адрес](/ru/blockchain/account/address) отправителя транзакции |
+| 9 | senderPublicKey | [ByteVector](/ru/ride/data-types/byte-vector) | Открытый ключ отправителя транзакции |
+| 10 | bodyBytes | [ByteVector](/ru/ride/data-types/byte-vector) | [Байты тела транзакции](/ru/blockchain/glossary#б) |
+| 11 | proofs | [List](/ru/ride/data-types/list)[[ByteVector](/ru/ride/data-types/byte-vector)] | Список [подтверждений](/ru/blockchain/transaction/transaction-proof) |

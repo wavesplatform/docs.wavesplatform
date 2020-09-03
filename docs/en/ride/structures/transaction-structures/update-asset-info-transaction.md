@@ -15,11 +15,11 @@ UpdateAssetInfoTransaction(name: String, assetId: ByteVector, description: Strin
 | 1 | name | [String](/en/ride/data-types/string) | Name of the [token](/en/blockchain/token/) |
 | 2 | assetId | [ByteVector](/en/ride/data-types/byte-vector) | [Token ID](/en/blockchain/token/token-id) |
 | 3 | description | [String](/en/ride/data-types/string) | Description of the token |
-| 4 | id | [ByteVector](/en/ride/data-types/byte-vector) | [Transaction ID](/en/blockchain/transaction/transaction-id) |
+| 4 | id | [ByteVector](/en/ride/data-types/byte-vector) | Transaction ID |
 | 5 | fee | [Int](/en/ride/data-types/int) | [Transaction fee](/en/blockchain/transaction/transaction-fee) |
-| 6 | timestamp | [Int](/en/ride/data-types/int) | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp) |
-| 7 | version | [Int](/en/ride/data-types/int) | [Transaction version](/en/blockchain/transaction/transaction-version) |
+| 6 | timestamp | [Int](/en/ride/data-types/int) | Transaction timestamp |
+| 7 | version | [Int](/en/ride/data-types/int) | Transaction version |
 | 8 | sender | [Address](/en/ride/structures/common-structures/address) | [Address](/en/blockchain/account/address) of a transaction sender |
 | 9 | senderPublicKey | [ByteVector](/en/ride/data-types/byte-vector) | Account public key of a sender |
-| 10 | bodyBytes | [ByteVector](/en/ride/data-types/byte-vector) | [Transaction body bytes](/en/blockchain/transaction/transaction-body-bytes) |
+| 10 | bodyBytes | [ByteVector](/en/ride/data-types/byte-vector) | [Transaction body bytes](/en/blockchain/glossary#t) |
 | 11 | proofs | [List](/en/ride/data-types/list)[[ByteVector](/en/ride/data-types/byte-vector)] | Array of [proofs](/en/blockchain/transaction/transaction-proof) |

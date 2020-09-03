@@ -12,7 +12,7 @@ The price data originates from [data requests](https://github.com/bandprotocol/b
 - ETH/USD
 - WAVES/USD
 
-These prices are automatically updated every 5 minutes. The smart contract itself is currently deployed on Waves testnet at [`3N54eKW5ZucDaRaGVUfzX8xRXv6Ve8M71tM`](https://wavesexplorer.com/testnet/address/3N54eKW5ZucDaRaGVUfzX8xRXv6Ve8M71tM/script).
+These prices are automatically updated every 5 minutes. The smart contract itself is currently deployed on Waves Testnet at [`3N54eKW5ZucDaRaGVUfzX8xRXv6Ve8M71tM`](https://testnet.wavesexplorer.com/address/3N54eKW5ZucDaRaGVUfzX8xRXv6Ve8M71tM/script).
 
 The prices themselves are the mean of the values retrieved by BandChain's validators from [CoinGecko](https://www.coingecko.com/api/documentations/v3), [CryptoCompare](https://min-api.cryptocompare.com/), and [Binance](https://github.com/binance-exchange/binance-official-api-docs/blob/master/rest-api.md) APIs. The data request is then made by executing Band's [Crypto Price in USD oracle script](https://docs.bandchain.org/built-in-oracle-scripts/crypto-price-1), the code of which you can view on [their devnet](https://guanyu-devnet.cosmoscan.io/oracle-script/1).
 
@@ -33,7 +33,7 @@ For the ease of development, the Band Foundation will be maintaining and updatin
 
 The code below shows an example of a relatively simple price database smart contract on Waves which retrieve price data from Band's bridge contract and store it in the contract's state. 
 
-Specifically, the contract is set to only store price data from the bridge contract if the token symbol is one of `BTC`, `ETH`, or `WAVES`. For more information on what oracle scripts are and how data requests work on BandChain in general, please see their [wiki](https://github.com/bandprotocol/bandchain/wiki/System-Overview#oracle-data-request) and [developer documentation](https://docs.bandchain.org/dapp-developers/requesting-data-from-bandchain)
+Specifically, the contract is set to only store price data from the bridge contract if the token symbol is one of `BTC`, `ETH`, or `WAVES`. For more information on what oracle scripts are and how data requests work on BandChain in general, please see their [wiki](https://github.com/bandprotocol/bandchain/wiki/System-Overview#oracle-data-request) and [developer documentation](https://docs.bandchain.org/developer/dapp-developers/requesting-data-from-bandchain.html)
 
 ```python
 {-# STDLIB_VERSION 3 #-}

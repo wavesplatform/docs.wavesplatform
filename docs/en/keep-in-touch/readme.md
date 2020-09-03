@@ -1,6 +1,6 @@
 ## Keep in Touch
 
-Keep up with the latest news and articles about [Waves Protocol](https://wavesprotocol.org/) events.
+Keep up with the latest news and articles about [Waves Protocol](https://waves.tech/waves-protocol) events.
 
 * [Waves Blog](https://medium.com/wavesprotocol)
 * [Twitter](https://twitter.com/wavesprotocol)

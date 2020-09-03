@@ -12,7 +12,7 @@
 
 Бинарный формат ордера версии 4 соответствует protobuf-схеме [order.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/order.proto). См. [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=ru).
 
-Версия 4 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”. В настоящее время версии 1.2.x доступны только на [Stagenet](/ru/blockchain/blockchain-network/).
+Версия 4 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ```protobuf
 message AssetPair {
@@ -59,7 +59,7 @@ message Amount {
 | timestamp | 8 байт | Временная метка: Unix-время в миллисекундах |
 | expiration | 8 байт | Окончание срока действия ордера: Unix-время в миллисекундах |
 | matcher_fee.asset_id | • 32 байта для ассета<br>• 0 для WAVES | ID токена, в котором выражена комиссия матчера |
-| matcher_fee.amount | 8 байт | [Комиссия матчера](/ru/blockchain/matcher-fee) |
+| matcher_fee.amount | 8 байт | [Комиссия матчера](/ru/blockchain/transaction-type/exchange-transaction#комиссия-матчера) |
 | version | 1 байт | Версия ордера: 4 |
 | proofs | Размер каждого подтверждения — до 64 байт,<br>до 8 подтверждений | Подтверждения ордера, используемые для проверки валидности |
 
@@ -79,7 +79,7 @@ message Amount {
 | 8 | Количество токена А, которое отправитель ордера хочет купить или продать в зависимости от типа ордера | amount | Long | 8 |  |
 | 9 | Количество миллисекунд с начала [эпохи Unix](https://ru.wikipedia.org/wiki/Unix-время) до момента валидации ордера матчером | timestamp | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 10 | Количество миллисекунд с начала эпохи Unix до момента [отмены](/ru/blockchain/order#cancel) невыполненного ордера | expiration | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| 11 | [Комиссия матчера](/ru/blockchain/matcher-fee) | matcherFee | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
+| 11 | [Комиссия матчера](/ru/blockchain/transaction-type/exchange-transaction#комиссия-матчера) | matcherFee | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 12 | Флаг токена комиссии матчера |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Если токен WAVES, то значение 0, иначе — 1 |
 | 13 | Токен комиссии матчера | matcherFeeAssetId | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `F` | Если токен комиссии не WAVES, то `F` = 32, иначе — поле не должно присутствовать в бинарном формате |
 | 14 | [Подтверждения](/ru/blockchain/transaction/transaction-proof) | proofs | Array[[Подтверждение](/ru/blockchain/transaction/transaction-proof)] | `S` | Если массив пустой, то `S` = 3.<br>Если массив не пустой, то `S` = 3 + 2 × `N` + (`P`<sub>1</sub> + `P`<sub>2</sub> + ... + `P`<sub>n</sub>),<br>где<br>`N` — количество подтверждений в массиве,<br>`P`<sub>n</sub> — размер N-го подтверждения в байтах.<br>Максимальное количество подтверждений в массиве — 8. Максимальный размер каждого подтверждения — 64 байта |
@@ -126,7 +126,7 @@ message Amount {
 | 8 | Количество токена Б | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Количество токена Б, которое отправитель ордера хочет купить |
 | 9 | Количество миллисекунд с начала [эпохи Unix](https://ru.wikipedia.org/wiki/Unix-время) до момента валидации ордера матчером | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 10 | Количество миллисекунд с начала эпохи Unix до момента [отмены](/ru/blockchain/order#cancel) невыполненного ордера | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Максимальное значение: время отправки ордера + 30 дней |
-| 11 | [Комиссия матчера](/ru/blockchain/matcher-fee) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
+| 11 | [Комиссия матчера](/ru/blockchain/transaction-type/exchange-transaction#комиссия-матчера) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 12 | [Подтверждения](/ru/blockchain/transaction/transaction-proof) | Array[[Подтверждение](/ru/blockchain/transaction/transaction-proof)] | `S` | Если массив пустой, то `S` = 3.<br>Если массив не пустой, то `S` = 3 + 2 × `N` + (`P`<sub>1</sub> + `P`<sub>2</sub> + ... + `P`<sub>n</sub>),<br>где<br>`N` — количество подтверждений в массиве,<br>`P`<sub>n</sub> — размер N-го подтверждения в байтах.<br>Максимальное количество подтверждений в массиве — 8. Максимальный размер каждого подтверждения — 64 байта |
 
 ## Ордер версии 1 <a id="v1"></a>
@@ -144,5 +144,5 @@ message Amount {
 | 7 | Количество токена Б, которое отправитель ордера хочет купить | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 8 | Количество миллисекунд с начала [эпохи Unix](https://ru.wikipedia.org/wiki/Unix-время) до момента валидации ордера матчером | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 9 | Количество миллисекунд с начала эпохи Unix до момента [отмены](/ru/blockchain/order#cancel) невыполненного ордера | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| 10 | [Комиссия матчера](/ru/blockchain/matcher-fee) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
+| 10 | [Комиссия матчера](/ru/blockchain/transaction-type/exchange-transaction#комиссия-матчера) | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 11 | Подпись отправителя ордера | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 64 |  |

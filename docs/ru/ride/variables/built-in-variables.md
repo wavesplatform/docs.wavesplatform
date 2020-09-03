@@ -35,7 +35,7 @@
   <tr>
     <td>3</td>
     <td>lastBlock</td>
-    <td><a href="/ru/blockchain/blockchain/blockchain-height">Высота блокчейна</a> в момент выполнения скрипта</td>
+    <td><a href="/ru/blockchain/glossary#высота-блокчейна">Высота блокчейна</a> в момент выполнения скрипта</td>
   </tr>
   <tr>
     <td>4</td>
