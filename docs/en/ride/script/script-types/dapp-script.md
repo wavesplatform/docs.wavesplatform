@@ -48,7 +48,7 @@ func doSomething() = {
 
 Callable function can be called from another account via the Invoke Script transaction.
 
-The callable function should be marked with the `@Callable(i)` annotation, where `i` is an [Invocation](/en/ride/structures/common-structures/invocation) structure that contains Invoke Script transaction fields that are accessible by the callable function. The variable name in the annotation is required even if the function does not use it.
+The callable function should be marked with the `@Callable(i)` annotation, where `i` is an [Invocation](/en/ride/structures/common-structures/invocation) structure that contains Invoke Script transaction fields that are accessible to the callable function. The variable name in the annotation is required even if the function does not use it.
 
 Callable function result is a set of [script actions](/en/ride/structures/script-actions/) that are performed on the blockchain: adding/deleting/modifying entries to the account data storages, token transfers, issue/reissue/burning and others. The result format and the available actions depend on the Standard library version used.
 
@@ -76,7 +76,7 @@ func faucet () = {
 
 ### Verifier Function
 
-Verifier function checks transactions and orders that are sent on behalf of the dApp account for compliance with the specified conditions (in other words it does the same as the account script).
+Verifier function checks transactions and orders that are sent on behalf of the dApp account for compliance with the specified conditions (in other words it works similar to the account script).
 
 The verifier function should be marked with the `@Verifier(tx)` annotation, where `tx` is the transaction or the order that the function is currently checking. The variable name in the annotation is required even if the function does not use it.
 
@@ -111,7 +111,7 @@ If the callable function failed with an error or threw an [exception](/en/ride/e
 * the [Invoke Script transaction](/en/blockchain/transaction-type/exchange-transaction) passed the sender signature verification or the account script verification,
 * the complexity of performed calculations exceeded the [threshold for saving failed transactions](/en/ride/limit),
 
-then such a transaction is saved on the blockchain and marked with the attribute
+such a transaction is saved on the blockchain and marked with the attribute
 
 ```
 "applicationStatus": "script_execution_failed"
@@ -123,14 +123,14 @@ The transaction sender is charged a fee. The transaction doesn't entail any othe
 
 [More about handling failed transactions](/en/keep-in-touch/april)
 
-## Data Accessible by dApp Script
+## Data Accessible to dApp Script
 
-Data accessible by the **callable** function:
+Data accessible to the **callable** function:
 
-* Particular fields of the transaction that invoked the dApp script, including payments, fee, sender address and public key. See the [Invocation](/en/ride/structures/common-structures/invocation) article for the fields description. Proofs are unaccessible.
+* Particular fields of the transaction that invoked the dApp script, including payments, fee, sender address and public key. See the [Invocation](/en/ride/structures/common-structures/invocation) article for the fields description. Proofs are inaccessible.
 * [Blockchain data](/en/ride/#blockchain-operation): current height, account balances, entries in account data storages, parameters of tokens, etc.
 
-Data accessible by the **verifier** function:
+Data accessible to the **verifier** function:
 
 * Fields of the current verified transaction/order, including `proofs`. The built-in variable `tx` contains this transaction or order. The set of fields depends on the type of transaction/order, see the [Transaction Structures](/en/ride/structures/transaction-structures/) chapter and [Order](/en/ride/structures/common-structures/order) article.
 * [Blockchain data](/en/ride/#blockchain-operation): current height, account balances, entries in account data storages, parameters of tokens, etc.

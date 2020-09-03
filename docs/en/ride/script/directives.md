@@ -42,10 +42,10 @@ For an [asset script](/en/ride/script/script-types/account-script):
 {-# SCRIPT_TYPE ASSET #-}
 ```
 
-Not all combinations of directives are correct. The example below won’t work, because `DAPP` content type is allowed only for accounts:
+Not all combinations of directives are correct. The example below will not work, because `DAPP` content type is allowed only for accounts:
 
 ```scala
-# Wrong example, won’t work
+# Wrong example, will not work
 
 {-# STDLIB_VERSION 4 #-}
 {-# CONTENT_TYPE DAPP #-}

@@ -60,7 +60,7 @@ match tx {
 }
 ```
 
-## Data Accessible by Account Script
+## Data Accessible to Account Script
 
 The following data can be used for checks:
 

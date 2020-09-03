@@ -33,7 +33,7 @@ Appropriate functions are described in the [Account Data Storage Functions](/en/
 
 Available script actions depend on [Standard library](/en/ride/script/standard-library) version used.
 
-## Predictable compute costs
+## Predictable Computational Cost
 
 The [complexity](/en/ride/base-concepts/complexity) is defined for each Ride function and operator. The complexities of the used functions and operators make up the script complexity. There are no loops or recursions in Ride, so the script complexity can be calculated in advance. The maximum script complexity is limited. Due to these limitations, Waves has low and predictable [fees](/en/blockchain/transaction/transaction-fee) for script execution.
 
