@@ -12,13 +12,13 @@ const keepInTouchPath = localePath + 'keep-in-touch/';
 module.exports = {
   [blockchainPath]: [
     {
-      title: 'О блокчейне Waves',
+      title: 'Почему Waves',
       path: blockchainPath,
     },
-/*    {
-      title: 'Что такое блокчейн',
+    {
+      title: 'Основные понятия',
       path: blockchainPath + 'blockchain',
-    }, */
+    },
     {
       title: 'Аккаунт',
       path: blockchainPath + 'account',

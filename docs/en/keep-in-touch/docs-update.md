@@ -1,10 +1,17 @@
 # Documentation Updates
 
+## September
+
+### Blockchain
+
+* [Why Waves](/en/blockchain/)
+* [Waves Basics](/en/blockchain/blockchain)
+
 ## August
 
 ### Blockchain
 
-* Updated the following articles about transaction:
+Updated the following articles about transaction:
    * [Transaction](/en/blockchain/transaction/)
    * [Transaction Signature and Proofs](/en/blockchain/transaction/transaction-proof)
    * [Transaction Types](/en/blockchain/transaction-type/) as well as descriptions of all types
@@ -17,7 +24,7 @@
 
 ### Blockchain
 
-* Updated the [Blockchain Networks: Mainnet, Testnet, Stagenet](/en/blockchain/blockchain-network/) article.
+* [Blockchain Networks: Mainnet, Testnet, Stagenet](/en/blockchain/blockchain-network/)  — <span style="color:green">updated</span>
 
 ### Building Apps
 

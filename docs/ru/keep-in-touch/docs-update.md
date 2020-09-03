@@ -1,5 +1,12 @@
 # Обновления в документации
 
+## Сентябрь
+
+### Блокчейн
+
+* [Почему Waves](/ru/blockchain/)
+* [Основные понятия](/ru/blockchain/blockchain)
+
 ## Август
 
 ### Блокчейн
@@ -17,7 +24,7 @@
 
 ### Блокчейн
 
-* Обновлена статья [Сети блокчейна: Mainnet, Testnet, Stagenet](/ru/blockchain/blockchain-network/).
+* [Сети блокчейна: Mainnet, Testnet, Stagenet](/ru/blockchain/blockchain-network/)  — <span style="color:green">обновлено</span>
 
 ### Ride
 
