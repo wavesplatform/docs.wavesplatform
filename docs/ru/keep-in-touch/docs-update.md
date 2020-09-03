@@ -5,7 +5,7 @@
 ### Блокчейн
 
 * [Почему Waves](/ru/blockchain/)
-* [Основные понятия](/ru/blockchain/blockchain)
+* [Основные понятия](/ru/blockchain/blockchain/)
 
 ## Август
 

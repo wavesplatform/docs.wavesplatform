@@ -5,7 +5,7 @@
 ### Blockchain
 
 * [Why Waves](/en/blockchain/)
-* [Waves Basics](/en/blockchain/blockchain)
+* [Waves Basics](/en/blockchain/blockchain/)
 
 ## August
 
