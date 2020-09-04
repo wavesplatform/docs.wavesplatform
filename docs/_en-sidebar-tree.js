@@ -1211,20 +1211,6 @@ module.exports = {
           path: sdkPath + 'waves-data-service-api',
         },
         {
-          title: 'Waves Games',
-          path: sdkPath + 'waves-gaming-api',
-          children: [
-            {
-              title: 'Waves Games API',
-              path: sdkPath + 'waves-gaming-api/waves-games-api',
-            },
-            {
-              title: 'Examples',
-              path: sdkPath + 'waves-gaming-api/examples',
-            },
-          ],
-        },
-        {
           title: 'Node gRPC Server 🡥',
           path: nodePath + 'extensions/grpc-server',
         },
