@@ -2,7 +2,7 @@
 
 Идентификатор токена представляет собой последовательность байтов:
 * Если токен выпущен в результате [транзакции выпуска](/ru/blockchain/transaction-type/issue-transaction), идентификатор токена совпадает с идентификатором транзакции.
-* Если токен выпущен в результате [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction), когда вызываемая функция [скрипта dApp](/ru/blockchain/account/dapp) выполнила действие [Issue](/ru/ride/structures/script-actions/issue), то идентификатор токена вычисляется как хеш BLAKE2b-256 идентификатора транзакции и полей структуры `Issue`.
+* Если токен выпущен в результате [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction), когда вызываемая функция [скрипта dApp](/ru/blockchain/account/dapp) выполнила действие [Issue](/ru/ride/structures/script-actions/issue), то идентификатор токена вычисляется как хеш BLAKE2b-256 массива байтов, состоящего из идентификатора транзакции и полей структуры `Issue`.
 
 В [REST API](/ru/waves-node/node-api/) ноды Waves идентификатор токена представлен в кодировке [base58](https://ru.wikipedia.org/wiki/Base58). Например:
 

@@ -2,7 +2,7 @@
 
 **Token ID** is a byte array calculated as follows:
 * If the token is issued by [Issue transaction](/en/blockchain/transaction-type/issue-transaction), the token ID is the same as the transaction ID.
-* If the token is issued by [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) when the callable function of [dApp script](/en/blockchain/account/dapp) performed the [Issue](/en/ride/structures/script-actions/issue) action, the token ID is calculated as the BLAKE2b-256 hash of the transaction ID and the fields of the `Issue` structure.
+* If the token is issued by [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) when the callable function of [dApp script](/en/blockchain/account/dapp) performed the [Issue](/en/ride/structures/script-actions/issue) action, the token ID is calculated as the BLAKE2b-256 hash of the byte array containing transaction ID and the fields of the `Issue` structure.
 
 In the [Node REST API](/en/waves-node/node-api/), the token identifier is encoded in [base58](https://ru.wikipedia.org/wiki/Base58). For example:
 
