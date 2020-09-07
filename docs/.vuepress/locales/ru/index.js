@@ -91,7 +91,15 @@ module.exports = deepmerge(mixin, {
                     gettingStarted: {
                         text: 'Начало работы',
                         link: '/ru/ride/getting-started'
-                    }
+                    },
+                    scriptTypes: {
+                        text: 'Типы скриптов',
+                        link: '/ru/ride/script/'
+                    },
+                    callableFunction: {
+                        text: 'Вызываемая функция',
+                        link: '/ru/ride/functions/callable-function'
+                    },
                 },
 
             },

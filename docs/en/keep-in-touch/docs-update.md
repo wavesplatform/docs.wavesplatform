@@ -7,6 +7,13 @@
 * [Why Waves](/en/blockchain/)
 * [Waves Basics](/en/blockchain/blockchain/)
 
+### Ride
+
+* [About Ride](/en/ride/) — <span style="color:green">updated</span>
+* [dApp script](/en/ride/script/script-types/dapp-script) — <span style="color:green">updated</span>
+* [Account script](/en/ride/script/script-types/account-script) — <span style="color:green">updated</span>
+* [Asset script](/en/ride/script/script-types/asset-script) — <span style="color:green">updated</span>
+
 ## August
 
 ### Blockchain

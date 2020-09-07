@@ -413,6 +413,30 @@ module.exports = [
     from: '/en/smart-contracts/ride-language/ride-language.html',
   },
   {
+    from: '/en/ride/script/script-body',
+    to: '/en/ride/script',
+  },
+  {
+    from: '/ru/ride/script/script-body',
+    to: '/ru/ride/script',
+  },
+  {
+    from: '/en/ride/script/script-context',
+    to: '/en/ride/script',
+  },
+  {
+    from: '/ru/ride/script/script-context',
+    to: '/ru/ride/script',
+  },
+  {
+    from: '/en/ride/script/script-types',
+    to: '/en/ride/script',
+  },
+  {
+    from: '/ru/ride/script/script-types',
+    to: '/ru/ride/script',
+  },
+  {
     to: '/en/ride/functions/annotations',
     from: '/en/ride/annotations.html',
   },
