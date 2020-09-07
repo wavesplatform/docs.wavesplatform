@@ -2,7 +2,7 @@
 
 This article describes possible solutions for the issues that can happen during block generation.
 
-## My node is running but does not generate blocks
+## My node is running but it does not generate blocks
 
 **Question**: My node is running fine (appending microblocks) and the block height signatures compared with [wavesexplorer.com](https://wavesexplorer.com/) are correct which indicates that the node is not on fork. Suddenly the node failed to generate blocks. The `waves.log` contains messages indicating that the node will try to generate block in xxx seconds (`Next attempt for acc=<your_node_address> in <xxx> seconds`) but the generating does not actually happen. What can I do?
 
