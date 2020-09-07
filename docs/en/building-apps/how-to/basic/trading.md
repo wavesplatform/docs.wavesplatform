@@ -4,7 +4,7 @@ sidebarDepth: 2
 
 # How to Buy and Sell Tokens
 
-All the assets issued on the Waves blockchain (except [NFTs](/en/blockchain/token/non-fungible-token)) can be bought or sold on [Waves.Exchange](https://waves.exchange/) developed by Waves.Exchange team.
+All the assets issued on the Waves blockchain can be bought or sold on [Waves.Exchange](https://waves.exchange/) developed by Waves.Exchange team (except [NFTs](/en/blockchain/token/non-fungible-token); smart assets trading is temporarily unavailable).
 
 Waves.Exchange app is a part of the Waves ecosystem. It combines user wallet and decentralized exchange that executes trades swiftly and securely.
 

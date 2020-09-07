@@ -9,7 +9,7 @@ One of the key benefits of the Waves blockchain is the simplicity of issuing tok
 New tokens are immediately available:
 
 * for transfers between accounts,
-* (except NFTs) for trading on [Waves.Exchange](https://waves.exchange/) developed by Waves.Exchange team,
+* for trading on [Waves.Exchange](https://waves.exchange/) developed by Waves.Exchange team (except for NFTs; smart assets trading is temporarily unavailable),
 * for payments attached to dApp script invocation.
 
 You can use your tokens:

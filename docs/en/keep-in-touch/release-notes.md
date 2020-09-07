@@ -232,7 +232,3 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
 * Added display of the new transaction type: update asset info transaction.
 * Added the link to the issue transaction on the asset information page.
 * Added Block ID field to the block information page.
-
-## Activation
-
-To activate the improvements listed above, vote for feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
