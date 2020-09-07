@@ -1,0 +1,38 @@
+# Block Generation FAQ
+
+This article describes possible solutions for the issues that can happen during block generation.
+
+## My node is running but no blocks are generated
+
+**Question**: My latest version node is running fine (appending microblocks) and the block height signatures compared with [wavesexplorer.com](https://wavesexplorer.com/) are correct which indicates that the node is not on fork. Suddenly the node failed to generate several blocks. The logs contain messages indicating that the node "will try to forge in xxx,xx seconds" but generating does not actually happen. What can I do?
+
+**Answer**: Your node may fail to generate blocks because the block generation process is probabilistic. Such log messages ("will try to forge in xxx...") indicate that your node scheduled generating blocks according to LPOS formula after the last key block is received. However, there is always a chance that another node had scheduled to generate the block at earlier time. You can use [wavesexplorer.com](https://wavesexplorer.com/) website to check the actual generation timestamp and the ID of the node that succeeded (was the first one) to generate a block.
+
+**Example**: At 11:59:20 your node planned an attempt to generate block at 12:00:05, but when you check at [wavesexplorer.com](https://wavesexplorer.com/), you see that another node generated block at 12:00:03.
+
+You can use the following command to review the generating attempts in your log and check what node actually succeeded to generate a block:
+
+```bash
+grep "Next attempt\|Appended" waves.log
+```
+
+**Response example**:
+
+```bash
+2020-09-07 10:27:55,076 DEBUG [appender-52] c.w.mining.MinerImpl - Next attempt for acc=<redacted> in 508.710 seconds
+2020-09-07 10:27:55,147 DEBUG [ecution-context-global-48] c.w.s.a.BlockAppender$ - [2ecdf572 134.209.30.86:56992] Appended Block(DeB2bwPeJkpDMpLEvHm8MRg3axpYtwupMZi5uRigrLZo,CPX3P6rvYttUhUFtM2MTHdJ4AALFyfdfDey5oH9CGJXP,3PJEPHsDNtfDRxxaja8wEp3mCXp5kpLYsLS,1599474474614,[])
+
+2020-09-07 10:29:50,072 DEBUG [appender-52] c.w.mining.MinerImpl - Next attempt for acc=<redacted> in 457.722 seconds
+2020-09-07 10:29:50,161 DEBUG [ecution-context-global-48] c.w.s.a.BlockAppender$ - [7895562c 173.249.1.184:60940] Appended Block(2fXUoLdh4XmDkuTfdZ7bPyvubBfEdhQ989X5P27nbHby,8hs8fTy52sJyzJwxMb75A38JAxsEPjycMTyfCbbrW9XB,3PEFQiFMLm1gTVjPdfCErG8mTHRcH2ATaWa,1599474589929,[],600000000)
+```
+
+This example response indicates that at  the `[appender-52] c.w.mining.MinerImpl` block generator (node with 30-40k WAVES balance) planned an attempt to generate block in `508.710` seconds, but eventually at `2020-09-07 10:27:55,147` the `[ecution-context-global-48] c.w.s.a.BlockAppender$ [2ecdf572 134.209.30.86:56992]` node was faster to actually succeed.
+
+the `[appender-52] c.w.mining.MinerImpl` node received block `DeB2bwPeJkpDMpLEvHm8MRg3axpYtwupMZi5uRigrLZo` and at `2020-09-07 10:27:55,076` the node planned an attempt generating next block in `508.710` seconds, то есть примерно в 10:34:23. Then the response says that the processing of block `DeB2bwPeJkpDMpLEvHm8MRg3axpYtwupMZi5uRigrLZo` is complete. Then the node receives the next block `2fXUoLdh4XmDkuTfdZ7bPyvubBfEdhQ989X5P27nbHby` at `2020-09-07 10:29:50,072` его уже провалидировали и запланировали следующую попытку майнинга.
+
+
+**Note**: You can use [dev.pywaves.org](https://dev.pywaves.org/) website to review block generators performance ratio (Performance ratio = Mined blocks / Estimated blocks). Please keep in mind that short-term (daily) estimates are for reference only.
+
+## Other Issues
+
+If you have other node-related issues to report or discuss with Waves community, see [Keep in Touch](/en/keep-in-touch/) chapter for contact information.
