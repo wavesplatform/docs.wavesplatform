@@ -613,6 +613,12 @@ module.exports = {
 	{
       title: 'Troubleshooting',
       path: nodePath + 'node-troubleshooting',
+	  children: [
+	    {
+			title: 'Block Generation FAQ',
+			path: nodePath + 'block-generation-faq',
+		},
+	  ]
 	},
   ],
 
