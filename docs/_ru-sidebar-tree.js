@@ -680,7 +680,7 @@ module.exports = {
       path: ridePath + 'script',
       children: [
         {
-          title: 'Скрипт dApp',
+          title: 'dApp-скрипт',
           path: ridePath + 'script/script-types/dapp-script',
           children: [
             {
