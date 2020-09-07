@@ -1,10 +1,10 @@
 # Node API
 
-The **Node API** or the **Waves Node API** is a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) API of the web services of a [node](/en/blockchain/node/).
+Waves provides [node](/en/blockchain/node/) [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) API (application programming interface). Node owner can enable/disable the node API and set other parameters in the [REST API Settings](/en/waves-node/node-configuration#rest-api-settings) section of the node configuration file. Some API methods (for example, signing transactions by the node or exporting seed) are designed to be used only by the node owner and require [API Key](/en/waves-node/node-api/api-key).
 
-## Swagger web interface
+## Swagger Web Interface
 
-The [Swagger](https://swagger.io) web interface of the Node API:
+Waves team provides node pools to use public API methods in [Swagger](https://swagger.io) web interface:
 
-* Main network — <https://nodes.wavesnodes.com>
-* Test network — <https://nodes-testnet.wavesnodes.com>
+* Mainnet — <https://nodes.wavesnodes.com>
+* Testnet — <https://nodes-testnet.wavesnodes.com>

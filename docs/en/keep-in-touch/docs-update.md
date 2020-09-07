@@ -2,6 +2,11 @@
 
 ## September
 
+### Blockchain
+
+* [Why Waves](/en/blockchain/)
+* [Waves Basics](/en/blockchain/blockchain/)
+
 ### Ride
 
 * [About Ride](/en/ride) — <span style="color:green">updated</span>
@@ -9,11 +14,24 @@
 * [Account script](/en/ride/script/script-types/account-script) — <span style="color:green">updated</span>
 * [Asset script](/en/ride/script/script-types/asset-script) — <span style="color:green">updated</span>
 
-## July Articles
+## August
 
-### Blockchain Waves
+### Blockchain
 
-* Updated the [Blockchain Networks: Mainnet, Testnet, Stagenet](/en/blockchain/blockchain-network/) article.
+Updated the following articles about transaction:
+   * [Transaction](/en/blockchain/transaction/)
+   * [Transaction Signature and Proofs](/en/blockchain/transaction/transaction-proof)
+   * [Transaction Types](/en/blockchain/transaction-type/) as well as descriptions of all types
+
+### Node
+
+* [How to Configure CORS: Support For Cross Domain Requests](/en/waves-node/node-api/cors)
+
+## July
+
+### Blockchain
+
+* [Blockchain Networks: Mainnet, Testnet, Stagenet](/en/blockchain/blockchain-network/)  — <span style="color:green">updated</span>
 
 ### Building Apps
 
@@ -28,7 +46,7 @@ Added guides:
 * [removeByIndex](/en/ride/functions/built-in-functions/list-functions#removebyindex)
 * [bn256groth16Verify](/en/ride/functions/built-in-functions/verification-functions#bn256groth16verify)
 
-## June Articles
+## June
 
 ### Building Apps
 
@@ -48,7 +66,7 @@ Tools:
 
 * [Tuple](/en/ride/data-types/tuple)
 
-## May Articles
+## May
 
 ### Blockchain
 
@@ -72,7 +90,7 @@ Tools:
 * [makeString](/en/ride/functions/built-in-functions/string-functions#makestring-list-string-string-string)
 * [List functions](/en/ride/functions/built-in-functions/list-functions): `containsElement`, `indexOf`, `lastIndexOf`, `max`, `min`
 
-## April articles
+## April
 
 ### Blockchain
 
@@ -87,7 +105,7 @@ Added how-to guides:
 * [Airdrop](/en/building-apps/how-to/assets/airdrop)
 * [Receiving Payments](/en/building-apps/how-to/assets/payment)
 
-## March Articles
+## March
 
 ### Blockchain
 
@@ -108,7 +126,7 @@ Updated the the following descriptions:
 * [hashing functions](/en/ride/functions/built-in-functions/hashing-functions): `blake2b256`, `keccak256`, `sha256`;
 * [verification functions](/en/ride/functions/built-in-functions/verification-functions): `groth16Verify`, `rsaVerify`, `sigVerify`.
 
-## February Articles
+## February
 
 ### Building Apps
 
@@ -125,7 +143,7 @@ Added how-to guides:
 * [calculateAssetId](/en/ride/functions/built-in-functions/blockchain-functions#calculate)
 * [groth16Verify](/en/ride/functions/built-in-functions/verification-functions#groth16Verify)
 
-## December Articles
+## December
 
 ### Blockchain network
 
@@ -168,14 +186,14 @@ Added how-to guides:
 
 * [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer)
 
-## November articles
+## November
 
-### Smart contracts
+### Smart Contracts
 
 * [What is a Smart Account](/en/building-apps/smart-contracts/what-is-smart-account)
 * [Creating smart account](/en/building-apps/smart-contracts/how-to-create-smart-account)
 
-## October articles
+## October
 
 ### Programming
 
@@ -207,7 +225,7 @@ Added how-to guides:
 
 * [Glossary](/en/blockchain/glossary)
 
-## September articles
+## September
 
 ### Blockchain
 
@@ -230,7 +248,7 @@ Added how-to guides:
 * Variables
   * [Built-in variables](/en/ride/variables/built-in-variables)
 
-### Waves node
+### Waves Node
 
 * [Node configuration](/en/waves-node/node-configuration) — <span style="color:green">updated</span>
 

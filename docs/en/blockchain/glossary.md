@@ -280,7 +280,7 @@ A **token** is a [blockchain](#blockchain) object that represents another object
 
 ### Transaction
 
-The **transaction** is an action on the [blockchain](#blockchain) on behalf of the [account](#account). Transactions can be sent only from the account — thus, any transaction can be correlated with a certain account.
+**Transaction** is an action on the [blockchain](#blockchain) on behalf of the [account](#account). Transactions can be sent only from the account — thus, any transaction can be correlated with a certain account.
 
 ### Transaction body bytes
 
@@ -291,7 +291,7 @@ The **transaction** is an action on the [blockchain](#blockchain) on behalf of t
 
 The contents of transaction body bytes is given in the description of the binary format of each type and version of the transaction.
 
-Based on the transaction body bytes, the [transaction ID](/en/blockchain/transaction/transaction-id) and the [transaction signature](/en/blockchain/transaction/transaction-signature) are generated. The guideline for generating a signature and ID is given in the [Cryptographic practical details](/en/blockchain/waves-protocol/cryptographic-practical-details#signing) article.
+Based on the transaction body bytes, the transaction ID and [signature](/en/blockchain/transaction/transaction-proof) are generated. The guideline for generating a signature and ID is given in the [Cryptographic practical details](/en/blockchain/waves-protocol/cryptographic-practical-details#signing) article.
 
 ## U
 
@@ -317,8 +317,4 @@ A **validating node** is a [node](#node) that validates [transactions](#transact
 
 ### WCT
 
-**WCT** (or Waves Community Token) is a [token](#token) used by members of the Waves community during voting and other activities.
-
-### WRT
-
-**WRT** (or Waves Reward Token) is a [token](#token) that is used to reward contributors. Contributors can participate in the creation of [dApps](#dapp), serve as external auditors or assist in events and receive rewards for this. The more difficult the contributor’s task is, the more WRT tokens they can get. Also, with the help of WRT, Waves community members can thank the most influential and useful members of the Waves ecosystem.
+**WCT** (or Waves Community Token) is a [token](#token) used by Waves community members during voting and other activities.

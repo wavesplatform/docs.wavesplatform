@@ -5,7 +5,7 @@
 The following blockchain networks are based on the Waves protocol:
 
 * **Mainnet** is the core Waves network where cryptocurrencies possess real economic value and nodes that generate blocks are rewarded with native coins from the protocol and also the transaction fees paid by the participants.
-* **Testnet** is the network for application testing. Testnet provides the same functionalities as Mainnet. However, on Testnet you can obtain WAVES tokens for free using [Faucet](https://wavesexplorer.com/testnet/faucet), so you can run in your project without the risk of losing real money.
+* **Testnet** is the network for application testing. Testnet provides the same functionalities as Mainnet. However, on Testnet you can obtain WAVES tokens for free using [Faucet](https://testnet.wavesexplorer.com/faucet), so you can run in your project without the risk of losing real money.
 * **Stagenet** is the experimental network. Waves team tests protocol functionalities on Stagenet before they are deployed on Testnet and Mainnet, so you can try out the new features and give your feedback. If you want to launch a Stagenet node, get WAVES tokens on lease, ask a question or leave a comment, join the [stagenet](https://discord.gg/3g8XR6B) channel in Discord. Please note: experimental functionalities may work unstably and blockchain height rollbacks are possible.
 
 Moreover, you can setup your own custom blockchain network based on WAVES protocol.
@@ -83,7 +83,7 @@ The addresses for order sending and market data obtaining are as follows:
 |  |  |
 | :--- | :--- |
 | Mainnet | — |
-| Testnet | [Request 10 WAVES](https://wavesexplorer.com/testnet/faucet) |
+| Testnet | [Request 10 WAVES](https://testnet.wavesexplorer.com/faucet) |
 | Stagenet | [Request 10 WAVES](https://stagenet.wavesexplorer.com/faucet) |
 
 ### Waves IDE

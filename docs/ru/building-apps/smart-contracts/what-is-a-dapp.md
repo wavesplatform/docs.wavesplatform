@@ -134,7 +134,7 @@ dApp может использовать данные блокчейна:
 * В [Waves IDE](https://waves-ide.com/): создайте или импортируйте аккаунт, откройте dApp-скрипт и нажмите **Deploy**.
 * С помощью одной из [клиентских библиотек](/ru/building-apps/waves-api-and-sdk/client-libraries/). См. также примеры в разделе [Создание и отправка транзакций](/ru/building-apps/how-to/basic/transaction).
 
-[Пример транзакции](https://wavesexplorer.com/testnet/tx/213JdqCLq6qGLUvoXkMaSA2wLSwdzH24BuhHBhcBeHUR)
+[Пример транзакции](https://testnet.wavesexplorer.com/tx/213JdqCLq6qGLUvoXkMaSA2wLSwdzH24BuhHBhcBeHUR)
 
 Комиссия за транзакцию установки скрипта — 0,01 WAVES.
 

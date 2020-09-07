@@ -37,7 +37,7 @@ To import an existing account, click the account avatar or the **Add account** b
 
 1. Copy address: click the account avatar and then click ![](./_assets/copy-button.png).
 2. Go to the page:
-   * <https://wavesexplorer.com/testnet/faucet> for Testnet;
+   * <https://testnet.wavesexplorer.com/faucet> for Testnet;
    * <https://stagenet.wavesexplorer.com/faucet> for Stagenet.
 3. Paste the address, then click **Request 10 WAVES**.
 

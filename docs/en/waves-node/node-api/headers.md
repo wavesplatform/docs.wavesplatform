@@ -2,12 +2,11 @@
 
 ## api-key
 
-[API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) of the node owner is highly important as the [seed phrase](/en/blockchain/glossary#secret-phrase) and the password of the wallet.
+The node owner [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) is very important just like the [seed phrase](/en/blockchain/glossary#secret-phrase) and the wallet password.
 
-The API key is transmitted in the HTTP header as unprotected plain text in `api-key` header. An attacker can intercept it in the network transit and use it to transfer your money to any address! So it's highly important to protect the transmission using HTTPS or SSH port forwarding.
+The API key is transmitted in the HTTP header as unprotected plain text in `api-key` header. An attacker can intercept it in the network transit and use it to steal your assets. It is highly important to protect the transmission with HTTPS or SSH port forwarding.
 
 Please note that node does not have built-in HTTPS support. Consider using HTTPS-proxy, for example, nginx.
-
 
 ## large-significand-format=string
 

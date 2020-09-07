@@ -36,9 +36,9 @@ message DataTransactionData {
 
 | № | Поле | Название JSON-поля | Тип поля | Размер поля в байтах | Комментарий |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | Флаг версии | | [Byte](/ru/blockchain/blockchain/blockchain-data-types)  | 1 | Указывает, что [версия транзакции](/ru/blockchain/transaction/transaction-version) является второй или выше.<br>Значение должно быть равно 0 |
+| 1 | Флаг версии | | [Byte](/ru/blockchain/blockchain/blockchain-data-types)  | 1 | Указывает, что версия транзакции является второй или выше.<br>Значение должно быть равно 0 |
 | **2** | [ID типа транзакции](/ru/blockchain/transaction-type/) | type | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Значение должно быть равно 12 |
-| **3** | [Версия транзакции](/ru/blockchain/transaction/transaction-version) | version | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Значение должно быть равно 1 |
+| **3** | Версия транзакции | version | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Значение должно быть равно 1 |
 | **4** | Открытый ключ аккаунта отправителя транзакции | senderPublicKey | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
 | **5** | Количество элементов в массиве данных | | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 2 | |
 | **6.1** | Длина ключа 1-го элемента | | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 2 | |
@@ -60,7 +60,7 @@ message DataTransactionData {
 | **6.[5&nbsp;×&nbsp;N&nbsp;-&nbsp;2]** | Тип данных N-го элемента | type | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | |
 | **6.[5&nbsp;×&nbsp;N&nbsp;-&nbsp;1]** | Длина данных N-го элемента |  | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 2 | Поле присутствует, только если значением поля данных является массив байтов или строка.<br>Поле отсутствует, если значением поля данных является целое число или логический тип |
 | **6.[5&nbsp;×&nbsp;N]** | Данные N-го элемента | value | `T` | До 32&nbsp;767 | `T` — один из следующих: <br> - [Long](/ru/blockchain/blockchain/blockchain-data-types)<br> - Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)]<br> - [Boolean](/ru/blockchain/blockchain/blockchain-data-types)<br> - [String](/ru/blockchain/blockchain/blockchain-data-types) |
-| **7** | [Временная метка транзакции](/ru/blockchain/transaction/transaction-timestamp) | timestamp | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
+| **7** | Временная метка транзакции | timestamp | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **8** | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) | fee | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 9 | [Подтверждения транзакции](/ru/blockchain/transaction/transaction-proof) | proofs | См. раздел [Бинарный формат подтверждений](/ru/blockchain/binary-format/transaction-proof-binary-format) | `S` | Если массив пустой, то `S` = 3. <br>Если массив не пустой, то `S` = 3 + 2 × `N` + 64 × `N`, где `N` — количество подтверждений в массиве.<br>Максимальное количество подтверждений в массиве — 8. Размер каждого подтверждения — 64 байта |
 

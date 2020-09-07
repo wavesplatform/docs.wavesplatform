@@ -87,8 +87,8 @@ message Amount {
 | sender_public_key | 32 bytes | Public key of the transaction sender |
 | fee.amount | 8 bytes | [Transaction fee ](/en/blockchain/transaction/transaction-fee) in the minimum fraction (“cent”) of the fee asset |
 | fee.asset_id | • 32 bytes for the fee in a sponsored asset<br> • 0 for the fee in WAVES | ID of the token of the fee.<br>The fee in a sponsored asset is only available for invoke script transactions and transfer transactions. See the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article |
-| timestamp | 8 bytes | [Transaction timestamp](/en/blockchain/transaction/transaction-timestamp): Unix time in milliseconds. The transaction won't be added to the blockchain if the timestamp value is more than 2 hours back or 1.5 hours forward of the current block timestamp |
-| version | 1 byte | [Transaction version](/en/blockchain/transaction/transaction-version) |
+| timestamp | 8 bytes | Transaction timestamp: Unix time in milliseconds. The transaction won't be added to the blockchain if the timestamp value is more than 2 hours back or 1.5 hours forward of the current block timestamp |
+| version | 1 byte | Transaction version |
 | proofs | Each proof up to 64 bytes,<br>up to 8 proofs | [Transaction proofs](/en/blockchain/transaction/transaction-proof) that are used to check the validity of the transaction. The array can contain several transaction signatures (but not limited to signatures only) |
 
 The fields that depend on the type of transaction are described in the following articles:

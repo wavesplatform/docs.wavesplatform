@@ -11,8 +11,8 @@
 [Подробнее о валидации транзакций](/ru/blockchain/transaction/transaction-validation)
 
 В JSON-представление транзакции добавлено поле `applicationStatus`, которое содержит результат валидации:
-* `succeed` — валидация прошла успешно.
-* `scriptExecutionFailed` — результат выполнения dApp-скрипта или скрипта ассета был неудачным. Такая транзакция не приводит к изменениям в балансах (кроме взимания комиссии с отправителя) и в хранилищах данных аккаунтов.
+* `succeeded` — транзакция успешна.
+* `script_execution_failed` — результат выполнения dApp-скрипта или скрипта ассета был неудачным. Такая транзакция не приводит к изменениям в балансах (кроме взимания комиссии с отправителя) и в хранилищах данных аккаунтов.
 
 Транзакции с неудачным результатом выполнения скрипта реализованы в протоколе Waves и поддержаны как в [Node Scala](https://github.com/wavesplatform/Waves/releases), так и в [Node Go](https://github.com/wavesplatform/gowaves/releases/), а также в следующих инструментах Waves.
 
@@ -20,9 +20,16 @@
 
 В следующие методы добавлено поле `applicationStatus`:
 
-   * `GET /transactions/info/{id}`
-   * `GET /transactions/status`
-   * `POST /transactions/status`
+   * `/blocks/{id}`
+   * `/blocks/address/{address}/{from}/{to}`
+   * `/blocks/at/{height}`
+   * `/blocks/last`
+   * `/blocks/seq/{from}/{to}`
+   * `/debug/stateChanges/address/{address}/limit/{limit}`
+   * `/debug/stateChanges/info/{id}`
+   * `/transactions/address/{address}/limit/{limit}`
+   * `/transactions/info/{id}`
+   * `/transactions/status`
 
 **Как воспользоваться**: пул нод Waves с публичным API на Stagenet доступен по адресу <https://nodes-stagenet.wavesnodes.com/>.
 

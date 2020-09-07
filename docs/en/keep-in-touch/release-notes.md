@@ -36,6 +36,10 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    * `/transactions/info/{id}`
    * `/transactions/status`
 
+   `applicationStatus` values:
+   * `succeeded` — the transaction is successful
+   * `script_execution_failed` — the dApp script or the asset script failed.
+
 * For failed invoke script transactions, the reason of failure is indicated in the `error` structure in the following endpoints:
    * `/debug/stateChanges/address/{address}/limit/{limit}`
    * `/debug/stateChanges/info/{id}`
@@ -228,7 +232,3 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
 * Added display of the new transaction type: update asset info transaction.
 * Added the link to the issue transaction on the asset information page.
 * Added Block ID field to the block information page.
-
-## Activation
-
-To activate the improvements listed above, vote for feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.

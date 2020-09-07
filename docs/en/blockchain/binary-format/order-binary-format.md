@@ -59,7 +59,7 @@ message Amount {
 | timestamp | 8 bytes | Order timestamp: Unix time in milliseconds |
 | expiration | 8 bytes | Unix time in milliseconds when the order will be expired |
 | matcher_fee.asset_id | • 32 bytes for asset<br>• 0 for WAVES | Matcher fee token ID |
-| matcher_fee.amount | 8 bytes | [Matcher fee](/en/blockchain/matcher-fee) |
+| matcher_fee.amount | 8 bytes | [Matcher fee](/en/blockchain/glossary#m) |
 | version | 1 byte | Order version: 4 |
 | proofs | Each proof up to 64 bytes,<br>up to 8 proofs | Order proofs that are used to check the validity of the order |
 
@@ -79,7 +79,7 @@ message Amount {
 | 8 | Amount of token A, which order sender wants to buy or send depending on order type | amount | Long | 8 |  |
 | 9 | Amount of milliseconds from the beginning of [Unix epoch](https://ru.wikipedia.org/wiki/Unix-время) till the moment of validation of order by matcher | timestamp | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 10 | Amount of milliseconds from the beginning of Unix epoch till the unfulfilled order [cancellation](/en/blockchain/order#cancel) | expiration | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| 11 | [Matcher fee](/en/blockchain/matcher-fee) | matcherFee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
+| 11 | [Matcher fee](/en/blockchain/glossary#m) | matcherFee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | 12 | Matcher fee token flag |  | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | If token is WAVES, then value is 0, else 1 |
 | 13 | Matcher fee token | matcherFeeAssetId | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `F` | If token is not WAVES, then `F` = 32, else the field should be absent |
 | 14 | [Proofs](/en/blockchain/transaction/transaction-proof) | proofs | Array[[Proof](/en/blockchain/transaction/transaction-proof)] | `S` | If the array is empty, then `S` = 3.<br>If the array is not empty, then `S` = 3 + 2 × `N` + (`P`<sub>1</sub> + `P`<sub>2</sub> + ... + `P`<sub>n</sub>),<br>where<br>`N` is amount of proofs in the array,<br>`P`<sub>n</sub> — size N-th proof in bytes.<br>Maximum amount of proofs in the array is 8. Maximum length of each proof is 64 bytes |

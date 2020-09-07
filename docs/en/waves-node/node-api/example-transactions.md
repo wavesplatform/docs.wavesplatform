@@ -21,7 +21,7 @@ Listed below are examples of real transactions of each type found in _**testnet*
 | 13 | Set Script | [EXDKRNL5Apiw3K9mvLjPVNTWRhDwEvzeA9GAXSrYfQsh](https://nodes-testnet.wavesnodes.com/transactions/info/EXDKRNL5Apiw3K9mvLjPVNTWRhDwEvzeA9GAXSrYfQsh) [345411](https://nodes-testnet.wavesnodes.com/blocks/at/345411) |
 | 14 | Set Sponsorship | [6RpgMgrzqEUYAFrRZFNJfREwUzJaaXAenFXeLtpwmn2c](https://nodes-testnet.wavesnodes.com/transactions/info/6RpgMgrzqEUYAFrRZFNJfREwUzJaaXAenFXeLtpwmn2c) [339514](https://nodes-testnet.wavesnodes.com/blocks/at/339514) |
 | 15 | Set Asset Script | [GWkdmHarT8vrYv1xQzj6tHeCbZ7gHbwUjLJrAxZYos9D](https://nodes-testnet.wavesnodes.com/transactions/info/GWkdmHarT8vrYv1xQzj6tHeCbZ7gHbwUjLJrAxZYos9D) [545881](https://nodes-testnet.wavesnodes.com/blocks/at/545881) |
-| 16 | InvokeScript | [J5ZLBy2m9sN3oH3rHTqd1S3R9iixfhHs8JwP19H3NhCg](https://wavesexplorer.com/testnet/tx/J5ZLBy2m9sN3oH3rHTqd1S3R9iixfhHs8JwP19H3NhCg) |
+| 16 | InvokeScript | [J5ZLBy2m9sN3oH3rHTqd1S3R9iixfhHs8JwP19H3NhCg](https://testnet.wavesexplorer.com/tx/J5ZLBy2m9sN3oH3rHTqd1S3R9iixfhHs8JwP19H3NhCg) |
 
 ### Mainnet
 

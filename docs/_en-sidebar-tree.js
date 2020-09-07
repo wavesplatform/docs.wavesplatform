@@ -12,23 +12,23 @@ const keepInTouchPath = localePath + 'keep-in-touch/';
 module.exports = {
   [blockchainPath]: [
     {
-      title: 'About Waves blockchain',
+      title: 'Why Waves',
       path: blockchainPath,
     },
-/*    {
-      title: 'Blockchain intoduction',
+    {
+      title: 'Waves Basics',
       path: blockchainPath + 'blockchain',
-    }, */
+    },
     {
       title: 'Account',
       path: blockchainPath + 'account',
       children: [
         {
-          title: 'Account balance',
+          title: 'Account Balance',
           path: blockchainPath + 'account/account-balance',
         },
         {
-          title: 'Account data storage',
+          title: 'Account Data Storage',
           path: blockchainPath + 'account/account-data-storage',
         },
         {
@@ -44,7 +44,7 @@ module.exports = {
           path: blockchainPath + 'account/dapp',
         },
         {
-          title: 'Smart account',
+          title: 'Smart Account',
           path: blockchainPath + 'account/smart-account',
         }
       ],
@@ -54,11 +54,11 @@ module.exports = {
       path: blockchainPath + 'token',
       children: [
         {
-          title: 'Non-fungible token',
+          title: 'Non-Fungible Token',
           path: blockchainPath + 'token/non-fungible-token',
         },
         {
-          title: 'Smart asset',
+          title: 'Smart Asset',
           path: blockchainPath + 'token/smart-asset',
         },
         {
@@ -73,10 +73,6 @@ module.exports = {
           title: 'WAVELET',
           path: blockchainPath + 'token/wavelet',
         },
-        {
-          title: 'WCT',
-          path: blockchainPath + 'token/wct',
-        },
       ],
     },
     {
@@ -84,108 +80,92 @@ module.exports = {
       path: blockchainPath + 'transaction',
       children: [
         {
-          title: 'Transaction ID',
-          path: blockchainPath + 'transaction/transaction-id',
-        },
-        {
-          title: 'Transaction body bytes',
-          path: blockchainPath + 'transaction/transaction-body-bytes',
-        },
-        {
-          title: 'Transaction fee',
+          title: 'Transaction Fee',
           path: blockchainPath + 'transaction/transaction-fee',
           children: [
             {
-              title: 'Sponsored fee',
+              title: 'Sponsored Fee',
               path: blockchainPath + 'waves-protocol/sponsored-fee',
             },
           ]
         },
         {
-          title: 'Transaction proof',
+          title: 'Signature and Proofs',
           path: blockchainPath + 'transaction/transaction-proof',
         },
         {
-          title: 'Transaction signature',
-          path: blockchainPath + 'transaction/transaction-signature',
+          title: 'Transaction Types',
+          path: blockchainPath + 'transaction-type',
+          children: [
+            {
+              title: 'Burn Transaction',
+              path: blockchainPath + 'transaction-type/burn-transaction',
+            },
+            {
+              title: 'Create Alias Transaction',
+              path: blockchainPath + 'transaction-type/create-alias-transaction',
+            },
+            {
+              title: 'Data Transaction',
+              path: blockchainPath + 'transaction-type/data-transaction',
+            },
+            {
+              title: 'Exchange Transaction',
+              path: blockchainPath + 'transaction-type/exchange-transaction',
+            },
+            {
+              title: 'Genesis Transaction',
+              path: blockchainPath + 'transaction-type/genesis-transaction',
+            },
+            {
+              title: 'Invoke Script Transaction',
+              path: blockchainPath + 'transaction-type/invoke-script-transaction',
+            },
+            {
+              title: 'Issue Transaction',
+              path: blockchainPath + 'transaction-type/issue-transaction',
+            },
+            {
+              title: 'Lease Cancel Transaction',
+              path: blockchainPath + 'transaction-type/lease-cancel-transaction',
+            },
+            {
+              title: 'Lease Transaction',
+              path: blockchainPath + 'transaction-type/lease-transaction',
+            },
+            {
+              title: 'Mass Transfer Transaction',
+              path: blockchainPath + 'transaction-type/mass-transfer-transaction',
+            },
+            {
+              title: 'Reissue Transaction',
+              path: blockchainPath + 'transaction-type/reissue-transaction',
+            },
+            {
+              title: 'Set Asset Script Transaction',
+              path: blockchainPath + 'transaction-type/set-asset-script-transaction',
+            },
+            {
+              title: 'Set Script Transaction',
+              path: blockchainPath + 'transaction-type/set-script-transaction',
+            },
+            {
+              title: 'Sponsor Fee Transaction',
+              path: blockchainPath + 'transaction-type/sponsor-fee-transaction',
+            },
+            {
+              title: 'Transfer Transaction',
+              path: blockchainPath + 'transaction-type/transfer-transaction',
+            },
+            {
+              title: 'Update Asset Info Transaction',
+              path: blockchainPath + 'transaction-type/update-asset-info-transaction',
+            },
+          ]
         },
         {
-          title: 'Transaction timestamp',
-          path: blockchainPath + 'transaction/transaction-timestamp',
-        },
-        {
-          title: 'Transaction validation',
+          title: 'Transaction Validation',
           path: blockchainPath + 'transaction/transaction-validation',
-        },
-        {
-          title: 'Transaction version',
-          path: blockchainPath + 'transaction/transaction-version',
-        },
-      ]
-    },
-    {
-      title: 'Transaction type',
-      path: blockchainPath + 'transaction-type',
-      children: [
-        {
-          title: 'Burn transaction',
-          path: blockchainPath + 'transaction-type/burn-transaction',
-        },
-        {
-          title: 'Create alias transaction',
-          path: blockchainPath + 'transaction-type/create-alias-transaction',
-        },
-        {
-          title: 'Data transaction',
-          path: blockchainPath + 'transaction-type/data-transaction',
-        },
-        {
-          title: 'Exchange transaction',
-          path: blockchainPath + 'transaction-type/exchange-transaction',
-        },
-        {
-          title: 'Genesis transaction',
-          path: blockchainPath + 'transaction-type/genesis-transaction',
-        },
-        {
-          title: 'Invoke script transaction',
-          path: blockchainPath + 'transaction-type/invoke-script-transaction',
-        },
-        {
-          title: 'Issue transaction',
-          path: blockchainPath + 'transaction-type/issue-transaction',
-        },
-        {
-          title: 'Lease cancel transaction',
-          path: blockchainPath + 'transaction-type/lease-cancel-transaction',
-        },
-        {
-          title: 'Lease transaction',
-          path: blockchainPath + 'transaction-type/lease-transaction',
-        },
-        {
-          title: 'Mass transfer transaction',
-          path: blockchainPath + 'transaction-type/mass-transfer-transaction',
-        },
-        {
-          title: 'Reissue transaction',
-          path: blockchainPath + 'transaction-type/reissue-transaction',
-        },
-        {
-          title: 'Set asset script transaction',
-          path: blockchainPath + 'transaction-type/set-asset-script-transaction',
-        },
-        {
-          title: 'Set script transaction',
-          path: blockchainPath + 'transaction-type/set-script-transaction',
-        },
-        {
-          title: 'Transfer transaction',
-          path: blockchainPath + 'transaction-type/transfer-transaction',
-        },
-        {
-          title: 'Update asset info transaction',
-          path: blockchainPath + 'transaction-type/update-asset-info-transaction',
         },
       ]
     },
@@ -198,11 +178,11 @@ module.exports = {
       path: blockchainPath + 'node',
       children: [
         {
-          title: 'Mining node',
+          title: 'Mining Node',
           path: blockchainPath + 'node/mining-node',
         },
         {
-          title: 'Validating node',
+          title: 'Validating Node',
           path: blockchainPath + 'node/validating-node',
         },
         {
@@ -220,11 +200,11 @@ module.exports = {
           path: blockchainPath + 'mining/miner',
         },
         {
-          title: 'Mining account',
+          title: 'Mining Account',
           path: blockchainPath + 'mining/mining-account',
         },
         {
-          title: 'Mining reward',
+          title: 'Mining Reward',
           path: blockchainPath + 'mining/mining-reward',
         },
       ],
@@ -234,37 +214,37 @@ module.exports = {
       path: blockchainPath + 'block',
       children: [
         {
-          title: 'Block generation',
+          title: 'Block Generation',
           path: blockchainPath + 'block/block-generation',
           children: [
             {
-              title: 'Base target',
+              title: 'Base Target',
               path: blockchainPath + 'block/block-generation/base-target',
             },
             {
-              title: 'Generation signature',
+              title: 'Generation Signature',
               path: blockchainPath + 'block/block-generation/generation-signature',
             },
           ],
         },
         {
-          title: 'Block height',
+          title: 'Block Height',
           path: blockchainPath + 'block/block-height',
         },
         {
-          title: 'Block signature',
+          title: 'Block Signature',
           path: blockchainPath + 'block/block-signature',
         },
         {
-          title: 'Block timestamp',
+          title: 'Block Timestamp',
           path: blockchainPath + 'block/block-timestamp',
         },
         {
-          title: 'Transations Root Hash',
+          title: 'Transactions Root Hash',
           path: blockchainPath + 'block/merkle-root',
         },
         {
-          title: 'Genesis block',
+          title: 'Genesis Block',
           path: blockchainPath + 'block/genesis-block',
         },
       ]
@@ -282,15 +262,15 @@ module.exports = {
       path: blockchainPath + 'waves-protocol',
       children: [
         {
-          title: 'Cryptographic practical details',
+          title: 'Cryptographic Practical Details',
           path: blockchainPath + 'waves-protocol/cryptographic-practical-details',
         },
         {
-          title: 'Waves-NG solution',
+          title: 'Waves-NG Solution',
           path: blockchainPath + 'waves-protocol/waves-ng-solution',
         },
         {
-          title: 'Waves-NG protocol',
+          title: 'Waves-NG Protocol',
           path: blockchainPath + 'waves-protocol/waves-ng-protocol',
         },
         {
@@ -298,153 +278,153 @@ module.exports = {
           path: blockchainPath + 'waves-protocol/fair-pos',
         },
         {
-          title: 'Blockchain data types',
+          title: 'Blockchain Data Types',
           path: blockchainPath + 'blockchain/blockchain-data-types',
         },
         {
-          title: 'Binary format',
+          title: 'Binary Format',
           path: blockchainPath + 'binary-format',
           children: [
             {
-              title: 'Address binary format',
+              title: 'Address Binary Format',
               path: blockchainPath + 'binary-format/address-binary-format',
             },
             {
-              title: 'Alias binary format',
+              title: 'Alias Binary Format',
               path: blockchainPath + 'binary-format/alias-binary-format',
             },
             {
-              title: 'Block binary format',
+              title: 'Block Binary Format',
               path: blockchainPath + 'binary-format/block-binary-format',
             },
             {
-              title: 'Network message binary format',
+              title: 'Network Message Binary Format',
               path: blockchainPath + 'binary-format/network-message-binary-format',
               children: [
                 {
-                  title: 'Block message binary format',
+                  title: 'Block Message Binary Format',
                   path: blockchainPath + 'binary-format/network-message-binary-format/block-message-binary-format',
                 },
                 {
-                  title: 'Checkpoint message binary format',
+                  title: 'Checkpoint Message Binary Format',
                   path: blockchainPath + 'binary-format/network-message-binary-format/checkpoint-message-binary-format',
                 },
                 {
-                  title: 'Get block message binary format',
+                  title: 'Get Block Message Binary Format',
                   path: blockchainPath + 'binary-format/network-message-binary-format/get-block-message-binary-format',
                 },
                 {
-                  title: 'Get peers message binary format',
+                  title: 'Get Peers Message Binary Format',
                   path: blockchainPath + 'binary-format/network-message-binary-format/get-peers-message-binary-format',
                 },
                 {
-                  title: 'Get signatures message binary format',
+                  title: 'Get Signatures Message Binary Format',
                   path: blockchainPath + 'binary-format/network-message-binary-format/get-signatures-message-binary-format',
                 },
                 {
-                  title: 'Handshake message binary format',
+                  title: 'Handshake Message Binary Format',
                   path: blockchainPath + 'binary-format/network-message-binary-format/handshake-message-binary-format',
                 },
                 {
-                  title: 'Peers message binary format',
+                  title: 'Peers Message Binary Format',
                   path: blockchainPath + 'binary-format/network-message-binary-format/peers-message-binary-format',
                 },
                 {
-                  title: 'Score message binary format',
+                  title: 'Score Message Binary Format',
                   path: blockchainPath + 'binary-format/network-message-binary-format/score-message-binary-format',
                 },
                 {
-                  title: 'Signatures message binary format',
+                  title: 'Signatures Message Binary Format',
                   path: blockchainPath + 'binary-format/network-message-binary-format/signatures-message-binary-format',
                 },
                 {
-                  title: 'Transaction message binary format',
+                  title: 'Transaction Message Message Binary Format',
                   path: blockchainPath + 'binary-format/network-message-binary-format/transaction-message-binary-format',
                 },
               ]
             },
             {
-               title: 'Order binary format',
+               title: 'Order Binary Format',
               path: blockchainPath + 'binary-format/order-binary-format',
             },
             {
-              title: 'Transaction binary format',
+              title: 'Transaction Binary Format',
               path: blockchainPath + 'binary-format/transaction-binary-format',
               children: [
                 {
-                  title: 'Burn transaction binary format',
+                  title: 'Burn Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/burn-transaction-binary-format',
                 },
                 {
-                  title: 'Create alias transaction binary format',
+                  title: 'Create Alias Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/create-alias-transaction-binary-format',
                 },
                 {
-                  title: 'Data transaction binary format',
+                  title: 'Data Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/data-transaction-binary-format',
                 },
                 {
-                  title: 'Exchange transaction binary format',
+                  title: 'Exchange Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/exchange-transaction-binary-format',
                 },
                 {
-                  title: 'Genesis transaction binary format',
+                  title: 'Genesis Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/genesis-transaction-binary-format',
                 },
                 {
-                  title: 'Invoke script transaction binary format',
+                  title: 'Invoke Script Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/invoke-script-transaction-binary-format',
                 },
                 {
-                  title: 'Issue transaction binary format',
+                  title: 'Issue Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/issue-transaction-binary-format',
                 },
                 {
-                  title: 'Lease cancel transaction binary format',
+                  title: 'Lease Cancel Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/lease-cancel-transaction-binary-format',
                 },
                 {
-                  title: 'Lease transaction binary format',
+                  title: 'Lease Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/lease-transaction-binary-format',
                 },
                 {
-                  title: 'Mass transfer transaction binary format',
+                  title: 'Mass Transfer Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/mass-transfer-transaction-binary-format',
                 },
                 {
-                  title: 'Reissue transaction binary format',
+                  title: 'Reissue Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/reissue-transaction-binary-format',
                 },
                 {
-                  title: 'Set asset script transaction binary format',
+                  title: 'Set Asset Script Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/set-asset-script-transaction-binary-format',
                 },
                 {
-                  title: 'Set script transaction binary format',
+                  title: 'Set Script Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/set-script-transaction-binary-format',
                 },
                 {
-                  title: 'Sponsor fee transaction binary format',
+                  title: 'Sponsor Fee Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/sponsor-fee-transaction-binary-format',
                 },
                 {
-                  title: 'Transfer transaction binary format',
+                  title: 'Transfer Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/transfer-transaction-binary-format',
                 },
                 {
-                  title: 'Update asset info transaction binary format',
+                  title: 'Update Asset Info Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/update-asset-info-transaction-binary-format',
                 },
               ],
             },
             {
-              title: 'Transaction proof binary format',
+              title: 'Transaction Proof Binary Format',
               path: blockchainPath + 'binary-format/transaction-proof-binary-format',
             },
           ],
         },
         {
-          title: 'Validation rules',
+          title: 'Validation Rules',
           path: blockchainPath + 'waves-protocol/validation-rules',
         },
       ],
@@ -459,8 +439,8 @@ module.exports = {
     {
       title: 'Node Owner Guide',
       path: nodePath,
-	},
-	{
+    },
+    {
       title: 'Install Waves Node',
       path: nodePath + 'how-to-install-a-node/how-to-install-a-node',
       children: [
@@ -487,16 +467,16 @@ module.exports = {
         {
           title: 'Deploy Node in Cloud',
           path: nodePath + 'how-to-install-a-node/clouds',
-		  children: [
-		    {
+          children: [
+            {
               title: 'Deploy Node in Yandex.Cloud',
               path: nodePath + 'running-waves-node-in-yandex-cloud',
             },
-		  ]			
-        },	
+          ]
+        },
       ],
     },
-	{
+    {
       title: 'Synchronize Waves Blockchain',
       path: nodePath + 'options-for-getting-actual-blockchain',
       children: [
@@ -508,7 +488,7 @@ module.exports = {
           title: 'Download the Latest Blockchain',
           path: nodePath + 'options-for-getting-actual-blockchain/state-downloading-and-applying',
         },
-		{
+        {
           title: 'Rollback Waves Node',
           path: nodePath + 'how-to-rollback-a-node',
         },
@@ -533,12 +513,12 @@ module.exports = {
     {
       title: 'Features',
       path: nodePath + 'features',
-	  children: [
-	    {
-	      title: 'Activation protocol',
+      children: [
+      {
+        title: 'Activation protocol',
           path: nodePath + 'activation-protocol',
         },
-	  ],
+      ],
     },
     {
       title: 'Custom Blockchain',
@@ -548,14 +528,22 @@ module.exports = {
       title: 'Node API',
       path: nodePath + 'node-api',
       children: [
+	    {
+          title: 'API Key',
+          path: nodePath + 'node-api/api-key',
+        },
         {
           title: 'Request headers',
           path: nodePath + 'node-api/headers',
         },
         {
-          title: 'Activation',
+          title: 'CORS',
+          path: nodePath + 'node-api/cors',
+        },
+        {
+          title: 'Feature Activation',
           path: nodePath + 'node-api/feature-activation',
-        },	
+        },
         {
           title: 'Address',
           path: nodePath + 'node-api/address',
@@ -605,10 +593,6 @@ module.exports = {
         {
           title: 'Examples of transactions',
           path: nodePath + 'node-api/example-transactions',
-        },
-        {
-          title: 'Feature Activation',
-          path: nodePath + 'node-api/feature-activation',
         },
         {
           title: 'API limitations of the pool of public nodes',
@@ -1063,7 +1047,7 @@ module.exports = {
           path: buildingAppsPath + 'how-to/basic/transaction',
         },
         {
-          title: 'Tokenisation',
+          title: 'Tokenization',
           path: buildingAppsPath + 'how-to/assets/issue',
         },
         {
@@ -1095,6 +1079,12 @@ module.exports = {
     {
       title: 'Waves Smart Contracts',
       path: programmingPath + 'waves-smart-contracts-overview',
+      children: [
+        {
+          title: 'Articles on Smart Contracts',
+          path: programmingPath + 'articles-on-dapps',
+        },
+      ],
     },
     {
       title: 'Smart Account',
@@ -1161,11 +1151,7 @@ module.exports = {
       ],
     },
     {
-      title: 'Articles on Smart Contracts',
-      path: programmingPath + 'articles-on-dapps',
-    },
-    {
-      title: 'Tools',
+      title: 'Developer Tools',
       path: programmingPath + 'tools',
       children: [
         {
@@ -1187,9 +1173,21 @@ module.exports = {
       ],
     },
     {
-      title: 'API & SDK',
+      title: 'Signer ◆',
+      path: sdkPath + 'client-libraries/signer',
+    },
+    {
+      title: 'API',
       path: sdkPath,
       children: [
+        {
+          title: 'Node REST API 🡥',
+          path: nodePath + 'node-api',
+        },
+        {
+          title: 'Waves Keeper API 🡥',
+          path: ecosystemPath + 'waves-keeper/waves-keeper-api',
+        },
         {
           title: 'Waves data service API',
           path: sdkPath + 'waves-data-service-api',
@@ -1207,6 +1205,10 @@ module.exports = {
               path: sdkPath + 'waves-gaming-api/examples',
             },
           ],
+        },
+        {
+          title: 'Node gRPC Server 🡥',
+          path: nodePath + 'extensions/grpc-server',
         },
       ],
     },
