@@ -9,7 +9,7 @@
 
 ### Ride
 
-* [О Ride](/ru/ride) — <span style="color:green">обновлено</span>
+* [О Ride](/ru/ride/) — <span style="color:green">обновлено</span>
 * [dApp-скрипт](/ru/ride/script/script-types/dapp-script) — <span style="color:green">обновлено</span>
 * [Скрипт аккаунта](/ru/ride/script/script-types/account-script) — <span style="color:green">обновлено</span>
 * [Скрипт ассета](/ru/ride/script/script-types/asset-script) — <span style="color:green">обновлено</span>
