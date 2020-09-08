@@ -14,7 +14,7 @@ This article describes possible solutions for the issues that can happen during 
 
 You can find the records of your node generating attempts and check what node actually succeeded to generate a block in your `waves.log` file. If your node is installed from Deb package by default the log file is located in `/var/log/waves/` folder in other cases `${waves.directory}/logs/`. For more details about node logging, see [Logging Configuration](/en/waves-node/logging-configuration) article.
 
-To find the records with generating attempts in `waves.log` file execute the following grep command:
+To find the records with generating attempts in `waves.log` file, execute the following grep command:
 
 **Note**: By default the log files can be read only by the user running the node.
 
