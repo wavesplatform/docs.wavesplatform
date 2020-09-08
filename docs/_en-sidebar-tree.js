@@ -69,10 +69,6 @@ module.exports = {
           title: 'WAVES',
           path: blockchainPath + 'token/waves',
         },
-        {
-          title: 'WAVELET',
-          path: blockchainPath + 'token/wavelet',
-        },
       ],
     },
     {

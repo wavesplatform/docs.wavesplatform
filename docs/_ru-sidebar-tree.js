@@ -50,11 +50,11 @@ module.exports = {
       ],
     },
     {
-      title: 'Токены (ассеты)',
+      title: 'Токен (ассет)',
       path: blockchainPath + 'token',
       children: [
         {
-          title: 'Невзаимозаменяемый токен',
+          title: 'NFT: невзаимозаменяемый токен',
           path: blockchainPath + 'token/non-fungible-token',
         },
         {
@@ -68,10 +68,6 @@ module.exports = {
         {
           title: 'WAVES',
           path: blockchainPath + 'token/waves',
-        },
-        {
-          title: 'WAVELET',
-          path: blockchainPath + 'token/wavelet',
         },
       ],
     },

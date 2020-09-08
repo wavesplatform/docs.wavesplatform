@@ -6,6 +6,7 @@
 
 * [Why Waves](/en/blockchain/)
 * [Waves Basics](/en/blockchain/blockchain/)
+* [Token (Asset)](/en/blockchain/token/) — <span style="color:green">updates</span>
 
 ## August
 

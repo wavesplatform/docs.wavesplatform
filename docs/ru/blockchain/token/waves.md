@@ -1,9 +1,15 @@
 # WAVES
 
-**WAVES** — главный токен блокчейна Waves.
+**WAVES** — системный токен блокчейна Waves. Генераторы блоков получают в WAVES вознаграждение за создание блока и комиссию за транзакции, а размер [генерирующего баланса](/ru/blockchain/account/account-balance#баланс-в-токене-waves) определяет шанс генератора добавить следующий блок в цепочку.
 
-1 WAVES равен 100 000 000 [WAVELET](/ru/blockchain/token/wavelet).
+## Параметры WAVES
 
-В апреле 2016 было выпущено 100 миллионов WAVES.
+WAVES присутствует на блокчейне с момента создания, для него нет транзакции выпуска, поэтому токен WAVES не имеет ID. В REST API для WAVES используется значение `null`.
 
-WAVES нельзя сжечь с помощью [транзакции сжигания токена](/ru/blockchain/transaction-type/burn-transaction).
+Количество знаков после запятой (`decimals`) для WAVES равно 8. Минимальная неделимая единица — 1/100 000 000 WAVES — называется WAVELET.
+
+В апреле 2016 было выпущено 100 миллионов WAVES. Текущее количество WAVES можно узнать с помощью [Data Services](/ru/building-apps/waves-api-and-sdk/waves-data-service-api): <https://api.wavesplatform.com/v0/assets/WAVES> (количество указано в WAVELET).
+
+## Лизинг
+
+WAVES можно передать в лизинг с помощью [транзакции лизинга](/ru/blockchain/transaction-type/lease-transaction). WAVES, полученные в лизинг, учитываются в генерирующем балансе. Генераторы блоков предлагают различные вознаграждения лизингодателям. В любой момент лизингодатель может отменить лизинг c помощью [транзакции отмены лизинга](/ru/blockchain/transaction-type/lease-transaction). [Подробнее о лизинге](/ru/blockchain/leasing)

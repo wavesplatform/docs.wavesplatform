@@ -6,6 +6,7 @@
 
 * [Почему Waves](/ru/blockchain/)
 * [Основные понятия](/ru/blockchain/blockchain/)
+* [Токен (ассет)](/ru/blockchain/token/) — <span style="color:green">обновлено</span>
 
 ## Август
 
