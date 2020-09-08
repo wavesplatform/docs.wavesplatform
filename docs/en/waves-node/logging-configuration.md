@@ -18,7 +18,7 @@ Waves nodes use [logback](https://logback.qos.ch/documentation.html) framework f
 By [default](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/logback.xml), all the logs are written in human-readable format
 
 * to STDOUT with `INFO` level.
-* to `/var/log/waves.log` for nodes installed from Deb package or `${waves.directory}/logs/waves.log` for other cases. Prior to node version 1.1.6, the default logging level in relation to writing to file was `TRACE`. After the node 1.1.6 version release, the logging level became `DEBUG` which means that UTX-related traces are not included in waves.log by default to reduce the amount of logs the node produces under heavy load. However, writing the UTX-related traces to separate file [can be enabled](#enable-traces). Also, in addition to daily rotation, waves.log is rotated when size limit is reached (100 mb by default).
+* to `/var/log/waves/waves.log` for Mainnet nodes installed from Deb package (`/var/log/waves-testnet/waves.log` and `/var/log/waves-stagenet/waves.log` for Testnet and Stagenet) or `${waves.directory}/logs/waves.log` for other cases. Prior to node version 1.1.6, the default logging level in relation to writing to file was `TRACE`. After the node 1.1.6 version release, the logging level became `DEBUG` which means that UTX-related traces are not included in waves.log by default to reduce the amount of logs the node produces under heavy load. However, writing the UTX-related traces to separate file [can be enabled](#enable-traces). Also, in addition to daily rotation, waves.log is rotated when size limit is reached (100 mb by default).
 
 The following limitations are set for logging:
 
