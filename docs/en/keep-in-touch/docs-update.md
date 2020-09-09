@@ -1,5 +1,11 @@
 # Documentation Updates
 
+## September
+
+### Building Apps
+
+* [Overview] — <span style="color:green">updated</span>
+
 ## August
 
 ### Blockchain

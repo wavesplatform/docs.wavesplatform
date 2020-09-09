@@ -1,4 +1,4 @@
-# Waves API & SDK
+# Waves API
 
 The following APIs are available to interact with Waves blockchain:
 

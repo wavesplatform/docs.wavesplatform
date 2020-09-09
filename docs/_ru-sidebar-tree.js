@@ -1159,7 +1159,7 @@ module.exports = {
       path: sdkPath + 'client-libraries/signer',
     },
     {
-      title: 'API',
+      title: 'Waves API',
       path: sdkPath,
       children: [
         {
