@@ -51,7 +51,7 @@ You can add comments to your code much as you can with other languages such as P
 Every Ride script should start with directives for the compiler. At the time of publication, there are three types of directive, with different possible values.
 
 ```scala
-{-# STDLIB_VERSION 3 #-}
+{-# STDLIB_VERSION 4 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 ```
