@@ -16,7 +16,13 @@ Surfboard provides built-in JavaScript functions for interaction with the Waves 
 2. Install Surfboard:
 
    ```bash
-   nmp i -g @waves/surfboard
+   nmp i -g @waves/surfboard@latest
+   ```
+
+   :bulb: Beta version of Surfboard supports new features of Waves protocol which are now available on Stagenet only:
+
+   ```bash
+   nmp i -g @waves/surfboard@beta
    ```
 
 3. Create an empty folder and run the following command:
