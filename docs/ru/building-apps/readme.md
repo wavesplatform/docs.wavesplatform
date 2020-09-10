@@ -5,7 +5,7 @@
 Прежде чем начать, рекомендуем ознакомиться с основными понятиями:
 
 * [Аккаунт](/ru/blockchain/account/)
-* [Токен](/ru/blockchain/token/)
+* [Токен (ассет)](/ru/blockchain/token/)
 * [Транзакция](/ru/blockchain/transaction/)
 
 ## API ноды
