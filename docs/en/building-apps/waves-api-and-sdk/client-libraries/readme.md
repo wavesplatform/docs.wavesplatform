@@ -11,5 +11,5 @@ The list of libraries that are used to create, sign and send transactions, as we
 | 5 | JavaScript | [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer), [waves-transactions](/en/building-apps/waves-api-and-sdk/client-libraries/waves-transactions) |
 | 6 | Kotlin | [Waves SDK for Android](https://github.com/wavesplatform/WavesSDK-android) |
 | 7 | Python | [PyWaves](/en/building-apps/waves-api-and-sdk/client-libraries/pywaves) |
-| 8 | Rust | [WavesRS](/en/building-apps/waves-api-and-sdk/client-libraries/wavesrs) |
+| 8 | Rust | [WavesRS](/en/building-apps/waves-api-and-sdk/client-libraries/wavesrs), [waves-lib-rust](https://github.com/waves-rust/waves-lib-rust) |
 | 9 | Swift | [Waves SDK for iOS](https://github.com/wavesplatform/WavesSDK-iOS) |
