@@ -1185,10 +1185,6 @@ module.exports = {
       path: sdkPath + 'client-libraries',
       children: [
         {
-          title: 'Signer',
-          path: sdkPath + 'client-libraries/signer',
-        },
-        {
           title: '[en] Waves SDK for Android 🡥',
           path: sdkPath + 'client-libraries/sdk-android',
         },
