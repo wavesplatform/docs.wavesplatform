@@ -4,7 +4,7 @@
 
 ### Building Apps
 
-* [Overview] — <span style="color:green">updated</span>
+* [Overview](/en/building-apps/) — <span style="color:green">updated</span>
 
 ## August
 

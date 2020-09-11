@@ -4,7 +4,7 @@
 
 ### Разработка приложений на блокчейне
 
-* [Обзор] — <span style="color:green">обновлено</span>
+* [Обзор](/ru/building-apps/) — <span style="color:green">обновлено</span>
 
 ## Август
 
