@@ -7,6 +7,10 @@
 * [Why Waves](/en/blockchain/)
 * [Waves Basics](/en/blockchain/blockchain/)
 
+### Building Apps
+
+* [Overview](/en/building-apps/) — <span style="color:green">updated</span>
+
 ### Ride
 
 * [About Ride](/en/ride/) — <span style="color:green">updated</span>

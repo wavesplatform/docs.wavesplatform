@@ -7,6 +7,10 @@
 * [Почему Waves](/ru/blockchain/)
 * [Основные понятия](/ru/blockchain/blockchain/)
 
+### Разработка приложений на блокчейне
+
+* [Обзор](/ru/building-apps/) — <span style="color:green">обновлено</span>
+
 ### Ride
 
 * [О Ride](/ru/ride/) — <span style="color:green">обновлено</span>

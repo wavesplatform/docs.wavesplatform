@@ -1038,7 +1038,7 @@ module.exports = {
 
   [buildingAppsPath]: [
     {
-      title: 'Приступая к работе',
+      title: 'Обзор',
       path: buildingAppsPath,
     },
     {
@@ -1148,7 +1148,7 @@ module.exports = {
       path: sdkPath + 'client-libraries/signer',
     },
     {
-      title: 'API',
+      title: 'Waves API',
       path: sdkPath,
       children: [
         {
@@ -1164,20 +1164,6 @@ module.exports = {
           path: sdkPath + 'waves-data-service-api',
         },
         {
-          title: '[en] Waves Games',
-          path: sdkPath + 'waves-gaming-api',
-          children: [
-            {
-              title: '[en] Waves Games API',
-              path: sdkPath + 'waves-gaming-api/waves-games-api',
-            },
-            {
-              title: '[en] Examples',
-              path: sdkPath + 'waves-gaming-api/examples',
-            },
-          ],
-        },
-        {
           title: 'Node gRPC Server 🡥',
           path: nodePath + 'extensions/grpc-server',
         },
@@ -1188,8 +1174,8 @@ module.exports = {
       path: sdkPath + 'client-libraries',
       children: [
         {
-          title: 'Signer',
-          path: sdkPath + 'client-libraries/signer',
+          title: '[en] Waves transactions',
+          path: sdkPath + 'client-libraries/waves-transactions',
         },
         {
           title: '[en] PyWaves',
@@ -1214,10 +1200,6 @@ module.exports = {
         {
           title: '[en] WavesRS',
           path: sdkPath + 'client-libraries/wavesrs',
-        },
-        {
-          title: '[en] Waves transactions',
-          path: sdkPath + 'client-libraries/waves-transactions',
         },
         {
           title: '[en] Community libraries',

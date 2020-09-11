@@ -49,26 +49,22 @@ module.exports = {
                 type: 'advanced',
                 iconFilePath: getRawIcon('./images/rocket.svg'),
                 buttonSet: {
-                    smartAccount: {
-                        text: 'Smart accounts',
-                        link: '/en/building-apps/smart-contracts/what-is-smart-account'
+                    dapp: {
+                        text: 'dApps',
+                        link: '/en/building-apps/smart-contracts/what-is-a-dapp'
                     },
                     smartAsset: {
                         text: 'Smart assets',
                         link: '/en/building-apps/smart-contracts/smart-assets'
                     },
-                    dapp: {
-                        text: 'dApps',
-                        link: '/en/building-apps/smart-contracts/what-is-a-dapp'
+                    signer: {
+                        text: 'Signer',
+                        link: '/en/building-apps/waves-api-and-sdk/client-libraries/signer'
                     },
                     howTo: {
                         text: 'How-to guides',
                         link: '/en/building-apps/how-to/'
                     },
-                    signer: {
-                        text: 'Signer library',
-                        link: '/en/building-apps/waves-api-and-sdk/client-libraries/signer'
-                    }
                 }
             },
             rideProgrammingLanguage: {

@@ -798,6 +798,18 @@ module.exports = [
     to: '/en/waves-node/private-waves-network',
     from: '/en/waves-full-node/private-waves-network.html',
   },
+  {
+    from: '/en/building-apps/waves-api-and-sdk/waves-gaming-api',
+    to: '/en/building-apps/waves-api-and-sdk'
+  },
+  {
+    from: '/en/building-apps/waves-api-and-sdk/waves-gaming-api/waves-games-api',
+    to: '/en/building-apps/waves-api-and-sdk'
+  },
+  {
+    from: '/en/building-apps/waves-api-and-sdk/waves-gaming-api/examples',
+    to: '/en/building-apps/waves-api-and-sdk'
+  },
   {  /* link found on github */
     from: '/en/technical-details/creating-a-private-waves-blockchain-network.html',
     to: '/en/waves-node/private-waves-network',

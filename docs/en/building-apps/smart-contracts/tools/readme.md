@@ -11,5 +11,3 @@ Waves ecosystem provides variety of tools for developing and debugging decentral
 * [Surfboard](https://www.npmjs.com/package/@waves/surfboard) is a professional command-line tool for compiling Ride smart contracts and running tests. [More about Surfboard](/en/building-apps/smart-contracts/tools/surfboard)
 
 * [Waves Dapp Ui](https://waves-dapp.com/) is a visual interface for calling dApp functions.
-
-> See also [collection of useful resources and tools](https://github.com/msmolyakov/awesome-waves) for the Waves blockchain.
