@@ -207,6 +207,8 @@ match tx {
 
 ## Example of smart trading validation
 
+:warning: Buying and selling smart assets on [Waves.Exchange](https://waves.exchange/) is temporarily unavailable.
+
 Let’s consider an exchange of two smart assets:
 
 ![](./_assets/1.png)

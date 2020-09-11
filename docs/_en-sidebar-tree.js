@@ -12,13 +12,13 @@ const keepInTouchPath = localePath + 'keep-in-touch/';
 module.exports = {
   [blockchainPath]: [
     {
-      title: 'About Waves Blockchain',
+      title: 'Why Waves',
       path: blockchainPath,
     },
-/*    {
-      title: 'Blockchain intoduction',
+    {
+      title: 'Waves Basics',
       path: blockchainPath + 'blockchain',
-    }, */
+    },
     {
       title: 'Account',
       path: blockchainPath + 'account',
@@ -613,6 +613,12 @@ module.exports = {
 	{
       title: 'Troubleshooting',
       path: nodePath + 'node-troubleshooting',
+	  children: [
+	    {
+			title: 'Block Generation FAQ',
+			path: nodePath + 'block-generation-faq',
+		},
+	  ]
 	},
   ],
 
@@ -622,13 +628,17 @@ module.exports = {
       path: ridePath,
     },
     {
-      title: 'Getting started',
+      title: 'Getting Started',
       path: ridePath + 'getting-started',
     },
     {
-      title: 'Base concepts',
+      title: 'Syntax Basics',
       path: ridePath + 'base-concepts',
       children: [
+        {
+          title: 'Directives',
+          path: ridePath + 'script/directives',
+        },
         {
           title: 'Definition',
           path: ridePath + 'base-concepts/definition',
@@ -637,15 +647,63 @@ module.exports = {
           title: 'Expression',
           path: ridePath + 'base-concepts/expression',
         },
+        {
+          title: 'Constant',
+          path: ridePath + 'constants',
+        },
+        {
+          title: 'Variable',
+          path: ridePath + 'variables',
+        },
+        {
+          title: 'Function',
+          path: ridePath + 'functions',
+        },
+        {
+          title: 'Exception',
+          path: ridePath + 'exceptions',
+        },
+        {
+          title: 'Comment',
+          path: ridePath + 'comments',
+        },
       ],
     },
     {
-      title: 'Comments',
-      path: ridePath + 'comments',
+      title: 'Script Types',
+      path: ridePath + 'script',
+      children: [
+        {
+          title: 'dApp Script',
+          path: ridePath + 'script/script-types/dapp-script',
+          children: [
+            {
+              title: 'Annotations',
+              path: ridePath + 'functions/annotations',
+            },
+            {
+              title: 'Callable Function',
+              path: ridePath + 'functions/callable-function',
+            },
+            {
+              title: 'Verifier Function',
+              path: ridePath + 'functions/verifier-function',
+            },
+          ],
+        },
+        {
+          title: 'Account Script',
+          path: ridePath + 'script/script-types/account-script',
+        },
+        {
+          title: 'Asset Script',
+          path: ridePath + 'script/script-types/asset-script',
+        },
+      ],
     },
     {
-      title: 'Constants',
-      path: ridePath + 'constants',
+      title: 'Standard Library',
+      path: ridePath + 'script/standard-library',
     },
     {
       title: 'Data types',
@@ -686,149 +744,11 @@ module.exports = {
       ],
     },
     {
-      title: 'Exceptions',
-      path: ridePath + 'exceptions',
-    },
-    {
-      title: 'Functions',
-      path: ridePath + 'functions',
-      children: [
-        {
-          title: 'Annotations',
-          path: ridePath + 'functions/annotations',
-        },
-        {
-          title: 'Built-in functions',
-          path: ridePath + 'functions/built-in-functions',
-          children: [
-            {
-              title: 'Account data storage functions',
-              path: ridePath + 'functions/built-in-functions/account-data-storage-functions',
-            },
-            {
-              title: 'Blockchain functions',
-              path: ridePath + 'functions/built-in-functions/blockchain-functions',
-            },
-            {
-              title: 'Byte array functions',
-              path: ridePath + 'functions/built-in-functions/byte-array-functions',
-            },
-            {
-              title: 'Converting functions',
-              path: ridePath + 'functions/built-in-functions/converting-functions',
-            },
-            {
-              title: 'Data transaction functions',
-              path: ridePath + 'functions/built-in-functions/data-transaction-functions',
-            },
-            {
-              title: 'Decoding functions',
-              path: ridePath + 'functions/built-in-functions/decoding-functions',
-            },
-            {
-              title: 'Encoding functions',
-              path: ridePath + 'functions/built-in-functions/encoding-functions',
-            },
-            {
-              title: 'Exception functions',
-              path: ridePath + 'functions/built-in-functions/exception-functions',
-            },
-            {
-              title: 'Hashing functions',
-              path: ridePath + 'functions/built-in-functions/hashing-functions',
-            },
-            {
-              title: 'List functions',
-              path: ridePath + 'functions/built-in-functions/list-functions',
-            },
-            {
-              title: 'Math functions',
-              path: ridePath + 'functions/built-in-functions/math-functions',
-            },
-            {
-              title: 'String functions',
-              path: ridePath + 'functions/built-in-functions/string-functions',
-            },
-            {
-              title: 'Union functions',
-              path: ridePath + 'functions/built-in-functions/union-functions',
-            },
-            {
-              title: 'Verification functions',
-              path: ridePath + 'functions/built-in-functions/verification-functions',
-            },
-          ],
-        },
-        {
-          title: 'Callable function',
-          path: ridePath + 'functions/callable-function',
-        },
-        {
-          title: 'Verifier function',
-          path: ridePath + 'functions/verifier-function',
-        },
-      ],
-    },
-    {
-      title: 'FOLD<N> Macro',
-      path: ridePath + 'fold-macro',
-    },
-    {
-      title: 'Operators',
-      path: ridePath + 'operators',
-      children: [
-        {
-          title: 'match-case',
-          path: ridePath + 'operators/match-case',
-        },
-      ]
-    },
-    {
-      title: 'Script',
-      path: ridePath + 'script',
-      children: [
-        {
-          title: 'Directives',
-          path: ridePath + 'script/directives',
-        },
-        {
-          title: 'Script body',
-          path: ridePath + 'script/script-body',
-        },
-        {
-          title: 'Script context',
-          path: ridePath + 'script/script-context',
-        },
-        {
-          title: 'Script types',
-          path: ridePath + 'script/script-types',
-          children: [
-            {
-              title: 'Account script',
-              path: ridePath + 'script/script-types/account-script',
-            },
-            {
-              title: 'Asset script',
-              path: ridePath + 'script/script-types/asset-script',
-            },
-            {
-              title: 'dApp script',
-              path: ridePath + 'script/script-types/dapp-script',
-            },
-          ],
-        },
-        {
-          title: 'Standard Library',
-          path: ridePath + 'script/standard-library',
-        },
-      ],
-    },
-    {
       title: 'Structures',
       path: ridePath + 'structures',
       children: [
         {
-          title: 'Script actions',
+          title: 'Script Actions',
           path: ridePath + 'structures/script-actions',
           children: [
             {
@@ -878,7 +798,7 @@ module.exports = {
           ],
         },
         {
-          title: 'Script results (v3)',
+          title: 'Script Results (v3)',
           path: ridePath + 'structures/script-results',
           children: [
             {
@@ -896,7 +816,7 @@ module.exports = {
           ],
         },        
         {
-          title: 'Common structures',
+          title: 'Common Structures',
           path: ridePath + 'structures/common-structures',
           children: [
             {
@@ -942,7 +862,7 @@ module.exports = {
           ],
         },
         {
-          title: 'Transaction structures',
+          title: 'Transaction Structures',
           path: ridePath + 'structures/transaction-structures',
           children: [
             {
@@ -1014,14 +934,82 @@ module.exports = {
       ],
     },
     {
-      title: 'Variables',
-      path: ridePath + 'variables',
+      title: 'Built-in Variables',
+      path: ridePath + 'variables/built-in-variables',
+    },
+    {
+      title: 'Built-in Functions',
+      path: ridePath + 'functions/built-in-functions',
       children: [
         {
-          title: 'Built-in variables',
-          path: ridePath + 'variables/built-in-variables',
+          title: 'Account Data Storage Functions',
+          path: ridePath + 'functions/built-in-functions/account-data-storage-functions',
+        },
+        {
+          title: 'Blockchain Functions',
+          path: ridePath + 'functions/built-in-functions/blockchain-functions',
+        },
+        {
+          title: 'Byte Array Functions',
+          path: ridePath + 'functions/built-in-functions/byte-array-functions',
+        },
+        {
+          title: 'Converting Functions',
+          path: ridePath + 'functions/built-in-functions/converting-functions',
+        },
+        {
+          title: 'Data Transaction Functions',
+          path: ridePath + 'functions/built-in-functions/data-transaction-functions',
+        },
+        {
+          title: 'Decoding Functions',
+          path: ridePath + 'functions/built-in-functions/decoding-functions',
+        },
+        {
+          title: 'Encoding Functions',
+          path: ridePath + 'functions/built-in-functions/encoding-functions',
+        },
+        {
+          title: 'Exception Functions',
+          path: ridePath + 'functions/built-in-functions/exception-functions',
+        },
+        {
+          title: 'Hashing Functions',
+          path: ridePath + 'functions/built-in-functions/hashing-functions',
+        },
+        {
+          title: 'List Functions',
+          path: ridePath + 'functions/built-in-functions/list-functions',
+        },
+        {
+          title: 'Math Functions',
+          path: ridePath + 'functions/built-in-functions/math-functions',
+        },
+        {
+          title: 'String Functions',
+          path: ridePath + 'functions/built-in-functions/string-functions',
+        },
+        {
+          title: 'Union Functions',
+          path: ridePath + 'functions/built-in-functions/union-functions',
+        },
+        {
+          title: 'Verification Functions',
+          path: ridePath + 'functions/built-in-functions/verification-functions',
         },
       ],
+    },
+    {
+      title: 'Operators',
+      path: ridePath + 'operators',
+    },
+    {
+      title: 'Pattern Matching: match-case',
+      path: ridePath + 'operators/match-case',
+    },
+    {
+      title: 'Interations with FOLD<N>',
+      path: ridePath + 'fold-macro',
     },
     {
       title: 'Limitations',
@@ -1221,12 +1209,8 @@ module.exports = {
       path: sdkPath + 'client-libraries',
       children: [
         {
-          title: 'Waves SDK for Android 🡥',
-          path: sdkPath + 'client-libraries/sdk-android',
-        },
-        {
-          title: 'Waves SDK for iOS 🡥',
-          path: sdkPath + 'client-libraries/sdk-ios',
+          title: 'Waves transactions',
+          path: sdkPath + 'client-libraries/waves-transactions',
         },
         {
           title: 'PyWaves',
@@ -1251,10 +1235,6 @@ module.exports = {
         {
           title: 'WavesRS',
           path: sdkPath + 'client-libraries/wavesrs',
-        },
-        {
-          title: 'Waves transactions',
-          path: sdkPath + 'client-libraries/waves-transactions',
         },
         {
           title: 'Community libraries',

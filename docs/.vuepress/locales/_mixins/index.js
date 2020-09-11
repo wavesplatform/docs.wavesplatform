@@ -76,6 +76,14 @@ module.exports = {
                         text: 'Getting started',
                         link: '/en/ride/getting-started'
                     },
+                    scriptTypes: {
+                        text: 'Script types',
+                        link: '/en/ride/script/'
+                    },
+                    callableFunction: {
+                        text: 'Callable function',
+                        link: '/en/ride/functions/callable-function'
+                    },
                 },
 
             },

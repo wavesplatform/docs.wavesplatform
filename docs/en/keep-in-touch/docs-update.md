@@ -2,15 +2,27 @@
 
 ## September
 
+### Blockchain
+
+* [Why Waves](/en/blockchain/)
+* [Waves Basics](/en/blockchain/blockchain/)
+
 ### Building Apps
 
 * [Overview](/en/building-apps/) — <span style="color:green">updated</span>
+
+### Ride
+
+* [About Ride](/en/ride/) — <span style="color:green">updated</span>
+* [dApp script](/en/ride/script/script-types/dapp-script) — <span style="color:green">updated</span>
+* [Account script](/en/ride/script/script-types/account-script) — <span style="color:green">updated</span>
+* [Asset script](/en/ride/script/script-types/asset-script) — <span style="color:green">updated</span>
 
 ## August
 
 ### Blockchain
 
-* Updated the following articles about transaction:
+Updated the following articles about transaction:
    * [Transaction](/en/blockchain/transaction/)
    * [Transaction Signature and Proofs](/en/blockchain/transaction/transaction-proof)
    * [Transaction Types](/en/blockchain/transaction-type/) as well as descriptions of all types
@@ -23,7 +35,7 @@
 
 ### Blockchain
 
-* Updated the [Blockchain Networks: Mainnet, Testnet, Stagenet](/en/blockchain/blockchain-network/) article.
+* [Blockchain Networks: Mainnet, Testnet, Stagenet](/en/blockchain/blockchain-network/)  — <span style="color:green">updated</span>
 
 ### Building Apps
 

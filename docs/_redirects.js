@@ -413,6 +413,30 @@ module.exports = [
     from: '/en/smart-contracts/ride-language/ride-language.html',
   },
   {
+    from: '/en/ride/script/script-body',
+    to: '/en/ride/script',
+  },
+  {
+    from: '/ru/ride/script/script-body',
+    to: '/ru/ride/script',
+  },
+  {
+    from: '/en/ride/script/script-context',
+    to: '/en/ride/script',
+  },
+  {
+    from: '/ru/ride/script/script-context',
+    to: '/ru/ride/script',
+  },
+  {
+    from: '/en/ride/script/script-types',
+    to: '/en/ride/script',
+  },
+  {
+    from: '/ru/ride/script/script-types',
+    to: '/ru/ride/script',
+  },
+  {
     to: '/en/ride/functions/annotations',
     from: '/en/ride/annotations.html',
   },
@@ -1013,14 +1037,6 @@ module.exports = [
   {
     from: '/en/waves-api-and-sdk/client-libraries()',
     to: '/en/building-apps/waves-api-and-sdk/client-libraries$1',
-  },
-  {
-    from: '/en/building-apps/waves-api-and-sdk/client-libraries/sdk-android',
-    to: 'https://github.com/wavesplatform/WavesSDK-android',
-  },
-  {
-    from: '/en/building-apps/waves-api-and-sdk/client-libraries/sdk-ios',
-    to: 'https://github.com/wavesplatform/WavesSDK-iOS',
   },
   {
     from: '/en/waves-api-and-sdk/examples',

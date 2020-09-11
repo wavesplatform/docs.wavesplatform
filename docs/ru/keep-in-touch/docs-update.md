@@ -2,9 +2,21 @@
 
 ## Сентябрь
 
+### Блокчейн
+
+* [Почему Waves](/ru/blockchain/)
+* [Основные понятия](/ru/blockchain/blockchain/)
+
 ### Разработка приложений на блокчейне
 
 * [Обзор](/ru/building-apps/) — <span style="color:green">обновлено</span>
+
+### Ride
+
+* [О Ride](/ru/ride/) — <span style="color:green">обновлено</span>
+* [dApp-скрипт](/ru/ride/script/script-types/dapp-script) — <span style="color:green">обновлено</span>
+* [Скрипт аккаунта](/ru/ride/script/script-types/account-script) — <span style="color:green">обновлено</span>
+* [Скрипт ассета](/ru/ride/script/script-types/asset-script) — <span style="color:green">обновлено</span>
 
 ## Август
 
@@ -23,7 +35,7 @@
 
 ### Блокчейн
 
-* Обновлена статья [Сети блокчейна: Mainnet, Testnet, Stagenet](/ru/blockchain/blockchain-network/).
+* [Сети блокчейна: Mainnet, Testnet, Stagenet](/ru/blockchain/blockchain-network/)  — <span style="color:green">обновлено</span>
 
 ### Ride
 

@@ -4,7 +4,7 @@ Standard library is a set of built-in [functions](/en/ride/functions/built-in-fu
 
 The version of the Standard library in the script is set by the `STDLIB_VERSION` [directive](/en/ride/script/directives).
 
-We recommend to use version 3 of the Standard Library when developing applications; versions 1 and 2 are required for backward compatibility.
+We recommend to use version 4 of the Standard Library when developing applications.
 
 > :warning: Standard library version 4 becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
