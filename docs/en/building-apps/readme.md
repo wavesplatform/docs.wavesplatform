@@ -16,16 +16,17 @@ The Waves node REST API is the main interface for interacting with the blockchai
 * get account data, token info, transactions, blocks, etc.
 * validate transactions, use various utils, and much more.
 
-You can use the API of the pool of public nodes supported by the Waves team, or [launch your own node](/en/waves-node/how-to-install-a-node/how-to-install-a-node) and enable its REST API. On your node, you additionally have access to private API methods including signing a transaction on behalf of accounts stored in the node's wallet and debugging tools.
+You can use the node pools with the public API supported by the Waves team, or [launch your own node](/en/waves-node/how-to-install-a-node/how-to-install-a-node) and enable its REST API. On your node, you additionally have access to private API methods including signing a transaction on behalf of accounts stored in the node's wallet and debugging tools.
 
 Please note: the Node API is not able to sign transactions on behalf of an arbitrary accounts. To do this, use the client libraries.
 
 > [Node REST API Documentation](/en/waves-node/node-api/) in the “Node” chapter
+
 > [All Waves APIs](/en/building-apps/waves-api-and-sdk/)
 
 ## Client Libraries
 
-Libraries for various programming languages ​​provide functions for operating with the Waves blockchain: signing transactions and exchange orders, interacting with the Node REST API, and generating account keys. Libraries differ in their capabilities.
+Libraries for various programming languages ​​provide functions for operating with the Waves blockchain: signing transactions and exchange orders, interacting with the Node REST API, and generating account keys. Libraries differ in their features.
 
 If your application signs and sends transactions on behalf of range of users, you should not ask them for a secret phrase (seed) or a private key: this is unsafe for the user. Instead, we recommend using the interface with a wallet app that stores the user's account keys and signs transactions itself. The following tools provide such interfaces:
 
@@ -53,7 +54,7 @@ The [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide) online enviro
 
 ## Exchange & Trading
 
-You can buy or sell tokens (assets) issued on the Waves blockchain (except for [NFT](/en/blockchain token/non-fungible-token); smart assets trading is temporarily unavailable) on the [Waves.Exchange](https://waves.exchange/) developed by the Waves.Exchange team. Waves.Exchange's [Matcher API](https://docs.waves.exchange/en/waves-matcher/matcher-api) for creating and controlling exchange orders.
+You can buy or sell tokens (assets) issued on the Waves blockchain (except for [NFT](/en/blockchain/token/non-fungible-token); smart assets trading is temporarily unavailable) on the [Waves.Exchange](https://waves.exchange/) developed by the Waves.Exchange team. Waves.Exchange's [Matcher API](https://docs.waves.exchange/en/waves-matcher/matcher-api) is aimed for creating and controlling exchange orders.
 
 [CCXT](https://docs.waves.exchange/en/ccxt/), the popular JavaScript/Python/PHP library for trading cryptocurrencies and obtaining market data, supports for Waves.Exchange, but only trading pairs from the [white list](https://marketdata.wavesplatform.com/api/v1/tickers) are available.
 
@@ -65,5 +66,5 @@ Feel free to join the [Waves developers group](https://t.me/waves_ride_dapps_dev
 
 ## Resources
 
-* [Mastering Web3 with Waves](https://www.coursera.org/learn/mastering-web3-waves): a hands-on course on Coursera
-* [Awesome Waves](https://github.com/msmolyakov/awesome-waves): a curated list of useful things for developing on Waves blockchain
+* [Mastering Web3 with Waves](https://www.coursera.org/learn/mastering-web3-waves): a Coursera hands-on course
+* [Awesome Waves](https://github.com/msmolyakov/awesome-waves): a curated list of useful things for developing on the Waves blockchain

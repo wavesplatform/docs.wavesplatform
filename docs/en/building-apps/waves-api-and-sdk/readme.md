@@ -7,7 +7,7 @@ The following APIs are available for Waves:
    * get account data, token info, transactions, blocks, etc.
    * validate transactions, use various utils, and much more.
 
-   Each node owner can enable its REST API. The Waves team supports node pools with a public API.
+   Each node owner can enable its REST API. The Waves team supports the node pools with the public API.
 
 * [gRPC Server](/en/waves-node/extensions/grpc-server/) (described in the “Node” chapter) is a node extension that allows the node owner to run gRPC services. gRPC Server can obtain information about accounts, tokens, transactions, and blocks, as well as broadcast a signed transaction.
 
