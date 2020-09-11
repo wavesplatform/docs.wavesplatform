@@ -4,7 +4,7 @@
 
 `Burn` is a structure that sets the parameters of the token burning. The token burning is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#invocation-result-2).
 
-If the token is a smart asset, the asset script verifies the `Burn` action as if it were [BurnTransaction](/en/ride/structures/transaction-structures/burn-transaction) with a fee of 0. If the asset script denies the action, then the transaction that invoked the dApp script is either denied or saved on the blockchain as failed, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation).
+If the token is a smart asset, the asset script verifies the `Burn` action as if it were [BurnTransaction](/en/ride/structures/transaction-structures/burn-transaction) with the fee of 0 and the version of 0. If the asset script denies the action, then the transaction that invoked the dApp script is either denied or saved on the blockchain as failed, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation).
 
 ## Constructor
 

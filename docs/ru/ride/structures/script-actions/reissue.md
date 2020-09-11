@@ -6,7 +6,7 @@
 
 Довыпуск доступен только для токена, который выпущен аккаунтом dApp. 
 
-Если токен является смарт-ассетом, то скрипт ассета верифицирует действие `Reissue` как [ReissueTransaction](/ru/ride/structures/transaction-structures/reissue-transaction) с комиссией 0. Если скрипт ассета отклоняет действие, то транзакция, которая вызвала скрипт dApp, либо отклоняется, либо сохраняется на блокчейне как неуспешная, см. раздел [Валидация транзакций](/ru/blockchain/transaction/transaction-validation).
+Если токен является смарт-ассетом, то скрипт ассета верифицирует действие `Reissue` как [ReissueTransaction](/ru/ride/structures/transaction-structures/reissue-transaction) с комиссией 0 и версией 0. Если скрипт ассета отклоняет действие, то транзакция, которая вызвала скрипт dApp, либо отклоняется, либо сохраняется на блокчейне как неуспешная, см. раздел [Валидация транзакций](/ru/blockchain/transaction/transaction-validation).
 
 ## Конструктор
 
