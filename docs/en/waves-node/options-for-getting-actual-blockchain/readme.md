@@ -44,7 +44,7 @@ You can import blockchain from binary file to speed up (by ~10%) your blockchain
 
 For detailed description of the import/export process, see [Import/Export Blockchain](/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain) article.
 
-**Warning**: If your node is [on fork](/en/waves-node#deal-with-forks) with a height more than 2000 blocks, do not export/import your own blockchain but update the node as described in [Upgrade Waves Node](/en/waves-node/upgrading) article. Then perform the activities described in [Download the Latest Blockchain Database](#download-the-latest-blockchain-database) section.
+**Warning**: If your node is [on fork](/en/waves-node#deal-with-forks/) with a height more than 2000 blocks, do not export/import your own blockchain but update the node as described in [Upgrade Waves Node](/en/waves-node/upgrading) article. Then perform the activities described in [Download the Latest Blockchain Database](#download-the-latest-blockchain-database) section.
 
 ## Download the Latest Blockchain Database
 
