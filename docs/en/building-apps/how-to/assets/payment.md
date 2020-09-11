@@ -29,7 +29,7 @@ For more information about Waves.Exchange Client Payment API and request paramet
 Add Pay Crypto widget to integrate crypto payment option to your site.
 
 <details><summary>How it works</summary>
-<img src="https://server.vlzhr.top/hosted/9446628-payment.gif" border"1">
+<img src="https://server.vlzhr.top/hosted/9446628-payment.gif" border="1">
 </details>
 
 See detailed explanations in the [How to add crypto payments to your online store?](https://medium.com/wavesprotocol/how-to-add-crypto-payments-to-your-online-store-b528b739cdfb) article and in the [Pay Crypto](https://github.com/vlzhr/pay-crypto-widget) GitHub repository.

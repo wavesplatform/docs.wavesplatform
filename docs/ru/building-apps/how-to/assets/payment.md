@@ -30,7 +30,7 @@ https://example.com/?txId=7RqYbd9setfkW4AX49nwwpELFjvr8V8MhPRtANsUMhbt
 
 <details><summary>Как это работает</summary>
 <p>
-<img src="https://server.vlzhr.top/hosted/9446628-payment.gif" border"1">
+<img src="https://server.vlzhr.top/hosted/9446628-payment.gif" border="1">
 </p>
 </details>
 
