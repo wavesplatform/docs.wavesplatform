@@ -40,7 +40,7 @@ The sender can specify a transaction fee nominated in a sponsored asset instead 
 | assetId | Token ID base58 encoded. `null` means WAVES |
 | amount | Amount of token to transfer: an integer value specified in the minimum fraction (“cents”) of token |
 | attachment | Arbitrary binary data (typically a comment to transfer) base58 encoded, up to 140 bytes |
-| recipient | Recipient address base58 encoded or recipient [alias](/en/blockchain/account/alias) |
+| recipient | Recipient address base58 encoded or recipient [alias](/en/blockchain/account/alias) with `alias:<chain_id>:` prefix, for example `alias:T:merry` (see [Chain ID](/en/blockchain/blockchain-network/#chain-id)) |
 
 The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 
