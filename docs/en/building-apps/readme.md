@@ -1,8 +1,8 @@
 # dApp Developer Guide
 
-The Waves ecosystem offers a diverse collection of tools, products, and components to streamline the process of building and running  blockchain-empowered applications and smart contracts. This overview will put you in the picture.
+The Waves ecosystem offers a diverse range of tools, products, and components to streamline the process of building and running  blockchain-empowered applications and smart contracts. This overview will put you in the picture.
 
-Before you start, we recommend to learn the basic concepts:
+Before you start, we recommend that you learn the basic concepts:
 
 * [Account](/en/blockchain/account/)
 * [Token (Asset)](/en/blockchain/token/)
@@ -13,8 +13,8 @@ Before you start, we recommend to learn the basic concepts:
 The Waves node REST API is the main interface for interacting with the blockchain. Node REST API provides the following features:
 
 * broadcast a signed transaction to the blockchain
-* get account data, token info, transactions, blocks, etc.
-* validate transactions, use various utils, and much more.
+* obtain account data, token info, transactions, blocks, etc.
+* validate transactions, use various utilities, and much more.
 
 You can use the node pools with the public API supported by the Waves team, or [launch your own node](/en/waves-node/how-to-install-a-node/how-to-install-a-node) and enable its REST API. On your node, you additionally have access to private API methods including signing a transaction on behalf of accounts stored in the node's wallet and debugging tools.
 
@@ -54,7 +54,7 @@ The [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide) online enviro
 
 ## Exchange & Trading
 
-You can buy or sell tokens (assets) issued on the Waves blockchain (except for [NFT](/en/blockchain/token/non-fungible-token); smart assets trading is temporarily unavailable) on the [Waves.Exchange](https://waves.exchange/) developed by the Waves.Exchange team. Waves.Exchange's [Matcher API](https://docs.waves.exchange/en/waves-matcher/matcher-api) is aimed for creating and controlling exchange orders.
+You can buy or sell tokens (assets) issued on the Waves blockchain (except for [NFT](/en/blockchain/token/non-fungible-token); smart assets trading is temporarily unavailable) on the [Waves.Exchange](https://waves.exchange/) developed by the Waves.Exchange team. Waves.Exchange's [Matcher API](https://docs.waves.exchange/en/waves-matcher/matcher-api) is aimed at creating and controlling exchange orders.
 
 [CCXT](https://docs.waves.exchange/en/ccxt/), the popular JavaScript/Python/PHP library for trading cryptocurrencies and obtaining market data, supports for Waves.Exchange, but only trading pairs from the [white list](https://marketdata.wavesplatform.com/api/v1/tickers) are available.
 
