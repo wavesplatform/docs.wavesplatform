@@ -18,22 +18,14 @@ An [example](https://github.com/wavesplatform/Waves/blob/master/node/src/main/re
 
 ### Overriding Parameters When Running JAR-file
 
-If you run JAR file it is recommended to override default parameters by passing a path to config file as the command line parameter then starting Waves Node application.
+You can override default parameters of JAR-node by passing a path to config file as the command line parameter when starting Waves Node application.
 Replace {*} with actual file name:
 
 ```bash
 java -jar {*}.jar {*}.conf
 ```
 
-Typically this file should contain your node's unique characteristics (ip, name, keys, etc...) and network-specific parameters similar to waves-mainnet or waves-testnet configs from the next sections (files shipped with DEB packages).
-
-### MainNet and TestNet Config in DEB-packages
-
-If you use DEB-packages to install a node, they also contain configuration files which override some parameters specific to the network:
-
-* <https://github.com/wavesplatform/Waves/blob/master/node/waves-mainnet.conf>
-* <https://github.com/wavesplatform/Waves/blob/master/node/waves-testnet.conf>
-* <https://github.com/wavesplatform/Waves/blob/master/node/waves-stagenet.conf>
+The file should contain your node's unique characteristics (ip, name, keys, etc...) as well as [blockchain type and parameters](#blockchain-settings).
 
 ## Sections of the Configuration File
 
@@ -137,7 +129,7 @@ In `blockchain` section you can select the blockchain type or create your own bl
 |---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
 | `max-transactions-per-block-diff` | Sets the number of transactions stored in memory before storing on disk. Reducing the number could increase the number of disk operations.                                                                                                                                                                                                                                                  |               |
 | `min-blocks-in-memory`            | Change the number of blocks stored in memory using this parameter.                                                                                                                                                                                                                                                                                                                          |               |
-| `type`                            | This parameter allows to select the blockchain type. Choices are: MAINNET, TESTNET, STAGENET, and CUSTOM. For MAINNET or TESTNET or STAGENET types, parameters of blockchain are built in the application so you don’t have to configure them. But if you select CUSTOM blockchain type, you have to provide the `custom`  configuration section \(which is commented out in the example\). |               |
+| `type`                            | This parameter allows to select the blockchain type. Choices are: MAINNET, TESTNET, STAGENET, and CUSTOM. For MAINNET or TESTNET or STAGENET types, parameters of blockchain are built in the application so you don’t have to configure the parameters. [Standard parameters for different types of blockchain](https://github.com/wavesplatform/Waves/blob/47073206c4b5c7a7302945d9a68c201becd84426/node/src/main/resources/network-defaults.conf). But if you select CUSTOM blockchain type, you have to provide the `custom`  configuration section \(which is commented out in the example\). |               |
 
 #### Configuring Custom Blockchain
 
