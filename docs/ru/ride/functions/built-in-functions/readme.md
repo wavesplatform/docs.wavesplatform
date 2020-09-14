@@ -1,6 +1,6 @@
 # Встроенные функции
 
-**Встроенная функция** — [функция](/ru/ride/functions/) [контекста скрипта](/ru/ride/script/script-context).
+**Встроенная функция** — [функция](/ru/ride/functions/) [Стандартной библиотеки](/ru/ride/script/standard-library).
 
 ## [Математические функции](/ru/ride/functions/built-in-functions/math-functions)
 

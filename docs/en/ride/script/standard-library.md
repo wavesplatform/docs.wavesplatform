@@ -1,6 +1,6 @@
 # Standard Library
 
-Standard library is a set of built-in [functions](/en/ride/functions/built-in-functions/), [structures](/en/ride/structures/) and [variables](/en/ride/variables/built-in-variables) of the [script context](/en/ride/script/script-context).
+Standard library is a set of built-in [functions](/en/ride/functions/built-in-functions/), [structures](/en/ride/structures/) and [variables](/en/ride/variables/built-in-variables).
 
 The version of the Standard library in the script is set by the `STDLIB_VERSION` [directive](/en/ride/script/directives).
 

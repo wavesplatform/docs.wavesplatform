@@ -1,6 +1,6 @@
 # Стандартная библиотека
 
-Стандартная библиотека — множество встроенных [функций](/ru/ride/functions/built-in-functions/), [структур](/ru/ride/structures/) и [переменных](/ru/ride/variables/built-in-variables) [контекста скрипта](/ru/ride/script/script-context).
+Стандартная библиотека — множество встроенных [функций](/ru/ride/functions/built-in-functions/), [структур](/ru/ride/structures/) и [переменных](/ru/ride/variables/built-in-variables).
 
 Версия используемой в скрипте Стандартной библиотеки задается [директивой](/ru/ride/script/directives) `STDLIB_VERSION`.
 

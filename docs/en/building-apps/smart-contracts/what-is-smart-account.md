@@ -36,7 +36,7 @@ The given directive consists of three annotations and provides the compiler with
 
 - the script will use the third version of the library of standard functions
 - the type of script content is Expression
-- the [script context](/en/ride/script/script-context) will be the account context. In particular, this means that `this` variable type will be `Address`.
+- `this` variable type will be `Address`.
 
 If the directive is missing, then default annotations values will be used:
 

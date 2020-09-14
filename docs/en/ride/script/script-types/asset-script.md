@@ -82,5 +82,5 @@ The following data can be used for checks:
 ## Examples
 
 Find the asset scripts examples:
-* in the [Smart Asset](/en/building-apps/smart-contracts/smart-asset) article;
+* in the [Smart Asset](/en/building-apps/smart-contracts/smart-assets) article;
 * in [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide): **Library → smart-assets**.
