@@ -80,7 +80,7 @@ Tools:
 
 * Updated articles:
    * [Standard Library](/en/ride/script/standard-library)
-   * [Script Types](/en/ride/script/script-types/)
+   * [Script Types](/en/ride/script/)
    * [Limitations](/en/ride/limits/)
 * Added the [Ride Components](/en/ride/advanced/components) article
 
@@ -241,8 +241,6 @@ Added how-to guides:
 ### Ride
 
 * Script
-  * [Script body](/en/ride/script/script-body)
-  * [Script context](/en/ride/script/script-context)
   * Script types
     * [Account script](/en/ride/script/script-types/account-script) — <span style="color:green">updated</span>
   * [Standard Library](/en/ride/script/standard-library)

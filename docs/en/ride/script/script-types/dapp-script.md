@@ -2,7 +2,7 @@
 
 dApp script enables you to define сallable functions that can be called from other accounts by the [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction). Callable functions can accept payments to the dApp and perform various actions on the blockchain. Also dApp script can comprise a verifier function that allows or denies transactions and orders that are sent on behalf of the dApp account.
 
-An account with a dApp script assigned to it is called a dApp. For information about how dApp works, see the [What is dApp](/en/building-apps/smart-contracts/what-is-a-dapp) article. For information about how to create a dApp, see the [Creating and Running dApp](/en/building-apps/smart-contracts/writing-dapp) article.
+An account with a dApp script assigned to it is called a dApp. For information about how dApp works, see the [What is dApp](/en/building-apps/smart-contracts/what-is-a-dapp) article. For information about how to create a dApp, see the [Creating and Running dApp](/en/building-apps/smart-contracts/writing-dapps) article.
 
 ## dApp Script Format
 
@@ -106,10 +106,10 @@ dApp script that has no verifier function performs default verification, that is
 
 ## Failed Transactions
 
-If the callable function failed with an error or threw an [exception](/en/ride/exception), provided that:
+If the callable function failed with an error or threw an [exception](/en/ride/exceptions), provided that:
 
 * the [Invoke Script transaction](/en/blockchain/transaction-type/exchange-transaction) passed the sender signature verification or the account script verification,
-* the complexity of performed calculations exceeded the [threshold for saving failed transactions](/en/ride/limit),
+* the complexity of performed calculations exceeded the [threshold for saving failed transactions](/en/ride/limits/),
 
 such a transaction is saved on the blockchain and marked with the attribute
 
