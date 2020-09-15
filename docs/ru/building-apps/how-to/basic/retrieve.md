@@ -84,7 +84,7 @@ print(account_data_storage_data)
 3. Найдите аккаунт по адресу или алиасу.
 4. Балансы в WAVES отображаются прямо под адресом аккаунта. Перейдите на вкладку **Assets**, чтобы увидеть балансы в других ассетах.
 
-![](./_assets/data-storage-explorer.png)
+![](./_assets/balance-explorer.png)
 
 > Невзаимозаменяемые токены (NFT) отображаются на вкладке **Non-fungible tokens**.
 
