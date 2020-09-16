@@ -90,12 +90,20 @@ module.exports = [
     from: '/ru/blockchain/dapp',
   },
   {
-    to: '/en/blockchain/account/smart-account',
+    to: '/en/blockchain/account/dapp',
     from: '/en/blockchain/smart-account.html',
   },
   {
-    to: '/ru/blockchain/account/smart-account',
+    to: '/en/blockchain/account/dapp',
+    from: '/en/blockchain/account/smart-account',
+  },
+  {
+    to: '/ru/blockchain/account/dapp',
     from: '/ru/blockchain/smart-account.html',
+  },
+  {
+    to: '/ru/blockchain/account/dapp',
+    from: '/ru/blockchain/account/smart-account',
   },
   {
     to: '/en/blockchain/token/smart-asset',

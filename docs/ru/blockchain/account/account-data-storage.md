@@ -1,16 +1,8 @@
 # Хранилище данных аккаунта
 
-**Хранилище данных аккаунта** — ассоциированное с [аккаунтом](/ru/blockchain/account/) хранилище записей данных.
+**Хранилище данных аккаунта** — ассоциированное с [аккаунтом](/ru/blockchain/account/) хранилище записей данных в формате ключ-значение.
 
-У каждого аккаунта есть _единственное_ хранилище данных.
-
-Размер хранилища данных аккаунта неограничен.
-
-## Запись хранилища данных аккаунта
-
-**Запись хранилища данных аккаунта** — запись данных, которая имеет формат ключ-значение.
-
-Ключ — уникальная строка.
+Ключ записи — уникальная строка.
 
 Значение — данные одного из типов:
 
@@ -19,25 +11,25 @@
 * целочисленный
 * массив байтов
 
-## Добавление записей
+Размер хранилища данных аккаунта неограничен. Ограничения на размер ключа и значения каждой записи см. в разделе [Транзакция данных](/ru/blockchain/transaction-type/data-transaction).
 
-Записи добавляются в хранилище данных аккаунта с помощью [транзакции данных](/ru/blockchain/transaction-type/data-transaction) или [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction).
+## Просмотр данных
 
-Максимальный размер одной записи — [32 килобайта](https://github.com/wavesplatform/Waves/blob/79442553314012cc0e2c1defca9d85f8a84e1770/lang/shared/src/main/scala/com/wavesplatform/lang/v1/ContractLimits.scala#L11) для транзакции данных и [5 килобайтов](https://github.com/wavesplatform/Waves/blob/79442553314012cc0e2c1defca9d85f8a84e1770/lang/shared/src/main/scala/com/wavesplatform/lang/v1/ContractLimits.scala#L20) для транзакции вызова скрипта.
+Записи в хранилище данных любого аккаунта, как и другие данные блокчейна, открыты для чтения. Например, посмотреть список и количество токенов на аккаунте можно в [Waves Explorer](https://wavesexplorer.com) — для этого найдите аккаунт по его [адресу](/ru/blockchain/account/address) или [псевдониму](/ru/blockchain/account/alias) и перейдите на вкладку **Data**. 
 
-## Редактирование записей
+![](./_assets/data-storage-explorer.png)
 
-Значение записи можно перезаписать с помощью транзакции данных или транзакции вызова скрипта.
+Получить записи можно также с помощью [Node REST API](/ru/waves-node/node-api/) и [клиентских библиотек](/ru/building-apps/waves-api-and-sdk/client-libraries/), см. примеры в разделе [Как прочитать данные блокчейна](/ru/building-apps/how-to/basic/retrieve).
 
-Ключ записи перезаписать нельзя.
+## Добавление, изменение, удаление<sup><img src="./_assets/feature15.svg"></sup> записей
 
-## Удаление записей
+Владелец аккаунта может добавить, изменить или удалить записи в хранилище данных аккаунта с помощью [транзакции данных](/ru/blockchain/transaction-type/data-transaction).
 
-> С версии ноды 1.2.0 возможно удаление записей хранилища данных аккаунта. Возможность включается с активацией фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
+[Скрипт dApp](/ru/blockchain/account/dapp) может добавить, изменить или удалить записи в хранилище данных dApp в результате [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) с помощью действий скрипта:
+* [BinaryEntry](/ru/ride/structures/script-actions/binary-entry)
+* [BooleanEntry](/ru/ride/structures/script-actions/boolean-entry)
+* [IntegerEntry](/ru/ride/structures/script-actions/int-entry)
+* [StringEntry](/ru/ride/structures/script-actions/string-entry)
+* [DeleteEntry](/ru/ride/structures/script-actions/delete-entry)
 
-Удаление записей хранилища данных аккаунта выполняется при помощи
-
-- [транзакции данных](/ru/blockchain/transaction-type/data-transaction),
-- структуры [DeleteEntry](/ru/ride/structures/script-actions/delete-entry).
-
-Удаление записи выполняется по ключу.
+Создать и отправить транзакцию можно с помощью одной из [клиентских библиотек](/ru/building-apps/waves-api-and-sdk/client-libraries/), см. примеры в разделе [Создание и отправка транзакций](/ru/building-apps/how-to/basic/transaction).
