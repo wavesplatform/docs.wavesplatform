@@ -83,7 +83,7 @@ let x = match blockInfoByHeight(1234567) {
 
 Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/script-actions/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction).
 
-> :warning: Функция `calculateAssetId` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: Функция `calculateAssetId` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
 
 ```
 calculateAssetId(issue: Issue): ByteVector

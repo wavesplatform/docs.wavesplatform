@@ -1,6 +1,6 @@
 # SponsorFee
 
-> :warning: Структура `SponsorFee` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: Структура `SponsorFee` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
 
 `SponsorFee` — cтруктура, задающая настройки спонсирования. Подробнее о спонсировании см. в разделе [Спонсирование комиссии](/ru/blockchain/waves-protocol/sponsored-fee). Установка или отмена спонсирования выполняется, только если структура включена в результирующее выражение вызываемой функции. Подробнее см. в разделе [Вызываемая функция](/ru/ride/functions/callable-function).
 

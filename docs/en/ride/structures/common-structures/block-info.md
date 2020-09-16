@@ -16,8 +16,6 @@ For Standard library **version 4**:
 BlockInfo(timestamp: Int, height: Int, baseTarget: Int, generationSignature: ByteVector, generator: Address, generatorPublicKey: ByteVector, vrf: ByteVector|Unit)
 ```
 
-[Standard library](/en/ride/script/standard-library) **version 4** becomes available since node version 1.2.0 after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
-
 ## Fields
 
 |   #   | Name | Data type | Description |

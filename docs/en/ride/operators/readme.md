@@ -48,7 +48,7 @@
 | :+ | Adding the element to the end of the list |
 | :: | Adding the element to the beginning of the list |
 
-> :warning: `++` and `:+` operators are added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: `++` and `:+` operators are added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 See examples of the [List](/en/ride/data-types/list) article.
 

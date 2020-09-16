@@ -24,8 +24,6 @@ dApp that has no verifier function performs default verification, that is, check
 * For Standard library **version 3**, if the verifier function is defined, only verification by this function is performed, proofs are not checked additionally.
 * For Standard library **version 4** the first proof is always checked, whether or not a verifier function is defined.
 
-> :warning: Standard library version 4 becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
-
 ## Example
 
 dApp with the verifier function listed below only allows [transfer transactions](/en/blockchain/transaction-type/transfer-transaction) with amount of token less than 100. Orders and other transactions are denied. The [match](/en/ride/operators/match-case) operator is used to specify verification rules depending on the type of the transaction/order.

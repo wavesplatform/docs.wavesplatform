@@ -1,6 +1,6 @@
 # BalanceDetails
 
-> :warning: The `BalanceDetails` structure is introduced in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available since node version 1.2.0 after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: The `BalanceDetails` structure is introduced in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 Structure that contains WAVES balances of account. The structure is returned by the [wavesBalance](/en/ride/functions/built-in-functions/account-data-storage-functions#waves-balance) built-in function. For description of balance types, see the [Account Balance](/en/blockchain/account/account-balance) article.
 

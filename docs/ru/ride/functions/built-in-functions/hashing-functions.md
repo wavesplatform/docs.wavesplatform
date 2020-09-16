@@ -78,7 +78,7 @@ keccak256(base64'UmlkZQ==') # Возвращает 4qa5wNk4961VwJAjCKBzXiEvBQ2gB
 | sha256_64Kb(bytes: ByteVector): ByteVector | 64 Кбайт | 50 |
 | sha256_128Kb(bytes: ByteVector): ByteVector | 128 Кбайт | 100 |
 
-> :warning: Функции `sha256_16Kb`, `sha256_32Kb`, `sha256_64Kb`, `sha256_128Kb` добавлены в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: Функции `sha256_16Kb`, `sha256_32Kb`, `sha256_64Kb`, `sha256_128Kb` добавлены в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
 
 ``` ride
 sha256(bytes: ByteVector): ByteVector

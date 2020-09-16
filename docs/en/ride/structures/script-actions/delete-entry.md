@@ -1,6 +1,6 @@
 # DeleteEntry
 
-> :warning: The structure is added in Standard library **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: The structure is added in Standard library **version 4**.
 
 `DeleteEntry` is a structure that sets the paramaters of deletion of entry from the [account data storage](/en/blockchain/account/account-data-storage). Deleting an entry is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#invocation-result-2).
 
