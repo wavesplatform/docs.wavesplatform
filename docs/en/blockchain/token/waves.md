@@ -1,15 +1,23 @@
 # WAVES
 
-**WAVES** is the main [token](/en/blockchain/token/) of the Waves blockchain.
+**WAVES** is the core (native) [token](/en/blockchain/token/) of the Waves blockchain. [Block generators](/en/blockchain/node/mining-node) receive [transaction fees](/en/blockchain/transaction/transaction-fee) and [block rewards](/en/blockchain/mining/mining-reward) in WAVES, which encourages generators to maintain and develop the blockchain network infrastructure. The more WAVES the generator holds (by ownership or lease), the greater is its chance to add the next block.
 
-1 WAVES equals 100,000,000 [WAVELETs](/en/blockchain/token/wavelet).
+## WAVES Parameters
+
+WAVES is present on the blockchain since inception, there is no issue transaction for it, therefore the WAVES token does not have an ID. The REST API uses `null` for WAVES.
+
+The number of decimal places (`decimals`) for WAVES is 8. The atomic unit called WAVELET is 1/100,000,000 WAVES.
 
 In April 2016, 100 million WAVES were issued.
 
-It's impossible to burn WAVES with the [burn transaction](/en/blockchain/transaction-type/burn-transaction).
+In October 2019, feature #14 “Block Reward and Community Driven Monetary Policy” was activated, which introduces [block reward](/en/blockchain/mining/mining-reward). Since that moment, the total supply of WAVES increases. The current quantity of WAVES can be found using [Data Services](/en/building-apps/waves-api-and-sdk/waves-data-service-api): <https://api.wavesplatform.com/v0/assets/WAVES> (the quantity is specified in WAVELETs).
 
-# WAVELET
+## Leasing
 
-**WAVELET** is 1/100,000,000 [WAVES](/en/blockchain/token/waves).
+The owner of WAVES can lease them via a [Lease transaction](/en/blockchain/transaction-type/lease-transaction). WAVES received on lease are included in the generating balance. Block generators send back different percentages as rewards to lessors. The lessor can cancel the lease at any time via a [Lease Cancel transaction](/en/blockchain/transaction-type/lease-transaction). [More about leasing](/en/blockchain/leasing)
 
-1 WAVELET is the minimum amount of WAVES you can work with on the blockchain.
+## How to Get WAVES
+
+You can buy WAVES tokens on [Waves.Exchange](https://waves.exchange/) developed by a third-party team of community, or at one of the [centralized exchanges](https://coinmarketcap.com/currencies/waves/markets/).
+
+In addition, cryptocurrency gateways can be used to transfer external cryptocurrencies such as Bitcoin, Ethereum etc., from the external blockchain to the Waves blockchain and vice versa. The gateway provides the user with the address on the external blockchain. After receiving a confirmation of transfer to this external address, the gateway transfers the corresponding asset (less fee) to the user's Waves address. For example, a number of cryptocurrency gateways are available on Waves.Exchange, see the [Transfer Cryptocurrency](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trs-gtw/online-desktop-trs-asset) article in the Waves.Exchange documentation. The corresponding asset on the Waves blockchain is backed 1:1 with cryptocurrency on the external blockchain. The asset then can be exchanged for WAVES.

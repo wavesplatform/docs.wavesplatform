@@ -14,7 +14,7 @@
 Все остальные токены являются пользовательскими, то есть выпущены от имени какого-либо [аккаунта](/ru/blockchain/account/). Выпустить свой токен может любой аккаунт — достаточно наличия на балансе определенного количества WAVES на оплату комиссии. Новый токен сразу же доступен:
 
 * для переводов между аккаунтами;
-* для торговли на бирже [Waves.Exchange](https://waves.exchange/), разработанной командой Waves.Exchange (кроме невзаимозаменяемых токенов [NFT](/ru/blockchain/token/non-fungible-token); также временно недоступна торговля [смарт-ассетами](/ru/blockchain/token/smart-asset));
+* для торговли на бирже [Waves.Exchange](https://waves.exchange/), разработанной сторонней командой из сообщества (кроме невзаимозаменяемых токенов [NFT](/ru/blockchain/token/non-fungible-token); также временно недоступна торговля [смарт-ассетами](/ru/blockchain/token/smart-asset));
 * для платежей, приложенных к [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction).
 
 ## Параметры пользовательского токена
@@ -52,7 +52,7 @@
 | description | Описание токена. От 0 до 1000 байт |
 | decimals | Количество знаков после запятой, от 0 до 8 |
 | reissuable | Флаг возможности довыпуска |
-| quantity | Общее количество токена на блокчейне, в [атомарных единицах](#атомарная-единица-токена). От 1 до 9&nbsp;223&nbsp;372&nbsp;036&nbsp;854&nbsp;775&nbsp;807. Количество может меняться в результате довыпуска и сжигания, см. [Операции с токеном](#операции-с-токеном) ниже |
+| quantity | Общее количество токена на блокчейне, в [атомарных единицах](#атомарная-единица). От 1 до 9&nbsp;223&nbsp;372&nbsp;036&nbsp;854&nbsp;775&nbsp;807. Количество может меняться в результате довыпуска и сжигания, см. [Операции с токеном](#операции-с-токеном) ниже |
 | scripted | Наличие скрипта: `true` для смарт-ассета, `false` для обычного токена. [Подробнее о смарт-ассетах](/ru/blockchain/token/smart-asset) |
 | minSponsoredAssetFee | Только для спонсорского ассета: количество ассета, эквивалентное 0,001 WAVES. [Подробнее о спонсировании](/ru/blockchain/waves-protocol/sponsored-fee)
 | originTransactionId | ID [транзакции](/ru/blockchain/transaction/), выпустившей токен: байты в кодировке base58 |
@@ -88,8 +88,8 @@
 [Пример транзакции](https://wavesexplorer.com/tx/DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p)
 
 Создать транзакцию выпуска можно:
-* В приложении [Waves.Exchange](https://waves.exchange/), разработанном командой Waves.Exchange. См. раздел [Создать ассет](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-token-creation) документации Waves.Exchange.
-* В [Waves IDE](https://waves-ide.com/), см. раздел [Выпуск смарт-ассета](https://docs.waves.tech/ru/building-apps/smart-contracts/tools/waves-ide#выпуск-смарт-ассета).
+* В приложении [Waves.Exchange](https://waves.exchange/), разработанной сторонней командой из сообщества. См. раздел [Создать ассет](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-token-creation) документации Waves.Exchange.
+* В [Waves IDE](https://waves-ide.com/), см. раздел [Выпуск смарт-ассета](/ru/building-apps/smart-contracts/tools/waves-ide#выпуск-смарт-ассета).
 * С помощью одной из [клиентских библиотек](/ru/building-apps/waves-api-and-sdk/client-libraries/). См. также примеры в разделе [Выпуск токена. Управление токеном](/ru/building-apps/how-to/basic/transaction).
 
 Комиссия за транзакцию составляет 1 WAVES для обычного токена или 0,001 WAVES для [невзаимозаменяемого токена (NFT)](/ru/blockchain/token/non-fungible-token).
@@ -146,7 +146,7 @@
 
 * Изменение названия и/или описания
 
-   Выполняется с помощью [транзакции обновления информации ассета](/ru/blockchain/transaction-type/set-asset-script-transaction).
+   Выполняется с помощью [транзакции обновления информации ассета](/ru/blockchain/transaction-type/update-asset-info-transaction).
 
 ## Токены других блокчейнов
 
