@@ -26,7 +26,7 @@
 ## Создание псевдонима
 
 Чтобы создать псевдоним, нужно отправить [транзакцию создания псевдонима](/ru/blockchain/transaction-type/create-alias-transaction). Создать транзакцию создания псевдонима можно:
-* В приложении [Waves.Exchange](https://waves.exchange/), разработанном командой Waves.Exchange. См. раздел [Создать персональный алиас](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-account/online-desktop-alias) документации Waves.Exchange.
+* В приложении [Waves.Exchange](https://waves.exchange/), разработанном сторонней командой из сообщества. См. раздел [Создать персональный алиас](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-account/online-desktop-alias) документации Waves.Exchange.
 * С помощью одной из [клиентских библиотек](/ru/building-apps/waves-api-and-sdk/client-libraries/). См. также примеры в разделе [Создание и отправка транзакций](/ru/building-apps/how-to/basic/transaction).
 
 ## Просмотр псевдонимов
