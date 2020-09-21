@@ -1,6 +1,6 @@
 # WAVES
 
-**WAVES** is the core (native) [token](/en/blockchain/token/) of the Waves blockchain. [Block generators](/en/blockchain/node/mining-node) receive [transaction fees](/en/blockchain/transaction/transaction-fee) and [block rewards](/en/blockchain/mining/mining-reward) in WAVES, which encourages generators to maintain and develop the blockchain network infrastructure. The more WAVES the generator holds (by ownership or lease), the greater is its chance to add the next block.
+**WAVES** is the native [token](/en/blockchain/token/) of the Waves blockchain. [Block generators](/en/blockchain/node/mining-node) receive [transaction fees](/en/blockchain/transaction/transaction-fee) and [block rewards](/en/blockchain/mining/mining-reward) in WAVES, which encourages generators to maintain and develop the blockchain network infrastructure. The more WAVES the generator holds (by ownership or lease), the greater is its chance to add the next block.
 
 ## WAVES Parameters
 
@@ -14,10 +14,10 @@ In October 2019, feature #14 “Block Reward and Community Driven Monetary Polic
 
 ## Leasing
 
-The owner of WAVES can lease them via a [Lease transaction](/en/blockchain/transaction-type/lease-transaction). WAVES received on lease are included in the generating balance. Block generators send back different percentages as rewards to lessors. The lessor can cancel the lease at any time via a [Lease Cancel transaction](/en/blockchain/transaction-type/lease-transaction). [More about leasing](/en/blockchain/leasing)
+The owner of WAVES can lease them via a [Lease transaction](/en/blockchain/transaction-type/lease-transaction). WAVES received on lease are included in the [generating balance](/en/blockchain/account/account-balance). Block generators send back different percentages as rewards to lessors. The lessor can cancel the lease at any time via a [Lease Cancel transaction](/en/blockchain/transaction-type/lease-transaction). [More about leasing](/en/blockchain/leasing)
 
 ## How to Get WAVES
 
-You can buy WAVES tokens on [Waves.Exchange](https://waves.exchange/) developed by a third-party team of community, or at one of the [centralized exchanges](https://coinmarketcap.com/currencies/waves/markets/).
+You can buy WAVES tokens at [Waves.Exchange](https://waves.exchange/) developed by a third-party team from the community, or at one of the [centralized exchanges](https://coinmarketcap.com/currencies/waves/markets/).
 
-In addition, cryptocurrency gateways can be used to transfer external cryptocurrencies such as Bitcoin, Ethereum etc., from the external blockchain to the Waves blockchain and vice versa. The gateway provides the user with the address on the external blockchain. After receiving a confirmation of transfer to this external address, the gateway transfers the corresponding asset (less fee) to the user's Waves address. For example, a number of cryptocurrency gateways are available on Waves.Exchange, see the [Transfer Cryptocurrency](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trs-gtw/online-desktop-trs-asset) article in the Waves.Exchange documentation. The corresponding asset on the Waves blockchain is backed 1:1 with cryptocurrency on the external blockchain. The asset then can be exchanged for WAVES.
+In addition, cryptocurrency gateways can be used to transfer external cryptocurrencies such as Bitcoin, Ethereum etc. from the external blockchain to the Waves blockchain and vice versa. The gateway provides the user with the address on the external blockchain. After receiving a confirmation of transfer to this external address, the gateway transfers the corresponding asset (less fee) to the user's Waves address. For example, a number of cryptocurrency gateways are available on Waves.Exchange, see the [Transfer Cryptocurrency](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trs-gtw/online-desktop-trs-asset) article in the Waves.Exchange documentation. The corresponding asset on the Waves blockchain is backed 1:1 with cryptocurrency on the external blockchain. The asset then can be exchanged for WAVES.

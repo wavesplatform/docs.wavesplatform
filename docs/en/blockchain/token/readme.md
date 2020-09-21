@@ -9,12 +9,12 @@ A token can represent a physical or an intangible object.
 
 The words “token” and “asset” are used interchangeably in the Waves ecosystem.
 
-**WAVES** is the core (native) token on the Waves blockchain; more about it in the [WAVES](/en/blockchain/token/waves) article.
+**WAVES** is the native token on the Waves blockchain; more about it in the [WAVES](/en/blockchain/token/waves) article.
 
 All other tokens are **custom tokens** issued on behalf of some [account](/en/blockchain/account/). Any account that has enough WAVES to pay a fee can issue its own token. The new token is immediately available:
 
 * for transfers between accounts,
-* for trading on [Waves.Exchange](https://waves.exchange/) developed by the third-party team of the community (except for [NFTs](/en/blockchain/token/non-fungible-token); [smart assets](/en/blockchain/token/smart-asset) trading is temporarily unavailable),
+* for trading on [Waves.Exchange](https://waves.exchange/) developed by the third-party team from the community (except for [NFTs](/en/blockchain/token/non-fungible-token); [smart assets](/en/blockchain/token/smart-asset) trading is temporarily unavailable),
 * for payments attached to dApp [script invocation](/en/blockchain/transaction-type/invoke-script-transaction).
 
 ## Custom Token Parameters
@@ -69,7 +69,7 @@ The amount of token in JSON is the real quantity multiplied by 10<sup>decimals</
 For USD-N in the example above:
 
 * `decimals` = 6,
-* atomic unit is 1/1&nbsp;000&nbsp;000 USD-N.
+* atomic unit is 1/1,000,000 USD-N.
 * `"quantity": 999999999471258900` corresponds to 999,999,999,471.258900 USD-N in UIs,
 
    `"minSponsoredAssetFee": 7420` corresponds to 0.007420 USD-N.
@@ -88,17 +88,17 @@ To issue a token, you have to create an [Issue transaction](/en/blockchain/trans
 [Transaction example](https://wavesexplorer.com/tx/DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p)
 
 There are the following options to send the transaction:
-* In the [Waves.Exchange](https://waves.exchange/) app developed by the third-party team of the community. See the [Create Asset](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-token-creation) article in the Waves.Exchange documentation.
-* In [Waves IDE](https://waves-ide.com/), see the [Issuing Smart Asset](/en/building-apps/smart-contracts/tools/waves-ide#issuing-smart-asset) article.
+* In the [Waves.Exchange](https://waves.exchange/) app developed by the third-party team from the community. See the [Create Asset](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-token-creation) article in the Waves.Exchange documentation.
+* In [Waves IDE](https://waves-ide.com/), see the [Issuing Smart Asset](/en/building-apps/smart-contracts/tools/waves-ide#issuing-smart-asset) section.
 * Using one of the [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/). See also the examples in the [How to Create Transaction and Send It to Blockchain](/en/building-apps/how-to/basic/transaction) article.
 
-The transaction fee is 1 WAVES for a regular token or 0.001 WAVES for a [non-fungible token (NFT)](/en/ blockchain/token/non-fungible-token).
+The transaction fee is 1 WAVES for a regular token or 0.001 WAVES for a [non-fungible token (NFT)](/en/blockchain/token/non-fungible-token).
 
-Moreover, the token can be issued by the [dApp script](/en/blockchain/account/dapp) as a result of the [Invoke Script transaction](/en/blockchain/transaction-type invoke-script-transaction) wherein the callable function result contains the [Issue](/en/ride/structures/script-actions/issue) action. The minimum fee for Invoke Script transaction is increased by 1 WAVES for each non-NFT token issued.
+Moreover, the token can be issued by the [dApp script](/en/blockchain/account/dapp) as a result of the [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) when the callable function result contains the [Issue](/en/ride/structures/script-actions/issue) action. The minimum fee for Invoke Script transaction is increased by 1 WAVES for each non-NFT token issued.
 
 ## Token Operations
 
-* Transfer of a token to another account
+* Transfer to another account
 
    Can be done via a [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction) or a [Mass Transfer transaction](/en/blockchain/transaction-type/mass-transfer-transaction).
 
@@ -126,7 +126,7 @@ The following token operations can only be performed by the account that issued 
 
 * Sponsorship setup
 
-   The token issuer can enable sponsorship, that is, allow all users to pay a fee in this token (instead od WAVES) for Invoke Script transactions and Transfer transactions. [More about sponsorship](/en/blockchain/waves-protocol/sponsored-fee)
+   The token issuer can enable sponsorship, that is, allow all users to pay a fee in this token (instead of WAVES) for Invoke Script transactions and Transfer transactions. [More about sponsorship](/en/blockchain/waves-protocol/sponsored-fee)
 
    Enabling or disabling sponsorship can be done via a [Sponsor Fee transaction](/en/blockchain/transaction-type/sponsor-fee-transaction).
 
@@ -144,11 +144,11 @@ The following token operations can only be performed by the account that issued 
 
    Can be done via a [Set Asset Script transaction](/en/blockchain/transaction-type/set-asset-script-transaction). If the token is not a smart asset, that is, the script was not attached when the token was issued, then it is impossible to attach the script later.
 
-* Modifying the name and / or description
+* Modifying the token name and / or description
 
    Can be done via an [Update Asset Info transaction](/en/blockchain/transaction-type/update-asset-info-transaction).
 
 ## Tokens of Other Blockchains
 
 A token issued on another blockchain cannot be used directly on the Waves blockchain. However, it is possible to issue a new token on the Waves blockchain, representing the original one, and deploy a gateway that pegs the two tokens 1:1. For example, gateway for a 
-[ERC20](https://docs.ethhub.io/guides/a-straightforward-guide-erc20-tokens/) token can be created using the [Waves-ERC20-Gateway](https://github.com/PyWaves/Waves -ERC20-Gateway) framework.
+[ERC20](https://docs.ethhub.io/guides/a-straightforward-guide-erc20-tokens/) token can be created using the [Waves-ERC20-Gateway](https://github.com/PyWaves/Waves-ERC20-Gateway) framework.
