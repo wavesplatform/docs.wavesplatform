@@ -20,6 +20,8 @@ let b = true.toBytes()
 let c = "Ride".toBytes()
 ```
 
+For more byte array functions, see the [Built-in Functions](/en/ride/functions/built-in-functions/).
+
 ## Limitations
 
 The maximum size of a `ByteVector` variable is:

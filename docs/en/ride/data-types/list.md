@@ -18,7 +18,7 @@ Lists support [concatenation](https://en.wikipedia.org/wiki/Concatenation), as w
 
 > :warning: `++` and `:+` operators are added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
-## Example
+### Example
 
 ```ride
 nil :+ 1 :+ 2 :+ 3
@@ -54,3 +54,7 @@ nested
 ```
 
 Result: [[1, 2], 1, 2, "3", "4"]
+
+## List functions
+
+The built-in list functions are presented in the [List Functions](/en/ride/functions/built-in-functions/list-functions) article.
