@@ -4,28 +4,21 @@ sidebarDepth: 2
 
 # Node Configuration
 
-The **node configuration file** is a settings file of a [node](/en/blockchain/node/).
+Waves [node](/en/blockchain/node/) settings are stored in the **node configuration file** (*.conf). The system uses HOCON (Human-Optimized Config Object Notation) format that provides simple syntax and ability to use comments. [Read more about HOCON](https://github.com/lightbend/config/blob/master/HOCON.md).
 
-The configuration system of Waves Node uses HOCON format. HOCON stands for Human-Optimized Config Object Notation. The complete description of HOCON could be found in the [Official HOCON documentation](https://github.com/lightbend/config/blob/master/HOCON.md). The advantages of HOCON are simple syntax and ability to use comments.
+By default the **node configuration file** is stored in [Default Application Directory](#default-application-directory).
 
-## Default Configs and Overrides
+[Example of default node configuration file](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf).
 
-### Default Configuration Embedded into JAR
+The file should contain your node's unique characteristics (ip, name, keys, etc...) as well as [blockchain type and parameters](#blockchain-settings).
 
-An [example](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf) of the default node configuration file that is embedded into jar-file is available on Github.
+## Overriding JAR-node Parameters
 
-> After upgrading to version 1.0.2 please note if your `/etc/waves/waves.conf` was originally copied from a template, make sure that waves.directory points to the correct directory. If this option doesn't exist in the config, default directory will be used. For details, see [Waves Configuration Section](#waves-configuration-section).
-
-### Overriding Parameters When Running JAR-file
-
-You can override default parameters of JAR-node by passing a path to config file as the command line parameter when starting Waves Node application.
-Replace {*} with actual file name:
+Jar-nodes have the `.conf` file with default settings embedded in the jar-file. You can override the embedded default settings by entering path to your custom config file in the command line parameter when starting the node application. Replace {*} with actual file name:
 
 ```bash
 java -jar {*}.jar {*}.conf
 ```
-
-The file should contain your node's unique characteristics (ip, name, keys, etc...) as well as [blockchain type and parameters](#blockchain-settings).
 
 ## Sections of the Configuration File
 
@@ -52,7 +45,9 @@ Root configuration section `waves` holds essential application parameters and ot
 
 The `directory` parameter allows to set a path to the base application directory. It is possible to use environment variables to set configuration parameters. For example, by default, the base directory constructed relative to the user’s `HOME` environment variable. Please, do not enclose environment variables references in quotes, in this case, they will be handled as strings and won’t be resolved.
 
-Make sure the defined directory has a correct owner set: `waves` for mainnet or `waves-testnet` for testnet.
+> After upgrading to version 1.0.2 please note if your `/etc/waves/waves.conf` was originally copied from a template, make sure that waves.directory points to the correct directory. If this option doesn't exist in the config, default directory will be used. For details, see [Waves Configuration Section](#waves-configuration-section).
+
+Make sure the defined directory has a correct owner set: `waves`, `waves-testnet` or `waves-stagenet` for mainnet, testnet or stagenet.
 
 #### Default Application Directory
 
