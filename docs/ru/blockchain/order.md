@@ -1,6 +1,6 @@
 # Биржевая заявка
 
-**Биржевая заявка** или **ордер** — инструкция [владельца аккаунта](/ru/blockchain/account/) [матчеру](https://docs.waves.exchange/ru/waves-matcher/) на покупку или продажу [токена](/ru/blockchain/token/) на [Waves Exchange](https://waves.exchange/).
+**Биржевая заявка** или **ордер** — инструкция [владельца аккаунта](/ru/blockchain/account/) матчеру на покупку или продажу [токена](/ru/blockchain/token/) на бирже. Матчер разработан сторонней командой из сообщества. Подробнее о матчере в [документации Waves.Exchange](https://docs.waves.exchange/ru/waves-matcher/).
 
 ## Ассетная пара
 
@@ -118,7 +118,7 @@ Price-ассетом является WAVES, значение priceAssetDecimals
 
 ## Временная метка заявки
 
-**Временна́я метка заявки** — время, когда [матчер](https://docs.waves.exchange/ru/waves-matcher/) добавил [ордер](/ru/blockchain/order) в [биржевой стакан](https://ru.wikipedia.org/wiki/Биржевой_стакан) на Waves Exchange.
+**Временна́я метка заявки** — время, когда матчер добавил [ордер](/ru/blockchain/order) в [биржевой стакан](https://ru.wikipedia.org/wiki/Биржевой_стакан) на Waves Exchange.
 
 Время указывается в миллисекундах, которые прошли с начала [эпохи Unix](https://ru.wikipedia.org/wiki/Unix-время).
 

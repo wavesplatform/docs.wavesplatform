@@ -18,6 +18,6 @@ The owner of WAVES can lease them via a [Lease transaction](/en/blockchain/trans
 
 ## How to Get WAVES
 
-You can buy WAVES tokens at [Waves.Exchange](https://waves.exchange/) developed by a third-party team from the community, or at one of the [centralized exchanges](https://coinmarketcap.com/currencies/waves/markets/).
+You can buy WAVES tokens at [Waves.Exchange](https://waves.exchange/) developed by the third-party team from the community, or at one of the [centralized exchanges](https://coinmarketcap.com/currencies/waves/markets/).
 
 In addition, cryptocurrency gateways can be used to transfer external cryptocurrencies such as Bitcoin, Ethereum etc. from the external blockchain to the Waves blockchain and vice versa. The gateway provides the user with the address on the external blockchain. After receiving a confirmation of transfer to this external address, the gateway transfers the corresponding asset (less fee) to the user's Waves address. For example, a number of cryptocurrency gateways are available on Waves.Exchange, see the [Transfer Cryptocurrency](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trs-gtw/online-desktop-trs-asset) article in the Waves.Exchange documentation. The corresponding asset on the Waves blockchain is backed 1:1 with cryptocurrency on the external blockchain. The asset then can be exchanged for WAVES.

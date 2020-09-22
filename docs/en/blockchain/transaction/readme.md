@@ -93,7 +93,7 @@ You can get the transaction by ID, or the list of transactions by certain accoun
    * [Waves Keeper API](/en/ecosystem/waves-keeper/waves-keeper-api) (requires that the Waves Keeper extension be installed in the user's browser).
 
 * In [Waves IDE](https://waves-ide.com/) using [JavaScript interactive console](/en/building-apps/smart-contracts/tools/waves-ide#javascript-interactive-console).
-* In [Waves.Exchange](https://waves.exchange/) app developed by Waves.Exchange team you can create some types of transactions such as Transfer, Issue/Reissue/Burn, Sponsor Fee transaction, Set Asset Script, Create Alias.
+* In [Waves.Exchange](https://waves.exchange/) app developed by the third-party team from the community you can create some types of transactions such as Transfer, Issue/Reissue/Burn, Sponsor Fee transaction, Set Asset Script, Create Alias.
 * Via [Node REST API](/en/waves-node/node-api/):
 
    * the `POST /transactions/broadcast` method sends a signed transaction to a node;

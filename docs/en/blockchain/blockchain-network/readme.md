@@ -58,7 +58,7 @@ The addresses of the pool of public nodes are as follows:
 
 ### Waves.Exchange
 
-[Waves.Exchange](https://docs.waves.exchange/en/) is a decentralized exchange developed by Waves.Exchange team.
+[Waves.Exchange](https://docs.waves.exchange/en/) is a decentralized exchange developed by the third-party team from the community.
 
 | | |
 | :--- | :--- |

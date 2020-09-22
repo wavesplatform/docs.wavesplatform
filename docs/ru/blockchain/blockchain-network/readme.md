@@ -58,7 +58,7 @@
 
 ### Waves.Exchange
 
-[Waves.Exchange](https://docs.waves.exchange/ru/) — децентрализованная биржа, разработанная командой Waves.Exchange:
+[Waves.Exchange](https://docs.waves.exchange/ru/) — децентрализованная биржа, разработанная сторонней командой из сообщества:
 
 | | |
 | :--- | :--- |

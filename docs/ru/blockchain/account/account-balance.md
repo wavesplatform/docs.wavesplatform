@@ -41,7 +41,7 @@ R - Lo + Li
 
 ## Пополнение и просмотр баланса аккаунта
 
-Купить и продать токены можно на бирже [Waves.Exchange](https://waves.exchange/), разработанной командой Waves.Exchange, или на одной из [централизованных бирж](https://coinmarketcap.com/currencies/waves/#markets).
+Купить и продать токены можно на бирже [Waves.Exchange](https://waves.exchange/), разработанной сторонней командой из сообщества, или на одной из [централизованных бирж](https://coinmarketcap.com/currencies/waves/#markets).
 
 Посмотреть баланс аккаунта можно в Waves.Exchange, а также в расширении для браузера [Waves Keeper](/ru/ecosystem/waves-keeper/).
 

@@ -168,7 +168,7 @@ The **mainnet** (or main network) is the main Waves [blockchain network](#blockc
 
 ### Matcher
 
-A **matcher** is a [node](#node) extension that executes [orders](#order) on the exchange. See the [About Waves.Exchange Matcher](https://docs.waves.exchange/en/waves-matcher/) section in the Waves.Exchange documentation.
+**Matcher** is a service that executes [orders](#order) on the exchange. The matcher is developed by the third-party team from the community. For details, see the [Waves.Exchange documentation](https://docs.waves.exchange/en/waves-matcher/).
 
 ### Matcher fee
 

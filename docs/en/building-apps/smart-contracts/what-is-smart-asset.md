@@ -131,7 +131,7 @@ Let's review the example. The commission for a transfer transaction is 0.001 WAV
 
 ## Buying and selling smart assets
 
-:warning: Buying and selling smart assets on [Waves.Exchange](https://waves.exchange/) is temporarily unavailable.
+:warning: Buying and selling smart assets on [Waves.Exchange](https://waves.exchange/) developed by the third-party team from the community is temporarily unavailable.
 
 If the smart asset is one of the bought or sold tokens, then the exchange transaction fee is increased by 0.004 WAVES for each participant of the transaction. If both tokens are smart assets, then the amount of the commission is increased by 0.008 WAVES for each participant in the transaction.
 

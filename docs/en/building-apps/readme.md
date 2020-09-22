@@ -54,7 +54,7 @@ The [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide) online enviro
 
 ## Exchange & Trading
 
-You can buy or sell tokens (assets) issued on the Waves blockchain (except for [NFT](/en/blockchain/token/non-fungible-token); smart assets trading is temporarily unavailable) on the [Waves.Exchange](https://waves.exchange/) developed by the Waves.Exchange team. Waves.Exchange's [Matcher API](https://docs.waves.exchange/en/waves-matcher/matcher-api) is aimed at creating and controlling exchange orders.
+You can buy or sell tokens (assets) issued on the Waves blockchain (except for [NFT](/en/blockchain/token/non-fungible-token); smart assets trading is temporarily unavailable) on the [Waves.Exchange](https://waves.exchange/) developed by the third-party team from the community. Waves.Exchange's [Matcher API](https://docs.waves.exchange/en/waves-matcher/matcher-api) is aimed at creating and controlling exchange orders.
 
 [CCXT](https://docs.waves.exchange/en/ccxt/), the popular JavaScript/Python/PHP library for trading cryptocurrencies and obtaining market data, supports for Waves.Exchange, but only trading pairs from the [white list](https://marketdata.wavesplatform.com/api/v1/tickers) are available.
 

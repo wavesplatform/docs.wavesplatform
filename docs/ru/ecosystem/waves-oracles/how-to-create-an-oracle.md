@@ -46,7 +46,7 @@ lastPrice = await this.getLastprice('https://api.wavesplatform.com/v0/pairs/WAVE
 dataParams.push({ key: 'waves_btc_8', value: lastPrice * Math.pow(10, 8) });
 ```
 
-Вы можете создать аккаунт, например, в Waves.Exchange, см. раздел [Создать аккаунт](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-account/online-desktop-creation).
+Вы можете создать аккаунт, например, в [Waves Keeper](/ru/ecosystem/waves-keeper/).
 
 Подпишем [транзакцию данных](/ru/blockchain/transaction-type/data-transaction) при помощи SEED от аккаунта оракула:
 

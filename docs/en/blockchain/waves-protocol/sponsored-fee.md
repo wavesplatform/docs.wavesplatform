@@ -33,19 +33,19 @@ For example, if the sponsor sets 3 tokens = 0.001 WAVES, then the minimum fee fo
 
 ## How to Enable Sponsorship
 
-To enable sponsorship, you need to put a sponsor fee transaction  with `minSponsoredAssetFee` specified in it. [Example of transaction](https://testnet.wavesexplorer.com/tx/5gHUMzmBfn4KP3tELzHtw3EYR947rzWUp5PuyF7hUW23)
+To enable sponsorship, you have to create a sponsor fee transaction  with `minSponsoredAssetFee` specified in it. [Example of transaction](https://testnet.wavesexplorer.com/tx/5gHUMzmBfn4KP3tELzHtw3EYR947rzWUp5PuyF7hUW23)
 
 > In the binary and JSON representation of the transaction, the value of `minSponsoredAssetFee` is specified in the minimum fraction (“cent”) of the sponsored asset.
 
-There are the following options to put the transaction:
-* In [Waves.Exchange](https://waves.exchange/) app developed by Waves.Exchange team. See the [Sponsored Transaction](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-sponsored-trx) article of Waves.Exchange documentation.
+There are the following options to create the transaction:
+* In [Waves.Exchange](https://waves.exchange/) app developed by the third-party team from the community. See the [Sponsored Transaction](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-sponsored-trx) article of Waves.Exchange documentation.
 * Using [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/). See also the [Creating and broadcasting transactions to the blockchain](/en/building-apps/how-to/basic/transaction) article.
 
 The fee for this type of transaction is 1 WAVES (after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”: 0.001 WAVES).
 
 ## How to Disable Sponsorship
 
-To disable sponsorship, you need to put a sponsor fee transaction in which `minSponsoredAssetFee` is `null`.
+To disable sponsorship, you have to create a sponsor fee transaction in which `minSponsoredAssetFee` is `null`.
 
 ## Restrictions
 

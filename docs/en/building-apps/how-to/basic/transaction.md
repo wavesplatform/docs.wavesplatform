@@ -14,7 +14,7 @@ On Waves, each transaction can be sent only from the account. Transaction that i
 There are two options to sign a transaction:
 
 * If your app sends trancastions on your behalf, you can use your own seed phrase to sign transactions. This way is described in [Sign Transaction Using Your Own Seed](#sign-transaction-using-your-own-seed) section below.
-* If your app sends transactions on behalf of range of users, we don't recommend to ask them for their seed phrases. Instead, use the official wallet software – for example, provided by Waves.Exchange team. This way is described in [Sign Transaction on Behalf of User](#sign-transaction-on-behalf-of-user) section below.
+* If your app sends transactions on behalf of range of users, **do not ask them for their seed phrases**. Instead, use the interface to the wallet software. This way is described in [Sign Transaction on Behalf of User](#sign-transaction-on-behalf-of-user) section below.
 
 **Transaction Fee**
 

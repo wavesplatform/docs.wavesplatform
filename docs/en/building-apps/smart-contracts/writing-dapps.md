@@ -207,7 +207,7 @@ await signer.invoke({<br>
 2. Create dApp account on Mainnet as described in [Step 1](#step-1-create-dapp-account).
 3. Top up account balance to pay the fee for the script setup.
 
-   For example, buy WAVES using [Waves.Exchange](https://waves.exchange/) app developed by Waves.Exchange team, see the [Buy Cryptocurrency with a Bank Card](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trs-gtw/online-desktop-trs-fiat) article for details.
+   For example, buy WAVES using [Waves.Exchange](https://waves.exchange/) app developed by the third-party team from the community, see the [Buy Cryptocurrency with a Bank Card](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trs-gtw/online-desktop-trs-fiat) article for details.
 
 4. Attach dApp script to the account as described in [Step 3](#step-3-assign-script-to-account).
 

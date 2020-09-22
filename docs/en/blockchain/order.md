@@ -1,6 +1,7 @@
 # Order
 
-**Order** is the instruction from the [account owner](/en/blockchain/account/) to [matcher](https://docs.waves.exchange/en/waves-matcher/) to buy or sell a [token](/en/blockchain/token/) on [Waves Exchange](https://waves.exchange/).
+**Order** is the instruction from the [account](/en/blockchain/account/) to matcher to buy or sell a [token](/en/blockchain/token/) on the exchange.
+The matcher is developed by the third-party team from the community. For details, see the [Waves.Exchange documentation](https://docs.waves.exchange/en/waves-matcher/).
 
 ## Asset pair
 
@@ -118,7 +119,7 @@ The expiration time can't be earlier than matcher time + 1 minute and later than
 
 ## Order timestamp
 
-**Order timestamp** is the time when [matcher](https://docs.waves.exchange/en/waves-matcher/) added the order to the [order book](https://en.wikipedia.org/wiki/Order_book_%28trading%29) on Waves Exchange.
+**Order timestamp** is the time when the matcher added the order to the [order book](https://en.wikipedia.org/wiki/Order_book_%28trading%29).
 
 The time is specified in milliseconds that have passed since the beginning of the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time).
 
