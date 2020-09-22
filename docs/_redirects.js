@@ -114,6 +114,14 @@ module.exports = [
     to: '/ru/blockchain/glossary#w',
   },
   {
+    from: '/en/blockchain/token/wavelet',
+    to: '/en/blockchain/token/waves',
+  },
+  {
+    from: '/ru/blockchain/token/wavelet',
+    to: '/ru/blockchain/token/waves',
+  },
+  {
     to: '/en/blockchain/binary-format/transaction-binary-format',
     from: '/en/blockchain/transaction-data-structure.html',
   },

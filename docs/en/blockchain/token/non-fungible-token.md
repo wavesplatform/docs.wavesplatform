@@ -1,13 +1,15 @@
 # Non-fungible token
 
-A **non-fungible token** or **NFT** is a special type of a [token](/en/blockchain/token/), that represents some _unique_ object.
+**Non-fungible token** or **NFT** is a special type of a [token](/en/blockchain/token/) that is issued with the following parameters:
 
-Two regular tokens cannot be distinguished from each other — they are alike, i.e. _fungible_. Each NFT token is unique, and therefore NFTs are _non-fungible_. Any two NFTs can always be distinguished.
+* `" quantity": 1`
+* `" decimals": 0`
+* `" reissuable": false`
 
-Every NFT has a unique ID.
+NFT is a singular entity that has a unique ID. This contrasts with a regular token, two coins of which (for example, two [WBTC](https://wavesexplorer.com/assets/8LQW8f7P5d5PZM7GtZEBgaqRPGSzS3DfPuiXrURJ4AJS)) cannot be distinguished from each other. NFTs can be used as in-game items, collectibles, certificates, or unique coupons.
 
-NFTs are most commonly used in games.
+NFT example: <https://testnet.wavesexplorer.com/assets/5iSeBMHNTCdi5vyFvKvK5bR4xsZ1nruGBhnkDZPqmd18>
 
 ## Issue of NFT
 
-See the page [Issue transaction](/en/blockchain/transaction-type/issue-transaction#nft).
+NFT can be issued in the same ways as a regular token, see [Token Issue](/en/blockchain/token/#issue-token). The minimum fee for an NFT issue is 0.001 WAVES, 1000 times less than for a regular token.
