@@ -50,7 +50,7 @@ If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart a
 | :--- | :--- |
 | assetId | Token ID base58 encoded. `null` means WAVES |
 | attachment | Arbitrary binary data (typically a comment to transfer) base58 encoded, up to 140 bytes |
-| transfers.recipient | Recipient address base58 encoded or recipient [alias](/en/blockchain/account/alias) |
+| transfers.recipient | Recipient address base58 encoded or recipient [alias](/en/blockchain/account/alias) with `alias:<chain_id>:` prefix, for example `alias:T:merry` (see [Chain ID](/en/blockchain/blockchain-network/#chain-id)) |
 | transfers.amount | Amount of token to transfer: an integer value specified in the minimum fraction (“cents”) of token |
 | *transferCount* | Number of recipients |
 | *totalAmount* | Total amount of transfers in transaction |

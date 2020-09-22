@@ -15,5 +15,3 @@
 | [ScriptTransfer](/ru/ride/structures/script-actions/script-transfer) | 3, 4 | Перевод токена |
 | [SponsorFee](/ru/ride/structures/script-actions/sponsor-fee) | 4 | Настройка спонсирования |
 | [StringEntry](/ru/ride/structures/script-actions/string-entry) | 4 | Добавление/изменение записи строкового типа |
-
-> :warning: Стандартная библиотека версии 4 доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.

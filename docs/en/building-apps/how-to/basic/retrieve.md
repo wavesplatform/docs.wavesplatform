@@ -84,7 +84,7 @@ Each account can store different assets (also called tokens) in different amount
 3. Use search bar to find the account by address or alias.
 4. Balances in WAVES are displayed below the address. Switch to **Assets** tab to see balances in other tokens.
 
-![](./_assets/data-storage-explorer.png)
+![](./_assets/balance-explorer.png)
 
 > NFTs are displayed on the **Non-fungible tokens** tab.
 

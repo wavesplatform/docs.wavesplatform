@@ -40,7 +40,7 @@ cons(1, [2, 3, 4, 5]) # Returns [1, 2, 3, 4, 5]
 
 Check if the element is in the list.
 
-> :warning: The `containsElement` function is added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: The `containsElement` function is added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 ```ride
 containsElement(list: List[T], element: T): Boolean
@@ -79,7 +79,7 @@ getElement([false, true], 1) # Returns true
 
 Returns the index of the first occurrence of the element in the list or `unit` if the element is missing.
 
-> :warning: The `indexOf` function is added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: The `indexOf` function is added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 ``` ride
 indexOf(list: List[T], element: T): Int|Unit
@@ -103,7 +103,7 @@ indexOf("a", stringList) # Returns 0
 
 Returns the index of the last occurrence of the element in the list or `unit` if the element is missing.
 
-> :warning: The `lastIndexOf` function is added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: The `lastIndexOf` function is added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 ``` ride
 lastIndexOf(list: List[T], element: T): Int|Unit
@@ -155,7 +155,7 @@ min(List[Int]): Int
 
 Removes an element from the list by index.
 
-> :warning: The `removeByIndex` function is added in Standard library **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: The `removeByIndex` function is added in Standard library **version 4**.
 
 ``` ride
 removeByIndex(list: List[T], index: Int): List[T]

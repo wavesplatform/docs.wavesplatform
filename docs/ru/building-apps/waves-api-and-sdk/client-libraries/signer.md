@@ -733,7 +733,7 @@ massTransfer(data: {
 | transfers* | | Список переводов |
 | transfers.amount* | | Количество ассета, умноженное на 10^`decimals`. Например, для WAVES `decimals` равно 8, поэтому фактическое количество WAVES умножается на 10^8. `{ "WAVES": 677728840 }` означает 6,77728840 WAVES |
 | transfers.recipient* | | [Адрес](/ru/blockchain/account/address) получателя в фодировке Base58 или алиас получателя (с префиксом `alias:T:`) |
-| attachment | | Произвольные данные, прикладываемые к транзакции. Обычно используются для комментария к переводу. Не более 140 байт |
+| attachment | | Произвольные данные: байты в кодировке Base58. Обычно используются для комментария к переводу. Не более 140 байт |
 
 \* Обязательный параметр.
 
@@ -742,7 +742,11 @@ massTransfer(data: {
 **Пример вызова:**
 
 ```js
-const data = [
+
+const crypto = require('@waves/ts-lib-crypto')
+
+const data = {
+    transfers: [
     {
       amount: 100,
       recipient: '3P23fi1qfVw6RVDn4CH2a5nNouEtWNQ4THs',
@@ -750,7 +754,8 @@ const data = [
     {
       amount: 200,
       recipient: 'alias:T:merry',
-    },
+    }],
+    attachment: crypto.base58Encode(crypto.stringToBytes('sample message for recipient'))
 ]
 
 const [tx] = await signer
@@ -920,7 +925,7 @@ transfer(data: {
 | recipient* | | [Адрес](/ru/blockchain/account/address) получателя в кодировке Base58 или алиас получателя (с префиксом `alias:T:`) |
 | amount* | | Количество ассета, умноженное на 10^`decimals`. Например, для WAVES `decimals` равно 8, поэтому фактическое количество WAVES умножается на 10^8. `{ "WAVES": 677728840 }` означает 6,77728840 WAVES  |
 | assetId | WAVES | Идентификатор ассета в кодировке Base58. `null` или отсутствующий параметр означает WAVES |
-| attachment | | Произвольные данные, прикладываемые к транзакции. Обычно используются для комментария к переводу. Не более 140 байт |
+| attachment | | Произвольные данные: байты в кодировке Base58. Обычно используются для комментария к переводу. Не более 140 байт |
 | feeAssetId | WAVES | Идентификатор спонсорского ассета, в котором будет уплачена комиссия за транзакцию, в кодировке Base58. См. раздел [Спонсирование](/ru/blockchain/waves-protocol/sponsored-fee). `null` или отсутствующий параметр означает WAVES |
 
 \* Обязательный параметр.
@@ -931,10 +936,13 @@ transfer(data: {
 **Пример вызова:**
 
 ```js
+const crypto = require('@waves/ts-lib-crypto')
+
 const data = {
   recipient: '3P8pGyzZL9AUuFs9YRYPDV3vm73T48ptZxs',
   amount: 10000,
-  }
+  attachment: crypto.base58Encode(crypto.stringToBytes('sample message for recipient'))
+}
 
 const [tx] = await signer
   .transfer(data)

@@ -170,8 +170,6 @@ wavesBalance(addressOrAlias: Address|Alias): BalanceDetails
 
 For a description of the return value, see the [BalanceDetails](/en/ride/structures/common-structures/balance-details) article.
 
-> :warning: [Standard library](/en/ride/script/standard-library) **version 4** becomes available since node version 1.2.0 after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
-
 ### Parameters
 
 | Parameter | Description |

@@ -16,9 +16,9 @@ Lists support [concatenation](https://en.wikipedia.org/wiki/Concatenation), as w
 | Adding the element to the end of the list (the list is on the left, the element is on the right) | :+ | 1 |
 | Adding the element to the beginning of the list (the element is on the left, the list is on the right) | :: | 2 |
 
-> :warning: `++` and `:+` operators are added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: `++` and `:+` operators are added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
-## Example
+### Example
 
 ```ride
 nil :+ 1 :+ 2 :+ 3
@@ -54,3 +54,7 @@ nested
 ```
 
 Result: [[1, 2], 1, 2, "3", "4"]
+
+## List functions
+
+The built-in list functions are presented in the [List Functions](/en/ride/functions/built-in-functions/list-functions) article.

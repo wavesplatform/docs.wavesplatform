@@ -80,7 +80,7 @@ my_address.issueAsset(
 
 Since Standard library version 4, dApp callable function can issue a token. See [Callable Function](/en/ride/functions/callable-function) and [Issue](/en/ride/structures/script-actions/issue) articles of [Ride](/en/ride/) chapter for more information.
 
-> :warning: Standard ibrary Version 4 becomes available from node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: Standard ibrary Version 4 is available from node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 In this example, `myToken` function issues a token with following params:
 

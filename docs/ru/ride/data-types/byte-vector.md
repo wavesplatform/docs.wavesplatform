@@ -20,6 +20,8 @@ let b = true.toBytes()
 let c = "Ride".toBytes()
 ```
 
+Другие функции работы с массивом байтов см. в разделе [Встроенные функции](/en/ride/functions/built-in-functions/).
+
 ## Ограничения
 
 Максимальный размер переменной типа `ByteVector`:
@@ -28,5 +30,3 @@ let c = "Ride".toBytes()
 * В Стандартной библиотеке версии 4 — 32&nbsp;767 байт.
 
    Исключение: поле `bodyBytes` из [структуры транзакции](/ru/ride/structures/transaction-structures/). Это значение можно передать в качестве аргумента [функций верификации](/ru/ride/functions/built-in-functions/verification-functions) `rsaVerify` и `sigVerify` (но нельзя объединять с другими массивами байтов, если ограничение превышено).
-
-> :warning: Стандартная библиотека версии 4 доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.

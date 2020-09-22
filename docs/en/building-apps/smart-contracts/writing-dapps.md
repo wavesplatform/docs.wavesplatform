@@ -207,11 +207,7 @@ await signer.invoke({<br>
 2. Create dApp account on Mainnet as described in [Step 1](#step-1-create-dapp-account).
 3. Top up account balance to pay the fee for the script setup.
 
-   For example, use [Waves.Exchange](https://waves.exchange/) app developed by Waves.Exchange team to:
-
-   • Transfer 0.01 WAVES from another account, see the [Cryptocurrency Transfers](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trs-gtw/online-desktop-trs-asset) article of the Waves.Exchange documentation.
-
-   • Buy Neutrino with a credit card and then exchange for WAVES, see the [Buy Neutrino with Card](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-staking#buy-neutrino-with-card) and [Start Trading on Waves.Exchange](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trading) articles for details.
+   For example, buy WAVES using [Waves.Exchange](https://waves.exchange/) app developed by Waves.Exchange team, see the [Buy Cryptocurrency with a Bank Card](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-trs-gtw/online-desktop-trs-fiat) article for details.
 
 4. Attach dApp script to the account as described in [Step 3](#step-3-assign-script-to-account).
 

@@ -16,8 +16,6 @@ For Standard library **version 4**:
 IssueTransaction(quantity: Int, name: String, description: String, reissuable: Boolean, decimals: Int, script: ByteVector|Unit, id: ByteVector, fee: Int, timestamp: Int, version: Int, sender: Address, senderPublicKey: ByteVector, bodyBytes: ByteVector, proofs: List[ByteVector])
 ```
 
-[Standard library](/en/ride/script/standard-library) **version 4** becomes available since node version 1.2.0 after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
-
 ### Fields
 
 | # | Name | Data type | Description |

@@ -1,13 +1,35 @@
 # Blockchain functions
 
-|   #  | Name | Description | Complexity |
-| :--- | :--- | :--- | :--- |
-|   1  | [assetInfo(ByteVector): Аsset&#124;Unit](#assetinfo) | Gets the information about a [token](/en/blockchain/token/) | 100 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>15 for Standard Library **version 4** |
-|   2  | [blockInfoByHeight(Int): BlockInfo&#124;Unit](#blockinfobyheight) | Gets the information about a [block](/en/blockchain/block/) by the [block height](/en/blockchain/block/block-height) | 100 for Standard Library **version 3**<br>5 for Standard Library **version 4** |
-|   3  | [calculateAssetId(Issue): ByteVector](#calculateassetid) | Calculates the ID of the asset, created by [Issue](/en/ride/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
-|   4  | [transactionHeightById(ByteVector): Int&#124;Unit](#transactionheightbyid) | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 100 for Standard Library **version 3**<br>20 for Standard Library **version 4** |
-|   5  | [transferTransactionById(ByteVector): TransferTransaction&#124;Unit](#transfertransactionbyid) | Gets the data of a transfer transaction | 100 for Standard Library **version 3**<br>60 for Standard Library **version 4** |
+| Name | Description | Complexity |
+| :--- | :--- | :--- |
+| [addressFromRecipient(Address&#124;Alias): Address](#address-from-recipient) | Gets the corresponding [address](/en/blockchain/account/address) of the [alias](/en/blockchain/account/alias) | 100 for Standard Library **version 3**<br>5 for Standard Library **version 4** |
+| [assetInfo(ByteVector): Аsset&#124;Unit](#assetinfo) | Gets the information about a [token](/en/blockchain/token/) | 100 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>15 for Standard Library **version 4** |
+| [blockInfoByHeight(Int): BlockInfo&#124;Unit](#blockinfobyheight) | Gets the information about a [block](/en/blockchain/block/) by the [block height](/en/blockchain/block/block-height) | 100 for Standard Library **version 3**<br>5 for Standard Library **version 4** |
+| [calculateAssetId(Issue): ByteVector](#calculateassetid) | Calculates the ID of the asset, created by [Issue](/en/ride/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
+| [transactionHeightById(ByteVector): Int&#124;Unit](#transactionheightbyid) | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 100 for Standard Library **version 3**<br>20 for Standard Library **version 4** |
+| [transferTransactionById(ByteVector): TransferTransaction&#124;Unit](#transfertransactionbyid) | Gets the data of a transfer transaction | 100 for Standard Library **version 3**<br>60 for Standard Library **version 4** |
 
+## addressFromRecipient(Address|Alias): Address<a id="address-from-recipient"></a>
+
+Gets the corresponding [address](/en/blockchain/account/address) of the [alias](/en/blockchain/account/alias).
+
+```ride
+addressFromRecipient(AddressOrAlias: Address|Alias): Address
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| AddressOrAlias: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | 
+Address or alias, usually tx.recipient |
+
+### Examples
+
+```ride
+let address =Address(base58'3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF')
+addressFromRecipient(address)
+```
 ## assetInfo
 
 Gets the information about a [token](/en/blockchain/token/).
@@ -62,7 +84,7 @@ let x = match blockInfoByHeight(1234567) {
 
 Calculates the ID of the asset, created by [Issue](/en/ride/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution.
 
-> :warning: The `calculateAssetId` function is added in Standard library **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: The `calculateAssetId` function is added in Standard library **version 4**.
 
 ```
 calculateAssetId(issue: Issue): ByteVector

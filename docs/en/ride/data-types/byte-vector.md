@@ -20,6 +20,8 @@ let b = true.toBytes()
 let c = "Ride".toBytes()
 ```
 
+For more byte array functions, see the [Built-in Functions](/en/ride/functions/built-in-functions/).
+
 ## Limitations
 
 The maximum size of a `ByteVector` variable is:
@@ -28,5 +30,3 @@ The maximum size of a `ByteVector` variable is:
 * For Standard library version 4 — 32,767 bytes.
 
    Exception: the `bodyBytes` field of [transaction structure](/en/ride/structures/transaction-structures/). You can pass this value as an argument to the `rsaVerify` и `sigVerify` [verification functions](/en/ride/functions/built-in-functions/verification-functions) (but cannot concatenate with other byte arrays in case the limit is exceeded).
-
-> :warning: Standard library version 4 becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.

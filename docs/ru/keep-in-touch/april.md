@@ -31,7 +31,10 @@
    * `/transactions/info/{id}`
    * `/transactions/status`
 
-**Как воспользоваться**: пул нод Waves с публичным API на Stagenet доступен по адресу <https://nodes-stagenet.wavesnodes.com/>.
+**Как воспользоваться**: пул нод Waves с публичным API доступны по адресу:
+* Mainnet: <https://nodes.wavesnodes.com/>
+* Testnet: <https://nodes-testnet.wavesnodes.com/>
+* Stagenet: <https://nodes-stagenet.wavesnodes.com/>
 
 См. также [список изменений Node API в релизе 1.2](/ru/keep-in-touch/release-notes#обновление-node-api)
 
@@ -41,10 +44,10 @@
 
 Функции `waitForTx` и `waitForTxWithNConfirmations` возвращают Promise транзакции, который разрешается после ее попадания в блок. Теперь для транзакции добавлено поле `applicationStatus`.
 
-**Как воспользоваться**: установите бета-версию библиотеки с помощью команды
+**Как воспользоваться**: установите последнюю версию библиотеки с помощью команды
 
 ```bash
-npm i @waves/waves-transactions@beta
+npm i @waves/waves-transactions@latest
 ```
 
 [Документация waves-transactions](https://wavesplatform.github.io/waves-transactions/)
@@ -53,10 +56,10 @@ npm i @waves/waves-transactions@beta
 
 Функции `fetchInfo` и `fetchStatus` поддерживают поле `applicationStatus`.
 
-**Как воспользоваться**: установите бета-версию библиотеки с помощью команды
+**Как воспользоваться**: установите последнюю версию библиотеки с помощью команды
 
 ```bash
-npm i @waves/node-api-js@beta
+npm i @waves/node-api-js@latest
 ```
 
 [node-api JS на Github](https://github.com/wavesplatform/node-api-js/)
@@ -69,26 +72,26 @@ npm i @waves/node-api-js@beta
 
 * Для транзакции вызова скрипта результат выполнения скрипта отображается в виде таблицы.
 
-**Как воспользоваться**: Waves Explorer для Stagenet доступен по адресу <https://stagenet.wavesexplorer.com/stagenet>.
+**Как воспользоваться**: Waves Explorer доступен по адресу <https://wavesexplorer.com/>.
 
 [Все изменения Waves Explorer](/ru/keep-in-touch/release-notes#waves-explorer)
 
-## Waves IDE (stagenet.waves-ide.com)
+## Waves IDE
 
 Поле `applicationStatus` поддерживается для транзакций, добавленных на блокчейн, в JavaScript-консоли и в тестах.
 
 Обратите внимание: в тестах теперь необходимо проверять не только появление транзакции на блокчейне, но и успешность выполнения скрипта.
 
-**Как воспользоваться**: Waves IDE для Stagenet доступна по адресу <https://stagenet.waves-ide.com/>.
+**Как воспользоваться**: Waves IDE доступна по адресу <https://waves-ide.com/>.
 
 ## Surfboard
 
 Поддержана возможность получения поля `applicationStatus` для транзакций, добавленных на блокчейн.
 
-**Как воспользоваться**: установите бета-версию с помощью команды
+**Как воспользоваться**: установите последнюю версию с помощью команды
 
 ```bash
-npm i @waves/surfboard@beta
+npm i @waves/surfboard@latest
 ```
 
 [Surfboard на Github](https://github.com/wavesplatform/surfboard)

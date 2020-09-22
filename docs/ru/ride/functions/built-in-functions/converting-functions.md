@@ -3,7 +3,6 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | [addressFromPublicKey(ByteVector): Address](#address-from-public-key) | Получает [адрес](/ru/blockchain/account/address), соответствующий открытому ключу аккаунта | 82 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>63 для Стандартной библиотеки **версии 4** |
-| [addressFromRecipient(Address&#124;Alias): Address](#address-from-recipient) | Получает [адрес](/ru/blockchain/account/address), соответствующий [псевдониму](/ru/blockchain/account/alias) | 100 для Стандартной библиотеки **версии 3**<br>5 для Стандартной библиотеки **версии 4** |
 | [parseInt(String): Int&#124;Unit](#parse-int) | Конвертирует строковое представление числа в эквивалентное целое число | 20 для Стандартной библиотеки **версии 3**<br>2 для Стандартной библиотеки **версии 4** |
 | [parseIntValue(String): Int](#parse-int-value) | Конвертирует строковое представление числа в эквивалентное целое число.<br>Выбрасывает исключение, если строка не может быть спарсена | 20 для Стандартной библиотеки **версии 3**<br>2 для Стандартной библиотеки **версии 4** |
 | [toBytes(Boolean): ByteVector](#to-bytes-boolean) | Конвертирует логическое значение в массив байтов | 1 |
@@ -36,27 +35,6 @@ addressFromPublicKey(publicKey: ByteVector): Address
 
 ```ride
 let address = addressFromPublicKey(base58'J1t6NBs5Hd588Dn7mAPytqkhgeBshzv3zecScfFJWE2D')
-```
-
-## addressFromRecipient(Address&#124;Alias): Address<a id="address-from-recipient"></a>
-
-Получает [адрес](/ru/blockchain/account/address), соответствующий [псевдониму](/ru/blockchain/account/alias).
-
-```ride
-addressFromRecipient(AddressOrAlias: Address|Alias): Address
-```
-
-### Параметры
-
-| Параметр | Описание |
-| :--- | :--- |
-| `AddressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | Адрес или псевдоним, обычно получателя транзакции |
-
-### Примеры
-
-```ride
-let address =Address(base58'3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF')
-addressFromRecipient(address)
 ```
 
 ## parseInt(String): Int&#124;Unit<a id="parse-int"></a>
@@ -299,7 +277,7 @@ toUtf8String(bytes) # Возвращает "Ride on Waves"
 
 Десериализует транзакцию перевода: конвертирует [бинарный формат](/ru/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format) в структуру [TransferTransaction](/ru/ride/structures/transaction-structures/transfer-transaction). Бинарный формат должен соответствовать [protobuf-схеме](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). В случае если конвертация не удалась, возвращает значение `unit`.
 
-> :warning: Функция `transferTransactionFromProto` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: Функция `transferTransactionFromProto` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
 
 ```ride
 transferTransactionFromProto(b: ByteVector): TransferTransaction|Unit

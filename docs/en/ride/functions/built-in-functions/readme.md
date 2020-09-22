@@ -1,6 +1,6 @@
 # Built-in functions
 
-A **built-in function** is a [function](/en/ride/functions/) of the [script context](/en/ride/script/script-context).
+A **built-in function** is a [function](/en/ride/functions/) of the [Standard library](/en/ride/script/standard-library).
 
 ## [Account data storage functions](/en/ride/functions/built-in-functions/account-data-storage-functions)
 
@@ -21,6 +21,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [script cont
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
+| addressFromRecipient(Address&#124;Alias): Address | Gets the corresponding [address](/en/blockchain/account/address) of the [alias](/en/blockchain/account/alias) | 100 for Standard Library **version&nbsp;3**<br>5 for Standard Library **version&nbsp;4** |
 | assetInfo(ByteVector): Аsset&#124;Unit | Gets the information about a [token](/en/blockchain/token/) | 100 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>15 for Standard Library **version&nbsp;4** |
 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Gets the information about a [block](/en/blockchain/block/) by the [block height](/en/blockchain/block/block-height) | 100 for Standard Library **version&nbsp;3**<br>5 for Standard Library **version&nbsp;4** |
 | calculateAssetId(Issue): ByteVector | Calculates the ID of the asset, created by [Issue](/en/ride/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
@@ -42,7 +43,6 @@ A **built-in function** is a [function](/en/ride/functions/) of the [script cont
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | addressFromPublicKey(ByteVector): Address | Converts account public key to [address](/en/blockchain/account/address) | 82 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>63 for Standard Library **version&nbsp;4** |
-| addressFromRecipient(Address&#124;Alias): Address | Gets the corresponding [address](/en/blockchain/account/address) of the [alias](/en/blockchain/account/alias) | 100 for Standard Library **version&nbsp;3**<br>5 for Standard Library **version&nbsp;4** |
 | parseInt(String): Int&#124;Unit | Converts the string representation of a number to its integer equivalent | 20 for Standard Library **version&nbsp;3**<br>2 for Standard Library **version&nbsp;4** |
 | parseIntValue(String): Int | Converts the string representation of a number to its integer equivalent.Raises an exception if the string cannot be parsed | 20 for Standard Library **version&nbsp;3**<br>2 for Standard Library **version&nbsp;4** |
 | toBytes(Boolean): ByteVector | Converts a boolean to an array of bytes | 1 |

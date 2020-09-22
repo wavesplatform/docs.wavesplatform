@@ -732,8 +732,8 @@ massTransfer(data: {
 | assetId | WAVES | Base58-encoded ID of the asset to transfer |
 | transfers* | | List of transfers |
 | transfers.amount* | | Amount of asset multiplied by 10^`decimals`. For example, `decimals` of WAVES is 8, so the real amount is multipied by 10^8. `{ "WAVES": 677728840 }` means 6.77728840Amount of  multiplied by 10^8. |
-| transfers.recipient* | | Base58-encoded [address](/en/blockchain/account/address) or alias (with `alias:T:` prefix) of the recipient |
-| attachment | | Optional data attached to the transaction. This field is often used to attach a comment to the transaction. The maximum data size is 140 bytes |
+| transfers.recipient* | | Base58 encoded [address](/en/blockchain/account/address) or alias (with `alias:T:` prefix) of the recipient |
+| attachment | | Optional binary data base58 encoded. This field is often used to attach a comment to the transaction. The maximum data size is 140 bytes |
 
 \* Required field
 
@@ -742,7 +742,10 @@ See [Common fields](#common-fields) for other fields description.
 **Usage:**
 
 ```js
-const data = [
+const crypto = require('@waves/ts-lib-crypto')
+
+const data = {
+    transfers: [
     {
       amount: 100,
       recipient: '3P23fi1qfVw6RVDn4CH2a5nNouEtWNQ4THs',
@@ -750,7 +753,8 @@ const data = [
     {
       amount: 200,
       recipient: 'alias:T:merry',
-    },
+    }],
+    attachment: crypto.base58Encode(crypto.stringToBytes('sample message for recipient'))
 ]
 
 const [tx] = await signer
@@ -916,7 +920,7 @@ transfer(data: {
 | recipient* | | Base58-encoded [address](/en/blockchain/account/address) or alias (with `alias:T:` prefix) of the recipient |
 | amount* | | Amount of asset multiplied by 10^`decimals`. For example, `decimals` of WAVES is 8, so the real amount is multipied by 10^8. `{ "WAVES": 677728840 }` means 6.77728840 |
 | assetId | WAVES | Base58-encoded ID of the asset to transfer. `null` or omitted field means WAVES |
-| attachment | | Optional data attached to the transaction. This field is often used to attach a comment to the transaction. The maximum data size is 140 bytes |
+| attachment | | Optional binary data base58 encoded. This field is often used to attach a comment to the transaction. The maximum data size is 140 bytes |
 | feeAssetId | WAVES | Base58-encoded ID of the sponsored asset to pay the commission. See the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article for more information. `null` or omitted field means WAVES |
 
 \* Required field
@@ -926,10 +930,13 @@ See [Common fields](#common-fields) for other fields description.
 **Usage:**
 
 ```js
+const crypto = require('@waves/ts-lib-crypto')
+
 const data = {
   recipient: '3P8pGyzZL9AUuFs9YRYPDV3vm73T48ptZxs',
   amount: 10000,
-  }
+  attachment: crypto.base58Encode(crypto.stringToBytes('sample message for recipient'))
+}
 
 const [tx] = await signer
   .transfer(data)

@@ -47,6 +47,15 @@
 | Testnet | <https://nodes-testnet.wavesnodes.com/> |
 | Stagenet | <https://nodes-stagenet.wavesnodes.com/> |
 
+### Data Service API
+
+| | | |
+| :--- | :--- | :--- |
+| | Адрес для запросов | Swagger |
+| Mainnet | `https://api.wavesplatform.com/v0/` | <https://api.wavesplatform.com/v0/docs/> |
+| Testnet | `https://api.testnet.wavesplatform.com/v0/` | <https://api.testnet.wavesplatform.com/v0/docs/> |
+| Stagenet | `https://api-stagenet.wavesplatform.com/v0/` | <https://api-stagenet.wavesplatform.com/v0/docs/> |
+
 ### Waves.Exchange
 
 [Waves.Exchange](https://docs.waves.exchange/ru/) — децентрализованная биржа, разработанная командой Waves.Exchange:
@@ -55,7 +64,7 @@
 | :--- | :--- |
 | Mainnet | <https://waves.exchange/> |
 | Testnet | <https://testnet.waves.exchange/> |
-| Stagenet | — |
+| Stagenet | <https://stagenet.waves.exchange/> |
 
 ### API матчера Waves.Exchange
 
@@ -65,7 +74,7 @@
 | :--- | :--- |
 | Mainnet | <https://matcher.waves.exchange/> |
 | Testnet | <https://matcher-testnet.waves.exchange> |
-| Stagenet | — |
+| Stagenet | <https://matcher-stagenet.waves.exchange> |
 
 ### Waves Explorer
 

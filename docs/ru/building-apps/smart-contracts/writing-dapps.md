@@ -210,11 +210,7 @@ await signer.invoke({<br>
 2. Создайте аккаунт dApp на Mainnet — аналогично шагу 1.
 3. Пополните баланс аккаунта, чтобы оплатить комиссию за установку скрипта.
 
-   Например, с помощью приложения [Waves.Exchange](https://waves.exchange/), разработанного командой Waves.Exchange, вы можете:
-   
-   • Перевести 0,01 WAVES с другого аккаунта, см. раздел [Переводы криптовалют](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-trs-gtw/online-desktop-trs-asset) документации Waves.Exchange.
-
-   • Купить Neutrino с банковской карты, затем обменять на WAVES, см. разделы [Купить Neutrino с карты](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-staking#купить-neutrino-с-карты) и [Торговля на бирже](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-trading).
+   Например, купите WAVES с помощью приложения [Waves.Exchange](https://waves.exchange/), разработанного командой Waves.Exchange, см. раздел [Купить криптовалюту с помощью банковской карты](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-trs-gtw/online-desktop-trs-fiat).
 
 4. Установите dApp-скрипт на аккаунт — аналогично шагу 3.
 

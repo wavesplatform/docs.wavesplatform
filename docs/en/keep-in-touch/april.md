@@ -31,7 +31,10 @@ Added the `applicationStatus` field to the following endpoints:
    * `/transactions/info/{id}`
    * `/transactions/status`
 
-**How to access**: use the pool of Waves nodes with public API for Stagenet: <https://nodes-stagenet.wavesnodes.com/>.
+**How to access**: use the pool of Waves nodes with public API:
+* Mainnet: <https://nodes.wavesnodes.com/>
+* Testnet: <https://nodes-testnet.wavesnodes.com/>
+* Stagenet: <https://nodes-stagenet.wavesnodes.com/>
 
 See also [the list of Node API changes in release 1.2](/en/keep-in-touch/release-notes#rest-api-updates)
 
@@ -41,10 +44,10 @@ See also [the list of Node API changes in release 1.2](/en/keep-in-touch/release
 
 The `waitForTx` and `waitForTxWithNConfirmations` return Promise of transaction which is resolved when the transaction is added to the blockchain. Now the `applicationStatus` field has been added to the transaction.
 
-**How to access**: install the beta version of the library using the command
+**How to access**: install the latest version of the library using the command
 
 ```bash
-npm i @waves/waves-transactions@beta
+npm i @waves/waves-transactions@latest
 ```
 
 [waves-transactions documentation](https://wavesplatform.github.io/waves-transactions/)
@@ -53,10 +56,10 @@ npm i @waves/waves-transactions@beta
 
 The `fetchInfo` and `fetchStatus` functions now support the `applicationStatus` field.
 
-**How to access**: install the beta version of the library using the command
+**How to access**: install the latest version of the library using the command
 
 ```bash
-npm i @waves/node-api-js@beta
+npm i @waves/node-api-js@latest
 ```
 
 [node-api JS on Github](https://github.com/wavesplatform/node-api-js/)
@@ -69,7 +72,7 @@ npm i @waves/node-api-js@beta
 
 * For invoke script transactions the dApp script result is displayed as a table.
 
-**How to access**: use Waves Explorer for Stagenet <https://stagenet.wavesexplorer.com/stagenet>.
+**How to access**: go to <https://wavesexplorer.com/>.
 
 [All changes in Waves Explorer](/en/keep-in-touch/release-notes#waves-explorer)
 
@@ -79,16 +82,16 @@ The `applicationStatus` field for transactions that is added to the blockchain i
 
 Please note: tests now need to check not only that the transaction is added to the blockchain, but also the success of the script.
 
-**How to access**: use Waves IDE for Stagenet <https://stagenet.waves-ide.com/>.
+**How to access**: go to <https://waves-ide.com/>.
 
 ## Surfboard
 
 The `applicationStatus` field is now supported for transactions added to the blockchain.
 
-**How to access**: install the beta version using the command
+**How to access**: install the latest version using the command
 
 ```bash
-npm i @waves/surfboard@beta
+npm i @waves/surfboard@latest
 ```
 
 [Surfboard on Github](https://github.com/wavesplatform/surfboard)
@@ -97,7 +100,7 @@ npm i @waves/surfboard@beta
 
 For the invoke script transaction, in addition to the transaction status on the blockchain, the status of script execution is displayed.
 
-**How to access:** use <http://waves-dapp.com/>.
+**How to access:** go to <http://waves-dapp.com/>.
 
 ## Ride limitations
 

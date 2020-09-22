@@ -170,8 +170,6 @@ wavesBalance(addressOrAlias: Address|Alias): BalanceDetails
 
 Описание возвращаемой структуры см. в разделе [BalanceDetails](/ru/ride/structures/common-structures/balance-details).
 
-> :warning: [Стандартная библиотека](/ru/ride/script/standard-library) **версии 4** доступна начиная с версии ноды 1.2.0, после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
-
 ### Параметры
 
 | Параметр | Описание |

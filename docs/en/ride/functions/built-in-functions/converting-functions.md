@@ -3,7 +3,6 @@
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | [addressFromPublicKey(ByteVector): Address](#address-from-public-key)| Gets the corresponding [address](/en/blockchain/account/address) of the account public key | 82 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>63 for Standard Library **version 4** |
-| [addressFromRecipient(Address&#124;Alias): Address](#address-from-recipient) | Gets the corresponding [address](/en/blockchain/account/address) of the [alias](/en/blockchain/account/alias) | 100 for Standard Library **version 3**<br>5 for Standard Library **version 4** |
 | [parseInt(String): Int&#124;Unit](#parse-int) | Converts the string representation of a number to its integer equivalent | 20 for Standard Library **version 3**<br>2 for Standard Library **version 4** |
 | [parseIntValue(String): Int](#parse-int-value) | Converts the string representation of a number to its integer equivalent.<br>Raises an exception if the string cannot be parsed | 20 for Standard Library **version 3**<br>2 for Standard Library **version 4** |
 | [toBytes(Boolean): ByteVector](#tobytes-bool) | Converts a boolean value to an array of bytes | 1 |
@@ -35,28 +34,6 @@ addressFromPublicKey(publicKey: ByteVector): Address
 
 ```ride
 let address = addressFromPublicKey(base58'J1t6NBs5Hd588Dn7mAPytqkhgeBshzv3zecScfFJWE2D')
-```
-
-## addressFromRecipient(Address|Alias): Address<a id="address-from-recipient"></a>
-
-Gets the corresponding [address](/en/blockchain/account/address) of the [alias](/en/blockchain/account/alias).
-
-```ride
-addressFromRecipient(AddressOrAlias: Address|Alias): Address
-```
-
-### Parameters
-
-| Parameter | Description |
-| :--- | :--- |
-| AddressOrAlias: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | 
-Address or alias, usually tx.recipient |
-
-### Examples
-
-```ride
-let address =Address(base58'3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF')
-addressFromRecipient(address)
 ```
 
 ### parseInt(String): Int|Unit<a id="parse-int"></a>
@@ -299,7 +276,7 @@ toUtf8String(bytes) # Returns "Ride on Waves"
 
 Deserializes transfer transaction: converts protobuf-encoded [binary format](/en/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format) specified in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) to a [TransferTransaction](/en/ride/structures/transaction-structures/transfer-transaction) structure. Returns `unit` if deserialization failed.
 
-> :warning: The functions is added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: The functions is added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 ```ride
 transferTransactionFromProto(b: ByteVector): TransferTransaction|Unit

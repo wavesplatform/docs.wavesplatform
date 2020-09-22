@@ -421,6 +421,30 @@ module.exports = [
     from: '/en/smart-contracts/ride-language/ride-language.html',
   },
   {
+    from: '/en/ride/script/script-body',
+    to: '/en/ride/script',
+  },
+  {
+    from: '/ru/ride/script/script-body',
+    to: '/ru/ride/script',
+  },
+  {
+    from: '/en/ride/script/script-context',
+    to: '/en/ride/script',
+  },
+  {
+    from: '/ru/ride/script/script-context',
+    to: '/ru/ride/script',
+  },
+  {
+    from: '/en/ride/script/script-types',
+    to: '/en/ride/script',
+  },
+  {
+    from: '/ru/ride/script/script-types',
+    to: '/ru/ride/script',
+  },
+  {
     to: '/en/ride/functions/annotations',
     from: '/en/ride/annotations.html',
   },
@@ -781,6 +805,18 @@ module.exports = [
   {
     to: '/en/waves-node/private-waves-network',
     from: '/en/waves-full-node/private-waves-network.html',
+  },
+  {
+    from: '/en/building-apps/waves-api-and-sdk/waves-gaming-api',
+    to: '/en/building-apps/waves-api-and-sdk'
+  },
+  {
+    from: '/en/building-apps/waves-api-and-sdk/waves-gaming-api/waves-games-api',
+    to: '/en/building-apps/waves-api-and-sdk'
+  },
+  {
+    from: '/en/building-apps/waves-api-and-sdk/waves-gaming-api/examples',
+    to: '/en/building-apps/waves-api-and-sdk'
   },
   {  /* link found on github */
     from: '/en/technical-details/creating-a-private-waves-blockchain-network.html',
