@@ -2,7 +2,7 @@
 
 **Smart asset** is a [token](/en/blockchain/token/) that has an [asset script](/en/ride/script/script-types/asset-script) assigned to it.
 
-By default, tokens on the Waves blockchain are not smart contracts, and any transactions with them are allowed. The script endows a token with functionality that sets the rules for its circulation. Each transaction involving a smart asset is automatically checked against the conditions specified in the script. If the asset's script allows the transaction, it will be executed; if it denies, the transaction is either not put onto the blockchain at all or saved as failed (for details, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article).
+By default, tokens on the Waves blockchain are not smart contracts, and any transactions with them are allowed. The script endows a token with functionality that sets the rules for its circulation. Each transaction involving a smart asset is automatically checked against the conditions specified in the script. If the asset's script allows the transaction, it will be executed; if the script denies the transaction, it is either not put onto the blockchain at all or saved as failed (for details, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article).
 
 Using smart assets, you can implement various financial instruments on the blockchain (options, interval trading, taxation), game mechanics (allowing transactions only between characters with certain properties). For details on creating and using smart assets, see the [Smart Asset](/en/building-apps/smart-contracts/smart-assets) article.
 

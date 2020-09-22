@@ -55,7 +55,7 @@ Below is an example of JSON representation returned by the `GET /assets/details/
 | quantity | Total supply of token on the blockchain specified in [atomic units](#atomic-unit). From 1 to 9,223,372,036,854,775,807. Total supply can change as a result of reissue or burning, see [Token Operations](#token-operations) below |
 | scripted | There being a script: `true` for smart asset, `false` for regular token. [More about smart assets](/en/blockchain/token/smart-asset) |
 | minSponsoredAssetFee | For sponsored asset only: an amount of asset that is equivalent to 0.001 WAVES [More about sponsorship](/en/blockchain/waves-protocol/sponsored-fee)
-| originTransactionId | ID of [transaction](/en/blockchain/transaction/) that issued the token: base58 encoded byte array |
+| originTransactionId | ID of the [transaction](/en/blockchain/transaction/) that issued the token: base58 encoded byte array |
 | scriptDetails | For smart asset only: asset script and its attributes |
 
 ### Atomic unit
@@ -110,7 +110,7 @@ Moreover, the token can be issued by the [dApp script](/en/blockchain/account/da
 
 * Burning
 
-   Decreases the amount of token on the account and thereby the total amount of the token on the blockchain. Any token owner can burn it, not only the issuer. Burning [WAVES](/en/blockchain/token/waves) is not possible.
+   Decreases the amount of token on the account and thereby the total amount of the token on the blockchain. Any token owner can burn it, not only the issuer. It is impossible to burning [WAVES](/en/blockchain/token/waves).
 
    Can be done via a [Burn transaction](/en/blockchain/transaction-type/burn-transaction).
 
@@ -150,5 +150,5 @@ The following token operations can only be performed by the account that issued 
 
 ## Tokens of Other Blockchains
 
-A token issued on another blockchain cannot be used directly on the Waves blockchain. However, it is possible to issue a new token on the Waves blockchain, representing the original one, and deploy a gateway that pegs the two tokens 1:1. For example, gateway for a 
+A token issued on another blockchain cannot be used directly on the Waves blockchain. A new token representing the original one can be issued on the Waves blockchain, and a gateway that pegs the two tokens 1:1 can be deployed. For example, gateway for a 
 [ERC20](https://docs.ethhub.io/guides/a-straightforward-guide-erc20-tokens/) token can be created using the [Waves-ERC20-Gateway](https://github.com/PyWaves/Waves-ERC20-Gateway) framework.

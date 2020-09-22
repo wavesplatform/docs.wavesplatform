@@ -1,6 +1,6 @@
 # WAVES
 
-**WAVES** is the native [token](/en/blockchain/token/) of the Waves blockchain. [Block generators](/en/blockchain/node/mining-node) receive [transaction fees](/en/blockchain/transaction/transaction-fee) and [block rewards](/en/blockchain/mining/mining-reward) in WAVES, which encourages generators to maintain and develop the blockchain network infrastructure. The more WAVES the generator holds (by ownership or lease), the greater is its chance to add the next block.
+**WAVES** is the native [token](/en/blockchain/token/) of the Waves blockchain. [Block generators](/en/blockchain/node/mining-node) receive [transaction fees](/en/blockchain/transaction/transaction-fee) and [block rewards](/en/blockchain/mining/mining-reward) in WAVES, which encourages generators to maintain and develop the blockchain network infrastructure. The more WAVES the generator holds (by ownership or lease), the greater its chance to add the next block is.
 
 ## WAVES Parameters
 
@@ -14,7 +14,7 @@ In October 2019, feature #14 “Block Reward and Community Driven Monetary Polic
 
 ## Leasing
 
-The owner of WAVES can lease them via a [Lease transaction](/en/blockchain/transaction-type/lease-transaction). WAVES received on lease are included in the [generating balance](/en/blockchain/account/account-balance). Block generators send back different percentages as rewards to lessors. The lessor can cancel the lease at any time via a [Lease Cancel transaction](/en/blockchain/transaction-type/lease-transaction). [More about leasing](/en/blockchain/leasing)
+The owner of WAVES can lease them via a [Lease transaction](/en/blockchain/transaction-type/lease-transaction). WAVES received on lease are included in the [generating balance](/en/blockchain/account/account-balance). Block generators send back different percentages as rewards to lessors. A lessor can cancel the lease at any time via a [Lease Cancel transaction](/en/blockchain/transaction-type/lease-transaction). [More about leasing](/en/blockchain/leasing)
 
 ## How to Get WAVES
 
