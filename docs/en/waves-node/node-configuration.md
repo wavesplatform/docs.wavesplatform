@@ -6,7 +6,7 @@ sidebarDepth: 2
 
 Waves [node](/en/blockchain/node/) parameters are stored in the **node configuration file** (*.conf). The system uses HOCON (Human-Optimized Config Object Notation) format that provides simple syntax and ability to use comments. [Read more about HOCON](https://github.com/lightbend/config/blob/master/HOCON.md). See [default node configuration file](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf) for reference and the usage examples of parameters.
 
-The node configuration file is stored in [default application directory](#default-application-directory).
+The node configuration file is located in [default application directory](#default-application-directory).
 
 ## Required Parameters
 
