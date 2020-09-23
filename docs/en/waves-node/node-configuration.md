@@ -6,19 +6,21 @@ sidebarDepth: 2
 
 Waves [node](/en/blockchain/node/) settings are stored in the **node configuration file** (*.conf). The system uses HOCON (Human-Optimized Config Object Notation) format that provides simple syntax and ability to use comments. [Read more about HOCON](https://github.com/lightbend/config/blob/master/HOCON.md).
 
-By default the **node configuration file** is stored in [Default Application Directory](#default-application-directory).
+**Node configuration file** is stored in [default application directory](#default-application-directory).
 
 [Example of default node configuration file](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf).
 
-The file should contain your node's unique characteristics (ip, name, keys, etc...) as well as [blockchain type and parameters](#blockchain-settings).
-
-## Overriding JAR-node Parameters
-
-Jar-nodes have the `.conf` file with default settings embedded in the jar-file. You can override the embedded default settings by entering path to your custom config file in the command line parameter when starting the node application. Replace {*} with actual file name:
+Jar-nodes have the `.conf` file with default settings embedded in the jar-file. You can override the embedded default settings by entering path to your custom config file in the command line when starting the node application. Replace {*} with actual file name:
 
 ```bash
 java -jar {*}.jar {*}.conf
 ```
+
+## Required Parameters
+
+
+
+The file should contain your node's unique characteristics (ip, name, keys, etc...) as well as [blockchain type and parameters](#blockchain-settings).
 
 ## Sections of the Configuration File
 
