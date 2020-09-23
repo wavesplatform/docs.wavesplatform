@@ -10,7 +10,7 @@ The node configuration file is stored in [default application directory](#defaul
 
 ## Required Parameters
 
-In most cases, such as running a node from scratch, you can use default node configuration parameters, however, you need to specify the following required parameters:
+In most cases, such as running a node from scratch, you can use default node configuration parameters, however, you need to specify the following required parameters specific to your node:
 
 * [waves.wallet.seed](#seed)
 * [waves.wallet.password](#password)
