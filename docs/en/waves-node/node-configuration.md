@@ -73,7 +73,7 @@ The following default application directories, depending on the operating system
 | Stagenet | `$XDG_DATA_HOME/waves-stagenet` or `$HOME/.local/share/waves-stagenet` | `$HOME/Library/Application Support/waves-stagenet` | `%LOCALAPPDATA%/waves-stagenet` |
 | Custom | `$XDG_DATA_HOME/waves-custom-<character>*` or `$HOME/.local/share/waves-custom-<character>*` | `$HOME/Library/Application Support/waves-custom-<character>*` | `%LOCALAPPDATA%/waves-custom-<character>*` |
 
-\* See the `address-scheme-character` parameter description in [Configuring Custom Blockchain](#section-20ddd805c332b711c4699ea1c9539300) section.
+\* See the `address-scheme-character` parameter description in [Configuring Custom Blockchain](#configuring-custom-blockchain) section.
 
 Use `leveldb-cache-size` parameter to set the size of the internal cache of LevelDB database.
 

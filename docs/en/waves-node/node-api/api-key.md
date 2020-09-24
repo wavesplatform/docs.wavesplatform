@@ -1,7 +1,7 @@
 
 # API Key
 
-[Node API](/en/waves-node/node-api/) private methods (for example, signing transactions by the node or exporting seed) are designed to be used only by the node owner and require [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) to be provided in HTTP request. Node owner can [set API key](#specify-api-key) and other parameters in the [REST API Settings](/en/waves-node/node-configuration#rest-api-settings) section of the node configuration file. You can only use public API methods of a node if you are not the owner of the node.
+[Node API](/en/waves-node/node-api/) private methods (for example, signing transactions by the node or exporting seed) are designed to be used only by the node owner and require [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) to be provided in HTTP request. Node owner can [set API key](#set-api-key) and other parameters in the [REST API Settings](/en/waves-node/node-configuration#rest-api-settings) section of the node configuration file. You can only use public API methods of a node if you are not the owner of the node.
 
 Your node API key is very important just like the [seed phrase](/en/blockchain/glossary#secret-phrase) and the wallet password.
 
