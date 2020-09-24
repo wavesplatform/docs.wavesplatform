@@ -30,7 +30,7 @@ java -jar {*}.jar {*}.conf
 
 ## Sections of the Configuration File
 
-Node configuration file consists of parameters grouped into the following sections:
+Node configuration file contains parameters grouped into the following sections:
 
 | Section         | Description                                                   |
 |-----------------|---------------------------------------------------------------|
@@ -63,7 +63,7 @@ Make sure the defined directory has a correct owner set: `waves`, `waves-testnet
 
 For nodes installed from DEB package:
 
-| | *nix (DEB package) |
+| | *nix |
 | :--- | :--- |
 | Mainnet | `/var/lib/waves` |
 | Testnet | `/var/lib/waves-testnet` |
@@ -132,7 +132,7 @@ In `blockchain` section you can select the blockchain type or create your own bl
 |---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
 | `max-transactions-per-block-diff` | Sets the number of transactions stored in memory before storing on disk. Reducing the number could increase the number of disk operations.                                                                                                                                                                                                                                                  |               |
 | `min-blocks-in-memory`            | Change the number of blocks stored in memory using this parameter.                                                                                                                                                                                                                                                                                                                          |               |
-| `type`                            | This parameter allows to select the blockchain type. Choices are: MAINNET, TESTNET, STAGENET, and CUSTOM. For MAINNET or TESTNET or STAGENET types, parameters of blockchain are built in the application so you don’t have to configure the parameters. [Standard parameters for different types of blockchain](https://github.com/wavesplatform/Waves/blob/47073206c4b5c7a7302945d9a68c201becd84426/node/src/main/resources/network-defaults.conf). But if you select CUSTOM blockchain type, you have to provide the `custom`  configuration section \(which is commented out in the example\). |               |
+| `type`                            | This parameter allows to select the blockchain type. Choices are: MAINNET, TESTNET, STAGENET, and CUSTOM. For MAINNET or TESTNET or STAGENET types, parameters of blockchain are built in the application so you don’t have to configure the parameters. [Standard parameters for different types of blockchain](https://github.com/wavesplatform/Waves/blob/47073206c4b5c7a7302945d9a68c201becd84426/node/src/main/resources/network-defaults.conf). But if you select CUSTOM blockchain type, you have to provide parameters in the `custom`  configuration section. |               |
 
 #### Configuring Custom Blockchain
 
