@@ -162,7 +162,7 @@ Creates an object that features the following [methods](#methods).
 * [Сreate Transactions](#create-transactions)
 
    * [Common fields](#common-fields)
-   * [How to sign and broadcast transaction](#how-to-sign-and-broadcast-transaction)
+   * [How to sign and broadcast transactions](#how-to-sign-and-broadcast-transactions)
    * [alias](#alias)
    * [burn](#burn)
    * [cancelLease](#cancellease)
@@ -170,7 +170,7 @@ Creates an object that features the following [methods](#methods).
    * [invoke](#invoke)
    * [issue](#issue)
    * [lease](#lease)
-   * [massTransfer](#mass-transfer)
+   * [massTransfer](#masstransfer)
    * [reissue](#reissue)
    * [setAssetScript](#setassetscript)
    * [setScript](#setscript)
@@ -325,7 +325,6 @@ The following methods create transactions (but do not sign or broadcast them):
 * [burn](#burn)
 * [cancelLease](#cancellease)
 * [data](#data)
-* [exchange](#exchange)
 * [invoke](#invoke)
 * [issue](#issue)
 * [lease](#lease)
@@ -346,7 +345,7 @@ Each create transaction method has optional fields that you don't specify manual
 | :--- | :--- | :--- |
 | chainId | 'W'.charCodeAt(0) or 87 means Mainnet<br/>'T'.charCodeAt(0) or 84 means Testnet | Defined by configuration of Waves node that is set in [Constructor](#constructor) |
 | fee | Transaction fee | Calculated automatically as described in [Transaction fee](/en/blockchain/transaction/transaction-fee) section |
-| proofs | Array of transaction signatures | Added by `sign` or `broadcast` method (see [How to Sign and Broadcast Transactions](#how-to-sign-and-broadcast-transaction)). If you specify a proof manually, it is also added to the array |
+| proofs | Array of transaction signatures | Added by `sign` or `broadcast` method (see [How to Sign and Broadcast Transactions](#how-to-sign-and-broadcast-transactions)). If you specify a proof manually, it is also added to the array |
 | senderPublicKey | Base58-encoded public key of transaction sender | Returned by [login](#login) method |
 
 #### How to Sign and Broadcast Transactions

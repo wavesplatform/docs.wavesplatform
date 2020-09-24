@@ -3,9 +3,9 @@
 This article explains how to install Waves node on Linux-based machines.
 You install Java first, then the node itself using one of the provided methods.
 
-The most common and convenient method to install/upgrade Waves node on Linux-based machines is described in [Installation from APT Repository](#Installation-from-APT-Repository) section.
+The most common and convenient method to install/upgrade Waves node on Linux-based machines is described in [Installation from APT Repository](#installation-from-apt-repository) section.
 
-The alternative methods are described in [Installation from Deb Package on Deb-based Linux (Ubuntu, Debian)](#installation-from-deb-package-on-deb-based-linux-(ubuntu,-debian)) and [Installation for Advanced Users](#installation-for-advanced-users) sections.
+The alternative methods are described in [Installation from Deb Package on Deb-based Linux (Ubuntu, Debian)](#installation-from-deb-package-on-deb-based-linux-ubuntu-debian) and [Installation for Advanced Users](#installation-for-advanced-users) sections.
 
 ## Install Java (OpenJDK 8)
 
