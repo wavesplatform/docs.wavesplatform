@@ -16,7 +16,7 @@ sidebarDepth: 2
 * [waves.wallet.password](#password)
 * [waves.network.declared-address](#declared-address)
 * [waves.network.node-name](#node-name)
-* [waves.rest-api.api-key-hash](#api-key-hash) (to use node API)
+* [waves.rest-api.api-key-hash](#api-key-hash) (для использования API ноды)
 
 ## Изменение параметров JAR-ноды
 
