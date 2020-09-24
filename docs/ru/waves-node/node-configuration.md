@@ -180,7 +180,7 @@ java -jar {*}.jar {*}.conf
 |`enable` | Активирует REST API. <br>Для деактивации REST API укажите значение `no` | `yes` |
 |`bind-address` | Cетевой адрес, по которому REST API будет принимать входящие подключения. <br>**Примечание**: не рекомендуется менять значение по умолчанию. Используйте [Nginx’s proxy pass module](http://nginx.org/ru/docs/http/ngx_http_proxy_module.html) или [SSH port forwarding](https://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html) для внешнего доступа. | `"127.0.0.1"` |
 | `port` | Номер порта, через который REST API будет ожидать подключения. | `6869` |
-| `api-key-hash` | Хэш [API ключа](https://en.wikipedia.org/wiki/Application_programming_interface_key), который предоставляется владельцем ноды. [Подробнее про хэш API ключа](/ru/waves-node/node-api/api-key) | "" |
+| `api-key-hash` | <a name="api-key-hash"></a> Хэш [API ключа](https://en.wikipedia.org/wiki/Application_programming_interface_key), который предоставляется владельцем ноды. [Подробнее про хэш API ключа](/ru/waves-node/node-api/api-key) | "" |
 | `cors` | Включение/выключение отправки кросс-доменных запросов CORS к ноде от JavaScript | yes |
 
 ### Настройки синхронизации
