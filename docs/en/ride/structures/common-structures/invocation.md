@@ -30,7 +30,7 @@ Invocation(caller: Address, callerPublicKey: ByteVector, payments: List[Attached
 
 ## Example: Payments Processing (version 4)
 
-The following function checks that the first payment in the Invoke Script transaction is at least 1 WAVES or 5 in specified asset.
+The following function checks that the first payment in the Invoke Script transaction is at least 1 WAVES or 5 in the specified asset.
 
 ```scala
 {-# STDLIB_VERSION 4 #-}
