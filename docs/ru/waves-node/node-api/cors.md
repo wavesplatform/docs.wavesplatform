@@ -56,6 +56,9 @@ CORS (Cross-origin resource sharing) — это технология, котор
        location / {
            proxy_pass http://wavesrpc ;
        ...
+           if ($request_method = 'OPTIONS') {
+             return 204;
+           }
            set $ref "*";
            if ($http_referer ~* ^(http?\:\/\/)(.*?)\/(.*)$) {
              set $ref $1$2;
