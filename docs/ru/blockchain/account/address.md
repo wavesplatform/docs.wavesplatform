@@ -13,12 +13,12 @@
 > Если адрес начинается с `3P`, то, как правило, он относится к Mainnet, а если с `3M` или `3N` — к Testnet или Stagenet.
 
 Адрес используется для получения информации об аккаунте:
-   * [балансах токенов](/ru/blockchain/account/account-balance),
-   * записях в [хранилище данных](/ru/blockchain/account/account-data-storage),
-   * [псевдонимах](/ru/blockchain/account/alias),
-   * [прикрепленном скрипте](/ru/blockchain/account/dapp) и др.
+* [балансах токенов](/ru/blockchain/account/account-balance),
+* записях в [хранилище данных](/ru/blockchain/account/account-data-storage),
+* [псевдонимах](/ru/blockchain/account/alias),
+* [прикрепленном скрипте](/ru/blockchain/account/dapp) и др.
 
-   См. примеры в разделе [Как прочитать данные из блокчейна](/ru/building-apps/how-to/basic/retrieve).
+См. примеры в разделе [Как прочитать данные из блокчейна](/ru/building-apps/how-to/basic/retrieve).
 
 Адрес указывается:
 * в [транзакциях перевода](/ru/blockchain/transaction-type/transfer-transaction), [массового перевода](/ru/blockchain/transaction-type/mass-transfer-transaction) и [лизинга](/ru/blockchain/transaction-type/lease-transaction) в качестве идентификатора получателя;

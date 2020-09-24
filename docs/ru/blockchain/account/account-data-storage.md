@@ -23,7 +23,7 @@
 
 ## Добавление, изменение, удаление<sup><img src="./_assets/feature15.svg"></sup> записей
 
-Владелец аккаунта может добавить, изменить или удалить записи в хранилище данных аккаунта с помощью [транзакции данных](/ru/blockchain/transaction-type/data-transaction).
+Владелец аккаунта может добавить, изменить или удалить записи в хранилище данных аккаунта с помощью [транзакции данных](/ru/blockchain/transaction-type/data-transaction). Создать и отправить транзакцию можно с помощью одной из [клиентских библиотек](/ru/building-apps/waves-api-and-sdk/client-libraries/), см. примеры в разделе [Создание и отправка транзакций](/ru/building-apps/how-to/basic/transaction).
 
 [Скрипт dApp](/ru/blockchain/account/dapp) может добавить, изменить или удалить записи в хранилище данных dApp в результате [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) с помощью действий скрипта:
 * [BinaryEntry](/ru/ride/structures/script-actions/binary-entry)
@@ -31,5 +31,3 @@
 * [IntegerEntry](/ru/ride/structures/script-actions/int-entry)
 * [StringEntry](/ru/ride/structures/script-actions/string-entry)
 * [DeleteEntry](/ru/ride/structures/script-actions/delete-entry)
-
-Создать и отправить транзакцию можно с помощью одной из [клиентских библиотек](/ru/building-apps/waves-api-and-sdk/client-libraries/), см. примеры в разделе [Создание и отправка транзакций](/ru/building-apps/how-to/basic/transaction).

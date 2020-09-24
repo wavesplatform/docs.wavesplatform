@@ -34,3 +34,7 @@
 Список псевдонимов аккаунта, как и другие данные блокчейна, открыт для чтения. Например, посмотреть его можно в [Waves Explorer](https://wavesexplorer.com) — для этого найдите аккаунт по его [адресу](/ru/blockchain/account/address) и перейдите на вкладку **Aliases**.
 
 В [Node REST API](/ru/waves-node/node-api/) получить список псевдонимов по адресу можно с помощью метода `GET ​/alias​/by-address​/{address}`, а адрес по псевдониму — с помощью метода `GET /alias/by-alias/{alias}`.
+
+## Бинарный формат
+
+См. раздел [Бинарный формат псевдонима](/ru/blockchain/binary-format/alias-binary-format).

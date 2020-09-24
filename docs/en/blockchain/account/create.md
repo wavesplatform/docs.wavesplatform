@@ -1,6 +1,6 @@
-# Как зарегистрировать аккаунт / создать кошелек Waves
+# How to Register Account / Create Waves Wallet
 
-Создание аккаунта Waves — это генерация [ключей аккаунта](/ru/blockchain/account/#ключи-аккаунта) и [адреса](/ru/blockchain/account/address) на основе секретной фразы (seed-фразы).
+To create Waves account means to generate [account key pair](/en/blockchain/account/#key-pair) and [address](/en/blockchain/account/address) based on a secret (seed) phrase.
 
 :warning: **Предупреждение о безопасности**
 * Секретная фраза или созданный из нее закрытый ключ предоставляют полный доступ к аккаунту, включая возможность распоряжаться средствами. Никому не сообщайте секретную фразу и закрытый ключ, не публикуйте и не пересылайте их.
