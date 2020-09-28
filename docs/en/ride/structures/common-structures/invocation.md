@@ -42,7 +42,7 @@ func isPaymentOk(i: Invocation) = {
   if (size(i.payments) == 0) then {
     throw("Payment not attached")
   } else {
-    let p = getElement(i.payments, 0)
+    let p = i.payments[0]
     match p.assetId {
       case assetId: ByteVector => assetId == acceptableAssetId && p.amount >= 500000000
       case _ => p.amount >= 100000000
