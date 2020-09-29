@@ -12,16 +12,13 @@
 
 * Расширение браузера [Waves Keeper](/ru/ecosystem/waves-keeper/)
 
-   См. инструкции в разделе [Начало работы с Waves Keeper](https://docs.waves.tech/ru/ecosystem/waves-keeper/getting-started-with-keeper).
+   См. инструкции в разделе [Начало работы с Waves Keeper](/ru/ecosystem/waves-keeper/getting-started-with-keeper).
 
 * Online-/desktop-/мобильное приложение [Waves.Exchange](https://waves.exchange/), разработанное сторонней командой из сообщества.
 
    См. инструкции в разделах [Создать аккаунт](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-account/online-desktop-creation) или [Создать аккаунт (mobile)](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-mobile/mobile-account/mobile-creation) документации Waves.Exchange.
 
 * [WavesFX](https://wavesfx.github.io/), разработанное сторонней командой из сообщества.
-
-В этих приложениях секретная фраза и закрытый ключ не покидают вашего компьютера
-
 
 Или одну из [клиентских библиотек](/ru/building-apps/waves-api-and-sdk/client-libraries/), например:
 
@@ -53,7 +50,7 @@
    print(f'Address:     {myAddress.address}')
    ```
 
-* Java-библиотеку [WavesJ]()
+* Java-библиотеку [WavesJ](https://github.com/wavesplatform/WavesJ)
 
    ```java
    String seed = Crypto.getRandomSeedPhrase();

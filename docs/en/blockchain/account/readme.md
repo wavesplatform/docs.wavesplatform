@@ -1,5 +1,6 @@
 # Account
 
+
 An **account** is a [cryptographically bound](https://en.wikipedia.org/wiki/Public-key_cryptography) pair of a public and a private keys on the [blockchain](/en/blockchain/blockchain/).
 
 Accounts unambiguously correlate [transactions](/en/blockchain/transaction/) and [orders](/en/ride/structures/common-structures/order) with their senders.

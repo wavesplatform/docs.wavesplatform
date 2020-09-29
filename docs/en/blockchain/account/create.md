@@ -2,30 +2,27 @@
 
 To create Waves account means to generate [account key pair](/en/blockchain/account/#key-pair) and [address](/en/blockchain/account/address) based on a secret (seed) phrase.
 
-:warning: **Предупреждение о безопасности**
-* Секретная фраза или созданный из нее закрытый ключ предоставляют полный доступ к аккаунту, включая возможность распоряжаться средствами. Никому не сообщайте секретную фразу и закрытый ключ, не публикуйте и не пересылайте их.
-* Секретную фразу нельзя изменить: из другой секретной фразы (даже отличающейся на один символ) получится другая пара ключей, а следовательно, другой аккаунт.
-* Если вы потеряете секретную фразу и закрытый ключ, вы утратите доступ к аккаунту навсегда, без возможности восстановления. Рекомендуем записать секретную фразу на бумаге и хранить в надежном месте.
-* Если секретная фраза скомпрометирована (вы ее кому-то отправили или подозреваете, что ее узнали мошенники), немедленно создайте новый аккаунт и переведите на него все активы со старого.
+:warning: **Security Information**
+* The secret phrase or the private key derived from it provides complete control over the account, including the ability to dispose of funds. Do not give your secret phrase and private key to anyone, and do not publish or send them.
+* The secret phrase cannot be changed: another secret phrase (even one that differs by single character) will generate a different key pair, and therefore a different account.
+* If you lose your secret phrase and private key, you will no longer be able to access your account permanently. We strongly encourage that you write down the secret phrase on a piece of paper and store it in a safe place.
+* If the secret phrase is compromised (you have accidentally sent it to someone or suspect that it was taken by fraudsters), immediately create a new account and transfer all assets to it.
 
-Для создания аккаунта вы можете использовать одно из рекомендованных приложений:
+You can use one of the recommended apps to create an account:
 
-* Расширение браузера [Waves Keeper](/ru/ecosystem/waves-keeper/)
+* [Waves Keeper](/en/ecosystem/waves-keeper/) browser extension
 
-   См. инструкции в разделе [Начало работы с Waves Keeper](https://docs.waves.tech/ru/ecosystem/waves-keeper/getting-started-with-keeper).
+   See instructions in the [Getting Started with Waves Keeper](/en/ecosystem/waves-keeper/getting-started-with-keeper) article.
 
-* Online-/desktop-/мобильное приложение [Waves.Exchange](https://waves.exchange/), разработанное сторонней командой из сообщества.
+* [Waves.Exchange](https://waves.exchange/) online/desktop/mobile app developed by the third party team from the community.
 
-   См. инструкции в разделах [Создать аккаунт](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-account/online-desktop-creation) или [Создать аккаунт (mobile)](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-mobile/mobile-account/mobile-creation) документации Waves.Exchange.
+   See instructions in the [Create Account](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-account/online-desktop-creation) or [Create Account (mobile)](https://docs.waves.exchange/en/waves-exchange/waves-exchange-mobile/mobile-account/mobile-creation) articles of Waves.Exchange documentation.
 
-* [WavesFX](https://wavesfx.github.io/), разработанное сторонней командой из сообщества.
+* [WavesFX](https://wavesfx.github.io/) app developed by the third party team from the community.
 
-В этих приложениях секретная фраза и закрытый ключ не покидают вашего компьютера
+Alternatively, you can use one of the [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/), such as:
 
-
-Или одну из [клиентских библиотек](/ru/building-apps/waves-api-and-sdk/client-libraries/), например:
-
-* TypeScript/JavaScript-библиотеку [ts-lib-crypto](https://github.com/wavesplatform/ts-lib-crypto) (также входит в состав [waves-transactions](https://wavesplatform.github.io/waves-transactions/index.html)):
+* TypeScript/JavaScript library [ts-lib-crypto](https://github.com/wavesplatform/ts-lib-crypto) (it is also included in [waves-transactions](https://wavesplatform.github.io/waves-transactions/index.html)):
 
    ```javascript
    const libCrypto = require('@waves/ts-lib-crypto')
@@ -37,7 +34,7 @@ To create Waves account means to generate [account key pair](/en/blockchain/acco
    const addressTestnetBase58 = libCrypto.address(seed, 'T') // address for Testnet
    ```
 
-* Python-библиотеку [Pywaves](https://github.com/PyWaves/PyWaves)
+* Python module [Pywaves](https://github.com/PyWaves/PyWaves)
 
    ```python
    import pywaves as pw
@@ -53,7 +50,7 @@ To create Waves account means to generate [account key pair](/en/blockchain/acco
    print(f'Address:     {myAddress.address}')
    ```
 
-* Java-библиотеку [WavesJ]()
+* Java library [WavesJ](https://github.com/wavesplatform/WavesJ)
 
    ```java
    String seed = Crypto.getRandomSeedPhrase();
@@ -62,14 +59,14 @@ To create Waves account means to generate [account key pair](/en/blockchain/acco
    Address address = Address.from(publicKey);
    ```
 
-Обратите внимание:
-* Ключи аккаунта и адрес генерируются и хранятся локально. Никакие данные не нужно отправлять на ноду или куда-либо еще.
-* Адрес сразу же доступен для перевода токенов — например, его можно указать в качестве получателя в [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction).
-* Информация об адресе появляется на блокчейне вместе с первой транзакцией, в которой участвует аккаунт.
-* Чтобы пользоваться аккаунтом в другом приложении или на другом устройстве, нужно ввести там секретную фразу и повторить генерацию ключей из нее.
+Please note:
+* An account key pair and address are generated and stored locally. No data needs to be sent to the node or anywhere else.
+* The address is immediately available for transferring tokens. In particular, it can be specified as the recipient in the [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction).
+* Address appears on the blockchain along with the first transaction in which the account participates.
+* To use your account in another application or on another device, you need to enter a secret phrase on it and repeat the key pair generation.
 
-## Как массово создавать кошельки для пользователей?
+## How to Create Wallets for Users in Bulk?
 
-Централизованно генерировать аккаунты для пользователей — плохая практика. Владение секретной фразой и закрытым ключом позволяет делать что угодно от имени аккаунта. Хранить и передавать эти данные небезопасно: кроме риска злоупотребления, есть риск кражи или утечки данных.
+It is bad practice to generate accounts for users in a centralized. Knowing the secret phrase and private key allows you to do anything on behalf of the account. It is unsafe to store and transfer this data: in addition to the abuse of confidence, there is a risk of data theft or leakage.
 
-Каждый пользователь должен создать свой аккаунт самостоятельно, а приложение должно запрашивать подпись пользователя отдельно для каждой транзакции. Для этого можно подключить на сайте библиотеку [Signer](/ru/building-apps/waves-api-and-sdk/client-libraries/signer) — она предоставляет пользователю возможность войти в свой аккаунт или создать его и подписывать транзакции, не передавая приложению секретную фразу или закрытый ключ.
+Each user should create their own account, and the application should request a user signature separately for each transaction. To do this, you can use the [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer) library on your site. Signer provides the user with the ability to log into his account or create it and then sign transactions without transferring their secret phrase or private key to your app.
