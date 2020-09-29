@@ -8,7 +8,7 @@ The community of miners can change the size of reward through [voting](#voting).
 
 ## Current reward size
 
-You can view the current reward size by making a request to the [Node API](/en/waves-node/node-api/). In response to the request, JSON is returned, the value of the `currentReward` field of which is the current mining reward size in [WAVELET](/en/blockchain/token/wavelet)s.
+You can view the current reward size by making a request to the [Node API](/en/waves-node/node-api/). In response to the request, JSON is returned, the value of the `currentReward` field of which is the current mining reward size in [WAVELET](/en/blockchain/token/waves)s.
 
 Example of request:
 

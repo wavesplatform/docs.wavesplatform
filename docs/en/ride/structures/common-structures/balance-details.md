@@ -19,4 +19,4 @@ BalanceDetails(available: Int, regular: Int, generating: Int, effective: Int)
 | 3 | generating | [Int](/en/ride/data-types/int) | Generating balance |
 | 4 | effective | [Int](/en/ride/data-types/int) | Effective balance |
 
-All balances are given in [WAVELETs](/en/blockchain/token/wavelet).
+All balances are given in [WAVELETs](/en/blockchain/token/waves).

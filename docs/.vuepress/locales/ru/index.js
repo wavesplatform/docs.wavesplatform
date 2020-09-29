@@ -171,5 +171,22 @@ module.exports = deepmerge(mixin, {
             }
         },
     },
+
+    footer: {
+        broughtToYouByWavesTeam: 'Brought to you by Waves Team.',
+        copyright: '© 2019—2020 Waves Technologies',
+        email: '',
+        resourcesCategories: {
+            productsAndTools: {
+                title: 'Products & tools',
+                links: {
+                    wavesKeeper: {
+                        title: 'Waves Keeper',
+                        link: '/ru/ecosystem/waves-keeper/',
+                    },
+                },
+            }, 
+        },
+    },
   }
 );

@@ -19,4 +19,4 @@ BalanceDetails(available: Int, regular: Int, generating: Int, effective: Int)
 | 3 | generating | [Int](/ru/ride/data-types/int) | Генерирующий баланс |
 | 4 | effective | [Int](/ru/ride/data-types/int) | Эффективный баланс |
 
-Все балансы представлены в минимальных единицах — [WAVELET](/ru/blockchain/token/wavelet).
+Все балансы представлены в минимальных единицах — [WAVELET](/ru/blockchain/token/waves).
