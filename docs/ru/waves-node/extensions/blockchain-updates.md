@@ -40,57 +40,99 @@ Blockchain Updates позволяет отслеживать изменения,
 
 3. Запустите ноду.
 
-<!--
 ### Установка с помощью DEB-пакета
 
-1.&nbsp;Скачайте DEB-пакет со страницы [Releases](https://github.com/wavesplatform/Waves/releases) (секция Assets) на GitHub. Для Mainnet это файл `grpc-server_{номер версии}_all.deb`, для Testnet — `grpc-server-testnet_{номер версии}_all.deb`.
+1.&nbsp;Скачайте последнюю версию DEB-пакетов ноды и расширения со страницы [Releases](https://github.com/wavesplatform/Waves/releases) (секция Assets) на GitHub.
 
-2.&nbsp;Установите пакет с помощью команды:
+2.&nbsp;Установите пакеты:
 
-```bash
-sudo dpkg -i grpc-server_{номер версии}_all.deb
-```
+   Для Mainnet:
 
-3.&nbsp;В файл конфигурации добавьте следующую строку:
+   ```bash
+   sudo dpkg -i waves_{номер версии}_all.deb
+   sudo dpkg -i blockchain-updates_{номер версии}_all.deb
+   ```
 
-```bash
-waves.extensions += com.wavesplatform.api.grpc.GRPCServerExtension
-```
+   Для Testnet:
 
-Для Mainnet файл конфигурации находится по адресу `/etc/waves/waves.conf`, для Testnet — `/etc/waves-testnet/waves.conf`.
+   ```bash
+   sudo dpkg -i waves_{номер версии}_all.deb
+   sudo dpkg -i blockchain-updates_{номер версии}_all.deb
+   ```
 
-4.&nbsp;Перезапустите ноду.
+3.&nbsp;Отредактируйте файл конфигурации ноды (см. раздел [Конфигурация ноды](/ru/waves-node/node-configuration)). Для Mainnet файл конфигурации находится по адресу `/etc/waves/waves.conf`, для Testnet — `/etc/waves-testnet/waves.conf`.
 
-Если нода запущена в Mainnet, выполните команду:
+   3.1. Добавьте Blockchain Updates в секцию `waves.extensions`:
+   
+   ```
+   waves {
+      ...
+      extensions = [
+         com.wavesplatform.events.BlockchainUpdates
+      ]
+   }
+   ```
 
-```bash
-sudo systemctl restart waves
-```
+   3.2. После секции `waves` на том же уровне добавьте секцию
 
-Если нода запущена в Testnet, выполните команду:
+   ```
+   blockchain-updates {
+      grpc-port = 6881 # Укажите порт для подключения клиента
+   }
+   ```
 
-```bash
-sudo systemctl restart waves-testnet
-```
+4.&nbsp;Запустите ноду с помощью команды:
 
-### Установка с помощью ZIP-файла
+   Для Mainnet:
 
-1.&nbsp;Скачайте ZIP-файл `grpc-server-{номер версии}.zip` со страницы [Releases](https://github.com/wavesplatform/Waves/releases) (секция Assets) на GitHub.
+   ```bash
+   sudo systemctl start waves
+   ```
 
-2.&nbsp;Распакуйте архив в папку с JAR-файлом ноды.
+   Для Testnet:
 
-3.&nbsp;Создайте новый файл конфигурации или откройте существующий и добавьте в него строчку:
+   ```bash
+   sudo systemctl start waves-testnet
+   ```
 
-```bash
-waves.extensions += com.wavesplatform.api.grpc.GRPCServerExtension
-```
+### Установка из JAR-файла
+
+1.&nbsp;Скачайте последнюю версию JAR-файла ноды и ZIP-архива с расширением Blockchain Updates со страницы [Releases](https://github.com/wavesplatform/Waves/releases) (секция Assets) на GitHub.
+
+2.&nbsp;Распакуйте ZIP-архив в папку с JAR-файлом ноды.
+
+3.&nbsp;Создайте новый файл конфигурации или откройте существующий (см. раздел [Конфигурация ноды](/ru/waves-node/node-configuration)).
+
+   3.1. Добавьте Blockchain Updates в секцию `waves.extensions`:
+   
+   ```
+   waves {
+      ...
+      extensions = [
+         com.wavesplatform.events.BlockchainUpdates
+      ]
+   }
+   ```
+
+   3.2. После секции `waves` на том же уровне добавьте секцию
+
+   ```
+   blockchain-updates {
+      grpc-port = 6881 # Укажите порт для подключения клиента
+   }
+   ```
 
 4.&nbsp;Выполните команду:
 
-```bash
-java -cp 'waves-all-1.0.0.jar:grpc-server-1.0.0/lib/*' com.wavesplatform.Application {название файла конфигурации}.conf
-```
--->
+   ```bash
+   java -cp 'waves-all-{номер версии}.jar:blockchain-updates-{номер версии}/lib/*' com.wavesplatform.Application {имя файла конфигурации}.conf
+   ```
+
+5. Запустите ноду:
+
+   ```bash
+   java -jar waves-all-{номер версии}.jar {имя файла конфигурации}.conf.
+   ```
 
 ## Генерация клиента
 
