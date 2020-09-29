@@ -15,9 +15,31 @@ You can obtain updates over a specified range of height or in real time.
 
 :warning: **Important:** Blockchain Updates requires the history of changes since the blockchain creation. Therefore, you should start the node with the extension from scratch and synchronize the blockchain during regular node operation, this can take 1-3 days (see the [Synchronize Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article). Importing blockchain from a binary file or downloading the latest blockchain database are not applicable.
 
-1. Edit the node configuration file as described in the [Node Configuration](/en/waves-node/node-configuration) article:
+The node with Blockchain Updates extension can be installed by two methods: using DEB package or JAR file.
 
-   1.1. Add Blockchain Updates to the `waves.extensions` section:
+### Installation via DEB Package
+
+1. Download the latest versions of node and extension DEB packages from the [Releases](https://github.com/wavesplatform/Waves/releases) page (Assets section) on Github.
+
+2. Install the packages:
+
+   Mainnet:
+
+   ```bash
+   sudo dpkg -i waves_{version number}_all.deb
+   sudo dpkg -i blockchain-updates_{version number}_all.deb
+   ```
+
+   Testnet:
+
+   ```bash
+   sudo dpkg -i waves_{номер версии}_all.deb
+   sudo dpkg -i blockchain-updates_{номер версии}_all.deb
+   ```
+
+3. Edit the node configuration file as described in the [Node Configuration](/en/waves-node/node-configuration) article. For Mainnet, the configuration file is located at `/etc/waves/waves.conf`, for Testnet at `/etc/waves-testnet/waves.conf`.
+
+   3.1. Add Blockchain Updates to the `waves.extensions` section:
    
    ```
    waves {
@@ -28,16 +50,66 @@ You can obtain updates over a specified range of height or in real time.
    }
    ```
 
-   1.2. Below the `waves` section, at the same level, add the following section:
+   3.2. Below the `waves` section, at the same level, add the following section:
 
    ```
    blockchain-updates {
       grpc-port = 6881 # Specify the port for client connection
    }
+   ```
 
-2. Install the extension: download the file ... and run the command ...
+4. Start the node.
 
-3. Launch the node.
+   Mainnet:
+
+   ```bash
+   sudo systemctl start waves
+   ```
+
+   Testnet:
+
+   ```bash
+   sudo systemctl start waves-testnet
+   ```
+
+### Installation via JAR File
+
+1. Download the latest versions of node JAR file and Blockchain Updates extension ZIP archive from the [Releases](https://github.com/wavesplatform/Waves/releases) page (Assets section) on Github.
+
+2. Unpack the TGZ archive to the directory containing node's JAR file.
+
+3. Create a new configuration file or open the existing one, see the [Node Configuration](/en/waves-node/node-configuration) article. 
+
+   3.1. Add Blockchain Updates to the `waves.extensions` section:
+   
+   ```
+   waves {
+      ...
+      extensions = [
+         com.wavesplatform.events.BlockchainUpdates
+      ]
+   }
+   ```
+
+   3.2. Below the `waves` section, at the same level, add the following section:
+
+   ```
+   blockchain-updates {
+      grpc-port = 6881 # Specify the port for client connection
+   }
+   ```
+
+4. Run the command:
+
+   ```bash
+   java -cp 'waves-all-{version number}.jar:blockchain-updates-{номер версии}/lib/*' com.wavesplatform.Application {configuration file name}.conf
+   ```
+
+5. Start the node
+
+   ```bash
+   java -jar waves-all-{номер версии}.jar {имя файла конфигурации}.conf.
+   ```
 
 ## Client Generation
 
