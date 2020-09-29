@@ -604,18 +604,22 @@ module.exports = {
           title: 'gRPC Server',
           path: nodePath + 'extensions/grpc-server',
         },
+        {
+          title: 'BlockchainUpdates',
+          path: nodePath + 'extensions/blockchain-updates',
+        },
       ]
     },
-	{
+  {
       title: 'Устранение неполадок',
       path: nodePath + 'node-troubleshooting',
-	  children: [
-	    {
-			title: 'Генерация блока FAQ',
-			path: nodePath + 'block-generation-faq',
-		},
-	  ]
-	},
+      children: [
+        {
+          title: 'Генерация блока FAQ',
+          path: nodePath + 'block-generation-faq',
+        },
+      ]
+    },
   ],
 
   [ridePath]: [

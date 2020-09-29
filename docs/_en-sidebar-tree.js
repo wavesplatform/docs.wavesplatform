@@ -604,6 +604,10 @@ module.exports = {
           title: 'gRPC Server',
           path: nodePath + 'extensions/grpc-server',
         },
+        {
+          title: 'BlockchainUpdates',
+          path: nodePath + 'extensions/blockchain-updates',
+        },
       ]
     },
 	{
