@@ -92,4 +92,4 @@ The script for the token is invoked upon the following operations with an asset:
 * ExchangeTransaction
 * SetAssetScriptTransaction
 
-> :bulb: Here you can find [**White Paper**](https://wavesprotocol.org/files/docs/white_paper_waves_smart_contracts.pdf?cache=b) which describes Waves Smart Contracts approach: basic use-cases, implementation details and Ride language description.
+> :bulb: Here you can find [**White Paper**](https://s3.eu-central-1.amazonaws.com/waves.tech/White_paper_waves_smart_contracts_7a48be1231.pdf) which describes Waves Smart Contracts approach: basic use-cases, implementation details and Ride language description.

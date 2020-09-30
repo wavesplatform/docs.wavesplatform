@@ -44,7 +44,7 @@ Ride — лаконичный и дружественный язык для ра
 
 ## Полезные ссылки
 
-* [Белая книга Ride](https://wavesprotocol.org/files/docs/white_paper_waves_smart_contracts.pdf) (2018)
+* [Белая книга Ride](https://s3.eu-central-1.amazonaws.com/waves.tech/White_paper_waves_smart_contracts_7a48be1231.pdf) (2018)
 * [Инструменты разработчика](/ru/building-apps/smart-contracts/tools/)
 * [Как создать и запустить dApp: полное пошаговое руководство](/ru/building-apps/smart-contracts/writing-dapps)
 * [Mastering Web3 with Waves](https://www.coursera.org/learn/mastering-web3-waves): практический курс на Coursera.
