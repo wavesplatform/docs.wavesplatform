@@ -18,7 +18,7 @@ This article provides answers to questions related to Waves Node.
 
 ## `My node crashed. Why? What do I do?`
 
-**Answer**: A node may crash due to number of reasons. You can detect the reason of the crash by reviewing error messages in the log files. See the following cases and possible solutions for details.
+**Answer**: A node may crash due to number of reasons. You can detect the reason by reviewing error messages in the log files. See the following cases and possible solutions for details.
 
 ### `"too many open files" error`
 
