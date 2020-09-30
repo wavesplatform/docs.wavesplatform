@@ -119,7 +119,7 @@ Clone the schemes repository by running the following command:
 git clone https://github.com/wavesplatform/protobuf-schemas/
 ```
 
-Generate your client code from the [blochckain_updates.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/grpc/blockchain_updates.proto) scheme. Use the gRPC tools for your programming language, see the instructions in the [Supported languages and platforms](https://www.grpc.io/docs/languages/) article of gRPC docuemntation.
+Generate your client code from the [blockchain_updates.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/grpc/blockchain_updates.proto) scheme. Use the gRPC tools for your programming language, see the instructions in the [Supported languages and platforms](https://www.grpc.io/docs/languages/) article of gRPC docuemntation.
 
 ## Best Practices
 
@@ -132,6 +132,6 @@ The `Subscribe` function returns all the events in real time: block append, micr
 
 For some analytical tasks, real-time events are not needed, for example, it is enough to update the data once an hour or once a day. In this cases, we recommend to use the `GetBlockUpdatesRange` function. It only returns historical data of blocks that are already applied, which is much easier to process.
 
-See the format of requests and responses in the [blochckain_updates.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/grpc/blockchain_updates.proto) and [events.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/events.proto) files.
+See the format of requests and responses in the [blockchain_updates.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/grpc/blockchain_updates.proto) and [events.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/events.proto) files.
 
 > Some updates on the blockchain are not associated with any transaction, they are performed at the block level. For example, a change in the balance of the block generator: 40% of transaction fee is recieved by the generator of the current block and receives is associated with the transaction, and 60% that the generator of the next block receives is associated only with the block. The block reward is also associated with the block only.
