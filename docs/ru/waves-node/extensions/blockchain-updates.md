@@ -119,7 +119,7 @@ Blockchain Updates позволяет отслеживать изменения,
 git clone https://github.com/wavesplatform/protobuf-schemas/
 ```
 
-На основе схемы [blochckain_updates.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/grpc/blockchain_updates.proto) сгенерируйте клиентский код для вашего языка программирования. Подробные инструкции приведены в разделе [Supported languages and platforms](https://www.grpc.io/docs/languages/) документации gRPC.
+На основе схемы [blockchain_updates.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/grpc/blockchain_updates.proto) сгенерируйте клиентский код для вашего языка программирования. Подробные инструкции приведены в разделе [Supported languages and platforms](https://www.grpc.io/docs/languages/) документации gRPC.
 
 ## Использование
 
@@ -132,6 +132,6 @@ API Blockchain Updates предоставляет три функции:
 
 Для некоторых аналитических задач не требуется получение событий в реальном времени, достаточно обновления, например, раз в час или раз в сутки. В этом случае рекомендуем использовать функцию `GetBlockUpdatesRange`. Она возвращает только исторические данные об уже примененных блоках, которые гораздо проще обрабатывать.
 
-Структуру запросов и ответов можно посмотреть в файлах [blochckain_updates.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/grpc/blockchain_updates.proto) и [events.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/events.proto).
+Структуру запросов и ответов можно посмотреть в файлах [blockchain_updates.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/grpc/blockchain_updates.proto) и [events.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/events.proto).
 
 > Некоторые изменения на блокчейне не привязаны ни к одной транзакции, а происходят на уровне блока. В частности, изменение баланса генератора блока: 40% комиссии за транзакцию, которые получает генератор текущего блока, привязаны к транзакции, а 60%, которые получает генератор следующего блока, ассоциированы только с этим блоком. Вознаграждение за создание блока также ассоциировано только с блоком.
