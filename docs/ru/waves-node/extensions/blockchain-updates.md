@@ -19,9 +19,9 @@ Blockchain Updates позволяет отслеживать изменения,
 
 ### Установка из DEB-пакета
 
-1.&nbsp;Скачайте последнюю версию DEB-пакетов ноды и расширения со страницы [Releases](https://github.com/wavesplatform/Waves/releases) (секция Assets) на GitHub.
+1. Скачайте последнюю версию DEB-пакетов ноды и расширения со страницы [Releases](https://github.com/wavesplatform/Waves/releases) (секция Assets) на GitHub.
 
-2.&nbsp;Установите пакеты:
+2. Установите пакеты:
 
    Для Mainnet:
 
@@ -33,11 +33,11 @@ Blockchain Updates позволяет отслеживать изменения,
    Для Testnet:
 
    ```bash
-   sudo dpkg -i waves_{номер версии}_all.deb
-   sudo dpkg -i blockchain-updates_{номер версии}_all.deb
+   sudo dpkg -i waves-testnet_{номер версии}_all.deb
+   sudo dpkg -i blockchain-updates-testnet_{номер версии}_all.deb
    ```
 
-3.&nbsp;Отредактируйте файл конфигурации ноды (см. раздел [Конфигурация ноды](/ru/waves-node/node-configuration)). Для Mainnet файл конфигурации находится по адресу `/etc/waves/waves.conf`, для Testnet — `/etc/waves-testnet/waves.conf`.
+3. Отредактируйте файл конфигурации ноды (см. раздел [Конфигурация ноды](/ru/waves-node/node-configuration)). Для Mainnet файл конфигурации находится по адресу `/etc/waves/waves.conf`, для Testnet — `/etc/waves-testnet/waves.conf`.
 
    3.1. Добавьте Blockchain Updates в секцию `waves.extensions`:
    
@@ -58,7 +58,7 @@ Blockchain Updates позволяет отслеживать изменения,
    }
    ```
 
-4.&nbsp;Запустите ноду.
+4. Запустите ноду.
 
    Для Mainnet:
 
@@ -74,11 +74,11 @@ Blockchain Updates позволяет отслеживать изменения,
 
 ### Установка из JAR-файла
 
-1.&nbsp;Скачайте последнюю версию JAR-файла ноды и TGZ-архива с расширением Blockchain Updates со страницы [Releases](https://github.com/wavesplatform/Waves/releases) (секция Assets) на GitHub.
+1. Скачайте последнюю версию JAR-файла ноды и TGZ-архива с расширением Blockchain Updates со страницы [Releases](https://github.com/wavesplatform/Waves/releases) (секция Assets) на GitHub.
 
-2.&nbsp;Распакуйте TGZ-архив в папку с JAR-файлом ноды.
+2. Распакуйте TGZ-архив в папку с JAR-файлом ноды.
 
-3.&nbsp;Создайте новый файл конфигурации или откройте существующий (см. раздел [Конфигурация ноды](/ru/waves-node/node-configuration)).
+3. Создайте новый файл конфигурации или откройте существующий (см. раздел [Конфигурация ноды](/ru/waves-node/node-configuration)).
 
    3.1. Добавьте Blockchain Updates в секцию `waves.extensions`:
    
@@ -99,7 +99,7 @@ Blockchain Updates позволяет отслеживать изменения,
    }
    ```
 
-4.&nbsp;Выполните команду:
+4. Выполните команду:
 
    ```bash
    java -cp 'waves-all-{номер версии}.jar:blockchain-updates-{номер версии}/lib/*' com.wavesplatform.Application {имя файла конфигурации}.conf
@@ -134,4 +134,4 @@ API Blockchain Updates предоставляет три функции:
 
 Структуру запросов и ответов можно посмотреть в файлах [blochckain_updates.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/grpc/blockchain_updates.proto) и [events.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/events.proto).
 
-> Некоторые изменения на блокчейне не привязаны ни к одной транзакции, а происходят на уровне блока. Например, изменение баланса генератора блока: 40% комиссии за транзакцию, которые получает генератор текущего блока, привязаны к транзакции, а 60%, которые получает генератор следующего блока, привязаны только к этому блоком. Вознаграждение за создание блока также связано только с блоком.
+> Некоторые изменения на блокчейне не привязаны ни к одной транзакции, а происходят на уровне блока. В частности, изменение баланса генератора блока: 40% комиссии за транзакцию, которые получает генератор текущего блока, привязаны к транзакции, а 60%, которые получает генератор следующего блока, ассоциированы только с этим блоком. Вознаграждение за создание блока также ассоциировано только с блоком.

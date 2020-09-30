@@ -26,15 +26,15 @@ The node with Blockchain Updates extension can be installed by two methods: usin
    Mainnet:
 
    ```bash
-   sudo dpkg -i waves_{version number}_all.deb
+   sudo dpkg -i waves-_{version number}_all.deb
    sudo dpkg -i blockchain-updates_{version number}_all.deb
    ```
 
    Testnet:
 
    ```bash
-   sudo dpkg -i waves_{номер версии}_all.deb
-   sudo dpkg -i blockchain-updates_{номер версии}_all.deb
+   sudo dpkg -i waves-testnet_{version number}_all.deb
+   sudo dpkg -i blockchain-updates-testnet_{version number}_all.deb
    ```
 
 3. Edit the node configuration file as described in the [Node Configuration](/en/waves-node/node-configuration) article. For Mainnet, the configuration file is located at `/etc/waves/waves.conf`, for Testnet at `/etc/waves-testnet/waves.conf`.
