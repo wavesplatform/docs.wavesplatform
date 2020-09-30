@@ -178,7 +178,7 @@ module.exports = {
                 links: {
                     wavesKeeper: {
                         title: 'Waves Keeper',
-                        link: '/en/ecosystem/waves-keeper/',
+                        link: 'https://docs.waves.tech/en/ecosystem/waves-keeper/',
                     },
                     wavesBlockchain: {
                         title: 'Waves Blockchain',
