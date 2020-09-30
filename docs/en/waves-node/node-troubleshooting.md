@@ -4,7 +4,7 @@ This article provides answers to questions related to Waves Node.
 
 ## `How do I disconnect from other nodes?`
 
-**Answer**: You can disconnect from other by setting `waves.network.known-peers` parameter to `[]` (default value) in your [node configuration file](/en/waves-node/node-configuration) and temporarily renaming the `peers.dat` file.
+**Answer**: You can disconnect from other nodes by setting `waves.network.known-peers` parameter to `[]` (default value) in your [node configuration file](/en/waves-node/node-configuration) and temporarily renaming the `peers.dat` file.
 
 ## `My node deployed in Docker crashed right after running. Why? What do I do?`
 
@@ -18,7 +18,7 @@ This article provides answers to questions related to Waves Node.
 
 ## `My node crashed. Why? What do I do?`
 
-**Answer**: A node may crash due to number of reasons. You can detect the reason of the crash by reviewing error messages in log files. See the following cases and possible solutions for details.
+**Answer**: A node may crash due to number of reasons. You can detect the reason of the crash by reviewing error messages in the log files. See the following cases and possible solutions for details.
 
 ### `"too many open files" error`
 
@@ -60,6 +60,8 @@ sudo zgrep -i }}{{"could not allocate" /var/log/waves/*
 
 ### `"OutOfMemory" error or the node process killed with OOM-Killer`
 
+If your machine has not enough RAM for the needs of OS it might kill your node process and other processes that consume most of your RAM. In this case your node log will contain "OutOfMemory" error messages.
+
 Use the following command to check if the log contains "OutOfMemory" messages or the messages about the node process being killed with OOM-killer:
 
 ```bash
@@ -68,28 +70,26 @@ sudo zgrep -i }}{{"OutOfMemory" /var/log/waves/*
 $ journalctl -k | }}{{grep 'Kill'
 ```
 
-If your machine has not enough RAM for the needs of OS, your node log will contain "OutOfMemory" error messages, similar to the following:
+The "OutOfMemory" error messages are similar to the following:
 
 ```bash
 kernel: Out of memory: Kill process 6033 (java) score 367 or sacrifice child
 kernel: Killed process 6033 (java) total-vm:29930040kB, anon-rss:10625048kB, }}{{file-rss:0kB, shmem-rss:24kB
 ```
 
-If you find the "OutOfMemory" messages, it might mean that the system has not enough RAM for the needs of OS. As a result, the system kills processes that consume most of your RAM.
-
 **Solution**: Make sure that the value of `-Xmx` parameter does not exceed the amount of the available RAM (there is enough for the needs of the OS). If the value of `-Xmx` parameter exceeds the available RAM, you can reduce the value of `-Xmx` parameter. [How to change the value of `-Xmx` parameter](#how-to-setup-xmx-parameter). You can also disable other heavy processes consuming the RAM and/or increase the amount of RAM by [adding swap space](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-18-04).
 
-If you have such the errors and the provided solution does not help, send to Waves team the fragments of your logs and the fragment of `waves.log` with the records before the node crashed.
+If the provided solution does not help, send to Waves team the fragments of your logs and the fragment of `waves.log` with the records before the node crashed.
 
 ## `How to setup -Xmx parameter?`
 
-**Answer**: You can setup `-Xmx` parameter of your node either in `application.ini` (DEB node) or by entering the `-Xmx` parameter in the command line (jar node). Use the following command (replace {*} with actual file name):
+**Answer**: You can setup `-Xmx` parameter of your node either in `application.ini` file (DEB node) or by entering the `-Xmx` parameter in the command line starting the node (jar node). Use the following command (replace {*} with actual file name):
 
 ```bash
 java -Xmx2g {*}.jar {*}.conf
 ```
 
-**Note**: Ubuntu Server version 18.04/20.04 should have at least 512MB of RAM for the needs of OS. If your total RAM is less than 2GB you can [add swap space](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-18-04).
+**Note**: Ubuntu Server version 18.04/20.04 should have at least 512MB of RAM for the needs of OS. If your total RAM is less than 2GB, you can expand it by [adding swap space](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-18-04).
 
 ## Other Issues
 
