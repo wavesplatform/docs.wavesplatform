@@ -541,7 +541,7 @@ module.exports = {
           path: nodePath + 'node-api/feature-activation',
         },
         {
-          title: 'Address',
+          title: 'Addresses',
           path: nodePath + 'node-api/address',
         },
         {

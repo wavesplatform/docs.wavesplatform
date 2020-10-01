@@ -1,4 +1,4 @@
-# Address
+# Addresses
 
 ## GET /addresses
 
