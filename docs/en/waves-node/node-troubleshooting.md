@@ -86,7 +86,7 @@ kernel: Out of memory: Kill process 6033 (java) score 367 or sacrifice child
 kernel: Killed process 6033 (java) total-vm:29930040kB, anon-rss:10625048kB, file-rss:0kB, shmem-rss:24kB
 ```
 
-**Solution**: Make sure that the value of `-Xmx` parameter does not exceed the amount of the available RAM (there is enough for the needs of the OS). If the value of `-Xmx` parameter exceeds the available RAM, you can reduce the value of `-Xmx` parameter. [How to change the value of `-Xmx` parameter](#how-to-setup-xmx-parameter). You can also disable other heavy processes consuming the RAM and/or increase the amount of RAM by [adding swap space](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-18-04).
+**Solution**: Make sure that the value of `-Xmx` parameter does not exceed the amount of the available RAM (there is enough RAM for the needs of the OS). If the value of `-Xmx` parameter exceeds the available RAM, you can reduce the value of `-Xmx` parameter. [How to change the value of `-Xmx` parameter](#how-to-setup-xmx-parameter). You can also disable other heavy processes consuming the RAM and/or increase the amount of RAM by [adding swap space](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-18-04).
 
 If the provided solutions do not help, send to Waves team the fragments of the involved logs and the fragment of `waves.log` with the records before the node crashed.
 
