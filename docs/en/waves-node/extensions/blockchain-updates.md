@@ -1,6 +1,6 @@
 # Blockchain Updates Extension
 
-**Blockchain Updates** is a [node extensions](/en/waves-node/extensions/) that sends blockchain updates via [gRPC](https://en.wikipedia.org/wiki/GRPC).
+**Blockchain Updates** is a [node extension](/en/waves-node/extensions/) that sends blockchain updates via [gRPC](https://en.wikipedia.org/wiki/GRPC).
 
 Blockchain Updates enables tracking changes made by each transaction and block:
 
@@ -14,14 +14,14 @@ You can obtain updates over a specified range of height or in real time.
 Examples of usage:
 * Integration with the messenger to send notifications about events on your account.
 * Tracking payments to [dApp](/en/building-apps/smart-contracts/what-is-a-dapp) in Invoke Script transactions.
-* Calculation of the average account balance for a week (used in the [market maker program](https://medium.com/wavesexchange/waves-exchange-launches-a-market-maker-program-enabling-users-to-mine-with-their-liquidity-3d229c856f67)).
+* Calculation of the average weekly account balance (used in the [market maker program](https://medium.com/wavesexchange/waves-exchange-launches-a-market-maker-program-enabling-users-to-mine-with-their-liquidity-3d229c856f67)).
 * Services for searching tokens by parameters, searching through account data storages, etc.
 
 ## Launch Node with Extension
 
-:warning: **Important:** Blockchain Updates requires the history of changes since the blockchain creation. Therefore, you should start the node with the extension from scratch and synchronize the blockchain during regular node operation, this can take 1–3 days (see the [Synchronize Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article). Importing blockchain from a binary file or downloading the latest blockchain database are not applicable.
+:warning: **Important:** Blockchain Updates requires the history of changes since the blockchain creation. Therefore, you should start the node with the extension from scratch and synchronize the blockchain during regular node operation, see the [Synchronize Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article. This can take 1–3 days. Neither importing blockchain from a binary file, nor downloading the latest blockchain database are applicable.
 
-The node with Blockchain Updates extension can be installed by two methods: using DEB package or JAR file.
+There are two ways to install the node with Blockchain Updates extension: using a DEB package or a JAR file.
 
 ### Installation via DEB Package
 
@@ -379,4 +379,4 @@ update {<br>
 </code>
 </details>
 
-> Some updates on the blockchain are not associated with any transaction, they are performed at the block level. For example, updates of balance of the block generator: 40% of transaction fee that is recieved by the generator of the current block and is associated with the transaction, and 60% that the generator of the next block receives is associated only with the block. The block reward is also associated with the block only.
+> Some updates on the blockchain are not associated with any transaction, they are performed at the block level. For example, updates of the block generator balance: 40% of transaction fee that is received by the generator of the current block and is associated with the transaction, and the 60% that the generator of the next block receives is associated only with the block. The block reward is also associated with the block only.
