@@ -88,7 +88,7 @@ Blockchain Updates позволяет отслеживать изменения,
    Для Stagenet:
 
    ```bash
-   sudo systemctl start waves-testnet
+   sudo systemctl start waves-stagenet
    ```
 
 Если расширение работает, в [log-файле](/ru/waves-node/logging-configuration) ноды появятся сообщения:

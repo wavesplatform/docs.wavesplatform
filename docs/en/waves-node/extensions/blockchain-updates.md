@@ -13,26 +13,26 @@ You can obtain updates over a specified range of height or in real time.
 
 Examples of usage:
 * Integration with the messenger to send notifications about events on your account.
-* Tracking payments to [dApp](/en/building-apps/smart-contracts/what-is-a-dapp) contained in Invoke Script transactions.
-* Calculation of the average account balance for the week (used in the [market maker program](https://medium.com/wavesexchange/waves-exchange-launches-a-market-maker-program-enabling-users-to-mine- with-their-liquidity-3d229c856f67)).
+* Tracking payments to [dApp](/en/building-apps/smart-contracts/what-is-a-dapp) in Invoke Script transactions.
+* Calculation of the average account balance for a week (used in the [market maker program](https://medium.com/wavesexchange/waves-exchange-launches-a-market-maker-program-enabling-users-to-mine-with-their-liquidity-3d229c856f67)).
 * Services for searching tokens by parameters, searching through account data storages, etc.
 
 ## Launch Node with Extension
 
-:warning: **Important:** Blockchain Updates requires the history of changes since the blockchain creation. Therefore, you should start the node with the extension from scratch and synchronize the blockchain during regular node operation, this can take 1-3 days (see the [Synchronize Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article). Importing blockchain from a binary file or downloading the latest blockchain database are not applicable.
+:warning: **Important:** Blockchain Updates requires the history of changes since the blockchain creation. Therefore, you should start the node with the extension from scratch and synchronize the blockchain during regular node operation, this can take 1–3 days (see the [Synchronize Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article). Importing blockchain from a binary file or downloading the latest blockchain database are not applicable.
 
 The node with Blockchain Updates extension can be installed by two methods: using DEB package or JAR file.
 
 ### Installation via DEB Package
 
-1. Download the latest versions of node and extension DEB packages from the [Releases](https://github.com/wavesplatform/Waves/releases) page (Assets section) on Github.
+1. Download the latest versions of DEB packages of node and extension from the [Releases](https://github.com/wavesplatform/Waves/releases) page (Assets section) on Github.
 
 2. Install the packages:
 
    Mainnet:
 
    ```bash
-   sudo dpkg -i waves-_{version number}_all.deb
+   sudo dpkg -i waves_{version number}_all.deb
    sudo dpkg -i blockchain-updates_{version number}_all.deb
    ```
 
@@ -88,10 +88,10 @@ The node with Blockchain Updates extension can be installed by two methods: usin
    Stagenet:
 
    ```bash
-   sudo systemctl start waves-testnet
+   sudo systemctl start waves-stagenet
    ```
 
-If the extension runs, its writes messages to the [node log](/ren/waves-node/logging-configuration):
+If the extension runs, it writes messages to the [node log](/ren/waves-node/logging-configuration):
 
 ```
 BlockchainUpdates extension starting with settings <...>
@@ -132,13 +132,13 @@ BlockchainUpdates extension started gRPC API on port <...>
    java -cp 'waves-all-{version number}.jar:blockchain-updates-{номер версии}/lib/*' com.wavesplatform.Application {configuration file name}.conf
    ```
 
-5. Start the node
+5. Start the node:
 
    ```bash
    java -jar waves-all-{номер версии}.jar {имя файла конфигурации}.conf.
    ```
 
-If the extension runs, its writes messages to the [node log](/ren/waves-node/logging-configuration):
+If the extension runs, it writes messages to the [node log](/ren/waves-node/logging-configuration):
 
 ```
 BlockchainUpdates extension starting with settings <...>
@@ -148,13 +148,13 @@ BlockchainUpdates extension started gRPC API on port <...>
 
 ## Client Generation
 
-Clone the schemes repository by running the following command:
+Clone the repository containing protobuf schemes:
 
 ```
 git clone https://github.com/wavesplatform/protobuf-schemas/
 ```
 
-Generate your client code from the [blockchain_updates.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/grpc/blockchain_updates.proto) scheme. Use the gRPC tools for your programming language, see the instructions in the [Supported languages and platforms](https://www.grpc.io/docs/languages/) article of gRPC docuemntation.
+Generate your client code from the [blockchain_updates.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/grpc/blockchain_updates.proto) scheme. Use the gRPC tools for your programming language, find the instructions on the [Supported languages and platforms](https://www.grpc.io/docs/languages/) page of gRPC documentation.
 
 ## Best Practices
 
@@ -165,7 +165,7 @@ API Blockchain Updates provides the following functions:
 
 The `Subscribe` function returns all the events in real time: block append, microblock append, block rollback, microblock rollback (see the [Waves-NG](/en/blockchain/waves-protocol/waves-ng-protocol) protocol description). To handle rollbacks, we recommend that your client stores the previous states of the blockchain 10–100 blocks back from the current one, this is sufficient in the vast majority of cases (the maximum possible rollback height is 2000 blocks, but the probability of such a rollback is negligible). If the connection was interrupted, roll back the last block on the client and restart receiving events from the previous block.
 
-For some analytical tasks, real-time events are not needed, for example, it is enough to update the data once an hour or once a day. In this cases, we recommend to use the `GetBlockUpdatesRange` function. It only returns historical data of blocks that are already applied, which is much easier to process. It is better to indicate the end height of the range a few blocks less than the current blockchain height to avoid issues with rollbacks.
+For some analytical tasks, real-time events are not needed, for example, it is enough to update the data once an hour or once a day. In such cases, we recommend to use the `GetBlockUpdatesRange` function. It only returns historical data of blocks that are already applied, which is much easier to process. It is better to indicate the end height of the range a few blocks less than the current blockchain height to avoid issues with rollbacks.
 
 See the format of requests and responses in the [blockchain_updates.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/grpc/blockchain_updates.proto) and [events.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/events.proto) files.
 
@@ -379,4 +379,4 @@ update {<br>
 </code>
 </details>
 
-> Some updates on the blockchain are not associated with any transaction, they are performed at the block level. For example, a change in the balance of the block generator: 40% of transaction fee is recieved by the generator of the current block and receives is associated with the transaction, and 60% that the generator of the next block receives is associated only with the block. The block reward is also associated with the block only.
+> Some updates on the blockchain are not associated with any transaction, they are performed at the block level. For example, updates of balance of the block generator: 40% of transaction fee that is recieved by the generator of the current block and is associated with the transaction, and 60% that the generator of the next block receives is associated only with the block. The block reward is also associated with the block only.
