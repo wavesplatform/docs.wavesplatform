@@ -46,8 +46,8 @@ There are two ways to install the node with Blockchain Updates extension: using 
    Stagenet:
 
    ```bash
-   sudo dpkg -i waves-stagenet_{номер версии}_all.deb
-   sudo dpkg -i blockchain-updates-stagenet_{номер версии}_all.deb
+   sudo dpkg -i waves-stagenet_{version number}_all.deb
+   sudo dpkg -i blockchain-updates-stagenet_{version number}_all.deb
    ```
 
 3. Edit the node configuration file as described in the [Node Configuration](/en/waves-node/node-configuration) article. For Mainnet, the configuration file is located at `/etc/waves/waves.conf`, for Testnet at `/etc/waves-testnet/waves.conf`, for Testnet at `/etc/waves-stagenet/waves.conf`.
@@ -129,13 +129,13 @@ BlockchainUpdates extension started gRPC API on port <...>
 4. Run the command:
 
    ```bash
-   java -cp 'waves-all-{version number}.jar:blockchain-updates-{номер версии}/lib/*' com.wavesplatform.Application {configuration file name}.conf
+   java -cp 'waves-all-{version number}.jar:blockchain-updates-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
    ```
 
 5. Start the node:
 
    ```bash
-   java -jar waves-all-{номер версии}.jar {имя файла конфигурации}.conf.
+   java -jar waves-all-{version number}.jar {configuration file name}.conf.
    ```
 
 If the extension runs, it writes messages to the [node log](/ren/waves-node/logging-configuration):
