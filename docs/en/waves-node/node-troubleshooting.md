@@ -71,15 +71,15 @@ sudo journalctl -u waves | grep "OutOfMemory"
 
 ### `the node process killed with OOM-Killer`
 
-If your machine has not enough RAM for the needs of OS it might kill your node process and other processes that consume most of your RAM. In this case your log will contain "Out of memory" error messages and the messages about the node process being killed with OOM-killer.
+If your machine has not enough RAM for the needs of OS it might kill your node process and other processes that consume most of your RAM. In this case your log will contain messages about the node process being killed with OOM-killer.
 
-Use the following command to check if there are "Out of memory" messages and the messages about the node process being killed with OOM-killer in your log:
+Use the following command to check if there are such messages in your log:
 
 ```bash
 $ journalctl -k | grep 'Kill'
 ```
 
-The "Out of memory" error messages and the messages about the node process being killed with OOM-killer are similar to the following:
+The messages about the node process being killed with OOM-killer are similar to the following:
 
 ```bash
 kernel: Out of memory: Kill process 6033 (java) score 367 or sacrifice child
