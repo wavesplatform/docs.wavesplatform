@@ -71,17 +71,15 @@ sudo journalctl -u waves | grep "OutOfMemory"
 
 ### `the node process killed with OOM-Killer`
 
-If your machine has not enough RAM for the needs of OS it might kill your node process and other processes that consume most of your RAM. In this case your node log will contain "Out of memory" error messages.
+If your machine has not enough RAM for the needs of OS it might kill your node process and other processes that consume most of your RAM. In this case your log will contain "Out of memory" error messages and the messages about the node process being killed with OOM-killer.
 
-Use the following command to check if the log contains "Out of memory" messages or the messages about the node process being killed with OOM-killer:
+Use the following command to check if there are "Out of memory" messages and the messages about the node process being killed with OOM-killer in your log:
 
 ```bash
-sudo tail -n +1 /var/log/waves/waves.log | grep "Out of memory"
-sudo zgrep -i "Out of memory" /var/log/waves/*
 $ journalctl -k | grep 'Kill'
 ```
 
-The "OutOfMemory" error messages are similar to the following:
+The "Out of memory" error messages and the messages about the node process being killed with OOM-killer are similar to the following:
 
 ```bash
 kernel: Out of memory: Kill process 6033 (java) score 367 or sacrifice child
@@ -90,7 +88,7 @@ kernel: Killed process 6033 (java) total-vm:29930040kB, anon-rss:10625048kB, fil
 
 **Solution**: Make sure that the value of `-Xmx` parameter does not exceed the amount of the available RAM (there is enough for the needs of the OS). If the value of `-Xmx` parameter exceeds the available RAM, you can reduce the value of `-Xmx` parameter. [How to change the value of `-Xmx` parameter](#how-to-setup-xmx-parameter). You can also disable other heavy processes consuming the RAM and/or increase the amount of RAM by [adding swap space](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-18-04).
 
-If the provided solution does not help, send to Waves team the fragments of your logs and the fragment of `waves.log` with the records before the node crashed.
+If the provided solutions do not help, send to Waves team the fragments of the involved logs and the fragment of `waves.log` with the records before the node crashed.
 
 ## `How to setup -Xmx parameter?`
 
