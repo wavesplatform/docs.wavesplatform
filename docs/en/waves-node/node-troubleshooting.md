@@ -1,4 +1,4 @@
-# Troubleshooting
+# Node Troubleshooting (Q&A)
 
 This article provides answers to questions related to Waves Node.
 
@@ -45,39 +45,39 @@ DefaultLimitNOFILE=65536
 
 then reboot your machine.
 
-### `"could not allocate" error`
+### `"OutOfMemory" error`
 
-If your machine has not enough dedicated JVM memory to run the node, the node will crash and the log file will contain "could not allocate" error messages.
+If your machine has not enough dedicated JVM memory to run the node, the node will crash and the log file will contain "OutOfMemory" error messages.
 
 Use the following command to check if there are such messages in your current log file:
 
 ```bash
-sudo tail -n +1 /var/log/waves/waves.log | grep "could not allocate"
+sudo tail -n +1 /var/log/waves/waves.log | grep "OutOfMemory"
 ```
 
 Use the following command to check if there are such messages in your archived log files:
 
 ```bash
-sudo zgrep -i "could not allocate" /var/log/waves/*
+sudo zgrep -i "OutOfMemory" /var/log/waves/*
 ```
 
 Use the following command if you are using systemd and have no logs in /var/log/waves/ directory:
 
 ```bash
-sudo journalctl -u waves | grep "could not allocate"
+sudo journalctl -u waves | grep "OutOfMemory"
 ```
 
 **Solution**: You can [increase the value of `-Xmx` parameter](#how-to-setup-xmx-parameter) (increase JVM maximum Heap Size).
 
-### `"OutOfMemory" error or the node process killed with OOM-Killer`
+### `the node process killed with OOM-Killer`
 
-If your machine has not enough RAM for the needs of OS it might kill your node process and other processes that consume most of your RAM. In this case your node log will contain "OutOfMemory" error messages.
+If your machine has not enough RAM for the needs of OS it might kill your node process and other processes that consume most of your RAM. In this case your node log will contain "Out of memory" error messages.
 
-Use the following command to check if the log contains "OutOfMemory" messages or the messages about the node process being killed with OOM-killer:
+Use the following command to check if the log contains "Out of memory" messages or the messages about the node process being killed with OOM-killer:
 
 ```bash
-sudo tail -n +1 /var/log/waves/waves.log | grep "OutOfMemory"
-sudo zgrep -i "OutOfMemory" /var/log/waves/*
+sudo tail -n +1 /var/log/waves/waves.log | grep "Out of memory"
+sudo zgrep -i "Out of memory" /var/log/waves/*
 $ journalctl -k | grep 'Kill'
 ```
 
