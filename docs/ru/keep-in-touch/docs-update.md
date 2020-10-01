@@ -4,7 +4,7 @@
 
 ### Нода
 
-* [Расширение BlockchainUpdates](/ru/waves-node/extensions/blockchain-updates)
+* [Расширение Blockchain Updates](/ru/waves-node/extensions/blockchain-updates)
 
 ## Сентябрь
 

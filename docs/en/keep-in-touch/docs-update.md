@@ -4,7 +4,7 @@
 
 ### Node
 
-* [BlockchainUpdates Extensions](/en/waves-node/extensions/blockchain-updates)
+* [Blockchain Updates Extensions](/en/waves-node/extensions/blockchain-updates)
 
 ## September
 
