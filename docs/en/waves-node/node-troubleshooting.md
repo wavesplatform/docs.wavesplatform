@@ -49,11 +49,22 @@ then reboot your machine.
 
 If your machine has not enough dedicated JVM memory to run the node, the node will crash and the log file will contain "could not allocate" error messages.
 
-Use the following command to check if there are such messages in your log file:
+Use the following command to check if there are such messages in your current log file:
 
 ```bash
-sudo tail -n +1 }}{{/var/log/waves/waves.log | }}{{grep "could not allocate"
-sudo zgrep -i }}{{"could not allocate" /var/log/waves/*
+sudo tail -n +1 /var/log/waves/waves.log | grep "could not allocate"
+```
+
+Use the following command to check if there are such messages in your archived log files:
+
+```bash
+sudo zgrep -i "could not allocate" /var/log/waves/*
+```
+
+Use the following command if you are using systemd and have no logs in /var/log/waves/ directory:
+
+```bash
+sudo journalctl -u waves | grep "could not allocate"
 ```
 
 **Solution**: You can [increase the value of `-Xmx` parameter](#how-to-setup-xmx-parameter) (increase JVM maximum Heap Size).
@@ -65,16 +76,16 @@ If your machine has not enough RAM for the needs of OS it might kill your node p
 Use the following command to check if the log contains "OutOfMemory" messages or the messages about the node process being killed with OOM-killer:
 
 ```bash
-sudo tail -n +1 }}{{/var/log/waves/waves.log | }}{{grep "OutOfMemory"
-sudo zgrep -i }}{{"OutOfMemory" /var/log/waves/*
-$ journalctl -k | }}{{grep 'Kill'
+sudo tail -n +1 /var/log/waves/waves.log | grep "OutOfMemory"
+sudo zgrep -i "OutOfMemory" /var/log/waves/*
+$ journalctl -k | grep 'Kill'
 ```
 
 The "OutOfMemory" error messages are similar to the following:
 
 ```bash
 kernel: Out of memory: Kill process 6033 (java) score 367 or sacrifice child
-kernel: Killed process 6033 (java) total-vm:29930040kB, anon-rss:10625048kB, }}{{file-rss:0kB, shmem-rss:24kB
+kernel: Killed process 6033 (java) total-vm:29930040kB, anon-rss:10625048kB, file-rss:0kB, shmem-rss:24kB
 ```
 
 **Solution**: Make sure that the value of `-Xmx` parameter does not exceed the amount of the available RAM (there is enough for the needs of the OS). If the value of `-Xmx` parameter exceeds the available RAM, you can reduce the value of `-Xmx` parameter. [How to change the value of `-Xmx` parameter](#how-to-setup-xmx-parameter). You can also disable other heavy processes consuming the RAM and/or increase the amount of RAM by [adding swap space](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-18-04).
@@ -86,7 +97,7 @@ If the provided solution does not help, send to Waves team the fragments of your
 **Answer**: You can setup `-Xmx` parameter of your node either in `application.ini` file (DEB node) or by entering the `-Xmx` parameter in the command line starting the node (jar node). Use the following command (replace {*} with actual file name):
 
 ```bash
-java -Xmx2g {*}.jar {*}.conf
+java -Xmx2g -jar {*}.jar {*}.conf
 ```
 
 **Note**: Ubuntu Server version 18.04/20.04 should have at least 512MB of RAM for the needs of OS. If your total RAM is less than 2GB, you can expand it by [adding swap space](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-18-04).
