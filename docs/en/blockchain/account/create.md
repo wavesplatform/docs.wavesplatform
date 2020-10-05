@@ -1,6 +1,6 @@
-# How to Register Account / Create Waves Wallet
+# How to Create Account / Waves Wallet
 
-To create Waves account means to generate [account key pair](/en/blockchain/account/#key-pair) and [address](/en/blockchain/account/address) based on a secret (seed) phrase.
+You don't need to register anywhere to create a Waves account. To create Waves account means to generate [account key pair](/en/blockchain/account/#key-pair) and [address](/en/blockchain/account/address) based on a secret (seed) phrase.
 
 :warning: **Security Information**
 * The secret phrase or the private key derived from it provides complete control over the account, including the ability to dispose of funds. Do not give your secret phrase and private key to anyone, and do not publish or send them.

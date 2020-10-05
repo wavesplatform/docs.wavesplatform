@@ -1,9 +1,36 @@
 # Account
 
+Waves uses an account-based model:
+* Each [transaction](/en/blockchain/transaction/) is created on behalf of an account.
+* All the [tokens](/en/blockchain/token/) belong to certain accounts. For details, see the [Account Balance](/en/blockchain/account/account-balance) article.
+* All data are associated with accounts. For details, see the [Account Data Storage](/en/blockchain/account/account-date-storage) article.
 
-An **account** is a [cryptographically bound](https://en.wikipedia.org/wiki/Public-key_cryptography) pair of a public and a private keys on the [blockchain](/en/blockchain/blockchain/).
+## Account Keys
 
-Accounts unambiguously correlate [transactions](/en/blockchain/transaction/) and [orders](/en/ride/structures/common-structures/order) with their senders.
+Unlike centralized applications, users do not have usernames and passwords on the blockchain. User identification and validation of their actions is performed using a cryptographically bound key pair:
+
+* The private key is used to sign transactions or orders.
+* The public key allows to verify the digital signature.
+
+Each transaction contains the public key of the sender account. The sender generates a digital signature on the transaction using the account's private key. Using the signature and the public key, anyone can check the transaction integrity and verify the signature — that is, ensure that the signature of the transaction matches the public key.
+
+![](./_assets/keys.png)
+
+Waves uses an asymmetric cryptosystem based on the elliptic curve Curve25519-ED25519 with X25519 keys. The rules for generating keys and signatures are described in detail in the section [Cryptographic practical details](/en/blockchain/waves-protocol/cryptographic-practical-details).
+
+The private and public keys are 32-byte arrays. In user interfaces, they are represented in the [base58] encoding(https://ru.wikipedia.org/wiki/Base58).
+
+Example of a private key:
+
+```
+6yCStrsBs4VgTmYcSgF37pmQhCo6t9LZk5bQqUyUNSAs
+```
+
+Example of a public key:
+
+```
+5cqzmxsmFPBHm4tb7D8DMA7s5eutLXTDnnNMQKy2AYxh
+```
 
 ## Account public and private keys
 

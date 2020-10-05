@@ -4,9 +4,9 @@
 
 One account can store different tokens in different amounts. For example, an account can have 50 [WAVES](/en/blockchain/token/waves) and 200 USD-N at the same time. The amount of the Y token on the account is called the **account balance in Y token**. If there is no Y token on the account, it is said that the **account balance in Y token is equal to zero**.
 
-## Account balance in WAVES token
+## Account balance in WAVES
 
-There are four types of balances in WAVES token:
+There are four types of balances in WAVES:
 
 * regular
 * available
