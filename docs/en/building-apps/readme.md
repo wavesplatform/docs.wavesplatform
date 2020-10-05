@@ -26,15 +26,21 @@ Please note: the Node API is not able to sign transactions on behalf of an arbit
 
 ## Client Libraries
 
-Libraries for various programming languages ​​provide functions for operating with the Waves blockchain: signing transactions and exchange orders, interacting with the Node REST API, and generating account keys. Libraries differ in their features.
-
-If your application signs and sends transactions on behalf of range of users, you should not ask them for a secret phrase (seed) or a private key: this is unsafe for the user. Instead, we recommend using the interface with a wallet app that stores the user's account keys and signs transactions itself. The following tools provide such interfaces:
-
-* [Waves Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer) is a TypeScript/JavaScript library that works in any browser. Signer is used in conjunction with a signature provider library — in particular, ProviderWeb, developed by the Waves.Exchange team. When Signer requests to sign a transaction, the provider opens an iframe where the user can review transaction details and confirm or reject it.
-* [Waves Keeper API](/en/ecosystem/waves-keeper/waves-keeper-api) uses the Waves Keeper extension installed in the user's browser.
-* [Waves SDK for Android](https://github.com/wavesplatform/WavesSDK-android) and [Waves SDK for iOS](https://github.com/wavesplatform/WavesSDK-iOS) use the Waves.Exchange mobile app installed on the user's device.
+Libraries for various programming languages provide functions for operating with the Waves blockchain: signing transactions and exchange orders, interacting with the Node REST API, and generating account keys. Libraries differ in their features.
 
 > [All libraries](/en/building-apps/waves-api-and-sdk/client-libraries/)
+
+## Secure Transactions Signing
+
+To sign a transaction, for example, a dApp script invocation or a token transfer, the [private key](/en/blockchain/account/#keys) of the sender account is needed. However, if your application serves multiple users, you do not have access to their private keys. Knowing the secret phrase (seed) or private key, you can do anything on behalf of the account, that's why you **should not ask** user for their secret phrase or private key. Users are strongly advised not to share the secret phrase and private key with anyone, and users do not trust sites and applications that require this data.
+
+The solution is to obtain a user signature for each transaction. To do this, you need an interface with a wallet application that stores the user's account keys securely and signs transactions itself. Before signing, the user can view the details of the transaction, confirm or reject it.
+
+The following tools provide such interfaces:
+
+* [Waves Keeper API](/en/ecosystem/waves-keeper/waves-keeper-api) uses the Waves Keeper extension installed in the user's browser. Waves Keeper is one of the most secure ways to manage keys, however its installation can be a threshold for new users. In addition, Waves Keeper is not available in mobile browsers.
+* [Waves Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer) is a TypeScript/JavaScript library that works in any browser. Signer enables connecting third-party signature provider libraries and provides a unified interface for interacting with them. The only provider currently available is ProviderWeb developed by the Waves.Exchange team. In prospect, when other providers appear, it will suffice to initialize the new libraries in your application and use the same functions for obtaining the signature. Furthermore, Signer delivers a seamless user experience based on the iframe.
+* [Waves SDK for Android](https://github.com/wavesplatform/WavesSDK-android) and [Waves SDK for iOS](https://github.com/wavesplatform/WavesSDK-iOS) use the Waves.Exchange mobile app installed on the user's device.
 
 ## Smart Contract
 
