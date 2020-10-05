@@ -76,3 +76,11 @@ See the [example](https://nodes.wavesnodes.com/transactions/info/FTQvw9zdYirRksU
 | **11** | Transaction timestamp | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
 
 > The fields numbered in bold are the transaction body bytes.
+
+## Invalid characters in token names and descriptions
+
+Before feature 15 “Ride V4, VRF, Protobuf, Failed transactions” was activated, it was possible to create tokens with names and descriptions which are not valid UTF-8 strings. There are no such tokens on Mainnet, they exist only on Testnet (see [example](https://testnet.wavesexplorer.com/tx/4NWVZHR3pmtmUaMACCFPQnV5Bebcxt1PdoKeRUVQWBwu)).
+
+The following interfaces use the [replacement character �](https://en.wikipedia.org/wiki/Specials_(Unicode_block)#Replacement_character) instead of data that does not match any UTF-8 character:
+* [REST API](/en/waves-node/node-api/) and [gRPC Server](/en/waves-node/extensions/grpc-server/) both in [Node Scala](https://github.com/wavesplatform/Waves/releases) and [Node Go](https://github.com/wavesplatform/gowaves/releases/)
+* [Data Service API](/en/building-apps/waves-api-and-sdk/waves-data-service-api)
