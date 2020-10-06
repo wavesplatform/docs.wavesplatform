@@ -4,7 +4,7 @@
 
 Waves blochchain is designed and built from the ground up for speed and scale. At the same time Waves is one of the most developer-friendly ecosystems. Waves blockchain exposes its functionality through a powerful REST API, that can be used with any programming language.
 
-In this example, we will use python wrapper for the Waves Node API and Matcher API — [PyWaves](https://github.com/PyWaves/PyWaves) library, but there are other options for [different programming languages as well](/en/building-apps/waves-api-and-sdk/client-libraries/), e.g. [WavesCS for C#](https://github.com/wavesplatform/WavesCS), [WavesJ for Java](https://github.com/wavesplatform/WavesJ) etc.
+In this example, we will use python wrapper for the Waves Node API and Matcher API — [PyWaves](https://github.com/PyWaves/PyWaves) library, but there are other options for [different programming languages as well](/en/building-apps/waves-api-and-sdk/client-libraries/), e.g. [WavesCS for C#](https://github.com/wavesplatform/WavesCS) etc.
 
 Pywaves is an object-oriented Python interface to the Waves blockchain which will help us to reduce the code complexity while maintaining its structure. Anything you learn using this library can be applied with pure HTTP API calls.
 
