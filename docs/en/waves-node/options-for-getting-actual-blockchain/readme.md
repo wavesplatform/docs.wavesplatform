@@ -27,7 +27,7 @@ Block verification is not a linear operation, “heavy” blocks take more time 
 
 ## Synchronize Blockchain During Regular Node Operation
 
-This method implies runnig the node from scratch. For detailed description of running the node, see [Install Waves Node](/en/waves-node/how-to-install-a-node/how-to-install-a-node) article.
+This method implies running the node from scratch. For detailed description of running the node, see [Install Waves Node](/en/waves-node/how-to-install-a-node/how-to-install-a-node) article.
 
 After the first run, your node will start automatically receiving all the necessary data from the peer nodes as well as it will verify the blocks and validate signatures untill the blockchain is fully sychronized with the current state.
 

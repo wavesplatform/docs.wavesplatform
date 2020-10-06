@@ -1,5 +1,11 @@
 # Documentation Updates
 
+## October
+
+### Node
+
+* [Blockchain Updates Extensions](/en/waves-node/extensions/blockchain-updates)
+
 ## September
 
 ### Blockchain

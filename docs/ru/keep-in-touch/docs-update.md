@@ -1,5 +1,11 @@
 # Обновления в документации
 
+## Октябрь
+
+### Нода
+
+* [Расширение Blockchain Updates](/ru/waves-node/extensions/blockchain-updates)
+
 ## Сентябрь
 
 ### Блокчейн
