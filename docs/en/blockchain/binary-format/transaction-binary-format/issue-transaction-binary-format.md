@@ -83,4 +83,5 @@ Before feature 15 “Ride V4, VRF, Protobuf, Failed transactions” was activate
 
 The following interfaces use the [replacement character �](https://en.wikipedia.org/wiki/Specials_(Unicode_block)#Replacement_character) instead of data that does not match any UTF-8 character:
 * [REST API](/en/waves-node/node-api/) and [gRPC Server](/en/waves-node/extensions/grpc-server/) both in [Node Scala](https://github.com/wavesplatform/Waves/releases) and [Node Go](https://github.com/wavesplatform/gowaves/releases/)
+* [Blockchain Updates](/en/waves-node/extensions/blockchain-updates) in Node Scala
 * [Data Service API](/en/building-apps/waves-api-and-sdk/waves-data-service-api)
