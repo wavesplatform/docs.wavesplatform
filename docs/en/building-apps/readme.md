@@ -32,14 +32,14 @@ Libraries for various programming languages provide functions for operating with
 
 ## Secure Transactions Signing
 
-To sign a transaction, for example, a dApp script invocation or a token transfer, the [private key](/en/blockchain/account/#keys) of the sender account is needed. However, if your application serves multiple users, you do not have access to their private keys. Knowing the secret phrase (seed) or private key, you can do anything on behalf of the account, that's why you **should not ask** user for their secret phrase or private key. Users are strongly advised not to share the secret phrase and private key with anyone, and users do not trust sites and applications that require this data.
+To sign a transaction, for example, a dApp script invocation or a token transfer, the [private key](/en/blockchain/account/#keys) of the sender account is needed. However, if your application serves multiple users, you do not have access to their private keys. Knowing the secret phrase (seed) or private key, you can do anything on behalf of the account, that's why you **should not ask** users for their secret phrase or private key. Users are strongly advised not to share the secret phrase and private key with anyone, and users do not trust sites and applications that require this data.
 
 The solution is to obtain a user signature for each transaction. To do this, you need an interface with a wallet application that stores the user's account keys securely and signs transactions itself. Before signing, the user can view the details of the transaction, confirm or reject it.
 
 The following tools provide such interfaces:
 
 * [Waves Keeper API](/en/ecosystem/waves-keeper/waves-keeper-api) uses the Waves Keeper extension installed in the user's browser. Waves Keeper is one of the most secure ways to manage keys, however its installation can be a threshold for new users. In addition, Waves Keeper is not available in mobile browsers.
-* [Waves Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer) is a TypeScript/JavaScript library that works in any browser. Signer enables connecting third-party signature provider libraries and provides a unified interface for interacting with them. The only provider currently available is ProviderWeb developed by the Waves.Exchange team. In prospect, when other providers appear, it will suffice to initialize the new libraries in your application and use the same functions for obtaining the signature. Furthermore, Signer delivers a seamless user experience based on the iframe.
+* [Waves Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer) is a TypeScript/JavaScript library that works in any browser. Signer is a unified interface for interacting with third-party signature provider libraries. The only provider currently available is ProviderWeb developed by the Waves.Exchange team. In prospect, when other signature providers appear, it will suffice to initialize the new libraries in your application and use the same functions for obtaining the signature. Furthermore, Signer delivers a smooth user experience based on the iframe.
 * [Waves SDK for Android](https://github.com/wavesplatform/WavesSDK-android) and [Waves SDK for iOS](https://github.com/wavesplatform/WavesSDK-iOS) use the Waves.Exchange mobile app installed on the user's device.
 
 ## Smart Contract
