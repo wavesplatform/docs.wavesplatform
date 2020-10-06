@@ -163,7 +163,7 @@ API Blockchain Updates provides the following functions:
 * `GetBlockUpdatesRange` returns updates performed by the blocks at the given range of height.
 * `Subscribe` returns stream of messages, first historical data (i.e. updates up to the current blockchain height), then current events in real time. Optionally, you can specify the start and/or end height.
 
-The `Subscribe` function returns all the events in real time: block append, microblock append, block rollback, microblock rollback (see the [Waves-NG](/en/blockchain/waves-protocol/waves-ng-protocol) protocol description). To handle rollbacks, we recommend that your client stores the previous states of the blockchain. 10 blocks back from the current one is enough in the vast majority of cases. The maximum height that the node can rollback automatically is 100, the maximum height of manual rollback is 2000 blocks. For more details, see the [Deal With Forks](/en/waves-node/#deal-with-forks) section.
+The `Subscribe` function returns all the events in real time: block append, microblock append, block rollback, microblock rollback (see the [Waves-NG](/en/blockchain/waves-protocol/waves-ng-protocol) protocol description). To handle rollbacks, we recommend that your client stores the previous states of the blockchain. 10 blocks back from the current block is enough in most cases. The maximum height that the node can rollback automatically is 100, the maximum height of manual rollback is 2000 blocks. For more details, see the [Deal With Forks](/en/waves-node/#deal-with-forks) section.
 
 If the connection was interrupted, roll back the last block on the client and restart receiving events from the previous block.
 
@@ -385,4 +385,4 @@ update {<br>
 
 > Some updates on the blockchain are not associated with any transaction, they are performed at the block level. For example, updates of the block generator balance: 40% of transaction fee that is received by the generator of the current block and is associated with the transaction, and the 60% that the generator of the next block receives is associated only with the block. The block reward is also associated with the block only.
 
-> If the transaction fee is indicated in the sponsored asset, then Blockchain Updates returns, in addition to the sender's balance and block generator's balance updates, the sponsor's balance update: the sponsor receives the fee in the sponsored asset and pays the fee in WAVES. [More about sponsorship](/en/blockchain/waves-protocol/sponsored-fee)
+> If the transaction fee is indicated in the sponsored asset, then Blockchain Updates returns, in addition to the sender's balance and block generator's balance updates, the sponsor's balance update: the sponsor receives the fee in the sponsored asset and pays the fee equivalent in WAVES. [More about sponsorship](/en/blockchain/waves-protocol/sponsored-fee)
