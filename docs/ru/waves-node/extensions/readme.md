@@ -4,5 +4,6 @@
 
 Список доступных расширений:
 
-* [gRPC](/ru/waves-node/extensions/grpc-server/)
-* [Матчер](https://github.com/wavesplatform/matcher), который исполняет ордера (биржевые заявки) на покупку и продажу активов.
+* [gRPC Server](/ru/waves-node/extensions/grpc-server/) предоставляет информацию об аккаунтах, токенах, блоках, транзакциях и др.
+* [Blockchain Updates](/ru/waves-node/extensions/blockchain-updates)позволяет отслеживать изменения, которые внесла каждая транзакция и блок.
+* [Matcher](https://github.com/wavesplatform/matcher) — мост между нодой и матчером.
