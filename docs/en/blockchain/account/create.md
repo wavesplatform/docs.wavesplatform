@@ -1,6 +1,6 @@
 # How to Create Account / Waves Wallet
 
-You don't need to register anywhere to create a Waves account. To create Waves account means to generate [account key pair](/en/blockchain/account/#key-pair) and [address](/en/blockchain/account/address) based on a secret (seed) phrase.
+To create a Waves account, you don't need to register anywhere. To create a Waves account means to generate [account key pair](/en/blockchain/account/#key-pair) and [address](/en/blockchain/account/address) based on a secret (seed) phrase.
 
 :warning: **Security Information**
 * The secret phrase or the private key derived from it provides complete control over the account, including the ability to dispose of funds. Do not give your secret phrase and private key to anyone, and do not publish or send them.
@@ -62,11 +62,11 @@ Alternatively, you can use one of the [client libraries](/en/building-apps/waves
 Please note:
 * An account key pair and address are generated and stored locally. No data needs to be sent to the node or anywhere else.
 * The address is immediately available for transferring tokens. In particular, it can be specified as the recipient in the [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction).
-* Address appears on the blockchain along with the first transaction in which the account participates.
+* The address appears on the blockchain along with the first transaction in which the account participates.
 * To use your account in another application or on another device, you need to enter a secret phrase on it and repeat the key pair generation.
 
 ## How to Create Wallets for Users in Bulk?
 
-It is bad practice to generate accounts for users in a centralized. Knowing the secret phrase and private key allows you to do anything on behalf of the account. It is unsafe to store and transfer this data: in addition to the abuse of confidence, there is a risk of data theft or leakage.
+It is bad practice to generate accounts for users centrally. Knowing the secret phrase or private key allows you to do anything on behalf of the account. It is unsafe to store and transfer this data: in addition to the abuse of confidence, there is a risk of data theft or leakage.
 
-Each user should create their own account, and the application should request a user signature separately for each transaction. To do this, you can use the [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer) library on your site. Signer provides the user with the ability to log into his account or create it and then sign transactions without transferring their secret phrase or private key to your app.
+Each user should create their own account, and the application should obtain a user signature separately for each transaction. To do this, you can use the [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer) library on your site. Signer provides the user with the ability to log into their account or create an account and then sign transactions without providing their secret phrase or private key to your app.

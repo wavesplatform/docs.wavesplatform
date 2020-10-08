@@ -37,7 +37,7 @@ The generating balance of a [node](/en/blockchain/node/) account affects the abi
 
 ## View Account Balance
 
-The balances of any account, as well as other blockchain data, are public and can be read by anyone. For example, you can see the list and amount of tokens on the account in [Waves Explorer](https://wavesexplorer.com). To do this, find an account by its [address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias). Balances in WAVES are displayed right under the address, balances in other assets are at the **Assets** tab, and [non-fungible tokens (NFT)](/en/blockchain/token/non-fungible-token) are at the **Non-fungible tokens** tab.
+The balances of any account, as well as other blockchain data, are public and can be read by anyone. For example, you can see the list of tokens ant their amount on the account in [Waves Explorer](https://wavesexplorer.com). To do this, find an account by its [address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias). Balances in WAVES are displayed right under the address, balances in other assets are at the **Assets** tab, and [non-fungible tokens (NFT)](/en/blockchain/token/non-fungible-token) are at the **Non-fungible tokens** tab.
 
 ![](./_assets/balance-explorer.png)
 
@@ -49,5 +49,5 @@ You can buy WAVES tokens at [Waves.Exchange](https://waves.exchange/) developed 
 
 On [Testnet and Stagenet](/en/blockchain/blockchain-network/), you can get WAVES for free using the Faucet:
 
-<https://testnet.wavesexplorer.com/faucet> for Testnet
-<https://stagenet.wavesexplorer.com/faucet> for Stagenet.
+* <https://testnet.wavesexplorer.com/faucet> for Testnet
+* <https://stagenet.wavesexplorer.com/faucet> for Stagenet.

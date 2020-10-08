@@ -1,7 +1,7 @@
 # Account
 
 Waves uses an account-based model:
-* Each [transaction](/en/blockchain/transaction/) is created on behalf of an account.
+* Each [transaction](/en/blockchain/transaction/) is created on behalf of a certain account.
 * All the [tokens](/en/blockchain/token/) belong to certain accounts. For details, see the [Account Balance](/en/blockchain/account/account-balance) article.
 * All data are associated with accounts. For details, see the [Account Data Storage](/en/blockchain/account/account-date-storage) article.
 
@@ -21,13 +21,13 @@ The guideline for generating keys and signatures is given in the [Cryptographic 
 
 The private and public keys are 32 byte arrays. In UIs, the keys are displayed as [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) encoded strings. Base58-encoded keys can be of different length, the maximum length is 44 characters.
 
-Example of a private key in base58:
+Example private key in base58:
 
 ```
 6yCStrsBs4VgTmYcSgF37pmQhCo6t9LZk5bQqUyUNSAs
 ```
 
-Example of a public key in base58:
+Example public key in base58:
 
 ```
 5cqzmxsmFPBHm4tb7D8DMA7s5eutLXTDnnNMQKy2AYxh
@@ -35,14 +35,11 @@ Example of a public key in base58:
 
 ## Secret (Seed) Phrase
 
-This is known as asymmetric cryptography. Here is an important note. A private key can be generated from some random seed phrase using for example hashing functions. The public key is obtained from the private key by using an elliptic curve multiplication, the network address on the other hand is obtained directly from the public key by using hashing functions. All these transformations are one directional. The opposite direction is very hard in terms of required computations, actually, it implies an astronomical value of computations required. Seed phrases usually look like random list of words, usually 15 or 16, you can see an example on your screens. So seed phrases and private keys must be stored securely, but at the same time they should be
-
-
-Not every 32 byte array can be a private key. A private key can be generated from some random seed phrase using hashing functions. The public key is obtained from the private key using an elliptic curve multiplication. Account [address](/en/blockchain/account/address) is obtained from the public key. All these transformations are unidirectional. The opposite direction is almost impossible in terms of the required computations.
+Not every 32 byte array can be a private key. The private key can be generated from some random seed phrase using hashing functions. The public key is obtained from the private key using an elliptic curve multiplication. Account [address](/en/blockchain/account/address) is obtained from the public key. All these transformations are unidirectional. The opposite direction is almost impossible in terms of the required computations.
 
 ![](./_assets/keys-way.png)
 
-The **secret phrase** (seed phrase, backup phrase) can be any combination of symbols, words, or bytes. Waves wallet apps typically use a random set of 15 English words out of 2048 words available. Using such a phrase is cryptographically secure: the probability of generating two identical seed phrases is 1/2048<sup>15</sup>, so brute-force will take millions of years on an average CPU. The point of using a secret phrase (rather than a private key) is to simplify user experience: the secret phrase is much easier to write down or remember.
+The **secret phrase** (a.k.a. seed phrase, backup phrase) can be any combination of symbols, words, or bytes. Waves wallet apps typically use a random set of 15 English words out of 2048 words available. Using such a phrase is secure: the probability of generating two identical seed phrases is 1/2048<sup>15</sup>, so brute-force will take millions of years on an average CPU. The point of using a secret phrase (rather than a private key) is to simplify user experience: the secret phrase is much easier to write down or remember.
 
 Example of a secret phrase:
 

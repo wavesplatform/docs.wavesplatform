@@ -1,6 +1,6 @@
 # Account Data Storage
 
-**Account data storage** is key-value storage associated with an [account](/en/blockchain/account/).
+**Account data storage** is a key-value storage associated with an [account](/en/blockchain/account/).
 
 The key of each entry is an unique string. 
 
@@ -23,7 +23,7 @@ You can also obtain data entries using [Node REST API](/en/waves-node/node-api/)
 
 ## Add, Modify, Delete<sup><img src="./_assets/feature15.svg"></sup> Entires
 
-The account owner can add, modify or delete entries of the account data store using via a [Data transaction](/en/blockchain/transaction-type/data-transaction). You can create and send a transaction using one of the [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/), see examples in the [How to Create Transaction and Send It to Blockchain](/en/building-apps/how-to/basic/transaction) article.
+The account owner can add, modify or delete entries of the account data storage via a [Data transaction](/en/blockchain/transaction-type/data-transaction). You can create and send a transaction using one of the [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/), see examples in the [How to Create Transaction and Send It to Blockchain](/en/building-apps/how-to/basic/transaction) article.
 
 A [dApp script](/en/blockchain/account/dapp) can add, modify or delete entries in the dApp's data storage as a result of an [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) via script actions:
 * [BinaryEntry](/en/ride/structures/script-actions/binary-entry)

@@ -1,8 +1,8 @@
 # Address
 
-**Address** is an [account](/en/blockchain/account/) attribute generated from the [public key](/en/blockchain/account/# account-keys). The address also contains the [chain ID](/en/blockchain/blockchain-network/#byte-network) that identifies the blockchain network, therefore the address on the Mainnet cannot be used on the Testnet and vice versa.
+**Address** is an [account](/en/blockchain/account/) attribute derived from the [public key](/en/blockchain/account/#account-keys). The address also contains the chain ID that identifies the [blockchain network](/en/blockchain/blockchain-network/#byte-network), therefore the address on the Mainnet cannot be used on the Testnet and vice versa.
 
-The address is a 26 byte array (see the [Address Binary Format](/en/blockchain/binary-format/address-binary-format)). In UIs the address is encoded in [base58](https://en.bitcoin.it/wiki/Base58Check_encoding).
+The address is a 26 byte array (see the [Address Binary Format](/en/blockchain/binary-format/address-binary-format)). In UIs the address is displayed as [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) encoded string.
 
 Example address:
 

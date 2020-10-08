@@ -5,7 +5,7 @@
 У одного адреса может быть несколько псевдонимов.
 
 Псевдоним можно использовать вместо адреса:
-* В [транзакциях перевода](/ru/blockchain/transaction-type/transfer-transaction) и [массового перевода](/ru/blockchain/transaction-type/mass-transfer-transaction) в качестве идентификатора получателя, а также в [транзакциях вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction).
+* В [транзакциях перевода](/ru/blockchain/transaction-type/transfer-transaction), [массового перевода](/ru/blockchain/transaction-type/mass-transfer-transaction), [лизинга](/ru/blockchain/transaction-type/lease-transaction) в качестве идентификатора получателя, а также в [транзакциях вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction).
 * Для поиска аккаунта в [Waves Explorer](https://wavesexplorer.com/).
 
 Псевдоним невозможно удалить.
