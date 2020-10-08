@@ -6,18 +6,22 @@ dApp script can contain multiple callable functions.
 
 Callable functions features rely on [standard library](/en/ride/script/standard-library) version:
 
-| Standard library v3 | Standard library v4 |
-|---|---|
-| Adding and modifying of [account data storage](/en/blockchain/account/account-data-storage) entries | Adding, modifying, deleting of [account data storage](/en/blockchain/account/account-data-storage) entries |
-| Token transfers | Token transfers |
-|   | Issue, reissue, burning tokens |
-|   | [Sponsorship](/en/blockchain/waves-protocol/sponsored-fee) setup |
+| Action | Version 3 | Version 4 | Version 5 |
+|---|---|---|---|
+| Adding and modifying of [account data storage](/en/blockchain/account/account-data-storage) entries | ✓ | ✓ | ✓ |
+| Deleting of account data storage entries | | ✓ | ✓ |
+| Token transfers | ✓ | ✓ | ✓ |
+| Issue, reissue, burning tokens | | ✓ | ✓ |
+| [Sponsorship](/en/blockchain/waves-protocol/sponsored-fee) setup | | ✓ | ✓ |
+| Lease, Lease cancellation | | | ✓ |
 
-The invoke script transaction can have payments in favor of dApp applied. Funds obtained in this payments can be included in token transfers.
+Standard library version 4 is available since activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
-> Standard library v4 is available starting from node version 1.2.0 after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+:warning: Standard library version 5 is added in node version 1.3.0 and enabled by feature #16 “Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 
-:warning: After activation of the feature #15, the fee for the invoke script transaction cannot be funded by transfer from the dApp to the transaction sender. If sender's balance is insufficient to pay the fee, dApp script is not executed.
+The invoke script transaction can contain payments in favor of dApp applied. Funds obtained in this payments can be included in token transfers.
+
+Since activation of feature #15, the fee for the invoke script transaction cannot be funded by transfer from the dApp to the transaction sender. If sender's balance is insufficient to pay the fee, dApp script is not executed.
 
 ## Annotation
 
@@ -137,7 +141,7 @@ func withdraw(amount: Int) = {
 func verify() = false
 ```
 
-## Version 4
+## Version 4, 5
 
 ### Arguments
 
@@ -189,11 +193,13 @@ Script actions executed by the callable function are set by Ride structures.
 | [Burn](/en/ride/structures/script-actions/burn) | Token burn |
 | [SponsorFee](/en/ride/structures/script-actions/sponsor-fee) | Sponsorship setup |
 | [ScriptTransfer](/en/ride/structures/script-actions/script-transfer) | Token transfer |
+| [Lease](/en/ride/structures/script-actions/lease) (v5) | Lease |
+| [LeaseCancel](/en/ride/structures/script-actions/issue) (v5) | Lease cancellation |
 
 ### Limitations
 
 * The maximum number of `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, `StringEntry`, `DeleteEntry` that are executed by callable function is 100.
-* The maximum number of `Issue`, `Reissue`, `Burn`, `SponsorFee`, `ScriptTransfer` that are executed by callable function is 10.
+* The maximum number of `Issue`, `Reissue`, `Burn`, `SponsorFee`, `ScriptTransfer`, `Lease`, `LeaseCancel` that are executed by callable function is 10.
 * The maximum number of the payments in favor of dApp which are attached to the invoke script transaction is 2.
 
 ### Example <a id="example4"></a>

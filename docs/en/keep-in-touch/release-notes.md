@@ -1,30 +1,138 @@
-# Version 1.2
+# Release Notes
 
-## Node Improvements
+## Version 1.3 (Stagenet)
+
+### Ride
+
+* Issued version 5 of the [Standard library](/en/ride/script/standard-library).
+* Added script actions that the [callable function](/en/ride/functions/callable-function) of dApp can perform:
+   * [Lease](/en/ride/structures/script-actions/lease) — leases WAVES.
+   * [LeaseCancel](/en/ride/structures/script-actions/lease-cancel) — cancels the leasing.
+
+   Using these actions, you can change the amount of the lease, in particular, withdraw a part of the leased funds. If you cancel a lease for a larger amount and create a new lease for a smaller amount with the same recipient in the same script invocation, the recipient's generating balance decreases by the difference. Otherwise, if you send two separate transactions: a Lease cancel transaction and a Lease transaction, the generating balance immediately decreases by the amount of the canceled lease, and increases by the amount of the new lease after 1000 blocks.
+
+* Added the following built-in functions:
+   * [calculateLeaseId](/en/ride/functions/built-in-functions/blockchain-functions#calculateleaseid) that calculates ID of the lease formed by the `Lease` structure when executing the callable function.
+
+### Node REST API
+
+#### Breaking Changes
+
+A lease can be created both as a result of a Lease transaction and as a result of an Invoke Script transaction via a `Lease` script action. Therefore, the response of the following endpoints has been changed:
+
+* In the response of `/transactions/address/{address}/limit/{limit}` and `/transactions/info/{id}` endpoints for Lease Cancel transaction, the `lease` structure now contains parameters of cancelled lease instead of Lease transaction fields.
+
+   Format:
+
+   ```json
+   "lease":
+      {
+         "leaseId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+         "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+         "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
+         "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
+         "amount": 1000000000000,
+         "height": 2253315
+      }
+   ```
+
+* `​/leasing​/active​/{address}` returns an array of structures containing parameters of active leases instead of array of Lease transactions.
+
+### Semantic Changes
+
+* The `stateChanges` structure for Invoke Script transactions contains results of `Lease` and `LeaseCancel` script actions. `stateChanges` is returned by the following endpoints:
+   * `/debug/stateChanges/address/{address}/limit/{limit}`
+   * `/debug/stateChanges/info/{id}`
+   * `stateChanges` also added to the `/transactions/address/{address}/limit/{limit}` endpoint response for Invoke Script transaction.
+
+   Format:
+
+   ```json
+   "stateChanges": {
+      "leases": [
+        {
+          "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+          "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
+          "amount": 500000,
+          "nonce": 0
+        }
+      ],
+      "leaseCancellations": [
+         {
+            "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
+         }
+      ]
+   }
+   ```
+
+* The `trace` structure or Invoke Script transactions contains results of `Lease` and `LeaseCancel` script actions. `trace` is returned by the following endpoints:
+   * `/transactions/broadcast`
+   * `/debug/validate`
+
+   Format:
+
+   ```json
+       "trace": [
+        {
+            "id": "3MosFNQAFGskNDnYzRBgMbfod6xXPdG96ME",
+            "type": "dApp",
+            "vars": [
+                {
+                    "name": "amount",
+                    "type": "integer",
+                    "value": 12345
+                }
+            ],
+            "result": {
+                "lease": [
+                    {
+                        "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+                        "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
+                        "amount": 500000,
+                        "nonce": 0
+                    }
+                ],
+                "leaseCancel": [
+                    {
+                        "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
+                    }
+                ]
+            }
+        }
+    ]
+   ```
+
+### Activation
+
+To activate the improvements listed above, vote for feature #16 “Continuations”. 
+
+## Version 1.2
+
+### Node Improvements
 
 * Improved the mechanism for [generating blocks](/en/blockchain/block/block-generation/) using [VRF](https://en.wikipedia.org/wiki/Verifiable_random_function) (Verifiable random function). This improvement allows withstanding stake grinding attacks, which are used by the attackers to try to increase the probability of generating a block for themselves.
-* Implemented saving failed transactions. Invoke script transactions and exchange transactions are saved on the blockchain and a fee is charged for them even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed and the complexity of calculations performed during script invocation exceeded the threshold for saving failed transactions. [More details](/en/keep-in-touch/april)
-* Implemented the feature of changing the asset name and description. For this means, the [update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) is used. Change is possible after 10 or more blocks on Stagenet and after 100,000 or more blocks on Mainnet and Testnet.
-* Implemented the feature of deletion of entries from the account data storage. This action can be performed by the [data transaction](/en/blockchain/transaction-type/data-transaction) or [DeleteEntry](/en/ride/structures/script-actions/delete-entry) structure of the Ride language.
-* Reduced the [minimum fee](/en/blockchain/transaction/transaction-fee) from 1 to 0.001 WAVES for the reissue transaction and sponsor fee transaction.
+* Implemented saving failed transactions. Invoke Script transactions and Exchange transactions are saved on the blockchain and a fee is charged for them even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed and the complexity of calculations performed during script invocation exceeded the threshold for saving failed transactions. [More details](/en/keep-in-touch/april)
+* Implemented the feature of changing the asset name and description. For this means, the [Update Asset Info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) is used. Change is possible after 10 or more blocks on Stagenet and after 100,000 or more blocks on Mainnet and Testnet.
+* Implemented the feature of deletion of entries from the account data storage. This action can be performed by the [Data transaction](/en/blockchain/transaction-type/data-transaction) or [DeleteEntry](/en/ride/structures/script-actions/delete-entry) structure of the Ride language.
+* Reduced the [minimum fee](/en/blockchain/transaction/transaction-fee) from 1 to 0.001 WAVES for the Reissue transaction and Sponsor Fee transaction.
 * Implemented transaction binary formats based on [protobuf](https://developers.google.com/protocol-buffers/docs/overview).
 * [Issue transaction](/en/blockchain/transaction-type/issue-transaction)'s `name` and `description` fields type changed from bytes to string.
-* The maximum data size in [data transaction](/en/blockchain/transaction-type/data-transaction) increased to 165,890 bytes.
+* The maximum data size in [Data transaction](/en/blockchain/transaction-type/data-transaction) increased to 165,890 bytes.
 * [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) may contain buy and sell orders in any order.
 * Changed the [orders](/en/blockchain/order)' price calculation formula. Earlier, when determining the price for assets with different numbers of decimal places, there was a price value size issue. The maximum value depended on the difference of decimal digits of assets. For example, the price for an [NFT](/en/blockchain/token/non-fungible-token) asset could not exceed 1000 WAVES. The modified formula corrects this problem. Decimal places no longer affect the maximum price.
 * The minimum interval between blocks is increased from 5 to 15 seconds. Average block time is targeted 60 seconds instead of ~59 seconds.
 * Changed the scheme for signing the block transactions by the generating node. Previously, the generating node needed to sign the block header along with all transactions. For now, the [transactions root hash](/en/blockchain/block/merkle-root) is added to the header, so it is enough to sign only the header.
 * The BLAKE2b-256 hash of the block header is used as the block unique identifier.
 * When a transaction is validated before adding to the UTX pool, the blockchain state changes made by the transactions that were previously added to the block but then returned to the UTX pool due to the appearance of a new key block that refers to one of the previous microblocks, are taken into account.
-* dApp can't call itself with InvokeScript transaction with attached payments. Also dApp can't transfer funds to itself by `ScriptTransfer` script action.
+* dApp can't call itself with Invoke Script transaction with attached payments. Also dApp can't transfer funds to itself by `ScriptTransfer` script action.
 
-## REST API Updates
+### REST API Updates
 
 In the Node 1.2 release, we have some **semantic and breaking changes** in the API. Please read the following changes very attentively as it can affect your working application when migrating from Node 1.1 API to the Node 1.2 API.
 
-### Semantic Changes
+#### Semantic Changes
 
-* Invoke script transactions and exchange transaction [can be failed](/en/keep-in-touch/april), so their presence on the blockchain does not mean they are successful. Check the new field `applicationStatus` which is added to the output of the following endpoints:
+* Invoke Script transactions and Exchange transaction [can be failed](/en/keep-in-touch/april), so their presence on the blockchain does not mean they are successful. Check the new field `applicationStatus` which is added to the output of the following endpoints:
    * `/blocks/{id}`
    * `/blocks/address/{address}/{from}/{to}`
    * `/blocks/at/{height}`
@@ -40,7 +148,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    * `succeeded` — the transaction is successful
    * `script_execution_failed` — the dApp script or the asset script failed.
 
-* For failed invoke script transactions, the reason of failure is indicated in the `error` structure in the following endpoints:
+* For failed Invoke Script transactions, the reason of failure is indicated in the `error` structure in the following endpoints:
    * `/debug/stateChanges/address/{address}/limit/{limit}`
    * `/debug/stateChanges/info/{id}`
 
@@ -62,7 +170,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
 
    4: asset script in attached payments denied the transaction
 
-* For invoke script transactions, the results of new [script actions](/en/ride/structures/script-actions/) are represented in the `stateChanges` structure in the following endpoints:
+* For Invoke Script transactions, the results of new [script actions](/en/ride/structures/script-actions/) are represented in the `stateChanges` structure in the following endpoints:
    * `/debug/stateChanges/address/{address}/limit/{limit}`
    * `/debug/stateChanges/info/{id}`
 
@@ -81,7 +189,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
 
 * For block version 5, the `reference` field corresponds to `id` of the previous block instead of `signature` for block version 4.
 
-### Breaking Changes
+#### Breaking Changes
 
 * Retrieve blocks by `id` instead of `signature`.
 
@@ -124,7 +232,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    ```
 
 * Added the new transaction type: Update Asset Info.
-* Invoke script transaction now can have arguments of `List` type.
+* Invoke Script transaction now can have arguments of `List` type.
 
    Example:
 
@@ -132,7 +240,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    { "call": { "function": string, "args": [ ["arg1-item1", "arg1-item2", "arg1-item3"] ] } }
    ```
 
-* Account data storage entries can be deleted by data transactions and invoke script transactions. Entry deletion is represented as follows: `{ "key": string, "value": null }`, `value` is null, no `type` field. Can be found in:
+* Account data storage entries can be deleted by Data transactions and Invoke Script transactions. Entry deletion is represented as follows: `{ "key": string, "value": null }`, `value` is null, no `type` field. Can be found in:
    * `/blocks/{id}`
    * `/blocks/address/{address}/{from}/{to}`
    * `/blocks/at/{height}`
@@ -145,7 +253,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
 
 * Exchange transaction version 3 can include buy and sell orders in any order: buy/sell or sell/buy.
 
-### Improvements 
+#### Improvements 
 
 * `/debug/validate` endpoint does not require API-key.
 * `/assets/details` endpoint can provide multiple assets info at once. The `originTransactionId` field containing the ID of the transaction that issued the asset is added to the response. Also, the endpoint supports POST requests.
@@ -177,7 +285,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    * `/blocks/last`
    * `/blocks/seq/{from}/{to}`
 
-## Ride Improvements
+### Ride Improvements
 
 * Issued version 4 of the Ride [Standard library](/en/ride/script/standard-library).
 * Added script actions that the callable function of dApp can perform:
@@ -188,8 +296,8 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    * [BooleanEntry](/en/ride/structures/script-actions/boolean-entry), [BinaryEntry](/en/ride/structures/script-actions/binary-entry), [IntegerEntry](/en/ride/structures/script-actions/int-entry), [StringEntry](/en/ride/structures/script-actions/string-entry) that add or update the [account data storage](/en/blockchain/account/account-data-storage) entries of the corresponding type. These actions replace [DataEntry](/en/ride/structures/script-actions/data-entry) that is not supported in version 4.
    * [DeleteEntry](/en/ride/structures/script-actions/delete-entry) that deletes the account data storage entry.
 * The [callable](/en/ride/functions/callable-function) function result format is modified. Since version 4 the result is the list of script actions. The `ScriptResult`, `WriteSet` and `TransferSet` structures are not supported.
-* Invoke script transaction's fee increased by 1 WAVES for each non-NFT asset issued by the transaction's Issue structure.
-* Enabled processing up to two payments attached to the invoke script transaction.
+* Invoke Script transaction's fee increased by 1 WAVES for each non-NFT asset formed by the transaction's `Issue` structure.
+* Enabled processing up to two payments attached to the Invoke Script transaction.
 * Added support of list of primitives as a callable function argument.
 * Added the following built-in functions:
    * [bn256groth16Verify](/en/ride/functions/built-in-functions/verification-functions#bn256groth16verify) range of functions that verify the zero-knowledge proof [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by groth16 protocol on the bn254 curve. Complexity is 800–1650 depending on the argument size limit.
@@ -206,7 +314,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    * [median](/en/ride/functions/built-in-functions/math-functions#median) that calculates a median of the list of integers. Complexity is 20.
    * [min](/en/ride/functions/built-in-functions/list-functions#min) that returns the smallest element in the list. Complexity is 3.
    * [removeByIndex](/en/ride/functions/built-in-functions/list-functions#removebyindex) that removes an element from the list by index. Complexity is 7.
-   * [transferTransactionFromProto](/en/ride/functions/built-in-functions/converting-functions#transfertransactionfromproto) that deserializes a transfer transaction. Complexity is 5.
+   * [transferTransactionFromProto](/en/ride/functions/built-in-functions/converting-functions#transfertransactionfromproto) that deserializes a Transfer transaction. Complexity is 5.
    * [valueOrElse(t: T|Unit, t0 : T)](/en/ride/functions/built-in-functions/union-functions#valueOrElse) that returns a value from the union type if it's not [unit](/en/ride/data-types/unit). Complexity is 2.
 * The [wavesBalance](/en/ride/functions/built-in-functions/account-data-storage-functions#waves-balance) built-in function returns the [BalanceDetails](/en/ride/structures/common-structures/balance-details) structure that contains all types of WAVES balances.
 * Added `name` and `description` fields to the [Asset](/en/ride/structures/common-structures/asset) structure which is returned by the [assetInfo](/en/ride/functions/built-in-functions/blockchain-functions#assetinfo) built-in function.
@@ -225,10 +333,10 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    * [String](/en/ride/data-types/string): 32,767 bytes
    * [ByteVector](/en/ride/data-types/byte-vector): 32,767 bytes (except the `bodyBytes` field of the transaction structure)
 
-## Waves Explorer
+### Waves Explorer
 
 * Failed transactions are now displayed. They are marked with ![](./_assets/stop.png) icon in lists of transactions.
-* Added support of two payments for invoke script transactions. The dApp script result is displayed as a table.
-* Added display of the new transaction type: update asset info transaction.
-* Added the link to the issue transaction on the asset information page.
+* Added support of two payments for Invoke Script transactions. The dApp script result is displayed as a table.
+* Added display of the new transaction type: Update Asset Info transaction.
+* Added the link to the Issue transaction on the asset information page.
 * Added Block ID field to the block information page.

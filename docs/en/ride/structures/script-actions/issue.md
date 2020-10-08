@@ -6,7 +6,7 @@
 
 The minimum fee for an invoke script transaction is increased by 1 WAVES for each issued asset that is not [NFT](/en/blockchain/token/non-fungible-token).
 
-You can get the ID of the issued token using the function [calculateAssetId](/en/ride/functions/built-in-functions/blockchain-functions#calculate).
+You can get the ID of the issued token using the [calculateAssetId](/en/ride/functions/built-in-functions/blockchain-functions#calculate) function.
 
 ## Constructor
 

@@ -7,7 +7,7 @@
 
 Минимальная комиссия за транзакцию вызова скрипта увеличивается на 1 WAVES за каждый выпущенный токен, не являющийся [NFT](/ru/blockchain/token/non-fungible-token).
 
-Получить идентификатор выпускаемого токена можно с помощью функции [calculateAssetId](/ru/ride/functions/built-in-functions/blockchain-functions#calculate).
+Получить идентификатор выпускаемого токена можно с помощью функции [calculateAssetId](/ru/ride/functions/built-in-functions/blockchain-functions#calculateassetid).
 
 ## Конструктор
 

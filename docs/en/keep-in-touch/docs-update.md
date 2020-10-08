@@ -1,5 +1,18 @@
 # Documentation Updates
 
+## October
+
+### Ride
+
+#### Script Actions
+
+* [Lease](/en/ride/structures/script-actions/lease) ![stagenet](./_assets/stagenet.svg)
+* [LeaseCancel](/en/ride/structures/script-actions/lease-cancel) ![stagenet](./_assets/stagenet.svg)
+
+#### Built-in Functions
+
+* [calculateLeaseId](/en/ride/functions/built-in-functions/blockchain-functions#calculateleaseid) ![stagenet](./_assets/stagenet.svg)
+
 ## September
 
 ### Blockchain

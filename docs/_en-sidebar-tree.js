@@ -748,15 +748,15 @@ module.exports = {
           path: ridePath + 'structures/script-actions',
           children: [
             {
-              title: 'BinaryEntry (v4)',
+              title: 'BinaryEntry (v4, v5)',
               path: ridePath + 'structures/script-actions/binary-entry',
             },
             {
-              title: 'BooleanEntry (v4)',
+              title: 'BooleanEntry (v4, v5)',
               path: ridePath + 'structures/script-actions/boolean-entry',
             },
             {
-              title: 'Burn (v4)',
+              title: 'Burn (v4, v5)',
               path: ridePath + 'structures/script-actions/burn',
             },
             {
@@ -764,31 +764,39 @@ module.exports = {
               path: ridePath + 'structures/script-actions/data-entry',
             },
             {
-              title: 'DeleteEntry (v4)',
+              title: 'DeleteEntry (v4, v5)',
               path: ridePath + 'structures/script-actions/delete-entry',
             },
             {
-              title: 'IntegerEntry (v4)',
+              title: 'IntegerEntry (v4, v5)',
               path: ridePath + 'structures/script-actions/int-entry',
             },
             {
-              title: 'Issue (v4)',
+              title: 'Issue (v4, v5)',
               path: ridePath + 'structures/script-actions/issue',
             },
             {
-              title: 'Reissue (v4)',
+              title: 'Lease (v5)',
+              path: ridePath + 'structures/script-actions/lease',
+            },
+            {
+              title: 'LeaseCancel (v5)',
+              path: ridePath + 'structures/script-actions/lease-cancel',
+            },
+            {
+              title: 'Reissue (v4, v5)',
               path: ridePath + 'structures/script-actions/reissue',
             },
             {
-              title: 'ScriptTransfer (v3 and v4)',
+              title: 'ScriptTransfer (v3, v4, v5)',
               path: ridePath + 'structures/script-actions/script-transfer',
             },
             {
-              title: 'SponsorFee (v4)',
+              title: 'SponsorFee (v4, v5)',
               path: ridePath + 'structures/script-actions/sponsor-fee',
             },
             {
-              title: 'StringEntry (v4)',
+              title: 'StringEntry (v4, v5)',
               path: ridePath + 'structures/script-actions/string-entry',
             },
           ],

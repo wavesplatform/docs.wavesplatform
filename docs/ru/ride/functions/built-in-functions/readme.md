@@ -18,7 +18,8 @@
 | addressFromRecipient(Address&#124;Alias): Address | Получает [адрес](/ru/blockchain/account/address), соответствующий [псевдониму](/ru/blockchain/account/alias) | 100 для Стандартной библиотеки **версии&nbsp;3**<br>5 для Стандартной библиотеки **версии&nbsp;4** |
 | assetInfo(ByteVector): Аsset&#124;Unit | Получает информацию о [токене](/ru/blockchain/token/) | 100 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии&nbsp;3**<br>15 для Стандартной библиотеки **версии&nbsp;4** |
 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Получает информацию о [блоке](/ru/blockchain/block/) по [высоте блока](/ru/blockchain/block/block-height) | 100 для Стандартной библиотеки **версии&nbsp;3**<br>5 для Стандартной библиотеки **версии&nbsp;4** |
-| calculateAssetId(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/script-actions/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 10 |
+| calculateAssetId(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/script-actions/issue) при выполнении [вызываемой функции](/ru/ride/functions/callable-function) | 10 |
+| calculateLeaseId(Lease): ByteVector | Вычисляет ID лизинга, созданного структурой [Lease](/ru/ride/structures/script-actions/issue) при выполнении вызываемой функции | 10 |
 | transactionHeightById(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 100 для Стандартной библиотеки **версии&nbsp;3**<br>20 для Стандартной библиотеки **версии&nbsp;4** |
 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 100 для Стандартной библиотеки **версии&nbsp;3**<br>60 для Стандартной библиотеки **версии&nbsp;4** |
 
