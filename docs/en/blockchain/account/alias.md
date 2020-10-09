@@ -25,7 +25,7 @@ The following characters are allowed:
 
 ## Create Alias
 
-To create an alias, you have to send a [Create Alias transaction](/en/blockchain/transaction-type/create-alias-transaction). There are the following options to send the transaction:
+To create an alias, you have to send a [Create Alias transaction](/en/blockchain/transaction-type/create-alias-transaction). There are the following options for sending the transaction:
 * In [Waves.Exchange](https://waves.exchange/) app developed by the third-party team from the community. See the [Create Personal Alias](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-account/online-desktop-alias) article of Waves.Exchange documentation.
 * Using [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/). See also the [How to Create Transaction and Broadcast It to Blockchain](/en/building-apps/how-to/basic/transaction) article.
 

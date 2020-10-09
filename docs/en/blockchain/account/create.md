@@ -4,8 +4,8 @@ To create a Waves account, you don't need to register anywhere. To create a Wave
 
 :warning: **Security Information**
 * The secret phrase or the private key derived from it provides complete control over the account, including the ability to dispose of funds. Do not give your secret phrase and private key to anyone, and do not publish or send them.
-* The secret phrase cannot be changed: another secret phrase (even one that differs by single character) will generate a different key pair, and therefore a different account.
-* If you lose your secret phrase and private key, you will no longer be able to access your account permanently. We strongly encourage that you write down the secret phrase on a piece of paper and store it in a safe place.
+* The secret phrase cannot be changed: another secret phrase (even one that differs by a single character) will generate a different key pair, and therefore a different account.
+* If you lose your secret phrase and private key, you will no longer be able to access your account permanently. We strongly encourage you to write down the secret phrase on a piece of paper and store it in a safe place.
 * If the secret phrase is compromised (you have accidentally sent it to someone or suspect that it was taken by fraudsters), immediately create a new account and transfer all assets to it.
 
 You can use one of the recommended apps to create an account:

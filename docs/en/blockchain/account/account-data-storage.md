@@ -2,7 +2,7 @@
 
 **Account data storage** is a key-value storage associated with an [account](/en/blockchain/account/).
 
-The key of each entry is an unique string. 
+The key of each entry is a unique string. 
 
 The value is the data of one of the types:
 
@@ -21,7 +21,7 @@ Data storage of any account, as well as other blockchain data, are public and ca
 
 You can also obtain data entries using [Node REST API](/en/waves-node/node-api/) and [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/), see the examples in the [How to Retrieve Information from the Blockchain](/en/building-apps/how-to/basic/retrieve) article.
 
-## Add, Modify, Delete<sup><img src="./_assets/feature15.svg"></sup> Entires
+## Add, Modify, Delete<sup><img src="./_assets/feature15.svg"></sup> Entries
 
 The account owner can add, modify or delete entries of the account data storage via a [Data transaction](/en/blockchain/transaction-type/data-transaction). You can create and send a transaction using one of the [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/), see examples in the [How to Create Transaction and Send It to Blockchain](/en/building-apps/how-to/basic/transaction) article.
 

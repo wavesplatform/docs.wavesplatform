@@ -8,7 +8,7 @@ An account with a script assigned to it becomes a dApp or smart account.
 * Transfer tokens from the dApp balance.
 * Issue, reissue, burn tokens on behalf of the dApp, sponsorship setup.
 
-Beyond that, a dApp script can comprise a **verifier function** that allows or denies transactions and orders that are sent on behalf of the dApp account depending on the specified conditions. The verifier function replaces the default verification that is to verify the sender's signature and allows you to set more complex rules, such as multisignature.
+Beyond that, a dApp script can comprise the **verifier function** that allows or denies transactions and orders that are sent on behalf of the dApp account depending on the specified conditions. The verifier function replaces the default verification that is to verify the sender's signature and allows you to set more complex rules, such as multisignature.
 
 Using dApps, you can implement various blockchain-empowered applications: gaming and gambling, DeFi, digital identity, supply chains, and many others. For information about how dApp works, see the [What is dApp](/en/building-apps/smart-contracts/what-is-a-dapp) article. For information about how to create a dApp, see the [How to Create and Launch dApp](/en/building-apps/smart-contracts/writing-dapp) article.
 
@@ -16,6 +16,6 @@ Using dApps, you can implement various blockchain-empowered applications: gaming
 
 Please note:
 
-* To assign a script to an account, you have to send an [Set Script transaction](/en/blockchain/transaction-type/set-script-transaction) on behalf of the account.
+* To assign a script to an account, you have to send a [Set Script transaction](/en/blockchain/transaction-type/set-script-transaction) on behalf of the account.
 * You can also change or delete the script via the Set Script transaction, unless the script itself prohibits it.
 * The [minimum fee](/en/blockchain/transaction/transaction-fee) for any transaction sent from a dApp or smart account is increased by 0.004 WAVES.
