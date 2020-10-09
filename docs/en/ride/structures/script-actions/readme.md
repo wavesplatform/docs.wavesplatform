@@ -15,8 +15,8 @@ Available script actions depend on [Standard library](/en/ride/script/standard-l
 | [DeleteEntry](/en/ride/structures/script-actions/delete-entry) | ✓ | ✓ | | Delete an entry |
 | [IntegerEntry](/en/ride/structures/script-actions/int-entry) |✓ | ✓ | | Add or modify an integer entry |
 | [Issue](/en/ride/structures/script-actions/issue) | ✓ | ✓ | | Issue a token |
-| [Lease](/en/ride/structures/script-actions/issue) | | | ✓ | Lease |
-| [LeaseCancel](/en/ride/structures/script-actions/issue) | | | ✓ | Cancel lease |
+| [Lease](/en/ride/structures/script-actions/issue) | ✓ | | | Lease |
+| [LeaseCancel](/en/ride/structures/script-actions/issue) | ✓ | | | Cancel lease |
 | [Reissue](/en/ride/structures/script-actions/reissue) | ✓ | ✓ | | Reissue a token |
 | [ScriptTransfer](/en/ride/structures/script-actions/script-transfer) | ✓ | ✓ | ✓ | Transfer a token |
 | [SponsorFee](/en/ride/structures/script-actions/sponsor-fee) | ✓ | ✓ | | Set up a sponsorship |

@@ -9,9 +9,9 @@
    * [Lease](/en/ride/structures/script-actions/lease) — leases WAVES.
    * [LeaseCancel](/en/ride/structures/script-actions/lease-cancel) — cancels the leasing.
 
-   Using these actions, you can change the amount of the lease, in particular, withdraw a part of the leased funds. If you cancel a lease for a larger amount and create a new lease for a smaller amount with the same recipient in the same script invocation, the recipient's generating balance decreases by the difference. Otherwise, if you send two separate transactions: a Lease cancel transaction and a Lease transaction, the generating balance immediately decreases by the amount of the canceled lease, and increases by the amount of the new lease after 1000 blocks.
+   Using these actions, you can change the amount of the lease, in particular, withdraw a part of the leased funds. If you cancel a lease for a larger amount and create a new lease for a smaller amount with the same recipient in the same script invocation, the recipient's generating balance decreases by the difference. Otherwise, if you send two separate transactions: a Lease Cancel transaction and a Lease transaction, the generating balance decreases by the amount of the canceled lease immediately and increases by the amount of the new lease after 1000 blocks.
 
-* Added the following built-in functions:
+* Added the following built-in function:
    * [calculateLeaseId](/en/ride/functions/built-in-functions/blockchain-functions#calculateleaseid) that calculates ID of the lease formed by the `Lease` structure when executing the callable function.
 
 ### Node REST API
@@ -20,30 +20,29 @@
 
 A lease can be created both as a result of a Lease transaction and as a result of an Invoke Script transaction via a `Lease` script action. Therefore, the response of the following endpoints has been changed:
 
-* In the response of `/transactions/address/{address}/limit/{limit}` and `/transactions/info/{id}` endpoints for Lease Cancel transaction, the `lease` structure now contains parameters of cancelled lease instead of Lease transaction fields.
+* In the response of `/transactions/address/{address}/limit/{limit}` and `/transactions/info/{id}` endpoints for Lease Cancel transaction, the `lease` structure now contains lease parameters instead of Lease transaction fields.
+* `/leasing/active/{address}` returns an array of structures containing lease parameters instead of array of Lease transactions.
 
-   Format:
+Format:
 
-   ```json
-   "lease":
-      {
-         "leaseId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
-         "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
-         "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
-         "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
-         "amount": 1000000000000,
-         "height": 2253315
-      }
-   ```
-
-* `​/leasing​/active​/{address}` returns an array of structures containing parameters of active leases instead of array of Lease transactions.
+```json
+"lease":
+   {
+      "leaseId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+      "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+      "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
+      "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
+      "amount": 1000000000000,
+      "height": 2253315
+   }
+```
 
 ### Semantic Changes
 
-* The `stateChanges` structure for Invoke Script transactions contains results of `Lease` and `LeaseCancel` script actions. `stateChanges` is returned by the following endpoints:
+* The `stateChanges` structure for Invoke Script transactions contains results of the `Lease` and `LeaseCancel` script actions. `stateChanges` is returned by the following endpoints:
    * `/debug/stateChanges/address/{address}/limit/{limit}`
    * `/debug/stateChanges/info/{id}`
-   * `stateChanges` also added to the `/transactions/address/{address}/limit/{limit}` endpoint response for Invoke Script transaction.
+   * `stateChanges` is also added to the `/transactions/address/{address}/limit/{limit}` endpoint response for Invoke Script transaction.
 
    Format:
 
@@ -57,7 +56,7 @@ A lease can be created both as a result of a Lease transaction and as a result o
           "nonce": 0
         }
       ],
-      "leaseCancellations": [
+      "leaseCancels": [
          {
             "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
          }
@@ -65,7 +64,7 @@ A lease can be created both as a result of a Lease transaction and as a result o
    }
    ```
 
-* The `trace` structure or Invoke Script transactions contains results of `Lease` and `LeaseCancel` script actions. `trace` is returned by the following endpoints:
+* The `trace` structure for Invoke Script transactions contains results of `Lease` and `LeaseCancel` script actions. `trace` is returned by the following endpoints:
    * `/transactions/broadcast`
    * `/debug/validate`
 
@@ -84,7 +83,7 @@ A lease can be created both as a result of a Lease transaction and as a result o
                 }
             ],
             "result": {
-                "lease": [
+                "leases": [
                     {
                         "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
                         "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
@@ -92,7 +91,7 @@ A lease can be created both as a result of a Lease transaction and as a result o
                         "nonce": 0
                     }
                 ],
-                "leaseCancel": [
+                "leaseCancels": [
                     {
                         "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
                     }

@@ -11,7 +11,7 @@
 
    С помощью действий `Lease` и `LeaseCancel` можно изменить сумму лизинга, в частности, извлечь часть средств из лизинга. Если в одном вызове скрипта отменить лизинг на большую сумму и создать новый лизинг на меньшую сумму с тем же получателем, генерирующий баланс получателя уменьшится на разницу. Если же отправить две отдельные транзакции — транзакцию отмены лизинга и транзакцию лизинга, генерирующий баланс сразу же уменьшится на сумму отмененного лизинга, а увеличится на сумму нового лизинга только через 1000 блоков.
 
-* Добавлены встроенные функции:
+* Добавлена встроенная функция:
    * [calculateLeaseId](/ru/ride/functions/built-in-functions/blockchain-functions#calculateleaseid) — получает ID лизинга, сформированного структурой [Lease](/ru/ride/structures/script-actions/lease) при выполнении транзакции вызова скрипта.
 
 ## Node REST API
@@ -21,23 +21,24 @@
 Лизинг может быть создан не только в результате транзакции лизинга, но и в результате транзакции вызова скрипта с помощью действия скрипта `Lease`. 
 Поэтому изменен формат ответа следующих методов:
 
-* В ответе методов `/transactions/address/{address}/limit/{limit}` и `/transactions/info/{id}` для транзакции отмены лизинга структура `lease` теперь содержит не транзакцию лизинга, а структуру с параметрами отмененного лизинга.
+* В ответе методов `/transactions/address/{address}/limit/{limit}` и `/transactions/info/{id}` для транзакции отмены лизинга структура `lease` теперь содержит не транзакцию лизинга, а структуру с параметрами лизинга.
 
-   Формат:
+* `/leasing/active/{address}` возвращает не массив транзакций лизинга, а массив структур c параметрами лизингов.
 
-   ```json
-   "lease":
-      {
-         "leaseId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
-         "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
-         "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
-         "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
-         "amount": 1000000000000,
-         "height": 2253315
-      }
-   ```
+Формат:
 
-* `​/leasing​/active​/{address}` возвращает не массив транзакций лизинга, а массив структур c параметрами активных лизингов.
+```json
+"lease":
+   {
+      "leaseId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+      "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+      "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
+      "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
+      "amount": 1000000000000,
+      "height": 2253315
+   }
+```
+
 
 ### Семантические изменения
 
@@ -85,7 +86,7 @@
                 }
             ],
             "result": {
-                "lease": [
+                "leases": [
                     {
                         "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
                         "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
@@ -93,7 +94,7 @@
                         "nonce": 0
                     }
                 ],
-                "leaseCancel": [
+                "leaseCancels": [
                     {
                         "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
                     }
