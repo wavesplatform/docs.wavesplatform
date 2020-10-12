@@ -2,6 +2,10 @@
 
 ## October
 
+### Blockchain
+
+* [Account](/en/blockchain/account/) — <span style="color:green">updated</span>
+
 ### Node
 
 * [Blockchain Updates Extensions](/en/waves-node/extensions/blockchain-updates)

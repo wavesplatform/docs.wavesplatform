@@ -2,6 +2,10 @@
 
 ## Октябрь
 
+### Блокчейн
+
+* [Аккаунт](/ru/blockchain/account/) — <span style="color:green">обновлено</span>
+
 ### Нода
 
 * [Расширение Blockchain Updates](/ru/waves-node/extensions/blockchain-updates)
