@@ -24,6 +24,14 @@ module.exports = {
       path: blockchainPath + 'account',
       children: [
         {
+          title: 'Создание аккаунта',
+          path: blockchainPath + 'account/create',
+        },
+        {
+          title: 'Адрес',
+          path: blockchainPath + 'account/address',
+        },
+        {
           title: 'Баланс аккаунта',
           path: blockchainPath + 'account/account-balance',
         },
@@ -32,21 +40,13 @@ module.exports = {
           path: blockchainPath + 'account/account-data-storage',
         },
         {
-          title: 'Адрес',
-          path: blockchainPath + 'account/address',
-        },
-        {
           title: 'Псевдоним',
           path: blockchainPath + 'account/alias',
         },
         {
-          title: 'dApp',
+          title: 'dApp и смарт-аккаунт',
           path: blockchainPath + 'account/dapp',
         },
-        {
-          title: 'Смарт-аккаунт',
-          path: blockchainPath + 'account/smart-account',
-        }
       ],
     },
     {
