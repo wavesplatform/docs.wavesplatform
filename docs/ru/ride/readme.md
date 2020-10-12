@@ -4,7 +4,7 @@ Ride — лаконичный и дружественный язык для ра
 
 ## Типы скриптов
 
-Смарт-контракты Waves представляют собой скрипты, написанные на языке Ride. Скрипты могут быть прикреплены к аккаунтам или к токенам (ассетам). Аккаунт с прикрепленным к нему скриптом становится [dApp](/ru/building-apps/smart-contracts/what-is-a-dapp) или [смарт-аккаунтом](/ru/building-apps/smart-contracts/smart-account). Ассет с прикрепленным к нему скриптом становится [смарт-ассетом](/ru/building-apps/smart-contracts/what-is-smart-asset).
+Смарт-контракты Waves представляют собой скрипты, написанные на языке Ride. Скрипты могут быть прикреплены к аккаунтам или к токенам (ассетам). Аккаунт с прикрепленным к нему скриптом становится [dApp](/ru/building-apps/smart-contracts/what-is-a-dapp) или [смарт-аккаунтом](/ru/building-apps/smart-contracts/what-is-smart-account). Ассет с прикрепленным к нему скриптом становится [смарт-ассетом](/ru/building-apps/smart-contracts/what-is-smart-asset).
 
 Возможности скрипта зависят от его [типа](/ru/ride/script/):
 * [dApp-скрипт](/ru/ride/script/script-types/dapp-script) позволяет определить вызываемые функции, выполняющие различные действия на блокчейне, а также функцию-верификатор, которая разрешает или отклоняет транзакции или ордера, отправляемые от имени аккаунта.
@@ -24,7 +24,7 @@ Ride — лаконичный и дружественный язык для ра
 
 Описание функций см. в разделах [Функции хранилища данных аккаунта](/ru/ride/functions/built-in-functions/account-data-storage-functions) и [Функции блокчейна](/ru/ride/functions/built-in-functions/blockchain-functions).
 
-[Вызываемые функции](/ru/ride/functions/callable-function) dApp-скрипта могут принимать платежи в пользу dApp, а также выполнять [действия на блокчейне](/ru/ride/structures/script-actions/readme):
+[Вызываемые функции](/ru/ride/functions/callable-function) dApp-скрипта могут принимать платежи в пользу dApp, а также выполнять [действия на блокчейне](/ru/ride/structures/script-actions/):
 
 * Добавление/изменение/удаление записей в хранилище данных аккаунта dApp.
 * Перевод токена с баланса dApp.
@@ -44,7 +44,7 @@ Ride — лаконичный и дружественный язык для ра
 
 ## Полезные ссылки
 
-* [Белая книга Ride](https://wavesprotocol.org/files/docs/white_paper_waves_smart_contracts.pdf) (2018)
+* [Белая книга Ride](https://s3.eu-central-1.amazonaws.com/waves.tech/White_paper_waves_smart_contracts_7a48be1231.pdf) (2018)
 * [Инструменты разработчика](/ru/building-apps/smart-contracts/tools/)
 * [Как создать и запустить dApp: полное пошаговое руководство](/ru/building-apps/smart-contracts/writing-dapps)
 * [Mastering Web3 with Waves](https://www.coursera.org/learn/mastering-web3-waves): практический курс на Coursera.

@@ -47,15 +47,24 @@ The addresses of the pool of public nodes are as follows:
 | Testnet | <https://nodes-testnet.wavesnodes.com/> |
 | Stagenet | <https://nodes-stagenet.wavesnodes.com/> |
 
+### Data Service API
+
+| | | |
+| :--- | :--- | :--- |
+| | Address for requests | Swagger |
+| Mainnet | `https://api.wavesplatform.com/v0/` | <https://api.wavesplatform.com/v0/docs/> |
+| Testnet | `https://api.testnet.wavesplatform.com/v0/` | <https://api.testnet.wavesplatform.com/v0/docs/> |
+| Stagenet | `https://api-stagenet.wavesplatform.com/v0/` | <https://api-stagenet.wavesplatform.com/v0/docs/> |
+
 ### Waves.Exchange
 
-[Waves.Exchange](https://docs.waves.exchange/en/) is a decentralized exchange developed by Waves.Exchange team.
+[Waves.Exchange](https://docs.waves.exchange/en/) is a decentralized exchange developed by the third-party team from the community.
 
 | | |
 | :--- | :--- |
 | Mainnet | <https://waves.exchange/> |
 | Testnet | <https://testnet.waves.exchange/> |
-| Stagenet | — |
+| Stagenet | <https://stagenet.waves.exchange/> |
 
 ### API of Waves.Exchange Matcher
 
@@ -65,7 +74,7 @@ The addresses for order sending and market data obtaining are as follows:
 | :--- | :--- |
 | Mainnet | <https://matcher.waves.exchange/> |
 | Testnet | <https://matcher-testnet.waves.exchange> |
-| Stagenet | — |
+| Stagenet | <https://matcher-stagenet.waves.exchange> |
 
 ### Waves Explorer
 

@@ -26,7 +26,7 @@ The node that holds at least 1,000 WAVES (by ownership or [lease](/en/blockchain
 
 Waves uses an account-based model. Each transaction is created on behalf of an account, all assets and data are associated with the account. An account has a pair of cryptographically bound keys: a private key that the account uses to sign transactions, and a public key that allows anyone to verify the signature. [More about account](/en/blockchain/account/)
 
-To create an account, store keys, and sign transactions, you can use different applications, for example: [Waves.Exchange](https://waves.exchange/) developed by Waves.Exchange team, [WavesFX](https://wavesfx.github.io/) developed by WavesFX team; [Waves Keeper](/en/ecosystem/waves-keeper/) developed by Waves team, or others.
+To create an account, store keys, and sign transactions, you can use different applications, for example: [Waves.Exchange](https://waves.exchange/) or [WavesFX](https://wavesfx.github.io/) that are developed by the third-party teams from the community, [Waves Keeper](/en/ecosystem/waves-keeper/) developed by Waves team or others.
 
 ![](./_assets/interaction.png)
 

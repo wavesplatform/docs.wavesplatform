@@ -12,4 +12,4 @@
 | [Union](/en/ride/data-types/union) | — |
 | [Structure](/en/ride/structures/) | — |
 
-For each value, depending on the data type, the weight is determined. The weight is used in [limitations](#limitations) on creating and comparing values. For more information see the [Data Weight](/en/ride/limits/weight).
+For each value, depending on the data type, the weight is determined. The weight is used in limitations on creating and comparing values. For more information see the [Data Weight](/en/ride/limits/weight).

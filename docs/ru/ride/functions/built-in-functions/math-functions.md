@@ -93,7 +93,7 @@ log(0, 0, 2, 0, 0, HALFUP)     # Результат: -Infinity
 
 Возвращает медиану [списка](/ru/ride/data-types/list) целых чисел. Список не может быть пустым, иначе скрипт завершится с ошибкой.
 
-> Функция `median` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4, которая доступна начиная с версии ноды 1.2.0 после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> Функция `median` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4.
 
 ``` ride
 median(arr: List[Int]): Int

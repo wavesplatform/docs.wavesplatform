@@ -66,7 +66,7 @@ match tx {
 
 If the asset script denies the [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) (provided that the sender signature verification or the account script verification passed), the transaction is saved on the blockchain but marked as failed (`"applicationStatus": "script_execution_failed"`). The sender of the transaction (matcher) is charged a fee. The transaction doesn't entail any other changes in balances, in particular, the order senders don't pay the matcher fee.
 
-If the asset script denies the [Invoke Script transaction](/en/blockchain/transaction-type/exchange-transaction) (provided that the sender signature verification or the account script verification passed and the complexity of calculations performed by dApp script exceeded the [threshold for saving failed transactions](/en/ride/limit)), the transaction is saved on the blockchain but marked as failed (`"applicationStatus": "script_execution_failed"`). The transaction sender is charged a fee. The transaction doesn't entail any other changes on the blockchain.
+If the asset script denies the [Invoke Script transaction](/en/blockchain/transaction-type/exchange-transaction) (provided that the sender signature verification or the account script verification passed and the complexity of calculations performed by dApp script exceeded the [threshold for saving failed transactions](/en/ride/limits/)), the transaction is saved on the blockchain but marked as failed (`"applicationStatus": "script_execution_failed"`). The transaction sender is charged a fee. The transaction doesn't entail any other changes on the blockchain.
 
 [More about transaction validation](/en/blockchain/transaction/transaction-validation)
 
@@ -82,5 +82,5 @@ The following data can be used for checks:
 ## Examples
 
 Find the asset scripts examples:
-* in the [Smart Asset](/en/building-apps/smart-contracts/smart-asset) article;
+* in the [Smart Asset](/en/building-apps/smart-contracts/smart-assets) article;
 * in [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide): **Library → smart-assets**.

@@ -7,11 +7,10 @@
 
 
 
-## throw()<a id="throw"></a>
-
+## throw()
 Raises an exception.
 
-### throw(String)<a id="throw-string"></a>
+## throw(String)
 
 Raises an exception with a message.
 

@@ -1,6 +1,6 @@
 # Встроенные переменные
 
-**Встроенная переменная** — [переменная](/ru/ride/variables/) [контекста скрипта](/ru/ride/script/script-context).
+**Встроенная переменная** — [переменная](/ru/ride/variables/) [Стандартной библиотеки](/ru/ride/script/standard-library).
 
 ## Список встроенных переменных
 
@@ -93,7 +93,7 @@
   <tr>
     <td>10</td>
     <td>unit</td>
-    <td>Переменная, которая содержит объект типа <a href="/ru/ride/data-types/unit">Unit</a>. <br><b>Пример 1</b><br> Функция <code>deposit</code> переводит 5 <a href="/ru/blockchain/token/wavelet">WAVELET</a> на аккаунт, который <a href="/ru/ride/functions/callable-function">вызвал</a> эту функцию.
+    <td>Переменная, которая содержит объект типа <a href="/ru/ride/data-types/unit">Unit</a>. <br><b>Пример 1</b><br> Функция <code>deposit</code> переводит 5 <a href="/ru/blockchain/token/waves">WAVELET</a> на аккаунт, который <a href="/ru/ride/functions/callable-function">вызвал</a> эту функцию.
 
 <pre>
 <code class=“lang-ride”>

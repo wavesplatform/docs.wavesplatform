@@ -1,6 +1,7 @@
 # Order
 
-**Order** is the instruction from the [account owner](/en/blockchain/account/) to [matcher](https://docs.waves.exchange/en/waves-matcher/) to buy or sell a [token](/en/blockchain/token/) on [Waves Exchange](https://waves.exchange/).
+**Order** is the instruction from the [account](/en/blockchain/account/) to matcher to buy or sell a [token](/en/blockchain/token/) on the exchange.
+The matcher is developed by the third-party team from the community. For details, see the [Waves.Exchange documentation](https://docs.waves.exchange/en/waves-matcher/).
 
 ## Asset pair
 
@@ -24,7 +25,7 @@ Each order contains amount asset / price asset pair, also called asset pair.
 
 ## Order's amount and price
 
-In the user interface, the amount and price are usually presented as values ​​with a fractional part (for example, 0.74585728 WAVES), i.e. in the denormalized form. The denormalized form is the convenient for humans, but [not for calculations](https://en.wikipedia.org/wiki/Round-off_error). To solve the problem of calculations accuracy, the normalization is performed, i.e. amount and price are represented as an integer. So, 0.74585728 WAVES is 0.74585728 × 10<sup>8</sup> or 74585728 [WAVELET](/en/blockchain/token/wavelet). In this case, the exponent is 8, because WAVES has 8 decimals after the decimal point. Other assets may have different amount of decimals. For example, TDX has 2 decimals.
+In the user interface, the amount and price are usually presented as values ​​with a fractional part (for example, 0.74585728 WAVES), i.e. in the denormalized form. The denormalized form is the convenient for humans, but [not for calculations](https://en.wikipedia.org/wiki/Round-off_error). To solve the problem of calculations accuracy, the normalization is performed, i.e. amount and price are represented as an integer. So, 0.74585728 WAVES is 0.74585728 × 10<sup>8</sup> or 74585728 [WAVELET](/en/blockchain/token/waves). In this case, the exponent is 8, because WAVES has 8 decimals after the decimal point. Other assets may have different amount of decimals. For example, TDX has 2 decimals.
 
 ### Amount
 
@@ -118,7 +119,7 @@ The expiration time can't be earlier than matcher time + 1 minute and later than
 
 ## Order timestamp
 
-**Order timestamp** is the time when [matcher](https://docs.waves.exchange/en/waves-matcher/) added the order to the [order book](https://en.wikipedia.org/wiki/Order_book_%28trading%29) on Waves Exchange.
+**Order timestamp** is the time when the matcher added the order to the [order book](https://en.wikipedia.org/wiki/Order_book_%28trading%29).
 
 The time is specified in milliseconds that have passed since the beginning of the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time).
 

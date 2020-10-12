@@ -51,7 +51,7 @@ value(a: T|Unit): T
 
 Returns a value from a [union](/en/ride/data-types/union) type argument if it's not [unit](/en/ride/data-types/unit). Otherwise, returns the second argument.
 
-> :warning: The `valueOrElse` function is added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: The `valueOrElse` function is added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 ``` ride
 valueOrElse(t: T|Unit, t0: T): T

@@ -84,7 +84,7 @@ Each account can store different assets (also called tokens) in different amount
 3. Use search bar to find the account by address or alias.
 4. Balances in WAVES are displayed below the address. Switch to **Assets** tab to see balances in other tokens.
 
-![](./_assets/data-storage-explorer.png)
+![](./_assets/balance-explorer.png)
 
 > NFTs are displayed on the **Non-fungible tokens** tab.
 
@@ -96,7 +96,7 @@ To retrieve balances of other assets, use `GET /assets/balance/{address}` or `GE
 
 See method descriptions in [Swagger web interface](https://nodes-testnet.wavesnodes.com/).
 
-> :bulb: The easiest way to find out the asset ID by its name and vice versa is to open [Waves.Exchange](https://waves.exchange/) app developed by Waves.Exchange team, go to the **Trading** page and type a name or asset ID in the search bar.
+> :bulb: The easiest way to find out the asset ID by its name and vice versa is to open [Waves.Exchange](https://waves.exchange/) app developed by the third-party team from the community, go to the **Trading** page and type a name or asset ID in the search bar.
 
 ![](./_assets/asset-id.png)
 

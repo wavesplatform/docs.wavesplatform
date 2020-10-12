@@ -50,7 +50,7 @@
 | :--- | :--- |
 | assetId | ID переводимого токена в кодировке base58. `null` — перевод в WAVES |
 | attachment | Произвольные данные (обычно комментарий к транзакции), до 140 байт, в кодировке base58 |
-| transfers.recipient | Адрес получателя в кодировке base58 или [псевдоним](/ru/blockchain/account/alias) адреса |
+| transfers.recipient | Адрес получателя в кодировке base58 или [псевдоним](/ru/blockchain/account/alias) адреса c префиксом `alias:<байт_сети>:`, например `alias:T:merry` (см. [Байт сети](/ru/blockchain/blockchain-network/#байт-сети)) |
 | transfers.amount | Количество токена к переводу. Целое число, выраженное в минимальных неделимых единицах («копейках») токена |
 | *transferCount* | Количество получателей |
 | *totalAmount* | Сумма переводов в транзакции |

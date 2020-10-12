@@ -211,7 +211,7 @@ func verify() = false
 {-# SCRIPT_TYPE ACCOUNT #-}
 @Callable(i)
 func deposit() = {
- let pmt = extract(i.payments[0])
+ let pmt = value(i.payments[0])
  if (isDefined(pmt.assetId))
     then throw("works with waves only")
     else {

@@ -16,8 +16,6 @@ Invocation(caller: Address, callerPublicKey: ByteVector, payment: AttachedPaymen
 Invocation(caller: Address, callerPublicKey: ByteVector, payments: List[AttachedPayment], transactionId: ByteVector, fee: Int, feeAssetId: ByteVector|Unit)
 ```
 
-Стандартная библиотека версии 4 доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
-
 ## Поля
 
 |   #   | Название | Тип данных | Описание |
@@ -29,3 +27,31 @@ Invocation(caller: Address, callerPublicKey: ByteVector, payments: List[Attached
 | 4 | transactionId | [ByteVector](/ru/ride/data-types/byte-vector) | ID транзакции |
 | 5 | fee | [Int](/ru/ride/data-types/int) | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) |
 | 6 | feeAssetId | [ByteVector](/ru/ride/data-types/byte-vector)&#124;[Unit](/ru/ride/data-types/unit) | [Токен](/ru/blockchain/token/) комиссии за отправку транзакции |
+
+## Пример: обработка платежей (для версии 4)
+
+Следующая функция проверяет, что первый платеж в транзакции вызова скрипта составляет не менее 1 WAVES или 5 в указанном ассете.
+
+```scala
+{-# STDLIB_VERSION 4 #-}
+{-# CONTENT_TYPE DAPP #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+
+func isPaymentOk(i: Invocation) = {
+  let acceptableAssetId = base58'3JmaWyFqWo8YSA8x3DXCBUW7veesxacvKx19dMv7wTMg'
+  if (size(i.payments) == 0) then {
+    throw("Payment not attached")
+  } else {
+    let p = i.payments[0]
+    match p.assetId {
+      case assetId: ByteVector => assetId == acceptableAssetId && p.amount >= 500000000
+      case _ => p.amount >= 100000000
+    }
+  }
+}
+
+@Callable(i)
+func foo() = {
+  if isPaymentOk(i) then [] else throw("Wrong payment amount or asset")
+}
+```

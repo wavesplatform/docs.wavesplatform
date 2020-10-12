@@ -1,11 +1,22 @@
 # Обновления в документации
 
+## Октябрь
+
+### Нода
+
+* [Расширение Blockchain Updates](/ru/waves-node/extensions/blockchain-updates)
+
 ## Сентябрь
 
 ### Блокчейн
 
 * [Почему Waves](/ru/blockchain/)
 * [Основные понятия](/ru/blockchain/blockchain/)
+* [Токен (ассет)](/ru/blockchain/token/) — <span style="color:green">обновлено</span>
+
+### Разработка приложений на блокчейне
+
+* [Обзор](/ru/building-apps/) — <span style="color:green">обновлено</span>
 
 ### Ride
 
@@ -70,7 +81,7 @@
 
 * Обновлены статьи:
    * [Стандартная библиотека](/ru/ride/script/standard-library)
-   * [Типы скриптов](/ru/ride/script/script-types/)
+   * [Типы скриптов](/ru/ride/script/)
    * [Ограничения](/ru/ride/limits/)
 
 * Добавлена статья [Компоненты Ride](/ru/ride/advanced/components).
@@ -250,9 +261,7 @@
 ### Ride
 
 * Скрипт
-  * [Контекст скрипта](/ru/ride/script/script-context)
   * [Стандартная библиотека](/ru/ride/script/standard-library)
-  * [Тело скрипта](/ru/ride/script/script-body)
   * Типы скриптов
     * [Скрипт аккаунта](/ru/ride/script/script-types/account-script) — <span style="color:green">обновлено</span>
 * Функции

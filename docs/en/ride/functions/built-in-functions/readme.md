@@ -1,6 +1,6 @@
 # Built-in functions
 
-A **built-in function** is a [function](/en/ride/functions/) of the [script context](/en/ride/script/script-context).
+A **built-in function** is a [function](/en/ride/functions/) of the [Standard library](/en/ride/script/standard-library).
 
 ## [Account data storage functions](/en/ride/functions/built-in-functions/account-data-storage-functions)
 

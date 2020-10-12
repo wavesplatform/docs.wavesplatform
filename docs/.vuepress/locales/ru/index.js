@@ -61,26 +61,22 @@ module.exports = deepmerge(mixin, {
                 title: 'Разработка приложений на блокчейне',
                 caption: 'Создание смарт-контрактов и децентрализованных приложений на блокчейне Waves. Инструменты разработчика, API и SDK.',
                 buttonSet: {
-                    smartAccount: {
-                        text: 'Смарт-аккаунты',
-                        link: '/ru/building-apps/smart-contracts/what-is-smart-account',
+                    dapp: {
+                        text: 'dApps',
+                        link: '/ru/building-apps/smart-contracts/what-is-a-dapp',
                     },
                     smartAsset: {
                         text: 'Смарт-ассеты',
                         link: '/ru/building-apps/smart-contracts/what-is-smart-asset',
                     },
-                    dapp: {
-                        text: 'dApps',
-                        link: '/ru/building-apps/smart-contracts/what-is-a-dapp',
+                    signer: {
+                        text: 'Signer',
+                        link: '/ru/building-apps/waves-api-and-sdk/client-libraries/signer'
                     },
                     howTo: {
                         text: 'Практические руководства',
                         link: '/ru/building-apps/how-to/'
                     },
-                    signer: {
-                        text: 'Signer',
-                        link: '/ru/building-apps/waves-api-and-sdk/client-libraries/signer'
-                    }
                 },
             },
             rideProgrammingLanguage: {

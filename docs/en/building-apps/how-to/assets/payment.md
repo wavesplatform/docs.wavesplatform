@@ -2,7 +2,9 @@
 
 You can provide your customers with the ability to make payments in WAVES, Neutrino, Ethereum or any other supported asset.
 
-The easiest way is to use Waves.Exchange Client Payment API developed by Waves.Exchange team. Compose a payment URL in the following format:
+## Using Client Payment API Developed by Waves.Exchange Team
+
+Compose a payment URL in the following format:
 
 ```http
 https://waves.exchange/#send/{assetId}?recipient={yourAddress}&amount={amount}&referrer={yourDomain}&strict
@@ -21,3 +23,13 @@ https://example.com/?txId=7RqYbd9setfkW4AX49nwwpELFjvr8V8MhPRtANsUMhbt
 ```
 
 For more information about Waves.Exchange Client Payment API and request parameters see the [Client Payment API](https://docs.waves.exchange/en/waves-exchange/waves-exchange-client-api/waves-exchange-client-payment-api) article in the Waves.Exchange documentation.
+
+## Using Pay Crypto Widget Powered by Waves Signer
+
+Add Pay Crypto widget to integrate crypto payment option to your site.
+
+<details><summary>How it works</summary>
+<img src="https://server.vlzhr.top/hosted/9446628-payment.gif" border="1">
+</details>
+
+See detailed explanations in the [How to add crypto payments to your online store?](https://medium.com/wavesprotocol/how-to-add-crypto-payments-to-your-online-store-b528b739cdfb) article and in the [Pay Crypto](https://github.com/vlzhr/pay-crypto-widget) GitHub repository.

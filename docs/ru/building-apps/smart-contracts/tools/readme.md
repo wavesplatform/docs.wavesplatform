@@ -25,5 +25,3 @@
 * [Waves Dapp Ui](https://waves-dapp.com/)
 
    Визуальный интерфейс для вызова функций dApp.
-
-> См. также [коллекцию полезных ресурсов и инструментов](https://github.com/msmolyakov/awesome-waves) для разработки на блокчейне Waves.

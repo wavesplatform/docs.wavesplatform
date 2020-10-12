@@ -23,7 +23,7 @@ Signer implements developer-friendly protocol for interacting with Provider as w
 For now, you can use one of the following Providers:
 
 * [ProviderSeed](https://github.com/wavesplatform/provider-seed) developed by Waves team creates user account from seed. ProviderSeed can be used at the app debugging stage.
-* [ProviderWeb](https://github.com/waves-exchange/provider-web) developed by Waves.Exchange is the official wallet software that encrypts and stores user's private key and seed phrase.
+* [ProviderWeb](https://github.com/waves-exchange/provider-web) developed by Waves.Exchange team is the wallet software that encrypts and stores user's private key and seed phrase.
 
 You can also develop your own Provider, see the [Provider Interface](#provider-interface) section below.
 
@@ -162,7 +162,7 @@ Creates an object that features the following [methods](#methods).
 * [Сreate Transactions](#create-transactions)
 
    * [Common fields](#common-fields)
-   * [How to sign and broadcast transaction](#how-to-sign-and-broadcast-transaction)
+   * [How to sign and broadcast transactions](#how-to-sign-and-broadcast-transactions)
    * [alias](#alias)
    * [burn](#burn)
    * [cancelLease](#cancellease)
@@ -170,7 +170,7 @@ Creates an object that features the following [methods](#methods).
    * [invoke](#invoke)
    * [issue](#issue)
    * [lease](#lease)
-   * [massTransfer](#mass-transfer)
+   * [massTransfer](#masstransfer)
    * [reissue](#reissue)
    * [setAssetScript](#setassetscript)
    * [setScript](#setscript)
@@ -325,7 +325,6 @@ The following methods create transactions (but do not sign or broadcast them):
 * [burn](#burn)
 * [cancelLease](#cancellease)
 * [data](#data)
-* [exchange](#exchange)
 * [invoke](#invoke)
 * [issue](#issue)
 * [lease](#lease)
@@ -346,7 +345,7 @@ Each create transaction method has optional fields that you don't specify manual
 | :--- | :--- | :--- |
 | chainId | 'W'.charCodeAt(0) or 87 means Mainnet<br/>'T'.charCodeAt(0) or 84 means Testnet | Defined by configuration of Waves node that is set in [Constructor](#constructor) |
 | fee | Transaction fee | Calculated automatically as described in [Transaction fee](/en/blockchain/transaction/transaction-fee) section |
-| proofs | Array of transaction signatures | Added by `sign` or `broadcast` method (see [How to Sign and Broadcast Transactions](#how-to-sign-and-broadcast-transaction)). If you specify a proof manually, it is also added to the array |
+| proofs | Array of transaction signatures | Added by `sign` or `broadcast` method (see [How to Sign and Broadcast Transactions](#how-to-sign-and-broadcast-transactions)). If you specify a proof manually, it is also added to the array |
 | senderPublicKey | Base58-encoded public key of transaction sender | Returned by [login](#login) method |
 
 #### How to Sign and Broadcast Transactions
@@ -732,8 +731,8 @@ massTransfer(data: {
 | assetId | WAVES | Base58-encoded ID of the asset to transfer |
 | transfers* | | List of transfers |
 | transfers.amount* | | Amount of asset multiplied by 10^`decimals`. For example, `decimals` of WAVES is 8, so the real amount is multipied by 10^8. `{ "WAVES": 677728840 }` means 6.77728840Amount of  multiplied by 10^8. |
-| transfers.recipient* | | Base58-encoded [address](/en/blockchain/account/address) or alias (with `alias:T:` prefix) of the recipient |
-| attachment | | Optional data attached to the transaction. This field is often used to attach a comment to the transaction. The maximum data size is 140 bytes |
+| transfers.recipient* | | Base58 encoded [address](/en/blockchain/account/address) or alias (with `alias:T:` prefix) of the recipient |
+| attachment | | Optional binary data base58 encoded. This field is often used to attach a comment to the transaction. The maximum data size is 140 bytes |
 
 \* Required field
 
@@ -742,7 +741,10 @@ See [Common fields](#common-fields) for other fields description.
 **Usage:**
 
 ```js
-const data = [
+const crypto = require('@waves/ts-lib-crypto')
+
+const data = {
+    transfers: [
     {
       amount: 100,
       recipient: '3P23fi1qfVw6RVDn4CH2a5nNouEtWNQ4THs',
@@ -750,7 +752,8 @@ const data = [
     {
       amount: 200,
       recipient: 'alias:T:merry',
-    },
+    }],
+    attachment: crypto.base58Encode(crypto.stringToBytes('sample message for recipient'))
 ]
 
 const [tx] = await signer
@@ -916,7 +919,7 @@ transfer(data: {
 | recipient* | | Base58-encoded [address](/en/blockchain/account/address) or alias (with `alias:T:` prefix) of the recipient |
 | amount* | | Amount of asset multiplied by 10^`decimals`. For example, `decimals` of WAVES is 8, so the real amount is multipied by 10^8. `{ "WAVES": 677728840 }` means 6.77728840 |
 | assetId | WAVES | Base58-encoded ID of the asset to transfer. `null` or omitted field means WAVES |
-| attachment | | Optional data attached to the transaction. This field is often used to attach a comment to the transaction. The maximum data size is 140 bytes |
+| attachment | | Optional binary data base58 encoded. This field is often used to attach a comment to the transaction. The maximum data size is 140 bytes |
 | feeAssetId | WAVES | Base58-encoded ID of the sponsored asset to pay the commission. See the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article for more information. `null` or omitted field means WAVES |
 
 \* Required field
@@ -926,10 +929,13 @@ See [Common fields](#common-fields) for other fields description.
 **Usage:**
 
 ```js
+const crypto = require('@waves/ts-lib-crypto')
+
 const data = {
   recipient: '3P8pGyzZL9AUuFs9YRYPDV3vm73T48ptZxs',
   amount: 10000,
-  }
+  attachment: crypto.base58Encode(crypto.stringToBytes('sample message for recipient'))
+}
 
 const [tx] = await signer
   .transfer(data)

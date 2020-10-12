@@ -209,7 +209,7 @@ The example listed below is a wallet application which allows to send [WAVES](/e
 {-# SCRIPT_TYPE ACCOUNT #-}
 @Callable(i)
 func deposit() = {
- let pmt = extract(i.payments[0])
+ let pmt = value(i.payments[0])
  if (isDefined(pmt.assetId))
     then throw("works with waves only")
     else {

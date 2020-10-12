@@ -40,7 +40,7 @@ cons(1, [2, 3, 4, 5]) # Возвращает [1, 2, 3, 4, 5]
 
 Проверяет наличие элемента в списке.
 
-> :warning: Функция `containsElement` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4, которая доступна начиная с версии ноды 1.2.0 после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: Функция `containsElement` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4.
 
 ```ride
 containsElement(list: List[T], element: T): Boolean
@@ -79,7 +79,7 @@ getElement([false, true], 1) # Возвращает true
 
 Возвращает индекс первого вхождения элемента в списке или `unit`, если элемент отсутствует.
 
-> :warning: Функция `indexOf` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4, которая доступна начиная с версии ноды 1.2.0 после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: Функция `indexOf` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4.
 
 ``` ride
 indexOf(list: List[T], element: T): Int|Unit
@@ -103,7 +103,7 @@ indexOf("a", stringList) # Возвращает 0
 
 Возвращает индекс последнего вхождения элемента в списке или `unit`, если элемент отсутствует.
 
-> :warning: Функция `lastIndexOf` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4, которая доступна начиная с версии ноды 1.2.0 после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: Функция `lastIndexOf` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4.
 
 ``` ride
 lastIndexOf(list: List[T], element: T): Int|Unit
@@ -127,7 +127,7 @@ lastIndexOf("a", stringList) # Возвращает 2
 
 Возвращает наибольший элемент в списке. Если список пустой, возвращает ошибку.
 
-> :warning: Функция `max` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4, которая доступна начиная с версии ноды 1.2.0 после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: Функция `max` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4.
 
 ``` ride
 max(List[Int]): Int
@@ -143,7 +143,7 @@ max(List[Int]): Int
 
 Возвращает наименьший элемент в списке. Если список пустой, возвращает ошибку.
 
-> :warning: Функция `min` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4, которая доступна начиная с версии ноды 1.2.0 после активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: Функция `min` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4.
 
 ``` ride
 min(List[Int]): Int
@@ -159,7 +159,7 @@ min(List[Int]): Int
 
 Удаляет элемент из списка по индексу.
 
-> :warning: Функция `removeByIndex` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**, которая доступна начиная с версии ноды 1.2.0 после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: Функция `removeByIndex` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
 
 ``` ride
 removeByIndex(list: List[T], index: Int): List[T]

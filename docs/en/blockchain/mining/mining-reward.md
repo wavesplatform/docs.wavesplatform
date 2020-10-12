@@ -8,7 +8,7 @@ The community of miners can change the size of reward through [voting](#voting).
 
 ## Current reward size
 
-You can view the current reward size by making a request to the [Node API](/en/waves-node/node-api/). In response to the request, JSON is returned, the value of the `currentReward` field of which is the current mining reward size in [WAVELET](/en/blockchain/token/wavelet)s.
+You can view the current reward size by making a request to the [Node API](/en/waves-node/node-api/). In response to the request, JSON is returned, the value of the `currentReward` field of which is the current mining reward size in [WAVELET](/en/blockchain/token/waves)s.
 
 Example of request:
 
@@ -49,7 +49,7 @@ The elected reward size remains unchanged for 100,000 blocks following the end o
 <a id="voting"></a>
 ## Voting
 
-Miner specifies the new desired reward size using the [waves.rewards.desired](/en/waves-node/node-configuration#rewards) setting in the node configuration file; the setting value is specified in [WAVELET](/en/blockchain/token/wavelet)s.
+Miner specifies the new desired reward size using the [waves.rewards.desired](/en/waves-node/node-configuration#rewards) setting in the node configuration file; the setting value is specified in [WAVELET](/en/blockchain/token/waves)s.
 
 If the value is **greater than the current reward size**, then miner votes for the current reward size **increase**; if the value is smaller — for the decrease. If the setting value is not specified in the configuration file, then miner votes for keeping the current reward size.
 

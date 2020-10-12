@@ -122,6 +122,14 @@ module.exports = [
     to: '/ru/blockchain/glossary#w',
   },
   {
+    from: '/en/blockchain/token/wavelet',
+    to: '/en/blockchain/token/waves',
+  },
+  {
+    from: '/ru/blockchain/token/wavelet',
+    to: '/ru/blockchain/token/waves',
+  },
+  {
     to: '/en/blockchain/binary-format/transaction-binary-format',
     from: '/en/blockchain/transaction-data-structure.html',
   },
@@ -805,6 +813,18 @@ module.exports = [
   {
     to: '/en/waves-node/private-waves-network',
     from: '/en/waves-full-node/private-waves-network.html',
+  },
+  {
+    from: '/en/building-apps/waves-api-and-sdk/waves-gaming-api',
+    to: '/en/building-apps/waves-api-and-sdk'
+  },
+  {
+    from: '/en/building-apps/waves-api-and-sdk/waves-gaming-api/waves-games-api',
+    to: '/en/building-apps/waves-api-and-sdk'
+  },
+  {
+    from: '/en/building-apps/waves-api-and-sdk/waves-gaming-api/examples',
+    to: '/en/building-apps/waves-api-and-sdk'
   },
   {  /* link found on github */
     from: '/en/technical-details/creating-a-private-waves-blockchain-network.html',

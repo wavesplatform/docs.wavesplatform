@@ -95,7 +95,7 @@ log(0, 0, 2, 0, 0, HALFUP)     # Result: -Infinity
 
 Returns the median of the [list](/en/ride/data-types/list). The list can't be empty, otherwise, the function fails.
 
-> :warning: The `median` function is added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. Versions 1.2.x are currently available on [Stagenet](/en/blockchain/blockchain-network/) only.
+> :warning: The `median` function is added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 ```ride
 median(arr: List[Int]): Int

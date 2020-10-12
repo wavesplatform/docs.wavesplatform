@@ -76,3 +76,12 @@ message IssueTransactionData {
 | **11** | Временная метка транзакции | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |  |
 
 > Поля, номера которых выделены жирным шрифтом, составляют байты тела транзакции.
+
+## Недопустимые символы в названиях и описаниях токенов
+
+До активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions” было возможно создание токенов, название и описание которых не являются валидными строками в кодировке UTF-8. Такие токены есть только на Testnet (см. [пример](https://testnet.wavesexplorer.com/tx/4NWVZHR3pmtmUaMACCFPQnV5Bebcxt1PdoKeRUVQWBwu)), на Mainnet их нет.
+
+В следующих интерфейсах вместо некорректных последовательностей, не соответствующих ни одному символу, используется [заменяющий символ �](https://ru.wikipedia.org/wiki/Заменяющий_символ):
+* [REST API](/ru/waves-node/node-api/) и [gRPC Server](/ru/waves-node/extensions/grpc-server/) как в [Node Scala](https://github.com/wavesplatform/Waves/releases), так и в [Node Go](https://github.com/wavesplatform/gowaves/releases/)
+* [Blockchain Updates](/ru/waves-node/extensions/blockchain-updates) в Node Scala
+* [Data Service API](/en/building-apps/waves-api-and-sdk/waves-data-service-api)

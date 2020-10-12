@@ -14,10 +14,7 @@ gRPC services provide information about:
 
 The clients [generated](https://grpc.io/docs/tutorials/) from [.proto files](https://github.com/wavesplatform/protobuf-schemas) are used to connect to gRPC services.
 
-Examples of usage of gRPC clients generated from .proto files:
-
-* [Connecting to transactions service in Java](https://github.com/wavesplatform/WavesJ/blob/master/examples/src/main/java/GRPCTest.java)
-* [Retrieving blocks in C#](https://github.com/wavesplatform/WavesCS/blob/master/WavesCSTests/ProtobufTest.cs)
+Example of usage of gRPC client generated from .proto files: [Retrieving blocks in C#](https://github.com/wavesplatform/WavesCS/blob/master/WavesCSTests/ProtobufTest.cs)
 
 ## gRPC Server Installation
 

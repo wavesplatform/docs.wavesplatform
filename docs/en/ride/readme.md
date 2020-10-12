@@ -4,7 +4,7 @@
 
 ## Script Types
 
-Waves smart contracts are scripts written in Ride. Scripts can be assigned to accounts or tokens (assets). An account with a script assigned to it becomes a [dApp](/en/building-apps/smart-contracts/what-is-a-dapp) or [smart account](/en/building-apps/smart-contracts/smart-account). An asset with a script assigned to it becomes a [smart asset](/en/building-apps/smart-contracts/smart-assets).
+Waves smart contracts are scripts written in Ride. Scripts can be assigned to accounts or tokens (assets). An account with a script assigned to it becomes a [dApp](/en/building-apps/smart-contracts/what-is-a-dapp) or [smart account](/en/building-apps/smart-contracts/what-is-smart-account). An asset with a script assigned to it becomes a [smart asset](/en/building-apps/smart-contracts/smart-assets).
 
 Script functionality depends on its [type](/en/ride/script):
 
@@ -25,7 +25,7 @@ Ride is created specifically for execution within a blockchain environment and o
 
 Appropriate functions are described in the [Account Data Storage Functions](/en/ride/functions/built-in-functions/account-data-storage-functions) and [Blockchain Functions](/en/ride/functions/built-in-functions/blockchain-functions) articles.
 
-[Callable functions](/en/ride/functions/callable-function) of a dApp script can accept payments to the dApp and also perform [actions](/en/ride/structures/script-actions/readme) applied to the blockchain:
+[Callable functions](/en/ride/functions/callable-function) of a dApp script can accept payments to the dApp and also perform [actions](/en/ride/structures/script-actions/) applied to the blockchain:
 
 * Add, modify or delete entries of the dApp account data storage.
 * Transfer token from the dApp balance.
@@ -45,7 +45,7 @@ Learn the language syntax with the [Introduction to Ride](/en/ride/getting-start
 
 ## Useful Links
 
-* [Ride White Paper](https://wavesprotocol.org/files/docs/white_paper_waves_smart_contracts.pdf) (2018)
+* [Ride White Paper](https://s3.eu-central-1.amazonaws.com/waves.tech/White_paper_waves_smart_contracts_7a48be1231.pdf) (2018)
 * [Developer Tools](/en/building-apps/smart-contracts/tools/)
 * [How to Create and Launch dApp: Complete Tutorial](/en/building-apps/smart-contracts/writing-dapps)
 * [Mastering Web3 with Waves](https://www.coursera.org/learn/mastering-web3-waves): the practical course on Coursera.

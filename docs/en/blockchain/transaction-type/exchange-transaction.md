@@ -2,7 +2,7 @@
 
 Exchange transaction exchanges two different tokens between two accounts.
 
-Commonly the Exchange transaction is created by the matcher service that executes orders to buy and sell tokens. For detailed information about how the matcher works see the [Waves.Exchange documentation](https://docs.waves.exchange/en/waves-matcher/). See also examples in the [How to buy and sell tokens](/en/building-apps/how-to/basic/trading) article.
+Commonly the Exchange transaction is created by the matcher service that executes orders to buy and sell tokens. The matcher is developed by the third-party team from the community. For detailed information about how the matcher works see the [Waves.Exchange documentation](https://docs.waves.exchange/en/waves-matcher/). See also examples in the [How to buy and sell tokens](/en/building-apps/how-to/basic/trading) article.
 
 The Exchange transaction contains two counter orders: a buy order and a sell order. The blockchain guarantees that the terms of the exchange are not worse than those indicated in each order.
 

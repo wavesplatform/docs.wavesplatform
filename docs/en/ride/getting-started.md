@@ -309,7 +309,7 @@ v.valueOrErrorMessage(“oops”) +  1 # compiles and executes
 let realStringValue2 = getStringValue(this, "someKey")
 ```
 
-To get the real type and value from Union use the `extract` function, which will terminate the script in case of `Unit` value. Another option is to use specialized functions like `getStringValue`, `getIntegerValue`, etc.
+To get the real type and value from Union use the `value` function, which will terminate the script in case of `Unit` value. Another option is to use specialized functions like `getStringValue`, `getIntegerValue`, etc.
 
 ## If
 

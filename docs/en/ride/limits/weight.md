@@ -11,8 +11,9 @@ The weight of each value approximately corresponds to its size in bytes. Weight 
 | Int | 8 |
 | List | See [Weight of List](#weight-of-list) |
 | String | Size in bytes |
+| Structure | See [Weight of Tuple or Structure](#weight-of-tuple-or-structure) |
+| Tuple | See [Weight of Tuple or Structure](#weight-of-tuple-or-structure) |
 | Unit | 40 |
-| Structure | See [Weight of Structure](#weight-of-structure) |
 
 ### Weight of List
 

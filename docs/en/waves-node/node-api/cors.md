@@ -2,13 +2,17 @@
 
 CORS (Cross-origin resource sharing) is a mechanism that allows a web application to make cross domain requests, that is, to access the HTTP resources of another domain. By default, browsers restrict cross domain requests for security, so web applications can only request resources from the domain from which they are loaded.
 
-So, in order for web applications from other domains to make a request to your node's REST API, you need to configure CORS. Otherwise, the request will get the **Cors origin policy error**.
+So, in order for web applications from other domains to make a request to your node's REST API, you need to configure CORS. Otherwise, the request will get the **Cors origin policy error**. Complete the following steps:
 
-## Allow CORS in Node Settings
+1. Disable CORS in node settings.
+2. Configure Web Server.
+3. Enable CORS and send credentials in REST API request.
 
-By default, cross domain requests are allowed on the node. Make sure that the [node configuration file](/en/waves-node/node-configuration) contains `waves.rest-api.cors = yes` or the parameter is missing.
+## 1. Disable CORS in Node Settings
 
-## Configure Web Server
+In [node configuration file](/en/waves-node/node-configuration) set `waves.rest-api.cors = no`.
+
+## 2. Configure Web Server
 
 Add a web server, for example, nginx, between the web app and your node. The web server should add the following HTTP headers to the REST API response:
 
@@ -35,6 +39,10 @@ server {
     location / {
         proxy_pass http://wavesrpc ;
     ...
+        if ($request_method = 'OPTIONS') {
+          return 204;
+        }
+
         set $ref "*";
         if ($http_referer ~* ^(http?\:\/\/)(.*?)\/(.*)$) {
           set $ref $1$2;
@@ -49,7 +57,7 @@ server {
 }
 ```
 
-### Enable CORS and Send Credentials in REST API Request
+## 3. Enable CORS and Send Credentials in REST API Request
 
 Example:
 

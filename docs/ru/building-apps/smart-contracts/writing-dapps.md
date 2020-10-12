@@ -210,7 +210,7 @@ await signer.invoke({<br>
 2. Создайте аккаунт dApp на Mainnet — аналогично шагу 1.
 3. Пополните баланс аккаунта, чтобы оплатить комиссию за установку скрипта.
 
-   Например, купите WAVES с помощью приложения [Waves.Exchange](https://waves.exchange/), разработанного командой Waves.Exchange, см. раздел [Купить криптовалюту с помощью банковской карты](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-trs-gtw/online-desktop-trs-fiat).
+   Например, купите WAVES с помощью приложения [Waves.Exchange](https://waves.exchange/), разработанного сторонней командой из сообщества, см. раздел [Купить криптовалюту с помощью банковской карты](https://docs.waves.exchange/ru/waves-exchange/waves-exchange-online-desktop/online-desktop-trs-gtw/online-desktop-trs-fiat).
 
 4. Установите dApp-скрипт на аккаунт — аналогично шагу 3.
 

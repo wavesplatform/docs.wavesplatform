@@ -1,6 +1,6 @@
 # Tuple
 
-> :warning: Tuples are added in [Standard library](/en/ride/script/standard-library) **version 4** which becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> :warning: Tuples are added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 Tuple is an ordered collection of elements. Elements can be of any type. The tuple can contain from 2 to 22 elements.
 

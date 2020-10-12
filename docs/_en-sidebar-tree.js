@@ -69,10 +69,6 @@ module.exports = {
           title: 'WAVES',
           path: blockchainPath + 'token/waves',
         },
-        {
-          title: 'WAVELET',
-          path: blockchainPath + 'token/wavelet',
-        },
       ],
     },
     {
@@ -545,7 +541,7 @@ module.exports = {
           path: nodePath + 'node-api/feature-activation',
         },
         {
-          title: 'Address',
+          title: 'Addresses',
           path: nodePath + 'node-api/address',
         },
         {
@@ -607,6 +603,10 @@ module.exports = {
         {
           title: 'gRPC Server',
           path: nodePath + 'extensions/grpc-server',
+        },
+        {
+          title: 'Blockchain Updates',
+          path: nodePath + 'extensions/blockchain-updates',
         },
       ]
     },
@@ -1037,7 +1037,7 @@ module.exports = {
 
   [buildingAppsPath]: [
     {
-      title: 'Getting Started',
+      title: 'Overview',
       path: buildingAppsPath,
     },
     {
@@ -1183,7 +1183,7 @@ module.exports = {
       path: sdkPath + 'client-libraries/signer',
     },
     {
-      title: 'API',
+      title: 'Waves API',
       path: sdkPath,
       children: [
         {
@@ -1199,20 +1199,6 @@ module.exports = {
           path: sdkPath + 'waves-data-service-api',
         },
         {
-          title: 'Waves Games',
-          path: sdkPath + 'waves-gaming-api',
-          children: [
-            {
-              title: 'Waves Games API',
-              path: sdkPath + 'waves-gaming-api/waves-games-api',
-            },
-            {
-              title: 'Examples',
-              path: sdkPath + 'waves-gaming-api/examples',
-            },
-          ],
-        },
-        {
           title: 'Node gRPC Server 🡥',
           path: nodePath + 'extensions/grpc-server',
         },
@@ -1223,8 +1209,8 @@ module.exports = {
       path: sdkPath + 'client-libraries',
       children: [
         {
-          title: 'Signer',
-          path: sdkPath + 'client-libraries/signer',
+          title: 'Waves transactions',
+          path: sdkPath + 'client-libraries/waves-transactions',
         },
         {
           title: 'PyWaves',
@@ -1249,10 +1235,6 @@ module.exports = {
         {
           title: 'WavesRS',
           path: sdkPath + 'client-libraries/wavesrs',
-        },
-        {
-          title: 'Waves transactions',
-          path: sdkPath + 'client-libraries/waves-transactions',
         },
         {
           title: 'Community libraries',

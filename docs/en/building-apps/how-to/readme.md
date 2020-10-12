@@ -24,7 +24,7 @@ Promote your app by transferring your token to active Waves addresses collected 
 
 [**Receiving Payments**](/en/building-apps/how-to/assets/payment)
 
-Prodive your customers with the ability to make payments in WAVES, Neutrino, Ethereum or any other asset issued on Waves blockchain or supported by Waves.Exchange gateways.
+Prodive your customers with the ability to make payments in WAVES, Neutrino, Ethereum or any other asset issued on Waves blockchain or supported by gateways.
 
 ## Trading
 
