@@ -100,7 +100,7 @@ npm i @waves/surfboard@latest
 
 For the invoke script transaction, in addition to the transaction status on the blockchain, the status of script execution is displayed.
 
-**How to access:** go to <http://waves-dapp.com/>.
+**How to access:** go to <https://waves-dapp.com/>.
 
 ## Ride limitations
 

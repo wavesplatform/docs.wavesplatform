@@ -5,7 +5,7 @@
 | 1 | [throw()](#throw) | Выбрасывает исключение | 1 |
 | 2 | [throw(String)](#throw-string) | Выбрасывает исключение с сообщением | 1 |
 
-## throw() <a id="throw"></a>
+## throw()
 
 Выбрасывает исключение.
 
@@ -21,7 +21,7 @@ if (amount < 0)
             then throw()
 ```
 
-## throw(String) <a id="throw-string"></a>
+## throw(String)
 
 Выбрасывает исключение с сообщением.
 

@@ -91,7 +91,7 @@ There are two ways to install the node with Blockchain Updates extension: using 
    sudo systemctl start waves-stagenet
    ```
 
-If the extension runs, it writes messages to the [node log](/ren/waves-node/logging-configuration):
+If the extension runs, it writes messages to the [node log](/en/waves-node/logging-configuration):
 
 ```
 BlockchainUpdates extension starting with settings <...>
