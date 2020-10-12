@@ -35,7 +35,7 @@ Example public key in base58:
 
 ## Secret (Seed) Phrase
 
-Not every 32 byte array can be a private key. The private key can be generated from some random seed phrase using hashing functions. The public key is obtained from the private key using an elliptic curve multiplication. Account [address](/en/blockchain/account/address) is obtained from the public key. All these transformations are unidirectional. The opposite direction is almost impossible in terms of the required computations.
+The private key can be generated from some random seed phrase using hashing functions. The public key is obtained from the private key using an elliptic curve multiplication. Account [address](/en/blockchain/account/address) is obtained from the public key. All these transformations are unidirectional. The opposite direction is almost impossible in terms of the required computations.
 
 ![](./_assets/keys-way.png)
 
