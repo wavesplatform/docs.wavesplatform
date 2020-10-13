@@ -21,11 +21,17 @@ Blockchain Updates позволяет отслеживать изменения,
 
 :warning: **Важно:** расширение Blockchain Updates использует историю изменений с момента создания блокчейна. Поэтому ноду с расширением нужно запустить с нуля и дождаться синхронизации блокчейна в обычном режиме работы ноды, что может потребовать 1–3 дня (см. раздел [Синхронизировать блокчейн Waves](/ru/waves-node/options-for-getting-actual-blockchain/)). Импорт блокчейна из бинарного файла или загрузка актуальной базы данных не подходят.
 
-Ноду с расширением можно установить двумя способами: из DEB-пакета и из JAR-файла.
+Ноду с расширением можно установить двумя способами: из DEB-пакета и из JAR-файла. Расширение Blockchain Updates находится в том же пакете и архиве, что и [gRPC Server](/ru/waves-node/extensions/grpc-server/). Установить эти расширения можно как вместе, так и по отдельности, отличаются только настройки в файле конфигурации ноды.
 
 ### Установка из DEB-пакета
 
 1. Скачайте последнюю версию DEB-пакетов ноды и расширения со страницы [Releases](https://github.com/wavesplatform/Waves/releases) (секция Assets) на GitHub.
+
+   Имя пакета с расширением:
+
+   * для Mainnet `grpc-server_{номер версии}_all.deb`
+   * для Testnet `grpc-server-testnet_{номер версии}_all.deb`
+   * для Stagenet `grpc-server-stagenet_{номер версии}_all.deb`
 
 2. Установите пакеты:
 
@@ -33,21 +39,21 @@ Blockchain Updates позволяет отслеживать изменения,
 
    ```bash
    sudo dpkg -i waves_{номер версии}_all.deb
-   sudo dpkg -i blockchain-updates_{номер версии}_all.deb
+   sudo dpkg -i grpc-server_{номер версии}_all.deb
    ```
 
    Для Testnet:
 
    ```bash
    sudo dpkg -i waves-testnet_{номер версии}_all.deb
-   sudo dpkg -i blockchain-updates-testnet_{номер версии}_all.deb
+   sudo dpkg -i grpc-server-testnet_{номер версии}_all.deb
    ```
 
    Для Stagenet:
 
    ```bash
    sudo dpkg -i waves-stagenet_{номер версии}_all.deb
-   sudo dpkg -i blockchain-updates-stagenet_{номер версии}_all.deb
+   sudo dpkg -i grpc-server-stagenet_{номер версии}_all.deb
    ```
 
 3. Отредактируйте файл конфигурации ноды (см. раздел [Конфигурация ноды](/ru/waves-node/node-configuration)). Для Mainnet файл конфигурации находится по адресу `/etc/waves/waves.conf`, для Testnet — `/etc/waves-testnet/waves.conf`, для Stagenet — `/etc/waves-stagenet/waves.conf`.
@@ -101,7 +107,13 @@ BlockchainUpdates extension started gRPC API on port <...>
 
 ### Установка из JAR-файла
 
-1. Скачайте последнюю версию JAR-файла ноды и TGZ-архива с расширением Blockchain Updates со страницы [Releases](https://github.com/wavesplatform/Waves/releases) (секция Assets) на GitHub.
+1. Скачайте последнюю версию JAR-файла ноды и TGZ-архива с расширением со страницы [Releases](https://github.com/wavesplatform/Waves/releases) (секция Assets) на GitHub.
+
+   Имя TGZ-архива с расширением:
+
+   * для Mainnet `grpc-server-{номер версии}.deb`
+   * для Testnet `grpc-server-testnet-{номер версии}.deb`
+   * для Stagenet `grpc-server-stagenet_{номер версии}.deb`
 
 2. Распакуйте TGZ-архив в папку с JAR-файлом ноды.
 
@@ -128,16 +140,30 @@ BlockchainUpdates extension started gRPC API on port <...>
 
 4. Выполните команду:
 
+   Для Mainnet:
+
    ```bash
-   java -cp 'waves-all-{номер версии}.jar:blockchain-updates-{номер версии}/lib/*' com.wavesplatform.Application {имя файла конфигурации}.conf
+   java -cp 'waves-all-{номер версии}.jar:grpc-server-{номер версии}/lib/*' com.wavesplatform.Application {имя файла конфигурации}.conf
    ```
+
+   Для Testnet:
+
+   ```bash
+   java -cp 'waves-all-{номер версии}.jar:grpc-server-testnet-{номер версии}/lib/*' com.wavesplatform.Application {имя файла конфигурации}.conf
+   ```
+
+   Для Stagenet:
+
+   ```bash
+   java -cp 'waves-all-{номер версии}.jar:grpc-server-stagenet-{номер версии}/lib/*' com.wavesplatform.Application {имя файла конфигурации}.conf
+   ```
+
 
    В Windows используйте `;` вместо `:`
 
    ```bash
-   java -cp 'waves-all-{номер версии}.jar;blockchain-updates-{номер версии}/lib/*' com.wavesplatform.Application {имя файла конфигурации}.conf
+   java -cp 'waves-all-{номер версии}.jar;grpc-server-{номер версии}/lib/*' com.wavesplatform.Application {имя файла конфигурации}.conf
    ```
-
 
 Если расширение работает, в [log-файле](/ru/waves-node/logging-configuration) ноды появятся сообщения:
 

@@ -21,33 +21,39 @@ Examples of usage:
 
 :warning: **Important:** Blockchain Updates requires the history of changes since the blockchain creation. Therefore, you should start the node with the extension from scratch and synchronize the blockchain during regular node operation, see the [Synchronize Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article. This can take 1–3 days. Neither importing blockchain from a binary file, nor downloading the latest blockchain database are applicable.
 
-There are two ways to install the node with Blockchain Updates extension: using a DEB package or a JAR file.
+There are two ways to install the node with Blockchain Updates extension: using a DEB package or a JAR file. The Blockchain Updates extension is in the same package and archive as [gRPC Server](/en/waves-node/extensions/grpc-server/). You can install these extensions both together and separately, only the settings in the node configuration file differ.
 
 ### Installation via DEB Package
 
 1. Download the latest versions of DEB packages of node and extension from the [Releases](https://github.com/wavesplatform/Waves/releases) page (Assets section) on Github.
 
-2. Install the packages:
+   The package name is as follows:
+
+   * for Mainnet `grpc-server_{version number}_all.deb`
+   * for Testnet `grpc-server-testnet_{version number}_all.deb`
+   * for Stagenet `grpc-server-stagenet_{version number}_all.deb`
+
+2. Install the packages.
 
    Mainnet:
 
    ```bash
    sudo dpkg -i waves_{version number}_all.deb
-   sudo dpkg -i blockchain-updates_{version number}_all.deb
+   sudo dpkg -i grpc-server_{version number}_all.deb
    ```
 
    Testnet:
 
    ```bash
    sudo dpkg -i waves-testnet_{version number}_all.deb
-   sudo dpkg -i blockchain-updates-testnet_{version number}_all.deb
+   sudo dpkg -i grpc-server-testnet_{version number}_all.deb
    ```
 
    Stagenet:
 
    ```bash
    sudo dpkg -i waves-stagenet_{version number}_all.deb
-   sudo dpkg -i blockchain-updates-stagenet_{version number}_all.deb
+   sudo dpkg -i grpc-server-stagenet_{version number}_all.deb
    ```
 
 3. Edit the node configuration file as described in the [Node Configuration](/en/waves-node/node-configuration) article. For Mainnet, the configuration file is located at `/etc/waves/waves.conf`, for Testnet at `/etc/waves-testnet/waves.conf`, for Testnet at `/etc/waves-stagenet/waves.conf`.
@@ -101,7 +107,13 @@ BlockchainUpdates extension started gRPC API on port <...>
 
 ### Installation via JAR File
 
-1. Download the latest versions of node JAR file and Blockchain Updates extension ZIP archive from the [Releases](https://github.com/wavesplatform/Waves/releases) page (Assets section) on Github.
+1. Download the latest versions of node JAR file and extension TGZ archive from the [Releases](https://github.com/wavesplatform/Waves/releases) page (Assets section) on Github.
+
+   TGZ archive name is as follows:
+
+   * for Mainnet `grpc-server-{version number}.deb`
+   * for Testnet `grpc-server-testnet-{version number}.deb`
+   * for Stagenet `grpc-server-stagenet_{version number}.deb`
 
 2. Unpack the TGZ archive to the directory containing node's JAR file.
 
@@ -128,8 +140,22 @@ BlockchainUpdates extension started gRPC API on port <...>
 
 4. Run the command:
 
+   Mainnet
+
    ```bash
-   java -cp 'waves-all-{version number}.jar:blockchain-updates-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
+   java -cp 'waves-all-{номер версии}.jar:grpc-server-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
+   ```
+
+   Testnet:
+
+   ```bash
+   java -cp 'waves-all-{номер версии}.jar:grpc-server-testnet-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
+   ```
+
+   Stagenet:
+
+   ```bash
+   java -cp 'waves-all-{номер версии}.jar:grpc-server-stagenet-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
    ```
 
    On Windows, use `;` instead of `:`
