@@ -52,8 +52,7 @@ Format:
         {
           "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
           "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
-          "amount": 500000,
-          "nonce": 0
+          "amount": 500000
         }
       ],
       "leaseCancels": [
@@ -87,8 +86,7 @@ Format:
                     {
                         "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
                         "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
-                        "amount": 500000,
-                        "nonce": 0
+                        "amount": 500000
                     }
                 ],
                 "leaseCancels": [
