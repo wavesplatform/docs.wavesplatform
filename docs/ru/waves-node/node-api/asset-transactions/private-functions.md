@@ -91,6 +91,8 @@
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
+:warning: Данная функция устарела.
+
 Выпустить новый ассет для адреса, кошелька ноды.
 
 **Параметры запроса:**
@@ -124,9 +126,11 @@
 Как в [Broadcast Issue Assets]
 ```
 
-## POST /assets/reissue 
+## POST /assets/reissue
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
+
+:warning: Данная функция устарела.
 
 Выпуск дополнительного количества ассетов.
 
@@ -162,6 +166,8 @@
 ## POST /assets/burn
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
+
+:warning: Данная функция устарела.
 
 Сжечь заданное количество ассетов.
 
@@ -205,6 +211,8 @@
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
+:warning: Данная функция устарела.
+
 Создать транзакцию перевода с одного адреса на другой.
 
 **Параметры запроса:**
@@ -240,6 +248,8 @@
 ## POST /assets/masstransfer
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
+
+:warning: Данная функция устарела.
 
 Создать транзакцию перевода ассетов одновременно на несколько адресов.
 
