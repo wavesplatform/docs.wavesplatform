@@ -1,10 +1,97 @@
 # Private Functions
 
-All private functions below require API Key to be provided in every HTTP request using `X-Api-Key` header. The default value is `ridethewaves!`. Securely hashed header value is stored in `rest-api.api-key-hash` setting in the waves.conf configuration file. See [API Key](/en/waves-node/node-api/api-key) article and [/utils/hash/secure](/en/waves-node/node-api/utils) method for more information about obtaining hash.
+Private functions require API Key to be provided in every HTTP request using `X-Api-Key` header. Securely hashed header value is stored in `rest-api.api-key-hash` setting in the waves.conf configuration file. See [API Key](/en/waves-node/node-api/api-key) article and [/utils/hash/secure](/en/waves-node/node-api/utils) method for more information.
+
+## POST /transactions/sign + POST /transactions/broadcast
+
+![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
+
+The following private functions have been deprecated:
+
+* POST /assets/issue (transaction type 3)
+* POST /assets/transfer (transaction type 4)
+* POST /assets/reissue (transaction type 5)
+* POST /assets/burn (transaction type 6)
+* POST /assets/masstransfer (transaction type 11)
+
+You can use the combination of [POST /transactions/sign](/en/waves-node/node-api/transactions#post-transactions-sign) + [POST /transactions/broadcast](/en/waves-node/node-api/transactions#post-transactions-broadcast) instead and provide the transaction type in the request body. This works for transaction type 3, 4, 5, 6, 11.
+
+For example, if you want to use the deprecated **POST /assets/transfer** function, use the [POST /transactions/sign](/en/waves-node/node-api/transactions#post-transactions-sign) function instead and add the transaction type (`"type": 4,`) in the request body:
+
+**Request JSON example:**
+
+```js
+{
+  "type": 4,
+  "sender": "3MtQQX9NwYH5URGGcS2e6ptEgV7wTFesaRW",
+  "fee": 100000,
+  "feeAssetId": null,
+  "version": 1,
+  "recipient": "3MtQQX9NwYH5URGGcS2e6ptEgV7wTFesaRW",
+  "assetId": null,
+  "feeAsset": null,
+  "amount": 100,
+  "attachment": ""
+}
+```
+
+**Response JSON example:**
+
+```JS
+{
+  "type": 4,
+  "id": "GSxH6ksfcXDnkuvpv6xAvYNo9zjWTzzR9ujf74JW2LUk",
+  "sender": "3MtQQX9NwYH5URGGcS2e6ptEgV7wTFesaRW",
+  "senderPublicKey": "3ikUmWkNpbkeVZaoA7fogfDjKw5hn4ZWVbP4gW7dMQNi",
+  "fee": 100000,
+  "feeAssetId": null,
+  "timestamp": 1602067930149,
+  "proofs": [
+    "4V6JMFcs2Dy77mQHuTxchZTSzHeYwxkn6ZCrp6rmjGEpQDJxJ93WazohUV9G3vA3JcvG1FQS3HXzTaZ6XXM3YtLS"
+  ],
+  "signature": "4V6JMFcs2Dy77mQHuTxchZTSzHeYwxkn6ZCrp6rmjGEpQDJxJ93WazohUV9G3vA3JcvG1FQS3HXzTaZ6XXM3YtLS",
+  "version": 1,
+  "recipient": "3MtQQX9NwYH5URGGcS2e6ptEgV7wTFesaRW",
+  "assetId": null,
+  "feeAsset": null,
+  "amount": 100,
+  "attachment": ""
+}
+```
+
+Then use the resulting response as a request body in the [POST /transactions/broadcast](/en/waves-node/node-api/transactions#post-transactions-broadcast) function.
+
+**Response JSON example:**
+
+```js
+{
+  "type": 4,
+  "id": "GSxH6ksfcXDnkuvpv6xAvYNo9zjWTzzR9ujf74JW2LUk",
+  "sender": "3MtQQX9NwYH5URGGcS2e6ptEgV7wTFesaRW",
+  "senderPublicKey": "3ikUmWkNpbkeVZaoA7fogfDjKw5hn4ZWVbP4gW7dMQNi",
+  "fee": 100000,
+  "feeAssetId": null,
+  "timestamp": 1602067930149,
+  "proofs": [
+    "4V6JMFcs2Dy77mQHuTxchZTSzHeYwxkn6ZCrp6rmjGEpQDJxJ93WazohUV9G3vA3JcvG1FQS3HXzTaZ6XXM3YtLS"
+  ],
+  "signature": "4V6JMFcs2Dy77mQHuTxchZTSzHeYwxkn6ZCrp6rmjGEpQDJxJ93WazohUV9G3vA3JcvG1FQS3HXzTaZ6XXM3YtLS",
+  "version": 1,
+  "recipient": "3MtQQX9NwYH5URGGcS2e6ptEgV7wTFesaRW",
+  "assetId": null,
+  "feeAsset": null,
+  "amount": 100,
+  "attachment": ""
+}
+```
+
+The resulting response body will be the same as the request body. This means that the transaction has been successfully broadcasted.
 
 ## POST /assets/issue
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
+
+:warning: This function has been deprecated.
 
 Issue a new Asset for an address that exists in the node's wallet.
 
@@ -39,9 +126,11 @@ The same as in [Broadcast Issue Assets]
 The same as in [Broadcast Issue Assets]
 ```
 
-## POST /assets/reissue 
+## POST /assets/reissue
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
+
+:warning: This function has been deprecated.
 
 Re-issue an additional quantity of the Asset
 
@@ -75,6 +164,8 @@ The same as in [Broadcast Reissue Assets]
 ```
 
 ## POST /assets/burn
+
+:warning: This function has been deprecated.
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
@@ -120,6 +211,8 @@ Burn quantity of the Asset.
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
 
+:warning: This function has been deprecated.
+
 Create transaction to transfer assets from one address to another.
 
 **Request params:**
@@ -155,6 +248,8 @@ The same as in [Broadcast Transfer Assets]
 ## POST /assets/masstransfer
 
 ![master](https://img.shields.io/badge/MAINNET-available-4bc51d.svg)
+
+:warning: This function has been deprecated.
 
 Create transaction to transfer an asset to several recipient addresses at once.
 
@@ -210,8 +305,3 @@ Create transaction to transfer an asset to several recipient addresses at once.
   } ]
 }
 ```
-
-
-
-
-
