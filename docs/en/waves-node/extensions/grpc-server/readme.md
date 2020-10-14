@@ -18,13 +18,13 @@ Example of usage of gRPC client generated from .proto files: [Retrieving blocks 
 
 ## gRPC Server Installation
 
-The [gRPC Server](/en/waves-node/extensions/grpc-server/) extension can be installed on the [node](/en/blockchain/node/) by two methods: using Deb package or ZIP file.
+The [gRPC Server](/en/waves-node/extensions/grpc-server/) extension can be installed on the [node](/en/blockchain/node/) by two methods: using DEB package or TGZ archive.
 
-### Installation via Deb Package
+### Installation via DEB Package
 
-1. Download the latest version of the deb package from the [Releases](https://github.com/wavesplatform/Waves/releases) page (Assets section).
+1. Download the latest version of the DEB package from the [Releases](https://github.com/wavesplatform/Waves/releases) page (Assets section).
 
-   The package name is as follows:
+   The extension package name is as follows:
 
    * for Mainnet `grpc-server_{version number}_all.deb`
    * for Testnet `grpc-server-testnet_{version number}_all.deb`
@@ -61,7 +61,7 @@ The [gRPC Server](/en/waves-node/extensions/grpc-server/) extension can be insta
    }
    ```
 
-   For Mainnet, the configuration file is located at `/etc/waves/waves.conf`, for Testnet at `/etc/waves-testnet/waves.conf`, for Testnet at `/etc/waves-stagenet/waves.conf`.
+   For Mainnet, the configuration file is located at `/etc/waves/waves.conf`, for Testnet at `/etc/waves-testnet/waves.conf`, for Stagenet at `/etc/waves-stagenet/waves.conf`.
 
 4. Restart the node.
 
@@ -89,9 +89,9 @@ The [gRPC Server](/en/waves-node/extensions/grpc-server/) extension can be insta
 
    The TGZ archive name is as follows:
 
-   * for Mainnet `grpc-server-{version number}.deb`
-   * for Testnet `grpc-server-testnet-{version number}.deb`
-   * for Stagenet `grpc-server-stagenet_{version number}.deb`
+   * for Mainnet `grpc-server-{version number}.tgz`
+   * for Testnet `grpc-server-testnet-{version number}.tgz`
+   * for Stagenet `grpc-server-stagenet-{version number}.tgz`
 
 2. Unpack the archive to the directory containing node's JAR-file.
 
@@ -111,22 +111,22 @@ The [gRPC Server](/en/waves-node/extensions/grpc-server/) extension can be insta
    Mainnet
 
    ```bash
-   java -cp 'waves-all-{номер версии}.jar:grpc-server-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
+   java -cp 'waves-all-{version number}.jar:grpc-server-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
    ```
 
    Testnet:
 
    ```bash
-   java -cp 'waves-all-{номер версии}.jar:grpc-server-testnet-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
+   java -cp 'waves-all-{version number}.jar:grpc-server-testnet-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
    ```
 
    Stagenet:
 
    ```bash
-   java -cp 'waves-all-{номер версии}.jar:grpc-server-stagenet-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
+   java -cp 'waves-all-{version number}.jar:grpc-server-stagenet-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
    ```
 
-   On Windows, use `;` instead of `:`
+   On Windows, use `;` instead of `:`, for example:
 
    ```bash
-   java -cp 'waves-all-{version number}.jar;blockchain-updates-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
+   java -cp 'waves-all-{version number}.jar;grpc-server-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf

@@ -17,6 +17,16 @@ Blockchain Updates позволяет отслеживать изменения,
 * Расчет среднего баланса аккаунта за неделю (используется в [программе поддержки маркет-мейкеров](https://medium.com/wavesexchange/waves-exchange-launches-a-market-maker-program-enabling-users-to-mine-with-their-liquidity-3d229c856f67)).
 * Сервисы поиска токенов по параметрам, поиска по хранилищам данных аккаунтов и др.
 
+## Требования к оборудованию
+
+Для ноды с расширением Blockchain Updates рекомендуется конфигурация не ниже следующей:
+
+| | |
+| :--- | :--- |
+| CPU | 4 | 
+| RAM | 8 Гбайт |
+| SSD | 60 Гбайт |
+
 ## Запуск ноды с расширением
 
 :warning: **Важно:** расширение Blockchain Updates использует историю изменений с момента создания блокчейна. Поэтому ноду с расширением нужно запустить с нуля и дождаться синхронизации блокчейна в обычном режиме работы ноды, что может потребовать 1–3 дня (см. раздел [Синхронизировать блокчейн Waves](/ru/waves-node/options-for-getting-actual-blockchain/)). Импорт блокчейна из бинарного файла или загрузка актуальной базы данных не подходят.
@@ -29,9 +39,9 @@ Blockchain Updates позволяет отслеживать изменения,
 
    Имя пакета с расширением:
 
-   * для Mainnet `grpc-server_{номер версии}_all.deb`
-   * для Testnet `grpc-server-testnet_{номер версии}_all.deb`
-   * для Stagenet `grpc-server-stagenet_{номер версии}_all.deb`
+   * для Mainnet: `grpc-server_{номер версии}_all.deb`
+   * для Testnet: `grpc-server-testnet_{номер версии}_all.deb`
+   * для Stagenet: `grpc-server-stagenet_{номер версии}_all.deb`
 
 2. Установите пакеты:
 
@@ -111,9 +121,9 @@ BlockchainUpdates extension started gRPC API on port <...>
 
    Имя TGZ-архива с расширением:
 
-   * для Mainnet `grpc-server-{номер версии}.deb`
-   * для Testnet `grpc-server-testnet-{номер версии}.deb`
-   * для Stagenet `grpc-server-stagenet_{номер версии}.deb`
+   * для Mainnet: `grpc-server-{номер версии}.tgz`
+   * для Testnet: `grpc-server-testnet-{номер версии}.tgz`
+   * для Stagenet: `grpc-server-stagenet-{номер версии}.tgz`
 
 2. Распакуйте TGZ-архив в папку с JAR-файлом ноды.
 
@@ -159,7 +169,7 @@ BlockchainUpdates extension started gRPC API on port <...>
    ```
 
 
-   В Windows используйте `;` вместо `:`
+   В Windows используйте `;` вместо `:`, например:
 
    ```bash
    java -cp 'waves-all-{номер версии}.jar;grpc-server-{номер версии}/lib/*' com.wavesplatform.Application {имя файла конфигурации}.conf
