@@ -200,7 +200,11 @@ module.exports = {
           path: blockchainPath + 'mining/mining-account',
         },
         {
-          title: 'Mining Reward',
+          title: 'Generator’s Income',
+          path: blockchainPath + 'mining/income',
+        },
+        {
+          title: 'Block Reward',
           path: blockchainPath + 'mining/mining-reward',
         },
       ],
