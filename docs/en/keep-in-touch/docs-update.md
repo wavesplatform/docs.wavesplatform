@@ -5,7 +5,7 @@
 ### Blockchain
 
 * [Account](/en/blockchain/account/) — <span style="color:green">updated</span>
-* [Generator’s Income](/en/blockchain/mining/income)
+* [Generator’s Income](/en/blockchain/mining/)
 
 ### Node
 
