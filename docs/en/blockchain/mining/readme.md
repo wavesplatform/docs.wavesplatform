@@ -6,15 +6,15 @@ A node's income from adding a new block to the blockchain consists of the follow
 2. 40% of the total transaction fees in the current block.
 3. 60% of the total transaction fees in the previous block.
 
-If the transaction fee is specified in the sponsored asset, then the block generators receive the fee equivalent in WAVES instead of the fee (as a general rule, in a 40/60 ratio):
+If the [transaction fee](/en/blockchain/transaction/transaction-fee) is specified in a sponsored asset, then the block generators receive the fee equivalent in WAVES instead of the fee (as a general rule, in a 40/60 ratio):
 
-`feeInWaves` = `feeInSponsoredAsset` × 0,001 / `minSponsoredAssetFee`
+`feeInWaves` = `feeInSponsoredAsset` × 0.001 / `minSponsoredAssetFee`
 
-`minSponsoredAssetFee` is the amount of sponsored asset equivalent to 0.001 WAVES. The sponsor sets this value when enabling sponsorship. For details, see the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article.
+`minSponsoredAssetFee` is the amount of the sponsored asset equivalent to 0.001 WAVES. The sponsor sets this value when enabling sponsorship. For details, see the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article.
 
-These rules apply from the height of 1740000, i.e. since activation of feature #14 "Block Reward and Community Driven Monetary Policy".
+These rules apply from the height of 1740000, i.e. since activation of feature #14 “Block Reward and Community Driven Monetary Policy”.
 
-## Earlier versions
+## Previous Versions
 
 <details><summary>Height 1090000–1739999</summary>
 <p>In this range of height, the node's income consisted only of transaction fees. The rules for the fee sharing between the two generators were the same as described above. There was no block reward.</p>
@@ -23,7 +23,7 @@ These rules apply from the height of 1740000, i.e. since activation of feature #
 
 <details><summary>Height 805000–1089999</summary>
 <p>The transaction sender could specify the fee in any asset, and the block generators received the fee in this asset.</p>
-<p>The generator of block 805000 received 40% of the total transaction fees in the this block. Generators of subsequent blocks received 40% of the total transaction fees in the current block and 60% of the total transaction fees in the previous block.</p>
+<p>The generator of block 805000 received 40% of the total transaction fees in the the block. Generators of subsequent blocks received 40% of the total transaction fees in the current block and 60% of the total transaction fees in the previous block.</p>
 <p>The rules applied from the height of 805000, i.e. since activation of feature #2 “NG Protocol”.</p>
 </details>
 <details><summary>Height 2–804999</summary>
