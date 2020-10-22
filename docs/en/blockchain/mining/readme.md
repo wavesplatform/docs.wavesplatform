@@ -7,7 +7,7 @@ A node's income from adding a new block to the blockchain consists of the follow
 
    ![](./_assets/s1.png)
 
-    Here *f<sub>i</sub>* is the fee for the *i*-th transaction. For each transaction fee, an integer division by 5 is performed, then a multiplication by 2, finally they are summed up.
+    Here *f<sub>i</sub>* is the fee for the *i*-th transaction. For each transaction fee, an integer division by 5 is performed, then a multiplication by 2, and finally they are summed up.
 
 3. 60% of the total transaction fees in the previous block.
 
