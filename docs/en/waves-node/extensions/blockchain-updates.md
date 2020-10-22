@@ -79,11 +79,13 @@ There are two ways to install the node with Blockchain Updates extension: using 
    }
    ```
 
-   3.2. Below the `waves` section, at the same level, add the following section:
+   3.2. If you want to change the port for client connection (default is 6881), add the following setting:
 
    ```
-   blockchain-updates {
-      grpc-port = 6881 # Specify the port for client connection
+   waves {
+      ...
+      blockchain-updates {
+         grpc-port = 6888 # Specify port
    }
    ```
 
@@ -140,13 +142,16 @@ BlockchainUpdates extension started gRPC API on port <...>
    }
    ```
 
-   3.2. Below the `waves` section, at the same level, add the following section:
+   3.2. If you want to change the port for client connection (default is 6881), add the following setting:
 
    ```
-   blockchain-updates {
-      grpc-port = 6881 # Specify the port for client connection
+   waves {
+      ...
+      blockchain-updates {
+         grpc-port = 6888 # Specify port
    }
    ```
+
 
 4. Run the command:
 

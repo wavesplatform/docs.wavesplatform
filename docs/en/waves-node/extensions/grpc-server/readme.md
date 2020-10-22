@@ -50,7 +50,9 @@ The [gRPC Server](/en/waves-node/extensions/grpc-server/) extension can be insta
    sudo dpkg -i grpc-server-stagenet_{version number}_all.deb
    ```
 
-3. Edit the node configuration file as described in the [Node Configuration](/en/waves-node/node-configuration) article: add gRPC Server to the `waves.extensions` section:
+3. Edit the node configuration file as described in the [Node Configuration](/en/waves-node/node-configuration) article. For Mainnet, the configuration file is located at `/etc/waves/waves.conf`, for Testnet at `/etc/waves-testnet/waves.conf`, for Stagenet at `/etc/waves-stagenet/waves.conf`.
+
+   3.1. Add gRPC Server to the `waves.extensions` section:
 
    ```
    waves {
@@ -61,7 +63,15 @@ The [gRPC Server](/en/waves-node/extensions/grpc-server/) extension can be insta
    }
    ```
 
-   For Mainnet, the configuration file is located at `/etc/waves/waves.conf`, for Testnet at `/etc/waves-testnet/waves.conf`, for Stagenet at `/etc/waves-stagenet/waves.conf`.
+   3.2. If you want to change the port for client connection (default is 6870), add the following setting:
+
+   ```
+   waves {
+      ...
+      grpc {
+         port = 6877 # Specify port
+   }
+   ```
 
 4. Restart the node.
 
@@ -95,8 +105,10 @@ The [gRPC Server](/en/waves-node/extensions/grpc-server/) extension can be insta
 
 2. Unpack the archive to the directory containing node's JAR-file.
 
-3. Create a new configuration file or open the existing one and add gRPC Server to the `waves.extensions` section:
+3. Create a new configuration file or open the existing one, see the [Node Configuration](/en/waves-node/node-configuration) article.
    
+   3.1. Add gRPC Server to the `waves.extensions` section:
+
    ```
    waves {
       ...
@@ -105,6 +117,17 @@ The [gRPC Server](/en/waves-node/extensions/grpc-server/) extension can be insta
       ]
    }
    ```
+
+   3.2. If you want to change the port for client connection (default is 6870), add the following setting:
+
+   ```
+   waves {
+      ...
+      grpc {
+         port = 6877 # Specify port
+   }
+   ```
+
 
 4. Run the command:
 
