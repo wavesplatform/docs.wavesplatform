@@ -1,5 +1,18 @@
 # Обновления в документации
 
+## Октябрь
+
+### Блокчейн
+
+* [Транзакция продолжения](/ru/blockchain/transaction-type/continuation-transaction)
+* [Транзакция вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) — <span style="color:green">обновлено</span>
+* [Бинарный формат транзакции продолжения](/ru/blockchain/binary-format/transaction-binary-format/continuation-transaction-binary-format)
+* [Бинарный формат транзакции вызова скрипта](/ru/blockchain/binary-format/transaction-binary-format/invoke-script-transaction-binary-format) — <span style="color:green">обновлено</span>
+
+### Ride
+
+* [Вычисления с продолжением](/ru/ride/advanced/continuation)
+
 ## Сентябрь
 
 ### Блокчейн

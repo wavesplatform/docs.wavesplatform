@@ -1,3 +1,37 @@
+# Release Notes
+
+## Версия 1.3 (Stagenet)
+
+## Развитие протокола
+
+* **Вычисления с продолжением.** Добавлена поддержка dApp-скриптов, сложность которых превышает 4000. Выполнение такого скрипта разбивается на несколько транзакций, транзакции продолжения создаются автоматически генераторами блоков. [Подробнее](/ru/ride/advanced/continuation)
+* Добавлена версия 3 [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction): с ее помощью можно вызвать скрипт сложностью выше 4000.
+
+## Ride
+
+* Выпущена версия 5 [Стандартной библиотеки](/ru/ride/script/standard-library).
+* Добавлены встроенные функции:
+   * [функции хранилища данных аккаунта](/ru/ride/functions/built-in-functions/account-data-storage-functions), позволяющие dApp-скрипту читать данные собственного хранилища данных на любом этапе вычислений:
+      * `getBinary(String): ByteVector|Unit`
+      * `getBinaryValue(String): ByteVector`
+      * `getBoolean(String): Boolean|Unit`
+      * `getBooleanValue(String): Boolean`
+      * `getInteger(String): Int|Unit`
+      * `getIntegerValue(String): Int`
+      * `getString(String): String|Unit`
+      * `getStringValue(String): String`
+
+## Node REST API
+
+### Ломающие изменения
+
+* Добавлен новый тип транзакции: [транзакция продолжения](/ru/blockchain/transaction-type/continuation-transaction).
+
+### Семантические изменения
+
+* В ответ методов, возвращающих транзакции, для [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) версии 3 добавлены поле `extraFeePerStep` и `continuationtransactionIds`.
+* Для поля транзакции `applicationStatus` добавлено значение `script_execution_in_progress`.
+
 # Версия 1.2
 
 ## Улучшения ноды

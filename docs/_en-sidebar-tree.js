@@ -98,6 +98,10 @@ module.exports = {
               path: blockchainPath + 'transaction-type/burn-transaction',
             },
             {
+              title: 'Continuation Transaction',
+              path: blockchainPath + 'transaction-type/continuation-transaction',
+            },
+            {
               title: 'Create Alias Transaction',
               path: blockchainPath + 'transaction-type/create-alias-transaction',
             },
@@ -350,6 +354,10 @@ module.exports = {
                 {
                   title: 'Burn Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/burn-transaction-binary-format',
+                },
+                {
+                  title: 'Continuation Transaction Binary Format',
+                  path: blockchainPath + 'binary-format/transaction-binary-format/continuation-transaction-binary-format',
                 },
                 {
                   title: 'Create Alias Transaction Binary Format',
@@ -1020,6 +1028,10 @@ module.exports = {
           path: ridePath + 'limits/weight',
         },
       ],
+    },
+    {
+      title: 'Continuation',
+      path: ridePath + 'advanced/continuation',
     },
     {
       title: 'Ride Components',

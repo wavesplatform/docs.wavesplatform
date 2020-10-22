@@ -3,11 +3,13 @@
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | [addressFromRecipient(Address&#124;Alias): Address](#address-from-recipient) | Gets the corresponding [address](/en/blockchain/account/address) of the [alias](/en/blockchain/account/alias) | 100 for Standard Library **version 3**<br>5 for Standard Library **version 4** |
+| [assetBalancе(Address&#124;Alias, ByteVector): Int](#assetbalance) | Gets account balance by token ID | 100 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10 for Standard Library **version 4** |
 | [assetInfo(ByteVector): Аsset&#124;Unit](#assetinfo) | Gets the information about a [token](/en/blockchain/token/) | 100 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>15 for Standard Library **version 4** |
 | [blockInfoByHeight(Int): BlockInfo&#124;Unit](#blockinfobyheight) | Gets the information about a [block](/en/blockchain/block/) by the [block height](/en/blockchain/block/block-height) | 100 for Standard Library **version 3**<br>5 for Standard Library **version 4** |
 | [calculateAssetId(Issue): ByteVector](#calculateassetid) | Calculates the ID of the asset, created by [Issue](/en/ride/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
 | [transactionHeightById(ByteVector): Int&#124;Unit](#transactionheightbyid) | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 100 for Standard Library **version 3**<br>20 for Standard Library **version 4** |
 | [transferTransactionById(ByteVector): TransferTransaction&#124;Unit](#transfertransactionbyid) | Gets the data of a transfer transaction | 100 for Standard Library **version 3**<br>60 for Standard Library **version 4** |
+| [wavesBalance(Address&#124;Alias): Int](#waves-balance) | Gets account balance in [WAVES](/en/blockchain/token/waves) | 100 for Standard Library **version 3**<br>10 for Standard Library **version 4** |
 
 ## addressFromRecipient(Address|Alias): Address<a id="address-from-recipient"></a>
 
@@ -30,6 +32,22 @@ Address or alias, usually tx.recipient |
 let address =Address(base58'3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF')
 addressFromRecipient(address)
 ```
+
+## assetBalance
+
+Gets account balance by token ID.
+
+``` ride
+assetBalance(addressOrAlias: Address|Alias, assetId: ByteVector): Int
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `assetId`: [ByteVector](/en/ride/data-types/byte-vector) | Token ID |
+
 ## assetInfo
 
 Gets the information about a [token](/en/blockchain/token/).
@@ -170,3 +188,29 @@ let x = match transferTransactionById(transferId) {
     case _ => throw("Can't find transaction")
 }
 ```
+
+## wavesBalance
+
+### For Standard Library Version 3
+
+Gets available balance of [WAVES](/en/blockchain/token/waves).
+
+``` ride
+wavesBalance(addressOrAlias: Address|Alias): Int
+```
+
+### For Standard Library Version 4
+
+Gets all types of [WAVES](/en/blockchain/token/waves) balances. For description of balance types, see the [Account Balance](/en/blockchain/account/account-balance) article.
+
+``` ride
+wavesBalance(addressOrAlias: Address|Alias): BalanceDetails
+```
+
+For a description of the return value, see the [BalanceDetails](/en/ride/structures/common-structures/balance-details) article.
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |

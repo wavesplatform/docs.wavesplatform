@@ -4,22 +4,39 @@ Invoke Script transaction invokes the [callable function](/en/ride/functions/cal
 
 In addition to the dApp address, callable function name, and arguments, the Invoke Script transaction can contain a payment to dApp.
 
-> Up to two payments can be contained in an Invoke Script transaction starting from node version 1.2.0, after the activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> Up to two payments can be contained in an Invoke Script transaction since the activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ## Fee
 
+### Versions 2 and 1
+
 The minimum fee for an Invoke Script transaction is calculated as follows:
 
-`Fee` = 0.005 + `B` + 0.004 × `C` + 0.004 × `D` + `K`
+`Fee` = 0.005 + `S` + 0.004 × `P` + 0.004 × `A` + `I`
 
-* If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), then `B` = 0.004, otherwise `B` = 0.
-* The Invoke Script transaction can contain payments. `C` is the number of payments in [smart assets](/en/blockchain/token/smart-asset).
-* The Invoke Script transaction can result in the token transfer, reissue or burning. `D` is the number of smart assets among these actions.
-* The Invoke Script transaction can result in the token issue. `K` is the number of issued assets that are not [NFT](/en/blockchain/token/non-fungible-token).
+* If the transaction **s**ender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), then `S` = 0.004, otherwise `S` = 0.
+* The Invoke Script transaction can contain payments. `P` is the number of **p**ayments in [smart assets](/en/blockchain/token/smart-asset).
+* The Invoke Script transaction can result in the token transfer, reissue or burning. `A` is the number of smart assets among these **a**ctions.
+* The Invoke Script transaction can result in the token issue. `I` is the number of **i**ssued assets that are not [NFT](/en/blockchain/token/non-fungible-token).
 
 See also the example in the [Transaction Fee](/en/blockchain/transaction/transaction-fee) article.
 
 The sender can specify a transaction fee nominated in a sponsored asset instead of WAVES, see the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article.
+
+### Version 3
+
+Version 3 of the Invoke Script transaction is added in node version 1.3.0 and enabled with feature #16 “Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
+
+`Fee` = (0.005 + `E`) × ⌈`С` / 4000⌉ × + `S` + 0.004 × `P` + 0.004 × `A` + `I`,
+
+where:
+
+   `E` is the **e**xtra fee specified in the `extraFeePerStep` fields,
+
+   `С` is the **c**omplexity of the callable function. `С`/4000 is roundede up to the nearest integer.
+
+For details see the [Continued Calculations](/en/ride/advanced/continuation) article.
+
 
 ## JSON Representation
 
@@ -59,6 +76,8 @@ The sender can specify a transaction fee nominated in a sponsored asset instead 
 | dApp | dApp address base58 encoded or dApp [alias](/en/blockchain/account/alias) with `alias:<chain_id>:` prefix, for example `alias:T:merry` (see [Chain ID](/en/blockchain/blockchain-network/#chain-id)) |
 | payment.amount | Amount of token in payment: an integer value specified in the minimum fraction (“cents”) of token |
 | payment.assetId | ID of token in payment, base58 encoded. `null` means that the payment is in WAVES |
+| extraFeePerStep | Extra fee for each stage of calculations, see the [Continued Calculations](/en/ride/advanced/continuation) article. The extra fee is specified in the same token as the transaction fee. The field is added in transaction version 3 |
+| сontinuationTransactionIds | List of the Continuation transactions in the calculation sequence. The field is added in transaction version 3 |
 
 The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 

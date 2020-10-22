@@ -16,11 +16,13 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | addressFromRecipient(Address&#124;Alias): Address | Получает [адрес](/ru/blockchain/account/address), соответствующий [псевдониму](/ru/blockchain/account/alias) | 100 для Стандартной библиотеки **версии&nbsp;3**<br>5 для Стандартной библиотеки **версии&nbsp;4** |
+| assetBalancе(Address&#124;Alias, ByteVector): Int | Получает баланс аккаунта по ID токена | 100 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии&nbsp;3**<br>10 для Стандартной библиотеки **версии&nbsp;4** |
 | assetInfo(ByteVector): Аsset&#124;Unit | Получает информацию о [токене](/ru/blockchain/token/) | 100 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии&nbsp;3**<br>15 для Стандартной библиотеки **версии&nbsp;4** |
 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Получает информацию о [блоке](/ru/blockchain/block/) по [высоте блока](/ru/blockchain/block/block-height) | 100 для Стандартной библиотеки **версии&nbsp;3**<br>5 для Стандартной библиотеки **версии&nbsp;4** |
 | calculateAssetId(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/script-actions/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 10 |
 | transactionHeightById(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 100 для Стандартной библиотеки **версии&nbsp;3**<br>20 для Стандартной библиотеки **версии&nbsp;4** |
 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 100 для Стандартной библиотеки **версии&nbsp;3**<br>60 для Стандартной библиотеки **версии&nbsp;4** |
+| wavesBalance(Address&#124;Alias): Int | Получает баланс аккаунта в [WAVES](/ru/blockchain/token/waves) | 100 для Стандартной библиотеки **версии&nbsp;3**<br>10 для Стандартной библиотеки **версии&nbsp;4** |
 
 ## [Функции верификации](/ru/ride/functions/built-in-functions/verification-functions)
 
@@ -102,7 +104,6 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| assetBalancе(Address&#124;Alias, ByteVector): Int | Получает баланс аккаунта по ID токена | 100 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии&nbsp;3**<br>10 для Стандартной библиотеки **версии&nbsp;4** |
 | getBinary(Address&#124;Alias, String): ByteVector&#124;Unit | Получает массив байтов по ключу | 100 для Стандартной библиотеки **версии&nbsp;3**<br>10 для Стандартной библиотеки **версии&nbsp;4** |
 | getBinaryValue(Address&#124;Alias, String): ByteVector | Получает массив байтов по ключу. Выбрасывает исключение, если данных нет | 100 для Стандартной библиотеки **версии&nbsp;3**<br>10 для Стандартной библиотеки **версии&nbsp;4** |
 | getBoolean(Address&#124;Alias, String): Boolean&#124;Unit | Получает логическое значение по ключу | 100 для Стандартной библиотеки **версии&nbsp;3**<br>10 для Стандартной библиотеки **версии&nbsp;4** |
@@ -111,7 +112,6 @@
 | getIntegerValue(Address&#124;Alias, String): Int | Получает целое число по ключу. Выбрасывает исключение, если данных нет | 100 для Стандартной библиотеки **версии&nbsp;3**<br>10 для Стандартной библиотеки **версии&nbsp;4** |
 | getString(Address&#124;Alias, String): String&#124;Unit | Получает строку по ключу | 100 для Стандартной библиотеки **версии&nbsp;3**<br>10 для Стандартной библиотеки **версии&nbsp;4** |
 | getStringValue(Address&#124;Alias, String): String | Получает строку по ключу. Выбрасывает исключение, если данных нет | 100 для Стандартной библиотеки **версии&nbsp;3**<br>10 для Стандартной библиотеки **версии&nbsp;4** |
-| wavesBalance(Address&#124;Alias): Int | Получает баланс аккаунта в [WAVES](/ru/blockchain/token/waves) | 100 для Стандартной библиотеки **версии&nbsp;3**<br>10 для Стандартной библиотеки **версии&nbsp;4** |
 
 ## [Функции списка](/ru/ride/functions/built-in-functions/list-functions)
 

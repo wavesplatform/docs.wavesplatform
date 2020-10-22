@@ -138,6 +138,10 @@ module.exports = {
               path: blockchainPath + 'transaction-type/transfer-transaction',
             },
             {
+              title: 'Продолжение',
+              path: blockchainPath + 'transaction-type/continuation-transaction',
+            },
+            {
               title: 'Сжигание токена',
               path: blockchainPath + 'transaction-type/burn-transaction',
             },
@@ -402,6 +406,10 @@ module.exports = {
                 {
                   title: 'Перевод',
                   path: blockchainPath + 'binary-format/transaction-binary-format/transfer-transaction-binary-format',
+                },
+                {
+                  title: 'Продолжение',
+                  path: blockchainPath + 'binary-format/transaction-binary-format/continuation-transaction-binary-format',
                 },
                 {
                   title: 'Установка скрипта',
@@ -1021,6 +1029,10 @@ module.exports = {
           path: ridePath + 'limits/weight',
         },
       ],
+    },
+    {
+      title: 'Вычисления с продолжением',
+      path: ridePath + 'advanced/continuation',
     },
     {
       title: 'Компоненты Ride',

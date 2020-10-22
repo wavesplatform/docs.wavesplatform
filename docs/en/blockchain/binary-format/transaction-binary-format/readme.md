@@ -72,6 +72,7 @@ message Transaction {
         SetAssetScriptTransactionData set_asset_script = 115;
         InvokeScriptTransactionData invoke_script = 116;
         UpdateAssetInfoTransactionData update_asset_info = 117;
+        ContinuationTransactionData continuation = 118;
     };
 };
 
@@ -109,3 +110,5 @@ The fields that depend on the type of transaction are described in the following
 * [Sponsor fee transaction binary format](/en/blockchain/binary-format/transaction-binary-format/sponsor-fee-transaction-binary-format)
 * [Transfer transaction binary format](/en/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format)
 * [Update asset info transaction binary format](/en/blockchain/binary-format/transaction-binary-format/update-asset-info-transaction-binary-format)
+* [Continuation transaction](/en/blockchain/binary-format/transaction-binary-format/continuation-transaction-binary-format)
+* 
