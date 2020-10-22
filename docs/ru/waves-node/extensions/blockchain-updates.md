@@ -39,9 +39,11 @@ Blockchain Updates позволяет отслеживать изменения,
 
    Имя пакета с расширением:
 
-   * для Mainnet: `grpc-server_{номер версии}_all.deb`
-   * для Testnet: `grpc-server-testnet_{номер версии}_all.deb`
-   * для Stagenet: `grpc-server-stagenet_{номер версии}_all.deb`
+   - для Mainnet: `grpc-server_{номер версии}_all.deb`
+
+   - для Testnet: `grpc-server-testnet_{номер версии}_all.deb`
+
+   - для Stagenet: `grpc-server-stagenet_{номер версии}_all.deb`
 
 2. Установите пакеты:
 
@@ -123,9 +125,11 @@ BlockchainUpdates extension started gRPC API on port <...>
 
    Имя TGZ-архива с расширением:
 
-   * для Mainnet: `grpc-server-{номер версии}.tgz`
-   * для Testnet: `grpc-server-testnet-{номер версии}.tgz`
-   * для Stagenet: `grpc-server-stagenet-{номер версии}.tgz`
+   - для Mainnet: `grpc-server-{номер версии}.tgz`
+
+   - для Testnet: `grpc-server-testnet-{номер версии}.tgz`
+
+   - для Stagenet: `grpc-server-stagenet-{номер версии}.tgz`
 
 2. Распакуйте TGZ-архив в папку с JAR-файлом ноды.
 

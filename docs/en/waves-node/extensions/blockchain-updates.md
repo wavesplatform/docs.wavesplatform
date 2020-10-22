@@ -39,9 +39,11 @@ There are two ways to install the node with Blockchain Updates extension: using 
 
    The extension package name is as follows:
 
-   * for Mainnet: `grpc-server_{version number}_all.deb`
-   * for Testnet: `grpc-server-testnet_{version number}_all.deb`
-   * for Stagenet: `grpc-server-stagenet_{version number}_all.deb`
+   - for Mainnet: `grpc-server_{version number}_all.deb`
+
+   - for Testnet: `grpc-server-testnet_{version number}_all.deb`
+
+   - for Stagenet: `grpc-server-stagenet_{version number}_all.deb`
 
 2. Install the packages.
 
@@ -123,9 +125,11 @@ BlockchainUpdates extension started gRPC API on port <...>
 
    TGZ archive name is as follows:
 
-   * for Mainnet: `grpc-server-{version number}.tgz`
-   * for Testnet: `grpc-server-testnet-{version number}.tgz`
-   * for Stagenet: `grpc-server-stagenet-{version number}.tgz`
+   - for Mainnet: `grpc-server-{version number}.tgz`
+
+   - for Testnet: `grpc-server-testnet-{version number}.tgz`
+
+   - for Stagenet: `grpc-server-stagenet-{version number}.tgz`
 
 2. Unpack the TGZ archive to the directory containing node's JAR file.
 
