@@ -66,6 +66,22 @@ module.exports = [
     to: '/ru/blockchain/glossary#к',
   },
   {
+    from: '/en/blockchain/mining/miner',
+    to: '/en/blockchain/node/mining-node',
+  },
+  {
+    from: '/ru/blockchain/mining/miner',
+    to: '/ru/blockchain/node/mining-node',
+  },
+  {
+    from: '/en/blockchain/mining/mining-account',
+    to: '/en/blockchain/node/mining-node',
+  },
+  {
+    from: '/ru/blockchain/mining/mining-account',
+    to: '/ru/blockchain/node/mining-node',
+  },
+  {
     to: '/en/blockchain/transaction/transaction-validation',
     from: '/en/blockchain/transaction-validation.html',
   },

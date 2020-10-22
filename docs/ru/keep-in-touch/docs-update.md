@@ -5,6 +5,7 @@
 ### Блокчейн
 
 * [Аккаунт](/ru/blockchain/account/) — <span style="color:green">обновлено</span>
+* [Доход генератора блока](/ru/blockchain/mining/)
 
 ### Нода
 

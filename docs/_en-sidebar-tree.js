@@ -174,7 +174,7 @@ module.exports = {
       path: blockchainPath + 'node',
       children: [
         {
-          title: 'Mining Node',
+          title: 'Generating Node',
           path: blockchainPath + 'node/mining-node',
         },
         {
@@ -182,26 +182,16 @@ module.exports = {
           path: blockchainPath + 'node/validating-node',
         },
         {
+          title: 'Generator’s Income',
+          path: blockchainPath + 'mining/',
+        },
+        {
+          title: 'Block Reward',
+          path: blockchainPath + 'mining/mining-reward',
+        },
+        {
           title: 'Leased Proof of Stake',
           path: blockchainPath + 'leasing',
-        },
-      ],
-    },
-    {
-      title: 'Mining',
-      path: blockchainPath + 'mining',
-      children: [
-        {
-          title: 'Miner',
-          path: blockchainPath + 'mining/miner',
-        },
-        {
-          title: 'Mining Account',
-          path: blockchainPath + 'mining/mining-account',
-        },
-        {
-          title: 'Mining Reward',
-          path: blockchainPath + 'mining/mining-reward',
         },
       ],
     },
