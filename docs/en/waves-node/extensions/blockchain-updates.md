@@ -17,40 +17,56 @@ Examples of usage:
 * Calculation of the average weekly account balance (used in the [market maker program](https://medium.com/wavesexchange/waves-exchange-launches-a-market-maker-program-enabling-users-to-mine-with-their-liquidity-3d229c856f67)).
 * Services for searching tokens by parameters, searching through account data storages, etc.
 
+## Hardware Requirements
+
+For a node with the Blockchain Updates extension, the recommended configuration is at least the following:
+
+| | |
+| :--- | :--- |
+| CPU | 4 | 
+| RAM | 8 GB |
+| SSD | 60 GB |
+
 ## Launch Node with Extension
 
 :warning: **Important:** Blockchain Updates requires the history of changes since the blockchain creation. Therefore, you should start the node with the extension from scratch and synchronize the blockchain during regular node operation, see the [Synchronize Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article. This can take 1–3 days. Neither importing blockchain from a binary file, nor downloading the latest blockchain database are applicable.
 
-There are two ways to install the node with Blockchain Updates extension: using a DEB package or a JAR file.
+There are two ways to install the node with Blockchain Updates extension: using a DEB package or a JAR file. The Blockchain Updates extension is in the same package and archive as [gRPC Server](/en/waves-node/extensions/grpc-server/). You can install these extensions both together and separately, only the settings in the node configuration file differ.
 
 ### Installation via DEB Package
 
 1. Download the latest versions of DEB packages of node and extension from the [Releases](https://github.com/wavesplatform/Waves/releases) page (Assets section) on Github.
 
-2. Install the packages:
+   The extension package name is as follows:
+
+   * for Mainnet: `grpc-server_{version number}_all.deb`
+   * for Testnet: `grpc-server-testnet_{version number}_all.deb`
+   * for Stagenet: `grpc-server-stagenet_{version number}_all.deb`
+
+2. Install the packages.
 
    Mainnet:
 
    ```bash
    sudo dpkg -i waves_{version number}_all.deb
-   sudo dpkg -i blockchain-updates_{version number}_all.deb
+   sudo dpkg -i grpc-server_{version number}_all.deb
    ```
 
    Testnet:
 
    ```bash
    sudo dpkg -i waves-testnet_{version number}_all.deb
-   sudo dpkg -i blockchain-updates-testnet_{version number}_all.deb
+   sudo dpkg -i grpc-server-testnet_{version number}_all.deb
    ```
 
    Stagenet:
 
    ```bash
    sudo dpkg -i waves-stagenet_{version number}_all.deb
-   sudo dpkg -i blockchain-updates-stagenet_{version number}_all.deb
+   sudo dpkg -i grpc-server-stagenet_{version number}_all.deb
    ```
 
-3. Edit the node configuration file as described in the [Node Configuration](/en/waves-node/node-configuration) article. For Mainnet, the configuration file is located at `/etc/waves/waves.conf`, for Testnet at `/etc/waves-testnet/waves.conf`, for Testnet at `/etc/waves-stagenet/waves.conf`.
+3. Edit the node configuration file as described in the [Node Configuration](/en/waves-node/node-configuration) article. For Mainnet, the configuration file is located at `/etc/waves/waves.conf`, for Testnet at `/etc/waves-testnet/waves.conf`, for Stagenet at `/etc/waves-stagenet/waves.conf`.
 
    3.1. Add Blockchain Updates to the `waves.extensions` section:
    
@@ -63,11 +79,13 @@ There are two ways to install the node with Blockchain Updates extension: using 
    }
    ```
 
-   3.2. Below the `waves` section, at the same level, add the following section:
+   3.2. If you want to change the port for client connection (default is 6881), add the following setting:
 
    ```
-   blockchain-updates {
-      grpc-port = 6881 # Specify the port for client connection
+   waves {
+      ...
+      blockchain-updates {
+         grpc-port = 6888 # Specify port
    }
    ```
 
@@ -101,7 +119,13 @@ BlockchainUpdates extension started gRPC API on port <...>
 
 ### Installation via JAR File
 
-1. Download the latest versions of node JAR file and Blockchain Updates extension ZIP archive from the [Releases](https://github.com/wavesplatform/Waves/releases) page (Assets section) on Github.
+1. Download the latest versions of node JAR file and extension TGZ archive from the [Releases](https://github.com/wavesplatform/Waves/releases) page (Assets section) on Github.
+
+   TGZ archive name is as follows:
+
+   * for Mainnet: `grpc-server-{version number}.tgz`
+   * for Testnet: `grpc-server-testnet-{version number}.tgz`
+   * for Stagenet: `grpc-server-stagenet-{version number}.tgz`
 
 2. Unpack the TGZ archive to the directory containing node's JAR file.
 
@@ -118,24 +142,41 @@ BlockchainUpdates extension started gRPC API on port <...>
    }
    ```
 
-   3.2. Below the `waves` section, at the same level, add the following section:
+   3.2. If you want to change the port for client connection (default is 6881), add the following setting:
 
    ```
-   blockchain-updates {
-      grpc-port = 6881 # Specify the port for client connection
+   waves {
+      ...
+      blockchain-updates {
+         grpc-port = 6888 # Specify port
    }
    ```
 
+
 4. Run the command:
 
+   Mainnet
+
    ```bash
-   java -cp 'waves-all-{version number}.jar:blockchain-updates-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
+   java -cp 'waves-all-{version number}.jar:grpc-server-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
    ```
 
-   On Windows, use `;` instead of `:`
+   Testnet:
 
    ```bash
-   java -cp 'waves-all-{version number}.jar;blockchain-updates-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
+   java -cp 'waves-all-{version number}.jar:grpc-server-testnet-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
+   ```
+
+   Stagenet:
+
+   ```bash
+   java -cp 'waves-all-{version number}.jar:grpc-server-stagenet-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
+   ```
+
+   On Windows, use `;` instead of `:`, for example:
+
+   ```bash
+   java -cp 'waves-all-{version number}.jar;grpc-server-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
    ```
 
 If the extension runs, it writes messages to the [node log](/ren/waves-node/logging-configuration):
