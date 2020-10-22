@@ -183,7 +183,7 @@ module.exports = {
         },
         {
           title: 'Доход генератора блока',
-          path: blockchainPath + 'mining/',
+          path: blockchainPath + 'mining',
         },
         {
           title: 'Вознаграждение за генерацию блока',
