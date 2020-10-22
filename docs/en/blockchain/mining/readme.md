@@ -3,8 +3,17 @@
 A node's income from adding a new block to the blockchain consists of the following amounts:
 
 1. Block reward. The current reward size is 6 WAVES but it can be changed by voting, see the [Block Reward](/en/blockchain/mining/mining-reward) article.
-2. 40% of the total transaction fees in the current block.
+2. 40% of the total transaction fees in the current block. The exact value is calculated as follows:
+
+   ![](./_assets/s1.png)
+
+    Here *f<sub>i</sub>* is the fee for the *i*-th transaction. For each transaction fee, an integer division by 5 is performed, then a multiplication by 2, finally they are summed up.
+
 3. 60% of the total transaction fees in the previous block.
+
+   ![](./_assets/s2.png)
+
+   The block generator receives exactly the part of the fee that the previous block generator did not receive.
 
 If the [transaction fee](/en/blockchain/transaction/transaction-fee) is specified in a sponsored asset, then the block generators receive the fee equivalent in WAVES instead of the fee (as a general rule, in a 40/60 ratio):
 
