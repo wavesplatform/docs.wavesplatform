@@ -6,7 +6,7 @@ The easiest way to run Waves node is by means of **Waves Docker container**. Wav
 
 Install Docker app from [Docker website](https://docs.docker.com/engine/installation/).
 
-## Building Docker Image Scenarios
+<!--- ## Building Docker Image Scenarios
 
 There are the following scenarios of building Waves Docker image:
 
@@ -35,14 +35,13 @@ Use the following command:
 You can specify the following arguments when building the image:
 
 | Argument | Default Value | Description |
-|:-|:-|:-|
+|----------|---------------|---------------------------------------------|
 | WAVES_NETWORK | mainnet | Waves Blockchain network. The available values are `mainnet`, `testnet` and `stagenet`. Can be overridden in a runtime using environment variable with the same name. |
 | WAVES_VERSION | latest | A node version which corresponds to the Git tag that you want to use/create. |
 | BRANCH | version-0.17.x | Relevant if the Git tag 'v WAVES_VERSION' does not exist in the public repository. This option represents a Git branch to be used to compile Waves node and set a Git tag on. |
 | SBT_VERSION | 1.2.8 | Scala build tool version. |
 | WAVES_LOG_LEVEL | DEBUG | Default Waves Node log level. The available values are `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` and `TRACE`. Can be overridden in a runtime using environment variable with the same name. [Read more about logging](/en/waves-node/logging-configuration). |
-| WAVES_HEAP_SIZE | 2g | Default Waves Node JVM Heap Size limit in -X Command-line Options notation (-Xms=[your value]). Can be overridden in a runtime using environment variable with the same name. [Read more about -X Command-line Options](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html). |
-|
+| WAVES_HEAP_SIZE | 2g | Default Waves Node JVM Heap Size limit in -X Command-line Options notation (-Xms=[your value]). Can be overridden in a runtime using environment variable with the same name. [Read more about -X Command-line Options](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html). | --->
 
 ## Running the Image
 
@@ -68,14 +67,13 @@ By default, the `/etc/waves/waves.conf` config includes `/etc/waves/local.conf`.
 You can override parameters specified in the node configuration file by running your container with the following optional environment variables:
 
 | Environment Variable | Description |
-|-|-|
+|----------------------|-------------------------------------------------|
 | WAVES_WALLET_SEED | Base58 encoded seed. Overrides `-Dwaves.wallet.seed` JVM config parameter. |
 | WAVES_WALLET_PASSWORD | Password for the wallet file. Overrides `-Dwaves.wallet.password` JVM config parameter. |
 | WAVES_LOG_LEVEL | Node logging level. Available values: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` and `TRACE`. [Read more about logging](/en/waves-node/logging-configuration). |
 | WAVES_HEAP_SIZE | Default Java Heap Size limit in -X Command-line Options notation (-Xms=[your value]). [Read more about -X Command-line Options](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html). |
 | WAVES_NETWORK | Waves Blockchain network. The available values are `mainnet`, `testnet` and **stagenet**. |
 | JAVA_OPTS | Additional Waves Node JVM configuration parameters. |
-|
 
 ### Managing Data
 
@@ -134,11 +132,10 @@ If you are new to Waves Blockchain and running node for the first time be aware 
 You can speed this process up by downloading a compressed blockchain state from our official resources, extracting and mounting it inside the container (as described in [Managing Data](#managing-data) section). In this scenario the node skips block verifying so the process takes less time. This is also the reason why you must download blockchain state only from our official resources:
 
 | Network | Link |
-|-|-|
+|---------|---------------------------------------------------------|
 | mainnet | http://blockchain.wavesplatform.com/blockchain_last.tar |
 | testnet | http://blockchain-testnet.wavesplatform.com/blockchain_last.tar |
 | stagenet | http://blockchain-stagenet.wavesplatform.com/blockchain_last.tar |
-|
 
 **Note**: We do not guarantee the state consistency if it is downloaded from third parties.
 
