@@ -79,9 +79,9 @@ You can get the transaction by ID, or the list of transactions by certain accoun
 * In [Waves Explorer](https://wavesexplorer.com/).
 * Via [Node REST API](/en/waves-node/node-api/) using the following methods:
 
-   * `GET /transactions/info/{id}` returns transaction data by transaction ID.
-   * `GET /transactions/address/{address}/limit/{limit}` returns the list of transactions where the specified address is involved.
-   * `GET /blocks/at/{height}` returns block data at the specified height including all transactions in the block.
+   • `GET /transactions/info/{id}` returns transaction data by transaction ID.
+   • `GET /transactions/address/{address}/limit/{limit}` returns the list of transactions where the specified address is involved.
+   • `GET /blocks/at/{height}` returns block data at the specified height including all transactions in the block.
 
 ## How to Sign and Send Transaction
 
@@ -89,15 +89,15 @@ You can get the transaction by ID, or the list of transactions by certain accoun
 
    :bulb: You can sign and send transactions on behalf of users without asking them for their seed phrases or private keys using one of the following frameworks:
    
-   * [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer) library;
-   * [Waves Keeper API](/en/ecosystem/waves-keeper/waves-keeper-api) (requires that the Waves Keeper extension be installed in the user's browser).
+   • [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer) library;
+   • [Waves Keeper API](/en/ecosystem/waves-keeper/waves-keeper-api) (requires that the Waves Keeper extension be installed in the user's browser).
 
 * In [Waves IDE](https://waves-ide.com/) using [JavaScript interactive console](/en/building-apps/smart-contracts/tools/waves-ide#javascript-interactive-console).
 * In [Waves.Exchange](https://waves.exchange/) app developed by the third-party team from the community you can create some types of transactions such as Transfer, Issue/Reissue/Burn, Sponsor Fee transaction, Set Asset Script, Create Alias.
 * Via [Node REST API](/en/waves-node/node-api/):
 
-   * the `POST /transactions/broadcast` method sends a signed transaction to a node;
-   * the `POST /transactions/sign` method generates transaction signature (but this method is only available to the node owner).
+   • the `POST /transactions/broadcast` method sends a signed transaction to a node;
+   • the `POST /transactions/sign` method generates transaction signature (but this method is only available to the node owner).
 
 ## After Transaction Is Sent
 

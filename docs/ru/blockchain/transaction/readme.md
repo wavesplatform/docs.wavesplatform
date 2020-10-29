@@ -79,9 +79,9 @@
 * В [Waves Explorer](https://wavesexplorer.com/).
 * С помощью методов [Node REST API](/ru/waves-node/node-api/):
 
-   * `GET /transactions/info/{id}` — возвращает данные транзакции по ID.
-   * `GET /transactions/address/{address}/limit/{limit}` — возвращает по адресу аккаунта список относящихся к нему транзакций.
-   * `GET /blocks/at/{height}` — возвращает данные блока на заданной высоте, в том числе все транзакции блока.
+   • `GET /transactions/info/{id}` — возвращает данные транзакции по ID.
+   • `GET /transactions/address/{address}/limit/{limit}` — возвращает по адресу аккаунта список относящихся к нему транзакций.
+   • `GET /blocks/at/{height}` — возвращает данные блока на заданной высоте, в том числе все транзакции блока.
 
 ## Как подписать и отправить транзакцию
 
@@ -89,15 +89,15 @@
 
    :bulb: Подписывать и отправлять транзакции от имени пользователей, не запрашивая у них секретную фразу (seed) или закрытый ключ, можно с помощью одного из следующих фреймворков:
    
-   * библиотека [Signer](/ru/building-apps/waves-api-and-sdk/client-libraries/signer);
-   * [Waves Keeper API](/ru/ecosystem/waves-keeper/waves-keeper-api) (требует, чтобы в браузере пользователя было установлено расширение Waves Keeper).
+   • библиотека [Signer](/ru/building-apps/waves-api-and-sdk/client-libraries/signer);
+   • [Waves Keeper API](/ru/ecosystem/waves-keeper/waves-keeper-api) (требует, чтобы в браузере пользователя было установлено расширение Waves Keeper).
 
 * В [Waves IDE](https://waves-ide.com/) с помощью [интерактивной консоли JavaScript](/ru/building-apps/smart-contracts/tools/waves-ide#интерактивная-консоnь-javascript).
 * В приложении [Waves.Exchange](https://waves.exchange/), разработанном сторонней командой из сообщества, доступно создание некоторых типов транзакций, таких как перевод токена, выпуск/довыпуск/сжигание токена, настройка спонсирования, установка скрипта ассета, создание псевдонима.
 * С помощью [REST API](/ru/waves-node/node-api/) ноды:
 
-   * метод `POST /transactions/broadcast` позволяет отправить на ноду уже подписанную транзакцию;
-   * метод `POST /transactions/sign` позволяет сгенерировать подпись транзакции (однако этот метод доступен только владельцу ноды).
+   • метод `POST /transactions/broadcast` позволяет отправить на ноду уже подписанную транзакцию;
+   • метод `POST /transactions/sign` позволяет сгенерировать подпись транзакции (однако этот метод доступен только владельцу ноды).
 
 ## Что происходит с транзакцией после отправки
 

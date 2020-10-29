@@ -20,16 +20,16 @@
 
 В следующие методы добавлено поле `applicationStatus`:
 
-   * `/blocks/{id}`
-   * `/blocks/address/{address}/{from}/{to}`
-   * `/blocks/at/{height}`
-   * `/blocks/last`
-   * `/blocks/seq/{from}/{to}`
-   * `/debug/stateChanges/address/{address}/limit/{limit}`
-   * `/debug/stateChanges/info/{id}`
-   * `/transactions/address/{address}/limit/{limit}`
-   * `/transactions/info/{id}`
-   * `/transactions/status`
+   • `/blocks/{id}`
+   • `/blocks/address/{address}/{from}/{to}`
+   • `/blocks/at/{height}`
+   • `/blocks/last`
+   • `/blocks/seq/{from}/{to}`
+   • `/debug/stateChanges/address/{address}/limit/{limit}`
+   • `/debug/stateChanges/info/{id}`
+   • `/transactions/address/{address}/limit/{limit}`
+   • `/transactions/info/{id}`
+   • `/transactions/status`
 
 **Как воспользоваться**: пул нод Waves с публичным API доступны по адресу:
 * Mainnet: <https://nodes.wavesnodes.com/>

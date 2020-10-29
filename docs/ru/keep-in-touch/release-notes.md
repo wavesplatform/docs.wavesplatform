@@ -25,24 +25,24 @@
 ### Семантические изменения
 
 * Транзакции вызова скрипта и транзакции обмена могут быть [сохранены как неуспешные](/ru/keep-in-touch/april). Их присутствие на блокчейне не означает, что изменения применены: нужно проверить также поле `applicationStatus`. Его возвращают следующие методы:
-   * `/blocks/{id}`
-   * `/blocks/address/{address}/{from}/{to}`
-   * `/blocks/at/{height}`
-   * `/blocks/last`
-   * `/blocks/seq/{from}/{to}`
-   * `/debug/stateChanges/address/{address}/limit/{limit}`
-   * `/debug/stateChanges/info/{id}`
-   * `/transactions/address/{address}/limit/{limit}`
-   * `/transactions/info/{id}`
-   * `/transactions/status`
+   • `/blocks/{id}`
+   • `/blocks/address/{address}/{from}/{to}`
+   • `/blocks/at/{height}`
+   • `/blocks/last`
+   • `/blocks/seq/{from}/{to}`
+   • `/debug/stateChanges/address/{address}/limit/{limit}`
+   • `/debug/stateChanges/info/{id}`
+   • `/transactions/address/{address}/limit/{limit}`
+   • `/transactions/info/{id}`
+   • `/transactions/status`
 
    Значения `applicationStatus`:
-   * `succeeded` — транзакция успешна;
-   * `script_execution_failed` — результат выполнения dApp-скрипта или скрипта ассета был неудачным.
+   • `succeeded` — транзакция успешна;
+   • `script_execution_failed` — результат выполнения dApp-скрипта или скрипта ассета был неудачным.
 
 * Для неуспешных транзакций вызова скрипта причина ошибки указывается в структуре `error` в ответе методов:
-   * `/debug/stateChanges/address/{address}/limit/{limit}`
-   * `/debug/stateChanges/info/{id}`
+   • `/debug/stateChanges/address/{address}/limit/{limit}`
+   • `/debug/stateChanges/info/{id}`
 
    Формат:
 
@@ -63,8 +63,8 @@
    4 — скрипт ассета в приложенных платежах отклонил транзакцию
 
 * Для транзакции вызова скрипта результат новых [действий скрипта](/ru/ride/structures/script-actions/) отображается в ответе методов:
-   * `/debug/stateChanges/address/{address}/limit/{limit}`
-   * `/debug/stateChanges/info/{id}`
+   • `/debug/stateChanges/address/{address}/limit/{limit}`
+   • `/debug/stateChanges/info/{id}`
 
    Формат:
 
@@ -86,13 +86,13 @@
 * Получение блока по `id` вместо `signature`.
 
    Удалены методы:
-   * `/blocks/signature/{signature}` — вместо него используйте `/blocks/{id}`
-   * `/blocks/child/{signature}`
+   • `/blocks/signature/{signature}` — вместо него используйте `/blocks/{id}`
+   • `/blocks/child/{signature}`
 
    Затронуты методы:
-   * `/blocks/delay/{id}/{blockNum}`
-   * `/blocks/height/{id}`
-   * `/debug/rollback-to/{id}`
+   • `/blocks/delay/{id}/{blockNum}`
+   • `/blocks/height/{id}`
+   • `/debug/rollback-to/{id}`
 
 * Удален метод `/consensus/generationsignature`.
 * Изменена структура `meta` в ответе метода `/addresses/scriptInfo/{address}/meta`. Список аргументов теперь представлен в виде массива объектов, а не map.
@@ -133,15 +133,15 @@
    ```
 
 * Записи в хранилище данных аккаунта могут быть удалены транзакциями данных и транзакциями вызова скрипта. Удаление записи выглядит как структура `{ "key": string, "value": null }`, где `value` равно null, а `type` отсутствует. Затронуты методы:
-   * `/blocks/{id}`
-   * `/blocks/address/{address}/{from}/{to}`
-   * `/blocks/at/{height}`
-   * `/blocks/last`
-   * `/blocks/seq/{from}/{to}`
-   * `/debug/stateChanges/address/{address}/limit/{limit}`
-   * `/debug/stateChanges/info/{id}`
-   * `/transactions/address/{address}/limit/{limit}`
-   * `/transactions/info/{id}`
+   • `/blocks/{id}`
+   • `/blocks/address/{address}/{from}/{to}`
+   • `/blocks/at/{height}`
+   • `/blocks/last`
+   • `/blocks/seq/{from}/{to}`
+   • `/debug/stateChanges/address/{address}/limit/{limit}`
+   • `/debug/stateChanges/info/{id}`
+   • `/transactions/address/{address}/limit/{limit}`
+   • `/transactions/info/{id}`
 
 * Транзакция обмена версии 3 может содержать ордера на покупку и продажу в любом порядке.
 
@@ -152,9 +152,9 @@
 * Метод `/addresses/balance` позволяет получать балансы сразу для нескольких адресов на заданной высоте, не далее 2000 от текущей.
 * В ответ метода `/assets/nft/{address}/limit/{limit}` добавлен массив `assetDetails` со списком NFT, принадлежащих адресу. Также поддерживаются POST-запросы.
 * Следующие методы возвращают сложность каждой вызываемой функции и функции-верификатора:
-   * `/addresses/scriptInfo/{address}`
-   * `/utils/script/compileCode`
-   * `/utils/script/estimate`
+   • `/addresses/scriptInfo/{address}`
+   • `/utils/script/compileCode`
+   • `/utils/script/estimate`
 
    Формат:
 
@@ -168,63 +168,63 @@
 
 * Новый метод `/transactions/merkleProof` принимает на вход ID транзакции или массив ID транзакций и возвращает массив доказательств для проверки присутствия транзакции в блоке.
 * В следующие методы добавлены поля `id` и `transactionsRoot`:
-   * `/blocks/{id}`
-   * `/blocks/headers/last`
-   * `/blocks/headers/seq/{from}/{to}`
-   * `/blocks/headers/at/{height}`
-   * `/blocks/at/{height}`
-   * `/blocks/address/{address}/{from}/{to}`
-   * `/blocks/last`
-   * `/blocks/seq/{from}/{to}`
+   • `/blocks/{id}`
+   • `/blocks/headers/last`
+   • `/blocks/headers/seq/{from}/{to}`
+   • `/blocks/headers/at/{height}`
+   • `/blocks/at/{height}`
+   • `/blocks/address/{address}/{from}/{to}`
+   • `/blocks/last`
+   • `/blocks/seq/{from}/{to}`
 
 ## Изменения Ride
 
 * Выпущена версия 4 [Стандартной библиотеки](/ru/ride/script/standard-library).
 * Добавлены действия скрипта, которые может выполнять [вызываемая функция](/ru/ride/functions/callable-function) dApp-скрипта:
-   * [Issue](/ru/ride/structures/script-actions/issue) — выпуск токена.
-   * [Reissue](/ru/ride/structures/script-actions/reissue) — довыпуск токена.
-   * [Burn](/ru/ride/structures/script-actions/burn) — сжигание токена.
-   * [SponsorFee](/ru/ride/structures/script-actions/sponsor-fee) — настройка спонсирования.
-   * [BooleanEntry](/ru/ride/structures/script-actions/boolean-entry), [BinaryEntry](/ru/ride/structures/script-actions/binary-entry), [IntegerEntry](/ru/ride/structures/script-actions/int-entry), [StringEntry](/ru/ride/structures/script-actions/string-entry) — добавление или изменение записи соответствующего типа в хранилище данных аккаунта. Эти действия используются вместо [DataEntry](/ru/ride/structures/script-actions/data-entry), которая не поддерживается в версии 4.
-   * [DeleteEntry](/ru/ride/structures/script-actions/delete-entry) — удаление записи из хранилища данных аккаунта.
+   • [Issue](/ru/ride/structures/script-actions/issue) — выпуск токена.
+   • [Reissue](/ru/ride/structures/script-actions/reissue) — довыпуск токена.
+   • [Burn](/ru/ride/structures/script-actions/burn) — сжигание токена.
+   • [SponsorFee](/ru/ride/structures/script-actions/sponsor-fee) — настройка спонсирования.
+   • [BooleanEntry](/ru/ride/structures/script-actions/boolean-entry), [BinaryEntry](/ru/ride/structures/script-actions/binary-entry), [IntegerEntry](/ru/ride/structures/script-actions/int-entry), [StringEntry](/ru/ride/structures/script-actions/string-entry) — добавление или изменение записи соответствующего типа в хранилище данных аккаунта. Эти действия используются вместо [DataEntry](/ru/ride/structures/script-actions/data-entry), которая не поддерживается в версии 4.
+   • [DeleteEntry](/ru/ride/structures/script-actions/delete-entry) — удаление записи из хранилища данных аккаунта.
 * Изменен формат результата вызываемой функции: в версии 4 результат представляет собой список действий скрипта. Структуры `ScriptResult`, `WriteSet` и `TransferSet` не поддерживаются.
 * Комиссия за выполнение транзакции вызова скрипта увеличивается на 1 WAVES за каждый ассет (кроме NFT), выпущенный при помощи структуры `Issue`.
 * Реализована возможность обрабатывать в dApp до двух платежей, приложенных к транзакции вызова скрипта.
 * Реализована возможность использовать список в качестве аргумента вызываемой функции.
 * Добавлены встроенные функции:
-   * [bn256groth16Verify](/ru/ride/functions/built-in-functions/verification-functions#bn256groth16verify) — семейство функций верификации доказательства с нулевым разглашением [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу groth16 на кривой bn254. Сложность 800–1650 в зависимости от размера массива публичных входов.
-   * [calculateAssetId](/ru/ride/functions/built-in-functions/blockchain-functions#calculateassetid) — получает ID ассета, сформированного структурой [Issue](/ru/ride/structures/script-actions/issue) при выполнении транзакции вызова скрипта. Сложность равна 10.
-   * [contains](/ru/ride/functions/built-in-functions/string-functions#contains-string-string-boolean) — проверяет, содержит ли строка заданную подстроку. Сложность 3.
-   * [containsElement](/ru/ride/functions/built-in-functions/list-functions#containselement) — проверяет наличие элемента в списке. Сложность 5.
-   * [createMerkleRoot](/ru/ride/functions/built-in-functions/verification-functions##createmerkleroot) — вычисляет [корневой хеш дерева Меркла транзакций блока](/ru/blockchain/block/merkle-root). Сложность 30.
-   * [ecrecover](/ru/ride/functions/built-in-functions/verification-functions#ecrecover) — возвращает открытый ключ, восстановленный из хеша сообщения и цифровой подписи [ECDSA](https://ru.wikipedia.org/wiki/ECDSA). Сложность 70.
-   * [groth16Verify](/ru/ride/functions/built-in-functions/verification-functions#groth16verify) — семейство функций верификации доказательства с нулевым разглашением [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу groth16 на кривой bls12-381. Сложность 1200–2700 в зависимости от размера массива публичных входов.
-   * [indexOf](/ru/ride/functions/built-in-functions/list-functions#indexof) — возвращает индекс первого вхождения элемента в списке. Сложность 5.
-   * [lastIndexOf](/ru/ride/functions/built-in-functions/list-functions#lastindexof) — возвращает индекс последнего вхождения элемента в списке. Сложность 5.
-   * [makeString](/ru/ride/functions/built-in-functions/string-functions#makestring-list-string-string-string) — объединяет строки из списка, используя разделитель. Сложность 10.
-   * [max](/ru/ride/functions/built-in-functions/list-functions#max) — возвращает наибольший элемент в списке. Сложность 3.
-   * [median](/ru/ride/functions/built-in-functions/math-functions#median) — вычисляет медиану списка целых чисел. Сложность 20.
-   * [min](/ru/ride/functions/built-in-functions/list-functions#min) — возвращает наименьший элемент в списке. Сложность 3.
-   * [removeByIndex](/ru/ride/functions/built-in-functions/list-functions#removebyindex) — удаляет элемент из списка по индексу. Сложность 7.
-   * [transferTransactionFromProto](/ru/ride/functions/built-in-functions/converting-functions#transfertransactionfromproto) — десериализует транзакцию перевода. Сложность 5.
-   * [valueOrElse(t: T|Unit, t0 : T)](/ru/ride/functions/built-in-functions/union-functions#valueOrElse) — получение значения из параметра типа данных объединение. Сложность 2.
+   • [bn256groth16Verify](/ru/ride/functions/built-in-functions/verification-functions#bn256groth16verify) — семейство функций верификации доказательства с нулевым разглашением [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу groth16 на кривой bn254. Сложность 800–1650 в зависимости от размера массива публичных входов.
+   • [calculateAssetId](/ru/ride/functions/built-in-functions/blockchain-functions#calculateassetid) — получает ID ассета, сформированного структурой [Issue](/ru/ride/structures/script-actions/issue) при выполнении транзакции вызова скрипта. Сложность равна 10.
+   • [contains](/ru/ride/functions/built-in-functions/string-functions#contains-string-string-boolean) — проверяет, содержит ли строка заданную подстроку. Сложность 3.
+   • [containsElement](/ru/ride/functions/built-in-functions/list-functions#containselement) — проверяет наличие элемента в списке. Сложность 5.
+   • [createMerkleRoot](/ru/ride/functions/built-in-functions/verification-functions##createmerkleroot) — вычисляет [корневой хеш дерева Меркла транзакций блока](/ru/blockchain/block/merkle-root). Сложность 30.
+   • [ecrecover](/ru/ride/functions/built-in-functions/verification-functions#ecrecover) — возвращает открытый ключ, восстановленный из хеша сообщения и цифровой подписи [ECDSA](https://ru.wikipedia.org/wiki/ECDSA). Сложность 70.
+   • [groth16Verify](/ru/ride/functions/built-in-functions/verification-functions#groth16verify) — семейство функций верификации доказательства с нулевым разглашением [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу groth16 на кривой bls12-381. Сложность 1200–2700 в зависимости от размера массива публичных входов.
+   • [indexOf](/ru/ride/functions/built-in-functions/list-functions#indexof) — возвращает индекс первого вхождения элемента в списке. Сложность 5.
+   • [lastIndexOf](/ru/ride/functions/built-in-functions/list-functions#lastindexof) — возвращает индекс последнего вхождения элемента в списке. Сложность 5.
+   • [makeString](/ru/ride/functions/built-in-functions/string-functions#makestring-list-string-string-string) — объединяет строки из списка, используя разделитель. Сложность 10.
+   • [max](/ru/ride/functions/built-in-functions/list-functions#max) — возвращает наибольший элемент в списке. Сложность 3.
+   • [median](/ru/ride/functions/built-in-functions/math-functions#median) — вычисляет медиану списка целых чисел. Сложность 20.
+   • [min](/ru/ride/functions/built-in-functions/list-functions#min) — возвращает наименьший элемент в списке. Сложность 3.
+   • [removeByIndex](/ru/ride/functions/built-in-functions/list-functions#removebyindex) — удаляет элемент из списка по индексу. Сложность 7.
+   • [transferTransactionFromProto](/ru/ride/functions/built-in-functions/converting-functions#transfertransactionfromproto) — десериализует транзакцию перевода. Сложность 5.
+   • [valueOrElse(t: T|Unit, t0 : T)](/ru/ride/functions/built-in-functions/union-functions#valueOrElse) — получение значения из параметра типа данных объединение. Сложность 2.
 * Встроенная функция [wavesBalance](/ru/ride/functions/built-in-functions/account-data-storage-functions#waves-balance) возвращает структуру [BalanceDetails](/ru/ride/structures/common-structures/balance-details), которая содержит все виды баланса WAVES.
 * В структуру [Asset](/ru/ride/structures/common-structures/asset), возвращаемую встроенной функцией [assetInfo](/ru/ride/functions/built-in-functions/blockchain-functions#assetinfo), добавлены поля `name` и `description`.
 * Для встроенных [функций хеширования](/ru/ride/functions/built-in-functions/hashing-functions) `blakeb256`, `keccak256`, `sha256` и встроенных [функций верификации](/ru/ride/functions/built-in-functions/verification-functions) `rsaVerify`, `sigVerify` в версии 4 изменена сложность и добавлены семейства аналогичных функций с различной сложностью в зависимости от размера аргумента. Если размер данных известен заранее, можно использовать более «дешевую» функцию.
 * Изменена сложность некоторых встроенных функций. Список приведен в разделе [Встроенные функции](/ru/ride/functions/built-in-functions/).
 * Следующие функции не поддерживаются в версии 4:
-   * [extract](/ru/ride/functions/built-in-functions/union-functions#extract-t-unit-t) — вместо нее рекомендуется использовать [value](/ru/ride/functions/built-in-functions/union-functions#value-t-unit-t);
-   * [checkMerkleProof](/ru/ride/functions/built-in-functions/verification-functions#checkmerkleproof) — вместо нее рекомендуется использовать [createMerkleRoot](/ru/ride/functions/built-in-functions/verification-functions#createmerkleroot)
+   • [extract](/ru/ride/functions/built-in-functions/union-functions#extract-t-unit-t) — вместо нее рекомендуется использовать [value](/ru/ride/functions/built-in-functions/union-functions#value-t-unit-t);
+   • [checkMerkleProof](/ru/ride/functions/built-in-functions/verification-functions#checkmerkleproof) — вместо нее рекомендуется использовать [createMerkleRoot](/ru/ride/functions/built-in-functions/verification-functions#createmerkleroot)
 * Добавлены встроенные операторы работы со списками:
-   * Конкатенация при помощи оператора `++`. Пример: результатом выражения `[1, 2] ++ [3, 4]` будет `[1, 2, 3, 4]`. Сложность равна 4.
-   * Добавление элемента в конец списка. Пример: результатом выражения `["foo","bar"] :+ "baz"` будет `["foo", "bar", "baz"]`. Сложность равна 1.
+   • Конкатенация при помощи оператора `++`. Пример: результатом выражения `[1, 2] ++ [3, 4]` будет `[1, 2, 3, 4]`. Сложность равна 4.
+   • Добавление элемента в конец списка. Пример: результатом выражения `["foo","bar"] :+ "baz"` будет `["foo", "bar", "baz"]`. Сложность равна 1.
 * Добавлен тип данных [Кортеж](/ru/ride/data-types/tuple).
 * Максимальная сложность скрипта аккаунта и функции-верификатора скрипта dApp изменена на 2000 для новых скриптов, независимо от версии Стандартной библиотеки.
 
    Максимальная сложность скрипта ассета и вызываемой функции скрипта dApp осталась прежней — 4000.
 * Изменен максимальный размер данных:
-   * [String](/ru/ride/data-types/string) — 32&nbsp;767 байт
-   * [ByteVector](/ru/ride/data-types/byte-vector) — 32&nbsp;767 байт (кроме поля `bodyBytes` структуры транзакции)
+   • [String](/ru/ride/data-types/string) — 32&nbsp;767 байт
+   • [ByteVector](/ru/ride/data-types/byte-vector) — 32&nbsp;767 байт (кроме поля `bodyBytes` структуры транзакции)
 
 ## Waves Explorer
 

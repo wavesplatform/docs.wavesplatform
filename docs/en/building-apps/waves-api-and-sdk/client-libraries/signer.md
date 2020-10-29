@@ -154,36 +154,36 @@ Creates an object that features the following [methods](#methods).
 
 * [User Info](#user-info)
 
-   * [login](#login)
-   * [logout](#logout)
-   * [getBalance](#getbalance)
-   * [getSponsoredBalances](#getsponsoredbalances)
+   • [login](#login)
+   • [logout](#logout)
+   • [getBalance](#getbalance)
+   • [getSponsoredBalances](#getsponsoredbalances)
 
 * [Сreate Transactions](#create-transactions)
 
-   * [Common fields](#common-fields)
-   * [How to sign and broadcast transactions](#how-to-sign-and-broadcast-transactions)
-   * [alias](#alias)
-   * [burn](#burn)
-   * [cancelLease](#cancellease)
-   * [data](#data)
-   * [invoke](#invoke)
-   * [issue](#issue)
-   * [lease](#lease)
-   * [massTransfer](#masstransfer)
-   * [reissue](#reissue)
-   * [setAssetScript](#setassetscript)
-   * [setScript](#setscript)
-   * [sponsorship](#sponsorship)
-   * [transfer](#transfer)
-   * [batch](#batch)
+   • [Common fields](#common-fields)
+   • [How to sign and broadcast transactions](#how-to-sign-and-broadcast-transactions)
+   • [alias](#alias)
+   • [burn](#burn)
+   • [cancelLease](#cancellease)
+   • [data](#data)
+   • [invoke](#invoke)
+   • [issue](#issue)
+   • [lease](#lease)
+   • [massTransfer](#masstransfer)
+   • [reissue](#reissue)
+   • [setAssetScript](#setassetscript)
+   • [setScript](#setscript)
+   • [sponsorship](#sponsorship)
+   • [transfer](#transfer)
+   • [batch](#batch)
 
 * [Others](#others)
 
-   * [broadcast](#broadcast)
-   * [getNetworkByte](#getnetworkbyte)
-   * [setProvider](#setprovider)
-   * [waitTxConfirm](#waittxconfirm)
+   • [broadcast](#broadcast)
+   • [getNetworkByte](#getnetworkbyte)
+   • [setProvider](#setprovider)
+   • [waitTxConfirm](#waittxconfirm)
 
 In code you can use [TypeScript types](https://github.com/wavesplatform/ts-types/blob/master/transactions/index.d.ts).
 
@@ -1101,24 +1101,24 @@ Provider should feature the following interface:
 interface IProvider {
 
     /**
-     * Sets connection to Waves node
-     * @param options
+     • Sets connection to Waves node
+     • @param options
      */
     connect(options: {NODE_URL: string, NETWORK_BYTE: number}): Promise<void>;
 
     /**
-     * Authenticates user with his/her account
+     • Authenticates user with his/her account
      */
     login(): Promise<{addres: string, publicKey: string}>;
 
     /**
-     * Logs user out
+     • Logs user out
      */
     logout(): Promise<void>;
 
     /**
-     * Signs transactions in array
-     * @param list
+     • Signs transactions in array
+     • @param list
      */
     sign(list: Array<TTransactionParamWithType>): Promise<Array<TTransactionWithProofs<TLong> & IWithId>>;
 }
