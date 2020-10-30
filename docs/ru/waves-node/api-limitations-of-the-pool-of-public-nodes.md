@@ -12,22 +12,21 @@
 
 | Путь | Соединения | Запросы |
 | --- | :---: | :---: |
-| / | 15 | 20 (burst 50) |
+| / | 15 | 20 r/s (burst 50) |
 | /blocks/seq/\d+/\d+ | 1 | 1 r/s |
 | /blocks/at/.+ | 1 | 1 r/s |
 |/blocks/last<br/>/scorex/version<br/>/scorex/status<br/>/consensus/algo<br/>/consensus/basetarget<br/>/waves/address<br/>/transactions/address/.+/limit/.+<br/>/addresses/validate/.+<br/>/blocks/signature/.+<br/>/blocks/delay/.+/.+<br/>/consensus/generatingbalance/.+<br/>/waves/external-payment<br/>/peers/connected<br/>/peers/all<br/>/node/version<br/>/node/status<br/>/addresses/effectiveBalance/.+<br/>/assets/broadcast/issue<br/>/assets/broadcast/reissue<br/>/assets/broadcast/transfer<br/>/waves/broadcast-signed-payment.+<br/>/waves/external-payment<br/>/waves/broadcast-signed-payment<br/>/leasing/broadcast/lease<br/>/leasing/broadcast/cancel<br/>/alias/.+<br/>/assets/broadcast/burn | 100| 20 r/s (burst 50) |
 | /transactions/info/.+ | 15 | 20 r/s (burst 50) |
-| /blocks/height\<br>/transactions/unconfirmed | 15 | 20 r/s (burst 50) |
-| /addresses/balance/.+\<br/>/assets/balance/.+ | 15 | 100 r/s (burst 100) |
+| /blocks/height<br/>/transactions/unconfirmed | 15 | 20 r/s (burst 50) |
+| /addresses/balance/.+<br/>/assets/balance/.+ | 15 | 100 r/s (burst 100) |
 | ^/transactions/address/.\*<br/>^/addresses/data/[^/]+$<br>^/assets/balance/[^/]+$<br>^/assets/[^/]/distribution.\* | | 17 r/m (burst 17) |
 
 ## Ограничения для [пула Testnet](https://nodes-testnet.wavesnodes.com/)
 
-| Путь | Соединения | Запросы в секунду |
+| Путь | Соединения | Запросы |
 | --- | :---: | :---: |
 | /blocks/seq/\d+/\d+ | 1 | 1 r/s |
 | /blocks/at/.+ | 1 | 1 r/s |
 |/blocks/last<br/>/scorex/version<br/>/scorex/status<br/>/consensus/algo<br/>/consensus/basetarget<br/>/waves/address<br/>/transactions/address/.+/limit/.+<br/>/addresses/validate/.+<br/>/blocks/signature/.+<br/>/blocks/delay/.+/.+<br/>/consensus/generatingbalance/.+<br/>/waves/external-payment<br/>/peers/connected<br/>/peers/all<br/>/node/version<br/>/node/status<br/>/addresses/effectiveBalance/.+<br/>/assets/broadcast/issue<br/>/assets/broadcast/reissue<br/>/assets/broadcast/transfer<br/>/waves/broadcast-signed-payment.+<br/>/waves/external-payment<br/>/waves/broadcast-signed-payment<br/>/leasing/broadcast/lease<br/>/leasing/broadcast/cancel<br/>/alias/.+<br/>/assets/broadcast/burn | 10 | 100 r/s |
 | /transactions/info/.+ | 10 | 100 r/s |
 | /blocks/height<br/>/transactions/unconfirmed | 10 | 100 r/s |
-
