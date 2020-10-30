@@ -1,6 +1,14 @@
 # Приватные функции
 
-Все приведенные ниже приватные функции требуют предоставления API-ключа в каждом HTTP-запросе с использованием заголовка X-Api-Key. Значение по умолчанию - `ridethewaves!`. Защищенное хэшированное значение заголовка хранится в параметре `rest-api.api-key-hash` в файле конфигурации `waves.conf`. См. статью [API ключ](/ru/waves-node/node-api/api-key) и метод [/utils/hash/secure](/ru/waves-node/node-api/utils) для получения дополнительной информации о том, как получить хэш.
+Следующие приватные методы устарели:
+
+* `POST /assets/issue`
+* `POST /assets/transfer`
+* `POST /assets/reissue`
+* `POST /assets/burn`
+* `POST /assets/masstransfer`
+
+Используйте вместо них метод `POST /transactions/sign`, указав в теле запроса тип транзакции. Подробности и примеры см. в разделе [Работа с транзакциями в REST API ноды](/ru/waves-node/transactions).
 
 ## POST /assets/issue
 

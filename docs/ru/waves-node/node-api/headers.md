@@ -1,146 +1,141 @@
-# Request Headers
+# Формат денежных полей
 
-## api-key
-
-Ваш API ключ ноды очень важен, как и [seed фраза](/ru/blockchain/glossary#secret-phrase) и пароль кошелька.
-
-API ключ передается в HTTP-заголовке в виде незащищенного текста. Злоумышленник может перехватить его при передаче по сети и использовать для кражи ваших средств. Очень важно защитить передачу данных с помощью переадресации портов HTTPS или SSH.
-
-Пожалуйста, помните, что нода не имеет встроенной поддержки HTTPS. Рассмотрите возможность применения HTTPS-proxy, например, nginx.
-
-## large-significand-format=string
-
-Устанавливает формат денежных полей. Если установлено, поле будет представлено в JSON как строка, в противном случае — как число. Это может быть полезно для значений с длинной мантиссой.
-
-### Пример
-
-```bash
-curl -X GET --header 'Accept: application/json; large-significand-format=string' 'https://nodes.wavesnodes.com/blocks/headers/last'
+По умолчанию значения денежных полей представлены в JSON в виде чисел. Чтобы получать значения денежных полей в виде строк, укажите в запросе HTTP-заголовок 
 
 ```
+Accept: application/json; large-significand-format=string
+```
 
-Ниже приведен список методов, принимающих этот заголовок.
+Это может быть полезно для значений с длинной мантиссой.
 
-### GET /addresses/balance/{address}/{confirmations}
+Пример:
 
-Задействованное поле: `balance`.
+```bash
+curl -X GET --header 'Accept: application/json;large-significand-format=string' 'https://nodes.wavesnodes.com/blocks/headers/last'
+```
 
-### GET /addresses/balance/details/{address}
+Список методов, принимающих этот заголовок:
 
-Задействованные поля: `regular`, `generating`, `available`, `effective`.
+* `GET /addresses/balance/{address}/{confirmations}`
 
-### GET /addresses/effectiveBalance/{address}/{confirmations}
+   Поле: `balance`.
 
-Задействованное поле: `balance`.
+* `GET /addresses/balance/details/{address}`
 
-### GET /addresses/effectiveBalance/{address}
+   Поля: `regular`, `generating`, `available`, `effective`.
 
-Задействованное поле: `balance`.
+* `GET /addresses/effectiveBalance/{address}/{confirmations}`
 
-### GET /addresses/balance/{address}
+   Поле: `balance`.
 
-Задействованное поле: `balance`.
+* `GET /addresses/effectiveBalance/{address}`
 
-### GET /blocks/headers/last
+   Поле: `balance`.
 
-Задействованные поля: `reward`, `totalFee`.
+* `GET /addresses/balance/{address}`
 
-### GET /blocks/headers/at/{height}
+   Поле: `balance`.
 
-Задействованные поля: `reward`, `totalFee`.
+* `GET /blocks/headers/last`
 
-### GET /blocks/headers/seq/{from}/{to}
+   Поля: `reward`, `totalFee`.
 
-Задействованные поля: `reward`, `totalFee`.
+* `GET /blocks/headers/at/{height}`
 
-### GET /blocks/at/{height}
+   Поля: `reward`, `totalFee`.
 
-Задействованные поля: `reward`, `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`, `totalFee`.
+* `GET /blocks/headers/seq/{from}/{to}`
 
-### GET /blocks/signature/{signature}
+   Поля: `reward`, `totalFee`.
 
-Задействованные поля: `reward`, `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`, `totalFee`.
+* `GET /blocks/at/{height}`
 
-### GET /blocks/address/{address}/{from}/{to}
+   Поля: `reward`, `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`, `totalFee`.
 
-Задействованные поля: `reward`, `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`, `totalFee`.
+* `GET /blocks/signature/{signature}`
 
-### GET /blocks/last
+   Поля: `reward`, `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`, `totalFee`.
 
-Задействованные поля: `reward`, `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`, `totalFee`.
+* `GET /blocks/address/{address}/{from}/{to}`
 
-### GET /blocks/seq/{from}/{to}
+   Поля: `reward`, `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`, `totalFee`.
 
-Задействованные поля: `reward`, `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`, `totalFee`.
+* `GET /blocks/last`
 
-### GET /blockchain/rewards/{height}
+   Поля: `reward`, `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`, `totalFee`.
 
-Задействованные поля: `totalWavesAmount`, `currentReward`, `minIncrement`.
+* `GET /blocks/seq/{from}/{to}`
 
-### GET /blockchain/rewards
+   Поля: `reward`, `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`, `totalFee`.
 
-Задействованные поля: `totalWavesAmount`, `currentReward`, `minIncrement`.
+* `GET /blockchain/rewards/{height}`
 
-### POST /transactions/calculateFee
+   Поля: `totalWavesAmount`, `currentReward`, `minIncrement`.
 
-Задействованное поле: `feeAmount`.
+* `GET /blockchain/rewards`
 
-### GET /transactions/info/{id}
+   Поля: `totalWavesAmount`, `currentReward`, `minIncrement`.
 
-Задействованные поля: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
+* `POST /transactions/calculateFee`
 
-### GET /transactions/unconfirmed/info/{id}
+   Поле: `feeAmount`.
 
-Задействованные поля: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
+* `GET /transactions/info/{id}`
 
-### GET /transactions/address/{address}/limit/{limit}
+   Поля: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
 
-Задействованные поля: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
+* `GET /transactions/unconfirmed/info/{id}`
 
-### POST /transactions/broadcast
+   Поля: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
 
-Задействованные поля: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
+* `GET /transactions/address/{address}/limit/{limit}`
 
-### GET /transactions/unconfirmed
+   Поля: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
 
-Задействованные поля: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
+* `POST /transactions/broadcast`
 
-### GET /assets/balance/{address}
+   Поля: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
 
-Задействованные поля: `balance`, `minSponsoredAssetFee`, `sponsorBalance`, `quantity`, `fee`
+* `GET /transactions/unconfirmed`
 
-### GET /assets/nft/{address}/limit/{limit}
+   Поля: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
 
-Задействованные поля: `balance`, `minSponsoredAssetFee`, `sponsorBalance`, `quantity`, `fee`
+* `GET /assets/balance/{address}`
 
-### GET /assets/{assetId}/distribution/{height}/limit/{limit}
+   Поля: `balance`, `minSponsoredAssetFee`, `sponsorBalance`, `quantity`, `fee`
 
-Задействованное поле: `asset ID`.
+* `GET /assets/nft/{address}/limit/{limit}`
 
-### GET /assets/details/{assetId}
+   Поля: `balance`, `minSponsoredAssetFee`, `sponsorBalance`, `quantity`, `fee`
 
-Задействованное поле: `quantity`.
+* `GET /assets/{assetId}/distribution/{height}/limit/{limit}`
 
-### GET /assets/balance/{address}/{assetId}
+   Поле: `asset ID`.
 
-Задействованное поле: `balance`.
+* `GET /assets/details/{assetId}`
 
-### GET /consensus/generatingbalance/{address}
+   Поле: `quantity`.
 
-Задействованное поле: `balance`.
+* `GET /assets/balance/{address}/{assetId}`
 
-### GET /debug/balances/history/{address}
+   Поле: `balance`.
 
-Задействованное поле: `balance`.
+* `GET /consensus/generatingbalance/{address}`
 
-### GET /debug/stateChanges/info/{id}
+   Поле: `balance`.
 
-Задействованное поле: `fee`.
+* `GET /debug/balances/history/{address}`
 
-### GET /debug/stateChanges/address/{address}/limit/{limit}
+   Поле: `balance`.
 
-Задействованные поля: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
+* `GET /debug/stateChanges/info/{id}`
 
-### GET /debug/portfolios/{address}
+   Поле: `fee`.
 
-Задействованные поля: `balance`, `in`, `out`.
+* `GET /debug/stateChanges/address/{address}/limit/{limit}`
+
+   Поля: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
+
+* `GET /debug/portfolios/{address}`
+
+   Поля: `balance`, `in`, `out`.
