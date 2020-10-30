@@ -6,9 +6,9 @@
 * Количество одновременных соединений с одного IP-адреса. При превышении лимита клиенту вернется HTTP Status 503.
 * Количество запросов в секунду с одного IP-адреса. Если количество поступающих запросов превышает заданное значение, то избыточные запросы ставятся в очередь на обработку. Размер очереди ограничен настройкой `burst`. Если количество избыточных запросов превысило `burst`, новые запросы не ставятся в очередь, а завершаются с ошибкой. Подробнее см. в <a href="http://nginx.org/ru/docs/http/ngx_http_limit_req_module.html">документации</a>.
 
-В таблицах ниже указаны регулярные выражения, которым соответствуют пути, например, [d+]](https://stackoverflow.com/questions/2841550/what-does-d-mean-in-regular-expression-terms).
+В таблицах ниже указаны регулярные выражения, которым соответствуют пути, например, [d+](https://stackoverflow.com/questions/2841550/what-does-d-mean-in-regular-expression-terms).
 
-Ограничения для [пула Mainnet](https://nodes.wavesnodes.com/):
+## Ограничения для [пула Mainnet](https://nodes.wavesnodes.com/)
 
 | Путь | Соединения | Запросы в секунду |
 | --- | :---: | :---: |
@@ -20,7 +20,7 @@
 | /blocks/height\|/transactions/unconfirmed | 15 | 20 (burst 50) |
 | /addresses/balance/.+\|/assets/balance/.+ | 15 | 100 (burst 50) |
 
-Ограничения для [пула Testnet](https://nodes.wavesnodes.com/):
+## Ограничения для [пула Testnet](https://nodes-testnet.wavesnodes.com/)
 
 | Путь | Соединения | Запросы в секунду |
 | --- | :---: | :---: |
