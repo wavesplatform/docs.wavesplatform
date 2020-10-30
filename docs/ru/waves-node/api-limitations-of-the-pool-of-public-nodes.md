@@ -15,7 +15,7 @@
 | / | 15 | 20 r/s (burst 50) |
 | /blocks/seq/\d+/\d+ | 1 | 1 r/s |
 | /blocks/at/.+ | 1 | 1 r/s |
-|/blocks/last<br/>/scorex/version<br/>/scorex/status<br/>/consensus/algo<br/>/consensus/basetarget<br/>/waves/address<br/>/transactions/address/.+/limit/.+<br/>/addresses/validate/.+<br/>/blocks/signature/.+<br/>/blocks/delay/.+/.+<br/>/consensus/generatingbalance/.+<br/>/waves/external-payment<br/>/peers/connected<br/>/peers/all<br/>/node/version<br/>/node/status<br/>/addresses/effectiveBalance/.+<br/>/assets/broadcast/issue<br/>/assets/broadcast/reissue<br/>/assets/broadcast/transfer<br/>/waves/broadcast-signed-payment.+<br/>/waves/external-payment<br/>/waves/broadcast-signed-payment<br/>/leasing/broadcast/lease<br/>/leasing/broadcast/cancel<br/>/alias/.+<br/>/assets/broadcast/burn | 100| 20 r/s (burst 50) |
+|/blocks/last<br/>/consensus/algo<br/>/consensus/basetarget<br/>/transactions/address/.+/limit/.+<br/>/addresses/validate/.+<br/>/blocks/delay/.+/.+<br/>/consensus/generatingbalance/.+<br/>/peers/connected<br/>/peers/all<br/>/node/version<br/>/node/status<br/>/addresses/effectiveBalance/.+<br/>/alias/.+ | 100| 20 r/s (burst 50) |
 | /transactions/info/.+ | 15 | 20 r/s (burst 50) |
 | /blocks/height<br/>/transactions/unconfirmed | 15 | 20 r/s (burst 50) |
 | /addresses/balance/.+<br/>/assets/balance/.+ | 15 | 100 r/s (burst 100) |
@@ -27,6 +27,6 @@
 | --- | :---: | :---: |
 | /blocks/seq/\d+/\d+ | 1 | 1 r/s |
 | /blocks/at/.+ | 1 | 1 r/s |
-|/blocks/last<br/>/scorex/version<br/>/scorex/status<br/>/consensus/algo<br/>/consensus/basetarget<br/>/waves/address<br/>/transactions/address/.+/limit/.+<br/>/addresses/validate/.+<br/>/blocks/signature/.+<br/>/blocks/delay/.+/.+<br/>/consensus/generatingbalance/.+<br/>/waves/external-payment<br/>/peers/connected<br/>/peers/all<br/>/node/version<br/>/node/status<br/>/addresses/effectiveBalance/.+<br/>/assets/broadcast/issue<br/>/assets/broadcast/reissue<br/>/assets/broadcast/transfer<br/>/waves/broadcast-signed-payment.+<br/>/waves/external-payment<br/>/waves/broadcast-signed-payment<br/>/leasing/broadcast/lease<br/>/leasing/broadcast/cancel<br/>/alias/.+<br/>/assets/broadcast/burn | 10 | 100 r/s |
+|/blocks/last<br/>/consensus/algo<br/>/consensus/basetarget<br/>/transactions/address/.+/limit/.+<br/>/addresses/validate/.+<br/>/blocks/delay/.+/.+<br/>/consensus/generatingbalance/.+<br/>/peers/connected<br/>/peers/all<br/>/node/version<br/>/node/status<br/>/addresses/effectiveBalance/.+<br/>/alias/.+ | 10 | 100 r/s |
 | /transactions/info/.+ | 10 | 100 r/s |
 | /blocks/height<br/>/transactions/unconfirmed | 10 | 100 r/s |
