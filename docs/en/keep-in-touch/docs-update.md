@@ -1,5 +1,11 @@
 # Documentation Updates
 
+## November
+
+### Node
+
+* [Node REST API](en/waves-node/node-api) — <span style="color:green">updated</span>
+
 ## October
 
 ### Blockchain
