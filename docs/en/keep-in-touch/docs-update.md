@@ -1,5 +1,11 @@
 # Documentation Updates
 
+## November
+
+### Node
+
+* [API Limitations of Pool of Public Nodes](/en/waves-node/api-limitations-of-the-pool-of-public-nodes) — <span style="color:green">updated</span>
+
 ## October
 
 ### Blockchain

@@ -1,5 +1,11 @@
 # Обновления в документации
 
+## Ноябрь
+
+### Нода
+
+* [Ограничения API пула публичных нод](/ru/waves-node/api-limitations-of-the-pool-of-public-nodes) — <span style="color:green">обновлено</span>
+
 ## Октябрь
 
 ### Блокчейн
