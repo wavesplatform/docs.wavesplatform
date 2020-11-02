@@ -1,17 +1,20 @@
-# Работа с транзакциями в Node REST API
+# Работа с транзакциями в REST API ноды
 
-> Рекомендуем предварительно ознакомиться с разделом [Транзакция](/ru/blockchain/transaction/).
+> Прежде чем начать, рекомендуем ознакомиться с разделом [Транзакция](/ru/blockchain/transaction/).
 
-## Шаг 0 (необязательный). Вычисление комиссии
+## Шаг 1 (необязательный). Вычисление комиссии
 
 Минимальная комиссия за транзакцию зависит от наличия скрипта на аккаунте отправителя, использования смарт-ассетов, размера данных, выполняемых вызываемым скриптом действий и т. п.
 
-Для расчета минимальной комиссии можно использовать метод `POST /transactions​/calculateFee`.
+Для расчета минимальной комиссии можно использовать метод `POST /transactions​/calculateFee`. В теле запроса укажите данные транзакции в JSON, включая `type` и `senderPublicKey`. Если требуется подсчитать комиссию в спонсорском ассете, укажите в теле запроса поле `feeAssetId`. Поля `sender` и `fee` игнорируются.
 
 Пример запроса:
 
 ```bash
-curl -X POST "https://nodes-testnet.wavesnodes.com/transactions/calculateFee" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"type\":16,\"senderPublicKey\":\"YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS\",\"call\":{\"function\":\"deposit\",\"args\":[]},\"payment\":[{\"amount\":300000000,\"assetId\":null}],\"dApp\":\"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk\"}"
+curl -X POST "https://nodes-testnet.wavesnodes.com/transactions/calculateFee"\
+  -H "accept: application/json"\
+  -H "Content-Type: application/json"\
+  -d "{\"type\":16,\"senderPublicKey\":\"YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS\",\"call\":{\"function\":\"deposit\",\"args\":[]},\"payment\":[{\"amount\":300000000,\"assetId\":null}],\"dApp\":\"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk\"}"
 ```
 
 Тело запроса:
@@ -41,9 +44,9 @@ curl -X POST "https://nodes-testnet.wavesnodes.com/transactions/calculateFee" -H
 }
 ```
 
-## Шаг 1. Подписание транзакции
+## Шаг 2. Подписание транзакции
 
-:warning: Подписать транзакцию можно только от имени аккаунта, который присутствует в [кошельке ноды](/ru/waves-node/how-to-work-with-node-wallet).
+:warning: Подписать транзакцию можно только от имени аккаунта, который присутствует в [кошельке ноды](/ru/waves-node/how-to-work-with-node-wallet). Если вы не владелец ноды или хотите подписать транзакцию от имени аккаунта не из кошелька ноды, используйте для подписания транзакции [клиентские библиотеки](/ru/building-apps/waves-api-and-sdk/client-libraries/). См. также разделы [Безопасное подписание транзакций](/ru/building-apps/#безопасное-подписание-транзакций), [Как создать транзакцию и отправить ее на блокчейн](/ru/building-apps/how-to/basic/transaction).
 
 Для генерации подписи предназначены методы:
 
@@ -52,18 +55,22 @@ curl -X POST "https://nodes-testnet.wavesnodes.com/transactions/calculateFee" -H
 
 > Методы не подходят для транзакций обмена и транзакций обновления информации ассета.
 
-Методы возвращают подписанную транзакцию в формате JSON. Тело ответа можно передать в качестве тела запроса в методы `POST /debug/validate`, `POST /transactions/broadcast` (см. ниже).
+Методы являются приватными, для их вызова необходим [API-ключ](/ru/waves-node/node-api/api-key). В теле запроса укажите данные транзакции в JSON, включая `type` и `sender`.
 
-Методы являются приватными, для их вызова необходим [API-ключ](/ru/waves-node/node-api/api-key). Если вы не владелец ноды или хотите подписать транзакцию от имени аккаунта не из кошелька ноды, используйте для подписания транзакции [клиентские библиотеки](/ru/building-apps/waves-api-and-sdk/client-libraries/). См. также раздел [Безопасное подписание транзакций](/ru/building-apps/#безопасное-подписание-транзакций).
+Методы возвращают подписанную транзакцию в формате JSON. Тело ответа можно передать в качестве тела запроса в методы `POST /debug/validate`, `POST /transactions/broadcast` (см. следующие шаги).
 
 Пример запроса:
 
 ```bash
-curl -X POST "http://127.0.0.1:6869/transactions/sign" -H "accept: application/json" -H "X-API-Key: my-api-key" -H "Content-Type: application/json" -d "{\"type\":16,\"sender\":\"3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT\",\"call\":{\"function\":\"deposit\",\"args\":[]},\"payment\":[{\"amount\":300000000,\"assetId\":null}],\"dApp\":\"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk\",\"feeAssetId\":null,\"fee\":500000}"
+curl -X POST "http://127.0.0.1:6869/transactions/sign"\
+  -H "Accept: application/json"\
+  -H "X-API-Key: my-api-key"\
+  -H "Content-Type: application/json"\
+  -d "{\"type\":16,\"sender\":\"3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT\",\"call\":{\"function\":\"deposit\",\"args\":[]},\"payment\":[{\"amount\":300000000,\"assetId\":null}],\"dApp\":\"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk\",\"feeAssetId\":null,\"fee\":500000}"
 ```
 
-<details><summary>Тело запроса</summary>
-<pre><code>
+Тело запроса:
+```json
 {
   "type": 16,
   "sender": "3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT",
@@ -79,8 +86,7 @@ curl -X POST "http://127.0.0.1:6869/transactions/sign" -H "accept: application/j
   "feeAssetId": null,
   "fee":500000
 }
-</code></pre>
-</details>
+```
 
 Пример ответа:
 
@@ -113,103 +119,9 @@ curl -X POST "http://127.0.0.1:6869/transactions/sign" -H "accept: application/j
 
 Примеры запросов и ответов для подписания различных типов транзакций (только тело HTTP-сообщения):
 
-<details><summary>Создание псевдонима</summary>
-<p>Запрос:<p>
-<pre><code>
-{
-  "type": 10,
-  "sender": "3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT",
-  "fee": 100000,
-  "alias": "my-interesting-name"
-}
-</code></pre>
-
-<p>Ответ:</p>
-<pre><code>
-{
-  "type": 10,
-  "id": "GWdGQtoDxQvKS3WDAvYUVtA6pdvt38HUBz6tSq7M5JVp",
-  "sender": "3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT",
-  "senderPublicKey": "YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS",
-  "fee": 100000,
-  "feeAssetId": null,
-  "timestamp": 1603794108196,
-  "proofs": [
-    "4UWDu4eAqMVQT2a4UPYuFNr1ipEWS9ccfJNCsM2Wf9oapsZRS6fYm95BD17h9stKPLACaNSQ7eBEvFQL8TqdAnGc"
-  ],
-  "signature": "4UWDu4eAqMVQT2a4UPYuFNr1ipEWS9ccfJNCsM2Wf9oapsZRS6fYm95BD17h9stKPLACaNSQ7eBEvFQL8TqdAnGc",
-  "version": 1,
-  "alias": "my-interesting-name"
-}
-</code></pre>
-</details>
-
-<details><summary>Лизинг</summary>
-<p>Запрос:<p>
-<pre><code>
-{
-  "type": 8,
-  "sender": "3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT",
-  "fee": 100000,
-  "amount": 500000000,
-  "recipient": "3MsiqWCW2b42CiCpz9mjYXXJPZ1YN4bBsex"
-}
-</code></pre>
-<p>Ответ:<p>
-<pre><code>
-{
-  "type": 8,
-  "id": "EStUvNzQC2tKZrZoAcgLteq8zcABYMHXjTBjs46L9WdT",
-  "sender": "3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT",
-  "senderPublicKey": "YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS",
-  "fee": 100000,
-  "feeAssetId": null,
-  "timestamp": 1603794794973,
-  "proofs": [
-    "2SfpDto35Ta78jfRCKdLpYXpVEv8FVTXvTpjhyqHvd6CJS2SBZ7Jxjw6a2Ty1SysaFcwY9rFwHYK9vWjtUz62fDT"
-  ],
-  "signature": "2SfpDto35Ta78jfRCKdLpYXpVEv8FVTXvTpjhyqHvd6CJS2SBZ7Jxjw6a2Ty1SysaFcwY9rFwHYK9vWjtUz62fDT",
-  "version": 1,
-  "amount": 500000000,
-  "recipient": "3MsiqWCW2b42CiCpz9mjYXXJPZ1YN4bBsex"
-}
-</code></pre>
-</details>
-
-<details><summary>Отмена лизинга</summary>
-<p>Запрос:<p>
-<pre><code>
-{
-  "type": 9,
-  "sender": "3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT",
-  "fee": 100000,
-  "leaseId": "EStUvNzQC2tKZrZoAcgLteq8zcABYMHXjTBjs46L9WdT"
-}
-</code></pre>
-
-<p>Ответ:<p>
-<pre><code>
-{
-  "type": 9,
-  "id": "2pSaHnJJfg4Nbkas9bRQR7AAtPUJSAwFfRppemkhuhh2",
-  "sender": "3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT",
-  "senderPublicKey": "YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS",
-  "fee": 100000,
-  "feeAssetId": null,
-  "timestamp": 1603795159001,
-  "proofs": [
-    "xEhNg4HEYLBr9k3mM8iEhKeyD7F7uHVvr5zusNzXJVoLa3d9R1Dn9trjaXvjGLsPVnpQe9pTDtxCennvMZ12Gfk"
-  ],
-  "signature": "xEhNg4HEYLBr9k3mM8iEhKeyD7F7uHVvr5zusNzXJVoLa3d9R1Dn9trjaXvjGLsPVnpQe9pTDtxCennvMZ12Gfk",
-  "version": 1,
-  "leaseId": "EStUvNzQC2tKZrZoAcgLteq8zcABYMHXjTBjs46L9WdT"
-}
-</code></pre>
-</details>
-
 <details><summary>Выпуск токена</summary>
 <p>Запрос:<p>
-<pre><code>
+ <pre class="language-json"><code>
 {
    "type": 3,
    "sender": "3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT",
@@ -223,7 +135,7 @@ curl -X POST "http://127.0.0.1:6869/transactions/sign" -H "accept: application/j
 </code></pre>
 
 <p>Ответ:<p>
-<pre><code>
+ <pre class="language-json"><code>
 {
   "type": 3,
   "id": "3P2bbWLmTSGjMR3QndmsjoK8qfoFmF8WS3CZgBa9oXAT",
@@ -250,7 +162,7 @@ curl -X POST "http://127.0.0.1:6869/transactions/sign" -H "accept: application/j
 
 <details><summary>Довыпуск токена</summary>
 <p>Запрос:<p>
-<pre><code>
+ <pre class="language-json"><code>
 {
   "type": 5,
   "quantity": 22300000,
@@ -262,7 +174,7 @@ curl -X POST "http://127.0.0.1:6869/transactions/sign" -H "accept: application/j
 </code></pre>
 
 <p>Ответ:<p>
-<pre><code>
+ <pre class="language-json"><code>
 {
   "type": 5,
   "id": "GPCpzoBHLB8DwAhnHqKBGMYXtHCBTbnvcd926b71PjcM",
@@ -286,7 +198,7 @@ curl -X POST "http://127.0.0.1:6869/transactions/sign" -H "accept: application/j
 
 <details><summary>Сжигание токена</summary>
 <p>Запрос:<p>
-<pre><code>
+ <pre class="language-json"><code>
 {
   "type": 6,
   "sender": "3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT",
@@ -297,7 +209,7 @@ curl -X POST "http://127.0.0.1:6869/transactions/sign" -H "accept: application/j
 </code></pre>
 
 <p>Ответ:<p>
-<pre><code>
+ <pre class="language-json"><code>
 {
   "type": 6,
   "id": "DucNGQJBRpXenfSgarCkR3DUYuQj5MMr1TW1ABfCUc3t",
@@ -319,7 +231,7 @@ curl -X POST "http://127.0.0.1:6869/transactions/sign" -H "accept: application/j
 
 <details><summary>Перевод токена</summary>
 <p>Запрос:<p>
-<pre><code>
+ <pre class="language-json"><code>
 {
   "type": 4,
   "assetId": "E9yZC4cVhCDfbjFJCc9CqkAtkoFy5KaCe64iaxHM2adG",
@@ -332,7 +244,7 @@ curl -X POST "http://127.0.0.1:6869/transactions/sign" -H "accept: application/j
 </code></pre>
 
 <p>Ответ:<p>
-<pre><code>
+ <pre class="language-json"><code>
 {
   "type": 4,
   "id": "GGwwGp1LcjeTVCxbMG8moWnoWcEk2cEaXGnModccTqNK",
@@ -358,7 +270,7 @@ curl -X POST "http://127.0.0.1:6869/transactions/sign" -H "accept: application/j
 
 <details><summary>Массовый перевод</summary>
 <p>Запрос:<p>
-<pre><code>
+ <pre class="language-json"><code>
 {
   "type": 11,
   "sender": "3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT",
@@ -376,7 +288,7 @@ curl -X POST "http://127.0.0.1:6869/transactions/sign" -H "accept: application/j
 </code></pre>
 
 <p>Ответ:<p>
-<pre><code>
+ <pre class="language-json"><code>
 {
   "type": 11,
   "id": "7M3ckLwiyuiJNsfhsxCahmRt9Q1nrsgP2MMUqQL2YSpu",
@@ -405,27 +317,136 @@ curl -X POST "http://127.0.0.1:6869/transactions/sign" -H "accept: application/j
   ]
 }
 </code></pre>
-
 </details>
 
 
-
-## Шаг 2 (необязательный). Валидация транзакции
-
-Подписанную транзакцию можно сразу же отправить на блокчейн, и нода выполнит ее валидацию. Однако с момента активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions” неуспешные транзакции вызова скрипта и транзакции обмена могут быть сохранены на блокчейне, при этом с отправителя взимается комиссия. Чтобы избежать этого, рекомендуем валидировать транзакции перед отправкой.
-
-Для валидации транзакции используйте публичный метод `POST /debug/validate`. В тело запроса вставьте подписанную транзакцию в формате JSON — например, тело ответа с шага 1.
-
-<details><summary>Пример запроса</summary>
-<pre><code>
-curl -X POST "https://nodes-testnet.wavesnodes.com/debug/validate" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"type\":16,\"id\":\"FZp47sYFC4BXKfJqRQrcYNJQmaNiD3YSxMQk9XJtyEMN\",\"sender\":\"3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT\",\"senderPublicKey\":\"YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS\",\"fee\":500000,\"feeAssetId\":null,\"timestamp\":1603966204510,\"proofs\":[\"R3QeLwQL7LFzMxd2vBGw7f9P73SgMLBPMh5FkuQLMzBtkoi6PCzhtRLMw9PpjSKVDbHgVEMPDn9BQYjEKZpeDPZ\"],\"version\":1,\"dApp\":\"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk\",\"payment\":[{\"amount\":300000000,\"assetId\":null}],\"call\":{\"function\":\"deposit\",\"args\":[]}}"
+<details><summary>Лизинг</summary>
+<p>Запрос:<p>
+ <pre class="language-json"><code>
+{
+  "type": 8,
+  "sender": "3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT",
+  "fee": 100000,
+  "amount": 500000000,
+  "recipient": "3MsiqWCW2b42CiCpz9mjYXXJPZ1YN4bBsex"
+}
+</code></pre>
+<p>Ответ:<p>
+<pre class="language-json"><code>
+{
+  "type": 8,
+  "id": "EStUvNzQC2tKZrZoAcgLteq8zcABYMHXjTBjs46L9WdT",
+  "sender": "3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT",
+  "senderPublicKey": "YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS",
+  "fee": 100000,
+  "feeAssetId": null,
+  "timestamp": 1603794794973,
+  "proofs": [
+    "2SfpDto35Ta78jfRCKdLpYXpVEv8FVTXvTpjhyqHvd6CJS2SBZ7Jxjw6a2Ty1SysaFcwY9rFwHYK9vWjtUz62fDT"
+  ],
+  "signature": "2SfpDto35Ta78jfRCKdLpYXpVEv8FVTXvTpjhyqHvd6CJS2SBZ7Jxjw6a2Ty1SysaFcwY9rFwHYK9vWjtUz62fDT",
+  "version": 1,
+  "amount": 500000000,
+  "recipient": "3MsiqWCW2b42CiCpz9mjYXXJPZ1YN4bBsex"
+}
 </code></pre>
 </details>
 
-Результат валидации представлен в поле `valid`.
+<details><summary>Отмена лизинга</summary>
+<p>Запрос:<p>
+<pre class="language-json"><code>
+{
+  "type": 9,
+  "sender": "3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT",
+  "fee": 100000,
+  "leaseId": "EStUvNzQC2tKZrZoAcgLteq8zcABYMHXjTBjs46L9WdT"
+}
+</code></pre>
 
-<details><summary>Пример ответа</summary>
-<pre><code>
+<p>Ответ:<p>
+ <pre class="language-json"><code>
+{
+  "type": 9,
+  "id": "2pSaHnJJfg4Nbkas9bRQR7AAtPUJSAwFfRppemkhuhh2",
+  "sender": "3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT",
+  "senderPublicKey": "YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS",
+  "fee": 100000,
+  "feeAssetId": null,
+  "timestamp": 1603795159001,
+  "proofs": [
+    "xEhNg4HEYLBr9k3mM8iEhKeyD7F7uHVvr5zusNzXJVoLa3d9R1Dn9trjaXvjGLsPVnpQe9pTDtxCennvMZ12Gfk"
+  ],
+  "signature": "xEhNg4HEYLBr9k3mM8iEhKeyD7F7uHVvr5zusNzXJVoLa3d9R1Dn9trjaXvjGLsPVnpQe9pTDtxCennvMZ12Gfk",
+  "version": 1,
+  "leaseId": "EStUvNzQC2tKZrZoAcgLteq8zcABYMHXjTBjs46L9WdT"
+}
+</code></pre>
+</details>
+
+
+<details><summary>Создание псевдонима</summary>
+<p>Запрос:<p>
+<pre class="language-json"><code>
+{
+  "type": 10,
+  "sender": "3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT",
+  "fee": 100000,
+  "alias": "my-interesting-name"
+}
+</code></pre>
+
+<p>Ответ:</p>
+<pre class="language-json"><code>
+{
+  "type": 10,
+  "id": "GWdGQtoDxQvKS3WDAvYUVtA6pdvt38HUBz6tSq7M5JVp",
+  "sender": "3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT",
+  "senderPublicKey": "YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS",
+  "fee": 100000,
+  "feeAssetId": null,
+  "timestamp": 1603794108196,
+  "proofs": [
+    "4UWDu4eAqMVQT2a4UPYuFNr1ipEWS9ccfJNCsM2Wf9oapsZRS6fYm95BD17h9stKPLACaNSQ7eBEvFQL8TqdAnGc"
+  ],
+  "signature": "4UWDu4eAqMVQT2a4UPYuFNr1ipEWS9ccfJNCsM2Wf9oapsZRS6fYm95BD17h9stKPLACaNSQ7eBEvFQL8TqdAnGc",
+  "version": 1,
+  "alias": "my-interesting-name"
+}
+</code></pre>
+</details>
+
+## Шаг 3 (необязательный). Валидация транзакции
+
+Подписанную транзакцию можно сразу же отправить на блокчейн. Однако с момента активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions” неуспешные транзакции вызова скрипта и транзакции обмена могут быть сохранены на блокчейне, при этом с отправителя взимается комиссия. Чтобы избежать этого, рекомендуем валидировать транзакции перед отправкой.
+
+Для валидации транзакции используйте публичный метод `POST /debug/validate`. В тело запроса вставьте подписанную транзакцию в формате JSON — например, тело ответа из шага 2.
+
+<details><summary>Пример запроса</summary>
+<pre class="language-bash"><code>
+curl -X POST "https://nodes-testnet.wavesnodes.com/debug/validate"\
+  -H "Accept: application/json" -H\
+  "Content-Type: application/json"\
+  -d "{\
+  \"type\":16,\
+  \"id\":\"FZp47sYFC4BXKfJqRQrcYNJQmaNiD3YSxMQk9XJtyEMN\",\
+  \"sender\":\"3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT\",\
+  \"senderPublicKey\":\"YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS\",\
+  \"fee\":500000,\
+  \"feeAssetId\":null,\
+  \"timestamp\":1603966204510,\
+  \"proofs\":[\"R3QeLwQL7LFzMxd2vBGw7f9P73SgMLBPMh5FkuQLMzBtkoi6PCzhtRLMw9PpjSKVDbHgVEMPDn9BQYjEKZpeDPZ\"],\
+  \"version\":1,\
+  \"dApp\":\"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk\",\
+  \"payment\":[{\"amount\":300000000,\"assetId\":null}],\
+  \"call\":{\"function\":\"deposit\",\"args\":[]}\
+  }"
+</code></pre>
+</details>
+
+Результат валидации представлен в поле `valid`. Если транзакция не прошла валидацию, причина ошибки указана в поле `error`.
+
+<details><summary>Пример ответа в случае успешной валидации</summary>
+ <pre class="language-json"><code>
 {
   "valid": true,
   "validationTime": 10,
@@ -487,8 +508,8 @@ curl -X POST "https://nodes-testnet.wavesnodes.com/debug/validate" -H "accept: a
 </code></pre>
 </details>
 
-<details><summary>Пример ответа для невалидной транзакции</summary>
-<pre><code>
+<details><summary>Пример ответа в случае ошибки</summary>
+ <pre class="language-json"><code>
 {
   "valid": false,
   "validationTime": 13,
@@ -577,31 +598,43 @@ curl -X POST "https://nodes-testnet.wavesnodes.com/debug/validate" -H "accept: a
 </code></pre>
 </details>
 
-## Шаг 3. Отправка транзакции
+## Шаг 4. Отправка транзакции
 
-Чтобы отправить транзакцию на блокчейн, используйте публичный метод `POST /transactions/broadcast`. В тело запроса вставьте подписанную транзакцию в формате JSON — например, тело ответа с шага 1.
+Чтобы отправить транзакцию на блокчейн, используйте публичный метод `POST /transactions/broadcast`. В тело запроса вставьте подписанную транзакцию в формате JSON — например, тело ответа из шага 2.
 
 <details><summary>Пример запроса</summary>
-<pre><code>
-curl -X POST "https://nodes-testnet.wavesnodes.com/transactions/broadcast" -H "accept: application/json" -H "Content-Type: application/json" -d "{\"type\":16,\"id\":\"FZp47sYFC4BXKfJqRQrcYNJQmaNiD3YSxMQk9XJtyEMN\",\"sender\":\"3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT\",\"senderPublicKey\":\"YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS\",\"fee\":500000,\"feeAssetId\":null,\"timestamp\":1603966204510,\"proofs\":[\"R3QeLwQL7LFzMxd2vBGw7f9P73SgMLBPMh5FkuQLMzBtkoi6PCzhtRLMw9PpjSKVDbHgVEMPDn9BQYjEKZpeDPZ\"],\"version\":1,\"dApp\":\"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk\",\"payment\":[{\"amount\":300000000,\"assetId\":null}],\"call\":{\"function\":\"deposit\",\"args\":[]}}"
+ <pre class="language-bash"><code>
+curl -X POST "https://nodes-testnet.wavesnodes.com/transactions/broadcast"\
+  -H "accept: application/json"\
+  -H "Content-Type: application/json"\
+  -d "{\
+  \"type\":16,\
+  \"id\":\"FZp47sYFC4BXKfJqRQrcYNJQmaNiD3YSxMQk9XJtyEMN\",\
+  \"sender\":\"3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT\",\
+  \"senderPublicKey\":\"YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS\",\
+  \"fee\":500000,\
+  \"feeAssetId\":null,\
+  \"timestamp\":1603966204510,\
+  \"proofs\":[\"R3QeLwQL7LFzMxd2vBGw7f9P73SgMLBPMh5FkuQLMzBtkoi6PCzhtRLMw9PpjSKVDbHgVEMPDn9BQYjEKZpeDPZ\"],\
+  \"version\":1,\
+  \"dApp\":\"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk\",\
+  \"payment\":[{\"amount\":300000000,\"assetId\":null}],\
+  \"call\":{\"function\":\"deposit\",\"args\":[]}\
+  }"
 </code></pre>
 </details>
 
 HTTP-коды ответа:
 
 - 200 — транзакция добавлена в UTX pool.
-- 400 — транзакция отброшена.
-- 500 — ошибка сервера, при этом неизвестно, добавлена транзакция в UTX pool или нет.
+- 4xx — транзакция отброшена.
+- 5xx — ошибка сервера, при этом неизвестно, добавлена транзакция в UTX pool или нет.
 
-В последнем случае рекомендуем проверить статус транзакции (см. следующий шаг) либо повторно отправить ту же самую транзакцию с тем же ID. Если отправить транзакцию без ID,  этом случае 
-(Данное описание можно добавить в качестве описания метода или в описание кодов)
-Если пользовать хочет повторно отправить транзакцию, то следует использовать ту же самую транзакцию (с тем же ID), так как это убережёт от двойного применения транзакции.
-
-
+В последнем случае рекомендуем проверить статус транзакции (см. следующий шаг) либо повторно отправить ту же самую транзакцию (с тем же ID). Если создать и подписать новую транзакцию с другим значением `timestamp` (по умолчанию подставляется текущее время), у нее будет другой ID, в результате может оказаться, что выполнены обе транзакции — например, два одинаковых перевода одному получателю.
 
 В случае успешной отправки метод возвращает JSON-представление транзакции со всеми параметрами, включая необязательные (фактически, тело ответа может совпадать с телом запроса).
 
-## Шаг 4. Проверка статуса транзакции
+## Шаг 5. Проверка статуса транзакции
 
 Чтобы проверить наличие транзакции на блокчейне, используйте один из публичных методов: 
 * `GET /transaction/status` — для проверки статуса одной или нескольких транзакций.
@@ -610,7 +643,8 @@ HTTP-коды ответа:
 Пример запроса:
 
 ```
-curl -X GET "https://nodes-testnet.wavesnodes.com/transactions/status?id=FZp47sYFC4BXKfJqRQrcYNJQmaNiD3YSxMQk9XJtyEMN" -H "accept: application/json"
+curl -X GET "https://nodes-testnet.wavesnodes.com/transactions/status?id=FZp47sYFC4BXKfJqRQrcYNJQmaNiD3YSxMQk9XJtyEMN"\
+  -H "Accept: application/json"
 ```
 
 Пример ответа:
@@ -629,9 +663,14 @@ curl -X GET "https://nodes-testnet.wavesnodes.com/transactions/status?id=FZp47sY
 
 где:
 
-- `status` — статус транзакции: `not_found` — транзакция не найдена, `unconfirmed` — транзакция в UTX pool, `confirmed` — транзакция добавлена на блокчейн.
+- `status` — статус транзакции:
+   - `not_found` — транзакция не найдена,
+   - `unconfirmed` — транзакция в UTX pool,
+   - `confirmed` — транзакция добавлена на блокчейн.
 - `height` — порядковый номер блока, в который добавлена транзакция.
 - `confirmations` — текущая высота блокчейна минус номер блока, в который добавлена транзакция.
-- `applicationStatus` — результат выполнения: `succeeded` — транзакция успешна, `script_execution_failed` — результат выполнения dApp-скрипта или скрипта ассета был неудачным. Такая транзакция не приводит к изменениям в балансах (кроме взимания комиссии с отправителя) и в хранилищах данных аккаунтов.
+- `applicationStatus` — результат выполнения:
+   - `succeeded` — транзакция успешна,
+   - `script_execution_failed` — результат выполнения dApp-скрипта или скрипта ассета был неудачным. Такая транзакция не приводит к изменениям в балансах (кроме взимания комиссии с отправителя) и в хранилищах данных аккаунтов.
 
-В редких случаях на блокчейне может произойти откат последнего блока или микроблока. Поэтому, если требуется выполнить несколько транзакций в определенной последовательности, рекомендуем дождаться 1–2 подтверждений (`"confirmations"`) — блоков, добавленных после того, в который попала транзакция, и только потом отправлять следующую.
+В редких случаях на блокчейне может произойти откат последнего блока или микроблока. Поэтому, если требуется выполнить несколько транзакций в определенной последовательности, рекомендуем дождаться 1–2 подтверждений (`"confirmations"`) — блоков, добавленных поверх того, в который попала транзакция, и только потом отправлять следующую.
