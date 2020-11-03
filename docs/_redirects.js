@@ -310,6 +310,11 @@ module.exports = [
     from: '/en/technical-details/data-transaction.html',
   },
   {
+    /* link found on github */
+    from: "/en/technical-details/sponsored-fee.html",
+    to: "/en/blockchain/waves-protocol/sponsored-fee",
+  },
+  {
     /* link found in blog */
     from: '/en/technical-details/mass-transfer-transaction.html',
     to: '/en/blockchain/transaction-type/mass-transfer-transaction',
@@ -645,8 +650,12 @@ module.exports = [
     from: '/en/technical-details/waves-contracts-language-description/language-description.html',
   },
   {
-    to: '/en/ride',
+    to: '/en/ride/script/standard-library',
     from:'/en/technical-details/waves-contracts-language-description/standard-library.html',
+  },
+  {
+    to: '/en/ride/script/standard-library',
+    from:'/en/smart-contracts/ride-language/standard-library.html',
   },
   {
     to: '/en/ride',
@@ -744,6 +753,10 @@ module.exports = [
   {
     to: '/en/building-apps/smart-contracts/smart-assets',
     from: '/en/technical-details/smart-assets.html',
+  },
+  { /* link found on medium */
+    from: '/en/smart-contracts/waves-contracts-language-description.html',
+    to: '/en/ride',
   },
   {
     /*===============================  Node  =====================================*/
@@ -879,6 +892,10 @@ module.exports = [
     to: '/en/building-apps/smart-contracts/tools/waves-ide',
     from: '/en/developer-tools/waves-ide.html',
   },
+  { /* link found on medium */
+    to: '/en/building-apps/smart-contracts/tools/waves-ide',
+    from: '/en/technical-details/waves-contracts-language-description/waves-console-commands.html',
+  },
   {
     to: '/en/building-apps/smart-contracts/tools/repl',
     from: '/en/developer-tools/repl.html',
@@ -950,8 +967,12 @@ module.exports = [
     from: '/en/miscellaneous/waves-protocol/fair-pos.html',
   },
   {
-    to: '/en/blockchain/waves-protocol/waves-ng-protocol',
     from: '/en/miscellaneous/waves-protocol/waves-ng-protocol.html',
+    to: '/en/blockchain/waves-protocol/waves-ng-protocol',
+  },
+  {
+    from: '/en/waves-environment/waves-protocol/waves-ng-protocol.html',
+    to: '/en/blockchain/waves-protocol/waves-ng-protocol',
   },
   {
     to: '/en/waves-node/activation-protocol',
@@ -1030,6 +1051,14 @@ module.exports = [
     from: '/en/smart-contracts/script-performance-tests.html',
     to: '/en/ride/script-performance-tests',
   },
+  { /* link found on habr */
+    from: '/en/smart-contracts/ride-language/script-performance-tests.html',
+    to: '/en/ride/script-performance-tests',
+  },
+  { /* link found on medium */
+    from: '/en/technical-details/waves-contracts-language-description/script-performance-tests.html',
+    to: '/en/ride/script-performance-tests',
+  },
   {
     from: '/en/smart-contracts/video-tutorials/introduction-to-the-waves-blockchain-waves-smart-accounts-and-waves-smart-assets.html',
     to: '/en/building-apps/smart-contracts/video-tutorials/introduction-waves-smart-accounts-assets',
@@ -1069,6 +1098,10 @@ module.exports = [
   {
     from: '/en/waves-api-and-sdk/client-libraries()',
     to: '/en/building-apps/waves-api-and-sdk/client-libraries$1',
+  },
+  {
+    from: '/en/development-and-api/client-libraries.html',
+    to: '/en/building-apps/waves-api-and-sdk/client-libraries',
   },
   {
     from: '/en/waves-api-and-sdk/examples',
@@ -1182,6 +1215,10 @@ module.exports = [
     /*===============================  Oracles  =====================================*/
     to: '/en/ecosystem/waves-oracles/about-waves-oracles',
     from: '/en/oracels-developments/what-is-a-data-oracle.html',
+  },
+  { /* link found on medium */
+    from: '/en/oracels-developments/oracle-protocols.html',
+    to: '/en/ecosystem/waves-oracles/about-waves-oracles',
   },
   {
     /*===============================  Resources  ===================================*/
