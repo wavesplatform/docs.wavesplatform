@@ -1,6 +1,6 @@
 # Creating smart account
 
-In this article, we will review the creation of [smart account](/en/blockchain/account/smart-account) using [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide).
+In this article, we will review the creation of [smart account](/en/building-apps/smart-contracts/what-is-smart-account) using [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide).
 
 To create smart account in Waves IDE, complete the following steps:
 

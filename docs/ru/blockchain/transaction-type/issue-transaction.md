@@ -6,7 +6,7 @@
 
 Минимальная комиссия за транзакцию выпуска — 1 WAVES, в случае выпуска [невзаимозаменяемого токена (non-fungible token, NFT)](/ru/blockchain/token/non-fungible-token) — 0,001 WAVES.
 
-Если отправитель транзакции —  [dApp](/ru/blockchain/account/dapp) или [смарт-аккаунт](/ru/blockchain/account/smart-account), минимальная комиссия увеличивается на 0,004 WAVES.
+Если отправитель транзакции — [dApp или смарт-аккаунт](/ru/blockchain/account/dapp), минимальная комиссия увеличивается на 0,004 WAVES.
 
 ## JSON-представление
 

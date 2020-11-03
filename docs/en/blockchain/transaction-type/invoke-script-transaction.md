@@ -12,7 +12,7 @@ The minimum fee for an Invoke Script transaction is calculated as follows:
 
 `Fee` = 0.005 + `B` + 0.004 × `C` + 0.004 × `D` + `K`
 
-* If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), then `B` = 0.004, otherwise `B` = 0.
+* If the transaction sender is a [dApp or smart account](/en/blockchain/account/dapp), then `B` = 0.004, otherwise `B` = 0.
 * The Invoke Script transaction can contain payments. `C` is the number of payments in [smart assets](/en/blockchain/token/smart-asset).
 * The Invoke Script transaction can result in the token transfer, reissue or burning. `D` is the number of smart assets among these actions.
 * The Invoke Script transaction can result in the token issue. `K` is the number of issued assets that are not [NFT](/en/blockchain/token/non-fungible-token).
