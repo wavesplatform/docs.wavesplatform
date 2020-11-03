@@ -1,18 +1,18 @@
-# Постраничная выборка
+# Pagination
 
-Ряд методов возвращают ограниченное количество объектов. Для получения полного списка нужно использовать постраничную выборку с использованием параметров `limit` и `after`.
+Particular operations return a limited number of objects. To get a complete list of objects, obtain them page by page using the `limit` and `after` parameters.
 
-## Пример 1: распределение ассета
+## Example 1: Asset Distribution
 
-Метод `GET /assets/{assetId}/distribution/{height}/limit/{limit}` возвращает распределение указанного ассета по адресам на блокчейне.
+The `GET /assets/{assetId}/distribution/{height}/limit/{limit}` operation returns the distribution of the specified asset by addresses on the blockchain.
 
-1. Получаем первую страницу:
+1. Obtain the first page:
 
    ```http
    http://nodes.wavesnodes.com/assets/DHgwrRvVyqJsepd32YbBqUeDH4GJ1N984X8QoekjgH8J/distribution/2304367/limit/10
    ```
 
-   Ответ:
+   Response body:
 
    ```json
    {
@@ -33,31 +33,31 @@
    }
    ```
 
-   где:
+   where:
 
-   * `hasNext` — наличие следующей страницы.
-   * `lastItem` — последний адрес на странице.
-   * `items` — страница распределения ассета по адресам.
+   * `hasNext` indicates that the next page exists.
+   * `lastItem` is the last address in the current page.
+   * `items` — the page of the distribution of the asset by addresses.
 
-2. Получаем следующую страницу. В параметре `after` нужно указать значение из `lastItem`.
+2. Obtain the next page: specify the `lastItem` value as the `after` request parameter.
 
    ```
    http://nodes.wavesnodes.com/assets/DHgwrRvVyqJsepd32YbBqUeDH4GJ1N984X8QoekjgH8J/distribution/2304367/limit/10?after=3P7B2p1ULjU7tGi4ho4u9dhGEbb2TGGbo7A
    ```
 
-   Повторяем, пока не получим в ответе значение `"hasNext": false`.
+   Repeat until you get `"hasNext": false`.
 
-## Пример 2: список транзакций по адресу
+## Example 2: List of Transactions by Address
 
-Метод `GET /transactions​/address​/{address}​/limit​/{limit}` возвращает список транзакций с участием указанного адреса.
+The `GET /transactions​/address​/{address}​/limit​/{limit}` operation returns a list of transactions where the specified address is involved.
 
-1. Получаем первую страницу:
+1. Obtain the first page:
 
    ```http
    https://nodes.wavesnodes.com/transactions/address/3P9HYzM3bXsCNxwFqUdGuVehBHsST2j1Krw/limit/5
    ```
 
-   Ответ:
+   Response body:
 
    ```json
    [
@@ -161,10 +161,10 @@
    ]
    ```
 
-2. Получаем следующую страницу. В параметре `after` нужно указать значение `id` последней из полученных транзакций.
+2. Obtain the next page: specify the `id` of the last obtained transaction as the `after` request parameter.
 
    ```
    https://nodes.wavesnodes.com/transactions/address/3P9HYzM3bXsCNxwFqUdGuVehBHsST2j1Krw/limit/5?after=E2Thrzgh922KwcxrgAedVQxQiTRQsKe1YXtXRJgjG4J7
    ```
 
-   Повторяем, пока не получим в ответе пустой массив.
+   Repeat until you get an empty array.
