@@ -75,16 +75,16 @@ message Amount {
 | 5.1 | Asset A (price asset flag |  | [Short](/en/blockchain/blockchain/blockchain-data-types) | 1 | If token is WAVES, then value is 0, else 1 |
 | 5.2 | Asset A (price asset) ID | priceAsset | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | If token is not WAVES, then `S` = 32, else the field should be absent |
 | 6 | Order type | orderType | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | If order is for buying, then value is 0, if order is for selling, then value is  1 |
-| 7 | Amount of asset B (amount asset), which the order sender offers for one price asset(asset A) | price | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
-| 8 | Amount of asset B (price asset), which the order sender wants to buy or send depending on order type | amount | Long | 8 | |
-| 9 | Amount of milliseconds from the beginning of [Unix epoch](https://ru.wikipedia.org/wiki/Unix-время) till the moment of validation of order by matcher | timestamp | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
-| 10 | Amount of milliseconds from the beginning of Unix epoch till the unfulfilled order [cancellation](/en/blockchain/order#cancel) | expiration | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
-| 11 | [Matcher fee](/en/blockchain/glossary#m) | matcherFee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | |
+| 7 | Amount of asset B (amount asset), which the order sender offers for one price asset(asset A) | price | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | bytes in [big-endian](https://en.wikipedia.org/wiki/Endianness) notation |
+| 8 | Amount of asset B (price asset), which the order sender wants to buy or send depending on order type | amount | Long | 8 | bytes in [big-endian](https://en.wikipedia.org/wiki/Endianness) notation |
+| 9 | Amount of milliseconds from the beginning of [Unix epoch](https://ru.wikipedia.org/wiki/Unix-время) till the moment of validation of order by matcher | timestamp | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | bytes in [big-endian](https://en.wikipedia.org/wiki/Endianness) notation |
+| 10 | Amount of milliseconds from the beginning of Unix epoch till the unfulfilled order [cancellation](/en/blockchain/order#cancel) | expiration | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | bytes in [big-endian](https://en.wikipedia.org/wiki/Endianness) notation |
+| 11 | [Matcher fee](/en/blockchain/glossary#m) | matcherFee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | bytes in [big-endian](https://en.wikipedia.org/wiki/Endianness) notation |
 | 12 | Matcher fee token flag |  | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | If token is WAVES, then value is 0, else 1 |
 | 13 | Matcher fee token | matcherFeeAssetId | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `F` | If token is not WAVES, then `F` = 32, else the field should be absent |
 | 14 | [Proofs](/en/blockchain/transaction/transaction-proof) | proofs | Array[[Proof](/en/blockchain/binary-format/transaction-proof-binary-format)] | `S` | If the array is empty, then `S` = 3.<br>If the array is not empty, then `S` = 3 + 2 × `N` + (`P`<sub>1</sub> + `P`<sub>2</sub> + ... + `P`<sub>n</sub>),<br>where<br>`N` is amount of proofs in the array,<br>`P`<sub>n</sub> — size N-th proof in bytes.<br>Maximum amount of proofs in the array is 8. Maximum length of each proof is 64 bytes |
 
-## JSON Representation of Order Version 3
+### JSON Representation of Order Version 3
 
 ``` json
 {
