@@ -78,8 +78,8 @@ createMerkleRoot(merkleProofs: List[ByteVector], valueBytes: ByteVector, index: 
 
 | Параметр | Описание |
 | :--- | :--- |
-| `merkleProofs`: List[ByteVector] | Массив соседних хешей дерева Меркла |
-| `valueBytes`: ByteVector | Хеш транзакции. Для хеширования можно использовать функцию [blake2b256](/ru/ride/functions/built-in-functions/hashing-functions#blake2b256). Хешировать транзакцию нужно вместе с подписью |
+| `merkleProofs`: List[ByteVector] | Массив соседних хешей дерева Меркла. До 16 элементов, размер каждого 32 байта |
+| `valueBytes`: ByteVector | Хеш транзакции. Фиксированный размер: 32 байта. Для хеширования можно использовать функцию [blake2b256](/ru/ride/functions/built-in-functions/hashing-functions#blake2b256). Хешировать транзакцию нужно вместе с подписью |
 | `index`: Int | Порядковый номер транзакции в блоке |
 
 ## ecrecover
