@@ -548,6 +548,10 @@ module.exports = {
           title: 'Ограничения пула публичных нод',
           path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
         },
+        {
+          title: 'Коды ответов и ошибки',
+          path: nodePath + 'node-api/response',
+        },
       ],
     },
     {

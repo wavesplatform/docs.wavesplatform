@@ -55,7 +55,7 @@ The following operations are used to generate a signature:
 
 > The operations are not applicable for Exchange transactions and Update Asset info transactions.
 
-The endpoints are private, so you should specify your [API key](/en/waves-node/node-api/api-key) in request header. In the request body, specify the transaction data in JSON, including `type` and ` sender`.
+The endpoints are private, so you should specify your [API key](/en/waves-node/node-api/api-key) in request header. In the request body, specify the transaction data in JSON, including `type` and ` sender`. If `timestamp` omitted, current node's time is used. `senderPublicKey` is ignored.
 
 The operations return the signed transaction in JSON format. The response body can be passed as a request body to the `POST /debug/validate` and `POST /transactions/broadcast` operations (see the next steps).
 
@@ -628,8 +628,8 @@ curl -X POST "https://nodes-testnet.wavesnodes.com/transactions/broadcast"\
 HTTP response codes:
 
 - 200 — the transaction is added to UTX pool.
-- 4xx — the transaction is rejected.
-- 5xx — server error without specifying whether a transaction is added to the UTX pool or not.
+- 4xx or 501 — the transaction is rejected.
+- 500 or 503 — server error without specifying whether a transaction is added to the UTX pool or not.
 
 In the last case, check the transaction status (see the next step) or broadcast the same transaction (with the same ID) again. If you create and sign a new transaction with a different `timestamp` (default value is the current time), such a transaction has a different ID, so it may turn out that both transactions are executed, for example, two identical transfers to the same recipient.
 
@@ -667,10 +667,10 @@ where:
 - `status` is the transaction status:
    - `not_found`: transaction not found,
    - `unconfirmed`: transaction is in the UTX pool,
-   - `confirmed`: transaction is added to the blockchain.
+   - `confirmed`: transaction is added to the block or microblock.
 - `height` is the sequential number of the block that contains the transaction.
-- `confirmations` is the number of blocks added on top of the one which contains the transaction, i.e. the current blockchain height minus the block height.
-- `applicationStatus` indicates the execution result:
+- `confirmations` is the number of blocks added on top of the one that contains the transaction, i.e. the current blockchain height minus the block height.
+- `applicationStatus` indicates the execution result (see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article for details):
    - `succeeded`: the transaction id successful,
    - `script_execution_failed`: dApp script or asset script failed. Such a transaction doesn't entail changes in balances (other than charging a fee) and account data storages.
 

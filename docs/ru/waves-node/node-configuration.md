@@ -177,11 +177,15 @@ java -jar {*}.jar {*}.conf
 
 | Имя | Описание | Значение по умолчанию |
 | :--- | :--- | :---- |
-|`enable` | Активирует REST API. <br>Для деактивации REST API укажите значение `no` | `yes` |
-|`bind-address` | Cетевой адрес, по которому REST API будет принимать входящие подключения. <br>**Примечание**: не рекомендуется менять значение по умолчанию. Используйте [Nginx’s proxy pass module](http://nginx.org/ru/docs/http/ngx_http_proxy_module.html) или [SSH port forwarding](https://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html) для внешнего доступа. | `"127.0.0.1"` |
-| `port` | Номер порта, через который REST API будет ожидать подключения. | `6869` |
-| `api-key-hash` | <a name="api-key-hash"></a> Хэш [API ключа](https://en.wikipedia.org/wiki/Application_programming_interface_key), который предоставляется владельцем ноды. [Подробнее про хэш API ключа](/ru/waves-node/node-api/api-key) | "" |
-| `cors` | Включение/выключение отправки кросс-доменных запросов CORS к ноде от JavaScript | yes |
+| `enable` | Активирует REST API. <br>Для деактивации REST API укажите значение `no` | `yes` |
+| `bind-address` | Cетевой адрес, по которому REST API будет принимать входящие подключения. <br>**Примечание**: не рекомендуется менять значение по умолчанию. Чтобы предоставить внешний доступ к API вашей ноды, используйте [Nginx’s proxy pass module](http://nginx.org/ru/docs/http/ngx_http_proxy_module.html) или [SSH port forwarding](https://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html) | `"127.0.0.1"` |
+| `port` | Номер порта, через который REST API будет ожидать подключения | `6869` |
+| `api-key-hash` | <a name="api-key-hash"></a> Хеш API-ключа для доступа к приватным методам. [Подробнее](/ru/waves-node/node-api/api-key) | "" |
+| `cors` | Поддержка кросс-доменных запросов CORS к ноде от JavaScript | yes |
+| `api-key-different-host` | Поддержка API-ключа в запросах с других хостов | `no` |
+| `transactions-by-address-limit` | Максимальное значение `limit` в запросе к `/transactions/address/{address}/limit/{limit}`<br>Максимальное количество транзакций в запросе к `/transactions/status` | 1000 |
+| `distribution-address-limit` | Максимальное значение `limit` в запросе к `/assets/{assetId}/distribution/{height}/limit/{limit}` | 1000 |
+| `limited-pool-threads` | Максимальное количество потоков, которые обрабатывают запросы к `/utils/script/compile*`, `/utils/script/decompile`, `/utils/script/estimate` (обработка каждого запроса ограничена по времени) | 2 |
 
 ### Настройки синхронизации
 
