@@ -70,9 +70,9 @@ message Amount {
 | 1 | [Order](/en/blockchain/order) binary format version number | version | [Byte](/en/blockchain/blockchain/blockchain-data-types)| 1 | must be 3 |
 | 2 | Order sender public key | senderPublicKey | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 |  |
 | 3 | [Matcher](https://docs.waves.exchange/en/waves-matcher/) public key | matcherPublicKey | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 |  |
-| 4.1 | Asset B (amount asset) flag |  | [Short](/en/blockchain/blockchain/blockchain-data-types) | 1 | If token is [WAVES](/en/blockchain/token/waves), then value is 0, else 1 |
+| 4.1 | Asset B (amount asset) flag |  | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | If token is [WAVES](/en/blockchain/token/waves), then value is 0, else 1 |
 | 4.2 | [Asset B (amount Asset) ID](/en/blockchain/token/token-id) | amountAsset | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | If token is not WAVES, then `S` = 32, else the field should be absent |
-| 5.1 | Asset A (price asset flag |  | [Short](/en/blockchain/blockchain/blockchain-data-types) | 1 | If token is WAVES, then value is 0, else 1 |
+| 5.1 | Asset A (price asset) flag |  | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | If token is WAVES, then value is 0, else 1 |
 | 5.2 | Asset A (price asset) ID | priceAsset | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | If token is not WAVES, then `S` = 32, else the field should be absent |
 | 6 | Order type | orderType | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | If order is for buying, then value is 0, if order is for selling, then value is  1 |
 | 7 | Amount of asset B (amount asset), which the order sender offers for one price asset(asset A) | price | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 | bytes in [big-endian](https://en.wikipedia.org/wiki/Endianness) notation |
@@ -117,9 +117,9 @@ message Amount {
 | 1 | Version | Byte \(constant, value = 2\) | 1
 | 2 | Sender's public key | PublicKey \(Array[Byte]\) | 32
 | 3 | Matcher's public key | PublicKey \(Array[Byte]\) | 32
-| 4.1 | Amount asset flag \(1 - asset, 0 - Waves\) |  | 1
+| 4.1 | Amount asset flag \(1 - asset, 0 - Waves\) | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1
 | 4.2 | Amount asset | AssetId \(ByteStr = Array[Byte]\) | 32 or 0 \(depends on the byte in 4.1\)
-| 5.1 | Price asset flag \(1 - asset, 0 - Waves\) |  | 1
+| 5.1 | Price asset flag \(1 - asset, 0 - Waves\) | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1
 | 5.2 | Price asset | AssetId \(ByteStr = Array[Byte]\) | 32 or 0 \(depends on the byte in 5.1\)
 | 6 | Order type \(0 - Buy, 1 - Sell\) | Byte | 1
 | 7 | Price | Long | 8
