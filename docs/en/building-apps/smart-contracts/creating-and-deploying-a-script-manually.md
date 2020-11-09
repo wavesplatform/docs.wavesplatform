@@ -182,8 +182,8 @@ Now, let's try to make a valid transactions with all required proofs. For exampl
 
 1. Alice signs this request by her private key through [POST /transactions/sign/{signerAddress}](/en/waves-node/node-api/transactions#post-transactionssignsigneraddress)
 
-   • Alice address: `3MxjWXEUcVCeiaEUqNcorB5HxSpLsgJCGxE`
-   • JSON:
+   * Alice address: `3MxjWXEUcVCeiaEUqNcorB5HxSpLsgJCGxE`
+   * JSON:
 
      ```json
      {
@@ -222,8 +222,8 @@ Now, let's try to make a valid transactions with all required proofs. For exampl
 
 3. Bob signs it by his private key by same method [POST /transactions/sign/{signerAddress}](/en/waves-node/node-api/transactions#post-transactionssignsigneraddress)
 
-   • Signer address: `3MqGVvfgqdqqU6P9mTAsLSxyRoRjrHF18Mf`
-   • JSON:
+   * Signer address: `3MqGVvfgqdqqU6P9mTAsLSxyRoRjrHF18Mf`
+   * JSON:
 
      ```json
      {

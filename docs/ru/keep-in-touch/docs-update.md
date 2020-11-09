@@ -41,9 +41,9 @@
 ### Блокчейн
 
 * Обновлены статьи о транзакциях:
-   • [Транзакция](/ru/blockchain/transaction/)
-   • [Подпись и подтверждения транзакции](/ru/blockchain/transaction/transaction-proof)
-   • [Типы транзакций](/ru/blockchain/transaction-type/) и описания всех типов
+   * [Транзакция](/ru/blockchain/transaction/)
+   * [Подпись и подтверждения транзакции](/ru/blockchain/transaction/transaction-proof)
+   * [Типы транзакций](/ru/blockchain/transaction-type/) и описания всех типов
 
 ### Нода
 
@@ -91,9 +91,9 @@
 ### Ride
 
 * Обновлены статьи:
-   • [Стандартная библиотека](/ru/ride/script/standard-library)
-   • [Типы скриптов](/ru/ride/script/)
-   • [Ограничения](/ru/ride/limits/)
+   * [Стандартная библиотека](/ru/ride/script/standard-library)
+   * [Типы скриптов](/ru/ride/script/)
+   * [Ограничения](/ru/ride/limits/)
 
 * Добавлена статья [Компоненты Ride](/ru/ride/advanced/components).
 
@@ -192,16 +192,16 @@
 
 * Структура
   * Общие структруры
-    • [BinaryEntry](/ru/ride/structures/script-actions/binary-entry)
-    • [BooleanEntry](/ru/ride/structures/script-actions/boolean-entry)
-    • [Burn](/ru/ride/structures/script-actions/burn)
-    • [DeleteEntry](/ru/ride/structures/script-actions/delete-entry)
-    • [IntegerEntry](/ru/ride/structures/script-actions/int-entry)
-    • [Issue](/ru/ride/structures/script-actions/issue)
-    • [Reissue](/ru/ride/structures/script-actions/reissue)
-    • [StringEntry](/ru/ride/structures/script-actions/string-entry)
+    * [BinaryEntry](/ru/ride/structures/script-actions/binary-entry)
+    * [BooleanEntry](/ru/ride/structures/script-actions/boolean-entry)
+    * [Burn](/ru/ride/structures/script-actions/burn)
+    * [DeleteEntry](/ru/ride/structures/script-actions/delete-entry)
+    * [IntegerEntry](/ru/ride/structures/script-actions/int-entry)
+    * [Issue](/ru/ride/structures/script-actions/issue)
+    * [Reissue](/ru/ride/structures/script-actions/reissue)
+    * [StringEntry](/ru/ride/structures/script-actions/string-entry)
   * Структуры транзакций
-    • [UpdateAssetInfoTransaction](/ru/ride/structures/transaction-structures/update-asset-info-transaction)
+    * [UpdateAssetInfoTransaction](/ru/ride/structures/transaction-structures/update-asset-info-transaction)
 
 ## Ноябрь
 
@@ -230,10 +230,10 @@
 
 * Функции
   * Встроенные функции
-    • [Математические функции](/ru/ride/functions/built-in-functions/math-functions) — <span style="color:green">обновлено</span>
-    • [Функции массива байтов](/ru/ride/functions/built-in-functions/byte-array-functions) — <span style="color:green">обновлено</span>
-    • [Функции строки](/ru/ride/functions/built-in-functions/string-functions) — <span style="color:green">обновлено</span>
-    • [Функции хеширования](/ru/ride/functions/built-in-functions/hashing-functions) — <span style="color:green">обновлено</span>
+    * [Математические функции](/ru/ride/functions/built-in-functions/math-functions) — <span style="color:green">обновлено</span>
+    * [Функции массива байтов](/ru/ride/functions/built-in-functions/byte-array-functions) — <span style="color:green">обновлено</span>
+    * [Функции строки](/ru/ride/functions/built-in-functions/string-functions) — <span style="color:green">обновлено</span>
+    * [Функции хеширования](/ru/ride/functions/built-in-functions/hashing-functions) — <span style="color:green">обновлено</span>
 
 ### Блокчейн
 
@@ -253,16 +253,16 @@
 * Бинарный формат
   * [Бинарный формат ордера](/ru/blockchain/binary-format/order-binary-format)
   * Бинарный формат транзакции
-    • [Бинарный формат транзакции вызова скрипта](/ru/blockchain/binary-format/transaction-binary-format/invoke-script-transaction-binary-format)
-    • [Бинарный формат транзакции выпуска](/ru/blockchain/binary-format/transaction-binary-format/issue-transaction-binary-format)
-    • [Бинарный формат транзакции довыпуска](/ru/blockchain/binary-format/transaction-binary-format/reissue-transaction-binary-format)
-    • [Бинарный формат транзакции массового перевода](/ru/blockchain/binary-format/transaction-binary-format/mass-transfer-transaction-binary-format)
-    • [Бинарный формат транзакции обмена](/ru/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format)
-    • [Бинарный формат транзакции отмены лизинга](/ru/blockchain/binary-format/transaction-binary-format/lease-cancel-transaction-binary-format)
-    • [Бинарный формат транзакции перевода](/ru/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format)
-    • [Бинарный формат транзакции спонсирования](/ru/blockchain/binary-format/transaction-binary-format/sponsor-fee-transaction-binary-format)
-    • [Бинарный формат транзакции установки скрипта ассета](/ru/blockchain/binary-format/transaction-binary-format/set-asset-script-transaction-binary-format)
-    • [Бинарный формат транзакции установки скрипта](/ru/blockchain/binary-format/transaction-binary-format/set-script-transaction-binary-format)
+    * [Бинарный формат транзакции вызова скрипта](/ru/blockchain/binary-format/transaction-binary-format/invoke-script-transaction-binary-format)
+    * [Бинарный формат транзакции выпуска](/ru/blockchain/binary-format/transaction-binary-format/issue-transaction-binary-format)
+    * [Бинарный формат транзакции довыпуска](/ru/blockchain/binary-format/transaction-binary-format/reissue-transaction-binary-format)
+    * [Бинарный формат транзакции массового перевода](/ru/blockchain/binary-format/transaction-binary-format/mass-transfer-transaction-binary-format)
+    * [Бинарный формат транзакции обмена](/ru/blockchain/binary-format/transaction-binary-format/exchange-transaction-binary-format)
+    * [Бинарный формат транзакции отмены лизинга](/ru/blockchain/binary-format/transaction-binary-format/lease-cancel-transaction-binary-format)
+    * [Бинарный формат транзакции перевода](/ru/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format)
+    * [Бинарный формат транзакции спонсирования](/ru/blockchain/binary-format/transaction-binary-format/sponsor-fee-transaction-binary-format)
+    * [Бинарный формат транзакции установки скрипта ассета](/ru/blockchain/binary-format/transaction-binary-format/set-asset-script-transaction-binary-format)
+    * [Бинарный формат транзакции установки скрипта](/ru/blockchain/binary-format/transaction-binary-format/set-script-transaction-binary-format)
 * [Биржевая заявка](/ru/blockchain/order) — <span style="color:green">обновлено</span>
 * Майнинг
   * [Вознаграждение за майнинг](/ru/blockchain/mining/mining-reward)
@@ -274,9 +274,9 @@
 * Скрипт
   * [Стандартная библиотека](/ru/ride/script/standard-library)
   * Типы скриптов
-    • [Скрипт аккаунта](/ru/ride/script/script-types/account-script) — <span style="color:green">обновлено</span>
+    * [Скрипт аккаунта](/ru/ride/script/script-types/account-script) — <span style="color:green">обновлено</span>
 * Функции
   * [Встроенные функции](/ru/ride/functions/built-in-functions/) — <span style="color:green">обновлено</span>
-    • [Функции верификации](/ru/ride/functions/built-in-functions/verification-functions) — <span style="color:green">обновлено</span>
+    * [Функции верификации](/ru/ride/functions/built-in-functions/verification-functions) — <span style="color:green">обновлено</span>
 
 > Посмотреть репозиторий документации на [Github](https://github.com/wavesplatform/docs.wavesplatform)

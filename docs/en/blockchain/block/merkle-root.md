@@ -66,14 +66,14 @@ Side 2 checks the proof:
 
    `index` determines in which order to concatenate the hashes:
    
-   • If the `n`th bit of `index` from the end is 0, then the order is: the current hash + the `n`th hash of the `merkleProofs`array (proof hash is on the right).
-   • If the `n`th bit is 1, the order is: the `n`th hash of the `merkleProofs`array + the current hash (proof hash is on the left).
+   * If the `n`th bit of `index` from the end is 0, then the order is: the current hash + the `n`th hash of the `merkleProofs`array (proof hash is on the right).
+   * If the `n`th bit is 1, the order is: the `n`th hash of the `merkleProofs`array + the current hash (proof hash is on the left).
 
    For example, `index` = 3<sub>10</sub> = 11<sub>2</sub> , thus:
    
-   • `merkleProofs`[0] = H<sub>С</sub> is on the left,
-   • `merkleProofs`[1] = H<sub>AB</sub> is on the left,
-   • `merkleProofs`[2] = H<sub>EFGH</sub> is on the right.
+   * `merkleProofs`[0] = H<sub>С</sub> is on the left,
+   * `merkleProofs`[1] = H<sub>AB</sub> is on the left,
+   * `merkleProofs`[2] = H<sub>EFGH</sub> is on the right.
 
 3. It repeates Step 2 until the root hash is obtained:
 

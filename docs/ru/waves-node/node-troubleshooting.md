@@ -15,8 +15,8 @@
    Решение состоит в том, чтобы изменить значение следующих параметров в файле `/etc/security/limits.conf` на `65536`:
 
    ```bash
-    • soft nofile 24000 #soft limits
-    • hard nofile 65000 #hard limits
+    * soft nofile 24000 #soft limits
+    * hard nofile 65000 #hard limits
    ```
 
    и добавить следующую строку в файл `/etc/systemd/system.conf`:
