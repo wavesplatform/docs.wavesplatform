@@ -1,3 +1,37 @@
+# Release Notes
+
+## Version 1.3 (Stagenet)
+
+## Protocol Enhancements
+
+* **Continued calculations.** Added support for dApp scripts with complexity over 4000. The execution of such a script is split into several stages. The first stage of calculations is performed within the Invoke Script transaction. The further stages are performed within Continuation transactions that are created automatically by block generators. [More about continued calculations](/en/ride/advanced/continuation)
+* Added version 3 for the [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) that can invoke a script with complexity over 4000.
+
+## Ride
+
+* Issued version 4 of the Ride [Standard library](/en/ride/script/standard-library).
+* Added the following built-in functions:
+   * [account data storage functions](/en/ride/functions/built-in-functions/account-data-storage-functions) that allow the dApp script to read entries of its own data storage at any stage of the calculations:
+      * `getBinary(String): ByteVector|Unit`
+      * `getBinaryValue(String): ByteVector`
+      * `getBoolean(String): Boolean|Unit`
+      * `getBooleanValue(String): Boolean`
+      * `getInteger(String): Int|Unit`
+      * `getIntegerValue(String): Int`
+      * `getString(String): String|Unit`
+      * `getStringValue(String): String`
+
+## Node REST API
+
+### Breaking Changes
+
+* Added the new transaction type: [Continuation](/en/blockchain/transaction-type/continuation-transaction).
+
+### Semantic Changes
+
+* For [Invoke Script](/en/blockchain/transaction-type/invoke-script-transaction) transaction version версии 3 the fields `extraFeePerStep` and `continuationtransactionIds` added to the output of the endpoints providing transaction info.
+* Added the `script_execution_in_progress` value for the `applicationStatus` field of transaction.
+
 # Version 1.2
 
 ## Node Improvements

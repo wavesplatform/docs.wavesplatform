@@ -1,6 +1,6 @@
 # Continuation transaction
 
-Continuation transaction as a stage of execution of a [dApp](/ru/blockchain/account/dapp) script callable function. If a dApp script complexity exceeds 4000, its execution is split into several transactions. The first transaction in the calculation sequence is an [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction). Continuation transactions are created automatically by block generators. [More about continued calculations](/en/ride/advanced/continuation)
+Continuation transaction as a stage of execution of a [dApp](/ru/blockchain/account/dapp) script callable function. If a dApp script complexity exceeds 4000, its execution is split into several stages. The first stage is performed within an [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction). The further stages are performed within Continuation transactions that are created automatically by block generators. [More about continued calculations](/en/ride/advanced/continuation)
 
 > A script execution with a continuation is added in node version 1.3.0 and enabled with feature #16 “Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 

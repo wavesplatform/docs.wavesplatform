@@ -10,12 +10,12 @@ Binary format is defined in [transaction.proto](https://github.com/wavesplatform
 
 ```
 message ContinuationTransactionData {
-    bytes invoke_id = 1;
+    bytes invoke_transaction_id = 1;
     int32 nonce = 4;
 };
 ```
 
 | Field | Size | Description |
 | :--- | :--- | :--- |
-| invoke_id | 32 bytes | ID of the Invoke Script transaction that starts the calculation sequence |
+| invoke_transaction_id | 32 bytes | ID of the Invoke Script transaction that starts the calculation sequence |
 | nonce | 1 byte | Sequential number of the continuation (starting from 0) |

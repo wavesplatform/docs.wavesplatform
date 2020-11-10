@@ -111,4 +111,3 @@ The fields that depend on the type of transaction are described in the following
 * [Transfer transaction binary format](/en/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format)
 * [Update asset info transaction binary format](/en/blockchain/binary-format/transaction-binary-format/update-asset-info-transaction-binary-format)
 * [Continuation transaction](/en/blockchain/binary-format/transaction-binary-format/continuation-transaction-binary-format)
-* 

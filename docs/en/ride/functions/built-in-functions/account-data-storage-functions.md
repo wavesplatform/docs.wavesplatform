@@ -4,22 +4,22 @@
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| [getBinary(Address&#124;Alias, String): ByteVector&#124;Unit](#get-binary) | Gets an array of bytes by key | 100 for Standard Library **version 3**<br>10 for Standard Library **version 4 and 5** |
-| [getBinary(String): ByteVector&#124;Unit](#getbinary-string-bytevector-unit) | Gets an array of bytes by key from internal data storage | 10 |
-| [getBinaryValue(Address&#124;Alias, String): ByteVector](#get-binary-value) | Gets an array of bytes by key. Fails if there is no entry | 100 for Standard Library **version 3**<br>10 for Standard Library **version 4 and 5** |
-| [getBinaryValue(String): ByteVector](#getbinaryvalue-string-bytevector) | Gets an array of bytes by key from internal data storage. Fails if there is no entry | 10 |
-| [getBoolean(Address&#124;Alias, String): Boolean&#124;Unit](#get-boolean) | Gets a boolean value by key | 100 for Standard Library **version 3**<br>10 for Standard Library **version 4 and 5** |
-| [getBoolean(String): Boolean&#124;Unit](#getboolean-string-boolean-unit) | Gets a boolean value by key from internal data storage | 10 |
-| [getBooleanValue(Address&#124;Alias, String): Boolean](#get-boolean-value) | Gets a boolean value by key. Fails if there is no entry | 100 for Standard Library **version 3**<br>10 for Standard Library **version 4 and 5** |
-| [getBooleanValue(String): Boolean](#getbooleanvalue-string-boolean) | Gets a boolean value by key from internal data storage. Fails if there is no entry | 10 |
-| [getInteger(Address&#124;Alias, String): Int&#124;Unit](#get-integer) | Gets an integer by key | 100 for Standard Library **version 3**<br>10 for Standard Library **version 4 and 5** |
-| [getInteger(String): Int&#124;Unit](#getinteger-string-int) | Gets an integer by key from internal data storage | 10 |
-| [getIntegerValue(Address&#124;Alias, String): Int](#get-integer-value) | Gets an integer by key. Fails if there is no entry | 100 for Standard Library **version 3**<br>10 for Standard Library **version 4 and 5** |
-| [getIntegerValue(String): Int](#getintegervalue-string-int) | Gets an integer by key from internal data storage. Fails if there is no entry | 10 |
-| [getString(Address&#124;Alias, String): String&#124;Unit](#get-string) | Gets a string by key | 100 for Standard Library **version 3**<br>10 for Standard Library **version 4** |
-| [getString(String): String&#124;Unit](#getstring-string-string) | Gets a string by key from internal data storage | 10 |
-| [getStringValue(Address&#124;Alias, String): String](#get-string-value) | Gets a string by key. Fails if there is no entry | 100 for Standard Library **version 3**<br>10 for Standard Library **version 4 and 5** |
-| [getStringValue(String): String](#getstringvalue-string-string) | Gets a string by key from internal data storage. Fails if there is no entry | 10 |
+| [getBinary(Address&#124;Alias, String): ByteVector&#124;Unit](#get-binary) | Gets an array of bytes by key | 100 for Standard library **version 3**<br>10 for Standard library **version 4 and 5** |
+| [getBinary(String): ByteVector&#124;Unit](#getbinary-string-bytevector-unit) | Gets an array of bytes by key from the internal data storage | 10 |
+| [getBinaryValue(Address&#124;Alias, String): ByteVector](#get-binary-value) | Gets an array of bytes by key. Fails if there is no entry | 100 for Standard library **version 3**<br>10 for Standard library **version 4 and 5** |
+| [getBinaryValue(String): ByteVector](#getbinaryvalue-string-bytevector) | Gets an array of bytes by key from the internal data storage. Fails if there is no entry | 10 |
+| [getBoolean(Address&#124;Alias, String): Boolean&#124;Unit](#get-boolean) | Gets a boolean value by key | 100 for Standard library **version 3**<br>10 for Standard library **version 4 and 5** |
+| [getBoolean(String): Boolean&#124;Unit](#getboolean-string-boolean-unit) | Gets a boolean value by key from the internal data storage | 10 |
+| [getBooleanValue(Address&#124;Alias, String): Boolean](#get-boolean-value) | Gets a boolean value by key. Fails if there is no entry | 100 for Standard library **version 3**<br>10 for Standard library **version 4 and 5** |
+| [getBooleanValue(String): Boolean](#getbooleanvalue-string-boolean) | Gets a boolean value by key from the internal data storage. Fails if there is no entry | 10 |
+| [getInteger(Address&#124;Alias, String): Int&#124;Unit](#get-integer) | Gets an integer by key | 100 for Standard library **version 3**<br>10 for Standard library **version 4 and 5** |
+| [getInteger(String): Int&#124;Unit](#getinteger-string-int) | Gets an integer by key from the internal data storage | 10 |
+| [getIntegerValue(Address&#124;Alias, String): Int](#get-integer-value) | Gets an integer by key. Fails if there is no entry | 100 for Standard library **version 3**<br>10 for Standard library **version 4 and 5** |
+| [getIntegerValue(String): Int](#getintegervalue-string-int) | Gets an integer by key from the internal data storage. Fails if there is no entry | 10 |
+| [getString(Address&#124;Alias, String): String&#124;Unit](#get-string) | Gets a string by key | 100 for Standard library **version 3**<br>10 for Standard library **version 4 and 5** |
+| [getString(String): String&#124;Unit](#getstring-string-string) | Gets a string by key from the internal data storage | 10 |
+| [getStringValue(Address&#124;Alias, String): String](#get-string-value) | Gets a string by key. Fails if there is no entry | 100 for Standard library **version 3**<br>10 for Standard library **version 4 and 5** |
+| [getStringValue(String): String](#getstringvalue-string-string) | Gets a string by key from the internal data storage. Fails if there is no entry | 10 |
 
 ## getBinary(Address|Alias, String): ByteVector|Unit <a id="get-binary"></a>
 
