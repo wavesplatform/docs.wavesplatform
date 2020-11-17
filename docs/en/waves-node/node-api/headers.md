@@ -1,12 +1,10 @@
 # Monetary Fields Format
 
-By default, monetary values are represented as numbers in API responses. To obtain monetary field values as strings, specify the followinf HTTP header in the request:
+By default, monetary values are represented as numbers in API responses. Numbers as large as 64-bits can cause issues with programming languages that represent integers with fewer than 64 bits, such as JavaScript. To work around this issues, you can obtain the monetary field values as strings by specifying the following HTTP header in the request:
 
 ```
 Accept: application/json; large-significand-format=string
 ```
-
-This feature can be useful for values with long mantissa. 
 
 Example:
 

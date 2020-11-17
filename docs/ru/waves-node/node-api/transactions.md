@@ -6,15 +6,14 @@
 
 [Минимальная комиссия](/ru/blockchain/transaction/transaction-fee) за транзакцию зависит от типа транзакции, наличия скрипта на аккаунте отправителя, использования смарт-ассетов, размера данных, выполняемых вызываемым скриптом действий и т. п.
 
-Для расчета минимальной комиссии можно использовать метод `POST /transactions​/calculateFee`. В теле запроса укажите данные транзакции в JSON, включая `type` и `senderPublicKey`. Если требуется подсчитать комиссию в спонсорском ассете, укажите в теле запроса поле `feeAssetId`. Поля `sender` и `fee` игнорируются.
+Для расчета минимальной комиссии можно использовать метод [POST /transactions/calculateFee](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/calculateFee_1). В теле запроса укажите данные транзакции в JSON, включая `type` и `senderPublicKey`. Если требуется подсчитать комиссию в спонсорском ассете, укажите в теле запроса поле `feeAssetId`. Поля `sender` и `fee` игнорируются.
 
 Пример запроса:
 
 ```bash
 curl -X POST "https://nodes-testnet.wavesnodes.com/transactions/calculateFee"\
-  -H "accept: application/json"\
   -H "Content-Type: application/json"\
-  -d "{\"type\":16,\"senderPublicKey\":\"YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS\",\"call\":{\"function\":\"deposit\",\"args\":[]},\"payment\":[{\"amount\":300000000,\"assetId\":null}],\"dApp\":\"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk\"}"
+  -d '{"type":16,"senderPublicKey":"YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS","call":{"function":"deposit","args":[]},"payment":[{"amount":300000000,"assetId":null}],"dApp":"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk"}'
 ```
 
 Тело запроса:
@@ -50,24 +49,23 @@ curl -X POST "https://nodes-testnet.wavesnodes.com/transactions/calculateFee"\
 
 Для генерации подписи предназначены методы:
 
-* `POST /transactions​/sign` — подписание транзакции от имени аккаунта из поля `sender` транзакции.
-* `POST ​/transactions​/sign​/{signerAddress}` — подписание транзакции от имени указанного аккаунта.
+* [POST /transactions/sign](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/sign) — подписание транзакции от имени аккаунта из поля `sender` транзакции.
+* [POST /transactions/sign/{signerAddress}](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/signWithSigner_1) — подписание транзакции от имени указанного аккаунта.
 
 > Методы не подходят для транзакций обмена и транзакций обновления информации ассета.
 
 Методы являются приватными, для их вызова необходим [API-ключ](/ru/waves-node/node-api/api-key). В теле запроса укажите данные транзакции в JSON, включая `type` и `sender`. Если не указано поле `timestamp`, используется текущее время ноды. Поле `senderPublicKey` игнорируется.
 
 
-Методы возвращают подписанную транзакцию в формате JSON. Тело ответа можно передать в качестве тела запроса в методы `POST /debug/validate`, `POST /transactions/broadcast` (см. следующие шаги).
+Методы возвращают подписанную транзакцию в формате JSON. Тело ответа можно передать в качестве тела запроса в методы [POST /debug/validate](https://nodes.wavesnodes.com/api-docs/index.html#/debug/validate), [POST /transactions/broadcast](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/signedBroadcast_1) (см. следующие шаги).
 
 Пример запроса:
 
 ```bash
 curl -X POST "http://127.0.0.1:6869/transactions/sign"\
-  -H "Accept: application/json"\
   -H "X-API-Key: my-api-key"\
   -H "Content-Type: application/json"\
-  -d "{\"type\":16,\"sender\":\"3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT\",\"call\":{\"function\":\"deposit\",\"args\":[]},\"payment\":[{\"amount\":300000000,\"assetId\":null}],\"dApp\":\"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk\",\"feeAssetId\":null,\"fee\":500000}"
+  -d '{"type":16,"sender":"3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT","call":{"function":"deposit","args":[]},"payment":[{"amount":300000000,"assetId":null}],"dApp":"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk","feeAssetId":null,"fee":500000}'
 ```
 
 Тело запроса:
@@ -417,31 +415,36 @@ curl -X POST "http://127.0.0.1:6869/transactions/sign"\
 </code></pre>
 </details>
 
-## Шаг 3 (необязательный). Валидация транзакции
+## Шаг 3 (необязательный). Предварительная валидация транзакции
 
-Подписанную транзакцию можно сразу же отправить на блокчейн. Однако с момента активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions” неуспешные транзакции вызова скрипта и транзакции обмена могут быть сохранены на блокчейне, при этом с отправителя взимается комиссия. Чтобы избежать этого, рекомендуем валидировать транзакции перед отправкой.
+Подписанную транзакцию можно сразу же отправить на блокчейн. Однако с момента активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions” некоторые транзакции могут оказаться неуспешными, при этом отправитель все равно заплатит комиссию (подробнее в разделе [Валидация транзакции](/ru/blockchain/transaction/transaction-validation):
+* Транзакция вызова скрипта — в случае ошибки выполнения вызываемого dApp-скрипта после того как сложность уже выполненных вычислений превысила порог для сохранения неуспешных транзакций.
+* Транзакция вызова скрипта или транзакция обмена, в которых участвует смарт-ассет, — в случае если скрипт ассета отклонил транзакцию.
 
-Для валидации транзакции используйте публичный метод `POST /debug/validate`. В тело запроса вставьте подписанную транзакцию в формате JSON — например, тело ответа из шага 2.
+Для таких транзакций можно использовать предварительную валидацию, чтобы уменьшить неоправданные расходы. Не следует предварительно валидировать транзакции других типов, а также транзакции, в которых сложность вызываемой функции меньше пороговой, а смарт-ассеты не используются.
+
+Валидация проверяет, будет ли транзакция выполнена успешно при текущем состоянии блокчейна. К моменту отправки состояние блокчейна может измениться, поэтому предварительная валидация не гарантирует успех.
+
+Для предварительной валидации транзакции используйте публичный метод [POST /debug/validate](https://nodes.wavesnodes.com/api-docs/index.html#/debug/validate). В тело запроса вставьте подписанную транзакцию в формате JSON — например, тело ответа из шага 2.
 
 <details><summary>Пример запроса</summary>
 <pre class="language-bash"><code>
 curl -X POST "https://nodes-testnet.wavesnodes.com/debug/validate"\
-  -H "Accept: application/json" -H\
-  "Content-Type: application/json"\
-  -d "{\
-  \"type\":16,\
-  \"id\":\"FZp47sYFC4BXKfJqRQrcYNJQmaNiD3YSxMQk9XJtyEMN\",\
-  \"sender\":\"3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT\",\
-  \"senderPublicKey\":\"YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS\",\
-  \"fee\":500000,\
-  \"feeAssetId\":null,\
-  \"timestamp\":1603966204510,\
-  \"proofs\":[\"R3QeLwQL7LFzMxd2vBGw7f9P73SgMLBPMh5FkuQLMzBtkoi6PCzhtRLMw9PpjSKVDbHgVEMPDn9BQYjEKZpeDPZ\"],\
-  \"version\":1,\
-  \"dApp\":\"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk\",\
-  \"payment\":[{\"amount\":300000000,\"assetId\":null}],\
-  \"call\":{\"function\":\"deposit\",\"args\":[]}\
-  }"
+  -H "Content-Type: application/json"\
+  -d '{\
+  "type":16,\
+  "id":"FZp47sYFC4BXKfJqRQrcYNJQmaNiD3YSxMQk9XJtyEMN",\
+  "sender":"3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT",\
+  "senderPublicKey":"YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS",\
+  "fee":500000,\
+  "feeAssetId":null,\
+  "timestamp":1603966204510,\
+  "proofs":["R3QeLwQL7LFzMxd2vBGw7f9P73SgMLBPMh5FkuQLMzBtkoi6PCzhtRLMw9PpjSKVDbHgVEMPDn9BQYjEKZpeDPZ"],\
+  "version":1,\
+  "dApp":"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk",\
+  "payment":[{"amount":300000000,"assetId":null}],\
+  "call":{"function":"deposit","args":[]}\
+  }'
 </code></pre>
 </details>
 
@@ -602,27 +605,27 @@ curl -X POST "https://nodes-testnet.wavesnodes.com/debug/validate"\
 
 ## Шаг 4. Отправка транзакции
 
-Чтобы отправить транзакцию на блокчейн, используйте публичный метод `POST /transactions/broadcast`. В тело запроса вставьте подписанную транзакцию в формате JSON — например, тело ответа из шага 2.
+Чтобы отправить транзакцию на блокчейн, используйте публичный метод [POST /transactions/broadcast](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/signedBroadcast_1). В тело запроса вставьте подписанную транзакцию в формате JSON — например, тело ответа из шага 2.
 
 <details><summary>Пример запроса</summary>
  <pre class="language-bash"><code>
 curl -X POST "https://nodes-testnet.wavesnodes.com/transactions/broadcast"\
-  -H "accept: application/json"\
   -H "Content-Type: application/json"\
-  -d "{\
-  \"type\":16,\
-  \"id\":\"FZp47sYFC4BXKfJqRQrcYNJQmaNiD3YSxMQk9XJtyEMN\",\
-  \"sender\":\"3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT\",\
-  \"senderPublicKey\":\"YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS\",\
-  \"fee\":500000,\
-  \"feeAssetId\":null,\
-  \"timestamp\":1603966204510,\
-  \"proofs\":[\"R3QeLwQL7LFzMxd2vBGw7f9P73SgMLBPMh5FkuQLMzBtkoi6PCzhtRLMw9PpjSKVDbHgVEMPDn9BQYjEKZpeDPZ\"],\
-  \"version\":1,\
-  \"dApp\":\"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk\",\
-  \"payment\":[{\"amount\":300000000,\"assetId\":null}],\
-  \"call\":{\"function\":\"deposit\",\"args\":[]}\
-  }"
+  -d '{\
+  "type":16,\
+  "id":"FZp47sYFC4BXKfJqRQrcYNJQmaNiD3YSxMQk9XJtyEMN",\
+  "sender":"3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT",\
+  "senderPublicKey":"YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS",\
+  "fee":500000,\
+  "feeAssetId":null,\
+  "timestamp":1603966204510,\
+  "proofs":["R3QeLwQL7LFzMxd2vBGw7f9P73SgMLBPMh5FkuQLMzBtkoi6PCzhtRLMw9PpjSKVDbHgVEMPDn9BQYjEKZpeDPZ"],\
+  "version":1,\
+  "dApp":"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk",\
+  "payment":[{"amount":300000000,"assetId":null}],\
+  "call":{"function":"deposit","args":[]}\
+  }'
+
 </code></pre>
 </details>
 
@@ -639,14 +642,13 @@ HTTP-коды ответа:
 ## Шаг 5. Проверка статуса транзакции
 
 Чтобы проверить наличие транзакции на блокчейне, используйте один из публичных методов: 
-* `GET /transaction/status` — для проверки статуса одной или нескольких транзакций.
-* `POST /transaction/status` — для большого количества транзакций.
+* [GET /transaction/status](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/status_3) — для проверки статуса одной или нескольких транзакций.
+* [POST /transaction/status](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/status_4) — для большого количества транзакций.
 
 Пример запроса:
 
 ```
-curl -X GET "https://nodes-testnet.wavesnodes.com/transactions/status?id=FZp47sYFC4BXKfJqRQrcYNJQmaNiD3YSxMQk9XJtyEMN"\
-  -H "Accept: application/json"
+curl -X GET "https://nodes-testnet.wavesnodes.com/transactions/status?id=FZp47sYFC4BXKfJqRQrcYNJQmaNiD3YSxMQk9XJtyEMN"
 ```
 
 Пример ответа:

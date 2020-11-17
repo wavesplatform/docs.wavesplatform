@@ -525,6 +525,10 @@ module.exports = {
       path: nodePath + 'node-api',
       children: [
         {
+          title: 'API-ключ',
+          path: nodePath + 'node-api/api-key',
+        },
+        {
           title: 'Работа с транзакциями',
           path: nodePath + 'node-api/transactions',
         },
@@ -536,10 +540,6 @@ module.exports = {
           title: 'Постраничная выборка',
           path: nodePath + 'node-api/pagination',
         },
-        {
-          title: 'API-ключ',
-          path: nodePath + 'node-api/api-key',
-        }, 
         {
           title: 'CORS',
           path: nodePath + 'node-api/cors',

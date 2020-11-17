@@ -6,15 +6,14 @@
 
 The [minimum transaction fee](/en/blockchain/transaction/transaction-fee) depends on the transaction type, whether the script is assigned to the sender's account, smart assets invloved, data size, actions performed by the script being invoked, etc.
 
-You can use the `POST /transactions/calculateFee` operation to calculate the minimum fee. In the request body, specify the transaction data in JSON, including `type` and `senderPublicKey`. To calculate the commission in the sponsored asset, specify the `feeAssetId` field in the request body. The `sender` and `fee` fields are ignored.
+You can use the [POST /transactions/calculateFee](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/calculateFee_1) operation to calculate the minimum fee. In the request body, specify the transaction data in JSON, including `type` and `senderPublicKey`. To calculate the fee in the sponsored asset, specify the `feeAssetId` field in the request body. The `sender` and `fee` fields are ignored.
 
 Request example:
 
 ```bash
 curl -X POST "https://nodes-testnet.wavesnodes.com/transactions/calculateFee"\
-  -H "accept: application/json"\
   -H "Content-Type: application/json"\
-  -d "{\"type\":16,\"senderPublicKey\":\"YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS\",\"call\":{\"function\":\"deposit\",\"args\":[]},\"payment\":[{\"amount\":300000000,\"assetId\":null}],\"dApp\":\"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk\"}"
+  -d '{"type":16,"senderPublicKey":"YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS","call":{"function":"deposit","args":[]},"payment":[{"amount":300000000,"assetId":null}],"dApp":"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk"}'
 ```
 
 Request body:
@@ -50,23 +49,22 @@ Response body:
 
 The following operations are used to generate a signature:
 
-* `POST /transactions/sign` signs a transaction on behalf of the account of the `sender` field.
-* `POST /transactions/sign / {signerAddress}` signs a transaction on behalf of the specified account.
+* [POST /transactions/sign](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/sign) signs a transaction on behalf of the account of the `sender` field.
+* [POST /transactions/sign/{signerAddress}](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/signWithSigner_1) signs a transaction on behalf of the specified account.
 
 > The operations are not applicable for Exchange transactions and Update Asset info transactions.
 
 The endpoints are private, so you should specify your [API key](/en/waves-node/node-api/api-key) in request header. In the request body, specify the transaction data in JSON, including `type` and ` sender`. If `timestamp` omitted, current node's time is used. `senderPublicKey` is ignored.
 
-The operations return the signed transaction in JSON format. The response body can be passed as a request body to the `POST /debug/validate` and `POST /transactions/broadcast` operations (see the next steps).
+The operations return the signed transaction in JSON format. The response body can be passed as a request body to the [POST /debug/validate](https://nodes.wavesnodes.com/api-docs/index.html#/debug/validate) and [POST /transactions/broadcast](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/signedBroadcast_1) operations (see the next steps).
 
 Request example:
 
 ```bash
 curl -X POST "http://127.0.0.1:6869/transactions/sign"\
-  -H "Accept: application/json"\
   -H "X-API-Key: my-api-key"\
   -H "Content-Type: application/json"\
-  -d "{\"type\":16,\"sender\":\"3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT\",\"call\":{\"function\":\"deposit\",\"args\":[]},\"payment\":[{\"amount\":300000000,\"assetId\":null}],\"dApp\":\"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk\",\"feeAssetId\":null,\"fee\":500000}"
+  -d '{"type":16,"sender":"3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT","call":{"function":"deposit","args":[]},"payment":[{"amount":300000000,"assetId":null}],"dApp":"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk","feeAssetId":null,"fee":500000}'
 ```
 
 Request body:
@@ -416,31 +414,36 @@ Here are examples of requests and responses to sign transactions of different ty
 </code></pre>
 </details>
 
-## Step 3 (Optional). Validate Transaction
+## Step 3 (optional). Pre-validate Transaction
 
-After signing, you can immediately sent the transaction to the blockchain. However, since activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”, failed Invoke Script transactions and Exchange transactions can be saved on the blockchain, and a fee is charged from the sender. To avoid this, we recommend that you validate transactions before sending.
+After signing, you can immediately sent the transaction to the blockchain. However, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”, it is possible that the transaction fails but the sender is still charged a fee (for details, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article).
+* An Invoke Script transaction: in case of a dApp script execution error after the complexity of performed calculations exceeded the threshold for saving failed transactions.
+* An Invoke Script Transaction or an Exchange transaction with a smart asset involved: in case the asset script denies the transaction.
 
-To validate the transaction, use the public operation `POST /debug/validate`. In the request body, paste the signed transaction in JSON, for example, the response body from step 2.
+For such transactions, pre-validation can help to reduce unnecessary costs. You should not pre-validate transactions of other types, as well as transactions in which the complexity of the callable function is less than the threshold, and smart assets are not used.
+
+Pre-validation is the check whether that the transaction is successful under the current state of the blockchain. By the time of broadcast the state may change, so the transaction may fail even if pre-validation is passed.
+
+To pre-validate the transaction, use the public operation [POST /debug/validate](https://nodes.wavesnodes.com/api-docs/index.html#/debug/validate). In the request body, paste the signed transaction in JSON, for example, the response body from step 2.
 
 <details><summary>Request example</summary>
 <pre class="language-bash"><code>
 curl -X POST "https://nodes-testnet.wavesnodes.com/debug/validate"\
-  -H "Accept: application/json" -H\
-  "Content-Type: application/json"\
-  -d "{\
-  \"type\":16,\
-  \"id\":\"FZp47sYFC4BXKfJqRQrcYNJQmaNiD3YSxMQk9XJtyEMN\",\
-  \"sender\":\"3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT\",\
-  \"senderPublicKey\":\"YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS\",\
-  \"fee\":500000,\
-  \"feeAssetId\":null,\
-  \"timestamp\":1603966204510,\
-  \"proofs\":[\"R3QeLwQL7LFzMxd2vBGw7f9P73SgMLBPMh5FkuQLMzBtkoi6PCzhtRLMw9PpjSKVDbHgVEMPDn9BQYjEKZpeDPZ\"],\
-  \"version\":1,\
-  \"dApp\":\"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk\",\
-  \"payment\":[{\"amount\":300000000,\"assetId\":null}],\
-  \"call\":{\"function\":\"deposit\",\"args\":[]}\
-  }"
+  -H "Content-Type: application/json"\
+  -d '{\
+  "type":16,\
+  "id":"FZp47sYFC4BXKfJqRQrcYNJQmaNiD3YSxMQk9XJtyEMN",\
+  "sender":"3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT",\
+  "senderPublicKey":"YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS",\
+  "fee":500000,\
+  "feeAssetId":null,\
+  "timestamp":1603966204510,\
+  "proofs":["R3QeLwQL7LFzMxd2vBGw7f9P73SgMLBPMh5FkuQLMzBtkoi6PCzhtRLMw9PpjSKVDbHgVEMPDn9BQYjEKZpeDPZ"],\
+  "version":1,\
+  "dApp":"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk",\
+  "payment":[{"amount":300000000,"assetId":null}],\
+  "call":{"function":"deposit","args":[]}\
+  }'
 </code></pre>
 </details>
 
@@ -601,27 +604,26 @@ The `valid` field contains the result of transaction validation. If the validati
 
 ## Step 4. Broadcast Transaction
 
-To send transaction to the blockchain, use the public operation `POST /transactions/broadcast`. In the request body, paste the signed transaction in JSON, for example, the response body from step 2.
+To send transaction to the blockchain, use the public operation [POST /transactions/broadcast](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/signedBroadcast_1). In the request body, paste the signed transaction in JSON, for example, the response body from step 2.
 
 <details><summary>Request example</summary>
  <pre class="language-bash"><code>
 curl -X POST "https://nodes-testnet.wavesnodes.com/transactions/broadcast"\
-  -H "accept: application/json"\
   -H "Content-Type: application/json"\
-  -d "{\
-  \"type\":16,\
-  \"id\":\"FZp47sYFC4BXKfJqRQrcYNJQmaNiD3YSxMQk9XJtyEMN\",\
-  \"sender\":\"3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT\",\
-  \"senderPublicKey\":\"YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS\",\
-  \"fee\":500000,\
-  \"feeAssetId\":null,\
-  \"timestamp\":1603966204510,\
-  \"proofs\":[\"R3QeLwQL7LFzMxd2vBGw7f9P73SgMLBPMh5FkuQLMzBtkoi6PCzhtRLMw9PpjSKVDbHgVEMPDn9BQYjEKZpeDPZ\"],\
-  \"version\":1,\
-  \"dApp\":\"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk\",\
-  \"payment\":[{\"amount\":300000000,\"assetId\":null}],\
-  \"call\":{\"function\":\"deposit\",\"args\":[]}\
-  }"
+  -d '{\
+  "type":16,\
+  "id":"FZp47sYFC4BXKfJqRQrcYNJQmaNiD3YSxMQk9XJtyEMN",\
+  "sender":"3NAM4ijPv7rwFBqcshqv41CVhKoSK22nEoT",\
+  "senderPublicKey":"YTuAsoF3fqvdgyuGRXJGY4WFEfDCvMwjyJdWYuiEBRS",\
+  "fee":500000,\
+  "feeAssetId":null,\
+  "timestamp":1603966204510,\
+  "proofs":["R3QeLwQL7LFzMxd2vBGw7f9P73SgMLBPMh5FkuQLMzBtkoi6PCzhtRLMw9PpjSKVDbHgVEMPDn9BQYjEKZpeDPZ"],\
+  "version":1,\
+  "dApp":"3N9yCRmNsLK2aPStjLBne3EUiPSKvVHYgKk",\
+  "payment":[{"amount":300000000,"assetId":null}],\
+  "call":{"function":"deposit","args":[]}\
+  }'
 </code></pre>
 </details>
 
@@ -638,14 +640,13 @@ In case of success, the broadcast operation returns a JSON representation of the
 ## Step 5. Check Transaction Status
 
 To check if a transaction is added to the blockchain, use one of the public operations:
-* `GET /transaction/status` for check the status of one or more transactions.
-* `POST /transaction/status` for a large number of transactions.
+* [GET /transaction/status](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/status_3) for check the status of one or more transactions.
+* [POST /transaction/status](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/status_4) for a large number of transactions.
 
 Request example:
 
 ```
-curl -X GET "https://nodes-testnet.wavesnodes.com/transactions/status?id=FZp47sYFC4BXKfJqRQrcYNJQmaNiD3YSxMQk9XJtyEMN"\
-  -H "Accept: application/json"
+curl -X GET "https://nodes-testnet.wavesnodes.com/transactions/status?id=FZp47sYFC4BXKfJqRQrcYNJQmaNiD3YSxMQk9XJtyEMN"
 ```
 
 Response example:

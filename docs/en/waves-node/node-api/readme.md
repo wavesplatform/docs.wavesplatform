@@ -24,7 +24,7 @@ You can modify settings or disable the API in the `waves.rest-api` section of th
 
 To get access to private endpoints, specify the API key hash in the `waves.rest-api.api-key-hash` parameter, see the instructions in the [API Key]section (/en/waves-node/node-api). For other parameters you can leave the default values.
 
-To provide external access to your node's API, use [Nginx's proxy pass module](http://nginx.org/en/docs/http/ngx_http_proxy_module.html) or [SSH port forwarding](https://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html).
+To provide external access to your node's API, use [Nginx's proxy pass module](http://nginx.org/en/docs/http/ngx_http_proxy_module.html) or [SSH port forwarding](https://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html). It is also possible to open external access to the API by changing the network address in the configuration parameter `waves.rest-api.bind-address`, however, we do not recommend doing this for security reasons, since the node itself cannot limit API requests by IP address, request rate and so on.
 
 ## Public Endpoints
 

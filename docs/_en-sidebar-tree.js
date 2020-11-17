@@ -525,6 +525,10 @@ module.exports = {
       path: nodePath + 'node-api',
       children: [
         {
+          title: 'API Key',
+          path: nodePath + 'node-api/api-key',
+        },
+        {
           title: 'Transactions Handling',
           path: nodePath + 'node-api/transactions',
         },
@@ -535,10 +539,6 @@ module.exports = {
         {
           title: 'Pagination',
           path: nodePath + 'node-api/pagination',
-        },
-        {
-          title: 'API Key',
-          path: nodePath + 'node-api/api-key',
         },
         {
           title: 'CORS',
