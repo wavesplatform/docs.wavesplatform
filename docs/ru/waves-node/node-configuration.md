@@ -181,7 +181,7 @@ java -jar {*}.jar {*}.conf
 | `bind-address` | Cетевой адрес, по которому REST API будет принимать входящие подключения. <br>**Примечание**: не рекомендуется менять значение по умолчанию. Чтобы предоставить внешний доступ к API вашей ноды, используйте [Nginx’s proxy pass module](http://nginx.org/ru/docs/http/ngx_http_proxy_module.html) или [SSH port forwarding](https://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html) | `"127.0.0.1"` |
 | `port` | Номер порта, через который REST API будет ожидать подключения | `6869` |
 | `api-key-hash` | <a name="api-key-hash"></a> Хеш API-ключа для доступа к приватным методам. [Подробнее](/ru/waves-node/node-api/api-key) | "" |
-| `cors` | Поддержка кросс-доменных запросов (CORS) к ноде от JavaScript | `yes` |
+| `cors` | Поддержка кросс-доменных запросов (CORS) к API от JavaScript | `yes` |
 | `api-key-different-host` | Поддержка API-ключа в запросах с других хостов | `no` |
 | `transactions-by-address-limit` | • Максимальное значение `limit` в запросе к&nbsp;`/transactions/address/{address}/limit/{limit}`<br>• Максимальное количество транзакций в запросе &nbsp;`/transactions/status` | 1000 |
 | `distribution-address-limit` | Максимальное значение `limit` в запросе к&nbsp;`/assets/{assetId}/distribution/{height}/limit/{limit}` | 1000 |
