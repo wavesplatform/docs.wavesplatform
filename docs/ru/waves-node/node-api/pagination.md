@@ -4,7 +4,7 @@
 
 ## Пример 1: распределение ассета
 
-Метод `GET /assets/{assetId}/distribution/{height}/limit/{limit}` возвращает распределение указанного ассета по адресам на блокчейне.
+Метод [GET /assets/{assetId}/distribution/{height}/limit/{limit}](https://nodes.wavesnodes.com/api-docs/index.html#/assets/balanceDistributionAtHeight_1) возвращает распределение указанного ассета по адресам на блокчейне.
 
 1. Получаем первую страницу:
 
@@ -49,7 +49,7 @@
 
 ## Пример 2: список транзакций по адресу
 
-Метод `GET /transactions​/address​/{address}​/limit​/{limit}` возвращает список транзакций с участием указанного адреса.
+Метод [GET /transactions​/address​/{address}​/limit​/{limit}](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/addressLimit_1) возвращает список транзакций с участием указанного адреса.
 
 1. Получаем первую страницу:
 

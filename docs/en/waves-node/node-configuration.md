@@ -168,19 +168,19 @@ In `miner` section it is possible to configure parameters of the new blocks gene
 
 ### REST API Settings
 
-The **REST API Section** is a section in the node configuration file with settings of [node API](/en/waves-node/node-api/).
+The `rest-api` section in the node configuration file contains settings of [Node REST API](/en/waves-node/node-api/).
 
 | Name | Description | Default value |
 | :--- | :--- | :--- |
 | `enable` | Activates REST API.<br>If you want to deactivate REST API, change the default value to `no` | yes |
-| `bind-address` | Network address where the REST API accepts the incoming connections.<br>**Note.** It's not recommended to change the default value. Use [Nginx’s proxy pass module](http://nginx.org/en/docs/http/ngx_http_proxy_module.html) or [SSH port forwarding](https://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html) for external access | `"127.0.0.1"` |
-| `port` | Port number where the REST API accepts connections | 6869 |
+| `bind-address` | Network address where the REST API accepts incoming connections.<br>**Note.** It's not recommended to change the default value. Use [Nginx’s proxy pass module](http://nginx.org/en/docs/http/ngx_http_proxy_module.html) or [SSH port forwarding](https://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html) for external access | `"127.0.0.1"` |
+| `port` | Port number where the REST API accepts incoming connections | 6869 |
 | `api-key-hash` | <a name="api-key-hash"></a>Hash of the API key to access private endpoints. For details see the [API Key](/en/waves-node/node-api/api-key) article | "" |
 | `cors` | Enable/disable cross-domain API requests ([CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)) from JavaScript | yes |
 | `api-key-different-host` | API key support in requests from other hosts | `no` |
-| `transactions-by-address-limit` | • Maximum `limit` value in requset to&nbsp;`/transactions/address/{address}/limit/{limit}`<br>• Maximum number of transactions in request to&nbsp;`/transactions/status` | 1000 |
+| `transactions-by-address-limit` | • Maximum `limit` value in request to&nbsp;`/transactions/address/{address}/limit/{limit}`<br>• Maximum number of transactions in request to&nbsp;`/transactions/status` | 1000 |
 | `distribution-address-limit` | Maximum `limit` value in request to&nbsp;`/assets/{assetId}/distribution/{height}/limit/{limit}` | 1000 |
-| `limited-pool-threads` | Maximum number of threads that that process requests to&nbsp;`/utils/script/compile*`, `/utils/script/decompile`, `/utils/script/estimate` (the processing time for each request is limited) | 2 |
+| `limited-pool-threads` | Maximum number of threads that process requests to&nbsp;`/utils/script/compile*`, `/utils/script/decompile`, `/utils/script/estimate` (the processing time for each request is limited) | 2 |
 
 ### Synchronization Settings
 

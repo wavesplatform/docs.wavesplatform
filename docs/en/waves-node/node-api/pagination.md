@@ -1,10 +1,10 @@
 # Pagination
 
-Particular operations return a limited number of objects. To get a complete list of objects, obtain them page by page using the `limit` and `after` parameters.
+Some operations return a limited number of objects. To get a complete list of objects, obtain them page by page using the `limit` and `after` parameters.
 
 ## Example 1: Asset Distribution
 
-The `GET /assets/{assetId}/distribution/{height}/limit/{limit}` operation returns the distribution of the specified asset by addresses on the blockchain.
+The [GET /assets/{assetId}/distribution/{height}/limit/{limit}](https://nodes.wavesnodes.com/api-docs/index.html#/assets/balanceDistributionAtHeight_1) operation returns the distribution of the specified asset by addresses on the blockchain.
 
 1. Obtain the first page:
 
@@ -36,8 +36,8 @@ The `GET /assets/{assetId}/distribution/{height}/limit/{limit}` operation return
    where:
 
    * `hasNext` indicates that the next page exists.
-   * `lastItem` is the last address in the current page.
-   * `items` — the page of the distribution of the asset by addresses.
+   * `lastItem` is the last address on the current page.
+   * `items` is the page of the distribution of the asset by addresses.
 
 2. Obtain the next page: specify the `lastItem` value as the `after` request parameter.
 
@@ -49,7 +49,7 @@ The `GET /assets/{assetId}/distribution/{height}/limit/{limit}` operation return
 
 ## Example 2: List of Transactions by Address
 
-The `GET /transactions​/address​/{address}​/limit​/{limit}` operation returns a list of transactions where the specified address is involved.
+The [GET /transactions​/address​/{address}​/limit​/{limit}](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/addressLimit_1) operation returns a list of transactions where the specified address is involved.
 
 1. Obtain the first page:
 

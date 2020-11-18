@@ -427,6 +427,8 @@ curl -X POST "http://127.0.0.1:6869/transactions/sign"\
 
 Для предварительной валидации транзакции используйте публичный метод [POST /debug/validate](https://nodes.wavesnodes.com/api-docs/index.html#/debug/validate). В тело запроса вставьте подписанную транзакцию в формате JSON — например, тело ответа из шага 2.
 
+Результат валидации представлен в ответе в поле `valid`. Если транзакция не прошла валидацию, причина ошибки указана в поле `error`.
+
 <details><summary>Пример запроса</summary>
 <pre class="language-bash"><code>
 curl -X POST "https://nodes-testnet.wavesnodes.com/debug/validate"\
@@ -447,8 +449,6 @@ curl -X POST "https://nodes-testnet.wavesnodes.com/debug/validate"\
   }'
 </code></pre>
 </details>
-
-Результат валидации представлен в поле `valid`. Если транзакция не прошла валидацию, причина ошибки указана в поле `error`.
 
 <details><summary>Пример ответа в случае успешной валидации</summary>
  <pre class="language-json"><code>

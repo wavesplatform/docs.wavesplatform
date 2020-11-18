@@ -6,7 +6,7 @@
 
 The [minimum transaction fee](/en/blockchain/transaction/transaction-fee) depends on the transaction type, whether the script is assigned to the sender's account, smart assets invloved, data size, actions performed by the script being invoked, etc.
 
-You can use the [POST /transactions/calculateFee](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/calculateFee_1) operation to calculate the minimum fee. In the request body, specify the transaction data in JSON, including `type` and `senderPublicKey`. To calculate the fee in the sponsored asset, specify the `feeAssetId` field in the request body. The `sender` and `fee` fields are ignored.
+You can use the [POST /transactions/calculateFee](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/calculateFee_1) operation to calculate the minimum fee. In the request body, specify the transaction data in JSON, including `type` and `senderPublicKey`. If you want to calculate the fee in the sponsored asset, specify the `feeAssetId` field in the request body. The `sender` and `fee` fields are ignored.
 
 Request example:
 
@@ -45,16 +45,16 @@ Response body:
 
 ## Step 2. Sign Transaction
 
-: warning: You can sign a transaction only on behalf of the account from the [node wallet](/en/waves-node/how-to-work-with-node-wallet). If you are not the node owner or you want to sign a transaction on behalf of an account outside the node wallet, use [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/) to sign the transaction. See also the [Secure Transactions Signing](/en/building-apps/#secure-transactions-signing) and [How to Create Transaction and Send It to Blockchain](/en/building-apps/how-to/basic/transaction).
+: warning: Using the Node REST API, you can sign a transaction only on behalf of the account from the [node wallet](/en/waves-node/how-to-work-with-node-wallet). If you are not the node owner or you want to sign a transaction on behalf of an account outside the node wallet, use [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/) instead. See also the [Secure Transactions Signing](/en/building-apps/#secure-transactions-signing) and [How to Create Transaction and Send It to Blockchain](/en/building-apps/how-to/basic/transaction) articles.
 
 The following operations are used to generate a signature:
 
-* [POST /transactions/sign](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/sign) signs a transaction on behalf of the account of the `sender` field.
+* [POST /transactions/sign](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/sign) signs a transaction on behalf of the account whose adderss is specified in the `sender` field.
 * [POST /transactions/sign/{signerAddress}](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/signWithSigner_1) signs a transaction on behalf of the specified account.
 
-> The operations are not applicable for Exchange transactions and Update Asset info transactions.
+> The operations are not applicable for Exchange transactions and Update Asset Info transactions.
 
-The endpoints are private, so you should specify your [API key](/en/waves-node/node-api/api-key) in request header. In the request body, specify the transaction data in JSON, including `type` and ` sender`. If `timestamp` omitted, current node's time is used. `senderPublicKey` is ignored.
+The endpoints are private, so you should specify your [API key](/en/waves-node/node-api/api-key) in the request header. In the request body, paste the transaction data in JSON, including `type` and ` sender`. If `timestamp` is omitted, current node's time is used. `senderPublicKey` is ignored.
 
 The operations return the signed transaction in JSON format. The response body can be passed as a request body to the [POST /debug/validate](https://nodes.wavesnodes.com/api-docs/index.html#/debug/validate) and [POST /transactions/broadcast](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/signedBroadcast_1) operations (see the next steps).
 
@@ -383,7 +383,7 @@ Here are examples of requests and responses to sign transactions of different ty
 </details>
 
 
-<details><summary>Create Alias</summary>
+<details><summary>Create an alias</summary>
 <p>Request:<p>
 <pre class="language-json"><code>
 {
@@ -416,15 +416,18 @@ Here are examples of requests and responses to sign transactions of different ty
 
 ## Step 3 (optional). Pre-validate Transaction
 
-After signing, you can immediately sent the transaction to the blockchain. However, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”, it is possible that the transaction fails but the sender is still charged a fee (for details, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article).
+After signing, you can immediately send the transaction to the blockchain. However, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”, it is possible that the transaction fails but the sender is still charged a fee (for details, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article).
 * An Invoke Script transaction: in case of a dApp script execution error after the complexity of performed calculations exceeded the threshold for saving failed transactions.
 * An Invoke Script Transaction or an Exchange transaction with a smart asset involved: in case the asset script denies the transaction.
 
-For such transactions, pre-validation can help to reduce unnecessary costs. You should not pre-validate transactions of other types, as well as transactions in which the complexity of the callable function is less than the threshold, and smart assets are not used.
+For such transactions, pre-validation can help to reduce unnecessary costs. You should not pre-validate transactions of other types, as well as transactions in which smart assets are not used and the complexity of the callable function is less than the threshold.
 
-Pre-validation is the check whether that the transaction is successful under the current state of the blockchain. By the time of broadcast the state may change, so the transaction may fail even if pre-validation is passed.
+Pre-validation is the check whether the transaction is successful under the current state of the blockchain. By the time of broadcast the state may change, so the transaction may fail even if pre-validation is passed.
 
 To pre-validate the transaction, use the public operation [POST /debug/validate](https://nodes.wavesnodes.com/api-docs/index.html#/debug/validate). In the request body, paste the signed transaction in JSON, for example, the response body from step 2.
+
+The `valid` field of the response contains the result of transaction validation. If the validation failed, the `error` field indicates the reason.
+
 
 <details><summary>Request example</summary>
 <pre class="language-bash"><code>
@@ -446,9 +449,6 @@ curl -X POST "https://nodes-testnet.wavesnodes.com/debug/validate"\
   }'
 </code></pre>
 </details>
-
-The `valid` field contains the result of transaction validation. If the validation failed, the `error` field indicates the reason.
-
 <details><summary>Response example in case of successful validation</summary>
  <pre class="language-json"><code>
 {
@@ -604,7 +604,7 @@ The `valid` field contains the result of transaction validation. If the validati
 
 ## Step 4. Broadcast Transaction
 
-To send transaction to the blockchain, use the public operation [POST /transactions/broadcast](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/signedBroadcast_1). In the request body, paste the signed transaction in JSON, for example, the response body from step 2.
+To send a transaction to the blockchain, use the public operation [POST /transactions/broadcast](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/signedBroadcast_1). In the request body, paste the signed transaction in JSON, for example, the response body from step 2.
 
 <details><summary>Request example</summary>
  <pre class="language-bash"><code>
@@ -629,9 +629,9 @@ curl -X POST "https://nodes-testnet.wavesnodes.com/transactions/broadcast"\
 
 HTTP response codes:
 
-- 200 — the transaction is added to UTX pool.
-- 4xx or 501 — the transaction is rejected.
-- 500 or 503 — server error without specifying whether a transaction is added to the UTX pool or not.
+- 200: the transaction is added to the UTX pool.
+- 4xx or 501: the transaction is rejected.
+- 500 or 503: server error without specifying whether a transaction is added to the UTX pool or not.
 
 In the last case, check the transaction status (see the next step) or broadcast the same transaction (with the same ID) again. If you create and sign a new transaction with a different `timestamp` (default value is the current time), such a transaction has a different ID, so it may turn out that both transactions are executed, for example, two identical transfers to the same recipient.
 
@@ -668,11 +668,11 @@ where:
 - `status` is the transaction status:
    - `not_found`: transaction not found,
    - `unconfirmed`: transaction is in the UTX pool,
-   - `confirmed`: transaction is added to the block or microblock.
+   - `confirmed`: transaction is added to a block or microblock.
 - `height` is the sequential number of the block that contains the transaction.
 - `confirmations` is the number of blocks added on top of the one that contains the transaction, i.e. the current blockchain height minus the block height.
 - `applicationStatus` indicates the execution result (see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article for details):
-   - `succeeded`: the transaction id successful,
-   - `script_execution_failed`: dApp script or asset script failed. Such a transaction doesn't entail changes in balances (other than charging a fee) and account data storages.
+   - `succeeded`: the transaction is successful,
+   - `script_execution_failed`: the dApp script or an asset script failed. Such a transaction doesn't entail changes in balances (other than charging a fee) and account data storages.
 
 Rarely the last block or microblock may be rolled back. Therefore, if you have dependent transactions, better wait for 1–2 confirmations and only then broadcast the next transaction.

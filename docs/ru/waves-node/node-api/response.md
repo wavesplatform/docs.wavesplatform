@@ -57,8 +57,8 @@ HTTP-коды ответов REST API ноды представлены в та�
 | 400 | Transaction ... is already in the state on a height of ... | Повторная отправка транзакции |
 | 402 | Accounts balance errors | • У отправителя транзакции недостаточно средств для уплаты комиссии или для перевода<br>• У dApp недостаточно средств для выполнения [действий](/ru/ride/structures/script-actions/) (`ScriptTransfer` или `Burn`) |
 | 403 | Order validation error: ... | • Указанное в ордере количество уже исполнено<br>• Недостаточная комиссия |
-| 404 | Wrong chain-id. Expected - ..., provided - ... |
-| 405 | • Too many proofs (...), only ... allowed<br>• Too large proof (...), must be max ... bytes |
+| 404 | Wrong chain-id. Expected - ..., provided - ... | |
+| 405 | • Too many proofs (...), only ... allowed<br>• Too large proof (...), must be max ... bytes | |
 | 4001 | • Transaction ID was not specified<br>• Wrong char<br>• ... has invalid length .... Length can either be ... or ... | ID транзакции отсутствует, невалидный или имеет недопустимую длину |
 | 4002 | • Wrong char<br>• ... has invalid length .... Length can either be ... or ... | ID блока невалидный или имеет недопустимую длину |
 | 4007 | Invalid asset id | |

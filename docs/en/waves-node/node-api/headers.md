@@ -1,6 +1,6 @@
 # Monetary Fields Format
 
-By default, monetary values are represented as numbers in API responses. Numbers as large as 64-bits can cause issues with programming languages that represent integers with fewer than 64 bits, such as JavaScript. To work around this issues, you can obtain the monetary field values as strings by specifying the following HTTP header in the request:
+By default, monetary values are represented as numbers in API responses. These numbers can take up to 64 bit that can cause issues with programming languages that represent integers with fewer than 64 bit, such as JavaScript. To work around this issues, you can obtain monetary values as strings by specifying the following HTTP header in the request:
 
 ```
 Accept: application/json; large-significand-format=string
@@ -13,7 +13,6 @@ curl -X GET --header 'Accept: application/json;large-significand-format=string' 
 ```
 
 Below is the list of endpoints accepting this header:
-
 
 * `GET /addresses/balance/{address}/{confirmations}`
 

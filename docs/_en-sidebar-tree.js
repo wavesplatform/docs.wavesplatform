@@ -529,7 +529,7 @@ module.exports = {
           path: nodePath + 'node-api/api-key',
         },
         {
-          title: 'Transactions Handling',
+          title: 'Working with Transactions',
           path: nodePath + 'node-api/transactions',
         },
         {
@@ -549,7 +549,7 @@ module.exports = {
           path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
         },
         {
-          title: 'Responses and error codes',
+          title: 'Response Codes and Errors',
           path: nodePath + 'node-api/response',
         },
       ],
