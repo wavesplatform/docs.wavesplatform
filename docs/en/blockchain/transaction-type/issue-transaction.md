@@ -6,7 +6,7 @@ Issue transaction creates a new [token](/en/blockchain/token/).
 
 The minimum fee for an Issue transaction is 1 WAVES, in case of issue of a [non-fungible token (NFT)](/en/blockchain/token/non-fungible-token) 0.001 WAVES.
 
-If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
+If the transaction sender is a [dApp or smart account](/en/blockchain/account/dapp), the minimum fee is increased by 0.004 WAVES.
 
 ## JSON Representation
 

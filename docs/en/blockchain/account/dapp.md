@@ -10,7 +10,7 @@ An account with a script assigned to it becomes a dApp or smart account.
 
 Beyond that, a dApp script can comprise the **verifier function** that allows or denies transactions and orders that are sent on behalf of the dApp account depending on the specified conditions. The verifier function replaces the default verification that is to verify the sender's signature and allows you to set more complex rules, such as multisignature.
 
-Using dApps, you can implement various blockchain-empowered applications: gaming and gambling, DeFi, digital identity, supply chains, and many others. For information about how dApp works, see the [What is dApp](/en/building-apps/smart-contracts/what-is-a-dapp) article. For information about how to create a dApp, see the [How to Create and Launch dApp](/en/building-apps/smart-contracts/writing-dapp) article.
+Using dApps, you can implement various blockchain-empowered applications: gaming and gambling, DeFi, digital identity, supply chains, and many others. For information about how dApp works, see the [What is dApp](/en/building-apps/smart-contracts/what-is-a-dapp) article. For information about how to create a dApp, see the [How to Create and Launch dApp](/en/building-apps/smart-contracts/writing-dapps) article.
 
 **Smart account** is an account with the [account script](/en/ride/script/script-types/account-script) assigned. The account script is similar to a verifier function of a dApp script. For information on creating and using smart accounts, see the [Smart Account](/en/building-apps/smart-contracts/what-is-smart-account).
 

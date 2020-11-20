@@ -35,7 +35,7 @@ When Signer requests to sign a transaction, ProviderWeb opens an [iframe](https:
 
 ### Restrictions
 
-Signer supports all types of transactions except exchange transactions.
+Signer supports all types of transactions except Exchange transactions and Update Asset Info transactions.
 
 Signer supports all browsers except Brave.
 
@@ -96,7 +96,7 @@ Add library initialization to your app.
      // Specify URL of the node on Testnet
      NODE_URL: 'https://nodes-testnet.wavesnodes.com'
    });
-   signer.setProvider(new Provider());
+   signer.setProvider(new Provider('https://testnet.waves.exchange/signer/'))
    ```
 
 * For Mainnet & Waves.Exchange ProviderWeb:
@@ -275,7 +275,7 @@ const balances = await signer.getBalance();
 
 | Field name | Description |
 | :--- | :--- |
-| assetId | Base58-encoded ID of the asset |
+| assetId | Base58 encoded ID of the asset |
 | assetName | Name of the asset |
 | decimals | Number of decimal places in the asset amount |
 | amount | Amount of asset multiplied by 10^`decimals`. For example, `decimals` of WAVES is 8, so the real amount is multipied by 10^8. `{ "WAVES": 677728840 }` means 6.77728840 |
@@ -346,7 +346,7 @@ Each create transaction method has optional fields that you don't specify manual
 | chainId | 'W'.charCodeAt(0) or 87 means Mainnet<br/>'T'.charCodeAt(0) or 84 means Testnet | Defined by configuration of Waves node that is set in [Constructor](#constructor) |
 | fee | Transaction fee | Calculated automatically as described in [Transaction fee](/en/blockchain/transaction/transaction-fee) section |
 | proofs | Array of transaction signatures | Added by `sign` or `broadcast` method (see [How to Sign and Broadcast Transactions](#how-to-sign-and-broadcast-transactions)). If you specify a proof manually, it is also added to the array |
-| senderPublicKey | Base58-encoded public key of transaction sender | Returned by [login](#login) method |
+| senderPublicKey | Base58 encoded public key of transaction sender | Returned by [login](#login) method |
 
 #### How to Sign and Broadcast Transactions
 
@@ -428,7 +428,7 @@ burn(data: {
 
 | Parameter name | Default value | Description |
 | :--- | :--- | :--- |
-| assetId* | | Base58-encoded ID of the asset to burn |
+| assetId* | | Base58 encoded ID of the asset to burn |
 | quantity* | | Amount of asset multiplied by 10^`decimals`. For example, `decimals` of WAVES is 8, so the real amount is multipied by 10^8. `{ "WAVES": 677728840 }` means 6.77728840 |
 
 \* Required field.
@@ -462,7 +462,7 @@ cancelLease(data: {
 
 | Parameter name | Default value | Description |
 | :--- | :--- | :--- |
-| leasetId* | | Base58-encoded ID of the lease transaction |
+| leasetId* | | Base58 encoded ID of the lease transaction |
 
 \* Required field.
 
@@ -588,17 +588,17 @@ invoke(data: {
 
 | Parameter name | Default value | Description |
 | :--- | :--- | :--- |
-| dApp* | | Base58-encoded address or alias (with `alias:T:` prefix) of the dApp whose script should be invoked |
+| dApp* | | Base58 encoded address or alias (with `alias:T:` prefix) of the dApp whose script should be invoked |
 | fee | | We recommend to specify fee depending on number of action performed by called function (see [Transaction Fee](/en/blockchain/transaction/transaction-fee)) |
 | payment | | Payments attached to the transaction. Maximum of two payments |
-| payment.assetId* | | Base58-encoded ID of the asset to pay. `WAVES` or `null` means WAVES |
+| payment.assetId* | | Base58 encoded ID of the asset to pay. `WAVES` or `null` means WAVES |
 | payment.amount* | | Amount of asset multiplied by 10^`decimals`. For example, `decimals` of WAVES is 8, so the real amount is multipied by 10^8. `{ "WAVES": 677728840 }` means 6.77728840 |
 | call | Default function should be invoked in the dApp | Parameters for called function |
 | call.function* | | Name of the function that is called |
 | call.args* | | Arguments for the function  that is called |
 | call.args.type* | | Type of argument |
 | call.args.value* | | Value of argument |
-| feeAssetId | WAVES | Base58-encoded ID of the sponsored asset to pay the commission. See the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article for more information. `null` or omitted field means WAVES |
+| feeAssetId | WAVES | Base58 encoded ID of the sponsored asset to pay the fee. See the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article for more information. `null` or omitted field means WAVES |
 
 \* Required field
 
@@ -652,7 +652,7 @@ issue(data: {
 | quantity* | | Amount of asset multiplied by 10^`decimals` |
 | reissuable* | | `true` – asset reissue is possible.<br>`false` — asset reissue is not possible |
 | description* | | Asset description |
-| script | | Base64-encoded script (with `base64:` prefix) to be attached to to asset |
+| script | | Base64 encoded script (with `base64:` prefix) to be attached to to asset |
 
 \* Required field
 
@@ -690,7 +690,7 @@ lease(data: {
 | Parameter name | Default value | Description |
 | :--- | :--- | :--- |
 | amount* | | Amount of WAVES multiplied by 10^8. For example, `{ "WAVES": 677728840 }` means 6.77728840 |
-| recipient* | | Base58-encoded [address](/en/blockchain/account/address) or alias (with `alias:T:` prefix) of the recipient |
+| recipient* | | Base58 encoded [address](/en/blockchain/account/address) or alias (with `alias:T:` prefix) of the recipient |
 
 \* Required field
 
@@ -728,7 +728,7 @@ massTransfer(data: {
 
 | Parameter name | Default value | Description |
 | :--- | :--- | :--- |
-| assetId | WAVES | Base58-encoded ID of the asset to transfer |
+| assetId | WAVES | Base58 encoded ID of the asset to transfer |
 | transfers* | | List of transfers |
 | transfers.amount* | | Amount of asset multiplied by 10^`decimals`. For example, `decimals` of WAVES is 8, so the real amount is multipied by 10^8. `{ "WAVES": 677728840 }` means 6.77728840Amount of  multiplied by 10^8. |
 | transfers.recipient* | | Base58 encoded [address](/en/blockchain/account/address) or alias (with `alias:T:` prefix) of the recipient |
@@ -777,7 +777,7 @@ reissue(data: {
 
 | Parameter name | Default value | Description |
 | :--- | :--- | :--- |
-| assetId* | | Base58-encoded ID of the asset to reissue |
+| assetId* | | Base58 encoded ID of the asset to reissue |
 | quantity* | | Amount of asset multiplied by 10^`decimals` to reissue |
 | reissuable* | | `true` – asset reissue is possible.<br>`false` — asset reissue is not possible |
 
@@ -814,8 +814,8 @@ setAssetScript(data: {
 
 | Parameter name | Default value | Description |
 | :--- | :--- | :--- |
-| assetId* | | Base58-encoded ID of the asset |
-| script | | Base64-encoded script (with `base64:` prefix) to be attached to the asset |
+| assetId* | | Base58 encoded ID of the asset |
+| script | | Base64 encoded script (with `base64:` prefix) to be attached to the asset |
 
 \* Required field
 
@@ -848,7 +848,7 @@ setScript(data: {
 
 | Parameter name | Default value | Description |
 | :--- | :--- | :--- |
-| script | | Base64-encoded [account script](/en/ride/script/script-types/account-script) or [dApp script](/en/ride/script/script-types/dapp-script) (with `base64:` prefix) to be attached to the user account. `null` means cancelling the script |
+| script | | Base64 encoded [account script](/en/ride/script/script-types/account-script) or [dApp script](/en/ride/script/script-types/dapp-script) (with `base64:` prefix) to be attached to the user account. `null` means cancelling the script |
 
 See [Common fields](#common-fields) for other fields description.
 
@@ -879,7 +879,7 @@ sponsorship(data: {
 
 | Parameter name | Default value | Description |
 | :--- | :--- | :--- |
-| assetId* | | Base58-encoded ID of the asset |
+| assetId* | | Base58 encoded ID of the asset |
 | minSponsoredAssetFee | | Required amount of sponsored token to be charged to users (per 0.001 WAVES) multiplied by 10^`decimals` |
 \* Required field
 
@@ -916,11 +916,11 @@ transfer(data: {
 
 | Parameter name | Default value | Description |
 | :--- | :--- | :--- |
-| recipient* | | Base58-encoded [address](/en/blockchain/account/address) or alias (with `alias:T:` prefix) of the recipient |
+| recipient* | | Base58 encoded [address](/en/blockchain/account/address) or alias (with `alias:T:` prefix) of the recipient |
 | amount* | | Amount of asset multiplied by 10^`decimals`. For example, `decimals` of WAVES is 8, so the real amount is multipied by 10^8. `{ "WAVES": 677728840 }` means 6.77728840 |
-| assetId | WAVES | Base58-encoded ID of the asset to transfer. `null` or omitted field means WAVES |
+| assetId | WAVES | Base58 encoded ID of the asset to transfer. `null` or omitted field means WAVES |
 | attachment | | Optional binary data base58 encoded. This field is often used to attach a comment to the transaction. The maximum data size is 140 bytes |
-| feeAssetId | WAVES | Base58-encoded ID of the sponsored asset to pay the commission. See the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article for more information. `null` or omitted field means WAVES |
+| feeAssetId | WAVES | Base58 encoded ID of the sponsored asset to pay the fee. See the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article for more information. `null` or omitted field means WAVES |
 
 \* Required field
 

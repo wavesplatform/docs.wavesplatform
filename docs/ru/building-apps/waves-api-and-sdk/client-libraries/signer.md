@@ -35,7 +35,7 @@ Signer предоставляет приложению удобный прото
 
 ### Ограничения
 
-Signer поддерживает все типы транзакций, кроме транзакций обмена.
+Signer поддерживает все типы транзакций, кроме транзакций обмена и транзакций обновления информации ассета.
 
 Signer поддерживает все браузеры, кроме Brave.
 
@@ -95,7 +95,7 @@ Signer поддерживает все браузеры, кроме Brave.
      // Укажите адрес ноды, подключенной к Testnet
      NODE_URL: 'https://nodes-testnet.wavesnodes.com'
    });
-   signer.setProvider(new Provider());
+   signer.setProvider(new Provider('https://testnet.waves.exchange/signer/'))
    ```
 
 * Для работы с Mainnet и Waves.Exchange ProviderWeb:

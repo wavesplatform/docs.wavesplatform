@@ -13,7 +13,7 @@ Limitations are as follows:
 
 The minimum fee for a Data transaction is 0.001 WAVES per kilobyte, the fee value is rounded up to three decimals.
 
-If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
+If the transaction sender is a [dApp or smart account](/en/blockchain/account/dapp), the minimum fee is increased by 0.004 WAVES.
 
 ## JSON Representation
 

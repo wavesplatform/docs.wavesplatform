@@ -207,10 +207,14 @@ The example listed below is a wallet application which allows to send [WAVES](/e
 {-# STDLIB_VERSION 4 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
+
 @Callable(i)
 func deposit() = {
- let pmt = value(i.payments[0])
- if (isDefined(pmt.assetId))
+  let pmt =
+    if i.payments.size() == 1 then
+      i.payments[0]
+    else throw("Attached payment is required")
+  if (isDefined(pmt.assetId))
     then throw("works with waves only")
     else {
      let currentKey = toBase58String(i.caller.bytes)
@@ -221,7 +225,8 @@ func deposit() = {
      let newAmount = currentAmount + pmt.amount;
      [IntegerEntry(currentKey, newAmount)]
    }
- }
+}
+
 @Callable(i)
 func withdraw(amount: Int) = {
  let currentKey = toBase58String(i.caller.bytes)
@@ -238,7 +243,8 @@ func withdraw(amount: Int) = {
        IntegerEntry(currentKey, newAmount),
        ScriptTransfer(i.caller, amount, unit)
       ]
- }
+}
+
 @Verifier(tx)
 func verify() = false
 ```

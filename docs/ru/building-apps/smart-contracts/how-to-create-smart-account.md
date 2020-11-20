@@ -1,6 +1,6 @@
 # Создание смарт-аккаунта
 
-В этой статье мы рассмотрим создание [смарт-аккаунта](/ru/blockchain/account/smart-account) при помощи [Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide).
+В этой статье мы рассмотрим создание [смарт-аккаунта](/ru/building-apps/smart-contracts/what-is-smart-account) при помощи [Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide).
 
 Чтобы создать смарт-аккаунт в Waves IDE, выполните следующие действия:
 

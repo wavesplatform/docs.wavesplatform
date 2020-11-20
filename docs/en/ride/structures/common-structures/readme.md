@@ -10,5 +10,5 @@
 | [BalanceDetails](/ru/ride/structures/common-structures/balance-details) | [Account balance in WAVES](/en/blockchain/account/account-balance) |
 | [BlockInfo](/en/ride/structures/common-structures/block-info) | [Block](/en/blockchain/block/) header |
 | [Invocation](/en/ride/structures/common-structures/invocation) | Invoke Script transaction fields that are available to a [callable function](/en/ride/functions/callable-function) |
-| [Order](/en/ride/structures/common-structures/order) | [Order](/en/bockchain/order) |
+| [Order](/en/ride/structures/common-structures/order) | [Order](/en/blockchain/order) |
 | [Transfer](/en/ride/structures/common-structures/transfer) | Transfer in [Mass Transfer Transaction](/en/blockchain/transaction-type/mass-transfer-transaction) structure |

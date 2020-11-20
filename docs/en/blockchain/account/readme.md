@@ -3,7 +3,7 @@
 Waves uses an account-based model:
 * Each [transaction](/en/blockchain/transaction/) is created on behalf of a certain account.
 * All the [tokens](/en/blockchain/token/) belong to certain accounts. For details, see the [Account Balance](/en/blockchain/account/account-balance) article.
-* All data are associated with accounts. For details, see the [Account Data Storage](/en/blockchain/account/account-date-storage) article.
+* All data are associated with accounts. For details, see the [Account Data Storage](/en/blockchain/account/account-data-storage) article.
 
 ## Account Keys
 

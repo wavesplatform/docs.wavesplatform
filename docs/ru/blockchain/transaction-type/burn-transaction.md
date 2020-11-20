@@ -6,7 +6,7 @@
 
 Минимальная комиссия за транзакцию сжигания токена — 0,001 WAVES. В случае сжигания [смарт-ассета](/ru/blockchain/token/smart-asset) — 0,005 WAVES.
 
-Если отправитель транзакции —  [dApp](/ru/blockchain/account/dapp) или [смарт-аккаунт](/ru/blockchain/account/smart-account), минимальная комиссия увеличивается на 0,004 WAVES.
+Если отправитель транзакции — [dApp или смарт-аккаунт](/ru/blockchain/account/dapp), минимальная комиссия увеличивается на 0,004 WAVES.
 
 ## JSON-представление
 

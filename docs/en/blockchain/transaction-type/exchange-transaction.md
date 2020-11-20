@@ -16,7 +16,7 @@ One of the two exchanged tokens is an amount asset (base currency): it represent
 
 The minimum fee for an Exchange transaction is 0.003 WAVES. In case of exchange of a [smart asset](/en/blockchain/token/smart-asset) for an ordinary asset the minimum fee is 0.007 WAVES, in case of exchange of two smart assets the minimum fee is 0.011 WAVES.
 
-If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
+If the transaction sender is a [dApp or smart account](/en/blockchain/account/dapp), the minimum fee is increased by 0.004 WAVES.
 
 ## Matcher Fee
 
