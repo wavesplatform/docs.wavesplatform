@@ -1,67 +1,158 @@
 # Развернуть ноду в Docker
 
-Самый простой способ запустить ноду Waves — это развернуть контейнер **Waves Docker**. Таким способом можно запустить ноду или поменять её настройки всего одной командой.
+Самый простой способ запустить ноду Waves — это развернуть **образ Waves в Docker**. Docker-образ Waves предназначен для быстрого и удобного разворачивания ноды и содержит скрипты и файлы конфигурации для запуска ноды в сети Mainnet, Testnet, Stagenet и любой другой кастомной сети.
 
 ## Предварительные требования
 
-Необходимо установить последнюю версию приложения Docker.
-
-Процесс установки подробно описан на [сайте](https://docs.docker.com/engine/installation/) Docker.
-
-## Про образ Docker
-
-* Образ предназначен для быстрого и удобного разворачивания ноды Waves.
-* Образ содержит скрипты и файлы конфигурации для запуска ноды Waves начиная с версии **Version 0.13.0** для Mainnet, Testnet или Stagenet.
-* Образ содержит файл `.jar` вместе с файлами конфигурации из секции [releases](https://github.com/wavesplatform/Waves/releases).
+Установите приложение с [сайта Docker](https://docs.docker.com/engine/installation/).
 
 ## Запуск образа
 
-Перед запуском образа рекомендуется ознакомиться со статьей [Конфигурация ноды](/ru/waves-node/node-configuration).
+Рекомендуется ознакомиться с принципом работы файла конфигурации в статье [Конфигурация ноды](/ru/waves-node/node-configuration) перед запуском Docker-образа.
 
-Самый простой способ запуска контейнера:
+### Опции конфигурации
+
+* Вы можете запустить образ с измененными параметрами конфигурации используя соответствующие опции JVM. Используйте переменную среды `JAVA_OPTS` для отправки опций в JVM. См. [пример файла конфигурации](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf) для определения полных путей параметров конфигурации, которые вы хотите поменять.
+
+**Пример команды запуска образа ноды с измененными параметрами конфигурации**:
+
+   ```bash
+   docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-config:/etc/waves -p 6869:6869 -p 6862:6862 -e JAVA_OPTS="-Dwaves.rest-api.enable=yes -Dwaves.rest-api.bind-address=0.0.0.0 -Dwaves.wallet.password=myWalletSuperPassword" -e WAVES_NETWORK=stagenet -ti wavesplatform/wavesnode
+   ```
+
+Файл конфигурации ноды Waves (по умолчанию) хранится в директории `/etc/waves/waves.conf`. Вы можете смонтировать данную директорию в Docker volumes. См. подробнее про Docker volumes в секции [Работы с данными](#работа-с-данными).
+
+Если директория не существует, то она будет создана вместе с файлом конфигурации по умолчанию. Файл конфигурации будет создан в зависимости от типа сети, заданного переменной `WAVES_NETWORK`. Если значение `WAVES_NETWORK` не `mainnet`, `testnet` или `stagenet`, файл конфигурации по умолчанию не будет использован. В этом случае будет использован тип сети `CUSTOM`, для которого требуются соответствующий файл конфигурации с настройками. Если запустить образ с типом сети `CUSTOM` и система не обнаружит файл `/etc/waves/waves.conf`, то образ не запустится.
+
+По умолчанию файл `/etc/waves/waves.conf` содержит `/etc/waves/local.conf`. Вы можете использовать измененный `/etc/waves/local.conf` для переопределения настроек по умолчанию. Измененный `/etc/waves/waves.conf` можно использовать чтобы переопределить все настройки ноды.
+
+### Переменные среды
+
+Вы можете переопределить параметры, заданные в файле конфигурации ноды, запустив образ со следующими опциональными переменными среды:
+
+| Переменная среды | Описание |
+|----------------------|-------------------------------------------------|
+| WAVES_WALLET_SEED | сид фраза в Base58. JVM параметр `-Dwaves.wallet.seed` . |
+| WAVES_WALLET_PASSWORD | Пароль файла кошелька. JVM параметр `-Dwaves.wallet.password`. |
+| WAVES_LOG_LEVEL | Уровень логирования ноды. Возможные значение : `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` и `TRACE`. [Подробнее про логирование](/ru/waves-node/logging-configuration). |
+| WAVES_HEAP_SIZE | Ограничение Java Heap Size в нотации -X Command-line Options (-Xms=[ваше значение]). [Подробнее про -X Command-line Options](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html). |
+| WAVES_NETWORK | Тип сети Waves. Возможные значения: `mainnet`, `testnet` и `stagenet`. |
+| JAVA_OPTS | Дополнительные параметры JVM конфигурации ноды. |
+
+### Работа с данными
+
+Рекомендуется хранить файлы состояния блокчейна и файлы конфигурации на стороне хоста. Рассмотрите возможность монтирования Docker volumes, чтобы смонтировать директории внутри контейнера.
+
+**Пример**:
+
+* Создайте директории для хранения данных Waves с помощью следующих команд:
+
+   ```bash
+   mkdir -p /docker/waves
+   ```
+
+   ```bash
+   mkdir /docker/waves/waves-data
+   ```
+
+   ```bash
+   mkdir /docker/waves/waves-config
+   ```
+
+* При запуске контейнера, будут автоматически созданы следующие директории в директории `/docker/waves/waves-data`:
+
+   `/docker/waves/waves-data/log` - для логов ноды
+
+   `/docker/waves/waves-data/data` - для файлов состояние блокчейна
+
+   `/docker/waves/waves-data/wallet` - для данных кошелька
+
+   Также будет создан стандартный файл конфигурации `/docker/waves/waves-config/waves.conf`
+
+   Если у вас уже есть файл конфигурации или другие данные, вы можете положить их в соответствующие директории.
+
+* Для запуска контейнера, потребуется настроить соответствующие разрешения. Используйте пользователя `waves` с заданными uid/gid `143/143`. Для этого измените разрешения созданных директорий или измените владельца директорий с помощью следующей команды:
+
+   ```bash
+   sudo chown -R 143:143 /docker/waves
+   ```
+
+   или
+
+   ```bash
+   sudo chmod -R 777 /docker/waves
+   ```
+
+* Добавьте соответствующие аргументы в команду `docker run`, как в следующем примере:
+
+   ```bash
+   docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-config:/etc/waves -e WAVES_NETWORK=stagenet -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti wavesplatform/wavesnode
+   ```
+
+### Состояние блокчейна
+
+Если вы новичок в блокчейне Waves и запускаете ноду впервые, имейте ввиду, что после запуска нода начнет загружать файлы состояния блокчейна из других нод. Данный процесс занимает много времени. Во время загрузки нода будет верифицировать все блоки один за другим.
+
+Вы можете ускорить процесс. Для этого загрузите и распакуйте архив с файлами состояния блокчейна из официального источника и подложите файлы в контейнер (как описано в секции [Работа с данными](#работа-с-данными)). При таком сценарии, нода пропустит верификацию блоков. Отказ от верификации также является причиной того, почему файлы состояния блокчейна следует загружать только из наших официальных источников:
+
+| Тип сети | Ссылка |
+|---------|---------------------------------------------------------|
+| mainnet | http://blockchain.wavesplatform.com/blockchain_last.tar |
+| testnet | http://blockchain-testnet.wavesplatform.com/blockchain_last.tar |
+| stagenet | http://blockchain-stagenet.wavesplatform.com/blockchain_last.tar |
+
+**Примечание**: Мы не можем гарантировать соответствие данных загруженных из других источников.
+
+**Пример команд для загрузки файлов состояние блокчейна и запуска образа**:
 
 ```bash
-docker run -it wavesplatform/node
+mkdir -p /docker/waves/waves-data
 ```
-
-**Примечание**: Мы рекомендуем запускать контейнер для Mainnet так:
 
 ```bash
-docker run -p 6869:6869 -p 6868:6868 -e WAVES_NETWORK=MAINNET -e WAVES_LOG_LEVEL=DEBUG -e WAVES_HEAP_SIZE=2g -v YOUR_LOCAL_PATH_HERE:/waves wavesplatform/node    
+wget -qO- http://blockchain-stagenet.wavesplatform.com/blockchain_last.tar --show-progress | tar -xvf - -C /docker/waves/waves-data
 ```
-
-**Для Testnet:**
 
 ```bash
-docker run -p 6869:6869 -p 6863:6863 -e WAVES_NETWORK=TESTNET -e WAVES_LOG_LEVEL=DEBUG -e WAVES_HEAP_SIZE=2g -v YOUR_LOCAL_PATH_HERE:/waves wavesplatform/node    
+chown -R 143:143 /docker/waves/waves-data
 ```
 
-**Можно опционально запустить контейнер с предустановленными переменными среды:**
+```bash
+docker run -v /docker/waves/waves-data:/var/lib/waves wavesplatform/Node -e WAVES_NETWORK=stagenet -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti wavesplatform/wavesnode
+```
 
-|Переменная среды                 |Описание   |
-|-----------------------------|--------------|
-|`WAVES_WALLET_SEED`               | Секретная фраза в виде текста (plain text seed) кошелька ноды.  Контейнер конвертирует его в base58 |
-|`WAVES_WALLET_SEED_BASE58`        | Секретная фраза в кодировке base58   |
-|`WAVES_WALLET_PASSWORD`           |Пароль для файла кошелька    |
-|`WAVES_VERSION`                   |Версия ноды. Значение по умолчанию — `latest`. См. [Список доступных версий](https://github.com/wavesplatform/Waves/releases) |
-|`WAVES_NETWORK`                   |Тип ноды: `MAINNET`, `TESTNET` или `STAGENET` |
-|`WAVES_LOG_LEVEL`                 |Режим логирования ноды: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`. Подробно про режимы логирования в статье [Логирование](/ru/waves-node/logging-configuration) |
-|`WAVES_HEAP_SIZE`                 |Ограничение Java Heap Size в -X Command-line Options notation (`-Xms=[your value]`). Подробно [тут](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html)   |
-|`WAVES_CONFIG_FILE`               |Адрес файла конфигурации Waves   |
-|`WAVES_DECLARED_ADDRESS`          |Строка с IP-адресом и портом для отправки в качестве внешнего адреса во время рукопожатия (handshake). Может быть задана автоматически, если активирован UPnP. Если параметр задан, что является нормальным сценарием для ноды, работающей в облаке, нода будет принимать входящие подключения через `bind-address:port` и передавать свой `declared-address` другим нодам |
-|`WAVES_AUTODETECT_ADDRESS`        |Установите значение `yes`, чтобы получить свой публичный адрес и назначить его в качестве значения `declared-address` |
-|`WAVES_AUTODETECT_ADDRESS_PORT`   |`WAVES_AUTODETECT_ADDRESS` может получить только IP-адрес ноды, но не номер порта. Задайте номер порта с помощью этой переменной |
+### Сетевые порты
 
-**Примечание**: Если ваша нода останавливается сразу после запуска, возможно приложению Docker не хватает памяти. Вы можете [изменить в настройках Docker](/ru/waves-node/node-troubleshooting#развернутая-в-docker-нода-останавливается-сразу-после-запуска) максимальный объем используемой памяти.
+Параметры REST API ноды можно задать в секции [REST API](/ru/waves-node/node-configuration#настроики-rest-api) файла конфигурации ноды. Порты для входящих подключений ноды можно задать в секции [Настроки сети](/ru/waves-node/node-configuration#настроки-сети).
 
-## Конфигурация
+**В следующем примере нода будет запущена со следующими настройками**:
 
-Образ поддерживает конфигурирование при помощи переменных среды. В зависимости от переменных среды, образ генерирует файл `local.conf` и сохраняет его в папке `/waves/configs`.
-Чтобы задать значение в файле конфигурации, следуйте простым правилам:
+* Порт REST-API включен и задан на socket `0.0.0.0:6870`
+* Порт соединения ноды включен и задан на socket `0.0.0.0:6868`
+* Порты `6868` и `6870` заданы от хоста до контейнера
 
-1. Определите путь до переменной в [файле конфигурации](/ru/waves-node/node-configuration).
-2. Соединяйте все имена секций двойным подчеркиванием (`__`).
-3. Замените все тире одиночными подчеркиваниями (`_`).
-4. Переведите полученную строку в верхний регистр.
+```bash
+docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-config:/etc/waves -p 6870:6870 -p 6868:6868 -e JAVA_OPTS="-Dwaves.network.declared-address=0.0.0.0:6868 -Dwaves.rest-api.port=6870 -Dwaves.rest-api.bind-address=0.0.0.0 -Dwaves.rest-api.enable=yes" -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti  wavesplatform/wavesnode
+```
 
-Например, если вы хотите задать значение `waves.rest-api.enable`, отправьте переменную среды `WAVES__REST_API__ENABLE=no`;
+**Примечание**: По умолчанию REST API использует порт 6869. Сетевой порт по умолчанию зависит от типа сети (MAINNET - 6868, STAGENET - 6862, TESTNET/custom - 6863).
+
+Для проверки работоспособности REST API, перейдите по следующей ссылке со стороны хоста: http://localhost:6870/api-docs/index.html
+
+### Расширения
+
+Вы можете запускать расширения следующим образом:
+
+1. Скопируйте все lib/*.jar файлы из расширения в любую директорию, например `plugins`.
+
+2. Добавьте класс расширения в файле конфигурации ноды (например в `local.conf`):
+
+   ```bash
+   waves.extensions += com.johndoe.WavesExtension
+   ```
+
+3. Запустите образ с помощью команды:
+
+   ```bash
+   docker run -v "$(pwd)/plugins:/usr/share/waves/lib/plugins" -v "$(pwd)/local.conf:/etc/waves/local.conf" -i wavesplatform/wavesnode
+   ```

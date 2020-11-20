@@ -1,6 +1,6 @@
 # Deploy Node in Docker
 
-The easiest way to run Waves node is by means of **Waves Docker container**. Waves Docker image is focused on fast and convenient deployment of Waves Node and contains scripts and configs to run the node in Mainnet, Testnet or Stagenet network.
+The easiest way to run Waves node is by means of **Waves Docker container**. Waves Docker image is focused on fast and convenient deployment of Waves Node and contains scripts and configs to run the node in Mainnet, Testnet, Stagenet or any other custom network.
 
 ## Prerequisites
 
@@ -50,6 +50,7 @@ It is recommended to learn about Waves node configuration in [Node Configuration
 ### Configuration Options
 
 * You can run an image with customized config parameters by using corresponding JVM options. Use `JAVA_OPTS` environment variable to send options to JVM. Refer to [example configuration file](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf) to get the full path of the configuration parameters that you want to change.
+
 **Example of command running image with customized config parameters**:
 
    ```bash
@@ -58,7 +59,7 @@ It is recommended to learn about Waves node configuration in [Node Configuration
 
 Waves Nodes store configuration file (by default) in `/etc/waves/waves.conf` directory. You can mount the directory with Docker volumes. See [Managing Data](#managing-data) section for more details about Docker volumes mapping.
 
-If the directory does not exist, the default configuration file will be created in the directory. Default configuration file is used depending on type of network specified by `WAVES_NETWORK` environment variable. If the value of `WAVES_NETWORK` is not `mainnet`, `testnet` or `stagenet`, the default configuration will not be used. This is the case of using `CUSTOM` network type that requires correct configuration file. If you use `CUSTOM` network and the `/etc/waves/waves.conf` is NOT found, the container will not run.
+If the directory does not exist, the directory and default configuration file will be created. Default configuration file is used depending on type of network specified by `WAVES_NETWORK` environment variable. If the value of `WAVES_NETWORK` is not `mainnet`, `testnet` or `stagenet`, the default configuration will not be used. This is the case of using `CUSTOM` network type that requires correct configuration file. If you use `CUSTOM` network and the `/etc/waves/waves.conf` is NOT found, the container will not run.
 
 By default, the `/etc/waves/waves.conf` config includes `/etc/waves/local.conf`. Custom `/etc/waves/local.conf` can be used to override default config parameters. Custom `/etc/waves/waves.conf` can be used to override the whole node configuration.
 
@@ -121,9 +122,9 @@ It is recommended to store the blockchain state as well as node configuration on
 
 * Add appropriate arguments to `docker run` command similar to the following example:
 
-```bash
-docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-config:/etc/waves -e WAVES_NETWORK=stagenet -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti wavesplatform/wavesnode
-```
+   ```bash
+   docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-config:/etc/waves -e WAVES_NETWORK=stagenet -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti wavesplatform/wavesnode
+   ```
 
 ### Blockchain State
 
@@ -170,6 +171,8 @@ Node REST API parameters can be specified in [REST API section](/en/waves-node/n
 ```bash
 docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-config:/etc/waves -p 6870:6870 -p 6868:6868 -e JAVA_OPTS="-Dwaves.network.declared-address=0.0.0.0:6868 -Dwaves.rest-api.port=6870 -Dwaves.rest-api.bind-address=0.0.0.0 -Dwaves.rest-api.enable=yes" -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti  wavesplatform/wavesnode
 ```
+
+**Note**: By default the REST API port is 6869. The default network port depends on the type of network (MAINNET - 6868, STAGENET - 6862, TESTNET/custom - 6863).
 
 To check that the REST API is up, navigate to the following URL from the host side: http://localhost:6870/api-docs/index.html
 
