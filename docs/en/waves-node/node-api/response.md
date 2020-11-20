@@ -34,7 +34,7 @@ Example:
 | Error | Message | Comments and possible reasons |
 | :--- | :--- | :--- |
 | 0 | Error is unknown | |
-| 1 | failed to parse json message | • Invalid JSON<br>• Required parameter is missed<br>• Invalid value of a parameter |
+| 1 | failed to parse json message | • Invalid JSON<br>• Required parameter is missed<br>• Invalid parameter |
 | 2 | Provided API key is not correct | API key is wrong or missed in request to a [private endpoint](/en/waves-node/node-api/#private-endpoints) |
 | 10 | Too big sequences requested | Exceeded data limit:<br>• Number of requested transactions is greater than the specified in the `waves.rest-api.transactions-by-address-limit` setting<br>• Number of requested blocks is greater than 100<br> • Exceeded the limits for a [Data transaction](/en/blockchain/transaction-type/data-transaction)<br>• Exceeded the length of the `attachment` field for a [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction) or a [Mass Transfer transaction](/en/blockchain/transaction-type/mass-transfer-transaction) |
 | 101 | Invalid signature | |

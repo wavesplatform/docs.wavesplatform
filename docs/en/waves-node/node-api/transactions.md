@@ -4,7 +4,7 @@
 
 ## Step 1 (Optional). Calculate Fee
 
-The [minimum transaction fee](/en/blockchain/transaction/transaction-fee) depends on the transaction type, whether the script is assigned to the sender's account, smart assets invloved, data size, actions performed by the script being invoked, etc.
+The [minimum transaction fee](/en/blockchain/transaction/transaction-fee) depends on the transaction type, whether the script is assigned to the sender's account, smart assets involved, data size, actions performed by the script being invoked, etc.
 
 You can use the [POST /transactions/calculateFee](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/calculateFee_1) operation to calculate the minimum fee. In the request body, specify the transaction data in JSON, including `type` and `senderPublicKey`. If you want to calculate the fee in the sponsored asset, specify the `feeAssetId` field in the request body. The `sender` and `fee` fields are ignored.
 
@@ -49,7 +49,7 @@ Response body:
 
 The following operations are used to generate a signature:
 
-* [POST /transactions/sign](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/sign) signs a transaction on behalf of the account whose adderss is specified in the `sender` field.
+* [POST /transactions/sign](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/sign) signs a transaction on behalf of the account whose address is specified in the `sender` field.
 * [POST /transactions/sign/{signerAddress}](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/signWithSigner_1) signs a transaction on behalf of the specified account.
 
 > The operations are not applicable for Exchange transactions and Update Asset Info transactions.
@@ -633,7 +633,7 @@ HTTP response codes:
 - 4xx or 501: the transaction is rejected.
 - 500 or 503: server error without specifying whether a transaction is added to the UTX pool or not.
 
-In the last case, check the transaction status (see the next step) or broadcast the same transaction (with the same ID) again. If you create and sign a new transaction with a different `timestamp` (default value is the current time), such a transaction has a different ID, so it may turn out that both transactions are executed, for example, two identical transfers to the same recipient.
+In the last case, check the transaction status (see the next step) or broadcast the same transaction (with the same ID) again. If you create and sign a new transaction with a different `timestamp` (default value is the current time), such a transaction has a different ID; so it may turn out that both transactions are executed, for example, two identical transfers to the same recipient.
 
 In case of success, the broadcast operation returns a JSON representation of the transaction with all parameters, including optional ones (in fact, the response body can match the request body).
 
