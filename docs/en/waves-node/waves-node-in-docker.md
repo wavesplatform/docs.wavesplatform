@@ -78,7 +78,7 @@ You can override parameters specified in the node configuration file by running 
 
 ### Managing Data
 
-It is recommended to store the blockchain state as well as node configuration on the host side. Consider using Docker volumes mapping to map host directories inside the container.
+It is recommended to store the blockchain state as well as node configuration on the host side. Consider using [Docker volumes](https://docs.docker.com/storage/volumes/) mapping to map host directories inside the container.
 
 **Example**:
 
