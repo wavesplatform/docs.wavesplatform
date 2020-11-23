@@ -4,7 +4,7 @@
 
 ### Нода
 
-* [REST API ноды](/ru/waves-node/node-api) — <span style="color:green">обновлено</span>
+* [REST API ноды](/ru/waves-node/node-api/) — <span style="color:green">обновлено</span>
 * [Ограничения API пула публичных нод](/ru/waves-node/api-limitations-of-the-pool-of-public-nodes) — <span style="color:green">обновлено</span>
 
 ## Октябрь
