@@ -7,7 +7,7 @@ You install Java first, then the node itself.
 
 **Note.** Do not install OpenJDK 8 If you already have OpenJDK 11 installed. The node Installation is supported in both versions 8 and 11.
 
-Install OpenJDK 8 from [this link](https://access.redhat.com/documentation/en-us/openjdk/8/html/openjdk_8_for_windows_getting_started_guide/getting_started_with_openjdk_for_windows).
+Install OpenJDK 8 from [this link](https://access.redhat.com/documentation/en-us/openjdk/8/html/installing_and_using_openjdk_8_for_windows/openjdk8-windows-installation-options).
 
 Then open Windows Command line and check the JDK version with the following command:
 
