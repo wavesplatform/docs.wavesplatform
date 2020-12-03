@@ -12,7 +12,7 @@
 | [removeByIndex](#removebyindex) | Удаляет элемент из списка по индексу | 7 |
 | [size](#size)  | Возвращает размер списка | 2 |
 
-`T` — сокращенная запись для `Boolean|ByteVector|Int|String`.
+`T` означает любой допустимый тип.
 
 ## cons
 
