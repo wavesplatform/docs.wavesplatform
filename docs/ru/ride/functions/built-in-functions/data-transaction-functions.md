@@ -1,7 +1,7 @@
 # Функции транзакции данных
 
 Приведенные в этом разделе функции получают данные ключу из структуры [транзакции данных](/ru/ride/structures/transaction-structures/data-transaction) или из произвольного списка записей:
-* List[[BinaryEntry](/ru/ride/structures/script-actions/binary-entry)|[BooleanEntry](/ru/ride/structures/script-actions/boolean-entry)|[DeleteEntry](/ru/ride/structures/script-actions/delete-entry)|[IntegerEntry](/ru/ride/structures/script-actions/int-entry)|[StringEntry](/ru/ride/structures/script-actions/string-entry)] — для Стандартной библиотеки **версии 4**.
+* List[[BinaryEntry](/ru/ride/structures/script-actions/binary-entry)|[BooleanEntry](/ru/ride/structures/script-actions/boolean-entry)|[IntegerEntry](/ru/ride/structures/script-actions/int-entry)|[StringEntry](/ru/ride/structures/script-actions/string-entry)] — для Стандартной библиотеки **версии 4**.
 * List[[DataEntry](/ru/ride/structures/script-actions/data-entry)] — для Стандартной библиотеки **версии 3**.
 
 | Название | Описание | Сложность |
@@ -30,7 +30,7 @@
 ### В Стандартной библиотеке версии 4
 
 ``` ride
-getBinary(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], key: String): ByteVector|Unit
+getBinary(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): ByteVector|Unit
 ```
 
 ### В Стандартной библиотеке версии 3
@@ -53,7 +53,7 @@ getBinary(data: List[DataEntry], key: String): ByteVector|Unit
 ### В Стандартной библиотеке версии 4
 
 ``` ride
-getBinary(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], index: Int): ByteVector|Unit
+getBinary(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): ByteVector|Unit
 ```
 
 ### В Стандартной библиотеке версии 3
@@ -78,7 +78,7 @@ getBinary(data: List[DataEntry], index: Int): ByteVector|Unit
 ### В Стандартной библиотеке версии 4
 
 ``` ride
-getBinaryValue(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], key: String): ByteVector
+getBinaryValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): ByteVector
 ```
 
 ### В Стандартной библиотеке версии 3
@@ -103,7 +103,7 @@ getBinaryValue(data: List[DataEntry], key: String): ByteVector
 ### В Стандартной библиотеке версии 4
 
 ``` ride
-getBinaryValue(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], index: Int): ByteVector
+getBinaryValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): ByteVector
 ```
 
 ### В Стандартной библиотеке версии 3
@@ -126,7 +126,7 @@ getBinaryValue(data: List[DataEntry], index: Int): ByteVector
 ### В Стандартной библиотеке версии 4
 
 ``` ride
-getBoolean(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], key: String): Boolean|Unit
+getBoolean(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): Boolean|Unit
 ```
 
 ### В Стандартной библиотеке версии 3
@@ -149,7 +149,7 @@ getBoolean(data: List[DataEntry], key: String): Boolean|Unit
 ### В Стандартной библиотеке версии 4
 
 ``` ride
-getBoolean(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], index: Int): Boolean|Unit
+getBoolean(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): Boolean|Unit
 ```
 
 ### В Стандартной библиотеке версии 3
@@ -174,7 +174,7 @@ getBoolean(data: List[DataEntry], index: Int): Boolean|Unit
 ### В Стандартной библиотеке версии 4
 
 ``` ride
-getBooleanValue(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], key: String): Boolean
+getBooleanValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): Boolean
 ```
 
 ### В Стандартной библиотеке версии 3
@@ -199,7 +199,7 @@ getBooleanValue(data: List[DataEntry], key: String): Boolean
 ### В Стандартной библиотеке версии 4
 
 ``` ride
-getBooleanValue(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], index: Int): Boolean
+getBooleanValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): Boolean
 ```
 
 ### В Стандартной библиотеке версии 3
@@ -220,7 +220,7 @@ getBooleanValue(data: List[DataEntry], index: Int): Boolean
 Возвращает целое число из списка записей данных по ключу.
 
 ``` ride
-getInteger(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], key: String): Int|Unit
+getInteger(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): Int|Unit
 ```
 
 ### В Стандартной библиотеке версии 3
@@ -242,7 +242,7 @@ getInteger(data: List[DataEntry], key: String): Int|Unit
 ### В Стандартной библиотеке версии 4
 
 ``` ride
-getInteger(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], index: Int): Int|Unit
+getInteger(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): Int|Unit
 ```
 
 ### В Стандартной библиотеке версии 3
@@ -265,7 +265,7 @@ getInteger(data: List[DataEntry], index: Int): Int|Unit
 Завершается ошибкой, если данных нет.
 
 ``` ride
-getIntegerValue(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], key: String): Int
+getIntegerValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): Int
 ```
 
 ### В Стандартной библиотеке версии 3
@@ -290,7 +290,7 @@ getIntegerValue(data: List[DataEntry], key: String): Int
 ### В Стандартной библиотеке версии 4
 
 ``` ride
-getIntegerValue(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], index: Int): Int
+getIntegerValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): Int
 ```
 
 ### В Стандартной библиотеке версии 3
@@ -313,7 +313,7 @@ getIntegerValue(data: List[DataEntry], index: Int): Int
 ### В Стандартной библиотеке версии 4
 
 ``` ride
-getString(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], key: String): String|Unit
+getString(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): String|Unit
 ```
 
 ### В Стандартной библиотеке версии 3
@@ -334,7 +334,7 @@ getString(data: List[DataEntry], key: String): String|Unit
 Возвращает строку из списка записей данных по индексу.
 
 ``` ride
-getString(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], index: Int): String|Unit
+getString(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): String|Unit
 ```
 
 ### В Стандартной библиотеке версии 3
@@ -359,7 +359,7 @@ getString(data: List[DataEntry], index: Int): String|Unit
 ### В Стандартной библиотеке версии 4
 
 ``` ride
-getStringValue(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], key: String): String
+getStringValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): String
 ```
 
 ### В Стандартной библиотеке версии 3
@@ -384,7 +384,7 @@ getStringValue(data: List[DataEntry], key: String): String
 ### В Стандартной библиотеке версии 4
 
 ``` ride
-getStringValue(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], index: Int): String
+getStringValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): String
 ```
 
 ### В Стандартной библиотеке версии 3

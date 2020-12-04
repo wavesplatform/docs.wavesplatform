@@ -1,7 +1,7 @@
 # Data transaction functions
 
 The functions listed below retrieve data by key from the [Data transaction](/en/ride/structures/transaction-structures/data-transaction) structure or from any list of data entries:
-* List[[BinaryEntry](/en/ride/structures/script-actions/binary-entry)|[BooleanEntry](/en/ride/structures/script-actions/boolean-entry)|[DeleteEntry](/en/ride/structures/script-actions/delete-entry)|[IntegerEntry](/en/ride/structures/script-actions/int-entry)|[StringEntry](/en/ride/structures/script-actions/string-entry)] for Standard library **version 4**.
+* List[[BinaryEntry](/en/ride/structures/script-actions/binary-entry)|[BooleanEntry](/en/ride/structures/script-actions/boolean-entry)|[IntegerEntry](/en/ride/structures/script-actions/int-entry)|[StringEntry](/en/ride/structures/script-actions/string-entry)] for Standard library **version 4**.
 * List[[DataEntry](/en/ride/structures/script-actions/data-entry)] for Standard library **version 3**.
 
 | Name | Description | Complexity |
@@ -30,7 +30,7 @@ Gets a binary value from a list of data entires by key.
 ### For Standard Library Version 4
 
 ``` ride
-getBinary(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], key: String): ByteVector|Unit
+getBinary(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): ByteVector|Unit
 ```
 
 ### For Standard Library Version 3
@@ -53,7 +53,7 @@ Gets a binary value from a list of data entires by index.
 ### For Standard Library Version 4
 
 ``` ride
-getBinary(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], index: Int): ByteVector|Unit
+getBinary(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): ByteVector|Unit
 ```
 
 ### For Standard Library Version 3
@@ -76,7 +76,7 @@ Gets a binary value from a list of data entires by key. Fails if there is no dat
 ### For Standard Library Version 4
 
 ``` ride
-getBinaryValue(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], key: String): ByteVector
+getBinaryValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): ByteVector
 ```
 
 ### For Standard Library Version 3
@@ -99,7 +99,7 @@ Gets a binary value from a list of data entires by index. Fails if there is no d
 ### For Standard Library Version 4
 
 ``` ride
-getBinaryValue(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], index: Int): ByteVector
+getBinaryValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): ByteVector
 ```
 
 ### For Standard Library Version 3
@@ -122,7 +122,7 @@ Gets a boolean value from a list of data entires by key.
 ### For Standard Library Version 4
 
 ``` ride
-getBoolean(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], key: String): Boolean|Unit
+getBoolean(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): Boolean|Unit
 ```
 
 ### For Standard Library Version 3
@@ -145,7 +145,7 @@ Gets a boolean value from a list of data entires by index.
 ### For Standard Library Version 4
 
 ``` ride
-getBoolean(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], index: Int): Boolean|Unit
+getBoolean(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): Boolean|Unit
 ```
 
 ### For Standard Library Version 3
@@ -168,7 +168,7 @@ Gets a boolean value from a list of data entires by key. Fails if there is no da
 ### For Standard Library Version 4
 
 ``` ride
-getBooleanValue(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], key: String): Boolean
+getBooleanValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): Boolean
 ```
 
 ### For Standard Library Version 3
@@ -191,7 +191,7 @@ Gets a boolean value from a list of data entires by index. Fails if there is no 
 ### For Standard Library Version 4
 
 ``` ride
-getBooleanValue(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], index: Int): Boolean
+getBooleanValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): Boolean
 ```
 
 ### For Standard Library Version 3
@@ -214,7 +214,7 @@ Gets integer from a list of data entires by key.
 ### For Standard Library Version 4
 
 ``` ride
-getInteger(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], key: String): Int|Unit
+getInteger(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): Int|Unit
 ```
 
 ### For Standard Library Version 3
@@ -237,7 +237,7 @@ Gets an integer value from a list of data entires by index.
 ### For Standard Library Version 4
 
 ``` ride
-getInteger(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], index: Int): Int|Unit
+getInteger(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): Int|Unit
 ```
 
 ### For Standard Library Version 3
@@ -260,7 +260,7 @@ Gets an integer value from a list of data entires by key. Fails if there is no d
 ### For Standard Library Version 4
 
 ``` ride
-getIntegerValue(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], key: String): Int
+getIntegerValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): Int
 ```
 
 ### For Standard Library Version 3
@@ -283,7 +283,7 @@ Gets an integer value from a list of data entires by index. Fails if there is no
 ### For Standard Library Version 4
 
 ``` ride
-getIntegerValue(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], index: Int): Int
+getIntegerValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): Int
 ```
 
 ### For Standard Library Version 3
@@ -306,7 +306,7 @@ Gets a string value from a list of data entires by key.
 ### For Standard Library Version 4
 
 ``` ride
-getString(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], key: String): String|Unit
+getString(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): String|Unit
 ```
 
 ### For Standard Library Version 3
@@ -329,7 +329,7 @@ Gets a string value from a list of data entires by index.
 ### For Standard Library Version 4
 
 ``` ride
-getString(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], index: Int): String|Unit
+getString(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): String|Unit
 ```
 
 ### For Standard Library Version 3
@@ -352,7 +352,7 @@ Gets a string value from a list of data entires by key. Fails if there is no dat
 ### For Standard Library Version 4
 
 ``` ride
-getStringValue(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], key: String): String
+getStringValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): String
 ```
 
 ### For Standard Library Version 3
@@ -375,7 +375,7 @@ Gets a string value from a list of data entires by index. Fails if there is no d
 ### For Standard Library Version 4
 
 ``` ride
-getStringValue(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], index: Int): String
+getStringValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): String
 ```
 
 ### For Standard Library Version 3
