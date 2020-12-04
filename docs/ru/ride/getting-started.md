@@ -511,7 +511,7 @@ For further development, the following tools and utilities are useful:
 - You should also install the Waves Keeper browser extension: </ru/ecosystem/waves-keeper>
 - Online IDE with examples: [https://waves-ide.com/](https://waves-ide.com/)
 
-Further help and information about tools can be found here: <https://wavesprotocol.org/developers>
+Further help and information about tools can be found here: <https://waves.tech/develop>
 
 
 ## Enjoy the Ride!
