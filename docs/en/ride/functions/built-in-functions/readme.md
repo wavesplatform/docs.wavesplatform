@@ -6,27 +6,27 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| assetBalancе(Address&#124;Alias, ByteVector): Int | Gets account balance by token ID | 100 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
 | getBinary(Address&#124;Alias, String): ByteVector&#124;Unit | Gets an array of bytes by key | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
-| getBinaryValue(Address&#124;Alias, String): ByteVector | Gets an array of bytes by key. Throws an exception if there is no data | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
+| getBinaryValue(Address&#124;Alias, String): ByteVector | Gets an array of bytes by key. Fails if there is no data | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
 | getBoolean(Address&#124;Alias, String): Boolean&#124;Unit | Gets a boolean value by key | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
-| getBooleanValue(Address&#124;Alias, String): Boolean | Gets a boolean value by key. Throws an exception if there is no data | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
+| getBooleanValue(Address&#124;Alias, String): Boolean | Gets a boolean value by key. Fails if there is no data | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
 | getInteger(Address&#124;Alias, String): Int&#124;Unit | Gets an integer by key | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
-| getIntegerValue(Address&#124;Alias, String): Int | Gets an integer by key. Throws an exception if there is no data | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
+| getIntegerValue(Address&#124;Alias, String): Int | Gets an integer by key. Fails if there is no data | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
 | getString(Address&#124;Alias, String): String&#124;Unit | Gets a string by key | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
-| getStringValue(Address&#124;Alias, String): String | Gets a string by key. Throws an exception if there is no data | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
-| wavesBalance(Address&#124;Alias): Int | Gets account balance in [WAVES](/en/blockchain/token/waves) | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
+| getStringValue(Address&#124;Alias, String): String | Gets a string by key. Fails if there is no data | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
 
 ## [Blockchain functions](/en/ride/functions/built-in-functions/blockchain-functions)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | addressFromRecipient(Address&#124;Alias): Address | Gets the corresponding [address](/en/blockchain/account/address) of the [alias](/en/blockchain/account/alias) | 100 for Standard Library **version&nbsp;3**<br>5 for Standard Library **version&nbsp;4** |
+| assetBalancе(Address&#124;Alias, ByteVector): Int | Gets account balance by token ID | 100 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
 | assetInfo(ByteVector): Аsset&#124;Unit | Gets the information about a [token](/en/blockchain/token/) | 100 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>15 for Standard Library **version&nbsp;4** |
 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Gets the information about a [block](/en/blockchain/block/) by the [block height](/en/blockchain/block/block-height) | 100 for Standard Library **version&nbsp;3**<br>5 for Standard Library **version&nbsp;4** |
 | calculateAssetId(Issue): ByteVector | Calculates the ID of the asset, created by [Issue](/en/ride/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
 | transactionHeightById(ByteVector):  Int&#124;Unit | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 100 for Standard Library **version&nbsp;3**<br>20 for Standard Library **version&nbsp;4** |
 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Gets the data of a [transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 100 for Standard Library **version&nbsp;3**<br>60 for Standard Library **version&nbsp;4** |
+| wavesBalance(Address&#124;Alias): Int | Gets account balance in [WAVES](/en/blockchain/token/waves) | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
 
 ## [Byte array functions](/en/ride/functions/built-in-functions/byte-array-functions)
 
@@ -44,7 +44,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | :--- | :--- | :--- |
 | addressFromPublicKey(ByteVector): Address | Converts account public key to [address](/en/blockchain/account/address) | 82 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>63 for Standard Library **version&nbsp;4** |
 | parseInt(String): Int&#124;Unit | Converts the string representation of a number to its integer equivalent | 20 for Standard Library **version&nbsp;3**<br>2 for Standard Library **version&nbsp;4** |
-| parseIntValue(String): Int | Converts the string representation of a number to its integer equivalent.Raises an exception if the string cannot be parsed | 20 for Standard Library **version&nbsp;3**<br>2 for Standard Library **version&nbsp;4** |
+| parseIntValue(String): Int | Converts the string representation of a number to its integer equivalent. Fails if the string cannot be parsed | 20 for Standard Library **version&nbsp;3**<br>2 for Standard Library **version&nbsp;4** |
 | toBytes(Boolean): ByteVector | Converts a boolean to an array of bytes | 1 |
 | toBytes(Int): ByteVector | Converts an integer to an array of bytes | 1 |
 | toBytes(String): ByteVector | Converts a string to an array of bytes | 1 for Standard Library **version&nbsp;3**<br>8 for Standard Library **version&nbsp;4** |
@@ -60,29 +60,29 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| getInteger(List[DataEntry], String): Int&#124;Unit | Gets an integer value from a list of data entires by key | 10 |
-| getInteger(List[DataEntry], Int): Int&#124;Unit | Gets an integer value from a list of data entires by index | 30 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>4 for Standard Library **version&nbsp;4** |
-| getIntegerValue(List[DataEntry], String): Int | Gets an integer value from a list of data entires by key. Throws an exception if there is no data | 10 |
-| getIntegerValue(List[DataEntry], Int): Int | Gets an integer value from a list of data entires by index. Throws an exception if there is no data | 30 for Standard Library **version&nbsp;3**<br>4 for Standard Library **version&nbsp;4** |
-| getBoolean(List[DataEntry], String): Boolean&#124;Unit | Gets a boolean value from a list of data entires by key | 10 |
-| getBoolean(List[DataEntry], Int): Boolean&#124;Unit | Gets a boolean value from a list of data entires by index | 30 for Standard Library **version&nbsp;3**<br>4 for Standard Library **version&nbsp;4** |
-| getBooleanValue(List[DataEntry], String): Boolean | Gets a boolean value from a list of data entires by key. Throws an exception if there is no data | 10 |
-| getBooleanValue(List[DataEntry], Int): Boolean | Gets a boolean value from a list of data entires by index. Throws an exception if there is no data | 30 for Standard Library **version&nbsp;3**<br>4 for Standard Library **version&nbsp;4** |
-| getBinary(List[DataEntry], String): ByteVector&#124;Unit | Gets a binary value from a list of data entires by key | 10 |
-| getBinary(List[DataEntry], Int): ByteVector&#124;Unit | Gets a binary value from a list of data entires by index | 30 for Standard Library **version&nbsp;3**<br>4 for Standard Library **version&nbsp;4** |
-| getBinaryValue(List[DataEntry], String): ByteVector | Gets a binary value from a list of data entires by key. Throws an exception if there is no data | 10 |
-| getBinaryValue(List[DataEntry], Int): ByteVector | Gets a binary value from a list of data entires by index. Throws an exception if there is no data | 30 for Standard Library **version&nbsp;3**<br>4 for Standard Library **version&nbsp;4** |
-| getString(List[DataEntry] String): String&#124;Unit | Gets a string value from a list of data entires by key | 10 |
-| getString(List[DataEntry], Int): String&#124;Unit | Gets a string value from a list of data entires by index | 30 for Standard Library **version&nbsp;3**<br>4 for Standard Library **version&nbsp;4** |
-| getStringValue(List[DataEntry], String): String | Gets a string value from a list of data entires by key. Throws an exception if there is no data | 10 |
-| getStringValue(List[DataEntry], Int): String | Gets a string value from a list of data entires by index. Throws an exception if there is no data | 30 for Standard Library **version&nbsp;3**<br>4 for Standard Library **version&nbsp;4** |
+| getInteger(List[], String): Int&#124;Unit | Gets an integer value from a list of data entires by key | 10 |
+| getInteger(List[], Int): Int&#124;Unit | Gets an integer value from a list of data entires by index | 30 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>4 for Standard Library **version&nbsp;4** |
+| getIntegerValue(List[], String): Int | Gets an integer value from a list of data entires by key. Fails if there is no data | 10 |
+| getIntegerValue(List[], Int): Int | Gets an integer value from a list of data entires by index. Fails if there is no data | 30 for Standard Library **version&nbsp;3**<br>4 for Standard Library **version&nbsp;4** |
+| getBoolean(List[], String): Boolean&#124;Unit | Gets a boolean value from a list of data entires by key | 10 |
+| getBoolean(List[], Int): Boolean&#124;Unit | Gets a boolean value from a list of data entires by index | 30 for Standard Library **version&nbsp;3**<br>4 for Standard Library **version&nbsp;4** |
+| getBooleanValue(List[], String): Boolean | Gets a boolean value from a list of data entires by key. Fails if there is no data | 10 |
+| getBooleanValue(List[], Int): Boolean | Gets a boolean value from a list of data entires by index. Fails if there is no data | 30 for Standard Library **version&nbsp;3**<br>4 for Standard Library **version&nbsp;4** |
+| getBinary(List[], String): ByteVector&#124;Unit | Gets a binary value from a list of data entires by key | 10 |
+| getBinary(List[], Int): ByteVector&#124;Unit | Gets a binary value from a list of data entires by index | 30 for Standard Library **version&nbsp;3**<br>4 for Standard Library **version&nbsp;4** |
+| getBinaryValue(List[], String): ByteVector | Gets a binary value from a list of data entires by key. Fails if there is no data | 10 |
+| getBinaryValue(List[], Int): ByteVector | Gets a binary value from a list of data entires by index. Fails if there is no data | 30 for Standard Library **version&nbsp;3**<br>4 for Standard Library **version&nbsp;4** |
+| getString(List[] String): String&#124;Unit | Gets a string value from a list of data entires by key | 10 |
+| getString(List[], Int): String&#124;Unit | Gets a string value from a list of data entires by index | 30 for Standard Library **version&nbsp;3**<br>4 for Standard Library **version&nbsp;4** |
+| getStringValue(List[], String): String | Gets a string value from a list of data entires by key. Fails if there is no data | 10 |
+| getStringValue(List[], Int): String | Gets a string value from a list of data entires by index. Fails if there is no data | 30 for Standard Library **version&nbsp;3**<br>4 for Standard Library **version&nbsp;4** |
 
 ## [Decoding functions](/en/ride/functions/built-in-functions/decoding-functions)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | addressFromString(String): Address&#124;Unit | Decodes address from [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) string | 124 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>1 for Standard Library **version&nbsp;4** |
-| addressFromStringValue(String): Address | Decodes address from base58 string. Raises an exception if the address cannot be decoded | 124 for Standard Library **version&nbsp;3**<br>1 for Standard Library **version&nbsp;4** |
+| addressFromStringValue(String): Address | Decodes address from base58 string. Fails if the address cannot be decoded | 124 for Standard Library **version&nbsp;3**<br>1 for Standard Library **version&nbsp;4** |
 | fromBase16String(String): ByteVector | Decodes [base16](https://en.wikipedia.org/wiki/Hexadecimal) string to an array of bytes | 10 |
 | fromBase58String(String): ByteVector | Decodes [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) string to an array of bytes | 10 for Standard Library **version&nbsp;3**<br>1 for Standard Library **version&nbsp;4** |
 | fromBase64String(String): ByteVector | Decodes [base64](https://en.wikipedia.org/wiki/Base64) string to an array of bytes | 10 for Standard Library **version&nbsp;3**<br>40 for Standard Library **version&nbsp;4** |
@@ -124,7 +124,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | removeByIndex(list: List[T], index: Int): List[T] | Removes an element from the list by index | 7 |
 | size(List[T]): Int | Returns the size of the list | 2 |
 
-`T` is a short designation for `Boolean|ByteVector|Int|String`.
+`T` means any valid type.
 
 ## [Math functions](/en/ride/functions/built-in-functions/math-functions)
 
