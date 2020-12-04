@@ -98,7 +98,7 @@ A **built-in variable** is a [variable](/en/ride/variables/) of the [Standard li
   <tr>
     <td>10</td>
     <td>unit</td>
-    <td>Variable that contains an object of <a href="/en/ride/data-types/unit">Unit</a> type.<br><b>Example 1</b><br> the <code>deposit</code> function transfers 5 <a href="/en/blockchain/token/wavelet">WAVELETs</a> to the account, that <a href="/en/ride/functions/callable-function">called</a> this function.
+    <td>Variable that contains an object of <a href="/en/ride/data-types/unit">Unit</a> type.<br><b>Example 1</b><br> the <code>deposit</code> function transfers 5 <a href="/en/blockchain/token/waves">WAVELETs</a> to the account, that <a href="/en/ride/functions/callable-function">called</a> this function.
 
 <pre>
 <code class=“lang-ride”>

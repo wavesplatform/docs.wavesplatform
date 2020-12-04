@@ -8,7 +8,7 @@
 | [String](/en/ride/data-types/string) | String |
 | [Empty value](/en/ride/data-types/unit) | Unit |
 | [List](/en/ride/data-types/list) | List |
-| [Tuple](/en/ride/data-types/tuple) | Tuple |
+| [Tuple](/en/ride/data-types/tuple) | — |
 | [Union](/en/ride/data-types/union) | — |
 | [Structure](/en/ride/structures/) | — |
 

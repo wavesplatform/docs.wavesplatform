@@ -1,59 +1,56 @@
 # Account
 
-An **account** is a [cryptographically bound](https://en.wikipedia.org/wiki/Public-key_cryptography) pair of a public and a private keys on the [blockchain](/en/blockchain/blockchain/).
+Waves uses an account-based model:
+* Each [transaction](/en/blockchain/transaction/) is created on behalf of a certain account.
+* All the [tokens](/en/blockchain/token/) belong to certain accounts. For details, see the [Account Balance](/en/blockchain/account/account-balance) article.
+* All data are associated with accounts. For details, see the [Account Data Storage](/en/blockchain/account/account-data-storage) article.
 
-Accounts unambiguously correlate [transactions](/en/blockchain/transaction/) and [orders](/en/ride/structures/common-structures/order) with their senders.
+## Account Keys
 
-## Account public and private keys
+Unlike centralized applications, users do not have usernames and passwords on the blockchain. User identification and validation of their actions are performed using a cryptographically bound key pair:
 
-Private and public keys have the same size — 32 bytes. The bytes of the keys are converted to a [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) character string; in this form, the keys are displayed in the interfaces of programs.
+* The private key is used to sign transactions or orders.
+* The public key allows to verify the digital signature.
 
-Example of a public key in Base58:
+Each transaction contains the public key of the sender account. The sender generates a digital signature of the transaction using the account's private key. The signature and the sender's public key are used to verify the authenticity of the transaction data and to check that the signature of the transaction matches the public key.
 
-```
-BRzAFccE3BeAn8rf7Mf56LoqUdT5xExbMUEgV7wGsiKx
-```
+![](./_assets/keys.png)
 
-Example of a private key in Base58:
+Waves uses an asymmetric cryptographic system based on the elliptic curve Curve25519-ED25519 with X25519 keys. 
+The guideline for generating keys and signatures is given in the [Cryptographic practical details](/en/blockchain/waves-protocol/cryptographic-practical-details#signing) article.
 
-```
-9g5fFTwrLz9FEbgsE3ujfXPj92h5F4HDK6ew5LXh1ViZ
-```
+The private and public keys are 32 byte arrays. In UIs, the keys are displayed as [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) encoded strings. Base58-encoded keys can be of different length, the maximum length is 44 characters.
 
-An **account owner** is an owner of both account keys at the same time: both public and private.
-
-## Transaction digital signature
-
-_All_ transactions have a _single_ sender; the only exception is [genesis transactions](/en/blockchain/transaction-type/genesis-transaction) — they do not have a sender.
-
-A transaction contains the sender's _public key_. Before sending the transaction, the sender signs it with his _private key_. The account that signed the transaction is called the **transaction sender**. The signature that results from signing the transaction is called the **transaction digital signature**. If account Y is the sender of the transaction, it is said that the **transaction was sent from account Y**.
-
-The transaction is sent to the [blockchain network](/en/blockchain/blockchain-network/) along with its digital signature. The digital signature and the sender's public key are used to verify the authenticity of the transaction data.
-
-## Account balance
-
-An account may store different [tokens](/en/blockchain/token/) in different amounts. The amount of the token on the account is called the [account balance](/en/blockchain/account/account-balance) in this token.
-
-## Account address
-
-Each account has a _single_ [address](/en/blockchain/account/address).
-
-Example of address in base58:
+Example private key in base58:
 
 ```
-3MsoC9tFzt4jcfHvmv4DBCap2ttokY5Ve9S
+6yCStrsBs4VgTmYcSgF37pmQhCo6t9LZk5bQqUyUNSAs
 ```
 
-When transferring a token from one account to another, instead of using the public key of the recipient, its [address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) is used.
+Example public key in base58:
 
-## Scripted account
+```
+5cqzmxsmFPBHm4tb7D8DMA7s5eutLXTDnnNMQKy2AYxh
+```
 
-Using the [set script transaction](/en/blockchain/transaction-type/set-script-transaction) you can attach a [script](/en/ride/script/) to the account. An account with a script attached to it is called a **scripted account**. An account without a script is called a **simple account**.
+## Secret (Seed) Phrase
 
-There are two types of scripts that can be attached to an account: an [account script](/en/ride/script/script-types/account-script) and a [dApp script](/en/ride/script/script-types/dapp-script). The account to which an account script is attached is called a [smart account](/en/blockchain/account/smart-account). An account with dApp script attached to it is called a [dApp](/en/blockchain/account/dapp).
+The private key can be generated from some random seed phrase using hashing functions. The public key is obtained from the private key using an elliptic curve multiplication. Account [address](/en/blockchain/account/address) is obtained from the public key. All these transformations are unidirectional. The opposite direction is almost impossible in terms of the required computations.
 
-## Account data storage
+![](./_assets/keys-way.png)
 
-Each account has an [account data storage](/en/blockchain/account/account-data-storage) that stores data records in key-value format.
+The **secret phrase** (a.k.a. seed phrase, backup phrase) can be any combination of symbols, words, or bytes. Waves wallet apps typically use a random set of 15 English words out of 2048 words available. Using such a phrase is secure: the probability of generating two identical seed phrases is 1/2048<sup>15</sup>, so brute-force will take millions of years on an average CPU. The point of using a secret phrase (rather than a private key) is to simplify user experience: the secret phrase is much easier to write down or remember.
 
-The account data storage serves as a database for the information that is associated with the account.
+Example of a secret phrase:
+
+```
+body key praise enter toss road cup result shrimp bus blame typical sphere pottery claim
+```
+
+:warning: **Security Information**
+* The secret phrase or the private key derived from it provides complete control over the account, including the ability to dispose of funds. Do not give your secret phrase and private key to anyone, and do not publish or send them.
+* The secret phrase cannot be changed: another secret phrase (even one that differs by a single character) will generate a different key pair, and therefore a different account.
+* If you lose your secret phrase and private key, you will no longer be able to access your account permanently. We strongly encourage you to write down the secret phrase on a piece of paper and store it in a safe place.
+* If the secret phrase is compromised (you have accidentally sent it to someone or suspect that it was taken by fraudsters), immediately create a new account and transfer all assets to it.
+
+For ways to generate account keys, see the [How to Create Account / Waves Wallet](/en/blockchain/account/create) article.

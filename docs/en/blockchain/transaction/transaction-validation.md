@@ -22,7 +22,7 @@ The following checks are performed:
 
    • Check of fields depending on the transaction type.
 
-2. The sender's signature verification for ordinary account (without script), or account script execution if the sender is [smart account](/en/blockchain/account/smart-account), or the [verifier function](/en/ride/functions/verifier-function) execution if the sender is [dApp](/en/blockchain/account/dapp). A similar check is performed for orders in an Exchange transaction.
+2. The sender's signature verification for ordinary account (without script), or account script execution if the sender is [smart account](/en/blockchain/account/dapp), or the [verifier function](/en/ride/functions/verifier-function) execution if the sender is [dApp](/en/blockchain/account/dapp). A similar check is performed for orders in an Exchange transaction.
 
 3. Execution of asset scripts if the transaction uses [smart assets](/en/blockchain/token/smart-asset), except scripts of assets used in [dApp script actions](/en/ride/structures/script-actions/) that are executed in step 5.
 4. Sender's balance check.
@@ -62,7 +62,7 @@ The following checks are performed:
 
    Depending on the type of transaction, the sender should have enough asset for transfer or exchange or for payments attached to the Invoke Script transaction.
 
-3. The sender's signature verification for ordinary account (without script), or account script execution if the sender is [smart account](/en/blockchain/account/smart-account), or the [verifier function](/en/ride/functions/verifier-function) execution if the sender is [dApp](/en/blockchain/account/dapp). A similar check is performed for orders in an Exchange transaction.
+3. The sender's signature verification for ordinary account (without script), or account script execution if the sender is [smart account](/en/blockchain/account/dapp), or the [verifier function](/en/ride/functions/verifier-function) execution if the sender is [dApp](/en/blockchain/account/dapp). A similar check is performed for orders in an Exchange transaction.
 4. For the Invoke Script transaction:
 
    4.1. Calculation of the result of dApp callable function.

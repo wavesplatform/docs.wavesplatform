@@ -66,6 +66,22 @@ module.exports = [
     to: '/ru/blockchain/glossary#к',
   },
   {
+    from: '/en/blockchain/mining/miner',
+    to: '/en/blockchain/node/mining-node',
+  },
+  {
+    from: '/ru/blockchain/mining/miner',
+    to: '/ru/blockchain/node/mining-node',
+  },
+  {
+    from: '/en/blockchain/mining/mining-account',
+    to: '/en/blockchain/node/mining-node',
+  },
+  {
+    from: '/ru/blockchain/mining/mining-account',
+    to: '/ru/blockchain/node/mining-node',
+  },
+  {
     to: '/en/blockchain/transaction/transaction-validation',
     from: '/en/blockchain/transaction-validation.html',
   },
@@ -90,12 +106,20 @@ module.exports = [
     from: '/ru/blockchain/dapp',
   },
   {
-    to: '/en/blockchain/account/smart-account',
+    to: '/en/blockchain/account/dapp',
     from: '/en/blockchain/smart-account.html',
   },
   {
-    to: '/ru/blockchain/account/smart-account',
+    to: '/en/blockchain/account/dapp',
+    from: '/en/blockchain/account/smart-account',
+  },
+  {
+    to: '/ru/blockchain/account/dapp',
     from: '/ru/blockchain/smart-account.html',
+  },
+  {
+    to: '/ru/blockchain/account/dapp',
+    from: '/ru/blockchain/account/smart-account',
   },
   {
     to: '/en/blockchain/token/smart-asset',
@@ -284,6 +308,11 @@ module.exports = [
   {
     to: '/en/blockchain/transaction-type/data-transaction',
     from: '/en/technical-details/data-transaction.html',
+  },
+  {
+    /* link found on github */
+    from: "/en/technical-details/sponsored-fee.html",
+    to: "/en/blockchain/waves-protocol/sponsored-fee",
   },
   {
     /* link found in blog */
@@ -621,8 +650,12 @@ module.exports = [
     from: '/en/technical-details/waves-contracts-language-description/language-description.html',
   },
   {
-    to: '/en/ride',
+    to: '/en/ride/script/standard-library',
     from:'/en/technical-details/waves-contracts-language-description/standard-library.html',
+  },
+  {
+    to: '/en/ride/script/standard-library',
+    from:'/en/smart-contracts/ride-language/standard-library.html',
   },
   {
     to: '/en/ride',
@@ -721,6 +754,10 @@ module.exports = [
     to: '/en/building-apps/smart-contracts/smart-assets',
     from: '/en/technical-details/smart-assets.html',
   },
+  { /* link found on medium */
+    from: '/en/smart-contracts/waves-contracts-language-description.html',
+    to: '/en/ride',
+  },
   {
     /*===============================  Node  =====================================*/
     to: '/en/waves-node',
@@ -755,14 +792,6 @@ module.exports = [
     from: '/en/waves-full-node/upgrading.html',
   },
   {
-    to: '/en/waves-node/node-api/example-transactions',
-    from: '/en/waves-api-and-sdk/waves-node-rest-api/example-transactions.html',
-  },
-  {
-    to: '/en/waves-node/node-api/example-transactions',
-    from: '/en/development-and-api/waves-node-rest-api/example-transactions.html',
-  },
-  {
     to: '/en/waves-node/options-for-getting-actual-blockchain',
     from: '/en/waves-full-node/options-for-getting-actual-blockchain.html',
   },
@@ -786,21 +815,111 @@ module.exports = [
     to: '/en/ecosystem/waves-explorer/account-balance-top-up-in-the-test-network',
     from: '/en/waves-explorer/account-balance-top-up-in-testnet.html',
   },
+
   {
-    to: '/en/waves-node/node-api/transactions',
+    /* Node REST API */
     from: '/en/waves-api-and-sdk/waves-node-rest-api/transactions.html',
+    to: '/en/waves-node/node-api/transactions',
   },
-  {  /* link found on github */
-    to: '/en/waves-node/node-api/utils',
+  {
     from: '/en/development-and-api/waves-node-rest-api/utils.html',
+    to: '/en/waves-node/node-api/',
   },
   {
-    to: '/en/waves-node/node-api',
     from: '/en/waves-api-and-sdk/waves-node-rest-api.html',
+    to: '/en/waves-node/node-api/',
   },
   {
-    to: '/en/waves-node/node-api/asset-transactions/public-functions',
     from: '/en/waves-api-and-sdk/waves-node-rest-api/asset-transactions/public-functions.html',
+    to: '/en/waves-node/node-api/',
+  },
+  {
+    from: '/en/waves-api-and-sdk/waves-node-rest-api/example-transactions.html',
+    to: '/en/waves-node/node-api/example-transactions',
+  },
+  {
+    from: '/en/development-and-api/waves-node-rest-api/example-transactions.html',
+    to: '/en/waves-node/node-api/example-transactions',
+  },
+  {
+    from: '/en/waves-node/node-api/feature-activation',
+    to: '/en/waves-node/node-api/',
+  },
+  {
+    from: '/ru/waves-node/node-api/feature-activation',
+    to: '/ru/waves-node/node-api/',
+  },
+  {
+    from: '/en/waves-node/node-api/address',
+    to: '/en/waves-node/node-api/',
+  },
+  {
+    from: '/ru/waves-node/node-api/address',
+    to: '/ru/waves-node/node-api/',
+  },
+  {
+    from: '/en/waves-node/node-api/alias-transactions',
+    to: '/en/waves-node/node-api/',
+  },
+  {
+    from: '/ru/waves-node/node-api/alias-transactions',
+    to: '/ru/waves-node/node-api/',
+  },
+  {
+    from: '/en/waves-node/node-api/asset-transactions',
+    to: '/en/waves-node/node-api/',
+  },
+  {
+    from: '/ru/waves-node/node-api/asset-transactions',
+    to: '/ru/waves-node/node-api/',
+  },
+  {
+    from: '/en/waves-node/node-api/asset-transactions/public-functions',
+    to: '/en/waves-node/node-api/',
+  },
+  {
+    from: '/ru/waves-node/node-api/asset-transactions/public-functions',
+    to: '/ru/waves-node/node-api/',
+  },
+  {
+    from: '/en/waves-node/node-api/asset-transactions/distribution-methods',
+    to: '/en/waves-node/node-api/pagination',
+  },
+  {
+    from: '/ru/waves-node/node-api/asset-transactions/distribution-methods',
+    to: '/ru/waves-node/node-api/pagination',
+  },
+  {
+    from: '/en/waves-node/node-api/blocks',
+    to: '/en/waves-node/node-api/',
+  },
+  {
+    from: '/ru/waves-node/node-api/blocks',
+    to: '/ru/waves-node/node-api/',
+  },
+  {
+    from: '/en/waves-node/node-api/lease-transactions',
+    to: '/en/waves-node/node-api/',
+  },
+  {
+    from: '/ru/waves-node/node-api/lease-transactions',
+    to: '/ru/waves-node/node-api/',
+  },
+  {
+    from: '/en/waves-node/node-api/peers',
+    to: '/en/waves-node/node-api/',
+  },
+  {
+    from: '/ru/waves-node/node-api/peers',
+    to: '/ru/waves-node/node-api/',
+  },
+  {
+    from: '/en/waves-node/node-api/utils',
+    to: '/en/waves-node/node-api/',
+  },
+  {
+    from: '/ru/waves-node/node-api/utils',
+    to: '/ru/waves-node/node-api/',
   },
   {
     to: '/en/waves-node/private-waves-network',
@@ -854,6 +973,10 @@ module.exports = [
   {
     to: '/en/building-apps/smart-contracts/tools/waves-ide',
     from: '/en/developer-tools/waves-ide.html',
+  },
+  { /* link found on medium */
+    to: '/en/building-apps/smart-contracts/tools/waves-ide',
+    from: '/en/technical-details/waves-contracts-language-description/waves-console-commands.html',
   },
   {
     to: '/en/building-apps/smart-contracts/tools/repl',
@@ -926,8 +1049,12 @@ module.exports = [
     from: '/en/miscellaneous/waves-protocol/fair-pos.html',
   },
   {
-    to: '/en/blockchain/waves-protocol/waves-ng-protocol',
     from: '/en/miscellaneous/waves-protocol/waves-ng-protocol.html',
+    to: '/en/blockchain/waves-protocol/waves-ng-protocol',
+  },
+  {
+    from: '/en/waves-environment/waves-protocol/waves-ng-protocol.html',
+    to: '/en/blockchain/waves-protocol/waves-ng-protocol',
   },
   {
     to: '/en/waves-node/activation-protocol',
@@ -1006,6 +1133,14 @@ module.exports = [
     from: '/en/smart-contracts/script-performance-tests.html',
     to: '/en/ride/script-performance-tests',
   },
+  { /* link found on habr */
+    from: '/en/smart-contracts/ride-language/script-performance-tests.html',
+    to: '/en/ride/script-performance-tests',
+  },
+  { /* link found on medium */
+    from: '/en/technical-details/waves-contracts-language-description/script-performance-tests.html',
+    to: '/en/ride/script-performance-tests',
+  },
   {
     from: '/en/smart-contracts/video-tutorials/introduction-to-the-waves-blockchain-waves-smart-accounts-and-waves-smart-assets.html',
     to: '/en/building-apps/smart-contracts/video-tutorials/introduction-waves-smart-accounts-assets',
@@ -1045,6 +1180,10 @@ module.exports = [
   {
     from: '/en/waves-api-and-sdk/client-libraries()',
     to: '/en/building-apps/waves-api-and-sdk/client-libraries$1',
+  },
+  {
+    from: '/en/development-and-api/client-libraries.html',
+    to: '/en/building-apps/waves-api-and-sdk/client-libraries',
   },
   {
     from: '/en/waves-api-and-sdk/examples',
@@ -1158,6 +1297,10 @@ module.exports = [
     /*===============================  Oracles  =====================================*/
     to: '/en/ecosystem/waves-oracles/about-waves-oracles',
     from: '/en/oracels-developments/what-is-a-data-oracle.html',
+  },
+  { /* link found on medium */
+    from: '/en/oracels-developments/oracle-protocols.html',
+    to: '/en/ecosystem/waves-oracles/about-waves-oracles',
   },
   {
     /*===============================  Resources  ===================================*/

@@ -19,6 +19,8 @@ Gets the corresponding [address](/en/blockchain/account/address) of the [alias](
 addressFromRecipient(AddressOrAlias: Address|Alias): Address
 ```
 
+For a description of the return value, see the [Address](/en/ride/structures/common-structures/address) article.
+
 ### Parameters
 
 | Parameter | Description |
@@ -33,7 +35,7 @@ let address =Address(base58'3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF')
 addressFromRecipient(address)
 ```
 
-## assetBalance
+## assetBalance<a id="asset-balance"></a>
 
 Gets account balance by token ID.
 
@@ -45,8 +47,8 @@ assetBalance(addressOrAlias: Address|Alias, assetId: ByteVector): Int
 
 | Parameter | Description |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
-| `assetId`: [ByteVector](/en/ride/data-types/byte-vector) | Token ID |
+| addressOrAlias: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| assetId: [ByteVector](/en/ride/data-types/byte-vector) | Token ID |
 
 ## assetInfo
 
@@ -56,11 +58,13 @@ Gets the information about a [token](/en/blockchain/token/).
 assetInfo(id: ByteVector): Аsset|Unit
 ```
 
+For a description of the return value, see the [Asset](/en/ride/structures/common-structures/asset) article.
+
 ### Parameters
 
 | Parameter | Description |
 | :--- | :--- |
-| `id`: ByteVector | ID of the [token](/en/blockchain/token/) |
+| `id`: [ByteVector](/en/ride/data-types/byte-vector) | ID of the [token](/en/blockchain/token/) |
 
 ### Example
 
@@ -73,7 +77,6 @@ let x = match assetInfo(bitcoinId) {
 }
 ```
 
-
 ## blockInfoByHeight
 
 Gets the information about a [block](/en/blockchain/block/) by the [block height](/en/blockchain/block/block-height).
@@ -82,11 +85,13 @@ Gets the information about a [block](/en/blockchain/block/) by the [block height
 blockInfoByHeight(height: Int): BlockInfo|Unit
 ```
 
+For a description of the return value, see the [BlockInfo](/en/ride/structures/common-structures/block-info) article.
+
 ### Parameters
 
 | Parameter | Description |
 | :--- | :--- |
-| `height`: Int | Block height |
+| `height`: [Int](/en/ride/data-types/int) | Block height |
 
 ### Example
 
@@ -112,7 +117,7 @@ calculateAssetId(issue: Issue): ByteVector
 
 | Parameter | Description |
 | :--- | :--- |
-| `issue`: Issue | The structure by which the asset is formed |
+| `issue`: [Issue](/en/ride/structures/script-actions/issue) | The structure by which the asset is formed |
 
 ### Example
 
@@ -152,7 +157,7 @@ transactionHeightById(id: ByteVector): Int|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `id`: ByteVector | ID of the transaction |
+| `id`: [ByteVector](/en/ride/data-types/byte-vector) | ID of the transaction |
 
 ### Example
 
@@ -172,11 +177,13 @@ Gets the data of a [transfer transaction](/en/blockchain/transaction-type/transf
 transferTransactionById(id: ByteVector): TransferTransaction|Unit
 ```
 
+For a description of the return value, see the [TransferTransaction](/en/ride/structures/transaction-structures/transfer-transaction) article.
+
 ### Parameters
 
 | Parameter | Description |
 | :--- | :--- |
-| `id`: ByteVector | ID of the transfer transaction |
+| `id`: [ByteVector](/en/ride/data-types/byte-vector) | ID of the transfer transaction |
 
 ### Example
 
@@ -189,7 +196,7 @@ let x = match transferTransactionById(transferId) {
 }
 ```
 
-## wavesBalance
+## wavesBalance<a id="waves-balance"></a>
 
 ### For Standard Library Version 3
 
@@ -213,4 +220,4 @@ For a description of the return value, see the [BalanceDetails](/en/ride/structu
 
 | Parameter | Description |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| addressOrAlias: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |

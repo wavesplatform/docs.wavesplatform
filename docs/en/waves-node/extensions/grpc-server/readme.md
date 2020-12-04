@@ -18,52 +18,142 @@ Example of usage of gRPC client generated from .proto files: [Retrieving blocks 
 
 ## gRPC Server Installation
 
-The [gRPC Server](/en/waves-node/extensions/grpc-server/) extension can be installed on the [node](/en/blockchain/node/) by two methods: using Deb package or ZIP file.
+The [gRPC Server](/en/waves-node/extensions/grpc-server/) extension can be installed on the [node](/en/blockchain/node/) by two methods: using DEB package or TGZ archive.
 
-### Installation via Deb Package
+### Installation via DEB Package
 
-1. Download deb package from the Releases page (Assets section) on [Github](https://github.com/wavesplatform/Waves/releases). For Mainnet it is grpc-server\_{version number}\_all.deb file, for Testnet it is grpc-server-testnet\_{version number}\_all.deb.
+1. Download the latest version of the DEB package from the [Releases](https://github.com/wavesplatform/Waves/releases) page (Assets section).
 
-2. Install the package using the command:
+   The extension package name is as follows:
+
+   • for Mainnet `grpc-server_{version number}_all.deb`
+
+   • for Testnet `grpc-server-testnet_{version number}_all.deb`
+
+   • for Stagenet `grpc-server-stagenet_{version number}_all.deb`
+
+2. Install the package.
+
+   Mainnet:
 
    ```bash
    sudo dpkg -i grpc-server_{version number}_all.deb
    ```
 
-3. Add the following string to the configuration file:
+   Testnet:
 
    ```bash
-   waves.extensions += com.wavesplatform.api.grpc.GRPCServerExtension
+   sudo dpkg -i grpc-server-testnet_{version number}_all.deb
    ```
 
-For the main network, the configuration file is located at `/etc/waves/waves.conf`, for the test network at `/etc/waves-testnet/waves.conf`.
+   Stagenet:
+
+   ```bash
+   sudo dpkg -i grpc-server-stagenet_{version number}_all.deb
+   ```
+
+3. Edit the node configuration file as described in the [Node Configuration](/en/waves-node/node-configuration) article. For Mainnet, the configuration file is located at `/etc/waves/waves.conf`, for Testnet at `/etc/waves-testnet/waves.conf`, for Stagenet at `/etc/waves-stagenet/waves.conf`.
+
+   3.1. Add gRPC Server to the `waves.extensions` section:
+
+   ```
+   waves {
+      ...
+      extensions = [
+         com.wavesplatform.events.GRPCServerExtension
+      ]
+   }
+   ```
+
+   3.2. If you want to change the port for client connection (default is 6870), add the following setting:
+
+   ```
+   waves {
+      ...
+      grpc {
+         port = 6877 # Specify port
+   }
+   ```
 
 4. Restart the node.
 
-If the node is running in the main network, run the command:
+   Mainnet:
 
    ```bash
    sudo systemctl restart waves
    ```
 
-If the node is running in the test network, run the command:
+   Testnet:
 
    ```bash
    sudo systemctl restart waves-testnet
    ```
 
-### Installation via ZIP File
+   Stagenet:
 
-1. Download grpc-server-{version number}.zip file from Releases page (Assets section) [on Github](https://github.com/wavesplatform/Waves/releases).
+   ```bash
+   sudo systemctl restart waves-testnet
+   ```
+
+### Installation via TGZ Archive
+
+1. Download the TGZ archive with the extension from the [Releases](https://github.com/wavesplatform/Waves/releases) page (Assets section) on Github.
+
+   The TGZ archive name is as follows:
+
+   • for Mainnet `grpc-server-{version number}.tgz`
+
+   • for Testnet `grpc-server-testnet-{version number}.tgz`
+
+   • for Stagenet `grpc-server-stagenet-{version number}.tgz`
+
 2. Unpack the archive to the directory containing node's JAR-file.
-3. Create a new configuration file or open the existing one and add to it the following string:
 
-   ```bash
-   waves.extensions += com.wavesplatform.api.grpc.GRPCServerExtension
+3. Create a new configuration file or open the existing one, see the [Node Configuration](/en/waves-node/node-configuration) article.
+   
+   3.1. Add gRPC Server to the `waves.extensions` section:
+
+   ```
+   waves {
+      ...
+      extensions = [
+         com.wavesplatform.events.GRPCServerExtension
+      ]
+   }
    ```
 
-4. Run command:
+   3.2. If you want to change the port for client connection (default is 6870), add the following setting:
+
+   ```
+   waves {
+      ...
+      grpc {
+         port = 6877 # Specify port
+   }
+   ```
+
+
+4. Run the command:
+
+   Mainnet
 
    ```bash
-   java -cp 'waves-all-1.0.0.jar:grpc-server-1.0.0/lib/*' com.wavesplatform.Application {configuration file name}.conf
+   java -cp 'waves-all-{version number}.jar:grpc-server-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
    ```
+
+   Testnet:
+
+   ```bash
+   java -cp 'waves-all-{version number}.jar:grpc-server-testnet-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
+   ```
+
+   Stagenet:
+
+   ```bash
+   java -cp 'waves-all-{version number}.jar:grpc-server-stagenet-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
+   ```
+
+   On Windows, use `;` instead of `:`, for example:
+
+   ```bash
+   java -cp 'waves-all-{version number}.jar;grpc-server-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf

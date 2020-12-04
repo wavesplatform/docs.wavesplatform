@@ -6,20 +6,20 @@
 | :--- | :--- | :--- |
 | [getBinary(Address&#124;Alias, String): ByteVector&#124;Unit](#get-binary) | Получает массив байтов по ключу | 100 для Стандартной библиотеки **версии 3**<br>10 для Стандартной библиотеки **версии 4 и 5** |
 | [getBinary(String): ByteVector&#124;Unit](#getbinary-string-bytevector-unit) | Получает массив байтов по ключу из собственного хранилища данных | 10 |
-| [getBinaryValue(Address&#124;Alias, String): ByteVector](#get-binary-value) | Получает массив байтов по ключу. Завершается ошибкой, если запись отсутствует | 100 для Стандартной библиотеки **версии 3**<br>10 для Стандартной библиотеки **версии 4 и 5** |
-| [getBinaryValue(String): ByteVector](#getbinaryvalue-string-bytevector) | Получает массив байтов по ключу из собственного хранилища данных. Завершается ошибкой, если запись отсутствует | 10 |
+| [getBinaryValue(Address&#124;Alias, String): ByteVector](#get-binary-value) | Получает массив байтов по ключу. Завершается ошибкой, если данных нет | 100 для Стандартной библиотеки **версии 3**<br>10 для Стандартной библиотеки **версии 4 и 5** |
+| [getBinaryValue(String): ByteVector](#getbinaryvalue-string-bytevector) | Получает массив байтов по ключу из собственного хранилища данных. Завершается ошибкой, если данных нет | 10 |
 | [getBoolean(Address&#124;Alias, String): Boolean&#124;Unit](#get-boolean)  | Получает логическое значение по ключу | 100 для Стандартной библиотеки **версии 3**<br>10 для Стандартной библиотеки **версии 4 и 5** |
 | [getBoolean(String): Boolean&#124;Unit](#getboolean-string-boolean-unit) | Получает логическое значение по ключу из собственного хранилища данных | 10 |
-| [getBooleanValue(Address&#124;Alias, String): Boolean](#get-boolean-value) | Получает логическое значение по ключу. Завершается ошибкой, если запись отсутствует | 100 для Стандартной библиотеки **версии 3**<br>10 для Стандартной библиотеки **версии 4 и 5** |
-| [getBooleanValue(String): Boolean](#getbooleanvalue-string-boolean) | Получает логическое значение по ключу из собственного хранилища данных. Завершается ошибкой, если запись отсутствует | 10 |
+| [getBooleanValue(Address&#124;Alias, String): Boolean](#get-boolean-value) | Получает логическое значение по ключу. Завершается ошибкой, если данных нет | 100 для Стандартной библиотеки **версии 3**<br>10 для Стандартной библиотеки **версии 4 и 5** |
+| [getBooleanValue(String): Boolean](#getbooleanvalue-string-boolean) | Получает логическое значение по ключу из собственного хранилища данных. Завершается ошибкой, если данных нет | 10 |
 | [getInteger(Address&#124;Alias, String): Int&#124;Unit](#get-integer) | Получает целое число по ключу | 100 для Стандартной библиотеки **версии 3**<br>10 для Стандартной библиотеки **версии 4 и 5** |
 | [getInteger(String): Int&#124;Unit](#getinteger-string-int-unit) | Получает целое число по ключу из собственного хранилища данных | 10 |
-| [getIntegerValue(Address&#124;Alias, String): Int](#get-integer-value)  | Получает целое число по ключу. Завершается ошибкой, если запись отсутствует | 100 для Стандартной библиотеки **версии 3**<br>10 для Стандартной библиотеки **версии 4 и 5** |
-| [getIntegerValue(String): Int](#getintegervalue-string-int)  | Получает целое число по ключу из собственного хранилища данных. Завершается ошибкой, если запись отсутствует | 10 |
+| [getIntegerValue(Address&#124;Alias, String): Int](#get-integer-value)  | Получает целое число по ключу. Завершается ошибкой, если данных нет | 100 для Стандартной библиотеки **версии 3**<br>10 для Стандартной библиотеки **версии 4 и 5** |
+| [getIntegerValue(String): Int](#getintegervalue-string-int)  | Получает целое число по ключу из собственного хранилища данных. Завершается ошибкой, если данных нет | 10 |
 | [getString(Address&#124;Alias, String): String&#124;Unit](#get-string)  | Получает строку по ключу | 100 для Стандартной библиотеки **версии 3**<br>10 для Стандартной библиотеки **версии 4 и 5** |
 | [getString(String): String&#124;Unit](#get-string)  | Получает строку по ключу из собственного хранилища данных | 10 |
-| [getStringValue(Address&#124;Alias, String): String](#get-string-value)  | Получает строку по ключу. Завершается ошибкой, если запись отсутствует | 100 для Стандартной библиотеки **версии 3**<br>10 для Стандартной библиотеки **версии 4 и 5** |
-| [getStringValue(String): String](#get-string-value)  | Получает строку по ключу из собственного хранилища данных. Завершается ошибкой, если запись отсутствует | 10 |
+| [getStringValue(Address&#124;Alias, String): String](#get-string-value)  | Получает строку по ключу. Завершается ошибкой, если данных нет | 100 для Стандартной библиотеки **версии 3**<br>10 для Стандартной библиотеки **версии 4 и 5** |
+| [getStringValue(String): String](#get-string-value)  | Получает строку по ключу из собственного хранилища данных. Завершается ошибкой, если данных нет | 10 |
 
 ## getBinary(Address|Alias, String): ByteVector|Unit <a id="get-binary"></a>
 
@@ -54,7 +54,7 @@ getBinary(key: String): ByteVector|Unit
 
 ## getBinaryValue(Address|Alias, String): ByteVector
 
-Получает массив байтов по ключу. Завершается ошибкой, если запись отсутствует.
+Получает массив байтов по ключу. Завершается ошибкой, если данных нет.
 
 ``` ride
 getBinaryValue(addressOrAlias: Address|Alias, key: String): ByteVector
@@ -69,7 +69,7 @@ getBinaryValue(addressOrAlias: Address|Alias, key: String): ByteVector
 
 ## getBinaryValue(String): ByteVector
 
-Получает массив байтов по ключу из собственного хранилища данных аккаунта, к которому прикреплен скрипт. Завершается ошибкой, если запись отсутствует.
+Получает массив байтов по ключу из собственного хранилища данных аккаунта, к которому прикреплен скрипт. Завершается ошибкой, если данных нет.
 
 > :warning: Функция добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 5**, которая в настоящее время доступна только на Stagenet.
 
@@ -116,7 +116,7 @@ getBoolean(key: String): Boolean|Unit
 
 ## getBooleanValue(Address|Alias, String): Boolean <a id="get-boolean-value"></a>
 
-Получает логическое значение по ключу. Завершается ошибкой, если запись отсутствует.
+Получает логическое значение по ключу. Завершается ошибкой, если данных нет.
 
 ``` ride
 getBooleanValue(addressOrAlias: Address|Alias, key: String): Boolean
@@ -131,7 +131,7 @@ getBooleanValue(addressOrAlias: Address|Alias, key: String): Boolean
 
 ## getBooleanValue(String): Boolean
 
-Получает логическое значение по ключу из собственного хранилища данных аккаунта, к которому прикреплен скрипт. Завершается ошибкой, если запись отсутствует.
+Получает логическое значение по ключу из собственного хранилища данных аккаунта, к которому прикреплен скрипт. Завершается ошибкой, если данных нет.
 
 > :warning: Функция добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 5**, которая в настоящее время доступна только на Stagenet.
 
@@ -178,7 +178,7 @@ getInteger(key: String): Int|Unit
 
 ## getIntegerValue(Address|Alias, String): Int <a id="get-integer-value"></a>
 
-Получает целое число по ключу. Завершается ошибкой, если запись отсутствует.
+Получает целое число по ключу. Завершается ошибкой, если данных нет.
 
 ``` ride
 getIntegerValue(addressOrAlias: Address|Alias, key: String): Int
@@ -193,7 +193,7 @@ getIntegerValue(addressOrAlias: Address|Alias, key: String): Int
 
 ## getIntegerValue(String): Int
 
-Получает массив байтов по ключу из собственного хранилища данных аккаунта, к которому прикреплен скрипт. Завершается ошибкой, если запись отсутствует.
+Получает массив байтов по ключу из собственного хранилища данных аккаунта, к которому прикреплен скрипт. Завершается ошибкой, если данных нет.
 
 > :warning: Функция добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 5**, которая в настоящее время доступна только на Stagenet.
 
@@ -240,7 +240,7 @@ getString(key: String): String|Unit
 
 ## getStringValue(Address|Alias, String): String <a id="get-string-value"></a>
 
-Получает строку по ключу. Завершается ошибкой, если запись отсутствует.
+Получает строку по ключу. Завершается ошибкой, если данных нет.
 
 ``` ride
 getStringValue(addressOrAlias: Address|Alias, key: String): String
@@ -255,7 +255,7 @@ getStringValue(addressOrAlias: Address|Alias, key: String): String
 
 ## getStringValue(String): String
 
-Получает строку по ключу из собственного хранилища данных аккаунта, к которому прикреплен скрипт. Завершается ошибкой, если запись отсутствует.
+Получает строку по ключу из собственного хранилища данных аккаунта, к которому прикреплен скрипт. Завершается ошибкой, если данных нет.
 
 > :warning: Функция добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 5**, которая в настоящее время доступна только на Stagenet.
 

@@ -8,7 +8,7 @@ A function can be [annotated](/en/ride/functions/annotations).
 
 There are many [built-in functions](/en/ride/functions/built-in-functions/).
 
-When declaring a function to the right of the "=" sign must be an [expression](/en/ride/base-concepts/expression). The value of the function is the [expression result](/en/ride/base-concepts/expression#expression-result).
+When declaring a function to the right of the "=" sign must be an [expression](/en/ride/base-concepts/expression). The value of the function is the expression result.
 
 ## Examples
 

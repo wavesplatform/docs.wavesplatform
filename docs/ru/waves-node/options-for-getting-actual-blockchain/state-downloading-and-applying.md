@@ -18,20 +18,18 @@
 
 2. Проверьте контрольную сумму с помощью любого подходящего инструмента. Контрольная сумма файла `blockchain_last.tar` должна совпадать с указанной в файле `blockchain_last.tar.SHA1SUM`.
 
-3. Удалите содержимое папки `data`.
+3. Удалите содержимое существующей папки `data`. По умолчанию данные блокчейна хранятся в папке `data`, которая находится в [основной папке приложения](/ru/waves-node/node-configuration#каталог-приложения-по-умолчанию).
 
    <details>
-     <summary>Linux</summary>
+     <summary>консольная команда для Linux</summary>
   
      ```sudo rm -rdf /var/lib/waves/data```.
    </details>
 
-   По умолчанию папка `data` находится в [основной папке приложения](/ru/waves-node/node-configuration#каталог-приложения-по-умолчанию).
-
-4. Распакуйте файлы из архива базы данных в папку `data`.
+4. Распакуйте файлы из загруженного архива базы данных (**blockchain_last.tar**) в папку `data`.
 
    <details>
-     <summary>Linux</summary>
+     <summary>консольная команда для Linux</summary>
   
      ```tar -xvf blockchain_last.tar -C /var/lib/waves/data```
    </details>

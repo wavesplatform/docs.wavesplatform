@@ -70,27 +70,27 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | :--- | :--- | :--- |
 | getInteger(List[DataEntry], String): Int&#124;Unit | Gets an integer value from a list of data entires by key | 10 |
 | getInteger(List[DataEntry], Int): Int&#124;Unit | Gets an integer value from a list of data entires by index | 30 for [Standard library](/en/ride/script/standard-library) **version&nbsp;3**<br>4 for Standard library **version&nbsp;4** |
-| getIntegerValue(List[DataEntry], String): Int | Gets an integer value from a list of data entires by key. Throws an exception if there is no data | 10 |
-| getIntegerValue(List[DataEntry], Int): Int | Gets an integer value from a list of data entires by index. Throws an exception if there is no data | 30 for Standard library **version&nbsp;3**<br>4 for Standard library **version&nbsp;4** |
+| getIntegerValue(List[DataEntry], String): Int | Gets an integer value from a list of data entires by key. Fails if there is no data | 10 |
+| getIntegerValue(List[DataEntry], Int): Int | Gets an integer value from a list of data entires by index. Fails if there is no data | 30 for Standard library **version&nbsp;3**<br>4 for Standard library **version&nbsp;4** |
 | getBoolean(List[DataEntry], String): Boolean&#124;Unit | Gets a boolean value from a list of data entires by key | 10 |
 | getBoolean(List[DataEntry], Int): Boolean&#124;Unit | Gets a boolean value from a list of data entires by index | 30 for Standard library **version&nbsp;3**<br>4 for Standard library **version&nbsp;4** |
-| getBooleanValue(List[DataEntry], String): Boolean | Gets a boolean value from a list of data entires by key. Throws an exception if there is no data | 10 |
-| getBooleanValue(List[DataEntry], Int): Boolean | Gets a boolean value from a list of data entires by index. Throws an exception if there is no data | 30 for Standard library **version&nbsp;3**<br>4 for Standard library **version&nbsp;4** |
+| getBooleanValue(List[DataEntry], String): Boolean | Gets a boolean value from a list of data entires by key. Fails if there is no data | 10 |
+| getBooleanValue(List[DataEntry], Int): Boolean | Gets a boolean value from a list of data entires by index. Fails if there is no data | 30 for Standard library **version&nbsp;3**<br>4 for Standard library **version&nbsp;4** |
 | getBinary(List[DataEntry], String): ByteVector&#124;Unit | Gets a binary value from a list of data entires by key | 10 |
 | getBinary(List[DataEntry], Int): ByteVector&#124;Unit | Gets a binary value from a list of data entires by index | 30 for Standard library **version&nbsp;3**<br>4 for Standard library **version&nbsp;4** |
-| getBinaryValue(List[DataEntry], String): ByteVector | Gets a binary value from a list of data entires by key. Throws an exception if there is no data | 10 |
-| getBinaryValue(List[DataEntry], Int): ByteVector | Gets a binary value from a list of data entires by index. Throws an exception if there is no data | 30 for Standard library **version&nbsp;3**<br>4 for Standard library **version&nbsp;4** |
+| getBinaryValue(List[DataEntry], String): ByteVector | Gets a binary value from a list of data entires by key. Fails if there is no data | 10 |
+| getBinaryValue(List[DataEntry], Int): ByteVector | Gets a binary value from a list of data entires by index. Fails if there is no data | 30 for Standard library **version&nbsp;3**<br>4 for Standard library **version&nbsp;4** |
 | getString(List[DataEntry] String): String&#124;Unit | Gets a string value from a list of data entires by key | 10 |
 | getString(List[DataEntry], Int): String&#124;Unit | Gets a string value from a list of data entires by index | 30 for Standard library **version&nbsp;3**<br>4 for Standard library **version&nbsp;4** |
-| getStringValue(List[DataEntry], String): String | Gets a string value from a list of data entires by key. Throws an exception if there is no data | 10 |
-| getStringValue(List[DataEntry], Int): String | Gets a string value from a list of data entires by index. Throws an exception if there is no data | 30 for Standard library **version&nbsp;3**<br>4 for Standard library **version&nbsp;4** |
+| getStringValue(List[DataEntry], String): String | Gets a string value from a list of data entires by key. Fails if there is no data | 10 |
+| getStringValue(List[DataEntry], Int): String | Gets a string value from a list of data entires by index. Fails if there is no data | 30 for Standard library **version&nbsp;3**<br>4 for Standard library **version&nbsp;4** |
 
 ## [Decoding functions](/en/ride/functions/built-in-functions/decoding-functions)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| addressFromString(String): Address&#124;Unit | Decodes address from [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) string | 124 for [Standard library](/en/ride/script/standard-library) **version&nbsp;3**<br>1 for Standard library **version&nbsp;4** |
-| addressFromStringValue(String): Address | Decodes address from base58 string. Raises an exception if the address cannot be decoded | 124 for Standard library **version&nbsp;3**<br>1 for Standard library **version&nbsp;4** |
+| addressFromString(String): Address&#124;Unit | Decodes address from [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) string | 124 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>1 for Standard Library **version&nbsp;4** |
+| addressFromStringValue(String): Address | Decodes address from base58 string. Fails if the address cannot be decoded | 124 for Standard Library **version&nbsp;3**<br>1 for Standard Library **version&nbsp;4** |
 | fromBase16String(String): ByteVector | Decodes [base16](https://en.wikipedia.org/wiki/Hexadecimal) string to an array of bytes | 10 |
 | fromBase58String(String): ByteVector | Decodes [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) string to an array of bytes | 10 for Standard library **version&nbsp;3**<br>1 for Standard library **version&nbsp;4** |
 | fromBase64String(String): ByteVector | Decodes [base64](https://en.wikipedia.org/wiki/Base64) string to an array of bytes | 10 for Standard library **version&nbsp;3**<br>40 for Standard library **version&nbsp;4** |
@@ -132,7 +132,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | removeByIndex(list: List[T], index: Int): List[T] | Removes an element from the list by index | 7 |
 | size(List[T]): Int | Returns the size of the list | 2 |
 
-`T` is a short designation for `Boolean|ByteVector|Int|String`.
+`T` means any valid type.
 
 ## [Math functions](/en/ride/functions/built-in-functions/math-functions)
 

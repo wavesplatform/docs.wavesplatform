@@ -4,7 +4,7 @@
 
 Waves blochchain is designed and built from the ground up for speed and scale. At the same time Waves is one of the most developer-friendly ecosystems. Waves blockchain exposes its functionality through a powerful REST API, that can be used with any programming language.
 
-In this example, we will use python wrapper for the Waves Node API and Matcher API — [PyWaves](https://github.com/PyWaves/PyWaves) library, but there are other options for [different programming languages as well](/en/building-apps/waves-api-and-sdk/client-libraries/), e.g. [WavesCS for C#](https://github.com/wavesplatform/WavesCS), [WavesJ for Java](https://github.com/wavesplatform/WavesJ) etc.
+In this example, we will use python wrapper for the Waves Node API and Matcher API — [PyWaves](https://github.com/PyWaves/PyWaves) library, but there are other options for [different programming languages as well](/en/building-apps/waves-api-and-sdk/client-libraries/), e.g. [WavesCS for C#](https://github.com/wavesplatform/WavesCS) etc.
 
 Pywaves is an object-oriented Python interface to the Waves blockchain which will help us to reduce the code complexity while maintaining its structure. Anything you learn using this library can be applied with pure HTTP API calls.
 
@@ -24,7 +24,7 @@ Node REST API allows working with Waves blockchain like with many other centrali
 
 ## Trading strategy
 
-[Scalping trading strategy](https://www.investopedia.com/articles/trading/05/scalping.asp) widely used in trading, and crypto community is not an exception. There are a lot of variations of the strategy, the main difference between them is in size of timeframe. The strategy exploits small changes in currency prices: it buys at the mean price minus some [price step](https://www.asx.com.au/services/trading-services/price.htm) and sells at the mean price plus some step, in order to gain the bid/ask difference. It normally involves establishing and liquidating a position quickly, in this case within 15 seconds. The bid and ask are the best potential prices that buyers and sellers are willing to transact at the bid for the buying side, and the ask for the selling side.
+[Scalping trading strategy](https://www.investopedia.com/articles/trading/05/scalping.asp) widely used in trading, and crypto community is not an exception. There are a lot of variations of the strategy, the main difference between them is in size of timeframe. The strategy exploits small changes in currency prices: it buys at the mean price minus some [price step](https://www2.asx.com.au/markets/trade-our-cash-market/asx-equities-trading.html) and sells at the mean price plus some step, in order to gain the bid/ask difference. It normally involves establishing and liquidating a position quickly, in this case within 15 seconds. The bid and ask are the best potential prices that buyers and sellers are willing to transact at the bid for the buying side, and the ask for the selling side.
 
 It's not suggested to use scalping strategy. The scalping strategy was chosen because of its simplicity to implement it in a bot.
 

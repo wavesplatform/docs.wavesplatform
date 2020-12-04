@@ -65,24 +65,24 @@ message Amount {
 
 ## Версия 3 <a id="v3"></a>
 
-| Порядковый номер поля | Название поля | Название JSON-поля | Тип поля | Размер поля в байтах | Описание поля |
+| Порядковый номер поля | Название поля | Название JSON-поля | Тип поля | Размер поля в байтах | Значение |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Номер версии бинарного формата [ордера](/ru/blockchain/order) | version | [Byte](/ru/blockchain/blockchain/blockchain-data-types)| 1 | Значение должно быть равно 3 |
 | 2 | Открытый ключ отправителя ордера | senderPublicKey | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
 | 3 | Открытый ключ [матчера](https://docs.waves.exchange/ru/waves-matcher/) | matcherPublicKey | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
-| 4.1 | Флаг токена Б |  | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Если токен [WAVES](/ru/blockchain/token/waves), то значение 0, иначе — 1 |
-| 4.2 | [ID токена](/ru/blockchain/token/token-id) Б | amountAsset | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | Если токен не WAVES, то `S` = 32, иначе — поле не должно присутствовать в бинарном формате |
-| 5.1 | Флаг токена А |  | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Если токен WAVES, то значение 0, иначе — 1 |
-| 5.2 | ID токена А | priceAsset | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | Если токен не WAVES, то `S` = 32, иначе — поле не должно присутствовать в бинарном формате |
+| 4.1 | Флаг токена Б (amount asset) |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Если токен [WAVES](/ru/blockchain/token/waves), то значение 0, иначе — 1 |
+| 4.2 | [ID токена](/ru/blockchain/token/token-id) Б (amount asset) | amountAsset | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | Если токен не WAVES, то `S` = 32, иначе — поле не должно присутствовать в бинарном формате |
+| 5.1 | Флаг токена А (price asset) |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Если токен WAVES, то значение 0, иначе — 1 |
+| 5.2 | ID токена А (price asset) | priceAsset | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | Если токен не WAVES, то `S` = 32, иначе — поле не должно присутствовать в бинарном формате |
 | 6 | Тип ордера | orderType | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Если ордер на покупку, то значение 0, если на продажу — 1 |
-| 7 | Количество токена Б, которое отправитель ордера предлагает за один токен А | price | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| 8 | Количество токена А, которое отправитель ордера хочет купить или продать в зависимости от типа ордера | amount | Long | 8 |  |
-| 9 | Количество миллисекунд с начала [эпохи Unix](https://ru.wikipedia.org/wiki/Unix-время) до момента валидации ордера матчером | timestamp | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| 10 | Количество миллисекунд с начала эпохи Unix до момента [отмены](/ru/blockchain/order#cancel) невыполненного ордера | expiration | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| 11 | [Комиссия матчера](/ru/blockchain/transaction-type/exchange-transaction#комиссия-матчера) | matcherFee | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
+| 7 | Количество токена Б (amount asset), которое отправитель ордера предлагает за один токен А | price | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | байты в формате [big-endian](https://en.wikipedia.org/wiki/Endianness) |
+| 8 | Количество токена А (price asset), которое отправитель ордера хочет купить или продать в зависимости от типа ордера | amount | Long | 8 | байты в формате [big-endian](https://en.wikipedia.org/wiki/Endianness) |
+| 9 | Количество миллисекунд с начала [эпохи Unix](https://ru.wikipedia.org/wiki/Unix-время) до момента валидации ордера матчером | timestamp | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | байты в формате [big-endian](https://en.wikipedia.org/wiki/Endianness) |
+| 10 | Количество миллисекунд с начала эпохи Unix до момента [отмены](/ru/blockchain/order#cancel) невыполненного ордера | expiration | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | байты в формате [big-endian](https://en.wikipedia.org/wiki/Endianness) |
+| 11 | [Комиссия матчера](/ru/blockchain/transaction-type/exchange-transaction#комиссия-матчера) | matcherFee | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | байты в формате [big-endian](https://en.wikipedia.org/wiki/Endianness) |
 | 12 | Флаг токена комиссии матчера |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Если токен WAVES, то значение 0, иначе — 1 |
 | 13 | Токен комиссии матчера | matcherFeeAssetId | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `F` | Если токен комиссии не WAVES, то `F` = 32, иначе — поле не должно присутствовать в бинарном формате |
-| 14 | [Подтверждения](/ru/blockchain/transaction/transaction-proof) | proofs | Array[[Подтверждение](/ru/blockchain/transaction/transaction-proof)] | `S` | Если массив пустой, то `S` = 3.<br>Если массив не пустой, то `S` = 3 + 2 × `N` + (`P`<sub>1</sub> + `P`<sub>2</sub> + ... + `P`<sub>n</sub>),<br>где<br>`N` — количество подтверждений в массиве,<br>`P`<sub>n</sub> — размер N-го подтверждения в байтах.<br>Максимальное количество подтверждений в массиве — 8. Максимальный размер каждого подтверждения — 64 байта |
+| 14 | [Подтверждения](/ru/blockchain/transaction/transaction-proof) | proofs | Array[[Подтверждение](/ru/blockchain/binary-format/transaction-proof-binary-format)] | `S` | Если массив пустой, то `S` = 3.<br>Если массив не пустой, то `S` = 3 + 2 × `N` + (`P`<sub>1</sub> + `P`<sub>2</sub> + ... + `P`<sub>n</sub>),<br>где<br>`N` — количество подтверждений в массиве,<br>`P`<sub>n</sub> — размер N-го подтверждения в байтах.<br>Максимальное количество подтверждений в массиве — 8. Максимальный размер каждого подтверждения — 64 байта |
 
 ## JSON-представление ордера версии 3
 
@@ -117,9 +117,9 @@ message Amount {
 | 1 | Номер версии бинарного формата [ордера](/ru/blockchain/order) | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Значение должно быть равно 2 |
 | 2 | Открытый ключ отправителя ордера | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
 | 3 | Открытый ключ [матчера](https://docs.waves.exchange/ru/waves-matcher/) | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
-| 4.1 | Флаг токена А | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Если токен [WAVES](/ru/blockchain/token/waves), то значение 0, иначе — 1 |
+| 4.1 | Флаг токена А | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Если токен [WAVES](/ru/blockchain/token/waves), то значение 0, иначе — 1 |
 | 4.2 | [ID токена](/ru/blockchain/token/token-id) А | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | Если токен не WAVES, то `S` = 32, иначе — поле не должно присутствовать в бинарном формате |
-| 5.1 | Флаг токена Б | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Если токен WAVES, то значение 0, иначе — 1 |
+| 5.1 | Флаг токена Б | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Если токен WAVES, то значение 0, иначе — 1 |
 | 5.2 | ID токена Б | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | Если токен не WAVES, то `S` = 32, иначе — поле не должно присутствовать в бинарном формате |
 | 6 | Тип ордера | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | Если ордер на покупку, то значение 0, если на продажу — 1 |
 | 7 | Количество токена А | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 | Количество токена А, которое отправитель ордера предлагает за один токен Б |

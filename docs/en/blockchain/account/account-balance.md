@@ -1,74 +1,53 @@
 # Account Balance
 
-An **account balance** is the amount of the [token](/en/blockchain/token/) that is stored on the [account](/en/blockchain/account/).
+**Account balance** is the amount of the [token (asset)](/en/blockchain/token/) that belongs to the [account](/en/blockchain/account/).
 
-One account can store different tokens in different amounts. For example, an account can have 50 [WAVES](/en/blockchain/token/waves) and 200 [WCTs](/en/blockchain/glossary#w) at the same time. The amount of the Y token on the account is called the **account balance in Y token**. If there is no Y token on the account, it is said that the **account balance in Y token is equal to zero**.
+One account can store different tokens in different amounts. For example, an account can have 50 [WAVES](/en/blockchain/token/waves) and 200 USD-N at the same time. The amount of the Y token on the account is called the **account balance in Y token**. If there is no Y token on the account, it is said that the **account balance in Y token is equal to zero**.
 
-## Account balance in WAVES token
-There are four balances in WAVES token:
+## Account balance in WAVES
+
+There are four types of balances in WAVES:
 
 * regular
 * available
 * effective
 * generating
 
-In addition to WAVES that belong to the account owner, the account may store WAVES that belong to other accounts — those are [leased](/en/blockchain/leasing) WAVES.
+The **regular balance** is the amount of WAVES that belongs directly to the account.
 
-The **regular balance** is the amount of WAVES on the account belonging directly to the account owner.
+Thе other types of balances are determined counting [leased WAVES](/en/blockchain/leasing).
 
-To explain the available and effective balances, we will introduce the following designations:
+Let us introduce the following notation:
 
-`R` — regular balance,
+`R` is the regular balance,
 
-`Lo` — the amount of WAVES which account leased to other accounts,
+`Lo` is the amount of WAVES which the account leased to other accounts,
 
-`Li`— the amount of WAVES which were leased to the account by other accounts.
+`Li` is the amount of WAVES which are leased to the account by other accounts.
 
-The **available balance** is:
+Then:
 
-```
-R - Lo
-```
+**Available balance** = `R` – `Lo`
 
-The **effective balance** is:
+**Effective balance** = `R` – `Lo` + `Li`
 
-```
-R - Lo + Li
-```
+**Generating balance** is the minimum value of the effective balance during the last 1000 [blocks](/en/blockchain/block/).
 
-The **generating balance** is the minimum value of the effective balance during the last 1000 blocks.
+The generating balance of a [node](/en/blockchain/node/) account affects the ability to participate in block generation. To generate blocks, you need a generating balance of at least 1000 WAVES. The larger the generating balance, the greater the chance to add the next block is.
 
-## Top up and view account balance
+## View Account Balance
 
-You can buy and sell tokens using [Waves.Exchange](https://waves.exchange/) developed by the third-party team from the community or at one of the [centralized exchanges](https://coinmarketcap.com/currencies/waves/#markets).
+The balances of any account, as well as other blockchain data, are public and can be read by anyone. For example, you can see the list of tokens ant their amount on the account in [Waves Explorer](https://wavesexplorer.com). To do this, find an account by its [address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias). Balances in WAVES are displayed right under the address, balances in other assets are at the **Assets** tab, and [non-fungible tokens (NFT)](/en/blockchain/token/non-fungible-token) are at the **Non-fungible tokens** tab.
 
-You can view your account balance in Waves.Exchange or in the [Waves Keeper](/en/ecosystem/waves-keeper/) browser extension.
+![](./_assets/balance-explorer.png)
 
-Example of the Wallet window with the list of tokens on the account:
+You can also obtain balances using [Node REST API](/en/waves-node/node-api/) and [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/), see the examples in the [How to Retrieve Information from the Blockchain](/en/building-apps/how-to/basic/retrieve) article.
 
-![](./_assets/account-balance.png)
+## Top up Balance
 
-You can view the list of tokens on account in [Waves Explorer](https://wavesexplorer.com/) — for that find the account by its [address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) and go to the **Assets** tab.
+You can buy WAVES tokens at [Waves.Exchange](https://waves.exchange/) developed by the third-party team from the community, or at one of the [centralized exchanges](https://coinmarketcap.com/currencies/waves/markets/).
 
-![](./_assets/tokens.png)
+On [Testnet and Stagenet](/en/blockchain/blockchain-network/), you can get WAVES for free using the Faucet:
 
-## Retrieving account balance using Node API
-You can get account balance in WAVES by using the Node API request.
-
-Example of the request:
-
-```
-curl https://nodes.wavesnodes.com/addresses/balance/details/<account address>
-```
-
-Example of the response:
-
-```
-{
-  "address": "3PMCn1EHq4WrsfUazezyYu23H1gHKvuffER",
-  "regular": 6086358429,
-  "generating": 5086358429,
-  "available": 5086358429,
-  "effective": 5086358429
-}
-```
+* <https://testnet.wavesexplorer.com/faucet> for Testnet
+* <https://stagenet.wavesexplorer.com/faucet> for Stagenet.

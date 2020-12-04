@@ -45,7 +45,7 @@ Learn the language syntax with the [Introduction to Ride](/en/ride/getting-start
 
 ## Useful Links
 
-* [Ride White Paper](https://wavesprotocol.org/files/docs/white_paper_waves_smart_contracts.pdf) (2018)
+* [Ride White Paper](https://s3.eu-central-1.amazonaws.com/waves.tech/White_paper_waves_smart_contracts_7a48be1231.pdf) (2018)
 * [Developer Tools](/en/building-apps/smart-contracts/tools/)
 * [How to Create and Launch dApp: Complete Tutorial](/en/building-apps/smart-contracts/writing-dapps)
 * [Mastering Web3 with Waves](https://www.coursera.org/learn/mastering-web3-waves): the practical course on Coursera.

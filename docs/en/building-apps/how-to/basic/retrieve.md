@@ -4,7 +4,7 @@ sidebarDepth: 2
 
 # How to Retrieve Information from the Blockchain
 
-All the data in the Waves blockchain is public and can be read by anyone. For example, you can retrive data from account data storage, account balance, a list of transactions by certain account, or current blockchain height and time.
+All the data in the Waves blockchain is public and can be read by anyone. For example, you can retrieve data from account data storage, account balance, a list of transactions by certain account, or current blockchain height and time.
 
 You can send a request to your own node or to one of the Waves nodes with public API:
 * Testnet: <https://nodes-testnet.wavesnodes.com>

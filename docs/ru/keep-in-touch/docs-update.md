@@ -13,6 +13,24 @@
 
 * [Вычисления с продолжением](/ru/ride/advanced/continuation)
 
+## Ноябрь
+
+### Нода
+
+* [REST API ноды](/ru/waves-node/node-api/) — <span style="color:green">обновлено</span>
+* [Ограничения API пула публичных нод](/ru/waves-node/api-limitations-of-the-pool-of-public-nodes) — <span style="color:green">обновлено</span>
+
+## Октябрь
+
+### Блокчейн
+
+* [Аккаунт](/ru/blockchain/account/) — <span style="color:green">обновлено</span>
+* [Доход генератора блока](/ru/blockchain/mining/)
+
+### Нода
+
+* [Расширение Blockchain Updates](/ru/waves-node/extensions/blockchain-updates)
+
 ## Сентябрь
 
 ### Блокчейн

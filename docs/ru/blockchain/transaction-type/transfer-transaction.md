@@ -6,7 +6,7 @@
 
 Минимальная комиссия за транзакцию перевода — 0,001 WAVES. В случае перевода [смарт-ассета](/ru/blockchain/token/smart-asset) — 0,005 WAVES.
 
-Если отправитель транзакции —  [dApp](/ru/blockchain/account/dapp) или [смарт-аккаунт](/ru/blockchain/account/smart-account), минимальная комиссия увеличивается на 0,004 WAVES. См. также пример в разделе [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee).
+Если отправитель транзакции — [dApp или смарт-аккаунт](/ru/blockchain/account/dapp), минимальная комиссия увеличивается на 0,004 WAVES. См. также пример в разделе [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee).
 
 Комиссия за транзакцию перевода может быть указана в спонсорском ассете, см. раздел [Спонсирование комиссии](/ru/blockchain/waves-protocol/sponsored-fee).
 

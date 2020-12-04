@@ -24,6 +24,14 @@ module.exports = {
       path: blockchainPath + 'account',
       children: [
         {
+          title: 'Создание аккаунта',
+          path: blockchainPath + 'account/create',
+        },
+        {
+          title: 'Адрес',
+          path: blockchainPath + 'account/address',
+        },
+        {
           title: 'Баланс аккаунта',
           path: blockchainPath + 'account/account-balance',
         },
@@ -32,21 +40,13 @@ module.exports = {
           path: blockchainPath + 'account/account-data-storage',
         },
         {
-          title: 'Адрес',
-          path: blockchainPath + 'account/address',
-        },
-        {
           title: 'Псевдоним',
           path: blockchainPath + 'account/alias',
         },
         {
-          title: 'dApp',
+          title: 'dApp и смарт-аккаунт',
           path: blockchainPath + 'account/dapp',
         },
-        {
-          title: 'Смарт-аккаунт',
-          path: blockchainPath + 'account/smart-account',
-        }
       ],
     },
     {
@@ -178,7 +178,7 @@ module.exports = {
       path: blockchainPath + 'node',
       children: [
         {
-          title: 'Майнящая нода',
+          title: 'Генерирующая нода',
           path: blockchainPath + 'node/mining-node',
         },
         {
@@ -186,26 +186,16 @@ module.exports = {
           path: blockchainPath + 'node/validating-node',
         },
         {
+          title: 'Доход генератора блока',
+          path: blockchainPath + 'mining',
+        },
+        {
+          title: 'Вознаграждение за генерацию блока',
+          path: blockchainPath + 'mining/mining-reward',
+        },
+        {
           title: 'Лизинг',
           path: blockchainPath + 'leasing',
-        },
-      ],
-    },
-    {
-      title: 'Майнинг',
-      path: blockchainPath + 'mining',
-      children: [
-        {
-          title: 'Майнер',
-          path: blockchainPath + 'mining/miner',
-        },
-        {
-          title: 'Майнящий аккаунт',
-          path: blockchainPath + 'mining/mining-account',
-        },
-        {
-          title: 'Вознаграждение за майнинг',
-          path: blockchainPath + 'mining/mining-reward',
         },
       ],
     },
@@ -529,80 +519,38 @@ module.exports = {
       path: nodePath + 'private-waves-network',
     },
     {
-      title: 'API ноды',
+      title: 'REST API ноды',
       path: nodePath + 'node-api',
       children: [
-	    {
-          title: 'API ключ',
-          path: nodePath + 'node-api/api-key',
-        }, 
         {
-          title: 'Заголовки запроса',
+          title: 'API-ключ',
+          path: nodePath + 'node-api/api-key',
+        },
+        {
+          title: 'Работа с транзакциями',
+          path: nodePath + 'node-api/transactions',
+        },
+        {
+          title: 'Денежные поля',
           path: nodePath + 'node-api/headers',
+        },
+        {
+          title: 'Постраничная выборка',
+          path: nodePath + 'node-api/pagination',
         },
         {
           title: 'CORS',
           path: nodePath + 'node-api/cors',
         },
         {
-          title: 'Активация фич',
-          path: nodePath + 'node-api/feature-activation',
-        },	
-        {
-          title: 'Адрес',
-          path: nodePath + 'node-api/address',
-        },
-        {
-          title: 'Транзакции лизинга',
-          path: nodePath + 'node-api/lease-transactions',
-        },
-        {
-          title: 'Ассеты',
-          path: nodePath + 'node-api/asset-transactions',
-          children: [
-            {
-              title: 'Публичные функции',
-              path: nodePath + 'node-api/asset-transactions/public-functions',
-            },
-            {
-              title: 'Приватные функции',
-              path: nodePath + 'node-api/asset-transactions/private-functions',
-            },
-            {
-              title: 'Методы распределения',
-              path: nodePath + 'node-api/asset-transactions/distribution-methods',
-            }
-          ],
-        },
-        {
-          title: 'Транзакция Alias',
-          path: nodePath + 'node-api/alias-transaction',
-        },
-        {
-          title: 'Транзакции',
-          path: nodePath + 'node-api/transactions',
-        },
-        {
-          title: 'Пиры',
-          path: nodePath + 'node-api/peers',
-        },
-        {
-          title: 'Блоки',
-          path: nodePath + 'node-api/blocks',
-        },
-        {
-          title: 'Utils',
-          path: nodePath + 'node-api/utils',
-        },
-        {
-          title: 'Примеры транзакций',
-          path: nodePath + 'node-api/example-transactions',
-        },
-        {
-          title: 'API ограничения пула публичных нод',
+          title: 'Ограничения пула публичных нод',
           path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
         },
-      ],   
+        {
+          title: 'Коды ответов и ошибки',
+          path: nodePath + 'node-api/response',
+        },
+      ],
     },
     {
       title: 'Расширения',
@@ -612,18 +560,22 @@ module.exports = {
           title: 'gRPC Server',
           path: nodePath + 'extensions/grpc-server',
         },
+        {
+          title: 'Blockchain Updates',
+          path: nodePath + 'extensions/blockchain-updates',
+        },
       ]
     },
-	{
+  {
       title: 'Устранение неполадок',
       path: nodePath + 'node-troubleshooting',
-	  children: [
-	    {
-			title: 'Генерация блока FAQ',
-			path: nodePath + 'block-generation-faq',
-		},
-	  ]
-	},
+      children: [
+        {
+          title: 'Генерация блока FAQ',
+          path: nodePath + 'block-generation-faq',
+        },
+      ]
+    },
   ],
 
   [ridePath]: [

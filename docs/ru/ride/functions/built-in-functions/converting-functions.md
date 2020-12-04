@@ -4,7 +4,7 @@
 | :--- | :--- | :--- |
 | [addressFromPublicKey(ByteVector): Address](#address-from-public-key) | Получает [адрес](/ru/blockchain/account/address), соответствующий открытому ключу аккаунта | 82 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>63 для Стандартной библиотеки **версии 4** |
 | [parseInt(String): Int&#124;Unit](#parse-int) | Конвертирует строковое представление числа в эквивалентное целое число | 20 для Стандартной библиотеки **версии 3**<br>2 для Стандартной библиотеки **версии 4** |
-| [parseIntValue(String): Int](#parse-int-value) | Конвертирует строковое представление числа в эквивалентное целое число.<br>Выбрасывает исключение, если строка не может быть спарсена | 20 для Стандартной библиотеки **версии 3**<br>2 для Стандартной библиотеки **версии 4** |
+| [parseIntValue(String): Int](#parse-int-value) | Конвертирует строковое представление числа в эквивалентное целое число.<br>Завершается ошибкой, если строка не может быть спарсена | 20 для Стандартной библиотеки **версии 3**<br>2 для Стандартной библиотеки **версии 4** |
 | [toBytes(Boolean): ByteVector](#to-bytes-boolean) | Конвертирует логическое значение в массив байтов | 1 |
 | [toBytes(Int): ByteVector](#to-bytes-int) | Конвертирует целое число в массив байтов | 1 |
 | [toBytes(String): ByteVector](#to-bytes-string) | Конвертирует строку в массив байтов | 1 для Стандартной библиотеки **версии 3**<br>8 для Стандартной библиотеки **версии 4** |
@@ -25,11 +25,13 @@
 addressFromPublicKey(publicKey: ByteVector): Address
 ```
 
+Описание возвращаемой структуры см. в разделе [Address](/ru/ride/structures/common-structures/address).
+
 ### Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
-| `publicKey`: (/ru/ride/data-types/byte-vector) | Открытый ключ для конвертации |
+| `publicKey`: [ByteVector](/ru/ride/data-types/byte-vector) | Открытый ключ для конвертации |
 
 ### Примеры
 
@@ -64,7 +66,7 @@ parseInt("10.30") # Возвращает Unit
 
 Конвертирует строковое представление числа в эквивалентное целое число.
 
-Выбрасывает исключение, если строка не может быть сконвертирована.
+Завершается ошибкой, если строка не может быть сконвертирована.
 
 ```ride
 parseIntValue(str: String): Int
@@ -282,6 +284,8 @@ toUtf8String(bytes) # Возвращает "Ride on Waves"
 ```ride
 transferTransactionFromProto(b: ByteVector): TransferTransaction|Unit
 ```
+
+Описание возвращаемой структуры см. в разделе [TransferTransaction](/ru/ride/structures/transaction-structures/transfer-transaction).
 
 ### Параметры
 

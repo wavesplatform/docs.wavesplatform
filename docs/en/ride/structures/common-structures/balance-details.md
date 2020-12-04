@@ -2,7 +2,7 @@
 
 > :warning: The `BalanceDetails` structure is introduced in [Standard library](/en/ride/script/standard-library) **version 4**.
 
-Structure that contains WAVES balances of account. The structure is returned by the [wavesBalance](/en/ride/functions/built-in-functions/account-data-storage-functions#waves-balance) built-in function. For description of balance types, see the [Account Balance](/en/blockchain/account/account-balance) article.
+Structure that contains WAVES balances of account. The structure is returned by the [wavesBalance](/en/ride/functions/built-in-functions/blockchain-functions#waves-balance) built-in function. For description of balance types, see the [Account Balance](/en/blockchain/account/account-balance) article.
 
 ## Конструктор
 
@@ -19,4 +19,4 @@ BalanceDetails(available: Int, regular: Int, generating: Int, effective: Int)
 | 3 | generating | [Int](/en/ride/data-types/int) | Generating balance |
 | 4 | effective | [Int](/en/ride/data-types/int) | Effective balance |
 
-All balances are given in [WAVELETs](/en/blockchain/token/wavelet).
+All balances are given in [WAVELETs](/en/blockchain/token/waves).

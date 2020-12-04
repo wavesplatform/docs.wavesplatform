@@ -5,13 +5,13 @@
 | [contains(String, String): Boolean](#contains-string-string-boolean) | Проверяет, содержится ли строка в строке | 3 |
 | [drop(String, Int): String](#drop-string-int-string)  | Удаляет первые `n` символов строки | 1 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>20 для Стандартной библиотеки **версии 4** |
 | [dropRight(String, Int): String](#dropright-string-int-string)  | Удаляет последние `n` символов строки | 19 для Стандартной библиотеки **версии 3**<br>20 для Стандартной библиотеки **версии 4** |
-| [indexOf(String, String): Int&#124;Unit](#indexof-string-stringintunit) | Возвращает индекс первого вхождения подстроки  | 20 для Стандартной библиотеки **версии 3**<br>3 для Стандартной библиотеки **версии 4** |
-| [indexOf(String, String, Int): Int&#124;Unit](#indexof-string-string-intintunit)  | Возвращает индекс первого вхождения подстроки после указанного индекса | 20 для Стандартной библиотеки **версии 3**<br>3 для Стандартной библиотеки **версии 4** |
-| [lastIndexOf(String, String): Int&#124;Unit](#lastindexof-string-stringintunit) | Возвращает индекс последнего вхождения подстроки | 20 для Стандартной библиотеки **версии 3**<br>3 для Стандартной библиотеки **версии 4** |
-| [lastindexOf(String, String, Int): Int&#124;Unit](#lastindexof-string-string-intintunit) | Возвращает индекс последнего вхождения подстроки перед указанным индексом | 20 для Стандартной библиотеки **версии 3**<br>3 для Стандартной библиотеки **версии 4** |
+| [indexOf(String, String): Int&#124;Unit](#indexof-string-string-int-unit) | Возвращает индекс первого вхождения подстроки  | 20 для Стандартной библиотеки **версии 3**<br>3 для Стандартной библиотеки **версии 4** |
+| [indexOf(String, String, Int): Int&#124;Unit](#indexof-string-string-int-int-unit)  | Возвращает индекс первого вхождения подстроки после указанного индекса | 20 для Стандартной библиотеки **версии 3**<br>3 для Стандартной библиотеки **версии 4** |
+| [lastIndexOf(String, String): Int&#124;Unit](#lastindexof-string-string-int-unit) | Возвращает индекс последнего вхождения подстроки | 20 для Стандартной библиотеки **версии 3**<br>3 для Стандартной библиотеки **версии 4** |
+| [lastindexOf(String, String, Int): Int&#124;Unit](#lastindexof-string-string-int-int-unit) | Возвращает индекс последнего вхождения подстроки перед указанным индексом | 20 для Стандартной библиотеки **версии 3**<br>3 для Стандартной библиотеки **версии 4** |
 | [makeString(List[String], String): String](#makestring-list-string-string-string) | Объединяет строки из списка, используя разделитель | 10 |
 | [size(String): Int](#size-string-int) | Возвращает длину строки | 1 |
-| [split(String, String): List[String]](#split-string-string-liststring) | Разбивает строку на список подстрок, используя разделитель | 100 для Стандартной библиотеки **версии 3**<br>75 для Стандартной библиотеки **версии 4** |
+| [split(String, String): List[String]](#split-string-string-list-string) | Разбивает строку на список подстрок, используя разделитель | 100 для Стандартной библиотеки **версии 3**<br>75 для Стандартной библиотеки **версии 4** |
 | [take(String, Int): String](#take) | Возвращает первые `n` символов строки | 1 для Стандартной библиотеки **версии 3**<br>20 для Стандартной библиотеки **версии 4** |
 | [takeRight(String, Int): String](#take-right)  | Возвращает последние `n` символов строки | 19 для Стандартной библиотеки **версии 3**<br>20 для Стандартной библиотеки **версии 4** |
 
@@ -29,8 +29,8 @@ contains(haystack: String, needle: String): Boolean
 
 | Параметр | Описание |
 | :--- | :--- |
-| `haystack`: String | Строка, в которой осуществляется поиск |
-| `needle`: String | Искомая строка |
+| `haystack`: [String](/ru/ride/data-types/string) | Строка, в которой осуществляется поиск |
+| `needle`: [String](/ru/ride/data-types/string) | Искомая строка |
 
 ### Примеры
 
@@ -55,8 +55,8 @@ drop(xs: String, number: Int): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `xs`: String | Строка |
-| `number`: Int | Число `n` |
+| `xs`: [String](/ru/ride/data-types/string) | Строка |
+| `number`: [Int](/ru/ride/data-types/int) | Число `n` |
 
 ### Примеры
 
@@ -80,8 +80,8 @@ dropRight(xs: String, number: Int): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `xs`: String | Строка |
-| `number`: Int | Число `n` |
+| `xs`: [String](/ru/ride/data-types/string) | Строка |
+| `number`: [Int](/ru/ride/data-types/int) | Число `n` |
 
 ### Примеры
 
@@ -105,8 +105,8 @@ indexOf(str: String, substr: String): Int|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `str`: String | Строка |
-| `substr`: String | Подстрока |
+| `str`: [String](/ru/ride/data-types/string) | Строка |
+| `substr`: [String](/ru/ride/data-types/string) | Подстрока |
 
 ### Примеры
 
@@ -128,9 +128,9 @@ indexOf(str: String, substr: String, offset: Int): Int|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `str`: String | Строка |
-| `substr`: String | Подстрока |
-| `offset`: Int | Индекс |
+| `str`: [String](/ru/ride/data-types/string) | Строка |
+| `substr`: [String](/ru/ride/data-types/string) | Подстрока |
+| `offset`: [Int](/ru/ride/data-types/int) | Индекс |
 
 ### Примеры
 
@@ -152,8 +152,8 @@ lastIndexOf(str: String, substr: String): Int|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `str`: String | Строка |
-| `substr`: String | Подстрока |
+| `str`: [String](/ru/ride/data-types/string) | Строка |
+| `substr`: [String](/ru/ride/data-types/string) | Подстрока |
 
 ### Примеры
 
@@ -175,9 +175,9 @@ lastIndexOf(str: String, substr: String, offset: Int): Int|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `str`: String | Строка |
-| `substr`: String | Подстрока |
-| `offset`: Int | Индекс |
+| `str`: [String](/ru/ride/data-types/string) | Строка |
+| `substr`: [String](/ru/ride/data-types/string) | Подстрока |
+| `offset`: [Int](/ru/ride/data-types/int) | Индекс |
 
 ### Примеры
 
@@ -221,7 +221,7 @@ size(xs: String): Int
 
 | Параметр | Описание |
 | :--- | :--- |
-| `xs`: String | Строка |
+| `xs`: [String](/ru/ride/data-types/string) | Строка |
 
 ### Примеры
 
@@ -243,8 +243,8 @@ split(str: String, separator: String): List[String]
 
 | Параметр | Описание |
 | :--- | :--- |
-| `str`: String | Строка |
-| `separator`: Int | Разделитель |
+| `str`: [String](/ru/ride/data-types/string) | Строка |
+| `separator`: [Int](/ru/ride/data-types/int) | Разделитель |
 
 ### Примеры
 
@@ -267,8 +267,8 @@ take(xs: String, number: Int): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `xs`: String | Строка |
-| `number`: Int | Число `n` |
+| `xs`: [String](/ru/ride/data-types/string) | Строка |
+| `number`: [Int](/ru/ride/data-types/int) | Число `n` |
 
 ### Примеры
 
@@ -293,8 +293,8 @@ takeRight(xs: String, number: Int): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `xs`: String | Строка |
-| `number`: Int | Число `n` |
+| `xs`: [String](/ru/ride/data-types/string) | Строка |
+| `number`: [Int](/ru/ride/data-types/int) | Число `n` |
 
 ### Примеры
 

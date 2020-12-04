@@ -22,7 +22,7 @@ The Waves-NG protocol boosts blockchain performance to hundreds of transactions 
 
 ## Transparency
 
-The Waves protocol is totally open, with the source code [available on Github](https://github.com/wavesplatform). The protocol's updates and improvements are discussed by the community on the [Waves Enhancement Proposals](https://forum.wavesplatform.com/c/waves-improvment-proposals) forum. [Activation of new features](/en/waves-node/features/) and [reward changes](/en/blockchain/mining/mining-reward) are accepted by voting of the nodes.
+The Waves protocol is totally open, with the source code [available on Github](https://github.com/wavesplatform). The protocol's updates and improvements are discussed by the community on the [Waves Enhancement Proposals](https://forum.waves.tech/c/waves-improvment-proposals/23) forum. [Activation of new features](/en/waves-node/features/) and [reward changes](/en/blockchain/mining/mining-reward) are accepted by voting of the nodes.
 
 ## Ecosystem for Developers
 

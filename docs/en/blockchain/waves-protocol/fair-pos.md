@@ -8,4 +8,4 @@ We presented an improved PoS algorithm that makes the choice of block creator fa
 
 The fair PoS is launched in release number [0.13.3](https://github.com/wavesplatform/Waves/releases).
 
-> :bulb: You can find more technical details about our PoS adjustments <a href="https://forum.wavesplatform.com/uploads/default/original/2X/7/7397a4cb5fa77d659a7b7ecc9188dd0a4fe0decc.pdf">In This Paper</a>.
+> :bulb: You can find more technical details about our PoS adjustments <a href="https://forum.waves.tech/uploads/default/original/2X/7/7397a4cb5fa77d659a7b7ecc9188dd0a4fe0decc.pdf">In This Paper</a>.

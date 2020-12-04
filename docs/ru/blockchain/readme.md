@@ -1,6 +1,6 @@
 # Почему Waves
 
-Waves — это открытый протокол блокчейна и глобальная экосистема для разработки децентрализованных приложений Web 3.0.
+Waves — это открытый протокол блокчейна и глобальная экосистема для разработки децентрализованных приложений Web&nbsp;3.0.
 
 ## Токенизация
 
@@ -22,7 +22,7 @@ Waves использует алгоритм консенсуса Proof-of-Stake 
 
 ## Открытость
 
-Протокол Waves является полностью открытым, все исходные коды [доступны на Github](https://github.com/wavesplatform). Обновления и развития протокола обсуждаются сообществом на форуме [Waves Enhancement Proposals](https://forum.wavesplatform.com/c/waves-improvment-proposals). Вопросы [активации новых фич](/ru/waves-node/features/) и [изменения вознаграждения](/ru/blockchain/mining/mining-reward) за генерацию блоков решаются путем голосования нод.
+Протокол Waves является полностью открытым, все исходные коды [доступны на Github](https://github.com/wavesplatform). Обновления и развития протокола обсуждаются сообществом на форуме [Waves Enhancement Proposals](https://forum.waves.tech/c/waves-improvment-proposals/23). Вопросы [активации новых фич](/ru/waves-node/features/) и [изменения вознаграждения](/ru/blockchain/mining/mining-reward) за генерацию блоков решаются путем голосования нод.
 
 ## Экосистема для разработчиков
 

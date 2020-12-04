@@ -1,6 +1,6 @@
 # Exceptions
 
-You can throw exceptions using `throw` function:
+You can interrupt the script execution using the [throw](/en/ride/functions/built-in-functions/exception-functions) function:
 
 ```ride
 func main(amount: Int) = {
@@ -12,6 +12,4 @@ func main(amount: Int) = {
 }
 ```
 
-The return type of `throw` is [Nothing](/en/ride/data-types/).
-
-There is no exception handling in Ride — after an exception has been thrown, the script will stop its execution; the transaction will be considered as failed and will not be included in the block.
+There is no exception handling in Ride: after an exception has been thrown, the script execution fails. The transaction can be rejected or saved on the blockchain as failed, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article for details.

@@ -12,9 +12,9 @@ In addition to the dApp address, callable function name, and arguments, the Invo
 
 The minimum fee for an Invoke Script transaction is calculated as follows:
 
-`Fee` = 0.005 + `S` + 0.004 × `P` + 0.004 × `A` + `I`
+`Fee` = 0.005 + `S` + 0.004 × `P` + 0.004 × `A` + 1  × `I`
 
-* If the transaction **s**ender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), then `S` = 0.004, otherwise `S` = 0.
+* If the transaction **s**ender is a [dApp or smart account](/en/blockchain/account/dapp), then `S` = 0.004, otherwise `S` = 0.
 * The Invoke Script transaction can contain payments. `P` is the number of **p**ayments in [smart assets](/en/blockchain/token/smart-asset).
 * The Invoke Script transaction can result in the token transfer, reissue or burning. `A` is the number of smart assets among these **a**ctions.
 * The Invoke Script transaction can result in the token issue. `I` is the number of **i**ssued assets that are not [NFT](/en/blockchain/token/non-fungible-token).
@@ -27,7 +27,7 @@ The sender can specify a transaction fee nominated in a sponsored asset instead 
 
 Version 3 of the Invoke Script transaction is added in node version 1.3.0 and enabled with feature #16 “Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 
-`Fee` = (0.005 + `E`) × ⌈`С` / 4000⌉ × + `S` + 0.004 × `P` + 0.004 × `A` + `I`,
+`Fee` = (0.005 + `E`) × ⌈`С` / 4000⌉ × + `S` + 0.004 × `P` + 0.004 × `A` +  1 × `I`,
 
 where:
 

@@ -6,7 +6,7 @@ Set Asset Script transaction replaces the [asset script](/en/ride/script/script-
 
 The minimum fee for a Set Asset script transaction is 1 WAVES.
 
-If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
+If the transaction sender is a [dApp or smart account](/en/blockchain/account/dapp), the minimum fee is increased by 0.004 WAVES.
 
 ## JSON Representation
 

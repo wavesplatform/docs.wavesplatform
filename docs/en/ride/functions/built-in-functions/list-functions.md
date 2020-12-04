@@ -12,7 +12,7 @@
 | [removeByIndex](#removebyindex) | Removes an element from the list by index | 7 |
 | [size](#size) | Returns the size of the list | 2 |
 
-`T` is a short designation for `Boolean|ByteVector|Int|String`.
+`T` means any valid type.
 
 ## cons
 

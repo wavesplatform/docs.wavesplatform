@@ -144,7 +144,7 @@ module.exports = {
                     },
                     forum: {
                         text: 'Forum',
-                        link: 'https://forum.wavesplatform.com/',
+                        link: 'https://forum.waves.tech',
                     },
                     chat: {
                         text: 'Developer chat',
@@ -178,7 +178,7 @@ module.exports = {
                 links: {
                     wavesKeeper: {
                         title: 'Waves Keeper',
-                        link: 'https://wavesprotocol.org/protocol/keeper',
+                        link: 'https://docs.waves.tech/en/ecosystem/waves-keeper/',
                     },
                     wavesBlockchain: {
                         title: 'Waves Blockchain',
@@ -249,7 +249,7 @@ module.exports = {
                     },
                     forum: {
                         title: 'Forum',
-                        link: 'https://forum.wavesplatform.com',
+                        link: 'https://forum.waves.tech',
                     },
                 },
             },

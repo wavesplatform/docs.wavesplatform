@@ -1,6 +1,6 @@
 # Generation signature
 
-**Generation signature** is the variable in the average block generation time [formula](/en/blockchain/waves-protocol/fair-pos). It is used to check whether the current [miner](/en/blockchain/mining/miner) is eligible to generate the next block.
+**Generation signature** is the variable in the average block generation time [formula](/en/blockchain/waves-protocol/fair-pos). It is used to check whether the current [generating node](/en/blockchain/node/mining-node) is eligible to generate the next block.
 
 The computation of the block's generation signature `generationSignature`<sub>i+1</sub> is done by the following steps:
 

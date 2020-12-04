@@ -125,7 +125,7 @@ A transaction involving the execution of an asset script has the transaction fee
 
 ## Smart asset fees
 
-The fee for the transaction in which the asset script is executed is increased by 0.004 WAVES. If the account is a [smart account](/en/blockchain/account/smart-account), then the size of the fee is increased by an additional 0.004 WAVES.
+The fee for the transaction in which the asset script is executed is increased by 0.004 WAVES. If the account is a [dApp or smart account](/en/blockchain/account/dapp), then the size of the fee is increased by an additional 0.004 WAVES.
 
 Let's review the example. The commission for a transfer transaction is 0.001 WAVES. If a user makes a transfer of a smart asset from a smart account, then the amount of the commission will be 0.001 + 0.004 + 0.004 = 0.009 WAVES.
 
