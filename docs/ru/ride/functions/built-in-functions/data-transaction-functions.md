@@ -235,7 +235,7 @@ getInteger(data: List[DataEntry], key: String): Int|Unit
 | data: [List](/ru/ride/data-types/list)[] | Список записей данных, обычно `tx.data` |
 | key: [String](/ru/ride/data-types/string) | Ключ |
 
-## getInteger(List[DatEntry], Int): Unit|Int <a id="get-integer-index"></a>
+## getInteger(List[], Int): Unit|Int <a id="get-integer-index"></a>
 
 Возвращает целое число из списка записей данных по индексу.
 
