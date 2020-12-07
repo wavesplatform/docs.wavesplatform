@@ -6,16 +6,16 @@
 
 Бинарный формат транзакции соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format/).
 
-> Обратите внимание: транзакция продолжения не отправляется от имени аккаунта, поэтому для нее отсутствуют поля `senderPublicKey`, `proofs`, а также `timestamp` и `version`.
+> Обратите внимание: транзакция продолжения не отправляется от имени аккаунта, поэтому для нее отсутствуют поля `senderPublicKey` и `proofs`.
 
 ```
 message ContinuationTransactionData {
     bytes invoke_transaction_id = 1;
-    int32 nonce = 2;
+    int32 step = 2;
 }
 ```
 
 | Поле | Размер | Описание |
 | :--- | :--- | :--- |
 | invoke_transaction_id | 32 байта | Идентификатор транзакции вызова скрипта, в которой начались вычисления |
-| nonce | 1 байт | Порядковый номер продолжения (начиная с 0) |
+| step | 1 байт | Порядковый номер продолжения (начиная с 0) |

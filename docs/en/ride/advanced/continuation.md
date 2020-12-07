@@ -2,7 +2,7 @@
 
 If the complexity of a dApp script exceeds 4000, its execution is split into several stages. A generating note that adds an Invoke Script transaction to a block performs calculations with the total complexity up to 4000 and saves intermediate results in the internal database. Further, the generating node, the same or another one if a new block has already forged, detects an uncompleted calculation sequence, creates a Continuation transaction, and adds it to the block, performing the next stage of calculations. The process continues until the script is completely executed or fails.
 
-Thus, the first stage of claculations is performed within the Invoke Script transaction. The further stages are performed within Continuation transactions. Continuation transaction fields are described in the [Continuation Transaction](/en/blockchain/transaction-type/continuation-transaction) article.
+Thus, the first stage of calculations is performed within the Invoke Script transaction. The further stages are performed within Continuation transactions. Continuation transaction fields are described in the [Continuation Transaction](/en/blockchain/transaction-type/continuation-transaction) article.
 
 ![](./_assets/continuation.png)
 
@@ -18,10 +18,10 @@ Until the calculation sequence is complete, transactions that can reduce the dAp
 
 * Transactions that are sent on behalf of the dApp.
 * Transactions that invoke the dApp.
-* Exchange transactions in which the dApp is one the order sender.
+* Exchange transactions in which the dApp is one of the order sender.
 * Transactions with fee in a sponsored asset issued by dApp.
 
-At the same time, any transfers in favor of dApp, leases and lease cancellations are allowed.
+Meanwhile, any transfers in favor of dApp, leases to dApp, and cancellations of leases to dApp are allowed.
 
 ## Blockchain Data Usage
 
@@ -31,91 +31,99 @@ Due to the suspension of other transactions involving the dApp (see above), the 
 
 | Name | Description |
 | :--- | :--- |
-| getBinary(String): ByteVector&#124;Unit | Gets an array of bytes by key from the dApp's data storage |
-| getBinaryValue(String): ByteVector | Gets an array of bytes by key from the dApp's data storage; завершается ошибкой, если запись отсутствует |
-| getBoolean(String): Boolean&#124;Unit | Получает значение логической записи по ключу |
-| getBooleanValue(String): Boolean | Получает значение логической записи по ключу; завершается ошибкой, если запись отсутствует |
-| getInteger(String): Int&#124;Unit | Получает значение целочисленной записи по ключу |
-| getIntegerValue(String): Int | Получает значение целочисленной записи по ключу; завершается ошибкой, если запись отсутствует |
-| getString(String): String&#124;Unit | Получает значение строковой записи по ключу |
-| getStringValue(String): String | Получает значение строковой записи по ключу; завершается ошибкой, если запись отсутствует |
+| getBinary(key: String): ByteVector&#124;Unit | Gets an array of bytes by key from the dApp's data storage |
+| getBinaryValue(key: String): ByteVector | Gets an array of bytes by key from the dApp's data storage; завершается ошибкой, если запись отсутствует |
+| getBoolean(key: String): Boolean&#124;Unit | Получает значение логической записи по ключу |
+| getBooleanValue(key: String): Boolean | Получает значение логической записи по ключу; завершается ошибкой, если запись отсутствует |
+| getInteger(key: String): Int&#124;Unit | Получает значение целочисленной записи по ключу |
+| getIntegerValue(key: String): Int | Получает значение целочисленной записи по ключу; завершается ошибкой, если запись отсутствует |
+| getString(key: String): String&#124;Unit | Получает значение строковой записи по ключу |
+| getStringValue(key: String): String | Получает значение строковой записи по ключу; завершается ошибкой, если запись отсутствует |
 
-Описание функций см. в разделе [Функции хранилища данных аккаунта](/ru/ride/functions/built-in-functions/account-data-storage-functions).
+For a description of the functions, see [Account Data Storage Functions](/en/ride/functions/built-in-functions/account-data-storage-functions).
 
-### 2. Внешние данные блокчейна
+### 2. External Data
 
-К внешним данным относятся все данные блокчейна, кроме записей в собственном хранилище данных dApp, в том числе:
+All the blockchain data, except for the dApp's data storage entries, are considered external. External data include:
 
-* Записи в хранилищах данных других аккаунтов.
-* Балансы аккаунтов, в том числе аккаунта самого dApp.
-* Текущая высота блокчейна.
-* Параметры ассетов, заголовки блоков, транзакции и др.
+* Entries of data storages of other accounts.
+* Account balances, including the dApp account itself.
+* Current blockchain height.
+* Asset parameters, block headers, transactions, etc.
 
-Все внешние данные блокчейна, используемые скриптом dApp, должны быть получены на первом этапе вычислений, то есть в исходной транзакции вызова скрипта. Благодаря этому вычисления всех этапов проводятся с одними и теми же данными.
+All external data used by the dApp script must be obtained at the first stage of calculations. The complexity of the script's part from the beginning to the last function that reads external data of the blockchain should not exceed 4000 inclusive. 
 
-Cложность части скрипта от начала и до последней функции чтения внешних данных включительно не должна превышать 4000.
-
-> Если скрипт содержит ветвления, заранее неизвестно, какая из веток будет выполнена. Поэтому учитывается суммарная сложность по всем веткам. Рассмотрим следующую схему: если операции `op2`, `op-a2` и `op-b3` читают внешние данные блокчейна, то общая сложность операций
-`op1 + op2 + op-a1 + op-a2 + op-b1 + op-b2 + op-b3` не должна превышать 4000, иначе dApp-скрипт не может быть установлен.
+If the script contains branches, it is not known in advance which branch will be executed. Therefore, the total complexity for all branches is taken into account. Consider the following scheme:
 
 ![](./_assets/continuation-init.png)
 
-## Комиссии
+If the operations `op2`, `op-a2` and `op-b3` read the external data of the blockchain, then the total complexity of the operations `op1` + `op2` + `op-a1` + `op-a2` + `op-b1` + `op-b2` + `op-b3` must not exceed 4000, otherwise the dApp script cannot be assigned to an account (Set Script transaction would be rejected).
 
-Минимальная комиссия, которую должен указать отправитель в транзакции вызова скрипта, рассчитывается по формуле:
+## Fee
 
-`Fee` = (0,005 + `E`) × ⌈`С` / 4000⌉ × + `S` + 0,004 × `P` + 0,004 × `A` + `I`,
+The sender should specify a fee taking into account the maximum possible number of calculation stages and script actions.
 
-где:
+The minimum fee in WAVES for an Invoke Script transaction is calculated as follows:
 
-   `E` (extra) — надбавка к комиссии за каждый этап вычислений. Отправитель указывает надбавку в поле `extraFeePerStep`. Надбавка предназначена для повышения приоритета обработки транзакции.
+`Fee` = (0.005 + `E`) × ⌈`С` / 4000⌉ + `S` + 0.004 × `P` + 0.004 × `A` + 1 × `I`,
 
-   `C` (complexity) — сложность скрипта, `С` / 4000 с округлением вверх до ближайшего целого — количество этапов вычислений,
+Where:
 
-   `S` (sender) = 0,004, если отправитель транзакции —  [dApp](/ru/blockchain/account/dapp) или [смарт-аккаунт](/ru/blockchain/account/smart-account), и 0 в ином случае,
+   `E` is the **e**xtra fee specified in the `extraFeePerStep` field. `extraFeePerStep` can be 0. The sender can specify `extraFeePerStep` > 0 in order to raise the processing priority of transactions of the calculation sequence.
 
-   `P` (payment) — количество платежей в [смарт-ассетах](/ru/blockchain/token/smart-asset),
+   `С` is the **c**omplexity of the callable function. `С`/4000 rounded up to the nearest integer is the number of stages in the calculation sequence.
 
-   `A` (action) — количество действий скрипта (переводов, довыпусков, сжиганий) со смарт-ассетами,
+   `S` = 0.004 if the transaction **s**ender is a [dApp or smart account](/en/blockchain/account/dapp), otherwise 0.
 
-   `I` (issue) — количество выпущенных скриптом токенов, не являющихся [NFT](/ru/blockchain/token/non-fungible-token).
+   `P` is the number of **p**ayments in [smart assets](/en/blockchain/token/smart-asset) attached to the transaction.
 
-Отправитель должен учесть в комиссии максимально возможное количество этапов вычислений (сложностью по 4000) и действий скрипта.
+   `A` is the number of **s**cript actions (transfers, reissues, burnings) with smart assets.
 
-Вся сумма комиссии, указанная в транзакции, взимается с отправителя при добавлении транзакции вызова скрипта в блок. Если комиссия указана в спонсорском ассете, со спонсора взимается эквивалент комиссии в WAVES.
+   `I` is the number of **i**ssued assets that are not [NFT](/en/blockchain/token/non-fungible-token).
 
-Комиссия за выполнение транзакций распределяется следующим образом:
+The entire fee amount specified in the transaction is charged to the sender when the Invoke Script transaction is added to a block. If the fee is indicated in the sponsored asset, the sponsor will be charged the fee equivalent in WAVES.
 
-1. За транзакцию вызова скрипта: 0,005 + `E` + `S`.
-2. За каждую транзакцию продолжения, кроме последней: 0,005 + `E`.
-3. За последнюю транзакцию продолжения: 0,005 + `E` + 0,004 × `P` + 0,004 × `A` + `I`.
+The fee is distributed as follows:
 
-(В соответствии с протоколом [Waves-NG](/ru/blockchain/waves-protocol/waves-ng-protocol) 40% комиссии получает генератор блока, в который добавлена транзакция, и 60% комиссии — генератор следующего блока.)
+1. For the Invoke Script transaction: 0.005 + `E` +` S`.
+2. For each Continuation transaction except the last one: 0.005 + `E`.
+3. For the last transaction of the continuation: 0.005 + `E` + 0.004 ×` P` + 0.004 × `A` + 1 × `I`.
 
-После завершения вычислений неиспользованная часть комиссии возвращается отправителю. Если комиссия указана в спонсорском ассете, спонсору возвращается эквивалент этой части комиссии в WAVES.
+(By the [Waves-NG protocol](/en/blockchain/waves-protocol/waves-ng-protocol), the generator of the block to which the transaction is added receives 40% of the transaction fee, and the next block generator receives 60% of the fee.)
 
-> [Порог для сохранения неуспешных транзакций](/ru/ride/limits/) действует только для транзакции вызова скрипта. Если вычисления завершились ошибкой или [выбрасыванием исключения](/ru/ride/exceptions) в рамках транзакции продолжения, она сохраняется на блокчейне как неуспешная и за нее взимается комиссия 0,005 + `E`.
+After the script is completely executed or fails, the fee's unused portion (for stages and asset scripts whose execution was not started; see example below) is returned to the sender. If the fee is indicated in the sponsored asset, the WAVES equivalent of this portion of the fee is returned to the sponsor.
 
-**Рассмотрим пример:**
-* Сложность вызываемой функции — 10&nbsp;000.
-* Надбавка `E` равна 0,002 WAVES.
-* К транзакции приложен платеж в смарт-ассете.
-* Вызываемая функция выполняет два перевода смарт-ассета, а также выпуск токена.
+> Note: the [threshold for saving failed transactions](/en/ride/limits) is applicable only to Invoke Script transactions. If the script fails or [throws an exception](/en/ride/exceptions) at one of the subsequent stages, the Continuation transaction is saved on the blockchain, and a fee is charged for it.
 
-Минимальная комиссия за транзакцию вызова скрипта (0,005 + 0,002) × 3 + 0,004 × 2 + 1 = 1,029 WAVES. Если все транзакции будут выполнены успешно, комиссия будет распределена следующим образом:
-- за транзакцию вызова скрипта 0,005 + 0,002,
-- за первую транзакцию продолжения 0,005 + 0,002,
-- за вторую транзакцию продолжения 0,005 + 0,002 + 0,004 × 2 + 1.
 
-Если транзакция вызова скрипта завершится ошибкой (притом что сложность выполненных вычислений превысит порог сохранения неуспешных транзакций), отправитель заплатит 0,005 + 0,002 = 0,007 WAVES. Остаток 1,022 WAVES будет ему возвращен.
+**Consider the example:**
+* The complexity of the callable function `C` = 10,000.
+* The transaction sender is a smart account: `S` = 0.004.
+* The transaction sender specifies `extraFeePerStep`: `E` = 0.002.
+* The transaction contains 1 payment in a smart asset: `P` = 1.
+* The callable function performs 2 smart asset transfers and 1 token issue: `A` = 2 and `I` = 1.
+* 
+The minimum fee for the Invoke Script transaction is (0.005 + 0.002) × 3 + 0.004 + 0.004 × 1 + 0.004 × 2 + 1 = 1.037 WAVES. If all transactions are successful, the fee will be distributed as follows:
+* for the Invoke Script transaction: 0.005 + 0.002 + 0.004,
+* for the first Continuation transaction: 0.005 + 0.002,
+* for the last Continuation transaction: 0.005 + 0.002 + 0.004 × 1 + 0.004 × 2 + 1 × 1.
 
-Если первая транзакция продолжения завершится ошибкой, отправитель заплатит (0,005 + 0,002) × 2 = 0,014 WAVES. Остаток 1,015 WAVES будет ему возвращен.
+> Note: if the sender specifies the transaction fee more than the minimum of 1.037 WAVES, the remainder will be returned to them even if all stages are successfully completed.
 
-Если вторая транзакция продолжения завершится ошибкой, отправитель заплатит (0,005 + 0,002) × 2 = 0,021 WAVES. Остаток 1,008 WAVES будет ему возвращен.
+If the Invoke Script transaction fails after the calculations' complexity exceeds the threshold for saving failed transactions, the sender pays 0.005 + 0.002 + 0.004 = 0.011 WAVES. The unused fee of 1.026 WAVES is returned to the sender.
 
-## Статус выполнения транзакции
+If the first Continuation transaction fails, then the sender pays (0.005 + 0.002) × 2 + 0.004 = 0.018 WAVES. The unused fee of 1.019 WAVES is returned.
 
-Поле `applicationStatus` в JSON-представлении транзакции содержит статус выполнения вычислений:
+If the last Continuation transaction fails:
 
-* для всех транзакций в цепочке вычислений, кроме последней: `script_execution_in_progress`,
-* для последней транзакции — `succeeded` в случае успеха или `script_execution_failed` в случае ошибки.
+* If the callable function execution fails, then the sender pays (0.005 + 0.002) × 3 + 0.004 = 0.025 WAVES. The unused fee of 1.012 WAVES is returned.
+* If the callable function result is successfully calculated, but one of the asset scripts denied the transaction, the sender also pays 0.004 WAVES for each asset script actually executed. For example, if the first asset script returned `true`, the second asset script returned `false` or failed, and the third asset script has not started execution, then the sender pays (0.005 + 0.002) × 3 + 0.004 + 0.004 × 2 = 0.033 WAVES. The unused fee of 1.004 WAVES is returned.
+
+## Application Status
+
+The `applicationStatus` field of transaction JSON representation contains the current status of script execution:
+* `succeeded`: the transaction is successful.
+* `script_execution_failed`: the dApp script or the asset script failed.
+* `script_execution_in_progress`: the calculation sequence is not completed yet (it's a transitory status).
+
+Node REST API returns the same the same application status for all the transactions of the calculation sequence. When the script is completely executed or fails, the `applicationStatus` for all the transactions is changed to `succeeded` or `script_execution_failed`.
