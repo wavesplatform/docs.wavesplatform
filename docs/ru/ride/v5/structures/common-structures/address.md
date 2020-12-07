@@ -12,4 +12,4 @@ Address(bytes: ByteVector)
 
 |   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | bytes | [ByteVector](/ru/ride/data-types/byte-vector) | Массив байтов адреса |
+| 1 | bytes | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Массив байтов адреса |

@@ -17,13 +17,13 @@
 addressFromString(string: String): Address|Unit
 ```
 
-Описание возвращаемой структуры см. в разделе [Address](/ru/ride/structures/common-structures/address).
+Описание возвращаемой структуры см. в разделе [Address](/ru/ride/v5/structures/common-structures/address).
 
 ### Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
-| `string`: [String](/ru/ride/data-types/string) | Строка для декодирования |
+| `string`: [String](/ru/ride/v5/data-types/string) | Строка для декодирования |
 
 ### Примеры
 
@@ -41,13 +41,13 @@ let address = addressFromString("3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF")
 addressFromStringValue(string: String): Address
 ```
 
-Описание возвращаемой структуры см. в разделе [Address](/ru/ride/structures/common-structures/address).
+Описание возвращаемой структуры см. в разделе [Address](/ru/ride/v5/structures/common-structures/address).
 
 ### Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
-| `string`: [String](/ru/ride/data-types/string) | Строка для декодирования |
+| `string`: [String](/ru/ride/v5/data-types/string) | Строка для декодирования |
 
 ### Примеры
 
@@ -67,7 +67,7 @@ fromBase16String(str: String): ByteVector
 
 | Параметр | Описание |
 | :--- | :--- |
-| `str`: [String](/ru/ride/data-types/string) | Строка для декодирования |
+| `str`: [String](/ru/ride/v5/data-types/string) | Строка для декодирования |
 
 ### Примеры
 
@@ -87,7 +87,7 @@ fromBase58String(str: String): ByteVector
 
 | Параметр | Описание |
 | :--- | :--- |
-| `str`: [String](/ru/ride/data-types/string) | Строка для декодирования |
+| `str`: [String](/ru/ride/v5/data-types/string) | Строка для декодирования |
 
 ### Примеры
 
@@ -107,7 +107,7 @@ fromBase64String(str: String): ByteVector
 
 | Параметр | Описание |
 | :--- | :--- |
-| `str`: [String](/ru/ride/data-types/string) | Строка для декодирования |
+| `str`: [String](/ru/ride/v5/data-types/string) | Строка для декодирования |
 
 ### Примеры
 

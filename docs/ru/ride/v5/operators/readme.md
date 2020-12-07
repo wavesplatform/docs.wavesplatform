@@ -38,7 +38,7 @@
 | Оператор | Описание |
 | :---: | :--- |
 | if-then-else | Ветвление |
-| match-case | [Определение типа из Union](/ru/ride/operators/match-case) |
+| match-case | [Определение типа из Union](/ru/ride/v5/operators/match-case) |
 
 ## Операторы списка
 
@@ -50,7 +50,7 @@
 
 > :warning: Операторы `++` и `:+` добавлены в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
 
-См. примеры в разделе [List](/ru/ride/data-types/list).
+См. примеры в разделе [List](/ru/ride/v5/data-types/list).
 
 ## Унарные операторы
 

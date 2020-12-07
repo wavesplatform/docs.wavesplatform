@@ -1,8 +1,8 @@
 # Функции транзакции данных
 
-Приведенные в этом разделе функции получают данные ключу из структуры [транзакции данных](/ru/ride/structures/transaction-structures/data-transaction) или из произвольного списка записей:
-* List[[BinaryEntry](/ru/ride/structures/script-actions/binary-entry)|[BooleanEntry](/ru/ride/structures/script-actions/boolean-entry)|[IntegerEntry](/ru/ride/structures/script-actions/int-entry)|[StringEntry](/ru/ride/structures/script-actions/string-entry)] — для Стандартной библиотеки **версии 4**.
-* List[[DataEntry](/ru/ride/structures/script-actions/data-entry)] — для Стандартной библиотеки **версии 3**.
+Приведенные в этом разделе функции получают данные ключу из структуры [транзакции данных](/ru/ride/v5/structures/transaction-structures/data-transaction) или из произвольного списка записей:
+* List[[BinaryEntry](/ru/ride/v5/structures/script-actions/binary-entry)|[BooleanEntry](/ru/ride/v5/structures/script-actions/boolean-entry)|[IntegerEntry](/ru/ride/v5/structures/script-actions/int-entry)|[StringEntry](/ru/ride/v5/structures/script-actions/string-entry)] — для Стандартной библиотеки **версии 4**.
+* List[[DataEntry](/ru/ride/v5/structures/script-actions/data-entry)] — для Стандартной библиотеки **версии 3**.
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
@@ -43,8 +43,8 @@ getBinary(data: List[DataEntry], key: String): ByteVector|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| data: [List](/ru/ride/data-types/list)[] | Список записей данных, обычно `tx.data` |
-| key: [String](/ru/ride/data-types/string) | Ключ |
+| data: [List](/ru/ride/v5/data-types/list)[] | Список записей данных, обычно `tx.data` |
+| key: [String](/ru/ride/v5/data-types/string) | Ключ |
 
 ## getBinary(List[], Int): ByteVector|Unit <a id="get-binary-index"></a>
 
@@ -66,8 +66,8 @@ getBinary(data: List[DataEntry], index: Int): ByteVector|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| data: [List](/ru/ride/data-types/list)[] | Список записей данных, обычно `tx.data` |
-| index: [Int](/ru/ride/data-types/int) | Индекс |
+| data: [List](/ru/ride/v5/data-types/list)[] | Список записей данных, обычно `tx.data` |
+| index: [Int](/ru/ride/v5/data-types/int) | Индекс |
 
 ## getBinaryValue(List[], String): ByteVector <a id="get-binary-value-key"></a>
 
@@ -91,8 +91,8 @@ getBinaryValue(data: List[DataEntry], key: String): ByteVector
 
 | Параметр | Описание |
 | :--- | :--- |
-| data: [List](/ru/ride/data-types/list)[] | Список записей данных, обычно `tx.data` |
-| key: [String](/ru/ride/data-types/string) | Ключ |
+| data: [List](/ru/ride/v5/data-types/list)[] | Список записей данных, обычно `tx.data` |
+| key: [String](/ru/ride/v5/data-types/string) | Ключ |
 
 ## getBinaryValue(List[], Int): ByteVector <a id="get-binary-value-index"></a>
 
@@ -116,8 +116,8 @@ getBinaryValue(data: List[DataEntry], index: Int): ByteVector
 
 | Параметр | Описание |
 | :--- | :--- |
-| data: [List](/ru/ride/data-types/list)[] | Список записей данных, обычно `tx.data` |
-| index: [Int](/ru/ride/data-types/int) | Индекс |
+| data: [List](/ru/ride/v5/data-types/list)[] | Список записей данных, обычно `tx.data` |
+| index: [Int](/ru/ride/v5/data-types/int) | Индекс |
 
 ## getBoolean(List[], String): Boolean|Unit <a id="get-boolean-key"></a>
 
@@ -139,8 +139,8 @@ getBoolean(data: List[DataEntry], key: String): Boolean|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| data: [List](/ru/ride/data-types/list)[] | Список записей данных, обычно `tx.data` |
-| key: [String](/ru/ride/data-types/string) | Ключ |
+| data: [List](/ru/ride/v5/data-types/list)[] | Список записей данных, обычно `tx.data` |
+| key: [String](/ru/ride/v5/data-types/string) | Ключ |
 
 ## getBoolean(data: List[], index: Int): Boolean|Unit <a id="get-boolean-index"></a>
 
@@ -162,8 +162,8 @@ getBoolean(data: List[DataEntry], index: Int): Boolean|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| data: [List](/ru/ride/data-types/list)[] | Список записей данных, обычно `tx.data` |
-| index: [Int](/ru/ride/data-types/int) | Индекс |
+| data: [List](/ru/ride/v5/data-types/list)[] | Список записей данных, обычно `tx.data` |
+| index: [Int](/ru/ride/v5/data-types/int) | Индекс |
 
 ## getBooleanValue(List[], String): Boolean <a id="get-boolean-value-key"></a>
 
@@ -187,8 +187,8 @@ getBooleanValue(data: List[DataEntry], key: String): Boolean
 
 | Параметр | Описание |
 | :--- | :--- |
-| data: [List](/ru/ride/data-types/list)[] | Список записей данных, обычно `tx.data` |
-| key: [String](/ru/ride/data-types/string) | Ключ |
+| data: [List](/ru/ride/v5/data-types/list)[] | Список записей данных, обычно `tx.data` |
+| key: [String](/ru/ride/v5/data-types/string) | Ключ |
 
 ## getBooleanValue(List[], Int): Boolean <a id="get-boolean-value-index"></a>
 
@@ -212,8 +212,8 @@ getBooleanValue(data: List[DataEntry], index: Int): Boolean
 
 | Параметр | Описание |
 | :--- | :--- |
-| data: [List](/ru/ride/data-types/list)[] | Список записей данных, обычно `tx.data` |
-| index: [Int](/ru/ride/data-types/int) | Индекс |
+| data: [List](/ru/ride/v5/data-types/list)[] | Список записей данных, обычно `tx.data` |
+| index: [Int](/ru/ride/v5/data-types/int) | Индекс |
 
 ## getInteger(List[], String): Int|Unit <a id="get-integer-key"></a>
 
@@ -232,8 +232,8 @@ getInteger(data: List[DataEntry], key: String): Int|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| data: [List](/ru/ride/data-types/list)[] | Список записей данных, обычно `tx.data` |
-| key: [String](/ru/ride/data-types/string) | Ключ |
+| data: [List](/ru/ride/v5/data-types/list)[] | Список записей данных, обычно `tx.data` |
+| key: [String](/ru/ride/v5/data-types/string) | Ключ |
 
 ## getInteger(List[], Int): Unit|Int <a id="get-integer-index"></a>
 
@@ -255,8 +255,8 @@ getInteger(data: List[DataEntry], index: Int): Int|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| data: [List](/ru/ride/data-types/list)[] | Список записей данных, обычно `tx.data` |
-| index: [Int](/ru/ride/data-types/int) | Индекс |
+| data: [List](/ru/ride/v5/data-types/list)[] | Список записей данных, обычно `tx.data` |
+| index: [Int](/ru/ride/v5/data-types/int) | Индекс |
 
 ## getIntegerValue(List[], String): Int <a id="get-integer-value-key"></a>
 
@@ -278,8 +278,8 @@ getIntegerValue(data: List[DataEntry], key: String): Int
 
 | Параметр | Описание |
 | :--- | :--- |
-| data: [List](/ru/ride/data-types/list)[] | Список записей данных, обычно `tx.data` |
-| key: [String](/ru/ride/data-types/string) | Ключ |
+| data: [List](/ru/ride/v5/data-types/list)[] | Список записей данных, обычно `tx.data` |
+| key: [String](/ru/ride/v5/data-types/string) | Ключ |
 
 ## getIntegerValue(List[], Int): Int <a id="get-integer-value-index"></a>
 
@@ -303,8 +303,8 @@ getIntegerValue(data: List[DataEntry], index: Int): Int
 
 | Параметр | Описание |
 | :--- | :--- |
-| data: [List](/ru/ride/data-types/list)[] | Список записей данных, обычно `tx.data` |
-| index: [Int](/ru/ride/data-types/int) | Индекс |
+| data: [List](/ru/ride/v5/data-types/list)[] | Список записей данных, обычно `tx.data` |
+| index: [Int](/ru/ride/v5/data-types/int) | Индекс |
 
 ## getString(List[], String): String|Unit <a id="get-string-key"></a>
 
@@ -326,8 +326,8 @@ getString(data: List[DataEntry], key: String): String|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| data: [List](/ru/ride/data-types/list)[] | Список записей данных, обычно `tx.data` |
-| key: [String](/ru/ride/data-types/string) | Ключ |
+| data: [List](/ru/ride/v5/data-types/list)[] | Список записей данных, обычно `tx.data` |
+| key: [String](/ru/ride/v5/data-types/string) | Ключ |
 
 ## getString(List[], Int): String|Unit <a id="get-string-index"></a>
 
@@ -347,8 +347,8 @@ getString(data: List[DataEntry], index: Int): String|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| data: [List](/ru/ride/data-types/list)[] | Список записей данных, обычно `tx.data` |
-| index: [Int](/ru/ride/data-types/int) | Индекс |
+| data: [List](/ru/ride/v5/data-types/list)[] | Список записей данных, обычно `tx.data` |
+| index: [Int](/ru/ride/v5/data-types/int) | Индекс |
 
 ## getStringValue(List[], String) : String <a id="get-string-value-key"></a>
 
@@ -372,8 +372,8 @@ getStringValue(data: List[DataEntry], key: String): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| data: [List](/ru/ride/data-types/list)[] | Список записей данных, обычно `tx.data` |
-| key: [String](/ru/ride/data-types/string) | Ключ |
+| data: [List](/ru/ride/v5/data-types/list)[] | Список записей данных, обычно `tx.data` |
+| key: [String](/ru/ride/v5/data-types/string) | Ключ |
 
 ## getStringValue(List[], Int): String <a id="get-string-value-index"></a>
 
@@ -397,5 +397,5 @@ getStringValue(data: List[DataEntry], index: Int): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| data: [List](/ru/ride/data-types/list)[] | Список записей данных, обычно `tx.data` |
-| index: [Int](/ru/ride/data-types/int) | Индекс |
+| data: [List](/ru/ride/v5/data-types/list)[] | Список записей данных, обычно `tx.data` |
+| index: [Int](/ru/ride/v5/data-types/int) | Индекс |

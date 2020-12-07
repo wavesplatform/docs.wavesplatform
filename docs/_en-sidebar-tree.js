@@ -995,7 +995,7 @@ module.exports = {
           path: ridePath + 'advanced/continuation',
         },
         {
-          title: 'Strict Variables',
+          title: 'Strict Variable',
           path: rideV5Path + 'variables',
         },
         {

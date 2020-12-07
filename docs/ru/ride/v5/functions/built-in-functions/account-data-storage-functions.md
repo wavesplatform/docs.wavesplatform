@@ -33,8 +33,8 @@ getBinary(addressOrAlias: Address|Alias, key: String): ByteVector|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
-| `key`: [String](/ru/ride/data-types/string) | Ключ записи |
+| `addressOrAlias`: [Address](/ru/ride/v5/structures/common-structures/address)&#124;[Alias](/ru/ride/v5/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+| `key`: [String](/ru/ride/v5/data-types/string) | Ключ записи |
 
 ## getBinary(String): ByteVector|Unit
 
@@ -50,7 +50,7 @@ getBinary(key: String): ByteVector|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `key`: [String](/ru/ride/data-types/string) | Ключ записи |
+| `key`: [String](/ru/ride/v5/data-types/string) | Ключ записи |
 
 ## getBinaryValue(Address|Alias, String): ByteVector
 
@@ -64,8 +64,8 @@ getBinaryValue(addressOrAlias: Address|Alias, key: String): ByteVector
 
 | Параметр | Описание |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
-| `key`: [String](/ru/ride/data-types/string) | Ключ записи |
+| `addressOrAlias`: [Address](/ru/ride/v5/structures/common-structures/address)&#124;[Alias](/ru/ride/v5/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+| `key`: [String](/ru/ride/v5/data-types/string) | Ключ записи |
 
 ## getBinaryValue(String): ByteVector
 
@@ -81,7 +81,7 @@ getBinaryValue(key: String): ByteVector
 
 | Параметр | Описание |
 | :--- | :--- |
-| `key`: [String](/ru/ride/data-types/string) | Ключ записи |
+| `key`: [String](/ru/ride/v5/data-types/string) | Ключ записи |
 
 ## getBoolean(Address|Alias, String): Boolean|Unit <a id="get-boolean"></a>
 
@@ -95,8 +95,8 @@ getBoolean(addressOrAlias: Address|Alias, key: String): Boolean|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
-| `key`: [String](/ru/ride/data-types/string) | Ключ записи |
+| `addressOrAlias`: [Address](/ru/ride/v5/structures/common-structures/address)&#124;[Alias](/ru/ride/v5/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+| `key`: [String](/ru/ride/v5/data-types/string) | Ключ записи |
 
 ## getBoolean(String): Boolean|Unit
 
@@ -112,7 +112,7 @@ getBoolean(key: String): Boolean|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `key`: [String](/ru/ride/data-types/string) | Ключ записи |
+| `key`: [String](/ru/ride/v5/data-types/string) | Ключ записи |
 
 ## getBooleanValue(Address|Alias, String): Boolean <a id="get-boolean-value"></a>
 
@@ -126,8 +126,8 @@ getBooleanValue(addressOrAlias: Address|Alias, key: String): Boolean
 
 | Параметр | Описание |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
-| `key`: [String](/ru/ride/data-types/string) | Ключ записи |
+| `addressOrAlias`: [Address](/ru/ride/v5/structures/common-structures/address)&#124;[Alias](/ru/ride/v5/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+| `key`: [String](/ru/ride/v5/data-types/string) | Ключ записи |
 
 ## getBooleanValue(String): Boolean
 
@@ -143,7 +143,7 @@ getBooleanValue(key: String): Boolean
 
 | Параметр | Описание |
 | :--- | :--- |
-| `key`: [String](/ru/ride/data-types/string) | Ключ записи |
+| `key`: [String](/ru/ride/v5/data-types/string) | Ключ записи |
 
 ## getInteger(Address|Alias, String): Int|Unit <a id="get-integer"></a>
 
@@ -157,8 +157,8 @@ getInteger(addressOrAlias: Address|Alias, key: String): Int|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
-| `key`: [String](/ru/ride/data-types/string) | Ключ записи |
+| `addressOrAlias`: [Address](/ru/ride/v5/structures/common-structures/address)&#124;[Alias](/ru/ride/v5/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+| `key`: [String](/ru/ride/v5/data-types/string) | Ключ записи |
 
 ## getInteger(String): Int|Unit
 
@@ -174,7 +174,7 @@ getInteger(key: String): Int|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `key`: [String](/ru/ride/data-types/string) | Ключ записи |
+| `key`: [String](/ru/ride/v5/data-types/string) | Ключ записи |
 
 ## getIntegerValue(Address|Alias, String): Int <a id="get-integer-value"></a>
 
@@ -188,8 +188,8 @@ getIntegerValue(addressOrAlias: Address|Alias, key: String): Int
 
 | Параметр | Описание |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
-| `key`: [String](/ru/ride/data-types/string) | Ключ записи |
+| `addressOrAlias`: [Address](/ru/ride/v5/structures/common-structures/address)&#124;[Alias](/ru/ride/v5/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+| `key`: [String](/ru/ride/v5/data-types/string) | Ключ записи |
 
 ## getIntegerValue(String): Int
 
@@ -205,7 +205,7 @@ getIntegerValue(key: String): Int
 
 | Параметр | Описание |
 | :--- | :--- |
-| `key`: [String](/ru/ride/data-types/string) | Ключ записи |
+| `key`: [String](/ru/ride/v5/data-types/string) | Ключ записи |
 
 ## getString(Address|Alias, String): String|Unit <a id="get-string"></a>
 
@@ -219,8 +219,8 @@ getString(addressOrAlias: Address|Alias, key: String): String|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
-| `key`: [String](/ru/ride/data-types/string) | Ключ записи |
+| `addressOrAlias`: [Address](/ru/ride/v5/structures/common-structures/address)&#124;[Alias](/ru/ride/v5/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+| `key`: [String](/ru/ride/v5/data-types/string) | Ключ записи |
 
 ## getString(String): String|Unit
 
@@ -236,7 +236,7 @@ getString(key: String): String|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `key`: [String](/ru/ride/data-types/string) | Ключ записи |
+| `key`: [String](/ru/ride/v5/data-types/string) | Ключ записи |
 
 ## getStringValue(Address|Alias, String): String <a id="get-string-value"></a>
 
@@ -250,8 +250,8 @@ getStringValue(addressOrAlias: Address|Alias, key: String): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
-| `key`: [String](/ru/ride/data-types/string) | Ключ записи |
+| `addressOrAlias`: [Address](/ru/ride/v5/structures/common-structures/address)&#124;[Alias](/ru/ride/v5/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+| `key`: [String](/ru/ride/v5/data-types/string) | Ключ записи |
 
 ## getStringValue(String): String
 
@@ -267,4 +267,4 @@ geString(key: String): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `key`: [String](/ru/ride/data-types/string) | Ключ записи |
+| `key`: [String](/ru/ride/v5/data-types/string) | Ключ записи |

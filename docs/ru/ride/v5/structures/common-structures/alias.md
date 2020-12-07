@@ -12,4 +12,4 @@ Alias(alias: String)
 
 |   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | alias | [String](/ru/ride/data-types/string) | [Псевдоним](/ru/blockchain/account/alias) |
+| 1 | alias | [String](/ru/ride/v5/data-types/string) | [Псевдоним](/ru/blockchain/account/alias) |

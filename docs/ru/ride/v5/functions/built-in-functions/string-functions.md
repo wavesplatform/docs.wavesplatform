@@ -29,8 +29,8 @@ contains(haystack: String, needle: String): Boolean
 
 | Параметр | Описание |
 | :--- | :--- |
-| `haystack`: [String](/ru/ride/data-types/string) | Строка, в которой осуществляется поиск |
-| `needle`: [String](/ru/ride/data-types/string) | Искомая строка |
+| `haystack`: [String](/ru/ride/v5/data-types/string) | Строка, в которой осуществляется поиск |
+| `needle`: [String](/ru/ride/v5/data-types/string) | Искомая строка |
 
 ### Примеры
 
@@ -55,8 +55,8 @@ drop(xs: String, number: Int): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `xs`: [String](/ru/ride/data-types/string) | Строка |
-| `number`: [Int](/ru/ride/data-types/int) | Число `n` |
+| `xs`: [String](/ru/ride/v5/data-types/string) | Строка |
+| `number`: [Int](/ru/ride/v5/data-types/int) | Число `n` |
 
 ### Примеры
 
@@ -80,8 +80,8 @@ dropRight(xs: String, number: Int): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `xs`: [String](/ru/ride/data-types/string) | Строка |
-| `number`: [Int](/ru/ride/data-types/int) | Число `n` |
+| `xs`: [String](/ru/ride/v5/data-types/string) | Строка |
+| `number`: [Int](/ru/ride/v5/data-types/int) | Число `n` |
 
 ### Примеры
 
@@ -105,8 +105,8 @@ indexOf(str: String, substr: String): Int|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `str`: [String](/ru/ride/data-types/string) | Строка |
-| `substr`: [String](/ru/ride/data-types/string) | Подстрока |
+| `str`: [String](/ru/ride/v5/data-types/string) | Строка |
+| `substr`: [String](/ru/ride/v5/data-types/string) | Подстрока |
 
 ### Примеры
 
@@ -128,9 +128,9 @@ indexOf(str: String, substr: String, offset: Int): Int|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `str`: [String](/ru/ride/data-types/string) | Строка |
-| `substr`: [String](/ru/ride/data-types/string) | Подстрока |
-| `offset`: [Int](/ru/ride/data-types/int) | Индекс |
+| `str`: [String](/ru/ride/v5/data-types/string) | Строка |
+| `substr`: [String](/ru/ride/v5/data-types/string) | Подстрока |
+| `offset`: [Int](/ru/ride/v5/data-types/int) | Индекс |
 
 ### Примеры
 
@@ -152,8 +152,8 @@ lastIndexOf(str: String, substr: String): Int|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `str`: [String](/ru/ride/data-types/string) | Строка |
-| `substr`: [String](/ru/ride/data-types/string) | Подстрока |
+| `str`: [String](/ru/ride/v5/data-types/string) | Строка |
+| `substr`: [String](/ru/ride/v5/data-types/string) | Подстрока |
 
 ### Примеры
 
@@ -175,9 +175,9 @@ lastIndexOf(str: String, substr: String, offset: Int): Int|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `str`: [String](/ru/ride/data-types/string) | Строка |
-| `substr`: [String](/ru/ride/data-types/string) | Подстрока |
-| `offset`: [Int](/ru/ride/data-types/int) | Индекс |
+| `str`: [String](/ru/ride/v5/data-types/string) | Строка |
+| `substr`: [String](/ru/ride/v5/data-types/string) | Подстрока |
+| `offset`: [Int](/ru/ride/v5/data-types/int) | Индекс |
 
 ### Примеры
 
@@ -200,8 +200,8 @@ makeString(arr: List[String], separator: String): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `arr`: [List](/ru/ride/data-types/list)[[String](/ru/ride/data-types/string)] | Список строк для объединения |
-| `separator`: [String](/ru/ride/data-types/string) | Разделитель |
+| `arr`: [List](/ru/ride/v5/data-types/list)[[String](/ru/ride/v5/data-types/string)] | Список строк для объединения |
+| `separator`: [String](/ru/ride/v5/data-types/string) | Разделитель |
 
 ### Пример
 
@@ -221,7 +221,7 @@ size(xs: String): Int
 
 | Параметр | Описание |
 | :--- | :--- |
-| `xs`: [String](/ru/ride/data-types/string) | Строка |
+| `xs`: [String](/ru/ride/v5/data-types/string) | Строка |
 
 ### Примеры
 
@@ -243,8 +243,8 @@ split(str: String, separator: String): List[String]
 
 | Параметр | Описание |
 | :--- | :--- |
-| `str`: [String](/ru/ride/data-types/string) | Строка |
-| `separator`: [Int](/ru/ride/data-types/int) | Разделитель |
+| `str`: [String](/ru/ride/v5/data-types/string) | Строка |
+| `separator`: [Int](/ru/ride/v5/data-types/int) | Разделитель |
 
 ### Примеры
 
@@ -267,8 +267,8 @@ take(xs: String, number: Int): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `xs`: [String](/ru/ride/data-types/string) | Строка |
-| `number`: [Int](/ru/ride/data-types/int) | Число `n` |
+| `xs`: [String](/ru/ride/v5/data-types/string) | Строка |
+| `number`: [Int](/ru/ride/v5/data-types/int) | Число `n` |
 
 ### Примеры
 
@@ -293,8 +293,8 @@ takeRight(xs: String, number: Int): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `xs`: [String](/ru/ride/data-types/string) | Строка |
-| `number`: [Int](/ru/ride/data-types/int) | Число `n` |
+| `xs`: [String](/ru/ride/v5/data-types/string) | Строка |
+| `number`: [Int](/ru/ride/v5/data-types/int) | Число `n` |
 
 ### Примеры
 

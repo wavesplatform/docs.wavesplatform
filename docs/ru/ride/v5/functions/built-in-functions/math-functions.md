@@ -9,7 +9,7 @@
 
 ## fraction
 
-Умножает [целые числа](/ru/ride/data-types/int) `a` и `b` и делит на целое число `c` без переполнения.
+Умножает [целые числа](/ru/ride/v5/data-types/int) `a` и `b` и делит на целое число `c` без переполнения.
 
 Результат `a × b / c` не должен превышать максимальное целочисленное значение 9&nbsp;223&nbsp;372&nbsp;036&nbsp;854&nbsp;755&nbsp;807.
 
@@ -35,7 +35,7 @@ b = 50&nbsp;000&nbsp;000&nbsp;000&nbsp;000,
 
 c = 2&nbsp;500&nbsp;000.
 
-Следующее выражение с [операторами](/ru/ride/operators/) `*` and `/` вызывает ошибку переполнения:
+Следующее выражение с [операторами](/ru/ride/v5/operators/) `*` and `/` вызывает ошибку переполнения:
 
 ```ride
 a × b /c # ошибка, поскольку a × b превышает максимальное целочисленное значение
@@ -55,7 +55,7 @@ fraction(a, b, c) # Результат: 2 000 000 000 000 000 000
 log(value: Int, ep: Int, base: Int, bp: Int, rp: Int, round: UP|DOWN|CEILING|FLOOR|HALFUP|HALFDOWN|HALFEVEN): Int
 ```
 
-В Ride нет [типа данных](/ru/ride/data-types/) с плавающей точкой. Поэтому, чтобы вычислить `log`<sub>2,7</sub>16,25, нужно указать `value` = 1625, `vp` = 2 и `base` = 27, `bp` = 1.
+В Ride нет [типа данных](/ru/ride/v5/data-types/) с плавающей точкой. Поэтому, чтобы вычислить `log`<sub>2,7</sub>16,25, нужно указать `value` = 1625, `vp` = 2 и `base` = 27, `bp` = 1.
 
 Еще примеры:
 
@@ -69,11 +69,11 @@ log(value: Int, ep: Int, base: Int, bp: Int, rp: Int, round: UP|DOWN|CEILING|FLO
 
 | Параметр | Описание |
 | :--- | :--- |
-| `value`: [Int](/ru/ride/data-types/int) | Число `a` без десятичной точки |
-| `vp`: [Int](/ru/ride/data-types/int) | Количество знаков после запятой у `a` |
-| `base`: [Int](/ru/ride/data-types/int) | Основание логарифма `b` без десятичной точки |
-| `bp`: [Int](/ru/ride/data-types/int) | Количество знаков после запятой у `b` |
-| `rp`: [Int](/ru/ride/data-types/int) | Количество знаков после запятой у результата, от 0 до 8 включительно. Задает точность вычисления |
+| `value`: [Int](/ru/ride/v5/data-types/int) | Число `a` без десятичной точки |
+| `vp`: [Int](/ru/ride/v5/data-types/int) | Количество знаков после запятой у `a` |
+| `base`: [Int](/ru/ride/v5/data-types/int) | Основание логарифма `b` без десятичной точки |
+| `bp`: [Int](/ru/ride/v5/data-types/int) | Количество знаков после запятой у `b` |
+| `rp`: [Int](/ru/ride/v5/data-types/int) | Количество знаков после запятой у результата, от 0 до 8 включительно. Задает точность вычисления |
 | `round`: UP&#124;DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFDOWN&#124;HALFEVEN | Одна из [переменных округления](#переменные-округления) |
 
 ### Примеры
@@ -91,7 +91,7 @@ log(0, 0, 2, 0, 0, HALFUP)     # Результат: -Infinity
 
 ## median
 
-Возвращает медиану [списка](/ru/ride/data-types/list) целых чисел. Список не может быть пустым, иначе скрипт завершится с ошибкой.
+Возвращает медиану [списка](/ru/ride/v5/data-types/list) целых чисел. Список не может быть пустым, иначе скрипт завершится с ошибкой.
 
 > Функция `median` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4.
 
@@ -121,7 +121,7 @@ median([-2, -4, -9, -20]) # Возвращает -7
 pow(base: Int, bp: Int, exponent: Int, ep: Int, rp: Int, round: UP|DOWN|CEILING|FLOOR|HALFUP|HALFDOWN|HALFEVEN): Int
 ```
 
-В Ride нет [типа данных](/ru/ride/data-types/) с плавающей точкой. Поэтому, чтобы вычислить 16,25<sup>2,7</sup>, нужно указать `base` = 1625, `bp` = 2 и `exponent` = 27, `ep` = 1.
+В Ride нет [типа данных](/ru/ride/v5/data-types/) с плавающей точкой. Поэтому, чтобы вычислить 16,25<sup>2,7</sup>, нужно указать `base` = 1625, `bp` = 2 и `exponent` = 27, `ep` = 1.
 
 Если функция `pow` возвращает, например, 18591057, а параметр `rp` = 4, это значит, что результат вычисления равен 1859,1057; в числе 18591057 последние 4 цифры — дробная часть.
 
@@ -129,11 +129,11 @@ pow(base: Int, bp: Int, exponent: Int, ep: Int, rp: Int, round: UP|DOWN|CEILING|
 
 | Parameter | Description |
 | :--- | :--- |
-| `base`: [Int](/ru/ride/data-types/int) | Число `a` без десятичной точки |
-| `bp`: [Int](/ru/ride/data-types/int) | Количество знаков после запятой у `a` |
-| `exponent`: [Int](/ru/ride/data-types/int) | Показатель степени `b` без десятичной точки |
-| `ep`: [Int](/ru/ride/data-types/int) | Количество знаков после запятой у `b` |
-| `rp`: [Int](/ru/ride/data-types/int) | Количество знаков после запятой у результата, от 0 до 8 включительно. Задает точность вычисления |
+| `base`: [Int](/ru/ride/v5/data-types/int) | Число `a` без десятичной точки |
+| `bp`: [Int](/ru/ride/v5/data-types/int) | Количество знаков после запятой у `a` |
+| `exponent`: [Int](/ru/ride/v5/data-types/int) | Показатель степени `b` без десятичной точки |
+| `ep`: [Int](/ru/ride/v5/data-types/int) | Количество знаков после запятой у `b` |
+| `rp`: [Int](/ru/ride/v5/data-types/int) | Количество знаков после запятой у результата, от 0 до 8 включительно. Задает точность вычисления |
 | `round`: UP&#124;DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFDOWN&#124;HALFEVEN | Одна из [переменных округления](#переменные-округления) |
 
 ### Примеры

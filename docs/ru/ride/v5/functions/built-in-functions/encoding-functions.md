@@ -18,7 +18,7 @@ toBase16String(bytes: ByteVector): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `bytes`: [ByteVector](/ru/ride/data-types/byte-vector) | Массив байтов для кодирования |
+| `bytes`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Массив байтов для кодирования |
 
 ### Примеры
 
@@ -39,7 +39,7 @@ toBase58String(bytes: ByteVector): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `bytes`: [ByteVector](/ru/ride/data-types/byte-vector) | Массив байтов для кодирования |
+| `bytes`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Массив байтов для кодирования |
 
 ### Примеры
 
@@ -60,7 +60,7 @@ toBase64String(bytes: ByteVector): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `bytes`: [ByteVector](/ru/ride/data-types/byte-vector) | Массив байтов для кодирования |
+| `bytes`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Массив байтов для кодирования |
 
 ### Примеры
 

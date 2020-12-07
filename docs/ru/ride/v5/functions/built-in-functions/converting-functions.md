@@ -25,13 +25,13 @@
 addressFromPublicKey(publicKey: ByteVector): Address
 ```
 
-Описание возвращаемой структуры см. в разделе [Address](/ru/ride/structures/common-structures/address).
+Описание возвращаемой структуры см. в разделе [Address](/ru/ride/v5/structures/common-structures/address).
 
 ### Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
-| `publicKey`: [ByteVector](/ru/ride/data-types/byte-vector) | Открытый ключ для конвертации |
+| `publicKey`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Открытый ключ для конвертации |
 
 ### Примеры
 
@@ -51,7 +51,7 @@ parseInt(str: String): Int|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `str`: [String](/ru/ride/data-types/string) | Строка для конвертации |
+| `str`: [String](/ru/ride/v5/data-types/string) | Строка для конвертации |
 
 ### Примеры
 
@@ -76,7 +76,7 @@ parseIntValue(str: String): Int
 
 | Параметр | Описание |
 | :--- | :--- |
-| `str`: [String](/ru/ride/data-types/string) | Строка для конвертации |
+| `str`: [String](/ru/ride/v5/data-types/string) | Строка для конвертации |
 
 ### Примеры
 
@@ -100,7 +100,7 @@ toBytes(b: Boolean): ByteVector
 
 | Параметр | Описание |
 | :--- | :--- |
-| `b`: [Boolean](/ru/ride/data-types/boolean) | Логическое значение для конвертации |
+| `b`: [Boolean](/ru/ride/v5/data-types/boolean) | Логическое значение для конвертации |
 
 ### Примеры
 
@@ -121,7 +121,7 @@ toBytes(n: Int): ByteVector
 
 | Параметр | Описание |
 | :--- | :--- |
-| `n`: [Int](/ru/ride/data-types/int) | Целое число для конвертации |
+| `n`: [Int](/ru/ride/v5/data-types/int) | Целое число для конвертации |
 
 ### Примеры
 
@@ -141,7 +141,7 @@ toBytes(s: String): ByteVector
 
 | Параметр | Описание |
 | :--- | :--- |
-| `s`: [String](/ru/ride/data-types/string) | Строка для конвертации |
+| `s`: [String](/ru/ride/v5/data-types/string) | Строка для конвертации |
 
 ### Примеры
 
@@ -161,7 +161,7 @@ toInt(bin: ByteVector): Int
 
 | Параметр | Описание |
 | :--- | :--- |
-| `bin`: [ByteVector](/ru/ride/data-types/byte-vector) | Массив байтов для конвертации |
+| `bin`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Массив байтов для конвертации |
 
 ### Примеры
 
@@ -181,8 +181,8 @@ toInt(bin: ByteVector, offset: Int): Int
 
 | Параметр | Описание |
 | :--- | :--- |
-| `bin`: [ByteVector](/ru/ride/data-types/byte-vector) | Массив байтов для конвертации |
-| `offset`: [Int](/ru/ride/data-types/int) | Индекс |
+| `bin`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Массив байтов для конвертации |
+| `offset`: [Int](/ru/ride/v5/data-types/int) | Индекс |
 
 ### Примеры
 
@@ -204,7 +204,7 @@ toString(Address: Address): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `Address`: [Address](/ru/ride/structures/common-structures/address) | Адрес для конвертации |
+| `Address`: [Address](/ru/ride/v5/structures/common-structures/address) | Адрес для конвертации |
 
 ### Примеры
 
@@ -225,7 +225,7 @@ toString(b: Boolean): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `b`: [Boolean](/ru/ride/data-types/boolean) | Логическое значение для конвертации |
+| `b`: [Boolean](/ru/ride/v5/data-types/boolean) | Логическое значение для конвертации |
 
 ### Примеры
 
@@ -246,7 +246,7 @@ toString(n: Int): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `n`: [Int](/ru/ride/data-types/int) | Целое число для конвертации |
+| `n`: [Int](/ru/ride/v5/data-types/int) | Целое число для конвертации |
 
 ### Примеры
 
@@ -266,7 +266,7 @@ toUtf8String(u: ByteVector): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `u`: [ByteVector](/ru/ride/data-types/byte-vector) | Массив байтов для конвертации |
+| `u`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Массив байтов для конвертации |
 
 ### Примеры
 
@@ -277,7 +277,7 @@ toUtf8String(bytes) # Возвращает "Ride on Waves"
 
 ## transferTransactionFromProto
 
-Десериализует транзакцию перевода: конвертирует [бинарный формат](/ru/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format) в структуру [TransferTransaction](/ru/ride/structures/transaction-structures/transfer-transaction). Бинарный формат должен соответствовать [protobuf-схеме](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). В случае если конвертация не удалась, возвращает значение `unit`.
+Десериализует транзакцию перевода: конвертирует [бинарный формат](/ru/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format) в структуру [TransferTransaction](/ru/ride/v5/structures/transaction-structures/transfer-transaction). Бинарный формат должен соответствовать [protobuf-схеме](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). В случае если конвертация не удалась, возвращает значение `unit`.
 
 > :warning: Функция `transferTransactionFromProto` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
 
@@ -285,13 +285,13 @@ toUtf8String(bytes) # Возвращает "Ride on Waves"
 transferTransactionFromProto(b: ByteVector): TransferTransaction|Unit
 ```
 
-Описание возвращаемой структуры см. в разделе [TransferTransaction](/ru/ride/structures/transaction-structures/transfer-transaction).
+Описание возвращаемой структуры см. в разделе [TransferTransaction](/ru/ride/v5/structures/transaction-structures/transfer-transaction).
 
 ### Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
-| `b`: [ByteVector](/ru/ride/data-types/byte-vector) | Транзакция перевода в бинарном формате на основе protobuf |
+| `b`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Транзакция перевода в бинарном формате на основе protobuf |
 
 ### Примеры
 

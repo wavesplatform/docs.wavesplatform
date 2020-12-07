@@ -39,9 +39,9 @@
 
 | Параметр | Описание |
 | :--- | :--- |
-| `vk`: [ByteVector](/ru/ride/data-types/byte-vector) | Ключ для проверки.<br>Максимальный размер:<br>• Для функций `bn256groth16Verify_<N>inputs` — не более 256 + 32 × `N` байт.<br>• Для функции `bn256groth16Verify` — не более 256 + 32 × 16 = 768 байта |
-| `proof`: [ByteVector](/ru/ride/data-types/byte-vector) | zk-SNARK. фиксированный размер: 128 байт |
-| `inputs`: [ByteVector](/ru/ride/data-types/byte-vector) | Массив публичных входов доказательства с нулевым разглашением. Например, массив хешей UTXO в случае анонимных транзакций.<br>Максимальный размер:<br>• Для функций `bn256groth16Verify_<N>inputs` — не более 32 × `N` байт.<br>• Для функции `bn256groth16Verify` — не более 512 байт. |
+| `vk`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Ключ для проверки.<br>Максимальный размер:<br>• Для функций `bn256groth16Verify_<N>inputs` — не более 256 + 32 × `N` байт.<br>• Для функции `bn256groth16Verify` — не более 256 + 32 × 16 = 768 байта |
+| `proof`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | zk-SNARK. фиксированный размер: 128 байт |
+| `inputs`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Массив публичных входов доказательства с нулевым разглашением. Например, массив хешей UTXO в случае анонимных транзакций.<br>Максимальный размер:<br>• Для функций `bn256groth16Verify_<N>inputs` — не более 32 × `N` байт.<br>• Для функции `bn256groth16Verify` — не более 512 байт. |
 
 ## checkMerkleProof
 
@@ -59,9 +59,9 @@ checkMerkleProof(merkleRoot: ByteVector, merkleProof: ByteVector, valueBytes: By
 
 | Параметр | Описание |
 | :--- | :--- |
-| `merkleRoot`: [ByteVector](/ru/ride/data-types/byte-vector) | Корневой хеш дерева Меркла. |
-| `merkleProof`: [ByteVector](/ru/ride/data-types/byte-vector) | Массив хешей. |
-| `valueBytes`: [ByteVector](/ru/ride/data-types/byte-vector) | Данные для проверки.|
+| `merkleRoot`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Корневой хеш дерева Меркла. |
+| `merkleProof`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Массив хешей. |
+| `valueBytes`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Данные для проверки.|
 
 ## createMerkleRoot
 
@@ -78,9 +78,9 @@ createMerkleRoot(merkleProofs: List[ByteVector], valueBytes: ByteVector, index: 
 
 | Параметр | Описание |
 | :--- | :--- |
-| `merkleProofs`: [List](/ru/ride/data-types/list)[[ByteVector](/ru/ride/data-types/byte-vector)] | Массив соседних хешей дерева Меркла. До 16 элементов, размер каждого 32 байта |
-| `valueBytes`: [ByteVector](/ru/ride/data-types/byte-vector) | Хеш транзакции. Фиксированный размер: 32 байта. Для хеширования можно использовать функцию [blake2b256](/ru/ride/functions/built-in-functions/hashing-functions#blake2b256). Хешировать транзакцию нужно вместе с подписью |
-| `index`: [Int](/ru/ride/data-types/int) | Порядковый номер транзакции в блоке |
+| `merkleProofs`: [List](/ru/ride/v5/data-types/list)[[ByteVector](/ru/ride/v5/data-types/byte-vector)] | Массив соседних хешей дерева Меркла. До 16 элементов, размер каждого 32 байта |
+| `valueBytes`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Хеш транзакции. Фиксированный размер: 32 байта. Для хеширования можно использовать функцию [blake2b256](/ru/ride/v5/functions/built-in-functions/hashing-functions#blake2b256). Хешировать транзакцию нужно вместе с подписью |
+| `index`: [Int](/ru/ride/v5/data-types/int) | Порядковый номер транзакции в блоке |
 
 ## ecrecover
 
@@ -100,8 +100,8 @@ ecrecover(messageHash: ByteVector, signature: ByteVector): ByteVector
 
 | Параметр | Описание |
 | :--- | :--- |
-| `messageHash`: [ByteVector](/ru/ride/data-types/byte-vector) | Keccak-256-хеш сообщения. Фиксированный размер: 32 байта |
-| `signature`: [ByteVector](/ru/ride/data-types/byte-vector) | Цифровая подпись ECDSA. Фиксированный размер: 65 байт |
+| `messageHash`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Keccak-256-хеш сообщения. Фиксированный размер: 32 байта |
+| `signature`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Цифровая подпись ECDSA. Фиксированный размер: 65 байт |
 
 ### Пример
 
@@ -146,9 +146,9 @@ func check(t: ByteVector, signature: ByteVector, publicKey: ByteVector) = {
 
 | Параметр | Описание |
 | :--- | :--- |
-| `vk`: [ByteVector](/ru/ride/data-types/byte-vector) | Ключ для проверки.<br>Максимальный размер:<br>• Для функций `groth16Verify_<N>inputs` — не более 384 + 48 × `N` байт.<br>• Для функции `groth16Verify` — не более 384 + 48 × 16 =1152 байта |
-| `proof`: [ByteVector](/ru/ride/data-types/byte-vector) | [Доказательство с нулевым разглашением](https://ru.wikipedia.org/wiki/Доказательство_с_нулевым_разглашением). Фиксированный размер: 192 байта |
-| `inputs`: [ByteVector](/ru/ride/data-types/byte-vector) | Массив публичных входов доказательства с нулевым разглашением.<br>Максимальный размер:<br>• Для функций `groth16Verify_<N>inputs` — не более 32 × `N` байт.<br>• Для функции `groth16Verify` — не более 512 байт. |
+| `vk`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Ключ для проверки.<br>Максимальный размер:<br>• Для функций `groth16Verify_<N>inputs` — не более 384 + 48 × `N` байт.<br>• Для функции `groth16Verify` — не более 384 + 48 × 16 =1152 байта |
+| `proof`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | [Доказательство с нулевым разглашением](https://ru.wikipedia.org/wiki/Доказательство_с_нулевым_разглашением). Фиксированный размер: 192 байта |
+| `inputs`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Массив публичных входов доказательства с нулевым разглашением.<br>Максимальный размер:<br>• Для функций `groth16Verify_<N>inputs` — не более 32 × `N` байт.<br>• Для функции `groth16Verify` — не более 512 байт. |
 
 ### Пример
 
@@ -196,9 +196,9 @@ groth16Verify(vk, proof, inputs)
 | Параметр | Описание |
 | :--- | :--- |
 | `digest`: digestAlgorithmType | Алгоритм хеширования, примененный к данным перед подписанием. Возможные значения:<br>• NOALG — нет хеширования.<br>• MD5<br>• SHA1<br>• SHA224<br>• SHA256<br>• SHA384<br>• SHA512<br>•  SHA3224 <br>• SHA3256<br>• SHA3384<br>• SHA3512  |
-| `message`: [ByteVector](/ru/ride/data-types/byte-vector) | Исходные данные.<br>Максимальный размер:<br>• Для функций `rsaVerify_<N>Kb` — не более `N` Кбайт.<br>• Для функции `rsaVerify` — не более 150 Кбайт. |
-| `sig`: [ByteVector](/ru/ride/data-types/byte-vector) | Цифровая подпись. Фиксированный размер: 25 байт |
-| `pub`: [ByteVector](/ru/ride/data-types/byte-vector) | Открытый ключ в бинарном формате. Фиксированный размер: 294 байта |
+| `message`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Исходные данные.<br>Максимальный размер:<br>• Для функций `rsaVerify_<N>Kb` — не более `N` Кбайт.<br>• Для функции `rsaVerify` — не более 150 Кбайт. |
+| `sig`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Цифровая подпись. Фиксированный размер: 25 байт |
+| `pub`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Открытый ключ в бинарном формате. Фиксированный размер: 294 байта |
 
 ## sigVerify
 
@@ -219,6 +219,6 @@ groth16Verify(vk, proof, inputs)
 
 | Параметр | Описание |
 | :--- | :--- |
-| `message`: [ByteVector](/ru/ride/data-types/byte-vector) | Исходные данные.<br>Максимальный размер:<br>• Для функций `sigVerify_<N>Kb` — не более `N` Кбайт.<br>• Для функции `sigVerify` — не более 150 Кбайт. |
-| `sig`: [ByteVector](/ru/ride/data-types/byte-vector) | Цифровая подпись. Фиксированный размер: 25 байт |
-| `pub`: [ByteVector](/ru/ride/data-types/byte-vector) | Открытый ключ в бинарном формате. Фиксированный размер: 294 байта |
+| `message`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Исходные данные.<br>Максимальный размер:<br>• Для функций `sigVerify_<N>Kb` — не более `N` Кбайт.<br>• Для функции `sigVerify` — не более 150 Кбайт. |
+| `sig`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Цифровая подпись. Фиксированный размер: 25 байт |
+| `pub`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Открытый ключ в бинарном формате. Фиксированный размер: 294 байта |

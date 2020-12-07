@@ -18,11 +18,11 @@ drop(xs: ByteVector, number: Int): ByteVector
 
 ### Параметры
 
-#### `xs`: [ByteVector](/ru/ride/data-types/byte-vector)
+#### `xs`: [ByteVector](/ru/ride/v5/data-types/byte-vector)
 
 Массив байтов.
 
-#### `number`: [Int](/ru/ride/data-types/int)
+#### `number`: [Int](/ru/ride/v5/data-types/int)
 
 Число `N`.
 
@@ -46,11 +46,11 @@ dropRight(xs: ByteVector, number: Int): ByteVector
 
 ### Параметры
 
-#### `xs`: [ByteVector](/ru/ride/data-types/byte-vector)
+#### `xs`: [ByteVector](/ru/ride/v5/data-types/byte-vector)
 
 Массив байтов.
 
-#### `number`: [Int](/ru/ride/data-types/int)
+#### `number`: [Int](/ru/ride/v5/data-types/int)
 
 Число `N`.
 
@@ -74,7 +74,7 @@ size(byteVector: ByteVector): Int
 
 ### Параметры
 
-#### `byteVector`: [ByteVector](/ru/ride/data-types/byte-vector)
+#### `byteVector`: [ByteVector](/ru/ride/v5/data-types/byte-vector)
 
 Массив байтов.
 
@@ -98,11 +98,11 @@ take(xs: ByteVector, number: Int): ByteVector
 
 ### Параметры
 
-#### `xs`: [ByteVector](/ru/ride/data-types/byte-vector)
+#### `xs`: [ByteVector](/ru/ride/v5/data-types/byte-vector)
 
 Массив байтов.
 
-#### `number`: [Int](/ru/ride/data-types/int)
+#### `number`: [Int](/ru/ride/v5/data-types/int)
 
 Число `N`.
 
@@ -125,11 +125,11 @@ takeRight(xs: ByteVector, number: Int): ByteVector
 
 ### Параметры
 
-#### `xs`: [ByteVector](/ru/ride/data-types/byte-vector)
+#### `xs`: [ByteVector](/ru/ride/v5/data-types/byte-vector)
 
 Массив байтов.
 
-#### `number`: [Int](/ru/ride/data-types/int)
+#### `number`: [Int](/ru/ride/v5/data-types/int)
 
 Число `N`.
 
