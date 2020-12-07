@@ -1,6 +1,6 @@
 # Invocation
 
-Structure that contains the fields of the [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) that can be used by the [callable function](/en/ride/functions/callable-function).
+Structure that contains the fields of the [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) that can be used by the [callable function](/en/ride/v5/functions/callable-function).
 
 ## Constructor
 
@@ -20,13 +20,13 @@ Invocation(caller: Address, callerPublicKey: ByteVector, payments: List[Attached
 
 |   #   | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | caller | [Address](/en/ride/structures/common-structures/address) |  The [account](/en/blockchain/account/) that sent a transaction |
-| 2 | callerPublicKey | [ByteVector](/en/ride/data-types/byte-vector) | Public key of an account that sent a transaction |
-| 3 | payment | [AttachedPayment](/en/ride/structures/common-structures/attached-payment)&#124;[Unit](/en/ride/data-types/unit) | Attached payment.<br>:warning: The field is deleted in Standard library version 4 |
-| 3 | payments | List[[AttachedPayment](/en/ride/structures/common-structures/attached-payment)] | Attached payment.<br>The field is added in Standard library version 4 |
-| 4 | transactionId | [ByteVector](/en/ride/data-types/byte-vector) | ID of a transaction |
-| 5 | fee | [Int](/en/ride/data-types/int) | Transaction fee |
-| 6 | feeAssetId | [ByteVector](/en/ride/data-types/byte-vector)&#124;[Unit](/en/ride/data-types/unit) | [Token](/en/blockchain/token/) of a transaction fee |
+| 1 | caller | [Address](/en/ride/v5/structures/common-structures/address) |  The [account](/en/blockchain/account/) that sent a transaction |
+| 2 | callerPublicKey | [ByteVector](/en/ride/v5/data-types/byte-vector) | Public key of an account that sent a transaction |
+| 3 | payment | [AttachedPayment](/en/ride/v5/structures/common-structures/attached-payment)&#124;[Unit](/en/ride/v5/data-types/unit) | Attached payment.<br>:warning: The field is deleted in Standard library version 4 |
+| 3 | payments | List[[AttachedPayment](/en/ride/v5/structures/common-structures/attached-payment)] | Attached payment.<br>The field is added in Standard library version 4 |
+| 4 | transactionId | [ByteVector](/en/ride/v5/data-types/byte-vector) | ID of a transaction |
+| 5 | fee | [Int](/en/ride/v5/data-types/int) | Transaction fee |
+| 6 | feeAssetId | [ByteVector](/en/ride/v5/data-types/byte-vector)&#124;[Unit](/en/ride/v5/data-types/unit) | [Token](/en/blockchain/token/) of a transaction fee |
 
 ## Example: Payments Processing (version 4)
 

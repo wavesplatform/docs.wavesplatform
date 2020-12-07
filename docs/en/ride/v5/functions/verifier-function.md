@@ -2,7 +2,7 @@
 
 **Verifier function** is a function of [dApp script](/en/ride/script/script-types/dapp-script) that is responsible for [verification of transactions](/en/blockchain/transaction/transaction-validation) and orders sent from [dApp](/en/blockchain/account/dapp) account. The verifier function does the same as an [account script](/en/ride/script/script-types/account-script).
 
-dApp script can have only one verifier function. The verifier function should be adorned with the `@Verifier(tx)` [annotation](/en/ride/functions/annotations), where `tx: Transaction|Order` is the transaction or the order that the function is currently checking.
+dApp script can have only one verifier function. The verifier function should be adorned with the `@Verifier(tx)` [annotation](/en/ride/v5/functions/annotations), where `tx: Transaction|Order` is the transaction or the order that the function is currently checking.
 
 Verifier function has no arguments.
 
@@ -26,7 +26,7 @@ dApp that has no verifier function performs default verification, that is, check
 
 ## Example
 
-dApp with the verifier function listed below only allows [transfer transactions](/en/blockchain/transaction-type/transfer-transaction) with amount of token less than 100. Orders and other transactions are denied. The [match](/en/ride/operators/match-case) operator is used to specify verification rules depending on the type of the transaction/order.
+dApp with the verifier function listed below only allows [transfer transactions](/en/blockchain/transaction-type/transfer-transaction) with amount of token less than 100. Orders and other transactions are denied. The [match](/en/ride/v5/operators/match-case) operator is used to specify verification rules depending on the type of the transaction/order.
 
 
 ```ride
@@ -39,4 +39,4 @@ func verify() = {
 }
 ```
 
-See available fields for each transaction type in the [Transaction Structures](/en/ride/structures/transaction-structures/) article.
+See available fields for each transaction type in the [Transaction Structures](/en/ride/v5/structures/transaction-structures/) article.

@@ -20,7 +20,7 @@ let b = true.toBytes()
 let c = "Ride".toBytes()
 ```
 
-Другие функции работы с массивом байтов см. в разделе [Встроенные функции](/en/ride/functions/built-in-functions/).
+Другие функции работы с массивом байтов см. в разделе [Встроенные функции](/en/ride/v5/functions/built-in-functions/).
 
 ## Ограничения
 

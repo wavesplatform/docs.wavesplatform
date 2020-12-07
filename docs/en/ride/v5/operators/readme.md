@@ -38,7 +38,7 @@
 | Operator | Description |
 | :---: | :--- |
 | if-then-else | Conditional statement |
-| match-case | [Spot a type from Union](/en/ride/operators/match-case) |
+| match-case | [Spot a type from Union](/en/ride/v5/operators/match-case) |
 
 ## List operators
 
@@ -50,7 +50,7 @@
 
 > :warning: `++` and `:+` operators are added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
-See examples of the [List](/en/ride/data-types/list) article.
+See examples of the [List](/en/ride/v5/data-types/list) article.
 
 ## Unary operators
 

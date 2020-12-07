@@ -33,8 +33,8 @@ getBinary(addressOrAlias: Address|Alias, key: String): ByteVector|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
-| `key`: [String](/en/ride/data-types/string) | Entry key |
+| `addressOrAlias`: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/v5/data-types/string) | Entry key |
 
 ## getBinary(String): ByteVector|Unit
 
@@ -50,7 +50,7 @@ getBinary(key: String): ByteVector|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `key`: [String](/en/ride/data-types/string) | Entry key |
+| `key`: [String](/en/ride/v5/data-types/string) | Entry key |
 
 ## getBinaryValue(Address|Alias, String): ByteVector <a id="get-binary-value"></a>
 
@@ -64,8 +64,8 @@ getBinaryValue(addressOrAlias: Address|Alias, key: String): ByteVector
 
 | Parameter | Description |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
-| `key`: [String](/en/ride/data-types/string) | Entry key |
+| `addressOrAlias`: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/v5/data-types/string) | Entry key |
 
 ## getBinaryValue(String): ByteVector
 
@@ -81,7 +81,7 @@ getBinaryValue(key: String): ByteVector
 
 | Parameter | Description |
 | :--- | :--- |
-| `key`: [String](/en/ride/data-types/string) | Entry key |
+| `key`: [String](/en/ride/v5/data-types/string) | Entry key |
 
 ## getBoolean(Address|Alias, String): Boolean|Unit<a id="get-boolean"></a>
 
@@ -95,8 +95,8 @@ getBoolean(addressOrAlias: Address|Alias, key: String): Boolean|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
-| `key`: [String](/en/ride/data-types/string) | Entry key |
+| `addressOrAlias`: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/v5/data-types/string) | Entry key |
 
 ## getBoolean(String): Boolean|Unit
 
@@ -112,7 +112,7 @@ getBoolean(key: String): Boolean|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `key`: [String](/en/ride/data-types/string) | Entry key |
+| `key`: [String](/en/ride/v5/data-types/string) | Entry key |
 
 ## getBooleanValue(Address|Alias, String): Boolean<a id="get-boolean-value"></a>
 
@@ -136,14 +136,14 @@ getBooleanValue(key: String): Boolean
 
 | Parameter | Description |
 | :--- | :--- |
-| `key`: [String](/en/ride/data-types/string) | Entry key |
+| `key`: [String](/en/ride/v5/data-types/string) | Entry key |
 
 ### Parameters
 
 | Parameter | Description |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
-| `key`: [String](/en/ride/data-types/string) | Entry key |
+| `addressOrAlias`: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/v5/data-types/string) | Entry key |
 
 ## getInteger(Address|Alias, String): Int|Unit<a id="get-integer"></a>
 
@@ -157,8 +157,8 @@ getInteger(addressOrAlias: Address|Alias, key: String): Int|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
-| `key`: [String](/en/ride/data-types/string) | Entry key |
+| `addressOrAlias`: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/v5/data-types/string) | Entry key |
 
 ## getInteger(String): Int|Unit
 
@@ -174,7 +174,7 @@ getInteger(key: String): Int|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `key`: [String](/en/ride/data-types/string) | Entry key |
+| `key`: [String](/en/ride/v5/data-types/string) | Entry key |
 
 ## getIntegerValue(Address|Alias, String): Int<a id="get-integer-value"></a>
 
@@ -197,14 +197,14 @@ getIntegerValue(key: String): Int
 
 | Parameter | Description |
 | :--- | :--- |
-| `key`: [String](/en/ride/data-types/string) | Entry key |
+| `key`: [String](/en/ride/v5/data-types/string) | Entry key |
 
 ### Parameters
 
 | Parameter | Description |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
-| `key`: [String](/en/ride/data-types/string) | Entry key |
+| `addressOrAlias`: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/v5/data-types/string) | Entry key |
 
 ## getString(Address|Alias, String): String|Unit<a id="get-string"></a>
 
@@ -218,8 +218,8 @@ getString(addressOrAlias: Address|Alias, key: String): String|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
-| `key`: [String](/en/ride/data-types/string) | Entry key |
+| `addressOrAlias`: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/v5/data-types/string) | Entry key |
 
 ## getString(String): String|Unit
 
@@ -235,7 +235,7 @@ getString(key: String): String|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `key`: [String](/en/ride/data-types/string) | Entry key |
+| `key`: [String](/en/ride/v5/data-types/string) | Entry key |
 
 ## getStringValue(Address|Alias, String): String<a id="get-string-value"></a>
 
@@ -249,8 +249,8 @@ getStringValue(addressOrAlias: Address|Alias, key: String): String
 
 | Parameter | Description |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
-| `key`: [String](/en/ride/data-types/string) | Entry key |
+| `addressOrAlias`: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/v5/data-types/string) | Entry key |
 
 ## getStringValue(String): String
 
@@ -266,4 +266,4 @@ getString(key: String): String
 
 | Parameter | Description |
 | :--- | :--- |
-| `key`: [String](/en/ride/data-types/string) | Entry key |
+| `key`: [String](/en/ride/v5/data-types/string) | Entry key |

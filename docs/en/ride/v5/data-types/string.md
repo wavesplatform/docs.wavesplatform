@@ -14,5 +14,5 @@
 ## Функции работы со строками
 
 Встроенные функции работы со строками представлены в разделах:
-* [Функции строки](/en/ride/functions/built-in-functions/string-functions)
-* [Функции конвертации](/en/ride/functions/built-in-functions/string-functions)
+* [Функции строки](/en/ride/v5/functions/built-in-functions/string-functions)
+* [Функции конвертации](/en/ride/v5/functions/built-in-functions/string-functions)

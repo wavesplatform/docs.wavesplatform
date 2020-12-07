@@ -18,7 +18,7 @@ toBase16String(bytes: ByteVector): String
 
 | Parameter | Description |
 | :--- | :--- |
-| `bytes`: [ByteVector](/en/ride/data-types/byte-vector) | Array of bytes to encode |
+| `bytes`: [ByteVector](/en/ride/v5/data-types/byte-vector) | Array of bytes to encode |
 
 ### Examples
 
@@ -39,7 +39,7 @@ toBase58String(bytes: ByteVector): String
 
 | Parameter | Description |
 | :--- | :--- |
-| `bytes`: [ByteVector](/en/ride/data-types/byte-vector) | Array of bytes to encode |
+| `bytes`: [ByteVector](/en/ride/v5/data-types/byte-vector) | Array of bytes to encode |
 
 ### Examples
 
@@ -60,7 +60,7 @@ toBase64String(bytes: ByteVector): String
 
 | Parameter | Description |
 | :--- | :--- |
-| `bytes`: [ByteVector](/en/ride/data-types/byte-vector) | Array of bytes to encode |
+| `bytes`: [ByteVector](/en/ride/v5/data-types/byte-vector) | Array of bytes to encode |
 
 ### Examples
 

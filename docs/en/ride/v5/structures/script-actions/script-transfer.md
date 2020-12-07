@@ -1,8 +1,8 @@
 # ScriptTransfer
 
-`ScriptTransfer` is a structure that sets the parameters of the token transfer. The token transfer is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#invocation-result-2).
+`ScriptTransfer` is a structure that sets the parameters of the token transfer. The token transfer is performed only if the structure is included in the [callable function result](/en/ride/v5/functions/callable-function#invocation-result-2).
 
-If the token is a smart asset, the asset script verifies the `ScriptTransfer` action as if it were [TransferTransaction](/en/ride/structures/transaction-structures/transfer-transaction) with the fee of 0 and the version of 0. If the asset script denies the action, then the transaction that invoked the dApp script is either denied or saved on the blockchain as failed, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation).
+If the token is a smart asset, the asset script verifies the `ScriptTransfer` action as if it were [TransferTransaction](/en/ride/v5/structures/transaction-structures/transfer-transaction) with the fee of 0 and the version of 0. If the asset script denies the action, then the transaction that invoked the dApp script is either denied or saved on the blockchain as failed, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation).
 
 ### Constructor
 
@@ -14,6 +14,6 @@ ScriptTransfer(recipient: Address|Alias, amount: Int, asset: ByteVector|Unit)
 
 |   #   | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | recipient | [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or the [alias](/en/blockchain/account/alias) of a recipient of tokens |
-| 2 | amount | [Int](/en/ride/data-types/int) | Number of tokens |
-| 3 | asset | [ByteVector](/en/ride/data-types/byte-vector)&#124;[Unit](/en/ride/data-types/unit) | ID of a token |
+| 1 | recipient | [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or the [alias](/en/blockchain/account/alias) of a recipient of tokens |
+| 2 | amount | [Int](/en/ride/v5/data-types/int) | Number of tokens |
+| 3 | asset | [ByteVector](/en/ride/v5/data-types/byte-vector)&#124;[Unit](/en/ride/v5/data-types/unit) | ID of a token |
