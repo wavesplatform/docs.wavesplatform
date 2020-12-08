@@ -1,5 +1,7 @@
 # Verification functions
 
+:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/functions/built-in-functions/verification-functions)
+
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | [bn256groth16Verify](#bn256groth16verify) | Range of functions.<br>Check [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol on the bn254 curve | 800–1650 |

@@ -1003,10 +1003,6 @@ module.exports = {
           path: ridev5Path + 'functions/callable-function',
         },
         {
-          title: 'Функция-верификатор',
-          path: ridev5Path + 'functions/verifier-function',
-        },
-        {
           title: 'Типы данных',
           path: ridev5Path + 'data-types',
           children: [

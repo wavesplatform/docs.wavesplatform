@@ -1,5 +1,7 @@
 # Функции получения данных из хранилища данных аккаунта
 
+:warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/functions/built-in-functions/account-data-storage-functions)
+
 > Подробнее о [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage)
 
 | Название | Описание | Сложность |

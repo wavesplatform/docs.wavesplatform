@@ -1,5 +1,7 @@
 # Функции верификации
 
+:warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/functions/built-in-functions/verification-functions)
+
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | [bn256groth16Verify](#bn256groth16verify) | Семейство функций.<br>Осуществляют проверку [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу groth16 на кривой bn254 | 800–1650 |

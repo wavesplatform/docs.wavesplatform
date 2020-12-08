@@ -1,5 +1,7 @@
 # StringEntry
 
+:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/structures/script-actions/string-entry)
+
 `StringEntry` is a structure that sets key and value of [account data storage](/en/blockchain/account/account-data-storage) string entry. Adding or changing an entry is performed only if the structure is included in the [callable function result](/en/ride/v5/functions/callable-function#invocation-result-2).
 
 ## Constructor

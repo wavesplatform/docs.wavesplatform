@@ -1,5 +1,8 @@
 # Functions for Getting Data from Account Data Storage
 
+:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/functions/built-in-functions/account-data-storage-functions)
+
+
 > Learn more about [account data storage](/en/blockchain/account/account-data-storage).
 
 | Name | Description | Complexity |

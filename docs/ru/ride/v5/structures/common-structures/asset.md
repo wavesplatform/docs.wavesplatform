@@ -1,5 +1,7 @@
 # Asset
 
+:warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/structures/common-structures/asset)
+
 Структура [токена](/ru/blockchain/token/), возвращаемая встроенной функцией [assetInfo](/ru/ride/v5/functions/built-in-functions/blockchain-functions#assetinfo).
 
 ## Конструктор

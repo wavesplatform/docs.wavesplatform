@@ -1,5 +1,7 @@
 # Функции декодирования
 
+:warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/functions/built-in-functions/decoding-functions)
+
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | [addressFromString(String): Address&#124;Unit](#address-from-string)| Декодирует адрес из строки [Base58](https://ru.wikipedia.org/wiki/Base58) | 1 |

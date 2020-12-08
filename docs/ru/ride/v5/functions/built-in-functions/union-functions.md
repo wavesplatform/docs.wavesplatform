@@ -1,5 +1,7 @@
 # Функции объединения
 
+:warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/functions/built-in-functions/union-functions)
+
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | [isDefined(T&#124;Unit): Boolean](#isDefined) | Проверяет, что параметр отличен от `unit` | 1 |

@@ -1,5 +1,7 @@
 # Encoding functions
 
+:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/functions/built-in-functions/encoding-functions)
+
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | [toBase16String(ByteVector): String](#to-base-16-string)  | Encodes array of bytes to [base16](https://en.wikipedia.org/wiki/Hexadecimal) string | 10 |

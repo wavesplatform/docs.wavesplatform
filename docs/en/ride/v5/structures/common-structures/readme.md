@@ -1,5 +1,7 @@
 # Common structures
 
+:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/structures/common-structures/)
+
 | Name | Description |
 | :--- | :--- |
 | [Address](/en/ride/v5/structures/common-structures/address) | Account [address](/en/blockchain/account/address) |

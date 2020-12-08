@@ -1,5 +1,7 @@
 # Типы данных
 
+:warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/data-types/)
+
 | Название типа данных | Ключевое слово в Ride |
 | :--- | :--- |
 | [Логический](/ru/ride/v5/data-types/boolean) | Boolean |

@@ -1,5 +1,7 @@
 # Variables
 
+:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/variables/)
+
 All variables in Ride are _immutable_. After definition, the value of the variable does not change.
 
 Definition and simultaneous initialization of the variable are performed with the help of the `let` [operator](/en/ride/v5/operators/).

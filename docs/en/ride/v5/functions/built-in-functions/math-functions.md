@@ -1,5 +1,7 @@
 # Math functions
 
+:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/functions/built-in-functions/math-functions)
+
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | [fraction](#fraction) | Multiplies and divides [integers](/en/ride/v5/data-types/int) to avoid overflow | 1 |

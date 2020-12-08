@@ -1,5 +1,7 @@
 # SponsorFeeTransaction
 
+:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/structures/transaction-structures/sponsor-fee-transaction)
+
 Structure of a [Sponsor Fee transaction](/en/blockchain/transaction-type/sponsor-fee-transaction).
 
 ## Constructor

@@ -1,5 +1,7 @@
 # List functions
 
+:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/functions/built-in-functions/list-functions)
+
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | [cons](#cons) | Inserts element to the beginning of the [list](/en/ride/v5/data-types/list) | 1 |

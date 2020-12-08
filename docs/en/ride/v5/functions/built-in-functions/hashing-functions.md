@@ -1,5 +1,7 @@
 # Hashing functions
 
+:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/functions/built-in-functions/hashing-functions)
+
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | [blake2b256](#blake2b256) | Range of functions.<br>Hash an array of bytes using [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10–200 |

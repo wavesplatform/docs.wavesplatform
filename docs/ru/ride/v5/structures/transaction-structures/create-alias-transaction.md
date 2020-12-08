@@ -1,5 +1,7 @@
 # CreateAliasTransaction
 
+:warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/structures/transaction-structures/create-alias-transaction)
+
 Структура [транзакции создания псевдонима](/ru/blockchain/transaction-type/create-alias-transaction).
 
 ## Конструктор

@@ -1,5 +1,7 @@
 # List
 
+:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/data-types/list)
+
 `List` is a list data type.
 
 The list may contain elements of various types, including nested lists.

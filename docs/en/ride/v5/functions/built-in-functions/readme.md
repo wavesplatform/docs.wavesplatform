@@ -1,5 +1,7 @@
 # Built-in functions
 
+:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/functions/built-in-functions/)
+
 A **built-in function** is a [function](/en/ride/v5/functions/) of the [Standard library](/en/ride/script/standard-library).
 
 ## [Account data storage functions](/en/ride/v5/functions/built-in-functions/account-data-storage-functions)

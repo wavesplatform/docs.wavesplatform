@@ -1,5 +1,7 @@
 # Функции хеширования
 
+:warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/functions/built-in-functions/hashing-functions)
+
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | [blake2b256](#blake2b256) | Семейство функций.<br>Хешируют массив байтов с помощью алгоритма [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10–200 |

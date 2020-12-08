@@ -1,5 +1,7 @@
 # Asset
 
+:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/structures/common-structures/asset)
+
 Structure of a [token](/en/blockchain/token/). The structure is returned by the [assetInfo](/en/ride/v5/functions/built-in-functions/blockchain-functions#assetinfo) built-in function.
 
 ## Constructor

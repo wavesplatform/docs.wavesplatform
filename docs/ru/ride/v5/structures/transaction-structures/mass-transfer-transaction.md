@@ -1,5 +1,7 @@
 # MassTransferTransaction
 
+:warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/structures/transaction-structures/mass-transfer-transaction)
+
 Структура [транзакции массового перевода](/ru/blockchain/transaction-type/mass-transfer-transaction).
 
 ## Конструктор

@@ -1,5 +1,7 @@
 # String
 
+:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/data-types/string)
+
 `String` is a string data type.
 
 Strings are [UTF-8](https://en.wikipedia.org/wiki/UTF-8) encoded.

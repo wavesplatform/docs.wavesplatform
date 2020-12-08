@@ -1,5 +1,7 @@
 # Decoding functions
 
+:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/functions/built-in-functions/decoding-functions)
+
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | [addressFromString(String): Address&#124;Unit](#address-from-string)| Decodes address from [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) string | 1 |

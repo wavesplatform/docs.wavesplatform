@@ -1,5 +1,7 @@
 # Union Functions
 
+:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/functions/built-in-functions/union-functions)
+
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | isDefined(T&#124;Unit): Boolean | Checks if an argument is not `unit` | 1 |

@@ -1,5 +1,7 @@
 # UpdateAssetInfoTransaction
 
+:warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/structures/transaction-structures/update-asset-info-transaction)
+
 Структура [транзакции обновления информации ассета](/ru/blockchain/transaction-type/update-asset-info-transaction).
 
 ## Конструктор
