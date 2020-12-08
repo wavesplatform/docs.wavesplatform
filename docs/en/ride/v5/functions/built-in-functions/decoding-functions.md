@@ -2,11 +2,11 @@
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| [addressFromString(String): Address&#124;Unit](#address-from-string)| Decodes address from [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) string | 124 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>1 for Standard Library **version 4** |
-| [addressFromStringValue(String): Address](#address-from-string-value) | Decodes address from base58 string.<br>Fails if the address cannot be decoded | 124 for Standard Library **version 3**<br>1 for Standard Library **version 4** |
+| [addressFromString(String): Address&#124;Unit](#address-from-string)| Decodes address from [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) string | 1 |
+| [addressFromStringValue(String): Address](#address-from-string-value) | Decodes address from base58 string.<br>Fails if the address cannot be decoded | 1 |
 | [fromBase16String(String): ByteVector](#from-base-16-string) | Decodes [base16](https://en.wikipedia.org/wiki/Hexadecimal) string to an array of bytes | 10 |
-| [fromBase58String(String): ByteVector](#from-base-58-string) | Decodes base58 string to an array of bytes | 10 for Standard Library **version 3**<br>1 for Standard Library **version 4** |
-| [fromBase64String(String): ByteVector](#from-base-64-string)| Decodes [base64](https://en.wikipedia.org/wiki/Base64) string to an array of bytes | 10 for Standard Library **version 3**<br>40 for Standard Library **version 4** |
+| [fromBase58String(String): ByteVector](#from-base-58-string) | Decodes base58 string to an array of bytes | 1 |
+| [fromBase64String(String): ByteVector](#from-base-64-string)| Decodes [base64](https://en.wikipedia.org/wiki/Base64) string to an array of bytes | 40 |
 
 ### addressFromString(String): Address|Unit<a id="address-from-string"></a>
 

@@ -2,14 +2,14 @@
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| [addressFromRecipient(Address&#124;Alias): Address](#address-from-recipient) | Gets the corresponding [address](/en/blockchain/account/address) of the [alias](/en/blockchain/account/alias) | 100 for Standard Library **version 3**<br>5 for Standard Library **version 4** |
-| [assetBalancе(Address&#124;Alias, ByteVector): Int](#assetbalance) | Gets account balance by token ID | 100 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10 for Standard Library **version 4** |
-| [assetInfo(ByteVector): Аsset&#124;Unit](#assetinfo) | Gets the information about a [token](/en/blockchain/token/) | 100 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>15 for Standard Library **version 4** |
-| [blockInfoByHeight(Int): BlockInfo&#124;Unit](#blockinfobyheight) | Gets the information about a [block](/en/blockchain/block/) by the [block height](/en/blockchain/block/block-height) | 100 for Standard Library **version 3**<br>5 for Standard Library **version 4** |
+| [addressFromRecipient(Address&#124;Alias): Address](#address-from-recipient) | Gets the corresponding [address](/en/blockchain/account/address) of the [alias](/en/blockchain/account/alias) | 5 |
+| [assetBalancе(Address&#124;Alias, ByteVector): Int](#assetbalance) | Gets account balance by token ID | 10 |
+| [assetInfo(ByteVector): Аsset&#124;Unit](#assetinfo) | Gets the information about a [token](/en/blockchain/token/) | 15 |
+| [blockInfoByHeight(Int): BlockInfo&#124;Unit](#blockinfobyheight) | Gets the information about a [block](/en/blockchain/block/) by the [block height](/en/blockchain/block/block-height) | 5 |
 | [calculateAssetId(Issue): ByteVector](#calculateassetid) | Calculates the ID of the asset, created by [Issue](/en/ride/v5/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
-| [transactionHeightById(ByteVector): Int&#124;Unit](#transactionheightbyid) | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 100 for Standard Library **version 3**<br>20 for Standard Library **version 4** |
-| [transferTransactionById(ByteVector): TransferTransaction&#124;Unit](#transfertransactionbyid) | Gets the data of a transfer transaction | 100 for Standard Library **version 3**<br>60 for Standard Library **version 4** |
-| [wavesBalance(Address&#124;Alias): Int](#waves-balance) | Gets account balance in [WAVES](/en/blockchain/token/waves) | 100 for Standard Library **version 3**<br>10 for Standard Library **version 4** |
+| [transactionHeightById(ByteVector): Int&#124;Unit](#transactionheightbyid) | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 20 |
+| [transferTransactionById(ByteVector): TransferTransaction&#124;Unit](#transfertransactionbyid) | Gets the data of a transfer transaction | 60 |
+| [wavesBalance(Address&#124;Alias): Int](#waves-balance) | Gets account balance in [WAVES](/en/blockchain/token/waves) | 10 |
 
 ## addressFromRecipient(Address|Alias): Address<a id="address-from-recipient"></a>
 
@@ -107,8 +107,6 @@ let x = match blockInfoByHeight(1234567) {
 
 Calculates the ID of the asset, created by [Issue](/en/ride/v5/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution.
 
-> :warning: The `calculateAssetId` function is added in Standard library **version 4**.
-
 ```
 calculateAssetId(issue: Issue): ByteVector
 ```
@@ -122,7 +120,7 @@ calculateAssetId(issue: Issue): ByteVector
 ### Example
 
 ```
-{-# STDLIB_VERSION 4 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
   
@@ -130,11 +128,14 @@ calculateAssetId(issue: Issue): ByteVector
 func issueAndSend() = {
   let issue = Issue("CryptoRouble", "Description", 1000, 2, true)
   let id = calculateAssetId(issue)
-  [
-    issue,
-    ScriptTransfer(inv.caller, issue.quantity, id),
-    BinaryEntry("id", id)
-  ]
+  (
+    [
+      issue,
+      ScriptTransfer(inv.caller, issue.quantity, id),
+      BinaryEntry("id", id)
+    ],
+    null
+  )
 }
  
 // Result:
@@ -197,16 +198,6 @@ let x = match transferTransactionById(transferId) {
 ```
 
 ## wavesBalance<a id="waves-balance"></a>
-
-### For Standard Library Version 3
-
-Gets available balance of [WAVES](/en/blockchain/token/waves).
-
-``` ride
-wavesBalance(addressOrAlias: Address|Alias): Int
-```
-
-### For Standard Library Version 4
 
 Gets all types of [WAVES](/en/blockchain/token/waves) balances. For description of balance types, see the [Account Balance](/en/blockchain/account/account-balance) article.
 

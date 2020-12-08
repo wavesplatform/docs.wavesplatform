@@ -1,7 +1,5 @@
 # SponsorFee
 
-> :warning: The `SponsorFee` structure is added in Standard library **version 4**.
-
 `SponsorFee` is a structure that sets up sponsorship. For information about sponsorship, see the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article. The sponsorship setup is performed only if the structure is included in the resulting expression of the callable function. See details in the [Callable Function](/en/ride/v5/functions/callable-function) article.
 
 The sponsorship setup is only available if the asset is issued by a dApp account (by the same script invocation as well) and is not a smart asset.
@@ -22,7 +20,7 @@ SponsorFee(assetId: ByteVector, minSponsoredAssetFee: Int|Unit)
 ## Example
 
 ```
-{-# STDLIB_VERSION 4 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
   
@@ -30,10 +28,13 @@ SponsorFee(assetId: ByteVector, minSponsoredAssetFee: Int|Unit)
 func issueAndSponsor() = {
   let issue = Issue("Spring", "", 100000, 2, true, unit, 0)
   let id = calculateAssetId(issue)
-  [
-    issue,
-    SponsorFee(id, 300)
-  ]
+  (
+    [
+      issue,
+      SponsorFee(id, 300)
+    ],
+    null
+  )
 }
 ```
 

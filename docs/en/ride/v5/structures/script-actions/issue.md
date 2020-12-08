@@ -1,7 +1,5 @@
 # Issue
 
-> :warning: The structure is added in Standard library **version 4**.
-
 `Issue` is a structure that sets the parameters of the token issue. The token issue is performed only if the structure is included in the [callable function result](/en/ride/v5/functions/callable-function#invocation-result-2).
 
 The minimum fee for an invoke script transaction is increased by 1 WAVES for each issued asset that is not [NFT](/en/blockchain/token/non-fungible-token).

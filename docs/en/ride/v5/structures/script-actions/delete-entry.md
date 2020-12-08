@@ -1,7 +1,5 @@
 # DeleteEntry
 
-> :warning: The structure is added in Standard library **version 4**.
-
 `DeleteEntry` is a structure that sets the paramaters of deletion of entry from the [account data storage](/en/blockchain/account/account-data-storage). Deleting an entry is performed only if the structure is included in the [callable function result](/en/ride/v5/functions/callable-function#invocation-result-2).
 
 ## Constructor
@@ -17,11 +15,16 @@
 ## Example
 
 ```ride
-{-# STDLIB_VERSION 4 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
     
 @Callable(inv)
 func default() = {
-  [ DeleteEntry(inv.caller.toString()) ]
+  (
+    [
+      DeleteEntry(inv.caller.toString())
+    ],
+    null
+  )
 }
 ```

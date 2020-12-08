@@ -48,8 +48,6 @@
 | :+ | Adding the element to the end of the list |
 | :: | Adding the element to the beginning of the list |
 
-> :warning: `++` and `:+` operators are added in [Standard library](/en/ride/script/standard-library) **version 4**.
-
 See examples of the [List](/en/ride/v5/data-types/list) article.
 
 ## Unary operators

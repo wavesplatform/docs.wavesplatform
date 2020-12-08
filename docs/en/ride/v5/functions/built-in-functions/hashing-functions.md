@@ -2,9 +2,9 @@
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| [blake2b256](#blake2b256) | Range of functions.<br>Hash an array of bytes using [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10–200 for Standard Library **version 4** |
-| [keccak256](#keccak256) | Range of functions.<br>Hash an array of bytes using [Keccak-256](https://keccak.team/files/Keccak-submission-3.pdf) | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10–200 for Standard Library **version 4** |
-| [sha256](#sha256) | Range of functions.<br>Hash an array of bytes using [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10–200 for Standard Library **version 4** |
+| [blake2b256](#blake2b256) | Range of functions.<br>Hash an array of bytes using [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) | 10–200 |
+| [keccak256](#keccak256) | Range of functions.<br>Hash an array of bytes using [Keccak-256](https://keccak.team/files/Keccak-submission-3.pdf) | 10–200 |
+| [sha256](#sha256) | Range of functions.<br>Hash an array of bytes using [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 10–200 |
 
 ## blake2b256
 
@@ -12,13 +12,11 @@ Range of functions that hash an array of bytes using [BLAKE2b-256](https://en.wi
 
 | Name | Max data size | Complexity |
 |:---| :--- | :--- |
-| blake2b256(bytes: ByteVector): ByteVector | 150 kB | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>200 for Standard Library **version 4** |
+| blake2b256(bytes: ByteVector): ByteVector | 150 kB | 200 |
 | blake2b256_16Kb(bytes: ByteVector): ByteVector | 16 kB | 10 |
 | blake2b256_32Kb(bytes: ByteVector): ByteVector | 32 kB | 25 |
 | blake2b256_64Kb(bytes: ByteVector): ByteVector | 64 kB | 50 |
 | blake2b256_128Kb(bytes: ByteVector): ByteVector | 128 kB | 100 |
-
-> :warning: The `blake2b256_16Kb`, `blake2b256_32Kb`, `blake2b256_64Kb`, `blake2b256_128Kb` functions are added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 ### Parameters
 
@@ -42,13 +40,11 @@ Range of functions that hash an array of bytes using [Keccak-256](https://keccak
 
 | Name | Max data size | Complexity |
 |:---| :--- | :--- |
-| keccak256(bytes: ByteVector): ByteVector | 150 kB | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>200 for Standard Library **version 4** |
+| keccak256(bytes: ByteVector): ByteVector | 150 kB | 200 |
 | keccak256_16Kb(bytes: ByteVector): ByteVector | 16 kB | 10 |
 | keccak256_32Kb(bytes: ByteVector): ByteVector | 32 kB | 25 |
 | keccak256_64Kb(bytes: ByteVector): ByteVector | 64 kB | 50 |
 | keccak256_128Kb(bytes: ByteVector): ByteVector | 128 kB | 100 |
-
-> :warning: The `keccak256_16Kb`, `keccak256_32Kb`, `keccak256_64Kb`, `keccak256_128Kb` functions are added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 ### Parameters
 
@@ -72,13 +68,11 @@ Range of functions that hash an array of bytes using [SHA-256](https://en.wikipe
 
 | Name | Max data size | Complexity |
 |:---| :--- | :--- |
-| sha256(bytes: ByteVector): ByteVector | 150 kB | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>200 for Standard Library **version 4** |
+| sha256(bytes: ByteVector): ByteVector | 150 kB | 200 |
 | sha256_16Kb(bytes: ByteVector): ByteVector | 16 kB | 10 |
 | sha256_32Kb(bytes: ByteVector): ByteVector | 32 kB | 25 |
 | sha256_64Kb(bytes: ByteVector): ByteVector | 64 kB | 50 |
 | sha256_128Kb(bytes: ByteVector): ByteVector | 128 kB | 100 |
-
-> :warning: The `sha256_16Kb`, `sha256_32Kb`, `sha256_64Kb`, `sha256_128Kb` functions are added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 ### Parameters
 

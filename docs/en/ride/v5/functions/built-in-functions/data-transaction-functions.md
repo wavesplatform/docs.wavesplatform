@@ -1,42 +1,32 @@
 # Data transaction functions
 
-The functions listed below retrieve data by key from the [Data transaction](/en/ride/v5/structures/transaction-structures/data-transaction) structure or from any list of data entries:
-* List[[BinaryEntry](/en/ride/v5/structures/script-actions/binary-entry)|[BooleanEntry](/en/ride/v5/structures/script-actions/boolean-entry)|[IntegerEntry](/en/ride/v5/structures/script-actions/int-entry)|[StringEntry](/en/ride/v5/structures/script-actions/string-entry)] for Standard library **version 4**.
-* List[[DataEntry](/en/ride/v5/structures/script-actions/data-entry)] for Standard library **version 3**.
+The functions listed below retrieve data by key from the [Data transaction](/en/ride/v5/structures/transaction-structures/data-transaction) structure or from any list of data entries.
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | [getBinary(List[], String): ByteVector&#124;Unit](#get-binary-string) | Gets a binary value from a list of data entires by key | 10 |
-| [getBinary(List[], Int): ByteVector&#124;Unit](#get-binary-integer) | Gets a binary value from a list of data entires by index | 30 for Standard Library **version 3**<br>4 for Standard Library **version 4** |
+| [getBinary(List[], Int): ByteVector&#124;Unit](#get-binary-integer) | Gets a binary value from a list of data entires by index | 4 |
 | [getBinaryValue(List[], String): ByteVector](#get-binary-value-string) | Gets a binary value from a list of data entires by key. Fails if there is no data | 10 |
-| [getBinaryValue(List[], Int): ByteVector](#get-binary-value-integer) | Gets a binary value from a list of data entires by index. Fails if there is no data | 30 for Standard Library **version 3**<br>4 for Standard Library **version 4** |
+| [getBinaryValue(List[], Int): ByteVector](#get-binary-value-integer) | Gets a binary value from a list of data entires by index. Fails if there is no data | 4 |
 | [getBoolean(List[], String): Boolean&#124;Unit](#get-boolean-string) | Gets a boolean value from a list of data entires by key | 10 |
-| [getBoolean(List[], Int): Boolean&#124;Unit](#get-boolean-integer) | Gets a boolean value from a list of data entires by index | 30 for Standard Library **version 3**<br>4 for Standard Library **version 4** |
+| [getBoolean(List[], Int): Boolean&#124;Unit](#get-boolean-integer) | Gets a boolean value from a list of data entires by index | 4 |
 | [getBooleanValue(List[], String): Boolean](#get-boolean-value-string) | Gets a boolean value from a list of data entires by key. Fails if there is no data | 10 |
-| [getBooleanValue(List[], Int: Boolean](#get-boolean-value-integer) | Gets a boolean value from a list of data entires by index. Fails if there is no data | 30 for Standard Library **version 3**<br>4 for Standard Library **version 4** |
+| [getBooleanValue(List[], Int: Boolean](#get-boolean-value-integer) | Gets a boolean value from a list of data entires by index. Fails if there is no data | 4 |
 | [getInteger(List[], String): Int&#124;Unit](#get-integer-string) | Gets an integer value from a list of data entires by key | 10 |
-| [getInteger(List[], Int): Int&#124;Unit](#get-integer-integer) | Gets an integer value from a list of data entires by index | 30 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>4 for Standard Library **version 4** |
+| [getInteger(List[], Int): Int&#124;Unit](#get-integer-integer) | Gets an integer value from a list of data entires by index | 4 |
 | [getIntegerValue(List[], String): Int](#get-integer-value-string) | Gets an integer value from a list of data entires by key. Fails if there is no data | 10 |
-| [getIntegerValue(List[], Int): Int](#get-integer-value-integer) | Gets an integer value from a list of data entires by index. Fails if there is no data | 30 for Standard Library **version 3**<br>4 for Standard Library **version 4** |
+| [getIntegerValue(List[], Int): Int](#get-integer-value-integer) | Gets an integer value from a list of data entires by index. Fails if there is no data | 4 |
 | [getString(List[] String): String&#124;Unit](#get-string-string) | Gets a string value from a list of data entires by key | 10 |
-| [getString(List[], Int): String&#124;Unit](#get-string-integer) | Gets a string value from a list of data entires by index | 30 for Standard Library **version 3**<br>4 for Standard Library **version 4** |
+| [getString(List[], Int): String&#124;Unit](#get-string-integer) | Gets a string value from a list of data entires by index | 4 |
 | [getStringValue(List[], String): String](#get-string-value-string) | Gets a string value from a list of data entires by key. Fails if there is no data | 10 |
-| [getStringValue(List[], Int): String](#get-string-value-integer) | Gets a string value from a list of data entires by index. Fails if there is no data | 30 for Standard Library **version 3**<br>4 for Standard Library **version 4** |
+| [getStringValue(List[], Int): String](#get-string-value-integer) | Gets a string value from a list of data entires by index. Fails if there is no data | 4 |
 
 ## getBinary(List[], String): ByteVector|Unit<a id="get-binary-string"></a>
 
 Gets a binary value from a list of data entires by key.
 
-### For Standard Library Version 4
-
 ``` ride
 getBinary(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): ByteVector|Unit
-```
-
-### For Standard Library Version 3
-
-``` ride
-getBinary(data: List[DataEntry], key: String): ByteVector|Unit
 ```
 
 ### Parameters
@@ -50,16 +40,8 @@ getBinary(data: List[DataEntry], key: String): ByteVector|Unit
 
 Gets a binary value from a list of data entires by index.
 
-### For Standard Library Version 4
-
 ``` ride
 getBinary(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): ByteVector|Unit
-```
-
-### For Standard Library Version 3
-
-``` ride
-getBinary(data: List[DataEntry], index: Int): ByteVector|Unit
 ```
 
 ### Parameters
@@ -73,16 +55,8 @@ getBinary(data: List[DataEntry], index: Int): ByteVector|Unit
 
 Gets a binary value from a list of data entires by key. Fails if there is no data.
 
-### For Standard Library Version 4
-
 ``` ride
 getBinaryValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): ByteVector
-```
-
-### For Standard Library Version 3
-
-``` ride
-getBinaryValue(data: List[DataEntry], key: String): ByteVector
 ```
 
 ### Parameters
@@ -96,16 +70,8 @@ getBinaryValue(data: List[DataEntry], key: String): ByteVector
 
 Gets a binary value from a list of data entires by index. Fails if there is no data.
 
-### For Standard Library Version 4
-
 ``` ride
 getBinaryValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): ByteVector
-```
-
-### For Standard Library Version 3
-
-``` ride
-getBinaryValue(data: List[DataEntry], index: Int): ByteVector
 ```
 
 ### Parameters
@@ -119,16 +85,8 @@ getBinaryValue(data: List[DataEntry], index: Int): ByteVector
 
 Gets a boolean value from a list of data entires by key.
 
-### For Standard Library Version 4
-
 ``` ride
 getBoolean(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): Boolean|Unit
-```
-
-### For Standard Library Version 3
-
-``` ride
-getBoolean(data: List[DataEntry], key: String): Boolean|Unit
 ```
 
 ### Parameters
@@ -142,16 +100,8 @@ getBoolean(data: List[DataEntry], key: String): Boolean|Unit
 
 Gets a boolean value from a list of data entires by index.
 
-### For Standard Library Version 4
-
 ``` ride
 getBoolean(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): Boolean|Unit
-```
-
-### For Standard Library Version 3
-
-``` ride
-getBoolean(data: List[DataEntry], index: Int): Boolean|Unit
 ```
 
 ### Parameters
@@ -165,16 +115,8 @@ getBoolean(data: List[DataEntry], index: Int): Boolean|Unit
 
 Gets a boolean value from a list of data entires by key. Fails if there is no data.
 
-### For Standard Library Version 4
-
 ``` ride
 getBooleanValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): Boolean
-```
-
-### For Standard Library Version 3
-
-``` ride
-getBooleanValue(data: List[DataEntry], key: String): Boolean
 ```
 
 ### Parameters
@@ -188,16 +130,8 @@ getBooleanValue(data: List[DataEntry], key: String): Boolean
 
 Gets a boolean value from a list of data entires by index. Fails if there is no data.
 
-### For Standard Library Version 4
-
 ``` ride
 getBooleanValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): Boolean
-```
-
-### For Standard Library Version 3
-
-``` ride
-getBooleanValue(data: List[DataEntry], index: Int): Boolean
 ```
 
 ### Parameters
@@ -211,16 +145,8 @@ getBooleanValue(data: List[DataEntry], index: Int): Boolean
 
 Gets integer from a list of data entires by key.
 
-### For Standard Library Version 4
-
 ``` ride
 getInteger(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): Int|Unit
-```
-
-### For Standard Library Version 3
-
-``` ride
-getInteger(data: List[DataEntry], key: String): Int|Unit
 ```
 
 ### Parameters
@@ -234,16 +160,8 @@ getInteger(data: List[DataEntry], key: String): Int|Unit
 
 Gets an integer value from a list of data entires by index.
 
-### For Standard Library Version 4
-
 ``` ride
 getInteger(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): Int|Unit
-```
-
-### For Standard Library Version 3
-
-``` ride
-getInteger(data: List[DataEntry], index: Int): Int|Unit
 ```
 
 ### Parameters
@@ -257,16 +175,8 @@ getInteger(data: List[DataEntry], index: Int): Int|Unit
 
 Gets an integer value from a list of data entires by key. Fails if there is no data.
 
-### For Standard Library Version 4
-
 ``` ride
 getIntegerValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): Int
-```
-
-### For Standard Library Version 3
-
-``` ride
-getIntegerValue(data: List[DataEntry], key: String): Int
 ```
 
 ### Parameters
@@ -280,16 +190,8 @@ getIntegerValue(data: List[DataEntry], key: String): Int
 
 Gets an integer value from a list of data entires by index. Fails if there is no data.
 
-### For Standard Library Version 4
-
 ``` ride
 getIntegerValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): Int
-```
-
-### For Standard Library Version 3
-
-``` ride
-getIntegerValue(data: List[DataEntry], index: Int): Int
 ```
 
 ### Parameters
@@ -303,16 +205,8 @@ getIntegerValue(data: List[DataEntry], index: Int): Int
 
 Gets a string value from a list of data entires by key.
 
-### For Standard Library Version 4
-
 ``` ride
 getString(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): String|Unit
-```
-
-### For Standard Library Version 3
-
-``` ride
-getString(data: List[DataEntry], key: String): String|Unit
 ```
 
 ### Parameters
@@ -326,16 +220,8 @@ getString(data: List[DataEntry], key: String): String|Unit
 
 Gets a string value from a list of data entires by index.
 
-### For Standard Library Version 4
-
 ``` ride
 getString(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): String|Unit
-```
-
-### For Standard Library Version 3
-
-``` ride
-getString(data: List[DataEntry], index: Int): String|Unit
 ```
 
 ### Parameters
@@ -349,16 +235,8 @@ getString(data: List[DataEntry], index: Int): String|Unit
 
 Gets a string value from a list of data entires by key. Fails if there is no data.
 
-### For Standard Library Version 4
-
 ``` ride
 getStringValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], key: String): String
-```
-
-### For Standard Library Version 3
-
-``` ride
-getStringValue(data: List[DataEntry], key: String): String
 ```
 
 ### Parameters
@@ -372,16 +250,8 @@ getStringValue(data: List[DataEntry], key: String): String
 
 Gets a string value from a list of data entires by index. Fails if there is no data.
 
-### For Standard Library Version 4
-
 ``` ride
 getStringValue(data: List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry], index: Int): String
-```
-
-### For Standard Library Version 3
-
-``` ride
-getStringValue(data: List[DataEntry], index: Int): String
 ```
 
 ### Parameters

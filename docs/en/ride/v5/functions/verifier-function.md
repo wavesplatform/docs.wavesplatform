@@ -22,7 +22,7 @@ dApp that has no verifier function performs default verification, that is, check
    ```
 
 * For Standard library **version 3**, if the verifier function is defined, only verification by this function is performed, proofs are not checked additionally.
-* For Standard library **version 4** the first proof is always checked, whether or not a verifier function is defined.
+* For Standard library **version 4 and 5** the first proof is always checked, whether or not a verifier function is defined.
 
 ## Example
 

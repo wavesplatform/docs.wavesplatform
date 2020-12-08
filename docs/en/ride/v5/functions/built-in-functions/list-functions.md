@@ -2,7 +2,7 @@
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| [cons](#cons) | Inserts element to the beginning of the [list](/en/ride/v5/data-types/list) | 2 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>1 for Standard Library **version 4** |
+| [cons](#cons) | Inserts element to the beginning of the [list](/en/ride/v5/data-types/list) | 1 |
 | [containsElement](#containselement)  | Check if the element is in the list | 5 |
 | [getElement](#getelement) | Gets the element from the list | 2 |
 | [indexOf](#indexof) | Returns the index of the first occurrence of the element in the list | 5 |
@@ -39,8 +39,6 @@ cons(1, [2, 3, 4, 5]) # Returns [1, 2, 3, 4, 5]
 ## containsElement
 
 Check if the element is in the list.
-
-> :warning: The `containsElement` function is added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 ```ride
 containsElement(list: List[T], element: T): Boolean
@@ -79,8 +77,6 @@ getElement([false, true], 1) # Returns true
 
 Returns the index of the first occurrence of the element in the list or `unit` if the element is missing.
 
-> :warning: The `indexOf` function is added in [Standard library](/en/ride/script/standard-library) **version 4**.
-
 ``` ride
 indexOf(list: List[T], element: T): Int|Unit
 ```
@@ -102,8 +98,6 @@ indexOf("a", stringList) # Returns 0
 ## lastIndexOf
 
 Returns the index of the last occurrence of the element in the list or `unit` if the element is missing.
-
-> :warning: The `lastIndexOf` function is added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 ``` ride
 lastIndexOf(list: List[T], element: T): Int|Unit
@@ -154,8 +148,6 @@ min(List[Int]): Int
 ## removeByIndex
 
 Removes an element from the list by index.
-
-> :warning: The `removeByIndex` function is added in Standard library **version 4**.
 
 ``` ride
 removeByIndex(list: List[T], index: Int): List[T]

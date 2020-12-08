@@ -95,8 +95,6 @@ log(0, 0, 2, 0, 0, HALFUP)     # Result: -Infinity
 
 Returns the median of the [list](/en/ride/v5/data-types/list). The list can't be empty, otherwise, the function fails.
 
-> :warning: The `median` function is added in [Standard library](/en/ride/script/standard-library) **version 4**.
-
 ```ride
 median(arr: List[Int]): Int
 ```

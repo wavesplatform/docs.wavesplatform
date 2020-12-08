@@ -102,15 +102,17 @@ A **built-in variable** is a [variable](/en/ride/v5/variables/) of the [Standard
 
 <pre>
 <code class=“lang-ride”>
-{-# STDLIB_VERSION 3 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 
 @Callable(inv)
 func deposit() = {
-  TransferSet([
-    ScriptTransfer(inv.caller, 5, unit) \# Transfer 5 WAVELETs to the inv.caller account. Instead of the token ID the unit is specified
-  ])
+  (
+    [
+      ScriptTransfer(inv.caller, 5, unit) \# Transfer 5 WAVELETs to the inv.caller account. Instead of the token ID the unit is specified
+    ]
+  )
 }
 </code>
 </pre>
@@ -118,12 +120,8 @@ func deposit() = {
 WAVES does not have a <a href="/en/blockchain/token/token-id">token ID</a>; the <code>unit</code> is passed instead of the ID.<br><b>Example 2</b><br>The <a href="/en/ride/v5/functions/built-in-functions/blockchain-functions"><tt>assetInfo</tt></a> function requests information about the token by its ID. Next, the <code>isDefined</code> function checks that a token with this ID exists on the blockchain.
 <pre>
 <code class=“lang-ride”>
-{-# STDLIB_VERSION 3 #-}
-{-# CONTENT_TYPE EXPRESSION #-}
-{-# SCRIPT_TYPE ACCOUNT #-}
-
 let asset = assetInfo(base58'8LQW8f7P5d5PZM7GtZEBgaqRPGSzS3DfPuiXrURJ4AJS')
-token.isDefined()
+asset.isDefined()
 </code>
 </pre>
 Instead of calling the <code>isDefined</code> function, you may use the equality with <code>unit</code>.

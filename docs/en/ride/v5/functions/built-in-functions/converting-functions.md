@@ -2,18 +2,18 @@
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| [addressFromPublicKey(ByteVector): Address](#address-from-public-key)| Gets the corresponding [address](/en/blockchain/account/address) of the account public key | 82 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>63 for Standard Library **version 4** |
-| [parseInt(String): Int&#124;Unit](#parse-int) | Converts the string representation of a number to its integer equivalent | 20 for Standard Library **version 3**<br>2 for Standard Library **version 4** |
-| [parseIntValue(String): Int](#parse-int-value) | Converts the string representation of a number to its integer equivalent.<br>Fails if the string cannot be parsed | 20 for Standard Library **version 3**<br>2 for Standard Library **version 4** |
+| [addressFromPublicKey(ByteVector): Address](#address-from-public-key)| Gets the corresponding [address](/en/blockchain/account/address) of the account public key | 63 |
+| [parseInt(String): Int&#124;Unit](#parse-int) | Converts the string representation of a number to its integer equivalent | 2 |
+| [parseIntValue(String): Int](#parse-int-value) | Converts the string representation of a number to its integer equivalent.<br>Fails if the string cannot be parsed | 2 |
 | [toBytes(Boolean): ByteVector](#tobytes-bool) | Converts a boolean value to an array of bytes | 1 |
 | [toBytes(Int): ByteVector](#tobytes-int) | Converts an integer to an array of bytes | 1 |
-| [toBytes(String): ByteVector](#tobytes-string) | Converts a string to an array of bytes | 1 for Standard Library **version 3**<br>8 for Standard Library **version 4** |
-| [toInt(ByteVector): Int](#toint-bytes) | Converts an array of bytes to an integer | 10 for Standard Library **version 3**<br>1 for Standard Library **version 4** |
-| [toInt(ByteVector, Int): Int](#toint-bytes-int) | Converts an array of bytes to an integer starting from a certain index | 10 for Standard Library **version 3**<br>1 for Standard Library **version 4** |
+| [toBytes(String): ByteVector](#tobytes-string) | Converts a string to an array of bytes | 8 |
+| [toInt(ByteVector): Int](#toint-bytes) | Converts an array of bytes to an integer | 1 |
+| [toInt(ByteVector, Int): Int](#toint-bytes-int) | Converts an array of bytes to an integer starting from a certain index | 1 |
 | [toString(Address): String](#to-string-address) | Converts an array of bytes of an [address](/en/blockchain/account/address) to a string | 10 |
 | [toString(Boolean): String](#tostring-bool) | Converts a boolean value to a string | 1 |
 | [toString(Int): String](#tostring-int) | Converts an integer to a string | 1 |
-| [toUtf8String(ByteVector): String](#to-utf8-string) | Converts an array of bytes to a [UTF-8](https://en.wikipedia.org/wiki/UTF-8) string | 20 for Standard Library **version 3**<br>7 for Standard Library **version 4** |
+| [toUtf8String(ByteVector): String](#to-utf8-string) | Converts an array of bytes to a [UTF-8](https://en.wikipedia.org/wiki/UTF-8) string | 7 |
 | [transferTransactionFromProto(ByteVector): TransferTransaction&#124;Unit](#transfertransactionfromproto) | Deserializes transfer transaction | 5 |
 
 ## addressFromPublicKey(ByteVector): Address<a id="address-from-public-key"></a>
@@ -277,8 +277,6 @@ toUtf8String(bytes) # Returns "Ride on Waves"
 ## transferTransactionFromProto
 
 Deserializes transfer transaction: converts protobuf-encoded [binary format](/en/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format) specified in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) to a [TransferTransaction](/en/ride/v5/structures/transaction-structures/transfer-transaction) structure. Returns `unit` if deserialization failed.
-
-> :warning: The functions is added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 ```ride
 transferTransactionFromProto(b: ByteVector): TransferTransaction|Unit

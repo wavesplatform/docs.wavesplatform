@@ -4,14 +4,6 @@ Structure of a [token](/en/blockchain/token/). The structure is returned by the
 
 ## Constructor
 
-For [Standard library](/en/ride/script/standard-library) **version 3**:
-
-``` ride
-Asset(id: ByteVector, quantity: Int, decimals: Int, issuer: Address, issuerPublicKey: ByteVector, reissuable: Boolean, scripted: Boolean, sponsored: Boolean)
-```
-
-For Standard library **version 4**:
-
 ``` ride
 Asset(id: ByteVector, quantity: Int, decimals: Int, issuer: Address, issuerPublicKey: ByteVector, reissuable: Boolean, scripted: Boolean, minSponsoredFee: Int|Unit, name: String, description: String)
 ```
@@ -27,7 +19,6 @@ Asset(id: ByteVector, quantity: Int, decimals: Int, issuer: Address, issuerPubli
 | 5 | issuerPublicKey | [ByteVector](/en/ride/v5/data-types/byte-vector) | Public key of the account that issued a token |
 | 6 | reissuable | [Boolean](/en/ride/v5/data-types/boolean) | true — token can be reissued, false — cannot be reissued |
 | 7 | scripted | [Boolean](/en/ride/v5/data-types/boolean) | true — [smart asset](/en/building-apps/smart-contracts/what-is-smart-asset), false — regular token |
-| 8 | sponsored | [Boolean](/en/ride/v5/data-types/boolean) | true — sponsorship is enabled, false — sponsorhip is disabled.<br>:warning: The field is deleted in Standard library version 4 |
-| 9 | minSponsoredFee | [Int](/en/ride/v5/data-types/int)&#124;[Unit](/en/ride/v5/data-types/unit) | Amount of asset that is equivalent to 0.001 WAVES (100,000 WAVELET), specified in the minimum fraction (“cents”) of asset. See the [Sponsored fee](/en/blockchain/waves-protocol/sponsored-fee) article<br>`unit`: sponrship is disables.<br>The field is added in Standard library version 4 |
-| 10 | name | [String](/en/ride/v5/data-types/string) | Token name, up to 16 characters.<br>The field is added in Standard library version 4 |
-| 11 | description | [String](/en/ride/v5/data-types/string) | Token description, up to 1000 characters.<br>The field is added in Standard library version 4 |
+| 8 | minSponsoredFee | [Int](/en/ride/v5/data-types/int)&#124;[Unit](/en/ride/v5/data-types/unit) | Amount of asset that is equivalent to 0.001 WAVES (100,000 WAVELET), specified in the minimum fraction (“cents”) of asset. See the [Sponsored fee](/en/blockchain/waves-protocol/sponsored-fee) article<br>`unit`: sponsorship is disabled. |
+| 9 | name | [String](/en/ride/v5/data-types/string) | Token name, up to 16 characters |
+| 10 | description | [String](/en/ride/v5/data-types/string) | Token description, up to 1000 characters |

@@ -4,14 +4,6 @@ Structure of an [issue transaction](/en/blockchain/transaction-type/issue-transa
 
 ### Constructor
 
-For [Standard library](/en/ride/script/standard-library) **version 3**:
-
-``` ride
-IssueTransaction(quantity: Int, name: ByteVector, description: ByteVector, reissuable: Boolean, decimals: Int, script: ByteVector|Unit, id: ByteVector, fee: Int, timestamp: Int, version: Int, sender: Address, senderPublicKey: ByteVector, bodyBytes: ByteVector, proofs: List[ByteVector])
-```
-
-For Standard library **version 4**:
-
 ``` ride
 IssueTransaction(quantity: Int, name: String, description: String, reissuable: Boolean, decimals: Int, script: ByteVector|Unit, id: ByteVector, fee: Int, timestamp: Int, version: Int, sender: Address, senderPublicKey: ByteVector, bodyBytes: ByteVector, proofs: List[ByteVector])
 ```
@@ -21,8 +13,8 @@ IssueTransaction(quantity: Int, name: String, description: String, reissuable: B
 | # | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
 | 1 | quantity | [Int](/en/ride/v5/data-types/int) | Amount of the [token](/en/blockchain/token/) |
-| 2 | name | For version 3: [ByteVector](/en/ride/v5/data-types/byte-vector)<br>For version 4: [String](/en/ride/v5/data-types/string) | Token name |
-| 3 | description | For version 3: [ByteVector](/en/ride/v5/data-types/byte-vector)<br>For version 4: [String](/en/ride/v5/data-types/string) | Token description |
+| 2 | name | [String](/en/ride/v5/data-types/string) | Token name |
+| 3 | description | [String](/en/ride/v5/data-types/string) | Token description |
 | 4 | reissuable | [Boolean](/en/ride/v5/data-types/boolean) | Reissue ability flag |
 | 5 | decimals | [Int](/en/ride/v5/data-types/int) | Number of digits in decimal part |
 | 6 | script | [ByteVector](/en/ride/v5/data-types/byte-vector)&#124;[Unit](/en/ride/v5/data-types/unit) | [Script](/en/ride/script/) that must be set for the generated token |

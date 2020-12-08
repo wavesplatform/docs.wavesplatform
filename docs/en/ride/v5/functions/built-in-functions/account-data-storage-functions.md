@@ -4,21 +4,21 @@
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| [getBinary(Address&#124;Alias, String): ByteVector&#124;Unit](#get-binary) | Gets an array of bytes by key | 100 for Standard library **version 3**<br>10 for Standard library **version 4 and 5** |
+| [getBinary(Address&#124;Alias, String): ByteVector&#124;Unit](#get-binary) | Gets an array of bytes by key | 10 |
 | [getBinary(String): ByteVector&#124;Unit](#getbinary-string-bytevector-unit) | Gets an array of bytes by key from the internal data storage | 10 |
-| [getBinaryValue(Address&#124;Alias, String): ByteVector](#get-binary-value) | Gets an array of bytes by key. Fails if there is no data | 100 for Standard library **version 3**<br>10 for Standard library **version 4 and 5** |
+| [getBinaryValue(Address&#124;Alias, String): ByteVector](#get-binary-value) | Gets an array of bytes by key. Fails if there is no data | 10 |
 | [getBinaryValue(String): ByteVector](#getbinaryvalue-string-bytevector) | Gets an array of bytes by key from the internal data storage. Fails if there is no data | 10 |
-| [getBoolean(Address&#124;Alias, String): Boolean&#124;Unit](#get-boolean) | Gets a boolean value by key | 100 for Standard library **version 3**<br>10 for Standard library **version 4 and 5** |
+| [getBoolean(Address&#124;Alias, String): Boolean&#124;Unit](#get-boolean) | Gets a boolean value by key | 10 |
 | [getBoolean(String): Boolean&#124;Unit](#getboolean-string-boolean-unit) | Gets a boolean value by key from the internal data storage | 10 |
-| [getBooleanValue(Address&#124;Alias, String): Boolean](#get-boolean-value) | Gets a boolean value by key. Fails if there is no data | 100 for Standard library **version 3**<br>10 for Standard library **version 4 and 5** |
+| [getBooleanValue(Address&#124;Alias, String): Boolean](#get-boolean-value) | Gets a boolean value by key. Fails if there is no data | 10 |
 | [getBooleanValue(String): Boolean](#getbooleanvalue-string-boolean) | Gets a boolean value by key from the internal data storage. Fails if there is no data | 10 |
-| [getInteger(Address&#124;Alias, String): Int&#124;Unit](#get-integer) | Gets an integer by key | 100 for Standard library **version 3**<br>10 for Standard library **version 4 and 5** |
+| [getInteger(Address&#124;Alias, String): Int&#124;Unit](#get-integer) | Gets an integer by key | 10 |
 | [getInteger(String): Int&#124;Unit](#getinteger-string-int) | Gets an integer by key from the internal data storage | 10 |
-| [getIntegerValue(Address&#124;Alias, String): Int](#get-integer-value) | Gets an integer by key. Fails if there is no data | 100 for Standard library **version 3**<br>10 for Standard library **version 4 and 5** |
+| [getIntegerValue(Address&#124;Alias, String): Int](#get-integer-value) | Gets an integer by key. Fails if there is no data | 10 |
 | [getIntegerValue(String): Int](#getintegervalue-string-int) | Gets an integer by key from the internal data storage. Fails if there is no data | 10 |
-| [getString(Address&#124;Alias, String): String&#124;Unit](#get-string) | Gets a string by key | 100 for Standard library **version 3**<br>10 for Standard library **version 4 and 5** |
+| [getString(Address&#124;Alias, String): String&#124;Unit](#get-string) | Gets a string by key | 10 |
 | [getString(String): String&#124;Unit](#getstring-string-string) | Gets a string by key from the internal data storage | 10 |
-| [getStringValue(Address&#124;Alias, String): String](#get-string-value) | Gets a string by key. Fails if there is no data | 100 for Standard library **version 3**<br>10 for Standard library **version 4 and 5** |
+| [getStringValue(Address&#124;Alias, String): String](#get-string-value) | Gets a string by key. Fails if there is no data | 10 |
 | [getStringValue(String): String](#getstringvalue-string-string) | Gets a string by key from the internal data storage. Fails if there is no data | 10 |
 
 ## getBinary(Address|Alias, String): ByteVector|Unit <a id="get-binary"></a>
@@ -39,8 +39,6 @@ getBinary(addressOrAlias: Address|Alias, key: String): ByteVector|Unit
 ## getBinary(String): ByteVector|Unit
 
 Gets an array of bytes by key from the internal data store of account to which the script is assigned.
-
-> :warning: The function is added in [Standard library](/en/ride/script/standard-library) **version 5** that is now now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 
 ``` ride
 getBinary(key: String): ByteVector|Unit
@@ -71,8 +69,6 @@ getBinaryValue(addressOrAlias: Address|Alias, key: String): ByteVector
 
 Gets an array of bytes by key from the internal data store of account to which the script is assigned.
 
-> :warning: The function is added in [Standard library](/en/ride/script/standard-library) **version 5** that is now now available for [Stagenet](/en/blockchain/blockchain-network/) only.
-
 ``` ride
 getBinaryValue(key: String): ByteVector
 ```
@@ -102,8 +98,6 @@ getBoolean(addressOrAlias: Address|Alias, key: String): Boolean|Unit
 
 Gets a boolean value by key by key from the internal data store of account to which the script is assigned.
 
-> :warning: The function is added in [Standard library](/en/ride/script/standard-library) **version 5** that is now now available for [Stagenet](/en/blockchain/blockchain-network/) only.
-
 ``` ride
 getBoolean(key: String): Boolean|Unit
 ```
@@ -125,8 +119,6 @@ getBooleanValue(addressOrAlias: Address|Alias, key: String): Boolean
 ## getBooleanValue(String): Boolean
 
 Gets a boolean value by key from the internal data store of account to which the script is assigned.
-
-> :warning: The function is added in [Standard library](/en/ride/script/standard-library) **version 5** that is now now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 
 ``` ride
 getBooleanValue(key: String): Boolean
@@ -164,8 +156,6 @@ getInteger(addressOrAlias: Address|Alias, key: String): Int|Unit
 
 Gets an integer by key from the internal data store of account to which the script is assigned.
 
-> :warning: The function is added in [Standard library](/en/ride/script/standard-library) **version 5** that is now now available for [Stagenet](/en/blockchain/blockchain-network/) only.
-
 ``` ride
 getInteger(key: String): Int|Unit
 ```
@@ -186,8 +176,6 @@ getIntegerValue(addressOrAlias: Address|Alias, key: String): Int
 ## getIntegerValue(String): Int
 
 Gets an integer by key from the internal data store of account to which the script is assigned.
-
-> :warning: The function is added in [Standard library](/en/ride/script/standard-library) **version 5** that is now now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 
 ``` ride
 getIntegerValue(key: String): Int
@@ -225,8 +213,6 @@ getString(addressOrAlias: Address|Alias, key: String): String|Unit
 
 Gets a string by key from the internal data store of account to which the script is assigned.
 
-> :warning: The function is added in [Standard library](/en/ride/script/standard-library) **version 5** that is now now available for [Stagenet](/en/blockchain/blockchain-network/) only.
-
 ``` ride
 getString(key: String): String|Unit
 ```
@@ -255,8 +241,6 @@ getStringValue(addressOrAlias: Address|Alias, key: String): String
 ## getStringValue(String): String
 
 Gets a string by key from the internal data store of account to which the script is assigned.
-
-> :warning: The function is added in [Standard library](/en/ride/script/standard-library) **version 5** that is now now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 
 ``` ride
 getString(key: String): String
