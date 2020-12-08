@@ -29,7 +29,8 @@ The following checks are performed:
 
    The sender should have enough funds to pay the fee. If a sponsored asset is used for the fee, the sponsor's balance is also checked.
 
-   Depending on the type of transaction, the sender should have enough asset for transfer or exchange or for payments attached to the Invoke Script transaction.
+   Depending on the type of transaction, the sender should have enough asset for transfer or for payments attached to the Invoke Script transaction. Order senders in the Exchange transaction should have enough funds to exchange.
+
 5. For an Invoke Script transaction:
 
    5.1. Calculation of the result of dApp callable function.
@@ -60,7 +61,7 @@ The following checks are performed:
 
    The sender should have enough funds to pay the fee. If a sponsored asset is used for the fee, the sponsor's balance is also checked.
 
-   Depending on the type of transaction, the sender should have enough asset for transfer or exchange or for payments attached to the Invoke Script transaction.
+   Depending on the type of transaction, the sender should have enough asset for transfer or for payments attached to the Invoke Script transaction. Order senders in the Exchange transaction should have enough funds to exchange.
 
 3. The sender's signature verification for ordinary account (without script), or account script execution if the sender is [smart account](/en/blockchain/account/dapp), or the [verifier function](/en/ride/functions/verifier-function) execution if the sender is [dApp](/en/blockchain/account/dapp). A similar check is performed for orders in an Exchange transaction.
 4. For the Invoke Script transaction:
