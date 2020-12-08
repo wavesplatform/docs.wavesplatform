@@ -2,7 +2,7 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| [cons](#cons)  | Вставляет элемент в начало [списка](/ru/ride/v5/data-types/list) | 2 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>1 для Стандартной библиотеки **версии 4** |
+| [cons](#cons)  | Вставляет элемент в начало [списка](/ru/ride/v5/data-types/list) | 1 |
 | [containsElement](#containselement)  | Проверяет наличие элемента в списке | 5 |
 | [getElement](#getelement)  | Получает элемент списка по индексу | 2 |
 | [indexOf](#indexof)  | Возвращает индекс первого вхождения элемента в списке | 5 |
@@ -39,8 +39,6 @@ cons(1, [2, 3, 4, 5]) # Возвращает [1, 2, 3, 4, 5]
 ## containsElement
 
 Проверяет наличие элемента в списке.
-
-> :warning: Функция `containsElement` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4.
 
 ```ride
 containsElement(list: List[T], element: T): Boolean
@@ -79,8 +77,6 @@ getElement([false, true], 1) # Возвращает true
 
 Возвращает индекс первого вхождения элемента в списке или `unit`, если элемент отсутствует.
 
-> :warning: Функция `indexOf` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4.
-
 ``` ride
 indexOf(list: List[T], element: T): Int|Unit
 ```
@@ -102,8 +98,6 @@ indexOf("a", stringList) # Возвращает 0
 ## lastIndexOf
 
 Возвращает индекс последнего вхождения элемента в списке или `unit`, если элемент отсутствует.
-
-> :warning: Функция `lastIndexOf` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4.
 
 ``` ride
 lastIndexOf(list: List[T], element: T): Int|Unit
@@ -127,8 +121,6 @@ lastIndexOf("a", stringList) # Возвращает 2
 
 Возвращает наибольший элемент в списке. Если список пустой, возвращает ошибку.
 
-> :warning: Функция `max` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4.
-
 ``` ride
 max(List[Int]): Int
 ```
@@ -143,8 +135,6 @@ max(List[Int]): Int
 
 Возвращает наименьший элемент в списке. Если список пустой, возвращает ошибку.
 
-> :warning: Функция `min` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) версии 4.
-
 ``` ride
 min(List[Int]): Int
 ```
@@ -158,8 +148,6 @@ min(List[Int]): Int
 ## removeByIndex
 
 Удаляет элемент из списка по индексу.
-
-> :warning: Функция `removeByIndex` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
 
 ``` ride
 removeByIndex(list: List[T], index: Int): List[T]

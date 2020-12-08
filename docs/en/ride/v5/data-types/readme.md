@@ -1,15 +1,15 @@
-# Типы данных
+# Data types
 
-| Название типа данных | Ключевое слово в Ride |
+| Data type name | Ride keyword |
 | :--- | :--- |
-| [Логический](/ru/ride/data-types/boolean) | Boolean |
-| [Массив байтов](/ru/ride/data-types/byte-vector) | ByteVector |
-| [Целочисленный](/ru/ride/data-types/int) | Int |
-| [Строка](/ru/ride/data-types/string) | String |
-| [Тип данных пустого значения](/ru/ride/data-types/unit) | Unit |
-| [Список](/ru/ride/data-types/list) | List |
-| [Кортеж](/ru/ride/data-types/tuple) | — |
-| [Объединение](/ru/ride/data-types/union) | — |
-| [Структура](/ru/ride/structures/) | — |
+| [Boolean](/en/ride/v5/data-types/boolean) | Boolean |
+| [Byte array](/en/ride/v5/data-types/byte-vector) | ByteVector |
+| [Integer](/en/ride/v5/data-types/int) | Int |
+| [String](/en/ride/v5/data-types/string) | String |
+| [Empty value](/en/v5/ride/data-types/unit) | Unit |
+| [List](/en/ride/v5/data-types/list) | List |
+| [Tuple](/en/ride/v5/data-types/tuple) | — |
+| [Union](/en/ride/v5/data-types/union) | — |
+| [Structure](/en/ride/v5/structures/) | — |
 
-Для каждого значения в зависимости от типа данных определен вес. Вес используется в ограничениях на создание и сравнение значений. Подробнее см. в разделе [Вес данных](/ru/ride/limits/weight).
+For each value, depending on the data type, the weight is determined. The weight is used in limitations on creating and comparing values. For more information see the [Data Weight](/en/ride/limits/weight).

@@ -2,11 +2,11 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| [addressFromString(String): Address&#124;Unit](#address-from-string)| Декодирует адрес из строки [Base58](https://ru.wikipedia.org/wiki/Base58) | 124 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>1 для Стандартной библиотеки **версии 4** |
-| [addressFromStringValue(String): Address](#address-from-string-value) | Декодирует адрес из строки [Base58](https://ru.wikipedia.org/wiki/Base58).<br>Завершается ошибкой, если адрес невозможно декодировать | 124 для Стандартной библиотеки **версии 3**<br>1 для Стандартной библиотеки **версии 4** |
+| [addressFromString(String): Address&#124;Unit](#address-from-string)| Декодирует адрес из строки [Base58](https://ru.wikipedia.org/wiki/Base58) | 1 |
+| [addressFromStringValue(String): Address](#address-from-string-value) | Декодирует адрес из строки [Base58](https://ru.wikipedia.org/wiki/Base58).<br>Завершается ошибкой, если адрес невозможно декодировать | 1 |
 | [fromBase16String(String): ByteVector](#from-base-16-string) | Декодирует строку [Base16](https://ru.wikipedia.org/wiki/Шестнадцатеричная_система_счисления) в массив байтов | 10 |
-| [fromBase58String(String): ByteVector](#from-base-58-string) | Декодирует строку [Base58](https://ru.wikipedia.org/wiki/Base58) в массив байтов | 10 для Стандартной библиотеки **версии 3**<br>1 для Стандартной библиотеки **версии 4** |
-| [fromBase64String(String): ByteVector](#from-base-64-string)| Декодирует строку [Base64](https://ru.wikipedia.org/wiki/Base64) в массив байтов | 10 для Стандартной библиотеки **версии 3**<br>40 для Стандартной библиотеки **версии 4** |
+| [fromBase58String(String): ByteVector](#from-base-58-string) | Декодирует строку [Base58](https://ru.wikipedia.org/wiki/Base58) в массив байтов | 1 |
+| [fromBase64String(String): ByteVector](#from-base-64-string)| Декодирует строку [Base64](https://ru.wikipedia.org/wiki/Base64) в массив байтов | 40 |
 
 
 ## addressFromString(String): Address|Unit<a id="address-from-string"></a>

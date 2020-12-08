@@ -1,18 +1,15 @@
 # String
 
-`String` — строковый тип данных.
+`String` is a string data type.
 
-Строки имеют кодировку [UTF-8](https://ru.wikipedia.org/wiki/UTF-8).
+Strings are [UTF-8](https://en.wikipedia.org/wiki/UTF-8) encoded.
 
-## Ограничения
+## Limitations
 
-Максимальный размер переменной типа `String`:
+The maximum size of a `String` variable is 32,767 (1 character can take up to 4 bytes).
 
-* В [Стандартной библиотеке](/ru/ride/script/standard-library) версии 3 — 32&nbsp;767 символов.
-* В Стандартной библиотеке версии 4 — 32&nbsp;767 **байт** (1 символ может занимать до 4 байт).
+## String Functions
 
-## Функции работы со строками
-
-Встроенные функции работы со строками представлены в разделах:
-* [Функции строки](/en/ride/v5/functions/built-in-functions/string-functions)
-* [Функции конвертации](/en/ride/v5/functions/built-in-functions/string-functions)
+The built-in functions for working with strings are presented in the following articles:
+* [String Functions](/en/ride/v5/functions/built-in-functions/string-functions)
+* [Conversion Functions](/en/ride/v5/functions/built-in-functions/string-functions)

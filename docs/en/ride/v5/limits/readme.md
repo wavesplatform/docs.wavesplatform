@@ -6,6 +6,7 @@
 | Account script or asset script size | 8 Kbytes |
 | [Complexity](/en/ride/base-concepts/complexity) of account script | 2000 |
 | Complexity of asset script | 4000 |
+| Complexity of one stage of [continued calculation](/en/ride/advanced/continuation) | 4000 |
 | Complexity of each callable function of dApp script | 4000 |
 | Complexity threshold for saving failed transactions: if the callable function failed with an error or throwing an exception before the threshold exceeded, the invoke script transaction is rejected and the fee is not charged | 1000 |
 | Complexity of verifier function of dApp script | 2000 |

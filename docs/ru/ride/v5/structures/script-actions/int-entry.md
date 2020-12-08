@@ -1,7 +1,5 @@
 # IntegerEntry
 
-> :warning: Структура `IntegerEntry` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
-
 `IntegerEntry` — cтруктура, задающая ключ и значение записи [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage) целочисленного типа. Cоздание или изменение записи выполняется, только если структура включена в [результирующее выражение](/ru/ride/v5/functions/callable-function#резуnьтат-выпоnнения-2) вызываемой функции.
 
 

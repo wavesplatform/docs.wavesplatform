@@ -7,14 +7,12 @@
 | [createMerkleRoot](#createmerkleroot) | Вычисляет [корневой хеш дерева Меркла транзакций блока](/ru/blockchain/block/merkle-root) | 30 |
 | [ecrecover](#ecrecover) | Восстанавливает открытый ключ из хеша сообщения и цифровой подписи [ECDSA](https://ru.wikipedia.org/wiki/ECDSA) | 70 |
 | [groth16Verify](#groth16verify) | Семейство функций.<br>Осуществляют проверку [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf) на кривой bls12-381 | 1200–2700 |
-| [rsaVerify](#rsaverify) | Семейство функций.<br>Проверяют достоверность цифровой подписи [RSA](https://ru.wikipedia.org/wiki/RSA) | 300 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>500–1000 для Стандартной библиотеки **версии 4** |
-| [sigVerify](#sigverify) | Семейство функций.<br>Проверяют достоверность цифровой подписи [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна | 100 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>47–200 для Стандартной библиотеки **версии 4** |
+| [rsaVerify](#rsaverify) | Семейство функций.<br>Проверяют достоверность цифровой подписи [RSA](https://ru.wikipedia.org/wiki/RSA) | 500–1000 |
+| [sigVerify](#sigverify) | Семейство функций.<br>Проверяют достоверность цифровой подписи [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна | 47–200 |
 
 ## bn256groth16Verify
 
 Семейство функций. Осуществляют проверку доказательства с нулевым разглашением [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу groth16 на кривой bn254. (Несмотря на то что в научной литературе кривая называется bn254, в коде принято использовать обозначение bn256.)
-
-> :warning: Семейство функций `bn256groth16Verify` добавлено в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
 
 | Название | Макс. кол-во входов | Сложность |
 |:---| :--- | :--- |
@@ -43,29 +41,7 @@
 | `proof`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | zk-SNARK. фиксированный размер: 128 байт |
 | `inputs`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Массив публичных входов доказательства с нулевым разглашением. Например, массив хешей UTXO в случае анонимных транзакций.<br>Максимальный размер:<br>• Для функций `bn256groth16Verify_<N>inputs` — не более 32 × `N` байт.<br>• Для функции `bn256groth16Verify` — не более 512 байт. |
 
-## checkMerkleProof
-
-> :warning: Функция `checkMerkleProof` не входит в [Стандартную библиотеку](/ru/ride/script/standard-library) версии 4. Используйте `createMerkleRoot` вместо нее.
-
-Проверяет, что данные являются частью [дерева Меркла](https://ru.wikipedia.org/wiki/Дерево_хешей).
-
-Для хеширования [дерева Меркла](https://ru.wikipedia.org/wiki/Дерево_хешей) используется функция хеширования [BLAKE2b](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29).
-
-``` ride
-checkMerkleProof(merkleRoot: ByteVector, merkleProof: ByteVector, valueBytes: ByteVector): Boolean
-```
-
-### Параметры
-
-| Параметр | Описание |
-| :--- | :--- |
-| `merkleRoot`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Корневой хеш дерева Меркла. |
-| `merkleProof`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Массив хешей. |
-| `valueBytes`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Данные для проверки.|
-
 ## createMerkleRoot
-
-> :warning: Функция `createMerkleRoot` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
 
 Вычисляет корневой хеш транзакций блока на основе хеша транзакции и соседних хешей дерева Меркла, используя алгоритм хеширования [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29). Чтобы проверить присутствие транзакции в блоке, нужно сравнить вычисленный хеш с с полем `transactionsRoot` в заголовке блока. Подробное описание приведено в разделе [Корневой хеш транзакции](/ru/blockchain/block/merkle-root).
 
@@ -83,8 +59,6 @@ createMerkleRoot(merkleProofs: List[ByteVector], valueBytes: ByteVector, index: 
 | `index`: [Int](/ru/ride/v5/data-types/int) | Порядковый номер транзакции в блоке |
 
 ## ecrecover
-
-> :warning: Функция `ecrecover` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
 
 Возвращает открытый ключ, восстановленный из хеша сообщения и цифровой подписи [ECDSA](https://ru.wikipedia.org/wiki/ECDSA) на основе эллиптической кривой secp256k1. Завершается ошибкой, если восстановить открытый ключ не удалось.
 
@@ -121,8 +95,6 @@ func check(t: ByteVector, signature: ByteVector, publicKey: ByteVector) = {
 
 Семейство функций. Осуществляют проверку [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу [groth16](https://eprint.iacr.org/2016/260.pdf).
 
-> :warning: Семейство функций `groth16Verify` добавлено в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
-
 | Название | Макс. кол-во входов | Сложность |
 |:---| :--- | :--- |
 | groth16Verify(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 16 | 2700 |
@@ -153,10 +125,6 @@ func check(t: ByteVector, signature: ByteVector, publicKey: ByteVector) = {
 ### Пример
 
 ```
-{-# STDLIB_VERSION 4 #-}
-{-# CONTENT_TYPE DAPP #-}
-{-# SCRIPT_TYPE ACCOUNT #-}
- 
 groth16Verify(vk, proof, inputs)
 ```
 
@@ -166,13 +134,11 @@ groth16Verify(vk, proof, inputs)
 
 | Название | Макс. размер `message` | Сложность |
 |:---| :--- | :--- |
-| rsaVerify(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 150 Кбайт | 300 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>1000 для Стандартной библиотеки **версии 4**|
+| rsaVerify(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 150 Кбайт | 1000 |
 | rsaVerify_16Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 16 Кбайт | 500 |
 | rsaVerify_32Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 32 Кбайт | 550 |
 | rsaVerify_64Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 64 Кбайт | 625 |
 | rsaVerify_128Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 128 Кбайт | 750 |
-
-> :warning: Функции `rsaVerify_16Kb`, `rsaVerify_32Kb`, `rsaVerify_64Kb`, `rsaVerify_128Kb` добавлены в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
 
 Рекомендуемая длина модуля ключей RSA — не менее 2048 бит.
 
@@ -206,14 +172,12 @@ groth16Verify(vk, proof, inputs)
 
 | Название | Макс. размер `message` | Сложность |
 |:---| :--- | :--- |
-| sigVerify(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean |150 Кбайт | 100 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>200 для Стандартной библиотеки **версии 4** |
+| sigVerify(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean |150 Кбайт | 200 |
 | sigVerify_8Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 8 Кбайт | 47 |
 | sigVerify_16Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 16 Кбайт | 57 |
 | sigVerify_32Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 32 Кбайт | 70 |
 | sigVerify_64Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 64 Кбайт | 102 |
 | sigVerify_128Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 128 Кбайт | 172 |
-
-> :warning: Функции `sigVerify_8Kb`, `sigVerify_16Kb`, `sigVerify_32Kb`, `sigVerify_64Kb`, `sigVerify_128Kb` добавлены в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
 
 ### Параметры
 

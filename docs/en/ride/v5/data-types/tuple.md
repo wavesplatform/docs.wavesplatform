@@ -1,26 +1,24 @@
-# Кортеж
+# Tuple
 
-> :warning: Кортежи добавлены в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
+Tuple is an ordered collection of elements. Elements can be of any type. The tuple can contain from 2 to 22 elements.
 
-Кортеж — упорядоченный набор элементов. Элементы могут быть любого типа. Длина кортежа  — от 2 до 22 элементов.
+For weight restrictions, see the [Data Weight](/en/ride/limits/weight) article.
 
-Ограничения по весу см. в разделе [Вес данных](/ru/ride/limits/weight).
-
-## Пример
+## Example
 
 ```ride
 let x=("Hello Waves",42,true)
 x._2
 ```
 
-Результат: 42
+Result: 42
 
 ```ride
 let (a,b,c)=x
 c
 ```
 
-Результат: true
+Result: true
 
 ```
 match (if true then (1, 2) else (true, "q")) {
@@ -29,4 +27,4 @@ match (if true then (1, 2) else (true, "q")) {
 }
 ```
 
-Результат: true
+Result: true

@@ -1,7 +1,5 @@
 # SponsorFee
 
-> :warning: Структура `SponsorFee` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
-
 `SponsorFee` — cтруктура, задающая настройки спонсирования. Подробнее о спонсировании см. в разделе [Спонсирование комиссии](/ru/blockchain/waves-protocol/sponsored-fee). Установка или отмена спонсирования выполняется, только если структура включена в результирующее выражение вызываемой функции. Подробнее см. в разделе [Вызываемая функция](/ru/ride/v5/functions/callable-function).
 
 Установка/отмена спонсирования доступна, только если ассет выпущен аккаунтом dApp (в том числе в рамках этого же вызова скрипта) и не является смарт-ассетом.
@@ -22,7 +20,7 @@ SponsorFee(assetId: ByteVector, minSponsoredAssetFee: Int|Unit)
 ## Пример
 
 ```
-{-# STDLIB_VERSION 4 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
   
@@ -30,10 +28,13 @@ SponsorFee(assetId: ByteVector, minSponsoredAssetFee: Int|Unit)
 func issueAndSponsor() = {
   let issue = Issue("Spring", "", 100000, 2, true, unit, 0)
   let id = calculateAssetId(issue)
-  [
-    issue,
-    SponsorFee(id, 300)
-  ]
+  (
+    [
+      issue,
+      SponsorFee(id, 300)
+    ],
+    null
+  )
 }
 ```
 

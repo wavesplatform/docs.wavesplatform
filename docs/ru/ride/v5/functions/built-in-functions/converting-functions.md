@@ -2,18 +2,18 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| [addressFromPublicKey(ByteVector): Address](#address-from-public-key) | Получает [адрес](/ru/blockchain/account/address), соответствующий открытому ключу аккаунта | 82 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>63 для Стандартной библиотеки **версии 4** |
-| [parseInt(String): Int&#124;Unit](#parse-int) | Конвертирует строковое представление числа в эквивалентное целое число | 20 для Стандартной библиотеки **версии 3**<br>2 для Стандартной библиотеки **версии 4** |
-| [parseIntValue(String): Int](#parse-int-value) | Конвертирует строковое представление числа в эквивалентное целое число.<br>Завершается ошибкой, если строка не может быть спарсена | 20 для Стандартной библиотеки **версии 3**<br>2 для Стандартной библиотеки **версии 4** |
+| [addressFromPublicKey(ByteVector): Address](#address-from-public-key) | Получает [адрес](/ru/blockchain/account/address), соответствующий открытому ключу аккаунта | 63 |
+| [parseInt(String): Int&#124;Unit](#parse-int) | Конвертирует строковое представление числа в эквивалентное целое число | 2 |
+| [parseIntValue(String): Int](#parse-int-value) | Конвертирует строковое представление числа в эквивалентное целое число.<br>Завершается ошибкой, если строка не может быть спарсена | 2 |
 | [toBytes(Boolean): ByteVector](#to-bytes-boolean) | Конвертирует логическое значение в массив байтов | 1 |
 | [toBytes(Int): ByteVector](#to-bytes-int) | Конвертирует целое число в массив байтов | 1 |
-| [toBytes(String): ByteVector](#to-bytes-string) | Конвертирует строку в массив байтов | 1 для Стандартной библиотеки **версии 3**<br>8 для Стандартной библиотеки **версии 4** |
-| [toInt(ByteVector): Int](#to-int-bytevector) | Конвертирует массив байтов в целое число | 10 для Стандартной библиотеки **версии 3**<br>1 для Стандартной библиотеки **версии 4** |
-| [toInt(ByteVector, Int): Int](#to-int-bytevector-int) | Конвертирует массив байтов начиная с указанного индекса в целое число | 10 для Стандартной библиотеки **версии 3**<br>1 для Стандартной библиотеки **версии 4** |
+| [toBytes(String): ByteVector](#to-bytes-string) | Конвертирует строку в массив байтов | 8 |
+| [toInt(ByteVector): Int](#to-int-bytevector) | Конвертирует массив байтов в целое число | 1 |
+| [toInt(ByteVector, Int): Int](#to-int-bytevector-int) | Конвертирует массив байтов начиная с указанного индекса в целое число | 1 |
 | [toString(Address): String](#to-string-address) | Конвертирует массив байтов [адреса](/ru/blockchain/account/address) в строку | 10 |
 | [toString(Boolean): String](#to-string-boolean) | Конвертирует логическое значение в строку | 1 |
 | [toString(Int): String](#to-string-int) | Конвертирует целое число в строку | 1 |
-| [toUtf8String(ByteVector): String](#to-utf8-string-bytevector) | Конвертирует массив байтов в строку в [UTF-8](https://ru.wikipedia.org/wiki/UTF-8) | 20 для Стандартной библиотеки **версии 3**<br>7 для Стандартной библиотеки **версии 4** |
+| [toUtf8String(ByteVector): String](#to-utf8-string-bytevector) | Конвертирует массив байтов в строку в [UTF-8](https://ru.wikipedia.org/wiki/UTF-8) | 7 |
 | [transferTransactionFromProto(ByteVector): TransferTransaction&#124;Unit](#transfertransactionfromproto) | Десериализует транзакцию перевода | 5 |
 
 
@@ -278,8 +278,6 @@ toUtf8String(bytes) # Возвращает "Ride on Waves"
 ## transferTransactionFromProto
 
 Десериализует транзакцию перевода: конвертирует [бинарный формат](/ru/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format) в структуру [TransferTransaction](/ru/ride/v5/structures/transaction-structures/transfer-transaction). Бинарный формат должен соответствовать [protobuf-схеме](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). В случае если конвертация не удалась, возвращает значение `unit`.
-
-> :warning: Функция `transferTransactionFromProto` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
 
 ```ride
 transferTransactionFromProto(b: ByteVector): TransferTransaction|Unit

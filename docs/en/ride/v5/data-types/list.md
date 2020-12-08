@@ -1,36 +1,34 @@
 # List
 
-`List` — списочный тип данных.
+`List` is a list data type.
 
-Список может содержать элементы разных типов, в том числе вложенные списки.
+The list may contain elements of various types, including nested lists.
 
-Количество элементов списка — не более 1000. Глубина вложенности не ограничена. Ограничения по весу см. в разделе [Вес данных](/ru/ride/limits/weight).
+The maximim number of list items is 1000. The nesting depth is not limited. For weight restrictions, see the [Data Weight](/en/ride/v5/limits/weight) article.
 
-## Операции со списками
+## List Operations
 
-Списки поддерживают [конкатенацию](https://ru.wikipedia.org/wiki/Конкатенация), добавление элементов в начало и конец списка.
+Lists support [concatenation](https://en.wikipedia.org/wiki/Concatenation), as well as adding items to the beginning and the end.
 
-| Операция | Обозначение | Сложность |
+| Operation  | Symbol  | Complexity |
 |---|---|---|
-| Конкатенация  | ++  | 4 |
-| Добавление элемента в конец списка (слева список, справа элемент) | :+ | 1 |
-| Добавление элемента в начало списка (слева элемент, справа список) | :: | 2 |
+| Concatenation  | ++ | 4 |
+| Adding the element to the end of the list (the list is on the left, the element is on the right) | :+ | 1 |
+| Adding the element to the beginning of the list (the element is on the left, the list is on the right) | :: | 2 |
 
-> :warning: Операторы `++` и `:+` добавлены в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
-
-### Примеры
+### Example
 
 ```ride
 nil :+ 1 :+ 2 :+ 3
 ```
 
-Результат: [1, 2, 3]
+Result: [1, 2, 3]
 
 ```ride
 1 :: 2 :: 3 :: nil
 ```
 
-Результат: [1, 2, 3]
+Result: [1, 2, 3]
 
 ```ride
 let intList  = [1, 2]             # List[Int]
@@ -39,22 +37,22 @@ let joined   = intList ++ strList # List[Int|String]
 joined
 ```
 
-Результат: [1, 2, "3", "4"]
+Result: [1, 2, "3", "4"]
 
 ```ride
 let appended = joined :+ true     # List[Boolean|Int|String]
 appended
 ```
 
-Результат: [1, 2, "3", "4", true]
+Result: [1, 2, "3", "4", true]
 
 ```ride
 let nested    = intList :: joined  # List[Int|List[Int]|String]
 nested
 ```
 
-Результат: [[1, 2], 1, 2, "3", "4"]
+Result: [[1, 2], 1, 2, "3", "4"]
 
-## Функции списка
+## List functions
 
-Встроенные функции работы со списками представлены в разделе [Функции списка](/ru/ride/functions/built-in-functions/list-functions).
+The built-in list functions are presented in the [List Functions](/en/ride/v5/functions/built-in-functions/list-functions) article.

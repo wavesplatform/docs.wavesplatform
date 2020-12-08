@@ -1,10 +1,10 @@
 # Int
 
-`Int` — целочисленный [тип данных](/ru/ride/data-types/).
+`Int` is an integer [data type](/en/ride/v5/data-types/).
 
-Целочисленная переменная имеет размер 8 байт и хранит целое число из промежутка от -9 223 372 036 854 775 808 до 9 223 372 036 854 755 807 включительно.
+The integer variable has the size of 8 bytes and stores an integer from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 inclusive.
 
-## Примеры
+## Examples
 
 ``` ride
 let age = 42

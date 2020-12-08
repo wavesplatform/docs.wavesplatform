@@ -3,8 +3,8 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | [toBase16String(ByteVector): String](#to-base-16-string) | Кодирует массив байтов в строку [Base16](https://ru.wikipedia.org/wiki/Шестнадцатеричная_система_счисления) | 10 |
-| [toBase58String(ByteVector): String](#to-base-58-string) | Кодирует массив байтов в строку [Base58](https://ru.wikipedia.org/wiki/Base58) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>3 для Стандартной библиотеки **версии 4** |
-| [toBase64String(ByteVector): String](#to-base-64-string) | Кодирует массив байтов в строку [Base64](https://ru.wikipedia.org/wiki/Base64) | 10 для Стандартной библиотеки **версии 3**<br>35 для Стандартной библиотеки **версии 4** |
+| [toBase58String(ByteVector): String](#to-base-58-string) | Кодирует массив байтов в строку [Base58](https://ru.wikipedia.org/wiki/Base58) | 3 |
+| [toBase64String(ByteVector): String](#to-base-64-string) | Кодирует массив байтов в строку [Base64](https://ru.wikipedia.org/wiki/Base64) | 35 |
 
 ## toBase16String(ByteVector): String<a id="to-base-16-string"></a>
 

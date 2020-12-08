@@ -1,3 +1,3 @@
 # Boolean
 
-`Boolean` — логический тип данных.
+`Boolean` is a boolean data type.
