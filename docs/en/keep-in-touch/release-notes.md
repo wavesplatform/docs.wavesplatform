@@ -9,17 +9,17 @@
 
 ## Ride
 
-* Issued version 4 of the Ride [Standard library](/en/ride/script/standard-library).
+* Issued [version 5](/en/ride/v5/).
 * Added the following built-in functions:
    * [account data storage functions](/en/ride/functions/built-in-functions/account-data-storage-functions) that allow the dApp script to read entries of its own data storage at any stage of the calculations:
-      * `getBinary(String): ByteVector|Unit`
-      * `getBinaryValue(String): ByteVector`
-      * `getBoolean(String): Boolean|Unit`
-      * `getBooleanValue(String): Boolean`
-      * `getInteger(String): Int|Unit`
-      * `getIntegerValue(String): Int`
-      * `getString(String): String|Unit`
-      * `getStringValue(String): String`
+      * `getBinary(key: String): ByteVector|Unit`
+      * `getBinaryValue(key: String): ByteVector`
+      * `getBoolean(key: String): Boolean|Unit`
+      * `getBooleanValue(key: String): Boolean`
+      * `getInteger(key: String): Int|Unit`
+      * `getIntegerValue(key: String): Int`
+      * `getString(key: String): String|Unit`
+      * `getStringValue(key: String): String`
 
 ## Node REST API
 

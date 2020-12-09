@@ -9,17 +9,17 @@
 
 ## Ride
 
-* Выпущена версия 5 [Стандартной библиотеки](/ru/ride/script/standard-library).
+* Выпущена [версия 5](/ru/ride/v5/) Стандартной библиотеки.
 * Добавлены встроенные функции:
-   * [функции хранилища данных аккаунта](/ru/ride/functions/built-in-functions/account-data-storage-functions), позволяющие dApp-скрипту читать данные собственного хранилища данных на любом этапе вычислений:
-      * `getBinary(String): ByteVector|Unit`
-      * `getBinaryValue(String): ByteVector`
-      * `getBoolean(String): Boolean|Unit`
-      * `getBooleanValue(String): Boolean`
-      * `getInteger(String): Int|Unit`
-      * `getIntegerValue(String): Int`
-      * `getString(String): String|Unit`
-      * `getStringValue(String): String`
+   * [функции хранилища данных аккаунта](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions), позволяющие dApp-скрипту читать данные собственного хранилища данных на любом этапе вычислений:
+      * `getBinary(key: String): ByteVector|Unit`
+      * `getBinaryValue(key: String): ByteVector`
+      * `getBoolean(key: String): Boolean|Unit`
+      * `getBooleanValue(key: String): Boolean`
+      * `getInteger(key: String): Int|Unit`
+      * `getIntegerValue(key: String): Int`
+      * `getString(key: String): String|Unit`
+      * `getStringValue(key: String): String`
 
 ## Node REST API
 

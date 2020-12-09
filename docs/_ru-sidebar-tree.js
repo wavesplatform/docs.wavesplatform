@@ -1045,7 +1045,7 @@ module.exports = {
           path: ridev5Path + 'structures',
           children: [
             {
-              title: 'Действия  скрипты',
+              title: 'Действия скрипта',
               path: ridev5Path + 'structures/script-actions',
               children: [
                 {
