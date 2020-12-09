@@ -33,10 +33,11 @@ where:
 
    `E` is the **e**xtra fee specified in the `extraFeePerStep` fields,
 
-   `С` is the **c**omplexity of the callable function. `С`/4000 rounded up to the nearest integer is the number of stages in the calculation sequence.
+   `С` is the **c**omplexity of the callable function. `С`/4000 rounded up to the nearest integer is the number of stages in the calculation sequence For details see the [Continued Calculations](/en/ride/advanced/continuation) article.
 
-For details see the [Continued Calculations](/en/ride/advanced/continuation) article.
+   `N` is the total number of **n**ested invocations via `Invoke` function. For details see the [dApp-to-dApp Invocation](/en/ride/advanced/dApp-to-dApp) article.
 
+> Continued calculations and dApp-to-dApp invocation are mutually exclusive, that is, they cannot be initiated by the same transaction.
 
 ## JSON Representation
 

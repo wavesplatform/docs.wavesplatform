@@ -2,7 +2,7 @@
 
 :warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/structures/common-structures/invocation)
 
-Структура содержит поля [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction), которые может использовать [вызываемая функция](/ru/ride/v5/functions/callable-function).
+Структура содержит поля вызова, которые может использовать [вызываемая функция](/ru/ride/v5/functions/callable-function).
 
 ## Конструктор
 
@@ -12,14 +12,31 @@ Invocation(caller: Address, callerPublicKey: ByteVector, payments: List[Attached
 
 ## Поля
 
+Значения полей отличаются в зависимости от того, каким образом вызвана функция.
+
+Если вызываемая функция вызвана с помощью [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction):
+
 |   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
 | 1 | caller | [Address](/ru/ride/v5/structures/common-structures/address) | [Адрес](/ru/blockchain/account/address) аккаунта, который отправил транзакцию |
 | 2 | callerPublicKey | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Открытый ключ аккаунта, который отправил транзакцию |
-| 3 | payments | List[[AttachedPayment](/ru/ride/v5/structures/common-structures/attached-payment)] | Приложенные платежи |
+| 3 | payments | List[[AttachedPayment](/ru/ride/v5/structures/common-structures/attached-payment)] | Платежи, указанные в транзакции |
 | 4 | transactionId | [ByteVector](/ru/ride/v5/data-types/byte-vector) | ID транзакции |
 | 5 | fee | [Int](/ru/ride/v5/data-types/int) | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) |
-| 6 | feeAssetId | [ByteVector](/ru/ride/v5/data-types/byte-vector)&#124;[Unit](/ru/ride/v5/data-types/unit) | [Токен](/ru/blockchain/token/) комиссии за отправку транзакции |
+| 6 | feeAssetId | [ByteVector](/ru/ride/v5/data-types/byte-vector)&#124;[Unit](/ru/ride/v5/data-types/unit) | ID [токена](/ru/blockchain/token/), в котором указана комиссия |
+
+Если вызываемая функция вызвана с помощью функции [Invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp):
+
+|   #   | Название | Тип данных | Описание |
+| :--- | :--- | :--- | :--- |
+| 1 | caller | [Address](/ru/ride/v5/structures/common-structures/address) | [Адрес](/ru/blockchain/account/address) dApp, который вызвал функцию |
+| 2 | callerPublicKey | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Открытый ключ аккаунта dApp, который вызвал функцию |
+| 3 | payments | List[[AttachedPayment](/ru/ride/v5/structures/common-structures/attached-payment)] | Платежи, указанные в функции `Invoke` |
+| 4 | transactionId | [ByteVector](/ru/ride/v5/data-types/byte-vector) | ID транзакции вызова скрипта |
+| 5 | fee | [Int](/ru/ride/v5/data-types/int) | Комиссия за транзакцию вызова скрипта |
+| 6 | feeAssetId | [ByteVector](/ru/ride/v5/data-types/byte-vector)&#124;[Unit](/ru/ride/v5/data-types/unit) | ID токена, в котором указана комиссия |
+
+> Значения `transactionId`, `fee`, `feeAssetId` одни и те же для всех вызовов dApp из dApp, выполняемых в рамках одной транзакции.
 
 ## Пример: обработка платежей
 

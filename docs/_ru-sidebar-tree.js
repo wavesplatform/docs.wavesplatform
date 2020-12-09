@@ -987,12 +987,16 @@ module.exports = {
       path: ridePath + 'advanced/components',
     },
     {
-      title: 'Stagenet Version',
+      title: 'Версия для Stagenet',
       path: ridev5Path,
       children: [
         {
           title: 'Вычисления с продолжением',
           path: ridePath + 'advanced/continuation',
+        },
+        {
+          title: 'Вызов dApp из dApp',
+          path: ridePath + 'advanced/dapp-to-dapp',
         },
         {
           title: 'Нетерпеливая переменная',
@@ -1209,7 +1213,7 @@ module.exports = {
           ],
         },
         {
-          title: 'Встроенные  переменные',
+          title: 'Встроенные переменные',
           path: ridev5Path + 'variables/built-in-variables',
         },
         {
@@ -1251,6 +1255,10 @@ module.exports = {
             {
               title: 'Функции хеширования',
               path: ridev5Path + 'functions/built-in-functions/hashing-functions',
+            },
+            {
+              title: 'Функция вызова dApp из dApp',
+              path: ridev5Path + 'functions/built-in-functions/dapp-to-dapp',
             },
             {
               title: 'Функции списка',

@@ -32,8 +32,9 @@
 
 | Operator | Description |
 | :--- | :--- |
-| let | Variable local definition |
 | func | Function local definition |
+| let | Lazy definition of a variable |
+| strict | [Strict definition](/en/ride/v5/variables/) of a variable |
 
 ## Conditional operators
 

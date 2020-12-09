@@ -8,8 +8,9 @@ Thus, the first stage of calculations is performed within the Invoke Script tran
 
 ## Conditions
 
-* Continued calculations are added in node version 1.3.0 and enabled with feature #16 “Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.fea
-* dApp script uses [Standard library](/en/ride/script/standard-library) **version 5**.
+* Continued calculations are added in node version 1.3.0 and enabled with feature #16 “Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
+* The dApp script uses [Standard library](/en/ride/script/standard-library) **version 5**.
+* The callable function does not contain [dApp-to-dApp invocations](/en/ride/advanced/dapp-to-dapp).
 * The [Invoke Script](/en/blockchain/transaction) transaction version is 3.
 
 ## Suspension of Other Transactions Involving dApp

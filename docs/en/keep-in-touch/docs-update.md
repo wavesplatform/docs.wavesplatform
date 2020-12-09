@@ -2,16 +2,10 @@
 
 ## December
 
-### Blockchain
-
-* [Continuation Transaction](/en/blockchain/transaction-type/continuation-transaction)
-* [Invoke Script Transaction](/en/blockchain/transaction-type/invoke-script-transaction) — <span style="color:green">updated</span>
-* [Continuation Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format/continuation-transaction-binary-format)
-* [Invoke Script Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format/invoke-script-transaction-binary-format) — <span style="color:green">updated</span>
-
 ### Ride
 
-* [Continuation: Script Execution in Several Stages](/en/ride/advanced/continuation)
+* [Continued Calculations](/en/ride/advanced/continuation) ![stagenet](./_assets/stagenet.svg)
+* [dApp-to-dApp Invocation](/en/ride/advanced/dapp-to-dapp) ![stagenet](./_assets/stagenet.svg)
 
 ## November
 

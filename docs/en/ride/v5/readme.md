@@ -17,3 +17,4 @@ Added the [account data storage functions](/en/ride/functions/built-in-functions
 * `getStringValue(key: String): String`
 
 ## dApp-to-dApp Invocation
+

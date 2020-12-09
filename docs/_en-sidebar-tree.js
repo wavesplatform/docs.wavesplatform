@@ -991,8 +991,12 @@ module.exports = {
       path: ridev5Path,
       children: [
         {
-          title: 'Continuation',
+          title: 'Continued Calculations',
           path: ridePath + 'advanced/continuation',
+        },
+        {
+          title: 'dApp-to-dApp Invocation',
+          path: ridePath + 'advanced/dapp-to-dapp',
         },
         {
           title: 'Strict Variable',
@@ -1251,6 +1255,10 @@ module.exports = {
             {
               title: 'Hashing Functions',
               path: ridev5Path + 'functions/built-in-functions/hashing-functions',
+            },
+            {
+              title: 'dApp-to-dApp Invocation Function',
+              path: ridev5Path + 'functions/built-in-functions/dapp-to-dapp',
             },
             {
               title: 'List Functions',

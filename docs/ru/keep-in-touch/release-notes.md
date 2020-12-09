@@ -4,22 +4,26 @@
 
 ## Развитие протокола
 
-* **Вычисления с продолжением.** Добавлена поддержка dApp-скриптов, сложность которых превышает 4000. Выполнение такого скрипта разбивается на несколько этапов: первый этап вычислений выполняется в рамках транзакции вызова скрипта, последующие этапы — в рамках транзакций продолжения. Транзакции продолжения создаются генераторами блоков автоматически. [Подробнее о вычислениях с продолжением](/ru/ride/advanced/continuation)
-* Добавлена версия 3 [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction): с ее помощью можно вызвать скрипт сложностью выше 4000.
+* **Вычисления с продолжением.** Добавлена поддержка dApp-скриптов, сложность которых превышает 4000. Выполнение такого скрипта разбивается на несколько этапов: первый этап вычислений выполняется в рамках транзакции вызова скрипта, последующие этапы — в рамках транзакций продолжения. [Подробнее о вычислениях с продолжением](/ru/ride/advanced/continuation)
+* Добавлен новый тип транзакции: [Continuation](/en/blockchain/transaction-type/continuation-transaction). Транзакция продолжения создается генератором блока автоматически в случае наличия незавершенной цепочки вычислений. Транзакция не может быть отправлена пользователем.
+* **Вызов dApp из dApp.** Вызываемая функция dApp-скрипта может вызывать вызываемую функцию другого dApp или того же самого dApp, в том числе сама себя. Сложность выполняемых скриптов ограничена. Все вызванные функции выполняются в рамках одной транзакции вызова скрипта. [одробнее о вызове dApp из dApp](/ru/ride/advanced/dapp-to-dapp)
+* Добавлена версия 3 [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction): с ее помощью можно вызвать скрипт сложностью выше 4000 или скрипт, содержащий вызов dApp.
 
 ## Ride
 
 * Выпущена [версия 5](/ru/ride/v5/) Стандартной библиотеки.
-* Добавлены встроенные функции:
-   * [функции хранилища данных аккаунта](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions), позволяющие dApp-скрипту читать данные собственного хранилища данных на любом этапе вычислений:
-      * `getBinary(key: String): ByteVector|Unit`
-      * `getBinaryValue(key: String): ByteVector`
-      * `getBoolean(key: String): Boolean|Unit`
-      * `getBooleanValue(key: String): Boolean`
-      * `getInteger(key: String): Int|Unit`
-      * `getIntegerValue(key: String): Int`
-      * `getString(key: String): String|Unit`
-      * `getStringValue(key: String): String`
+* Добавлены [функции хранилища данных аккаунта](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions), позволяющие dApp-скрипту читать данные собственного хранилища данных на любом этапе вычислений:
+   * `getBinary(key: String): ByteVector|Unit`
+   * `getBinaryValue(key: String): ByteVector`
+   * `getBoolean(key: String): Boolean|Unit`
+   * `getBooleanValue(key: String): Boolean`
+   * `getInteger(key: String): Int|Unit`
+   * `getIntegerValue(key: String): Int`
+   * `getString(key: String): String|Unit`
+   * `getStringValue(key: String): String`
+* Добавлена функция [Invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp) для вызова dApp из dApp.
+* Добавлены [нетерпеливые переменные](/ru/ride/variables/), которые вычисляются прежде следующего выражения, чтобы гарантировать порядок выполнения и применения действий скрипта вызываемых функций.
+* Изменен [формат результата](/ru/ride/v5/functions/callable-function#резуnьтат-выпоnнения) вызываемой функции: добавлено возвращаемое значение.
 
 ## Node REST API
 
@@ -29,8 +33,66 @@
 
 ### Семантические изменения
 
-* В ответ методов, возвращающих транзакции, для [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) версии 3 добавлены поле `extraFeePerStep` и `continuationtransactionIds`.
+* В ответ методов, возвращающих транзакции, для [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) версии 3 добавлены поля `extraFeePerStep` и `continuationTransactionIds`.
 * Для поля транзакции `applicationStatus` добавлено значение `script_execution_in_progress`.
+* Результаты вызова dApp из dApp добавлены в виде массива `invokes` в структуру `stateChanges`, возвращаемую следующими методами:
+   * `/debug/stateChanges/address/{address}/limit/{limit}`
+   * `/debug/stateChanges/info/{id}`
+   * `/transactions/info/{id}`
+   * `/transactions/address/{address}/limit/{limit}`
+
+   Каждый элемент массива `invokes`, в свою очередь, содержит `stateChanges`.
+   
+   <details>
+      <summary>Формат</summary>
+    
+   ```json
+   "stateChanges": {
+     "data": [],
+     "transfers": [],
+     "issues": [],
+     "reissues": [],
+     "burns": [],
+     "invokes": [
+       {
+         "dApp": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
+         "payment": [
+           {
+             "amount": 50000000,
+             "assetId": "DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p"
+           }
+         ],
+         "call": {
+           "function": "swapNeutrinoToWaves",
+           "args": [
+             {
+               "type": "string",
+               "value": "EUR"
+             },
+             {
+               "type": "integer",
+               "value": 843699
+             },
+             {
+               "type": "binary",
+               "value": "base64:OK+armP11YmAyoQOwl8jLDLi2dK2sRc1Ue2QzZX1wgRmwGASLhllv1iKg2fRKS8cAlSDrfMYPb6374WMC9gFgA=="
+             }
+           ]
+          },
+         "stateChanges": {
+            "data": [],
+            "transfers": [],
+            "issues": [],
+            "reissues": [],
+            "burns": [],
+            "sponsorFees": [],
+            "invokes": []
+          }
+       }
+      ]
+   }
+   ```
+</details>
 
 # Версия 1.2
 

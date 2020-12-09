@@ -4,22 +4,26 @@
 
 ## Protocol Enhancements
 
-* **Continued calculations.** Added support for dApp scripts with complexity over 4000. The execution of such a script is split into several stages. The first stage of calculations is performed within the Invoke Script transaction. The further stages are performed within Continuation transactions that are created automatically by block generators. [More about continued calculations](/en/ride/advanced/continuation)
-* Added version 3 for the [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) that can invoke a script with complexity over 4000.
+* **Continued calculations.** Added support for dApp scripts with complexity over 4000. The execution of such a script is split into several stages. The first stage of calculations is performed within the Invoke Script transaction. The further stages are performed within Continuation transactions. [More about continued calculations](/en/ride/advanced/continuation)
+* Implemented the new transaction type: [Continuation](/en/blockchain/transaction-type/continuation-transaction). A block generator creates the Continuation transaction if there is an uncompleted calculation sequence. A user cannot send a Continuation transaction.
+* **dApp-to-dApp invocation.** A dApp callable function can invoke a callable function of another dApp, or another callable function of the same dApp, or even itself. The total complexity is limited. All invoked callable functions are executed within a single Invoke Script transaction. [More about dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp)
+* Added version 3 for the [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) that can invoke a script with complexity over 4000 or a script containing dApp-to-dApp invocation.
 
 ## Ride
 
 * Issued [version 5](/en/ride/v5/).
-* Added the following built-in functions:
-   * [account data storage functions](/en/ride/functions/built-in-functions/account-data-storage-functions) that allow the dApp script to read entries of its own data storage at any stage of the calculations:
-      * `getBinary(key: String): ByteVector|Unit`
-      * `getBinaryValue(key: String): ByteVector`
-      * `getBoolean(key: String): Boolean|Unit`
-      * `getBooleanValue(key: String): Boolean`
-      * `getInteger(key: String): Int|Unit`
-      * `getIntegerValue(key: String): Int`
-      * `getString(key: String): String|Unit`
-      * `getStringValue(key: String): String`
+* Added the following [account data storage functions](/en/ride/functions/built-in-functions/account-data-storage-functions) that allow the dApp script to read entries of its own data storage at any stage of the calculations:
+   * `getBinary(key: String): ByteVector|Unit`
+   * `getBinaryValue(key: String): ByteVector`
+   * `getBoolean(key: String): Boolean|Unit`
+   * `getBooleanValue(key: String): Boolean`
+   * `getInteger(key: String): Int|Unit`
+   * `getIntegerValue(key: String): Int`
+   * `getString(key: String): String|Unit`
+   * `getStringValue(key: String): String`
+* Added the [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function for dApp-to-dApp invocation.
+* Added [strict variables](/en/ride/variables/) that are evaluated before the next expression to ensure executing callable functions and applying their actions in the right order.
+* Modified the [callable function result](/en/ride/v5/functions/callable-function#invocation-result) by adding a return value.
 
 ## Node REST API
 
@@ -31,6 +35,65 @@
 
 * For [Invoke Script](/en/blockchain/transaction-type/invoke-script-transaction) transaction version версии 3 the fields `extraFeePerStep` and `continuationtransactionIds` added to the output of the endpoints providing transaction info.
 * Added the `script_execution_in_progress` value for the `applicationStatus` field of transaction.
+* dApp-to-dApp invocation results are added as the `invokes` array to the `stateChanges` structure returned by the following endpoints:
+   * `/debug/stateChanges/address/{address}/limit/{limit}`
+   * `/debug/stateChanges/info/{id}`
+   * `/transactions/info/{id}`
+   * `/transactions/address/{address}/limit/{limit}`
+
+   Each element of `invokes` array, in turn,  also contains `stateChanges`.
+
+   <details>
+      <summary>Format</summary>
+    
+   ```json
+   "stateChanges": {
+     "data": [],
+     "transfers": [],
+     "issues": [],
+     "reissues": [],
+     "burns": [],
+     "invokes": [
+       {
+         "dApp": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
+         "payment": [
+           {
+             "amount": 50000000,
+             "assetId": "DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p"
+           }
+         ],
+         "call": {
+           "function": "swapNeutrinoToWaves",
+           "args": [
+             {
+               "type": "string",
+               "value": "EUR"
+             },
+             {
+               "type": "integer",
+               "value": 843699
+             },
+             {
+               "type": "binary",
+               "value": "base64:OK+armP11YmAyoQOwl8jLDLi2dK2sRc1Ue2QzZX1wgRmwGASLhllv1iKg2fRKS8cAlSDrfMYPb6374WMC9gFgA=="
+             }
+           ]
+          },
+         "stateChanges": {
+            "data": [],
+            "transfers": [],
+            "issues": [],
+            "reissues": [],
+            "burns": [],
+            "sponsorFees": [],
+            "invokes": []
+          }
+       }
+      ]
+   }
+   ```
+</details>
+
 
 # Version 1.2
 
