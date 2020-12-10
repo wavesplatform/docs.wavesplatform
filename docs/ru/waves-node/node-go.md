@@ -58,6 +58,6 @@
 
 Если у вас возникли вопросы или предложения, создайте [Issue на Github](https://github.com/wavesplatform/gowaves/issues) или пообщайтесь с разработчиками в чате в [Telegram](https://t.me/tradisys_russia) или [Discord](https://discord.com/invite/cnFmDyA).
 
-[Новостной канал Waves News channel](https://t.me/WavesNewsRU).
+[Новостной канал Waves](https://t.me/WavesNewsRU).
 
 Подписывайтесь на наш [Twitter](https://twitter.com/wavesprotocol), [Subreddit](https://www.reddit.com/r/Wavesplatform/) и [YouTube канал](https://www.youtube.com/c/WavesTech).
