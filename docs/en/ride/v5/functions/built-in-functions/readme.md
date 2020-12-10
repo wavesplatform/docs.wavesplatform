@@ -66,26 +66,32 @@ A **built-in function** is a [function](/en/ride/v5/functions/) of the [Standard
 | toUtf8String(ByteVector): String | Converts an array of bytes to a UTF-8 string | 7 |
 | transferTransactionFromProto(ByteVector): TransferTransaction&#124;Unit | Deserializes transfer transaction | 5 |
 
+## [dApp-to-dApp invocation function](/en/ride/v5/functions/built-in-functions/dapp-to-dapp)
+
+| Name | Description | Complexity |
+| :--- | :--- | :--- |
+| Invoke(Address|Alias, String, List[Boolean|ByteVector|Int|String|List[Boolean|ByteVector|Int|String]], List[AttachedPayments]): T|Unit | Invokes a dApp callable function | ?? |
+
 ## [Data transaction functions](/en/ride/v5/functions/built-in-functions/data-transaction-functions)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| getInteger(List[DataEntry], String): Int&#124;Unit | Gets an integer value from a list of data entires by key | 10 |
-| getInteger(List[DataEntry], Int): Int&#124;Unit | Gets an integer value from a list of data entires by index | 4 |
-| getIntegerValue(List[DataEntry], String): Int | Gets an integer value from a list of data entires by key. Fails if there is no data | 10 |
-| getIntegerValue(List[DataEntry], Int): Int | Gets an integer value from a list of data entires by index. Fails if there is no data | 4 |
-| getBoolean(List[DataEntry], String): Boolean&#124;Unit | Gets a boolean value from a list of data entires by key | 10 |
-| getBoolean(List[DataEntry], Int): Boolean&#124;Unit | Gets a boolean value from a list of data entires by index | 4 |
-| getBooleanValue(List[DataEntry], String): Boolean | Gets a boolean value from a list of data entires by key. Fails if there is no data | 10 |
-| getBooleanValue(List[DataEntry], Int): Boolean | Gets a boolean value from a list of data entires by index. Fails if there is no data | 4 |
-| getBinary(List[DataEntry], String): ByteVector&#124;Unit | Gets a binary value from a list of data entires by key | 10 |
-| getBinary(List[DataEntry], Int): ByteVector&#124;Unit | Gets a binary value from a list of data entires by index | 4 |
-| getBinaryValue(List[DataEntry], String): ByteVector | Gets a binary value from a list of data entires by key. Fails if there is no data | 10 |
-| getBinaryValue(List[DataEntry], Int): ByteVector | Gets a binary value from a list of data entires by index. Fails if there is no data | 4 |
-| getString(List[DataEntry] String): String&#124;Unit | Gets a string value from a list of data entires by key | 10 |
-| getString(List[DataEntry], Int): String&#124;Unit | Gets a string value from a list of data entires by index | 4 |
-| getStringValue(List[DataEntry], String): String | Gets a string value from a list of data entires by key. Fails if there is no data | 10 |
-| getStringValue(List[DataEntry], Int): String | Gets a string value from a list of data entires by index. Fails if there is no data | 4 |
+| getInteger(List[], String): Int&#124;Unit | Gets an integer value from a list of data entires by key | 10 |
+| getInteger(List[], Int): Int&#124;Unit | Gets an integer value from a list of data entires by index | 4 |
+| getIntegerValue(List[], String): Int | Gets an integer value from a list of data entires by key. Fails if there is no data | 10 |
+| getIntegerValue(List[], Int): Int | Gets an integer value from a list of data entires by index. Fails if there is no data | 4 |
+| getBoolean(List[], String): Boolean&#124;Unit | Gets a boolean value from a list of data entires by key | 10 |
+| getBoolean(List[], Int): Boolean&#124;Unit | Gets a boolean value from a list of data entires by index | 4 |
+| getBooleanValue(List[], String): Boolean | Gets a boolean value from a list of data entires by key. Fails if there is no data | 10 |
+| getBooleanValue(List[], Int): Boolean | Gets a boolean value from a list of data entires by index. Fails if there is no data | 4 |
+| getBinary(List[], String): ByteVector&#124;Unit | Gets a binary value from a list of data entires by key | 10 |
+| getBinary(List[], Int): ByteVector&#124;Unit | Gets a binary value from a list of data entires by index | 4 |
+| getBinaryValue(List[], String): ByteVector | Gets a binary value from a list of data entires by key. Fails if there is no data | 10 |
+| getBinaryValue(List[], Int): ByteVector | Gets a binary value from a list of data entires by index. Fails if there is no data | 4 |
+| getString(List[] String): String&#124;Unit | Gets a string value from a list of data entires by key | 10 |
+| getString(List[], Int): String&#124;Unit | Gets a string value from a list of data entires by index | 4 |
+| getStringValue(List[], String): String | Gets a string value from a list of data entires by key. Fails if there is no data | 10 |
+| getStringValue(List[], Int): String | Gets a string value from a list of data entires by index. Fails if there is no data | 4 |
 
 ## [Decoding functions](/en/ride/v5/functions/built-in-functions/decoding-functions)
 

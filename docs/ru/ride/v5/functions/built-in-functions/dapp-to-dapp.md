@@ -8,24 +8,28 @@
 
 ## Invoke
 
-Вызывает вызываемую функцию dApp.
+Вызывает [вызываемую функцию](/en/ride/v5/functions/callable-function) dApp.
 
-Функция `Invoke` может быть вызвана только при выполнении [вызываемой функции](/ru/ride/v5/functions/callable-function) [dApp-скрипта](/ru/ride/script/script-types/dapp-script), но не при выполнении [функции-верификатора](/ru/ride/functions/verifier-function), [скрипта аккаунта](/ru/ride/script/script-types/account-script) или [скрипта ассета](/ru/ride/script/script-types/asset-script).
+Функция `Invoke` может использоваться только при вызываемой функцией [dApp-скрипта](/ru/ride/script/script-types/dapp-script), но не [функцией-верификатором](/ru/ride/functions/verifier-function), [скриптом аккаунта](/ru/ride/script/script-types/account-script) или [скриптом ассета](/ru/ride/script/script-types/asset-script).
 
 С помощью функции `Invoke` вызываемая функция может вызвать вызываемую функцию другого dApp или того же самого dApp, в том числе сама себя, а затем использовать результаты вызова в дальнейших вычислениях. Вызов может содержать платежи, которые будут переведены с баланса вызывающего dApp на баланс вызываемого. Подробнее в разделе [Вызов dApp из dApp](/ru/ride/advanced/dapp-to-dapp).
 
 ```ride
-Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector|Int|String|List[Boolean|ByteVector|Int|String]], payments: List[AttachedPayments])
+Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector|Int|String|List[Boolean|ByteVector|Int|String]], payments: List[AttachedPayments]): T|Unit
 ```
+
+`T` означает любой допустимый тип.
+
+:bulb: Чтобы гарантировать порядок выполнения вызываемых функций и применения действий скрипта, присвойте возвращаемое значение `Invoke` [ нетерпеливой переменной](/ru/ride/v5/variables/).
 
 ## Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
-| dApp: [Address](/ru/ride/v5/structures/common-structures/address)&#124;[Alias](/ru/ride/v5/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) [аккаунта](/ru/blockchain/account/), функция которого вызывается |
+| dApp: [Address](/ru/ride/v5/structures/common-structures/address)&#124;[Alias](/ru/ride/v5/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) dApp, функция которого вызывается |
 | function: [String](/ru/ride/v5/data-types/string) | Имя вызываемой функции |
 | arguments | [List](/ru/ride/v5/data-types/list)[[Boolean](/ru/ride/v5/data-types/boolean)&#124;[ByteVector](/ru/ride/data-types/byte-vector)&#124;[Int](/ru/ride/data-types/int)&#124;[String](/ru/ride/data-types/string)&#124;[List](/ru/ride/data-types/list)[[Boolean](/ru/ride/data-types/boolean)&#124;[ByteVector](/ru/ride/data-types/byte-vector)&#124;[Int](/ru/ride/data-types/int)&#124;[String](/ru/ride/data-types/string)]] | Параметры вызываемой функции |
-| payments: [List](/ru/ride/data-types/list)[[AttachedPayment](/ru/ride/structures/common-structures/attached-payment)] | Приложенные платежи, не более 2 |
+| payments: [List](/ru/ride/data-types/list)[[AttachedPayment](/ru/ride/structures/common-structures/attached-payment)] | Платежи в пользу вызываемого dApp, не более 2 |
 
 ## Пример
 
@@ -35,7 +39,7 @@ Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector
 
 Функция `bar` переводит dApp1 1 WAVES и возвращает удвоенное число `a`.
 
-Функция `foo` записывает в хранилище данных dApp1 результат, возвращенный функцией `bar`.
+The `foo` function writes the value returned by the `bar` function into the dApp1 data storage.
 
 dApp1:
 

@@ -987,7 +987,7 @@ module.exports = {
       path: ridePath + 'advanced/components',
     },
     {
-      title: 'Stagenet Version',
+      title: 'Version 5 (Stagenet)',
       path: ridev5Path,
       children: [
         {

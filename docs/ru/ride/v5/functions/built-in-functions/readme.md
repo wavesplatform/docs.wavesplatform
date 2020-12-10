@@ -37,6 +37,12 @@
 | rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Проверяют, что цифровая подпись [RSA](https://ru.wikipedia.org/wiki/RSA) достоверна | 500–1000 |
 | sigVerify(ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Проверяют, что цифровая подпись [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна | 47–200 |
 
+## [Функция вызова dApp из dApp](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp)
+
+| Name | Description | Complexity |
+| :--- | :--- | :--- |
+| Invoke(Address|Alias, String, List[Boolean|ByteVector|Int|String|List[Boolean|ByteVector|Int|String]], List[AttachedPayments]): T|Unit | Вызывает вызываемую функцию dApp | ?? |
+
 ## [Функции декодирования](/ru/ride/v5/functions/built-in-functions/decoding-functions)
 
 | Название | Описание | Сложность |

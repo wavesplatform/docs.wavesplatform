@@ -21,15 +21,13 @@ Features:
 * dApp-to-dApp invocations are added in node version 1.3.0 and enabled with feature #16 “Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 * The invoking dApp script uses [Standard library](/en/ride/script/standard-library) **version 5**.
 * The [Invoke Script](/en/blockchain/transaction) transaction version is 3.
-*  by 52,000 for all callable functions and asset scripts of involved smart assets. The sender's account script complexity is not included in that limit.
+* The total complexity is limited by 52,000 for all callable functions and asset scripts of involved smart assets. The sender's account script complexity is not included in that limit.
 
 ## Fee 
 
 The minimum fee for the Invoke Script transaction is increased by 0.005 WAVES for each dApp-to-dApp invocation.
 
-## Invoke
-
-The `Invoke` function signature:
+## Invoke Function
 
 ```
 Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector|Int|String|List[Boolean|ByteVector|Int|String]], payments: List[AttachedPayments]): T|Unit
@@ -37,14 +35,12 @@ Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector
 
 Parameters:
 
-| Field | Data type | Description |
-| :--- | :--- | :--- |
-| dApp | Address&#124;Alias | Address or alias of a dApp to invoke |
-| function | String | Name of a callable function |
-| arguments | List[] | Arguments |
-| payments | List[AttachedPayments] | Payments to transfer from the invoking dApp to the invoked dApp, up to 2 |
-
-:bulb: To ensure executing callable functions and applying their actions in the right orders, initialize a [strict variable](/en/ride/v5/variables/) by the return value of an `Invoke` function. Example:
+| Parameter | Description |
+| :--- | :--- |
+| dApp: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of a dApp to invoke |
+| function: [String](/en/ride/v5/data-types/string) | Name of a callable function |
+| arguments | [List](/en/ride/v5/data-types/list)[[Boolean](/en/ride/v5/data-types/boolean)&#124;[ByteVector](/en/ride/data-types/byte-vector)&#124;[Int](/en/ride/data-types/int)&#124;[String](/en/ride/data-types/string)&#124;[List](/en/ride/data-types/list)[[Boolean](/en/ride/data-types/boolean)&#124;[ByteVector](/en/ride/data-types/byte-vector)&#124;[Int](/en/ride/data-types/int)&#124;[String](/en/ride/data-types/string)]] | Parameters of a callable function |
+| payments: [List](/en/ride/data-types/list)[[AttachedPayment](/en/ride/structures/common-structures/attached-payment)] | Payments to transfer from the invoking dApp to the invoked dApp, up to 2 |
 
 ```
 strict z = Invoke(dapp,func,args,[AttachedPayment(unit,100000000)])
@@ -68,7 +64,7 @@ In Standard library version 5, a callable function result is a [Tuple](https://d
 1. List of script actions.
 2. Return value.
 
-Return is passed to the invoking function and assigned to an eager variable.
+Return is passed to the invoking function and assigned to an strict variable.
 
 Example:
 
@@ -85,7 +81,7 @@ In Standard library version 4 or 3, there is no return value, so `unit` is impli
 
 ### Transaction Fail
 
-If the callable function's execution fails, the Invoke Script transaction could be rejected or saved on the blockchain as failed. This depends on whether the complexity of performed calculations has exceeded the [threshold for saving a failed transaction](/en/ride/v5/limits/). The complexity is summed up for all invocations.
+If the callable function's execution fails or [throws an exception](/en/ride/v5/functions/built-in-functions/exception-functions), the Invoke Script transaction could be rejected or saved on the blockchain as failed. This depends on whether the complexity of performed calculations has exceeded the [threshold for saving a failed transaction](/en/ride/v5/limits/) (currently 1000). The complexity is summed up for all invocations.
 
 Consider the example: callable function 1 performs calculations of 800 complexity, then invokes the callable function 2 which performed calculations of 300 complexity and then fails. The complexity 800 + 300 has exceeded the threshold, so the transaction is saved as failed, and the sender is charged a fee.
 

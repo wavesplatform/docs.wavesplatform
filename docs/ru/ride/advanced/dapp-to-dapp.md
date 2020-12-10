@@ -2,75 +2,70 @@
 
 Вызываемая функция dApp-скрипта может вызывать вызываемую функцию другого dApp или того же самого dApp, в том числе сама себя. Вызов является синхронным. Вызываемая функция возвращает значение, которое вызываемая функция может использовать.
 
-dApp-to-dApp invocation is processed as follows:
+Вызов dApp из dApp осуществляется следующим образом:
 
-1. A user sends an Invoke Script transaction that invokes the callable function 1.
-2. The callable function 1 invokes the callable function 2 via a [strict variable](/en/ride/v5/variables/) initialized by the [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function.
-3. The callable function 2 is executed; the script actions and [return value](/en/ride/v5/functions/callable-function#invokation-result) are calculated.
-4. The return value is assigned to the strict variable. The subsequent operations of callable function 1 are executed, taking into account script actions of callable function 2 (as if the actions are applied to the blockchain state).
-5. Finally, the script actions of callable functions 2 and 1 are applied to the blockchain state.
+1. Пользователь отправляет транзакцию вызова скрипта, которая вызывает вызываемую функцию 1.
+2. Вызываемая функция 1 вызывает вызываемую функцию 2 с помощью [нетерпеливой переменной](/ru/ride/v5/variables/) и функции [Invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp).
+3. Вызываемая функция 2 выполняется; вычисляются действия скрипта и [возвращаемое значение](/ru/ride/v5/functions/callable-function#invokation-result).
+4. Возвращаемое значение присваивается нетерпеливой переменной. Последующие операции вызываемой функции 1 выполняются с учетом действий скрипта вызываемой функции 2 (как если бы эти действия были применены на блокчейне).
+5. В завершение, действия скрипта вызываемых функций 2 и 1 применяются на блокчейне.
 
-Features:
+Особенности:
 
-* dApp-to-dApp invocations can be nested.
-* A dApp-to-dApp invocation can contain payments that will be transferred from the balance of the invoking dApp to the balance of the invoked dApp.
-* All invoked callable functions are executed within a single Invoke Script transaction.
+* Вызовы dApp из dApp могут быть вложенными.
+* Вызов dApp из dApp может содержать платежи, которые будут переведены с баланса вызываемого dApp на баланс вызываемого.
+* Все вызванные функции выполняются в рамках одной транзакции вызова скрипта.
 
-## Conditions
+## Условия
 
-* dApp-to-dApp invocations are added in node version 1.3.0 and enabled with feature #16 “Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
-* The invoking dApp script uses [Standard library](/en/ride/script/standard-library) **version 5**.
-* The [Invoke Script](/en/blockchain/transaction) transaction version is 3.
-* The total complexity is limited by 52,000 for all callable functions and asset scripts of involved smart assets. The sender's account script complexity is not included in that limit.
+* Вызовы dApp из dApp добавлены в версии ноды 1.3.0 и включаются с активацией фичи №&nbsp;16 “Continuations”. Версии 1.3.x в настоящее время доступны только для [Stagenet](/ru/blockchain/blockchain-network/).
+* Скрипт вызывающего dApp использует [Стандартную библиотеку](/ru/ride/script/standard-library) **версии 5**.
+* [Транзакция вызова скрипта](/ru/blockchain/transaction) имеет версию 3.
+* Общая сложность всех вызываемых функций и скриптов ассета — не более 52,000. Сложность скрипта аккаунта-отправителя не учитывается в этом лимите.
 
-## Fee 
+## Комиссия
 
-The minimum fee for the Invoke Script transaction is increased by 0.005 WAVES for each dApp-to-dApp invocation.
+Минимальная комиссия за транзакцию вызова скрипта увеличивается на 0,005 WAVES за каждый вызов dApp из dApp.
 
-## Invoke
-
-The `Invoke` function signature:
+## Функция Invoke
 
 ```
 Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector|Int|String|List[Boolean|ByteVector|Int|String]], payments: List[AttachedPayments]): T|Unit
 ```
 
-Parameters:
+| Параметр | Описание |
+| :--- | :--- |
+| dApp: [Address](/ru/ride/v5/structures/common-structures/address)&#124;[Alias](/ru/ride/v5/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) dApp, функция которого вызывается |
+| function: [String](/ru/ride/v5/data-types/string) | Имя вызываемой функции |
+| arguments | [List](/ru/ride/v5/data-types/list)[[Boolean](/ru/ride/v5/data-types/boolean)&#124;[ByteVector](/ru/ride/data-types/byte-vector)&#124;[Int](/ru/ride/data-types/int)&#124;[String](/ru/ride/data-types/string)&#124;[List](/ru/ride/data-types/list)[[Boolean](/ru/ride/data-types/boolean)&#124;[ByteVector](/ru/ride/data-types/byte-vector)&#124;[Int](/ru/ride/data-types/int)&#124;[String](/ru/ride/data-types/string)]] | Параметры вызываемой функции |
+| payments: [List](/ru/ride/data-types/list)[[AttachedPayment](/ru/ride/structures/common-structures/attached-payment)] | Платежи в пользу вызываемого dApp, не более 2 |
 
-| Field | Data type | Description |
-| :--- | :--- | :--- |
-| dApp | Address&#124;Alias | Address or alias of a dApp to invoke |
-| function | String | Name of a callable function |
-| arguments | List[] | Arguments |
-| payments | List[AttachedPayments] | Payments to transfer from the invoking dApp to the invoked dApp, up to 2 |
-
-:bulb: To ensure executing callable functions and applying their actions in the right orders, initialize a [strict variable](/en/ride/v5/variables/) by the return value of an `Invoke` function. Example:
+Пример:
 
 ```
 strict z = Invoke(dapp,func,args,[AttachedPayment(unit,100000000)])
 ```
 
-## Invocation fields
+## Структуры Invocation
 
-For dApp-to-dApp invocation, the fields of [Invocation](/en/ride/v5/structures/common-structures/invocation) structure used by the invoked function are filled with the following values:
+В случае вызова dApp из dApp поля структуры [Invocation](/ru/ride/v5/structures/common-structures/invocation), которую может использовать вызываемая функция, заполняются следующими значениями:
 
-| Field | Value |
-| :--- | :--- |
-| caller | Address of the dApp that invokes the callable function|
-| callerPublicKey | Public key of the dApp that invokes the callable function|
-| payments | Payments indicated in the `Invoke` function|
-| transactionId<br>fee<br>feeAssetId|Values from the Invoke Script transaction, the same for all dApp-to-dApp invocations|
+|   #   | Название | Тип данных | Описание |
+| :--- | :--- | :--- | :--- |
+| 1 | caller | [Address](/ru/ride/v5/structures/common-structures/address) | [Адрес](/ru/blockchain/account/address) dApp, который вызвал функцию |
+| 2 | callerPublicKey | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Открытый ключ аккаунта dApp, который вызвал функцию |
+| 3 | payments | List[[AttachedPayment](/ru/ride/v5/structures/common-structures/attached-payment)] | Платежи, указанные в функции `Invoke` |
+| 4 | transactionId | [ByteVector](/ru/ride/v5/data-types/byte-vector) | ID транзакции вызова скрипта |
+| 5 | fee | [Int](/ru/ride/v5/data-types/int) | Комиссия за транзакцию вызова скрипта |
+| 6 | feeAssetId | [ByteVector](/ru/ride/v5/data-types/byte-vector)&#124;[Unit](/ru/ride/v5/data-types/unit) | ID токена, в котором указана комиссия |
 
-## Callable function result
+## Результат вызываемой функции
 
-In Standard library version 5, a callable function result is a [Tuple](https://docs.waves.tech/en/ride/data-types/tuple) of two elements:
+В Стандартной  библиотеке версии 5 результат выполнения вызываемой функции представляет собой [кортеж](/ru/ride/v5/tuple) из двух элементов:
+* Список действий скрипта.
+* Возвращаемое значение, которое передается в вызывающую функцию.
 
-1. List of script actions.
-2. Return value.
-
-Return is passed to the invoking function and assigned to an eager variable.
-
-Example:
+Пример:
 
 ```
 (
@@ -81,14 +76,14 @@ Example:
 )
 ```
 
-In Standard library version 4 or 3, there is no return value, so `unit` is implied.
+В Стандартной библиотеке версии 4 или 3 возвращаемого значения нет, поэтому подразумевается `unit`.
 
-### Transaction Fail
+### Неуспешные транзакции
 
-If the callable function's execution fails, the Invoke Script transaction could be rejected or saved on the blockchain as failed. This depends on whether the complexity of performed calculations has exceeded the [threshold for saving a failed transaction](/en/ride/v5/limits/). The complexity is summed up for all invocations.
+Если выполнение вызываемой функции завершается ошибкой или [выбрасыванием исключения](/ru/ride/v5/functions/built-in-functions/exception-functions), транзакция вызова скрипта может быть отклонена или сохранена на блокчейне как неуспешная. Это зависит от того, превысила ли сложность выполненных вычислений [порог для сохранения неуспешных транзакций](/ru/ride/v5/limits/), который сейчас равен 1000. Сложность суммируется по всем вызовам.
 
-Consider the example: callable function 1 performs calculations of 800 complexity, then invokes the callable function 2 which performed calculations of 300 complexity and then fails. The complexity 800 + 300 has exceeded the threshold, so the transaction is saved as failed, and the sender is charged a fee.
+Рассмотрим пример: вызываемая функция 1 выполняет вычисления сложностью 800, затем вызывает вызываемую функцию 2, которая выполняет вычисления сложностю 300 и завершается ошибкой. Сложность 800 + 300 превышает порог, поэтому транзакция сохраняется как неуспешная и с отправителя взимается комиссия.
 
-If the total complexity of executed callable functions and asset scripts exceeds the limit of 52,000, the transaction is saved as failed as well. For example, if the complexity of executed callable functions is 50,000 in total, and there is a smart asset in script action whose script's complexity is 2500.
+Если общая сложность выполненных вызываемых функций и скриптов ассета превысила ограничение 52&nbsp;000, транзакция также сохраняется как неуспешная. Например, если общая сложность выполненных вызываемых функций составила 50&nbsp;000 и в действиях скрипта есть смарт-ассет, у которого сложность скрипта составляет 2500.
 
-In case of failure, no payments and script actions are applied to the blockchain state, even if some of the invoked functions are executed completely. The only state change the failed transaction entails is charging the fee.
+В случае если транзакция неуспешна, никакие платежи и действия скрипта не применяются, даже если некоторые вызванные функции выполнены полностью. Единственное изменение на блокчейне, которое вносит неуспешная транзакция, — взимание комиссии с отправителя.
