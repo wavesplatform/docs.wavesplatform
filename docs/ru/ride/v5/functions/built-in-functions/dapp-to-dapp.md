@@ -10,7 +10,7 @@
 
 Вызывает [вызываемую функцию](/en/ride/v5/functions/callable-function) dApp.
 
-Функция `Invoke` может использоваться только при вызываемой функцией [dApp-скрипта](/ru/ride/script/script-types/dapp-script), но не [функцией-верификатором](/ru/ride/functions/verifier-function), [скриптом аккаунта](/ru/ride/script/script-types/account-script) или [скриптом ассета](/ru/ride/script/script-types/asset-script).
+Функция `Invoke` может использоваться только вызываемой функцией [dApp-скрипта](/ru/ride/script/script-types/dapp-script), но не [функцией-верификатором](/ru/ride/functions/verifier-function), [скриптом аккаунта](/ru/ride/script/script-types/account-script) или [скриптом ассета](/ru/ride/script/script-types/asset-script).
 
 С помощью функции `Invoke` вызываемая функция может вызвать вызываемую функцию другого dApp или того же самого dApp, в том числе сама себя, а затем использовать результаты вызова в дальнейших вычислениях. Вызов может содержать платежи, которые будут переведены с баланса вызывающего dApp на баланс вызываемого. Подробнее в разделе [Вызов dApp из dApp](/ru/ride/advanced/dapp-to-dapp).
 
@@ -39,7 +39,9 @@ Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector
 
 Функция `bar` переводит dApp1 1 WAVES и возвращает удвоенное число `a`.
 
-The `foo` function writes the value returned by the `bar` function into the dApp1 data storage.
+Функция `foo` записывает в хранилище данных dApp1:
+* значение, возвращенное функцией `bar`.
+* новый баланс dApp2 (уменьшенный на 1 WAVES, переведенный функцией `bar`).
 
 dApp1:
 
@@ -49,12 +51,12 @@ dApp1:
 {-# SCRIPT_TYPE ACCOUNT #-}
 
 @Callable(i)
-func foo(dapp2: String, key: String) = {
-   let a = getIntegerValue(this,key)
+func foo(dapp2: String, a: Integer, key1: String, key2: String) = {
    strict r = Invoke(addressFromStringValue(dapp2),bar,[a],[AttachedPayment(base58'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p',1000000)])
    (
       [
-         IntegerEntry(toBase58String(i.caller.bytes), r)
+         IntegerEntry(key1, r),
+         IntegerEntry(key2, wavesBalance(dapp2).regular)
       ],
       unit
    )

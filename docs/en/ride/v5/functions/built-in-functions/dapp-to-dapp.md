@@ -40,7 +40,9 @@ The `foo` function invokes the `bar` function of dApp2 passing the number `a` an
 
 The `bar` function transfers 1 WAVES to dApp1 and returns the doubled number `a`.
 
-The `foo` function  записывает в хранилище данных dApp1 результат, возвращенный функцией `bar`.
+The `foo` function writes to dApp1 data storage:
+* value returned by `bar`,
+* new balance of dApp2 (reduced by 1 WAVES transferred to dApp1).
 
 dApp1:
 
@@ -50,12 +52,12 @@ dApp1:
 {-# SCRIPT_TYPE ACCOUNT #-}
 
 @Callable(i)
-func foo(dapp2: String, key: String) = {
-   let a = getIntegerValue(this,key)
+func foo(dapp2: String, a: Integer, key1: String, key2: String) = {
    strict r = Invoke(addressFromStringValue(dapp2),bar,[a],[AttachedPayment(base58'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p',1000000)])
    (
       [
-         IntegerEntry(toBase58String(i.caller.bytes), r)
+         IntegerEntry(key1, r),
+         IntegerEntry(key2, wavesBalance(dapp2).regular)
       ],
       unit
    )
@@ -80,4 +82,3 @@ func bar(a: Int) = {
    )
 }
 ```
-

@@ -70,7 +70,7 @@ A **built-in function** is a [function](/en/ride/v5/functions/) of the [Standard
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| Invoke(Address|Alias, String, List[Boolean|ByteVector|Int|String|List[Boolean|ByteVector|Int|String]], List[AttachedPayments]): T|Unit | Invokes a dApp callable function | ?? |
+| Invoke(Address|Alias, String, List[Boolean&#124;ByteVector&#124;Int&#124;String&#124;List[Boolean&#124;ByteVector&#124;Int&#124;String]], List[AttachedPayments]): T&#124;Unit | Invokes a dApp callable function | ?? |
 
 ## [Data transaction functions](/en/ride/v5/functions/built-in-functions/data-transaction-functions)
 

@@ -2,16 +2,20 @@
 
 ## Version 1.3 (Stagenet)
 
-## Protocol Enhancements
+### Protocol Enhancements
 
 * **Continued calculations.** Added support for dApp scripts with complexity over 4000. The execution of such a script is split into several stages. The first stage of calculations is performed within the Invoke Script transaction. The further stages are performed within Continuation transactions. [More about continued calculations](/en/ride/advanced/continuation)
+* **dApp-to-dApp invocation.** A dApp callable function can invoke a callable function of another dApp, or another callable function of the same dApp, or even itself. All invoked functions are executed within a single Invoke Script transaction. The total complexity is limited. [More 
 * Implemented the new transaction type: [Continuation](/en/blockchain/transaction-type/continuation-transaction). A block generator creates the Continuation transaction if there is an uncompleted calculation sequence. A user cannot send a Continuation transaction.
-* **dApp-to-dApp invocation.** A dApp callable function can invoke a callable function of another dApp, or another callable function of the same dApp, or even itself. The total complexity is limited. All invoked callable functions are executed within a single Invoke Script transaction. [More about dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp)
+about dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp)
 * Added version 3 for the [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) that can invoke a script with complexity over 4000 or a script containing dApp-to-dApp invocation.
 
-## Ride
+### Ride
 
 * Issued [version 5](/en/ride/v5/).
+* Added the [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function for dApp-to-dApp invocation.
+* Added [strict variables](/en/ride/variables/) that are evaluated before the next expression to ensure executing callable functions and applying their actions in the right order.
+* Modified the [callable function result](/en/ride/v5/functions/callable-function#invocation-result) by adding a return value.
 * Added the following [account data storage functions](/en/ride/functions/built-in-functions/account-data-storage-functions) that allow the dApp script to read entries of its own data storage at any stage of the calculations:
    * `getBinary(key: String): ByteVector|Unit`
    * `getBinaryValue(key: String): ByteVector`
@@ -21,17 +25,14 @@
    * `getIntegerValue(key: String): Int`
    * `getString(key: String): String|Unit`
    * `getStringValue(key: String): String`
-* Added the [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function for dApp-to-dApp invocation.
-* Added [strict variables](/en/ride/variables/) that are evaluated before the next expression to ensure executing callable functions and applying their actions in the right order.
-* Modified the [callable function result](/en/ride/v5/functions/callable-function#invocation-result) by adding a return value.
 
-## Node REST API
+### Node REST API
 
-### Breaking Changes
+#### Breaking Changes
 
 * Added the new transaction type: [Continuation](/en/blockchain/transaction-type/continuation-transaction).
 
-### Semantic Changes
+#### Semantic Changes
 
 * For [Invoke Script](/en/blockchain/transaction-type/invoke-script-transaction) transaction version версии 3 the fields `extraFeePerStep` and `continuationtransactionIds` added to the output of the endpoints providing transaction info.
 * Added the `script_execution_in_progress` value for the `applicationStatus` field of transaction.
@@ -94,10 +95,9 @@
    ```
 </details>
 
+## Version 1.2
 
-# Version 1.2
-
-## Node Improvements
+### Protocol Enhancements
 
 * Improved the mechanism for [generating blocks](/en/blockchain/block/block-generation/) using [VRF](https://en.wikipedia.org/wiki/Verifiable_random_function) (Verifiable random function). This improvement allows withstanding stake grinding attacks, which are used by the attackers to try to increase the probability of generating a block for themselves.
 * Implemented saving failed transactions. Invoke script transactions and exchange transactions are saved on the blockchain and a fee is charged for them even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed and the complexity of calculations performed during script invocation exceeded the threshold for saving failed transactions. [More details](/en/keep-in-touch/april)
@@ -115,11 +115,11 @@
 * When a transaction is validated before adding to the UTX pool, the blockchain state changes made by the transactions that were previously added to the block but then returned to the UTX pool due to the appearance of a new key block that refers to one of the previous microblocks, are taken into account.
 * dApp can't call itself with InvokeScript transaction with attached payments. Also dApp can't transfer funds to itself by `ScriptTransfer` script action.
 
-## REST API Updates
+### REST API Updates
 
 In the Node 1.2 release, we have some **semantic and breaking changes** in the API. Please read the following changes very attentively as it can affect your working application when migrating from Node 1.1 API to the Node 1.2 API.
 
-### Semantic Changes
+#### Semantic Changes
 
 * Invoke script transactions and exchange transaction [can be failed](/en/keep-in-touch/april), so their presence on the blockchain does not mean they are successful. Check the new field `applicationStatus` which is added to the output of the following endpoints:
    * `/blocks/{id}`
@@ -178,7 +178,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
 
 * For block version 5, the `reference` field corresponds to `id` of the previous block instead of `signature` for block version 4.
 
-### Breaking Changes
+#### Breaking Changes
 
 * Retrieve blocks by `id` instead of `signature`.
 
@@ -242,7 +242,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
 
 * Exchange transaction version 3 can include buy and sell orders in any order: buy/sell or sell/buy.
 
-### Improvements 
+#### Improvements 
 
 * `/debug/validate` endpoint does not require API-key.
 * `/assets/details` endpoint can provide multiple assets info at once. The `originTransactionId` field containing the ID of the transaction that issued the asset is added to the response. Also, the endpoint supports POST requests.
@@ -274,7 +274,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    * `/blocks/last`
    * `/blocks/seq/{from}/{to}`
 
-## Ride Improvements
+### Ride Improvements
 
 * Issued version 4 of the Ride [Standard library](/en/ride/script/standard-library).
 * Added script actions that the callable function of dApp can perform:
@@ -322,7 +322,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    * [String](/en/ride/data-types/string): 32,767 bytes
    * [ByteVector](/en/ride/data-types/byte-vector): 32,767 bytes (except the `bodyBytes` field of the transaction structure)
 
-## Waves Explorer
+### Waves Explorer
 
 * Failed transactions are now displayed. They are marked with ![](./_assets/stop.png) icon in lists of transactions.
 * Added support of two payments for invoke script transactions. The dApp script result is displayed as a table.
