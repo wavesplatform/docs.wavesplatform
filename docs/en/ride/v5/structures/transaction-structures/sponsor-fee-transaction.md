@@ -1,4 +1,4 @@
-# SponsorFeeTransaction
+# [Ride v5] SponsorFeeTransaction
 
 :warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/structures/transaction-structures/sponsor-fee-transaction)
 

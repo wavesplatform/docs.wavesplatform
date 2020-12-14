@@ -1,4 +1,4 @@
-# Функция вызова dApp из dApp
+# [Ride v5] Функция вызова dApp из dApp
 
 :warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/).
 
