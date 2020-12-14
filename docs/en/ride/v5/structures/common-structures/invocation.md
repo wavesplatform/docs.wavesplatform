@@ -2,7 +2,7 @@
 
 :warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/structures/common-structures/invocation)
 
-Structure that contains the fields of the [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) that can be used by the [callable function](/en/ride/v5/functions/callable-function).
+Structure that contains the fields of the script invocation that the [callable function](/en/ride/v5/functions/callable-function) can use.
 
 ## Constructor
 
@@ -12,25 +12,25 @@ Invocation(caller: Address, callerPublicKey: ByteVector, payments: List[Attached
 
 ## Fields
 
-The values of the fields depend on how the callabe function is invoked.
+The field  values depend on how the callable function is invoked.
 
-If the callable function is invoked by [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction):
+If the callable function is invoked by an [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction):
 
 |   #   | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
 | 1 | caller | [Address](/en/ride/v5/structures/common-structures/address) | [Address](/en/blockchain/account/) of the account that sent the transaction |
-| 2 | callerPublicKey | [ByteVector](/en/ride/v5/data-types/byte-vector) | Public key of the account that sent the transaction |
+| 2 | callerPublicKey | [ByteVector](/en/ride/v5/data-types/byte-vector) | Public key of the account that sent the transaction |
 | 3 | payments | List[[AttachedPayment](/en/ride/v5/structures/common-structures/attached-payment)] | Payments indicated in the transaction |
 | 4 | transactionId | [ByteVector](/en/ride/v5/data-types/byte-vector) | ID of the transaction |
 | 5 | fee | [Int](/en/ride/v5/data-types/int) | [Transaction fee](/en/blockchain/transaction/transaction-fee) |
 | 6 | feeAssetId | [ByteVector](/en/ride/v5/data-types/byte-vector)&#124;[Unit](/en/ride/v5/data-types/unit) | ID of the fee token |
 
-If the callable function is invoked by the [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp):
+If the callable function is invoked by an [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function:
 
 |   #   | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
 | 1 | caller | [Address](/en/ride/v5/structures/common-structures/address) | [Address](/en/blockchain/account/) of the dApp that invokes the callable function |
-| 2 | callerPublicKey | [ByteVector](/en/ride/v5/data-types/byte-vector) | Public key of the dApp that invokes the callable function |
+| 2 | callerPublicKey | [ByteVector](/en/ride/v5/data-types/byte-vector) | Public key of the dApp that invokes the callable function |
 | 3 | payments | List[[AttachedPayment](/en/ride/v5/structures/common-structures/attached-payment)] | Payments indicated in the [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function |
 | 4 | transactionId | [ByteVector](/en/ride/v5/data-types/byte-vector) | ID of the Invoke Script transaction |
 | 5 | fee | [Int](/en/ride/v5/data-types/int) | [Transaction fee](/en/blockchain/transaction/transaction-fee) |

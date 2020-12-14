@@ -41,7 +41,7 @@
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| Invoke(Address|Alias, String, List[Boolean&#124;ByteVector&#124;Int&#124;String&#124;List[Boolean&#124;ByteVector&#124;Int&#124;String]], List[AttachedPayments]): T&#124;Unit | Вызывает вызываемую функцию dApp | ?? |
+| Invoke(Address&#124;Alias, String, List[Boolean&#124;ByteVector&#124;Int&#124;String&#124;List[Boolean&#124;ByteVector&#124;Int&#124;String]], List[AttachedPayments]): Any | Вызывает вызываемую функцию dApp | ?? |
 
 ## [Функции декодирования](/ru/ride/v5/functions/built-in-functions/decoding-functions)
 

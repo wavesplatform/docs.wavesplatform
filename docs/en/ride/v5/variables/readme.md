@@ -9,5 +9,5 @@ Like lazy variables, strict variables are immutable.
 Strict variables are suitable for [dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp) as they ensure executing callable functions and applying their actions in the right order. Example:
 
 ```scala
-strict z = Invoke(dapp,func,args,[AttachedPayment(unit,100000000)])
+strict z = Invoke(dapp,foo,args,[AttachedPayment(unit,100000000)])
 ```

@@ -126,9 +126,11 @@ If the last Continuation transaction fails:
 
 ## Application Status
 
-The `applicationStatus` field of transaction JSON representation contains the current status of script execution:
-* `succeeded`: the transaction is successful.
-* `script_execution_failed`: the dApp script or the asset script failed.
-* `script_execution_in_progress`: the calculation sequence is not completed yet (it's a transitory status).
+The `applicationStatus` values for an Invoke Script transaction:
+* `succeeded`: calculations are completed successfully.
+* `script_execution_failed`: the dApp script or an asset script failed.
+* `script_execution_in_progress`: the calculation sequence is not completed yet. It's a transitory status: when the calculations are completely executed or fails, the `applicationStatus` of the Invoke Script transaction becomes the same as the last Continuation transaction: `succeeded` or `script_execution_failed` respectively.
 
-Node REST API returns the same application status for all the transactions of the calculation sequence. When the script is completely executed or fails, the `applicationStatus` for all the transactions is changed to `succeeded` or `script_execution_failed`.
+The `applicationStatus` values for a Continuation transaction:
+* `succeeded`: the calculation stage is completed successfully.
+* `script_execution_failed`: the dApp script or the asset script failed.

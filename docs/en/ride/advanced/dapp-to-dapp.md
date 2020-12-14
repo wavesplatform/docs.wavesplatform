@@ -36,7 +36,7 @@ The minimum fee for the Invoke Script transaction is increased by 0.005 WAVES fo
 ## Invoke Function
 
 ```
-Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector|Int|String|List[Boolean|ByteVector|Int|String]], payments: List[AttachedPayments]): T|Unit
+Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector|Int|String|List[Boolean|ByteVector|Int|String]], payments: List[AttachedPayments]): Any
 ```
 
 Parameters:
@@ -49,7 +49,7 @@ Parameters:
 | payments: [List](/en/ride/data-types/list)[[AttachedPayment](/en/ride/structures/common-structures/attached-payment)] | Payments to transfer from the invoking dApp to the invoked dApp, up to 2 |
 
 ```
-strict z = Invoke(dapp,func,args,[AttachedPayment(unit,100000000)])
+strict z = Invoke(dapp,foo,args,[AttachedPayment(unit,100000000)])
 ```
 
 For details, see the [dApp-to-dApp Invocation Function](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) article.
@@ -61,7 +61,7 @@ For dApp-to-dApp invocation, the fields of [Invocation](/en/ride/v5/structures/c
 |   #   | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
 | 1 | caller | [Address](/en/ride/v5/structures/common-structures/address) | [Address](/en/blockchain/account/) of the dApp that invokes the callable function |
-| 2 | callerPublicKey | [ByteVector](/en/ride/v5/data-types/byte-vector) | Public key of the dApp that invokes the callable function |
+| 2 | callerPublicKey | [ByteVector](/en/ride/v5/data-types/byte-vector) | Public key of the dApp that invokes the callable function |
 | 3 | payments | List[[AttachedPayment](/en/ride/v5/structures/common-structures/attached-payment)] | Payments indicated in the [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function |
 | 4 | transactionId | [ByteVector](/en/ride/v5/data-types/byte-vector) | ID of the Invoke Script transaction |
 | 5 | fee | [Int](/en/ride/v5/data-types/int) | [Transaction fee](/en/blockchain/transaction/transaction-fee) |
@@ -72,9 +72,7 @@ For dApp-to-dApp invocation, the fields of [Invocation](/en/ride/v5/structures/c
 In Standard library version 5, a callable function result is a [Tuple](https://docs.waves.tech/en/ride/data-types/tuple) of two elements:
 
 1. List of script actions.
-2. Return value.
-
-Return is passed to the invoking function and assigned to an strict variable.
+2. Return value that is passed to the invoking function.
 
 Example:
 
@@ -95,7 +93,7 @@ For details, see the [Callable Function](/en/ride/v5/functions/callable-function
 
 If the callable function's execution fails or [throws an exception](/en/ride/v5/functions/built-in-functions/exception-functions), the Invoke Script transaction could be rejected or saved on the blockchain as failed. This depends on whether the complexity of performed calculations has exceeded the [threshold for saving a failed transaction](/en/ride/v5/limits/) (currently 1000). The complexity is summed up for all invocations.
 
-Consider the example: callable function 1 performs calculations of 800 complexity, then invokes the callable function 2 which performed calculations of 300 complexity and then fails. The complexity 800 + 300 has exceeded the threshold, so the transaction is saved as failed, and the sender is charged a fee.
+Consider the example: callable function 1 performs calculations of 800 complexity, then invokes callable function 2 which performs calculations of 300 complexity and then fails. The complexity 800 + 300 has exceeded the threshold, so the transaction is saved as failed, and the sender is charged a fee.
 
 If the total complexity of executed callable functions and asset scripts exceeds the limit of 52,000, the transaction is saved as failed as well. For example, if the complexity of executed callable functions is 50,000 in total, and there is a smart asset in script action whose script's complexity is 2500.
 

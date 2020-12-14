@@ -9,5 +9,5 @@
 Нетерпеливые переменные используются для [вызова dApp из dApp](/ru/ride/advanced/dapp-to-dapp), чтобы гарантировать порядок выполнения вызываемых функций и применения действий скрипта. Пример:
 
 ```scala
-strict z = Invoke(dapp,func,args,[AttachedPayment(unit,100000000)])
+strict z = Invoke(dapp,foo,args,[AttachedPayment(unit,100000000)])
 ```

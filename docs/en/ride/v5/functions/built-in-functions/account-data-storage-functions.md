@@ -41,7 +41,7 @@ getBinary(addressOrAlias: Address|Alias, key: String): ByteVector|Unit
 
 ## getBinary(String): ByteVector|Unit
 
-Gets an array of bytes by key from the dApp's own data storage of account to which the script is assigned.
+Gets an array of bytes by key from the dApp's own data storage.
 
 ``` ride
 getBinary(key: String): ByteVector|Unit
@@ -70,7 +70,7 @@ getBinaryValue(addressOrAlias: Address|Alias, key: String): ByteVector
 
 ## getBinaryValue(String): ByteVector
 
-Gets an array of bytes by key from the dApp's own data storage of account to which the script is assigned.
+Gets an array of bytes by key from the dApp's own data storage.
 
 ``` ride
 getBinaryValue(key: String): ByteVector
@@ -99,7 +99,7 @@ getBoolean(addressOrAlias: Address|Alias, key: String): Boolean|Unit
 
 ## getBoolean(String): Boolean|Unit
 
-Gets a boolean value by key by key from the dApp's own data storage of account to which the script is assigned.
+Gets a boolean value by key by key from the dApp's own data storage.
 
 ``` ride
 getBoolean(key: String): Boolean|Unit
@@ -119,9 +119,16 @@ Gets a boolean value by key. Fails if there is no data.
 getBooleanValue(addressOrAlias: Address|Alias, key: String): Boolean
 ```
 
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/v5/data-types/string) | Entry key |
+
 ## getBooleanValue(String): Boolean
 
-Gets a boolean value by key from the dApp's own data storage of account to which the script is assigned.
+Gets a boolean value by key from the dApp's own data storage.
 
 ``` ride
 getBooleanValue(key: String): Boolean
@@ -131,13 +138,6 @@ getBooleanValue(key: String): Boolean
 
 | Parameter | Description |
 | :--- | :--- |
-| `key`: [String](/en/ride/v5/data-types/string) | Entry key |
-
-### Parameters
-
-| Parameter | Description |
-| :--- | :--- |
-| `addressOrAlias`: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
 | `key`: [String](/en/ride/v5/data-types/string) | Entry key |
 
 ## getInteger(Address|Alias, String): Int|Unit<a id="get-integer"></a>
@@ -157,7 +157,7 @@ getInteger(addressOrAlias: Address|Alias, key: String): Int|Unit
 
 ## getInteger(String): Int|Unit
 
-Gets an integer by key from the dApp's own data storage of account to which the script is assigned.
+Gets an integer by key from the dApp's own data storage.
 
 ``` ride
 getInteger(key: String): Int|Unit
@@ -176,9 +176,17 @@ Gets an integer by key. Fails if there is no data.
 ``` ride
 getIntegerValue(addressOrAlias: Address|Alias, key: String): Int
 ```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/v5/data-types/string) | Entry key |
+
 ## getIntegerValue(String): Int
 
-Gets an integer by key from the dApp's own data storage of account to which the script is assigned.
+Gets an integer by key from the dApp's own data storage.
 
 ``` ride
 getIntegerValue(key: String): Int
@@ -188,13 +196,6 @@ getIntegerValue(key: String): Int
 
 | Parameter | Description |
 | :--- | :--- |
-| `key`: [String](/en/ride/v5/data-types/string) | Entry key |
-
-### Parameters
-
-| Parameter | Description |
-| :--- | :--- |
-| `addressOrAlias`: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
 | `key`: [String](/en/ride/v5/data-types/string) | Entry key |
 
 ## getString(Address|Alias, String): String|Unit<a id="get-string"></a>
@@ -214,7 +215,7 @@ getString(addressOrAlias: Address|Alias, key: String): String|Unit
 
 ## getString(String): String|Unit
 
-Gets a string by key from the dApp's own data storage of account to which the script is assigned.
+Gets a string by key from the dApp's own data storage.
 
 ``` ride
 getString(key: String): String|Unit
@@ -243,7 +244,7 @@ getStringValue(addressOrAlias: Address|Alias, key: String): String
 
 ## getStringValue(String): String
 
-Gets a string by key from the dApp's own data storage of account to which the script is assigned.
+Gets a string by key from the dApp's own data storage.
 
 ``` ride
 getString(key: String): String

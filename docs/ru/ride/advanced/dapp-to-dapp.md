@@ -36,7 +36,7 @@
 ## Функция Invoke
 
 ```
-Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector|Int|String|List[Boolean|ByteVector|Int|String]], payments: List[AttachedPayments]): T|Unit
+Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector|Int|String|List[Boolean|ByteVector|Int|String]], payments: List[AttachedPayments]): Any
 ```
 
 | Параметр | Описание |
@@ -49,7 +49,7 @@ Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector
 Пример:
 
 ```
-strict z = Invoke(dapp,func,args,[AttachedPayment(unit,100000000)])
+strict z = Invoke(dapp,foo,args,[AttachedPayment(unit,100000000)])
 ```
 
 Подробнее в разделе [Функция вызова dApp из dApp](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp).

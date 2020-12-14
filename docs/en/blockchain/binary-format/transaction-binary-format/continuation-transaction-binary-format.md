@@ -6,7 +6,7 @@ The Continuation transaction is added in node version 1.3.0 and enabled with fea
 
 Binary format is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) protobuf scheme. The fields that are common to all types of transactions are described in the [Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format/) article.
 
-> Please note: a Continuation transaction is not sent on behalf of any account, therefere it does not have the `senderPublicKey` and `proofs` fields.
+> Please note: a Continuation transaction is not sent on behalf of any account. It does not have `senderPublicKey`, `proofs`, `timestamp`, and `feeAssetId` fields.
 
 ```
 message ContinuationTransactionData {
