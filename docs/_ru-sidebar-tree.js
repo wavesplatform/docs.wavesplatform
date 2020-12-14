@@ -991,12 +991,12 @@ module.exports = {
       path: ridev5Path,
       children: [
         {
-          title: 'Вычисления с продолжением',
-          path: ridePath + 'advanced/continuation',
-        },
-        {
           title: 'Вызов dApp из dApp',
           path: ridePath + 'advanced/dapp-to-dapp',
+        },
+        {
+          title: 'Вычисления с продолжением',
+          path: ridePath + 'advanced/continuation',
         },
         {
           title: 'Нетерпеливая переменная',

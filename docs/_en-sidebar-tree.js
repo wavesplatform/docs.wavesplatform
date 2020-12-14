@@ -991,12 +991,12 @@ module.exports = {
       path: ridev5Path,
       children: [
         {
-          title: 'Continued Calculations',
-          path: ridePath + 'advanced/continuation',
-        },
-        {
           title: 'dApp-to-dApp Invocation',
           path: ridePath + 'advanced/dapp-to-dapp',
+        },
+        {
+          title: 'Continued Calculations',
+          path: ridePath + 'advanced/continuation',
         },
         {
           title: 'Strict Variable',

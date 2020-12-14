@@ -34,7 +34,7 @@ The fee specified in the Invoke Script transaction is automatically distributed 
   "timestamp": 1592233044984,
   "applicationStatus": "Script_execution_in_progress",
   "height": 2108117,
-  "step": 0,
+  "nonce": 0,
   "сontinuationTransactionIds": [
     "5qJkpQetVCriDaN9cfbA8YJX3cCpGzQ3oUTQ2Mr4GPcK",
     "9NZnnpB4xqV1HdgZo7j2SnKktTqpaMisgDvHzxLr56Mo",
@@ -51,7 +51,7 @@ The fee specified in the Invoke Script transaction is automatically distributed 
 | call.args.type | Argument type:<br>- binary<br>- boolean<br>- integer<br>- string<br>- list |
 | call.args.value | Argument value |
 | dApp | dApp address base58 encoded or dApp [alias](/en/blockchain/account/alias) with `alias:<chain_id>:` prefix, for example `alias:T:merry` (see [Chain ID](/en/blockchain/blockchain-network/#chain-id)) |
-| step |  Sequential number of the continuation (starting from 0) |
+| nonce | Number that is unique in the calculation sequence. It is used to calculate the transaction ID |
 | сontinuationTransactionIds | List of the Continuation transactions in the calculation sequence |
 
 The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.

@@ -34,7 +34,7 @@
   "timestamp": 1592233044984,
   "applicationStatus": "Script_execution_in_progress",
   "height": 2108117,
-  "step": 0,
+  "nonce": 0,
   "сontinuationTransactionIds": [
     "5qJkpQetVCriDaN9cfbA8YJX3cCpGzQ3oUTQ2Mr4GPcK",
     "9NZnnpB4xqV1HdgZo7j2SnKktTqpaMisgDvHzxLr56Mo",
@@ -51,7 +51,7 @@
 | call.args.type | Тип аргумента:<br>- binary<br>- boolean<br>- integer<br>- string<br>- list |
 | call.args.value | Значение аргумента |
 | dApp | Адрес dApp в кодировке base58 или [псевдоним](/ru/blockchain/account/alias) адреса c префиксом `alias:<байт_сети>:`, например `alias:T:merry` (см. [Байт сети](/ru/blockchain/blockchain-network/#байт-сети)) |
-| step | Порядковый номер продолжения (начиная с 0) |
+| nonce | Произвольный номер, уникальный в цепочке вычислений. Используется для вычисления ID транзакции |
 | сontinuationTransactionIds | Список транзакций продолжения в цепочке вычислений |
 
 Описание полей, общих для всех типов транзакций, представлено в разделе [JSON-представление транзакции](/ru/blockchain/transaction/#json-представление-транзакции).

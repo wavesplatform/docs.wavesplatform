@@ -4,15 +4,14 @@
 
 ### Protocol Enhancements
 
+* **dApp-to-dApp invocation.** A dApp callable function can invoke a callable function of another dApp, or another callable function of the same dApp, or even itself. All invoked functions are executed within a single Invoke Script transaction. The total complexity is limited. [More about dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp)
 * **Continued calculations.** Added support for dApp scripts with complexity over 4000. The execution of such a script is split into several stages. The first stage of calculations is performed within the Invoke Script transaction. The further stages are performed within Continuation transactions. [More about continued calculations](/en/ride/advanced/continuation)
-* **dApp-to-dApp invocation.** A dApp callable function can invoke a callable function of another dApp, or another callable function of the same dApp, or even itself. All invoked functions are executed within a single Invoke Script transaction. The total complexity is limited. [More 
 * Implemented the new transaction type: [Continuation](/en/blockchain/transaction-type/continuation-transaction). A block generator creates the Continuation transaction if there is an uncompleted calculation sequence. A user cannot send a Continuation transaction.
-about dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp)
 * Added version 3 for the [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) that can invoke a script with complexity over 4000 or a script containing dApp-to-dApp invocation.
 
 ### Ride
 
-* Issued [version 5](/en/ride/v5/).
+* Issued [version 5](/en/ride/v5/) of the Ride [Standard library](/en/ride/script/standard-library).
 * Added the [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function for dApp-to-dApp invocation.
 * Added [strict variables](/en/ride/variables/) that are evaluated before the next expression to ensure executing callable functions and applying their actions in the right order.
 * Modified the [callable function result](/en/ride/v5/functions/callable-function#invocation-result) by adding a return value.
@@ -34,7 +33,7 @@ about dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp)
 
 #### Semantic Changes
 
-* For [Invoke Script](/en/blockchain/transaction-type/invoke-script-transaction) transaction version версии 3 the fields `extraFeePerStep` and `continuationtransactionIds` added to the output of the endpoints providing transaction info.
+* For [Invoke Script](/en/blockchain/transaction-type/invoke-script-transaction) transaction version 3 the fields `extraFeePerStep` and `continuationtransactionIds` added to the output of the endpoints providing transaction info.
 * Added the `script_execution_in_progress` value for the `applicationStatus` field of transaction.
 * dApp-to-dApp invocation results are added as the `invokes` array to the `stateChanges` structure returned by the following endpoints:
    * `/debug/stateChanges/address/{address}/limit/{limit}`

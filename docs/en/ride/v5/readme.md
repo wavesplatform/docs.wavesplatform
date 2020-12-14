@@ -16,7 +16,7 @@ Changes in Ride:
 
 Added support for dApp scripts with complexity over 4000. The execution of such a script is split into several stages. The first stage of calculations is performed within the Invoke Script transaction. The further stages are performed within Continuation transactions that are created automatically by block generators. [More about continued calculations](/en/ride/advanced/continuation)
 
-Added the [account data storage functions](/en/ride/functions/built-in-functions/account-data-storage-functions) that allow the dApp script to read entries of its own data storage at any stage of the calculations:
+Changes in Ride: added the [account data storage functions](/en/ride/functions/built-in-functions/account-data-storage-functions) that allow the dApp script to read entries of its own data storage at any stage of the calculations:
 * `getBinary(key: String): ByteVector|Unit`
 * `getBinaryValue(key: String): ByteVector`
 * `getBoolean(key: String): Boolean|Unit`

@@ -9,21 +9,21 @@ A **built-in function** is a [function](/en/ride/v5/functions/) of the [Standard
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | getBinary(Address&#124;Alias, String): ByteVector&#124;Unit | Gets an array of bytes by key | 10 |
-| getBinary(String): ByteVector&#124;Unit | Gets an array of bytes by key from internal data storage | 10 |
+| getBinary(String): ByteVector&#124;Unit | Gets an array of bytes by key from dApp's own data storage | 10 |
 | getBinaryValue(Address&#124;Alias, String): ByteVector | Gets an array of bytes by key. Fails if there is no entry | 10 |
-| getBinaryValue(String): ByteVector | Gets an array of bytes by key from internal data storage. Fails if there is no entry | 10 |
+| getBinaryValue(String): ByteVector | Gets an array of bytes by key from dApp's own data storage. Fails if there is no entry | 10 |
 | getBoolean(Address&#124;Alias, String): Boolean&#124;Unit | Gets a boolean value by key | 10 |
-| getBoolean(String): Boolean&#124;Unit | Gets a boolean value by key from internal data storage | 10 |
+| getBoolean(String): Boolean&#124;Unit | Gets a boolean value by key from dApp's own data storage | 10 |
 | getBooleanValue(Address&#124;Alias, String): Boolean | Gets a boolean value by key. Fails if there is no entry | 10 |
-| getBooleanValue(String): Boolean | Gets a boolean value by key from internal data storage. Fails if there is no entry | 10 |
+| getBooleanValue(String): Boolean | Gets a boolean value by key from dApp's own data storage. Fails if there is no entry | 10 |
 | getInteger(Address&#124;Alias, String): Int&#124;Unit | Gets an integer by key | 10 |
-| getInteger(String): Int&#124;Unit | Gets an integer by key from internal data storage | 10 |
+| getInteger(String): Int&#124;Unit | Gets an integer by key from dApp's own data storage | 10 |
 | getIntegerValue(Address&#124;Alias, String): Int | Gets an integer by key. Fails if there is no entry | 10 |
-| getIntegerValue(String): Int](#getintegervalue-string-int) | Gets an integer by key from internal data storage. Fails if there is no entry | 10 |
+| getIntegerValue(String): Int](#getintegervalue-string-int) | Gets an integer by key from dApp's own data storage. Fails if there is no entry | 10 |
 | getString(Address&#124;Alias, String): String&#124;Unit | Gets a string by key | 10 |
-| getString(String): String&#124;Unit | Gets a string by key from internal data storage | 10 |
+| getString(String): String&#124;Unit | Gets a string by key from dApp's own data storage | 10 |
 | getStringValue(Address&#124;Alias, String): String | Gets a string by key. Fails if there is no entry | 10 |
-| getStringValue(String): String | Gets a string by key from internal data storage. Fails if there is no entry | 10 |
+| getStringValue(String): String | Gets a string by key from dApp's own data storage. Fails if there is no entry | 10 |
 
 ## [Blockchain functions](/en/ride/v5/functions/built-in-functions/blockchain-functions)
 
