@@ -1,6 +1,6 @@
 # Node Go
 
-In autumn 2018 Waves started a new project of Node Go implementation. The existence of the second (alternative) type of implementation makes Waves network less vulnerable to the implementation errors of Waves protocol. Node Go also allows to test new approaches to the implementation of the existing algorithms and add details of the protocol specs that were hidden in the Scala code that. Node Go is quite a new product that has less user interfaces than Scala node, however the developers are going to enhance the node functionality and provide more interfaces familiar to users. Node Go only partially supports the original node REST API. Currently all the major node versions are released on Scala and Go implementation.
+In autumn 2018 Waves started a new project of Node Go implementation. The existence of the second (alternative) type of implementation makes Waves network less vulnerable to the implementation errors of Waves protocol. Node Go also allows to test new approaches to the implementation of the existing algorithms and add details of the protocol specs that were hidden in the Scala code. Node Go is quite a new product that has less user interfaces than Scala node, however the developers are going to enhance the node functionality and provide more interfaces familiar to users. Node Go only partially supports the original node REST API. Currently all the major node versions are released on Scala and Go implementation.
 
 [Node Go development history overview](https://medium.com/wavesprotocol/waves-node-in-go-4c512214ca8a).
 
