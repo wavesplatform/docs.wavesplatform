@@ -33,8 +33,7 @@
 
 #### Семантические изменения
 
-* В ответ методов, возвращающих транзакции, для [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) версии 3 добавлены поля `extraFeePerStep` и `continuationTransactionIds`.
-* Для поля транзакции `applicationStatus` добавлено значение `script_execution_in_progress`.
+* В ответ методов, возвращающих транзакции, для [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) версии 3 добавлены поля `extraFeePerStep` и `continuationTransactionIds`, а также значение `script_execution_in_progress` для поля `applicationStatus`.
 * Результаты вызова dApp из dApp добавлены в виде массива `invokes` в структуру `stateChanges`, возвращаемую следующими методами:
    * `/debug/stateChanges/address/{address}/limit/{limit}`
    * `/debug/stateChanges/info/{id}`

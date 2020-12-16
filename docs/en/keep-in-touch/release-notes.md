@@ -33,8 +33,7 @@
 
 #### Semantic Changes
 
-* For [Invoke Script](/en/blockchain/transaction-type/invoke-script-transaction) transaction version 3 the fields `extraFeePerStep` and `continuationtransactionIds` added to the output of the endpoints providing transaction info.
-* Added the `script_execution_in_progress` value for the `applicationStatus` field of transaction.
+* For [Invoke Script](/en/blockchain/transaction-type/invoke-script-transaction) transaction version 3 the fields `extraFeePerStep` and `continuationtransactionIds` and the `script_execution_in_progress` value for the `applicationStatus` field added to the output of the endpoints providing transaction info.
 * dApp-to-dApp invocation results are added as the `invokes` array to the `stateChanges` structure returned by the following endpoints:
    * `/debug/stateChanges/address/{address}/limit/{limit}`
    * `/debug/stateChanges/info/{id}`

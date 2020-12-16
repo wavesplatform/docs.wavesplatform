@@ -13,7 +13,7 @@ message InvokeScriptTransactionData {
     Recipient d_app = 1;
     bytes function_call = 2;
     repeated Amount payments = 3;
-    int32 extra_fee_per_step = 4;
+    int64 extra_fee_per_step = 4;
 };
 
 message Recipient {
@@ -36,7 +36,7 @@ message Amount {
 | function_call | | Function name and arguments. Binary format of function call is the same as in [version 1](#version-1) (see item 7 in table) |
 | payments.asset_id | • 32 bytes for asset<br>• 0 for WAVES | ID of token in payment |
 | payments.amount | 8 bytes | Amount of token in payment, specified in the [atomic units](/en/blockchain/token/#atomic-unit) |
-| extra_fee_per_step | 1 byte | Extra fee for each stage of calculations, see the [Continued Calculations](/en/ride/advanced/continuation) article. The extra fee is specified in the same token as the transaction fee |
+| extra_fee_per_step | 8 bytes | Extra fee for each stage of calculations, see the [Continued Calculations](/en/ride/advanced/continuation) article. The extra fee is specified in the same token as the transaction fee |
 
 The maximum number of payments is 2.
 

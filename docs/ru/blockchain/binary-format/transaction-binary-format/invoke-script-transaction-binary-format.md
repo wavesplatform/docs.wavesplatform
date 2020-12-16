@@ -13,7 +13,7 @@ message InvokeScriptTransactionData {
     Recipient d_app = 1;
     bytes function_call = 2;
     repeated Amount payments = 3;
-    int32 extra_fee_per_step = 4;
+    int64 extra_fee_per_step = 4;
 };
 
 message Recipient {
@@ -36,7 +36,7 @@ message Amount {
 | function_call | | Имя и аргументы вызываемой функции. Бинарный формат вызова аналогичен [версии 1](#версия-1) (см. п. 7 в таблице) |
 | payments.asset_id | • 32 байта для ассета<br>• 0 для WAVES | ID токена в платеже |
 | payments.amount | 8 байт | Количество токена в платеже, в [атомарных единицах](/ru/blockchain/token/#атомарная-единица) |
-| extra_fee_per_step | 1 байт | Надбавка, увеличивающая комиссию за каждый этап вычислений, см. раздел [Вычисления с продолжением](/ru/ride/advanced/continuation). Надбавка выражена в том же токене, что и комиссия |
+| extra_fee_per_step | 8 байт | Надбавка, увеличивающая комиссию за каждый этап вычислений, см. раздел [Вычисления с продолжением](/ru/ride/advanced/continuation). Надбавка выражена в том же токене, что и комиссия |
 
 Количество платежей — не более 2.
 
