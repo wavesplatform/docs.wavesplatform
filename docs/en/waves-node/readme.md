@@ -40,3 +40,9 @@ Your node can be on fork with height **less** than 2000 blocks or **more** than 
 
 * In case that your node is on fork with a height less than 2000 blocks, you can implement rollback and restart the node to begin generating blocks as described in [Rollback Waves Node](/en/waves-node/how-to-rollback-a-node) article.
 * Otherwise, you need to go with one of the options described in [Synchronize Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article.
+
+## Node Go
+
+In addition to standard Node implementation on Scala programming language, there is another (alternative) Node implementation on Go language.
+
+[Read more about Node Go](/en/waves-node/node-go).
