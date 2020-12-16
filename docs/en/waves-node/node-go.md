@@ -1,63 +1,36 @@
 # Node Go
 
-Благодаря простоте языка программирования Go, нода Waves на языке Go привлекает в сообщество Waves всё больше разработчиков.
+In autumn 2018 Waves started a new project of Node Go implementation. The existence of the second (alternative) type of implementation makes Waves network less vulnerable to the implementation errors of Waves protocol. Node Go also allows to test new approaches to the implementation of the existing algorithms and add details of the protocol specs that were hidden in the Scala code that. Node Go is quite a new product that has less user interfaces than Scala node, however the developers are going to enhance the node functionality and provide more interfaces familiar to users. Node Go only partially supports the original node REST API. Currently all the major node versions are released on Scala and Go implementation.
 
-В данной статье:
+[Node Go development history overview](https://medium.com/wavesprotocol/waves-node-in-go-4c512214ca8a).
 
-* История создания ноды Waves на языке Go
-* [Нововведения и отличия от ноды на Scala](#нововведения-и-отличия-от-ноды-на-scala)
-* [Как запустить ноду Go](#как-запустить-ноду-go)
+In this article:
 
-## История создания ноды Waves на языке Go
+* [Innovation and differences from Scala node](#innovation-and-differences-from-scala-node)
+* [Generating blocks](#generating-blocks)
+* [For Go developers](#for-go-developers)
+* [How to run Node Go](#how-to-run-node-go)
 
-В январе 2018 в сети Waves случился простой длительностью около 40 минут. Последующий анализ показал, что причиной стала ошибка в реализации протокола Waves. Таким образом, наличие единственной реализации делало сеть Waves уязвимой в подобных ситуациях, и поэтому было решено запустить проект второй реализации ноды Waves.
+## Innovation and differences from Scala node
 
-Язык Go был выбран из-за:
+In Node Go implementation the concept for block and node state storage is different from Scala implementation. In Node Go implementation the block storage in `leveldb` was abandoned and the new blocks are added in full to a simple binary file, and their meta information is stored in `leveldb`.
 
-* наличия криптографических библиотек
-* популярности в других крипто-проектах и в крипто-сообществе
-* простоты языка для разработчиков
+Node Go implementation uses adaptive buffer of applied blocks. The Scala node applies blocks in equal batches of 100, and Node Go constantly tracks block size and adjusts the number of blocks in the buffer, based on their size. That is, if blocks are empty, Node Go can apply them in batches of several thousands, and, if blocks contain a large number of transactions, the buffer can be dynamically reduced to several dozen blocks. Such mechanism facilitates significant speeding up of initial import of the Waves blockchain.
 
-Реализация ноды на языке Go дала дополнительную возможность испытать новые подходы к реализации существующих алгоритмов и внести в спецификации протокола Waves детали реализации, скрытые в коде на Scala.
+Some Node Go improvements were added to Scala node. For instance, the addition of bloom filters when calling the state storage, helped reduce the number of costly transactions for non-existing keys, which is especially vital for blockchain import as all blocks and transactions are new at the time and, as a rule, are absent from the storage. Disableable bloom filters were implemented in Scala node, which helped speed up blockchain import.
 
-### Путь к реализации
+## Generating blocks
 
-Проект разработки ноды Waves на языке Go был запущен осенью 2018 года. Начали с базовых примитивов протокола Waves, включая криптографические функции, транзакции и сетевые сообщения. Затем, для пользы сообщества, была реализована клиентская библиотека к REST API ноды на Scala. Эта библиотека нашла применение в нескольких внутренних сервисах Waves. Далее для демонстрации возможностей клиентской библиотеки была разработана утилита `chaincpm` и сервисы `Fork Detector`, `Retransmitter` и `Waves Market Data`.
+Node Go can be used for generating blocks in experimental and test network. The experience of using Node Go for generating blocks in main network is insignificant. Use Node Go for generating blocks in main network at you own risk.
 
-Разработка ноды на Go строилась по принципу “grey box”. Реализация какой-либо функциональности начиналась только на основе документированных сведений о ней. В качестве тестов использовались реальные данные из блокчейна, и только на последнем этапе реализации проводилось сравнение с реализацией на Scala.
+## For Go developers
 
-* Весной 2019 была начата разработка ноды. Ставилась задача обеспечить высокую скорость работы ноды и ускорить импорт блоков. Алгоритмы консенсуса, проверки блоков и транзакций были реализованы в ходе разработки утилиты `importer`.
+Node Go can be used for the development and operation of new services that obtain data over gPRC API. Node Go has full implementation of gRPC interface (gRPC API) for access to node and blockchain data.
 
-* Зимой 2019 была создана реализация валидирующей ноды на языке Go без возможности генерировать новые блоки.
+Waves team invites developers to study the Waves node, detect and correct errors, propose improvement or new functionality.
 
-* Весной 2020 была создана и запущена в тестовой сети, а через несколько недель и в основной сети генерирующая нода на языке Go.
+If you have problems, questions or suggestions, create [Issue on Github](https://github.com/wavesplatform/gowaves/issues) or chat with the developers on [Telegram](https://t.me/tradisys_russia) or [Discord](https://discord.com/invite/cnFmDyA).
 
-* В октябре 2020 была реализована поддержка протокола Waves 1.2 Malibu в версии ноды на Go. В дальнейшем все крупные релизы протокола Waves будут выходить синхронно в реализации на Scala и Go.
+## How to run Node Go
 
-## Нововведения и отличия от ноды на Scala
-
-В реализации на Go применяется отличная от реализации Scala концепция хранения блоков и состояния ноды. Блоки не хранятся в хранилище `leveldb`, новые блоки целиком добавляются к простому бинарному файлу, а мета-информация о них сохраняется в `leveldb`.
-
-Нода на языке Go использует адаптивный буфер применяемых блоков. Нода Scala применяет блоки одинаковыми пачками по 100 штук, а нода Go постоянно отслеживает размер блоков и изменяет их количество в буфере в зависимости от размера. То есть, если блоки пустые, то нода Go может применять их пачками по несколько тысяч, а если блоки содержат большое число транзакций, буфер может быть динамически уменьшен до нескольких десятков блоков. Такой механизм позволяет значительно ускорить начальный импорт блокчейна Waves.
-
-Некоторые нововведения, реализованные в ноде на языке Go, были добавлены и в ноду на Scala. Например, добавление Bloom-фильтров при обращении к хранилищу состояния позволило уменьшить количество дорогостоящих операций поиска несуществующих ключей, что особенно важно во время импорта блокчейна, так как все блоки и транзакции в это время являются новыми и, как правило, отсутствуют в хранилище. Отключаемые Bloom-фильтры были реализованы в ноде на Scala, что помогло ускорить импорт блокчейна.
-
-## Потенциал для улучшений
-
-Реализация ноды Waves на языке Go - достаточно молодой продукт с меньшим количеством пользовательских интерфейсов, чем у ноды на Scala. Команда разработчиков ноды Go планирует разработку новой функциональности и поддержку большего знакомых пользователям интерфейсов. В ноде Go уже полностью реализован новый gRPC интерфейс (gRPC API) для доступа к данным ноды и блокчейна, но поддержка оригинального REST API ноды реализована только частично. Это накладывает некоторые ограничения на использование ноды на Go.
-
-В ходе разработки много внимания было уделено интерпретатору скриптов Ride. Было создано несколько версий интерпретатора с разной степенью оптимизации. Сейчас идёт разработка виртуальной машины для исполнения скриптов Ride. Создание виртуальной машины должно привести к дальнейшему увеличению скорости работы ноды и созданию запаса производительности для роста блокчейна.
-
-Нода на Go может быть полноценно использована для разработки и эксплуатации новых сервисов, ориентирующихся на получение данных через gPRC API, а также для генерации блоков в экспериментальной или тестовой сети. Мы рекомендуем ограниченное использование ноды Go для генерации блоков в основной сети, так как опыт ее эксплуатации для генерации блоков пока невелик.
-
-## Как запустить ноду Go
-
-Чтобы начать работать с нодой Go, загрузите исполняемый файл под свою платформу на [страницу релиза в Github](https://github.com/wavesplatform/gowaves/releases/tag/v0.8.2) и запустите его, следуя [инструкции](https://github.com/wavesplatform/gowaves/blob/master/README.md).
-
-Команда Waves приглашает разработчиков изучить устройство ноды Waves, найти и исправить ошибки, предложить улучшение или новую функциональность.
-
-Если у вас возникли вопросы или предложения, создайте [Issue на Github](https://github.com/wavesplatform/gowaves/issues) или пообщайтесь с разработчиками в чате в [Telegram](https://t.me/tradisys_russia) или [Discord](https://discord.com/invite/cnFmDyA).
-
-[Новостной канал Waves](https://t.me/WavesNewsRU).
-
-Подписывайтесь на наш [Twitter](https://twitter.com/wavesprotocol), [Subreddit](https://www.reddit.com/r/Wavesplatform/) и [YouTube канал](https://www.youtube.com/c/WavesTech).
+To run Node Go, download executable file for your platform at [the releases page on Github](https://github.com/wavesplatform/gowaves/releases/tag/v0.8.2) and launch it, following the [guideline](https://github.com/wavesplatform/gowaves/blob/master/README.md).
