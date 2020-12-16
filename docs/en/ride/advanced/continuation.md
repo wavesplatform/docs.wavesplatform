@@ -107,7 +107,7 @@ After the script is completely executed or fails, the fee's unused portion (for 
 * The transaction contains 1 payment in a smart asset: `P` = 2.
 * The callable function performs 2 smart asset transfers and 1 token issue: `A` = 3 and `I` = 1.
 
-The minimum fee for the Invoke Script transaction is (0.005 + 0.002) × 3 + 0.004 + 0.004 × 2 + 0.004 × 3 + 1 = 1.045 WAVES. If all transactions are successful, the fee is distributed as follows:
+The minimum fee for the Invoke Script transaction is (0.005 + 0.002) × 3 + 0.004 + 0.004 × 2 + 0.004 × 3 + 1 × 1 = 1.045 WAVES. If all transactions are successful, the fee is distributed as follows:
 * for the Invoke Script transaction: 0.005 + 0.002 + 0.004 + 0.004 × 2,
 * for the first Continuation transaction: 0.005 + 0.002,
 * for the last Continuation transaction: 0.005 + 0.002 + 0.004 × 3 + 1 × 1.
