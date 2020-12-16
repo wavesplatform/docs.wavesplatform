@@ -45,4 +45,4 @@ Your node can be on fork with height **less** than 2000 blocks or **more** than 
 
 In addition to standard Node implementation on Scala programming language, there is another (alternative) Node implementation on Go language.
 
-[Read more about Node Go](/en/waves-node/node-go).
+[Read about Node Go](/en/waves-node/node-go).
