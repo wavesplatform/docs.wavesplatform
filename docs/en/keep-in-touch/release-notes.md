@@ -15,7 +15,14 @@
 * Added the [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function for dApp-to-dApp invocation.
 * Added [strict variables](/en/ride/variables/) that are evaluated before the next expression to ensure executing callable functions and applying their actions in the right order.
 * Modified the [callable function result](/en/ride/v5/functions/callable-function#invocation-result) by adding a return value.
-* Added the following [account data storage functions](/en/ride/functions/built-in-functions/account-data-storage-functions) that allow the dApp script to read entries of its own data storage at any stage of the calculations:
+* Added script actions that the callable function can perform:
+   * [Lease](/en/ride/v5/structures/script-actions/lease) — leases WAVES.
+   * [LeaseCancel](/en/ride/v5/structures/script-actions/lease-cancel) — cancels a specified lease.
+
+   Using these actions, you can change the amount of the lease, in particular, withdraw a part of the leased funds. If you cancel a lease for a larger amount and create a new lease for a smaller amount with the same recipient in the same script invocation, the recipient's generating balance decreases by the difference. Otherwise, if you send two separate transactions: a Lease Cancel transaction and a Lease transaction, the generating balance decreases by the amount of the canceled lease immediately and increases by the amount of the new lease after 1000 blocks.
+
+* Added the function [calculateLeaseId](/en/ride/v5/functions/built-in-functions/blockchain-functions#calculateleaseid) that calculates ID of the lease formed by the `Lease` structure when executing the callable function.
+* Added the following [account data storage functions](/en/ride/v5/functions/built-in-functions/account-data-storage-functions) that allow the dApp script to read entries of its own data storage at any stage of the calculations:
    * `getBinary(key: String): ByteVector|Unit`
    * `getBinaryValue(key: String): ByteVector`
    * `getBoolean(key: String): Boolean|Unit`
@@ -30,6 +37,25 @@
 #### Breaking Changes
 
 * Added the new transaction type: [Continuation](/en/blockchain/transaction-type/continuation-transaction).
+* A lease can be created both as a result of a Lease transaction and as a result of an Invoke Script transaction via a `Lease` script action. Therefore, the response of the following endpoints has been changed:
+   * In the response of `/transactions/address/{address}/limit/{limit}` and `/transactions/info/{id}` endpoints for Lease Cancel transaction, the `lease` structure now contains lease parameters instead of Lease transaction fields.
+   * `/leasing/active/{address}` returns an array of structures containing lease parameters instead of array of Lease transactions.
+
+   <details>
+      <summary>Format</summary>
+    
+   ```json
+   "lease":
+      {
+        "leaseId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+        "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+        "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
+        "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
+        "amount": 1000000000000,
+        "height": 2253315
+      }
+   ```
+</details>
 
 #### Semantic Changes
 
@@ -91,7 +117,68 @@
       ]
    }
    ```
-</details>
+   </details>
+
+* Results of the `Lease` and `LeaseCancel` script actions are added to the The `stateChanges` structure.
+
+   <details>
+      <summary>Format</summary>
+
+   ```json
+   "stateChanges": {
+      "leases": [
+        {
+          "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+          "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
+          "amount": 500000
+        }
+      ],
+      "leaseCancels": [
+         {
+            "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
+         }
+      ]
+   }
+   ```
+   </details>
+
+* Results of `Lease` and `LeaseCancel` script actions are also added to the `trace` structure returned by the following endpoints:
+   * `/transactions/broadcast`
+   * `/debug/validate`
+
+   <details>
+      <summary>Format</summary>
+
+   ```json
+       "trace": [
+        {
+            "id": "3MosFNQAFGskNDnYzRBgMbfod6xXPdG96ME",
+            "type": "dApp",
+            "vars": [
+                {
+                    "name": "amount",
+                    "type": "integer",
+                    "value": 12345
+                }
+            ],
+            "result": {
+                "leases": [
+                    {
+                        "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+                        "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
+                        "amount": 500000
+                    }
+                ],
+                "leaseCancels": [
+                    {
+                        "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
+                    }
+                ]
+            }
+        }
+    ]
+   ```
+   </details>
 
 ## Version 1.2
 

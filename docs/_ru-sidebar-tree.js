@@ -1077,6 +1077,14 @@ module.exports = {
                   path: ridev5Path + 'structures/script-actions/issue',
                 },
                 {
+                  title: 'Lease',
+                  path: ridev5Path + 'structures/script-actions/lease',
+                },
+                {
+                  title: 'LeaseCancel',
+                  path: ridev5Path + 'structures/script-actions/lease-cancel',
+                },
+                {
                   title: 'Reissue',
                   path: ridev5Path + 'structures/script-actions/reissue',
                 },

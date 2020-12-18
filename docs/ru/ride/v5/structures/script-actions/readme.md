@@ -12,7 +12,11 @@
 | [DeleteEntry](/ru/ride/v5/structures/script-actions/delete-entry) | Удаление записи |
 | [IntegerEntry](/ru/ride/v5/structures/script-actions/int-entry) | Добавление/изменение записи целочисленного типа |
 | [Issue](/ru/ride/v5/structures/script-actions/issue) | Выпуск токена |
+| [Lease](/ru/ride/v5/structures/script-actions/issue) | Лизинг |
+| [LeaseCancel](/ru/ride/v5/structures/script-actions/issue) | Отмена лизинга |
 | [Reissue](/ru/ride/v5/structures/script-actions/reissue) | Довыпуск токена |
 | [ScriptTransfer](/ru/ride/v5/structures/script-actions/script-transfer)  Перевод токена |
 | [SponsorFee](/ru/ride/v5/structures/script-actions/sponsor-fee) | Настройка спонсирования |
 | [StringEntry](/ru/ride/v5/structures/script-actions/string-entry) | Добавление/изменение записи строкового типа |
+
+Набор доступных действий скрипта зависит от версии [Стандартной библиотеки](/ru/ride/script/standard-library).

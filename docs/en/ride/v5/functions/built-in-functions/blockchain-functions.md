@@ -8,7 +8,8 @@
 | [assetBalancе(Address&#124;Alias, ByteVector): Int](#assetbalance) | Gets account balance by token ID | 10 |
 | [assetInfo(ByteVector): Аsset&#124;Unit](#assetinfo) | Gets the information about a [token](/en/blockchain/token/) | 15 |
 | [blockInfoByHeight(Int): BlockInfo&#124;Unit](#blockinfobyheight) | Gets the information about a [block](/en/blockchain/block/) by the [block height](/en/blockchain/block/block-height) | 5 |
-| [calculateAssetId(Issue): ByteVector](#calculateassetid) | Calculates the ID of the asset, created by [Issue](/en/ride/v5/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
+| [calculateAssetId(Issue): ByteVector](#calculateassetid) | Calculates ID of the token formed by the [Issue](/en/ride/v5/structures/script-actions/issue) structure when executing the [callable function](/en/ride/v5/functions/callable-function) | 10 |
+| [calculateLeaseId(Lease): ByteVector](#calculateleaseid) | Calculates ID of the lease formed by the [Lease](/en/ride/v5/structures/script-actions/lease) structure when executing the callable function | 1 |
 | [transactionHeightById(ByteVector): Int&#124;Unit](#transactionheightbyid) | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 20 |
 | [transferTransactionById(ByteVector): TransferTransaction&#124;Unit](#transfertransactionbyid) | Gets the data of a transfer transaction | 60 |
 | [wavesBalance(Address&#124;Alias): Int](#waves-balance) | Gets account balance in [WAVES](/en/blockchain/token/waves) | 10 |
@@ -107,7 +108,7 @@ let x = match blockInfoByHeight(1234567) {
 
 ## calculateAssetId
 
-Calculates the ID of the asset, created by [Issue](/en/ride/v5/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution.
+Calculates ID of the token formed by the [Issue](/en/ride/v5/structures/script-actions/issue) structure when executing the [callable function](/en/ride/v5/functions/callable-function).
 
 ```
 calculateAssetId(issue: Issue): ByteVector
@@ -117,7 +118,9 @@ calculateAssetId(issue: Issue): ByteVector
 
 | Parameter | Description |
 | :--- | :--- |
-| `issue`: [Issue](/en/ride/v5/structures/script-actions/issue) | The structure by which the asset is formed |
+| `issue`: [Issue](/en/ride/v5/structures/script-actions/issue) | Structure that sets the parameters of the token issue |
+
+### Example
 
 ### Example
 
@@ -127,25 +130,93 @@ calculateAssetId(issue: Issue): ByteVector
 {-# SCRIPT_TYPE ACCOUNT #-}
   
 @Callable(inv)
-func issueAndSend() = {
+func issueAndId() = {
   let issue = Issue("CryptoRouble", "Description", 1000, 2, true)
   let id = calculateAssetId(issue)
   (
     [
       issue,
-      ScriptTransfer(inv.caller, issue.quantity, id),
       BinaryEntry("id", id)
+    ],
+  null
+  )
+}
+```
+
+<!--State Changes:
+
+```json
+{
+  "data": [
+    {
+      "key": "id",
+      "type": "binary",
+      "value": "base64:iHAg1I7BMhvuW8+EPQdIRkyJFft45IJ6DxVZDEg+xdI="
+    }
+  ],
+  "transfers": [],
+  "issues": [
+    {
+      "assetId": "ABbcbRoJF4WaxiBCRr2xFiA1VgJ3a6FGrD68B4grkbmj",
+      "name": "CryptoRouble",
+      "description": "Description",
+      "quantity": 1000,
+      "decimals": 2,
+      "isReissuable": true,
+      "compiledScript": null,
+      "nonce": 0,
+      "money": {
+        "amount": "10",
+        "currency": {
+          "id": "ABbcbRoJF4WaxiBCRr2xFiA1VgJ3a6FGrD68B4grkbmj",
+          "displayName": "CryptoRouble",
+          "shortName": "CryptoRouble",
+          "precision": 2,
+          "roundingMode": 4
+        }
+      }
+    }
+  ],
+  "reissues": [],
+  "burns": [],
+  "sponsorFees": []
+}
+```
+-->
+
+## calculateLeaseId
+
+Calculates ID of the lease formed by the [Lease](/en/ride/v5/structures/script-actions/lease) structure when executing the [callable function](/en/ride/v5/functions/callable-function).
+
+```
+calculateLeaseId(lease: Lease): ByteVector
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `lease`: [Lease](/en/ride/v5/structures/script-actions/lease) | Structure that sets the lease parameters |
+
+### Example
+
+```
+{-# STDLIB_VERSION 5 #-}
+{-# CONTENT_TYPE DAPP #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+  
+@Callable(i)
+func foo() = {
+  let lease = Lease(Alias("merry"),100000000)
+  let id = calculateLeaseId(lease)
+  (
+    [
+      lease,
+      BinaryEntry("lease", id)
     ],
     null
   )
 }
- 
-// Result:
-//   {
-//     "type": "string",
-//     "value": "55jbTUxWkbLbfd6Z7Wy93DcyD7xikBg5GRDmccD4s8uv",
-//     "key": "id"
-//   }
 ```
 
 ## transactionHeightById

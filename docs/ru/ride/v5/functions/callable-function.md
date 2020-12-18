@@ -12,6 +12,7 @@ dApp-скрипт может содержать несколько вызыва�
 * Переводы токенов.
 * Выпуск токенов от имени dApp, довыпуск и сжигание токенов.
 * Настройка [спонсирования](/ru/blockchain/waves-protocol/sponsored-fee).
+* Лизинг, отмена лизинга.
 
 > Набор доступных действий зависит от версии [Стандартной библиотеки](/ru/ride/script/standard-library).
 
@@ -61,7 +62,9 @@ dApp-скрипт может содержать несколько вызыва�
     Issue("RegularToken", "This is an ordinary token", 10000, 2, true),
     Reissue("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", 1000, true),
     Burn("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", 1000)]
-    SponsorFee("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", 300)
+    SponsorFee("4ZzED8WJXsvuo2MEm2BmZ87Azw8Sx7TVC6ufSUA5LyTV", 300),
+    Lease(Address(base58'3Mn5hzck8nYd52Ytd2ZjzoiQLVoMcn1VAs9',1000),
+    LeaseCancel(base58'Pxaf8pGKHS5ufGhqjmwRRcHQtC9T3h4d1XaJMnkhR1Vt')
   ],
   42
 )
@@ -80,6 +83,8 @@ dApp-скрипт может содержать несколько вызыва�
 | [Burn](/ru/ride/v5/structures/script-actions/burn) | Сжигание токена |
 | [SponsorFee](/ru/ride/v5/structures/script-actions/sponsor-fee) | Настройка спонсирования |
 | [ScriptTransfer](/ru/ride/v5/structures/script-actions/script-transfer) | Перевод токена |
+| [Lease](/ru/ride/v5/structures/script-actions/lease) | Лизинг |
+| [LeaseCancel](/ru/ride/v5/structures/script-actions/issue) | Отмена лизинга |
 
 ## Ограничения
 

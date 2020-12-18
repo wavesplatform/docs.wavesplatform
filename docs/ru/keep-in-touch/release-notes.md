@@ -15,6 +15,13 @@
 * Добавлена функция [Invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp) для вызова dApp из dApp.
 * Добавлены [нетерпеливые переменные](/ru/ride/variables/), которые вычисляются до следующего выражения, чтобы гарантировать порядок выполнения и применения действий скрипта вызываемых функций.
 * Изменен [формат результата](/ru/ride/v5/functions/callable-function#резуnьтат-выпоnнения) вызываемой функции: добавлено возвращаемое значение.
+* Добавлены действия скрипта, которые может выполнять вызываемая функция:
+   * [Lease](/ru/ride/v5/structures/script-actions/lease) — передает WAVES в лизинг.
+   * [LeaseCancel](/ru/ride/v5/structures/script-actions/lease-cancel) — прекращает лизинг.
+
+   С помощью действий `Lease` и `LeaseCancel` можно изменить сумму лизинга, в частности, извлечь часть средств из лизинга. Если в одном вызове скрипта отменить лизинг на большую сумму и создать новый лизинг на меньшую сумму с тем же получателем, генерирующий баланс получателя уменьшится на разницу. Если же отправить две отдельные транзакции — транзакцию отмены лизинга и транзакцию лизинга, генерирующий баланс сразу же уменьшится на сумму отмененного лизинга, а увеличится на сумму нового лизинга только через 1000 блоков.
+
+* Добавлена встроенная функция [calculateLeaseId](/ru/ride/v5/functions/built-in-functions/blockchain-functions#calculateleaseid) для получения ID лизинга, сформированного структурой [Lease](/ru/ride/v5/structures/script-actions/lease) при выполнении транзакции вызова скрипта.
 * Добавлены [функции хранилища данных аккаунта](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions), позволяющие dApp-скрипту читать данные собственного хранилища данных на любом этапе вычислений:
    * `getBinary(key: String): ByteVector|Unit`
    * `getBinaryValue(key: String): ByteVector`
@@ -30,15 +37,35 @@
 #### Ломающие изменения
 
 * Добавлен новый тип транзакции: [транзакция продолжения](/ru/blockchain/transaction-type/continuation-transaction).
+* Лизинг может быть создан не только в результате транзакции лизинга, но и в результате транзакции вызова скрипта с помощью действия скрипта `Lease`. Поэтому изменен формат ответа следующих методов:
+   * В ответе методов `/transactions/address/{address}/limit/{limit}` и `/transactions/info/{id}` для транзакции отмены лизинга структура `lease` теперь содержит не транзакцию лизинга, а структуру с параметрами лизинга.
+   * `/leasing/active/{address}` возвращает не массив транзакций лизинга, а массив структур c параметрами лизингов.
+
+   <details>
+      <summary>Формат</summary>
+    
+   ```json
+   "lease":
+      {
+        "leaseId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+        "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+        "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
+        "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
+        "amount": 1000000000000,
+        "height": 2253315
+      }
+   ```
+</details>
+
 
 #### Семантические изменения
 
 * В ответ методов, возвращающих транзакции, для [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) версии 3 добавлены поля `extraFeePerStep` и `continuationTransactionIds`, а также значение `script_execution_in_progress` для поля `applicationStatus`.
-* Результаты вызова dApp из dApp добавлены в виде массива `invokes` в структуру `stateChanges`, возвращаемую следующими методами:
-   * `/debug/stateChanges/address/{address}/limit/{limit}`
-   * `/debug/stateChanges/info/{id}`
+* Результат вызова dApp из dApp добавлен в виде массива `invokes` в структуру `stateChanges`, возвращаемую следующими методами:
    * `/transactions/info/{id}`
    * `/transactions/address/{address}/limit/{limit}`
+   * `/debug/stateChanges/info/{id}`
+   * `/debug/stateChanges/address/{address}/limit/{limit}`
 
    Каждый элемент массива `invokes`, в свою очередь, содержит `stateChanges`.
    
@@ -91,7 +118,69 @@
       ]
    }
    ```
-</details>
+   </details>
+
+* Результат действий скрипта `Lease` и `LeaseCancel` также добавлен в структуру `stateChanges`
+
+   <details>
+      <summary>Формат</summary>
+
+   ```json
+   "stateChanges": {
+      "leases": [
+        {
+          "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+          "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
+          "amount": 500000
+        }
+      ],
+      "leaseCancels": [
+         {
+            "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
+         }
+      ]
+   }
+   ```
+   </details>
+
+* Результат действий скрипта `Lease` и `LeaseCancel` добавлен в структуру `trace`, возвращаемую следующими методами:
+   * `/transactions/broadcast` c параметром `trace=true`
+   * `/debug/validate` c параметром `trace=true`
+
+   <details>
+      <summary>Формат</summary>
+
+   ```json
+       "trace": [
+        {
+            "id": "3MosFNQAFGskNDnYzRBgMbfod6xXPdG96ME",
+            "type": "dApp",
+            "vars": [
+                {
+                    "name": "amount",
+                    "type": "integer",
+                    "value": 12345
+                }
+            ],
+            "result": {
+                "leases": [
+                    {
+                        "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+                        "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
+                        "amount": 500000
+                    }
+                ],
+                "leaseCancels": [
+                    {
+                        "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
+                    }
+                ]
+            }
+        }
+    ]
+   ```
+   </details>
+
 
 ## Версия 1.2
 
