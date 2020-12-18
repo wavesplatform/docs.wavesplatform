@@ -12,7 +12,9 @@
 
 Функция `Invoke` может использоваться только вызываемой функцией [dApp-скрипта](/ru/ride/script/script-types/dapp-script), но не [функцией-верификатором](/ru/ride/functions/verifier-function), [скриптом аккаунта](/ru/ride/script/script-types/account-script) или [скриптом ассета](/ru/ride/script/script-types/asset-script).
 
-С помощью функции `Invoke` вызываемая функция может вызвать вызываемую функцию другого dApp или того же самого dApp, в том числе сама себя, а затем использовать результаты вызова в дальнейших вычислениях. Вызов может содержать платежи, которые будут переведены с баланса вызывающего dApp на баланс вызываемого. Подробнее в разделе [Вызов dApp из dApp](/ru/ride/advanced/dapp-to-dapp).
+С помощью функции `Invoke` вызываемая функция может вызвать вызываемую функцию другого dApp или того же самого dApp, в том числе сама себя, а затем использовать результаты вызова в дальнейших вычислениях. Подробнее в разделе [Вызов dApp из dApp](/ru/ride/advanced/dapp-to-dapp).
+
+Вызов может содержать платежи, которые будут переведены с баланса вызывающего dApp на баланс вызываемого. Платежи запрещены, если dApp вызывает сам себя.
 
 ```ride
 Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector|Int|String|List[Boolean|ByteVector|Int|String]], payments: List[AttachedPayments]): Any

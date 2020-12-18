@@ -12,8 +12,9 @@ Invokes a dApp [callable function](/en/ride/v5/functions/callable-function).
 
 The `Invoke` function can be used by a callable function of a [dApp script](/en/ride/script/script-types/dapp-script), but not by a [verifier function](/en/ride/functions/verifier-function), [account script](/en/ride/script/script-types/account-script) or [asset script](/en/ride/script/script-types/asset-script).
 
-Via the `Invoke` function, the callable function can invoke a callable function of another dApp, or another callable function of the same dApp, or  even itself, and then use the invocation results in subsequent operations. The invocation can contain payments that will be transferred 
- from the balance of the invoking dApp to the balance of the invoked dApp. For details, see the [dApp-to-dApp Invocation](/en/ride/advanced/dapp-to-dapp) article.
+Via the `Invoke` function, the callable function can invoke a callable function of another dApp, or another callable function of the same dApp, or  even itself, and then use the invocation results in subsequent operations. For details, see the [dApp-to-dApp Invocation](/en/ride/advanced/dapp-to-dapp) article.
+
+The invocation can contain payments that will be transferred from the balance of the invoking dApp to the balance of the invoked dApp. Payments are forbidden if the dApp invokes itself.
 
 ```ride
 Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector|Int|String|List[Boolean|ByteVector|Int|String]], payments: List[AttachedPayments]): Any
