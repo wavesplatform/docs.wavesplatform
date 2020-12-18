@@ -20,6 +20,7 @@ In the tables below regular expressions are used to define paths, for example, <
 | /blocks/height<br/>/transactions/unconfirmed | 15 | 20 r/s (burst 50) |
 | /addresses/balance/.+<br/>/assets/balance/.+ | 15 | 100 r/s (burst 100) |
 | ^/transactions/address/.\*<br/>^/addresses/data/[^/]+$<br>^/assets/balance/[^/]+$<br>^/assets/[^/]/distribution.\* | | 17 r/m (burst 17) |
+| /utils/script/evaluate | – | 10 r/m |
 
 ## Limitations on [Testnet Pool](https://nodes-testnet.wavesnodes.com/)
 
@@ -32,3 +33,4 @@ In the tables below regular expressions are used to define paths, for example, <
 | /transactions/info/.+ | 15 | 20 r/s (burst 50) |
 | /blocks/height<br/>/transactions/unconfirmed | 15 | 20 r/s (burst 50) |
 | /addresses/balance/.+<br/>/assets/balance/.+ | 15 | 100 r/s (burst 100) |
+| /utils/script/evaluate | – | 10 r/m |
