@@ -25,7 +25,8 @@ Lease(recipient: Address|Alias, amount: Int)
 | # | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
 | 1 | recipient | [Address](/ru/ride/v5/structures/common-structures/address)&#124;[Alias](/ru/ride/v5/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias), которому будет выдан лизинг |
-| 2 | amount | [Int](/ru/ride/v5/data-types/int) | Количество WAVELET (то есть количество WAVES, умноженное на 10<sup>8</sup>), передаваемое в лизинг | 3 | nonce | [Int](/ru/ride/v5/data-types/int) | Nonce, который используется для генерации ID лизинга. Если вызываемая функция создает несколько лизингов с одинаковыми параметрами, нужно использовать разные nonce |
+| 2 | amount | [Int](/ru/ride/v5/data-types/int) | Количество WAVELET (то есть количество WAVES, умноженное на 10<sup>8</sup>), передаваемое в лизинг |
+| 3 | nonce | [Int](/ru/ride/v5/data-types/int) | Nonce, который используется для генерации ID лизинга. Если вызываемая функция создает несколько лизингов с одинаковыми параметрами, нужно использовать разные nonce |
 
 ### Пример
 

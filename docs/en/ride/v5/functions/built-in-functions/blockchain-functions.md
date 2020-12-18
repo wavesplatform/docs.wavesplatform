@@ -122,8 +122,6 @@ calculateAssetId(issue: Issue): ByteVector
 
 ### Example
 
-### Example
-
 ```
 {-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}

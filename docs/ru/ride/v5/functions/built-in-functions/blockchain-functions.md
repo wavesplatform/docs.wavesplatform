@@ -149,7 +149,7 @@ func issueAndId() = {
       issue,
       BinaryEntry("id", id)
     ],
-  null
+    null
   )
 }
 ```
