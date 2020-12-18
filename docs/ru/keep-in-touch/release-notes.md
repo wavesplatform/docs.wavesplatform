@@ -1,6 +1,190 @@
-# Версия 1.2
+# Release Notes
 
-## Улучшения ноды
+## Версия 1.3 (Stagenet)
+
+### Развитие протокола
+
+* **Вызов dApp из dApp.** Вызываемая функция dApp-скрипта может вызывать вызываемую функцию другого dApp или того же самого dApp, в том числе сама себя. Все вызванные функции выполняются в рамках одной транзакции вызова скрипта. Сложность выполняемых скриптов ограничена. [Подробнее о вызове dApp из dApp](/ru/ride/advanced/dapp-to-dapp)
+* **Вычисления с продолжением.** Добавлена поддержка dApp-скриптов, сложность которых превышает 4000. Выполнение такого скрипта разбивается на несколько этапов: первый этап вычислений выполняется в рамках транзакции вызова скрипта, последующие этапы — в рамках транзакций продолжения. [Подробнее о вычислениях с продолжением](/ru/ride/advanced/continuation)
+* Добавлен новый тип транзакции: [Continuation](/en/blockchain/transaction-type/continuation-transaction). Транзакция продолжения создается генератором блока автоматически в случае наличия незавершенной цепочки вычислений. Транзакция не может быть отправлена пользователем.
+* Добавлена версия 3 [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction): с ее помощью можно вызвать скрипт сложностью выше 4000.
+
+### Ride
+
+* Выпущена [версия 5](/ru/ride/v5/) Стандартной библиотеки.
+* Добавлена функция [Invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp) для вызова dApp из dApp.
+* Добавлены [нетерпеливые переменные](/ru/ride/variables/), которые вычисляются до следующего выражения, чтобы гарантировать порядок выполнения и применения действий скрипта вызываемых функций.
+* Изменен [формат результата](/ru/ride/v5/functions/callable-function#резуnьтат-выпоnнения) вызываемой функции: добавлено возвращаемое значение.
+* Добавлены действия скрипта, которые может выполнять вызываемая функция:
+   * [Lease](/ru/ride/v5/structures/script-actions/lease) — передает WAVES в лизинг.
+   * [LeaseCancel](/ru/ride/v5/structures/script-actions/lease-cancel) — прекращает лизинг.
+
+   С помощью действий `Lease` и `LeaseCancel` можно изменить сумму лизинга, в частности, извлечь часть средств из лизинга. Если в одном вызове скрипта отменить лизинг на большую сумму и создать новый лизинг на меньшую сумму с тем же получателем, генерирующий баланс получателя уменьшится на разницу. Если же отправить две отдельные транзакции — транзакцию отмены лизинга и транзакцию лизинга, генерирующий баланс сразу же уменьшится на сумму отмененного лизинга, а увеличится на сумму нового лизинга только через 1000 блоков.
+
+* Добавлена встроенная функция [calculateLeaseId](/ru/ride/v5/functions/built-in-functions/blockchain-functions#calculateleaseid) для получения ID лизинга, сформированного структурой `Lease`.
+* Добавлены [функции хранилища данных аккаунта](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions), позволяющие dApp-скрипту читать данные собственного хранилища данных на любом этапе вычислений:
+   * `getBinary(key: String): ByteVector|Unit`
+   * `getBinaryValue(key: String): ByteVector`
+   * `getBoolean(key: String): Boolean|Unit`
+   * `getBooleanValue(key: String): Boolean`
+   * `getInteger(key: String): Int|Unit`
+   * `getIntegerValue(key: String): Int`
+   * `getString(key: String): String|Unit`
+   * `getStringValue(key: String): String`
+
+### Node REST API
+
+#### Ломающие изменения
+
+* Добавлен новый тип транзакции: [транзакция продолжения](/ru/blockchain/transaction-type/continuation-transaction).
+* Лизинг может быть создан не только в результате транзакции лизинга, но и в результате транзакции вызова скрипта с помощью действия скрипта `Lease`. Поэтому изменен формат ответа следующих методов:
+   * В ответе методов `/transactions/address/{address}/limit/{limit}` и `/transactions/info/{id}` для транзакции отмены лизинга структура `lease` теперь содержит не транзакцию лизинга, а структуру с параметрами лизинга.
+   * `/leasing/active/{address}` возвращает не массив транзакций лизинга, а массив структур c параметрами лизингов.
+
+   <details>
+      <summary>Формат</summary>
+    
+   ```json
+   "lease":
+      {
+        "leaseId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+        "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+        "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
+        "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
+        "amount": 1000000000000,
+        "height": 2253315
+      }
+   ```
+</details>
+
+
+#### Семантические изменения
+
+* В ответ методов, возвращающих транзакции, для [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) версии 3 добавлены поля `extraFeePerStep` и `continuationTransactionIds`, а также значение `script_execution_in_progress` для поля `applicationStatus`.
+* Результат вызова dApp из dApp добавлен в виде массива `invokes` в структуру `stateChanges`, возвращаемую следующими методами:
+   * `/transactions/info/{id}`
+   * `/transactions/address/{address}/limit/{limit}`
+   * `/debug/stateChanges/info/{id}`
+   * `/debug/stateChanges/address/{address}/limit/{limit}`
+
+   Каждый элемент массива `invokes`, в свою очередь, содержит `stateChanges`.
+   
+   <details>
+      <summary>Формат</summary>
+    
+   ```json
+   "stateChanges": {
+     "data": [],
+     "transfers": [],
+     "issues": [],
+     "reissues": [],
+     "burns": [],
+     "invokes": [
+       {
+         "dApp": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
+         "payment": [
+           {
+             "amount": 50000000,
+             "assetId": "DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p"
+           }
+         ],
+         "call": {
+           "function": "swapNeutrinoToWaves",
+           "args": [
+             {
+               "type": "string",
+               "value": "EUR"
+             },
+             {
+               "type": "integer",
+               "value": 843699
+             },
+             {
+               "type": "binary",
+               "value": "base64:OK+armP11YmAyoQOwl8jLDLi2dK2sRc1Ue2QzZX1wgRmwGASLhllv1iKg2fRKS8cAlSDrfMYPb6374WMC9gFgA=="
+             }
+           ]
+          },
+         "stateChanges": {
+            "data": [],
+            "transfers": [],
+            "issues": [],
+            "reissues": [],
+            "burns": [],
+            "sponsorFees": [],
+            "invokes": []
+          }
+       }
+      ]
+   }
+   ```
+   </details>
+
+* Результат действий скрипта `Lease` и `LeaseCancel` также добавлен в структуру `stateChanges`.
+
+   <details>
+      <summary>Формат</summary>
+
+   ```json
+   "stateChanges": {
+      "leases": [
+        {
+          "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+          "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
+          "amount": 500000
+        }
+      ],
+      "leaseCancels": [
+         {
+            "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
+         }
+      ]
+   }
+   ```
+   </details>
+
+* Результат действий скрипта `Lease` и `LeaseCancel` добавлен в структуру `trace`, возвращаемую следующими методами:
+   * `/transactions/broadcast` c параметром `trace=true`
+   * `/debug/validate` c параметром `trace=true`
+
+   <details>
+      <summary>Формат</summary>
+
+   ```json
+       "trace": [
+        {
+            "id": "3MosFNQAFGskNDnYzRBgMbfod6xXPdG96ME",
+            "type": "dApp",
+            "vars": [
+                {
+                    "name": "amount",
+                    "type": "integer",
+                    "value": 12345
+                }
+            ],
+            "result": {
+                "leases": [
+                    {
+                        "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+                        "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
+                        "amount": 500000
+                    }
+                ],
+                "leaseCancels": [
+                    {
+                        "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
+                    }
+                ]
+            }
+        }
+    ]
+   ```
+   </details>
+
+
+## Версия 1.2
+
+### Развитие протокола
 
 * Усовершенствован механизм [генерации блоков](/ru/blockchain/block/block-generation/) за счет использования [VRF](https://en.wikipedia.org/wiki/Verifiable_random_function) (Verifiable random function). Это улучшение позволяет противостоять атакам типа stake grinding, при помощи которых злоумышленники пытаются повысить для себя вероятность генерации блока.
 * Добавлено сохранение транзакций с неудачным результатом выполнения скрипта. Транзакции вызова скрипта и транзакции обмена сохраняются на блокчейне и за них взимается комиссия, даже если результат выполнения dApp-скрипта или скрипта ассета был неудачным (при условии что транзакция прошла проверку подписи отправителя или проверку скриптом аккаунта, а при вызове скрипта сложность вычислений превысила порог для сохранения неуспешных транзакций). [Подробнее](/ru/keep-in-touch/april)
@@ -18,11 +202,11 @@
 * Теперь при валидации транзакции перед ее добавлением в пул неподтвержденных транзакций учитываются изменения состояния блокчейна, внесенные транзакциями, которые были ранее добавлены в блок, но затем возвращены в пул неподтвержденных транзакций из-за появления нового ключевого блока, ссылающегося на один из предшествующих микроблоков.
 * dApp не может вызвать самого себя с помощью транзакции вызова скрипта с приложенными платежами. dApp также не может переводить средства самому себе с помощью действия скрипта `ScriptTransfer`.
 
-## Обновления REST API
+### Обновления REST API
 
 В релизе ноды 1.2 внесены **семантические и ломающие изменения** в API. Прочитайте внимательно описание изменений: они могут повлиять на работу приложений при миграции с версии 1.1.
 
-### Семантические изменения
+#### Семантические изменения
 
 * Транзакции вызова скрипта и транзакции обмена могут быть [сохранены как неуспешные](/ru/keep-in-touch/april). Их присутствие на блокчейне не означает, что изменения применены: нужно проверить также поле `applicationStatus`. Его возвращают следующие методы:
    * `/blocks/{id}`
@@ -81,7 +265,7 @@
 
 * Для блока версии 5 поле `reference` ссылается на `id` предыдущего блока, а не на `signature`, как в версии 4.
 
-### Ломающие изменения
+#### Ломающие изменения
 
 * Получение блока по `id` вместо `signature`.
 
@@ -145,7 +329,7 @@
 
 * Транзакция обмена версии 3 может содержать ордера на покупку и продажу в любом порядке.
 
-### Улучшения
+#### Улучшения
 
 * Метод `/debug/validate` не требует указания API-key.
 * Метод `/assets/details` позволяет получать информацию сразу по нескольким ассетам. В ответ добавлено поле `originTransactionId`, содержащее ID транзакции, выпустившей ассет. Кроме того, поддерживаются POST-запросы.
@@ -177,7 +361,7 @@
    * `/blocks/last`
    * `/blocks/seq/{from}/{to}`
 
-## Изменения Ride
+### Изменения Ride
 
 * Выпущена версия 4 [Стандартной библиотеки](/ru/ride/script/standard-library).
 * Добавлены действия скрипта, которые может выполнять [вызываемая функция](/ru/ride/functions/callable-function) dApp-скрипта:
@@ -226,7 +410,7 @@
    * [String](/ru/ride/data-types/string) — 32&nbsp;767 байт
    * [ByteVector](/ru/ride/data-types/byte-vector) — 32&nbsp;767 байт (кроме поля `bodyBytes` структуры транзакции)
 
-## Waves Explorer
+### Waves Explorer
 
 * Добавлено отображение транзакций с неудачным результатом выполнения dApp-скрипта или скрипта ассета, сохраненных на блокчейне. В списке транзакций они отмечены значком ![](./_assets/stop.png).
 * Для транзакции вызова скрипта поддерживается отображение нескольких платежей. Результат выполнения скрипта отображается в виде таблицы.

@@ -1,5 +1,12 @@
 # Обновления в документации
 
+## Декабрь
+
+### Ride
+
+* [Вычисления с продолжением](/ru/ride/advanced/continuation) ![stagenet](./_assets/stagenet.svg)
+* [Вызов dApp из dApp](/ru/ride/advanced/dapp-to-dapp) ![stagenet](./_assets/stagenet.svg)
+
 ## Ноябрь
 
 ### Нода
