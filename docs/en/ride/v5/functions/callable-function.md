@@ -16,7 +16,7 @@ The callable function can perform the following actions:
 
 > Available script actions depend on [Standard library](/en/ride/script/standard-library) version used.
 
-The callable function can return a value that is passes to the invoking function in case of the [dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp).
+The callable function can return a value that is passed to the invoking function in case of the [dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp).
 
 The invocation can contain payments to dApp. Tokens obtained in these payments can be used in script actions performed by the callable function.
 
@@ -96,7 +96,7 @@ See also the [Limitations](/en/ride/v5/limits/) article.
 
 ### Example
 
-The example listed below is a wallet application which allows to send [WAVES](/en/blockchain/token/waves) to certain address and withdraw them (withdrawing others' WAVES is prevented). There are two callable functions in the example:
+The example listed below is a wallet application which allows to send [WAVES](/en/blockchain/token/waves) to a certain address and withdraw them (withdrawing others' WAVES is prevented). There are two callable functions in the example:
 
 * `deposit` — deposits the tokens.
 * `withdraw` — withdraws the tokens.
