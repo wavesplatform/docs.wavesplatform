@@ -12,7 +12,7 @@ The token name and/or description can be changed:
 
 The minimum fee for an Update Asset Info transaction is 0.001 WAVES, in case of a [smart asset](/en/blockchain/token/smart-asset) 0.005 WAVES.
 
-If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
+If the transaction sender is a [dApp or smart account](/en/blockchain/account/dapp), the minimum fee is increased by 0.004 WAVES.
 
 ## JSON Representation
 
