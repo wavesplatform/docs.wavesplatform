@@ -150,33 +150,33 @@
       <summary>Format</summary>
 
    ```json
-       "trace": [
-        {
-            "id": "3MosFNQAFGskNDnYzRBgMbfod6xXPdG96ME",
-            "type": "dApp",
-            "vars": [
-                {
-                    "name": "amount",
-                    "type": "integer",
-                    "value": 12345
-                }
-            ],
-            "result": {
-                "leases": [
-                    {
-                        "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
-                        "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
-                        "amount": 500000
-                    }
-                ],
-                "leaseCancels": [
-                    {
-                        "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
-                    }
-                ]
+   "trace": [
+      {
+         "id": "3MosFNQAFGskNDnYzRBgMbfod6xXPdG96ME",
+         "type": "dApp",
+         "vars": [
+            {
+               "name": "amount",
+               "type": "integer",
+               "value": 12345
             }
-        }
-    ]
+        ],
+        "result": {
+            "leases": [
+               {
+                  "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+                  "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
+                  "amount": 500000
+               }
+            ],
+            "leaseCancels": [
+               {
+                  "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
+               }
+            ]
+         }
+      }
+   ]
    ```
    </details>
 

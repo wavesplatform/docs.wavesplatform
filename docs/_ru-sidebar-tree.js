@@ -983,10 +983,6 @@ module.exports = {
       ],
     },
     {
-      title: 'Компоненты Ride',
-      path: ridePath + 'advanced/components',
-    },
-    {
       title: 'Версия 5 (Stagenet)',
       path: rideV5Path,
       children: [
@@ -1299,6 +1295,10 @@ module.exports = {
           path: rideV5Path + 'limits',
         },
       ],
+    },
+    {
+      title: 'Компоненты Ride',
+      path: ridePath + 'advanced/components',
     },
     {
       title: '[en] Script performance tests',

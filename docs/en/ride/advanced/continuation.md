@@ -1,4 +1,4 @@
-# Continued Calculations
+# [Ride v5] Continued Calculations
 
 If the complexity of a dApp script exceeds 4000, its execution is split into several stages. A block generator that adds an Invoke Script transaction to a block performs calculations with the total complexity up to 4000 and saves intermediate results in the internal database. Further, the block generator, the same or another if a new block has already created, detects an uncompleted calculation sequence, creates a Continuation transaction, and adds it to the block, performing the next stage of calculations. The process continues until the script is completely executed or fails.
 

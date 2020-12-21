@@ -4,7 +4,7 @@
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| [Invoke](#invoke) | Вызывает вызываемую функцию dApp | ?? |
+| [Invoke](#invoke) | Вызывает вызываемую функцию dApp | TBDL |
 
 ## Invoke
 
