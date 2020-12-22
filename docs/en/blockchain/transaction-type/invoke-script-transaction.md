@@ -41,29 +41,75 @@ where:
 
 ```json
 {
-  "senderPublicKey": "4kKN9G7cZXGQujLQm9ss5gqB7TKX4A9jtFGt7DnHUoQ6",
-  "fee": 500000,
   "type": 16,
+  "id": "8SwojcZ9NbS37pLmaMBo7iNPWYtLGHVo8Fv9cAjRvafR",
+  "sender": "3P8pGyzZL9AUuFs9YRYPDV3vm73T48ptZxs",
+  "senderPublicKey": "FuChbN7t3gvW5esgARFytKNVuHSCZpXSYf1y3eDSruEN",
+  "fee": 500000,
+  "feeAssetId": null,
+  "timestamp": 1605001263787,
+  "proofs": [
+    "5EpZvAzFSkcpZct5VAr5MMBm1zA52BS4uRWG19cX4Cv18b4hwaiYXPwv4zt2A6Tj86EQnk1Lib6SfnmB5jG9nUDZ"
+  ],
   "version": 1,
+  "dApp": "3PHaNgomBkrvEL2QnuJarQVJa71wjw9qiqG",
+  "payment": [
+    {
+      "amount": 787670779,
+      "assetId": null
+    },
+    {
+      "amount": 30000000,
+      "assetId": "DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p"
+    }
+  ],
   "call": {
-    "function": "returnSellVST",
+    "function": "replenishWithTwoTokens",
     "args": [
       {
-        "type": "string",
-        "value": "GiEBRfGhEeGqhPmLCjwJcYuakyvaz2GHGCfCzuinSKD"
+        "type": "integer",
+        "value": 1
       }
     ]
   },
-  "dApp": "3PJbknfXMsJzZmksmsKSMz56tVdDqF5GdNM",
-  "sender": "3P5rWeMzoaGBrXJDMifQDDjCMKWJGKTiVJU",
-  "feeAssetId": null,
-  "proofs": [
-    "28s21sisoa7yHWWmmX8U78fbNHW4KXAS9GHD8XmaN77gJxbnP2Q3DssNWpmSQ6hBq6xS985W4YiTmgvENhfWPNt5"
-  ],
-  "payment": [],
-  "id": "7CVjf5KGRRYj6UyTC2Etuu4cUxx9qQnCJox8vw9Gy9yq",
-  "timestamp": 1565537422938,
-  "height": 1656369
+  "height": 2322870,
+  "applicationStatus": "succeeded",
+  "stateChanges": {
+    "data": [
+      {
+        "key": "A_asset_balance",
+        "type": "integer",
+        "value": 2557806714947
+      },
+      {
+        "key": "B_asset_balance",
+        "type": "integer",
+        "value": 97419129300
+      },
+      {
+        "key": "share_asset_supply",
+        "type": "integer",
+        "value": 498856828809
+      }
+    ],
+    "transfers": [
+      {
+        "address": "3P8pGyzZL9AUuFs9YRYPDV3vm73T48ptZxs",
+        "asset": "Btw3G1j4wQgdp49PTxaFkNvn75dQtqGDM7ejQppHnWC1",
+        "amount": 153620536
+      }
+    ],
+    "issues": [],
+    "reissues": [
+      {
+        "assetId": "Btw3G1j4wQgdp49PTxaFkNvn75dQtqGDM7ejQppHnWC1",
+        "isReissuable": true,
+        "quantity": 153620536
+      }
+    ],
+    "burns": [],
+    "sponsorFees": []
+  }
 }
 ```
 
@@ -75,7 +121,8 @@ where:
 | dApp | dApp address base58 encoded or dApp [alias](/en/blockchain/account/alias) with `alias:<chain_id>:` prefix, for example `alias:T:merry` (see [Chain ID](/en/blockchain/blockchain-network/#chain-id)) |
 | payment.amount | Amount of token in payment: an integer value specified in [atomic units](/en/blockchain/token/#atomic-unit) |
 | payment.assetId | ID of token in payment, base58 encoded. `null` means that the payment is in WAVES |
-| extraFeePerStep | Extra fee for each stage of calculations, see the [Continued Calculations](/en/ride/advanced/continuation) article. The extra fee is specified in the same token as the transaction fee, in atomic units. The field is added in transaction version 3 |
+| stateChanges | Script actions performed by the callable function. In transaction version 3 the structure can also include [dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp) result | 
+| extraFeePerStep | Extra fee for each stage of calculations, see the [Continued Calculations](/en/ride/advanced/continuation) article. The extra fee is specified in the same token as the transaction fee, in atomic units. A value other than null or 0 is only valid when the version 5 dApp script is invoked. The field is added in transaction version 3 |
 | сontinuationTransactionIds | List of the Continuation transactions in the calculation sequence. The field is added in transaction version 3 |
 
 The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.

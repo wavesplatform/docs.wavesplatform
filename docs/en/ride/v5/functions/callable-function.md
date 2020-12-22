@@ -18,7 +18,7 @@ The callable function can perform the following actions:
 
 The callable function can return a value that is passed to the invoking function in case of the [dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp).
 
-The invocation can contain payments to dApp. Tokens obtained in these payments can be used in script actions performed by the callable function.
+The invocation can contain payments to dApp. Tokens obtained in these payments can be used in script actions performed by the callable function, but cannot be used in payments attached to nested invocations.
 
 :warning: The fee for the Invoke Script transaction cannot be funded by transfer from the dApp to the transaction sender after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. If sender's balance is insufficient to pay the fee, dApp script is not executed.
 
