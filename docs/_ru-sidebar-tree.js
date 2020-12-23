@@ -1142,20 +1142,24 @@ module.exports = {
       path: sdkPath,
       children: [
         {
+          title: 'Data Service API',
+          path: sdkPath + 'waves-data-service-api',
+        },
+        {
           title: 'Node REST API 🡥',
           path: nodePath + 'node-api',
         },
         {
-          title: 'Waves Keeper API 🡥',
-          path: ecosystemPath + 'waves-keeper/waves-keeper-api',
-        },
-        {
-          title: '[en] Waves data service API',
-          path: sdkPath + 'waves-data-service-api',
-        },
-        {
           title: 'Node gRPC Server 🡥',
           path: nodePath + 'extensions/grpc-server',
+        },
+        {
+          title: 'Blockchain Updates 🡥',
+          path: nodePath + 'extensions/blockchain-updates',
+        },
+        {
+          title: 'Waves Keeper API 🡥',
+          path: ecosystemPath + 'waves-keeper/waves-keeper-api',
         },
       ],
     },
