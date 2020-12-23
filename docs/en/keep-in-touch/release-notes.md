@@ -31,6 +31,7 @@
    * `getIntegerValue(key: String): Int`
    * `getString(key: String): String|Unit`
    * `getStringValue(key: String): String`
+* Enabled [library creation and import](/en/ride/advanced/import).
 
 ### Node REST API
 

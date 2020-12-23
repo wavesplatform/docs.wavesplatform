@@ -6,6 +6,7 @@
 
 * [Вычисления с продолжением](/ru/ride/advanced/continuation) ![stagenet](./_assets/stagenet.svg)
 * [Вызов dApp из dApp](/ru/ride/advanced/dapp-to-dapp) ![stagenet](./_assets/stagenet.svg)
+* [Подключение библиотек](/ru/ride/advanced/import) ![stagenet](./_assets/stagenet.svg)
 
 ## Ноябрь
 

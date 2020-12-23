@@ -1003,6 +1003,10 @@ module.exports = {
           path: ridePath + 'advanced/continuation',
         },
         {
+          title: 'Import Libraries',
+          path: ridePath + 'advanced/import',
+        },
+        {
           title: 'Strict Variable',
           path: rideV5Path + 'variables',
         },

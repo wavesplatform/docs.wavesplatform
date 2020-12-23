@@ -6,6 +6,7 @@
 
 * [Continued Calculations](/en/ride/advanced/continuation) ![stagenet](./_assets/stagenet.svg)
 * [dApp-to-dApp Invocation](/en/ride/advanced/dapp-to-dapp) ![stagenet](./_assets/stagenet.svg)
+* [Import Libraries](/ru/ride/advanced/import) ![stagenet](./_assets/stagenet.svg)
 
 ## November
 

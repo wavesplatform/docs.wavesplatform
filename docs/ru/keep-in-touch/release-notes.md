@@ -31,6 +31,7 @@
    * `getIntegerValue(key: String): Int`
    * `getString(key: String): String|Unit`
    * `getStringValue(key: String): String`
+* Добавлена возможность [создания и подключения библиотек](/ru/ride/advanced/import).
 
 ### Node REST API
 
