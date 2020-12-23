@@ -1,4 +1,4 @@
-# LeaseCancel
+# [Ride v5] LeaseCancel
 
 :warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/).
 

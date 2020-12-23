@@ -1,6 +1,6 @@
-# Continued Calculations
+# [Ride v5] Continued Calculations
 
-If the complexity of a dApp script exceeds 4000, its execution is split into several stages. A block generator that adds an Invoke Script transaction to a block performs calculations with the total complexity up to 4000 and saves intermediate results in the internal database. Further, the block generator, the same or another if a new block has already created, detects an uncompleted calculation sequence, creates a Continuation transaction, and adds it to the block, performing the next stage of calculations. The process continues until the script is completely executed or fails.
+If the complexity of a dApp script exceeds 4000, its execution is split into several stages. A block generator that adds an Invoke Script transaction to a block performs calculations with the total complexity up to 4000 and saves intermediate results in the internal database. Then the block generator, the same or another if a new block has already been created, detects an incomplete calculation sequence, creates a Continuation transaction, and adds it to the block, performing the next stage of calculations. The process continues until the script is completely executed or fails.
 
 Thus, the first stage of calculations is performed within the Invoke Script transaction. The further stages are performed within Continuation transactions created automatically by block generators. Continuation transaction fields are described in the [Continuation Transaction](/en/blockchain/transaction-type/continuation-transaction) article.
 
@@ -31,7 +31,7 @@ During all the stages of calculations, the dApp script operates the same blockch
 
 ### 1. Entries of dApp's Own Data Storage
 
-Due to the suspension of other transactions involving the dApp (see above), the dApp's data storage entries do not change from the start of the script execution until the end. The dApp script can get data from its own storage at any stage, that is, in any of the transactions in the of the calculation sequence, using the following functions:
+Due to the suspension of other transactions involving the dApp (see above), the dApp's data storage entries do not change from the start of the script execution until the end. The dApp script can get data from its own storage at any stage, that is, in any of the transactions in the calculation sequence, using the following functions:
 
 | Name | Description |
 | :--- | :--- |
@@ -44,7 +44,7 @@ Due to the suspension of other transactions involving the dApp (see above), the 
 | getString(key: String): String&#124;Unit | Gets a string by key from the dApp's own data storage |
 | getStringValue(key: String): String | Gets a string by key from the dApp's own data storage. Fails if there is no data |
 
-For a description of the functions, see the [Account Data Storage Functions](/en/ride/functions/built-in-functions/account-data-storage-functions) article.
+For the functions description, see the [Account Data Storage Functions](/en/ride/functions/built-in-functions/account-data-storage-functions) article.
 
 ### 2. External Data
 
@@ -85,7 +85,7 @@ Where:
 
    `I` is the number of **i**ssued assets that are not [NFT](/en/blockchain/token/non-fungible-token).
 
-The entire fee amount specified in the transaction is charged to the sender when the Invoke Script transaction is added to a block. If the fee is indicated in the sponsored asset, the sponsor will be charged the fee equivalent in WAVES.
+The sender is charged the entire fee amount specified in the Invoke Script transaction when the transaction is added to a block. If the fee is indicated in the sponsored asset, the sponsor is charged the fee equivalent in WAVES.
 
 The fee is distributed as follows:
 
@@ -129,7 +129,7 @@ If the last Continuation transaction fails:
 The `applicationStatus` values for an Invoke Script transaction:
 * `succeeded`: calculations are completed successfully.
 * `script_execution_failed`: the dApp script or an asset script failed.
-* `script_execution_in_progress`: the calculation sequence is not completed yet. It's a transitory status: when the calculations are completely executed or fails, the `applicationStatus` of the Invoke Script transaction becomes the same as the last Continuation transaction: `succeeded` or `script_execution_failed` respectively.
+* `script_execution_in_progress`: the calculation sequence is not completed yet. It's a transitory status: when the calculations are completely executed or fail, the `applicationStatus` of the Invoke Script transaction becomes the same as the last Continuation transaction: `succeeded` or `script_execution_failed` respectively.
 
 The `applicationStatus` values for a Continuation transaction:
 * `succeeded`: the calculation stage is completed successfully.

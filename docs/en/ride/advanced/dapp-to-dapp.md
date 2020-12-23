@@ -1,4 +1,4 @@
-# dApp-to-App Invocation
+# [Ride v5] dApp-to-App Invocation
 
 A dApp callable function can invoke a callable function of another dApp, or another callable function of the same dApp, or even itself. The invocation is synchronous. The invoked function returns a value that the invoking function can use.
 
@@ -21,6 +21,7 @@ Features:
 * dApp-to-dApp invocations are added in node version 1.3.0 and enabled with feature #16 “Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 * The invoking dApp script uses [Standard library](/en/ride/script/standard-library) **version 5**.
 * If the dApp invokes itself, the invocation must not contain payments.
+* The [Invoke Script](/en/blockchain/transaction) transaction version is 3.
 * The total complexity is limited by 52,000 for all callable functions and asset scripts of involved smart assets. The sender's account script complexity is not included in that limit.
 
 > Continued calculations and dApp-to-dApp invocation are mutually exclusive, that is, they cannot be initiated by the same transaction.
@@ -44,8 +45,8 @@ Parameters:
 | Parameter | Description |
 | :--- | :--- |
 | dApp: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of a dApp to invoke |
-| function: [String](/en/ride/v5/data-types/string) | Name of a callable function |
-| arguments: [List](/en/ride/v5/data-types/list)[[Boolean](/en/ride/v5/data-types/boolean)&#124;[ByteVector](/en/ride/data-types/byte-vector)&#124;[Int](/en/ride/data-types/int)&#124;[String](/en/ride/data-types/string)&#124;[List](/en/ride/data-types/list)[[Boolean](/en/ride/data-types/boolean)&#124;[ByteVector](/en/ride/data-types/byte-vector)&#124;[Int](/en/ride/data-types/int)&#124;[String](/en/ride/data-types/string)]] | Parameters of a callable function |
+| function: [String](/en/ride/v5/data-types/string)&#124;[Unit](/en/ride/v5/data-types/unit) | Name of a callable function. `unit` for a default function invocation |
+| arguments: [List](/en/ride/v5/data-types/list)[[Boolean](/en/ride/v5/data-types/boolean)&#124;[ByteVector](/en/ride/data-types/byte-vector)&#124;[Int](/en/ride/data-types/int)&#124;[String](/en/ride/data-types/string)&#124;[List](/en/ride/data-types/list)[[Boolean](/en/ride/data-types/boolean)&#124;[ByteVector](/en/ride/data-types/byte-vector)&#124;[Int](/en/ride/data-types/int)&#124;[String](/en/ride/data-types/string)]]&#124;[Unit](/en/ride/v5/data-types/unit) | Parameters of a callable function. `unit` for a default function invocation |
 | payments: [List](/en/ride/data-types/list)[[AttachedPayment](/en/ride/structures/common-structures/attached-payment)] | Payments to transfer from the invoking dApp to the invoked dApp, up to 2 |
 
 ```
@@ -89,7 +90,16 @@ In Standard library version 4 or 3, there is no return value, so `unit` is impli
 
 For details, see the [Callable Function](/en/ride/v5/functions/callable-function) article.
 
-### Transaction Fail
+## Updating Balance and Account Data Storage Entries
+
+If the callable function invoked by the `Invoke` function performs script actions, the results of those actions are available to the invoking function:
+* If the invoked function adds an entry to the account's data storage, the invoking function can obtain the entry after the invocation.
+* If the invoked function deletes an entry from the account's data storage, the invoking function cannot obtain the entry after the invocation.
+* If the invoked function performs actions with tokens (transfer, release/issue/burn, and others) and the invoking function obtains balances after the invocation, it receives the updated balances.
+
+> Payments attached to the dApp invocation are counted in the dApp balance before the script actions are executed. Therefore, tokens obtained in payments can be used in script actions, but cannot be used in payments attached to nested invocations.
+
+## Transaction Fail
 
 If the callable function's execution fails or [throws an exception](/en/ride/v5/functions/built-in-functions/exception-functions), the Invoke Script transaction could be rejected or saved on the blockchain as failed. This depends on whether the complexity of performed calculations has exceeded the [threshold for saving a failed transaction](/en/ride/v5/limits/) (currently 1000). The complexity is summed up for all invocations.
 

@@ -16,6 +16,14 @@
 
 Вызов может содержать платежи, которые будут переведены с баланса вызывающего dApp на баланс вызываемого. Платежи запрещены, если dApp вызывает сам себя.
 
+Если токен в платеже является смарт-ассетом, то скрипт ассета верифицирует вызов `Invoke` как [InvokeScriptTransaction](/ru/ride/v5/structures/transaction-structures/invoke-script-transaction) с полями:
+* `dApp`, `payments`, `function`, `args` — значения, указанные в функции `Invoke`;
+* `sender`, `senderPublicKey` — параметры dApp, который вызвал функцию;
+* `id`, `timestamp`, `fee`, `feeAssetId` — как в транзакции вызова скрипта;
+* `version` = 0.
+
+Если скрипт ассета отклоняет действие, то транзакция, которая вызвала скрипт dApp, либо отклоняется, либо сохраняется на блокчейне как неуспешная, см. раздел [Валидация транзакций](/ru/blockchain/transaction/transaction-validation).
+
 ```ride
 Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector|Int|String|List[Boolean|ByteVector|Int|String]], payments: List[AttachedPayments]): Any
 ```
@@ -29,8 +37,8 @@ Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector
 | Параметр | Описание |
 | :--- | :--- |
 | dApp: [Address](/ru/ride/v5/structures/common-structures/address)&#124;[Alias](/ru/ride/v5/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) dApp, функция которого вызывается |
-| function: [String](/ru/ride/v5/data-types/string) | Имя вызываемой функции |
-| arguments: [List](/ru/ride/v5/data-types/list)[[Boolean](/ru/ride/v5/data-types/boolean)&#124;[ByteVector](/ru/ride/data-types/byte-vector)&#124;[Int](/ru/ride/data-types/int)&#124;[String](/ru/ride/data-types/string)&#124;[List](/ru/ride/data-types/list)[[Boolean](/ru/ride/data-types/boolean)&#124;[ByteVector](/ru/ride/data-types/byte-vector)&#124;[Int](/ru/ride/data-types/int)&#124;[String](/ru/ride/data-types/string)]] | Параметры вызываемой функции |
+| function: [String](/ru/ride/v5/data-types/string)&#124;[Unit](/ru/ride/v5/data-types/unit) | Имя вызываемой функции. `unit` — вызов функции по умолчанию |
+| arguments: [List](/ru/ride/v5/data-types/list)[[Boolean](/ru/ride/v5/data-types/boolean)&#124;[ByteVector](/ru/ride/data-types/byte-vector)&#124;[Int](/ru/ride/data-types/int)&#124;[String](/ru/ride/data-types/string)&#124;[List](/ru/ride/data-types/list)[[Boolean](/ru/ride/data-types/boolean)&#124;[ByteVector](/ru/ride/data-types/byte-vector)&#124;[Int](/ru/ride/data-types/int)&#124;[String](/ru/ride/data-types/string)]]&#124;[Unit](/ru/ride/v5/data-types/unit) | Параметры вызываемой функции. `unit` в случае вызова функции по умолчанию |
 | payments: [List](/ru/ride/data-types/list)[[AttachedPayment](/ru/ride/structures/common-structures/attached-payment)] | Платежи в пользу вызываемого dApp, не более 2 |
 
 ## Пример

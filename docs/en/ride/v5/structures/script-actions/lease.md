@@ -27,7 +27,7 @@ In the second case, `nonce = 0` is inserted automatically.
 | :--- | :--- | :--- | :--- |
 | 1 | recipient | [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | Lessee [address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) |
 | 2 | amount | [Int](/en/ride/v5/data-types/int) | Amount of WAVELETs to lease (that is, amount of WAVES multiplied by 10<sup>8</sup>)
-| 7 | nonce | [Int](/en/ride/v5/data-types/int) | Nonce that is used for lease ID generation. If the callable function creates several leases with the same parameters, you should use different nonce |
+| 7 | nonce | [Int](/en/ride/v5/data-types/int) | Nonce that is used for lease ID generation. If the callable function creates several leases with the same parameters, you should use different nonces |
 
 ### Example
 

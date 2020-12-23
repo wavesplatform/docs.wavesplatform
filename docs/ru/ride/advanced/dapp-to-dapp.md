@@ -1,6 +1,6 @@
-# Вызов dApp из dApp
+# [Ride v5] Вызов dApp из dApp
 
-Вызываемая функция dApp-скрипта может вызывать вызываемую функцию другого dApp или того же самого dApp, в том числе сама себя. Вызов является синхронным. Вызываемая функция возвращает значение, которое вызываемая функция может использовать.
+Вызываемая функция dApp-скрипта может вызывать вызываемую функцию другого dApp или того же самого dApp, в том числе сама себя. Вызов является синхронным. Вызываемая функция возвращает значение, которое вызывающая функция может использовать.
 
 Вызов dApp из dApp осуществляется следующим образом:
 
@@ -21,6 +21,7 @@
 * Вызовы dApp из dApp добавлены в версии ноды 1.3.0 и включаются с активацией фичи №&nbsp;16 “Continuations”. Версии 1.3.x в настоящее время доступны только для [Stagenet](/ru/blockchain/blockchain-network/).
 * Скрипт вызывающего dApp использует [Стандартную библиотеку](/ru/ride/script/standard-library) **версии 5**.
 * Если dApp вызывает сам себя, вызов не должен содержать платежи.
+* [Транзакция вызова скрипта](/ru/blockchain/transaction) имеет версию 3.
 * Общая сложность всех вызываемых функций и скриптов ассета, участвующих в транзакции, — не более 52&nbsp;000. Сложность скрипта аккаунта-отправителя не учитывается в этом лимите.
 
 > Вычисления с продолжением и вызов dApp из dApp несовместимы, то есть не могут быть инициированы одной и той же транзакцией.
@@ -42,8 +43,8 @@ Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector
 | Параметр | Описание |
 | :--- | :--- |
 | dApp: [Address](/ru/ride/v5/structures/common-structures/address)&#124;[Alias](/ru/ride/v5/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) dApp, функция которого вызывается |
-| function: [String](/ru/ride/v5/data-types/string) | Имя вызываемой функции |
-| arguments: [List](/ru/ride/v5/data-types/list)[[Boolean](/ru/ride/v5/data-types/boolean)&#124;[ByteVector](/ru/ride/data-types/byte-vector)&#124;[Int](/ru/ride/data-types/int)&#124;[String](/ru/ride/data-types/string)&#124;[List](/ru/ride/data-types/list)[[Boolean](/ru/ride/data-types/boolean)&#124;[ByteVector](/ru/ride/data-types/byte-vector)&#124;[Int](/ru/ride/data-types/int)&#124;[String](/ru/ride/data-types/string)]] | Параметры вызываемой функции |
+| function: [String](/ru/ride/v5/data-types/string)&#124;[Unit](/ru/ride/v5/data-types/unit) | Имя вызываемой функции. `unit` — вызов функции по умолчанию |
+| arguments: [List](/ru/ride/v5/data-types/list)[[Boolean](/ru/ride/v5/data-types/boolean)&#124;[ByteVector](/ru/ride/data-types/byte-vector)&#124;[Int](/ru/ride/data-types/int)&#124;[String](/ru/ride/data-types/string)&#124;[List](/ru/ride/data-types/list)[[Boolean](/ru/ride/data-types/boolean)&#124;[ByteVector](/ru/ride/data-types/byte-vector)&#124;[Int](/ru/ride/data-types/int)&#124;[String](/ru/ride/data-types/string)]]&#124;[Unit](/ru/ride/v5/data-types/unit) | Параметры вызываемой функции. `unit` в случае вызова функции по умолчанию |
 | payments: [List](/ru/ride/data-types/list)[[AttachedPayment](/ru/ride/structures/common-structures/attached-payment)] | Платежи в пользу вызываемого dApp, не более 2 |
 
 Пример:
@@ -88,7 +89,16 @@ strict z = Invoke(dapp,foo,args,[AttachedPayment(unit,100000000)])
 
 Подробнее в разделе [Вызываемая функция](/ru/ride/v5/functions/callable-function).
 
-### Неуспешные транзакции
+## Обновление баланса и записей в хранилище данных аккаунта
+
+Если функция, вызываемая с помощью Invoke, выполняет действия скрипта, то результаты этих действий доступны в вызывающей функции:
+* Если вызываемая функция добавляет запись в хранилище данных аккаунта, то после вызова вызывающая функция может прочитать эту запись.
+* Если вызываемая функция удаляет запись из хранилища данных аккаунта, то после вызова вызывающая функция не может прочитать эту запись.
+* Если вызываемая функция выполняет действия с токенами (перевод, выпуск/довыпуск/сжигание и др.), то после вызова вызывающая функция при запросе балансов получает новые значения.
+
+> Платежи, приложенные к вызову dApp, учитываются на балансе dApp перед выполнением действий скрипта. Поэтому токены, полученные в платежах, могут использоваться в действиях вызываемой функции, но не могут использоваться в платежах, приложенных к вложенным вызовам.
+
+## Неуспешные транзакции
 
 Если выполнение вызываемой функции завершается ошибкой или [выбрасыванием исключения](/ru/ride/v5/functions/built-in-functions/exception-functions), транзакция вызова скрипта может быть отклонена или сохранена на блокчейне как неуспешная. Это зависит от того, превысила ли сложность выполненных вычислений [порог для сохранения неуспешных транзакций](/ru/ride/v5/limits/), который сейчас равен 1000. Сложность суммируется по всем вызовам.
 

@@ -6,7 +6,7 @@
 
 * **Вызов dApp из dApp.** Вызываемая функция dApp-скрипта может вызывать вызываемую функцию другого dApp или того же самого dApp, в том числе сама себя. Все вызванные функции выполняются в рамках одной транзакции вызова скрипта. Сложность выполняемых скриптов ограничена. [Подробнее о вызове dApp из dApp](/ru/ride/advanced/dapp-to-dapp)
 * **Вычисления с продолжением.** Добавлена поддержка dApp-скриптов, сложность которых превышает 4000. Выполнение такого скрипта разбивается на несколько этапов: первый этап вычислений выполняется в рамках транзакции вызова скрипта, последующие этапы — в рамках транзакций продолжения. [Подробнее о вычислениях с продолжением](/ru/ride/advanced/continuation)
-* Добавлен новый тип транзакции: [Continuation](/en/blockchain/transaction-type/continuation-transaction). Транзакция продолжения создается генератором блока автоматически в случае наличия незавершенной цепочки вычислений. Транзакция не может быть отправлена пользователем.
+* Добавлен новый тип транзакции: [Continuation](/ru/blockchain/transaction-type/continuation-transaction). Транзакция продолжения создается генератором блока автоматически в случае наличия незавершенной цепочки вычислений. Транзакция не может быть отправлена пользователем.
 * Добавлена версия 3 [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction): с ее помощью можно вызвать скрипт сложностью выше 4000.
 
 ### Ride
@@ -14,7 +14,7 @@
 * Выпущена [версия 5](/ru/ride/v5/) Стандартной библиотеки.
 * Добавлена функция [Invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp) для вызова dApp из dApp.
 * Добавлены [нетерпеливые переменные](/ru/ride/variables/), которые вычисляются до следующего выражения, чтобы гарантировать порядок выполнения и применения действий скрипта вызываемых функций.
-* Изменен [формат результата](/ru/ride/v5/functions/callable-function#резуnьтат-выпоnнения) вызываемой функции: добавлено возвращаемое значение.
+* Изменен [формат результата](/ru/ride/v5/functions/callable-function#result) вызываемой функции: добавлено возвращаемое значение.
 * Добавлены действия скрипта, которые может выполнять вызываемая функция:
    * [Lease](/ru/ride/v5/structures/script-actions/lease) — передает WAVES в лизинг.
    * [LeaseCancel](/ru/ride/v5/structures/script-actions/lease-cancel) — прекращает лизинг.
@@ -152,33 +152,34 @@
       <summary>Формат</summary>
 
    ```json
-       "trace": [
-        {
-            "id": "3MosFNQAFGskNDnYzRBgMbfod6xXPdG96ME",
-            "type": "dApp",
-            "vars": [
-                {
-                    "name": "amount",
-                    "type": "integer",
-                    "value": 12345
-                }
-            ],
-            "result": {
-                "leases": [
-                    {
-                        "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
-                        "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
-                        "amount": 500000
-                    }
-                ],
-                "leaseCancels": [
-                    {
-                        "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
-                    }
-                ]
+   "trace": [
+      {
+         "id": "3MosFNQAFGskNDnYzRBgMbfod6xXPdG96ME",
+         "type": "dApp",
+         "vars": [
+            {
+               "name": "amount",
+               "type": "integer",
+               "value": 12345
             }
-        }
-    ]
+        ],
+        "result": {
+            "leases": [
+               {
+                  "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+                  "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
+                  "amount": 500000
+               }
+            ],
+            "leaseCancels": [
+               {
+                  "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
+               }
+            ]
+         }
+      }
+   ]
+   ```
    ```
    </details>
 
