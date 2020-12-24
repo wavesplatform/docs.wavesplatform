@@ -13,7 +13,12 @@ Strict variables are suitable for [dApp-to-dApp invocation](/en/ride/advanced/da
 ```scala
 func foo() = {
    ...
-   strict z = Invoke(dapp,bar,args,[AttachedPayment(unit,100000000)])
-   ...
+   strict balanceBefore = wavesBalance(this).regular
+   strict z = Invoke(dapp2,bar,args,[AttachedPayment(unit,100000000)])
+   strict balanceAfter = wavesBalance(this).regular
+
+   if(balanceAfter < balanceBefore) then ... else...
 }
 ```
+
+In this example, `balanceBefore` and `balanceAfter` may differ because payments to `dApp2` and actions performed by the `bar` callable function can affect the balance.

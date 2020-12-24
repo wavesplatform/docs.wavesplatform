@@ -8,7 +8,7 @@ Thus, the first stage of calculations is performed within the Invoke Script tran
 
 ## Conditions
 
-* Continued calculations are added in node version 1.3.0 and enabled with feature #16 “Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
+* Continued calculations are added in node version 1.3.0 and enabled with feature #16 “Ride V5, dApp-to-dApp invocations, Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 * The dApp script uses [Standard library](/en/ride/script/standard-library) **version 5**.
 * The [Invoke Script](/en/blockchain/transaction) transaction version is 3.
 
@@ -16,7 +16,7 @@ Thus, the first stage of calculations is performed within the Invoke Script tran
 
 ## Suspension of Other Transactions Involving dApp
 
-Until the calculation sequence is completed, transactions that can reduce the dApp balance can be added to the [UTX pool](/en/blockchain/transaction/#utx-pool), but cannot be added to the block:
+Until the calculation sequence is completed, transactions that can reduce the dApp balance cannot be added to a block (they are not rejected but pending in the [UTX pool](/en/blockchain/transaction/#utx-pool):
 
 * Transactions that are sent on behalf of the dApp.
 * Transactions that invoke the dApp.

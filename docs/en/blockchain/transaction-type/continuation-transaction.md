@@ -4,7 +4,7 @@ Continuation transaction is a stage of execution of a [dApp](/ru/blockchain/acco
 
 A block generator creates the Continuation transaction if there is an incomplete calculation sequence. A user cannot send a Continuation transaction.
 
-> A script execution with a continuation is added in node version 1.3.0 and enabled with feature #16 “Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
+> A script execution with a continuation is added in node version 1.3.0 and enabled with feature #16 “Ride V5, dApp-to-dApp invocations, Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 
 ## Fee
 
