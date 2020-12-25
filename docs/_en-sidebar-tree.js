@@ -1011,6 +1011,10 @@ module.exports = {
           path: rideV5Path + 'data-types',
           children: [
             {
+              title: 'Any',
+              path: rideV5Path + 'data-types/any',
+            },
+            {
               title: 'Boolean',
               path: rideV5Path + 'data-types/boolean',
             },

@@ -31,6 +31,7 @@
    * `getIntegerValue(key: String): Int`
    * `getString(key: String): String|Unit`
    * `getStringValue(key: String): String`
+* Added an arbitrary data type — [Any](/en/ride/v5/data-types/any).
 
 ### Node REST API
 
