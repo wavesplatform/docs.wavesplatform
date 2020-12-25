@@ -34,19 +34,18 @@ genesis-generator
 {
   network-type: "L"  #your custom network identifier byte
   initial-balance: 10000000000000000  #initial balance in wavelets
-  base-target: 153722867  #the initial complexity parameter
   average-block-delay: 60s #average block delay
   timestamp: 1500635421931 #comment this to use the current time
-
+  
   # the sum of shares should be = initial-balance
-  distributions
-  {
-    foo0 { # name for this account. Will be printed in generator's output
+  distributions = 
+  [
+    { 
       seed-text: "foo0"
       nonce: 0
       amount: 10000000000000000
     }
-  }
+  ]
 }
 ```
 
@@ -62,23 +61,24 @@ The result will be written to the `genesis.conf` file (you can use arbitrary fil
 
 ```bash
 Addresses:
-foo0:
+
  Seed text:           foo0
  Seed:                3csAfH
  Account seed:        58zgAnBg775J6NKd4qVtfeX3m5TBMeizHNY9STvm2N87
  Private account key: FYLXp1ecxQ6WCPD4axTotHU9RVfPCBLfSeKx1XSCyvdT
  Public account key:  GbGEY3XVc2ohdv6hQBukVKSTQyqP8rjQ8Kigkj6bL57S
  Account address:     3JfE6tjeT7PnpuDQKxiVNLn4TJUFhuMaaT5
+ ===
 Settings:
 genesis {
-  average-block-delay: 60000ms
-  initial-base-target: 153722867
-  timestamp: 1500635421931
-  block-timestamp: 1500635421931
-  signature: "3NELFXiQqQoYUfgLba5YAS1z8gJLc19zfzSvmYRX9eLso4zGByRGDpWdL4cooHTocyi5boFiu6H7hyW3ukVGtswP"
-  initial-balance: 10000000000000000
+  average-block-delay = 60000ms
+  initial-base-target = 123
+  timestamp = 1608905115669
+  block-timestamp = 1608905115669
+  signature = "5DfCPRjByr4FF6t3fTP6EoFUzb54SeHUt2BQLke7NhRBYnvsa7ie72g7b6AweyFnMJAhan91u3mK2LUmPKitRczT"
+  initial-balance = 10000000000000000
   transactions = [
-    {recipient: "3JfE6tjeT7PnpuDQKxiVNLn4TJUFhuMaaT5", amount: 10000000000000000}
+    {recipient = "3JfE6tjeT7PnpuDQKxiVNLn4TJUFhuMaaT5", amount = 10000000000000000}
   ]
 }
 ```

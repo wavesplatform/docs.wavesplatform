@@ -1,5 +1,11 @@
 # Обновления в документации
 
+# Декабрь
+
+### Нода
+
+* [Собственный (сustom) блокчейн](/ru/waves-node/private-waves-network) — <span style="color:green">обновлено</span>
+
 ## Ноябрь
 
 ### Нода

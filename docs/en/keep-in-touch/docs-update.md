@@ -1,5 +1,11 @@
 # Documentation Updates
 
+# December
+
+### Node
+
+* [Custom Blockchain](/en/waves-node/private-waves-network) — <span style="color:green">updated</span>
+
 ## November
 
 ### Node
