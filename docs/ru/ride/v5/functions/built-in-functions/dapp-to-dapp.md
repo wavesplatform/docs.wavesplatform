@@ -37,9 +37,9 @@ Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector
 | Параметр | Описание |
 | :--- | :--- |
 | dApp: [Address](/ru/ride/v5/structures/common-structures/address)&#124;[Alias](/ru/ride/v5/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) dApp, функция которого вызывается |
-| function: [String](/ru/ride/v5/data-types/string)&#124;[Unit](/ru/ride/v5/data-types/unit) | Имя вызываемой функции. `unit` — вызов функции по умолчанию |
-| arguments: [List](/ru/ride/v5/data-types/list)[[Boolean](/ru/ride/v5/data-types/boolean)&#124;[ByteVector](/ru/ride/data-types/byte-vector)&#124;[Int](/ru/ride/data-types/int)&#124;[String](/ru/ride/data-types/string)&#124;[List](/ru/ride/data-types/list)[[Boolean](/ru/ride/data-types/boolean)&#124;[ByteVector](/ru/ride/data-types/byte-vector)&#124;[Int](/ru/ride/data-types/int)&#124;[String](/ru/ride/data-types/string)]]&#124;[Unit](/ru/ride/v5/data-types/unit) | Параметры вызываемой функции. `unit` в случае вызова функции по умолчанию |
-| payments: [List](/ru/ride/data-types/list)[[AttachedPayment](/ru/ride/structures/common-structures/attached-payment)] | Платежи в пользу вызываемого dApp, не более 2 |
+| function: [String](/ru/ride/v5/data-types/string) | Имя вызываемой функции |
+| arguments: [List](/ru/ride/v5/data-types/list)[[Boolean](/ru/ride/v5/data-types/boolean)&#124;[ByteVector](/ru/ride/data-types/byte-vector)&#124;[Int](/ru/ride/data-types/int)&#124;[String](/ru/ride/data-types/string)&#124;[List](/ru/ride/data-types/list)[[Boolean](/ru/ride/data-types/boolean)&#124;[ByteVector](/ru/ride/data-types/byte-vector)&#124;[Int](/ru/ride/data-types/int)&#124;[String](/ru/ride/data-types/string)]] | Параметры вызываемой функции. Для вызова функции без параметров передайте `[]` — пустой список |
+| payments: [List](/ru/ride/data-types/list)[[AttachedPayment](/ru/ride/structures/common-structures/attached-payment)] | Платежи в пользу вызываемого dApp, не более 2. Для вызова без платежей передайте `[]` |
 
 ## Пример
 
@@ -61,8 +61,8 @@ dApp1:
 {-# SCRIPT_TYPE ACCOUNT #-}
 
 @Callable(i)
-func foo(dapp2: String, a: Integer, key1: String, key2: String) = {
-   strict r = Invoke(addressFromStringValue(dapp2),bar,[a],[AttachedPayment(base58'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p',1000000)])
+func foo(dapp2: String, a: Int, key1: String, key2: String) = {
+   strict r = Invoke(addressFromStringValue(dapp2),"bar",[a],[AttachedPayment(base58'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p',1000000)])
    (
       [
          IntegerEntry(key1, r),
@@ -82,7 +82,6 @@ dApp2:
 
 @Callable(i)
 func bar(a: Int) = {
-   let 
    (
       [
          ScriptTransfer(i.caller, 100000000, unit),
@@ -91,4 +90,3 @@ func bar(a: Int) = {
    )
 }
 ```
-
