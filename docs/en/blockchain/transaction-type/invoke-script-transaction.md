@@ -39,79 +39,60 @@ where:
 
 ## JSON Representation
 
-```json
 {
   "type": 16,
-  "id": "8SwojcZ9NbS37pLmaMBo7iNPWYtLGHVo8Fv9cAjRvafR",
-  "sender": "3P8pGyzZL9AUuFs9YRYPDV3vm73T48ptZxs",
-  "senderPublicKey": "FuChbN7t3gvW5esgARFytKNVuHSCZpXSYf1y3eDSruEN",
+  "id": "DN9Ny8mph4tLjn58e9CqhckPymH9zwPqBSZtcv2bBi3u",
+  "sender": "3Mw48B85LvkBUhhDDmUvLhF9koAzfsPekDb",
+  "senderPublicKey": "BvJEWY79uQEFetuyiZAF5U4yjPioMj9J6ZrF9uTNfe3E",
   "fee": 500000,
   "feeAssetId": null,
-  "timestamp": 1605001263787,
+  "timestamp": 1601652119485,
   "proofs": [
-    "5EpZvAzFSkcpZct5VAr5MMBm1zA52BS4uRWG19cX4Cv18b4hwaiYXPwv4zt2A6Tj86EQnk1Lib6SfnmB5jG9nUDZ"
+    "2536V2349X3cuVEK1rSxQf3HneJwLimjCmCfoG1QyMLLq1CNp6dpPKUG3Lb4pu76XqLe3nWyo3HAEwGoALgBhxkF"
   ],
-  "version": 1,
-  "dApp": "3PHaNgomBkrvEL2QnuJarQVJa71wjw9qiqG",
-  "payment": [
-    {
-      "amount": 787670779,
-      "assetId": null
-    },
-    {
-      "amount": 30000000,
-      "assetId": "DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p"
-    }
-  ],
+  "version": 2,
+  "chainId": 84,
+  "dApp": "3N28o4ZDhPK77QFFKoKBnN3uNeoaNSNXzXm",
+  "payment": [],
   "call": {
-    "function": "replenishWithTwoTokens",
+    "function": "foo",
     "args": [
       {
-        "type": "integer",
-        "value": 1
+        "type": "list",
+        "value": [
+          {
+            "type": "string",
+            "value": "alpha"
+          },
+          {
+            "type": "string",
+            "value": "beta"
+          },
+          {
+            "type": "string",
+            "value": "gamma"
+          }
+        ]
       }
     ]
   },
-  "height": 2322870,
+  "height": 1203100,
   "applicationStatus": "succeeded",
   "stateChanges": {
     "data": [
       {
-        "key": "A_asset_balance",
-        "type": "integer",
-        "value": 2557806714947
-      },
-      {
-        "key": "B_asset_balance",
-        "type": "integer",
-        "value": 97419129300
-      },
-      {
-        "key": "share_asset_supply",
-        "type": "integer",
-        "value": 498856828809
+        "key": "3Mw48B85LvkBUhhDDmUvLhF9koAzfsPekDb",
+        "type": "string",
+        "value": "alphabetagamma"
       }
     ],
-    "transfers": [
-      {
-        "address": "3P8pGyzZL9AUuFs9YRYPDV3vm73T48ptZxs",
-        "asset": "Btw3G1j4wQgdp49PTxaFkNvn75dQtqGDM7ejQppHnWC1",
-        "amount": 153620536
-      }
-    ],
+    "transfers": [],
     "issues": [],
-    "reissues": [
-      {
-        "assetId": "Btw3G1j4wQgdp49PTxaFkNvn75dQtqGDM7ejQppHnWC1",
-        "isReissuable": true,
-        "quantity": 153620536
-      }
-    ],
+    "reissues": [],
     "burns": [],
     "sponsorFees": []
   }
 }
-```
 
 | Field | Description |
 | :--- | :--- |
