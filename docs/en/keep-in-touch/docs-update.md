@@ -1,5 +1,13 @@
 # Documentation Updates
 
+## December
+
+### Ride
+
+* [Standard Library Version 5](/en/ride/v5/) ![stagenet](./_assets/stagenet.svg)
+* [Continued Calculations](/en/ride/advanced/continuation) ![stagenet](./_assets/stagenet.svg)
+* [dApp-to-dApp Invocation](/en/ride/advanced/dapp-to-dapp) ![stagenet](./_assets/stagenet.svg)
+
 ## November
 
 ### Node

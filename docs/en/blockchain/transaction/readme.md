@@ -11,7 +11,7 @@ Content of transaction depends on its type. Transaction types are listed in the 
 
 ## Sender and Signature
 
-Each transaction contains the public key of sender account, on behalf of which the action is performed on the blockchain. Transaction that is sent from an ordinary account (without script) must contain the sender's digital signature. Smart accounts and dApps can set their own rules for outgoing transactions verification. See the [Transaction Signature and Proofs](/en/blockchain/transaction/transaction-proof) article for more information.
+Each transaction (except a [Continuation transactoin](/en/blockchain/transaction-type/continuation-transaction))) contains the public key of sender account, on behalf of which the action is performed on the blockchain. Transaction that is sent from an ordinary account (without script) must contain the sender's digital signature. Smart accounts and dApps can set their own rules for outgoing transactions verification. See the [Transaction Signature and Proofs](/en/blockchain/transaction/transaction-proof) article for more information.
 
 ## Transaction Fee
 
@@ -52,7 +52,7 @@ Here is an example of JSON representation:
 | *id* | Transaction ID. For the transaction ID calculation method, see the [Cryptographic Practical Details](/en/blockchain/waves-protocol/cryptographic-practical-details#calculating-transaction-id) article |
 | type | Transaction type. Type IDs are listed in the [Transaction Type](/en/blockchain/transaction-type/) article |
 | version | Transaction version. Versions for each type of transaction are listed in [transaction binary format](/en/blockchain/binary-format/transaction-binary-format) descriptions |
-| *applicationStatus* | Result of transaction validation:<br>- `succeeded`: transaction is successful.<br>- `script_execution_failed`: the dApp script or the asset script failed.<br>The field is added starting from node version 1.2.4, after the activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. See the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article for details |
+| *applicationStatus* | Status of transaction execution:<br>- `succeeded`: transaction is successful.<br>- `script_execution_failed`: the dApp script or the asset script failed.<br>- `script_execution_in_progress` (for an Invoke Script transaction only) — the calculation sequence is not completed yet, see the [Continued Calculations](/en/ride/advanced/continuation) article.<br>The field is enabled with feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. See the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article for details.<br>The `script_execution_in_progress` value is added in node version 1.3.0 and enabled with feature #16 “Ride V5, dApp-to-dApp invocations, Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only |
 | timestamp | Transaction timestamp specified by the sender: Unix time in milliseconds. The transaction cannot be added to the blockchain if the timestamp value is more than 2 hours behind or 1.5 hours ahead of current block timestamp |
 | *height* | The sequence number of the block that contains the transaction |
 
