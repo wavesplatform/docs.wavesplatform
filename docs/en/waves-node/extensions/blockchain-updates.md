@@ -183,7 +183,7 @@ BlockchainUpdates extension started gRPC API on port <...>
    java -cp 'waves-all-{version number}.jar;grpc-server-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
    ```
 
-If the extension runs, it writes messages to the [node log](/ren/waves-node/logging-configuration):
+If the extension runs, it writes messages to the [node log](/en/waves-node/logging-configuration):
 
 ```
 BlockchainUpdates extension starting with settings <...>

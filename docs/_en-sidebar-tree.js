@@ -577,6 +577,10 @@ module.exports = {
 		},
 	  ]
 	},
+	{
+      title: 'Node Go',
+      path: nodePath + 'node-go',
+	},
   ],
 
   [ridePath]: [

@@ -6,7 +6,7 @@ Transfer transaction transfers a certain amount of token to another account.
 
 The minimum fee for a Transfer transaction is 0.001 WAVES, in case of transferring a [smart asset](/en/blockchain/token/smart-asset) 0.005 WAVES.
 
-If the transaction sender is a [dApp](/en/blockchain/account/dapp) or a [smart account](/en/blockchain/account/smart-account), the minimum fee is increased by 0.004 WAVES.
+If the transaction sender is a [dApp or smart account](/en/blockchain/account/dapp), the minimum fee is increased by 0.004 WAVES.
 
 The sender can specify a transaction fee nominated in a sponsored asset instead of WAVES, see the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article.
 
