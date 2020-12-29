@@ -134,9 +134,9 @@ You can speed this process up by downloading a compressed blockchain state from 
 
 | Network | Link |
 |---------|---------------------------------------------------------|
-| mainnet | http://blockchain.wavesplatform.com/blockchain_last.tar |
-| testnet | http://blockchain-testnet.wavesplatform.com/blockchain_last.tar |
-| stagenet | http://blockchain-stagenet.wavesplatform.com/blockchain_last.tar |
+| mainnet | http://blockchain.wavesnodes.com/blockchain_last.tar |
+| testnet | http://blockchain-testnet.wavesnodes.com/blockchain_last.tar |
+| stagenet | http://blockchain-stagenet.wavesnodes.com/blockchain_last.tar |
 
 **Note**: We do not guarantee the state consistency if it is downloaded from third parties.
 
@@ -147,7 +147,7 @@ mkdir -p /docker/waves/waves-data
 ```
 
 ```bash
-wget -qO- http://blockchain-stagenet.wavesplatform.com/blockchain_last.tar --show-progress | tar -xvf - -C /docker/waves/waves-data
+wget -qO- http://blockchain-stagenet.wavesnodes.com/blockchain_last.tar --show-progress | tar -xvf - -C /docker/waves/waves-data
 ```
 
 ```bash
@@ -155,7 +155,7 @@ chown -R 143:143 /docker/waves/waves-data
 ```
 
 ```bash
-docker run -v /docker/waves/waves-data:/var/lib/waves wavesplatform/Node -e WAVES_NETWORK=stagenet -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti wavesplatform/wavesnode
+docker run -v /docker/waves/waves-data:/var/lib/waves -e WAVES_NETWORK=stagenet -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti wavesplatform/wavesnode
 ```
 
 ### Network Ports
