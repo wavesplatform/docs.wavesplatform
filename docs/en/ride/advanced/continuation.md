@@ -1,22 +1,22 @@
-# [Ride v5] Continued Calculations
+# [Ride v5] Continued Computations
 
-If the complexity of a dApp script exceeds 4000, its execution is split into several stages. A block generator that adds an Invoke Script transaction to a block performs calculations with the total complexity up to 4000 and saves intermediate results in the internal database. Then the block generator, the same or another if a new block has already been created, detects an incomplete calculation sequence, creates a Continuation transaction, and adds it to the block, performing the next stage of calculations. The process continues until the script is completely executed or fails.
+If the complexity of a dApp script exceeds 4000, its execution is split into several stages. A block generator that adds an Invoke Script transaction to a block performs computations with the total complexity up to 4000 and saves intermediate results in the internal database. Then the block generator, the same or another if a new block has already been created, detects an incomplete computation sequence, creates a Continuation transaction, and adds it to the block, performing the next stage of computations. The process continues until the script is completely executed or fails.
 
-Thus, the first stage of calculations is performed within the Invoke Script transaction. The further stages are performed within Continuation transactions created automatically by block generators. Continuation transaction fields are described in the [Continuation Transaction](/en/blockchain/transaction-type/continuation-transaction) article.
+Thus, the first stage of computations is performed within the Invoke Script transaction. The further stages are performed within Continuation transactions created automatically by block generators. Continuation transaction fields are described in the [Continuation Transaction](/en/blockchain/transaction-type/continuation-transaction) article.
 
 ![](./_assets/continuation.png)
 
 ## Conditions
 
-* Continued calculations are added in node version 1.3.0 and enabled with feature #16 “Ride V5, dApp-to-dApp invocations, Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
+* Continued computations are added in node version 1.3.0 and enabled with feature #16 “Ride V5, dApp-to-dApp invocations, Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 * The dApp script uses [Standard library](/en/ride/script/standard-library) **version 5**.
 * The [Invoke Script](/en/blockchain/transaction-type/invoke-script-transaction) transaction version is 3.
 
-> Continued calculations and dApp-to-dApp invocation are mutually exclusive, that is, they cannot be initiated by the same transaction.
+> Continued computations and dApp-to-dApp invocation are mutually exclusive, that is, they cannot be initiated by the same transaction.
 
 ## Suspension of Other Transactions Involving dApp
 
-Until the calculation sequence is completed, transactions that can reduce the dApp balance cannot be added to a block (they are not rejected but pending in the [UTX pool](/en/blockchain/transaction/#utx-pool):
+Until the computation sequence is completed, transactions that can reduce the dApp balance cannot be added to a block (they are not rejected but pending in the [UTX pool](/en/blockchain/transaction/#utx-pool):
 
 * Transactions that are sent on behalf of the dApp.
 * Transactions that invoke the dApp.
@@ -27,11 +27,11 @@ Meanwhile, any transfers in favor of the dApp, leases to the dApp, and cancellat
 
 ## Blockchain Data Usage
 
-During all the stages of calculations, the dApp script operates the same blockchain data.
+During all the stages of computations, the dApp script operates the same blockchain data.
 
 ### 1. Entries of dApp's Own Data Storage
 
-Due to the suspension of other transactions involving the dApp (see above), the dApp's data storage entries do not change from the start of the script execution until the end. The dApp script can get data from its own storage at any stage, that is, in any of the transactions in the calculation sequence, using the following functions:
+Due to the suspension of other transactions involving the dApp (see above), the dApp's data storage entries do not change from the start of the script execution until the end. The dApp script can get data from its own storage at any stage, that is, in any of the transactions in the computation sequence, using the following functions:
 
 | Name | Description |
 | :--- | :--- |
@@ -55,7 +55,7 @@ All the blockchain data, except for the dApp's data storage entries, are conside
 * Current blockchain height.
 * Asset parameters, block headers, transactions, etc.
 
-All external data used by the dApp script must be obtained at the first stage of calculations. The complexity of the script's part from the beginning to the last function that reads external data of the blockchain should not exceed 4000 inclusive. 
+All external data used by the dApp script must be obtained at the first stage of computations. The complexity of the script's part from the beginning to the last function that reads external data of the blockchain should not exceed 4000 inclusive. 
 
 If the script contains branches, it is not known in advance which branch will be executed. Therefore, the total complexity for all branches is taken into account. Consider the following scheme:
 
@@ -65,7 +65,7 @@ If the operations `op2`, `op-a2` and `op-b3` read the external data of the block
 
 ## Fee
 
-The sender should specify a fee taking into account the maximum possible number of calculation stages and script actions.
+The sender should specify a fee taking into account the maximum possible number of computation stages and script actions.
 
 The minimum fee in WAVES for an Invoke Script transaction is calculated as follows:
 
@@ -73,9 +73,9 @@ The minimum fee in WAVES for an Invoke Script transaction is calculated as follo
 
 Where:
 
-   `E` is the **e**xtra fee specified in the `extraFeePerStep` field. `extraFeePerStep` can be 0. The transaction sender can specify `extraFeePerStep` > 0 in order to raise the processing priority of transactions of the calculation sequence.
+   `E` is the **e**xtra fee specified in the `extraFeePerStep` field. `extraFeePerStep` can be 0. The transaction sender can specify `extraFeePerStep` > 0 in order to raise the processing priority of transactions of the computation sequence.
 
-   `С` is the **c**omplexity of the callable function. `С`/4000 rounded up to the nearest integer is the number of stages in the calculation sequence.
+   `С` is the **c**omplexity of the callable function. `С`/4000 rounded up to the nearest integer is the number of stages in the computation sequence.
 
    `S` = 0.004 if the transaction **s**ender is a [dApp or smart account](/en/blockchain/account/dapp), otherwise 0.
 
@@ -114,7 +114,7 @@ The minimum fee for the Invoke Script transaction is (0.005 + 0.002) × 3 + 0.00
 
 > Note: if the sender specifies the transaction fee more than the minimum of 1.045 WAVES, the remainder will be returned to them even if all stages are successfully completed.
 
-If the Invoke Script transaction fails after the calculations' complexity exceeds the threshold for saving failed transactions:
+If the Invoke Script transaction fails after the computations' complexity exceeds the threshold for saving failed transactions:
 * If the callable function execution fails, then the sender pays 0.005 + 0.002 + 0.004 = 0.011 WAVES. The unused fee of 1.034 WAVES is returned.
 * If all operations of the callable function within the complexity of 4000 are completed, but one of the asset scripts denied the transaction, the sender also pays 0.004 WAVES for each asset script actually executed. For example, if the first asset script returned `false` or failed, and the second asset script has not started execution, then the sender pays 0.005 + 0.002 + 0.004 + 0.004 × 1 = 0.015 WAVES. The unused fee of 1.030 WAVES is returned.
 
@@ -127,10 +127,10 @@ If the last Continuation transaction fails:
 ## Application Status
 
 The `applicationStatus` values for an Invoke Script transaction:
-* `succeeded`: calculations are completed successfully.
+* `succeeded`: computations are completed successfully.
 * `script_execution_failed`: the dApp script or an asset script failed.
-* `script_execution_in_progress`: the calculation sequence is not completed yet. It's a transitory status: when the calculations are completely executed or fail, the `applicationStatus` of the Invoke Script transaction becomes the same as the last Continuation transaction: `succeeded` or `script_execution_failed` respectively.
+* `script_execution_in_progress`: the computation sequence is not completed yet. It's a transitory status: when the computations are completely executed or fail, the `applicationStatus` of the Invoke Script transaction becomes the same as the last Continuation transaction: `succeeded` or `script_execution_failed` respectively.
 
 The `applicationStatus` values for a Continuation transaction:
-* `succeeded`: the calculation stage is completed successfully.
+* `succeeded`: the computation stage is completed successfully.
 * `script_execution_failed`: the dApp script or the asset script failed.

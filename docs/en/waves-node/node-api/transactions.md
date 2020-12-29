@@ -417,7 +417,7 @@ Here are examples of requests and responses to sign transactions of different ty
 ## Step 3 (optional). Pre-validate Transaction
 
 After signing, you can immediately send the transaction to the blockchain. However, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”, it is possible that the transaction fails but the sender is still charged a fee (for details, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article).
-* An Invoke Script transaction: in case of a dApp script execution error after the complexity of performed calculations exceeded the threshold for saving failed transactions.
+* An Invoke Script transaction: in case of a dApp script execution error after the complexity of performed computations exceeded the threshold for saving failed transactions.
 * An Invoke Script Transaction or an Exchange transaction with a smart asset involved: in case the asset script denies the transaction.
 
 For such transactions, pre-validation can help to reduce unnecessary costs. You should not pre-validate transactions of other types, as well as transactions in which smart assets are not used and the complexity of the callable function is less than the threshold.

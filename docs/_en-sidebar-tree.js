@@ -995,7 +995,7 @@ module.exports = {
           path: ridePath + 'advanced/dapp-to-dapp',
         },
         {
-          title: 'Continued Calculations',
+          title: 'Continued Computations',
           path: ridePath + 'advanced/continuation',
         },
         {

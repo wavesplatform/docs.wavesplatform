@@ -205,7 +205,7 @@ _Figure 5_.
 
 ## Usage of the oracle data
 
-Congratulations, now our oracle is completely ready. Once data is written in the blockchain, every Ride based dApp's can access this data (via the _getInteger()_, _getString()_, _getBinary()_ and _getBoolean()_ methods) and use it for their calculations, e.g., decide on the amount of payouts, sending of transactions, winners of a contest, etc.
+Congratulations, now our oracle is completely ready. Once data is written in the blockchain, every Ride based dApp's can access this data (via the _getInteger()_, _getString()_, _getBinary()_ and _getBoolean()_ methods) and use it for their computations, e.g., decide on the amount of payouts, sending of transactions, winners of a contest, etc.
 
 In our case, for example, to get WAVES/BTC data from the oracle, you need to specify the oracle address and the corresponding key in _getInteger()_ method:
 

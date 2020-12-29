@@ -31,11 +31,11 @@ where:
 
    `E` is the **e**xtra fee specified in the `extraFeePerStep` field,
 
-   `С` is the **c**omplexity of the callable function. `С`/4000 rounded up to the nearest integer is the number of stages in the calculation sequence. For details see the [Continued Calculations](/en/ride/advanced/continuation) article.
+   `С` is the **c**omplexity of the callable function. `С`/4000 rounded up to the nearest integer is the number of stages in the computation sequence. For details see the [Continued Computations](/en/ride/advanced/continuation) article.
 
    `N` is the total number of **n**ested invocations via `Invoke` function. For details see the [dApp-to-dApp Invocation](/en/ride/advanced/dapp-to-dapp) article.
 
-> Continued calculations and dApp-to-dApp invocation are mutually exclusive, that is, they cannot be initiated by the same transaction.
+> Continued computations and dApp-to-dApp invocation are mutually exclusive, that is, they cannot be initiated by the same transaction.
 
 ## JSON Representation
 
@@ -105,8 +105,8 @@ where:
 | payment.amount | Amount of token in payment: an integer value specified in [atomic units](/en/blockchain/token/#atomic-unit) |
 | payment.assetId | ID of token in payment, base58 encoded. `null` means that the payment is in WAVES |
 | stateChanges | Script actions performed by the callable function. In transaction version 3 the structure can also include [dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp) result | 
-| extraFeePerStep | Extra fee for each stage of calculations, see the [Continued Calculations](/en/ride/advanced/continuation) article. The extra fee is specified in the same token as the transaction fee, in atomic units. A value other than null or 0 is only valid when the version 5 dApp script is invoked. The field is added in transaction version 3 |
-| сontinuationTransactionIds | List of the Continuation transactions in the calculation sequence. The field is added in transaction version 3 |
+| extraFeePerStep | Extra fee for each stage of computations, see the [Continued Computations](/en/ride/advanced/continuation) article. The extra fee is specified in the same token as the transaction fee, in atomic units. A value other than null or 0 is only valid when the version 5 dApp script is invoked. The field is added in transaction version 3 |
+| сontinuationTransactionIds | List of the Continuation transactions in the computation sequence. The field is added in transaction version 3 |
 
 The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 

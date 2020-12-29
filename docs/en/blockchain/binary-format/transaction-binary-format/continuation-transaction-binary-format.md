@@ -17,5 +17,5 @@ message ContinuationTransactionData {
 
 | Field | Size | Description |
 | :--- | :--- | :--- |
-| invoke_transaction_id | 32 bytes | ID of the Invoke Script transaction that starts the calculation sequence |
-| nonce | 4 bytes | Number that is unique in the calculation sequence. It is used to calculate the transaction ID |
+| invoke_transaction_id | 32 bytes | ID of the Invoke Script transaction that starts the computation sequence |
+| nonce | 4 bytes | Number that is unique in the computation sequence. It is used to calculate the transaction ID |

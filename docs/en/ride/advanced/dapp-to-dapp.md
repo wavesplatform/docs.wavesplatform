@@ -24,7 +24,7 @@ Features:
 * The [Invoke Script](/en/blockchain/transaction-type/invoke-script-transaction) transaction version is 3.
 * The total complexity is limited by 52,000 for all callable functions and asset scripts of involved smart assets. The sender's account script complexity is not included in that limit.
 
-> Continued calculations and dApp-to-dApp invocation are mutually exclusive, that is, they cannot be initiated by the same transaction.
+> Continued computations and dApp-to-dApp invocation are mutually exclusive, that is, they cannot be initiated by the same transaction.
 
 ## Fee 
 
@@ -101,9 +101,9 @@ If the callable function invoked by the `Invoke` function performs script action
 
 ## Transaction Fail
 
-If the callable function's execution fails or [throws an exception](/en/ride/v5/functions/built-in-functions/exception-functions), the Invoke Script transaction could be rejected or saved on the blockchain as failed. This depends on whether the complexity of performed calculations has exceeded the [threshold for saving a failed transaction](/en/ride/v5/limits/) (currently 1000). The complexity is summed up for all invocations.
+If the callable function's execution fails or [throws an exception](/en/ride/v5/functions/built-in-functions/exception-functions), the Invoke Script transaction could be rejected or saved on the blockchain as failed. This depends on whether the complexity of performed computations has exceeded the [threshold for saving a failed transaction](/en/ride/v5/limits/) (currently 1000). The complexity is summed up for all invocations.
 
-Consider the example: callable function 1 performs calculations of 800 complexity, then invokes callable function 2 which performs calculations of 300 complexity and then fails. The complexity 800 + 300 has exceeded the threshold, so the transaction is saved as failed, and the sender is charged a fee.
+Consider the example: callable function 1 performs computations of 800 complexity, then invokes callable function 2 which performs computations of 300 complexity and then fails. The complexity 800 + 300 has exceeded the threshold, so the transaction is saved as failed, and the sender is charged a fee.
 
 If the total complexity of executed callable functions and asset scripts exceeds the limit of 52,000, the transaction is saved as failed as well. For example, if the complexity of executed callable functions is 50,000 in total, and there is a smart asset in script action whose script's complexity is 2500.
 
