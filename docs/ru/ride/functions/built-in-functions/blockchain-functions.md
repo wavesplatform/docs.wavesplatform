@@ -33,6 +33,20 @@ addressFromRecipient(AddressOrAlias: Address|Alias): Address
 let address =Address(base58'3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF')
 addressFromRecipient(address)
 ```
+## assetBalance
+
+Получает баланс аккаунта по ID токена.
+
+``` ride
+assetBalance(addressOrAlias: Address|Alias, assetId: ByteVector): Int
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+| `assetId`: [ByteVector](/ru/ride/data-types/byte-vector) | ID токена |
 
 ## assetBalance <a id="asset-balance"></a>
 
@@ -210,4 +224,3 @@ wavesBalance(addressOrAlias: Address|Alias): BalanceDetails
 | Параметр | Описание |
 | :--- | :--- |
 | `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
-

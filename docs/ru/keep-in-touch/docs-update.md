@@ -1,5 +1,13 @@
 # Обновления в документации
 
+## Декабрь
+
+### Ride
+
+* [Версия 5 Стандартной библиотеки](/ru/ride/v5/) ![stagenet](./_assets/stagenet.svg)
+* [Вычисления с продолжением](/ru/ride/advanced/continuation) ![stagenet](./_assets/stagenet.svg)
+* [Вызов dApp из dApp](/ru/ride/advanced/dapp-to-dapp) ![stagenet](./_assets/stagenet.svg)
+
 ## Ноябрь
 
 ### Нода
