@@ -38,8 +38,8 @@ Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector
 | :--- | :--- |
 | dApp: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of a dApp to invoke |
 | function: [String](/en/ride/v5/data-types/string)&#124;[Unit](/en/ride/v5/data-types/unit) | Name of a callable function. `unit` for a default function invocation |
-| arguments: [List](/en/ride/v5/data-types/list)[[Boolean](/en/ride/v5/data-types/boolean)&#124;[ByteVector](/en/ride/data-types/byte-vector)&#124;[Int](/en/ride/data-types/int)&#124;[String](/en/ride/data-types/string)&#124;[List](/en/ride/data-types/list)[[Boolean](/en/ride/data-types/boolean)&#124;[ByteVector](/en/ride/data-types/byte-vector)&#124;[Int](/en/ride/data-types/int)&#124;[String](/en/ride/data-types/string)]]&#124;[Unit](/en/ride/v5/data-types/unit) | Parameters of a callable function. `unit` for a default function invocation |
-| payments: [List](/en/ride/data-types/list)[[AttachedPayment](/en/ride/structures/common-structures/attached-payment)] | Payments to transfer from the invoking dApp to the invoked dApp, up to 2 |
+| arguments: [List](/en/ride/v5/data-types/list)[[Boolean](/en/ride/v5/data-types/boolean)&#124;[ByteVector](/en/ride/v5/data-types/byte-vector)&#124;[Int](/en/ride/v5/data-types/int)&#124;[String](/en/ride/v5/data-types/string)&#124;[List](/en/ride/v5/data-types/list)[[Boolean](/en/ride/v5/data-types/boolean)&#124;[ByteVector](/en/ride/v5/data-types/byte-vector)&#124;[Int](/en/ride/v5/data-types/int)&#124;[String](/en/ride/v5/data-types/string)]]&#124;[Unit](/en/ride/v5/data-types/unit) | Parameters of a callable function. `unit` for a default function invocation |
+| payments: [List](/en/ride/v5/data-types/list)[[AttachedPayment](/en/ride/v5/structures/common-structures/attached-payment)] | Payments to transfer from the invoking dApp to the invoked dApp, up to 2 |
 
 ## Example
 

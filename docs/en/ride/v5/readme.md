@@ -9,7 +9,7 @@ A dApp callable function can invoke a callable function of another dApp, or anot
 Changes in Ride:
 
 * Added the [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function for dApp-to-dApp invocation.
-* Added [strict variables](/en/ride/variables/) that are evaluated before the next expression to ensure executing callable functions and applying their actions in the right order.
+* Added [strict variables](/en/ride/v5/variables/) that are evaluated before the next expression to ensure executing callable functions and applying their actions in the right order.
 * Modified the [callable function result](/en/ride/v5/functions/callable-function#invocation-result) by adding a return value.
 
 ## Continued Calculations

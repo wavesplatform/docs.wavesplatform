@@ -10,7 +10,7 @@ Thus, the first stage of calculations is performed within the Invoke Script tran
 
 * Continued calculations are added in node version 1.3.0 and enabled with feature #16 “Ride V5, dApp-to-dApp invocations, Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 * The dApp script uses [Standard library](/en/ride/script/standard-library) **version 5**.
-* The [Invoke Script](/en/blockchain/transaction) transaction version is 3.
+* The [Invoke Script](/en/blockchain/transaction-type/invoke-script-transaction) transaction version is 3.
 
 > Continued calculations and dApp-to-dApp invocation are mutually exclusive, that is, they cannot be initiated by the same transaction.
 
@@ -44,7 +44,7 @@ Due to the suspension of other transactions involving the dApp (see above), the 
 | getString(key: String): String&#124;Unit | Gets a string by key from the dApp's own data storage |
 | getStringValue(key: String): String | Gets a string by key from the dApp's own data storage. Fails if there is no data |
 
-For the functions description, see the [Account Data Storage Functions](/en/ride/functions/built-in-functions/account-data-storage-functions) article.
+For the functions description, see the [Account Data Storage Functions](/en/ride/v5/functions/built-in-functions/account-data-storage-functions) article.
 
 ### 2. External Data
 
@@ -97,7 +97,7 @@ The fee is distributed as follows:
 
 After the script is completely executed or fails, the fee's unused portion (for stages and asset scripts whose execution was not started; see example below) is returned to the sender. If the fee is indicated in the sponsored asset, the WAVES equivalent of this portion of the fee is returned to the sponsor.
 
-> Note: the [threshold for saving failed transactions](/en/ride/limits) is applicable only to Invoke Script transactions. If the script fails or [throws an exception](/en/ride/exceptions) at one of the subsequent stages, the Continuation transaction is saved on the blockchain, and a fee is charged for it.
+> Note: the [threshold for saving failed transactions](/en/ride/v5/limits) is applicable only to Invoke Script transactions. If the script fails or [throws an exception](/en/ride/exceptions) at one of the subsequent stages, the Continuation transaction is saved on the blockchain, and a fee is charged for it.
 
 
 **Consider the example:**

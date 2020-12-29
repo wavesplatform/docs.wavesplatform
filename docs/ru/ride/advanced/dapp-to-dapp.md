@@ -21,7 +21,7 @@
 * Вызовы dApp из dApp добавлены в версии ноды 1.3.0 и включаются с активацией фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations, Continuations”. Версии 1.3.x в настоящее время доступны только для [Stagenet](/ru/blockchain/blockchain-network/).
 * Скрипт вызывающего dApp использует [Стандартную библиотеку](/ru/ride/script/standard-library) **версии 5**.
 * Если dApp вызывает сам себя, вызов не должен содержать платежи.
-* [Транзакция вызова скрипта](/ru/blockchain/transaction) имеет версию 3.
+* [Транзакция вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) имеет версию 3.
 * Общая сложность всех вызываемых функций и скриптов ассета, участвующих в транзакции, — не более 52&nbsp;000. Сложность скрипта аккаунта-отправителя не учитывается в этом лимите.
 
 > Вычисления с продолжением и вызов dApp из dApp несовместимы, то есть не могут быть инициированы одной и той же транзакцией.
@@ -44,8 +44,8 @@ Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector
 | :--- | :--- |
 | dApp: [Address](/ru/ride/v5/structures/common-structures/address)&#124;[Alias](/ru/ride/v5/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) dApp, функция которого вызывается |
 | function: [String](/ru/ride/v5/data-types/string)&#124;[Unit](/ru/ride/v5/data-types/unit) | Имя вызываемой функции. `unit` — вызов функции по умолчанию |
-| arguments: [List](/ru/ride/v5/data-types/list)[[Boolean](/ru/ride/v5/data-types/boolean)&#124;[ByteVector](/ru/ride/data-types/byte-vector)&#124;[Int](/ru/ride/data-types/int)&#124;[String](/ru/ride/data-types/string)&#124;[List](/ru/ride/data-types/list)[[Boolean](/ru/ride/data-types/boolean)&#124;[ByteVector](/ru/ride/data-types/byte-vector)&#124;[Int](/ru/ride/data-types/int)&#124;[String](/ru/ride/data-types/string)]]&#124;[Unit](/ru/ride/v5/data-types/unit) | Параметры вызываемой функции. `unit` в случае вызова функции по умолчанию |
-| payments: [List](/ru/ride/data-types/list)[[AttachedPayment](/ru/ride/structures/common-structures/attached-payment)] | Платежи в пользу вызываемого dApp, не более 2 |
+| arguments: [List](/ru/ride/v5/data-types/list)[[Boolean](/ru/ride/v5/data-types/boolean)&#124;[ByteVector](/ru/ride/v5/data-types/byte-vector)&#124;[Int](/ru/ride/v5/data-types/int)&#124;[String](/ru/ride/v5/data-types/string)&#124;[List](/ru/ride/v5/data-types/list)[[Boolean](/ru/ride/v5/data-types/boolean)&#124;[ByteVector](/ru/ride/v5/data-types/byte-vector)&#124;[Int](/ru/ride/v5/data-types/int)&#124;[String](/ru/ride/v5/data-types/string)]]&#124;[Unit](/ru/ride/v5/data-types/unit) | Параметры вызываемой функции. `unit` в случае вызова функции по умолчанию |
+| payments: [List](/ru/ride/v5/data-types/list)[[AttachedPayment](/ru/ride/v5/structures/common-structures/attached-payment)] | Платежи в пользу вызываемого dApp, не более 2 |
 
 Пример:
 

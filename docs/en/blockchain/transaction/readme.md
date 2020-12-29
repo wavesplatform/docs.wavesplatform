@@ -99,7 +99,7 @@ You can get the transaction by ID, or the list of transactions by certain accoun
    * the `POST /transactions/broadcast` method sends a signed transaction to a node;
    * the `POST /transactions/sign` method generates transaction signature (but this method is only available to the node owner).
 
-## After Transaction Is Sent
+## After Transaction Is Sent<a id="utx-pool"></a>
 
 Upon receiving a transaction, the node validates its signature, checks the sender's balance, and so on, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article for details. If the transaction is valid, the node puts the transaction to the UTX pool that is a list of transactions awaiting to be added, and also broadcasts the transaction to other nodes of the blockchain network.
 

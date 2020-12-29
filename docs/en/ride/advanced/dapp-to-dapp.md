@@ -21,7 +21,7 @@ Features:
 * dApp-to-dApp invocations are added in node version 1.3.0 and enabled with feature #16 “Ride V5, dApp-to-dApp invocations, Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 * The invoking dApp script uses [Standard library](/en/ride/script/standard-library) **version 5**.
 * If the dApp invokes itself, the invocation must not contain payments.
-* The [Invoke Script](/en/blockchain/transaction) transaction version is 3.
+* The [Invoke Script](/en/blockchain/transaction-type/invoke-script-transaction) transaction version is 3.
 * The total complexity is limited by 52,000 for all callable functions and asset scripts of involved smart assets. The sender's account script complexity is not included in that limit.
 
 > Continued calculations and dApp-to-dApp invocation are mutually exclusive, that is, they cannot be initiated by the same transaction.
@@ -46,8 +46,8 @@ Parameters:
 | :--- | :--- |
 | dApp: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of a dApp to invoke |
 | function: [String](/en/ride/v5/data-types/string)&#124;[Unit](/en/ride/v5/data-types/unit) | Name of a callable function. `unit` for a default function invocation |
-| arguments: [List](/en/ride/v5/data-types/list)[[Boolean](/en/ride/v5/data-types/boolean)&#124;[ByteVector](/en/ride/data-types/byte-vector)&#124;[Int](/en/ride/data-types/int)&#124;[String](/en/ride/data-types/string)&#124;[List](/en/ride/data-types/list)[[Boolean](/en/ride/data-types/boolean)&#124;[ByteVector](/en/ride/data-types/byte-vector)&#124;[Int](/en/ride/data-types/int)&#124;[String](/en/ride/data-types/string)]]&#124;[Unit](/en/ride/v5/data-types/unit) | Parameters of a callable function. `unit` for a default function invocation |
-| payments: [List](/en/ride/data-types/list)[[AttachedPayment](/en/ride/structures/common-structures/attached-payment)] | Payments to transfer from the invoking dApp to the invoked dApp, up to 2 |
+| arguments: [List](/en/ride/v5/data-types/list)[[Boolean](/en/ride/v5/data-types/boolean)&#124;[ByteVector](/en/ride/v5/data-types/byte-vector)&#124;[Int](/en/ride/v5/data-types/int)&#124;[String](/en/ride/v5/data-types/string)&#124;[List](/en/ride/v5/data-types/list)[[Boolean](/en/ride/v5/data-types/boolean)&#124;[ByteVector](/en/ride/v5/data-types/byte-vector)&#124;[Int](/en/ride/v5/data-types/int)&#124;[String](/en/ride/v5/data-types/string)]]&#124;[Unit](/en/ride/v5/data-types/unit) | Parameters of a callable function. `unit` for a default function invocation |
+| payments: [List](/en/ride/v5/data-types/list)[[AttachedPayment](/en/ride/v5/structures/common-structures/attached-payment)] | Payments to transfer from the invoking dApp to the invoked dApp, up to 2 |
 
 ```
 strict z = Invoke(dapp,foo,args,[AttachedPayment(unit,100000000)])
@@ -70,7 +70,7 @@ For dApp-to-dApp invocation, the fields of [Invocation](/en/ride/v5/structures/c
 
 ## Callable Function Result
 
-In Standard library version 5, a callable function result is a [Tuple](https://docs.waves.tech/en/ride/data-types/tuple) of two elements:
+In Standard library version 5, a callable function result is a [Tuple](https://docs.waves.tech/en/ride/v5/data-types/tuple) of two elements:
 
 1. List of script actions.
 2. Return value that is passed to the invoking function.

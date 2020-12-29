@@ -39,6 +39,7 @@ where:
 
 ## JSON Representation
 
+```json
 {
   "type": 16,
   "id": "DN9Ny8mph4tLjn58e9CqhckPymH9zwPqBSZtcv2bBi3u",
@@ -93,6 +94,7 @@ where:
     "sponsorFees": []
   }
 }
+```
 
 | Field | Description |
 | :--- | :--- |
