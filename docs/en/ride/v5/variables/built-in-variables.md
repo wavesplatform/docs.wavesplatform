@@ -1,6 +1,6 @@
 # [Ride v5] Built-in variables
 
-:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/variables/built-in-variables/)
+:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/variables/built-in-variables)
 
 A **built-in variable** is a [variable](/en/ride/v5/variables/) of the [Standard library](/en/ride/script/standard-library).
 

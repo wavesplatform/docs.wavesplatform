@@ -2,7 +2,7 @@
 
 :warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/functions/built-in-functions/)
 
-**Встроенная функция** — [функция](/ru/ride/v5/functions/) [Стандартной библиотеки](/ru/ride/script/standard-library).
+**Встроенная функция** — [функция](/ru/ride/functions/) [Стандартной библиотеки](/ru/ride/script/standard-library).
 
 ## [Математические функции](/ru/ride/v5/functions/built-in-functions/math-functions)
 

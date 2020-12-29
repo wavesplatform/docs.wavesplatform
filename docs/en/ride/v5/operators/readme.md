@@ -41,7 +41,7 @@
 | Operator | Description |
 | :---: | :--- |
 | if-then-else | Conditional statement |
-| match-case | [Spot a type from Union](/en/ride/v5/operators/match-case) |
+| match-case | [Spot a type from Union](/en/ride/operators/match-case) |
 
 ## List operators
 

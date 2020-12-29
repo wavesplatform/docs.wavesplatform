@@ -6,8 +6,8 @@
 
 * **dApp-to-dApp invocation.** A dApp callable function can invoke a callable function of another dApp, or another callable function of the same dApp, or even itself. All invoked functions are executed within a single Invoke Script transaction. The total complexity is limited. [More about dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp)
 * **Continued calculations.** Added support for dApp scripts with complexity over 4000. The execution of such a script is split into several stages. The first stage of calculations is performed within the Invoke Script transaction. The further stages are performed within Continuation transactions. [More about continued calculations](/en/ride/advanced/continuation)
-* Implemented the new transaction type: [Continuation](/en/blockchain/transaction-type/continuation-transaction). A block generator creates the Continuation transaction if there is an incomplete calculation sequence. A user cannot send a Continuation transaction.
-* Added version 3 for the [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) that can invoke a script with complexity over 4000.
+   * Implemented the new transaction type: [Continuation](/en/blockchain/transaction-type/continuation-transaction). A block generator creates the Continuation transaction if there is an incomplete calculation sequence. A user cannot send a Continuation transaction.
+   * Added version 3 for the [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) that can invoke a script with complexity over 4000.
 
 ### Ride
 
@@ -19,7 +19,7 @@
    * [Lease](/en/ride/v5/structures/script-actions/lease) — leases WAVES.
    * [LeaseCancel](/en/ride/v5/structures/script-actions/lease-cancel) — cancels a specified lease.
 
-   Using these actions, you can change the amount of the lease, in particular, withdraw a part of the leased funds. If you cancel a lease for a larger amount and create a new lease for a smaller amount with the same recipient in the same script invocation, the recipient's generating balance decreases by the difference. Otherwise, if you send two separate transactions: a Lease Cancel transaction and a Lease transaction, the generating balance decreases by the amount of the canceled lease immediately and increases by the amount of the new lease after 1000 blocks.
+   Using these actions, you can change the amount of the lease, in particular, withdraw a part of the leased funds. If you cancel a lease for a larger amount and create a new lease for a smaller amount with the same recipient in the same script invocation, the recipient's generating balance decreases by the difference. Otherwise, if you send two separate transactions: a Lease Cancel transaction and a Lease transaction, they can be added to a different blocks and therefore generating balance decreases by the amount of the canceled lease immediately and increases by the amount of the new lease after 1000 blocks.
 
 * Added the function [calculateLeaseId](/en/ride/v5/functions/built-in-functions/blockchain-functions#calculateleaseid) that calculates ID of the lease formed by the `Lease` structure.
 * Added the following [account data storage functions](/en/ride/v5/functions/built-in-functions/account-data-storage-functions) that allow the dApp script to read entries of its own data storage at any stage of the calculations:
@@ -56,6 +56,8 @@
         "height": 2253315
       }
    ```
+
+   The `originTransactionId` field can contain an ID of a Lease Transaction or an Invoke Script transaction.
 </details>
 
 #### Semantic Changes

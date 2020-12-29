@@ -4,7 +4,7 @@ Standard library version 5 is added in node version 1.3.0 and enabled with featu
 
 ## dApp-to-dApp Invocation
 
-A dApp callable function can invoke a callable function of another dApp, or another callable function of the same dApp, or even itself. The invoked function returns a value that the invoking function can use. The subsequent operations of invoking function are executed, taking into account script actions of invoked function (as if the actions are applied to the blockchain state). All callable functions are executed within a single Invoke Script transaction. The total complexity is limited. [More about dApp-to-dApp invocation](/en/ride/advanced/dApp-to-dApp)
+A dApp callable function can invoke a callable function of another dApp, or another callable function of the same dApp, or even itself. The invoked function returns a value that the invoking function can use. The subsequent operations of invoking function are executed, taking into account script actions of invoked function (as if the actions are applied to the blockchain state). All callable functions are executed within a single Invoke Script transaction. The total complexity is limited. [More about dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp)
 
 Changes in Ride:
 

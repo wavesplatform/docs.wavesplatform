@@ -70,7 +70,7 @@ For dApp-to-dApp invocation, the fields of [Invocation](/en/ride/v5/structures/c
 
 ## Callable Function Result
 
-In Standard library version 5, a callable function result is a [Tuple](https://docs.waves.tech/en/ride/v5/data-types/tuple) of two elements:
+In Standard library version 5, a callable function result is a [Tuple](/en/ride/v5/data-types/tuple) of two elements:
 
 1. List of script actions.
 2. Return value that is passed to the invoking function.

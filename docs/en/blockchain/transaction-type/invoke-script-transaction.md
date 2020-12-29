@@ -33,7 +33,7 @@ where:
 
    `С` is the **c**omplexity of the callable function. `С`/4000 rounded up to the nearest integer is the number of stages in the calculation sequence. For details see the [Continued Calculations](/en/ride/advanced/continuation) article.
 
-   `N` is the total number of **n**ested invocations via `Invoke` function. For details see the [dApp-to-dApp Invocation](/en/ride/advanced/dApp-to-dApp) article.
+   `N` is the total number of **n**ested invocations via `Invoke` function. For details see the [dApp-to-dApp Invocation](/en/ride/advanced/dapp-to-dapp) article.
 
 > Continued calculations and dApp-to-dApp invocation are mutually exclusive, that is, they cannot be initiated by the same transaction.
 

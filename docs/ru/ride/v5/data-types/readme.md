@@ -7,7 +7,7 @@
 | [Логический](/ru/ride/v5/data-types/boolean) | Boolean |
 | [Массив байтов](/ru/ride/v5/data-types/byte-vector) | ByteVector |
 | [Целочисленный](/ru/ride/v5/data-types/int) | Int |
-| [Строка](/ru/ride/data-types/v5/string) | String |
+| [Строка](/ru/ride/v5/data-types/string) | String |
 | [Тип данных пустого значения](/ru/ride/v5/data-types/unit) | Unit |
 | [Список](/ru/ride/v5/data-types/list) | List |
 | [Кортеж](/ru/ride/v5/data-types/tuple) | — |

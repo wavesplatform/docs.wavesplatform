@@ -8,7 +8,7 @@
 | [Byte array](/en/ride/v5/data-types/byte-vector) | ByteVector |
 | [Integer](/en/ride/v5/data-types/int) | Int |
 | [String](/en/ride/v5/data-types/string) | String |
-| [Empty value](/en/v5/ride/data-types/unit) | Unit |
+| [Empty value](/en/ride/v5/data-types/unit) | Unit |
 | [List](/en/ride/v5/data-types/list) | List |
 | [Tuple](/en/ride/v5/data-types/tuple) | — |
 | [Union](/en/ride/v5/data-types/union) | — |
