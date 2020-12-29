@@ -181,6 +181,10 @@
    ```
    </details>
 
+### Activation
+
+To activate the improvements listed above, vote for feature #16 “Ride V5, dApp-to-dApp invocations, Continuations”.
+
 ## Version 1.2
 
 ### Protocol Enhancements
