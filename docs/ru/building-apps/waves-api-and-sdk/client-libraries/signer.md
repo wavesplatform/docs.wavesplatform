@@ -184,7 +184,7 @@ new Signer({
    * [setProvider](#setprovider)
    * [waitTxConfirm](#waittxconfirm)
 
-В коде можно использовать [типы TypeScript](https://github.com/wavesplatform/ts-types/blob/master/transactions/index.d.ts).
+В коде можно использовать [типы TypeScript](https://github.com/wavesplatform/ts-types/blob/master/transactions/index.ts).
 
 ### Данные пользователя
 

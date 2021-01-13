@@ -185,7 +185,7 @@ Creates an object that features the following [methods](#methods).
    * [setProvider](#setprovider)
    * [waitTxConfirm](#waittxconfirm)
 
-In code you can use [TypeScript types](https://github.com/wavesplatform/ts-types/blob/master/transactions/index.d.ts).
+In code you can use [TypeScript types](https://github.com/wavesplatform/ts-types/blob/master/transactions/index.ts).
 
 ### User Info
 

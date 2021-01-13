@@ -16,11 +16,11 @@
 | [getBooleanValue(Address&#124;Alias, String): Boolean](#get-boolean-value) | Gets a boolean value by key. Fails if there is no data | 10 |
 | [getBooleanValue(String): Boolean](#getbooleanvalue-string-boolean) | Gets a boolean value by key from the dApp's own data storage. Fails if there is no data | 10 |
 | [getInteger(Address&#124;Alias, String): Int&#124;Unit](#get-integer) | Gets an integer by key | 10 |
-| [getInteger(String): Int&#124;Unit](#getinteger-string-int) | Gets an integer by key from the dApp's own data storage | 10 |
+| [getInteger(String): Int&#124;Unit](#getinteger-string-int-unit) | Gets an integer by key from the dApp's own data storage | 10 |
 | [getIntegerValue(Address&#124;Alias, String): Int](#get-integer-value) | Gets an integer by key. Fails if there is no data | 10 |
 | [getIntegerValue(String): Int](#getintegervalue-string-int) | Gets an integer by key from the dApp's own data storage. Fails if there is no data | 10 |
 | [getString(Address&#124;Alias, String): String&#124;Unit](#get-string) | Gets a string by key | 10 |
-| [getString(String): String&#124;Unit](#getstring-string-string) | Gets a string by key from the dApp's own data storage | 10 |
+| [getString(String): String&#124;Unit](#getstring-string-string-unit) | Gets a string by key from the dApp's own data storage | 10 |
 | [getStringValue(Address&#124;Alias, String): String](#get-string-value) | Gets a string by key. Fails if there is no data | 10 |
 | [getStringValue(String): String](#getstringvalue-string-string) | Gets a string by key from the dApp's own data storage. Fails if there is no data | 10 |
 
