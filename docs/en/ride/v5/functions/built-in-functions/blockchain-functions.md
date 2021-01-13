@@ -12,7 +12,7 @@
 | [calculateLeaseId(Lease): ByteVector](#calculateleaseid) | Calculates ID of the lease formed by the [Lease](/en/ride/v5/structures/script-actions/lease) structure when executing the callable function | 1 |
 | [transactionHeightById(ByteVector): Int&#124;Unit](#transactionheightbyid) | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 20 |
 | [transferTransactionById(ByteVector): TransferTransaction&#124;Unit](#transfertransactionbyid) | Gets the data of a transfer transaction | 60 |
-| [wavesBalance(Address&#124;Alias): Int](#waves-balance) | Gets account balance in [WAVES](/en/blockchain/token/waves) | 10 |
+| [wavesBalance(Address&#124;Alias): BalanceDetails](#waves-balance) | Gets account balance in [WAVES](/en/blockchain/token/waves) | 10 |
 
 ## addressFromRecipient(Address|Alias): Address<a id="address-from-recipient"></a>
 

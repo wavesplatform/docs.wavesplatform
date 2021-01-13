@@ -12,7 +12,7 @@
 | [calculateLeaseId(Lease): ByteVector](#calculateleaseid) | Вычисляет ID ассета, созданного структурой [Lease](/ru/ride/v5/structures/script-actions/lease) при выполнении вызываемой функции | 1 |
 | [transactionHeightById(ByteVector):  Int&#124;Unit](#transactionheightbyid) | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 20 |
 | [transferTransactionById(ByteVector): TransferTransaction&#124;Unit](#transfertransactionbyid) | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 60 |
-| [wavesBalance(Address&#124;Alias): Int](#waves-balance) | Получает баланс аккаунта в [WAVES](/ru/blockchain/token/waves) | 10 |
+| [wavesBalance(Address&#124;Alias): BalanceDetails](#waves-balance) | Получает баланс аккаунта в [WAVES](/ru/blockchain/token/waves) | 10 |
 
 ## addressFromRecipient(Address&#124;Alias): Address<a id="address-from-recipient"></a>
 
@@ -230,7 +230,7 @@ let x = match transferTransactionById(transferId) {
 }
 ```
 
-## wavesBalance: Int<a id="waves-balance"></a>
+## wavesBalance<a id="waves-balance"></a>
 
 Возвращает все виды баланса [WAVES](/ru/blockchain/token/waves) аккаунта. О видах баланса см. в разделe [Баланс аккаунта](/ru/blockchain/account/account-balance).
 
