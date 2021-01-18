@@ -19,13 +19,7 @@ Examples of usage:
 
 ## Hardware Requirements
 
-For a node with the Blockchain Updates extension, the recommended configuration is at least the following:
-
-| | |
-| :--- | :--- |
-| CPU | 4 | 
-| RAM | 8 GB |
-| SSD | 60 GB |
+For a node with the Blockchain Updates extension, we recommended to increase the disk space by 50 GB (for instance, at height 2422450, 35 GB is used for extension data).
 
 ## Launch Node with Extension
 
