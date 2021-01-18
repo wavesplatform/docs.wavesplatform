@@ -125,7 +125,7 @@ func deposit() = {
        [
          IntegerEntry(currentKey, newAmount)
        ],
-       null
+       unit
      )
    }
 }
@@ -147,7 +147,7 @@ func withdraw(amount: Int) = {
           IntegerEntry(currentKey, newAmount),
           ScriptTransfer(i.caller, amount, unit)
         ],
-        null
+        unit
       )
 }
 
