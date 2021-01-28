@@ -11,7 +11,15 @@ Limitations are as follows:
 
 ## Fee
 
-The minimum fee for a Data transaction is 0.001 WAVES per kilobyte, the fee value is rounded up to three decimals.
+The minimum fee for a Data transaction is 0.001 WAVES per kilobyte, the size is rounded up to an integer number of kilobytes.
+
+<details>
+   <summary>Details</summary>
+
+* For the transaction version 2, the minimum fee is based on the data size (keys + values), that is the serialized `data_transaction` field in [protobuf representation](/en/blockchain/binary-format/transaction-binary-format/data-transaction-binary-format).
+* For the transaction version 1, starting from activation of feature №&nbsp;4 "Smart Accounts", the minimum fee is based on the size of the transaction body bytes (all transaction fields except proofs).
+* For the transaction version 1, before activation of feature №&nbsp;4, the minimum fee is based on the size of the entire transaction, including proofs.
+</details>
 
 If the transaction sender is a [dApp or smart account](/en/blockchain/account/dapp), the minimum fee is increased by 0.004 WAVES.
 
