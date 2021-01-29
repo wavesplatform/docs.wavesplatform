@@ -1,5 +1,11 @@
 # Documentation Updates
 
+## January
+
+### Building Apps
+
+* [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer) — <span style="color:green">updated</span>
+
 ## December
 
 ### Ride

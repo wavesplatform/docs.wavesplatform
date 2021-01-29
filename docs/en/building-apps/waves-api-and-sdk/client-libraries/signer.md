@@ -23,7 +23,8 @@ Signer implements developer-friendly protocol for interacting with Provider as w
 For now, you can use one of the following Providers:
 
 * [ProviderSeed](https://github.com/wavesplatform/provider-seed) developed by Waves team creates user account from seed. ProviderSeed can be used at the app debugging stage.
-* [ProviderWeb](https://github.com/waves-exchange/provider-web) developed by Waves.Exchange team is the wallet software that encrypts and stores user's private key and seed phrase.
+* [ProviderWeb](https://github.com/waves-exchange/provider-web) developed by Waves.Exchange team uses an account imported into the Waves.Exchange web app via user's private key or seed phrase.
+* [ProviderCloud](https://github.com/waves-exchange/provider-web) developed by Waves.Exchange team uses an email-based Waves.Exchange.
 
 You can also develop your own Provider, see the [Provider Interface](#provider-interface) section below.
 
@@ -67,6 +68,18 @@ Signer supports all browsers except Brave.
    npm i '@waves.exchange/provider-web'
    ```
 
+* To install ProviderCloud developed by Waves.Exchange, use
+
+   ```bash
+   npm i @waves.exchange/provider-cloud
+   ```
+
+   For Windows, use the following format:
+
+   ```bash
+   npm i '@waves.exchange/provider-cloud'
+   ```
+
 ### 2. Library initialization
 
 Add library initialization to your app.
@@ -74,7 +87,7 @@ Add library initialization to your app.
 * For Testnet & ProviderSeed:
 
    ```js
-   import Signer from '@waves/signer';
+   import { Signer } from '@waves/signer';
    import { ProviderSeed } from '@waves/provider-seed';
    import { libs } from '@waves/waves-transactions';
 
@@ -89,24 +102,47 @@ Add library initialization to your app.
 * For Testnet & Waves.Exchange ProviderWeb:
 
    ```js
-   import Signer from '@waves/signer';
-   import Provider from '@waves.exchange/provider-web';
+   import { Signer } from '@waves/signer';
+   import { ProviderWeb } from '@waves.exchange/provider-web';
    
    const signer = new Signer({
      // Specify URL of the node on Testnet
      NODE_URL: 'https://nodes-testnet.wavesnodes.com'
    });
-   signer.setProvider(new Provider('https://testnet.waves.exchange/signer/'))
+   signer.setProvider(new ProviderWeb('https://testnet.waves.exchange/signer/'))
+   ```
+
+* For Testnet & Waves.Exchange ProviderCloud:
+
+   ```js
+   import { Signer } from '@waves/signer';
+   import { ProviderCloud } from '@waves.exchange/provider-web';
+   
+   const signer = new Signer({
+     // Specify URL of the node on Testnet
+     NODE_URL: 'https://nodes-testnet.wavesnodes.com'
+   });
+   signer.setProvider(new ProviderCloud('https://testnet.waves.exchange/signer/'))
    ```
 
 * For Mainnet & Waves.Exchange ProviderWeb:
 
    ```js
-   import Signer from '@waves/signer';
-   import Provider from '@waves.exchange/provider-web';
+   import { Signer } from '@waves/signer';
+   import { ProviderWeb} from '@waves.exchange/provider-web';
    
    const signer = new Signer();
-   signer.setProvider(new Provider());
+   signer.setProvider(new ProviderWeb());
+   ```
+
+* For Mainnet & Waves.Exchange ProviderCloud:
+
+   ```js
+   import { Signer } from '@waves/signer';
+   import { ProviderCloud} from '@waves.exchange/provider-cloud';
+   
+   const signer = new Signer();
+   signer.setProvider(new ProviderCloud());
    ```
 
 After that you will be able to use Signer features in the app.

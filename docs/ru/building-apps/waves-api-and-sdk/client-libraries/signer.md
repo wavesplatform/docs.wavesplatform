@@ -23,7 +23,8 @@ Signer предоставляет приложению удобный прото
 В данный момент вы можете подключить один из следующих Провайдеров:
 
 * [ProviderSeed](https://github.com/wavesplatform/provider-seed) разработан командой Waves и создает аккаунт пользователя из секретной фразы. ProviderSeed можно использовать на этапе разработки и отладки приложения.
-* [ProviderWeb](https://github.com/waves-exchange/provider-web) — приложение-кошелек, разработанное командой Waves.Exchange, которое хранит в зашифрованном виде секретную фразу и закрытый ключ пользователя.
+* [ProviderWeb](https://github.com/waves-exchange/provider-web) разработан командой Waves.Exchange и использует аккаунт, импортированный в веб-приложение Waves.Exchange через секретную фразу или приватный ключ.
+* [ProviderCloud](https://github.com/waves-exchange/provider-cloud) — разработан командой Waves.Exchange и использует аккаунт Waves.Exchange на основе email.
 
 Вы также можете разработать собственный Провайдер, см. подраздел [Интерфейс Провайдера](#интерфейс-провайдера).
 
@@ -66,6 +67,17 @@ Signer поддерживает все браузеры, кроме Brave.
    npm i '@waves.exchange/provider-web'
    ```
 
+* Чтобы установить ProviderCloud от Waves.Exchange, используйте команду
+
+   ```bash
+   npm i @waves.exchange/provider-cloud
+   ```
+  
+   Для Windows используйте следующий формат:
+   ```bash
+   npm i '@waves.exchange/provider-cloud'
+   ```
+
 ### 2. Подключение библиотек
 
 Инициализируйте библиотеки в приложении.
@@ -73,7 +85,7 @@ Signer поддерживает все браузеры, кроме Brave.
 * Для работы с Testnet и ProviderSeed:
 
    ```js
-   import Signer from '@waves/signer';
+   import { Signer } from '@waves/signer';
    import { ProviderSeed } from '@waves/provider-seed';
    import { libs } from '@waves/waves-transactions';
 
@@ -88,24 +100,47 @@ Signer поддерживает все браузеры, кроме Brave.
 * Для работы с Testnet и Waves.Exchange ProviderWeb:
 
    ```js
-   import Signer from '@waves/signer';
-   import Provider from '@waves.exchange/provider-web';
+   import { Signer } from '@waves/signer';
+   import { ProviderWeb } from '@waves.exchange/provider-web';
    
    const signer = new Signer({
      // Укажите адрес ноды, подключенной к Testnet
      NODE_URL: 'https://nodes-testnet.wavesnodes.com'
    });
-   signer.setProvider(new Provider('https://testnet.waves.exchange/signer/'))
+   signer.setProvider(new ProviderWeb('https://testnet.waves.exchange/signer/'))
+   ```
+
+* Для работы с Testnet и Waves.Exchange ProviderCloud:
+
+   ```js
+   import { Signer } from '@waves/signer';
+   import { ProviderCloud } from '@waves.exchange/provider-cloud';
+   
+   const signer = new Signer({
+     // Укажите адрес ноды, подключенной к Testnet
+     NODE_URL: 'https://nodes-testnet.wavesnodes.com'
+   });
+   signer.setProvider(new ProviderCloud('https://testnet.waves.exchange/signer/'))
    ```
 
 * Для работы с Mainnet и Waves.Exchange ProviderWeb:
 
    ```js
-   import Signer from '@waves/signer';
-   import Provider from '@waves.exchange/provider-web';
+   import { Signer } from '@waves/signer';
+   import { ProviderWeb } from '@waves.exchange/provider-web';
    
    const signer = new Signer();
-   signer.setProvider(new Provider());
+   signer.setProvider(new ProviderWeb());
+   ```
+
+* Для работы с Mainnet и Waves.Exchange ProviderCloud:
+
+   ```js
+   import { Signer } from '@waves/signer';
+   import { ProviderCloud } from '@waves.exchange/provider-cloud';
+   
+   const signer = new Signer();
+   signer.setProvider(new ProviderCloud());
    ```
 
 Теперь ваше приложение может использовать функции Signer.
