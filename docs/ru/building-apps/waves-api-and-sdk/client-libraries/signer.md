@@ -22,9 +22,9 @@ Signer предоставляет приложению удобный прото
 
 В данный момент вы можете подключить один из следующих Провайдеров:
 
-* [ProviderSeed](https://github.com/wavesplatform/provider-seed) разработан командой Waves и создает аккаунт пользователя из секретной фразы. ProviderSeed можно использовать на этапе разработки и отладки приложения.
-* [ProviderWeb](https://github.com/waves-exchange/provider-web) разработан командой Waves.Exchange и использует аккаунт, импортированный в веб-приложение Waves.Exchange через секретную фразу или приватный ключ.
-* [ProviderCloud](https://github.com/waves-exchange/provider-cloud) — разработан командой Waves.Exchange и использует аккаунт Waves.Exchange на основе email.
+* [ProviderSeed](https://github.com/wavesplatform/provider-seed), разработанный командой Waves, создает аккаунт пользователя из секретной фразы. ProviderSeed можно использовать на этапе разработки и отладки приложения.
+* [ProviderWeb](https://github.com/waves-exchange/provider-web), разработанный командой Waves.Exchange, использует аккаунт, импортированный в веб-приложение Waves.Exchange через секретную фразу или приватный ключ.
+* [ProviderCloud](https://github.com/waves-exchange/provider-cloud), разработанный командой Waves.Exchange, использует аккаунт Waves.Exchange на основе email.
 
 Вы также можете разработать собственный Провайдер, см. подраздел [Интерфейс Провайдера](#интерфейс-провайдера).
 

@@ -116,7 +116,7 @@ Add library initialization to your app.
 
    ```js
    import { Signer } from '@waves/signer';
-   import { ProviderCloud } from '@waves.exchange/provider-web';
+   import { ProviderCloud } from '@waves.exchange/provider-cloud';
    
    const signer = new Signer({
      // Specify URL of the node on Testnet
