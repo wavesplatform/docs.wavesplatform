@@ -33,12 +33,12 @@ Waves предоставляет следующие API для работы с �
 | **Токены (ассеты)** | |
 | Поля токена, включая тикер; поиск токена по тикеру | [Data Service API](/ru/building-apps/waves-api-and-sdk/waves-data-service-api) |
 | Распределение ассета по адресам | [Node REST API](/ru/waves-node/node-api/) |
-| Изменение параметров токена | [Blockchain Updates](/ru/waves-node/extensions/blockchain-updates) |
+| Изменение параметров токена (в результате довыпуска/сжигания, настройки спонсирования и др.) | [Blockchain Updates](/ru/waves-node/extensions/blockchain-updates) |
 | **Биржа** | |
 | Данные об обмене для пары токенов: последняя цена, данные за 24 часа, свечи | [Data Service API](/ru/building-apps/waves-api-and-sdk/waves-data-service-api) |
 | **Транзакции** | |
 | Список транзакций по адресу | [Node REST API](/ru/waves-node/node-api/) или [gRPC Server](/ru/waves-node/extensions/grpc-server/) |
-| Статус транзакции | [Node REST API](/ru/waves-node/node-api/) или [gRPC Server](/ru/waves-node/extensions/grpc-server/) |
+| Статус транзакции (confirmed/unconfirmed) | [Node REST API](/ru/waves-node/node-api/) или [gRPC Server](/ru/waves-node/extensions/grpc-server/) |
 | Результат транзакции вызова скрипта | [Node REST API](/ru/waves-node/node-api/) или [gRPC Server](/ru/waves-node/extensions/grpc-server/) |
 | Поиск транзакций по типу и значениям полей | [Data Service API](/ru/building-apps/waves-api-and-sdk/waves-data-service-api) |
 | Изменения, внесенные каждой транзакцией | [Blockchain Updates](/ru/waves-node/extensions/blockchain-updates) |
