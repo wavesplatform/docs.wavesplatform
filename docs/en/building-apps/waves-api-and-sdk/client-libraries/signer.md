@@ -23,7 +23,7 @@ Signer implements developer-friendly protocol for interacting with Provider as w
 For now, you can use one of the following Providers:
 
 * [ProviderSeed](https://github.com/wavesplatform/provider-seed) developed by Waves team creates user account from seed. ProviderSeed can be used at the app debugging stage.
-* [ProviderWeb](https://github.com/waves-exchange/provider-web) developed by Waves.Exchange team uses an account imported into the Waves.Exchange web app via user's private key or seed phrase.
+* [ProviderWeb](https://github.com/waves-exchange/provider-web) developed by Waves.Exchange team uses an account created or imported into the Waves.Exchange web app via user's private key or seed phrase.
 * [ProviderCloud](https://github.com/waves-exchange/provider-web) developed by Waves.Exchange team uses an email-based Waves.Exchange.
 
 You can also develop your own Provider, see the [Provider Interface](#provider-interface) section below.
