@@ -1,5 +1,11 @@
 # Обновления в документации
 
+## Январь
+
+### Разработка приложений на блокчейне
+
+* [Signer](/ru/building-apps/waves-api-and-sdk/client-libraries/signer) — <span style="color:green">обновлено</span>
+
 ## Декабрь
 
 ### Ride
