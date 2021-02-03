@@ -1,16 +1,29 @@
 # Documentation Updates
 
-## January
+## February
 
 * [Data Service API](/en/building-apps/waves-api-and-sdk/waves-data-service-api)
 
+## January
+
+* [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer) — <span style="color:green">updated</span>
+
 <details>
    <summary>2020</summary>
+
+## December
+
+### Ride
+
+* [Standard Library Version 5](/en/ride/v5/) ![stagenet](./_assets/stagenet.svg)
+* [Continued Computations](/en/ride/advanced/continuation) ![stagenet](./_assets/stagenet.svg)
+* [dApp-to-dApp Invocation](/en/ride/advanced/dapp-to-dapp) ![stagenet](./_assets/stagenet.svg)
 
 ## November
 
 ### Node
 
+* [Node REST API](/en/waves-node/node-api/) — <span style="color:green">updated</span>
 * [API Limitations of Pool of Public Nodes](/en/waves-node/api-limitations-of-the-pool-of-public-nodes) — <span style="color:green">updated</span>
 
 ## October

@@ -1,146 +1,139 @@
-# Request Headers
+# Monetary Fields Format
 
-## api-key
-
-The node owner [API key](https://en.wikipedia.org/wiki/Application_programming_interface_key) is very important just like the [seed phrase](/en/blockchain/glossary#secret-phrase) and the wallet password.
-
-The API key is transmitted in the HTTP header as unprotected plain text in `api-key` header. An attacker can intercept it in the network transit and use it to steal your assets. It is highly important to protect the transmission with HTTPS or SSH port forwarding.
-
-Please note that node does not have built-in HTTPS support. Consider using HTTPS-proxy, for example, nginx.
-
-## large-significand-format=string
-
-Sets serialization format for monetary fields. If set, the field will be serialized to JSON as a string, otherwise - as a number. This can be useful for values with long mantissa.
-
-### Example
-
-```bash
-curl -X GET --header 'Accept: application/json; large-significand-format=string' 'https://nodes.wavesnodes.com/blocks/headers/last'
+By default, monetary values are represented in API responses as numbers. These numbers can take up to 64 bit that can cause issues with programming languages that represent integers with fewer than 64 bit, such as JavaScript. To work around these issues, you can obtain monetary values as strings by specifying the following HTTP header in the request:
 
 ```
+Accept: application/json; large-significand-format=string
+```
 
-Below is the list of endpoints accepting this header.
+Example:
 
-#### GET /addresses/balance/{address}/{confirmations}
+```bash
+curl -X GET --header 'Accept: application/json;large-significand-format=string' 'https://nodes.wavesnodes.com/blocks/headers/last'
+```
 
-Affected field: `balance`.
+Below is the list of endpoints accepting this header:
 
-#### GET /addresses/balance/details/{address}
+* `GET /addresses/balance/{address}/{confirmations}`
 
-Affected fields: `regular`, `generating`, `available`, `effective`.
+   Field: `balance`.
 
-#### GET /addresses/effectiveBalance/{address}/{confirmations}
+* `GET /addresses/balance/details/{address}`
 
-Affected field: `balance`.
+   Fields: `regular`, `generating`, `available`, `effective`.
 
-#### GET /addresses/effectiveBalance/{address}
+* `GET /addresses/effectiveBalance/{address}/{confirmations}`
 
-Affected field: `balance`.
+   Field: `balance`.
 
-#### GET /addresses/balance/{address}
+* `GET /addresses/effectiveBalance/{address}`
 
-Affected field: `balance`.
+   Field: `balance`.
 
-#### GET /blocks/headers/last
+* `GET /addresses/balance/{address}`
 
-Affected field: `reward`, `totalFee`.
+   Field: `balance`.
 
-#### GET /blocks/headers/at/{height}
+* `GET /blocks/headers/last`
 
-Affected fields: `reward`, `totalFee`.
+   Fields: `reward`, `totalFee`.
 
-#### GET /blocks/headers/seq/{from}/{to}
+* `GET /blocks/headers/at/{height}`
 
-Affected fields: `reward`, `totalFee`.
+   Fields: `reward`, `totalFee`.
 
-#### GET /blocks/at/{height}
+* `GET /blocks/headers/seq/{from}/{to}`
 
-Affected fields: `reward`, `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`, `totalFee`.
+   Fields: `reward`, `totalFee`.
 
-#### GET /blocks/signature/{signature}
+* `GET /blocks/at/{height}`
 
-Affected fields: `reward`, `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`, `totalFee`.
+   Fields: `reward`, `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`, `totalFee`.
 
-#### GET /blocks/address/{address}/{from}/{to}
+* `GET /blocks/signature/{signature}`
 
-Affected fields: `reward`, `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`, `totalFee`.
+   Fields: `reward`, `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`, `totalFee`.
 
-#### GET /blocks/last
+* `GET /blocks/address/{address}/{from}/{to}`
 
-Affected fields: `reward`, `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`, `totalFee`.
+   Fields: `reward`, `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`, `totalFee`.
 
-#### GET /blocks/seq/{from}/{to}
+* `GET /blocks/last`
 
-Affected fields: `reward`, `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`, `totalFee`.
+   Fields: `reward`, `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`, `totalFee`.
 
-#### GET /blockchain/rewards/{height}
+* `GET /blocks/seq/{from}/{to}`
 
-Affected fields: `totalWavesAmount`, `currentReward`, `minIncrement`.
+   Fields: `reward`, `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`, `totalFee`.
 
-#### GET /blockchain/rewards
+* `GET /blockchain/rewards/{height}`
 
-Affected fields: `totalWavesAmount`, `currentReward`, `minIncrement`.
+   Fields: `totalWavesAmount`, `currentReward`, `minIncrement`.
 
-#### POST /transactions/calculateFee
+* `GET /blockchain/rewards`
 
-Affected field: `feeAmount`.
+   Fields: `totalWavesAmount`, `currentReward`, `minIncrement`.
 
-#### GET /transactions/info/{id}
+* `POST /transactions/calculateFee`
 
-Affected fields: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
+   Field: `feeAmount`.
 
-#### GET /transactions/unconfirmed/info/{id}
+* `GET /transactions/info/{id}`
 
-Affected fields: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
+   Fields: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
 
-#### GET /transactions/address/{address}/limit/{limit}
+* `GET /transactions/unconfirmed/info/{id}`
 
-Affected fields: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
+   Fields: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
 
-#### POST /transactions/broadcast
+* `GET /transactions/address/{address}/limit/{limit}`
 
-Affected fields: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
+   Fields: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
 
-#### GET /transactions/unconfirmed
+* `POST /transactions/broadcast`
 
-Affected fields: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
+   Fields: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
 
-#### GET /assets/balance/{address}
+* `GET /transactions/unconfirmed`
 
-Affected fields: `balance`, `minSponsoredAssetFee`, `sponsorBalance`, `quantity`, `fee`
+   Fields: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
 
-#### GET /assets/nft/{address}/limit/{limit}
+* `GET /assets/balance/{address}`
 
-Affected fields: `balance`, `minSponsoredAssetFee`, `sponsorBalance`, `quantity`, `fee`
+   Fields: `balance`, `minSponsoredAssetFee`, `sponsorBalance`, `quantity`, `fee`
 
-#### GET /assets/{assetId}/distribution/{height}/limit/{limit}
+* `GET /assets/nft/{address}/limit/{limit}`
 
-Affected field: asset ID.
+   Fields: `balance`, `minSponsoredAssetFee`, `sponsorBalance`, `quantity`, `fee`
 
-#### GET /assets/details/{assetId}
+* `GET /assets/{assetId}/distribution/{height}/limit/{limit}`
 
-Affected field: `quantity`.
+   Field: `asset ID`.
 
-#### GET /assets/balance/{address}/{assetId}
+* `GET /assets/details/{assetId}`
 
-Affected field: `balance`.
+   Field: `quantity`.
 
-#### GET /consensus/generatingbalance/{address}
+* `GET /assets/balance/{address}/{assetId}`
 
-Affected field: `balance`.
+   Field: `balance`.
 
-#### GET /debug/balances/history/{address}
+* `GET /consensus/generatingbalance/{address}`
 
-Affected field: `balance`.
+   Field: `balance`.
 
-#### GET /debug/stateChanges/info/{id}
+* `GET /debug/balances/history/{address}`
 
-Affected field: `fee`.
+   Field: `balance`.
 
-#### GET /debug/stateChanges/address/{address}/limit/{limit}
+* `GET /debug/stateChanges/info/{id}`
 
-Affected fields: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
+   Field: `fee`.
 
-#### GET /debug/portfolios/{address}
+* `GET /debug/stateChanges/address/{address}/limit/{limit}`
 
-Affected fields: `balance`, `in`, `out`.
+   Fields: `fee`, `amount`, `sellMatcherFee`, `price`, `matcherFee`, `buyMatcherFee`, `totalAmount`.
+
+* `GET /debug/portfolios/{address}`
+
+   Fields: `balance`, `in`, `out`.

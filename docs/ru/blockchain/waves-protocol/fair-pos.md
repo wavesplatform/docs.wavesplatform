@@ -9,4 +9,4 @@
 
 Честный PoS назначен на релиз [0.13.3](https://github.com/wavesplatform/Waves/releases).
 
-**Примечание.** Вы можете найти больше технической информации о наших улучшениях алгоритма PoS [**в этой статье**](https://forum.wavesplatform.com/uploads/default/original/1X/b9f220c13f73c3a41dff7f4523c6c4a1fc03ebf6.pdf).
+**Примечание.** Вы можете найти больше технической информации о наших улучшениях алгоритма PoS [**в этой статье**](https://forum.waves.tech/uploads/default/original/1X/b9f220c13f73c3a41dff7f4523c6c4a1fc03ebf6.pdf).

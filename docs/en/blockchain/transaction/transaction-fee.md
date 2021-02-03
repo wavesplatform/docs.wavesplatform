@@ -41,7 +41,7 @@ The minimum fee for an Invoke Script transaction:
 | :--- | :--- | :--- | :--- |
 | [Burn transaction](/en/blockchain/transaction-type/burn-transaction) | 6 | 0.001 |
 | [Create Alias transaction](/en/blockchain/transaction-type/create-alias-transaction) | 10 | 0.001 |
-| [Data transaction](/en/blockchain/transaction-type/data-transaction) | 12 | 0.001 per kilobyte | The value is rounded up to three decimals |
+| [Data transaction](/en/blockchain/transaction-type/data-transaction) | 12 | 0.001 per kilobyte<br>The size is rounded up to an integer number of kilobytes. [Details](/en/blockchain/transaction-type/data-transaction) |
 | [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) | 7 | 0.003 |
 | [Invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) | 16 | 0.005 + `K`<br>`K` is the number of assets issued as a result of dApp script invocation that are not [non-fungible tokens](/en/blockchain/token/non-fungible-token).<br>Asset issue by dApp script added to node version 1.2.0. The functionality can be used after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.<br>See [example 2](#example2) above |
 | [Issue transaction](/en/blockchain/transaction-type/issue-transaction) | 3 | • 1 for reqular token <br>• 0.001 for [non-fungible token](/en/blockchain/token/non-fungible-token) |

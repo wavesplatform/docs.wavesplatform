@@ -56,4 +56,4 @@
 
 ## Обсуждение
 
-Дальнейшее развитие спонсирования обсуждается на форуме Waves в разделе [WEP-2 Customizable Sponsorship](https://forum.wavesplatform.com/t/wep-2-customizable-sponsorship/15880).
+Дальнейшее развитие спонсирования обсуждается на форуме Waves в разделе [WEP-2 Customizable Sponsorship](https://forum.waves.tech/t/wep-2-customizable-sponsorship/15880).

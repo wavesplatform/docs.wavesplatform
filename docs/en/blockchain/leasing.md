@@ -18,7 +18,7 @@ When the user starts leasing the tokens, those leased tokens are locked and rema
 
 The only thing to consider when leasing is to choose the right node operator, as the operator's node may work with different efficiency and send back different percentages as rewards.
 
-> Fair Proof of Stake is used to select a miner to generate the next block, See [FPoS paper](https://forum.wavesplatform.com/uploads/default/original/2X/7/7397a4cb5fa77d659a7b7ecc9188dd0a4fe0decc.pdf) for more technical details.
+> Fair Proof of Stake is used to select a miner to generate the next block, See [FPoS paper](https://forum.waves.tech/uploads/default/original/2X/7/7397a4cb5fa77d659a7b7ecc9188dd0a4fe0decc.pdf) for more technical details.
 
 ### Rewards
 

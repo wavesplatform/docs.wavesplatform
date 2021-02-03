@@ -1,11 +1,10 @@
 # Encoding functions
 
-|#| Name | Description | Complexity |
-|:---| :--- | :--- | :--- |
-| 1 | [toBase16String(ByteVector): String](#to-base-16-string)  | Encodes array of bytes to [base16](https://en.wikipedia.org/wiki/Hexadecimal) string | 10 |
-| 2 | [toBase58String(ByteVector): String](#to-base-58-string) | Encodes array of bytes to [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) string | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>3 for Standard Library **version 4** |
-| 3 | [toBase64String(ByteVector): String](#to-base-64-string) | Encodes array of bytes to [base64](https://en.wikipedia.org/wiki/Base64) string | 10 for Standard Library **version 3**<br>35 for Standard Library **version 4** |
-
+| Name | Description | Complexity |
+| :--- | :--- | :--- |
+| [toBase16String(ByteVector): String](#to-base-16-string)  | Encodes array of bytes to [base16](https://en.wikipedia.org/wiki/Hexadecimal) string | 10 |
+| [toBase58String(ByteVector): String](#to-base-58-string) | Encodes array of bytes to [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) string | 10 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>3 for Standard Library **version 4** |
+| [toBase64String(ByteVector): String](#to-base-64-string) | Encodes array of bytes to [base64](https://en.wikipedia.org/wiki/Base64) string | 10 for Standard Library **version 3**<br>35 for Standard Library **version 4** |
 
 ## toBase16String(ByteVector): String<a id="to-base-16-string"></a>
 
@@ -17,9 +16,9 @@ toBase16String(bytes: ByteVector): String
 
 ### Parameters
 
-#### `bytes`: [ByteVector](/en/ride/data-types/byte-vector)
-
-The array of bytes to encode.
+| Parameter | Description |
+| :--- | :--- |
+| `bytes`: [ByteVector](/en/ride/data-types/byte-vector) | Array of bytes to encode |
 
 ### Examples
 
@@ -38,9 +37,9 @@ toBase58String(bytes: ByteVector): String
 
 ### Parameters
 
-#### `bytes`: [ByteVector](/en/ride/data-types/byte-vector)
-
-The array of bytes to encode.
+| Parameter | Description |
+| :--- | :--- |
+| `bytes`: [ByteVector](/en/ride/data-types/byte-vector) | Array of bytes to encode |
 
 ### Examples
 
@@ -59,9 +58,9 @@ toBase64String(bytes: ByteVector): String
 
 ### Parameters
 
-#### `bytes`: [ByteVector](/en/ride/data-types/byte-vector)
-
-The array of bytes to encode.
+| Parameter | Description |
+| :--- | :--- |
+| `bytes`: [ByteVector](/en/ride/data-types/byte-vector) | Array of bytes to encode |
 
 ### Examples
 

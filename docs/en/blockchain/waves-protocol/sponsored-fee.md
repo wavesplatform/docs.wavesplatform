@@ -56,4 +56,4 @@ To disable sponsorship, you have to create a sponsor fee transaction in which `m
 
 ## Discussion
 
-Improvement of sponsorship is discussed at the Waves community forum in the [WEP-2 Customizable Sponsorship](https://forum.wavesplatform.com/t/wep-2-customizable-sponsorship/15880) section.
+Improvement of sponsorship is discussed at the Waves community forum in the [WEP-2 Customizable Sponsorship](https://forum.waves.tech/t/wep-2-customizable-sponsorship/15880) section.

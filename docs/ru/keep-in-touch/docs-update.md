@@ -1,16 +1,29 @@
 # Обновления в документации
 
-## Январь
+## Февраль
 
 * [Data Service API](/ru/building-apps/waves-api-and-sdk/waves-data-service-api)
 
+## Январь
+
+* [Signer](/ru/building-apps/waves-api-and-sdk/client-libraries/signer) — <span style="color:green">обновлено</span>
+
 <details>
    <summary>2020</summary>
+
+## Декабрь
+
+### Ride
+
+* [Версия 5 Стандартной библиотеки](/ru/ride/v5/) ![stagenet](./_assets/stagenet.svg)
+* [Вычисления с продолжением](/ru/ride/advanced/continuation) ![stagenet](./_assets/stagenet.svg)
+* [Вызов dApp из dApp](/ru/ride/advanced/dapp-to-dapp) ![stagenet](./_assets/stagenet.svg)
 
 ## Ноябрь
 
 ### Нода
 
+* [REST API ноды](/ru/waves-node/node-api/) — <span style="color:green">обновлено</span>
 * [Ограничения API пула публичных нод](/ru/waves-node/api-limitations-of-the-pool-of-public-nodes) — <span style="color:green">обновлено</span>
 
 ## Октябрь

@@ -4,6 +4,8 @@
 
 Features have names and unique IDs and can be enabled by setting `supported` parameter in the `features` section of the node configuration file. For details see [Features Settings](/en/waves-node/node-configuration#features-section) section of the [Node Configuration](/en/waves-node/node-configuration) article.
 
+You can get the list of features and their statuses using the [GET /activation/status](https://nodes.wavesnodes.com/api-docs/index.html#/activation/status) operation of [Node REST API](/en/waves-node/node-api/).
+
 Waves Mainnet nodes currently support the following features:
 
 | Feature ID |                        Name                       | Description                                                                                                                                                                                              | Blockchain Height* | Activation Date |

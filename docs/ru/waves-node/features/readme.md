@@ -4,6 +4,8 @@
 
 Каждая фича имеет уникальный идентификатор — порядковый номер. Активировать фичи можно с помощью параметра `supported` в секции `features` файла конфигурации. Подробнее в подразделе [Настройки фич](/ru/waves-node/node-configuration#настройки-фич) статьи [Конфигурация ноды](/ru/waves-node/node-configuration).
 
+Получить список и статусы фич можно с помощью метода [GET /activation/status](https://nodes.wavesnodes.com/api-docs/index.html#/activation/status) [REST API ноды](/ru/waves-node/node-api/).
+
 Mainnet-ноды Waves в данный момент поддерживают следующие фичи:
 
 | ID Фичи |                        Название                       | Описание                                                                                                                                                                                              | Высота блокчейна* | Дата активации |
