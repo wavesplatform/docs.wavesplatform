@@ -2,7 +2,7 @@
 
 Waves data service aggregates blockchain data into a PostrgreSQL relational database and provides fast and convenient information retrieval using variety of filters.
 
-The Data Service API lets you to get the following data:
+The Data Service API lets you get the following data:
 
 * List of transactions, including transactions of each type.
 * Parameters of tokens (assets) by ID or exchange tickers.
@@ -68,4 +68,4 @@ Market data is available for all [matchers](https://docs.waves.exchange/ru/waves
 * The maximum number of simultaneous connections per IP address is 15. If the limit is exceeded, HTTP Status 418 is returned.
 * The maximum number of the requests per second (r/s) from IP-address is 40. If the requests rate exceeds the limit, the exceeding requests are queued. The size of the queue (burst) is 20. If the number of redundant requests has exceeded the size of the queue, new requests are not queued, HTTP status 429 is returned.
 
-:warning: Please check the performance of your requests to the Data Service API before you run your application in production and load it. If the combination of filters you are using works slow (the response time is about a second), contact the [developer chat in Telegram](https://t.me/waves_ride_dapps_dev): we can suggest more effective way to obtain required data or optimize the processing of such requests in the data service.
+:warning: Please check the performance of your requests to the Data Service API before you run your application in production and load it. If the combination of filters you are using is slow (the response time is about a second), contact the [developer chat in Telegram](https://t.me/waves_ride_dapps_dev): we can suggest more effective way to obtain required data or optimize the processing of such requests in the data service.

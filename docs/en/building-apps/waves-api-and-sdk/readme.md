@@ -3,9 +3,9 @@
 The following APIs are available for Waves:
 
 * [Node REST API](/en/waves-node/node-api/) (described in the “Node” chapter) provides the following features:
-   * broadcast a signed transaction to the blockchain
-   * obtain account data, token info, transactions, blocks, etc.
-   * validate transactions, use various utilities, and much more.
+   * broadcasting a signed transaction to the blockchain
+   * obtaining account data, token info, transactions, blocks, etc.
+   * validating transactions, use various utilities, and much more.
 
    Each node owner can enable its REST API. The Waves team supports the node pools with the public API.
 
