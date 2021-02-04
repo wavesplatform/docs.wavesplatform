@@ -12,7 +12,7 @@ The Waves team supports node pools with *public* API endpoints accessible to any
 
 The interactive documentation of endpoints in Swagger UI is also available on the links above.
 
-You can use public nodes to read blockchain data. Note that the number of simultaneous connections and request rate per IP address are [limited](/en/waves-node/api-limitations-of-the-pool-of-public-nodes) for public nodes. For heavy use of the API, start your own node.
+You can use public nodes to read blockchain data. Note that the number of simultaneous connections and request rate per IP address are [limited](/en/waves-node/api-limitations-of-the-pool-of-public-nodes) for public nodes and responses are cached for a few seconds, so they may be outdated. For heavy use of the API, start your own node.
 
 The Waves team **does not provide the API key** for public nodes. If you want to use private endpoints, start your own node.
 
