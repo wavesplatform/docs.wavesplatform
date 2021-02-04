@@ -2,15 +2,17 @@
 
 :warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/structures/common-structures/order)
 
-Структура ордера.
+Структура [ордера](/ru/blockchain/order). Используется:
+* при проверке исходящего ордера [скриптом аккаунта](/ru/ride/script/script-types/account-script) или функцией-верификатором [dApp-скрипта](/ru/ride/script/script-types/dapp-script);
+* в структуре [InvokeScriptTransaction](/ru/ride/v5/structures/transaction-structures/invoke-script-transaction);
 
-### Конструктор
+## Конструктор
 
 ``` ride
 Order(id: ByteVector, matcherPublicKey: ByteVector, assetPair: AssetPair, orderType: Buy|Sell, price: Int, amount: Int, timestamp: Int, expiration: Int, matcherFee: Int, matcherFeeAssetId: ByteVector|Unit, sender: Address, senderPublicKey: ByteVector, bodyBytes: ByteVector, proofs: List[ByteVector])
 ```
 
-### Поля
+## Поля
 
 | # | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
@@ -28,3 +30,18 @@ Order(id: ByteVector, matcherPublicKey: ByteVector, assetPair: AssetPair, orderT
 | 12 | senderPublicKey | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Открытый ключ аккаунта отправителя ордера |
 | 13 | bodyBytes | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Массив байтов ордера |
 | 14 | proofs | [List](/ru/ride/v5/data-types/list)[[ByteVector](/ru/ride/v5/data-types/byte-vector)] | Массив [подтверждений](/ru/blockchain/transaction/transaction-proof) |
+
+## Пример
+
+Скрипт запрещает отправку ордеров и изменение скрипта аккаунта:
+
+```scala
+{-# STDLIB_VERSION 5 #-}
+{-# CONTENT_TYPE EXPRESSION #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+
+match tx {
+  case t: Order | SetScriptTransaction => false
+  case _ => sigVerify (tx.bodyBytes, tx.proofs [0], tx.senderPublicKey)
+}
+```
