@@ -21,8 +21,8 @@
 | /transactions/info/.+ | 15 | 20 r/s (burst 50) | 1 m |
 | /blocks/height<br/>/transactions/unconfirmed | 15 | 20 r/s (burst 50) | 15 s |
 | /addresses/balance/.+<br/>/assets/balance/.+ | 15 | 100 r/s (burst 100) | 3 s |
-| ^/transactions/address/.\*<br/>^/addresses/data/[^/]+$<br>^/assets/balance/[^/]+$<br>^/assets/[^/]/distribution.\* | | 17 r/m (burst 17) | – |
-| /utils/script/evaluate | – | 10 r/m | – |
+| ^/transactions/address/.\*<br/>^/addresses/data/[^/]+$<br>^/assets/balance/[^/]+$<br>^/assets/[^/]/distribution.\* | | 17 r/m (burst 17) | 1 s |
+| /utils/script/evaluate | – | 10 r/m | 1 s |
 
 ## Ограничения для [пула Testnet](https://nodes-testnet.wavesnodes.com/)
 
@@ -35,4 +35,4 @@
 | /transactions/info/.+ | 15 | 20 r/s (burst 50) | 1 m |
 | /blocks/height<br/>/transactions/unconfirmed | 15 | 20 r/s (burst 50) | 15 s |
 | /addresses/balance/.+<br/>/assets/balance/.+ | 15 | 100 r/s (burst 100) | 3 s |
-| /utils/script/evaluate | – | 10 r/m | – |
+| /utils/script/evaluate | – | 10 r/m | 1 s |
