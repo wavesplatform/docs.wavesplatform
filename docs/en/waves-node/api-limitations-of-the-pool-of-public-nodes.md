@@ -26,8 +26,8 @@ In the tables below regular expressions are used to define paths, for example, <
 
 ## Limitations on [Testnet Pool](https://nodes-testnet.wavesnodes.com/)
 
-| Path | Connections | Request rate |
-| --- | :---: | :---: |
+| Path | Connections | Request rate | Сaching time |
+| --- | :---: | :---: | :---: |
 | / | 15 | 20 r/s (burst 50) | 1 s |
 | /blocks/seq/\d+/\d+ | 1 | 1 r/s | 5 s |
 | /blocks/at/.+ | 1 | 1 r/s | 30 s |
