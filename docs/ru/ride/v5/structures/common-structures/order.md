@@ -33,15 +33,22 @@ Order(id: ByteVector, matcherPublicKey: ByteVector, assetPair: AssetPair, orderT
 
 ## Пример
 
-Скрипт запрещает отправку ордеров и изменение скрипта аккаунта:
+Приведенный ниже скрипт разрешает совершать с аккаунта покупку:
+
+- только заданного ассета,
+- только по заданной цене,
+- только за WAVES.
 
 ```scala
 {-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE EXPRESSION #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 
+let myAssetId = base58'8LQW8f7P5d5PZM7GtZEBgaqRPGSzS3DfPuiXrURJ4AJS'
+
 match tx {
-  case t: Order | SetScriptTransaction => false
-  case _ => sigVerify (tx.bodyBytes, tx.proofs [0], tx.senderPublicKey)
+   case o: Order =>
+      sigVerify(o.bodyBytes, o.proofs[0], cooperPubKey ) && o.assetPair.priceAsset == null && o.assetPair.amountAsset == myAssetId && o.price == 500000 && o.amount == 1000 && o.orderType == Buy
+   case _ => false
 }
 ```
