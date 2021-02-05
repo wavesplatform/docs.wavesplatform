@@ -35,7 +35,7 @@ You can send a request to your own node or to one of the Waves nodes with public
 * Testnet: <https://nodes-testnet.wavesnodes.com>
 * Mainnet: <https://nodes.wavesnodes.com>
 
-The node checks transaction for validity. If a transaction is valid, then it is put to a generated block in the blockchain, if not — it's rejected by the blockchain.
+The node checks transaction for validity. If a transaction is valid, then it is put to a generated block in the blockchain, if not — it's rejected by the blockchain. (Invoke script transactions and Exchange transactions can be saved on the blockchain even if the dApp script or the asset script failed, and a fee is charged for such transactions.)
 
 ## Sign Transaction Using Your Own Seed
 
@@ -99,28 +99,24 @@ myAddress.sendWaves(recipient = pw.Address('3P8pGyzZL9AUuFs9YRYPDV3vm73T48ptZxs'
 
 ### Using JavaScript
 
-Use `Signer` library together with `ProviderWeb` developed by Waves.Exchange team.
-
-`ProviderWeb` opens a windows where user can confirm a transaction. After that `ProviderWeb` generates a transaction proof.
+Use `Signer` library together with `ProviderWeb` and `ProviderCloud` developed by Waves.Exchange team. The provider opens a windows where user can confirm a transaction. After that the provider generates a transaction proof.
 
 If transaction fee is not specified, it is calculated by `Signer` automatically.
-
-> :warning: `ProviderWeb` now implements signing for all types of transactions except exchange transactions.
 
 See full description in [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer) documentation.
 
 **Example:**
 
 ```javascript
-import Signer from '@waves/signer';
-import Provider from '@waves.exchange/provider-web';
+import { Signer } from '@waves/signer';
+import { ProviderWeb } from '@waves.exchange/provider-web';
 
 // Library initialization
 
 const signer = new Signer({
   NODE_URL: 'https://nodes-testnet.wavesnodes.com'
 });
-signer.setProvider(new Provider());
+signer.setProvider(new ProviderWeb());
 
 // Data transaction: add records to the sender's account data storage
 
