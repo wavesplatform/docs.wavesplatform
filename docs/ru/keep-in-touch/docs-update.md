@@ -8,6 +8,7 @@
 
 * [Signer](/ru/building-apps/waves-api-and-sdk/client-libraries/signer) — <span style="color:green">обновлено</span>
 
+<br/>
 <details>
    <summary>2020</summary>
 
@@ -186,6 +187,6 @@
 
 * [Signer](/ru/building-apps/waves-api-and-sdk/client-libraries/signer) — библиотека для создания, подписания и отправки транзакций.
 
-</details>
+</details><br/>
 
 > Посмотреть репозиторий документации на [Github](https://github.com/wavesplatform/docs.wavesplatform)

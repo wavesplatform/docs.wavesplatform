@@ -77,6 +77,10 @@ module.exports = deepmerge(mixin, {
                         text: 'Практические руководства',
                         link: '/ru/building-apps/how-to/'
                     },
+                    dataService: {
+                        text: 'Data Service API',
+                        link: '/ru/building-apps/waves-api-and-sdk/waves-data-service-api'
+                    },
                 },
             },
             rideProgrammingLanguage: {

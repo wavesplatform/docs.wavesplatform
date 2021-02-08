@@ -52,7 +52,8 @@ For the other transaction:
 * If one of the checks failed, the transaction is rejected.
 * If all checks passed, the transaction is saved on the blockchain as successful and the sender is charged the fee.
 
-<details><summary>Before Activation of Feature #15</summary>
+<br/>
+<details><summary> <b>Before Activation of Feature #15</b></summary>
 
 ![](./_assets/tx-validaton.png)
 

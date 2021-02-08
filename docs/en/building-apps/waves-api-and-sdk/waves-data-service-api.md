@@ -32,8 +32,8 @@ The Data Service API provides market data for **any pair of assets**. The data s
 
 * The [/candles](https://api.wavesplatform.com/v0/docs/#/candles) endpoint provides data for the OHCLV (open-high-low-close-volume) candlestick chart for a given period.
 
-<br><details>
-   <summary> <b> If there is no data in the response</b></summary>
+<details>
+   <summary> <b>If there is no data in the response</b></summary>
 
 If the endpoint returns `null` or `Not found` for the selected pair `{amountAsset}/{priceAsset}`, the reasons may be as follows:
 

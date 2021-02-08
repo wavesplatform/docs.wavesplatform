@@ -32,8 +32,8 @@ API дата-сервиса предоставляет рыночные данн
 
 * Метод [/candles](https://api.wavesplatform.com/v0/docs/#/candles) предоставляет данные для графика свечей OHCLV (open-high-low-close-volume) за указанный период.
 
-<br><details>
-   <summary><b>Если в ответе отсутствуют данные</b></summary>
+<details>
+   <summary> <b>Если в ответе отсутствуют данные</b></summary>
 
 Если методы возвращают по выбранной паре `{amountAsset}/{priceAsset}` null или Not found, причины могут быть следующие:
 

@@ -8,7 +8,7 @@
 
 * [Signer](/en/building-apps/waves-api-and-sdk/client-libraries/signer) — <span style="color:green">updated</span>
 
-<details>
+<br/><details>
    <summary>2020</summary>
 
 ## December
@@ -185,6 +185,6 @@ Added how-to guides:
 * [calculateAssetId](/en/ride/functions/built-in-functions/blockchain-functions#calculate)
 * [groth16Verify](/en/ride/functions/built-in-functions/verification-functions#groth16Verify)
 
-</details>
+</details><br/>
 
 > Check out documentation repository on [Github](https://github.com/wavesplatform/docs.wavesplatform)
