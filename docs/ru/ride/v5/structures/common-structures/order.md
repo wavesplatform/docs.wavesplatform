@@ -4,7 +4,7 @@
 
 Структура [ордера](/ru/blockchain/order). Используется:
 * при проверке исходящего ордера [скриптом аккаунта](/ru/ride/script/script-types/account-script) или функцией-верификатором [dApp-скрипта](/ru/ride/script/script-types/dapp-script);
-* в структуре [InvokeScriptTransaction](/ru/ride/v5/structures/transaction-structures/invoke-script-transaction);
+* в структуре [InvokeScriptTransaction](/ru/ride/v5/structures/transaction-structures/invoke-script-transaction).
 
 ## Конструктор
 

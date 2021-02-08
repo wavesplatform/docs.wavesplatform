@@ -18,24 +18,30 @@ Address(bytes: ByteVector)
 
 ## Examples
 
-Get account balances in WAVES:
+Getall types of balance in WAVES for the current account (in a dApp script or an account script):
+
+```scala
+wavesBalance(this)
+```
+
+For an arbitrary account:
 
 ```scala
 let address=base58'3N4iKL6ikwxiL7yNvWQmw7rg3wGna8uL6LU'
 wavesBalance(Address(address))
 ```
 
-Get an entry from the account data storage:
+Get an entry value by key from the account data storage:
 
 ```scala
-let address=base58'3N6dFJ6XBQsWz1VV1i5aW4CyYpVKc39MUGZ'
-getBoolean(Address(address),"allow_orders")
+let address2=base58'3N6dFJ6XBQsWz1VV1i5aW4CyYpVKc39MUGZ'
+getBoolean(Address(address2),"allow_orders")
 ```
 
-Convert caller's address to base58 string:
+Convert the address that invoked the function to a base58 string:
 
 ```scala
-{-# STDLIB_VERSION 4 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 
@@ -49,9 +55,9 @@ func foo(question: String) = {
 Check the recipient's address in the Transfer transaction:
 
 ```scala
-{-# STDLIB_VERSION 4 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE EXPRESSION #-}
-{-# SCRIPT_TYPE ASSET #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
 
 # Bank dApp address
 let BANK = base58'3MpFRn3X9ZqcLimFoqNeZwPBnwP7Br5Fmgs'
