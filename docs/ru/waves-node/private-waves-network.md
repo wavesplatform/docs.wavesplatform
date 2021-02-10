@@ -25,17 +25,18 @@
 
 ### Шаг 3
 
-Создайте файл `genesis.example.conf`с параметрами блока генезиса в папке с файлом `.jar`.
+Создайте файл `genesis.example.conf` с параметрами блока генезиса в папке с файлом `.jar`.
 
 **Пример**:
 
 ```bash
 genesis-generator
 {
-  network-type: "L"  #байт сети (идентификатор) вашего блокчейна
-  initial-balance: 10000000000000000  #первоначальный баланс в wavelets
-  average-block-delay: 60s #средняя задержка блока
-  timestamp: 1500635421931 #закомментируйте, чтобы использовать текущее время
+  network-type: "L"  # байт сети (идентификатор) вашего блокчейна
+  initial-balance: 10000000000000000  # первоначальный баланс в wavelets
+  average-block-delay: 60s # среднее время выпуска блока
+  # timestamp: 1500635421931 # по умолчанию текущее время
+  # initial-base-target: 999 # коэффициент, регулирующий среднее время выпуска блока; если не указан, вычисляется автоматически
 
   # сумма долей должна быть = initial-balance
   distributions = 
@@ -46,6 +47,8 @@ genesis-generator
       amount: 10000000000000000
     }
   ]
+
+  # pre-activated-features = [1,2,15] # по умолчанию все фичи активированы с высоты 0
 }
 ```
 
@@ -70,20 +73,34 @@ Addresses:
  Account address:     3JfE6tjeT7PnpuDQKxiVNLn4TJUFhuMaaT5
  ===
 Settings:
-genesis {
-  average-block-delay = 60000ms
-  initial-base-target = 123
-  timestamp = 1608905115669
-  block-timestamp = 1608905115669
-  signature = "5DfCPRjByr4FF6t3fTP6EoFUzb54SeHUt2BQLke7NhRBYnvsa7ie72g7b6AweyFnMJAhan91u3mK2LUmPKitRczT"
-  initial-balance = 10000000000000000
-  transactions = [
-    {recipient = "3JfE6tjeT7PnpuDQKxiVNLn4TJUFhuMaaT5", amount = 10000000000000000}
-  ]
+waves {
+  blockchain.custom {
+    address-scheme-character = L
+    functionality {
+      pre-activated-features = null # undefines all previously defined pre-activated features
+      pre-activated-features = {1 = 0, 2 = 0, 3 = 0, 4 = 0, 5 = 0, 6 = 0, 7 = 0, 8 = 0, 9 = 0, 10 = 0, 11 = 0, 12 = 0, 13 = 0, 14 = 0, 15 = 0}
+    }
+    genesis {
+      average-block-delay = 60s
+      initial-base-target = 122
+      timestamp = 1612954141684 # 2021-02-10T10:49:01.684Z
+      block-timestamp = 1612954141684 # 2021-02-10T10:49:01.684Z
+      signature = "3k64TQfLUkLWjCWkajPHfLovWoKpYgH6sTJrymog5nA3PZfqo9Qa1dKtRsDmvavULgEkMGACsxH2eCsnrua4JX9F"
+      initial-balance = 10000000000000000
+      transactions = [
+        {recipient = "3JfE6tjeT7PnpuDQKxiVNLn4TJUFhuMaaT5", amount = 10000000000000000}
+      ]
+    }
+  }
+
+#  wallet {
+#    seed = 3csAfH
+#    password =
+#  }
 }
 ```
 
-Секция `Addresses` содержит список аккаунтов, на которые распределены средства в блоке генезиса, секция `genesis` понадобится далее в [шаге 5](#шаг-5).
+Секция `Addresses` содержит список аккаунтов, на которые распределены средства в блоке генезиса, секция `waves` понадобится далее в [шаге 5](#шаг-5).
 
 ### Шаг 5
 
@@ -97,17 +114,15 @@ genesis {
 | :--- | :--- | :--- |
 | `$XDG_DATA_HOME/waves-custom-<character>*` or `$HOME/.local/share/waves-custom-<character>*` | `$HOME/Library/Application Support/waves-custom-<character>*` | `%LOCALAPPDATA%/waves-custom-<character>*` |
 
-Секция `waves.blockchain.custom.functionality` позволяет настроить временные метки активации различных валидаций блокчейна. В данную секцию можно добавлять новые параметры, которых нет в конфигурации стандартных нод. Вы можете включать/выключать фичи ноды с помощью параметра `pre-activated-features`. Поддерживаемые фичи описаны в статье [Фичи](/ru/waves-node/features/).
-
-Вставьте контент, сгенерированный в [шаге 4](#шаг-4), в секцию `waves.blockchain.custom.genesis` файла конфигурации. Вместо того чтобы вставить эту секцию, можно написать `include "genesis.conf"`, где `genesis.conf` — это имя файла из шага 4.
-
-Значение параметра `waves.blockchain.custom.address-scheme-character` должно быть таким же, как `network-type` в [шаге 3](#шаг-3).
+Вставьте контент, сгенерированный в [шаге 4](#шаг-4), в файл конфигурации. Вместо этого можно написать `include "genesis.conf"`, где `genesis.conf` — это имя файла из шага 4.
 
 Задайте параметры `waves.wallet`. Используйте значение `Seed` (`Seed text` в base58), сгенеированный в [шаге 4](#шаг-4), в качестве значения параметра `waves.wallet.seed`.
 
 В секции `waves.network` задайте значения параметров `port`, `known-peers` (список [нод вашего блокчейна](#добавление-нод-в-свою-сеть)), `node-name` и `declared-address`.
 
 Чтобы включить REST API вашей ноды, задайте параметры `enable`, `port` и `api-key-hash` (можно создать [тут](https://nodes.wavesnodes.com/api-docs/index.html#/utils/hashSecure_1)) в секции `waves.rest-api`.
+
+Секция `waves.blockchain.custom.functionality` позволяет настроить временные метки активации различных валидаций блокчейна. В данную секцию можно добавлять новые параметры, которых нет в конфигурации стандартных нод. Вы можете включать/выключать фичи ноды с помощью параметра `pre-activated-features`. Поддерживаемые фичи описаны в статье [Фичи](/ru/waves-node/features/).
 
 ### Шаг 6
 

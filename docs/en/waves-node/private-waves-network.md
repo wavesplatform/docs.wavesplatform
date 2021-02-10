@@ -32,10 +32,11 @@ Create `genesis.example.conf` file with genesis block parameters in the `.jar` 
 ```bash
 genesis-generator
 {
-  network-type: "L"  #your custom network identifier byte
-  initial-balance: 10000000000000000  #initial balance in wavelets
-  average-block-delay: 60s #average block delay
-  timestamp: 1500635421931 #comment this to use the current time
+  network-type: "L"  # your custom network identifier byte
+  initial-balance: 10000000000000000  # initial balance in wavelets
+  average-block-delay: 60s # average block delay
+  # timestamp: 1500635421931 # current time by default
+  # initial-base-target: 999 # variable that adjusts the average block delay; calculated automatically if not specified
   
   # the sum of shares should be = initial-balance
   distributions = 
@@ -46,6 +47,8 @@ genesis-generator
       amount: 10000000000000000
     }
   ]
+
+  # pre-activated-features = [1,2,15] # by default all features are activated from height 0
 }
 ```
 
@@ -70,20 +73,34 @@ Addresses:
  Account address:     3JfE6tjeT7PnpuDQKxiVNLn4TJUFhuMaaT5
  ===
 Settings:
-genesis {
-  average-block-delay = 60000ms
-  initial-base-target = 123
-  timestamp = 1608905115669
-  block-timestamp = 1608905115669
-  signature = "5DfCPRjByr4FF6t3fTP6EoFUzb54SeHUt2BQLke7NhRBYnvsa7ie72g7b6AweyFnMJAhan91u3mK2LUmPKitRczT"
-  initial-balance = 10000000000000000
-  transactions = [
-    {recipient = "3JfE6tjeT7PnpuDQKxiVNLn4TJUFhuMaaT5", amount = 10000000000000000}
-  ]
+waves {
+  blockchain.custom {
+    address-scheme-character = L
+    functionality {
+      pre-activated-features = null # undefines all previously defined pre-activated features
+      pre-activated-features = {1 = 0, 2 = 0, 3 = 0, 4 = 0, 5 = 0, 6 = 0, 7 = 0, 8 = 0, 9 = 0, 10 = 0, 11 = 0, 12 = 0, 13 = 0, 14 = 0, 15 = 0}
+    }
+    genesis {
+      average-block-delay = 60s
+      initial-base-target = 122
+      timestamp = 1612954141684 # 2021-02-10T10:49:01.684Z
+      block-timestamp = 1612954141684 # 2021-02-10T10:49:01.684Z
+      signature = "3k64TQfLUkLWjCWkajPHfLovWoKpYgH6sTJrymog5nA3PZfqo9Qa1dKtRsDmvavULgEkMGACsxH2eCsnrua4JX9F"
+      initial-balance = 10000000000000000
+      transactions = [
+        {recipient = "3JfE6tjeT7PnpuDQKxiVNLn4TJUFhuMaaT5", amount = 10000000000000000}
+      ]
+    }
+  }
+
+#  wallet {
+#    seed = 3csAfH
+#    password =
+#  }
 }
 ```
 
-The `Addresses` section lists the accounts to which the assets are distributed in the genesis block, the `genesis` section will be used later in [Step 5](#step-5).
+The `Addresses` section lists the accounts to which the assets are distributed in the genesis block, the `waves` section will be used later in [Step 5](#step-5).
 
 ### Step 5
 
@@ -97,17 +114,15 @@ If the `directory` parameter is not redefined, the default node folder is:
 | :--- | :--- | :--- |
 | `$XDG_DATA_HOME/waves-custom-<character>*` or `$HOME/.local/share/waves-custom-<character>*` | `$HOME/Library/Application Support/waves-custom-<character>*` | `%LOCALAPPDATA%/waves-custom-<character>*` |
 
-The `waves.blockchain.custom.functionality` section allows to set the timestamps of activation of different blockchain validations. In this section developers can add new parameters, which are not present in the standard node configuration. You can enable/disable features on your node by modifying the `pre-activated-features` parameter. The supported features are listed in [Features](/en/waves-node/features/) article.
-
-Paste the content generated in [Step 4](#step-4) in `waves.blockchain.custom.genesis` section of configuration file. Instead of pasting the section manually, you can write `include "genesis.conf"`, where the `genesis.conf` is a filename from the Step 4.
-
-The `waves.blockchain.custom.address-scheme-character` parameter value must be the same as the `network-type` value in [Step 3](#step-3).
+Paste the content generated in [Step 4](#step-4) in configuration file. Instead of pasting manually, you can write `include "genesis.conf"`, where the `genesis.conf` is a filename from the Step 4.
 
 Set `waves.wallet` parameters. Use `Seed` (`Seed text` in base58) value generated with genesis generator tool in [Step 4](#step-4) as the value of `waves.wallet.seed` parameter.
 
 In `waves.network` section set `port`, `known-peers` (list the [nodes of your custom network](#add-nodes-to-your-network)), `node-name` and `declared-address` parameters.
 
 To enable REST API for your node set `enable`, `port` and `api-key-hash` (can be created [here](https://nodes.wavesnodes.com/api-docs/index.html#/utils/hashSecure_1)) parameters in `waves.rest-api` section.
+
+The `waves.blockchain.custom.functionality` section allows to set the timestamps of activation of different blockchain validations. In this section developers can add new parameters, which are not present in the standard node configuration. You can enable/disable features on your node by modifying the `pre-activated-features` parameter. The supported features are listed in [Features](/en/waves-node/features/) article.
 
 ### Step 6
 
