@@ -122,7 +122,7 @@ In `waves.network` section set `port`, `known-peers` (list the [nodes of your cu
 
 To enable REST API for your node set `enable`, `port` and `api-key-hash` (can be created [here](https://nodes.wavesnodes.com/api-docs/index.html#/utils/hashSecure_1)) parameters in `waves.rest-api` section.
 
-The `waves.blockchain.custom.functionality` section allows to set the timestamps of activation of different blockchain validations. In this section developers can add new parameters, which are not present in the standard node configuration. You can enable/disable features on your node by modifying the `pre-activated-features` parameter. The supported features are listed in [Features](/en/waves-node/features/) article.
+The `waves.blockchain.custom.functionality` section allows to set the activation height for blockchain features. You can enable/disable features on your node by modifying the `pre-activated-features` parameter. The supported features are listed in [Features](/en/waves-node/features/) article. You can add features that do not exist in the standard node configuration.
 
 ### Step 6
 
