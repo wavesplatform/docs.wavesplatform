@@ -348,7 +348,7 @@ API Blockchain Updates предоставляет три функции:
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| individual_leases.lease_id | Идентификатор лизинга |
+| individual_leases.lease_id | bytes | Идентификатор лизинга |
 | individual_leases.status_after | LeaseStatus | Изменение статуса лизинга: INACTIVE — неактивный, ACTIVE — активный |
 | individual_leases.amount | int64 | Сумма лизинга |
 | individual_leases.sender | bytes | Адрес отправителя лизинга в сжатом виде |
