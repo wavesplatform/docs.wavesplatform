@@ -399,8 +399,8 @@ API Blockchain Updates предоставляет три функции:
 | metadata.d_app_address | bytes | Адрес dApp в сжатом виде |
 | metadata.function_name | string | Имя вызываемой функции |
 | metadata.arguments | repeated Argument | Аргументы функции |
-| metadata.payments | repeated Payment | Приложенные к транзакции платежи |
-| metadata.state_changes | StateChanges | Результаты действий, выполненных вызываемой функцией |
+| metadata.payments | repeated [Amount](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/amount.proto) | Приложенные к транзакции платежи |
+| metadata.result | [InvokeScriptResult](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/invoke_script_result.proto) | Результаты действий, выполненных вызываемой функцией |
 
 Для транзакции перевода:
 
