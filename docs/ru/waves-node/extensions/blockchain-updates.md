@@ -264,8 +264,8 @@ API Blockchain Updates предоставляет три функции:
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| body.block | [Block](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Данные блока: заголовки и транзакции. См. также раздел [Бинарный формат блока](/ru/blockchian/binary-format/block-binary-format) |
-| body.updated_waves_amount | int64 | Общее количество WAVES с учетом вознаграждения за создание блока |
+| block | [Block](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Данные блока: заголовки и транзакции. См. также раздел [Бинарный формат блока](/ru/blockchian/binary-format/block-binary-format) |
+| updated_waves_amount | int64 | Общее количество WAVES с учетом вознаграждения за создание блока |
 | transaction_ids | repeated bytes | Идентификаторы транзакций в блоке |
 | transactions_metadata | repeated TransactionMetadata | Дополнительная информация о транзакциях. См. [TransactionMetadata](#TransactionMetadata) ниже |
 | state_update | StateUpdate | Изменения состояния блокчейна, привязанные к блоку. См. [StateUpdate](#StateUpdate) |
@@ -286,8 +286,8 @@ API Blockchain Updates предоставляет три функции:
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| body.micro_block | [SignedMicroBlock](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Данные микроблока |
-| body.updated_transactions_root | int64 | [Корневой хеш](/ru/blockchain/block/merkle-root) всех транзакций текущего блока |
+| micro_block | [SignedMicroBlock](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Данные микроблока |
+| updated_transactions_root | int64 | [Корневой хеш](/ru/blockchain/block/merkle-root) всех транзакций текущего блока |
 | transaction_ids | repeated bytes | Идентификаторы транзакций в микроблоке |
 | transactions_metadata | repeated TransactionMetadata | Дополнительная информация о транзакциях. См. [TransactionMetadata](#TransactionMetadata) ниже |
 | state_update | StateUpdate | Изменения состояния блокчейна, привязанные к блоку. См. [StateUpdate](#StateUpdate) ниже |
@@ -396,26 +396,26 @@ API Blockchain Updates предоставляет три функции:
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| metadata.d_app_address | bytes | Адрес dApp в сжатом виде |
-| metadata.function_name | string | Имя вызываемой функции |
-| metadata.arguments | repeated Argument | Аргументы функции |
-| metadata.payments | repeated [Amount](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/amount.proto) | Приложенные к транзакции платежи |
-| metadata.result | [InvokeScriptResult](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/invoke_script_result.proto) | Результаты действий, выполненных вызываемой функцией |
+| d_app_address | bytes | Адрес dApp в сжатом виде |
+| function_name | string | Имя вызываемой функции |
+| arguments | repeated Argument | Аргументы функции |
+| payments | repeated [Amount](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/amount.proto) | Приложенные к транзакции платежи |
+| result | [InvokeScriptResult](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/invoke_script_result.proto) | Результаты действий, выполненных вызываемой функцией |
 
 #### Для транзакции перевода
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| metadata.recipient_address | bytes | Адрес получателя в сжатом виде |
+| recipient_address | bytes | Адрес получателя в сжатом виде |
 
 #### Для транзакции массового перевода
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| metadata.recipient_addresses | repeated bytes | Адреса получателей в сжатом виде |
+| recipient_addresses | repeated bytes | Адреса получателей в сжатом виде |
 
 #### Для транзакции лизинга
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| metadata.recipient_address | bytes | Адрес получателя в сжатом виде |
+| recipient_address | bytes | Адрес получателя в сжатом виде |
