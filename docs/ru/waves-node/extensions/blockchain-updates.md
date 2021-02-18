@@ -203,8 +203,8 @@ git clone https://github.com/wavesplatform/protobuf-schemas/
 
 API Blockchain Updates предоставляет три функции:
 * `GetBlockUpdate` — возвращает изменения, порожденные блоком на указанной высоте.
-* `GetBlockUpdatesRange` — возвращает массив изменений, порожденных блоками в указанном диапазоне высоты.
-* `Subscribe` — возвращает поток сообщений об изменениях, вначале исторические данные (то есть изменения до текущей высоты блокчейна), затем текущие события в реальном времени. Опционально можно указать начальную и/или конечную высоту.
+* [GetBlockUpdatesRange](#GetBlockUpdatesRange) — возвращает массив изменений, порожденных блоками в указанном диапазоне высоты.
+* [Subscribe](#Subscribe) — возвращает поток сообщений об изменениях, вначале исторические данные (то есть изменения до текущей высоты блокчейна), затем текущие события в реальном времени. Опционально можно указать начальную и/или конечную высоту.
 
 Структуру запросов и ответов можно посмотреть в файле [blockchain_updates.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/grpc/blockchain_updates.proto).
 
@@ -229,7 +229,9 @@ API Blockchain Updates предоставляет три функции:
 | :--- | :--- | :--- |
 | update.id | bytes | ID блока или микроблока, который был добавлен или откачен |
 | update.height | int32 | Высота |
-| update.update | [Append](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/events.proto#L13) или [Rollback](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/events.proto#L36) | Событие: добавление или откат блока или микроблока. См. [Формат событий](#формат-событий) ниже |
+| update.update | Append или Rollback | Событие: добавление или откат блока или микроблока. См. [Формат событий](#формат-событий) ниже |
+| referenced_assets | repeated StateUpdate.AssetInfo | Ассеты, участвующие в транзакциях блока. См. [AssetInfo](#AssetInfo) ниже |
+
 
 ### GetBlockUpdatesRange
 
@@ -256,41 +258,19 @@ API Blockchain Updates предоставляет три функции:
 
 Адреса аккаунтов представлены в сжатом виде: без первых двух и последних четырех байт. См. раздел [Бинарный формат адреса](/ru/blockchain/binary-format/address-binary-format).
 
-### Добавление блока
+### Append: добавление блока
 
 Поля сообщения:
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| update.body.block | [Block](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Данные блока: заголовки и транзакции. См. также раздел [Бинарный формат блока](/ru/blockchian/binary-format/block-binary-format) |
-| update.body.updated_waves_amount | int64 | Общее количество WAVES с учетом вознаграждения за создание блока |
-| update.transaction_ids | repeated bytes | Идентификаторы транзакций в блоке |
-| update.transactions_metadata | repeated TransactionMetadata | Дополнительная информация о транзакциях. См. [TransactionMetadata](#TransactionMetadata) |
-| update.state_update | StateUpdate | Изменения состояния блокчейна, привязанные к блоку. См. [StateUpdate](#StateUpdate) |
-| update.transaction_state_updates | repeated StateUpdate | Изменения состояния блокчейна, привязанные к транзакциям. См. [StateUpdate](#StateUpdate) |
-| referenced_assets | repeated StateUpdate.AssetInfo | Ассеты, участвующие в транзакциях блока |
+| body.block | [Block](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Данные блока: заголовки и транзакции. См. также раздел [Бинарный формат блока](/ru/blockchian/binary-format/block-binary-format) |
+| body.updated_waves_amount | int64 | Общее количество WAVES с учетом вознаграждения за создание блока |
+| transaction_ids | repeated bytes | Идентификаторы транзакций в блоке |
+| transactions_metadata | repeated TransactionMetadata | Дополнительная информация о транзакциях. См. [TransactionMetadata](#TransactionMetadata) ниже |
+| state_update | StateUpdate | Изменения состояния блокчейна, привязанные к блоку. См. [StateUpdate](#StateUpdate) |
+| transaction_state_updates | repeated StateUpdate | Изменения состояния блокчейна, привязанные к транзакциям. См. [StateUpdate](#StateUpdate) |
 
-`transaction_ids`, `transactions_metadata`, `transaction_state_updates` — параллельные массивы: одному порядковому номеру соответствуют данные об одной и той же транзакции. Если дополнительная информация отсутствует, в массиве `transactions_metadata` по этому индексу находится EMPTY.
-
-<details><summary>Пример</summary>
-
-</details>
-
-### Добавление микроблока
-
-В сообщении о добавлении микроблока присутствуют только те транзакции и порожденные ими изменения, которых не было в предшествующем блоке/микроблоке.
-
-Поля сообщения:
-
-| Имя поля | Тип | Описание |
-| :--- | :--- | :--- |
-| update.body.micro_block | [SignedMicroBlock](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Данные микроблока |
-| update.body.updated_transactions_root | int64 | [Корневой хеш](/ru/blockchain/block/merkle-root) всех транзакций текущего блока |
-| update.transaction_ids | repeated bytes | Идентификаторы транзакций в микроблоке |
-| update.transactions_metadata | repeated TransactionMetadata | Дополнительная информация о транзакциях. См. [TransactionMetadata](#TransactionMetadata) ниже |
-| update.state_update | StateUpdate | Изменения состояния блокчейна, привязанные к блоку. См. [StateUpdate](#StateUpdate) ниже |
-| update.transaction_state_updates | repeated StateUpdate | Изменения состояния блокчейна, привязанные к транзакциям. См. [StateUpdate](#StateUpdate) |
-| referenced_assets | repeated StateUpdate.AssetInfo | Ассеты, участвующие в транзакциях микроблока |
 
 `transaction_ids`, `transactions_metadata`, `transaction_state_updates` — параллельные массивы: одному порядковому номеру соответствуют данные об одной и той же транзакции. Если дополнительная информация отсутствует, в массиве `transactions_metadata` по этому индексу находится пустое значение.
 
@@ -298,17 +278,37 @@ API Blockchain Updates предоставляет три функции:
 
 </details>
 
-### Откат блока или микроблока
+### Append: добавление микроблока
+
+В сообщении о добавлении микроблока присутствуют только те транзакции и порожденные ими изменения, которых не было в предшествующем блоке/микроблоке.
 
 Поля сообщения:
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| update.type | RollbackType | Тип сообщения: BLOCK — откат блока, MICROBLOCK — откат микроблока |
-| update.body.removed_transaction_ids | repeated bytes | Транзакции, которые были удалены в результате отката |
-| update.removed_blocks | repeated [Block](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Блоки, которые были удалены в результате отката. В случае отката микроблока — пустой массив |
+| body.micro_block | [SignedMicroBlock](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Данные микроблока |
+| body.updated_transactions_root | int64 | [Корневой хеш](/ru/blockchain/block/merkle-root) всех транзакций текущего блока |
+| transaction_ids | repeated bytes | Идентификаторы транзакций в микроблоке |
+| transactions_metadata | repeated TransactionMetadata | Дополнительная информация о транзакциях. См. [TransactionMetadata](#TransactionMetadata) ниже |
+| state_update | StateUpdate | Изменения состояния блокчейна, привязанные к блоку. См. [StateUpdate](#StateUpdate) ниже |
+| transaction_state_updates | repeated StateUpdate | Изменения состояния блокчейна, привязанные к транзакциям. См. [StateUpdate](#StateUpdate) |
+
+`transaction_ids`, `transactions_metadata`, `transaction_state_updates` — параллельные массивы: одному порядковому номеру соответствуют данные об одной и той же транзакции. Если дополнительная информация отсутствует, в массиве `transactions_metadata` по этому индексу находится пустое значение.
+
+<details><summary>Пример</summary>
+
+</details>
+
+### Rollback: откат блока или микроблока
+
+Поля сообщения:
+
+| Имя поля | Тип | Описание |
+| :--- | :--- | :--- |
+| type | RollbackType | Тип сообщения: BLOCK — откат блока, MICROBLOCK — откат микроблока |
+| removed_transaction_ids | repeated bytes | Транзакции, которые были удалены в результате отката |
+| removed_blocks | repeated [Block](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Блоки, которые были удалены в результате отката. В случае отката микроблока — пустой массив |
 | rollback_state_update | StateUpdate | Изменения состояния блокчейна, которые произошли в результате отката (обратные изменениям, порожденным транзакциями и блоками/микроблоками). См. [StateUpdate](#StateUpdate) ниже |
-| referenced_assets | repeated StateUpdate.AssetInfo | Ассеты, участвующие в отмененном блоке/микроблоке |
 
 <details><summary>Пример</summary>
 
@@ -322,45 +322,45 @@ API Blockchain Updates предоставляет три функции:
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| address | bytes | Адрес См. также раздел [Бинарный формат блока](/ru/blockchian/binary-format/block-binary-format)  |
-| amount_after | Amount | Новый баланс |
-| amount_before | int64 | Прежний баланс |
+| balances.address | bytes | Адрес в сжатом виде |
+| balances.amount_after | Amount | Новый баланс |
+| balances.amount_before | int64 | Прежний баланс |
 
 #### Изменения лизинговых балансов аккаунта
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| address | bytes | Адрес в сжатом виде |
-| in_after | int64 | Новая сумма полученных лизингов |
-| out_after | int64 | Новая сумма отправленных лизингов |
-| in_before | int64 | Прежняя сумма полученных лизингов |
-| out_before | int64 | Прежняя сумма отправленных лизингов |
+| leasing_for_address.address | bytes | Адрес в сжатом виде |
+| leasing_for_address.in_after | int64 | Новая сумма полученных лизингов |
+| leasing_for_address.out_after | int64 | Новая сумма отправленных лизингов |
+| leasing_for_address.in_before | int64 | Прежняя сумма полученных лизингов |
+| leasing_for_address.out_before | int64 | Прежняя сумма отправленных лизингов |
 
 #### Изменения записей в хранилищах данных
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| address | bytes | Адрес в сжатом виде |
-| data_entry | DataTransactionData.DataEntry | Новое значение записи |
-| data_entry_before | DataTransactionData.DataEntry | Прежнее значение записи |
+| data_entries.address | bytes | Адрес в сжатом виде |
+| data_entries.data_entry | DataTransactionData.DataEntry | Запись с новым значением |
+| data_entries.data_entry_before | DataTransactionData.DataEntry | Запись с прежним значением |
 
 #### Изменения лизингов
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| lease_id | Идентификатор лизинга |
-| status_after | LeaseStatus | Изменение статуса лизинга: INACTIVE — неактивный, ACTIVE — активный |
-| amount | int64 | Сумма лизинга |
-| sender | bytes | Адрес отправителя лизинга в сжатом виде |
-| recipient | bytes | Адрес получателя лизинга в сжатом виде |
-| origin_transaction_id | bytes | Транзакция, породившая создание, изменение или отмену лизинга |
+| individual_leases.lease_id | Идентификатор лизинга |
+| individual_leases.status_after | LeaseStatus | Изменение статуса лизинга: INACTIVE — неактивный, ACTIVE — активный |
+| individual_leases.amount | int64 | Сумма лизинга |
+| individual_leases.sender | bytes | Адрес отправителя лизинга в сжатом виде |
+| individual_leases.recipient | bytes | Адрес получателя лизинга в сжатом виде |
+| individual_leases.origin_transaction_id | bytes | Транзакция, породившая создание, изменение или отмену лизинга |
 
 #### Изменения параметров токена
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| before | AssetDetails | Прежние параметры токена. В случае выпуска токена — пустое значение. См. [AssetDetails](#AssetDetails) ниже |
-| after | AssetDetails | Новые параметры токена. В случае отката блока/микроблока с выпуском токена — пустое значение |
+| assets.before | AssetDetails | Прежние параметры токена. В случае выпуска токена — пустое значение. См. [AssetDetails](#AssetDetails) ниже |
+| assets.after | AssetDetails | Новые параметры токена. В случае отката блока/микроблока с выпуском токена — пустое значение |
 
 #### AssetDetails
 
@@ -375,10 +375,10 @@ API Blockchain Updates предоставляет три функции:
 | volume | int64 | Общее количество токена |
 | script_info.script | bytes | Скомпилированный скрипт ассета |
 | script_info.complexity | int64 | Сложность скрипта ассета |
-| sponsorship | int64 | Если ассет является спонсорским — количество ассета, эквивалентное 0,001 WAVES, в атомарных единицах. Если ассет не является спонсорским — пустое значение |
-| nft | bool | Признак того, что ассет является [NFT](/ru/blockchain/token/non-fungible-token) |
+| sponsorship | int64 | Если токен является спонсорским ассетом — количество ассета, эквивалентное 0,001 WAVES, в атомарных единицах. Иначе — пустое значение |
+| nft | bool | Признак того, что токен является [NFT](/ru/blockchain/token/non-fungible-token) |
 | last_updated | int32 | Высота, на которой произошло последнее изменение параметров токена |
-| safe_volume | bytes | Поле связано с прошлым поведением в блокчейне, когда можно было довыпустить ассет таким образом, чтобы общее количество превысило максимальное значение int64. Содержит точное количество токена. Можно игнорировать, если клиент не нуждается в такой точности.  Кодировка: как Java BigInteger, см.  https://docs.oracle.com/javase/7/docs/api/java/math/BigInteger.html#toByteArray() |
+| safe_volume | bytes | Поле связано с прошлым поведением в блокчейне, когда можно было довыпустить ассет таким образом, чтобы общее количество превысило максимальное значение int64. Содержит точное количество токена. Можно игнорировать, если клиент не нуждается в такой точности.  Кодировка: как Java BigInteger, см. <https://docs.oracle.com/javase/7/docs/api/java/math/BigInteger.html#toByteArray()> |
 
 #### AssetInfo
 
@@ -392,7 +392,7 @@ API Blockchain Updates предоставляет три функции:
 
 Дополнительная информация о транзакции.
 
-Для транзакции вызова скрипта:
+#### Для транзакции вызова скрипта
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
@@ -402,19 +402,19 @@ API Blockchain Updates предоставляет три функции:
 | metadata.payments | repeated [Amount](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/amount.proto) | Приложенные к транзакции платежи |
 | metadata.result | [InvokeScriptResult](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/invoke_script_result.proto) | Результаты действий, выполненных вызываемой функцией |
 
-Для транзакции перевода:
+#### Для транзакции перевода
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
 | metadata.recipient_address | bytes | Адрес получателя в сжатом виде |
 
-Для транзакции массового перевода:
+#### Для транзакции массового перевода
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
 | metadata.recipient_addresses | repeated bytes | Адреса получателей в сжатом виде |
 
-Для транзакции лизинга:
+#### Для транзакции лизинга
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
