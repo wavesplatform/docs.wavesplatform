@@ -3,6 +3,7 @@
 ## February
 
 * [Data Service API](/en/building-apps/waves-api-and-sdk/waves-data-service-api)
+* [Blockchain Updates Extension](/en/waves-node/extensions/blockchain-updates) — <span style="color:green">updated</span>
 
 ## January
 
