@@ -15,8 +15,6 @@ The features of smart assets are not limited to the examples given.
 
 You can attach a script to a token only at the time the token is created. The script can be updated at any time. To create a token, you can use both [Waves IDE](/en/building-apps/smart-contracts/tools/waves-ide) and libraries ([WavesJ](https://github.com/wavesplatform/WavesJ), [WavesCS](https://github.com/wavesplatform/WavesCS), and others). The asset script must be written in [Ride](/en/ride/) and attached to the token using the [set asset script transaction](/en/blockchain/transaction-type/set-asset-script-transaction). A commission of 1 [WAVES](/en/blockchain/token/waves) is charged for the execution of an asset script installation transaction.
 
-It is impossible to remove the script and turn the smart asset into a regular one.
-
 ## Asset Script Structure
 
 ### Directive
@@ -124,6 +122,8 @@ match tx {
 ## Modifying Smart Asset Script
 
 A transaction involving the execution of an asset script has the transaction fee increased by 0.004 WAVES. The fee for its completion is 1 WAVES. Only the account that issued the smart asset can change the script.
+
+The script cannot be removed, so it is impossible to turn a smart asset into a regular one. However, you can set a script that always returns `true`, that is, allows all transactions.
 
 ## Smart asset fees
 

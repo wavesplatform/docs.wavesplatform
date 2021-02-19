@@ -112,14 +112,15 @@ Here’s an example of JSON for [IssueTransaction\(Version2\)](https://nodes.wav
 ```
 
 **Note**  
-The assets that were issued without a script cannot become scripted. You can create an asset that behaves as non-scripted but can be upgraded later, by issuing an asset with a script: **'true'**.  
-It is also impossible to remove the script and turn the smart asset into a regular one.
+The assets that were issued without a script cannot become scripted. You can create an asset that behaves as non-scripted but can be upgraded later, by issuing an asset with a script: **'true'**.
 
 ## Changing a Smart Asset's Script
 
 A smart asset’s script can be changed via [_**SetAssetScriptTransaction**_](/en/blockchain/binary-format/transaction-binary-format/set-asset-script-transaction-binary-format) \([fee](/en/blockchain/transaction/transaction-fee) on changing is equal to 1 WAVES\).
 
 Only the issuer can change the asset's script.
+
+The script cannot be removed, so it is impossible to turn a smart asset into a regular one. However, you can set a script that always returns `true`, that is, allows all transactions.
 
 ## Examples of Scripts for Smart Assets
 
