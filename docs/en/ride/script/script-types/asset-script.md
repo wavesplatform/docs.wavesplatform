@@ -2,9 +2,12 @@
 
 Asset script verifies transactions within the [asset (token)](/en/blockchain/token), that is, allows or denies the transaction depending on the specified conditions.
 
-:warning: Please note: the asset script can only verify transactions, but not orders.
-
 Asset with a script assigned to it is called a [smart asset](/en/building-apps/smart-contracts/smart-assets).
+
+:warning: Please note: 
+- The asset script can only verify transactions, but not orders.
+- If a token is issued without a script, then the script cannot be added later.
+- The script cannot be removed, so it is impossible to turn a smart asset into a regular one.
 
 ## Asset Script Format
 

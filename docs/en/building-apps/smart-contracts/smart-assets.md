@@ -112,7 +112,8 @@ Here’s an example of JSON for [IssueTransaction\(Version2\)](https://nodes.wav
 ```
 
 **Note**  
-The assets that were issued without a script cannot become scripted. You can create an asset that behaves as non-scripted but can be upgraded later, by issuing an asset with a script: **'true'**.
+The assets that were issued without a script cannot become scripted. You can create an asset that behaves as non-scripted but can be upgraded later, by issuing an asset with a script: **'true'**.  
+It is also impossible to remove the script and turn the smart asset into a regular one.
 
 ## Changing a Smart Asset's Script
 

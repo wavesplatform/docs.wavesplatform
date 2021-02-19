@@ -15,6 +15,8 @@
 
 Прикрепить скрипт к токену можно только в момент создания токена, обновить скрипт можно в любой момент. Для создания токена можно использовать как [Waves IDE](/ru/building-apps/smart-contracts/tools/waves-ide), так библиотеки ([WavesJ](https://github.com/wavesplatform/WavesJ), [WavesCS](https://github.com/wavesplatform/WavesCS) и другие). Скрипт ассета должен быть написан на [Ride](/ru/ride/) и прикреплен к токену при помощи [транзакции установки скрипта ассета](/ru/blockchain/transaction-type/set-asset-script-transaction). За выполнение транзакции установки скрипта ассета взимается комиссия, которая составляет 1 [WAVES](/ru/blockchain/token/waves).
 
+Удалить скрипт и сделать смарт-ассет обычным ассетом невозможно.
+
 ## Структура ассет-скрипта
 
 ### Директива
