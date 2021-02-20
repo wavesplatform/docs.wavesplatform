@@ -1169,16 +1169,12 @@ interface Provider {
     once( event: 'logout', handler:() => any) => Provider;
 
     /**
-     * Отписывается от событий login в Signer
+     * Отписывается от событий в Signer, на которые были подписки
      */
     off(
         event: 'login',
         handler:({ address: string; publicKey: string }) => any 
     ) => Provider;
-
-    /**
-     * Отписывается от событий logout в Signer
-     */
     off( event: 'logout', handler:() => any) => Provider;
 
     /**
