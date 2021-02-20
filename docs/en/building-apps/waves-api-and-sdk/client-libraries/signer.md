@@ -322,7 +322,7 @@ const balances = await signer.getBalance();
 
 #### getSponsoredBalances
 
-If user logged in, provides balances of sponsored assets in user's portfolio. См. [Sponsor Fee Transactions](/en/blockchain/waves-protocol/sponsored-fee).
+If user logged in, provides balances of sponsored assets in user's portfolio. See [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee).
 
 ```js
 getSponsoredBalances();
@@ -419,7 +419,7 @@ signer.alias({ 'new_alias', })
 
 #### alias
 
-Creates [create alias transaction](/en/blockchain/transaction-type/create-alias-transaction).
+Creates [Create Alias transaction](/en/blockchain/transaction-type/create-alias-transaction).
 
 ```js
 alias(data: {
@@ -433,7 +433,7 @@ alias(data: {
 | :--- | :--- | :--- |
 | alias* | | Short and easy to remember name of address. See [Alias](/en/blockchain/account/alias) for more information |
 
-\* Required field
+\* Required parameter.
 
 See [Common fields](#common-fields) for other fields description.
 
@@ -451,7 +451,7 @@ const [tx] = await signer
 
 #### burn
 
-Creates [burn transaction](/en/blockchain/transaction-type/burn-transaction).
+Creates [Burn transaction](/en/blockchain/transaction-type/burn-transaction).
 
 ```js
 burn(data: {
@@ -467,7 +467,7 @@ burn(data: {
 | assetId* | | Base58 encoded ID of the asset to burn |
 | quantity* | | Amount of asset multiplied by 10^`decimals`. For example, `decimals` of WAVES is 8, so the real amount is multipied by 10^8. `{ "WAVES": 677728840 }` means 6.77728840 |
 
-\* Required field.
+\* Required parameter.
 
 See [Common fields](#common-fields) for other fields description.
 
@@ -486,7 +486,7 @@ const [tx] = await signer
 
 #### cancelLease
 
-Creates [lease cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction).
+Creates [Lease Cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction).
 
 ```js
 cancelLease(data: {
@@ -498,9 +498,9 @@ cancelLease(data: {
 
 | Parameter name | Default value | Description |
 | :--- | :--- | :--- |
-| leasetId* | | Base58 encoded ID of the lease transaction |
+| leasetId* | | Base58 encoded ID of the Lease transaction |
 
-\* Required field.
+\* Required parameter.
 
 See [Common fields](#common-fields) for other fields description.
 
@@ -518,7 +518,7 @@ const [tx] = await signer
 
 #### data
 
-Creates [data](/en/blockchain/transaction-type/data-transaction) transaction.
+Creates [Data transaction](/en/blockchain/transaction-type/data-transaction).
 
 ```js
 data(data: [{
@@ -536,7 +536,7 @@ data(data: [{
 | type | | Type of a record |
 | value* | | Value of a record. Maximum of 5 Kbytes |
 
-\* Required field.
+\* Required parameter.
 
 See [Common fields](#common-fields) for other fields description.
 
@@ -581,7 +581,7 @@ exchange(data: {
 | buyMatcherFee* | | Value of a record. Maximum of 5 Kbytes |
 | sellMatcher* | | Value of a record. Maximum of 5 Kbytes |
 
-\* Required field.
+\* Required parameter.
 
 See [Common fields](#common-fields) for other fields description.
 
@@ -599,7 +599,7 @@ const [tx] = await signer
 
 #### invoke
 
-Creates [invoke scipt transaction](/en/blockchain/transaction-type/invoke-script-transaction).
+Creates [Invoke Scipt transaction](/en/blockchain/transaction-type/invoke-script-transaction).
 
 ```js
 invoke(data: {
@@ -636,7 +636,7 @@ invoke(data: {
 | call.args.value* | | Value of argument |
 | feeAssetId | WAVES | Base58 encoded ID of the sponsored asset to pay the fee. See the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article for more information. `null` or omitted field means WAVES |
 
-\* Required field
+\* Required parameter.
 
 See [Common fields](#common-fields) for other fields description.
 
@@ -666,7 +666,7 @@ const [tx] = await signer
 
 #### issue
 
-Creates [issue transaction](/en/blockchain/transaction-type/issue-transaction).
+Creates [Issue transaction](/en/blockchain/transaction-type/issue-transaction).
 
 ```js
 issue(data: {
@@ -690,7 +690,7 @@ issue(data: {
 | description* | | Asset description |
 | script | | Base64 encoded script (with `base64:` prefix) to be attached to to asset |
 
-\* Required field
+\* Required parameter.
 
 See [Common fields](#common-fields) for other fields description.
 
@@ -712,7 +712,7 @@ const [tx] = await signer
 
 #### lease
 
-Creates [lease transaction](/en/blockchain/transaction-type/lease-transaction).
+Creates [Lease transaction](/en/blockchain/transaction-type/lease-transaction).
 
 ```js
 lease(data: {
@@ -728,7 +728,7 @@ lease(data: {
 | amount* | | Amount of WAVES multiplied by 10^8. For example, `{ "WAVES": 677728840 }` means 6.77728840 |
 | recipient* | | Base58 encoded [address](/en/blockchain/account/address) or alias (with `alias:T:` prefix) of the recipient |
 
-\* Required field
+\* Required parameter.
 
 See [Common fields](#common-fields) for other fields description.
 
@@ -747,7 +747,7 @@ const [tx] = await signer
 
 #### massTransfer
 
-Creates [mass transfer transaction](/en/blockchain/transaction-type/mass-transfer-transaction).
+Creates [Mass Transfer transaction](/en/blockchain/transaction-type/mass-transfer-transaction).
 
 ```js
 massTransfer(data: {
@@ -766,11 +766,11 @@ massTransfer(data: {
 | :--- | :--- | :--- |
 | assetId | WAVES | Base58 encoded ID of the asset to transfer |
 | transfers* | | List of transfers |
-| transfers.amount* | | Amount of asset multiplied by 10^`decimals`. For example, `decimals` of WAVES is 8, so the real amount is multipied by 10^8. `{ "WAVES": 677728840 }` means 6.77728840Amount of  multiplied by 10^8. |
+| transfers.amount* | | Amount of asset multiplied by 10^`decimals`. For example, `decimals` of WAVES is 8, so the real amount is multipied by 10^8. `{ "WAVES": 677728840 }` means 6.77728840 |
 | transfers.recipient* | | Base58 encoded [address](/en/blockchain/account/address) or alias (with `alias:T:` prefix) of the recipient |
 | attachment | | Optional binary data base58 encoded. This field is often used to attach a comment to the transaction. The maximum data size is 140 bytes |
 
-\* Required field
+\* Required parameter.
 
 See [Common fields](#common-fields) for other fields description.
 
@@ -799,7 +799,7 @@ const [tx] = await signer
 
 #### reissue
 
-Creates [reissue transaction](/en/blockchain/transaction-type/reissue-transaction).
+Creates [Reissue transaction](/en/blockchain/transaction-type/reissue-transaction).
 
 ```js
 reissue(data: {
@@ -817,7 +817,7 @@ reissue(data: {
 | quantity* | | Amount of asset multiplied by 10^`decimals` to reissue |
 | reissuable* | | `true` – asset reissue is possible.<br>`false` — asset reissue is not possible |
 
-\* Required field
+\* Required parameter.
 
 See [Common fields](#common-fields) for other fields description.
 
@@ -837,7 +837,7 @@ const [tx] = await signer
 
 #### setAssetScript
 
-Creates [set asset script transaction](/en/blockchain/transaction-type/set-asset-script-transaction).
+Creates [Set Asset Script transaction](/en/blockchain/transaction-type/set-asset-script-transaction).
 
 ```js
 setAssetScript(data: {
@@ -853,7 +853,7 @@ setAssetScript(data: {
 | assetId* | | Base58 encoded ID of the asset |
 | script | | Base64 encoded script (with `base64:` prefix) to be attached to the asset |
 
-\* Required field
+\* Required parameter.
 
 See [Common fields](#common-fields) for other fields description.
 
@@ -872,7 +872,7 @@ const [tx] = await signer
 
 #### setScript
 
-Creates [set script transaction](/en/blockchain/transaction-type/set-script-transaction).
+Creates [Set Script transaction](/en/blockchain/transaction-type/set-script-transaction).
 
 ```js
 setScript(data: {
@@ -902,7 +902,7 @@ const [tx] = await signer
 
 #### sponsorship
 
-Creates [sponsor fee transaction](/en/blockchain/waves-protocol/sponsored-fee).
+Creates [Sponsor Fee transaction](/en/blockchain/waves-protocol/sponsored-fee).
 
 ```js
 sponsorship(data: {
@@ -917,7 +917,8 @@ sponsorship(data: {
 | :--- | :--- | :--- |
 | assetId* | | Base58 encoded ID of the asset |
 | minSponsoredAssetFee | | Required amount of sponsored token to be charged to users (per 0.001 WAVES) multiplied by 10^`decimals` |
-\* Required field
+
+\* Required parameter.
 
 See [Common fields](#common-fields) for other fields description.
 
@@ -936,7 +937,7 @@ const [tx] = await signer
 
 #### transfer
 
-Creates [transfer transaction](/en/blockchain/transaction-type/transfer-transaction).
+Creates [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction).
 
 ```js
 transfer(data: {
@@ -958,7 +959,7 @@ transfer(data: {
 | attachment | | Optional binary data base58 encoded. This field is often used to attach a comment to the transaction. The maximum data size is 140 bytes |
 | feeAssetId | WAVES | Base58 encoded ID of the sponsored asset to pay the fee. See the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article for more information. `null` or omitted field means WAVES |
 
-\* Required field
+\* Required parameter.
 
 See [Common fields](#common-fields) for other fields description.
 
@@ -995,7 +996,7 @@ batch([{
 | :--- | :--- | :--- |
 | type* | | [Transaction type ID](/en/blockchain/transaction-type/) |
 
-\* Required field
+\* Required parameter.
 
 **Usage:**
 
@@ -1043,7 +1044,7 @@ broadcast(tx,[options])
 | options.chain | false | [Type: boolean] Send the next transaction only after the previous transaction is put in the blockchain and confirmed |
 | options.confirmations | -1 | Number of confirmations after that the Promise is resolved:<br>less than 0 – Promise is resolved when the transaction is put in UTX pool<br>0 – Promise is resolved when the block that contains the transaction is added to the blockchain<br>1 – Promise is resolved when the next block is added to the blockchain and so on |
 
-\* Required field
+\* Required parameter.
 
 **Usage:**
 
@@ -1092,7 +1093,7 @@ setProvider(provider);
 | :--- | :--- | :--- |
 | provider* | | Object that features Provider interface |
 
-\* Required field
+\* Required parameter.
 
 **Usage:**
 ```js
@@ -1114,7 +1115,7 @@ waitTxConfirm(tx, confirmations)
 | tx* | | Transaction or array transactions that are sent to the blockchain |
 | confirmations* | | Number of blocks added to the blockchain after the block that contains the transaction |
 
-\* Required field
+\* Required parameter.
 
 **Usage:**
 ```ts
@@ -1159,3 +1160,17 @@ interface IProvider {
     sign(list: Array<TTransactionParamWithType>): Promise<Array<TTransactionWithProofs<TLong> & IWithId>>;
 }
 ```
+
+## Error Сodes
+
+| Error's class                  | Code | Type           | Example |
+|:------------------------------|:-----|:---------------|:--------|
+| SignerOptionsError            | 1000 | validation     | Invalid signer options: NODE_URL, debug |
+| SignerNetworkByteError        | 1001 | network        | Could not fetch network from {NODE_URL}: Failed to fetch |
+| SignerAuthError               | 1002 | authorization  | Can't use method: getBalance. User must be logged in |
+| SignerProviderConnectError    | 1003 | network        | Could not connect the Provider |
+| SignerEnsureProviderError     | 1004 | provider       | Can't use method: login. Provider instance is missing<br/>🛈 Possible reasons: the user is in Incognito mode or has disabled cookies |
+| SignerProviderInterfaceError  | 1005 | validation     | Invalid provider properties: connect |
+| SignerProviderInternalError   | 1006 | provider       | Provider internal error: {...}. This is not error of signer. |
+| SignerApiArgumentsError       | 1007 | validation     | Validation error for invoke transaction: {...}. Invalid arguments: senderPublicKey |
+| SignerNetworkError            | 1008 | network        | Network Error |
