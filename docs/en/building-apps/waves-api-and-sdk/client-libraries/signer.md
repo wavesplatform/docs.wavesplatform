@@ -2,11 +2,11 @@
 sidebarDepth: 3
 ---
 
-# Signer
+# Waves Signer
 
 ## Overview
 
-Signer is a TypeScript/JavaScript library that enables signing and broadcasting transactions on behalf of users without asking them for their seed phrases or private keys.
+Waves Signer is a TypeScript/JavaScript library that features signing and broadcasting transactions on behalf of users without asking them for their seed phrases or private keys.
 
 The source code is available on Github: <https://github.com/wavesplatform/signer>.
 
@@ -24,7 +24,7 @@ For now, you can use one of the following Providers:
 
 * [ProviderSeed](https://github.com/wavesplatform/provider-seed) developed by Waves team creates user account from seed. ProviderSeed can be used at the app debugging stage.
 * [ProviderWeb](https://github.com/waves-exchange/provider-web) developed by Waves.Exchange team uses an account created or imported into the Waves.Exchange web app via user's private key or seed phrase.
-* [ProviderCloud](https://github.com/waves-exchange/provider-web) developed by Waves.Exchange team uses an email-based Waves.Exchange.
+* [ProviderCloud](https://github.com/waves-exchange/provider-cloud) developed by Waves.Exchange team uses an email-based Waves.Exchange.
 
 You can also develop your own Provider, see the [Provider Interface](#provider-interface) section below.
 
