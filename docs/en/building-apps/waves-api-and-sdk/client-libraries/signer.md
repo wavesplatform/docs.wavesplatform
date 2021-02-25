@@ -1135,7 +1135,47 @@ signer.waitTxConfirm(tx, 1).then((tx) => {
 Provider should feature the following interface:
 
 ```js
-interface IProvider {
+interface Provider {
+
+    /**
+     * Signer subscribes to login events in the Provider
+     * When triggered, the Provider passes user data: address and public key 
+     * For further unsubscribe Signer calls `off`
+     */
+    on(
+        event: 'login',
+        handler:({ address: string; publicKey: string }) => any 
+    ) => Provider;
+
+    /**
+     * Signer subscribes to logout events in the Provider
+     * For further unsubscribe Signer calls `off`
+     */
+    on( event: 'logout', handler:() => any) => Provider;
+
+    /**
+     * Signer subscribes to the first login event in the Provider
+     * When triggered, the Provider passes user data: address and public key, then cancels the subscription
+     */
+    once(
+        event: 'login',
+        handler:({ address: string; publicKey: string }) => any 
+    ) => Provider;
+
+    /**
+     * Signer subscribes to the first logout event in the Provider
+     * When triggered, the Provider cancels the subscription
+     */
+    once( event: 'logout', handler:() => any) => Provider;
+
+    /**
+     * Signer unsubscribes from events previously subscribed to
+     */
+    off(
+        event: 'login',
+        handler:({ address: string; publicKey: string }) => any 
+    ) => Provider;
+    off( event: 'logout', handler:() => any) => Provider;
 
     /**
      * Sets connection to Waves node
@@ -1144,9 +1184,9 @@ interface IProvider {
     connect(options: {NODE_URL: string, NETWORK_BYTE: number}): Promise<void>;
 
     /**
-     * Authenticates user with his/her account
+     * Authenticates user with their account
      */
-    login(): Promise<{addres: string, publicKey: string}>;
+    login(): Promise<{address: string, publicKey: string}>;
 
     /**
      * Logs user out
@@ -1154,10 +1194,24 @@ interface IProvider {
     logout(): Promise<void>;
 
     /**
+     * Signs custom message
+     * @param data
+     */
+    signMessage(data: string | number): Promise<string>;
+
+    /**
+     * Signs typed data
+     * @param data
+     */
+    signTypedData(data: Array<TypedData>): Promise<string>;
+
+    /**
      * Signs transactions in array
+     * Here SignedTx<T> is any transaction, T[] is an array of any transactions
      * @param list
      */
-    sign(list: Array<TTransactionParamWithType>): Promise<Array<TTransactionWithProofs<TLong> & IWithId>>;
+    sign<T extends SignerTx>(toSign: T[]): Promise<SignedTx<T>>;
+    sign<T extends Array<SignerTx>>(toSign: T): Promise<SignedTx<T>>;
 }
 ```
 

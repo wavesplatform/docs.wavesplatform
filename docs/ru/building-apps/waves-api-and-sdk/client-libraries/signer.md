@@ -1153,14 +1153,14 @@ interface Provider {
     /**
      * Signer подписывается на события logout в Провайдере
      * Для последующей отписки Signer вызывает функцию off
-*/
+     */
     on( event: 'logout', handler:() => any) => Provider;
 
     /**
      * Signer подписывается на первое событие login в Провайдере
-     * При срабатывании Провайдер должен передать данные пользователя: адрес и публичный ключ
+     * При срабатывании Провайдер должен передать данные пользователя: адрес и публичный ключ, а также выполнить отписку
      * Отписка не нужна
-    */
+     */
     once(
         event: 'login',
         handler:({ address: string; publicKey: string }) => any 
@@ -1168,7 +1168,7 @@ interface Provider {
 
     /**
      * Signer подписывается на первое событие logout в Провайдере
-     * Отписка не нужна
+     * При срабатывании Провайдер должен выполнить отписку
      */
     once( event: 'logout', handler:() => any) => Provider;
 
@@ -1216,6 +1216,7 @@ interface Provider {
      */
     sign<T extends SignerTx>(toSign: T[]): Promise<SignedTx<T>>;
     sign<T extends Array<SignerTx>>(toSign: T): Promise<SignedTx<T>>;
+}
 ```
 
 ## Коды ошибок
