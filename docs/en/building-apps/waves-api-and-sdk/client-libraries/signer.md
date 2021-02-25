@@ -12,7 +12,7 @@ The source code is available on Github: <https://github.com/wavesplatform/signer
 
 ### Provider
 
-In order to work with Signer, you need to link an external Provider library. Provider securely stores user's private data . Your web app and Signer itself do not have access to user's private key and seed phrase.
+In order to work with Signer, you need to link an external Provider library. Provider securely stores user's private data. Your web app and Signer itself do not have access to user's private key and seed phrase.
 
 The Provider authenticates user and generates a digital signature.
 
