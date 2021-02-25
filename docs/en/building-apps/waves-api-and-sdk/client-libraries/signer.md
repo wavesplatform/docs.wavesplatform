@@ -1155,7 +1155,8 @@ interface Provider {
 
     /**
      * Signer subscribes to the first login event in the Provider
-     * When triggered, the Provider passes user data: address and public key, then cancels the subscription
+     * When triggered, the Provider passes user data: address and public key,
+     *   then cancels the subscription
      */
     once(
         event: 'login',
