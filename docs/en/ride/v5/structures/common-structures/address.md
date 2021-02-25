@@ -18,13 +18,13 @@ Address(bytes: ByteVector)
 
 ## Examples
 
-Getall types of balance in WAVES for the current account (in a dApp script or an account script):
+Get all types of balance in WAVES for the current account (in a dApp script or an account script):
 
 ```scala
 wavesBalance(this)
 ```
 
-For an arbitrary account:
+For any account:
 
 ```scala
 let address=base58'3N4iKL6ikwxiL7yNvWQmw7rg3wGna8uL6LU'

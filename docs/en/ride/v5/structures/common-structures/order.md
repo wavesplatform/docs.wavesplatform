@@ -44,11 +44,16 @@ The script below enables buying from a sender's account:
 {-# CONTENT_TYPE EXPRESSION #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 
-let myAssetId = base58'8LQW8f7P5d5PZM7GtZEBgaqRPGSzS3DfPuiXrURJ4AJS'
+let myAssetId = base58'8LLpj6yQLUu37KUt3rVo1S69j2gWMbgbM6qqgt2ac1Vb'
 
 match tx {
    case o: Order =>
-      sigVerify(o.bodyBytes, o.proofs[0], cooperPubKey ) && o.assetPair.priceAsset == null && o.assetPair.amountAsset == myAssetId && o.price == 500000 && o.amount == 1000 && o.orderType == Buy
+        let isWavesPriceAsset = !isDefined(o.assetPair.priceAsset)
+        let rightPair = (o.assetPair.amountAsset == myAssetId) && isWavesPriceAsset
+        sigVerify(o.bodyBytes, o.proofs[0], o.senderPublicKey)
+        && rightPair
+        && o.price == 500000
+        && o.orderType == Buy
    case _ => false
 }
 ```
