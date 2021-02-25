@@ -216,22 +216,21 @@ API Blockchain Updates предоставляет три функции:
 
 Параметры:
 
-| Имя поля | Тип | Описание |
+| Имя | Тип | Описание |
 | :--- | :--- | :--- |
-| from_height | int32 | Начальная высота, по умолчанию 1 |
-| to_height | int32 | Конечная высота, по умолчанию не ограничена |
+| from_height | int32 | Начальная высота. Необязательный параметр, по умолчанию 1 |
+| to_height | int32 | Конечная высота. Необязательный параметр, по умолчанию высота не ограничена |
 
 Функция возвращает поток сообщений об изменениях `SubscribeEvent`.
 
 Поля сообщения:
 
-| Имя поля | Тип | Описание |
+| Имя | Тип | Описание |
 | :--- | :--- | :--- |
 | update.id | bytes | ID блока или микроблока, который был добавлен или откачен |
 | update.height | int32 | Высота |
 | update.update | Append или Rollback | Событие: добавление или откат блока или микроблока. См. [Формат событий](#формат-событий) ниже |
 | referenced_assets | repeated StateUpdate.AssetInfo | Ассеты, участвующие в транзакциях блока. См. [AssetInfo](#AssetInfo) ниже |
-
 
 ### GetBlockUpdatesRange
 
@@ -239,12 +238,10 @@ API Blockchain Updates предоставляет три функции:
 
 Параметры:
 
-| Имя поля | Тип | Описание |
+| Имя | Тип | Описание |
 | :--- | :--- | :--- |
-| from_height | int32 | Начальная высота |
-| to_height | int32 | Конечная высота |
-
-Оба параметра обязательные.
+| from_height | int32 | Начальная высота. Обязательный параметр |
+| to_height | int32 | Конечная высота. Обязательный параметр |
 
 Функция возвращает массив сообщений об изменениях. Формат сообщения такой же, как для функции `Subscribe`, но содержит только сообщения о добавлении блока.
 
@@ -258,6 +255,8 @@ API Blockchain Updates предоставляет три функции:
 
 ### Append: добавление блока
 
+При получении событий в реальном времени сообщение о добавлении блока может содержать транзакции и порожденные ими изменения (создан ключевой блок + микроблок) либо транзакции могут отсутствовать (создан только ключевой блок).
+
 Поля сообщения:
 
 | Имя поля | Тип | Описание |
@@ -266,8 +265,8 @@ API Blockchain Updates предоставляет три функции:
 | updated_waves_amount | int64 | Общее количество WAVES с учетом вознаграждения за создание блока |
 | transaction_ids | repeated bytes | Идентификаторы транзакций в блоке |
 | transactions_metadata | repeated TransactionMetadata | Дополнительная информация о транзакциях. См. [TransactionMetadata](#TransactionMetadata) ниже |
-| state_update | StateUpdate | Изменения состояния блокчейна, привязанные к блоку. См. [StateUpdate](#StateUpdate) |
-| transaction_state_updates | repeated StateUpdate | Изменения состояния блокчейна, привязанные к транзакциям. См. [StateUpdate](#StateUpdate) |
+| state_update | StateUpdate | Изменения состояния блокчейна, привязанные к блоку. См. [StateUpdate](#StateUpdate) ниже |
+| transaction_state_updates | repeated StateUpdate | Изменения состояния блокчейна, привязанные к транзакциям. См. [StateUpdate](#StateUpdate) ниже |
 
 
 `transaction_ids`, `transactions_metadata`, `transaction_state_updates` — параллельные массивы: одному порядковому номеру соответствуют данные об одной и той же транзакции. Если дополнительная информация отсутствует, в массиве `transactions_metadata` по этому индексу находится пустое значение.
@@ -316,21 +315,21 @@ API Blockchain Updates предоставляет три функции:
 
 Изменения состояния блокчейна, порожденные транзакцией, блоком, микроблоком или откатом.
 
-Адреса аккаунтов представлены в сжатом виде: без первых двух и последних четырех байт. См. раздел [Бинарный формат адреса](/ru/blockchain/binary-format/address-binary-format).
+В отличие от транзакций, адреса аккаунтов в `StateUpdate` представлены полностью, включая тип сущности, байт сети и контрольную сумму. См. раздел [Бинарный формат адреса](/ru/blockchain/binary-format/address-binary-format).
 
 #### Изменения балансов аккаунтов
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| balances.address | bytes | Адрес в сжатом виде |
-| balances.amount_after | Amount | Новый баланс |
+| balances.address | bytes | Адрес |
+| balances.amount_after | [Amount](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/amount.proto) | Новый баланс |
 | balances.amount_before | int64 | Прежний баланс |
 
 #### Изменения лизинговых балансов аккаунта
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| leasing_for_address.address | bytes | Адрес в сжатом виде |
+| leasing_for_address.address | bytes | Адрес |
 | leasing_for_address.in_after | int64 | Новая сумма полученных лизингов |
 | leasing_for_address.out_after | int64 | Новая сумма отправленных лизингов |
 | leasing_for_address.in_before | int64 | Прежняя сумма полученных лизингов |
@@ -340,19 +339,19 @@ API Blockchain Updates предоставляет три функции:
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| data_entries.address | bytes | Адрес в сжатом виде |
-| data_entries.data_entry | DataTransactionData.DataEntry | Запись с новым значением |
-| data_entries.data_entry_before | DataTransactionData.DataEntry | Запись с прежним значением |
+| data_entries.address | bytes | Адрес |
+| data_entries.data_entry | [DataTransactionData.DataEntry](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto#L67) | Запись с новым значением |
+| data_entries.data_entry_before | [DataTransactionData.DataEntry](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto#L67) | Запись с прежним значением |
 
 #### Изменения лизингов
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
 | individual_leases.lease_id | bytes | Идентификатор лизинга |
-| individual_leases.status_after | LeaseStatus | Изменение статуса лизинга: INACTIVE — неактивный, ACTIVE — активный |
+| individual_leases.status_after | LeaseStatus | Новый статус лизинга: ACTIVE или INACTIVE |
 | individual_leases.amount | int64 | Сумма лизинга |
-| individual_leases.sender | bytes | Адрес отправителя лизинга в сжатом виде |
-| individual_leases.recipient | bytes | Адрес получателя лизинга в сжатом виде |
+| individual_leases.sender | bytes | Адрес отправителя лизинга |
+| individual_leases.recipient | bytes | Адрес получателя лизинга |
 | individual_leases.origin_transaction_id | bytes | Транзакция, породившая создание, изменение или отмену лизинга |
 
 #### Изменения параметров токена
@@ -360,19 +359,19 @@ API Blockchain Updates предоставляет три функции:
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
 | assets.before | AssetDetails | Прежние параметры токена. В случае выпуска токена — пустое значение. См. [AssetDetails](#AssetDetails) ниже |
-| assets.after | AssetDetails | Новые параметры токена. В случае отката блока/микроблока с выпуском токена — пустое значение |
+| assets.after | AssetDetails | Новые параметры токена. В случае отката блока/микроблока, породившего выпуск токена, — пустое значение |
 
 #### AssetDetails
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
 | asset_id | bytes | ID токена |
-| issuer | bytes | Адрес, выпустивший токен, в сжатом виде |
+| issuer | bytes | Адрес, выпустивший токен |
 | decimals | int32 | Количество знаков после запятой |
 | name | string | Название токена |
 | description | string | Описание токена |
 | reissuable | bool | Флаг возможности довыпуска |
-| volume | int64 | Общее количество токена |
+| volume | int64 | Общее количество токена, в атомарных единицах |
 | script_info.script | bytes | Скомпилированный скрипт ассета |
 | script_info.complexity | int64 | Сложность скрипта ассета |
 | sponsorship | int64 | Если токен является спонсорским ассетом — количество ассета, эквивалентное 0,001 WAVES, в атомарных единицах. Иначе — пустое значение |
@@ -392,11 +391,13 @@ API Blockchain Updates предоставляет три функции:
 
 Дополнительная информация о транзакции.
 
+В отличие от транзакций, адреса аккаунтов в `TransactionMetadata` представлены полностью, включая тип сущности, байт сети и контрольную сумму. См. раздел [Бинарный формат адреса](/ru/blockchain/binary-format/address-binary-format).
+
 #### Для транзакции вызова скрипта
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| d_app_address | bytes | Адрес dApp (полностью) |
+| d_app_address | bytes | Адрес dApp |
 | function_name | string | Имя вызываемой функции |
 | arguments | repeated Argument | Аргументы функции |
 | payments | repeated [Amount](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/amount.proto) | Приложенные к транзакции платежи |
@@ -406,16 +407,16 @@ API Blockchain Updates предоставляет три функции:
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| recipient_address | bytes | Адрес получателя (полностью)|
+| recipient_address | bytes | Адрес получателя |
 
 #### Для транзакции массового перевода
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| recipient_addresses | repeated bytes | Адреса получателей (полностью) |
+| recipient_addresses | repeated bytes | Адреса получателей |
 
 #### Для транзакции лизинга
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| recipient_address | bytes | Адрес получателя (полностью) |
+| recipient_address | bytes | Адрес получателя |
