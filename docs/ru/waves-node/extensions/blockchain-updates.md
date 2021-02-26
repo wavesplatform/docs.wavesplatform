@@ -227,10 +227,10 @@ API Blockchain Updates предоставляет три функции:
 
 | Имя | Тип | Описание |
 | :--- | :--- | :--- |
-| update.id | bytes | ID блока или микроблока, который был добавлен или откачен |
+| update.id | bytes | ID последнего блока или микроблока на блокчейне после события |
 | update.height | int32 | Высота |
 | update.update | Append или Rollback | Событие: добавление или откат блока или микроблока. См. [Формат событий](#формат-событий) ниже |
-| referenced_assets | repeated StateUpdate.AssetInfo | Ассеты, участвующие в транзакциях блока. См. [AssetInfo](#AssetInfo) ниже |
+| referenced_assets | repeated StateUpdate.AssetInfo | Ассеты, участвующие в событии. См. [AssetInfo](#AssetInfo) ниже |
 
 ### GetBlockUpdatesRange
 
@@ -303,7 +303,7 @@ API Blockchain Updates предоставляет три функции:
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
 | type | RollbackType | Тип сообщения: BLOCK — откат блока, MICROBLOCK — откат микроблока |
-| removed_transaction_ids | repeated bytes | Транзакции, которые были удалены в результате отката |
+| removed_transaction_ids | repeated bytes | ID транзакций, которые были удалены в результате отката |
 | removed_blocks | repeated [Block](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Блоки, которые были удалены в результате отката. В случае отката микроблока — пустой массив |
 | rollback_state_update | StateUpdate | Изменения состояния блокчейна, которые произошли в результате отката (обратные изменениям, порожденным транзакциями и блоками/микроблоками). См. [StateUpdate](#StateUpdate) ниже |
 
