@@ -13,8 +13,9 @@ dApp-to-dApp invocation is processed as follows:
 Features:
 
 * dApp-to-dApp invocations can be nested.
-* A dApp-to-dApp invocation can contain payments that will be transferred from the balance of the invoking dApp to the balance of the invoked dApp.
 * All invoked callable functions are executed within a single Invoke Script transaction.
+* A dApp-to-dApp invocation can contain payments that are transferred from the balance of the invoking dApp to the balance of the invoked dApp.
+* Payments attached to a callable function invocation can be used in script actions and in payments attached to nested invocations.
 
 ## Conditions
 
