@@ -5,9 +5,10 @@
 ### Protocol Enhancements
 
 * **dApp-to-dApp invocation.** A dApp callable function can invoke a callable function of another dApp, or another callable function of the same dApp, or even itself. All invoked functions are executed within a single Invoke Script transaction. The total complexity is limited. [More about dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp)
-* **Continued computations.** Added support for dApp scripts with complexity over 4000. The execution of such a script is split into several stages. The first stage of computations is performed within the Invoke Script transaction. The further stages are performed within Continuation transactions. [More about continued computations](/en/ride/advanced/continuation)
+* Added version 3 for the [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) that supports dApp-to-dApp invocations.
+<!--* **Continued computations.** Added support for dApp scripts with complexity over 4000. The execution of such a script is split into several stages. The first stage of computations is performed within the Invoke Script transaction. The further stages are performed within Continuation transactions. [More about continued computations](/en/ride/advanced/continuation)
    * Implemented the new transaction type: [Continuation](/en/blockchain/transaction-type/continuation-transaction). A block generator creates the Continuation transaction if there is an incomplete computation sequence. A user cannot send a Continuation transaction.
-   * Added version 3 for the [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) that can invoke a script with complexity over 4000.
+   * Added version 3 for the [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) that can invoke a script with complexity over 4000.-->
 
 ### Ride
 
@@ -22,7 +23,7 @@
    Using these actions, you can change the amount of the lease, in particular, withdraw a part of the leased funds. If you cancel a lease for a larger amount and create a new lease for a smaller amount with the same recipient in the same script invocation, the recipient's generating balance decreases by the difference. Otherwise, if you send two separate transactions: a Lease Cancel transaction and a Lease transaction, they can be added to a different blocks and therefore generating balance decreases by the amount of the canceled lease immediately and increases by the amount of the new lease after 1000 blocks.
 
 * Added the function [calculateLeaseId](/en/ride/v5/functions/built-in-functions/blockchain-functions#calculateleaseid) that calculates ID of the lease formed by the `Lease` structure.
-* Added the following [account data storage functions](/en/ride/v5/functions/built-in-functions/account-data-storage-functions) that allow the dApp script to read entries of its own data storage at any stage of the computations:
+<!-- * Added the following [account data storage functions](/en/ride/v5/functions/built-in-functions/account-data-storage-functions) that allow the dApp script to read entries of its own data storage at any stage of the computations:
    * `getBinary(key: String): ByteVector|Unit`
    * `getBinaryValue(key: String): ByteVector`
    * `getBoolean(key: String): Boolean|Unit`
@@ -30,15 +31,15 @@
    * `getInteger(key: String): Int|Unit`
    * `getIntegerValue(key: String): Int`
    * `getString(key: String): String|Unit`
-   * `getStringValue(key: String): String`
+   * `getStringValue(key: String): String` -->
 * Added an arbitrary data type — [Any](/en/ride/v5/data-types/any).
 
 ### Node REST API
 
 #### Breaking Changes
 
-* Added the new transaction type: [Continuation](/en/blockchain/transaction-type/continuation-transaction).
-* A lease can be created both as a result of a Lease transaction and as a result of an Invoke Script transaction via a `Lease` script action. Therefore, the response of the following endpoints has been changed:
+<!--* Added the new transaction type: [Continuation](/en/blockchain/transaction-type/continuation-transaction).-->
+A lease can be created both as a result of a Lease transaction and as a result of an Invoke Script transaction via a `Lease` script action. Therefore, the response of the following endpoints has been changed:
    * In the response of `/transactions/address/{address}/limit/{limit}` and `/transactions/info/{id}` endpoints for Lease Cancel transaction, the `lease` structure now contains lease parameters instead of Lease transaction fields.
    * `/leasing/active/{address}` returns an array of structures containing lease parameters instead of array of Lease transactions.
 
@@ -62,7 +63,7 @@
 
 #### Semantic Changes
 
-* For [Invoke Script](/en/blockchain/transaction-type/invoke-script-transaction) transaction version 3 the fields `extraFeePerStep` and `continuationtransactionIds` and the `script_execution_in_progress` value for the `applicationStatus` field added to the output of the endpoints providing transaction info.
+<!--* For [Invoke Script](/en/blockchain/transaction-type/invoke-script-transaction) transaction version 3 the fields `extraFeePerStep` and `continuationtransactionIds` and added the `script_execution_in_progress` value for the `applicationStatus` field in the output of the endpoints providing transaction info.-->
 * dApp-to-dApp invocation results are added as the `invokes` array to the `stateChanges` structure returned by the following endpoints:
    * `/transactions/info/{id}`
    * `/transactions/address/{address}/limit/{limit}`

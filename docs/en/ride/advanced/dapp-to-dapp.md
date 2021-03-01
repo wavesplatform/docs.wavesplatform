@@ -24,7 +24,7 @@ Features:
 * The [Invoke Script](/en/blockchain/transaction-type/invoke-script-transaction) transaction version is 3.
 * The total complexity is limited by 52,000 for all callable functions and asset scripts of involved smart assets. The sender's account script complexity is not included in that limit.
 
-> Continued computations and dApp-to-dApp invocation are mutually exclusive, that is, they cannot be initiated by the same transaction.
+<!-- > Continued computations and dApp-to-dApp invocation are mutually exclusive, that is, they cannot be initiated by the same transaction.-->
 
 ## Fee 
 

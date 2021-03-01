@@ -138,10 +138,10 @@ module.exports = {
               title: 'Перевод',
               path: blockchainPath + 'transaction-type/transfer-transaction',
             },
-            {
+/*            {
               title: 'Продолжение',
               path: blockchainPath + 'transaction-type/continuation-transaction',
-            },
+            }, */
             {
               title: 'Сжигание токена',
               path: blockchainPath + 'transaction-type/burn-transaction',
@@ -398,10 +398,10 @@ module.exports = {
                   title: 'Перевод',
                   path: blockchainPath + 'binary-format/transaction-binary-format/transfer-transaction-binary-format',
                 },
-                {
+/*                {
                   title: 'Продолжение',
                   path: blockchainPath + 'binary-format/transaction-binary-format/continuation-transaction-binary-format',
-                },
+                },*/
                 {
                   title: 'Установка скрипта',
                   path: blockchainPath + 'binary-format/transaction-binary-format/set-script-transaction-binary-format',
@@ -994,10 +994,10 @@ module.exports = {
           title: 'Вызов dApp из dApp',
           path: ridePath + 'advanced/dapp-to-dapp',
         },
-        {
+/*        {
           title: 'Вычисления с продолжением',
           path: ridePath + 'advanced/continuation',
-        },
+        },*/
         {
           title: 'Нетерпеливая переменная',
           path: rideV5Path + 'variables',

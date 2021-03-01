@@ -12,7 +12,7 @@ Changes in Ride:
 * Added [strict variables](/en/ride/v5/variables/) that are evaluated before the next expression to ensure executing callable functions and applying their actions in the right order.
 * Modified the [callable function result](/en/ride/v5/functions/callable-function#invocation-result) by adding a return value.
 
-## Continued Computations
+<!-- ## Continued Computations
 
 Added support for dApp scripts with complexity over 4000. The execution of such a script is split into several stages. The first stage of computations is performed within the Invoke Script transaction. The further stages are performed within Continuation transactions that are created automatically by block generators. [More about continued computations](/en/ride/advanced/continuation)
 
@@ -27,6 +27,7 @@ Changes in Ride: added the [account data storage functions](/en/ride/functions/b
 * `getStringValue(key: String): String`
 
 > Continued computations and dApp-to-dApp invocation are mutually exclusive, that is, they cannot be initiated by the same transaction.
+-->
 
 ## Lease and LeaseCancel Script Actions
 

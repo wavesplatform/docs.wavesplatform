@@ -20,5 +20,3 @@
 | Количество структур [ScriptTransfer](/ru/ride/structures/script-actions/script-transfer) в [TransferSet](/ru/ride/structures/script-results/transfer-set) (применимо для  **версии&nbsp;3**) | 10 |
 | Количество структур [DataEntry](/ru/ride/structures/script-actions/data-entry) в [WriteSet](/ru/ride/structures/script-results/write-set) (применимо для **версии 3**) | 100 |
 | Суммарный размер записей хранилища данных аккаунта для всех структур `DataEntry` в `WriteSet` (применимо для **версии 3**) | 5 Кбайт |
-
-* <a id="#continuation"/>Начиная с версии 5 Стандартной библиотеки сложность вызываемой функции не ограничена. Выполнение функции сложностью выше 4000 разбивается на несколько транзакций, см. раздел [Вычисления с продолжением](/ru/ride/advanced/continuation). Версия 5 Стандартной библиотеки добавлена в версии ноды 1.3.0 и включается с активацией фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations, Continuations”. Версии 1.3.x в настоящее время доступны только для [Stagenet](/ru/blockchain/blockchain-network/).

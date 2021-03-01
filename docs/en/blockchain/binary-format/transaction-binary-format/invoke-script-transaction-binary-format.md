@@ -36,7 +36,7 @@ message Amount {
 | function_call | | Function name and arguments. Binary format of function call is the same as in [version 1](#version-1) (see item 7 in table) |
 | payments.asset_id | • 32 bytes for asset<br>• 0 for WAVES | ID of token in payment |
 | payments.amount | 8 bytes | Amount of token in payment, specified in the [atomic units](/en/blockchain/token/#atomic-unit) |
-| extra_fee_per_step | 8 bytes | Extra fee for each stage of computations, see the [Continued Computations](/en/ride/advanced/continuation) article. The extra fee is specified in the same token as the transaction fee, in atomic units. A value other than null or 0 is only valid when the version 5 dApp script is invoked |
+<!--| extra_fee_per_step | 8 bytes | Extra fee for each stage of computations, see the [Continued Computations](/en/ride/advanced/continuation) article. The extra fee is specified in the same token as the transaction fee, in atomic units. A value other than null or 0 is only valid when the version 5 dApp script is invoked |-->
 
 The maximum number of payments is 2.
 
