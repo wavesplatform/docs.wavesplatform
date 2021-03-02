@@ -4,43 +4,9 @@
 
 ## Версия 3
 
-Бинарный формат версии 3 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format/).
+Бинарный формат версии 3 аналогичен версии 2. Отличие в том, что максимальное количество платежей увеличено до 10.
 
 Версия 3 транзакции вызова скрипта добавлена в версии ноды 1.3.0 и включается с активацией фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations, Continuations”. Версии 1.3.x в настоящее время доступны только на [Stagenet](/ru/blockchain/blockchain-network/).
-
-```
-message InvokeScriptTransactionData {
-    Recipient d_app = 1;
-    bytes function_call = 2;
-    repeated Amount payments = 3;
-    int64 extra_fee_per_step = 4;
-};
-
-message Recipient {
-    oneof recipient {
-        bytes public_key_hash = 1;
-        string alias = 2;
-    };
-};
-
-message Amount {
-    bytes asset_id = 1;
-    int64 amount = 2;
-};
-```
-
-| Поле | Размер | Описание |
-| :--- | :--- | :--- |
-| d_app.public_key_hash | 20 байт | Хеш открытого ключа аккаунта dApp (компонент адреса, см. раздел [Бинарный формат адреса](/ru/blockchain/binary-format/address-binary-format)) |
-| d_app.alias | От 4 до 30 байт | [Псевдоним адреса](/ru/blockchain/account/alias) аккаунта dApp |
-| function_call | | Имя и аргументы вызываемой функции. Бинарный формат вызова аналогичен [версии 1](#версия-1) (см. п. 7 в таблице) |
-| payments.asset_id | • 32 байта для ассета<br>• 0 для WAVES | ID токена в платеже |
-| payments.amount | 8 байт | Количество токена в платеже, в [атомарных единицах](/ru/blockchain/token/#атомарная-единица) |
-<!--| extra_fee_per_step | 8 байт | Добавочная комиссия за каждый этап вычислений, см. раздел [Вычисления с продолжением](/ru/ride/advanced/continuation). Надбавка выражена в том же токене, что и комиссия, в атомарных единицах. Значение, отличное от null или 0, допустимо только при вызове скрипта версии 5 |-->
-
-Количество платежей — не более 2.
-
-Максимальный размер `d_app` + `function_call` + `payments` — 5120 байт.
 
 ## Версия 2
 
