@@ -15,4 +15,4 @@
 | [Structure](/en/ride/v5/structures/) | — |
 | [Arbitrary type](/en/ride/v5/data-types/any) | Any |
 
-For each value, depending on the data type, the weight is determined. The weight is used in limitations on creating and comparing values. For more information see the [Data Weight](/en/ride/limits/weight).
+For each value, depending on the data type, the weight is determined. The weight is used in limitations on creating and comparing values. For more information see the [Data Weight](/en/ride/v5/limits/weight).

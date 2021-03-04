@@ -4,7 +4,7 @@
 
 Tuple is an ordered collection of elements. Elements can be of any type. The tuple can contain from 2 to 22 elements.
 
-For weight restrictions, see the [Data Weight](/en/ride/limits/weight) article.
+For weight restrictions, see the [Data Weight](/en/ride/v5/limits/weight) article.
 
 ## Example
 

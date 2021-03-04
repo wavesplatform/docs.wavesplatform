@@ -24,10 +24,8 @@
         <li>CEILING</li>
         <li>DOWN</li>
         <li>FLOOR</li>
-        <li>HALFDOWN</li>
         <li>HALFEVEN</li>
         <li>HALFUP</li>
-        <li>UP</li>
       </ul>
     </td>
     <td>
