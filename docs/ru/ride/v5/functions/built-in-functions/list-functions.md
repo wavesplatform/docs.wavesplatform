@@ -9,8 +9,10 @@
 | [getElement](#getelement)  | Получает элемент списка по индексу | 2 |
 | [indexOf](#indexof)  | Возвращает индекс первого вхождения элемента в списке | 5 |
 | [lastIndexOf](#lastindexof)  | Возвращает индекс последнего вхождения элемента в списке | 5 |
-| [max](#max)  | Возвращает наибольший элемент в списке | 3 |
-| [min](#min)  | Возвращает наименьший элемент в списке | 3 |
+| [max](#max) | Возвращает наибольший элемент в списке целых чисел | 3 |
+| [maxBigInt](#maxBigInt) | Возвращает наибольший элемент в списке [больших целых чисел](/ru/ride/v5/data-types/bigint) | TBDL |
+| [min](#min)  | Возвращает наименьший элемент в списке целых чисел | 3 |
+| [minBigInt](#minBigInt) | Возвращает наименьший элемент в списке [больших целых чисел](/ru/ride/v5/data-types/bigint) | TBDL |
 | [removeByIndex](#removebyindex) | Удаляет элемент из списка по индексу | 7 |
 | [size](#size)  | Возвращает размер списка | 2 |
 
@@ -121,7 +123,7 @@ lastIndexOf("a", stringList) # Возвращает 2
 
 ## max
 
-Возвращает наибольший элемент в списке. Если список пустой, возвращает ошибку.
+Возвращает наибольший элемент в списке целых чисел. Если список пустой, возвращает ошибку.
 
 ``` ride
 max(List[Int]): Int
@@ -131,11 +133,26 @@ max(List[Int]): Int
 
 | Параметр | Описание |
 | :--- | :--- |
-| `list`: [List[T]](/ru/ride/v5/data-types/list) | Список |
+| `list`: [List](/ru/ride/v5/data-types/list)[[Int](/ru/ride/v5/data-types/int)] | Список |
+
+## maxBigInt
+
+Возвращает наибольший элемент в списке [больших целых чисел](/ru/ride/v5/data-types/bigint). Если список пустой, возвращает ошибку.
+
+``` ride
+maxBigInt(List[BigInt]): BigInt
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `list`: [List](/ru/ride/v5/data-types/list)[[BigInt](/ru/ride/v5/data-types/bigint)] | Список |
+
 
 ## min
 
-Возвращает наименьший элемент в списке. Если список пустой, возвращает ошибку.
+Возвращает наименьший элемент в списке целых чисел. Если список пустой, возвращает ошибку.
 
 ``` ride
 min(List[Int]): Int
@@ -145,7 +162,22 @@ min(List[Int]): Int
 
 | Параметр | Описание |
 | :--- | :--- |
-| `list`: [List[T]](/ru/ride/v5/data-types/list) | Список |
+| `list`: [List](/ru/ride/v5/data-types/list)[[Int](/ru/ride/v5/data-types/int)] | Список |
+
+## minBigInt
+
+Возвращает наименьший элемент в списке [больших целых чисел](/ru/ride/v5/data-types/bigint). Если список пустой, возвращает ошибку.
+
+``` ride
+minBigInt(List[BigInt]): BigInt
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `list`: [List](/ru/ride/v5/data-types/list)[[BigInt](/ru/ride/v5/data-types/bigint)] | Список |
+
 
 ## removeByIndex
 

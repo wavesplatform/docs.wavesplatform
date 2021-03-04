@@ -148,13 +148,14 @@
 | getElement(List[T], Int): T | Получает элемент по индексу | 2 |
 | indexOf(list: List[T], element: T): Int&#124;Unit | Возвращает индекс первого вхождения элемента в списке | 5 |
 | lastIndexOf(list: List[T], element: T): Int&#124;Unit | Возвращает индекс последнего вхождения элемента в списке | 5 |
-| max(List[Int]): Int | Возвращает наибольший элемент в списке | 3 |
-| min(List[Int]): Int | Возвращает наименьший элемент в списке | 3 |
+| max(List[Int]): Int | Возвращает наибольший элемент в списке целых чисел | 3 |
+| maxBigInt(List[BigInt]): BigInt | Возвращает наибольший элемент в списке [больших целых чисел](/ru/ride/v5/data-types/bigint) | TBDL |
+| min(List[Int]): Int | Возвращает наименьший элемент в списке целых чисел | 3 |
+| minBigInt(List[BigInt]): BigInt | Возвращает наибольший элемент в списке больших целых чисел | TBDL |
 | removeByIndex(list: List[T], index: Int): List[T] | Удаляет элемент из списка по индексу | 7 |
 | size(List[T]): Int | Возвращает размер списка | 2 |
 
 `T` означает любой допустимый тип.
-
 
 ## [Функции строки](/ru/ride/v5/functions/built-in-functions/string-functions)
 

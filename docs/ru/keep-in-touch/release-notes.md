@@ -33,6 +33,12 @@
    * `getStringValue(key: String): String`
 * Добавлен произвольный тип данных — [Any](/ru/ride/v5/data-types/any).
 * Добавлен тип данных [BigInt](/ru/ride/v5/data-types/bigint) размером 64 байта (512 бит) и поддерживающие его функции:
+   * [fractionBigInt(BigInt, BigInt, BigInt): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionbigint)
+   * [logBigInt(BigInt, BigInt, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#logbigint)
+   * [maxBigInt(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/list-functions#maxbigint)
+   * [medianBigInt(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#medianbigint)
+   * [minBigInt(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/list-functions#minbigint)
+   * [powBigInt(BigInt, BigInt, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#powbigint)
    * [parseBigInt(String): BigInt|Unit](/ru/ride/v5/functions/built-in-functions/converting-functions#parse-bigint)
    * [parseBigIntValue(String): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#parse-bigintvalue)
    * [toBigInt(ByteVector): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bigint-bytevector)
@@ -41,10 +47,6 @@
    * [toBytesBigInt(BigInt): ByteVector](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bytes-bigint)
    * [toInt(BigInt): Int](/ru/ride/v5/functions/built-in-functions/converting-functions#to-int-bigint)
    * [toStringBigInt(BigInt): String](/ru/ride/v5/functions/built-in-functions/converting-functions#to-string-bigint)
-   * [fractionBigInt(BigInt, BigInt, BigInt): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionbigint)
-   * [logBigInt(BigInt, BigInt, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#logbigint)
-   * [medianBigInt(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#medianbigint)
-   * [powBigInt(BigInt, BigInt, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#powbigint)
 
 ### Node REST API
 
