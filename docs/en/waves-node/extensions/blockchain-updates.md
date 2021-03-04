@@ -27,7 +27,7 @@ For a node with the Blockchain Updates extension, we recommended to increase the
 
 ## Launch Node with Extension
 
-:warning: **Important:** Blockchain Updates requires the history of changes since the blockchain creation. Therefore, you should start the node with the extension from scratch and synchronize the blockchain during regular node operation, see the [Synchronize Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article. This can take 1–3 days. Neither importing blockchain from a binary file, nor downloading the latest blockchain database are applicable.
+:warning: **Important:** Blockchain Updates requires the history of changes since the blockchain creation. Therefore, you can either start the node with the extension from scratch and synchronize the blockchain during regular node operation (see the [Synchronize Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article) or import the blockchain from a binary file (see the [Import/Export Blockchain](/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain) article). This can take 1–3 days. Downloading the latest blockchain database is not applicable.
 
 There are two ways to install the node with Blockchain Updates extension: using a DEB package or a JAR file. The Blockchain Updates extension is in the same package and archive as [gRPC Server](/en/waves-node/extensions/grpc-server/). You can install these extensions both together and separately, only the settings in the node configuration file differ.
 
