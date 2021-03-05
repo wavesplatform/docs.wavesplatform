@@ -1,9 +1,12 @@
 # Обновления в документации
 
+## Март
+
+* [Расширение Blockchain Updates](/ru/waves-node/extensions/blockchain-updates) — <span style="color:green">обновлено</span>
+
 ## Февраль
 
 * [Data Service API](/ru/building-apps/waves-api-and-sdk/waves-data-service-api)
-* [Расширение Blockchain Updates](/ru/waves-node/extensions/blockchain-updates) — <span style="color:green">обновлено</span>
 
 ## Январь
 
