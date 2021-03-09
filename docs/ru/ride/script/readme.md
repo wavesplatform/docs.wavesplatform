@@ -10,7 +10,7 @@
 
 | # | dApp-скрипт | Скрипт аккаунта | Скрипт ассета |
 | :--- | :--- | :--- | :--- |
-| Директивы | `{-# CONTENT_TYPE DAPP #-}`<br>`{-# SCRIPT_TYPE ACCOUNT #-}` | `{-# CONTENT_TYPE EXPRESSSION #-}`<br>`{-# SCRIPT_TYPE ACCOUNT #-}` | `{-# CONTENT_TYPE DAPP #-}`<br>`{-# SCRIPT_TYPE ACCOUNT #-}` |
+| Директивы | `{-# CONTENT_TYPE DAPP #-}`<br>`{-# SCRIPT_TYPE ACCOUNT #-}` | `{-# CONTENT_TYPE EXPRESSION #-}`<br>`{-# SCRIPT_TYPE ACCOUNT #-}` | `{-# CONTENT_TYPE EXPRESSION #-}`<br>`{-# SCRIPT_TYPE ASSET #-}` |
 | Содержание скрипта | Набор определений | Логическое выражение | Логическое выражение |
 | Переменная `this` | Адрес dApp | Адрес смарт-аккаунта | Структура [Ассет](/ru/ride/structures/common-structures/asset) |
 | Проверяемая транзакция или ордер | Проверка доступна только в функции-верификаторе. Аннотация функции-верификатора задает имя переменной, содержащей исходящую транзакцию или ордер, например: `@Verifier(tx)` | Встроенная переменная `tx: Transaction|Order` — исходящая транзакция или ордер | Встроенная переменная `tx:`&nbsp;`Transaction` — транзакция с участием ассета.<br>Проверка ордера недоступна |
