@@ -13,9 +13,9 @@
 | log(Int, Int, Int, Int, Int, Union): Int | Вычисляет логарифм числа по заданному основанию| 100 |
 | logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt | Вычисляет логарифм большого целого числа по заданному основанию | TBDL |
 | median(List[Int]): Int | Возвращает медиану списка целых чисел | 20 |
-| medianBigInt(List[BigInt]) | Возвращает медиану списка больших целых чисел | TBDL |
+| medianBigInt(List[BigInt]): BigInt | Возвращает медиану списка больших целых чисел | TBDL |
 | pow(Int, Int, Int, Int, Int, Union): Int | Возводит число в степень | 100 |
-| powBigInt](#powbigint) | Возводит большое целое число в степень | TBDL |
+| powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt | Возводит большое целое число в степень | TBDL |
 
 ## [Функции блокчейна](/ru/ride/v5/functions/built-in-functions/blockchain-functions)
 
@@ -82,9 +82,9 @@
 | parseBigIntValue(String): BigInt | Конвертирует строковое представление числа в эквивалентное большое целое число.<br>Завершается ошибкой, если строка не может быть преобразована | TBDL |
 | parseInt(String): Int&#124;Unit | Конвертирует строковое представление числа в эквивалентное целое число | 2 |
 | parseIntValue(String): Int | Конвертирует строковое представление числа в эквивалентное целое число. <br>Завершается ошибкой, если строка не может быть преобразована | 2 |
-| toBigInt(ByteVector): BigInt | Конвертирует массив байтов в большое целое число | 1 |
+| toBigInt(ByteVector): BigInt | Конвертирует массив байтов в большое целое число | TBDL |
 | toBigInt(ByteVector, Int, Int | Конвертирует массив байтов начиная с указанного индекса в большое целое число | TBDL |
-| toBigInt(Int): BigInt | Конвертирует целое число в большое целое | 1 |
+| toBigInt(Int): BigInt | Конвертирует целое число в большое целое | TBDL |
 | toBytes(Boolean): ByteVector | Конвертирует логическое значение в массив байтов | 1 |
 | toBytes(Int): ByteVector | Конвертирует целое число в массив байтов | 1 |
 | toBytes(String): ByteVector | Конвертирует строку в массив байтов | 8 |
@@ -93,9 +93,9 @@
 | toInt(ByteVector): Int | Конвертирует массив байтов в целое число | 1 |
 | toInt(ByteVector, Int): Int | Конвертирует массив байтов, начиная с указанного индекса, в целое число | 1 |
 | toString(Address): String | Конвертирует массив байтов [адреса](/ru/blockchain/account/address) в строку | 10 |
-| toString(BigInt): String | Конвертирует большое целое число в строку | TBDL |
 | toString(Boolean): String | Конвертирует логическое значение в строку | 1 |
 | toString(Int): String | Конвертирует целое число в строку | 1 |
+| toStringBigInt(BigInt): String | Конвертирует большое целое число в строку | TBDL |
 | toUtf8String(ByteVector): String | Конвертирует массив байтов в строку в [UTF-8](https://ru.wikipedia.org/wiki/UTF-8) | 7 |
 | transferTransactionFromProto(ByteVector): TransferTransaction&#124;Unit | Десериализует транзакцию перевода | 5 |
 

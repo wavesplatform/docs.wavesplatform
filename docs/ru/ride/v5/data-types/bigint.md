@@ -2,7 +2,7 @@
 
 :warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/).
 
-`BigInt` — специальный числовой [тип данных](/ru/ride/v5/data-types/). Предназначен для обработки значений, выходящих за диапазон [Int](/ru/ride/v5/data-types/int) и выполнения вычислений с высокой точностью.
+`BigInt` — специальный числовой [тип данных](/ru/ride/v5/data-types/). Предназначен для обработки значений, выходящих за диапазон [Int](/ru/ride/v5/data-types/int), и выполнения вычислений с высокой точностью.
 
 Переменная типа `BigInt` имеет размер 64 байта (512 бит) и содержит целое число из промежутка от –2<sup>511</sup> до 2<sup>511</sup>–1 включительно. Вес значения — 64.
 
@@ -12,7 +12,7 @@
 
 Для вычислений с `BigInt` можно использовать операторы:
 
-* Арифметические операторы: **+**, **-**, **\*** и **/**.
+* Арифметические операторы: **+**, **-**, **\***, **/** и **%**.
 * Операторы сравнения: **\<**, **\>**, **<=** и **>=**.
 * Операторы равенства: **==** и **!=**.
 
@@ -21,11 +21,11 @@
 Следующие функции работают со значениями типа `BinInt`:
 
 * [fractionBigInt(BigInt, BigInt, BigInt): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionbigint)
-* [logBigInt(BigInt, BigInt, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#logbigint)
+* [logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#logbigint)
 * [maxBigInt(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/list-functions#maxbigint)
 * [medianBigInt(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#medianbigint)
 * [minBigInt(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/list-functions#minbigint)
-* [powBigInt(BigInt, BigInt, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#powbigint)
+* [powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#powbigint)
 * [parseBigInt(String): BigInt|Unit](/ru/ride/v5/functions/built-in-functions/converting-functions#parse-bigint)
 * [parseBigIntValue(String): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#parse-bigintvalue)
 * [toBigInt(ByteVector): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bigint-bytevector)

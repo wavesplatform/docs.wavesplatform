@@ -110,7 +110,7 @@ log(0, 0, 2, 0, 0, HALFUP)     # Результат: -Infinity
 Вычисляет `log`<sub>`b`</sub>`a` для [больших целых чисел](/ru/ride/v5/data-types/bigint) `a` и `b`.
 
 ``` ride
-log(value: BigInt, ep: Int, base: BigInt, bp: Int, rp: Int, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): BigInt
+logBigInt(value: BigInt, ep: Int, base: BigInt, bp: Int, rp: Int, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): BigInt
 ```
 
 В Ride нет [типа данных](/ru/ride/v5/data-types/) с плавающей точкой. Поэтому, чтобы вычислить `log`<sub>2,7</sub>16,25, нужно указать `value` = 1625, `vp` = 2 и `base` = 27, `bp` = 1.
@@ -150,7 +150,7 @@ median([-2, -4, -9, -20]) # Возвращает -7
 
 ## medianBigInt
 
-Возвращает медиану [списка](/ru/ride/v5/data-types/list) [больших целых чисел](/ru/ride/v5/data-types/bigint) `a` и `b`. Завершается ошибкой, если список пустой или содержит более 100 элементов.
+Возвращает медиану [списка](/ru/ride/v5/data-types/list) [больших целых чисел](/ru/ride/v5/data-types/bigint). Завершается ошибкой, если список пустой или содержит более 100 элементов.
 
 ``` ride
 median(arr: List[BigInt]): BigInt
@@ -199,7 +199,7 @@ pow(1625, 2, 27, 1, 5, HALFUP) # function returns 185910572, so, the result is: 
 Вычисляет `a`<sup>`b`</sup> для [больших целых чисел](/ru/ride/v5/data-types/bigint) `a` и `b`.
 
 ``` ride
-pow(base: BigInt, bp: Int, exponent: BigInt, ep: Int, rp: Int, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): BigInt
+powBigInt(base: BigInt, bp: Int, exponent: BigInt, ep: Int, rp: Int, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): BigInt
 ```
 
 В Ride нет [типа данных](/ru/ride/v5/data-types/) с плавающей точкой. Поэтому, чтобы вычислить 16,25<sup>2,7</sup>, нужно указать `base` = 1625, `bp` = 2 и `exponent` = 27, `ep` = 1.
@@ -221,17 +221,15 @@ pow(base: BigInt, bp: Int, exponent: BigInt, ep: Int, rp: Int, round: DOWN|CEILI
 
 Переменные округления соответствуют [методам округления](https://ru.wikipedia.org/wiki/Округление).
 
-Переменные округления используются _только_ в качестве параметров функций [log](#log) и [pow](#pow).
+Переменные округления используются _только_ в качестве параметров функций [log](#log), [logBigInt](#logBigInt), [pow](#pow), [powBigInt](#powBigInt).
 
 | Название | Описание |
 | :--- | :--- |
-| CEILING | Округление вверх (к положительной бесконечности) |
 | DOWN | Округление к меньшему по модулю (к нулю) |
+| CEILING | Округление вверх (к положительной бесконечности) |
 | FLOOR | Округление вниз (к отрицательной бесконечности) |
-| HALFDOWN | Округление к ближайшему целому, ±0,5 округляется к меньшему по модулю |
-| HALFEVEN | Округление к ближайшему четному числу |
 | HALFUP | Округление к ближайшему целому, ±0,5 округляется к большему по модулю |
-| UP | Округление к большему по модулю (от нуля) |
+| HALFEVEN | Округление к ближайшему целому, ±0,5 округляется к четному числу |
 
 ### Примеры
 

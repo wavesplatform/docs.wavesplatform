@@ -147,7 +147,7 @@ toBytes(s: String): ByteVector
 ### Examples
 
 ```ride
-toBytes("Ride") # Returns 37BPKA
+toBytes("Ride") # Returns base58'37BPKA'
 ```
 
 ## toInt(ByteVector): Int<a id="toint-bytes"></a>
@@ -167,7 +167,7 @@ toInt(bin: ByteVector) : Int
 ### Examples
 
 ```ride
-toInt(bytes) # Returns 10
+toInt(base58'1111111B') # Returns 10
 ```
 
 ### toInt(ByteVector, Int): Int<a id="toint-bytes-int"></a>
@@ -198,19 +198,19 @@ toInt(bytes, 6) # Index out of bounds
 Converts an array of bytes of an [address](/en/blockchain/account/address) to a string.
 
 ``` ride
-toString(Address: Address): String
+toString(addr: Address): String
 ```
 
 ### Parameters
 
 | Parameter | Description |
 | :--- | :--- |
-| `Address`: [Address](/en/ride/v5/structures/common-structures/address) | Address to convert |
+| `addr`: [Address](/en/ride/v5/structures/common-structures/address) | Address to convert |
 
 ### Examples
 
 ```ride
-let address =Address(base58'3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF')
+let address = Address(base58'3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF')
 toString(address) # Returns "3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF"
 ```
 
