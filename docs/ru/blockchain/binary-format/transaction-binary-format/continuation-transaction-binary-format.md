@@ -1,8 +1,8 @@
-# Бинарный формат транзакции продолжения
+# Бинарный формат транзакции продолжения (проект)
 
 > Узнать больше о [транзакции продолжения](/ru/blockchain/transaction-type/continuation-transaction).
 
-Транзакция продолжения добавлена в версии ноды 1.3.0 и включается с активацией фичи № 16 “Continuation”. Версии 1.3.x в настоящее время доступны только на [Stagenet](/ru/blockchain/blockchain-network/).
+Транзакция продолжения добавлена в версии ноды 1.4.0.
 
 Бинарный формат транзакции соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format/).
 

@@ -22,15 +22,10 @@ Features:
 * dApp-to-dApp invocations are added in node version 1.3.0 and enabled with feature #16 “Ride V5, dApp-to-dApp invocations, Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 * The invoking dApp script uses [Standard library](/en/ride/script/standard-library) **version 5**.
 * If the dApp invokes itself, the invocation must not contain payments.
-* The [Invoke Script](/en/blockchain/transaction-type/invoke-script-transaction) transaction version is 3.
 * The number of the [Invoke](#invoke-function) function calls is up to 100 within a single Invoke Script transaction.
 * The total complexity is limited by 52,000 for all callable functions and asset scripts of involved smart assets. The sender's account script complexity is not included in that limit.
 
 <!-- > Continued computations and dApp-to-dApp invocation are mutually exclusive, that is, they cannot be initiated by the same transaction.-->
-
-## Fee 
-
-The minimum fee for the Invoke Script transaction is increased by 0.005 WAVES for each dApp-to-dApp invocation.
 
 ## Strict Variable
 

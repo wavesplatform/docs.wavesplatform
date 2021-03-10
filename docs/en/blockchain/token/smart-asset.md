@@ -11,4 +11,6 @@ Please note:
 * If a token is issued without a script, then the script cannot be added later.
 * The script cannot be removed, so it is impossible to turn a smart asset into a regular one.
 * The asset script can be changed using the [Set Asset Script transaction](/en/blockchain/transaction-type/set-asset-script-transaction), unless prohibited by the asset script itself (as well as by the [dApp or account script](/en/blockchain/account/dapp) assigned to the issuer account).
-* The [minimum fee](/en/blockchain/transaction/transaction-fee) for any transaction involving a smart asset is increased by 0.004 WAVES.
+* The [minimum fee](/en/blockchain/transaction/transaction-fee) for any transaction involving a smart asset is increased by 0.004 WAVES. 
+
+   Starting from node version 1.3.1, after activation of feature #16 "Ride V5, dApp-to-dApp invocations, Continuations", canceled the extra fee of 0.004 WAVES for smart assets in payments and script actions for Invoke Script transactions. Versions 1.3.x are currently available for [Stagenet](/en/blockchain/blockchain-network/) only.

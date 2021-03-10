@@ -71,7 +71,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| Invoke(Address&#124;Alias, String, List[Boolean&#124;ByteVector&#124;Int&#124;String&#124;List[Boolean&#124;ByteVector&#124;Int&#124;String]], List[AttachedPayments]): Any | Invokes a dApp callable function | TBDL |
+| Invoke(Address&#124;Alias, String, List[Boolean&#124;ByteVector&#124;Int&#124;String&#124;List[Boolean&#124;ByteVector&#124;Int&#124;String]], List[AttachedPayments]): Any | Invokes a dApp callable function | 75 |
 
 ## [Data transaction functions](/en/ride/v5/functions/built-in-functions/data-transaction-functions)
 

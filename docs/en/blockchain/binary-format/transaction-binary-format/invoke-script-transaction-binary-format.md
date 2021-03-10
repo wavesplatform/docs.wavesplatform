@@ -2,12 +2,6 @@
 
 > Learn more about [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction).
 
-## Version 3
-
-Binary format of version 3 3 is similar to version 2. The only difference is that the number of payments is up to 10.
-
-Version 3 is added in node version 1.3.0 and enabled with feature #16 “Ride V5, dApp-to-dApp invocations, Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
-
 ## Version 2
 
 Binary format of version 2 is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) protobuf scheme. The fields that are common to all types of transactions are described in the [Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format/) article.
@@ -43,6 +37,8 @@ message Amount {
 | payments.amount | 8 bytes | Amount of token in payment, specified in the [atomic units](/en/blockchain/token/#atomic-unit) |
 
 The maximum number of payments is 2.
+
+Starting from node version 1.3.1, after activation of feature #16 "Ride V5, dApp-to-dApp invocations, Continuations", the maximum number of payments is 10. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 
 The maximum size of `d_app` + `function_call` + `payments` is 5120 bytes.
 

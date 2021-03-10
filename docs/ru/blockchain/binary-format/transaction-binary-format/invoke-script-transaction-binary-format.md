@@ -2,12 +2,6 @@
 
 > Узнать больше о [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction).
 
-## Версия 3
-
-Бинарный формат версии 3 аналогичен версии 2. Отличие в том, что максимальное количество платежей увеличено до 10.
-
-Версия 3 транзакции вызова скрипта добавлена в версии ноды 1.3.0 и включается с активацией фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations, Continuations”. Версии 1.3.x в настоящее время доступны только на [Stagenet](/ru/blockchain/blockchain-network/).
-
 ## Версия 2
 
 Бинарный формат версии 2 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format/).
@@ -43,6 +37,8 @@ message Amount {
 | payments.amount | 8 байт | Количество токена в платеже, в [атомарных единицах](/ru/blockchain/token/#атомарная-единица) |
 
 Количество платежей — не более 2.
+
+Начиная с версии ноды 1.3.1, с момента активации фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations, Continuations”, количество платежей — не более 10. Версии 1.3.x в настоящее время доступны только на [Stagenet](/ru/blockchain/blockchain-network/).
 
 Максимальный размер `d_app` + `function_call` + `payments` — 5120 байт.
 
