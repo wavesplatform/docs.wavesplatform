@@ -4,7 +4,7 @@ Users of Waves-based apps should pay a fee for each transaction. This is the ent
 
 ## Sponsored asset
 
-An account that launched an asset can enable sponsorship, that is, allow all users to pay a fee in this asset for invoke script transactions and transfer transactions. The sponsor can distribute the sponsored asset among app users.
+An account that issued an asset can enable sponsorship, that is, allow all users to pay a fee in this asset for invoke script transactions and transfer transactions. The sponsor can distribute the sponsored asset among app users.
 
 ## How It Works
 

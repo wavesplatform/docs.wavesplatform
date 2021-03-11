@@ -51,7 +51,7 @@ The [GET /assets/{assetId}/distribution/{height}/limit/{limit}](https://nodes.wa
 
 ## Example 2: List of Transactions by Address
 
-The [GET /transactions​/address​/{address}​/limit​/{limit}](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/addressLimit_1) operation returns a list of transactions where the specified address is involved.
+The [GET /transactions/address/{address}/limit/{limit}](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/addressLimit_1) operation returns a list of transactions where the specified address is involved.
 
 1. Obtain the first page:
 
