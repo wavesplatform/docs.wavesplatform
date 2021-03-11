@@ -37,3 +37,10 @@ Added script actions that the callable function can perform:
 Using these actions, you can change the amount of the lease, in particular, withdraw a part of the leased funds. If you cancel a lease for a larger amount and create a new lease for a smaller amount with the same recipient in the same script invocation, the recipient's generating balance decreases by the difference. Otherwise, if you send two separate transactions: a Lease Cancel transaction and a Lease transaction, the generating balance decreases by the amount of the canceled lease immediately and increases by the amount of the new lease after 1000 blocks.
 
 Added the function [calculateLeaseId](/en/ride/v5/functions/built-in-functions/blockchain-functions#calculateleaseid) that calculates ID of the lease formed by the `Lease` structure.
+
+## Miscellaneous
+
+Added the following built-in functions:
+
+* [emptyDataStorage](/en/ride/v5/functions/built-in-functions/account-data-storage-functions#emptydatastorage) that checks if there are no entries in the data storage of a given account.
+* [hashScriptAtAddress](en/ride/v5/functions/built-in-functions/blockchain-functions#hashscriptataddress) that returns [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) hash of the script assigned to a given account.

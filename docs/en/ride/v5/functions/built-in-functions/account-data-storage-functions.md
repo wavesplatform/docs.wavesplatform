@@ -7,6 +7,7 @@
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
+| [emptyDataStorage(Address&#124;Alias): Boolean](#emptydatastorage) | Checks if there are no entries in the data storage of a given account | TBDL |
 | [getBinary(Address&#124;Alias, String): ByteVector&#124;Unit](#get-binary) | Gets an array of bytes by key | 10 |
 | [getBinary(String): ByteVector&#124;Unit](#getbinary-string-bytevector-unit) | Gets an array of bytes by key from the dApp's own data storage | 10 |
 | [getBinaryValue(Address&#124;Alias, String): ByteVector](#get-binary-value) | Gets an array of bytes by key. Fails if there is no data | 10 |
@@ -23,6 +24,28 @@
 | [getString(String): String&#124;Unit](#getstring-string-string-unit) | Gets a string by key from the dApp's own data storage | 10 |
 | [getStringValue(Address&#124;Alias, String): String](#get-string-value) | Gets a string by key. Fails if there is no data | 10 |
 | [getStringValue(String): String](#getstringvalue-string-string) | Gets a string by key from the dApp's own data storage. Fails if there is no data | 10 |
+
+## emptyDataStorage(Address|Alias): Boolean<a id="emptydatastorage"></a>
+
+Checks if there are no entries in the data storage of a given account.
+
+``` ride
+emptyDataStorage(addressOrAlias: Address|Alias): Boolean
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+
+### Example
+
+```scala
+let addr = Address(base58'3N4iKL6ikwxiL7yNvWQmw7rg3wGna8uL6LU')
+
+emptyDataStorage(addr) # Returns false
+```
 
 ## getBinary(Address|Alias, String): ByteVector|Unit <a id="get-binary"></a>
 

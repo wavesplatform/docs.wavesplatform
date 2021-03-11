@@ -6,6 +6,7 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
+| [emptyDataStorage(Address&#124;Alias): Boolean](#emptydatastorage) | Проверяет отсутствие записей в хранилище данных аккаунта | TBDL |
 | [getBinary(Address&#124;Alias, String): ByteVector&#124;Unit](#get-binary) | Получает массив байтов по ключу | 10 |
 | [getBinary(String): ByteVector&#124;Unit](#getbinary-string-bytevector-unit) | Получает массив байтов по ключу из собственного хранилища данных | 10 |
 | [getBinaryValue(Address&#124;Alias, String): ByteVector](#get-binary-value) | Получает массив байтов по ключу. Завершается ошибкой, если данных нет | 10 |
@@ -22,6 +23,28 @@
 | [getString(String): String&#124;Unit](#get-string)  | Получает строку по ключу из собственного хранилища данных | 10 |
 | [getStringValue(Address&#124;Alias, String): String](#get-string-value)  | Получает строку по ключу. Завершается ошибкой, если данных нет | 10 |
 | [getStringValue(String): String](#get-string-value)  | Получает строку по ключу из собственного хранилища данных. Завершается ошибкой, если данных нет | 10 |
+
+## emptyDataStorage(Address|Alias): Boolean<a id="emptydatastorage"></a>
+
+Проверяет отсутствие записей в хранилище данных аккаунта.
+
+``` ride
+emptyDataStorage(addressOrAlias: Address|Alias): Boolean
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/ru/ride/v5/structures/common-structures/address)&#124;[Alias](/ru/ride/v5/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+
+### Пример
+
+```scala
+let addr = Address(base58'3N4iKL6ikwxiL7yNvWQmw7rg3wGna8uL6LU')
+
+emptyDataStorage(addr) # Возвращает false
+```
 
 ## getBinary(Address|Alias, String): ByteVector|Unit <a id="get-binary"></a>
 

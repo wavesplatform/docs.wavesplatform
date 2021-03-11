@@ -10,6 +10,7 @@
 | [blockInfoByHeight(Int): BlockInfo &#124;Unit](#blockinfobyheight) | Получает информацию о [блоке](/ru/blockchain/block/) по [высоте блока](/ru/blockchain/block/block-height) | 5 |
 | [calculateAssetId(Issue): ByteVector](#calculateassetid) | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/v5/structures/script-actions/issue) при выполнении [вызываемой функции](/ru/ride/functions/callable-function) | 10 |
 | [calculateLeaseId(Lease): ByteVector](#calculateleaseid) | Вычисляет ID ассета, созданного структурой [Lease](/ru/ride/v5/structures/script-actions/lease) при выполнении вызываемой функции | 1 |
+| [hashScriptAtAddress(Address&#124;Alias): ByteVector](#hashscriptataddress) | Возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте. Завершается ошибкой, если скрипт отсутствует | TBDL |
 | [transactionHeightById(ByteVector):  Int&#124;Unit](#transactionheightbyid) | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 20 |
 | [transferTransactionById(ByteVector): TransferTransaction&#124;Unit](#transfertransactionbyid) | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 60 |
 | [wavesBalance(Address&#124;Alias): BalanceDetails](#waves-balance) | Получает баланс аккаунта в [WAVES](/ru/blockchain/token/waves) | 10 |
@@ -187,6 +188,28 @@ func foo() = {
     null
   )
 }
+```
+
+## hashScriptAtAddress
+
+Возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте. Завершается ошибкой, если скрипт отсутствует.
+
+```
+hashScriptAtAddress(addressOrAlias: Address|Alias): ByteVector
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/ru/ride/v5/structures/common-structures/address)&#124;[Alias](/ru/ride/v5/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+
+### Пример
+
+```scala
+let addr = Address(base58'3MxBZbnN8Z8sbYjjL5N3oG5C8nWq9NMeCEm')
+
+hashScriptAtAddress(addr) # Возвращает base58'G6ihnWN5mMedauCgNa8TDrSKWACPJKGQyYagmMQhPuja'
 ```
 
 ## transactionHeightById
