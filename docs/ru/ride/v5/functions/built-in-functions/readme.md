@@ -9,7 +9,8 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | fraction(Int, Int, Int): Int | Умножает два целых числа и делит на третье без переполнения | 1 |
-| fractionBigInt(BigInt, BigInt, BigInt) | Умножает два [больших целых числа](/ru/ride/v5/data-types/bigint) и делит на третье без переполнения | TBDL |
+| fractionBigInt(BigInt, BigInt, BigInt): BigInt | Умножает два [больших целых числа](/ru/ride/v5/data-types/bigint) и делит на третье без переполнения | TBDL |
+| fractionBigInt(BigInt, BigInt, BigInt, Union): BigInt | Умножает два больших целых числа и делит на третье без переполнения, применяя указанный метод округления | TBDL |
 | log(Int, Int, Int, Int, Int, Union): Int | Вычисляет логарифм числа по заданному основанию| 100 |
 | logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt | Вычисляет логарифм большого целого числа по заданному основанию | TBDL |
 | median(List[Int]): Int | Возвращает медиану списка целых чисел | 20 |
