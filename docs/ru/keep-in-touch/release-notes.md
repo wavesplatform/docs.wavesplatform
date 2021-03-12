@@ -45,25 +45,25 @@
 
 <!--* Добавлен новый тип транзакции: [транзакция продолжения](/ru/blockchain/transaction-type/continuation-transaction).-->
 Лизинг может быть создан не только в результате транзакции лизинга, но и в результате транзакции вызова скрипта с помощью действия скрипта `Lease`. Поэтому изменен формат ответа следующих методов:
-   * В ответе методов `/transactions/address/{address}/limit/{limit}` и `/transactions/info/{id}` для транзакции отмены лизинга структура `lease` теперь содержит не транзакцию лизинга, а структуру с параметрами лизинга.
-   * `/leasing/active/{address}` возвращает не массив транзакций лизинга, а массив структур c параметрами лизингов.
+* В ответе методов `/transactions/address/{address}/limit/{limit}` и `/transactions/info/{id}` для транзакции отмены лизинга структура `lease` теперь содержит не транзакцию лизинга, а структуру с параметрами лизинга.
+* `/leasing/active/{address}` возвращает не массив транзакций лизинга, а массив структур c параметрами лизингов.
 
-   <details>
-      <summary>Формат</summary>
+<details>
+<summary>Формат</summary>
     
-   ```json
-   "lease":
-      {
-        "leaseId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
-        "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
-        "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
-        "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
-        "amount": 1000000000000,
-        "height": 2253315
-      }
-   ```
+```json
+"lease":
+   {
+      "leaseId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+      "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+      "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
+      "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
+      "amount": 1000000000000,
+      "height": 2253315
+   }
+```
 
-   Поле `originTransactionId` может содержать идентификатор транзакции лизинга или транзакции вызова скрипта.
+Поле `originTransactionId` может содержать идентификатор транзакции лизинга или транзакции вызова скрипта.
 </details>
 
 
@@ -186,8 +186,36 @@
       }
    ]
    ```
-   ```
    </details>
+
+#### Улучшения
+
+* Новый метод `/leasing/leaseInfo` возвращает параметры лизингов с указанными идентификаторами.
+
+   <details>
+      <summary>Формат</summary>
+    
+   ```json
+   [
+      {
+         "leaseId": "3iUCv2YG6mwTXCDmEY6e3AvvSgawaQwMsHvGXzxfkhEF",
+         "sender": "3PPrWhPAZMjy75oinpGzavXMmUwsRGMfoXZ",
+         "recipient": "3PA1KvFfq9VuJjg45p2ytGgaNjrgnLSgf4r",
+         "amount": 469589704,
+         "status": "Cancelled",
+         "leaseTransaction": {
+            "originTransactionId": "3iUCv2YG6mwTXCDmEY6e3AvvSgawaQwMsHvGXzxfkhEF",
+            "height": 2252433
+         },
+         "leaseCancelTransaction": {
+            "originTransactionId": "DV33ehoA9bj9qEDpTHqWSb7xV5ddmNGifHt5tTQRPCJP",
+            "height": 2497740
+         }
+      }
+   ]
+   ```
+
+* Новый метод `/utils/heightByTimestamp` возвращает высоту блокчейна в указанный момент времени.
 
 ### Активация
 

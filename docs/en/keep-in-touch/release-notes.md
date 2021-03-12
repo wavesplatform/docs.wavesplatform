@@ -45,25 +45,25 @@
 
 <!--* Added the new transaction type: [Continuation](/en/blockchain/transaction-type/continuation-transaction).-->
 A lease can be created both as a result of a Lease transaction and as a result of an Invoke Script transaction via a `Lease` script action. Therefore, the response of the following endpoints has been changed:
-   * In the response of `/transactions/address/{address}/limit/{limit}` and `/transactions/info/{id}` endpoints for Lease Cancel transaction, the `lease` structure now contains lease parameters instead of Lease transaction fields.
-   * `/leasing/active/{address}` returns an array of structures containing lease parameters instead of array of Lease transactions.
+* In the response of `/transactions/address/{address}/limit/{limit}` and `/transactions/info/{id}` endpoints for Lease Cancel transaction, the `lease` structure now contains lease parameters instead of Lease transaction fields.
+* `/leasing/active/{address}` returns an array of structures containing lease parameters instead of array of Lease transactions.
 
-   <details>
-      <summary>Format</summary>
+<details>
+<summary>Format</summary>
     
-   ```json
-   "lease":
-      {
-        "leaseId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
-        "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
-        "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
-        "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
-        "amount": 1000000000000,
-        "height": 2253315
-      }
-   ```
+```json
+"lease":
+   {
+      "leaseId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+      "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+      "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
+      "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
+      "amount": 1000000000000,
+      "height": 2253315
+   }
+```
 
-   The `originTransactionId` field can contain an ID of a Lease Transaction or an Invoke Script transaction.
+The `originTransactionId` field can contain an ID of a Lease Transaction or an Invoke Script transaction.
 </details>
 
 #### Semantic Changes
@@ -186,6 +186,35 @@ A lease can be created both as a result of a Lease transaction and as a result o
    ]
    ```
    </details>
+
+#### Improvements
+
+* Added the `/leasing/leaseInfo` endpoint that returns lease parameters by lease IDs.
+
+   <details>
+      <summary>Format</summary>
+    
+   ```json
+   [
+      {
+         "leaseId": "3iUCv2YG6mwTXCDmEY6e3AvvSgawaQwMsHvGXzxfkhEF",
+         "sender": "3PPrWhPAZMjy75oinpGzavXMmUwsRGMfoXZ",
+         "recipient": "3PA1KvFfq9VuJjg45p2ytGgaNjrgnLSgf4r",
+         "amount": 469589704,
+         "status": "Cancelled",
+         "leaseTransaction": {
+            "originTransactionId": "3iUCv2YG6mwTXCDmEY6e3AvvSgawaQwMsHvGXzxfkhEF",
+            "height": 2252433
+         },
+         "leaseCancelTransaction": {
+            "originTransactionId": "DV33ehoA9bj9qEDpTHqWSb7xV5ddmNGifHt5tTQRPCJP",
+            "height": 2497740
+         }
+      }
+   ]
+   ```
+
+* Added the `/utils/heightByTimestamp` endpoint that returns blockchain height at a given timestamp.
 
 ### Activation
 
