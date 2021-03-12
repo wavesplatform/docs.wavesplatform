@@ -29,7 +29,7 @@
       </ul>
     </td>
     <td>
-      <a href="/ru/ride/v5/functions/built-in-functions/math-functions">Переменные округления</a>, которые используются в <a href="/ru/ride/v5/functions/built-in-functions/math-functions">математических функциях</a> <code>log</code>, <code>logBigInt</code>, <code>pow</code>, <code>powBigInt</code>
+      <a href="/ru/ride/v5/functions/built-in-functions/math-functions">Переменные округления</a>, которые используются в <a href="/ru/ride/v5/functions/built-in-functions/math-functions">математических функциях</a> <code>fractionBigInt</code>, <code>log</code>, <code>logBigInt</code>, <code>pow</code>, <code>powBigInt</code>
     </td>
   </tr>
   <tr>

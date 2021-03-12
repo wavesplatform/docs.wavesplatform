@@ -8,11 +8,11 @@
 | [fractionBigInt(BigInt, BigInt, BigInt): BigInt](#fractionbigint) | Умножает два [больших целых числа](/ru/ride/v5/data-types/bigint) и делит на третье без переполнения | TBDL |
 | [fractionBigInt(BigInt, BigInt, BigInt, Union): BigInt](#fractionbigintround) | Умножает два больших целых числа](/ru/ride/v5/data-types/bigint) и делит на третье без переполнения, применяя указанный метод округления | TBDL |
 | [log(Int, Int, Int, Int, Int, Union): Int](#log) | Вычисляет логарифм числа по заданному основанию | 100 |
-| [logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](#logbigint) | Вычисляет логарифм большого целого числа по заданному основанию | TBDL |
+| [logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](#logbigint) | Вычисляет логарифм числа по заданному основанию с высокой точностью | TBDL |
 | [median(List[Int]): Int](#median) | Возвращает медиану списка целых чисел | 20 |
 | [medianBigInt(List[BigInt]): BigInt](#medianbigint) | Возвращает медиану списка больших целых чисел | TBDL |
 | [pow(Int, Int, Int, Int, Int, Union): Int](#pow) | Возводит число в степень | 100 |
-| [powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](#powbigint) | Возводит большое целое число в степень | TBDL |
+| [powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](#powbigint) | Возводит число в степень с высокой точностью | TBDL |
 
 ## fraction(Int, Int, Int): Int<a id="fraction"></a>
 
@@ -63,6 +63,7 @@ fraction(a, b, c) # Результат: 2 000 000 000 000 000 000
 ```ride
 fractionBigInt(a: BigInt, b: BigInt, c: BigInt): BigInt
 ```
+### Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
@@ -79,6 +80,8 @@ fractionBigInt(a: BigInt, b: BigInt, c: BigInt): BigInt
 ```ride
 fractionBigInt(a: BigInt, b: BigInt, c: BigInt, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): BigInt
 ```
+
+### Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
@@ -107,6 +110,8 @@ log(value: Int, ep: Int, base: Int, bp: Int, rp: Int, round: DOWN|CEILING|FLOOR|
 
 Если функция `log` возвращает, например, 2807, а параметр `rp` = 3, это значит, что результат вычисления равен 2,807; в числе 2807 последние 3 цифры — дробная часть.
 
+### Параметры
+
 | Параметр | Описание |
 | :--- | :--- |
 | `value`: [Int](/ru/ride/v5/data-types/int) | Число `a` без десятичной точки |
@@ -131,7 +136,7 @@ log(0, 0, 2, 0, 0, HALFUP)     # Результат: -Infinity
 
 ## logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt<a id="logBigInt"></a>
 
-Вычисляет `log`<sub>`b`</sub>`a` для [больших целых чисел](/ru/ride/v5/data-types/bigint) `a` и `b`.
+Вычисляет `log`<sub>`b`</sub>`a` с высокой точностью.
 
 ``` ride
 logBigInt(value: BigInt, ep: Int, base: BigInt, bp: Int, rp: Int, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): BigInt
@@ -139,7 +144,9 @@ logBigInt(value: BigInt, ep: Int, base: BigInt, bp: Int, rp: Int, round: DOWN|CE
 
 В Ride нет [типа данных](/ru/ride/v5/data-types/) с плавающей точкой. Поэтому, чтобы вычислить `log`<sub>2,7</sub>16,25, нужно указать `value` = 1625, `vp` = 2 и `base` = 27, `bp` = 1.
 
-Если функция `log` возвращает, например, 2807, а параметр `rp` = 3, это значит, что результат вычисления равен 2,807; в числе 2807 последние 3 цифры — дробная часть.
+Если функция `logBigInt` возвращает, например, 2807035420964590265, а параметр `rp` = 18, это значит, что результат вычисления равен 2,807035420964590265; в числе 2807035420964590265 последние 18 цифр — дробная часть.
+
+### Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
@@ -200,7 +207,7 @@ pow(base: Int, bp: Int, exponent: Int, ep: Int, rp: Int, round: DOWN|CEILING|FLO
 
 ### Параметры
 
-| Parameter | Description |
+| Параметр | Описание |
 | :--- | :--- |
 | `base`: [Int](/ru/ride/v5/data-types/int) | Число `a` без десятичной точки |
 | `bp`: [Int](/ru/ride/v5/data-types/int) | Количество знаков после запятой у `a` |
@@ -220,7 +227,7 @@ pow(1625, 2, 27, 1, 5, HALFUP) # function returns 185910572, so, the result is: 
 
 ## powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt<a id="powbigint"></a>
 
-Вычисляет `a`<sup>`b`</sup> для [больших целых чисел](/ru/ride/v5/data-types/bigint) `a` и `b`.
+Вычисляет `a`<sup>`b`</sup> с высокой точностью.
 
 ``` ride
 powBigInt(base: BigInt, bp: Int, exponent: BigInt, ep: Int, rp: Int, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): BigInt
@@ -228,11 +235,11 @@ powBigInt(base: BigInt, bp: Int, exponent: BigInt, ep: Int, rp: Int, round: DOWN
 
 В Ride нет [типа данных](/ru/ride/v5/data-types/) с плавающей точкой. Поэтому, чтобы вычислить 16,25<sup>2,7</sup>, нужно указать `base` = 1625, `bp` = 2 и `exponent` = 27, `ep` = 1.
 
-Если функция `pow` возвращает, например, 18591057, а параметр `rp` = 4, это значит, что результат вычисления равен 1859,1057; в числе 18591057 последние 4 цифры — дробная часть.
+Если функция `powBigInt` возвращает, например, 1859105716849757217692, а параметр `rp` = 18, это значит, что результат вычисления равен 1859,105716849757217692; в числе 1859105716849757217692 последние 18 цифр — дробная часть.
 
 ### Параметры
 
-| Parameter | Description |
+| Параметр | Описание |
 | :--- | :--- |
 | `base`: [BigInt](/ru/ride/v5/data-types/bigint) | Число `a` без десятичной точки |
 | `bp`: [Int](/ru/ride/v5/data-types/int) | Количество знаков после запятой у `a` |
@@ -245,7 +252,7 @@ powBigInt(base: BigInt, bp: Int, exponent: BigInt, ep: Int, rp: Int, round: DOWN
 
 Переменные округления соответствуют [методам округления](https://ru.wikipedia.org/wiki/Округление).
 
-Переменные округления используются _только_ в качестве параметров функций [log](#log), [logBigInt](#logBigInt), [pow](#pow), [powBigInt](#powBigInt).
+Переменные округления используются _только_ в качестве параметров функций [fractionBigInt](#fractionbigintround), [log](#log), [logBigInt](#logbigint), [pow](#pow), [powBigInt](#powbigint).
 
 | Название | Описание |
 | :--- | :--- |

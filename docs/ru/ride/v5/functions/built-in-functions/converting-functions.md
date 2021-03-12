@@ -5,7 +5,7 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | [addressFromPublicKey(ByteVector): Address](#address-from-public-key) | Получает [адрес](/ru/blockchain/account/address), соответствующий открытому ключу аккаунта | 63 |
-| [parseBigInt(String): BigInt|Unit](#parse-bigint) | Конвертирует строковое представление числа в эквивалентное [большое целое число](/ru/ride/v5/data-types/bigint) | TBDL |
+| [parseBigInt(String): BigInt&#124;Unit](#parse-bigint) | Конвертирует строковое представление числа в эквивалентное [большое целое число](/ru/ride/v5/data-types/bigint) | TBDL |
 | [parseBigIntValue(String): BigInt](#parse-bigint-value) | Конвертирует строковое представление числа в эквивалентное большое целое число.<br>Завершается ошибкой, если строка не может быть преобразована | TBDL |
 | [parseInt(String): Int&#124;Unit](#parse-int) | Конвертирует строковое представление числа в эквивалентное целое число | 2 |
 | [parseIntValue(String): Int](#parse-int-value) | Конвертирует строковое представление числа в эквивалентное целое число.<br>Завершается ошибкой, если строка не может быть преобразована | 2 |

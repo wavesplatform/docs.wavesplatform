@@ -9,8 +9,10 @@
 | [getElement](#getelement) | Gets the element from the list | 2 |
 | [indexOf](#indexof) | Returns the index of the first occurrence of the element in the list | 5 |
 | [lastIndexOf](#lastindexof)  | Returns the index of the last occurrence of the element in the list | 5 |
-| [max](#max)  | Returns the largest element in the list | 3 |
-| [min](#min)  | Returns the smallest item in the list | 3 |
+| [max](#max)  | Returns the largest element in the list of integers | 3 |
+| [maxBigInt](#maxBigInt) | Returns the largest element in the list of [big integers](/en/ride/v5/data-types/bigint) | TBDL |
+| [min](#min)  | Returns the smallest item in the list of integers | 3 |
+| [minBigInt](#minBigInt) | Returns the smallest element in the list of big integers | TBDL |
 | [removeByIndex](#removebyindex) | Removes an element from the list by index | 7 |
 | [size](#size) | Returns the size of the list | 2 |
 
@@ -121,7 +123,7 @@ lastIndexOf("a", stringList) # Returns 2
 
 ## max
 
-Returns the largest element in the list. If the list is empty, returns error.
+Returns the largest element in the list of integers. If the list is empty, returns error.
 
 ``` ride
 max(List[Int]): Int
@@ -131,11 +133,25 @@ max(List[Int]): Int
 
 | Parameter | Description |
 | :--- | :--- |
-| `list`: [List[T]](/en/ride/v5/data-types/list) | List |
+| `list`: [List](/en/ride/v5/data-types/list)[[Int](/en/ride/v5/data-types/int)] | List |
+
+## maxBigInt
+
+Returns the largest element in the list of [big integers](/en/ride/v5/data-types/bigint). If the list is empty, returns error.
+
+``` ride
+maxBigInt(List[BigInt]): BigInt
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `list`: [List](/en/ride/v5/data-types/list)[[BigInt](/en/ride/v5/data-types/bigint)] | List |
 
 ## min
 
-Returns the smallest element in the list. If the list is empty, returns error.
+Returns the smallest element in the list of integers. If the list is empty, returns error.
 
 ``` ride
 min(List[Int]): Int
@@ -145,7 +161,21 @@ min(List[Int]): Int
 
 | Parameter | Description |
 | :--- | :--- |
-| `list`: [List[T]](/en/ride/v5/data-types/list) | List |
+| `list`: [List](/en/ride/v5/data-types/list)[[Int](/en/ride/v5/data-types/int)] | List |
+
+## minBigInt
+
+Returns the smallest element in the list of [big integers](/en/ride/v5/data-types/bigint). If the list is empty, returns error.
+
+``` ride
+minBigInt(List[BigInt]): BigInt
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `list`: [List](/en/ride/v5/data-types/list)[[BigInt](/en/ride/v5/data-types/bigint)] | List |
 
 ## removeByIndex
 

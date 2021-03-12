@@ -12,11 +12,11 @@
 | fractionBigInt(BigInt, BigInt, BigInt): BigInt | Умножает два [больших целых числа](/ru/ride/v5/data-types/bigint) и делит на третье без переполнения | TBDL |
 | fractionBigInt(BigInt, BigInt, BigInt, Union): BigInt | Умножает два больших целых числа и делит на третье без переполнения, применяя указанный метод округления | TBDL |
 | log(Int, Int, Int, Int, Int, Union): Int | Вычисляет логарифм числа по заданному основанию| 100 |
-| logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt | Вычисляет логарифм большого целого числа по заданному основанию | TBDL |
+| logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt | Вычисляет логарифм числа по заданному основанию с высокой точностью | TBDL |
 | median(List[Int]): Int | Возвращает медиану списка целых чисел | 20 |
 | medianBigInt(List[BigInt]): BigInt | Возвращает медиану списка больших целых чисел | TBDL |
 | pow(Int, Int, Int, Int, Int, Union): Int | Возводит число в степень | 100 |
-| powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt | Возводит большое целое число в степень | TBDL |
+| powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt | Возводит число в степень с высокой точностью | TBDL |
 
 ## [Функции блокчейна](/ru/ride/v5/functions/built-in-functions/blockchain-functions)
 

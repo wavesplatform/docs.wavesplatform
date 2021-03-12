@@ -5,16 +5,24 @@
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | [addressFromPublicKey(ByteVector): Address](#address-from-public-key)| Gets the corresponding [address](/en/blockchain/account/address) of the account public key | 63 |
+| [parseBigInt(String): BigInt&#124;Unit](#parse-bigint) | Converts the string representation of a number to its [big integer](/en/ride/v5/data-types/bigint) equivalent | TBDL |
+| [parseBigIntValue(String): BigInt](#parse-bigint-value) | Converts the string representation of a number to its big integer equivalent<br>Fails if the string cannot be parsed | TBDL |
 | [parseInt(String): Int&#124;Unit](#parse-int) | Converts the string representation of a number to its integer equivalent | 2 |
 | [parseIntValue(String): Int](#parse-int-value) | Converts the string representation of a number to its integer equivalent.<br>Fails if the string cannot be parsed | 2 |
+| [toBigInt(ByteVector): BigInt](#to-bigint-bytevector) | Converts an array of bytes to a big integer | TBDL |
+| [toBigInt(ByteVector, Int, Int): BigInt](#to-bigint-bytevector-int-int) | Converts an array of bytes starting from a certain index to a big integer | TBDL |
+| [toBigInt(Int): BigInt](#to-bigint-int) | Converts an integer to a big integer | TBDL |
 | [toBytes(Boolean): ByteVector](#tobytes-bool) | Converts a boolean value to an array of bytes | 1 |
 | [toBytes(Int): ByteVector](#tobytes-int) | Converts an integer to an array of bytes | 1 |
 | [toBytes(String): ByteVector](#tobytes-string) | Converts a string to an array of bytes | 8 |
+| [toBytesBigInt(BigInt): ByteVector](#to-bytes-bigint) | Converts a big integer to a byte array | TBDL |
+| [toInt(BigInt): Int](#to-int-bigint) | Converts a big integer to an integer.<br>Fails if the number cannot be converted | TBDL |
 | [toInt(ByteVector): Int](#toint-bytes) | Converts an array of bytes to an integer | 1 |
 | [toInt(ByteVector, Int): Int](#toint-bytes-int) | Converts an array of bytes to an integer starting from a certain index | 1 |
 | [toString(Address): String](#to-string-address) | Converts an array of bytes of an [address](/en/blockchain/account/address) to a string | 10 |
 | [toString(Boolean): String](#tostring-bool) | Converts a boolean value to a string | 1 |
 | [toString(Int): String](#tostring-int) | Converts an integer to a string | 1 |
+| [toStringBigInt(BigInt): String](#to-string-bigint) | Converts a big integer to a string | TBDL |
 | [toUtf8String(ByteVector): String](#to-utf8-string) | Converts an array of bytes to a [UTF-8](https://en.wikipedia.org/wiki/UTF-8) string | 7 |
 | [transferTransactionFromProto(ByteVector): TransferTransaction&#124;Unit](#transfertransactionfromproto) | Deserializes transfer transaction | 5 |
 
@@ -39,6 +47,36 @@ For a description of the return value, see the [Address](/en/ride/v5/structures/
 ```ride
 let address = addressFromPublicKey(base58'J1t6NBs5Hd588Dn7mAPytqkhgeBshzv3zecScfFJWE2D')
 ```
+
+## parseBigInt(String): BigInt&#124;Unit<a id="parse-bigint"></a>
+
+Converts the string representation of a number to its [big integer](/en/ride/v5/data-types/bigint) equivalent.
+
+```ride
+parseBigInt(str: String): BigInt|Unit
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `str`: [String](/en/ride/v5/data-types/string) | String to parse |
+
+## parseBigIntValue(String): BigInt<a id="parse-bigint-value"></a>
+
+Converts the string representation of a number to its [big integer](/en/ride/v5/data-types/bigint) equivalent.
+
+Fails if the string cannot be parsed.
+
+```ride
+parseBigIntValue(str: String): BigInt
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `str`: [String](/en/ride/v5/data-types/string) | String to parse |
 
 ### parseInt(String): Int|Unit<a id="parse-int"></a>
 
@@ -89,6 +127,50 @@ parseIntValue("10.30") # Error while parsing string to integer
 parseIntValue("20 WAVES") # Error while parsing string to integer
 ```
 
+## toBigInt(ByteVector): BigInt<a id="to-bigint-bytevector"></a>
+
+Converts an array of bytes to a [big integer](/en/ride/v5/data-types/bigint) using [big-endian](https://en.wikipedia.org/wiki/Endianness) byte order.
+
+```ride
+toBigInt(bin: ByteVector): BigInt
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `bin`: [ByteVector](/en/ride/v5/data-types/byte-vector) | Array of bytes to convert |
+
+## toBigInt(ByteVector, Int, Int): BigInt<a id="to-bigint-bytevector-int-int"></a>
+
+Converts an array of bytes starting from a certain index to a [big integer](/en/ride/v5/data-types/bigint) using [big-endian](https://en.wikipedia.org/wiki/Endianness) byte order.
+
+```ride
+toBigInt(bin: ByteVector, offset: Int, size: Int): BigInt
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `bin`: [ByteVector](/en/ride/v5/data-types/byte-vector) | Array of bytes to convert |
+| `offset`: [Int](/en/ride/v5/data-types/int) | Index to start from |
+| `size`: [Int](/en/ride/v5/data-types/int) | Number of bytes (subarray length) to convert |
+
+## toBigInt(Int): BigInt<a id="to-bigint-int"></a>
+
+Converts an integer to a [big integer](/en/ride/v5/data-types/bigint).
+
+```ride
+toBigInt(n: Int): BigInt
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `n`: [Int](/en/ride/v5/data-types/int) | Integer to convert |
+
 ## toBytes(Boolean): ByteVector<a id="tobytes-bool"></a>
 
 Converts a boolean value to an array of bytes.
@@ -112,7 +194,7 @@ toBytes(false) # Returns 1
 
 ## toBytes(Int): ByteVector<a id="tobytes-int"></a>
 
-Converts an integer to an array of bytes.
+Converts an integer to an array of bytes using [big-endian](https://en.wikipedia.org/wiki/Endianness) byte order.
 
 ```
 toBytes(n: Int): ByteVector
@@ -150,9 +232,39 @@ toBytes(s: String): ByteVector
 toBytes("Ride") # Returns base58'37BPKA'
 ```
 
+## toBytesBigInt(BigInt): ByteVector<a id="to-bytes-bigint"></a>
+
+Converts a [big integer](/en/ride/v5/data-types/bigint) to an array of bytes using [big-endian](https://en.wikipedia.org/wiki/Endianness) byte order.
+
+``` ride
+toBytesBigInt(n: BigInt): ByteVector
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `n`: [BigInt](/en/ride/v5/data-types/bigint) | Big integer to convert |
+
+## toInt(BigInt): Int<a id="to-int-bigint"></a>
+
+Converts a [big integer](/en/ride/v5/data-types/bigint) to an integer.
+
+Fails if the number cannot be converted
+
+```ride
+toInt(n: BigInt): Int
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `n`: [BigInt](/en/ride/v5/data-types/bigint) | Big integer to convert |
+
 ## toInt(ByteVector): Int<a id="toint-bytes"></a>
 
-Converts an array of bytes to an integer.
+Converts an array of bytes to an integer using [big-endian](https://en.wikipedia.org/wiki/Endianness) byte order.
 
 ```
 toInt(bin: ByteVector) : Int
@@ -172,7 +284,7 @@ toInt(base58'1111111B') # Returns 10
 
 ### toInt(ByteVector, Int): Int<a id="toint-bytes-int"></a>
 
-Converts an array of bytes to an integer starting from a certain index.
+Converts an array of bytes to an integer starting from a certain index using [big-endian](https://en.wikipedia.org/wiki/Endianness) byte order.
 
 ```
 toInt(bin: ByteVector, offset: Int): Int
@@ -254,6 +366,20 @@ toString(n: Int): String
 ```ride
 toString(10) # Returns "10"
 ```
+
+## toStringBigInt(BigInt): String<a id="to-string-bigint"></a>
+
+ Converts a [big integer](/en/ride/v5/data-types/bigint) to a string.
+
+``` ride
+toStringBigInt(n: BigInt): String
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `n`: [Int](/en/ride/v5/data-types/int) | Big integer to convert |
 
 ### toUtf8String(ByteVector): String<a id="to-utf8-string"></a>
 

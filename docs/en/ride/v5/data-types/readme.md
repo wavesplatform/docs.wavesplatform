@@ -4,6 +4,7 @@
 
 | Data type name | Ride keyword |
 | :--- | :--- |
+| [Big Integer](/en/ride/v5/data-types/bigint) | BigInt |
 | [Boolean](/en/ride/v5/data-types/boolean) | Boolean |
 | [Byte array](/en/ride/v5/data-types/byte-vector) | ByteVector |
 | [Integer](/en/ride/v5/data-types/int) | Int |

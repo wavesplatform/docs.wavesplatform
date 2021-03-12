@@ -18,7 +18,7 @@
 
 Оба операнда должны быть `BigInt`.
 
-Следующие функции работают со значениями типа `BinInt`:
+Следующие функции работают со значениями типа `BigInt`:
 
 * [fractionBigInt(BigInt, BigInt, BigInt): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionbigint)
 * [logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#logbigint)

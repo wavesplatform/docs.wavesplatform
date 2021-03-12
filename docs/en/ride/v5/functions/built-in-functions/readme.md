@@ -54,16 +54,24 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | addressFromPublicKey(ByteVector): Address | Converts account public key to [address](/en/blockchain/account/address) | 63 |
+| parseBigInt(String): BigInt&#124;Unit | Converts the string representation of a number to its [big integer](/en/ride/v5/data-types/bigint) equivalent | TBDL |
+| parseBigIntValue(String): BigInt | Converts the string representation of a number to its big integer equivalent<br>Fails if the string cannot be parsed | TBDL |
 | parseInt(String): Int&#124;Unit | Converts the string representation of a number to its integer equivalent | 2 |
 | parseIntValue(String): Int | Converts the string representation of a number to its integer equivalent. Fails if the string cannot be parsed | 2 |
+| toBigInt(ByteVector): BigInt | Converts an array of bytes to a big integer | TBDL |
+| toBigInt(ByteVector, Int, Int): BigInt | Converts an array of bytes starting from a certain index to a big integer | TBDL |
+| toBigInt(Int): BigInt | Converts an integer to a big integer | TBDL |
 | toBytes(Boolean): ByteVector | Converts a boolean to an array of bytes | 1 |
 | toBytes(Int): ByteVector | Converts an integer to an array of bytes | 1 |
 | toBytes(String): ByteVector | Converts a string to an array of bytes | 8 |
+| toBytesBigInt(BigInt): ByteVector | Converts a big integer to a byte array | TBDL |
+| toInt(BigInt): Int | Converts a big integer to an integer.<br>Fails if the number cannot be converted | TBDL |
 | toInt(ByteVector): Int | Converts an array of bytes to an integer | 1 |
 | toInt(ByteVector, Int): Int | Converts an array of bytes to an integer starting from a certain index | 1 |
 | toString(Address): String | Converts an [address](/en/blockchain/account/address) to a string | 10 |
 | toString(Boolean): String | Converts a boolean to a string | 1 |
 | toString(Int): String | Converts an integer to a string | 1 |
+| toStringBigInt(BigInt): String | Converts a big integer to a string | TBDL |
 | toUtf8String(ByteVector): String | Converts an array of bytes to a UTF-8 string | 7 |
 | transferTransactionFromProto(ByteVector): TransferTransaction&#124;Unit | Deserializes transfer transaction | 5 |
 
@@ -136,8 +144,10 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | getElement(List[T], Int): T | Gets element from the list | 2 |
 | indexOf(list: List[T], element: T): Int&#124;Unit | Returns the index of the first occurrence of the element in the list | 5 |
 | lastIndexOf(list: List[T], element: T): Int&#124;Unit | Returns the index of the last occurrence of the element in the list | 5 |
-| max(List[Int]): Int | Returns the largest element in the list | 3 |
-| min(List[Int]): Int | Returns the smallest item in the list | 3 |
+| max(List[Int]): Int | Returns the largest element in the list of integers | 3 |
+| maxBigInt(List[BigInt]): BigInt | Returns the largest element in the list of [big integers](/en/ride/v5/data-types/bigint) | TBDL |
+| min(List[Int]): Int | Returns the smallest item in the list of integers | 3 |
+| minBigInt(List[BigInt]): BigInt | Returns the smallest element in the list of big integers | TBDL |
 | removeByIndex(list: List[T], index: Int): List[T] | Removes an element from the list by index | 7 |
 | size(List[T]): Int | Returns the size of the list | 2 |
 
@@ -148,9 +158,14 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | fraction(Int, Int, Int): Int | Multiplies and divides integers to avoid overflow | 1 |
+| fractionBigInt(BigInt, BigInt, BigInt): BigInt | Multiplies and divides [bid integers](/en/ride/v5/data-types/bigint) to avoid overflow | TBDL |
+| fractionBigInt(BigInt, BigInt, BigInt, Union): BigInt | Multiplies and divides bid integers to avoid overflow, applying the specified rounding method | TBDL |
 | log(Int, Int, Int, Int, Int, Union): Int | Calculates logarithm of a number with a base | 100 |
+| logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt | Calculates logarithm of a number to a given base with high precision | TBDL |
 | median(List[Int]): Int | Returns the median of a list of integers | 20 |
+| medianBigInt(List[BigInt]): BigInt | Returns the median of a list of big integers | TBDL |
 | pow(Int, Int, Int, Int, Int, Union): Int | Raises a number to a given power | 100 |
+| powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt | Raises a number to a given power with high precision | TBDL |
 
 ## [String functions](/en/ride/v5/functions/built-in-functions/string-functions)
 

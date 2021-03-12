@@ -4,12 +4,17 @@
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| [fraction](#fraction) | Multiplies and divides [integers](/en/ride/v5/data-types/int) to avoid overflow | 1 |
-| [log](#log)| Calculates logarithm of a number with a given base | 100 |
-| [median](#median)| Returns the median of a list of integers | 20 |
-| [pow](#pow) | Raises a number to a given power | 100 |
+| [fraction(Int, Int, Int): Int](#fraction) | Multiplies and divides [integers](/en/ride/v5/data-types/int) to avoid overflow | 1 |
+| [fractionBigInt(BigInt, BigInt, BigInt): BigInt](#fractionbigint) | Multiplies and divides [bid integers](/en/ride/v5/data-types/bigint) to avoid overflow | TBDL |
+| [fractionBigInt(BigInt, BigInt, BigInt, Union): BigInt](#fractionbigintround) | Multiplies and divides bid integers to avoid overflow, applying the specified rounding method | TBDL |
+| [log(Int, Int, Int, Int, Int, Union): Int](#log)| Calculates logarithm of a number to a given base | 100 |
+| [logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](#logbigint) | Calculates logarithm of a number to a given base with high precision | TBDL |
+| [median(List[Int]): Int](#median)| Returns the median of a list of integers | 20 |
+| [medianBigInt(List[BigInt]): BigInt](#medianbigint) | Returns the median of a list of big integers | TBDL |
+| [pow(Int, Int, Int, Int, Int, Union): Int](#pow) | Raises a number to a given power | 100 |
+| [powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](#powbigint) | Raises a number to a given power with high precision | TBDL |
 
-## fraction
+## fraction(Int, Int, Int): Int<a id="fraction"></a>
 
 Multiplies [integers](/en/ride/v5/data-types/int) `a`, `b` and divides the result by the integer `c` to avoid overflow.
 
@@ -49,12 +54,49 @@ The fraction function with no overflow:
 fraction(a, b, c) # Result: 2,000,000,000,000,000,000
 ```
 
-## log
+## fractionBigInt(BigInt, BigInt, BigInt): BigInt<a id="fractionbigint"></a>
+
+Multiplies [big integers](/en/ride/v5/data-types/bigint) `a`, `b` and divides the result by the integer `c` to avoid overflow.
+
+Fraction `a × b / c` should not exceed the maximum value of the big integer type.
+
+```ride
+fractionBigInt(a: BigInt, b: BigInt, c: BigInt): BigInt
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `a`: BigInt | Big integer `a` |
+| `b`: BigInt | Big integer `b` |
+| `c`: BigInt | Big integer `c` |
+
+## fractionBigInt(BigInt, BigInt, BigInt, Union): BigInt<a id="fractionbigintround"></a>
+
+Multiplies [big integers](/en/ride/v5/data-types/bigint) `a`, `b` and divides the result by the integer `c` to avoid overflow, applying the specified rounding method.
+
+Fraction `a × b / c` should not exceed the maximum value of the big integer type.
+
+```ride
+fractionBigInt(a: BigInt, b: BigInt, c: BigInt, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): BigInt
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `a`: BigInt | Big integer `a` |
+| `b`: BigInt | Big integer `b` |
+| `c`: BigInt | Big integer `c` |
+| `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | One of the [rounding variables](#rounding-variables) |
+
+## log(Int, Int, Int, Int, Int, Union): Int<a id="log"></a>
 
 Calculates `log`<sub>`b`</sub>`a`.
 
 ``` ride
-log(value: Int, vp: Int, base: Int, bp: Int, rp: Int, round: UP|DOWN|CEILING|FLOOR|HALFUP|HALFDOWN|HALFEVEN): Int
+log(value: Int, vp: Int, base: Int, bp: Int, rp: Int, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): Int
 ```
 
 In Ride, there is no [data type](/en/ride/v5/data-types/) with the floating point. That is why, for example, when you need to calculate `log`<sub>2.7</sub>16.25 then the number `value` = 1625, `vp` = 2 and the `base` = 27, `bp` = 1.
@@ -78,7 +120,7 @@ If the `log` function returns, for example, 2807, and the parameter of functio
 | `base`: [Int](/en/ride/v5/data-types/int) | Logarithm base `b` without decimal point |
 | `bp`: [Int](/en/ride/v5/data-types/int) | Number of decimals of `b` |
 | `rp`: [Int](/en/ride/v5/data-types/int) | Number of decimals in the resulting value, from 0 to 8 inclusive. Specifies the accuracy of the calculated result. |
-| `round`: UP&#124;DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFDOWN&#124;HALFEVEN | One of the [rounding variables](#rounding-variables) |
+| `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | One of the [rounding variables](#rounding-variables) |
 
 ### Examples
 
@@ -93,9 +135,32 @@ log(1625, 2, 27, 1, 5, HALFUP) # Function returns 280703542, so the result is: 2
 log(0, 0, 2, 0, 0, HALFUP)     # Result: -Infinity
 ```
 
-## median
+## logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt<a id="logBigInt"></a>
 
-Returns the median of the [list](/en/ride/v5/data-types/list). The list can't be empty, otherwise, the function fails.
+Calculates `log`<sub>`b`</sub>`a` with high precision.
+
+``` ride
+logBigInt(value: BigInt, ep: Int, base: BigInt, bp: Int, rp: Int, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): BigInt
+```
+
+In Ride, there is no [data type](/en/ride/v5/data-types/) with the floating point. That is why, for example, when you need to calculate `log`<sub>2.7</sub>16.25 then `value` = 1625, `vp` = 2 and the `base` = 27, `bp` = 1.
+
+If the `logBigInt` function returns, for example, 2807035420964590265, and the parameter of function `rp` = 18, then the result is 2.807035420964590265; in the number 2807035420964590265 the last 18 digits is a fractional part.
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `value`: [BigInt](/en/ride/v5/data-types/bigint) | Number `a` without decimal point |
+| `vp`: [Int](/en/ride/v5/data-types/int) | Number of decimals of `a` |
+| `base`: [BigInt](/en/ride/v5/data-types/bigint) | Logarithm base `b` without decimal point |
+| `bp`: [Int](/en/ride/v5/data-types/int) | Number of decimals of `b` |
+| `rp`: [Int](/en/ride/v5/data-types/int) | Number of decimals in the resulting value, from 0 to 18 inclusive. Specifies the accuracy of the calculated result. |
+| `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | One of the [rounding variables](#rounding-variables) |
+
+## median(List[Int]): Int<a id="median"></a>
+
+Returns the median of the [list](/en/ride/v5/data-types/list) of integers. The list can't be empty, otherwise, the function fails.
 
 ```ride
 median(arr: List[Int]): Int
@@ -115,17 +180,31 @@ median([2, 4, 9, 20])     # Returns 6
 median([-2, -4, -9, -20]) # Returns -7
 ```
 
-## pow
+## medianBigInt(List[BigInt]): BigInt<a id="medianbigint"></a>
+
+Returns the median of a [list](/en/ride/v5/data-types/list) of [big integers](/en/ride/v5/data-types/bigint). Fails if the list is empty or contains more than 100 items.
+
+``` ride
+medianBigInt(arr: List[BigInt]): BigInt
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `arr`: [List[BigInt]](/en/ride/v5/data-types/list) | List of big integers |
+
+## pow(Int, Int, Int, Int, Int, Union): Int<a id="pow"></a>
 
 Calculates `a`<sup>`b`</sup>.
 
 ``` ride
-pow(base: Int, bp: Int, exponent: Int, ep: Int, rp: Int, round: UP|DOWN|CEILING|FLOOR|HALFUP|HALFDOWN|HALFEVEN): Int
+pow(base: Int, bp: Int, exponent: Int, ep: Int, rp: Int, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): Int
 ```
 
 In Ride, there is no [data type](/en/ride/v5/data-types/) with the floating point. That is why, for example, when you need to calculate, 16.25<sup>2.7</sup>, then the number `base` = 1625, `bp` = 2, and the `exponent` = 27, `ep` = 1.
 
-If the `pow` function returns, for example, 18591057, and the parameter of function `rp` = 4, then the result is 1859.1057; in the number 18591057 the last 4 digits is a fractional part.
+If the `pow` function returns, for example, 1859105716849757217692, and the parameter of function `rp` = 4, then the result is 1859.105716849757217692; in the number 1859105716849757217692 the last 18 digits is a fractional part.
 
 ### Parameters
 
@@ -136,7 +215,7 @@ If the `pow` function returns, for example, 18591057, and the parameter of fun
 | `exponent`: [Int](/en/ride/v5/data-types/int) | Exponent `b` without decimal point |
 | `ep`: [Int](/en/ride/v5/data-types/int) | Number of decimals of `b` |
 | `rp`: [Int](/en/ride/v5/data-types/int) | Number of decimals in the resulting value. Specifies the accuracy of the calculated result. The value of the variable can be 0 to 8 integer inclusive |
-| `round`: UP&#124;DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFDOWN&#124;HALFEVEN | One of the [rounding variables](#rounding-variables) |
+| `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | One of the [rounding variables](#rounding-variables) |
 
 ### Examples
 
@@ -147,33 +226,55 @@ pow(1625, 2, 27, 1, 2, HALFUP) # function returns 185911, so the result is: 1859
 pow(1625, 2, 27, 1, 5, HALFUP) # function returns 185910572, so, the result is: 1859.10572
 ```
 
+## powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt<a id="powbigint"></a>
+
+Вычисляет `a`<sup>`b`</sup> с высокой точностью.
+
+``` ride
+powBigInt(base: BigInt, bp: Int, exponent: BigInt, ep: Int, rp: Int, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): BigInt
+```
+
+In Ride, there is no [data type](/en/ride/v5/data-types/) with the floating point. That is why, for example, when you need to calculate, 16.25<sup>2.7</sup>, then the number `base` = 1625, `bp` = 2, and the `exponent` = 27, `ep` = 1.
+
+If the `powBigInt` function returns, for example, 18591057, and the parameter of function `rp` = 4, then the result is 1859.1057; in the number 18591057 the last 4 digits is a fractional part.
+
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `base`: [BigInt](/en/ride/v5/data-types/bigint) | Number `a` without decimal point |
+| `bp`: [Int](/en/ride/v5/data-types/int) | Number of decimals of `a` |
+| `exponent`: [BigInt](/en/ride/v5/data-types/bigint) | Exponent `b` without decimal point |
+| `ep`: [Int](/en/ride/v5/data-types/int) | Number of decimals of `b` |
+| `rp`: [Int](/en/ride/v5/data-types/int) | Number of decimals in the resulting value. Specifies the accuracy of the calculated result. The value of the variable can be 0 to 18 integer inclusive |
+| `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | One of the [rounding variables](#rounding-variables) |
+
 ## Rounding Variables
 
 Below is the list of built-in rounding variables. Every variable corresponds to the [rounding method](https://en.wikipedia.org/wiki/Rounding).
 
-The rounding variables are _only_ used as the parameters of functions [log](#log) and [pow](#pow).
+The rounding variables are _only_ used as the parameters of functions [fractionBigInt](#fractionbigintround), [log](#log), [logBigInt](#logbigint), [pow](#pow), [powBigInt](#powbigint)..
 
-|Name | Description |
+| Name | Description |
 | :--- | :--- |
-| CEILING | Rounds towards positive infinity |
 | DOWN | Rounds towards zero |
+| CEILING | Rounds towards positive infinity |
 | FLOOR | Rounds towards negative infinity |
-| HALFDOWN | Rounds towards the nearest integer; if the integers are equidistant - rounds towards zero |
-| HALFEVEN | Rounds towards the nearest integer; if the integers are equidistant - rounds towards the nearest even integer |
-| HALFUP   | Rounds towards the nearest integer; if the integers are equidistant - rounds away from zero   |
-| UP | Rounding away from zero |
+| HALFUP   | Rounds towards the nearest integer; if the integers are equidistant, then rounds away from zero   |
+| HALFEVEN | Rounds towards the nearest integer; if the integers are equidistant then rounds towards the nearest even integer |
 
 ### Examples
 
-|Input number/Rounding method | UP | DOWN | CEILING | FLOOR | HALFUP | HALFDOWN | HALFEVEN |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 5.5 | 6 | 5 | 6 | 5 | 6 | 5 | 6 |
-| 2.5 | 3 | 2 | 3 | 2 | 3 | 2 | 2 |
-| 1.6 | 2 | 1 | 2 | 1 | 2 | 2 | 2 |
-| 1.1 | 2 | 1 | 2 | 1 | 1 | 1 | 1 |
-| 1.0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
-| -1.0 | -1 | -1 | -1 | -1 | -1 | -1 | -1 |
-| -1.1 | -2 | -1 | -1 | -2 | -1 | -1 | -1 |
-| -1.6 | -2 | -1 | -1 | -2 | -2 | -2 | -2 |
-| -2.5 | -3 | -2 | -2 | -3 | -3 | -2 | -2 |
-| -5.5 | -6 | -5 | -5 | -6 | -6 | -5 | -6 |
+| Input number/Rounding method | DOWN | CEILING | FLOOR | HALFUP | HALFEVEN |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 5.5 | 5 | 6 | 5 | 6 | 6 |
+| 2.5 | 2 | 3 | 2 | 3 | 2 |
+| 1.6 | 1 | 2 | 1 | 2 | 2 |
+| 1.1 | 1 | 2 | 1 | 1 | 1 |
+| 1.0 | 1 | 1 | 1 | 1 | 1 |
+| -1.0 | -1 | -1 | -1 | -1 | -1 |
+| -1.1 | -1 | -1 | -2 | -1 | -1 |
+| -1.6 | -1 | -1 | -2 | -2 | -2 |
+| -2.5 | -2 | -2 | -3 | -3 | -2 |
+| -5.5 | -5 | -5 | -6 | -6 | -6 |
