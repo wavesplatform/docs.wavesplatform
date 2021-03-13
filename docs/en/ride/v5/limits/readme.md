@@ -17,7 +17,7 @@
 | Function name or variable name | 255 bytes |
 | Size of [String](/en/ride/v5/data-types/string) variable | 32,767 bytes |
 | Size of [ByteVector](/en/ride/v5/data-types/byte-vector) variable | 32,767 bytes (except `bodyBytes` field of transaction structure) |
-| Data weight | See [Data Weight](/en/ride/limits/weight) |
+| Data weight | See [Data Weight](/en/ride/v5/limits/weight) |
 | Number of callable function arguments | 22 |
 | Number of payments attached to an invocation | 10 |
 | Total number of [ScriptTransfer](/en/ride/v5/structures/script-actions/script-transfer), [Issue](/en/ride/v5/structures/script-actions/issue), [Reissue](/en/ride/v5/structures/script-actions/reissue), [Burn](/en/ride/v5/structures/script-actions/burn), [SponsorFee](/en/ride/v5/structures/script-actions/sponsor-fee), [Lease](/en/ride/v5/structures/script-actions/lease), and [LeaseCancel](/en/ride/v5/structures/script-actions/lease-cancel) in callable function [invocation results](/en/ride/v5/functions/callable-function#invocation-result-2) | 10 |

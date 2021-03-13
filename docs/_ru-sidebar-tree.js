@@ -1015,6 +1015,10 @@ module.exports = {
               path: rideV5Path + 'data-types/any',
             },
             {
+              title: 'BigInt',
+              path: rideV5Path + 'data-types/bigint',
+            },
+            {
               title: 'Boolean',
               path: rideV5Path + 'data-types/boolean',
             },
@@ -1301,6 +1305,12 @@ module.exports = {
         {
           title: 'Ограничения',
           path: rideV5Path + 'limits',
+          children: [
+            {
+              title: 'Вес данных',
+              path: rideV5Path + 'limits/weight',
+            },
+          ],
         },
       ],
     },

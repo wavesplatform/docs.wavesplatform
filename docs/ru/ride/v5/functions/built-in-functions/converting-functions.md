@@ -5,16 +5,24 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | [addressFromPublicKey(ByteVector): Address](#address-from-public-key) | Получает [адрес](/ru/blockchain/account/address), соответствующий открытому ключу аккаунта | 63 |
+| [parseBigInt(String): BigInt&#124;Unit](#parse-bigint) | Конвертирует строковое представление числа в эквивалентное [большое целое число](/ru/ride/v5/data-types/bigint) | TBDL |
+| [parseBigIntValue(String): BigInt](#parse-bigint-value) | Конвертирует строковое представление числа в эквивалентное большое целое число.<br>Завершается ошибкой, если строка не может быть преобразована | TBDL |
 | [parseInt(String): Int&#124;Unit](#parse-int) | Конвертирует строковое представление числа в эквивалентное целое число | 2 |
-| [parseIntValue(String): Int](#parse-int-value) | Конвертирует строковое представление числа в эквивалентное целое число.<br>Завершается ошибкой, если строка не может быть спарсена | 2 |
+| [parseIntValue(String): Int](#parse-int-value) | Конвертирует строковое представление числа в эквивалентное целое число.<br>Завершается ошибкой, если строка не может быть преобразована | 2 |
+| [toBigInt(ByteVector): BigInt](#to-bigint-bytevector) | Конвертирует массив байтов в большое целое число | TBDL |
+| [toBigInt(ByteVector, Int, Int): BigInt](#to-bigint-bytevector-int-int) | Конвертирует массив байтов начиная с указанного индекса в большое целое число | TBDL |
+| [toBigInt(Int): BigInt](#to-bigint-int) | Конвертирует целое число в большое целое | TBDL |
 | [toBytes(Boolean): ByteVector](#to-bytes-boolean) | Конвертирует логическое значение в массив байтов | 1 |
 | [toBytes(Int): ByteVector](#to-bytes-int) | Конвертирует целое число в массив байтов | 1 |
 | [toBytes(String): ByteVector](#to-bytes-string) | Конвертирует строку в массив байтов | 8 |
+| [toBytesBigInt(BigInt): ByteVector](#to-bytes-bigint) | Конвертирует большое целое число в массив байтов | TBDL |
+| [toInt(BigInt): Int](#to-int-bigint) | Конвертирует большое целое число в обычное целое.<br>Завершается ошибкой, если число не может быть преобразовано | TBDL |
 | [toInt(ByteVector): Int](#to-int-bytevector) | Конвертирует массив байтов в целое число | 1 |
 | [toInt(ByteVector, Int): Int](#to-int-bytevector-int) | Конвертирует массив байтов начиная с указанного индекса в целое число | 1 |
 | [toString(Address): String](#to-string-address) | Конвертирует массив байтов [адреса](/ru/blockchain/account/address) в строку | 10 |
 | [toString(Boolean): String](#to-string-boolean) | Конвертирует логическое значение в строку | 1 |
 | [toString(Int): String](#to-string-int) | Конвертирует целое число в строку | 1 |
+| [toStringBigInt(BigInt): String](#to-string-bigint) | Конвертирует большое целое число в строку | TBDL |
 | [toUtf8String(ByteVector): String](#to-utf8-string-bytevector) | Конвертирует массив байтов в строку в [UTF-8](https://ru.wikipedia.org/wiki/UTF-8) | 7 |
 | [transferTransactionFromProto(ByteVector): TransferTransaction&#124;Unit](#transfertransactionfromproto) | Десериализует транзакцию перевода | 5 |
 
@@ -40,6 +48,36 @@ addressFromPublicKey(publicKey: ByteVector): Address
 ```ride
 let address = addressFromPublicKey(base58'J1t6NBs5Hd588Dn7mAPytqkhgeBshzv3zecScfFJWE2D')
 ```
+
+## parseBigInt(String): BigInt&#124;Unit<a id="parse-bigint"></a>
+
+Конвертирует строковое представление числа в эквивалентное [большое целое число](/ru/ride/v5/data-types/bigint).
+
+```ride
+parseBigInt(str: String): BigInt|Unit
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `str`: [String](/ru/ride/v5/data-types/string) | Строка для конвертации |
+
+## parseBigIntValue(String): BigInt<a id="parse-bigint-value"></a>
+
+Конвертирует строковое представление числа в эквивалентное [большое целое число](/ru/ride/v5/data-types/bigint).
+
+Завершается ошибкой, если строка не может быть преобразована.
+
+```ride
+parseBigIntValue(str: String): BigInt
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `str`: [String](/ru/ride/v5/data-types/string) | Строка для конвертации |
 
 ## parseInt(String): Int&#124;Unit<a id="parse-int"></a>
 
@@ -68,7 +106,7 @@ parseInt("10.30") # Возвращает Unit
 
 Конвертирует строковое представление числа в эквивалентное целое число.
 
-Завершается ошибкой, если строка не может быть сконвертирована.
+Завершается ошибкой, если строка не может быть преобразована.
 
 ```ride
 parseIntValue(str: String): Int
@@ -90,6 +128,50 @@ parseIntValue("10.30") # Ошибка при разборе строки на ц
 parseIntValue("20 WAVES") # Ошибка при разборе строки на целое число
 ```
 
+## toBigInt(ByteVector): BigInt<a id="to-bigint-bytevector"></a>
+
+Конвертирует массив байтов в эквивалентное [большое целое число](/ru/ride/v5/data-types/bigint). Используется представление [big-endian](https://ru.wikipedia.org/wiki/Порядок_байтов).
+
+```ride
+toBigInt(bin: ByteVector): BigInt
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `bin`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Массив байтов для конвертации |
+
+## toBigInt(ByteVector, Int, Int): BigInt<a id="to-bigint-bytevector-int-int"></a>
+
+Конвертирует массив байтов начиная с указанного индекса в эквивалентное [большое целое число](/ru/ride/v5/data-types/bigint). Используется представление [big-endian](https://ru.wikipedia.org/wiki/Порядок_байтов).
+
+```ride
+toBigInt(bin: ByteVector, offset: Int, size: Int): BigInt
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `bin`: [ByteVector](/ru/ride/v5/data-types/byte-vector) | Массив байтов для конвертации |
+| `offset`: [Int](/ru/ride/v5/data-types/int) | Начальный индекс (нумерация с 0) |
+| `size`: [Int](/ru/ride/v5/data-types/int) | Количество байтов (длина подмассива) для конвертации |
+
+## toBigInt(Int): BigInt<a id="to-bigint-int"></a>
+
+Конвертирует целое число в эквивалентное [большое целое число](/ru/ride/v5/data-types/bigint).
+
+```ride
+toBigInt(n: Int): BigInt
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `n`: [Int](/ru/ride/v5/data-types/int) | Целое число для конвертации |
+
 ## toBytes(Boolean): ByteVector<a id="to-bytes-boolean"></a>
 
 Конвертирует логическое значение в массив байтов.
@@ -107,13 +189,13 @@ toBytes(b: Boolean): ByteVector
 ### Примеры
 
 ```ride
-toBytes(true) # Возвращает 2
-toBytes(false) # Возвращает 1
+toBytes(true) # Возвращает base58'2'
+toBytes(false) # Возвращает base58'1'
 ```
 
 ## toBytes(Int): ByteVector<a id="to-bytes-int"></a>
 
-Конвертирует целое число в массив байтов.
+Конвертирует целое число в массив байтов. Используется представление [big-endian](https://ru.wikipedia.org/wiki/Порядок_байтов).
 
 ``` ride
 toBytes(n: Int): ByteVector
@@ -128,7 +210,7 @@ toBytes(n: Int): ByteVector
 ### Примеры
 
 ```ride
-toBytes(10) # Возвращает 1111111B
+toBytes(10) # Возвращает base58'1111111B'
 ```
 
 ## toBytes(String): ByteVector<a id="to-bytes-string"></a>
@@ -148,12 +230,42 @@ toBytes(s: String): ByteVector
 ### Примеры
 
 ``` ride
-toBytes("Ride") # Возвращает 37BPKA
+toBytes("Ride") # Возвращает base58'37BPKA'
 ```
+
+## toBytesBigInt(BigInt): ByteVector<a id="to-bytes-bigint"></a>
+
+Конвертирует [большое целое число](/ru/ride/v5/data-types/bigint) в массив байтов. Используется представление [big-endian](https://ru.wikipedia.org/wiki/Порядок_байтов).
+
+``` ride
+toBytesBigInt(n: BigInt): ByteVector
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `n`: [BigInt](/ru/ride/v5/data-types/bigint) | Большое целое число для конвертации |
+
+## toInt(BigInt): Int<a id="to-int-bigint"></a>
+
+Конвертирует [большое целое число](/ru/ride/v5/data-types/bigint) в обычное целое.
+
+Завершается ошибкой, если число не может быть преобразовано.
+
+```ride
+toInt(n: BigInt): Int
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `n`: [BigInt](/ru/ride/v5/data-types/bigint) | Большое целое число для конвертации |
 
 ## toInt(ByteVector): Int<a id="to-int-bytevector"></a>
 
-Конвертирует массив байтов в целое число.
+Конвертирует массив байтов в целое число. Используется представление [big-endian](https://ru.wikipedia.org/wiki/Порядок_байтов).
 
 ```ride
 toInt(bin: ByteVector): Int
@@ -168,12 +280,12 @@ toInt(bin: ByteVector): Int
 ### Примеры
 
 ``` ride
-toInt(bytes) # Возвращает 10
+toInt(base58'1111111B') # Возвращает 10
 ```
 
 ## toInt(ByteVector, Int): Int<a id="to-int-bytevector-int"></a>
 
-Конвертирует массив байтов начиная с указанного индекса в целое число.
+Конвертирует массив байтов начиная с указанного индекса в целое число. Используется представление [big-endian](https://ru.wikipedia.org/wiki/Порядок_байтов).
 
 ```ride
 toInt(bin: ByteVector, offset: Int): Int
@@ -199,19 +311,19 @@ toInt(bytes, 6) # Индекс за пределами границ
 Конвертирует массив байтов [адреса](/ru/blockchain/account/address) в строку.
 
 ``` ride
-toString(Address: Address): String
+toString(addr: Address): String
 ```
 
 ### Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
-| `Address`: [Address](/ru/ride/v5/structures/common-structures/address) | Адрес для конвертации |
+| `addr`: [Address](/ru/ride/v5/structures/common-structures/address) | Адрес для конвертации |
 
 ### Примеры
 
 ``` ride
-let address =Address(base58'3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF')
+let address = Address(base58'3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF')
 toString(address) # Возвращает "3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF"
 ```
 
@@ -256,9 +368,25 @@ toString(n: Int): String
 toString(10) # Возвращает "10"
 ```
 
+## toStringBigInt(BigInt): String<a id="to-string-bigint"></a>
+
+Конвертирует [большое целое число](/ru/ride/v5/data-types/bigint) в строку.
+
+``` ride
+toStringBigInt(n: BigInt): String
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `n`: [BigInt](/ru/ride/v5/data-types/bigint) | Большое целое число для конвертации |
+
 ## toUtf8String(ByteVector): String<a id="to-utf8-string-bytevector"></a>
 
 Конвертирует массив байтов в строку в [UTF-8](https://ru.wikipedia.org/wiki/UTF-8).
+
+Завершается ошибкой, если массив байтов содержит некорректную последовательность UTF-8.
 
 ``` ride
 toUtf8String(u: ByteVector): String

@@ -17,7 +17,7 @@
 | Имя функции или переменной | 255 байт |
 | Размер значения переменной типа [String](/ru/ride/v5/data-types/string) | 32&nbsp;767 байт |
 | Размер значения переменной типа [ByteVector](/ru/ride/v5/data-types/byte-vector) | 32&nbsp;767 байт (кроме поля `bodyBytes` структуры транзакции) |
-| Вес данных | См. [Вес данных](/ru/ride/limits/weight) |
+| Вес данных | См. [Вес данных](/ru/ride/v5/limits/weight) |
 | Количество аргументов вызываемой функции | 22 |
 | Количество платежей, приложенных к вызову | 10 |
 | Суммарное количество структур [ScriptTransfer](/ru/ride/v5/structures/script-actions/script-transfer), [Issue](/ru/ride/v5/structures/script-actions/issue), [Reissue](/ru/ride/v5/structures/script-actions/reissue), [Burn](/ru/ride/v5/structures/script-actions/burn), [SponsorFee](/ru/ride/v5/structures/script-actions/sponsor-fee), [Lease](/ru/ride/v5/structures/script-actions/lease) и [LeaseCancel](/ru/ride/v5/structures/script-actions/lease-cancel)  в [результате выполнения](/ru/ride/v5/functions/callable-function#резуnьтат-выпоnнения-2) вызываемой функции | 10 |
