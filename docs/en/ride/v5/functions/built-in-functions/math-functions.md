@@ -8,11 +8,11 @@
 | [fractionBigInt(BigInt, BigInt, BigInt): BigInt](#fractionbigint) | Multiplies and divides [bid integers](/en/ride/v5/data-types/bigint) to avoid overflow | TBDL |
 | [fractionBigInt(BigInt, BigInt, BigInt, Union): BigInt](#fractionbigintround) | Multiplies and divides bid integers to avoid overflow, applying the specified rounding method | TBDL |
 | [log(Int, Int, Int, Int, Int, Union): Int](#log)| Calculates logarithm of a number to a given base | 100 |
-| [logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](#logbigint) | Calculates logarithm of a number to a given base with high precision | TBDL |
+| [logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](#logbigint) | Calculates logarithm of a number to a given base with high accuracy | TBDL |
 | [median(List[Int]): Int](#median)| Returns the median of a list of integers | 20 |
 | [medianBigInt(List[BigInt]): BigInt](#medianbigint) | Returns the median of a list of big integers | TBDL |
 | [pow(Int, Int, Int, Int, Int, Union): Int](#pow) | Raises a number to a given power | 100 |
-| [powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](#powbigint) | Raises a number to a given power with high precision | TBDL |
+| [powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](#powbigint) | Raises a number to a given power with high accuracy | TBDL |
 
 ## fraction(Int, Int, Int): Int<a id="fraction"></a>
 
@@ -109,7 +109,7 @@ More examples:
 | 5 | 5 | 0 |
 | 5.00 | 500 | 2 |
 
-If the `log` function returns, for example, 2807, and the parameter of function `rp` = 3, then the result is 2.807; in the number 2807 the last 3 digits is a fractional part.
+If the `log` function returns, for example, 2807, and the parameter `rp` = 3, then the result is 2.807; in the number 2807 the last 3 digits is a fractional part.
 
 ### Parameters
 
@@ -119,7 +119,7 @@ If the `log` function returns, for example, 2807, and the parameter of functio
 | `vp`: [Int](/en/ride/v5/data-types/int) | Number of decimals of `a` |
 | `base`: [Int](/en/ride/v5/data-types/int) | Logarithm base `b` without decimal point |
 | `bp`: [Int](/en/ride/v5/data-types/int) | Number of decimals of `b` |
-| `rp`: [Int](/en/ride/v5/data-types/int) | Number of decimals in the resulting value, from 0 to 8 inclusive. Specifies the accuracy of the calculated result. |
+| `rp`: [Int](/en/ride/v5/data-types/int) | Number of decimals in the resulting value, from 0 to 8 inclusive. Specifies the accuracy of the calculated result |
 | `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | One of the [rounding variables](#rounding-variables) |
 
 ### Examples
@@ -137,7 +137,7 @@ log(0, 0, 2, 0, 0, HALFUP)     # Result: -Infinity
 
 ## logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt<a id="logBigInt"></a>
 
-Calculates `log`<sub>`b`</sub>`a` with high precision.
+Calculates `log`<sub>`b`</sub>`a` with high accuracy.
 
 ``` ride
 logBigInt(value: BigInt, ep: Int, base: BigInt, bp: Int, rp: Int, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): BigInt
@@ -145,7 +145,7 @@ logBigInt(value: BigInt, ep: Int, base: BigInt, bp: Int, rp: Int, round: DOWN|CE
 
 In Ride, there is no [data type](/en/ride/v5/data-types/) with the floating point. That is why, for example, when you need to calculate `log`<sub>2.7</sub>16.25 then `value` = 1625, `vp` = 2 and the `base` = 27, `bp` = 1.
 
-If the `logBigInt` function returns, for example, 2807035420964590265, and the parameter of function `rp` = 18, then the result is 2.807035420964590265; in the number 2807035420964590265 the last 18 digits is a fractional part.
+If the `logBigInt` function returns, for example, 2807035420964590265, and the parameter `rp` = 18, then the result is 2.807035420964590265; in the number 2807035420964590265 the last 18 digits is a fractional part.
 
 ### Parameters
 
@@ -155,12 +155,12 @@ If the `logBigInt` function returns, for example, 2807035420964590265, and the
 | `vp`: [Int](/en/ride/v5/data-types/int) | Number of decimals of `a` |
 | `base`: [BigInt](/en/ride/v5/data-types/bigint) | Logarithm base `b` without decimal point |
 | `bp`: [Int](/en/ride/v5/data-types/int) | Number of decimals of `b` |
-| `rp`: [Int](/en/ride/v5/data-types/int) | Number of decimals in the resulting value, from 0 to 18 inclusive. Specifies the accuracy of the calculated result. |
+| `rp`: [Int](/en/ride/v5/data-types/int) | Number of decimals in the resulting value, from 0 to 18 inclusive. Specifies the accuracy of the calculated result |
 | `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | One of the [rounding variables](#rounding-variables) |
 
 ## median(List[Int]): Int<a id="median"></a>
 
-Returns the median of the [list](/en/ride/v5/data-types/list) of integers. The list can't be empty, otherwise, the function fails.
+Returns the median of the [list](/en/ride/v5/data-types/list) of integers. Fails if the list is empty.
 
 ```ride
 median(arr: List[Int]): Int
@@ -170,7 +170,7 @@ median(arr: List[Int]): Int
 
 | Parameter | Description |
 | :--- | :--- |
-| `arr`: [List[Int]](/en/ride/v5/data-types/list) | List of integers |
+| `arr`: [List](/en/ride/v5/data-types/list)[[Int](/en/ride/v5/data-types/int)] | List of integers |
 
 ### Examples
 
@@ -182,7 +182,7 @@ median([-2, -4, -9, -20]) # Returns -7
 
 ## medianBigInt(List[BigInt]): BigInt<a id="medianbigint"></a>
 
-Returns the median of a [list](/en/ride/v5/data-types/list) of [big integers](/en/ride/v5/data-types/bigint). Fails if the list is empty or contains more than 100 items.
+Returns the median of a [list](/en/ride/v5/data-types/list) of [big integers](/en/ride/v5/data-types/bigint). Fails if the list is empty or contains more than 100 elements.
 
 ``` ride
 medianBigInt(arr: List[BigInt]): BigInt
@@ -192,7 +192,7 @@ medianBigInt(arr: List[BigInt]): BigInt
 
 | Parameter | Description |
 | :--- | :--- |
-| `arr`: [List[BigInt]](/en/ride/v5/data-types/list) | List of big integers |
+| `arr`: [List](/en/ride/v5/data-types/list)[[BigInt](/en/ride/v5/data-types/bigint)] | List of big integers |
 
 ## pow(Int, Int, Int, Int, Int, Union): Int<a id="pow"></a>
 
@@ -204,7 +204,7 @@ pow(base: Int, bp: Int, exponent: Int, ep: Int, rp: Int, round: DOWN|CEILING|FLO
 
 In Ride, there is no [data type](/en/ride/v5/data-types/) with the floating point. That is why, for example, when you need to calculate, 16.25<sup>2.7</sup>, then the number `base` = 1625, `bp` = 2, and the `exponent` = 27, `ep` = 1.
 
-If the `pow` function returns, for example, 1859105716849757217692, and the parameter of function `rp` = 4, then the result is 1859.105716849757217692; in the number 1859105716849757217692 the last 18 digits is a fractional part.
+If the `pow` function returns, for example, 18591057, and the parameter `rp` = 4, then the result is 1859.1057; in the number 18591057 the last 4 digits is a fractional part.
 
 ### Parameters
 
@@ -214,7 +214,7 @@ If the `pow` function returns, for example, 1859105716849757217692, and the pa
 | `bp`: [Int](/en/ride/v5/data-types/int) | Number of decimals of `a` |
 | `exponent`: [Int](/en/ride/v5/data-types/int) | Exponent `b` without decimal point |
 | `ep`: [Int](/en/ride/v5/data-types/int) | Number of decimals of `b` |
-| `rp`: [Int](/en/ride/v5/data-types/int) | Number of decimals in the resulting value. Specifies the accuracy of the calculated result. The value of the variable can be 0 to 8 integer inclusive |
+| `rp`: [Int](/en/ride/v5/data-types/int) | Number of decimals in the resulting value, from 0 to 8 inclusive. Specifies the accuracy of the calculated result |
 | `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | One of the [rounding variables](#rounding-variables) |
 
 ### Examples
@@ -236,8 +236,7 @@ powBigInt(base: BigInt, bp: Int, exponent: BigInt, ep: Int, rp: Int, round: DOWN
 
 In Ride, there is no [data type](/en/ride/v5/data-types/) with the floating point. That is why, for example, when you need to calculate, 16.25<sup>2.7</sup>, then the number `base` = 1625, `bp` = 2, and the `exponent` = 27, `ep` = 1.
 
-If the `powBigInt` function returns, for example, 18591057, and the parameter of function `rp` = 4, then the result is 1859.1057; in the number 18591057 the last 4 digits is a fractional part.
-
+If the `powBigInt` function returns, for example, 1859105716849757217692, and the parameter `rp` = 18, then the result is 1859.105716849757217692; in the number 1859105716849757217692 the last 18 digits is a fractional part.
 
 ### Parameters
 
@@ -247,14 +246,14 @@ If the `powBigInt` function returns, for example, 18591057, and the parameter 
 | `bp`: [Int](/en/ride/v5/data-types/int) | Number of decimals of `a` |
 | `exponent`: [BigInt](/en/ride/v5/data-types/bigint) | Exponent `b` without decimal point |
 | `ep`: [Int](/en/ride/v5/data-types/int) | Number of decimals of `b` |
-| `rp`: [Int](/en/ride/v5/data-types/int) | Number of decimals in the resulting value. Specifies the accuracy of the calculated result. The value of the variable can be 0 to 18 integer inclusive |
+| `rp`: [Int](/en/ride/v5/data-types/int) | Number of decimals in the resulting value, from 0 to 18 inclusive. Specifies the accuracy of the calculated result |
 | `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | One of the [rounding variables](#rounding-variables) |
 
 ## Rounding Variables
 
 Below is the list of built-in rounding variables. Every variable corresponds to the [rounding method](https://en.wikipedia.org/wiki/Rounding).
 
-The rounding variables are _only_ used as the parameters of functions [fractionBigInt](#fractionbigintround), [log](#log), [logBigInt](#logbigint), [pow](#pow), [powBigInt](#powbigint)..
+The rounding variables are _only_ used as the parameters of functions [fractionBigInt](#fractionbigintround), [log](#log), [logBigInt](#logbigint), [pow](#pow), [powBigInt](#powbigint).
 
 | Name | Description |
 | :--- | :--- |
@@ -262,7 +261,7 @@ The rounding variables are _only_ used as the parameters of functions [fractionB
 | CEILING | Rounds towards positive infinity |
 | FLOOR | Rounds towards negative infinity |
 | HALFUP   | Rounds towards the nearest integer; if the integers are equidistant, then rounds away from zero   |
-| HALFEVEN | Rounds towards the nearest integer; if the integers are equidistant then rounds towards the nearest even integer |
+| HALFEVEN | Rounds towards the nearest integer; if the integers are equidistant, then rounds towards the nearest even integer |
 
 ### Examples
 

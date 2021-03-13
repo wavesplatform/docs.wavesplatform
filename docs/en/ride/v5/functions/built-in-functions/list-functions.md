@@ -11,7 +11,7 @@
 | [lastIndexOf](#lastindexof)  | Returns the index of the last occurrence of the element in the list | 5 |
 | [max](#max)  | Returns the largest element in the list of integers | 3 |
 | [maxBigInt](#maxBigInt) | Returns the largest element in the list of [big integers](/en/ride/v5/data-types/bigint) | TBDL |
-| [min](#min)  | Returns the smallest item in the list of integers | 3 |
+| [min](#min)  | Returns the smallest element in the list of integers | 3 |
 | [minBigInt](#minBigInt) | Returns the smallest element in the list of big integers | TBDL |
 | [removeByIndex](#removebyindex) | Removes an element from the list by index | 7 |
 | [size](#size) | Returns the size of the list | 2 |
@@ -123,7 +123,7 @@ lastIndexOf("a", stringList) # Returns 2
 
 ## max
 
-Returns the largest element in the list of integers. If the list is empty, returns error.
+Returns the largest element in the list of integers. Fails if the list is empty.
 
 ``` ride
 max(List[Int]): Int
@@ -137,7 +137,7 @@ max(List[Int]): Int
 
 ## maxBigInt
 
-Returns the largest element in the list of [big integers](/en/ride/v5/data-types/bigint). If the list is empty, returns error.
+Returns the largest element in the list of [big integers](/en/ride/v5/data-types/bigint). Fails if the list is empty.
 
 ``` ride
 maxBigInt(List[BigInt]): BigInt
@@ -151,7 +151,7 @@ maxBigInt(List[BigInt]): BigInt
 
 ## min
 
-Returns the smallest element in the list of integers. If the list is empty, returns error.
+Returns the smallest element in the list of integers. Fails if the list is empty.
 
 ``` ride
 min(List[Int]): Int
@@ -165,7 +165,7 @@ min(List[Int]): Int
 
 ## minBigInt
 
-Returns the smallest element in the list of [big integers](/en/ride/v5/data-types/bigint). If the list is empty, returns error.
+Returns the smallest element in the list of [big integers](/en/ride/v5/data-types/bigint). Fails if the list is empty.
 
 ``` ride
 minBigInt(List[BigInt]): BigInt

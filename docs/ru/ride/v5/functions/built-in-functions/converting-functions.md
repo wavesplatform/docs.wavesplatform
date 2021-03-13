@@ -189,8 +189,8 @@ toBytes(b: Boolean): ByteVector
 ### Примеры
 
 ```ride
-toBytes(true) # Возвращает 2
-toBytes(false) # Возвращает 1
+toBytes(true) # Возвращает base58'2'
+toBytes(false) # Возвращает base58'1'
 ```
 
 ## toBytes(Int): ByteVector<a id="to-bytes-int"></a>
@@ -210,7 +210,7 @@ toBytes(n: Int): ByteVector
 ### Примеры
 
 ```ride
-toBytes(10) # Возвращает 1111111B
+toBytes(10) # Возвращает base58'1111111B'
 ```
 
 ## toBytes(String): ByteVector<a id="to-bytes-string"></a>
@@ -385,6 +385,8 @@ toStringBigInt(n: BigInt): String
 ## toUtf8String(ByteVector): String<a id="to-utf8-string-bytevector"></a>
 
 Конвертирует массив байтов в строку в [UTF-8](https://ru.wikipedia.org/wiki/UTF-8).
+
+Завершается ошибкой, если массив байтов содержит некорректную последовательность UTF-8.
 
 ``` ride
 toUtf8String(u: ByteVector): String
