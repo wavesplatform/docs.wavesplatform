@@ -230,8 +230,10 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
       }
    ]
    ```
+   </details>
 
 * Added the `/utils/heightByTimestamp` endpoint that returns blockchain height at a given timestamp.
+* All endpoints return addresses instead of aliases (except for `/alias/by-address/{address}`).
 
 ### Activation
 
