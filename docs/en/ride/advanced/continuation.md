@@ -8,8 +8,8 @@ Thus, the first stage of computations is performed within the Invoke Script tran
 
 ## Conditions
 
-* Continued computations are added in node version 1.3.0 and enabled with feature #16 “Ride V5, dApp-to-dApp invocations, Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
-* The dApp script uses [Standard library](/en/ride/script/standard-library) **version 5**.
+* Continued computations are added in node version 1.4.0.
+* The dApp script uses [Standard library](/en/ride/script/standard-library) **version 6**.
 * The [Invoke Script](/en/blockchain/transaction-type/invoke-script-transaction) transaction version is 3.
 
 > Continued computations and dApp-to-dApp invocation are mutually exclusive, that is, they cannot be initiated by the same transaction.

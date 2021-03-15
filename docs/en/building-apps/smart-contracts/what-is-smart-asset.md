@@ -129,7 +129,7 @@ The script cannot be removed, so it is impossible to turn a smart asset into a r
 
 A transaction involving the execution of an asset script has the transaction fee increased by 0.004 WAVES. If the sender account is a [dApp or smart account](/en/blockchain/account/dapp), then the size of the fee is increased by an additional 0.004 WAVES.
 
-Let's review the example. The commission for a transfer transaction is 0.001 WAVES. If a user makes a transfer of a smart asset from a smart account, then the amount of the commission will be 0.001 + 0.004 + 0.004 = 0.009 WAVES.
+Let's review the example. The fee for a Transfer transaction is 0.001 WAVES. If a user makes a transfer of a smart asset from a smart account, then the minimum fee is 0.001 + 0.004 + 0.004 = 0.009 WAVES.
 
 Starting from node version 1.3.1, after activation of feature #16 "Ride V5, dApp-to-dApp invocations, Continuations":
 
