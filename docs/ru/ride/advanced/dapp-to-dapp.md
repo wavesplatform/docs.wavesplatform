@@ -60,10 +60,12 @@ strict z = Invoke(dapp,foo,args,[AttachedPayment(unit,100000000)])
 | :--- | :--- | :--- | :--- |
 | 1 | caller | [Address](/ru/ride/v5/structures/common-structures/address) | [Адрес](/ru/blockchain/account/address) dApp, который вызвал функцию |
 | 2 | callerPublicKey | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Открытый ключ аккаунта dApp, который вызвал функцию |
-| 3 | payments | List[[AttachedPayment](/ru/ride/v5/structures/common-structures/attached-payment)] | Платежи, указанные в функции [Invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp) |
-| 4 | transactionId | [ByteVector](/ru/ride/v5/data-types/byte-vector) | ID транзакции вызова скрипта |
-| 5 | fee | [Int](/ru/ride/v5/data-types/int) | Комиссия за транзакцию вызова скрипта |
-| 6 | feeAssetId | [ByteVector](/ru/ride/v5/data-types/byte-vector)&#124;[Unit](/ru/ride/v5/data-types/unit) | ID токена, в котором указана комиссия |
+| 3 | originalCaller | [Address](/ru/ride/v5/structures/common-structures/address) | Адрес аккаунта, который отправил транзакцию вызова скрипта |
+| 4 | originalCallerPublicKey | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Открытый ключ аккаунта, который отправил транзакцию вызова скрипта |
+| 5 | payments | List[[AttachedPayment](/ru/ride/v5/structures/common-structures/attached-payment)] | Платежи, указанные в функции [Invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp) |
+| 6 | transactionId | [ByteVector](/ru/ride/v5/data-types/byte-vector) | ID транзакции вызова скрипта |
+| 7 | fee | [Int](/ru/ride/v5/data-types/int) | Комиссия за транзакцию вызова скрипта |
+| 8 | feeAssetId | [ByteVector](/ru/ride/v5/data-types/byte-vector)&#124;[Unit](/ru/ride/v5/data-types/unit) | ID токена, в котором указана комиссия |
 
 ## Результат вызываемой функции
 

@@ -21,6 +21,7 @@
 * Added the [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function for dApp-to-dApp invocation.
 * Added [strict variables](/en/ride/v5/variables/) that are evaluated before the next expression to ensure executing callable functions and applying their actions in the right order.
 * Modified the [callable function result](/en/ride/v5/functions/callable-function#invocation-result) by adding a return value.
+* Modified the [Invocation](/en/ride/v5/structures/common-structures/invocation) structure: in case of dApp-to-dApp invocation, the structure contains the address and public key of both the sender of the Invoke Script transaction and the dApp account that invokes the callable function.
 * Added script actions that the callable function can perform:
    * [Lease](/en/ride/v5/structures/script-actions/lease) — leases WAVES.
    * [LeaseCancel](/en/ride/v5/structures/script-actions/lease-cancel) — cancels a specified lease.

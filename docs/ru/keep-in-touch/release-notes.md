@@ -21,6 +21,7 @@
 * Добавлена функция [Invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp) для вызова dApp из dApp.
 * Добавлены [нетерпеливые переменные](/ru/ride/v5/variables/), которые вычисляются до следующего выражения, чтобы гарантировать порядок выполнения и применения действий скрипта вызываемых функций.
 * Изменен [формат результата](/ru/ride/v5/functions/callable-function#result) вызываемой функции: добавлено возвращаемое значение.
+* Изменена структура [Invocation](/ru/ride/v5/structures/common-structures/invocation): в случае вызова dApp из dApp она содержит адрес и публичный ключ как отправителя транзакции вызова скрипта, так и аккаунта dApp, который вызывает функцию.
 * Добавлены действия скрипта, которые может выполнять вызываемая функция:
    * [Lease](/ru/ride/v5/structures/script-actions/lease) — передает WAVES в лизинг.
    * [LeaseCancel](/ru/ride/v5/structures/script-actions/lease-cancel) — прекращает лизинг.
