@@ -88,8 +88,8 @@ Script actions performed by the callable function are set by Ride structures.
 
 ### Limitations
 
-* The maximum number of `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, `StringEntry`, `DeleteEntry` that are executed by callable function is 100.
-* The maximum number of `Issue`, `Reissue`, `Burn`, `SponsorFee`, `ScriptTransfer`, `Lease`, `LeaseCancel` that are executed by callable function is 10.
+* The maximum total number of `Issue`, `Reissue`, `Burn`, `SponsorFee`, `ScriptTransfer`, `Lease`, `LeaseCancel` script actions executed by all callable functions in a single transaction is 20.
+* The maximum total number of `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, `StringEntry`, `DeleteEntry` script actions executed by all callable functions in a single transaction is 100.
 * The maximum number of the payments to dApp in invocation is 10.
 
 See also the [Limitations](/en/ride/v5/limits/) article.
