@@ -2,19 +2,20 @@
 
 Waves Keeper API supports the following types of transactions:
 
-- 3 – issue transaction;
-- 4 – transfer transaction;
-- 5 – reissue transacton;
-- 6 – burn transaction;
-- 8 – lease transaction;
-- 9 – lease cancel transaction;
-- 10 – create alias transaction;
-- 11 – mass transfer transaction;
-- 12 – date transaction;
-- 13 – set script transaction;
-- 14 – sponsor fee transaction;
-- 15 – set asset script transaction.
-- 16 – invoke script.
+- 3 – Issue transaction;
+- 4 – Transfer transaction;
+- 5 – Reissue transacton;
+- 6 – Burn transaction;
+- 8 – Lease transaction;
+- 9 – Lease cancel transaction;
+- 10 – Create Alias transaction;
+- 11 – Mass Transfer transaction;
+- 12 – Data transaction;
+- 13 – Set Script transaction;
+- 14 – Sponsor Fee transaction;
+- 15 – Set Asset Script transaction;
+- 16 – Invoke Script transaction;
+- 17 — Update Asset Info transaction.
 
 In Waves Keeper API transaction format is different from [Node REST API](/en/waves-node/node-api/). The `signTransaction`, `signAndPublishTransaction`, and `signTransactionPackage` accept transactions as follows
 
@@ -300,7 +301,8 @@ In case of a success, 0.002 WAVES will be sent to alias1 and alias2.
 - `data`: array of objects:
    - `type`: "binary"/string/"integer"/"boolean" – entry type.
    - `key`: string – entry key.
-   - `value`: string(base64)/string/number/boolean depending on the type.
+   - `value`: string(base64)/string/number/boolean depending on the type. `null` to delete entry.
+- `*version`: number – transaction version.
 - `*fee`: MoneyLike – fee.
 - `*senderPublicKey`: string – sender's public key in base58.
 - `*timestamp`: number/string – time in ms.
@@ -308,28 +310,52 @@ In case of a success, 0.002 WAVES will be sent to alias1 and alias2.
 Example:
 
 ```js
-   WavesKeeper.signAndPublishTransaction({
-        type: 12,
-        data: {
-             data: [
-                  { key: "string", value: "testVdfgdgf dfgdfgdfg dfg dfg al", type: "string" },
-                  { key: "binary", value: "base64:AbCdAbCdAbCdAbCdAbCdAbCdAbCdAbCdAbCdAbCdAbCd", type: "binary" },
-                  { key: "integer", value: 20, type: "integer" },
-                  { key: "boolean", value: false, type: "boolean" },
-             ],
-             fee: {
-                 "tokens": "0.01",
-                 "assetId": "WAVES"
-             }
-        }
-   }).then((tx) => {
-        console.log("Hurray! I've saved data!!!");
-   }).catch((error) => {
-        console.error("Something went wrong", error);
-   });
+WavesKeeper.signAndPublishTransaction({
+   type: 12,
+   data: {
+      data: [
+         { key: "string", value: "test", type: "string" },
+         { key: "binary", value: "base64:AbCdAbCdAbCdAbCdAbCdAbCdAbCdAbCdAbCdAbCdAbCd", type: "binary" },
+         { key: "integer", value: 20, type: "integer" },
+         { key: "boolean", value: false, type: "boolean" },
+     ],
+      fee: {
+         tokens: "0.01",
+         assetId: "WAVES"
+      }
+   }
+}).then((tx) => {
+   console.log("Hurray! I've saved data!!!");
+}).catch((error) => {
+   console.error("Something went wrong", error);
+});
 ```
 
 In case of a success, new data will be stored in the state.
+
+To delete an entry, pass the entry `key` along with `value: null`. Entry deletion is available from version 2, so the `version` field is required.
+
+Example:
+
+```js
+WavesKeeper.signAndPublishTransaction({
+   type: 12,
+   data: {
+      version: 2,
+      data: [
+         { key: "binary", value: null },
+      ],
+      fee: {
+         tokens: "0.001",
+         assetId: "WAVES"
+      }
+   }
+}).then((tx) => {
+   console.log("Hurray! I've deleted data!!!");
+}).catch((error) => {
+   console.error("Something went wrong", error);
+});
+```
 
 ## Set Script Transaction (Type 13)
 
@@ -451,39 +477,101 @@ In case of a success, the asset's script will be reset.
 - `call`: object:
   - `function`: string – function name.
   - `args`: array:
-    - `type` "binary"/string/"integer"/"boolean" – type.
-    - `value` string(base64)/string/number/boolean – value.
+    - `type` "binary"/string/"integer"/"boolean"/"list" – type.
+    - `value` string(base64)/string/number/boolean/array – value.
+- `*payment`: array of MoneyLike — up to 2 payments.
 - `*fee`: MoneyLike – fee.
-- `*payment`: array of MoneyLike (at now can use only 1 payment).
+- `*version`: number — transaction version.
 - `*senderPublicKey`: string – sender's public key in base58.
-- `*timestamp`: number/string – time in ms.
+- `*timestamp`: number/string – Unix timestamp in ms.
 
 Example:
 
 ```js
-   WavesKeeper.signAndPublishTransaction({
-        type: 16,
-        data: {
-             fee: {
-                 "tokens": "0.05",
-                 "assetId": "WAVES"
-             },
-             dApp: '3N27HUMt4ddx2X7foQwZRmpFzg5PSzLrUgU',
-             call: {
-             		function: 'tellme',
-             		args: [
-             		    {
-             		      "type": "string",
-             		      "value": "Will?"
-             		    }]
-             	}, payment: [{assetId: "WAVES", tokens: 2}]
-        }
-   }).then((tx) => {
-        console.log("Ура! Я выполнил скрипт!!!");
-   }).catch((error) => {
-        console.error("Что-то пошло не так", error);
-   });
-
+WavesKeeper.signAndPublishTransaction({
+   type: 16,
+   data: {
+      dApp: "3N27HUMt4ddx2X7foQwZRmpFzg5PSzLrUgU",
+      call: {
+         function: "tellme",
+         args: [{
+            type: "string",
+            value: "Will?"
+         }]
+      },
+      payment: [ {assetId: "WAVES", tokens: 2} ],
+      fee: {
+         tokens: "0.005",
+         assetId: "WAVES"
+      },
+   }
+}).then((tx) => {
+   console.log("Hurray! I've invoked the script!!!");
+}).catch((error) => {
+   console.error("Something went wrong", error);
+});
 ```
 
 In case of a success, callable function `tellme` of Testnet account `3N27HUMt4ddx2X7foQwZRmpFzg5PSzLrUgU` will be invoked.
+
+An example of an invocation of a function with a list argument: 
+
+```js
+WavesKeeper.signAndPublishTransaction({
+   type: 16,
+   data: {
+      dApp: "3N28o4ZDhPK77QFFKoKBnN3uNeoaNSNXzXm",
+      call: {
+         function: "foo",
+         args: [
+            {
+               type: "list",
+               value: [
+                  { type: "string", value: "alpha" },
+                  { type: "string", value: "beta" },
+                  { type: "string", value: "gamma" }
+              ],
+            }
+         ]
+      },
+      payment: [],
+      fee: {
+         tokens: "0.005",
+         assetId: "WAVES"
+      },
+   }
+}).then((tx) => {
+  console.log("Hurray! I've invoked the script!!!");
+}).catch((error) => {
+   console.error("Something went wrong", error);
+});
+```
+
+## Update Asset Info Transaction (Type 17)
+
+- `name`: [4, 16] string – token name.
+- `description`: [0, 1000] string – token description.
+- `*fee`: MoneyLike — fee.
+- `*senderPublicKey`: string — sender's public key in base58.
+- `*timestamp`: number/string — Unix time in ms.
+
+Example:
+
+```js
+WavesKeeper.signAndPublishTransaction({
+   type: 17,
+   data: {
+      name: "New name",
+      description: "New description",
+      assetId: "DS5fJKbhKDaFfcRpCd7hTcMqqxsfoF3iY9yEcmsTQV1T",
+      fee: {
+         assetId: "WAVES",
+         tokens: "0.001"
+      },
+   }
+}).then((tx) => {
+   console.log("Hurray! I've renamed the asset!!!");
+}).catch((error) => {
+   console.error("Something went wrong", error);
+});
+```

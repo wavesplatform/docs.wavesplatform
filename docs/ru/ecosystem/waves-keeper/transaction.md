@@ -300,8 +300,8 @@ MoneyLike может иметь вид:
 - `data`: массив объектов.
    - `type`: "binary"/string/"integer"/"boolean" — тип записи.
    - `key`: string – ключ записи.
-   - `value`: string(base64)/string/number/boolean в зависимости от типа.
-- `*version`: версия транзакции.
+   - `value`: string(base64)/string/number/boolean в зависимости от типа. `null` для удаления записи.
+- `*version`: number — версия транзакции.
 - `*fee`: MoneyLike — комиссия за транзакцию.
 - `*senderPublicKey`: string — открытый ключ отправителя в кодировке base58.
 - `*timestamp`: number/string — Unix-время в миллисекундах.
@@ -332,7 +332,9 @@ WavesKeeper.signAndPublishTransaction({
 
 В случае успеха данные появятся в хранилище данных аккаунта.
 
-Для удаления записи передайте ключ записи `key` вместе с `value: null`. Удаление доступно начиная с версии 2, поэтому необходимо указать поле `version`.
+Для удаления записи передайте ключ записи `key` вместе с `value: null`. Удаление записи доступно начиная с версии 2, поэтому необходимо указать поле `version`.
+
+Пример:
 
 ```js
 WavesKeeper.signAndPublishTransaction({
@@ -474,9 +476,9 @@ WavesKeeper.signAndPublishTransaction({
   - `args`: массив:
     - `type`: "binary"/string/"integer"/"boolean"/"list" — тип.
     - `value` string(base64)/string/number/boolean/массив — значение.
-- `payment`: массив MoneyLike (доступно до 2 платежей).
+- `payment`: массив MoneyLike — до 2 платежей.
 - `fee`: MoneyLike — комиссия за транзакцию.
-- `*version`: версия транзакции.
+- `*version`: number — версия транзакции.
 - `*senderPublicKey`: string — открытый ключ отправителя в кодировке base58.
 - `*timestamp`: number/string — Unix-время в миллисекундах.
 
@@ -508,6 +510,8 @@ WavesKeeper.signAndPublishTransaction({
 ```
 
 В случае успеха будет вызвана функция `tellme` dApp-аккаунта `3N27HUMt4ddx2X7foQwZRmpFzg5PSzLrUgU` на Testnet.
+
+Пример вызова функции, аргументом которой является список:
 
 ```js
 WavesKeeper.signAndPublishTransaction({
