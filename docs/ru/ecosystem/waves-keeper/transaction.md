@@ -51,8 +51,8 @@ MoneyLike может иметь вид:
 
 ## Транзакция выпуска (тип 3)
 
-- `name`: [4, 16] string — имя токена.
-- `description`: [0, 1000] string — описание токена.
+- `name`: [4..16 байт] string — имя токена.
+- `description`: [0..1000 байт] string — описание токена.
 - `quantity`: [0 - (JLM)] number/string — количество токена.
 - `precision`: [0 - 8] number — количество знаков после запятой.
 - `reissuable`: true|false — флаг возможности довыпуска.
@@ -234,7 +234,7 @@ MoneyLike может иметь вид:
 
 ## Транзакция создания псевдонима (тип 10)
 
-- `alias`: [4, 30] string — псевдоним.
+- `alias`: [4..30 байт] string — псевдоним.
 - `*fee`: MoneyLike — комиссия за транзакцию.
 - `*senderPublicKey`: string — открытый ключ отправителя в кодировке base58.
 - `*timestamp`: number/string — Unix-время в миллисекундах.
@@ -546,8 +546,8 @@ WavesKeeper.signAndPublishTransaction({
 
 ## Транзакция обновления информации ассета (тип 17)
 
-- `name`: [4, 16] string — имя токена.
-- `description`: [0, 1000] string — описание токена.
+- `name`: [4..16 байт] string — имя токена.
+- `description`: [0..1000 байт] string — описание токена.
 - `*fee`: MoneyLike — комиссия за транзакцию.
 - `*senderPublicKey`: string — открытый ключ отправителя в кодировке base58.
 - `*timestamp`: number/string — Unix-время в миллисекундах.

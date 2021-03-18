@@ -52,8 +52,8 @@ If the field contains other types than MoneyLike, for instance, string/MoneyLike
 
 ## Issue Transaction (Type 3)
 
-- `name`: [4, 16] string – token name.
-- `description`: [0, 1000] string – token description.
+- `name`: [4..16 bytes] string – token name.
+- `description`: [0..1000 bytes] string – token description.
 - `quantity`: [0 - (JLM)] number/string – token amount.
 - `precision`: [0 - 8] number – precision.
 - `reissuable`: true|false – reissuble.
@@ -235,7 +235,7 @@ In case of a success, the leasing is cancelled.
 
 ## Create Alias Transaction (Type 10)
 
-- `alias`: [4, 30] string – alias.
+- `alias`: [4..30 bytes] string – alias.
 - `*fee`: MoneyLike – fee.
 - `*senderPublicKey`: string – sender's public key in base58.
 - `*timestamp`: number/string – time in ms.
@@ -549,8 +549,8 @@ WavesKeeper.signAndPublishTransaction({
 
 ## Update Asset Info Transaction (Type 17)
 
-- `name`: [4, 16] string – token name.
-- `description`: [0, 1000] string – token description.
+- `name`: [4..16 bytes] string – token name.
+- `description`: [0..1000 bytes] string – token description.
 - `*fee`: MoneyLike — fee.
 - `*senderPublicKey`: string — sender's public key in base58.
 - `*timestamp`: number/string — Unix time in ms.
