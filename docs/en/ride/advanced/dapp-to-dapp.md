@@ -64,7 +64,7 @@ Features:
           → dapp D
        → dapp С
          → dapp B
-        -→ dapp D
+         → dapp D
    ```
    </details>
 

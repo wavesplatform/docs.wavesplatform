@@ -1307,7 +1307,7 @@ module.exports = {
           path: rideV5Path + 'limits',
           children: [
             {
-              title: 'Data Weigt',
+              title: 'Data Weight',
               path: rideV5Path + 'limits/weight',
             },
           ],
