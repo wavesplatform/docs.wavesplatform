@@ -194,6 +194,8 @@ func foo() = {
 
 Возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте. Возвращает `unit`, если скрипт отсутствует.
 
+Функция может использоваться для проверки того, что скрипт совпадает с ожидаемым.
+
 ```
 hashScriptAtAddress(addressOrAlias: Address|Alias): ByteVector|Unit
 ```
