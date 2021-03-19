@@ -42,5 +42,5 @@ Added the function [calculateLeaseId](/en/ride/v5/functions/built-in-functions/b
 
 Added the following built-in functions:
 
-* [emptyDataStorage](/en/ride/v5/functions/built-in-functions/account-data-storage-functions#emptydatastorage) that checks if there are no entries in the data storage of a given account.
+* [isDataStorageUntouched](/en/ride/v5/functions/built-in-functions/account-data-storage-functions#isdatastorageuntouched) that checks if the data storage of a given account never contained any entries.
 * [hashScriptAtAddress](en/ride/v5/functions/built-in-functions/blockchain-functions#hashscriptataddress) that returns [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) hash of the script assigned to a given account.

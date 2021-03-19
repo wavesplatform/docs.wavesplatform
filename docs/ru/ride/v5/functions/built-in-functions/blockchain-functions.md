@@ -10,7 +10,7 @@
 | [blockInfoByHeight(Int): BlockInfo &#124;Unit](#blockinfobyheight) | Получает информацию о [блоке](/ru/blockchain/block/) по [высоте блока](/ru/blockchain/block/block-height) | 5 |
 | [calculateAssetId(Issue): ByteVector](#calculateassetid) | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/v5/structures/script-actions/issue) при выполнении [вызываемой функции](/ru/ride/functions/callable-function) | 10 |
 | [calculateLeaseId(Lease): ByteVector](#calculateleaseid) | Вычисляет ID ассета, созданного структурой [Lease](/ru/ride/v5/structures/script-actions/lease) при выполнении вызываемой функции | 1 |
-| [hashScriptAtAddress(Address&#124;Alias): ByteVector](#hashscriptataddress) | Возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте. Завершается ошибкой, если скрипт отсутствует | TBDL |
+| [hashScriptAtAddress(Address&#124;Alias): ByteVector&#124;Unit](#hashscriptataddress) | Возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте | TBDL |
 | [transactionHeightById(ByteVector):  Int&#124;Unit](#transactionheightbyid) | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 20 |
 | [transferTransactionById(ByteVector): TransferTransaction&#124;Unit](#transfertransactionbyid) | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 60 |
 | [wavesBalance(Address&#124;Alias): BalanceDetails](#waves-balance) | Получает баланс аккаунта в [WAVES](/ru/blockchain/token/waves) | 10 |
@@ -192,10 +192,10 @@ func foo() = {
 
 ## hashScriptAtAddress
 
-Возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте. Завершается ошибкой, если скрипт отсутствует.
+Возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте. Возвращает `unit`, если скрипт отсутствует.
 
 ```
-hashScriptAtAddress(addressOrAlias: Address|Alias): ByteVector
+hashScriptAtAddress(addressOrAlias: Address|Alias): ByteVector|Unit
 ```
 
 ### Параметры

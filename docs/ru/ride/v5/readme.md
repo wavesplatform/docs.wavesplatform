@@ -41,5 +41,5 @@ C помощью действий `Lease` и `LeaseCancel` можно измен
 ## Разное
 
 Добавлены встроенные функции:
-* [emptyDataStorage](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions#emptydatastorage) — проверяет отсутствие записей в хранилище данных аккаунта.
+* [isDataStorageUntouched](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions#isdatastorageuntouched) — проверяет, что хранилице данных указанного аккаунта никогда не содержало записей.
 * [hashScriptAtAddress]((/ru/ride/v5/functions/built-in-functions/blockchain-functions#hashscriptataddress) — возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте.

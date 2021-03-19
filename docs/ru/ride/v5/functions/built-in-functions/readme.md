@@ -23,7 +23,7 @@
 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Получает информацию о [блоке](/ru/blockchain/block/) по [высоте блока](/ru/blockchain/block/block-height) | 5 |
 | calculateAssetId(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/v5/structures/script-actions/issue) при выполнении [вызываемой функции](/ru/ride/v5/functions/callable-function) | 10 |
 | calculateLeaseId(Lease): ByteVector | Вычисляет ID лизинга, созданного структурой [Lease](/ru/ride/v5/structures/script-actions/issue) при выполнении вызываемой функции | 1 |
-| hashScriptAtAddress(Address&#124;Alias): ByteVector | Возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте. Завершается ошибкой, если скрипт отсутствует | TBDL |
+| hashScriptAtAddress(Address&#124;Alias): ByteVector&#124;Unit | Возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте | TBDL |
 | transactionHeightById(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 20 |
 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 60 |
 | wavesBalance(Address&#124;Alias): Int | Получает баланс аккаунта в [WAVES](/ru/blockchain/token/waves) | 10 |
@@ -112,7 +112,6 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| emptyDataStorage(Address&#124;Alias): Boolean | Проверяет отсутствие записей в хранилище данных аккаунта | TBDL |
 | getBinary(Address&#124;Alias, String): ByteVector&#124;Unit | Получает массив байтов по ключу | 10 |
 | getBinary(String): ByteVector&#124;Unit | Получает массив байтов по ключу из собственного хранилища данных | 10 |
 | getBinaryValue(Address&#124;Alias, String): ByteVector | Получает массив байтов по ключу. Завершается ошибкой, если данных нет | 10 |
@@ -129,6 +128,7 @@
 | getString(String): String&#124;Unit | Получает строку по ключу из собственного хранилища данных | 10 |
 | getStringValue(Address&#124;Alias, String): String | Получает строку по ключу. Завершается ошибкой, если данных нет | 10 |
 | getStringValue(String): String | Получает строку по ключу из собственного хранилища данных. Завершается ошибкой, если данных нет | 10 |
+| isDataStorageUntouched(Address&#124;Alias): Boolean | Проверяет, что хранилице данных указанного аккаунта никогда не содержало записей | TBDL |
 
 ## [Функции списка](/ru/ride/v5/functions/built-in-functions/list-functions)
 
