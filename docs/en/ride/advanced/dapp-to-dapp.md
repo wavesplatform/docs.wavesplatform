@@ -22,6 +22,52 @@ Features:
 * dApp-to-dApp invocations are added in node version 1.3.0 and enabled with feature #16 “Ride V5, dApp-to-dApp invocations, Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 * The invoking dApp script uses [Standard library](/en/ride/script/standard-library) **version 5**.
 * If the dApp invokes itself, the invocation must not contain payments.
+* The invocation stack must not contain invocations of the same dApp with invocations of another dApp between them.
+
+   <details>
+      <summary>Details</summary>
+
+   The following invocation sequences will fail:
+
+
+   ```
+   → dApp A
+      → dapp B
+          → dApp A
+   ```
+
+   ```
+   → dApp A
+      → dapp B
+          → dApp C
+             → dApp D
+                → dApp B
+   ```
+
+   The following invocation sequences are valid:
+
+   ```
+   → dApp A
+      → dapp B
+          → dApp B
+   ```
+
+   ```
+   → dApp A
+      → dapp B
+      → dApp B
+   ```
+
+   ```
+   → dapp A
+       → dapp B
+          → dapp D
+       → dapp С
+         → dapp B
+        -→ dapp D
+   ```
+   </details>
+
 * The number of the [Invoke](#invoke-function) function calls is up to 100 within a single Invoke Script transaction.
 * The maximum total number of `Issue`, `Reissue`, `Burn`, `SponsorFee`, `ScriptTransfer`, `Lease`, `LeaseCancel` script actions executed by all callable functions in a single transaction is 20.
 * The maximum total number of `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, `StringEntry`, `DeleteEntry` script actions executed by all callable functions in a single transaction is 100.
