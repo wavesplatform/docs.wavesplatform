@@ -70,10 +70,11 @@ message Amount {
 | **8.3** | Количество токена в платеже 1 | amount | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **8.4** | Флаг токена платежа 1 |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — WAVES.<br>1 — другой токен |
 | **8.5** | ID токена платежа 1 | assetId | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
-| **8.6** | Длина платежа 2 | | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 2 | |
-| **8.7** | Количество токена в платеже 2 | amount | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| **8.8** | Флаг токена платежа 2 |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — [WAVES](/ru/blockchain/token/waves).<br>1 — другой токен |
-| **8.9** | ID токена платежа 2 | assetId | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
+| ... | ... | ... | ... | ... | ... |
+| **8.[4&nbsp;×&nbsp;N&nbsp;–&nbsp;2]** | Длина платежа N | | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 2 | |
+| **8.[4&nbsp;×&nbsp;N&nbsp;–&nbsp;1]** | Количество токена в платеже N | amount | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
+| **8.[4&nbsp;×&nbsp;N]** | Флаг токена платежа N |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — [WAVES](/ru/blockchain/token/waves).<br>1 — другой токен |
+| **8.[4&nbsp;×&nbsp;N&nbsp;+&nbsp;1]** | ID токена платежа N | assetId | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
 | **9** | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) | fee | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **10.1** | Флаг токена комиссии | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — WAVES<br>1 — другой токен |
 | **10.2** | ID токена комиссии | feeAssetId | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | `S` = 0, если токеном является WAVES.<br>`S` = 32, если это другой токен |

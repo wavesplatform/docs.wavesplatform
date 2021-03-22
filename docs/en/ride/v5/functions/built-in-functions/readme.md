@@ -9,21 +9,13 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | getBinary(Address&#124;Alias, String): ByteVector&#124;Unit | Gets an array of bytes by key | 10 |
-<!-- | getBinary(String): ByteVector&#124;Unit | Gets an array of bytes by key from dApp's own data storage | 10 | -->
 | getBinaryValue(Address&#124;Alias, String): ByteVector | Gets an array of bytes by key. Fails if there is no data | 10 |
-<!-- | getBinaryValue(String): ByteVector | Gets an array of bytes by key from dApp's own data storage. Fails if there is no data | 10 |-->
 | getBoolean(Address&#124;Alias, String): Boolean&#124;Unit | Gets a boolean value by key | 10 |
-<!-- | getBoolean(String): Boolean&#124;Unit | Gets a boolean value by key from dApp's own data storage | 10 |-->
 | getBooleanValue(Address&#124;Alias, String): Boolean | Gets a boolean value by key. Fails if there is no data | 10 |
-<!--| getBooleanValue(String): Boolean | Gets a boolean value by key from dApp's own data storage. Fails if there is no data | 10 | -->
 | getInteger(Address&#124;Alias, String): Int&#124;Unit | Gets an integer by key | 10 |
-<!-- | getInteger(String): Int&#124;Unit | Gets an integer by key from dApp's own data storage | 10 | -->
 | getIntegerValue(Address&#124;Alias, String): Int | Gets an integer by key. Fails if there is no data | 10 |
-<!-- | getIntegerValue(String): Int](#getintegervalue-string-int) | Gets an integer by key from dApp's own data storage. Fails if there is no data | 10 | -->
 | getString(Address&#124;Alias, String): String&#124;Unit | Gets a string by key | 10 |
-<!-- | getString(String): String&#124;Unit | Gets a string by key from dApp's own data storage | 10 | -->
 | getStringValue(Address&#124;Alias, String): String | Gets a string by key. Fails if there is no data | 10 |
-<!-- | getStringValue(String): String | Gets a string by key from dApp's own data storage. Fails if there is no data | 10 | -->
 | isDataStorageUntouched(Address&#124;Alias): Boolean | Checks if the data storage of a given account never contained any entries | 10 |
 
 ## [Blockchain functions](/en/ride/v5/functions/built-in-functions/blockchain-functions)
@@ -81,7 +73,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| Invoke(Address&#124;Alias, String, List[Boolean&#124;ByteVector&#124;Int&#124;String&#124;List[Boolean&#124;ByteVector&#124;Int&#124;String]], List[AttachedPayments]): Any | Invokes a dApp callable function | 75 |
+| Invoke(Address&#124;Alias, String, List[Any], List[AttachedPayments]): Any | Invokes a dApp callable function | 75 |
 
 ## [Data transaction functions](/en/ride/v5/functions/built-in-functions/data-transaction-functions)
 

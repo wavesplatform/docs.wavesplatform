@@ -8,21 +8,13 @@
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | [getBinary(Address&#124;Alias, String): ByteVector&#124;Unit](#get-binary) | Gets an array of bytes by key | 10 |
-<!-- | [getBinary(String): ByteVector&#124;Unit](#getbinary-string-bytevector-unit) | Gets an array of bytes by key from the dApp's own data storage | 10 | -->
 | [getBinaryValue(Address&#124;Alias, String): ByteVector](#get-binary-value) | Gets an array of bytes by key. Fails if there is no data | 10 |
-<!-- | [getBinaryValue(String): ByteVector](#getbinaryvalue-string-bytevector) | Gets an array of bytes by key from the dApp's own data storage. Fails if there is no data | 10 | -->
 | [getBoolean(Address&#124;Alias, String): Boolean&#124;Unit](#get-boolean) | Gets a boolean value by key | 10 |
-<!-- | [getBoolean(String): Boolean&#124;Unit](#getboolean-string-boolean-unit) | Gets a boolean value by key from the dApp's own data storage | 10 | -->
 | [getBooleanValue(Address&#124;Alias, String): Boolean](#get-boolean-value) | Gets a boolean value by key. Fails if there is no data | 10 |
-<!-- | [getBooleanValue(String): Boolean](#getbooleanvalue-string-boolean) | Gets a boolean value by key from the dApp's own data storage. Fails if there is no data | 10 | -->
 | [getInteger(Address&#124;Alias, String): Int&#124;Unit](#get-integer) | Gets an integer by key | 10 |
-<!-- | [getInteger(String): Int&#124;Unit](#getinteger-string-int-unit) | Gets an integer by key from the dApp's own data storage | 10 | -->
 | [getIntegerValue(Address&#124;Alias, String): Int](#get-integer-value) | Gets an integer by key. Fails if there is no data | 10 |
-<!-- | [getIntegerValue(String): Int](#getintegervalue-string-int) | Gets an integer by key from the dApp's own data storage. Fails if there is no data | 10 | -->
 | [getString(Address&#124;Alias, String): String&#124;Unit](#get-string) | Gets a string by key | 10 |
-<!-- | [getString(String): String&#124;Unit](#getstring-string-string-unit) | Gets a string by key from the dApp's own data storage | 10 | -->
 | [getStringValue(Address&#124;Alias, String): String](#get-string-value) | Gets a string by key. Fails if there is no data | 10 |
-<!-- | [getStringValue(String): String](#getstringvalue-string-string) | Gets a string by key from the dApp's own data storage. Fails if there is no data | 10 | -->
 | [isDataStorageUntouched(Address&#124;Alias): Boolean](#isdatastorageuntouched) | Checks if the data storage of a given account never contained any entries | 10 |
 
 ## getBinary(Address|Alias, String): ByteVector|Unit <a id="get-binary"></a>

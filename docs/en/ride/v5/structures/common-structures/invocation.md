@@ -7,7 +7,7 @@ Structure that contains the fields of the script invocation that the [callable f
 ## Constructor
 
 ```ride
-Invocation(caller: Address, callerPublicKey: ByteVector, payments: List[AttachedPayment], transactionId: ByteVector, fee: Int, feeAssetId: ByteVector|Unit)
+Invocation(caller: Address, callerPublicKey: ByteVector, originalCaller: Address, originalCallerPublicKey: ByteVector, payments: List[AttachedPayment], transactionId: ByteVector, fee: Int, feeAssetId: ByteVector|Unit)
 ```
 
 ## Fields

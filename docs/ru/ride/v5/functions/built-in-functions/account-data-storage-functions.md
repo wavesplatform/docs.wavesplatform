@@ -7,21 +7,13 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | [getBinary(Address&#124;Alias, String): ByteVector&#124;Unit](#get-binary) | Получает массив байтов по ключу | 10 |
-<!-- | [getBinary(String): ByteVector&#124;Unit](#getbinary-string-bytevector-unit) | Получает массив байтов по ключу из собственного хранилища данных | 10 | -->
 | [getBinaryValue(Address&#124;Alias, String): ByteVector](#get-binary-value) | Получает массив байтов по ключу. Завершается ошибкой, если данных нет | 10 |
-<!-- | [getBinaryValue(String): ByteVector](#getbinaryvalue-string-bytevector) | Получает массив байтов по ключу из собственного хранилища данных. Завершается ошибкой, если данных нет | 10 | -->
 | [getBoolean(Address&#124;Alias, String): Boolean&#124;Unit](#get-boolean)  | Получает логическое значение по ключу | 10 |
-<!-- | [getBoolean(String): Boolean&#124;Unit](#getboolean-string-boolean-unit) | Получает логическое значение по ключу из собственного хранилища данных | 10 | -->
 | [getBooleanValue(Address&#124;Alias, String): Boolean](#get-boolean-value) | Получает логическое значение по ключу. Завершается ошибкой, если данных нет | 10 |
-<!-- | [getBooleanValue(String): Boolean](#getbooleanvalue-string-boolean) | Получает логическое значение по ключу из собственного хранилища данных. Завершается ошибкой, если данных нет | 10 | -->
 | [getInteger(Address&#124;Alias, String): Int&#124;Unit](#get-integer) | Получает целое число по ключу | 10 |
-<!-- | [getInteger(String): Int&#124;Unit](#getinteger-string-int-unit) | Получает целое число по ключу из собственного хранилища данных | 10 | -->
 | [getIntegerValue(Address&#124;Alias, String): Int](#get-integer-value)  | Получает целое число по ключу. Завершается ошибкой, если данных нет | 10 |
-<!-- | [getIntegerValue(String): Int](#getintegervalue-string-int)  | Получает целое число по ключу из собственного хранилища данных. Завершается ошибкой, если данных нет | 10 | -->
 | [getString(Address&#124;Alias, String): String&#124;Unit](#get-string)  | Получает строку по ключу | 10 |
-<!-- | [getString(String): String&#124;Unit](#get-string)  | Получает строку по ключу из собственного хранилища данных | 10 | -->
 | [getStringValue(Address&#124;Alias, String): String](#get-string-value)  | Получает строку по ключу. Завершается ошибкой, если данных нет | 10 |
-<!-- | [getStringValue(String): String](#get-string-value)  | Получает строку по ключу из собственного хранилища данных. Завершается ошибкой, если данных нет | 10 | -->
 | [isDataStorageUntouched(Address&#124;Alias): Boolean](#isdatastorageuntouched) | Проверяет, что хранилище данных указанного аккаунта никогда не содержало записей | 10 |
 
 ## getBinary(Address|Alias, String): ByteVector|Unit <a id="get-binary"></a>
@@ -258,7 +250,7 @@ geString(key: String): String
 
 ## isDataStorageUntouched(Address|Alias): Boolean<a id="isdatastorageuntouched"></a>
 
-Проверяет, что хранилице данных указанного аккаунта никогда не содержало записей.
+Проверяет, что хранилище данных указанного аккаунта никогда не содержало записей.
 
 Возвращает `false`, если в хранилище данных была хотя бы одна запись, даже если она удалена.
 

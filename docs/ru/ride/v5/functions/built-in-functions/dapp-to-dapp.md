@@ -25,7 +25,7 @@
 Если скрипт ассета отклоняет действие, то транзакция, которая вызвала скрипт dApp, либо отклоняется, либо сохраняется на блокчейне как неуспешная, см. раздел [Валидация транзакций](/ru/blockchain/transaction/transaction-validation).
 
 ```ride
-Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector|Int|String|List[Boolean|ByteVector|Int|String]], payments: List[AttachedPayments]): Any
+Invoke(dApp: Address|Alias, function: String, arguments: List[Any], payments: List[AttachedPayments]): Any
 ```
 
 `Any` означает любой допустимый тип.
@@ -38,7 +38,7 @@ Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector
 | :--- | :--- |
 | dApp: [Address](/ru/ride/v5/structures/common-structures/address)&#124;[Alias](/ru/ride/v5/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) dApp, функция которого вызывается |
 | function: [String](/ru/ride/v5/data-types/string)&#124;[Unit](/ru/ride/v5/data-types/unit) | Имя вызываемой функции. `unit` — вызов функции по умолчанию |
-| arguments: [List](/ru/ride/v5/data-types/list)[[Boolean](/ru/ride/v5/data-types/boolean)&#124;[ByteVector](/ru/ride/v5/data-types/byte-vector)&#124;[Int](/ru/ride/v5/data-types/int)&#124;[String](/ru/ride/v5/data-types/string)&#124;[List](/ru/ride/v5/data-types/list)[[Boolean](/ru/ride/v5/data-types/boolean)&#124;[ByteVector](/ru/ride/v5/data-types/byte-vector)&#124;[Int](/ru/ride/v5/data-types/int)&#124;[String](/ru/ride/v5/data-types/string)]]&#124;[Unit](/ru/ride/v5/data-types/unit) | Параметры вызываемой функции. `unit` в случае вызова функции по умолчанию |
+| arguments: [List](/ru/ride/v5/data-types/list)[[Any](/ru/ride/v5/data-types/any)] | Параметры вызываемой функции. `unit` в случае вызова функции по умолчанию |
 | payments: [List](/ru/ride/v5/data-types/list)[[AttachedPayment](/ru/ride/v5/structures/common-structures/attached-payment)] | Платежи в пользу вызываемого dApp, не более 10 |
 
 ## Пример

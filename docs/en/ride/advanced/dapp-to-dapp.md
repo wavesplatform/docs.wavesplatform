@@ -82,7 +82,7 @@ Features:
 ## Invoke Function
 
 ```
-Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector|Int|String|List[Boolean|ByteVector|Int|String]], payments: List[AttachedPayments]): Any
+Invoke(dApp: Address|Alias, function: String, arguments: List[Any], payments: List[AttachedPayments]): Any
 ```
 
 Parameters:
@@ -91,7 +91,7 @@ Parameters:
 | :--- | :--- |
 | dApp: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of a dApp to invoke |
 | function: [String](/en/ride/v5/data-types/string)&#124;[Unit](/en/ride/v5/data-types/unit) | Name of a callable function. `unit` for a default function invocation |
-| arguments: [List](/en/ride/v5/data-types/list)[[Boolean](/en/ride/v5/data-types/boolean)&#124;[ByteVector](/en/ride/v5/data-types/byte-vector)&#124;[Int](/en/ride/v5/data-types/int)&#124;[String](/en/ride/v5/data-types/string)&#124;[List](/en/ride/v5/data-types/list)[[Boolean](/en/ride/v5/data-types/boolean)&#124;[ByteVector](/en/ride/v5/data-types/byte-vector)&#124;[Int](/en/ride/v5/data-types/int)&#124;[String](/en/ride/v5/data-types/string)]]&#124;[Unit](/en/ride/v5/data-types/unit) | Parameters of a callable function. `unit` for a default function invocation |
+| arguments: [List](/en/ride/v5/data-types/list)[[Any](/en/ride/v5/data-types/any)] | Parameters of a callable function. `unit` for a default function invocation |
 | payments: [List](/en/ride/v5/data-types/list)[[AttachedPayment](/en/ride/v5/structures/common-structures/attached-payment)] | Payments to transfer from the invoking dApp to the invoked dApp, up to 10 |
 
 ```
@@ -143,8 +143,6 @@ If the callable function invoked by the `Invoke` function performs script action
 * If the invoked function adds an entry to the account's data storage, the invoking function can obtain the entry after the invocation.
 * If the invoked function deletes an entry from the account's data storage, the invoking function cannot obtain the entry after the invocation.
 * If the invoked function performs actions with tokens (transfer, release/issue/burn, and others) and the invoking function obtains balances after the invocation, it receives the updated balances.
-
-> Payments attached to the dApp invocation are counted in the dApp balance before the script actions are executed. Therefore, tokens obtained in payments can be used in script actions, but cannot be used in payments attached to nested invocations.
 
 ## Transaction Fail
 

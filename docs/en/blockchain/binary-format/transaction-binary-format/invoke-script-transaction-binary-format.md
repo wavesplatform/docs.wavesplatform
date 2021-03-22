@@ -70,10 +70,11 @@ The maximum size of `d_app` + `function_call` + `payments` is 5120 bytes.
 | **8.3** | Amount of token in payment 1 | amount | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **8.4** | Flag of payment 1 token |  | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | 0 — WAVES.<br>1 — other token |
 | **8.5** | ID of payment 1 token |  | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 | Field is applicable if the token is not WAVES |
-| **8.6** | Payment 2 length |  | [Short](/en/blockchain/blockchain/blockchain-data-types) | 2 |  |
-| **8.7** | Amount of token in payment 2 | amount | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| **8.8** | Flag of payment 2 token |  | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | 0 — WAVES.<br>1 — other token |
-| **8.9** | ID of payment 2 token |  | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 | Field is applicable if the token is not WAVES |
+| ... | ... | ... | ... | ... | ... |
+| **8.[4&nbsp;×&nbsp;N&nbsp;–&nbsp;2]** | Payment N length |  | [Short](/en/blockchain/blockchain/blockchain-data-types) | 2 |  |
+| **8.[4&nbsp;×&nbsp;N&nbsp;–&nbsp;1]** | Amount of token in payment N | amount | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
+| **8.[4&nbsp;×&nbsp;N]** | Flag of payment N token |  | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | 0 — WAVES.<br>1 — other token |
+| **8.[4&nbsp;×&nbsp;N&nbsp;+&nbsp;1]** | ID of payment N token |  | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | 32 | Field is applicable if the token is not WAVES |
 | **9** | [Transaction fee](/en/blockchain/transaction/transaction-fee) | fee | [Long](/en/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **10.1** | Flag of fee token | | [Byte](/en/blockchain/blockchain/blockchain-data-types) | 1 | 0 — WAVES.<br>1 — other token |
 | **10.2** | Fee token ID | feeAssetId | Array[[Byte](/en/blockchain/blockchain/blockchain-data-types)] | `S` | `S` = 0, if token is WAVES.<br>`S` = 32, if it is other token |
