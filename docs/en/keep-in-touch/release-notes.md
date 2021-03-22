@@ -1,9 +1,196 @@
-# Version 1.2
+# Release Notes
 
-## Node Improvements
+## Version 1.3 (Stagenet)
+
+### Protocol Enhancements
+
+* **dApp-to-dApp invocation.** A dApp callable function can invoke a callable function of another dApp, or another callable function of the same dApp, or even itself. All invoked functions are executed within a single Invoke Script transaction. The total complexity is limited. [More about dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp)
+* **Continued computations.** Added support for dApp scripts with complexity over 4000. The execution of such a script is split into several stages. The first stage of computations is performed within the Invoke Script transaction. The further stages are performed within Continuation transactions. [More about continued computations](/en/ride/advanced/continuation)
+   * Implemented the new transaction type: [Continuation](/en/blockchain/transaction-type/continuation-transaction). A block generator creates the Continuation transaction if there is an incomplete computation sequence. A user cannot send a Continuation transaction.
+   * Added version 3 for the [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) that can invoke a script with complexity over 4000.
+
+### Ride
+
+* Issued [version 5](/en/ride/v5/) of the Ride [Standard library](/en/ride/script/standard-library).
+* Added the [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function for dApp-to-dApp invocation.
+* Added [strict variables](/en/ride/v5/variables/) that are evaluated before the next expression to ensure executing callable functions and applying their actions in the right order.
+* Modified the [callable function result](/en/ride/v5/functions/callable-function#invocation-result) by adding a return value.
+* Added script actions that the callable function can perform:
+   * [Lease](/en/ride/v5/structures/script-actions/lease) — leases WAVES.
+   * [LeaseCancel](/en/ride/v5/structures/script-actions/lease-cancel) — cancels a specified lease.
+
+   Using these actions, you can change the amount of the lease, in particular, withdraw a part of the leased funds. If you cancel a lease for a larger amount and create a new lease for a smaller amount with the same recipient in the same script invocation, the recipient's generating balance decreases by the difference. Otherwise, if you send two separate transactions: a Lease Cancel transaction and a Lease transaction, they can be added to a different blocks and therefore generating balance decreases by the amount of the canceled lease immediately and increases by the amount of the new lease after 1000 blocks.
+
+* Added the function [calculateLeaseId](/en/ride/v5/functions/built-in-functions/blockchain-functions#calculateleaseid) that calculates ID of the lease formed by the `Lease` structure.
+* Added the following [account data storage functions](/en/ride/v5/functions/built-in-functions/account-data-storage-functions) that allow the dApp script to read entries of its own data storage at any stage of the computations:
+   * `getBinary(key: String): ByteVector|Unit`
+   * `getBinaryValue(key: String): ByteVector`
+   * `getBoolean(key: String): Boolean|Unit`
+   * `getBooleanValue(key: String): Boolean`
+   * `getInteger(key: String): Int|Unit`
+   * `getIntegerValue(key: String): Int`
+   * `getString(key: String): String|Unit`
+   * `getStringValue(key: String): String`
+* Added an arbitrary data type — [Any](/en/ride/v5/data-types/any).
+
+### Node REST API
+
+#### Breaking Changes
+
+* Added the new transaction type: [Continuation](/en/blockchain/transaction-type/continuation-transaction).
+* A lease can be created both as a result of a Lease transaction and as a result of an Invoke Script transaction via a `Lease` script action. Therefore, the response of the following endpoints has been changed:
+   * In the response of `/transactions/address/{address}/limit/{limit}` and `/transactions/info/{id}` endpoints for Lease Cancel transaction, the `lease` structure now contains lease parameters instead of Lease transaction fields.
+   * `/leasing/active/{address}` returns an array of structures containing lease parameters instead of array of Lease transactions.
+
+   <details>
+      <summary>Format</summary>
+    
+   ```json
+   "lease":
+      {
+        "leaseId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+        "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+        "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
+        "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
+        "amount": 1000000000000,
+        "height": 2253315
+      }
+   ```
+
+   The `originTransactionId` field can contain an ID of a Lease Transaction or an Invoke Script transaction.
+</details>
+
+#### Semantic Changes
+
+* For [Invoke Script](/en/blockchain/transaction-type/invoke-script-transaction) transaction version 3 the fields `extraFeePerStep` and `continuationtransactionIds` and the `script_execution_in_progress` value for the `applicationStatus` field added to the output of the endpoints providing transaction info.
+* dApp-to-dApp invocation results are added as the `invokes` array to the `stateChanges` structure returned by the following endpoints:
+   * `/transactions/info/{id}`
+   * `/transactions/address/{address}/limit/{limit}`
+
+   Each element of `invokes` array, in turn,  also contains `stateChanges`.
+
+   <details>
+      <summary>Format</summary>
+    
+   ```json
+   "stateChanges": {
+     "data": [],
+     "transfers": [],
+     "issues": [],
+     "reissues": [],
+     "burns": [],
+     "invokes": [
+       {
+         "dApp": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
+         "payment": [
+           {
+             "amount": 50000000,
+             "assetId": "DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p"
+           }
+         ],
+         "call": {
+           "function": "swapNeutrinoToWaves",
+           "args": [
+             {
+               "type": "string",
+               "value": "EUR"
+             },
+             {
+               "type": "integer",
+               "value": 843699
+             },
+             {
+               "type": "binary",
+               "value": "base64:OK+armP11YmAyoQOwl8jLDLi2dK2sRc1Ue2QzZX1wgRmwGASLhllv1iKg2fRKS8cAlSDrfMYPb6374WMC9gFgA=="
+             }
+           ]
+          },
+         "stateChanges": {
+            "data": [],
+            "transfers": [],
+            "issues": [],
+            "reissues": [],
+            "burns": [],
+            "sponsorFees": [],
+            "invokes": []
+          }
+       }
+      ]
+   }
+   ```
+   </details>
+
+* Results of the `Lease` and `LeaseCancel` script actions are added to the The `stateChanges` structure.
+
+   <details>
+      <summary>Format</summary>
+
+   ```json
+   "stateChanges": {
+      "leases": [
+        {
+          "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+          "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
+          "amount": 500000
+        }
+      ],
+      "leaseCancels": [
+         {
+            "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
+         }
+      ]
+   }
+   ```
+   </details>
+
+* Results of `Lease` and `LeaseCancel` script actions are also added to the `trace` structure returned by the following endpoints:
+   * `/transactions/broadcast`
+   * `/debug/validate`
+
+   <details>
+      <summary>Format</summary>
+
+   ```json
+   "trace": [
+      {
+         "id": "3MosFNQAFGskNDnYzRBgMbfod6xXPdG96ME",
+         "type": "dApp",
+         "vars": [
+            {
+               "name": "amount",
+               "type": "integer",
+               "value": 12345
+            }
+        ],
+        "result": {
+            "leases": [
+               {
+                  "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+                  "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
+                  "amount": 500000
+               }
+            ],
+            "leaseCancels": [
+               {
+                  "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
+               }
+            ]
+         }
+      }
+   ]
+   ```
+   </details>
+
+### Activation
+
+To activate the improvements listed above, vote for feature #16 “Ride V5, dApp-to-dApp invocations, Continuations”.
+
+## Version 1.2
+
+### Protocol Enhancements
 
 * Improved the mechanism for [generating blocks](/en/blockchain/block/block-generation/) using [VRF](https://en.wikipedia.org/wiki/Verifiable_random_function) (Verifiable random function). This improvement allows withstanding stake grinding attacks, which are used by the attackers to try to increase the probability of generating a block for themselves.
-* Implemented saving failed transactions. Invoke script transactions and exchange transactions are saved on the blockchain and a fee is charged for them even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed and the complexity of calculations performed during script invocation exceeded the threshold for saving failed transactions. [More details](/en/keep-in-touch/april)
+* Implemented saving failed transactions. Invoke script transactions and exchange transactions are saved on the blockchain and a fee is charged for them even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed and the complexity of computations performed during script invocation exceeded the threshold for saving failed transactions. [More details](/en/keep-in-touch/april)
 * Implemented the feature of changing the asset name and description. For this means, the [update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) is used. Change is possible after 10 or more blocks on Stagenet and after 100,000 or more blocks on Mainnet and Testnet.
 * Implemented the feature of deletion of entries from the account data storage. This action can be performed by the [data transaction](/en/blockchain/transaction-type/data-transaction) or [DeleteEntry](/en/ride/structures/script-actions/delete-entry) structure of the Ride language.
 * Reduced the [minimum fee](/en/blockchain/transaction/transaction-fee) from 1 to 0.001 WAVES for the reissue transaction and sponsor fee transaction.
@@ -18,11 +205,11 @@
 * When a transaction is validated before adding to the UTX pool, the blockchain state changes made by the transactions that were previously added to the block but then returned to the UTX pool due to the appearance of a new key block that refers to one of the previous microblocks, are taken into account.
 * dApp can't call itself with InvokeScript transaction with attached payments. Also dApp can't transfer funds to itself by `ScriptTransfer` script action.
 
-## REST API Updates
+### REST API Updates
 
 In the Node 1.2 release, we have some **semantic and breaking changes** in the API. Please read the following changes very attentively as it can affect your working application when migrating from Node 1.1 API to the Node 1.2 API.
 
-### Semantic Changes
+#### Semantic Changes
 
 * Invoke script transactions and exchange transaction [can be failed](/en/keep-in-touch/april), so their presence on the blockchain does not mean they are successful. Check the new field `applicationStatus` which is added to the output of the following endpoints:
    * `/blocks/{id}`
@@ -81,7 +268,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
 
 * For block version 5, the `reference` field corresponds to `id` of the previous block instead of `signature` for block version 4.
 
-### Breaking Changes
+#### Breaking Changes
 
 * Retrieve blocks by `id` instead of `signature`.
 
@@ -145,7 +332,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
 
 * Exchange transaction version 3 can include buy and sell orders in any order: buy/sell or sell/buy.
 
-### Improvements 
+#### Improvements 
 
 * `/debug/validate` endpoint does not require API-key.
 * `/assets/details` endpoint can provide multiple assets info at once. The `originTransactionId` field containing the ID of the transaction that issued the asset is added to the response. Also, the endpoint supports POST requests.
@@ -177,7 +364,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    * `/blocks/last`
    * `/blocks/seq/{from}/{to}`
 
-## Ride Improvements
+### Ride Improvements
 
 * Issued version 4 of the Ride [Standard library](/en/ride/script/standard-library).
 * Added script actions that the callable function of dApp can perform:
@@ -225,7 +412,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    * [String](/en/ride/data-types/string): 32,767 bytes
    * [ByteVector](/en/ride/data-types/byte-vector): 32,767 bytes (except the `bodyBytes` field of the transaction structure)
 
-## Waves Explorer
+### Waves Explorer
 
 * Failed transactions are now displayed. They are marked with ![](./_assets/stop.png) icon in lists of transactions.
 * Added support of two payments for invoke script transactions. The dApp script result is displayed as a table.

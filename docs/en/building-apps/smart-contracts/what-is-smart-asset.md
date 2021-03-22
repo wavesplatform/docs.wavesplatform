@@ -123,6 +123,8 @@ match tx {
 
 A transaction involving the execution of an asset script has the transaction fee increased by 0.004 WAVES. The fee for its completion is 1 WAVES. Only the account that issued the smart asset can change the script.
 
+The script cannot be removed, so it is impossible to turn a smart asset into a regular one. However, you can set a script that always returns `true`, that is, allows all transactions.
+
 ## Smart asset fees
 
 The fee for the transaction in which the asset script is executed is increased by 0.004 WAVES. If the account is a [dApp or smart account](/en/blockchain/account/dapp), then the size of the fee is increased by an additional 0.004 WAVES.

@@ -74,8 +74,12 @@ module.exports = deepmerge(mixin, {
                         link: '/ru/building-apps/waves-api-and-sdk/client-libraries/signer'
                     },
                     howTo: {
-                        text: 'Практические руководства',
+                        text: 'Пошаговые руководства',
                         link: '/ru/building-apps/how-to/'
+                    },
+                    dataService: {
+                        text: 'Data Service API',
+                        link: '/ru/building-apps/waves-api-and-sdk/waves-data-service-api'
                     },
                 },
             },

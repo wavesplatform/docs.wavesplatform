@@ -120,6 +120,8 @@ A smart asset’s script can be changed via [_**SetAssetScriptTransaction**_](/e
 
 Only the issuer can change the asset's script.
 
+The script cannot be removed, so it is impossible to turn a smart asset into a regular one. However, you can set a script that always returns `true`, that is, allows all transactions.
+
 ## Examples of Scripts for Smart Assets
 
 You can find an example of _**SetAssetScript **\_transaction on _**testnet**\_ in the following [transactions examples](/en/waves-node/node-api/example-transactions).

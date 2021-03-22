@@ -9,7 +9,7 @@ Ride REPL is built into the following developer tools:
 
 ![](./_assets/repl.png)
 
-In Ride REPL, you can define variables and functions and use the results of previous calculations:
+In Ride REPL, you can define variables and functions and use the results of previous computations:
 
 ```
 RIDE > let x = 42
