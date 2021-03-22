@@ -5,24 +5,24 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | [addressFromPublicKey(ByteVector): Address](#address-from-public-key) | Получает [адрес](/ru/blockchain/account/address), соответствующий открытому ключу аккаунта | 63 |
-| [parseBigInt(String): BigInt&#124;Unit](#parse-bigint) | Конвертирует строковое представление числа в эквивалентное [большое целое число](/ru/ride/v5/data-types/bigint) | TBDL |
-| [parseBigIntValue(String): BigInt](#parse-bigint-value) | Конвертирует строковое представление числа в эквивалентное большое целое число.<br>Завершается ошибкой, если строка не может быть преобразована | TBDL |
+| [parseBigInt(String): BigInt&#124;Unit](#parse-bigint) | Конвертирует строковое представление числа в эквивалентное [большое целое число](/ru/ride/v5/data-types/bigint) | 65 |
+| [parseBigIntValue(String): BigInt](#parse-bigint-value) | Конвертирует строковое представление числа в эквивалентное большое целое число.<br>Завершается ошибкой, если строка не может быть преобразована | 65 |
 | [parseInt(String): Int&#124;Unit](#parse-int) | Конвертирует строковое представление числа в эквивалентное целое число | 2 |
 | [parseIntValue(String): Int](#parse-int-value) | Конвертирует строковое представление числа в эквивалентное целое число.<br>Завершается ошибкой, если строка не может быть преобразована | 2 |
-| [toBigInt(ByteVector): BigInt](#to-bigint-bytevector) | Конвертирует массив байтов в большое целое число | TBDL |
-| [toBigInt(ByteVector, Int, Int): BigInt](#to-bigint-bytevector-int-int) | Конвертирует массив байтов начиная с указанного индекса в большое целое число | TBDL |
-| [toBigInt(Int): BigInt](#to-bigint-int) | Конвертирует целое число в большое целое | TBDL |
+| [toBigInt(ByteVector): BigInt](#to-bigint-bytevector) | Конвертирует массив байтов в большое целое число | 65 |
+| [toBigInt(ByteVector, Int, Int): BigInt](#to-bigint-bytevector-int-int) | Конвертирует массив байтов начиная с указанного индекса в большое целое число | 65 |
+| [toBigInt(Int): BigInt](#to-bigint-int) | Конвертирует целое число в большое целое | 1 |
 | [toBytes(Boolean): ByteVector](#to-bytes-boolean) | Конвертирует логическое значение в массив байтов | 1 |
 | [toBytes(Int): ByteVector](#to-bytes-int) | Конвертирует целое число в массив байтов | 1 |
 | [toBytes(String): ByteVector](#to-bytes-string) | Конвертирует строку в массив байтов | 8 |
-| [toBytesBigInt(BigInt): ByteVector](#to-bytes-bigint) | Конвертирует большое целое число в массив байтов | TBDL |
-| [toInt(BigInt): Int](#to-int-bigint) | Конвертирует большое целое число в обычное целое.<br>Завершается ошибкой, если число не может быть преобразовано | TBDL |
+| [toBytesBigInt(BigInt): ByteVector](#to-bytes-bigint) | Конвертирует большое целое число в массив байтов | 65 |
+| [toInt(BigInt): Int](#to-int-bigint) | Конвертирует большое целое число в обычное целое.<br>Завершается ошибкой, если число не может быть преобразовано | 1 |
 | [toInt(ByteVector): Int](#to-int-bytevector) | Конвертирует массив байтов в целое число | 1 |
 | [toInt(ByteVector, Int): Int](#to-int-bytevector-int) | Конвертирует массив байтов начиная с указанного индекса в целое число | 1 |
 | [toString(Address): String](#to-string-address) | Конвертирует массив байтов [адреса](/ru/blockchain/account/address) в строку | 10 |
 | [toString(Boolean): String](#to-string-boolean) | Конвертирует логическое значение в строку | 1 |
 | [toString(Int): String](#to-string-int) | Конвертирует целое число в строку | 1 |
-| [toStringBigInt(BigInt): String](#to-string-bigint) | Конвертирует большое целое число в строку | TBDL |
+| [toStringBigInt(BigInt): String](#to-string-bigint) | Конвертирует большое целое число в строку | 65 |
 | [toUtf8String(ByteVector): String](#to-utf8-string-bytevector) | Конвертирует массив байтов в строку в [UTF-8](https://ru.wikipedia.org/wiki/UTF-8) | 7 |
 | [transferTransactionFromProto(ByteVector): TransferTransaction&#124;Unit](#transfertransactionfromproto) | Десериализует транзакцию перевода | 5 |
 

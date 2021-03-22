@@ -5,24 +5,24 @@
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | [addressFromPublicKey(ByteVector): Address](#address-from-public-key)| Gets the corresponding [address](/en/blockchain/account/address) of the account public key | 63 |
-| [parseBigInt(String): BigInt&#124;Unit](#parse-bigint) | Converts the string representation of a number to its [big integer](/en/ride/v5/data-types/bigint) equivalent | TBDL |
-| [parseBigIntValue(String): BigInt](#parse-bigint-value) | Converts the string representation of a number to its big integer equivalent.<br>Fails if the string cannot be parsed | TBDL |
+| [parseBigInt(String): BigInt&#124;Unit](#parse-bigint) | Converts the string representation of a number to its [big integer](/en/ride/v5/data-types/bigint) equivalent | 65 |
+| [parseBigIntValue(String): BigInt](#parse-bigint-value) | Converts the string representation of a number to its big integer equivalent.<br>Fails if the string cannot be parsed | 65 |
 | [parseInt(String): Int&#124;Unit](#parse-int) | Converts the string representation of a number to its integer equivalent | 2 |
 | [parseIntValue(String): Int](#parse-int-value) | Converts the string representation of a number to its integer equivalent.<br>Fails if the string cannot be parsed | 2 |
-| [toBigInt(ByteVector): BigInt](#to-bigint-bytevector) | Converts an array of bytes to a big integer | TBDL |
-| [toBigInt(ByteVector, Int, Int): BigInt](#to-bigint-bytevector-int-int) | Converts an array of bytes starting from a certain index to a big integer | TBDL |
-| [toBigInt(Int): BigInt](#to-bigint-int) | Converts an integer to a big integer | TBDL |
+| [toBigInt(ByteVector): BigInt](#to-bigint-bytevector) | Converts an array of bytes to a big integer | 65 |
+| [toBigInt(ByteVector, Int, Int): BigInt](#to-bigint-bytevector-int-int) | Converts an array of bytes starting from a certain index to a big integer | 65 |
+| [toBigInt(Int): BigInt](#to-bigint-int) | Converts an integer to a big integer | 1 |
 | [toBytes(Boolean): ByteVector](#tobytes-bool) | Converts a boolean value to an array of bytes | 1 |
 | [toBytes(Int): ByteVector](#tobytes-int) | Converts an integer to an array of bytes | 1 |
 | [toBytes(String): ByteVector](#tobytes-string) | Converts a string to an array of bytes | 8 |
-| [toBytesBigInt(BigInt): ByteVector](#to-bytes-bigint) | Converts a big integer to an array of bytes | TBDL |
-| [toInt(BigInt): Int](#to-int-bigint) | Converts a big integer to an integer.<br>Fails if the number cannot be converted | TBDL |
+| [toBytesBigInt(BigInt): ByteVector](#to-bytes-bigint) | Converts a big integer to an array of bytes | 65 |
+| [toInt(BigInt): Int](#to-int-bigint) | Converts a big integer to an integer.<br>Fails if the number cannot be converted | 1 |
 | [toInt(ByteVector): Int](#toint-bytes) | Converts an array of bytes to an integer | 1 |
 | [toInt(ByteVector, Int): Int](#toint-bytes-int) | Converts an array of bytes to an integer starting from a certain index | 1 |
 | [toString(Address): String](#to-string-address) | Converts an array of bytes of an [address](/en/blockchain/account/address) to a string | 10 |
 | [toString(Boolean): String](#tostring-bool) | Converts a boolean value to a string | 1 |
 | [toString(Int): String](#tostring-int) | Converts an integer to a string | 1 |
-| [toStringBigInt(BigInt): String](#to-string-bigint) | Converts a big integer to a string | TBDL |
+| [toStringBigInt(BigInt): String](#to-string-bigint) | Converts a big integer to a string | 65 |
 | [toUtf8String(ByteVector): String](#to-utf8-string) | Converts an array of bytes to a [UTF-8](https://en.wikipedia.org/wiki/UTF-8) string | 7 |
 | [transferTransactionFromProto(ByteVector): TransferTransaction&#124;Unit](#transfertransactionfromproto) | Deserializes transfer transaction | 5 |
 

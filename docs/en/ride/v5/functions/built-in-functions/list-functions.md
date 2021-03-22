@@ -10,9 +10,9 @@
 | [indexOf](#indexof) | Returns the index of the first occurrence of the element in the list | 5 |
 | [lastIndexOf](#lastindexof)  | Returns the index of the last occurrence of the element in the list | 5 |
 | [max](#max)  | Returns the largest element in the list of integers | 3 |
-| [maxBigInt](#maxBigInt) | Returns the largest element in the list of [big integers](/en/ride/v5/data-types/bigint) | TBDL |
+| [maxBigInt](#maxBigInt) | Returns the largest element in the list of [big integers](/en/ride/v5/data-types/bigint) | 192 |
 | [min](#min)  | Returns the smallest element in the list of integers | 3 |
-| [minBigInt](#minBigInt) | Returns the smallest element in the list of big integers | TBDL |
+| [minBigInt](#minBigInt) | Returns the smallest element in the list of big integers | 192 |
 | [removeByIndex](#removebyindex) | Removes an element from the list by index | 7 |
 | [size](#size) | Returns the size of the list | 2 |
 

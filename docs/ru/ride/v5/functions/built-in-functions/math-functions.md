@@ -5,14 +5,14 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | [fraction(Int, Int, Int): Int](#fraction) | Умножает два целых числа и делит на третье без переполнения | 1 |
-| [fractionBigInt(BigInt, BigInt, BigInt): BigInt](#fractionbigint) | Умножает два [больших целых числа](/ru/ride/v5/data-types/bigint) и делит на третье без переполнения | TBDL |
-| [fractionBigInt(BigInt, BigInt, BigInt, Union): BigInt](#fractionbigintround) | Умножает два больших целых числа](/ru/ride/v5/data-types/bigint) и делит на третье без переполнения, применяя указанный метод округления | TBDL |
+| [fractionBigInt(BigInt, BigInt, BigInt): BigInt](#fractionbigint) | Умножает два [больших целых числа](/ru/ride/v5/data-types/bigint) и делит на третье без переполнения | 128 |
+| [fractionBigInt(BigInt, BigInt, BigInt, Union): BigInt](#fractionbigintround) | Умножает два больших целых числа](/ru/ride/v5/data-types/bigint) и делит на третье без переполнения, применяя указанный метод округления | 128 |
 | [log(Int, Int, Int, Int, Int, Union): Int](#log) | Вычисляет логарифм числа по заданному основанию | 100 |
-| [logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](#logbigint) | Вычисляет логарифм числа по заданному основанию с высокой точностью | TBDL |
+| [logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](#logbigint) | Вычисляет логарифм числа по заданному основанию с высокой точностью | 200 |
 | [median(List[Int]): Int](#median) | Возвращает медиану списка целых чисел | 20 |
-| [medianBigInt(List[BigInt]): BigInt](#medianbigint) | Возвращает медиану списка больших целых чисел | TBDL |
+| [medianBigInt(List[BigInt]): BigInt](#medianbigint) | Возвращает медиану списка больших целых чисел | 160 |
 | [pow(Int, Int, Int, Int, Int, Union): Int](#pow) | Возводит число в степень | 100 |
-| [powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](#powbigint) | Возводит число в степень с высокой точностью | TBDL |
+| [powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](#powbigint) | Возводит число в степень с высокой точностью | 200 |
 
 ## fraction(Int, Int, Int): Int<a id="fraction"></a>
 

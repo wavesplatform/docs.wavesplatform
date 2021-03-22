@@ -5,14 +5,14 @@
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | [fraction(Int, Int, Int): Int](#fraction) | Multiplies and divides [integers](/en/ride/v5/data-types/int) to avoid overflow | 1 |
-| [fractionBigInt(BigInt, BigInt, BigInt): BigInt](#fractionbigint) | Multiplies and divides [bid integers](/en/ride/v5/data-types/bigint) to avoid overflow | TBDL |
-| [fractionBigInt(BigInt, BigInt, BigInt, Union): BigInt](#fractionbigintround) | Multiplies and divides bid integers to avoid overflow, applying the specified rounding method | TBDL |
+| [fractionBigInt(BigInt, BigInt, BigInt): BigInt](#fractionbigint) | Multiplies and divides [bid integers](/en/ride/v5/data-types/bigint) to avoid overflow | 128 |
+| [fractionBigInt(BigInt, BigInt, BigInt, Union): BigInt](#fractionbigintround) | Multiplies and divides bid integers to avoid overflow, applying the specified rounding method | 128 |
 | [log(Int, Int, Int, Int, Int, Union): Int](#log)| Calculates logarithm of a number to a given base | 100 |
-| [logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](#logbigint) | Calculates logarithm of a number to a given base with high accuracy | TBDL |
+| [logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](#logbigint) | Calculates logarithm of a number to a given base with high accuracy | 200 |
 | [median(List[Int]): Int](#median)| Returns the median of a list of integers | 20 |
-| [medianBigInt(List[BigInt]): BigInt](#medianbigint) | Returns the median of a list of big integers | TBDL |
+| [medianBigInt(List[BigInt]): BigInt](#medianbigint) | Returns the median of a list of big integers | 160 |
 | [pow(Int, Int, Int, Int, Int, Union): Int](#pow) | Raises a number to a given power | 100 |
-| [powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](#powbigint) | Raises a number to a given power with high accuracy | TBDL |
+| [powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](#powbigint) | Raises a number to a given power with high accuracy | 200 |
 
 ## fraction(Int, Int, Int): Int<a id="fraction"></a>
 

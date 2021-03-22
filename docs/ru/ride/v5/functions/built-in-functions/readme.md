@@ -9,14 +9,14 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | fraction(Int, Int, Int): Int | Умножает два целых числа и делит на третье без переполнения | 1 |
-| fractionBigInt(BigInt, BigInt, BigInt): BigInt | Умножает два [больших целых числа](/ru/ride/v5/data-types/bigint) и делит на третье без переполнения | TBDL |
-| fractionBigInt(BigInt, BigInt, BigInt, Union): BigInt | Умножает два больших целых числа и делит на третье без переполнения, применяя указанный метод округления | TBDL |
+| fractionBigInt(BigInt, BigInt, BigInt): BigInt | Умножает два [больших целых числа](/ru/ride/v5/data-types/bigint) и делит на третье без переполнения | 128 |
+| fractionBigInt(BigInt, BigInt, BigInt, Union): BigInt | Умножает два больших целых числа и делит на третье без переполнения, применяя указанный метод округления | 128 |
 | log(Int, Int, Int, Int, Int, Union): Int | Вычисляет логарифм числа по заданному основанию| 100 |
-| logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt | Вычисляет логарифм числа по заданному основанию с высокой точностью | TBDL |
+| logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt | Вычисляет логарифм числа по заданному основанию с высокой точностью | 200 |
 | median(List[Int]): Int | Возвращает медиану списка целых чисел | 20 |
-| medianBigInt(List[BigInt]): BigInt | Возвращает медиану списка больших целых чисел | TBDL |
+| medianBigInt(List[BigInt]): BigInt | Возвращает медиану списка больших целых чисел | 160 |
 | pow(Int, Int, Int, Int, Int, Union): Int | Возводит число в степень | 100 |
-| powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt | Возводит число в степень с высокой точностью | TBDL |
+| powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt | Возводит число в степень с высокой точностью | 200 |
 
 ## [Функции блокчейна](/ru/ride/v5/functions/built-in-functions/blockchain-functions)
 
@@ -80,24 +80,24 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | addressFromPublicKey(ByteVector): Address | Получает [адрес](/ru/blockchain/account/address), соответствующий открытому ключу аккаунта | 63 |
-| parseBigInt(String): BigInt&#124;Unit | Конвертирует строковое представление числа в эквивалентное [большое целое число](/ru/ride/v5/data-types/bigint) | TBDL |
-| parseBigIntValue(String): BigInt | Конвертирует строковое представление числа в эквивалентное большое целое число.<br>Завершается ошибкой, если строка не может быть преобразована | TBDL |
+| parseBigInt(String): BigInt&#124;Unit | Конвертирует строковое представление числа в эквивалентное [большое целое число](/ru/ride/v5/data-types/bigint) | 65 |
+| parseBigIntValue(String): BigInt | Конвертирует строковое представление числа в эквивалентное большое целое число.<br>Завершается ошибкой, если строка не может быть преобразована | 65 |
 | parseInt(String): Int&#124;Unit | Конвертирует строковое представление числа в эквивалентное целое число | 2 |
 | parseIntValue(String): Int | Конвертирует строковое представление числа в эквивалентное целое число. <br>Завершается ошибкой, если строка не может быть преобразована | 2 |
-| toBigInt(ByteVector): BigInt | Конвертирует массив байтов в большое целое число | TBDL |
-| toBigInt(ByteVector, Int, Int | Конвертирует массив байтов начиная с указанного индекса в большое целое число | TBDL |
-| toBigInt(Int): BigInt | Конвертирует целое число в большое целое | TBDL |
+| toBigInt(ByteVector): BigInt | Конвертирует массив байтов в большое целое число | 65 |
+| toBigInt(ByteVector, Int, Int | Конвертирует массив байтов начиная с указанного индекса в большое целое число | 65 |
+| toBigInt(Int): BigInt | Конвертирует целое число в большое целое | 1 |
 | toBytes(Boolean): ByteVector | Конвертирует логическое значение в массив байтов | 1 |
 | toBytes(Int): ByteVector | Конвертирует целое число в массив байтов | 1 |
 | toBytes(String): ByteVector | Конвертирует строку в массив байтов | 8 |
-| toBytesBigInt(BigInt): ByteVector | Конвертирует большое целое число в массив байтов | TBDL |
-| toInt(BigInt): Int | Конвертирует большое целое число в обычное целое.<br>Завершается ошибкой, если число не может быть преобразовано | TBDL |
+| toBytesBigInt(BigInt): ByteVector | Конвертирует большое целое число в массив байтов | 65 |
+| toInt(BigInt): Int | Конвертирует большое целое число в обычное целое.<br>Завершается ошибкой, если число не может быть преобразовано | 1 |
 | toInt(ByteVector): Int | Конвертирует массив байтов в целое число | 1 |
 | toInt(ByteVector, Int): Int | Конвертирует массив байтов, начиная с указанного индекса, в целое число | 1 |
 | toString(Address): String | Конвертирует массив байтов [адреса](/ru/blockchain/account/address) в строку | 10 |
 | toString(Boolean): String | Конвертирует логическое значение в строку | 1 |
 | toString(Int): String | Конвертирует целое число в строку | 1 |
-| toStringBigInt(BigInt): String | Конвертирует большое целое число в строку | TBDL |
+| toStringBigInt(BigInt): String | Конвертирует большое целое число в строку | 65 |
 | toUtf8String(ByteVector): String | Конвертирует массив байтов в строку в [UTF-8](https://ru.wikipedia.org/wiki/UTF-8) | 7 |
 | transferTransactionFromProto(ByteVector): TransferTransaction&#124;Unit | Десериализует транзакцию перевода | 5 |
 
@@ -152,9 +152,9 @@
 | indexOf(list: List[T], element: T): Int&#124;Unit | Возвращает индекс первого вхождения элемента в списке | 5 |
 | lastIndexOf(list: List[T], element: T): Int&#124;Unit | Возвращает индекс последнего вхождения элемента в списке | 5 |
 | max(List[Int]): Int | Возвращает наибольший элемент в списке целых чисел | 3 |
-| maxBigInt(List[BigInt]): BigInt | Возвращает наибольший элемент в списке [больших целых чисел](/ru/ride/v5/data-types/bigint) | TBDL |
+| maxBigInt(List[BigInt]): BigInt | Возвращает наибольший элемент в списке [больших целых чисел](/ru/ride/v5/data-types/bigint) | 192 |
 | min(List[Int]): Int | Возвращает наименьший элемент в списке целых чисел | 3 |
-| minBigInt(List[BigInt]): BigInt | Возвращает наибольший элемент в списке больших целых чисел | TBDL |
+| minBigInt(List[BigInt]): BigInt | Возвращает наибольший элемент в списке больших целых чисел | 192 |
 | removeByIndex(list: List[T], index: Int): List[T] | Удаляет элемент из списка по индексу | 7 |
 | size(List[T]): Int | Возвращает размер списка | 2 |
 

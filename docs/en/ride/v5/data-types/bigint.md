@@ -12,7 +12,7 @@
 
 The following operators support `BigInt` values:
 
-* Arithmetic operators: **+**, **-**, **\***, **/**, and **%**.
+* Arithmetic operators: **+**, **-**, **\***, **/**, **%**, unary minus.
 * Comparison operators: **\<**, **\>**, **\<=**, and **\>=**.
 * Equality operators: **==** and **!=**.
 
