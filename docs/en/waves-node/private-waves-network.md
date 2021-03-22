@@ -25,7 +25,7 @@ Download the latest version of [jar node](https://github.com/wavesplatform/Waves
 
 ### Step 3
 
-Create `genesis.example.conf` file with genesis block parameters in the `.jar` file location folder.
+Create `genesis.example.conf` file with genesis block parameters in the `.jar` file location directory.
 
 **Example**:
 
@@ -48,7 +48,7 @@ genesis-generator
     }
   ]
 
-  # pre-activated-features = [1,2,15] # by default all features are activated from height 0
+  # pre-activated-features = [1,2,15] # by default all features will be activated from height 0
 }
 ```
 
@@ -104,11 +104,11 @@ The `Addresses` section lists the accounts to which the assets are distributed i
 
 ### Step 5
 
-In the `.jar` file location folder create `*.conf` file with any name (for example `waves-custom-network.conf`) and edit it with a text editor. Use [example configuration file](https://github.com/wavesplatform/private-node-docker-image/blob/stagenet/waves.custom.conf) for reference.
+In the `.jar` file location directory create `*.conf` file with any name (for example `waves-custom-network.conf`) and edit it with a text editor. Use [example configuration file](https://github.com/wavesplatform/private-node-docker-image/blob/stagenet/waves.custom.conf) for reference.
 
 See [Node Configuration](/en/waves-node/node-configuration) article for more information about Waves configuration file.
 
-If the `directory` parameter is not redefined, the default node folder is:
+If the `directory` parameter is not redefined, the default node directory is:
 
 | *nix | macOS | Windows |
 | :--- | :--- | :--- |
@@ -136,7 +136,7 @@ java -jar waves-all-{version}.jar waves-custom-network.conf
 
 ### Add Nodes to Your Network
 
-You can add more nodes to your network using `waves.network.known-peers` parameter. Specify the address and port of the existing node with the same network parameters like "127.0.0.1:6860". If you are making several nodes locally, then do not forget to change for the new nodes the network port `waves.network.port`, the API port `waves.rest-api.port`, folder for the data `waves.directory` and wallet seed `waves.wallet.seed`.
+You can add more nodes to your network using `waves.network.known-peers` parameter. Specify the address and port of the existing node with the same network parameters like "127.0.0.1:6860". If you are making several nodes locally, then do not forget to change for the new nodes the network port `waves.network.port`, the API port `waves.rest-api.port`, directory for the data `waves.directory` and wallet seed `waves.wallet.seed`.
 
 ## Setup Other Services
 
