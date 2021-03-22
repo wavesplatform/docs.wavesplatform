@@ -1,8 +1,9 @@
 # Обновления в документации
 
-## Март
+# Март
 
-* [Формат транзакций в Waves Keeper API](/ru/ecosystem/waves-keeper/transaction)
+* [Формат транзакций в Waves Keeper API](/ru/ecosystem/waves-keeper/transaction) — <span style="color:green">обновлено</span>
+* [Собственный (сustom) блокчейн](/ru/waves-node/private-waves-network) — <span style="color:green">обновлено</span>
 
 ## Февраль
 
