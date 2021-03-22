@@ -23,7 +23,7 @@
 | [getString(String): String&#124;Unit](#getstring-string-string-unit) | Gets a string by key from the dApp's own data storage | 10 |
 | [getStringValue(Address&#124;Alias, String): String](#get-string-value) | Gets a string by key. Fails if there is no data | 10 |
 | [getStringValue(String): String](#getstringvalue-string-string) | Gets a string by key from the dApp's own data storage. Fails if there is no data | 10 |
-| [isDataStorageUntouched(Address&#124;Alias): Boolean](#isdatastorageuntouched) | Checks if the data storage of a given account never contained any entries | TBDL |
+| [isDataStorageUntouched(Address&#124;Alias): Boolean](#isdatastorageuntouched) | Checks if the data storage of a given account never contained any entries | 10 |
 
 ## getBinary(Address|Alias, String): ByteVector|Unit <a id="get-binary"></a>
 

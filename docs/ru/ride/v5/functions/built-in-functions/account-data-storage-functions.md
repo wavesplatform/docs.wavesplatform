@@ -22,7 +22,7 @@
 | [getString(String): String&#124;Unit](#get-string)  | Получает строку по ключу из собственного хранилища данных | 10 |
 | [getStringValue(Address&#124;Alias, String): String](#get-string-value)  | Получает строку по ключу. Завершается ошибкой, если данных нет | 10 |
 | [getStringValue(String): String](#get-string-value)  | Получает строку по ключу из собственного хранилища данных. Завершается ошибкой, если данных нет | 10 |
-| [isDataStorageUntouched(Address&#124;Alias): Boolean](#isdatastorageuntouched) | Проверяет, что хранилице данных указанного аккаунта никогда не содержало записей | TBDL |
+| [isDataStorageUntouched(Address&#124;Alias): Boolean](#isdatastorageuntouched) | Проверяет, что хранилище данных указанного аккаунта никогда не содержало записей | 10 |
 
 ## getBinary(Address|Alias, String): ByteVector|Unit <a id="get-binary"></a>
 
