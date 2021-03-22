@@ -2,6 +2,7 @@
 
 ## March 
 
+* [Transaction Format for Waves Keeper API](/en/ecosystem/waves-keeper/transaction) — <span style="color:green">updated</span>
 * [Custom Blockchain](/en/waves-node/private-waves-network) — <span style="color:green">updated</span>
 
 ## February
