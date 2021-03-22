@@ -1,5 +1,9 @@
 # Обновления в документации
 
+## Март
+
+* [Формат транзакций в Waves Keeper API](/ru/ecosystem/waves-keeper/transaction)
+
 ## Февраль
 
 * [Data Service API](/ru/building-apps/waves-api-and-sdk/waves-data-service-api)

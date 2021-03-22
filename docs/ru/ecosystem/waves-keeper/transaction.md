@@ -15,6 +15,7 @@ Waves Keeper API поддерживает следующие типы транз
 - 14 — транзакция спонсирования;
 - 15 — транзакция установки скрипта ассета.
 - 16 — транзакция вызова скрипта.
+- 17 — транзакция обновления информации ассета.
 
 Формат транзакции отличается от [Node REST API](/ru/waves-node/node-api/). Функции `signTransaction`, `signAndPublishTransaction`, `signTransactionPackage` принимают транзакции в следующем формате:
 
@@ -50,8 +51,8 @@ MoneyLike может иметь вид:
 
 ## Транзакция выпуска (тип 3)
 
-- `name`: [4, 16] string — имя токена.
-- `description`: [0, 1000] string — описание токена.
+- `name`: [4..16 байт] string — имя токена.
+- `description`: [0..1000 байт] string — описание токена.
 - `quantity`: [0 - (JLM)] number/string — количество токена.
 - `precision`: [0 - 8] number — количество знаков после запятой.
 - `reissuable`: true|false — флаг возможности довыпуска.
@@ -233,7 +234,7 @@ MoneyLike может иметь вид:
 
 ## Транзакция создания псевдонима (тип 10)
 
-- `alias`: [4, 30] string — псевдоним.
+- `alias`: [4..30 байт] string — псевдоним.
 - `*fee`: MoneyLike — комиссия за транзакцию.
 - `*senderPublicKey`: string — открытый ключ отправителя в кодировке base58.
 - `*timestamp`: number/string — Unix-время в миллисекундах.
@@ -272,7 +273,7 @@ MoneyLike может иметь вид:
 Пример:
 
 ```js
-   WavesKeeper.signAndPublishTransaction({
+    WavesKeeper.signAndPublishTransaction({
         type: 11,
         data: {
              totalAmount: { assetId: "WAVES", coins: 0},
@@ -299,7 +300,8 @@ MoneyLike может иметь вид:
 - `data`: массив объектов.
    - `type`: "binary"/string/"integer"/"boolean" — тип записи.
    - `key`: string – ключ записи.
-   - `value`: string(base64)/string/number/boolean в зависимости от типа.
+   - `value`: string(base64)/string/number/boolean в зависимости от типа. `null` для удаления записи.
+- `*version`: number — версия транзакции.
 - `*fee`: MoneyLike — комиссия за транзакцию.
 - `*senderPublicKey`: string — открытый ключ отправителя в кодировке base58.
 - `*timestamp`: number/string — Unix-время в миллисекундах.
@@ -307,28 +309,52 @@ MoneyLike может иметь вид:
 Пример:
 
 ```js
-   WavesKeeper.signAndPublishTransaction({
-        type: 12,
-        data: {
-             data: [
-                  { key: "string", value: "testVdfgdgf dfgdfgdfg dfg dfg al", type: "string" },
-                  { key: "binary", value: "base64:AbCdAbCdAbCdAbCdAbCdAbCdAbCdAbCdAbCdAbCdAbCd", type: "binary" },
-                  { key: "integer", value: 20, type: "integer" },
-                  { key: "boolean", value: false, type: "boolean" },
-             ],
-             fee: {
-                 "tokens": "0.01",
-                 "assetId": "WAVES"
-             }
-        }
-   }).then((tx) => {
-        console.log("Hurray! I've saved data!!!");
-   }).catch((error) => {
-        console.error("Something went wrong", error);
-   });
+WavesKeeper.signAndPublishTransaction({
+   type: 12,
+   data: {
+      data: [
+         { key: "string", value: "test", type: "string" },
+         { key: "binary", value: "base64:AbCdAbCdAbCdAbCdAbCdAbCdAbCdAbCdAbCdAbCdAbCd", type: "binary" },
+         { key: "integer", value: 20, type: "integer" },
+         { key: "boolean", value: false, type: "boolean" },
+     ],
+      fee: {
+         tokens: "0.01",
+         assetId: "WAVES"
+      }
+   }
+}).then((tx) => {
+   console.log("Hurray! I've saved data!!!");
+}).catch((error) => {
+   console.error("Something went wrong", error);
+});
 ```
 
 В случае успеха данные появятся в хранилище данных аккаунта.
+
+Для удаления записи передайте ключ записи `key` вместе с `value: null`. Удаление записи доступно начиная с версии 2, поэтому необходимо указать поле `version`.
+
+Пример:
+
+```js
+WavesKeeper.signAndPublishTransaction({
+   type: 12,
+   data: {
+      version: 2,
+      data: [
+         { key: "binary", value: null },
+      ],
+      fee: {
+         tokens: "0.001",
+         assetId: "WAVES"
+      }
+   }
+}).then((tx) => {
+   console.log("Hurray! I've deleted data!!!");
+}).catch((error) => {
+   console.error("Something went wrong", error);
+});
+```
 
 ## Транзакция установки скрипта (тип 13)
 
@@ -448,39 +474,101 @@ MoneyLike может иметь вид:
 - `call`: объект:
   - `function`: string — имя функции.
   - `args`: массив:
-    - `type`: "binary"/string/"integer"/"boolean" — тип.
-    - `value` string(base64)/string/number/boolean — значение.
-- `*fee`: MoneyLike — комиссия за транзакцию.
-- `*payment`: массив MoneyLike (в настоящее время доступен только 1 платеж).
+    - `type`: "binary"/string/"integer"/"boolean"/"list" — тип.
+    - `value` string(base64)/string/number/boolean/массив — значение.
+- `payment`: массив MoneyLike — до 2 платежей.
+- `fee`: MoneyLike — комиссия за транзакцию.
+- `*version`: number — версия транзакции.
 - `*senderPublicKey`: string — открытый ключ отправителя в кодировке base58.
 - `*timestamp`: number/string — Unix-время в миллисекундах.
 
 Пример:
 
 ```js
-   WavesKeeper.signAndPublishTransaction({
-        type: 16,
-        data: {
-             fee: {
-                 "tokens": "0.05",
-                 "assetId": "WAVES"
-             },
-             dApp: '3N27HUMt4ddx2X7foQwZRmpFzg5PSzLrUgU',
-             call: {
-             		function: 'tellme',
-             		args: [
-             		    {
-             		      "type": "string",
-             		      "value": "Will?"
-             		    }]
-             	}, payment: [{assetId: "WAVES", tokens: 2}]
-        }
-   }).then((tx) => {
-        console.log("Ура! Я выполнил скрипт!!!");
-   }).catch((error) => {
-        console.error("Что-то пошло не так", error);
-   });
-
+WavesKeeper.signAndPublishTransaction({
+   type: 16,
+   data: {
+      dApp: "3N27HUMt4ddx2X7foQwZRmpFzg5PSzLrUgU",
+      call: {
+         function: "tellme",
+         args: [{
+            type: "string",
+            value: "Will?"
+         }]
+      },
+      payment: [ {assetId: "WAVES", tokens: 2} ],
+      fee: {
+         tokens: "0.005",
+         assetId: "WAVES"
+      },
+   }
+}).then((tx) => {
+   console.log("Hurray! I've invoked the script!!!");
+}).catch((error) => {
+   console.error("Something went wrong", error);
+});
 ```
 
 В случае успеха будет вызвана функция `tellme` dApp-аккаунта `3N27HUMt4ddx2X7foQwZRmpFzg5PSzLrUgU` на Testnet.
+
+Пример вызова функции, аргументом которой является список:
+
+```js
+WavesKeeper.signAndPublishTransaction({
+   type: 16,
+   data: {
+      dApp: "3N28o4ZDhPK77QFFKoKBnN3uNeoaNSNXzXm",
+      call: {
+         function: "foo",
+         args: [
+            {
+               type: "list",
+               value: [
+                  { type: "string", value: "alpha" },
+                  { type: "string", value: "beta" },
+                  { type: "string", value: "gamma" }
+              ],
+            }
+         ]
+      },
+      payment: [],
+      fee: {
+         tokens: "0.005",
+         assetId: "WAVES"
+      },
+   }
+}).then((tx) => {
+  console.log("Hurray! I've invoked the script!!!");
+}).catch((error) => {
+   console.error("Something went wrong", error);
+});
+```
+
+## Транзакция обновления информации ассета (тип 17)
+
+- `name`: [4..16 байт] string — имя токена.
+- `description`: [0..1000 байт] string — описание токена.
+- `*fee`: MoneyLike — комиссия за транзакцию.
+- `*senderPublicKey`: string — открытый ключ отправителя в кодировке base58.
+- `*timestamp`: number/string — Unix-время в миллисекундах.
+
+Пример:
+
+```js
+WavesKeeper.signAndPublishTransaction({
+   type: 17,
+   data: {
+      name: "New name",
+      description: "New description",
+      assetId: "DS5fJKbhKDaFfcRpCd7hTcMqqxsfoF3iY9yEcmsTQV1T",
+      fee: {
+         assetId: "WAVES",
+         tokens: "0.001"
+      },
+   }
+}).then((tx) => {
+   console.log("Hurray! I've renamed the asset!!!");
+}).catch((error) => {
+   console.error("Something went wrong", error);
+});
+```
