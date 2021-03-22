@@ -239,7 +239,7 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
 
 ### Activation
 
-To activate the improvements listed above, vote for feature #16 “Ride V5, dApp-to-dApp invocations, Continuations”.
+To activate the improvements listed above, vote for feature #16 “dApp-to-dApp invocations, Ride V5”.
 
 ## Version 1.2
 
