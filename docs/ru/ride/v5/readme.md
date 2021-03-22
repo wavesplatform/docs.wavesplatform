@@ -59,3 +59,9 @@ C помощью действий `Lease` и `LeaseCancel` можно измен
 * [toBytesBigInt(BigInt): ByteVector](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bytes-bigint)
 * [toInt(BigInt): Int](/ru/ride/v5/functions/built-in-functions/converting-functions#to-int-bigint)
 * [toStringBigInt(BigInt): String](/ru/ride/v5/functions/built-in-functions/converting-functions#to-string-bigint)
+
+## Разное
+
+Добавлены встроенные функции:
+* [isDataStorageUntouched](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions#isdatastorageuntouched) — проверяет, что хранилице данных указанного аккаунта никогда не содержало записей.
+* [hashScriptAtAddress]((/ru/ride/v5/functions/built-in-functions/blockchain-functions#hashscriptataddress) — возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте.

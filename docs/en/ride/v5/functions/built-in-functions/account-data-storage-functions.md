@@ -23,6 +23,7 @@
 <!-- | [getString(String): String&#124;Unit](#getstring-string-string-unit) | Gets a string by key from the dApp's own data storage | 10 | -->
 | [getStringValue(Address&#124;Alias, String): String](#get-string-value) | Gets a string by key. Fails if there is no data | 10 |
 <!-- | [getStringValue(String): String](#getstringvalue-string-string) | Gets a string by key from the dApp's own data storage. Fails if there is no data | 10 | -->
+| [isDataStorageUntouched(Address&#124;Alias): Boolean](#isdatastorageuntouched) | Checks if the data storage of a given account never contained any entries | 10 |
 
 ## getBinary(Address|Alias, String): ByteVector|Unit <a id="get-binary"></a>
 
@@ -256,3 +257,27 @@ getString(key: String): String
 | Parameter | Description |
 | :--- | :--- |
 | `key`: [String](/en/ride/v5/data-types/string) | Entry key |-->
+
+## isDataStorageUntouched(Address|Alias): Boolean<a id="isdatastorageuntouched"></a>
+
+Checks if the data storage of a given account never contained any entries.
+
+Returns `false` if there was at least one entry in the account data storage even if the entry was deleted.
+
+``` ride
+isDataStorageUntouched(addressOrAlias: Address|Alias): Boolean
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+
+### Example
+
+```scala
+let addr = Address(base58'3N4iKL6ikwxiL7yNvWQmw7rg3wGna8uL6LU')
+
+isDataStorageUntouched(addr) # Returns false
+```

@@ -59,3 +59,10 @@ Added the [BigInt](/en/ride/v5/data-types/bigint) data type of 64 bytes (512 bit
 * [toBytesBigInt(BigInt): ByteVector](/en/ride/v5/functions/built-in-functions/converting-functions#to-bytes-bigint)
 * [toInt(BigInt): Int](/en/ride/v5/functions/built-in-functions/converting-functions#to-int-bigint)
 * [toStringBigInt(BigInt): String](/en/ride/v5/functions/built-in-functions/converting-functions#to-string-bigint)
+
+## Miscellaneous
+
+Added the following built-in functions:
+
+* [isDataStorageUntouched](/en/ride/v5/functions/built-in-functions/account-data-storage-functions#isdatastorageuntouched) that checks if the data storage of a given account never contained any entries.
+* [hashScriptAtAddress](en/ride/v5/functions/built-in-functions/blockchain-functions#hashscriptataddress) that returns [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) hash of the script assigned to a given account.

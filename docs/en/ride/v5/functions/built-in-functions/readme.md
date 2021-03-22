@@ -24,6 +24,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 <!-- | getString(String): String&#124;Unit | Gets a string by key from dApp's own data storage | 10 | -->
 | getStringValue(Address&#124;Alias, String): String | Gets a string by key. Fails if there is no data | 10 |
 <!-- | getStringValue(String): String | Gets a string by key from dApp's own data storage. Fails if there is no data | 10 | -->
+| isDataStorageUntouched(Address&#124;Alias): Boolean | Checks if the data storage of a given account never contained any entries | 10 |
 
 ## [Blockchain functions](/en/ride/v5/functions/built-in-functions/blockchain-functions)
 
@@ -35,6 +36,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Gets the information about a [block](/en/blockchain/block/) by the [block height](/en/blockchain/block/block-height) | 5 |
 | calculateAssetId(Issue): ByteVector | Calculates ID of the token formed by the [Issue](/en/ride/v5/structures/script-actions/issue) structure when executing the [callable function](/en/ride/v5/functions/callable-function) | 10 |
 | calculateLeaseId(Lease): ByteVector | Calculates ID of the lease formed by the [Lease](/en/ride/v5/structures/script-actions/lease) structure when executing the callable function | 1 |
+| hashScriptAtAddress(Address&#124;Alias): ByteVector&#124;Unit | Returns [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) hash of the script assigned to a given account | 200 |
 | transactionHeightById(ByteVector):  Int&#124;Unit | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 20 |
 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Gets the data of a [transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 60 |
 | wavesBalance(Address&#124;Alias): Int | Gets account balance in [WAVES](/en/blockchain/token/waves) | 10 |
