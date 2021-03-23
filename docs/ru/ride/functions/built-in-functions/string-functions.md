@@ -116,7 +116,7 @@ indexOf("Apple","le") # Возвращает 4
 indexOf("Apple","e") # Возвращает 5
 ```
 
-## indexOf(String, String, Int): Int&#124;Unit<a id=index-of></a>
+## indexOf(String, String, Int): Int&#124;Unit
 
 Возвращает индекс первого вхождения подстроки после указанного индекса.
 
