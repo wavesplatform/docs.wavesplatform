@@ -1,6 +1,6 @@
 # Set Asset Script Transaction
 
-Set Asset Script transaction replaces the [asset script](/en/ride/script/script-types/asset-script). Only the token issuer can send an Asset Script transaction. If a token is issued without a script, then no script can be assigned to it.
+Set Asset Script transaction replaces the [asset script](/en/ride/script/script-types/asset-script). Only the token issuer can send an Asset Script transaction. If a token is issued without a script, then no script can be assigned to it. It is also impossible to remove the script and turn the smart asset into a regular one.
 
 ## Fee
 

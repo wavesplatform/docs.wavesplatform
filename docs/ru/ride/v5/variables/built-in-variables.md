@@ -4,8 +4,6 @@
 
 **Встроенная переменная** — [переменная](/ru/ride/v5/variables/) [Стандартной библиотеки](/ru/ride/script/standard-library).
 
-## Список встроенных переменных
-
 <table style="width:100%">
   <tr>
     <th align="left">№</th>
@@ -85,7 +83,7 @@
   <tr>
     <td>8</td>
     <td>this</td>
-    <td><a href="/ru/blockchain/account/address">Адрес</a> отправителя транзакции или информация о <a href="/ru/blockchain/token">токене</a></td>
+    <td>• Для <a href="/ru/ride/script/script-types/dapp-script">скрипта dApp</a> или <a href="/ru/ride/script/script-types/account-script">скрипта аккаунта</a> — структура <a href="/ru/ride/structures/common-structures/address">Address</a><br/>• Для <a href="/ru/ride/script/script-types/asset-script">скрипта ассета</a> — структура <a href="/ru/ride/structures/common-structures/asset">Asset</a></td>
   </tr>
   <tr>
     <td>9</td>

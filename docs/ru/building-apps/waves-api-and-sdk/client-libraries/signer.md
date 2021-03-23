@@ -1138,7 +1138,49 @@ signer.waitTxConfirm(tx, 1).then((tx) => {
 Провайдер должен предоставлять следующий интерфейс:
 
 ```js
-interface IProvider {
+interface Provider {
+
+    /**
+     * Signer подписывается на события login в Провайдере
+     * При срабатывании Провайдер должен передать данные пользователя: адрес и публичный ключ
+     * Для последующей отписки Signer вызывает функцию off
+     */
+    on(
+        event: 'login',
+        handler:({ address: string; publicKey: string }) => any 
+    ) => Provider;
+
+    /**
+     * Signer подписывается на события logout в Провайдере
+     * Для последующей отписки Signer вызывает функцию off
+     */
+    on( event: 'logout', handler:() => any) => Provider;
+
+    /**
+     * Signer подписывается на первое событие login в Провайдере
+     * При срабатывании Провайдер должен передать данные пользователя:
+     *   адрес и публичный ключ, а также выполнить отписку
+     * Отписка не нужна
+     */
+    once(
+        event: 'login',
+        handler:({ address: string; publicKey: string }) => any 
+    ) => Provider;
+
+    /**
+     * Signer подписывается на первое событие logout в Провайдере
+     * При срабатывании Провайдер должен выполнить отписку
+     */
+    once( event: 'logout', handler:() => any) => Provider;
+
+    /**
+     * Signer отписывается от событий в Провайдере, на которые были подписки
+     */
+    off(
+        event: 'login',
+        handler:({ address: string; publicKey: string }) => any 
+    ) => Provider;
+    off( event: 'logout', handler:() => any) => Provider;
 
     /**
      * Устанавливает соединение с нодой Waves
@@ -1149,7 +1191,7 @@ interface IProvider {
     /**
      * Выполняет вход в аккаунт пользователя
      */
-    login(): Promise<{addres: string, publicKey: string}>;
+    login(): Promise<{address: string, publicKey: string}>;
 
     /**
      * Выполняет выход из аккаунта пользователя
@@ -1157,9 +1199,37 @@ interface IProvider {
     logout(): Promise<void>;
 
     /**
+     * Подписывает произвольную строку
+     * @param data
+     */
+    signMessage(data: string | number): Promise<string>;
+
+    /**
+     * Подписывает типизированные данные
+     * @param data
+     */
+    signTypedData(data: Array<TypedData>): Promise<string>;
+
+    /**
      * Подписывает транзакции в массиве
+     * Здесь SignedTx<T> — любая транзакция, T[] — массив любых транзакций
      * @param list
      */
-    sign(list: Array<TTransactionParamWithType>): Promise<Array<TTransactionWithProofs<TLong> & IWithId>>;
+    sign<T extends SignerTx>(toSign: T[]): Promise<SignedTx<T>>;
+    sign<T extends Array<SignerTx>>(toSign: T): Promise<SignedTx<T>>;
 }
 ```
+
+## Коды ошибок
+
+| Класс ошибки                  | Код | Тип           | Описание |
+|:------------------------------|:-----|:---------------|:--------|
+| SignerOptionsError            | 1000 | validation     | Invalid signer options: NODE_URL, debug |
+| SignerNetworkByteError        | 1001 | network        | Could not fetch network from {NODE_URL}: Failed to fetch |
+| SignerAuthError               | 1002 | authorization  | Can't use method: getBalance. User must be logged in |
+| SignerProviderConnectError    | 1003 | network        | Could not connect the Provider |
+| SignerEnsureProviderError     | 1004 | provider       | Can't use method: login. Provider instance is missing<br/>🛈 Возможные причины: пользователь в режиме Инкогнито или отключил cookie |
+| SignerProviderInterfaceError  | 1005 | validation     | Invalid provider properties: connect |
+| SignerProviderInternalError   | 1006 | provider       | Provider internal error: {...}. This is not error of signer. |
+| SignerApiArgumentsError       | 1007 | validation     | Validation error for invoke transaction: {...}. Invalid arguments: senderPublicKey |
+| SignerNetworkError            | 1008 | network        | Network Error |

@@ -3,6 +3,8 @@
 ## Март
 
 * [Расширение Blockchain Updates](/ru/waves-node/extensions/blockchain-updates) — <span style="color:green">обновлено</span>
+* [Собственный (сustom) блокчейн](/ru/waves-node/private-waves-network) — <span style="color:green">обновлено</span>
+* [Формат транзакций в Waves Keeper API](/ru/ecosystem/waves-keeper/transaction) — <span style="color:green">обновлено</span>
 
 ## Февраль
 
