@@ -24,3 +24,13 @@ Asset(id: ByteVector, quantity: Int, decimals: Int, issuer: Address, issuerPubli
 | 8 | minSponsoredFee | [Int](/en/ride/v5/data-types/int)&#124;[Unit](/en/ride/v5/data-types/unit) | Amount of asset that is equivalent to 0.001 WAVES (100,000 WAVELET), specified in the minimum fraction (“cents”) of asset. See the [Sponsored fee](/en/blockchain/waves-protocol/sponsored-fee) article<br>`unit`: sponsorship is disabled. |
 | 9 | name | [String](/en/ride/v5/data-types/string) | Token name, up to 16 characters |
 | 10 | description | [String](/en/ride/v5/data-types/string) | Token description, up to 1000 characters |
+
+## Example
+
+Get the account balance in a given asset:
+
+```scala
+let address=base58'3Mw48B85LvkBUhhDDmUvLhF9koAzfsPekDb'
+let assetId=base58'GpxmxorKXLz1V7xootrvGyFgqP2tTTBib5HEm8QGZTHX'
+assetBalance(Address(address), assetId)
+```

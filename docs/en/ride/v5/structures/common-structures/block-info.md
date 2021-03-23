@@ -2,7 +2,7 @@
 
 :warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/structures/common-structures/block-info)
 
-Structure of a [block](/en/blockchain/block/).
+Structure containing [block](/en/blockchain/block/) headers. The structure is returned by the [blockInfoByHeight](/en/ride/v5/functions/built-in-functions/blockchain-functions#blockinfobyheight) built-in function.
 
 ## Constructor
 
