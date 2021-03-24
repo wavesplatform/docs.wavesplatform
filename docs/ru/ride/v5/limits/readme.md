@@ -10,7 +10,7 @@
 | Сложность скрипта ассета | 4000 |
 | Сложность вызываемой функции dApp-скрипта | 4000 |
 | Количество [вызовов dApp из dApp](/ru/ride/advanced/dapp-to-dapp) в одной транзакции вызова скрипта | 100 |
-| Суммарная сложность всех вызываемых функций и скриптов ассетов в одной транзакции вызова скрипта. Сложность скрипта отправителя не учитывается в этом лимите | 52&nbsp;000 |
+| Суммарная сложность всех вызываемых функций и скриптов ассетов в одной транзакции вызова скрипта. Сложность скрипта отправителя не учитывается в этом лимите | 28&nbsp;000 |
 | Порог сложности для сохранения неуспешных транзакций: если до его превышения вызываемая функция завершилась ошибкой или выбрасыванием исключения, транзакция вызова скрипта отклоняется и комиссия за нее не взимается | 1000 |
 | Сложность функции-верификатора dApp-скрипта | 2000 |
 | Порог сложности отправителя: если сложность скрипта аккаунта или функции-верификатора dApp-скрипта превышает этот порог, минимальная комиссия за отправку транзакции с этого аккаунта увеличивается на 0,004 WAVES.<br>Действует с момента активации фичи №&nbsp;16 “dApp-to-dApp invocations, Ride V5” независимо от версии Стандартной библиотеки | 200 |
@@ -20,7 +20,7 @@
 | Вес данных | См. [Вес данных](/ru/ride/v5/limits/weight) |
 | Количество аргументов вызываемой функции | 22 |
 | Количество платежей, приложенных к вызову | 10 |
-| Общее количество действий скрипта [Issue](/ru/ride/v5/structures/script-actions/issue), [Reissue](/ru/ride/v5/structures/script-actions/reissue), [Burn](/ru/ride/v5/structures/script-actions/burn), [SponsorFee](/ru/ride/v5/structures/script-actions/sponsor-fee), [ScriptTransfer](/ru/ride/v5/structures/script-actions/script-transfer), [Lease](/ru/ride/v5/structures/script-actions/lease) и [LeaseCancel](/ru/ride/v5/structures/script-actions/lease-cancel), выполняемых всеми вызываемыми функциями в одной транзакции | 20 |
+| Общее количество действий скрипта [Issue](/ru/ride/v5/structures/script-actions/issue), [Reissue](/ru/ride/v5/structures/script-actions/reissue), [Burn](/ru/ride/v5/structures/script-actions/burn), [SponsorFee](/ru/ride/v5/structures/script-actions/sponsor-fee), [ScriptTransfer](/ru/ride/v5/structures/script-actions/script-transfer), [Lease](/ru/ride/v5/structures/script-actions/lease) и [LeaseCancel](/ru/ride/v5/structures/script-actions/lease-cancel), выполняемых всеми вызываемыми функциями в одной транзакции | 30 |
 | Общее количество действий скрипта [BinaryEntry](/ru/ride/v5/structures/script-actions/binary-entry), [BooleanEntry](/ru/ride/v5/structures/script-actions/boolean-entry), [DeleteEntry](/ru/ride/v5/structures/script-actions/delete-entry), [IntegerEntry](/ru/ride/v5/structures/script-actions/int-entry), [StringEntry](/ru/ride/v5/structures/script-actions/string-entry), выполняемых всеми вызываемыми функциями в одной транзакции | 100 |
 | Суммарный размер записей [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage) для всех структур `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, `StringEntry` в результате выполнения вызываемой функции | 5 Кбайт |
 

@@ -8,7 +8,7 @@
 * Amended [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction):
    * Canceled the extra fee of 0.004 WAVES for smart assets in payments and script actions.
    * Transaction can contain up to 10 attached payments.
-   * The total complexity for all callable functions and asset scripts involved is limited by 52,000 (the sender's account script complexity is not included in this limit). 
+   * The total complexity for all callable functions and asset scripts involved is limited by 28,000 (the sender's account script complexity is not included in this limit). 
 * For all types of transactions, canceled the extra fee of 0.004 WAVES for sending a transaction from a smart account or dApp unless the complexity of sender's account script or dApp script verifier function exceeds 200.
 <!--* **Continued computations.** Added support for dApp scripts with complexity over 4000. The execution of such a script is split into several stages. The first stage of computations is performed within the Invoke Script transaction. The further stages are performed within Continuation transactions. [More about continued computations](/en/ride/advanced/continuation)
    * Implemented the new transaction type: [Continuation](/en/blockchain/transaction-type/continuation-transaction). A block generator creates the Continuation transaction if there is an incomplete computation sequence. A user cannot send a Continuation transaction.
