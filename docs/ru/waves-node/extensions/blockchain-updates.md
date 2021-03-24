@@ -6,6 +6,8 @@ sidebarDepth: 3
 
 **Blockchain Updates** — [расширение ноды](/ru/waves-node/extensions/), которое отправляет по [gRPC](https://en.wikipedia.org/wiki/GRPC) сообщения об изменениях на блокчейне.
 
+>Данная статья предназначена для **Blockchain Updates** версии **1.2.20** и выше.
+
 Blockchain Updates позволяет отслеживать изменения, которые внесла каждая транзакция и блок:
 
 * изменения в балансах,
