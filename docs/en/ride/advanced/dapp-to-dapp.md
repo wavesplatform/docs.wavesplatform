@@ -71,7 +71,7 @@ Features:
 * The number of the [Invoke](#invoke-function) function calls is up to 100 within a single Invoke Script transaction.
 * The maximum total number of `Issue`, `Reissue`, `Burn`, `SponsorFee`, `ScriptTransfer`, `Lease`, `LeaseCancel` script actions executed by all callable functions in a single transaction is 30.
 * The maximum total number of `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, `StringEntry`, `DeleteEntry` script actions executed by all callable functions in a single transaction is 100.
-* The total complexity is limited by 28,000 for all callable functions and asset scripts of involved smart assets. The sender's account script complexity is not included in that limit.
+* The total complexity is limited by 26,000 for all callable functions and asset scripts of involved smart assets. The sender's account script complexity is not included in that limit.
 
 <!-- > Continued computations and dApp-to-dApp invocation are mutually exclusive, that is, they cannot be initiated by the same transaction.-->
 
@@ -150,6 +150,6 @@ If the callable function's execution fails or [throws an exception](/en/ride/v5/
 
 Consider the example: callable function 1 performs computations of 800 complexity, then invokes callable function 2 which performs computations of 300 complexity and then fails. The complexity 800 + 300 has exceeded the threshold, so the transaction is saved as failed, and the sender is charged a fee.
 
-If the total complexity of executed callable functions and asset scripts exceeds the limit of 28,000, the transaction is saved as failed as well. For example, if the complexity of executed callable functions is 25,000 in total, and there is a smart asset in script action whose script's complexity is 3500.
+If the total complexity of executed callable functions and asset scripts exceeds the limit of 26,000, the transaction is saved as failed as well. For example, if the complexity of executed callable functions is 25,000 in total, and there is a smart asset in script action whose script's complexity is 1500.
 
 In case of failure, no payments and script actions are applied to the blockchain state, even if some of the invoked functions are executed completely. The only state change the failed transaction entails is charging the fee.
