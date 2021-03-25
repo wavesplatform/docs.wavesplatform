@@ -10,15 +10,15 @@ An account can be restricted with any outgoing transaction based on:
 
 ## Set Script to an Account
 
-In order to setup a Smart Account, The account needs to issue [SetScriptTransaction](https://wavesplatform.github.io/waves-transactions/globals.html#setscript) which contains the predicate. Upon success, every outgoing transaction will be validated not by the default mechanism of signature validation, but according to the predicate logic.  
-`AccountScript` can be changed or cleared if the script installed allows the new [SetScriptTransaction](https://wavesplatform.github.io/waves-transactions/globals.html#setscript) to process.  
+In order to setup a Smart Account, The account needs to issue [Set Script Transaction](https://wavesplatform.github.io/waves-transactions/modules/_transactions_set_script_.html) which contains the predicate. Upon success, every outgoing transaction will be validated not by the default mechanism of signature validation, but according to the predicate logic.  
+`AccountScript` can be changed or cleared if the script installed allows the new Set Script transaction to process.  
 The default account has no script, which is equivalent to this script:
 
 ```scala
 sigVerify(tx.bodyBytes, tx.proofs[0], tx.senderPk)
 ```
 
-**Note.** [SetScriptTransaction](https://wavesplatform.github.io/waves-transactions/globals.html#setscript) sets the script which verifies all outgoing transactions. The set script can be changed by another [SetScriptTransaction ](https://wavesplatform.github.io/waves-transactions/globals.html#setscript)call unless it’s prohibited by a previous set script.
+**Note.** Set Script transaction sets the script which verifies all outgoing transactions. The set script can be changed by another Set Script transaction unless it’s prohibited by a previous set script.
 
 ## Script Costs
 
