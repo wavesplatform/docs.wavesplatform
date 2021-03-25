@@ -385,7 +385,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    * [containsElement](/en/ride/functions/built-in-functions/list-functions#containselement) that check if the element is in the list. Complexity is 5.
    * [createMerkleRoot](/en/ride/functions/built-in-functions/verification-functions##createmerkleroot) that calculates [transactions root hash](/en/blockchain/block/merkle-root). Complexity is 30.
    * [ecrecover](/en/ride/functions/built-in-functions/verification-functions#ecrecover) that recovers public key from the message hash and the [ECDSA](https://en.wikipedia.org/wiki/ECDSA) digital signature. Complexity is 70.
-   * [makeString](/en/ride/functions/built-in-functions/string-functions#makestring-list-string-string-string) that concatenates list strings adding a separator. Complexity is 10.
+   * [makeString](/en/ride/functions/built-in-functions/string-functions#makestring-list-string-string-string) that concatenates list strings adding a separator. Complexity is 30.
    * [groth16Verify](/en/ride/functions/built-in-functions/verification-functions#groth16verify) range of functions that verify the zero-knowledge proof [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by groth16 protocol on the bls12-381 curve. Complexity is 1200–2700 depending on the argument size limit.
    * [indexOf](/en/ride/functions/built-in-functions/list-functions#indexof) that returns the index of the first occurrence of the element in the list. Complexity is 5.
    * [lastIndexOf](/en/ride/functions/built-in-functions/list-functions#lastindexof) that returns the index of the last occurrence of the element in the list. Complexity is 5.

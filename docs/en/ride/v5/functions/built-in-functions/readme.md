@@ -163,7 +163,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | indexOf(String, String, Int): Int&#124;Unit | Returns the index of the first occurrence of a substring after a certain index | 3 |
 | lastIndexOf(String, String): Int&#124;Unit | Returns the index of the last occurrence of a substring | 3 |
 | lastindexOf(String, String, Int): Int&#124;Unit | Returns the index of the last occurrence of a substring before a certain index | 3 |
-| makeString(List[String], String): String | Concatenates list strings adding a separator | 10 |
+| makeString(List[String], String): String | Concatenates list strings adding a separator | 30 |
 | size(String): Int | Returns the size of a string | 1 |
 | split(String, String): List[String] | Splits a string delimited by a separator into a list of substrings. | 75 |
 | take(String, Int): String | Takes the first `n` characters from a string | 20 |

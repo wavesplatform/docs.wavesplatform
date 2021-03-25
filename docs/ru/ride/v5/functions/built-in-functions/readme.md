@@ -156,7 +156,7 @@
 | indexOf(String, String, Int): Int&#124;Unit | Возвращает индекс первого вхождения подстроки после указанного индекса | 3 |
 | lastIndexOf(String, String): Int&#124;Unit | Возвращает индекс последнего вхождения подстроки | 3 |
 | lastIndexOf(String, String, Int): Int&#124;Unit | Возвращает индекс последнего вхождения подстроки после указанного индекса | 3 |
-| makeString(List[String], String): String | Объединяет строки из списка, используя разделитель | 10 |
+| makeString(List[String], String): String | Объединяет строки из списка, используя разделитель | 30 |
 | size(String): Int | Возвращает длину строки | 1 |
 | split(String, String): List[String] | Разбивает строку на список подстрок, используя разделитель | 75 |
 | take(String, Int): String | Возвращает первые `n` символов строки | 20 |

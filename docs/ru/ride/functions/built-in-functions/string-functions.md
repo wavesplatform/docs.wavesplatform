@@ -9,7 +9,7 @@
 | [indexOf(String, String, Int): Int&#124;Unit](#indexof-string-string-int-int-unit)  | Возвращает индекс первого вхождения подстроки после указанного индекса | 20 для Стандартной библиотеки **версии 3**<br>3 для Стандартной библиотеки **версии 4** |
 | [lastIndexOf(String, String): Int&#124;Unit](#lastindexof-string-string-int-unit) | Возвращает индекс последнего вхождения подстроки | 20 для Стандартной библиотеки **версии 3**<br>3 для Стандартной библиотеки **версии 4** |
 | [lastindexOf(String, String, Int): Int&#124;Unit](#lastindexof-string-string-int-int-unit) | Возвращает индекс последнего вхождения подстроки перед указанным индексом | 20 для Стандартной библиотеки **версии 3**<br>3 для Стандартной библиотеки **версии 4** |
-| [makeString(List[String], String): String](#makestring-list-string-string-string) | Объединяет строки из списка, используя разделитель | 10 |
+| [makeString(List[String], String): String](#makestring-list-string-string-string) | Объединяет строки из списка, используя разделитель | 30 |
 | [size(String): Int](#size-string-int) | Возвращает длину строки | 1 |
 | [split(String, String): List[String]](#split-string-string-list-string) | Разбивает строку на список подстрок, используя разделитель | 100 для Стандартной библиотеки **версии 3**<br>75 для Стандартной библиотеки **версии 4** |
 | [take(String, Int): String](#take) | Возвращает первые `n` символов строки | 1 для Стандартной библиотеки **версии 3**<br>20 для Стандартной библиотеки **версии 4** |
