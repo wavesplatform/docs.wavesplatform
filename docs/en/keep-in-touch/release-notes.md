@@ -209,7 +209,7 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
 
 #### Improvements
 
-* Added the `/leasing/leaseInfo` endpoint that returns lease parameters by lease IDs.
+* Added the `/leasing/info` endpoint that returns lease parameters by lease IDs.
 
    <details>
       <summary>Format</summary>
