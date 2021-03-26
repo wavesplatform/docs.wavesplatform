@@ -1,5 +1,11 @@
 # Documentation Updates
 
+## March
+
+* [Blockchain Updates Extension](/en/waves-node/extensions/blockchain-updates) — <span style="color:green">updated</span>
+* [Custom Blockchain](/en/waves-node/private-waves-network) — <span style="color:green">updated</span>
+* [Transaction Format for Waves Keeper API](/en/ecosystem/waves-keeper/transaction) — <span style="color:green">updated</span>
+
 ## February
 
 * [Data Service API](/en/building-apps/waves-api-and-sdk/waves-data-service-api)

@@ -150,7 +150,7 @@ Limitations on the size, complexity of the script, as well as on functions and v
 
 Find dApp script examples:
 
-* In the [How-to Guides](/en/building-apps/how-to#dapps) chapter.
+* In the [How-to Guides](/en/building-apps/how-to/#dapps) chapter.
 * In [Waves IDE](https://waves-ide.com/) in the **Library** menu.
 * In Github repository [ride-examples](https://github.com/wavesplatform/ride-examples/blob/master/welcome.md).
 

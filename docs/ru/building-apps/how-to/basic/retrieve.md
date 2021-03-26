@@ -46,7 +46,7 @@ curl 'https://nodes-testnet.wavesnodes.com/addresses/data/3N4iKL6ikwxiL7yNvWQmw7
 * функция `accountData` получает все записи из хранилища данных аккаунта, опционально для отбора записей можно использовать [регулярное выражение](https://ru.wikipedia.org/wiki/%D0%A0%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%B5_%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F).
 * функция `accountDataByKey` получает запись по ее ключу.
 
-Описание функций см. в [документации библиотеки](https://wavesplatform.github.io/waves-transactions/modules/nodeinteraction.html) на Github.
+Описание функций см. в [документации библиотеки](https://wavesplatform.github.io/waves-transactions/modules/_nodeinteraction_.html) на Github.
 
 **Пример:**
 
@@ -119,7 +119,7 @@ curl 'https://nodes.wavesnodes.com/assets/balance/3P8pGyzZL9AUuFs9YRYPDV3vm73T48
 * функция `balanceDetails` получает все типы баланса в WAVES.
 * функция `assetBalance` получает балансы в других ассетах.
 
-Описание функций см. в [документации библиотеки](https://wavesplatform.github.io/waves-transactions/modules/nodeinteraction.html) на Github.
+Описание функций см. в [документации библиотеки](https://wavesplatform.github.io/waves-transactions/modules/_nodeinteraction_.html) на Github.
 
 **Пример:**
 

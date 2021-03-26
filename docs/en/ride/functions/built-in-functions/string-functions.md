@@ -9,7 +9,7 @@
 | [indexOf(String, String, Int): Int&#124;Unit](#indexof-string-string-int-int-unit) | Returns the index of the first occurrence of a substring after a certain index | 20 for Standard Library **version 3**<br>3 for Standard Library **version 4** |
 | [lastIndexOf(String, String): Int&#124;Unit](#lastindexof-string-string-int-unit) | Returns the index of the last occurrence of a substring | 20 for Standard Library **version 3**<br>3 for Standard Library **version 4** |
 | [lastindexOf(String, String, Int): Int&#124;Unit](#lastindexof-string-string-int-int-unit) | Returns the index of the last occurrence of a substring before a certain index | 20 for Standard Library **version 3**<br>3 for Standard Library **version 4** |
-| [makeString(List[String], String): String](#makestring-list-string-string-string) | Concatenates list strings adding a separator | 10 |
+| [makeString(List[String], String): String](#makestring-list-string-string-string) | Concatenates list strings adding a separator | 30 |
 | [size(String): Int](#size-string-int) | Returns the size of a string | 1 |
 | [split(String, String): List[String]](#split-string-string-list-string) | Splits a string delimited by a separator into a list of substrings | 100 for Standard Library **version 3**<br>75 for Standard Library **version 4** |
 | [take(String, Int): String](#take) | Takes the first `n` characters from a string | 1 for Standard Library **version 3**<br>20 for Standard Library **version 4** |

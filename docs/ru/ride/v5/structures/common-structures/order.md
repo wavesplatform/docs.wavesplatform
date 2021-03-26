@@ -2,15 +2,17 @@
 
 :warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/structures/common-structures/order)
 
-Структура ордера.
+Структура [ордера](/ru/blockchain/order). Используется:
+* при проверке исходящего ордера [скриптом аккаунта](/ru/ride/script/script-types/account-script) или функцией-верификатором [dApp-скрипта](/ru/ride/script/script-types/dapp-script);
+* в структуре [InvokeScriptTransaction](/ru/ride/v5/structures/transaction-structures/invoke-script-transaction).
 
-### Конструктор
+## Конструктор
 
 ``` ride
 Order(id: ByteVector, matcherPublicKey: ByteVector, assetPair: AssetPair, orderType: Buy|Sell, price: Int, amount: Int, timestamp: Int, expiration: Int, matcherFee: Int, matcherFeeAssetId: ByteVector|Unit, sender: Address, senderPublicKey: ByteVector, bodyBytes: ByteVector, proofs: List[ByteVector])
 ```
 
-### Поля
+## Поля
 
 | # | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
@@ -28,3 +30,30 @@ Order(id: ByteVector, matcherPublicKey: ByteVector, assetPair: AssetPair, orderT
 | 12 | senderPublicKey | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Открытый ключ аккаунта отправителя ордера |
 | 13 | bodyBytes | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Массив байтов ордера |
 | 14 | proofs | [List](/ru/ride/v5/data-types/list)[[ByteVector](/ru/ride/v5/data-types/byte-vector)] | Массив [подтверждений](/ru/blockchain/transaction/transaction-proof) |
+
+## Пример
+
+Приведенный ниже скрипт разрешает совершать с аккаунта покупку:
+
+- только заданного ассета,
+- только по заданной цене,
+- только за WAVES.
+
+```scala
+{-# STDLIB_VERSION 5 #-}
+{-# CONTENT_TYPE EXPRESSION #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+
+let myAssetId = base58'8LLpj6yQLUu37KUt3rVo1S69j2gWMbgbM6qqgt2ac1Vb'
+
+match tx {
+   case o: Order =>
+        let isWavesPriceAsset = !isDefined(o.assetPair.priceAsset)
+        let rightPair = (o.assetPair.amountAsset == myAssetId) && isWavesPriceAsset
+        sigVerify(o.bodyBytes, o.proofs[0], o.senderPublicKey)
+        && rightPair
+        && o.price == 500000
+        && o.orderType == Buy
+   case _ => false
+}
+```

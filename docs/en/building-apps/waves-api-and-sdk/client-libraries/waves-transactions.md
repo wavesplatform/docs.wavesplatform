@@ -7,22 +7,27 @@
 [_**Using this library**_](https://www.npmjs.com/package/@waves/waves-transactions) you can easily create and sign transactions for Waves blockchain.  
 It also allows you to multi-sign existing transactions or create them without signature at all.
 
-This library is a set of transaction constructing functions:
+This library provides a set of transaction constructing functions:
 
-* [Alias](https://wavesplatform.github.io/waves-transactions/modules/index.html#alias)
-* [Issue](https://wavesplatform.github.io/waves-transactions/modules/index.html#issue)
-* [Reissue](https://wavesplatform.github.io/waves-transactions/modules/index.html#reissue)
-* [Burn](https://wavesplatform.github.io/waves-transactions/modules/index.html#burn)
-* [Lease](https://wavesplatform.github.io/waves-transactions/modules/index.html#lease)
-* [Cancel lease](https://wavesplatform.github.io/waves-transactions/modules/index.html#cancellease)
-* [Transfer](https://wavesplatform.github.io/waves-transactions/modules/index.html#transfer)
-* [Mass transfer](https://wavesplatform.github.io/waves-transactions/modules/index.html#masstransfer)
-* [Set script](https://wavesplatform.github.io/waves-transactions/modules/index.html#setscript)
-* [Data](https://wavesplatform.github.io/waves-transactions/modules/index.html#data)
-* [Sponsorship](https://wavesplatform.github.io/waves-transactions/modules/index.html#sponsorship)
-* [Set asset script](https://wavesplatform.github.io/waves-transactions/modules/index.html#setassetscript)
-* [InvokeScript](https://wavesplatform.github.io/waves-transactions/modules/index.html#invokescript)
-* [Order](https://wavesplatform.github.io/waves-transactions/modules/index.html#order)
+* [Alias](https://wavesplatform.github.io/waves-transactions/modules/_transactions_alias_.html)
+* [Issue](https://wavesplatform.github.io/waves-transactions/modules/_transactions_issue_.html)
+* [Reissue](https://wavesplatform.github.io/waves-transactions/modules/_transactions_reissue_.html)
+* [Burn](https://wavesplatform.github.io/waves-transactions/modules/_transactions_burn_.html)
+* [Lease](https://wavesplatform.github.io/waves-transactions/modules/_transactions_lease_.html)
+* [Cancel lease](https://wavesplatform.github.io/waves-transactions/modules/_transactions_cancel_lease_.html)
+* [Transfer](https://wavesplatform.github.io/waves-transactions/modules/_transactions_transfer_.html)
+* [Mass transfer](https://wavesplatform.github.io/waves-transactions/modules/_transactions_mass_transfer_.html)
+* [Set script](https://wavesplatform.github.io/waves-transactions/modules/_transactions_set_script_.html)
+* [Data](https://wavesplatform.github.io/waves-transactions/modules/_transactions_data_.html)
+* [Sponsorship](https://wavesplatform.github.io/waves-transactions/modules/_transactions_sponsorship_.html)
+* [Set asset script](https://wavesplatform.github.io/waves-transactions/modules/_transactions_set_asset_script_.html)
+* [Invoke script](https://wavesplatform.github.io/waves-transactions/modules/_transactions_invoke_script_.html)
+* [Exchange](https://wavesplatform.github.io/waves-transactions/modules/_transactions_exchange_.html)
+* [Update asset info](https://wavesplatform.github.io/waves-transactions/modules/_transactions_update_asset_info_.html)
+
+As well as an order constructing function:
+
+* [Order](https://wavesplatform.github.io/waves-transactions/modules/_requests_order_.html)
 
 Check full documentation on [GitHub Pages](https://wavesplatform.github.io/waves-transactions/index.html).
 

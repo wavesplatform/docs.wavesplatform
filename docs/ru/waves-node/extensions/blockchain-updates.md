@@ -1,6 +1,12 @@
+---
+sidebarDepth: 3
+---
+
 # Расширение Blockchain Updates
 
 **Blockchain Updates** — [расширение ноды](/ru/waves-node/extensions/), которое отправляет по [gRPC](https://en.wikipedia.org/wiki/GRPC) сообщения об изменениях на блокчейне.
+
+>Данная статья предназначена для **Blockchain Updates** версии **1.2.20** и выше.
 
 Blockchain Updates позволяет отслеживать изменения, которые внесла каждая транзакция и блок:
 
@@ -23,7 +29,7 @@ Blockchain Updates позволяет отслеживать изменения,
 
 ## Запуск ноды с расширением
 
-:warning: **Важно:** расширение Blockchain Updates использует историю изменений с момента создания блокчейна. Поэтому ноду с расширением нужно запустить с нуля и дождаться синхронизации блокчейна в обычном режиме работы ноды, что может потребовать 1–3 дня (см. раздел [Синхронизировать блокчейн Waves](/ru/waves-node/options-for-getting-actual-blockchain/)). Импорт блокчейна из бинарного файла или загрузка актуальной базы данных не подходят.
+:warning: **Важно:** расширение Blockchain Updates использует историю изменений с момента создания блокчейна. Поэтому ноду с расширением нужно либо запустить с нуля и дождаться синхронизации блокчейна в обычном режиме работы ноды (см. раздел [Синхронизировать блокчейн Waves](/ru/waves-node/options-for-getting-actual-blockchain/)), либо импортировать блокчейн из бинарного файла (см. раздел [Импортировать и экспортировать блокчейн](/ru/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain)). Процесс занимает 1–3 дня. Загрузка актуальной базы данных не подходит.
 
 Ноду с расширением можно установить двумя способами: из DEB-пакета и из JAR-файла. Расширение Blockchain Updates находится в том же пакете и архиве, что и [gRPC Server](/ru/waves-node/extensions/grpc-server/). Установить эти расширения можно как вместе, так и по отдельности, отличаются только настройки в файле конфигурации ноды.
 
@@ -199,229 +205,1122 @@ git clone https://github.com/wavesplatform/protobuf-schemas/
 
 API Blockchain Updates предоставляет три функции:
 * `GetBlockUpdate` — возвращает изменения, порожденные блоком на указанной высоте.
-* `GetBlockUpdatesRange` — возвращает массив изменений, порожденных блоками в указанном диапазоне высоты.
-* `Subscribe` — возвращает поток сообщений об изменениях, вначале исторические данные (то есть изменения до текущей высоты блокчейна), затем текущие события в реальном времени. Опционально можно указать начальную и/или конечную высоту.
+* [GetBlockUpdatesRange](#GetBlockUpdatesRange) — возвращает массив изменений, порожденных блоками в указанном диапазоне высоты.
+* [Subscribe](#Subscribe) — возвращает поток сообщений об изменениях, вначале исторические данные (то есть изменения до текущей высоты блокчейна), затем текущие события в реальном времени. Опционально можно указать начальную и/или конечную высоту.
 
-Функция `Subscribe` возвращает все события в реальном времени: добавление блока, добавление микроблока, откат блока, откат микроблока (см. описание протокола [Waves-NG](/en/blockchain/waves-protocol/waves-ng-protocol)). Чтобы корректно обрабатывать откаты, рекомендуем хранить несколько предыдущих состояний блокчейна. Обычно достаточно 10 блоков назад от текущего. Максимальный откат высоты, который нода может выполнить автоматически, — 100 блоков. Максимальный откат, который можно инициировать вручную, — 2000 блоков. Подробнее см. в разделе [Работа с форками](/ru/waves-node/#работа-с-форками).
+Структуру запросов и ответов можно посмотреть в файле [blockchain_updates.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/grpc/blockchain_updates.proto).
+
+### Subscribe
+
+Функция `Subscribe` возвращает все события в реальном времени: добавление блока, добавление микроблока, откат блока, откат микроблока (см. описание протокола [Waves-NG](/en/blockchain/waves-protocol/waves-ng-protocol)).
 
 В случае разрыва соединения рекомендуем откатить последний блок на клиенте и возобновить получение событий с предыдущего блока.
 
-Для некоторых аналитических задач не требуется получение событий в реальном времени, достаточно обновления, например, раз в час или раз в сутки. В этом случае рекомендуем использовать функцию `GetBlockUpdatesRange`. Она возвращает только исторические данные об уже примененных блоках, которые гораздо проще обрабатывать. Конечную высоту диапазона лучше указывать на несколько блоков меньше текущей, чтобы избежать проблем в случае отката высоты.
+Параметры:
+
+| Имя | Тип | Описание |
+| :--- | :--- | :--- |
+| from_height | int32 | Начальная высота. Необязательный параметр, по умолчанию 1 |
+| to_height | int32 | Конечная высота. Необязательный параметр, по умолчанию высота не ограничена |
+
+Функция возвращает поток сообщений об изменениях `SubscribeEvent`.
+
+Поля сообщения:
+
+| Имя | Тип | Описание |
+| :--- | :--- | :--- |
+| update.id | bytes | ID последнего блока или микроблока на блокчейне после события |
+| update.height | int32 | Высота |
+| update.update | Append или Rollback | Событие: добавление или откат блока или микроблока. См. [Формат событий](#формат-событий) ниже |
+| referenced_assets | repeated StateUpdate.AssetInfo | Ассеты, участвующие в событии. См. [AssetInfo](#AssetInfo) ниже |
+
+### GetBlockUpdatesRange
+
+Функция `GetBlockUpdatesRange` возвращает только исторические данные об уже примененных блоках. Рекомендуем использовать ее для аналитических задач, для которых достаточно обновления, например, раз в час или раз в сутки. Конечную высоту диапазона лучше указывать на несколько блоков меньше текущей, чтобы избежать проблем в случае отката высоты.
+
+Параметры:
+
+| Имя | Тип | Описание |
+| :--- | :--- | :--- |
+| from_height | int32 | Начальная высота. Обязательный параметр |
+| to_height | int32 | Конечная высота. Обязательный параметр |
+
+Функция возвращает массив сообщений об изменениях. Формат сообщения такой же, как для функции `Subscribe`, но содержит только сообщения о добавлении блока.
 
 ## Формат событий
 
-Структуру запросов и ответов можно посмотреть в файлах [blockchain_updates.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/grpc/blockchain_updates.proto) и [events.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/events.proto).
+Структуру событий можно посмотреть в файле [events.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/events.proto).
 
-Примеры событий:
-<details><summary>BlockAppend</summary>
-<code>
-update {<br>
-&nbsp;&nbsp;id: 6AmsQJEEmxu3wtTRFVzEWgVHf1WBh8nwTNJhDxRKts7U<br>
-&nbsp;&nbsp;height: 1199932<br>
-&nbsp;&nbsp;append {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;block {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;block {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;header {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chain_id: 84<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reference: 7ebn8KgNxaWVK1U4teSJVg24oiesDFPei9njdNMbVFL1<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;base_target: 1508<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;generation_signature: Wbtq75BMT4zw35MiWHBcycbG3157byfA8vWYgjaMRUW1V6w6yJZ1TgdUoHe4H7xSZnSXuKJvBotn1nZV8xF8WiQMbfdzjppUvMjcXzkxssy8LK6z7ZKcd9rq1BugZcqnK1R<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timestamp: 1601462351767<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;version: 5<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;generator: GzkwrZ2tcc2Hu4X2yBHHHsM5cFQAPygFHuRCUSA9chnU<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reward_vote: -1<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transactions_root: E2SUKG7CVPQYF7ccZWD4zf2W3Ygdp59ZhLFU1R9cFafC<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;signature: 3jaZa2DhvSN16b65e369MBDbypgXEysMZGdNTXx4N8uU9Qn25xsg8xg3nsbySuQWPM9ftjypLEVNkMffHA3cSrxQ<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transactions {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transaction {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chain_id: 84<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sender_public_key: 57C4SttrQ3a2s6nHqTyPoKo6g7JFKhvojLkS3qgrVqyv<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fee {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount: 500000<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timestamp: 1601462356424<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;version: 1<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;invoke_script {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d_app {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public_key_hash: 3D7mfXL6hAbaKGqCTWC6r2tjdM5Y<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function_call: BkiQZbtVDKYHAvYcq6FfTfibZCkBt5UF9wF6Y5DwhBQfEoezXDzmvUwfUmuX4mcRiW66ReRuVbCo1M6946wJrUciG94jozz1umDzYYkvWzfQ4mcfEbQgVU5afhxHooyJJruaY9WpPUQQwwzauPg9hmZNyTxDFy7yN2nYyWJKpdF9KC7ucuAMAjw1uifVVufdVwfYi1yxMVtduWGEGuPCzd2UJXSs27EeQtS7AM8ZxtjeQbPbuMxUhCcnVKVhuQ9WLmwwgLecqJEgRPg3KjHMijjtUz2mHKsjupiELThYQCM1NiTCV1wZTwNThW3NZ8jt4rSi3wk38u5JfRH9t8umgoYAVbAmhvgYwDjEFKm9YExJufedEeLFQ1MGx83AqKjmawWLE8Z41JBdMb98mtmu3SbJ8xJpehSZhfJKV23dpBfNXouPsnScQDPHgfvTdr7oDoz71p2qQqLinZkVtEn8fiXgDtQyzHNRY1juMS3WGxKyzK8rKAPSbpoNCaF1fmznm6wyD25k9dJ91ZpKYfLDGg5Ag6ySgXKvFVVUREMrsgqKirwaz7wHmTRrc7f2Va<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proofs: 4WhHHPj6T9xa2y9rLAJtdko3dgkMQ1gaKsuVpkKgEW8NH6QqANsJSHqe13pTwYEG3XzVWAjcefyyszgKZZvoZ4oo<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_waves_amount: 10000000600000000<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;transaction_ids: DAunM3yCYmoPoAHD5z5ddX225Pa47BNBNsMoMLM2ApFC<br>
-&nbsp;&nbsp;&nbsp;&nbsp;state_update {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;balances {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;address: 3NAhtLNFJhfB6TgMia9HzdaSkKiJD5N2V3b<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount: 1480157680000<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;transaction_state_updates {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;balances {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;address: 3MuhGCajV9HXunkyuQpwXvHTjTLaMy93g9Y<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount: 5932500000<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_entries {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;address: 3N4NS7d4Jo9a6F14LiFUKKYVdUkkf2eP4Zx<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_entry {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key: "deficit_1199932"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int_value: -379468596950<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_entries {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;address: 3N4NS7d4Jo9a6F14LiFUKKYVdUkkf2eP4Zx<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_entry {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key: "deficit_percent_1199932"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int_value: -31<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_entries {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;address: 3N4NS7d4Jo9a6F14LiFUKKYVdUkkf2eP4Zx<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_entry {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key: "price"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int_value: 5500000<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_entries {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;address: 3N4NS7d4Jo9a6F14LiFUKKYVdUkkf2eP4Zx<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_entry {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key: "price_index"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int_value: 159817<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_entries {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;address: 3N4NS7d4Jo9a6F14LiFUKKYVdUkkf2eP4Zx<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_entry {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key: "neutrinoSupply_1199932"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int_value: 1230373751604<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_entries {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;address: 3N4NS7d4Jo9a6F14LiFUKKYVdUkkf2eP4Zx<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_entry {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key: "price_index_159817"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int_value: 1199932<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_entries {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;address: 3N4NS7d4Jo9a6F14LiFUKKYVdUkkf2eP4Zx<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_entry {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key: "price_1199932"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int_value: 5500000<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;}<br>
+Некоторые изменения на блокчейне не привязаны ни к одной транзакции, а происходят на уровне блока. В частности, изменение баланса генератора блока: 40% комиссии за транзакцию, которые получает генератор текущего блока, привязаны к транзакции, а 60%, которые получает генератор следующего блока, ассоциированы только с этим блоком. Вознаграждение за создание блока также ассоциировано только с блоком.
+
+Если комиссия за транзакцию указана в спонсорском ассете, то Blockchain Updates возвращает, кроме изменения балансов отправителя и генератора блока, изменение баланса спонсора: он получает сумму комиссии в спонсорском ассете и выплачивает эквивалентную сумму в WAVES. [Подробнее о спонсировании](/ru/blockchain/waves-protocol/sponsored-fee)
+
+### Append: добавление блока
+
+При получении событий в реальном времени сообщение о добавлении блока может содержать транзакции и порожденные ими изменения (создан ключевой блок + микроблок) либо транзакции могут отсутствовать (создан только ключевой блок).
+
+Поля сообщения:
+
+| Имя поля | Тип | Описание |
+| :--- | :--- | :--- |
+| block | [Block](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Данные блока: заголовки и транзакции. См. также раздел [Бинарный формат блока](/ru/blockchian/binary-format/block-binary-format) |
+| updated_waves_amount | int64 | Общее количество WAVES с учетом вознаграждения за создание блока |
+| transaction_ids | repeated bytes | Идентификаторы транзакций в блоке |
+| transactions_metadata | repeated TransactionMetadata | Дополнительная информация о транзакциях. См. [TransactionMetadata](#TransactionMetadata) ниже |
+| state_update | StateUpdate | Изменения состояния блокчейна, привязанные к блоку. См. [StateUpdate](#StateUpdate) ниже |
+| transaction_state_updates | repeated StateUpdate | Изменения состояния блокчейна, привязанные к транзакциям. См. [StateUpdate](#StateUpdate) ниже |
+
+
+`transaction_ids`, `transactions_metadata`, `transaction_state_updates` — параллельные массивы: одному порядковому номеру соответствуют данные об одной и той же транзакции. Если дополнительная информация отсутствует, в массиве `transactions_metadata` по этому индексу находится пустое значение.
+
+<details><summary><b>Пример</b></summary>
+
+```json
+{
+  "id" : "7gcuQwOgRC8Cz+wWquTieR15PA+kctdFcSf10E98l7inxH5NOY7+BRmMSbVi/jxcvpluywxSVM/uIAIKxbtkCA==",
+  "height" : 2,
+  "append" : {
+    "block" : {
+      "block" : {
+        "header" : {
+          "chainId" : 84,
+          "reference" : "8SKLHdB+1z/Pi99SOdhHyA4aL/GOOsdCXKaCADyGjG3mh4hIuzzeI7P1/1ePyyuMXnJoTHe9rpCoIS7RieKICw==",
+          "baseTarget" : "60",
+          "generationSignature" : "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+          "featureVotes" : [ ],
+          "timestamp" : "1614956693029",
+          "version" : 2,
+          "generator" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+          "rewardVote" : "-1",
+          "transactionsRoot" : ""
+        },
+        "signature" : "7gcuQwOgRC8Cz+wWquTieR15PA+kctdFcSf10E98l7inxH5NOY7+BRmMSbVi/jxcvpluywxSVM/uIAIKxbtkCA==",
+        "transactions" : [ {
+          "transaction" : {
+            "chainId" : 84,
+            "senderPublicKey" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+            "fee" : {
+              "assetId" : "",
+              "amount" : "1000000"
+            },
+            "timestamp" : "1614956690976",
+            "version" : 1,
+            "transfer" : {
+              "recipient" : {
+                "publicKeyHash" : "PTrYhPoEKSe51sN99wr1wL2VFsU="
+              },
+              "amount" : {
+                "assetId" : "",
+                "amount" : "100000000"
+              },
+              "attachment" : ""
+            }
+          },
+          "proofs" : [ "WIkitBii4d0LjMCxRiC6i+9QPVXQyKJxvRLj/uIao6KDP9dnd4oCEPIcKJPXiVnrAp1xExti3levPAtK7lDqDw==" ]
+        }, {
+          "transaction" : {
+            "chainId" : 84,
+            "senderPublicKey" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+            "fee" : {
+              "assetId" : "",
+              "amount" : "1000000"
+            },
+            "timestamp" : "1614956690977",
+            "version" : 2,
+            "lease" : {
+              "recipient" : {
+                "publicKeyHash" : "PTrYhPoEKSe51sN99wr1wL2VFsU="
+              },
+              "amount" : "1000000000"
+            }
+          },
+          "proofs" : [ "VOdvKFrjMeq8YodWYsuMIlI2XuUB3hYP85l49pqKzDRL+s4+2OqeZWxNZAwynyrtD39woxy/mZaV01TKQSPYDw==" ]
+        }, {
+          "transaction" : {
+            "chainId" : 84,
+            "senderPublicKey" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+            "fee" : {
+              "assetId" : "",
+              "amount" : "100000000"
+            },
+            "timestamp" : "1614956690978",
+            "version" : 2,
+            "issue" : {
+              "name" : "test",
+              "description" : "",
+              "amount" : "1000",
+              "decimals" : 0,
+              "reissuable" : true,
+              "script" : ""
+            }
+          },
+          "proofs" : [ "6vyW+hzk5g5wgwJAjfdcSCCQxECjLa2tX+SDYm7b20/vzADqNXNjrcV6ra1Qvl/OLQcJdppcnUrVBpEjfxPKAA==" ]
+        }, {
+          "transaction" : {
+            "chainId" : 84,
+            "senderPublicKey" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+            "fee" : {
+              "assetId" : "",
+              "amount" : "1000000"
+            },
+            "timestamp" : "1614956690979",
+            "version" : 2,
+            "reissue" : {
+              "assetAmount" : {
+                "assetId" : "hsQkyz38InYtnW1muswEf7qEeAsRpc5SG4MC27K/mRc=",
+                "amount" : "1000"
+              },
+              "reissuable" : true
+            }
+          },
+          "proofs" : [ "5adqKEbN0OHdpBhrRtBgfGtXhWK8zFOkuNOrnUYTsU2wAjrdVJrG/xjHHBh0e0NBbg3WEpUeOl93WyqitIKpDA==" ]
+        }, {
+          "transaction" : {
+            "chainId" : 84,
+            "senderPublicKey" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+            "fee" : {
+              "assetId" : "",
+              "amount" : "3000000"
+            },
+            "timestamp" : "1614956690980",
+            "version" : 1,
+            "dataTransaction" : {
+              "data" : [ {
+                "key" : "test",
+                "stringValue" : "test"
+              } ]
+            }
+          },
+          "proofs" : [ "ZiR8Xy5rN5CZ/5sPQEAd3qQ9vdj4tenpD58T4Hla5TpCWi3va+o391X6bQ0evwfBMP6EVfJ8e5d0toFzStRrCQ==" ]
+        } ]
+      },
+      "updatedWavesAmount" : "10000000600000000"
+    },
+    "transactionIds" : [ "l7zm8/8YT753CHgPrsTJU4ol/luwt3rUM1xSob4vA6E=", "YXkv6kf4P+C8Hed93ouMQs9SQRRLF9+l+6S165ZQS3w=", "hsQkyz38InYtnW1muswEf7qEeAsRpc5SG4MC27K/mRc=", "1gevjcLmf8R6lqRP8iWmWvU8rTHyWGRVmj4aFLlvvXo=", "XOHOVbrsTJa9Kg0VjEZHY7ckqdUpKTP+aZ7KJZWGzVA=" ],
+    "transactionsMetadata" : [ {
+      "transfer" : {
+        "recipientAddress" : "AVQ9OtiE+gQpJ7nWw333CvXAvZUWxetoaME="
+      }
+    }, {
+      "leaseMeta" : {
+        "recipientAddress" : "AVQ9OtiE+gQpJ7nWw333CvXAvZUWxetoaME="
+      }
+    }, { }, { }, { } ],
+    "stateUpdate" : {
+      "balances" : [ {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "amountAfter" : {
+          "assetId" : "",
+          "amount" : "10000001242400000"
+        },
+        "amountBefore" : "10000000600000000"
+      } ],
+      "leasingForAddress" : [ ],
+      "dataEntries" : [ ],
+      "assets" : [ ],
+      "individualLeases" : [ ]
+    },
+    "transactionStateUpdates" : [ {
+      "balances" : [ {
+        "address" : "AVQ9OtiE+gQpJ7nWw333CvXAvZUWxetoaME=",
+        "amountAfter" : {
+          "assetId" : "",
+          "amount" : "100000000"
+        },
+        "amountBefore" : "0"
+      }, {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "amountAfter" : {
+          "assetId" : "",
+          "amount" : "10000001141400000"
+        },
+        "amountBefore" : "10000001242400000"
+      } ],
+      "leasingForAddress" : [ ],
+      "dataEntries" : [ ],
+      "assets" : [ ],
+      "individualLeases" : [ ]
+    }, {
+      "balances" : [ {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "amountAfter" : {
+          "assetId" : "",
+          "amount" : "10000001140400000"
+        },
+        "amountBefore" : "10000001141400000"
+      } ],
+      "leasingForAddress" : [ {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "inAfter" : "0",
+        "outAfter" : "1000000000",
+        "inBefore" : "0",
+        "outBefore" : "0"
+      }, {
+        "address" : "AVQ9OtiE+gQpJ7nWw333CvXAvZUWxetoaME=",
+        "inAfter" : "1000000000",
+        "outAfter" : "0",
+        "inBefore" : "0",
+        "outBefore" : "0"
+      } ],
+      "dataEntries" : [ ],
+      "assets" : [ ],
+      "individualLeases" : [ {
+        "leaseId" : "YXkv6kf4P+C8Hed93ouMQs9SQRRLF9+l+6S165ZQS3w=",
+        "statusAfter" : "ACTIVE",
+        "amount" : "1000000000",
+        "sender" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+        "recipient" : "AVQ9OtiE+gQpJ7nWw333CvXAvZUWxetoaME=",
+        "originTransactionId" : "YXkv6kf4P+C8Hed93ouMQs9SQRRLF9+l+6S165ZQS3w="
+      } ]
+    }, {
+      "balances" : [ {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "amountAfter" : {
+          "assetId" : "",
+          "amount" : "10000001040400000"
+        },
+        "amountBefore" : "10000001140400000"
+      }, {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "amountAfter" : {
+          "assetId" : "hsQkyz38InYtnW1muswEf7qEeAsRpc5SG4MC27K/mRc=",
+          "amount" : "1000"
+        },
+        "amountBefore" : "0"
+      } ],
+      "leasingForAddress" : [ ],
+      "dataEntries" : [ ],
+      "assets" : [ {
+        "after" : {
+          "assetId" : "hsQkyz38InYtnW1muswEf7qEeAsRpc5SG4MC27K/mRc=",
+          "issuer" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+          "decimals" : 0,
+          "name" : "test",
+          "description" : "",
+          "reissuable" : true,
+          "volume" : "1000",
+          "sponsorship" : "0",
+          "nft" : false,
+          "lastUpdated" : 2,
+          "safeVolume" : "A+g="
+        }
+      } ],
+      "individualLeases" : [ ]
+    }, {
+      "balances" : [ {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "amountAfter" : {
+          "assetId" : "",
+          "amount" : "10000001039400000"
+        },
+        "amountBefore" : "10000001040400000"
+      }, {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "amountAfter" : {
+          "assetId" : "hsQkyz38InYtnW1muswEf7qEeAsRpc5SG4MC27K/mRc=",
+          "amount" : "2000"
+        },
+        "amountBefore" : "1000"
+      } ],
+      "leasingForAddress" : [ ],
+      "dataEntries" : [ ],
+      "assets" : [ {
+        "before" : {
+          "assetId" : "hsQkyz38InYtnW1muswEf7qEeAsRpc5SG4MC27K/mRc=",
+          "issuer" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+          "decimals" : 0,
+          "name" : "test",
+          "description" : "",
+          "reissuable" : true,
+          "volume" : "1000",
+          "sponsorship" : "0",
+          "nft" : false,
+          "lastUpdated" : 2,
+          "safeVolume" : "A+g="
+        },
+        "after" : {
+          "assetId" : "hsQkyz38InYtnW1muswEf7qEeAsRpc5SG4MC27K/mRc=",
+          "issuer" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+          "decimals" : 0,
+          "name" : "test",
+          "description" : "",
+          "reissuable" : true,
+          "volume" : "2000",
+          "sponsorship" : "0",
+          "nft" : false,
+          "lastUpdated" : 2,
+          "safeVolume" : "B9A="
+        }
+      } ],
+      "individualLeases" : [ ]
+    }, {
+      "balances" : [ {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "amountAfter" : {
+          "assetId" : "",
+          "amount" : "10000001036400000"
+        },
+        "amountBefore" : "10000001039400000"
+      } ],
+      "leasingForAddress" : [ ],
+      "dataEntries" : [ {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "dataEntry" : {
+          "key" : "test",
+          "stringValue" : "test"
+        },
+        "dataEntryBefore" : {
+          "key" : "test"
+        }
+      } ],
+      "assets" : [ ],
+      "individualLeases" : [ ]
+    } ]
+  },
+  "referencedAssets" : [ {
+    "id" : "hsQkyz38InYtnW1muswEf7qEeAsRpc5SG4MC27K/mRc=",
+    "decimals" : 0,
+    "name" : "test"
+  } ]
 }
-</code>
-</details>
-<details><summary>MicroBlockAppend</summary>
-<code>
-update {<br>
-&nbsp;&nbsp;id: 5DbKdfhsDaFRNfzmYwPLivksKE28VUtBZA8qt7eGwL4W<br>
-&nbsp;&nbsp;height: 1199936<br>
-&nbsp;&nbsp;append {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;micro_block {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;micro_block {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;micro_block {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;version: 5<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reference: 2EvXRVtn7sEXxFKqmfqHtJQM9r2muQUjjbY3g1D8JJHb<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_block_signature: 3jBu2vx5arqPtDgTahxdWYGByjwafXranfMm8sFtyr71wcQM5w4e2k8UPBa12gHAaWS31wA1JsBvJdwe19345tZA<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sender_public_key: 3ikUmWkNpbkeVZaoA7fogfDjKw5hn4ZWVbP4gW7dMQNi<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transactions {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transaction {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chain_id: 84<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sender_public_key: 4yLsZuHMtyc4nQaF5MSGkKRQqGYfQBMim1qVLKCtacqx<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fee {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount: 900000<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timestamp: 1601462611517<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;version: 2<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transfer {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;recipient {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public_key_hash: 4W5hFHdYbrx7fBFP7ofmZNLsjwPB<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;asset_id: LVf3qaCtb9tieS1bHD8gg5XjWvqpBm5TaDxeSVcqPwn<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount: 10000000<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proofs: 4d1YtV7e9XaVGgmiZZcDNXUri6ycKmECf1R59Bz8CnvfrN31Bd3eiHzSJnFPrLTEjZ5oQLpDmcYsTaxZWdWbtsBB<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;signature: 571Xg1T5aYsChW3nzKxH7N9te7xgsZsJj3yKQWwwUr4fTQehzYn5tzdudDrwdVnDuKQC7AccNqhzTPDk9AM7oVZ8<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total_block_id: 5DbKdfhsDaFRNfzmYwPLivksKE28VUtBZA8qt7eGwL4W<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updated_transactions_root: Cv59LBRGPd1Qipk9zT8V6d2yawGVuxBLfR2JejKgCnUP<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;transaction_ids: GXTbnhwEtZLrsq7GhwSjmff12Luc1ABTjZsLq6Bun9AD<br>
-&nbsp;&nbsp;&nbsp;&nbsp;state_update {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;balances {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;address: 3MtQQX9NwYH5URGGcS2e6ptEgV7wTFesaRW<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount: 40776090986764<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;transaction_state_updates {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;balances {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;address: 3NCpyPuNzUaB7LFS4KBzwzWVnXmjur582oy<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;asset_id: LVf3qaCtb9tieS1bHD8gg5XjWvqpBm5TaDxeSVcqPwn<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount: 9786003244627670<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;balances {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;address: 3MzykUc8kraFGbuYVWXtsYrnvkA8w6JeWuK<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount: 138800000<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;balances {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;address: 3MzykUc8kraFGbuYVWXtsYrnvkA8w6JeWuK<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;asset_id: LVf3qaCtb9tieS1bHD8gg5XjWvqpBm5TaDxeSVcqPwn<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount: 99320000000<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-&nbsp;&nbsp;}<br>
-}
-</code>
-</details>
-<details><summary>Rollback (для блока)</summary>
-<code>
-update {<br>
-&nbsp;&nbsp;id: 7Z4md34VUp5Db2wwYW21tb9UdVVuMbFnDqQiTy1E99uZ<br>
-&nbsp;&nbsp;height: 1199939<br>
-&nbsp;&nbsp;rollback {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;type: BLOCK<br>
-&nbsp;&nbsp;}<br>
-}
-</code>
-</details>
-<details><summary>Rollback (для микроблока)</summary>
-<code>
-update {<br>
-&nbsp;&nbsp;id: C6zsDGh2ahvTbDLA5ESGtaPMcGdUeg2g5FzB7XVCRTBP<br>
-&nbsp;&nbsp;height: 1199973<br>
-&nbsp;&nbsp;rollback {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;type: MICROBLOCK<br>
-&nbsp;&nbsp;}<br>
-}
-</code>
+```
 </details>
 
-> Некоторые изменения на блокчейне не привязаны ни к одной транзакции, а происходят на уровне блока. В частности, изменение баланса генератора блока: 40% комиссии за транзакцию, которые получает генератор текущего блока, привязаны к транзакции, а 60%, которые получает генератор следующего блока, ассоциированы только с этим блоком. Вознаграждение за создание блока также ассоциировано только с блоком.
+### Append: добавление микроблока
 
-> Если комиссия за транзакцию указана в спонсорском ассете, то Blockchain Updates возвращает, кроме изменения балансов отправителя и генератора блока, изменение баланса спонсора: он получает сумму комиссии в спонсорском ассете и выплачивает эквивалентную сумму в WAVES. [Подробнее о спонсировании](/ru/blockchain/waves-protocol/sponsored-fee)
+В сообщении о добавлении микроблока присутствуют только те транзакции и порожденные ими изменения, которых не было в предшествующем блоке/микроблоке.
+
+Поля сообщения:
+
+| Имя поля | Тип | Описание |
+| :--- | :--- | :--- |
+| micro_block | [SignedMicroBlock](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Данные микроблока |
+| updated_transactions_root | int64 | [Корневой хеш](/ru/blockchain/block/merkle-root) всех транзакций текущего блока |
+| transaction_ids | repeated bytes | Идентификаторы транзакций в микроблоке |
+| transactions_metadata | repeated TransactionMetadata | Дополнительная информация о транзакциях. См. [TransactionMetadata](#TransactionMetadata) ниже |
+| state_update | StateUpdate | Изменения состояния блокчейна, привязанные к блоку. См. [StateUpdate](#StateUpdate) ниже |
+| transaction_state_updates | repeated StateUpdate | Изменения состояния блокчейна, привязанные к транзакциям. См. [StateUpdate](#StateUpdate) |
+
+`transaction_ids`, `transactions_metadata`, `transaction_state_updates` — параллельные массивы: одному порядковому номеру соответствуют данные об одной и той же транзакции. Если дополнительная информация отсутствует, в массиве `transactions_metadata` по этому индексу находится пустое значение.
+
+<details><summary><b>Пример</b></summary>
+
+```json
+{
+  "id" : "PM99HiRDmeepqQ9ezrTjs85WnjTavOuTfC84X7mdL9IHEI9dMdZ43JXQCYHFoy9ul9RLIsUL/vtwaFt1FeIODA==",
+  "height" : 2,
+  "append" : {
+    "microBlock" : {
+      "microBlock" : {
+        "microBlock" : {
+          "version" : 3,
+          "reference" : "kMZ1rAlt+eNoHqHfuM6R5MS1NslQXDUJ2R3AreDjYWHEU5YIaU9unXZTTRcOBq/8zQEeI57scSgF7zH94N21Bw==",
+          "updatedBlockSignature" : "PM99HiRDmeepqQ9ezrTjs85WnjTavOuTfC84X7mdL9IHEI9dMdZ43JXQCYHFoy9ul9RLIsUL/vtwaFt1FeIODA==",
+          "senderPublicKey" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+          "transactions" : [ {
+            "transaction" : {
+              "chainId" : 84,
+              "senderPublicKey" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+              "fee" : {
+                "assetId" : "",
+                "amount" : "1000000"
+              },
+              "timestamp" : "1614955693251",
+              "version" : 1,
+              "transfer" : {
+                "recipient" : {
+                  "publicKeyHash" : "PTrYhPoEKSe51sN99wr1wL2VFsU="
+                },
+                "amount" : {
+                  "assetId" : "",
+                  "amount" : "100000000"
+                },
+                "attachment" : ""
+              }
+            },
+            "proofs" : [ "c7gEcrOqeKhyJgdY0HO6lmp9WCCHJTMjL0IZhehtTvRIFMZWGPb5YOTumytK3dGi1vORxvw1UmBNioLxJBdSAw==" ]
+          }, {
+            "transaction" : {
+              "chainId" : 84,
+              "senderPublicKey" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+              "fee" : {
+                "assetId" : "",
+                "amount" : "1000000"
+              },
+              "timestamp" : "1614955693252",
+              "version" : 2,
+              "lease" : {
+                "recipient" : {
+                  "publicKeyHash" : "PTrYhPoEKSe51sN99wr1wL2VFsU="
+                },
+                "amount" : "1000000000"
+              }
+            },
+            "proofs" : [ "sTTAbbdtEFRbwqlly2fc16oWpu5+hJN5am2AQvz5gix162EEepo/SqoTkIjMJ3OgnGWSBKXstJcqYtwPTPEZBQ==" ]
+          }, {
+            "transaction" : {
+              "chainId" : 84,
+              "senderPublicKey" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+              "fee" : {
+                "assetId" : "",
+                "amount" : "100000000"
+              },
+              "timestamp" : "1614955693253",
+              "version" : 2,
+              "issue" : {
+                "name" : "test",
+                "description" : "",
+                "amount" : "1000",
+                "decimals" : 0,
+                "reissuable" : true,
+                "script" : ""
+              }
+            },
+            "proofs" : [ "iPmPbzPN9tff59mPowWT2zFocMVp4IKxZhGHQfisrQLrNw1zRmGBUuL34T6AgYmvKuPuL38TWd4VMBUPsSmWDQ==" ]
+          }, {
+            "transaction" : {
+              "chainId" : 84,
+              "senderPublicKey" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+              "fee" : {
+                "assetId" : "",
+                "amount" : "1000000"
+              },
+              "timestamp" : "1614955693254",
+              "version" : 2,
+              "reissue" : {
+                "assetAmount" : {
+                  "assetId" : "OaYhGK7uhe44lfBbsNswXc3fmO0luXGwQjVmBAXvqDc=",
+                  "amount" : "1000"
+                },
+                "reissuable" : true
+              }
+            },
+            "proofs" : [ "41dTNu6FK52a0aWIo0iHQ7F2qJteanKBVdyrD3PJC//xOr5zSWMv+JZ9BsJRs1INQGr0+nLVAnvoYq/aFdb1Cg==" ]
+          }, {
+            "transaction" : {
+              "chainId" : 84,
+              "senderPublicKey" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+              "fee" : {
+                "assetId" : "",
+                "amount" : "3000000"
+              },
+              "timestamp" : "1614955693255",
+              "version" : 1,
+              "dataTransaction" : {
+                "data" : [ {
+                  "key" : "test",
+                  "stringValue" : "test"
+                } ]
+              }
+            },
+            "proofs" : [ "ryDXoAbjbOvLZasQ6/QE+9ewT2D009y8NA5qJQbA/nxS+QHCSj6CVHvVaoagSwykAujIn9FiA3tY4nSqEjX3AA==" ]
+          } ]
+        },
+        "signature" : "GlRrocxMSmUugmNdtVXueL/5gKNxoLQEXVgrtTD8sXHAzM4s9lpiIGLJ0Kajwvq8jS1isxpgkBRPnCSo/t4cCw==",
+        "totalBlockId" : "PM99HiRDmeepqQ9ezrTjs85WnjTavOuTfC84X7mdL9IHEI9dMdZ43JXQCYHFoy9ul9RLIsUL/vtwaFt1FeIODA=="
+      },
+      "updatedTransactionsRoot" : ""
+    },
+    "transactionIds" : [ "pRhzG3hnik7QM0SBcSUJeUUASaqCrJoX+nFzY+qydE0=", "egBkLVBeTLm4tPaPhuo6SkAFYY35TWFIGQFn5K4EGp4=", "OaYhGK7uhe44lfBbsNswXc3fmO0luXGwQjVmBAXvqDc=", "Ya9WrfvwSsxRzgmvrbf4t4S+k6SrTuesJ8MPJNf148w=", "Ht2ILo1jmsy1Do8AdwMtFb3rAzybI43bNP62e3nPkws=" ],
+    "transactionsMetadata" : [ {
+      "transfer" : {
+        "recipientAddress" : "AVQ9OtiE+gQpJ7nWw333CvXAvZUWxetoaME="
+      }
+    }, {
+      "leaseMeta" : {
+        "recipientAddress" : "AVQ9OtiE+gQpJ7nWw333CvXAvZUWxetoaME="
+      }
+    }, { }, { }, { } ],
+    "stateUpdate" : {
+      "balances" : [ {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "amountAfter" : {
+          "assetId" : "",
+          "amount" : "10000001242400000"
+        },
+        "amountBefore" : "10000001200000000"
+      } ],
+      "leasingForAddress" : [ ],
+      "dataEntries" : [ ],
+      "assets" : [ ],
+      "individualLeases" : [ ]
+    },
+    "transactionStateUpdates" : [ {
+      "balances" : [ {
+        "address" : "AVQ9OtiE+gQpJ7nWw333CvXAvZUWxetoaME=",
+        "amountAfter" : {
+          "assetId" : "",
+          "amount" : "100000000"
+        },
+        "amountBefore" : "0"
+      }, {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "amountAfter" : {
+          "assetId" : "",
+          "amount" : "10000001141400000"
+        },
+        "amountBefore" : "10000001242400000"
+      } ],
+      "leasingForAddress" : [ ],
+      "dataEntries" : [ ],
+      "assets" : [ ],
+      "individualLeases" : [ ]
+    }, {
+      "balances" : [ {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "amountAfter" : {
+          "assetId" : "",
+          "amount" : "10000001140400000"
+        },
+        "amountBefore" : "10000001141400000"
+      } ],
+      "leasingForAddress" : [ {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "inAfter" : "0",
+        "outAfter" : "1000000000",
+        "inBefore" : "0",
+        "outBefore" : "0"
+      }, {
+        "address" : "AVQ9OtiE+gQpJ7nWw333CvXAvZUWxetoaME=",
+        "inAfter" : "1000000000",
+        "outAfter" : "0",
+        "inBefore" : "0",
+        "outBefore" : "0"
+      } ],
+      "dataEntries" : [ ],
+      "assets" : [ ],
+      "individualLeases" : [ {
+        "leaseId" : "egBkLVBeTLm4tPaPhuo6SkAFYY35TWFIGQFn5K4EGp4=",
+        "statusAfter" : "ACTIVE",
+        "amount" : "1000000000",
+        "sender" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+        "recipient" : "AVQ9OtiE+gQpJ7nWw333CvXAvZUWxetoaME=",
+        "originTransactionId" : "egBkLVBeTLm4tPaPhuo6SkAFYY35TWFIGQFn5K4EGp4="
+      } ]
+    }, {
+      "balances" : [ {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "amountAfter" : {
+          "assetId" : "",
+          "amount" : "10000001040400000"
+        },
+        "amountBefore" : "10000001140400000"
+      }, {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "amountAfter" : {
+          "assetId" : "OaYhGK7uhe44lfBbsNswXc3fmO0luXGwQjVmBAXvqDc=",
+          "amount" : "1000"
+        },
+        "amountBefore" : "0"
+      } ],
+      "leasingForAddress" : [ ],
+      "dataEntries" : [ ],
+      "assets" : [ {
+        "after" : {
+          "assetId" : "OaYhGK7uhe44lfBbsNswXc3fmO0luXGwQjVmBAXvqDc=",
+          "issuer" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+          "decimals" : 0,
+          "name" : "test",
+          "description" : "",
+          "reissuable" : true,
+          "volume" : "1000",
+          "sponsorship" : "0",
+          "nft" : false,
+          "lastUpdated" : 2,
+          "safeVolume" : "A+g="
+        }
+      } ],
+      "individualLeases" : [ ]
+    }, {
+      "balances" : [ {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "amountAfter" : {
+          "assetId" : "",
+          "amount" : "10000001039400000"
+        },
+        "amountBefore" : "10000001040400000"
+      }, {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "amountAfter" : {
+          "assetId" : "OaYhGK7uhe44lfBbsNswXc3fmO0luXGwQjVmBAXvqDc=",
+          "amount" : "2000"
+        },
+        "amountBefore" : "1000"
+      } ],
+      "leasingForAddress" : [ ],
+      "dataEntries" : [ ],
+      "assets" : [ {
+        "before" : {
+          "assetId" : "OaYhGK7uhe44lfBbsNswXc3fmO0luXGwQjVmBAXvqDc=",
+          "issuer" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+          "decimals" : 0,
+          "name" : "test",
+          "description" : "",
+          "reissuable" : true,
+          "volume" : "1000",
+          "sponsorship" : "0",
+          "nft" : false,
+          "lastUpdated" : 2,
+          "safeVolume" : "A+g="
+        },
+        "after" : {
+          "assetId" : "OaYhGK7uhe44lfBbsNswXc3fmO0luXGwQjVmBAXvqDc=",
+          "issuer" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+          "decimals" : 0,
+          "name" : "test",
+          "description" : "",
+          "reissuable" : true,
+          "volume" : "2000",
+          "sponsorship" : "0",
+          "nft" : false,
+          "lastUpdated" : 2,
+          "safeVolume" : "B9A="
+        }
+      } ],
+      "individualLeases" : [ ]
+    }, {
+      "balances" : [ {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "amountAfter" : {
+          "assetId" : "",
+          "amount" : "10000001036400000"
+        },
+        "amountBefore" : "10000001039400000"
+      } ],
+      "leasingForAddress" : [ ],
+      "dataEntries" : [ {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "dataEntry" : {
+          "key" : "test",
+          "stringValue" : "test"
+        },
+        "dataEntryBefore" : {
+          "key" : "test"
+        }
+      } ],
+      "assets" : [ ],
+      "individualLeases" : [ ]
+    } ]
+  },
+  "referencedAssets" : [ {
+    "id" : "OaYhGK7uhe44lfBbsNswXc3fmO0luXGwQjVmBAXvqDc=",
+    "decimals" : 0,
+    "name" : "test"
+  } ]
+}
+```
+</details>
+
+### Rollback: откат блока или микроблока
+
+Поля сообщения:
+
+| Имя поля | Тип | Описание |
+| :--- | :--- | :--- |
+| type | RollbackType | Тип сообщения: BLOCK — откат блока, MICROBLOCK — откат микроблока |
+| removed_transaction_ids | repeated bytes | ID транзакций, которые были удалены в результате отката |
+| removed_blocks | repeated [Block](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Блоки, которые были удалены в результате отката. В случае отката микроблока — пустой массив |
+| rollback_state_update | StateUpdate | Изменения состояния блокчейна, которые произошли в результате отката (обратные изменениям, порожденным транзакциями и блоками/микроблоками). См. [StateUpdate](#StateUpdate) ниже |
+
+**Примеры:**
+
+<details><summary>Откат блока</summary>
+
+```json
+{
+  "id" : "fJP16HbHyQ2Bib7fEUoZAS9Hm/IjCprhYxa3XuYKdY+7No72rCHtoXgInd3Pn9WMS3k9KvJMRMZbJTeYDdz0AA==",
+  "height" : 1,
+  "rollback" : {
+    "type" : "BLOCK",
+    "removedTransactionIds" : [ "Ht2ILo1jmsy1Do8AdwMtFb3rAzybI43bNP62e3nPkws=", "Ya9WrfvwSsxRzgmvrbf4t4S+k6SrTuesJ8MPJNf148w=", "OaYhGK7uhe44lfBbsNswXc3fmO0luXGwQjVmBAXvqDc=", "egBkLVBeTLm4tPaPhuo6SkAFYY35TWFIGQFn5K4EGp4=", "pRhzG3hnik7QM0SBcSUJeUUASaqCrJoX+nFzY+qydE0=" ],
+    "removedBlocks" : [ {
+      "header" : {
+        "chainId" : 84,
+        "reference" : "fJP16HbHyQ2Bib7fEUoZAS9Hm/IjCprhYxa3XuYKdY+7No72rCHtoXgInd3Pn9WMS3k9KvJMRMZbJTeYDdz0AA==",
+        "baseTarget" : "60",
+        "generationSignature" : "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "featureVotes" : [ ],
+        "timestamp" : "1614955695404",
+        "version" : 3,
+        "generator" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+        "rewardVote" : "-1",
+        "transactionsRoot" : ""
+      },
+      "signature" : "PM99HiRDmeepqQ9ezrTjs85WnjTavOuTfC84X7mdL9IHEI9dMdZ43JXQCYHFoy9ul9RLIsUL/vtwaFt1FeIODA==",
+      "transactions" : [ {
+        "transaction" : {
+          "chainId" : 84,
+          "senderPublicKey" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+          "fee" : {
+            "assetId" : "",
+            "amount" : "1000000"
+          },
+          "timestamp" : "1614955693251",
+          "version" : 1,
+          "transfer" : {
+            "recipient" : {
+              "publicKeyHash" : "PTrYhPoEKSe51sN99wr1wL2VFsU="
+            },
+            "amount" : {
+              "assetId" : "",
+              "amount" : "100000000"
+            },
+            "attachment" : ""
+          }
+        },
+        "proofs" : [ "c7gEcrOqeKhyJgdY0HO6lmp9WCCHJTMjL0IZhehtTvRIFMZWGPb5YOTumytK3dGi1vORxvw1UmBNioLxJBdSAw==" ]
+      }, {
+        "transaction" : {
+          "chainId" : 84,
+          "senderPublicKey" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+          "fee" : {
+            "assetId" : "",
+            "amount" : "1000000"
+          },
+          "timestamp" : "1614955693252",
+          "version" : 2,
+          "lease" : {
+            "recipient" : {
+              "publicKeyHash" : "PTrYhPoEKSe51sN99wr1wL2VFsU="
+            },
+            "amount" : "1000000000"
+          }
+        },
+        "proofs" : [ "sTTAbbdtEFRbwqlly2fc16oWpu5+hJN5am2AQvz5gix162EEepo/SqoTkIjMJ3OgnGWSBKXstJcqYtwPTPEZBQ==" ]
+      }, {
+        "transaction" : {
+          "chainId" : 84,
+          "senderPublicKey" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+          "fee" : {
+            "assetId" : "",
+            "amount" : "100000000"
+          },
+          "timestamp" : "1614955693253",
+          "version" : 2,
+          "issue" : {
+            "name" : "test",
+            "description" : "",
+            "amount" : "1000",
+            "decimals" : 0,
+            "reissuable" : true,
+            "script" : ""
+          }
+        },
+        "proofs" : [ "iPmPbzPN9tff59mPowWT2zFocMVp4IKxZhGHQfisrQLrNw1zRmGBUuL34T6AgYmvKuPuL38TWd4VMBUPsSmWDQ==" ]
+      }, {
+        "transaction" : {
+          "chainId" : 84,
+          "senderPublicKey" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+          "fee" : {
+            "assetId" : "",
+            "amount" : "1000000"
+          },
+          "timestamp" : "1614955693254",
+          "version" : 2,
+          "reissue" : {
+            "assetAmount" : {
+              "assetId" : "OaYhGK7uhe44lfBbsNswXc3fmO0luXGwQjVmBAXvqDc=",
+              "amount" : "1000"
+            },
+            "reissuable" : true
+          }
+        },
+        "proofs" : [ "41dTNu6FK52a0aWIo0iHQ7F2qJteanKBVdyrD3PJC//xOr5zSWMv+JZ9BsJRs1INQGr0+nLVAnvoYq/aFdb1Cg==" ]
+      }, {
+        "transaction" : {
+          "chainId" : 84,
+          "senderPublicKey" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+          "fee" : {
+            "assetId" : "",
+            "amount" : "3000000"
+          },
+          "timestamp" : "1614955693255",
+          "version" : 1,
+          "dataTransaction" : {
+            "data" : [ {
+              "key" : "test",
+              "stringValue" : "test"
+            } ]
+          }
+        },
+        "proofs" : [ "ryDXoAbjbOvLZasQ6/QE+9ewT2D009y8NA5qJQbA/nxS+QHCSj6CVHvVaoagSwykAujIn9FiA3tY4nSqEjX3AA==" ]
+      } ]
+    } ],
+    "rollbackStateUpdate" : {
+      "balances" : [ {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "amountAfter" : {
+          "assetId" : "",
+          "amount" : "10000000600000000"
+        },
+        "amountBefore" : "10000001036400000"
+      }, {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "amountAfter" : {
+          "assetId" : "OaYhGK7uhe44lfBbsNswXc3fmO0luXGwQjVmBAXvqDc=",
+          "amount" : "0"
+        },
+        "amountBefore" : "2000"
+      }, {
+        "address" : "AVQ9OtiE+gQpJ7nWw333CvXAvZUWxetoaME=",
+        "amountAfter" : {
+          "assetId" : "",
+          "amount" : "0"
+        },
+        "amountBefore" : "100000000"
+      } ],
+      "leasingForAddress" : [ {
+        "address" : "AVQ9OtiE+gQpJ7nWw333CvXAvZUWxetoaME=",
+        "inAfter" : "0",
+        "outAfter" : "0",
+        "inBefore" : "1000000000",
+        "outBefore" : "0"
+      }, {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "inAfter" : "0",
+        "outAfter" : "0",
+        "inBefore" : "0",
+        "outBefore" : "1000000000"
+      } ],
+      "dataEntries" : [ {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "dataEntry" : {
+          "key" : "test"
+        },
+        "dataEntryBefore" : {
+          "key" : "test",
+          "stringValue" : "test"
+        }
+      } ],
+      "assets" : [ {
+        "before" : {
+          "assetId" : "OaYhGK7uhe44lfBbsNswXc3fmO0luXGwQjVmBAXvqDc=",
+          "issuer" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+          "decimals" : 0,
+          "name" : "test",
+          "description" : "",
+          "reissuable" : true,
+          "volume" : "2000",
+          "sponsorship" : "0",
+          "nft" : false,
+          "lastUpdated" : 2,
+          "safeVolume" : "B9A="
+        }
+      } ],
+      "individualLeases" : [ {
+        "leaseId" : "egBkLVBeTLm4tPaPhuo6SkAFYY35TWFIGQFn5K4EGp4=",
+        "statusAfter" : "INACTIVE",
+        "amount" : "1000000000",
+        "sender" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+        "recipient" : "AVQ9OtiE+gQpJ7nWw333CvXAvZUWxetoaME=",
+        "originTransactionId" : "egBkLVBeTLm4tPaPhuo6SkAFYY35TWFIGQFn5K4EGp4="
+      } ]
+    }
+  },
+  "referencedAssets" : [ {
+    "id" : "OaYhGK7uhe44lfBbsNswXc3fmO0luXGwQjVmBAXvqDc=",
+    "decimals" : 0,
+    "name" : "test"
+  } ]
+}
+```
+</details>
+<details><summary>Откат микроблока</summary>
+
+```json
+{
+  "id" : "EmnPnXsOTq90SzwR3Qa0IsWhw4CmZKdgLsbfEa9TbYv/FGCK7dHFn+j2V8raFpwIzawihhLO5WJRDN+8EP/jBg==",
+  "height" : 2,
+  "rollback" : {
+    "type" : "MICROBLOCK",
+    "removedTransactionIds" : [ "Hfg/QwbcdGzIOSl6U0FXj/aD4nDYUhJge7FrOo6H+yc=", "i7r7ySkIkiL6hiRIDuYAroH7sd8ottXj1dryf6n/vdI=", "Eg82h+UU/rRKorf8f08HeKeoN4W431XsEJcxxJK+ZNc=", "pdjI2EDDWvIUi/mCJOGtR4AGVOmfOqkPpuuwskJjR/I=", "UbF1cV8thQ7koJzBOAqslD4wrtq7sCJAoJjBI5srLyo=" ],
+    "removedBlocks" : [ ],
+    "rollbackStateUpdate" : {
+      "balances" : [ {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "amountAfter" : {
+          "assetId" : "",
+          "amount" : "10000001200000000"
+        },
+        "amountBefore" : "10000001036400000"
+      }, {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "amountAfter" : {
+          "assetId" : "Eg82h+UU/rRKorf8f08HeKeoN4W431XsEJcxxJK+ZNc=",
+          "amount" : "0"
+        },
+        "amountBefore" : "2000"
+      }, {
+        "address" : "AVQ9OtiE+gQpJ7nWw333CvXAvZUWxetoaME=",
+        "amountAfter" : {
+          "assetId" : "",
+          "amount" : "0"
+        },
+        "amountBefore" : "100000000"
+      } ],
+      "leasingForAddress" : [ {
+        "address" : "AVQ9OtiE+gQpJ7nWw333CvXAvZUWxetoaME=",
+        "inAfter" : "0",
+        "outAfter" : "0",
+        "inBefore" : "1000000000",
+        "outBefore" : "0"
+      }, {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "inAfter" : "0",
+        "outAfter" : "0",
+        "inBefore" : "0",
+        "outBefore" : "1000000000"
+      } ],
+      "dataEntries" : [ {
+        "address" : "AVQv1P2H4On4q9JvwDzjIpknHO4wLHCiOl4=",
+        "dataEntry" : {
+          "key" : "test"
+        },
+        "dataEntryBefore" : {
+          "key" : "test",
+          "stringValue" : "test"
+        }
+      } ],
+      "assets" : [ {
+        "before" : {
+          "assetId" : "Eg82h+UU/rRKorf8f08HeKeoN4W431XsEJcxxJK+ZNc=",
+          "issuer" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+          "decimals" : 0,
+          "name" : "test",
+          "description" : "",
+          "reissuable" : true,
+          "volume" : "2000",
+          "sponsorship" : "0",
+          "nft" : false,
+          "lastUpdated" : 2,
+          "safeVolume" : "B9A="
+        }
+      } ],
+      "individualLeases" : [ {
+        "leaseId" : "i7r7ySkIkiL6hiRIDuYAroH7sd8ottXj1dryf6n/vdI=",
+        "statusAfter" : "INACTIVE",
+        "amount" : "1000000000",
+        "sender" : "eYy9ZNeMSg+6M4sqY0ljSUDcTltgHbECngLEHg/gVnk=",
+        "recipient" : "AVQ9OtiE+gQpJ7nWw333CvXAvZUWxetoaME=",
+        "originTransactionId" : "i7r7ySkIkiL6hiRIDuYAroH7sd8ottXj1dryf6n/vdI="
+      } ]
+    }
+  },
+  "referencedAssets" : [ {
+    "id" : "Eg82h+UU/rRKorf8f08HeKeoN4W431XsEJcxxJK+ZNc=",
+    "decimals" : 0,
+    "name" : "test"
+  } ]
+}
+```
+</details>
+
+### StateUpdate
+
+Изменения состояния блокчейна, порожденные транзакцией, блоком, микроблоком или откатом.
+
+В отличие от транзакций, адреса аккаунтов в `StateUpdate` представлены полностью, включая тип сущности, байт сети и контрольную сумму. См. раздел [Бинарный формат адреса](/ru/blockchain/binary-format/address-binary-format).
+
+#### Изменения балансов аккаунтов
+
+| Имя поля | Тип | Описание |
+| :--- | :--- | :--- |
+| balances.address | bytes | Адрес |
+| balances.amount_after | [Amount](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/amount.proto) | Новый баланс |
+| balances.amount_before | int64 | Прежний баланс |
+
+#### Изменения лизинговых балансов аккаунта
+
+| Имя поля | Тип | Описание |
+| :--- | :--- | :--- |
+| leasing_for_address.address | bytes | Адрес |
+| leasing_for_address.in_after | int64 | Новая сумма полученных лизингов |
+| leasing_for_address.out_after | int64 | Новая сумма отправленных лизингов |
+| leasing_for_address.in_before | int64 | Прежняя сумма полученных лизингов |
+| leasing_for_address.out_before | int64 | Прежняя сумма отправленных лизингов |
+
+#### Изменения записей в хранилищах данных
+
+| Имя поля | Тип | Описание |
+| :--- | :--- | :--- |
+| data_entries.address | bytes | Адрес |
+| data_entries.data_entry | [DataTransactionData.DataEntry](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto#L67) | Запись с новым значением |
+| data_entries.data_entry_before | [DataTransactionData.DataEntry](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto#L67) | Запись с прежним значением |
+
+#### Изменения лизингов
+
+| Имя поля | Тип | Описание |
+| :--- | :--- | :--- |
+| individual_leases.lease_id | bytes | Идентификатор лизинга |
+| individual_leases.status_after | LeaseStatus | Новый статус лизинга: ACTIVE или INACTIVE |
+| individual_leases.amount | int64 | Сумма лизинга |
+| individual_leases.sender | bytes | Адрес отправителя лизинга |
+| individual_leases.recipient | bytes | Адрес получателя лизинга |
+| individual_leases.origin_transaction_id | bytes | Транзакция, породившая создание, изменение или отмену лизинга |
+
+#### Изменения параметров токена
+
+| Имя поля | Тип | Описание |
+| :--- | :--- | :--- |
+| assets.before | AssetDetails | Прежние параметры токена. В случае выпуска токена — пустое значение. См. [AssetDetails](#AssetDetails) ниже |
+| assets.after | AssetDetails | Новые параметры токена. В случае отката блока/микроблока, породившего выпуск токена, — пустое значение |
+
+#### AssetDetails
+
+| Имя поля | Тип | Описание |
+| :--- | :--- | :--- |
+| asset_id | bytes | ID токена |
+| issuer | bytes | Адрес, выпустивший токен |
+| decimals | int32 | Количество знаков после запятой |
+| name | string | Название токена |
+| description | string | Описание токена |
+| reissuable | bool | Флаг возможности довыпуска |
+| volume | int64 | Общее количество токена, в атомарных единицах |
+| script_info.script | bytes | Скомпилированный скрипт ассета |
+| script_info.complexity | int64 | Сложность скрипта ассета |
+| sponsorship | int64 | Если токен является спонсорским ассетом — количество ассета, эквивалентное 0,001 WAVES, в атомарных единицах. Иначе — пустое значение |
+| nft | bool | Признак того, что токен является [NFT](/ru/blockchain/token/non-fungible-token) |
+| last_updated | int32 | Высота, на которой произошло последнее изменение параметров токена |
+| safe_volume | bytes | Поле связано с прошлым поведением в блокчейне, когда можно было довыпустить ассет таким образом, чтобы общее количество превысило максимальное значение int64. Содержит точное количество токена. Можно игнорировать, если клиент не нуждается в такой точности.  Кодировка: как Java BigInteger, см. <https://docs.oracle.com/javase/7/docs/api/java/math/BigInteger.html#toByteArray()> |
+
+#### AssetInfo
+
+| Имя поля | Тип | Описание |
+| :--- | :--- | :--- |
+| id | bytes | ID токена |
+| decimals | int32 | Количество знаков после запятой |
+| name | string | Название токена |
+
+### TransactionMetadata
+
+Дополнительная информация о транзакции.
+
+В отличие от транзакций, адреса аккаунтов в `TransactionMetadata` представлены полностью, включая тип сущности, байт сети и контрольную сумму. См. раздел [Бинарный формат адреса](/ru/blockchain/binary-format/address-binary-format).
+
+#### Для транзакции вызова скрипта
+
+| Имя поля | Тип | Описание |
+| :--- | :--- | :--- |
+| d_app_address | bytes | Адрес dApp |
+| function_name | string | Имя вызываемой функции |
+| arguments | repeated Argument | Аргументы функции |
+| payments | repeated [Amount](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/amount.proto) | Приложенные к транзакции платежи |
+| result | [InvokeScriptResult](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/invoke_script_result.proto) | Результаты действий, выполненных вызываемой функцией |
+
+#### Для транзакции перевода
+
+| Имя поля | Тип | Описание |
+| :--- | :--- | :--- |
+| recipient_address | bytes | Адрес получателя |
+
+#### Для транзакции массового перевода
+
+| Имя поля | Тип | Описание |
+| :--- | :--- | :--- |
+| recipient_addresses | repeated bytes | Адреса получателей |
+
+#### Для транзакции лизинга
+
+| Имя поля | Тип | Описание |
+| :--- | :--- | :--- |
+| recipient_address | bytes | Адрес получателя |

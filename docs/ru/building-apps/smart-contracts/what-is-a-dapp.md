@@ -150,7 +150,7 @@ dApp может использовать данные блокчейна:
 
 Примеры dApp-скриптов можно найти:
 
-* В разделе [Практические руководства](/ru/building-apps/how-to#dapps).
+* В разделе [Практические руководства](/ru/building-apps/how-to/#dapps).
 * В [Waves IDE](https://waves-ide.com/) в меню **Library**.
 * На Github в репозитории [ride-examples](https://github.com/wavesplatform/ride-examples/blob/master/welcome.md).
 
