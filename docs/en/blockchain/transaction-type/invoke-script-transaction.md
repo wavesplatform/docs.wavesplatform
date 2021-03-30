@@ -4,7 +4,7 @@ Invoke Script transaction invokes the [callable function](/en/ride/functions/cal
 
 In addition to the dApp address, callable function name, and arguments, the Invoke Script transaction can contain payments to dApp. The maximum number of payments is 2 after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
-Starting from node version 1.3.1, after activation of feature #16 "dApp-to-dApp invocations, Ride V5", the maximum number of payments is 10. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
+Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the maximum number of payments is 10. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 
 ## Fee
 
@@ -21,7 +21,7 @@ The minimum fee in WAVES for an Invoke Script transaction is calculated as follo
 
 See also the example in the [Transaction Fee](/en/blockchain/transaction/transaction-fee) article.
 
-Starting from node version 1.3.1, after activation of feature #16 "dApp-to-dApp invocations, Ride V5", the minimum fee in WAVES is calculated as follows:
+Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the minimum fee in WAVES is calculated as follows:
 
 `Fee` = 0.005 + `S` + 1  × `I`
 
@@ -32,7 +32,7 @@ Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-networ
 
 <!-- ### Version 3
 
-Version 3 of the Invoke Script transaction is added in node version 1.3.0 and enabled with feature #16 “dApp-to-dApp invocations, Ride V5”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
+Version 3 of the Invoke Script transaction is added in node version 1.3.0 and enabled with feature #16 “Ride V5, dApp-to-dApp invocations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 
 `Fee` = (0.005 + `E`) × ⌈`С` / 4000⌉ × + `S` + 0.004 × `P` + 0.004 × `A` + 1 × `I` + 0,004 × `N`,
 `Fee` = 0.005 + `S` + 0.004 × `P` + 0.004 × `A` + 1 × `I` + 0,004 × `N`,

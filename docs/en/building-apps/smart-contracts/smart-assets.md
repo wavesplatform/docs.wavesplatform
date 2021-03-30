@@ -36,7 +36,7 @@ The transaction fee is calculated in the same way as for [smart accounts](/en/bu
 
 **Note.** If a scripted account transfers a smart asset, then the fee is increased twice \(the fee increases _**+0.004**_ every time the transaction is validated by account’s script or asset’s script\).
 
-Starting from node version 1.3.1, after activation of feature #16 "dApp-to-dApp invocations, Ride V5":
+Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”:
 
 * For Invoke Script transactions, canceled the extra fee of 0.004 WAVES for smart assets in payments and script actions.
 * For all types of transactions, the extra fee of 0.004 WAVES for sending a transaction from a smart account or dApp is only required if the complexity of sender's account script or dApp script verifier function exceeds the [sender complexity threshold](/en/ride/limits/).

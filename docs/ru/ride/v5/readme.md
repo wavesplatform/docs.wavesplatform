@@ -1,6 +1,6 @@
 # [Ride v5] Версия 5 Стандартной библиотеки
 
-Версия 5 [Стандартной библиотеки](/ru/ride/script/standard-library) добавлена в версии ноды 1.3.0 и включается с активацией фичи №&nbsp;16 “dApp-to-dApp invocations, Ride V5”. Версии 1.3.x в настоящее время доступны только для [Stagenet](/ru/blockchain/blockchain-network/).
+Версия 5 [Стандартной библиотеки](/ru/ride/script/standard-library) добавлена в версии ноды 1.3.0 и включается с активацией фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”. Версии 1.3.x в настоящее время доступны только для [Stagenet](/ru/blockchain/blockchain-network/).
 
 ## Вызов dApp из dApp
 

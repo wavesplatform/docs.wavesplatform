@@ -6,7 +6,7 @@ The version of the Standard library in the script is set by the `STDLIB_VERSION`
 
 We recommend to use version 4 of the Standard Library when developing applications. Standard library version 4 is available since activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
-:warning: Standard library version 5 is added in node version 1.3.0 and enabled by feature #16 “dApp-to-dApp invocations, Ride V5”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
+:warning: Standard library version 5 is added in node version 1.3.0 and enabled by feature #16 “Ride V5, dApp-to-dApp invocations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 
 Changes in versions are shown in the table.
 

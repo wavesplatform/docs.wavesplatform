@@ -131,7 +131,7 @@ A transaction involving the execution of an asset script has the transaction fee
 
 Let's review the example. The fee for a Transfer transaction is 0.001 WAVES. If a user makes a transfer of a smart asset from a smart account, then the minimum fee is 0.001 + 0.004 + 0.004 = 0.009 WAVES.
 
-Starting from node version 1.3.1, after activation of feature #16 "dApp-to-dApp invocations, Ride V5":
+Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”:
 
 * For Invoke Script transactions, canceled the extra fee of 0.004 WAVES for smart assets in payments and script actions.
 * For all types of transactions, the extra fee of 0.004 WAVES for sending a transaction from a smart account or dApp is only required if the complexity of sender's account script or dApp script verifier function exceeds the [sender complexity threshold](/en/ride/limits/).
