@@ -65,7 +65,10 @@
 
 <!--* Added the new transaction type: [Continuation](/en/blockchain/transaction-type/continuation-transaction).-->
 A lease can be created both as a result of a Lease transaction and as a result of an Invoke Script transaction via a `Lease` script action. Therefore, the response of the following endpoints has been changed:
-* In the response of `/transactions/address/{address}/limit/{limit}` and `/transactions/info/{id}` endpoints for Lease Cancel transaction, the `lease` structure now contains lease parameters instead of Lease transaction fields.
+* In the response of `/transactions/address/{address}/limit/{limit}` and `/transactions/info/{id}` endpoints for a Lease Cancel transaction, the `lease` structure now contains lease parameters instead of Lease transaction fields.
+
+   Note: if a Lease Cancel transaction cancels a lease created as a result of an Invoke Script transaction, the `lease` structure contains `null`. This will be fixed in version 1.3.2.
+
 * `/leasing/active/{address}` returns an array of structures containing lease parameters instead of array of Lease transactions.
 
 <details>
@@ -146,7 +149,7 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
    ```
    </details>
 
-* Results of the `Lease` and `LeaseCancel` script actions are added to the The `stateChanges` structure.
+* Results of the `Lease` and `LeaseCancel` script actions are added to the `stateChanges` structure.
 
    <details>
       <summary>Format</summary>
@@ -207,7 +210,7 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
    ```
    </details>
 
-#### Improvements
+<!--#### Improvements
 
 * Added the `/leasing/info` endpoint that returns lease parameters by lease IDs.
 
@@ -235,7 +238,7 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
    ```
    </details>
 
-* Added the `/utils/heightByTimestamp` endpoint that returns blockchain height at a given timestamp.
+* Added the `/utils/heightByTimestamp` endpoint that returns blockchain height at a given timestamp.-->
 
 ### Activation
 
