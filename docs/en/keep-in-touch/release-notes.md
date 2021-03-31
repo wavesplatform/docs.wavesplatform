@@ -10,6 +10,7 @@
    * Transaction can contain up to 10 attached payments.
    * The total complexity for all callable functions and asset scripts involved is limited by 26,000 (the sender's account script complexity is not included in this limit). 
 * For all types of transactions, canceled the extra fee of 0.004 WAVES for sending a transaction from a smart account or dApp unless the complexity of sender's account script or dApp script verifier function exceeds 200.
+
 <!--* **Continued computations.** Added support for dApp scripts with complexity over 4000. The execution of such a script is split into several stages. The first stage of computations is performed within the Invoke Script transaction. The further stages are performed within Continuation transactions. [More about continued computations](/en/ride/advanced/continuation)
    * Implemented the new transaction type: [Continuation](/en/blockchain/transaction-type/continuation-transaction). A block generator creates the Continuation transaction if there is an incomplete computation sequence. A user cannot send a Continuation transaction.
    * Added version 3 for the [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) that can invoke a script with complexity over 4000.-->
@@ -29,15 +30,6 @@
    Using these actions, you can change the amount of the lease, in particular, withdraw a part of the leased funds. If you cancel a lease for a larger amount and create a new lease for a smaller amount with the same recipient in the same script invocation, the recipient's generating balance decreases by the difference. Otherwise, if you send two separate transactions: a Lease Cancel transaction and a Lease transaction, they can be added to a different blocks and therefore generating balance decreases by the amount of the canceled lease immediately and increases by the amount of the new lease after 1000 blocks.
 
 * Added the function [calculateLeaseId](/en/ride/v5/functions/built-in-functions/blockchain-functions#calculateleaseid) that calculates ID of the lease formed by the `Lease` structure.
-<!-- * Added the following [account data storage functions](/en/ride/v5/functions/built-in-functions/account-data-storage-functions) that allow the dApp script to read entries of its own data storage at any stage of the computations:
-   * `getBinary(key: String): ByteVector|Unit`
-   * `getBinaryValue(key: String): ByteVector`
-   * `getBoolean(key: String): Boolean|Unit`
-   * `getBooleanValue(key: String): Boolean`
-   * `getInteger(key: String): Int|Unit`
-   * `getIntegerValue(key: String): Int`
-   * `getString(key: String): String|Unit`
-   * `getStringValue(key: String): String` -->
 * Added an arbitrary data type — [Any](/en/ride/v5/data-types/any).
 * Added the [BigInt](/en/ride/v5/data-types/bigint) data type of 64 bytes (512 bits) and functions supporting it:
    * [fractionBigInt(BigInt, BigInt, BigInt): BigInt](/en/ride/v5/functions/built-in-functions/math-functions#fractionbigint)
@@ -57,7 +49,17 @@
    * [toStringBigInt(BigInt): String](/en/ride/v5/functions/built-in-functions/converting-functions#to-string-bigint)
 * Added the following built-in functions:
    * [isDataStorageUntouched](/en/ride/v5/functions/built-in-functions/account-data-storage-functions#isdatastorageuntouched) that checks if the data storage of a given account never contained any entries.
-   * [hashScriptAtAddress](en/ride/v5/functions/built-in-functions/blockchain-functions#hashscriptataddress) that returns [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) hash of the script assigned to a given account.
+   * [hashScriptAtAddress](/en/ride/v5/functions/built-in-functions/blockchain-functions#hashscriptataddress) that returns [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) hash of the script assigned to a given account.
+
+<!-- * Added the following [account data storage functions](/en/ride/v5/functions/built-in-functions/account-data-storage-functions) that allow the dApp script to read entries of its own data storage at any stage of the computations:
+   * `getBinary(key: String): ByteVector|Unit`
+   * `getBinaryValue(key: String): ByteVector`
+   * `getBoolean(key: String): Boolean|Unit`
+   * `getBooleanValue(key: String): Boolean`
+   * `getInteger(key: String): Int|Unit`
+   * `getIntegerValue(key: String): Int`
+   * `getString(key: String): String|Unit`
+   * `getStringValue(key: String): String` -->
 
 ### Node REST API
 

@@ -29,15 +29,6 @@
    С помощью действий `Lease` и `LeaseCancel` можно изменить сумму лизинга, в частности, извлечь часть средств из лизинга. Если в одном вызове скрипта отменить лизинг на большую сумму и создать новый лизинг на меньшую сумму с тем же получателем, генерирующий баланс получателя уменьшится на разницу. Если же отправить две отдельные транзакции — транзакцию отмены лизинга и транзакцию лизинга,  они могут попасть в разные блоки, и тогда генерирующий баланс сразу же уменьшится на сумму отмененного лизинга, а увеличится на сумму нового лизинга только через 1000 блоков.
 
 * Добавлена встроенная функция [calculateLeaseId](/ru/ride/v5/functions/built-in-functions/blockchain-functions#calculateleaseid) для получения ID лизинга, сформированного структурой `Lease`.
-<!--* Добавлены [функции хранилища данных аккаунта](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions), позволяющие dApp-скрипту читать данные собственного хранилища данных на любом этапе вычислений:
-   * `getBinary(key: String): ByteVector|Unit`
-   * `getBinaryValue(key: String): ByteVector`
-   * `getBoolean(key: String): Boolean|Unit`
-   * `getBooleanValue(key: String): Boolean`
-   * `getInteger(key: String): Int|Unit`
-   * `getIntegerValue(key: String): Int`
-   * `getString(key: String): String|Unit`
-   * `getStringValue(key: String): String`-->
 * Добавлен произвольный тип данных — [Any](/ru/ride/v5/data-types/any).
 * Добавлен тип данных [BigInt](/ru/ride/v5/data-types/bigint) размером 64 байта (512 бит) и поддерживающие его функции:
    * [fractionBigInt(BigInt, BigInt, BigInt): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionbigint)
@@ -58,6 +49,16 @@
 * Добавлены встроенные функции:
    * [isDataStorageUntouched](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions#isdatastorageuntouched) — проверяет, что хранилище данных указанного аккаунта никогда не содержало записей.
    * [hashScriptAtAddress](/ru/ride/v5/functions/built-in-functions/blockchain-functions#hashscriptataddress) — возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте.
+
+<!--* Добавлены [функции хранилища данных аккаунта](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions), позволяющие dApp-скрипту читать данные собственного хранилища данных на любом этапе вычислений:
+   * `getBinary(key: String): ByteVector|Unit`
+   * `getBinaryValue(key: String): ByteVector`
+   * `getBoolean(key: String): Boolean|Unit`
+   * `getBooleanValue(key: String): Boolean`
+   * `getInteger(key: String): Int|Unit`
+   * `getIntegerValue(key: String): Int`
+   * `getString(key: String): String|Unit`
+   * `getStringValue(key: String): String`-->
 
 ### Node REST API
 

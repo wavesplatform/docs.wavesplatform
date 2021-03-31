@@ -27,7 +27,7 @@ Features:
    <details>
       <summary>Details</summary>
 
-   The following invocation sequences will fail:
+   The following invocation sequences will **fail**:
 
 
    ```
@@ -44,7 +44,7 @@ Features:
                 → dApp B
    ```
 
-   The following invocation sequences are valid:
+   The following invocation sequences are **valid**:
 
    ```
    → dApp A
