@@ -6,7 +6,7 @@ sidebarDepth: 3
 
 **Blockchain Updates** is a [node extension](/en/waves-node/extensions/) that sends blockchain updates via [gRPC](https://en.wikipedia.org/wiki/GRPC).
 
->This article is intended for **Blockchain Updates** version **1.2.20** or higher.
+>This article is intended for **Blockchain Updates** version **1.2.20** or higher. Please note that this Blockchain Updates extension version is incompatible with the previous versions (consumers working with previous extension versions will not be able to connect to this version). See [Upgrading from Previous Versions](#upgrading-from-previous-version) below.
 
 Blockchain Updates enables tracking changes made by each transaction and block:
 
@@ -1323,3 +1323,17 @@ Unlike in transactions, account addresses in `TransactionMetadata` are given in 
 | Name | Type | Description |
 | :--- | :--- | :--- |
 | recipient_address | bytes | Recipient's address |
+
+## Upgrading from Previous Versions
+
+If you used previous version of Blockchain Updates from and want to upgrade to version 1.2.20:
+
+1. Re-load the history of changes:
+
+   1.1. Delete the database files: they are located in the directory specified in the [waves.db.directory](/en/waves-node/node-configuration#db-settings) setting (by default, in the `data` subdirectory of the base directory of the node).
+
+   1.2 Import the blockchain (see [Import and Export Blockchain](/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain)) or wait for blockchain synchronization during regular node operation.
+
+2. Download the updated protobuf schemes and re-generate client stubs, see [Client Generation](#client-generation) above. Migrate your code to the new stubs.
+
+After upgrading to the current version, you can start using the fields added in it. See [Release Notes 1.2.20](https://github.com/wavesplatform/Waves/releases/tag/v1.2.20) for a description of the new features. Most of the fields of the previous version are not changed.
