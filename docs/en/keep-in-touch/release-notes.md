@@ -71,6 +71,8 @@ A lease can be created both as a result of a Lease transaction and as a result o
 
 * `/leasing/active/{address}` returns an array of structures containing lease parameters instead of array of Lease transactions.
 
+   Note: The endpoint does not return a lease if it is created by a dApp invoked from another dApp. This will be fixed in version 1.3.2.
+
 <details>
 <summary>Format</summary>
     
