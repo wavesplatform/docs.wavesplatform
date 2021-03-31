@@ -22,14 +22,12 @@
         <li>CEILING</li>
         <li>DOWN</li>
         <li>FLOOR</li>
-        <li>HALFDOWN</li>
         <li>HALFEVEN</li>
         <li>HALFUP</li>
-        <li>UP</li>
       </ul>
     </td>
     <td>
-      <a href="/ru/ride/v5/functions/built-in-functions/math-functions">Переменные округления</a>, которые используются в функциях <a href="/ru/ride/v5/functions/built-in-functions/math-functions">log</a> и <a href="/ru/ride/v5/functions/built-in-functions/math-functions">pow</a> functions
+      <a href="/ru/ride/v5/functions/built-in-functions/math-functions">Переменные округления</a>, которые используются в <a href="/ru/ride/v5/functions/built-in-functions/math-functions">математических функциях</a> <code>fractionBigInt</code>, <code>log</code>, <code>logBigInt</code>, <code>pow</code>, <code>powBigInt</code>
     </td>
   </tr>
   <tr>

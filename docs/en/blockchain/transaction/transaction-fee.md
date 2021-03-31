@@ -11,7 +11,15 @@ For Invoke Script transaction and Transfer transaction, a sender can specify a t
 The minimum fees in WAVES for each type of transaction are listed in the table below.
 
 :warning: If a transaction is verified by an [account script](/en/ride/script/script-types/account-script) or an [asset script](/en/ride/script/script-types/asset-script), then the fee is increased by 0.004 WAVES for each script execution.
-The fee is not increased by 0,004 WAVES for [exchange transactions](/en/blockchain/transaction-type/exchange-transaction) if the order is sent from a smart account or if the matcher fee is a smart asset.
+
+The fee is not increased by 0,004 WAVES for [Exchange transactions](/en/blockchain/transaction-type/exchange-transaction) if the order is sent from a smart account or if the matcher fee is a smart asset.
+
+Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”:
+
+* For Invoke Script transactions, canceled the extra fee of 0.004 WAVES for smart assets in payments and script actions.
+* For all types of transactions, the extra fee of 0.004 WAVES for sending a transaction from a smart account or dApp is only required if the complexity of sender's account script or dApp script verifier function exceeds the [sender complexity threshold](/en/ride/limits/).
+
+Versions 1.3.x are currently available for [Stagenet](/en/blockchain/blockchain-network/) only.
 
 **Example 1.**
 
@@ -57,7 +65,7 @@ The minimum fee for an Invoke Script transaction:
 
 ## Fee in Sponsored Asset
 
-An issuer of an asset can set up sponsorship — so that any user can specify a transaction fee in this asset for invoke script transactions and transfer transactions.
+An issuer of an asset can set up sponsorship — so that any user can specify a transaction fee in this asset for Invoke Script transactions and Transfer transactions.
 
 To activate sponsorship, the issuer puts a Sponsor Fee transaction that specifies an amount of asset that is equivalent to the minimum fee of 0.001 WAVES. For example, if `minSponsoredAssetFee: 5`, then the fee in this asset for Exchange transaction equals 5 × 0.003 / 0.001 = 15. See the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article for details.
 

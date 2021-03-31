@@ -98,10 +98,10 @@ module.exports = {
               title: 'Burn Transaction',
               path: blockchainPath + 'transaction-type/burn-transaction',
             },
-            {
+/*            {
               title: 'Continuation Transaction',
               path: blockchainPath + 'transaction-type/continuation-transaction',
-            },
+            }, */
             {
               title: 'Create Alias Transaction',
               path: blockchainPath + 'transaction-type/create-alias-transaction',
@@ -346,10 +346,10 @@ module.exports = {
                   title: 'Burn Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/burn-transaction-binary-format',
                 },
-                {
+/*                {
                   title: 'Continuation Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/continuation-transaction-binary-format',
-                },
+                }, */
                 {
                   title: 'Create Alias Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/create-alias-transaction-binary-format',
@@ -994,10 +994,10 @@ module.exports = {
           title: 'dApp-to-dApp Invocation',
           path: ridePath + 'advanced/dapp-to-dapp',
         },
-        {
+/*        {
           title: 'Continued Computations',
           path: ridePath + 'advanced/continuation',
-        },
+        },*/
         {
           title: 'Strict Variable',
           path: rideV5Path + 'variables',
@@ -1013,6 +1013,10 @@ module.exports = {
             {
               title: 'Any',
               path: rideV5Path + 'data-types/any',
+            },
+            {
+              title: 'BigInt',
+              path: rideV5Path + 'data-types/bigint',
             },
             {
               title: 'Boolean',
@@ -1301,6 +1305,12 @@ module.exports = {
         {
           title: 'Limitations',
           path: rideV5Path + 'limits',
+          children: [
+            {
+              title: 'Data Weight',
+              path: rideV5Path + 'limits/weight',
+            },
+          ],
         },
       ],
     },

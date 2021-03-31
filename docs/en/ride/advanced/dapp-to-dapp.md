@@ -13,22 +13,67 @@ dApp-to-dApp invocation is processed as follows:
 Features:
 
 * dApp-to-dApp invocations can be nested.
-* A dApp-to-dApp invocation can contain payments that will be transferred from the balance of the invoking dApp to the balance of the invoked dApp.
 * All invoked callable functions are executed within a single Invoke Script transaction.
+* A dApp-to-dApp invocation can contain payments that are transferred from the balance of the invoking dApp to the balance of the invoked dApp.
+* Payments attached to a callable function invocation can be used in script actions and in payments attached to nested invocations.
 
 ## Conditions
 
-* dApp-to-dApp invocations are added in node version 1.3.0 and enabled with feature #16 “Ride V5, dApp-to-dApp invocations, Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
+* dApp-to-dApp invocations are added in node version 1.3.0 and enabled with feature #16 “Ride V5, dApp-to-dApp invocations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 * The invoking dApp script uses [Standard library](/en/ride/script/standard-library) **version 5**.
 * If the dApp invokes itself, the invocation must not contain payments.
-* The [Invoke Script](/en/blockchain/transaction-type/invoke-script-transaction) transaction version is 3.
-* The total complexity is limited by 52,000 for all callable functions and asset scripts of involved smart assets. The sender's account script complexity is not included in that limit.
+* The invocation stack must not contain invocations of the same dApp with invocations of another dApp between them.
 
-> Continued computations and dApp-to-dApp invocation are mutually exclusive, that is, they cannot be initiated by the same transaction.
+   <details>
+      <summary>Details</summary>
 
-## Fee 
+   The following invocation sequences will fail:
 
-The minimum fee for the Invoke Script transaction is increased by 0.005 WAVES for each dApp-to-dApp invocation.
+
+   ```
+   → dApp A
+      → dapp B
+          → dApp A
+   ```
+
+   ```
+   → dApp A
+      → dapp B
+          → dApp C
+             → dApp D
+                → dApp B
+   ```
+
+   The following invocation sequences are valid:
+
+   ```
+   → dApp A
+      → dapp B
+          → dApp B
+   ```
+
+   ```
+   → dApp A
+      → dapp B
+      → dApp B
+   ```
+
+   ```
+   → dapp A
+       → dapp B
+          → dapp D
+       → dapp С
+         → dapp B
+         → dapp D
+   ```
+   </details>
+
+* The number of the [Invoke](#invoke-function) function calls is up to 100 within a single Invoke Script transaction.
+* The maximum total number of `Issue`, `Reissue`, `Burn`, `SponsorFee`, `ScriptTransfer`, `Lease`, `LeaseCancel` script actions executed by all callable functions in a single transaction is 30.
+* The maximum total number of `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, `StringEntry`, `DeleteEntry` script actions executed by all callable functions in a single transaction is 100.
+* The total complexity is limited by 26,000 for all callable functions and asset scripts of involved smart assets. The sender's account script complexity is not included in that limit.
+
+<!-- > Continued computations and dApp-to-dApp invocation are mutually exclusive, that is, they cannot be initiated by the same transaction.-->
 
 ## Strict Variable
 
@@ -37,7 +82,7 @@ The minimum fee for the Invoke Script transaction is increased by 0.005 WAVES fo
 ## Invoke Function
 
 ```
-Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector|Int|String|List[Boolean|ByteVector|Int|String]], payments: List[AttachedPayments]): Any
+Invoke(dApp: Address|Alias, function: String, arguments: List[Any], payments: List[AttachedPayments]): Any
 ```
 
 Parameters:
@@ -46,8 +91,8 @@ Parameters:
 | :--- | :--- |
 | dApp: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of a dApp to invoke |
 | function: [String](/en/ride/v5/data-types/string)&#124;[Unit](/en/ride/v5/data-types/unit) | Name of a callable function. `unit` for a default function invocation |
-| arguments: [List](/en/ride/v5/data-types/list)[[Boolean](/en/ride/v5/data-types/boolean)&#124;[ByteVector](/en/ride/v5/data-types/byte-vector)&#124;[Int](/en/ride/v5/data-types/int)&#124;[String](/en/ride/v5/data-types/string)&#124;[List](/en/ride/v5/data-types/list)[[Boolean](/en/ride/v5/data-types/boolean)&#124;[ByteVector](/en/ride/v5/data-types/byte-vector)&#124;[Int](/en/ride/v5/data-types/int)&#124;[String](/en/ride/v5/data-types/string)]]&#124;[Unit](/en/ride/v5/data-types/unit) | Parameters of a callable function. `unit` for a default function invocation |
-| payments: [List](/en/ride/v5/data-types/list)[[AttachedPayment](/en/ride/v5/structures/common-structures/attached-payment)] | Payments to transfer from the invoking dApp to the invoked dApp, up to 2 |
+| arguments: [List](/en/ride/v5/data-types/list)[[Any](/en/ride/v5/data-types/any)] | Parameters of a callable function. `unit` for a default function invocation |
+| payments: [List](/en/ride/v5/data-types/list)[[AttachedPayment](/en/ride/v5/structures/common-structures/attached-payment)] | Payments to transfer from the invoking dApp to the invoked dApp, up to 10 |
 
 ```
 strict z = Invoke(dapp,foo,args,[AttachedPayment(unit,100000000)])
@@ -63,10 +108,12 @@ For dApp-to-dApp invocation, the fields of [Invocation](/en/ride/v5/structures/c
 | :--- | :--- | :--- | :--- |
 | 1 | caller | [Address](/en/ride/v5/structures/common-structures/address) | [Address](/en/blockchain/account/) of the dApp that invokes the callable function |
 | 2 | callerPublicKey | [ByteVector](/en/ride/v5/data-types/byte-vector) | Public key of the dApp that invokes the callable function |
-| 3 | payments | List[[AttachedPayment](/en/ride/v5/structures/common-structures/attached-payment)] | Payments indicated in the [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function |
-| 4 | transactionId | [ByteVector](/en/ride/v5/data-types/byte-vector) | ID of the Invoke Script transaction |
-| 5 | fee | [Int](/en/ride/v5/data-types/int) | [Transaction fee](/en/blockchain/transaction/transaction-fee) |
-| 6 | feeAssetId | [ByteVector](/en/ride/v5/data-types/byte-vector)&#124;[Unit](/en/ride/v5/data-types/unit) | ID of the fee token |
+| 3 | originalCaller | [Address](/en/ride/v5/structures/common-structures/address) | Address of the account that sent the Invoke Script transaction |
+| 4 | originalCallerPublicKey | [ByteVector](/en/ride/v5/data-types/byte-vector) | Public key of the account that sent the Invoke Script transaction |
+| 5 | payments | List[[AttachedPayment](/en/ride/v5/structures/common-structures/attached-payment)] | Payments indicated in the [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function |
+| 6 | transactionId | [ByteVector](/en/ride/v5/data-types/byte-vector) | ID of the Invoke Script transaction |
+| 7 | fee | [Int](/en/ride/v5/data-types/int) | [Transaction fee](/en/blockchain/transaction/transaction-fee) |
+| 8 | feeAssetId | [ByteVector](/en/ride/v5/data-types/byte-vector)&#124;[Unit](/en/ride/v5/data-types/unit) | ID of the fee token |
 
 ## Callable Function Result
 
@@ -97,14 +144,12 @@ If the callable function invoked by the `Invoke` function performs script action
 * If the invoked function deletes an entry from the account's data storage, the invoking function cannot obtain the entry after the invocation.
 * If the invoked function performs actions with tokens (transfer, release/issue/burn, and others) and the invoking function obtains balances after the invocation, it receives the updated balances.
 
-> Payments attached to the dApp invocation are counted in the dApp balance before the script actions are executed. Therefore, tokens obtained in payments can be used in script actions, but cannot be used in payments attached to nested invocations.
-
 ## Transaction Fail
 
 If the callable function's execution fails or [throws an exception](/en/ride/v5/functions/built-in-functions/exception-functions), the Invoke Script transaction could be rejected or saved on the blockchain as failed. This depends on whether the complexity of performed computations has exceeded the [threshold for saving a failed transaction](/en/ride/v5/limits/) (currently 1000). The complexity is summed up for all invocations.
 
 Consider the example: callable function 1 performs computations of 800 complexity, then invokes callable function 2 which performs computations of 300 complexity and then fails. The complexity 800 + 300 has exceeded the threshold, so the transaction is saved as failed, and the sender is charged a fee.
 
-If the total complexity of executed callable functions and asset scripts exceeds the limit of 52,000, the transaction is saved as failed as well. For example, if the complexity of executed callable functions is 50,000 in total, and there is a smart asset in script action whose script's complexity is 2500.
+If the total complexity of executed callable functions and asset scripts exceeds the limit of 26,000, the transaction is saved as failed as well. For example, if the complexity of executed callable functions is 25,000 in total, and there is a smart asset in script action whose script's complexity is 1500.
 
 In case of failure, no payments and script actions are applied to the blockchain state, even if some of the invoked functions are executed completely. The only state change the failed transaction entails is charging the fee.

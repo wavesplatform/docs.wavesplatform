@@ -13,22 +13,66 @@
 Особенности:
 
 * Вызовы dApp из dApp могут быть вложенными.
-* Вызов dApp из dApp может содержать платежи, которые будут переведены с баланса вызывающего dApp на баланс вызываемого.
 * Все вызванные функции выполняются в рамках одной транзакции вызова скрипта.
+* Вызов dApp из dApp может содержать платежи, которые будут переведены с баланса вызывающего dApp на баланс вызываемого.
+* Платежи, приложенные к вызову, могут использоваться как в действиях скрипта, так и в платежах, приложенных к вложенным вызовам.
 
 ## Условия
 
-* Вызовы dApp из dApp добавлены в версии ноды 1.3.0 и включаются с активацией фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations, Continuations”. Версии 1.3.x в настоящее время доступны только для [Stagenet](/ru/blockchain/blockchain-network/).
+* Вызовы dApp из dApp добавлены в версии ноды 1.3.0 и включаются с активацией фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”. Версии 1.3.x в настоящее время доступны только для [Stagenet](/ru/blockchain/blockchain-network/).
 * Скрипт вызывающего dApp использует [Стандартную библиотеку](/ru/ride/script/standard-library) **версии 5**.
 * Если dApp вызывает сам себя, вызов не должен содержать платежи.
-* [Транзакция вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) имеет версию 3.
-* Общая сложность всех вызываемых функций и скриптов ассета, участвующих в транзакции, — не более 52&nbsp;000. Сложность скрипта аккаунта-отправителя не учитывается в этом лимите.
+* Стек вызовов не должен содержать вызовы одного и того же dApp, между которыми есть вызов другого dApp.
 
-> Вычисления с продолжением и вызов dApp из dApp несовместимы, то есть не могут быть инициированы одной и той же транзакцией.
+   <details>
+      <summary>Подробнее</summary>
 
-## Комиссия
+   Следующие последовательности вызовов завершатся ошибкой:
 
-Минимальная комиссия за транзакцию вызова скрипта увеличивается на 0,005 WAVES за каждый вызов dApp из dApp.
+   ```
+   → dApp A
+      → dapp B
+          → dApp A
+   ```
+
+   ```
+   → dApp A
+      → dapp B
+          → dApp C
+             → dApp D
+                → dApp B
+   ```
+
+   Следующие последовательности вызовов допустимы:
+
+   ```
+   → dApp A
+      → dapp B
+          → dApp B
+   ```
+
+   ```
+   → dApp A
+      → dapp B
+      → dApp B
+   ```
+
+   ```
+   → dapp A
+       → dapp B
+          → dapp D
+       → dapp С
+         → dapp B
+         → dapp D
+   ```
+   </details>
+
+* Количество вызовов функции [Invoke](#функция-invoke) — не более 100 в одной транзакции.
+* Общее количество действий скрипта `Issue`, `Reissue`, `Burn`, `SponsorFee`, `ScriptTransfer`, `Lease`, `LeaseCancel`, выполняемых всеми вызываемыми функциями в одной транзакции, — не более 30.
+* Общее количество действий скрипта `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, `StringEntry`, `DeleteEntry`, выполняемых всеми вызываемыми функциями в одной транзакции, — не более 100.
+* Общая сложность всех вызываемых функций и скриптов ассета, участвующих в транзакции, — не более 26&nbsp;000. Сложность скрипта аккаунта-отправителя не учитывается в этом лимите.
+
+<!-- > Вычисления с продолжением и вызов dApp из dApp несовместимы, то есть не могут быть инициированы одной и той же транзакцией.-->
 
 ## Нетерпеливая переменная
 
@@ -37,15 +81,15 @@
 ## Функция Invoke
 
 ```
-Invoke(dApp: Address|Alias, function: String, arguments: List[Boolean|ByteVector|Int|String|List[Boolean|ByteVector|Int|String]], payments: List[AttachedPayments]): Any
+Invoke(dApp: Address|Alias, function: String, arguments: List[Any], payments: List[AttachedPayments]): Any
 ```
 
 | Параметр | Описание |
 | :--- | :--- |
 | dApp: [Address](/ru/ride/v5/structures/common-structures/address)&#124;[Alias](/ru/ride/v5/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) dApp, функция которого вызывается |
 | function: [String](/ru/ride/v5/data-types/string)&#124;[Unit](/ru/ride/v5/data-types/unit) | Имя вызываемой функции. `unit` — вызов функции по умолчанию |
-| arguments: [List](/ru/ride/v5/data-types/list)[[Boolean](/ru/ride/v5/data-types/boolean)&#124;[ByteVector](/ru/ride/v5/data-types/byte-vector)&#124;[Int](/ru/ride/v5/data-types/int)&#124;[String](/ru/ride/v5/data-types/string)&#124;[List](/ru/ride/v5/data-types/list)[[Boolean](/ru/ride/v5/data-types/boolean)&#124;[ByteVector](/ru/ride/v5/data-types/byte-vector)&#124;[Int](/ru/ride/v5/data-types/int)&#124;[String](/ru/ride/v5/data-types/string)]]&#124;[Unit](/ru/ride/v5/data-types/unit) | Параметры вызываемой функции. `unit` в случае вызова функции по умолчанию |
-| payments: [List](/ru/ride/v5/data-types/list)[[AttachedPayment](/ru/ride/v5/structures/common-structures/attached-payment)] | Платежи в пользу вызываемого dApp, не более 2 |
+| arguments: [List](/ru/ride/v5/data-types/list)[[Any](/ru/ride/v5/data-types/any)] | Параметры вызываемой функции. `unit` в случае вызова функции по умолчанию |
+| payments: [List](/ru/ride/v5/data-types/list)[[AttachedPayment](/ru/ride/v5/structures/common-structures/attached-payment)] | Платежи в пользу вызываемого dApp, не более 10 |
 
 Пример:
 
@@ -63,10 +107,12 @@ strict z = Invoke(dapp,foo,args,[AttachedPayment(unit,100000000)])
 | :--- | :--- | :--- | :--- |
 | 1 | caller | [Address](/ru/ride/v5/structures/common-structures/address) | [Адрес](/ru/blockchain/account/address) dApp, который вызвал функцию |
 | 2 | callerPublicKey | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Открытый ключ аккаунта dApp, который вызвал функцию |
-| 3 | payments | List[[AttachedPayment](/ru/ride/v5/structures/common-structures/attached-payment)] | Платежи, указанные в функции [Invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp) |
-| 4 | transactionId | [ByteVector](/ru/ride/v5/data-types/byte-vector) | ID транзакции вызова скрипта |
-| 5 | fee | [Int](/ru/ride/v5/data-types/int) | Комиссия за транзакцию вызова скрипта |
-| 6 | feeAssetId | [ByteVector](/ru/ride/v5/data-types/byte-vector)&#124;[Unit](/ru/ride/v5/data-types/unit) | ID токена, в котором указана комиссия |
+| 3 | originalCaller | [Address](/ru/ride/v5/structures/common-structures/address) | Адрес аккаунта, который отправил транзакцию вызова скрипта |
+| 4 | originalCallerPublicKey | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Открытый ключ аккаунта, который отправил транзакцию вызова скрипта |
+| 5 | payments | List[[AttachedPayment](/ru/ride/v5/structures/common-structures/attached-payment)] | Платежи, указанные в функции [Invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp) |
+| 6 | transactionId | [ByteVector](/ru/ride/v5/data-types/byte-vector) | ID транзакции вызова скрипта |
+| 7 | fee | [Int](/ru/ride/v5/data-types/int) | Комиссия за транзакцию вызова скрипта |
+| 8 | feeAssetId | [ByteVector](/ru/ride/v5/data-types/byte-vector)&#124;[Unit](/ru/ride/v5/data-types/unit) | ID токена, в котором указана комиссия |
 
 ## Результат вызываемой функции
 
@@ -96,14 +142,12 @@ strict z = Invoke(dapp,foo,args,[AttachedPayment(unit,100000000)])
 * Если вызываемая функция удаляет запись из хранилища данных аккаунта, то после вызова вызывающая функция не может прочитать эту запись.
 * Если вызываемая функция выполняет действия с токенами (перевод, выпуск/довыпуск/сжигание и др.), то после вызова вызывающая функция при запросе балансов получает новые значения.
 
-> Платежи, приложенные к вызову dApp, учитываются на балансе dApp перед выполнением действий скрипта. Поэтому токены, полученные в платежах, могут использоваться в действиях вызываемой функции, но не могут использоваться в платежах, приложенных к вложенным вызовам.
-
 ## Неуспешные транзакции
 
 Если выполнение вызываемой функции завершается ошибкой или [выбрасыванием исключения](/ru/ride/v5/functions/built-in-functions/exception-functions), транзакция вызова скрипта может быть отклонена или сохранена на блокчейне как неуспешная. Это зависит от того, превысила ли сложность выполненных вычислений [порог для сохранения неуспешных транзакций](/ru/ride/v5/limits/), который сейчас равен 1000. Сложность суммируется по всем вызовам.
 
-Рассмотрим пример: вызываемая функция 1 выполняет вычисления сложностью 800, затем вызывает вызываемую функцию 2, которая выполняет вычисления сложностю 300 и завершается ошибкой. Сложность 800 + 300 превышает порог, поэтому транзакция сохраняется как неуспешная и с отправителя взимается комиссия.
+Рассмотрим пример: вызываемая функция 1 выполняет вычисления сложностью 800, затем вызывает вызываемую функцию 2, которая выполняет вычисления сложностью 300 и завершается ошибкой. Сложность 800 + 300 превышает порог, поэтому транзакция сохраняется как неуспешная и с отправителя взимается комиссия.
 
-Если общая сложность выполненных вызываемых функций и скриптов ассета превысила ограничение 52&nbsp;000, транзакция также сохраняется как неуспешная. Например, если общая сложность выполненных вызываемых функций составила 50&nbsp;000 и в действиях скрипта есть смарт-ассет, у которого сложность скрипта составляет 2500.
+Если общая сложность выполненных вызываемых функций и скриптов ассета превысила ограничение 26&nbsp;000, транзакция также сохраняется как неуспешная. Например, если общая сложность выполненных вызываемых функций составила 25&nbsp;000 и в действиях скрипта есть смарт-ассет, у которого сложность скрипта составляет 1500.
 
 В случае если транзакция неуспешна, никакие платежи и действия скрипта не применяются, даже если некоторые вызванные функции выполнены полностью. Единственное изменение на блокчейне, которое вносит неуспешная транзакция, — взимание комиссии с отправителя.

@@ -9,9 +9,14 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | fraction(Int, Int, Int): Int | Умножает два целых числа и делит на третье без переполнения | 1 |
+| fractionBigInt(BigInt, BigInt, BigInt): BigInt | Умножает два [больших целых числа](/ru/ride/v5/data-types/bigint) и делит на третье без переполнения | 128 |
+| fractionBigInt(BigInt, BigInt, BigInt, Union): BigInt | Умножает два больших целых числа и делит на третье без переполнения, применяя указанный метод округления | 128 |
 | log(Int, Int, Int, Int, Int, Union): Int | Вычисляет логарифм числа по заданному основанию| 100 |
+| logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt | Вычисляет логарифм числа по заданному основанию с высокой точностью | 200 |
 | median(List[Int]): Int | Возвращает медиану списка целых чисел | 20 |
+| medianBigInt(List[BigInt]): BigInt | Возвращает медиану списка больших целых чисел | 160 |
 | pow(Int, Int, Int, Int, Int, Union): Int | Возводит число в степень | 100 |
+| powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt | Возводит число в степень с высокой точностью | 200 |
 
 ## [Функции блокчейна](/ru/ride/v5/functions/built-in-functions/blockchain-functions)
 
@@ -23,6 +28,7 @@
 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Получает информацию о [блоке](/ru/blockchain/block/) по [высоте блока](/ru/blockchain/block/block-height) | 5 |
 | calculateAssetId(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/v5/structures/script-actions/issue) при выполнении [вызываемой функции](/ru/ride/v5/functions/callable-function) | 10 |
 | calculateLeaseId(Lease): ByteVector | Вычисляет ID лизинга, созданного структурой [Lease](/ru/ride/v5/structures/script-actions/issue) при выполнении вызываемой функции | 1 |
+| hashScriptAtAddress(Address&#124;Alias): ByteVector&#124;Unit | Возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте | 200 |
 | transactionHeightById(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 20 |
 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 60 |
 | wavesBalance(Address&#124;Alias): Int | Получает баланс аккаунта в [WAVES](/ru/blockchain/token/waves) | 10 |
@@ -42,7 +48,7 @@
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| Invoke(Address&#124;Alias, String, List[Boolean&#124;ByteVector&#124;Int&#124;String&#124;List[Boolean&#124;ByteVector&#124;Int&#124;String]], List[AttachedPayments]): Any | Вызывает вызываемую функцию dApp | TBDL |
+| Invoke(Address&#124;Alias, String, List[Any], List[AttachedPayments]): Any | Вызывает вызываемую функцию dApp | 75 |
 
 ## [Функции декодирования](/ru/ride/v5/functions/built-in-functions/decoding-functions)
 
@@ -74,19 +80,26 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | addressFromPublicKey(ByteVector): Address | Получает [адрес](/ru/blockchain/account/address), соответствующий открытому ключу аккаунта | 63 |
+| parseBigInt(String): BigInt&#124;Unit | Конвертирует строковое представление числа в эквивалентное [большое целое число](/ru/ride/v5/data-types/bigint) | 65 |
+| parseBigIntValue(String): BigInt | Конвертирует строковое представление числа в эквивалентное большое целое число.<br>Завершается ошибкой, если строка не может быть преобразована | 65 |
 | parseInt(String): Int&#124;Unit | Конвертирует строковое представление числа в эквивалентное целое число | 2 |
-| parseIntValue(String): Int | Конвертирует строковое представление числа в эквивалентное целое число. <br>Завершается ошибкой, если строка не может быть спарсена | 2 |
+| parseIntValue(String): Int | Конвертирует строковое представление числа в эквивалентное целое число. <br>Завершается ошибкой, если строка не может быть преобразована | 2 |
+| toBigInt(ByteVector): BigInt | Конвертирует массив байтов в большое целое число | 65 |
+| toBigInt(ByteVector, Int, Int | Конвертирует массив байтов начиная с указанного индекса в большое целое число | 65 |
+| toBigInt(Int): BigInt | Конвертирует целое число в большое целое | 1 |
 | toBytes(Boolean): ByteVector | Конвертирует логическое значение в массив байтов | 1 |
 | toBytes(Int): ByteVector | Конвертирует целое число в массив байтов | 1 |
 | toBytes(String): ByteVector | Конвертирует строку в массив байтов | 8 |
+| toBytesBigInt(BigInt): ByteVector | Конвертирует большое целое число в массив байтов | 65 |
+| toInt(BigInt): Int | Конвертирует большое целое число в обычное целое.<br>Завершается ошибкой, если число не может быть преобразовано | 1 |
 | toInt(ByteVector): Int | Конвертирует массив байтов в целое число | 1 |
 | toInt(ByteVector, Int): Int | Конвертирует массив байтов, начиная с указанного индекса, в целое число | 1 |
 | toString(Address): String | Конвертирует массив байтов [адреса](/ru/blockchain/account/address) в строку | 10 |
 | toString(Boolean): String | Конвертирует логическое значение в строку | 1 |
 | toString(Int): String | Конвертирует целое число в строку | 1 |
+| toStringBigInt(BigInt): String | Конвертирует большое целое число в строку | 65 |
 | toUtf8String(ByteVector): String | Конвертирует массив байтов в строку в [UTF-8](https://ru.wikipedia.org/wiki/UTF-8) | 7 |
 | transferTransactionFromProto(ByteVector): TransferTransaction&#124;Unit | Десериализует транзакцию перевода | 5 |
-
 
 ## [Функции массива байтов](/ru/ride/v5/functions/built-in-functions/byte-array-functions)
 
@@ -112,21 +125,14 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | getBinary(Address&#124;Alias, String): ByteVector&#124;Unit | Получает массив байтов по ключу | 10 |
-| getBinary(String): ByteVector&#124;Unit | Получает массив байтов по ключу из собственного хранилища данных | 10 |
 | getBinaryValue(Address&#124;Alias, String): ByteVector | Получает массив байтов по ключу. Завершается ошибкой, если данных нет | 10 |
-| getBinaryValue(String): ByteVector | Получает массив байтов по ключу из собственного хранилища данных. Завершается ошибкой, если данных нет | 10 |
 | getBoolean(Address&#124;Alias, String): Boolean&#124;Unit | Получает логическое значение по ключу | 10 |
-| getBoolean(String): Boolean&#124;Unit | Получает логическое значение по ключу из собственного хранилища данных | 10 |
 | getBooleanValue(Address&#124;Alias, String): Boolean | Получает логическое значение по ключу. Завершается ошибкой, если данных нет | 10 |
-| getBooleanValue(String): Boolean | Получает логическое значение по ключу из собственного хранилища данных. Завершается ошибкой, если данных нет | 10 |
 | getInteger(Address&#124;Alias, String | Получает целое число по ключу | 10 |
-| getInteger(String): Int&#124;Unit | Получает целое число по ключу из собственного хранилища данных | 10 |
 | getIntegerValue(Address&#124;Alias, String): Int | Получает целое число по ключу. Завершается ошибкой, если данных нет | 10 |
-| getIntegerValue(String): Int | Получает целое число по ключу из собственного хранилища данных. Завершается ошибкой, если данных нет | 10 |
 | getString(Address&#124;Alias, String): String&#124;Unit | Получает строку по ключу | 10 |
-| getString(String): String&#124;Unit | Получает строку по ключу из собственного хранилища данных | 10 |
 | getStringValue(Address&#124;Alias, String): String | Получает строку по ключу. Завершается ошибкой, если данных нет | 10 |
-| getStringValue(String): String | Получает строку по ключу из собственного хранилища данных. Завершается ошибкой, если данных нет | 10 |
+| isDataStorageUntouched(Address&#124;Alias): Boolean | Проверяет, что хранилище данных указанного аккаунта никогда не содержало записей | 10 |
 
 ## [Функции списка](/ru/ride/v5/functions/built-in-functions/list-functions)
 
@@ -137,13 +143,14 @@
 | getElement(List[T], Int): T | Получает элемент по индексу | 2 |
 | indexOf(list: List[T], element: T): Int&#124;Unit | Возвращает индекс первого вхождения элемента в списке | 5 |
 | lastIndexOf(list: List[T], element: T): Int&#124;Unit | Возвращает индекс последнего вхождения элемента в списке | 5 |
-| max(List[Int]): Int | Возвращает наибольший элемент в списке | 3 |
-| min(List[Int]): Int | Возвращает наименьший элемент в списке | 3 |
+| max(List[Int]): Int | Возвращает наибольший элемент в списке целых чисел | 3 |
+| maxBigInt(List[BigInt]): BigInt | Возвращает наибольший элемент в списке [больших целых чисел](/ru/ride/v5/data-types/bigint) | 192 |
+| min(List[Int]): Int | Возвращает наименьший элемент в списке целых чисел | 3 |
+| minBigInt(List[BigInt]): BigInt | Возвращает наибольший элемент в списке больших целых чисел | 192 |
 | removeByIndex(list: List[T], index: Int): List[T] | Удаляет элемент из списка по индексу | 7 |
 | size(List[T]): Int | Возвращает размер списка | 2 |
 
 `T` означает любой допустимый тип.
-
 
 ## [Функции строки](/ru/ride/v5/functions/built-in-functions/string-functions)
 

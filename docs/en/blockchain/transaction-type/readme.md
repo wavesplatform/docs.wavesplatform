@@ -4,7 +4,7 @@ There are various types of transactions implemented on the Waves blockchain. Typ
 
 ![](./_assets/types.png)
 
-## Tokenisation
+## Tokenization
 
 | Type ID | Name | Description |
 | :--- | :--- | :--- |
@@ -27,7 +27,7 @@ There are various types of transactions implemented on the Waves blockchain. Typ
 | 12 | [Data transaction](/en/blockchain/transaction-type/data-transaction) | Adds, modifies and deletes data entries in the sender's account data storage |
 | 13 | [Set Script transaction](/en/blockchain/transaction-type/set-script-transaction) | Assigns the dApp script or account script to the sender's account |
 | 16 | [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) | Invokes a callable function of a dApp |
-| 18 | [Continuation transaction](/en/blockchain/transaction-type/continuation-transaction) | Created automatically for continuation of a dApp script execution |
+<!-- | 18 | [Continuation transaction](/en/blockchain/transaction-type/continuation-transaction) | Created automatically for continuation of a dApp script execution | -->
 
 ## Network
 

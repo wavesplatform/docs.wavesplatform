@@ -9,21 +9,14 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | getBinary(Address&#124;Alias, String): ByteVector&#124;Unit | Gets an array of bytes by key | 10 |
-| getBinary(String): ByteVector&#124;Unit | Gets an array of bytes by key from dApp's own data storage | 10 |
 | getBinaryValue(Address&#124;Alias, String): ByteVector | Gets an array of bytes by key. Fails if there is no data | 10 |
-| getBinaryValue(String): ByteVector | Gets an array of bytes by key from dApp's own data storage. Fails if there is no data | 10 |
 | getBoolean(Address&#124;Alias, String): Boolean&#124;Unit | Gets a boolean value by key | 10 |
-| getBoolean(String): Boolean&#124;Unit | Gets a boolean value by key from dApp's own data storage | 10 |
 | getBooleanValue(Address&#124;Alias, String): Boolean | Gets a boolean value by key. Fails if there is no data | 10 |
-| getBooleanValue(String): Boolean | Gets a boolean value by key from dApp's own data storage. Fails if there is no data | 10 |
 | getInteger(Address&#124;Alias, String): Int&#124;Unit | Gets an integer by key | 10 |
-| getInteger(String): Int&#124;Unit | Gets an integer by key from dApp's own data storage | 10 |
 | getIntegerValue(Address&#124;Alias, String): Int | Gets an integer by key. Fails if there is no data | 10 |
-| getIntegerValue(String): Int](#getintegervalue-string-int) | Gets an integer by key from dApp's own data storage. Fails if there is no data | 10 |
 | getString(Address&#124;Alias, String): String&#124;Unit | Gets a string by key | 10 |
-| getString(String): String&#124;Unit | Gets a string by key from dApp's own data storage | 10 |
 | getStringValue(Address&#124;Alias, String): String | Gets a string by key. Fails if there is no data | 10 |
-| getStringValue(String): String | Gets a string by key from dApp's own data storage. Fails if there is no data | 10 |
+| isDataStorageUntouched(Address&#124;Alias): Boolean | Checks if the data storage of a given account never contained any entries | 10 |
 
 ## [Blockchain functions](/en/ride/v5/functions/built-in-functions/blockchain-functions)
 
@@ -35,6 +28,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Gets the information about a [block](/en/blockchain/block/) by the [block height](/en/blockchain/block/block-height) | 5 |
 | calculateAssetId(Issue): ByteVector | Calculates ID of the token formed by the [Issue](/en/ride/v5/structures/script-actions/issue) structure when executing the [callable function](/en/ride/v5/functions/callable-function) | 10 |
 | calculateLeaseId(Lease): ByteVector | Calculates ID of the lease formed by the [Lease](/en/ride/v5/structures/script-actions/lease) structure when executing the callable function | 1 |
+| hashScriptAtAddress(Address&#124;Alias): ByteVector&#124;Unit | Returns [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) hash of the script assigned to a given account | 200 |
 | transactionHeightById(ByteVector):  Int&#124;Unit | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 20 |
 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Gets the data of a [transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 60 |
 | wavesBalance(Address&#124;Alias): Int | Gets account balance in [WAVES](/en/blockchain/token/waves) | 10 |
@@ -54,16 +48,24 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | addressFromPublicKey(ByteVector): Address | Converts account public key to [address](/en/blockchain/account/address) | 63 |
+| parseBigInt(String): BigInt&#124;Unit | Converts the string representation of a number to its [big integer](/en/ride/v5/data-types/bigint) equivalent | 65 |
+| parseBigIntValue(String): BigInt | Converts the string representation of a number to its big integer equivalent.<br>Fails if the string cannot be parsed | 65 |
 | parseInt(String): Int&#124;Unit | Converts the string representation of a number to its integer equivalent | 2 |
 | parseIntValue(String): Int | Converts the string representation of a number to its integer equivalent. Fails if the string cannot be parsed | 2 |
+| toBigInt(ByteVector): BigInt | Converts an array of bytes to a big integer | 65 |
+| toBigInt(ByteVector, Int, Int): BigInt | Converts an array of bytes starting from a certain index to a big integer | 65 |
+| toBigInt(Int): BigInt | Converts an integer to a big integer | 1 |
 | toBytes(Boolean): ByteVector | Converts a boolean to an array of bytes | 1 |
 | toBytes(Int): ByteVector | Converts an integer to an array of bytes | 1 |
 | toBytes(String): ByteVector | Converts a string to an array of bytes | 8 |
+| toBytesBigInt(BigInt): ByteVector | Converts a big integer to an array of bytes | 65 |
+| toInt(BigInt): Int | Converts a big integer to an integer.<br>Fails if the number cannot be converted | 1 |
 | toInt(ByteVector): Int | Converts an array of bytes to an integer | 1 |
 | toInt(ByteVector, Int): Int | Converts an array of bytes to an integer starting from a certain index | 1 |
 | toString(Address): String | Converts an [address](/en/blockchain/account/address) to a string | 10 |
 | toString(Boolean): String | Converts a boolean to a string | 1 |
 | toString(Int): String | Converts an integer to a string | 1 |
+| toStringBigInt(BigInt): String | Converts a big integer to a string | 65 |
 | toUtf8String(ByteVector): String | Converts an array of bytes to a UTF-8 string | 7 |
 | transferTransactionFromProto(ByteVector): TransferTransaction&#124;Unit | Deserializes transfer transaction | 5 |
 
@@ -71,7 +73,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| Invoke(Address&#124;Alias, String, List[Boolean&#124;ByteVector&#124;Int&#124;String&#124;List[Boolean&#124;ByteVector&#124;Int&#124;String]], List[AttachedPayments]): Any | Invokes a dApp callable function | TBDL |
+| Invoke(Address&#124;Alias, String, List[Any], List[AttachedPayments]): Any | Invokes a dApp callable function | 75 |
 
 ## [Data transaction functions](/en/ride/v5/functions/built-in-functions/data-transaction-functions)
 
@@ -136,8 +138,10 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | getElement(List[T], Int): T | Gets element from the list | 2 |
 | indexOf(list: List[T], element: T): Int&#124;Unit | Returns the index of the first occurrence of the element in the list | 5 |
 | lastIndexOf(list: List[T], element: T): Int&#124;Unit | Returns the index of the last occurrence of the element in the list | 5 |
-| max(List[Int]): Int | Returns the largest element in the list | 3 |
-| min(List[Int]): Int | Returns the smallest item in the list | 3 |
+| max(List[Int]): Int | Returns the largest element in the list of integers | 3 |
+| maxBigInt(List[BigInt]): BigInt | Returns the largest element in the list of [big integers](/en/ride/v5/data-types/bigint) | 192 |
+| min(List[Int]): Int | Returns the smallest element in the list of integers | 3 |
+| minBigInt(List[BigInt]): BigInt | Returns the smallest element in the list of big integers | 192 |
 | removeByIndex(list: List[T], index: Int): List[T] | Removes an element from the list by index | 7 |
 | size(List[T]): Int | Returns the size of the list | 2 |
 
@@ -148,9 +152,14 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | fraction(Int, Int, Int): Int | Multiplies and divides integers to avoid overflow | 1 |
+| fractionBigInt(BigInt, BigInt, BigInt): BigInt | Multiplies and divides [bid integers](/en/ride/v5/data-types/bigint) to avoid overflow | 128 |
+| fractionBigInt(BigInt, BigInt, BigInt, Union): BigInt | Multiplies and divides bid integers to avoid overflow, applying the specified rounding method | 128 |
 | log(Int, Int, Int, Int, Int, Union): Int | Calculates logarithm of a number with a base | 100 |
+| logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt | Calculates logarithm of a number to a given base with high accuracy | 200 |
 | median(List[Int]): Int | Returns the median of a list of integers | 20 |
+| medianBigInt(List[BigInt]): BigInt | Returns the median of a list of big integers | 160 |
 | pow(Int, Int, Int, Int, Int, Union): Int | Raises a number to a given power | 100 |
+| powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt | Raises a number to a given power with high accuracy | 200 |
 
 ## [String functions](/en/ride/v5/functions/built-in-functions/string-functions)
 

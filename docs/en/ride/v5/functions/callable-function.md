@@ -18,7 +18,7 @@ The callable function can perform the following actions:
 
 The callable function can return a value that is passed to the invoking function in case of the [dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp).
 
-The invocation can contain payments to dApp. Tokens obtained in these payments can be used in script actions performed by the callable function, but cannot be used in payments attached to nested invocations.
+The invocation can contain payments to dApp. Tokens obtained in these payments can be used in script actions performed by the callable function and in payments attached to nested invocations.
 
 :warning: The fee for the Invoke Script transaction cannot be funded by transfer from the dApp to the transaction sender after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. If sender's balance is insufficient to pay the fee, dApp script is not executed.
 
@@ -88,9 +88,9 @@ Script actions performed by the callable function are set by Ride structures.
 
 ### Limitations
 
-* The maximum number of `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, `StringEntry`, `DeleteEntry` that are executed by callable function is 100.
-* The maximum number of `Issue`, `Reissue`, `Burn`, `SponsorFee`, `ScriptTransfer`, `Lease`, `LeaseCancel` that are executed by callable function is 10.
-* The maximum number of the payments to dApp in invocation is 2.
+* The maximum total number of `Issue`, `Reissue`, `Burn`, `SponsorFee`, `ScriptTransfer`, `Lease`, `LeaseCancel` script actions executed by all callable functions in a single transaction is 30.
+* The maximum total number of `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, `StringEntry`, `DeleteEntry` script actions executed by all callable functions in a single transaction is 100.
+* The maximum number of the payments to dApp in invocation is 10.
 
 See also the [Limitations](/en/ride/v5/limits/) article.
 
