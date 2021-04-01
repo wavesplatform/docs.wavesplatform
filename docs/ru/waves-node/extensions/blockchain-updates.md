@@ -205,8 +205,8 @@ git clone https://github.com/wavesplatform/protobuf-schemas/
 
 API Blockchain Updates предоставляет три функции:
 * `GetBlockUpdate` — возвращает изменения, порожденные блоком на указанной высоте.
-* [GetBlockUpdatesRange](#GetBlockUpdatesRange) — возвращает массив изменений, порожденных блоками в указанном диапазоне высоты.
-* [Subscribe](#Subscribe) — возвращает поток сообщений об изменениях, вначале исторические данные (то есть изменения до текущей высоты блокчейна), затем текущие события в реальном времени. Опционально можно указать начальную и/или конечную высоту.
+* [GetBlockUpdatesRange](#getblockupdatesrange) — возвращает массив изменений, порожденных блоками в указанном диапазоне высоты.
+* [Subscribe](#subscribe) — возвращает поток сообщений об изменениях, вначале исторические данные (то есть изменения до текущей высоты блокчейна), затем текущие события в реальном времени. Опционально можно указать начальную и/или конечную высоту.
 
 Структуру запросов и ответов можно посмотреть в файле [blockchain_updates.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/grpc/blockchain_updates.proto).
 
@@ -232,7 +232,7 @@ API Blockchain Updates предоставляет три функции:
 | update.id | bytes | ID последнего блока или микроблока на блокчейне после события |
 | update.height | int32 | Высота |
 | update.update | Append или Rollback | Событие: добавление или откат блока или микроблока. См. [Формат событий](#формат-событий) ниже |
-| referenced_assets | repeated StateUpdate.AssetInfo | Ассеты, участвующие в событии. См. [AssetInfo](#AssetInfo) ниже |
+| referenced_assets | repeated StateUpdate.AssetInfo | Ассеты, участвующие в событии. См. [AssetInfo](#assetinfo) ниже |
 
 ### GetBlockUpdatesRange
 
@@ -263,12 +263,12 @@ API Blockchain Updates предоставляет три функции:
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| block | [Block](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Данные блока: заголовки и транзакции. См. также раздел [Бинарный формат блока](/ru/blockchian/binary-format/block-binary-format) |
+| block | [Block](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Данные блока: заголовки и транзакции. См. также раздел [Бинарный формат блока](/ru/blockchain/binary-format/block-binary-format) |
 | updated_waves_amount | int64 | Общее количество WAVES с учетом вознаграждения за создание блока |
 | transaction_ids | repeated bytes | Идентификаторы транзакций в блоке |
-| transactions_metadata | repeated TransactionMetadata | Дополнительная информация о транзакциях. См. [TransactionMetadata](#TransactionMetadata) ниже |
-| state_update | StateUpdate | Изменения состояния блокчейна, привязанные к блоку. См. [StateUpdate](#StateUpdate) ниже |
-| transaction_state_updates | repeated StateUpdate | Изменения состояния блокчейна, привязанные к транзакциям. См. [StateUpdate](#StateUpdate) ниже |
+| transactions_metadata | repeated TransactionMetadata | Дополнительная информация о транзакциях. См. [TransactionMetadata](#transactionmetadata) ниже |
+| state_update | StateUpdate | Изменения состояния блокчейна, привязанные к блоку. См. [StateUpdate](#stateupdate) ниже |
+| transaction_state_updates | repeated StateUpdate | Изменения состояния блокчейна, привязанные к транзакциям. См. [StateUpdate](#stateupdate) ниже |
 
 
 `transaction_ids`, `transactions_metadata`, `transaction_state_updates` — параллельные массивы: одному порядковому номеру соответствуют данные об одной и той же транзакции. Если дополнительная информация отсутствует, в массиве `transactions_metadata` по этому индексу находится пустое значение.
@@ -597,9 +597,9 @@ API Blockchain Updates предоставляет три функции:
 | micro_block | [SignedMicroBlock](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Данные микроблока |
 | updated_transactions_root | int64 | [Корневой хеш](/ru/blockchain/block/merkle-root) всех транзакций текущего блока |
 | transaction_ids | repeated bytes | Идентификаторы транзакций в микроблоке |
-| transactions_metadata | repeated TransactionMetadata | Дополнительная информация о транзакциях. См. [TransactionMetadata](#TransactionMetadata) ниже |
-| state_update | StateUpdate | Изменения состояния блокчейна, привязанные к блоку. См. [StateUpdate](#StateUpdate) ниже |
-| transaction_state_updates | repeated StateUpdate | Изменения состояния блокчейна, привязанные к транзакциям. См. [StateUpdate](#StateUpdate) |
+| transactions_metadata | repeated TransactionMetadata | Дополнительная информация о транзакциях. См. [TransactionMetadata](#transactionmetadata) ниже |
+| state_update | StateUpdate | Изменения состояния блокчейна, привязанные к блоку. См. [StateUpdate](#stateupdate) ниже |
+| transaction_state_updates | repeated StateUpdate | Изменения состояния блокчейна, привязанные к транзакциям. См. [StateUpdate](#stateupdate) |
 
 `transaction_ids`, `transactions_metadata`, `transaction_state_updates` — параллельные массивы: одному порядковому номеру соответствуют данные об одной и той же транзакции. Если дополнительная информация отсутствует, в массиве `transactions_metadata` по этому индексу находится пустое значение.
 
@@ -920,7 +920,7 @@ API Blockchain Updates предоставляет три функции:
 | type | RollbackType | Тип сообщения: BLOCK — откат блока, MICROBLOCK — откат микроблока |
 | removed_transaction_ids | repeated bytes | ID транзакций, которые были удалены в результате отката |
 | removed_blocks | repeated [Block](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Блоки, которые были удалены в результате отката. В случае отката микроблока — пустой массив |
-| rollback_state_update | StateUpdate | Изменения состояния блокчейна, которые произошли в результате отката (обратные изменениям, порожденным транзакциями и блоками/микроблоками). См. [StateUpdate](#StateUpdate) ниже |
+| rollback_state_update | StateUpdate | Изменения состояния блокчейна, которые произошли в результате отката (обратные изменениям, порожденным транзакциями и блоками/микроблоками). См. [StateUpdate](#stateupdate) ниже |
 
 **Примеры:**
 
@@ -1262,7 +1262,7 @@ API Blockchain Updates предоставляет три функции:
 
 | Имя поля | Тип | Описание |
 | :--- | :--- | :--- |
-| assets.before | AssetDetails | Прежние параметры токена. В случае выпуска токена — пустое значение. См. [AssetDetails](#AssetDetails) ниже |
+| assets.before | AssetDetails | Прежние параметры токена. В случае выпуска токена — пустое значение. См. [AssetDetails](#assetdetails) ниже |
 | assets.after | AssetDetails | Новые параметры токена. В случае отката блока/микроблока, породившего выпуск токена, — пустое значение |
 
 #### AssetDetails
