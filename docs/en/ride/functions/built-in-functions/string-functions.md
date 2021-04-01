@@ -22,7 +22,7 @@ Checks whether the string contains substring.
 > :warning: The `contains` function is added in Standard library **version 4**.
 
 ``` ride
-drop(haystack: String, needle: String): Boolean
+contains(haystack: String, needle: String): Boolean
 ```
 
 ### Parameters
