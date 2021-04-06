@@ -108,8 +108,8 @@ For dApp-to-dApp invocation, the fields of [Invocation](/en/ride/v5/structures/c
 | :--- | :--- | :--- | :--- |
 | 1 | caller | [Address](/en/ride/v5/structures/common-structures/address) | [Address](/en/blockchain/account/) of the dApp that invokes the callable function |
 | 2 | callerPublicKey | [ByteVector](/en/ride/v5/data-types/byte-vector) | Public key of the dApp that invokes the callable function |
-| 3 | originalCaller | [Address](/en/ride/v5/structures/common-structures/address) | Address of the account that sent the Invoke Script transaction |
-| 4 | originalCallerPublicKey | [ByteVector](/en/ride/v5/data-types/byte-vector) | Public key of the account that sent the Invoke Script transaction |
+| 3 | originCaller | [Address](/en/ride/v5/structures/common-structures/address) | Address of the account that sent the Invoke Script transaction |
+| 4 | originCallerPublicKey | [ByteVector](/en/ride/v5/data-types/byte-vector) | Public key of the account that sent the Invoke Script transaction |
 | 5 | payments | List[[AttachedPayment](/en/ride/v5/structures/common-structures/attached-payment)] | Payments indicated in the [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function |
 | 6 | transactionId | [ByteVector](/en/ride/v5/data-types/byte-vector) | ID of the Invoke Script transaction |
 | 7 | fee | [Int](/en/ride/v5/data-types/int) | [Transaction fee](/en/blockchain/transaction/transaction-fee) |

@@ -7,7 +7,7 @@ Structure that contains the fields of the script invocation that the [callable f
 ## Constructor
 
 ```ride
-Invocation(caller: Address, callerPublicKey: ByteVector, originalCaller: Address, originalCallerPublicKey: ByteVector, payments: List[AttachedPayment], transactionId: ByteVector, fee: Int, feeAssetId: ByteVector|Unit)
+Invocation(caller: Address, callerPublicKey: ByteVector, originCaller: Address, originCallerPublicKey: ByteVector, payments: List[AttachedPayment], transactionId: ByteVector, fee: Int, feeAssetId: ByteVector|Unit)
 ```
 
 ## Fields
@@ -20,8 +20,8 @@ If the callable function is invoked by an [Invoke Script transaction](/en/blockc
 | :--- | :--- | :--- | :--- |
 | 1 | caller | [Address](/en/ride/v5/structures/common-structures/address) | [Address](/en/blockchain/account/) of the account that sent the Invoke Script transaction |
 | 2 | callerPublicKey | [ByteVector](/en/ride/v5/data-types/byte-vector) | Public key of the account that sent the Invoke Script transaction |
-| 3 | originalCaller | [Address](/en/ride/v5/structures/common-structures/address) | Duplicates the `caller` field |
-| 4 | originalCallerPublicKey | [ByteVector](/en/ride/v5/data-types/byte-vector) | Duplicates the `callerPublicKey` field |
+| 3 | originCaller | [Address](/en/ride/v5/structures/common-structures/address) | Duplicates the `caller` field |
+| 4 | originCallerPublicKey | [ByteVector](/en/ride/v5/data-types/byte-vector) | Duplicates the `callerPublicKey` field |
 | 5 | payments | List[[AttachedPayment](/en/ride/v5/structures/common-structures/attached-payment)] | Payments indicated in the Invoke Script transaction |
 | 6 | transactionId | [ByteVector](/en/ride/v5/data-types/byte-vector) | ID of the Invoke Script transaction |
 | 7 | fee | [Int](/en/ride/v5/data-types/int) | [Transaction fee](/en/blockchain/transaction/transaction-fee) |
@@ -33,14 +33,14 @@ If the callable function is invoked by an [Invoke](/en/ride/v5/functions/built-i
 | :--- | :--- | :--- | :--- |
 | 1 | caller | [Address](/en/ride/v5/structures/common-structures/address) | [Address](/en/blockchain/account/) of the dApp that invokes the callable function |
 | 2 | callerPublicKey | [ByteVector](/en/ride/v5/data-types/byte-vector) | Public key of the dApp that invokes the callable function |
-| 3 | originalCaller | [Address](/en/ride/v5/structures/common-structures/address) | Address of the account that sent the Invoke Script transaction |
-| 4 | originalCallerPublicKey | [ByteVector](/en/ride/v5/data-types/byte-vector) | Public key of the account that sent the Invoke Script transaction |
+| 3 | originCaller | [Address](/en/ride/v5/structures/common-structures/address) | Address of the account that sent the Invoke Script transaction |
+| 4 | originCallerPublicKey | [ByteVector](/en/ride/v5/data-types/byte-vector) | Public key of the account that sent the Invoke Script transaction |
 | 5 | payments | List[[AttachedPayment](/en/ride/v5/structures/common-structures/attached-payment)] | Payments indicated in the [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function |
 | 6 | transactionId | [ByteVector](/en/ride/v5/data-types/byte-vector) | ID of the Invoke Script transaction |
 | 7 | fee | [Int](/en/ride/v5/data-types/int) | [Transaction fee](/en/blockchain/transaction/transaction-fee) |
 | 8 | feeAssetId | [ByteVector](/en/ride/v5/data-types/byte-vector)&#124;[Unit](/en/ride/v5/data-types/unit) | ID of the fee token |
 
-> The `originalCaller`, `originalCallerPublicKey`, `transactionId`, `fee`, and `feeAssetId` values are the same for all dApp-to-dApp invocations  within a single Invoke Script transaction.
+> The `originCaller`, `originCallerPublicKey`, `transactionId`, `fee`, and `feeAssetId` values are the same for all dApp-to-dApp invocations  within a single Invoke Script transaction.
 
 ## Example: Payments Processing
 
