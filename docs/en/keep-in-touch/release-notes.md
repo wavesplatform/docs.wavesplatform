@@ -191,8 +191,8 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
                "type": "integer",
                "value": 12345
             }
-        ],
-        "result": {
+         ],
+         "result": {
             "leases": [
                {
                   "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
@@ -221,22 +221,29 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
    ```json
    [
       {
-         "leaseId": "3iUCv2YG6mwTXCDmEY6e3AvvSgawaQwMsHvGXzxfkhEF",
-         "sender": "3PPrWhPAZMjy75oinpGzavXMmUwsRGMfoXZ",
-         "recipient": "3PA1KvFfq9VuJjg45p2ytGgaNjrgnLSgf4r",
-         "amount": 469589704,
+         "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+         "originTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
+         "sender": "3P3Dwc7aAeG8VgpZBNKsAAaXHqrq3dR4ffn",
+         "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
+         "amount": 1000000000000,
+         "height": 2253315,
+         "status": "Active"
+      },
+      {
+         "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+         "originTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
+         "sender": "3P3Dwc7aAeG8VgpZBNKsAAaXHqrq3dR4ffn",
+         "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
+         "amount": 1000000000000,
+         "height": 2253315,     
          "status": "Cancelled",
-         "leaseTransaction": {
-            "originTransactionId": "3iUCv2YG6mwTXCDmEY6e3AvvSgawaQwMsHvGXzxfkhEF",
-            "height": 2252433
-         },
-         "leaseCancelTransaction": {
-            "originTransactionId": "DV33ehoA9bj9qEDpTHqWSb7xV5ddmNGifHt5tTQRPCJP",
-            "height": 2497740
-         }
-      }
-   ]
+         "leaseCancelTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
+         "leaseCancellationHeight": 2278654
+      },
    ```
+
+   If the blockchain state on the node was not rebuilt after activation of feature #16, the endpoint does not return the `leaseCancelTransactionId` field for leases that are canceled before activation of feature #16.
+
    </details>
 
 * Added the `/utils/heightByTimestamp` endpoint that returns blockchain height at a given timestamp.
