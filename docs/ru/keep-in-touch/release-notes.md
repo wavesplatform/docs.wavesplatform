@@ -157,17 +157,25 @@
    ```json
    "stateChanges": {
       "leases": [
-        {
-          "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
-          "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
-          "amount": 500000
-        }
+         {
+            "leaseId": "F3ZmBbig3gekPu4a8fyrZGiU53MFxtFSWKw5dTyTMvq7",
+            "originTransactionId": "6GLmdBZZeevtbomFYif5ys7Ltf2DuXMGP29bLrSoX9HA",
+            "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
+            "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
+            "amount": 200000000,
+            "height": 739442
+         },
       ],
       "leaseCancels": [
          {
-            "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
+            "leaseId": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
+            "originTransactionId": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
+            "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
+            "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
+            "amount": 300000000,
+            "height": 739436
          }
-      ]
+      ],
    }
    ```
    </details>
@@ -194,16 +202,24 @@
          "result": {
             "leases": [
                {
-                  "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
-                  "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
-                  "amount": 500000
-               }
+                  "leaseId": "F3ZmBbig3gekPu4a8fyrZGiU53MFxtFSWKw5dTyTMvq7",
+                  "originTransactionId": "6GLmdBZZeevtbomFYif5ys7Ltf2DuXMGP29bLrSoX9HA",
+                  "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
+                  "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
+                  "amount": 200000000,
+                  "height": 739442
+               },
             ],
             "leaseCancels": [
                {
-                  "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
+                  "leaseId": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
+                  "originTransactionId": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
+                  "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
+                  "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
+                  "amount": 300000000,
+                  "height": 739436
                }
-            ]
+            ],
          }
       }
    ]
