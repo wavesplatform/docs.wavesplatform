@@ -243,7 +243,7 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
          "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
          "amount": 1000000000000,
          "height": 2253315,
-         "status": "Active"
+         "status": "active"
       },
       {
          "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
@@ -252,7 +252,7 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
          "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
          "amount": 1000000000000,
          "height": 2253315,     
-         "status": "Cancelled",
+         "status": "canceled",
          "leaseCancelTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
          "leaseCancellationHeight": 2278654
       },
