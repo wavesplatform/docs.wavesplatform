@@ -78,7 +78,7 @@ A lease can be created both as a result of a Lease transaction and as a result o
 ```json
 "lease":
    {
-      "leaseId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+      "id": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
       "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
       "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
       "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
@@ -159,7 +159,7 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
    "stateChanges": {
       "leases": [
          {
-            "leaseId": "F3ZmBbig3gekPu4a8fyrZGiU53MFxtFSWKw5dTyTMvq7",
+            "id": "F3ZmBbig3gekPu4a8fyrZGiU53MFxtFSWKw5dTyTMvq7",
             "originTransactionId": "6GLmdBZZeevtbomFYif5ys7Ltf2DuXMGP29bLrSoX9HA",
             "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
             "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
@@ -169,7 +169,7 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
       ],
       "leaseCancels": [
          {
-            "leaseId": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
+            "id": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
             "originTransactionId": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
             "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
             "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
@@ -203,7 +203,7 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
          "result": {
             "leases": [
                {
-                  "leaseId": "F3ZmBbig3gekPu4a8fyrZGiU53MFxtFSWKw5dTyTMvq7",
+                  "id": "F3ZmBbig3gekPu4a8fyrZGiU53MFxtFSWKw5dTyTMvq7",
                   "originTransactionId": "6GLmdBZZeevtbomFYif5ys7Ltf2DuXMGP29bLrSoX9HA",
                   "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
                   "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
@@ -213,7 +213,7 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
             ],
             "leaseCancels": [
                {
-                  "leaseId": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
+                  "id": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
                   "originTransactionId": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
                   "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
                   "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
@@ -237,7 +237,7 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
    ```json
    [
       {
-         "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+         "id": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
          "originTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
          "sender": "3P3Dwc7aAeG8VgpZBNKsAAaXHqrq3dR4ffn",
          "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
@@ -246,7 +246,7 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
          "status": "active"
       },
       {
-         "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+         "id": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
          "originTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
          "sender": "3P3Dwc7aAeG8VgpZBNKsAAaXHqrq3dR4ffn",
          "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
