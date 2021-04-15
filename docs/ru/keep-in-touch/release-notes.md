@@ -33,21 +33,21 @@
 * Добавлена встроенная функция [calculateLeaseId](/ru/ride/v5/functions/built-in-functions/blockchain-functions#calculateleaseid) для получения ID лизинга, сформированного структурой `Lease`.
 * Добавлен произвольный тип данных — [Any](/ru/ride/v5/data-types/any).
 * Добавлен тип данных [BigInt](/ru/ride/v5/data-types/bigint) размером 64 байта (512 бит) и поддерживающие его функции:
-   * [fractionBigInt(BigInt, BigInt, BigInt): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionbigint)
-   * [fractionBigInt(BigInt, BigInt, BigInt, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionbigintround)
-   * [logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#logbigint)
-   * [maxBigInt(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/list-functions#maxbigint)
-   * [medianBigInt(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#medianbigint)
-   * [minBigInt(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/list-functions#minbigint)
-   * [powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#powbigint)
+   * [fraction(BigInt, BigInt, BigInt): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionbigint)
+   * [fraction(BigInt, BigInt, BigInt, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionbigintround)
+   * [log(BigInt, Int, BigInt, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#logbigint)
+   * [max(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/list-functions#max-list-bigint-bigint)
+   * [median(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#medianbigint)
+   * [min(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/list-functions#min-list-bigint-bigint)
+   * [pow(BigInt, Int, BigInt, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#powbigint)
    * [parseBigInt(String): BigInt|Unit](/ru/ride/v5/functions/built-in-functions/converting-functions#parse-bigint)
    * [parseBigIntValue(String): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#parse-bigintvalue)
    * [toBigInt(ByteVector): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bigint-bytevector)
    * [toBigInt(ByteVector, Int, Int): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bigint-bytevector-int-int)
    * [toBigInt(Int): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bigint-int)
-   * [toBytesBigInt(BigInt): ByteVector](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bytes-bigint)
+   * [toBytes(BigInt): ByteVector](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bytes-bigint)
    * [toInt(BigInt): Int](/ru/ride/v5/functions/built-in-functions/converting-functions#to-int-bigint)
-   * [toStringBigInt(BigInt): String](/ru/ride/v5/functions/built-in-functions/converting-functions#to-string-bigint)
+   * [toString(BigInt): String](/ru/ride/v5/functions/built-in-functions/converting-functions#to-string-bigint)
 * Добавлены встроенные функции:
    * [isDataStorageUntouched](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions#isdatastorageuntouched) — проверяет, что хранилище данных указанного аккаунта никогда не содержало записей.
    * [scriptHash](/ru/ride/v5/functions/built-in-functions/blockchain-functions#scripthash) — возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте.
