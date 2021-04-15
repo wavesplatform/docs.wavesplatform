@@ -28,7 +28,7 @@
 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Получает информацию о [блоке](/ru/blockchain/block/) по [высоте блока](/ru/blockchain/block/block-height) | 5 |
 | calculateAssetId(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/v5/structures/script-actions/issue) при выполнении [вызываемой функции](/ru/ride/v5/functions/callable-function) | 10 |
 | calculateLeaseId(Lease): ByteVector | Вычисляет ID лизинга, созданного структурой [Lease](/ru/ride/v5/structures/script-actions/issue) при выполнении вызываемой функции | 1 |
-| scriptHash(Address&#124;Alias): ByteVector&#124;Unit | Возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте | 200 |
+| hashScriptAtAddress(Address&#124;Alias): ByteVector&#124;Unit | Возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте | 200 |
 | transactionHeightById(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 20 |
 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 60 |
 | wavesBalance(Address&#124;Alias): Int | Получает баланс аккаунта в [WAVES](/ru/blockchain/token/waves) | 10 |
