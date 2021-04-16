@@ -198,7 +198,7 @@ removeByIndex(list: List[T], index: Int): List[T]
 removeByIndex(["Waves", 42, true], 1) # Returns ["Waves", true]
 ```
 
-## size
+## size(List[T]): Int
 
 Returns the size of the [list](/en/ride/v5/data-types/list).
 
