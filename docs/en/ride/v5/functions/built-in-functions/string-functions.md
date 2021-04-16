@@ -22,7 +22,7 @@
 Checks whether the string contains substring.
 
 ``` ride
-drop(haystack: String, needle: String): Boolean
+contains(haystack: String, needle: String): Boolean
 ```
 
 ### Parameters

@@ -134,7 +134,7 @@ log(1625, 2, 27, 1, 5, HALFUP) # Функция возвращает 280703542, 
 log(0, 0, 2, 0, 0, HALFUP)     # Результат: -Infinity
 ```
 
-## log(BigInt, Int, BigInt, Int, Int, Union): BigInt<a id="log"></a>
+## log(BigInt, Int, BigInt, Int, Int, Union): BigInt<a id="logbigint"></a>
 
 Вычисляет `log`<sub>`b`</sub>`a` с высокой точностью.
 

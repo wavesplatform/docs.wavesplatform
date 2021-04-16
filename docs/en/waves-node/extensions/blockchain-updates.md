@@ -205,8 +205,8 @@ Generate your client code from the [blockchain_updates.proto](https://github.com
 
 API Blockchain Updates provides the following functions:
 * `GetBlockUpdate` returns updates performed by the block at the given height.
-* [GetBlockUpdatesRange](#GetBlockUpdatesRange) returns updates performed by the blocks at the given range of height.
-* [Subscribe](#Subscribe) returns stream of messages, first historical data (i.e. updates up to the current blockchain height), then current events in real time. Optionally, you can specify the start and/or end height.
+* [GetBlockUpdatesRange](#getblockupdatesrange) returns updates performed by the blocks at the given range of height.
+* [Subscribe](#subscribe) returns stream of messages, first historical data (i.e. updates up to the current blockchain height), then current events in real time. Optionally, you can specify the start and/or end height.
 
 See the format of requests and responses in the [blockchain_updates.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/grpc/blockchain_updates.proto) file.
 
@@ -232,7 +232,7 @@ Message fields:
 | update.id | bytes | ID of the last block or microblock on the blockchain after the event |
 | update.height | int32 | Height |
 | update.update | Append or Rollback | Event: append or rollback of a block or a microblock. See [Event Format](#event-format) below |
-| referenced_assets | repeated StateUpdate.AssetInfo | Assets involved in the event. See [AssetInfo](#AssetInfo) below |
+| referenced_assets | repeated StateUpdate.AssetInfo | Assets involved in the event. See [AssetInfo](#assetinfo) below |
 
 ### GetBlockUpdatesRange
 
@@ -263,12 +263,12 @@ Message fields:
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| block | [Block](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Block data: headers and transactions. See also the [Block Binary Format](/en/blockchian/binary-format/block-binary-format) article |
+| block | [Block](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Block data: headers and transactions. See also the [Block Binary Format](/en/blockchain/binary-format/block-binary-format) article |
 | updated_waves_amount | int64 | Total number of WAVES including the block reward |
 | transaction_ids | repeated bytes | IDs of block's transactions |
-| transactions_metadata | repeated TransactionMetadata | Additional info about transactions. See [TransactionMetadata](#TransactionMetadata) below |
-| state_update | StateUpdate | Blockchain state updates related to a block. See [StateUpdate](#StateUpdate) below |
-| transaction_state_updates | repeated StateUpdate | Blockchain state updates related to transactions. See [StateUpdate](#StateUpdate) below |
+| transactions_metadata | repeated TransactionMetadata | Additional info about transactions. See [TransactionMetadata](#transactionmetadata) below |
+| state_update | StateUpdate | Blockchain state updates related to a block. See [StateUpdate](#stateupdate) below |
+| transaction_state_updates | repeated StateUpdate | Blockchain state updates related to transactions. See [StateUpdate](#stateupdate) below |
 
 `transaction_ids`, `transactions_metadata`, `transaction_state_updates` are parallel arrays: the same index corresponds to the data related to the same transaction. If there is no additional info, then the `transactions_metadata` array contains an empty value by this index.
 
@@ -596,9 +596,9 @@ Message fields:
 | micro_block | [SignedMicroBlock](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Microblock data |
 | updated_transactions_root | int64 | [Transactions Root Hash](/en/blockchain/block/merkle-root) of all transactions of the current block |
 | transaction_ids | repeated bytes | IDs of microblock's transactions |
-| transactions_metadata | repeated TransactionMetadata | Additional info about transactions. See [TransactionMetadata](#TransactionMetadata) below |
-| state_update | StateUpdate | Blockchain state updates related to a block. See [StateUpdate](#StateUpdate) below |
-| transaction_state_updates | repeated StateUpdate | Blockchain state updates related to transactions. See [StateUpdate](#StateUpdate) below |
+| transactions_metadata | repeated TransactionMetadata | Additional info about transactions. See [TransactionMetadata](#transactionmetadata) below |
+| state_update | StateUpdate | Blockchain state updates related to a block. See [StateUpdate](#stateupdate) below |
+| transaction_state_updates | repeated StateUpdate | Blockchain state updates related to transactions. See [StateUpdate](#stateupdate) below |
 
 `transaction_ids`, `transactions_metadata`, `transaction_state_updates` are parallel arrays: the same index corresponds to the data related to the same transaction. If there is no additional info, then the `transactions_metadata` array contains an empty value by this index.
 
@@ -919,7 +919,7 @@ Message fields:
 | type | RollbackType | Message type: BLOCK — block rollback, MICROBLOCK — microblock rollback |
 | removed_transaction_ids | repeated bytes | IDs of transactions deleted as a result of the rollback |
 | removed_blocks | repeated [Block](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Blocks deleted as a result of the rollback. Empty for microblock rollback |
-| rollback_state_update | StateUpdate | Blockchain state updates generated by the rollback (the reverse of changes related to transactions and blocks/microblocks that are rolled back). See [StateUpdate](#StateUpdate) below |
+| rollback_state_update | StateUpdate | Blockchain state updates generated by the rollback (the reverse of changes related to transactions and blocks/microblocks that are rolled back). See [StateUpdate](#stateupdate) below |
 
 **Examples:**
 
@@ -1261,7 +1261,7 @@ Unlike in transactions, account addresses in `StateUpdate` are given in full, in
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| assets.before | AssetDetails | Previous token parameters. Empty for the token issue. See [AssetDetails](#AssetDetails) below |
+| assets.before | AssetDetails | Previous token parameters. Empty for the token issue. See [AssetDetails](#assetdetails) below |
 | assets.after | AssetDetails | New token parameters. Empty for the rollback of a block/microblock that generated the token issue |
 
 #### AssetDetails
