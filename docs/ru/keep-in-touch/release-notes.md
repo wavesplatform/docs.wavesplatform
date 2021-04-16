@@ -33,21 +33,21 @@
 * Добавлена встроенная функция [calculateLeaseId](/ru/ride/v5/functions/built-in-functions/blockchain-functions#calculateleaseid) для получения ID лизинга, сформированного структурой `Lease`.
 * Добавлен произвольный тип данных — [Any](/ru/ride/v5/data-types/any).
 * Добавлен тип данных [BigInt](/ru/ride/v5/data-types/bigint) размером 64 байта (512 бит) и поддерживающие его функции:
-   * [fractionBigInt(BigInt, BigInt, BigInt): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionbigint)
-   * [fractionBigInt(BigInt, BigInt, BigInt, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionbigintround)
-   * [logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#logbigint)
-   * [maxBigInt(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/list-functions#maxbigint)
-   * [medianBigInt(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#medianbigint)
-   * [minBigInt(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/list-functions#minbigint)
-   * [powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#powbigint)
+   * [fraction(BigInt, BigInt, BigInt): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionbigint)
+   * [fraction(BigInt, BigInt, BigInt, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionbigintround)
+   * [log(BigInt, Int, BigInt, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#logbigint)
+   * [max(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/list-functions#max-list-bigint-bigint)
+   * [median(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#medianbigint)
+   * [min(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/list-functions#min-list-bigint-bigint)
+   * [pow(BigInt, Int, BigInt, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#powbigint)
    * [parseBigInt(String): BigInt|Unit](/ru/ride/v5/functions/built-in-functions/converting-functions#parse-bigint)
    * [parseBigIntValue(String): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#parse-bigintvalue)
    * [toBigInt(ByteVector): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bigint-bytevector)
    * [toBigInt(ByteVector, Int, Int): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bigint-bytevector-int-int)
    * [toBigInt(Int): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bigint-int)
-   * [toBytesBigInt(BigInt): ByteVector](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bytes-bigint)
+   * [toBytes(BigInt): ByteVector](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bytes-bigint)
    * [toInt(BigInt): Int](/ru/ride/v5/functions/built-in-functions/converting-functions#to-int-bigint)
-   * [toStringBigInt(BigInt): String](/ru/ride/v5/functions/built-in-functions/converting-functions#to-string-bigint)
+   * [toString(BigInt): String](/ru/ride/v5/functions/built-in-functions/converting-functions#to-string-bigint)
 * Добавлены встроенные функции:
    * [isDataStorageUntouched](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions#isdatastorageuntouched) — проверяет, что хранилище данных указанного аккаунта никогда не содержало записей.
    * [hashScriptAtAddress](/ru/ride/v5/functions/built-in-functions/blockchain-functions#hashscriptataddress) — возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте.
@@ -69,12 +69,7 @@
 <!--* Добавлен новый тип транзакции: [транзакция продолжения](/ru/blockchain/transaction-type/continuation-transaction).-->
 Лизинг может быть создан не только в результате транзакции лизинга, но и в результате транзакции вызова скрипта с помощью действия скрипта `Lease`. Поэтому изменен формат ответа следующих методов:
 * В ответе методов `/transactions/address/{address}/limit/{limit}` и `/transactions/info/{id}` для транзакции отмены лизинга структура `lease` теперь содержит не транзакцию лизинга, а структуру с параметрами лизинга.
-
-   Замечание: если транзакция отмены лизинга отменяет лизинг, созданный в результате транзакции вызова скрипта, то структура `lease` содержит `null`. Это будет исправлено в версии 1.3.2.
-
 * `/leasing/active/{address}` возвращает не массив транзакций лизинга, а массив структур c параметрами лизингов.
-
-   Замечание: метод не возвращает лизинг, если он создан dApp, вызванным из другого dApp. Это будет исправлено в версии 1.3.2.
 
 <details>
 <summary>Формат</summary>
@@ -82,7 +77,7 @@
 ```json
 "lease":
    {
-      "leaseId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+      "id": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
       "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
       "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
       "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
@@ -162,17 +157,25 @@
    ```json
    "stateChanges": {
       "leases": [
-        {
-          "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
-          "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
-          "amount": 500000
-        }
+         {
+            "id": "F3ZmBbig3gekPu4a8fyrZGiU53MFxtFSWKw5dTyTMvq7",
+            "originTransactionId": "6GLmdBZZeevtbomFYif5ys7Ltf2DuXMGP29bLrSoX9HA",
+            "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
+            "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
+            "amount": 200000000,
+            "height": 739442
+         },
       ],
       "leaseCancels": [
          {
-            "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
+            "id": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
+            "originTransactionId": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
+            "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
+            "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
+            "amount": 300000000,
+            "height": 739436
          }
-      ]
+      ],
    }
    ```
    </details>
@@ -195,27 +198,35 @@
                "type": "integer",
                "value": 12345
             }
-        ],
-        "result": {
+         ],
+         "result": {
             "leases": [
                {
-                  "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
-                  "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
-                  "amount": 500000
-               }
+                  "id": "F3ZmBbig3gekPu4a8fyrZGiU53MFxtFSWKw5dTyTMvq7",
+                  "originTransactionId": "6GLmdBZZeevtbomFYif5ys7Ltf2DuXMGP29bLrSoX9HA",
+                  "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
+                  "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
+                  "amount": 200000000,
+                  "height": 739442
+               },
             ],
             "leaseCancels": [
                {
-                  "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
+                  "id": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
+                  "originTransactionId": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
+                  "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
+                  "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
+                  "amount": 300000000,
+                  "height": 739436
                }
-            ]
+            ],
          }
       }
    ]
    ```
    </details>
 
-<!--#### Улучшения
+#### Улучшения
 
 * Новый метод `/leasing/info` возвращает параметры лизингов с указанными идентификаторами.
 
@@ -225,25 +236,32 @@
    ```json
    [
       {
-         "leaseId": "3iUCv2YG6mwTXCDmEY6e3AvvSgawaQwMsHvGXzxfkhEF",
-         "sender": "3PPrWhPAZMjy75oinpGzavXMmUwsRGMfoXZ",
-         "recipient": "3PA1KvFfq9VuJjg45p2ytGgaNjrgnLSgf4r",
-         "amount": 469589704,
-         "status": "Cancelled",
-         "leaseTransaction": {
-            "originTransactionId": "3iUCv2YG6mwTXCDmEY6e3AvvSgawaQwMsHvGXzxfkhEF",
-            "height": 2252433
-         },
-         "leaseCancelTransaction": {
-            "originTransactionId": "DV33ehoA9bj9qEDpTHqWSb7xV5ddmNGifHt5tTQRPCJP",
-            "height": 2497740
-         }
-      }
+         "id": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+         "originTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
+         "sender": "3P3Dwc7aAeG8VgpZBNKsAAaXHqrq3dR4ffn",
+         "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
+         "amount": 1000000000000,
+         "height": 2253315,
+         "status": "active"
+      },
+      {
+         "id": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+         "originTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
+         "sender": "3P3Dwc7aAeG8VgpZBNKsAAaXHqrq3dR4ffn",
+         "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
+         "amount": 1000000000000,
+         "height": 2253315,     
+         "status": "canceled",
+         "leaseCancelTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
+         "leaseCancellationHeight": 2278654
+      },
    ]
    ```
+
+    Если база данных на ноде не была перестроена после активации фичи №&nbsp;16, метод не возвращает поле `leaseCancelTransactionId` для лизингов, отмененных до активации фичи №&nbsp;16.
    </details>
 
-* Новый метод `/utils/heightByTimestamp` возвращает высоту блокчейна в указанный момент времени.-->
+* Новый метод `/utils/heightByTimestamp` возвращает высоту блокчейна в указанный момент времени.
 
 ### Активация
 

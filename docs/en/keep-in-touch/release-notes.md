@@ -34,21 +34,21 @@
 * Added the function [calculateLeaseId](/en/ride/v5/functions/built-in-functions/blockchain-functions#calculateleaseid) that calculates ID of the lease formed by the `Lease` structure.
 * Added an arbitrary data type — [Any](/en/ride/v5/data-types/any).
 * Added the [BigInt](/en/ride/v5/data-types/bigint) data type of 64 bytes (512 bits) and functions supporting it:
-   * [fractionBigInt(BigInt, BigInt, BigInt): BigInt](/en/ride/v5/functions/built-in-functions/math-functions#fractionbigint)
-   * [fractionBigInt(BigInt, BigInt, BigInt, Union): BigInt](/en/ride/v5/functions/built-in-functions/math-functions#fractionbigintround)
-   * [logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](/en/ride/v5/functions/built-in-functions/math-functions#logbigint)
-   * [maxBigInt(List[BigInt]): BigInt](/en/ride/v5/functions/built-in-functions/list-functions#maxbigint)
-   * [medianBigInt(List[BigInt]): BigInt](/en/ride/v5/functions/built-in-functions/math-functions#medianbigint)
-   * [minBigInt(List[BigInt]): BigInt](/en/ride/v5/functions/built-in-functions/list-functions#minbigint)
-   * [powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](/en/ride/v5/functions/built-in-functions/math-functions#powbigint)
+   * [fraction(BigInt, BigInt, BigInt): BigInt](/en/ride/v5/functions/built-in-functions/math-functions#fractionbigint)
+   * [fraction(BigInt, BigInt, BigInt, Union): BigInt](/en/ride/v5/functions/built-in-functions/math-functions#fractionbigintround)
+   * [log(BigInt, Int, BigInt, Int, Int, Union): BigInt](/en/ride/v5/functions/built-in-functions/math-functions#logbigint)
+   * [max(List[BigInt]): BigInt](/en/ride/v5/functions/built-in-functions/list-functions#max-list-bigint-bigint)
+   * [median(List[BigInt]): BigInt](/en/ride/v5/functions/built-in-functions/math-functions#medianbigint)
+   * [min(List[BigInt]): BigInt](/en/ride/v5/functions/built-in-functions/list-functions#min-list-bigint-bigint)
+   * [pow(BigInt, Int, BigInt, Int, Int, Union): BigInt](/en/ride/v5/functions/built-in-functions/math-functions#powbigint)
    * [parseBigInt(String): BigInt|Unit](/en/ride/v5/functions/built-in-functions/converting-functions#parse-bigint)
    * [parseBigIntValue(String): BigInt](/en/ride/v5/functions/built-in-functions/converting-functions#parse-bigintvalue)
    * [toBigInt(ByteVector): BigInt](/en/ride/v5/functions/built-in-functions/converting-functions#to-bigint-bytevector)
    * [toBigInt(ByteVector, Int, Int): BigInt](/en/ride/v5/functions/built-in-functions/converting-functions#to-bigint-bytevector-int-int)
    * [toBigInt(Int): BigInt](/en/ride/v5/functions/built-in-functions/converting-functions#to-bigint-int)
-   * [toBytesBigInt(BigInt): ByteVector](/en/ride/v5/functions/built-in-functions/converting-functions#to-bytes-bigint)
+   * [toBytes(BigInt): ByteVector](/en/ride/v5/functions/built-in-functions/converting-functions#to-bytes-bigint)
    * [toInt(BigInt): Int](/en/ride/v5/functions/built-in-functions/converting-functions#to-int-bigint)
-   * [toStringBigInt(BigInt): String](/en/ride/v5/functions/built-in-functions/converting-functions#to-string-bigint)
+   * [toString(BigInt): String](/en/ride/v5/functions/built-in-functions/converting-functions#to-string-bigint)
 * Added the following built-in functions:
    * [isDataStorageUntouched](/en/ride/v5/functions/built-in-functions/account-data-storage-functions#isdatastorageuntouched) that checks if the data storage of a given account never contained any entries.
    * [hashScriptAtAddress](/en/ride/v5/functions/built-in-functions/blockchain-functions#hashscriptataddress) that returns [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) hash of the script assigned to a given account.
@@ -70,12 +70,7 @@
 <!--* Added the new transaction type: [Continuation](/en/blockchain/transaction-type/continuation-transaction).-->
 A lease can be created both as a result of a Lease transaction and as a result of an Invoke Script transaction via a `Lease` script action. Therefore, the response of the following endpoints has been changed:
 * In the response of `/transactions/address/{address}/limit/{limit}` and `/transactions/info/{id}` endpoints for a Lease Cancel transaction, the `lease` structure now contains lease parameters instead of Lease transaction fields.
-
-   Note: if a Lease Cancel transaction cancels a lease created as a result of an Invoke Script transaction, the `lease` structure contains `null`. This will be fixed in version 1.3.2.
-
 * `/leasing/active/{address}` returns an array of structures containing lease parameters instead of array of Lease transactions.
-
-   Note: The endpoint does not return a lease if it is created by a dApp invoked from another dApp. This will be fixed in version 1.3.2.
 
 <details>
 <summary>Format</summary>
@@ -83,7 +78,7 @@ A lease can be created both as a result of a Lease transaction and as a result o
 ```json
 "lease":
    {
-      "leaseId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+      "id": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
       "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
       "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
       "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
@@ -163,17 +158,25 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
    ```json
    "stateChanges": {
       "leases": [
-        {
-          "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
-          "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
-          "amount": 500000
-        }
+         {
+            "id": "F3ZmBbig3gekPu4a8fyrZGiU53MFxtFSWKw5dTyTMvq7",
+            "originTransactionId": "6GLmdBZZeevtbomFYif5ys7Ltf2DuXMGP29bLrSoX9HA",
+            "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
+            "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
+            "amount": 200000000,
+            "height": 739442
+         },
       ],
       "leaseCancels": [
          {
-            "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
+            "id": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
+            "originTransactionId": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
+            "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
+            "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
+            "amount": 300000000,
+            "height": 739436
          }
-      ]
+      ],
    }
    ```
    </details>
@@ -196,27 +199,35 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
                "type": "integer",
                "value": 12345
             }
-        ],
-        "result": {
+         ],
+         "result": {
             "leases": [
                {
-                  "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
-                  "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
-                  "amount": 500000
-               }
+                  "id": "F3ZmBbig3gekPu4a8fyrZGiU53MFxtFSWKw5dTyTMvq7",
+                  "originTransactionId": "6GLmdBZZeevtbomFYif5ys7Ltf2DuXMGP29bLrSoX9HA",
+                  "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
+                  "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
+                  "amount": 200000000,
+                  "height": 739442
+               },
             ],
             "leaseCancels": [
                {
-                  "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
+                  "id": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
+                  "originTransactionId": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
+                  "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
+                  "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
+                  "amount": 300000000,
+                  "height": 739436
                }
-            ]
+            ],
          }
       }
    ]
    ```
    </details>
 
-<!--#### Improvements
+#### Improvements
 
 * Added the `/leasing/info` endpoint that returns lease parameters by lease IDs.
 
@@ -226,25 +237,32 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
    ```json
    [
       {
-         "leaseId": "3iUCv2YG6mwTXCDmEY6e3AvvSgawaQwMsHvGXzxfkhEF",
-         "sender": "3PPrWhPAZMjy75oinpGzavXMmUwsRGMfoXZ",
-         "recipient": "3PA1KvFfq9VuJjg45p2ytGgaNjrgnLSgf4r",
-         "amount": 469589704,
-         "status": "Cancelled",
-         "leaseTransaction": {
-            "originTransactionId": "3iUCv2YG6mwTXCDmEY6e3AvvSgawaQwMsHvGXzxfkhEF",
-            "height": 2252433
-         },
-         "leaseCancelTransaction": {
-            "originTransactionId": "DV33ehoA9bj9qEDpTHqWSb7xV5ddmNGifHt5tTQRPCJP",
-            "height": 2497740
-         }
-      }
-   ]
+         "id": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+         "originTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
+         "sender": "3P3Dwc7aAeG8VgpZBNKsAAaXHqrq3dR4ffn",
+         "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
+         "amount": 1000000000000,
+         "height": 2253315,
+         "status": "active"
+      },
+      {
+         "id": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+         "originTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
+         "sender": "3P3Dwc7aAeG8VgpZBNKsAAaXHqrq3dR4ffn",
+         "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
+         "amount": 1000000000000,
+         "height": 2253315,     
+         "status": "canceled",
+         "leaseCancelTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
+         "leaseCancellationHeight": 2278654
+      },
    ```
+
+   If the blockchain state on the node was not rebuilt after activation of feature #16, the endpoint does not return the `leaseCancelTransactionId` field for leases that are canceled before activation of feature #16.
+
    </details>
 
-* Added the `/utils/heightByTimestamp` endpoint that returns blockchain height at a given timestamp.-->
+* Added the `/utils/heightByTimestamp` endpoint that returns blockchain height at a given timestamp.
 
 ### Activation
 

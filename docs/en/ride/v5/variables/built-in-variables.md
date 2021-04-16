@@ -28,7 +28,7 @@ A **built-in variable** is a [variable](/en/ride/v5/variables/) of the [Standard
       </ul>
     </td>
     <td>
-      <a href="/en/ride/v5/functions/built-in-functions/math-functions">Rounding methods</a> used in the <a href="/ru/ride/v5/functions/built-in-functions/math-functions">math functions</a> <code>fractionBigInt</code>, <code>log</code>, <code>logBigInt</code>, <code>pow</code>, <code>powBigInt</code>
+      <a href="/en/ride/v5/functions/built-in-functions/math-functions">Rounding methods</a> used in the <a href="/ru/ride/v5/functions/built-in-functions/math-functions">math functions</a> <code>fraction</code>, <code>log</code>, <code>pow</code>
     </td>
   </tr>
   <tr>

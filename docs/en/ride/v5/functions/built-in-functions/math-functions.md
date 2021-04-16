@@ -5,14 +5,14 @@
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | [fraction(Int, Int, Int): Int](#fraction) | Multiplies and divides [integers](/en/ride/v5/data-types/int) to avoid overflow | 1 |
-| [fractionBigInt(BigInt, BigInt, BigInt): BigInt](#fractionbigint) | Multiplies and divides [bid integers](/en/ride/v5/data-types/bigint) to avoid overflow | 128 |
-| [fractionBigInt(BigInt, BigInt, BigInt, Union): BigInt](#fractionbigintround) | Multiplies and divides bid integers to avoid overflow, applying the specified rounding method | 128 |
+| [fraction(BigInt, BigInt, BigInt): BigInt](#fractionbigint) | Multiplies and divides [bid integers](/en/ride/v5/data-types/bigint) to avoid overflow | 128 |
+| [fraction(BigInt, BigInt, BigInt, Union): BigInt](#fractionbigintround) | Multiplies and divides bid integers to avoid overflow, applying the specified rounding method | 128 |
 | [log(Int, Int, Int, Int, Int, Union): Int](#log)| Calculates logarithm of a number to a given base | 100 |
-| [logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](#logbigint) | Calculates logarithm of a number to a given base with high accuracy | 200 |
+| [log(BigInt, Int, BigInt, Int, Int, Union): BigInt](#logbigint) | Calculates logarithm of a number to a given base with high accuracy | 200 |
 | [median(List[Int]): Int](#median)| Returns the median of a list of integers | 20 |
-| [medianBigInt(List[BigInt]): BigInt](#medianbigint) | Returns the median of a list of big integers | 160 |
+| [median(List[BigInt]): BigInt](#medianbigint) | Returns the median of a list of big integers | 160 |
 | [pow(Int, Int, Int, Int, Int, Union): Int](#pow) | Raises a number to a given power | 100 |
-| [powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](#powbigint) | Raises a number to a given power with high accuracy | 200 |
+| [pow(BigInt, Int, BigInt, Int, Int, Union): BigInt](#powbigint) | Raises a number to a given power with high accuracy | 200 |
 
 ## fraction(Int, Int, Int): Int<a id="fraction"></a>
 
@@ -54,14 +54,14 @@ The fraction function with no overflow:
 fraction(a, b, c) # Result: 2,000,000,000,000,000,000
 ```
 
-## fractionBigInt(BigInt, BigInt, BigInt): BigInt<a id="fractionbigint"></a>
+## fraction(BigInt, BigInt, BigInt): BigInt<a id="fractionbigint"></a>
 
 Multiplies [big integers](/en/ride/v5/data-types/bigint) `a`, `b` and divides the result by the integer `c` to avoid overflow.
 
 Fraction `a × b / c` should not exceed the maximum value of the big integer type.
 
 ```ride
-fractionBigInt(a: BigInt, b: BigInt, c: BigInt): BigInt
+fraction(a: BigInt, b: BigInt, c: BigInt): BigInt
 ```
 
 ### Parameters
@@ -72,14 +72,14 @@ fractionBigInt(a: BigInt, b: BigInt, c: BigInt): BigInt
 | `b`: BigInt | Big integer `b` |
 | `c`: BigInt | Big integer `c` |
 
-## fractionBigInt(BigInt, BigInt, BigInt, Union): BigInt<a id="fractionbigintround"></a>
+## fraction(BigInt, BigInt, BigInt, Union): BigInt<a id="fractionbigintround"></a>
 
 Multiplies [big integers](/en/ride/v5/data-types/bigint) `a`, `b` and divides the result by the integer `c` to avoid overflow, applying the specified rounding method.
 
 Fraction `a × b / c` should not exceed the maximum value of the big integer type.
 
 ```ride
-fractionBigInt(a: BigInt, b: BigInt, c: BigInt, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): BigInt
+fraction(a: BigInt, b: BigInt, c: BigInt, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): BigInt
 ```
 
 ### Parameters
@@ -135,17 +135,17 @@ log(1625, 2, 27, 1, 5, HALFUP) # Function returns 280703542, so the result is: 2
 log(0, 0, 2, 0, 0, HALFUP)     # Result: -Infinity
 ```
 
-## logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt<a id="logbigint"></a>
+## log(BigInt, Int, BigInt, Int, Int, Union): BigInt<a id="logbigint"></a>
 
 Calculates `log`<sub>`b`</sub>`a` with high accuracy.
 
 ``` ride
-logBigInt(value: BigInt, ep: Int, base: BigInt, bp: Int, rp: Int, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): BigInt
+log(value: BigInt, ep: Int, base: BigInt, bp: Int, rp: Int, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): BigInt
 ```
 
 In Ride, there is no [data type](/en/ride/v5/data-types/) with the floating point. That is why, for example, when you need to calculate `log`<sub>2.7</sub>16.25 then `value` = 1625, `vp` = 2 and the `base` = 27, `bp` = 1.
 
-If the `logBigInt` function returns, for example, 2807035420964590265, and the parameter `rp` = 18, then the result is 2.807035420964590265; in the number 2807035420964590265 the last 18 digits is a fractional part.
+If the `log` function returns, for example, 2807035420964590265, and the parameter `rp` = 18, then the result is 2.807035420964590265; in the number 2807035420964590265 the last 18 digits is a fractional part.
 
 ### Parameters
 
@@ -180,12 +180,12 @@ median([2, 4, 9, 20])     # Returns 6
 median([-2, -4, -9, -20]) # Returns -7
 ```
 
-## medianBigInt(List[BigInt]): BigInt<a id="medianbigint"></a>
+## median(List[BigInt]): BigInt<a id="medianbigint"></a>
 
 Returns the median of a [list](/en/ride/v5/data-types/list) of [big integers](/en/ride/v5/data-types/bigint). Fails if the list is empty or contains more than 100 elements.
 
 ``` ride
-medianBigInt(arr: List[BigInt]): BigInt
+median(arr: List[BigInt]): BigInt
 ```
 
 ### Parameters
@@ -226,17 +226,17 @@ pow(1625, 2, 27, 1, 2, HALFUP) # function returns 185911, so the result is: 1859
 pow(1625, 2, 27, 1, 5, HALFUP) # function returns 185910572, so, the result is: 1859.10572
 ```
 
-## powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt<a id="powbigint"></a>
+## pow(BigInt, Int, BigInt, Int, Int, Union): BigInt<a id="powbigint"></a>
 
 Вычисляет `a`<sup>`b`</sup> с высокой точностью.
 
 ``` ride
-powBigInt(base: BigInt, bp: Int, exponent: BigInt, ep: Int, rp: Int, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): BigInt
+pow(base: BigInt, bp: Int, exponent: BigInt, ep: Int, rp: Int, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): BigInt
 ```
 
 In Ride, there is no [data type](/en/ride/v5/data-types/) with the floating point. That is why, for example, when you need to calculate, 16.25<sup>2.7</sup>, then the number `base` = 1625, `bp` = 2, and the `exponent` = 27, `ep` = 1.
 
-If the `powBigInt` function returns, for example, 1859105716849757217692, and the parameter `rp` = 18, then the result is 1859.105716849757217692; in the number 1859105716849757217692 the last 18 digits is a fractional part.
+If the `pow` function returns, for example, 1859105716849757217692, and the parameter `rp` = 18, then the result is 1859.105716849757217692; in the number 1859105716849757217692 the last 18 digits is a fractional part.
 
 ### Parameters
 
@@ -253,7 +253,7 @@ If the `powBigInt` function returns, for example, 1859105716849757217692, and 
 
 Below is the list of built-in rounding variables. Every variable corresponds to the [rounding method](https://en.wikipedia.org/wiki/Rounding).
 
-The rounding variables are _only_ used as the parameters of functions [fractionBigInt](#fractionbigintround), [log](#log), [logBigInt](#logbigint), [pow](#pow), [powBigInt](#powbigint).
+The rounding variables are _only_ used as the parameters of functions `fraction`, `log`, `pow`.
 
 | Name | Description |
 | :--- | :--- |
