@@ -176,7 +176,7 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
             "amount": 300000000,
             "height": 739436
          }
-      ],
+      ]
    }
    ```
    </details>
@@ -220,7 +220,7 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
                   "amount": 300000000,
                   "height": 739436
                }
-            ],
+            ]
          }
       }
    ]
@@ -255,7 +255,8 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
          "status": "canceled",
          "leaseCancelTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
          "leaseCancellationHeight": 2278654
-      },
+      }
+   ]
    ```
 
    If the blockchain state on the node was not rebuilt after activation of feature #16, the endpoint does not return the `leaseCancelTransactionId` field for leases that are canceled before activation of feature #16.

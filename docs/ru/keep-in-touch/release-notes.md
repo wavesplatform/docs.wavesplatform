@@ -175,7 +175,7 @@
             "amount": 300000000,
             "height": 739436
          }
-      ],
+      ]
    }
    ```
    </details>
@@ -219,7 +219,7 @@
                   "amount": 300000000,
                   "height": 739436
                }
-            ],
+            ]
          }
       }
    ]
@@ -254,7 +254,7 @@
          "status": "canceled",
          "leaseCancelTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
          "leaseCancellationHeight": 2278654
-      },
+      }
    ]
    ```
 
