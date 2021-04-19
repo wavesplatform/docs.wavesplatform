@@ -10,7 +10,7 @@ GitHub-репозиторий: https://github.com/wavesplatform/Waves/tree/maste
 
 ## Сборка Docker-образа
 
-Вы можете загрузить актуальную версию Docker-образа на странице [Docker Hub](https://hub.docker.com/r/wavesplatform/wavesnode) или собрать его с помощью команды:
+Вы можете загрузить актуальную версию Docker-образа на странице [Docker Hub](https://hub.docker.com/r/wavesplatform/wavesnode) или с помощью команды:
 
 ```bash
 docker pull wavesplatform/wavesnode

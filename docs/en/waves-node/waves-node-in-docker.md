@@ -10,7 +10,7 @@ Install Docker app from [Docker website](https://docs.docker.com/engine/installa
 
 ## Building Docker image
 
-You can get the latest image at [Docker Hub](https://hub.docker.com/r/wavesplatform/wavesnode) or build it with the following command:
+You can get the latest image at [Docker Hub](https://hub.docker.com/r/wavesplatform/wavesnode) or download it with the following command:
 
 ```bash
 docker pull wavesplatform/wavesnode
