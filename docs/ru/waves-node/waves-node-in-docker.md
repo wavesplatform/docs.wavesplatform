@@ -123,13 +123,9 @@ GitHub-репозиторий: https://github.com/wavesplatform/Waves/tree/maste
 
 ```bash
 mkdir -p /docker/waves/waves-data
-```
 
-```bash
 wget -qO- http://blockchain-stagenet.wavesnodes.com/blockchain_last.tar --show-progress | tar -xvf - -C /docker/waves/waves-data
-```
-
-```bash
+ 
 docker run -v /docker/waves/waves-data:/var/lib/waves -e WAVES_NETWORK=stagenet -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti wavesplatform/wavesnode
 ```
 
