@@ -69,11 +69,12 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | toUtf8String(ByteVector): String | Converts an array of bytes to a UTF-8 string | 7 |
 | transferTransactionFromProto(ByteVector): TransferTransaction&#124;Unit | Deserializes transfer transaction | 5 |
 
-## [dApp-to-dApp invocation function](/en/ride/v5/functions/built-in-functions/dapp-to-dapp)
+## [dApp-to-dApp invocation functions](/en/ride/v5/functions/built-in-functions/dapp-to-dapp)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| Invoke(Address&#124;Alias, String, List[Any], List[AttachedPayments]): Any | Invokes a dApp callable function | 75 |
+| invoke(Address&#124;Alias, String, List[Any], List[AttachedPayments]): Any | Invokes a dApp callable function, with [reentrancy restriction](/en/ride/v5/functions/built-in-functions/dapp-to-dapp#reentrancy) | 75 |
+| reentrantInvoke(Address&#124;Alias, String, List[Any], List[AttachedPayments]): Any | Invokes a dApp callable function, without reentrancy restriction | 75 |
 
 ## [Data transaction functions](/en/ride/v5/functions/built-in-functions/data-transaction-functions)
 

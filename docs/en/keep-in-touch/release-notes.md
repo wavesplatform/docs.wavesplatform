@@ -19,7 +19,9 @@
 
 * Issued [version 5](/en/ride/v5/) of the Ride [Standard library](/en/ride/script/standard-library).
 * Enabled processing up to 10 payments attached to the Invoke Script transaction.
-* Added the [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function for dApp-to-dApp invocation.
+* Added the functions for dApp-to-dApp invocation:
+   * [invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp#invoke)
+   * [reentrantInvoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp#reentrantinvoke)
 * Added [strict variables](/en/ride/v5/variables/) that are evaluated before the next expression to ensure executing callable functions and applying their actions in the right order.
 * Modified the [callable function result](/en/ride/v5/functions/callable-function#invocation-result) by adding a return value.
 * Modified the [Invocation](/en/ride/v5/structures/common-structures/invocation) structure: in case of dApp-to-dApp invocation, the structure contains the address and public key of both the sender of the Invoke Script transaction and the dApp account that invokes the callable function.
@@ -287,7 +289,7 @@ To activate the improvements listed above, vote for feature #16 “Ride V5, dApp
 * Changed the scheme for signing the block transactions by the generating node. Previously, the generating node needed to sign the block header along with all transactions. For now, the [transactions root hash](/en/blockchain/block/merkle-root) is added to the header, so it is enough to sign only the header.
 * The BLAKE2b-256 hash of the block header is used as the block unique identifier.
 * When a transaction is validated before adding to the UTX pool, the blockchain state changes made by the transactions that were previously added to the block but then returned to the UTX pool due to the appearance of a new key block that refers to one of the previous microblocks, are taken into account.
-* dApp can't call itself with InvokeScript transaction with attached payments. Also dApp can't transfer funds to itself by `ScriptTransfer` script action.
+* dApp can't call itself with Invoke Script transaction with attached payments. Also dApp can't transfer funds to itself by `ScriptTransfer` script action.
 
 ### REST API Updates
 

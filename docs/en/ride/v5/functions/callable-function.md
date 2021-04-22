@@ -2,7 +2,7 @@
 
 :warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/functions/callable-function)
 
-**Callable function** is a [dApp script](/en/ride/script/script-types/dapp-script) function which can be invoked by an [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) or an [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function.
+**Callable function** is a [dApp script](/en/ride/script/script-types/dapp-script) function which can be invoked by an [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) or an `invoke` or `reentrantInvoke` functions (see details in the [dApp-to-dApp Invocation](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) article).
 
 dApp script can contain multiple callable functions.
 

@@ -18,7 +18,9 @@
 
 * Выпущена [версия 5](/ru/ride/v5/) Стандартной библиотеки.
 * Реализована возможность обрабатывать в dApp до 10 платежей, приложенных к транзакции вызова скрипта.
-* Добавлена функция [Invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp) для вызова dApp из dApp.
+* Добавлены функции для вызова dApp из dApp:
+   * [invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp#invoke)
+   * [reentrantInvoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp#reentrantinvoke)
 * Добавлены [нетерпеливые переменные](/ru/ride/v5/variables/), которые вычисляются до следующего выражения, чтобы гарантировать порядок выполнения и применения действий скрипта вызываемых функций.
 * Изменен [формат результата](/ru/ride/v5/functions/callable-function#result) вызываемой функции: добавлено возвращаемое значение.
 * Изменена структура [Invocation](/ru/ride/v5/structures/common-structures/invocation): в случае вызова dApp из dApp она содержит адрес и публичный ключ как отправителя транзакции вызова скрипта, так и аккаунта dApp, который вызывает функцию.

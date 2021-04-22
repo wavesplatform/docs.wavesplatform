@@ -44,11 +44,12 @@
 | rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Проверяют, что цифровая подпись [RSA](https://ru.wikipedia.org/wiki/RSA) достоверна | 500–1000 |
 | sigVerify(ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Проверяют, что цифровая подпись [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна | 47–200 |
 
-## [Функция вызова dApp из dApp](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp)
+## [Функции вызова dApp из dApp](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| Invoke(Address&#124;Alias, String, List[Any], List[AttachedPayments]): Any | Вызывает вызываемую функцию dApp | 75 |
+| invoke(Address&#124;Alias, String, List[Any], List[AttachedPayments]): Any | Вызывает вызываемую функцию dApp, c ограничением на [повторные вызовы](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp#reentrancy) исходного dApp | 75 |
+| reentrantInvoke(Address&#124;Alias, String, List[Any], List[AttachedPayments]): Any | Вызывает вызываемую функцию dApp, без ограничения на повторные вызовы исходного dApp  | 75 |
 
 ## [Функции декодирования](/ru/ride/v5/functions/built-in-functions/decoding-functions)
 

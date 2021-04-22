@@ -27,7 +27,7 @@ If the callable function is invoked by an [Invoke Script transaction](/en/blockc
 | 7 | fee | [Int](/en/ride/v5/data-types/int) | [Transaction fee](/en/blockchain/transaction/transaction-fee) |
 | 8 | feeAssetId | [ByteVector](/en/ride/v5/data-types/byte-vector)&#124;[Unit](/en/ride/v5/data-types/unit) | ID of the fee token |
 
-If the callable function is invoked by an [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function:
+If the callable function is invoked by the `invoke` or `reentrantInvoke` function (see the [dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp) article):
 
 |   #   | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
@@ -35,7 +35,7 @@ If the callable function is invoked by an [Invoke](/en/ride/v5/functions/built-i
 | 2 | callerPublicKey | [ByteVector](/en/ride/v5/data-types/byte-vector) | Public key of the dApp that invokes the callable function |
 | 3 | originCaller | [Address](/en/ride/v5/structures/common-structures/address) | Address of the account that sent the Invoke Script transaction |
 | 4 | originCallerPublicKey | [ByteVector](/en/ride/v5/data-types/byte-vector) | Public key of the account that sent the Invoke Script transaction |
-| 5 | payments | List[[AttachedPayment](/en/ride/v5/structures/common-structures/attached-payment)] | Payments indicated in the [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function |
+| 5 | payments | List[[AttachedPayment](/en/ride/v5/structures/common-structures/attached-payment)] | Payments indicated in the `invoke` or `reentrantInvoke` function |
 | 6 | transactionId | [ByteVector](/en/ride/v5/data-types/byte-vector) | ID of the Invoke Script transaction |
 | 7 | fee | [Int](/en/ride/v5/data-types/int) | [Transaction fee](/en/blockchain/transaction/transaction-fee) |
 | 8 | feeAssetId | [ByteVector](/en/ride/v5/data-types/byte-vector)&#124;[Unit](/en/ride/v5/data-types/unit) | ID of the fee token |

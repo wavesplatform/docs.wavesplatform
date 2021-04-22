@@ -14,7 +14,7 @@
 func foo() = {
    ...
    strict balanceBefore = wavesBalance(this).regular
-   strict z = Invoke(dapp2,bar,args,[AttachedPayment(unit,100000000)])
+   strict z = invoke(dapp2,bar,args,[AttachedPayment(unit,100000000)])
    strict balanceAfter = wavesBalance(this).regular
 
    if(balanceAfter < balanceBefore) then ... else...
