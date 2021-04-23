@@ -35,7 +35,7 @@ Invocation(caller: Address, callerPublicKey: ByteVector, originCaller: Address, 
 | 2 | callerPublicKey | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Открытый ключ аккаунта dApp, который вызвал функцию |
 | 3 | originCaller | [Address](/ru/ride/v5/structures/common-structures/address) | Адрес аккаунта, который отправил транзакцию вызова скрипта |
 | 4 | originCallerPublicKey | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Открытый ключ аккаунта, который отправил транзакцию вызова скрипта |
-| 5 | payments | List[[AttachedPayment](/ru/ride/v5/structures/common-structures/attached-payment)] | Платежи, указанные в функции `invoke` or `reentrantInvoke` |
+| 5 | payments | List[[AttachedPayment](/ru/ride/v5/structures/common-structures/attached-payment)] | Платежи, указанные в функции `invoke` или `reentrantInvoke` |
 | 6 | transactionId | [ByteVector](/ru/ride/v5/data-types/byte-vector) | ID транзакции вызова скрипта |
 | 7 | fee | [Int](/ru/ride/v5/data-types/int) | Комиссия за транзакцию вызова скрипта |
 | 8 | feeAssetId | [ByteVector](/ru/ride/v5/data-types/byte-vector)&#124;[Unit](/ru/ride/v5/data-types/unit) | ID токена, в котором указана комиссия |

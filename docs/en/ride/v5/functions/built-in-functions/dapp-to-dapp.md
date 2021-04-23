@@ -23,9 +23,9 @@ Via the `invoke` function, the callable function can invoke a callable function 
 
 :bulb: To ensure executing callable functions and applying their actions in the right order, initialize a [strict variable](/en/ride/v5/variables/) by the return value of an `invoke` function.
 
-The invocation can contain payments that will be transferred from the balance of the invoking dApp to the balance of the invoked dApp. Payments are forbidden if the dApp invokes itself.
+The invocation can contain payments that will be transferred from the balance of the parent dApp to the balance of the invoked dApp. Payments are forbidden if the dApp invokes itself.
 
-If a payment token is a smart asset, the asset script verifies the `invoke` as if it were [InvokeScriptTransaction](/en/ride/v5/structures/transaction-structures/burn-transaction) with the following fields:
+If a payment token is a smart asset, the asset script verifies the `invoke` as if it was [InvokeScriptTransaction](/en/ride/v5/structures/transaction-structures/burn-transaction) with the following fields:
 * `dApp`, `payments`, `function`, `args` indicated in the `invoke` function;
 * `sender`, `senderPublicKey` of the dApp that performs the invocation;
 * `id`, `timestamp`, `fee`, `feeAssetId` indicated in the original Invoke Script transaction;
@@ -82,7 +82,7 @@ The following invocation stacks are **valid**:
 | dApp: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of a dApp to invoke |
 | function: [String](/en/ride/v5/data-types/string)&#124;[Unit](/en/ride/v5/data-types/unit) | Name of a callable function. `unit` for a default function invocation |
 | arguments: [List](/en/ride/v5/data-types/list)[[Any](/en/ride/v5/data-types/any)] | Parameters of a callable function. `unit` for a default function invocation |
-| payments: [List](/en/ride/v5/data-types/list)[[AttachedPayment](/en/ride/v5/structures/common-structures/attached-payment)] | Payments to transfer from the invoking dApp to the invoked dApp, up to 10 |
+| payments: [List](/en/ride/v5/data-types/list)[[AttachedPayment](/en/ride/v5/structures/common-structures/attached-payment)] | Payments to transfer from the parent dApp to the invoked dApp, up to 10 |
 
 ## Example
 
@@ -137,7 +137,7 @@ func bar(a: Int) = {
 
 ## reentrantInvoke
 
-Invokes a dApp callable function. The only difference from the [invoke](#invoke) function is that there is no [reentrancy restriction] (#reentrancy) of the parent dApp: any sequence of dApp invocations is allowed.
+Invokes a dApp callable function. The only difference from the [invoke](#invoke) function is that there is no [reentrancy restriction](#reentrancy) of the parent dApp: any sequence of dApp invocations is allowed.
 
 ```ride
 reentrantInvoke(dApp: Address|Alias, function: String, arguments: List[Any], payments: List[AttachedPayments]): Any

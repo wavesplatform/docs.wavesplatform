@@ -7,14 +7,14 @@ dApp-to-dApp invocation is processed as follows:
 1. A user sends an Invoke Script transaction that invokes the callable function 1.
 2. The callable function 1 invokes the callable function 2 via a [strict variable](#strict-variable) initialized by the [invoke or reentrantInvoke](#invoke) function.
 3. The callable function 2 is executed; the script actions and [return value](#callable-function-result) are calculated.
-4. The return value is assigned to the strict variable. The subsequent operations of callable function 1 are executed, taking into account script actions of callable function 2 (as if the actions are applied to the blockchain state).
+4. The return value is assigned to the strict variable. The subsequent operations of callable function 1 are executed, taking into account script actions of callable function 2 (as if the actions were applied to the blockchain state).
 5. Finally, the script actions of callable functions 2 and 1 are applied to the blockchain state.
 
 Features:
 
 * dApp-to-dApp invocations can be nested.
 * All invoked callable functions are executed within a single Invoke Script transaction.
-* A dApp-to-dApp invocation can contain payments that are transferred from the balance of the invoking dApp to the balance of the invoked dApp.
+* A dApp-to-dApp invocation can contain payments that are transferred from the balance of the parent dApp to the balance of the invoked dApp.
 * Payments attached to a callable function invocation can be used in script actions and in payments attached to nested invocations.
 
 ## Conditions
@@ -47,7 +47,7 @@ Parameters:
 | dApp: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of a dApp to invoke |
 | function: [String](/en/ride/v5/data-types/string)&#124;[Unit](/en/ride/v5/data-types/unit) | Name of a callable function. `unit` for a default function invocation |
 | arguments: [List](/en/ride/v5/data-types/list)[[Any](/en/ride/v5/data-types/any)] | Parameters of a callable function. `unit` for a default function invocation |
-| payments: [List](/en/ride/v5/data-types/list)[[AttachedPayment](/en/ride/v5/structures/common-structures/attached-payment)] | Payments to transfer from the invoking dApp to the invoked dApp, up to 10 |
+| payments: [List](/en/ride/v5/data-types/list)[[AttachedPayment](/en/ride/v5/structures/common-structures/attached-payment)] | Payments to transfer from the parent dApp to the invoked dApp, up to 10 |
 
 ```
 strict z = invoke(dapp,foo,args,[AttachedPayment(unit,100000000)])
@@ -99,7 +99,7 @@ For details, see the [Callable Function](/en/ride/v5/functions/callable-function
 If the callable function invoked by the `invoke` or `reentrantInvoke` function performs script actions, the results of those actions are available to the invoking function:
 * If the invoked function adds an entry to the account's data storage, the invoking function can obtain the entry after the invocation.
 * If the invoked function deletes an entry from the account's data storage, the invoking function cannot obtain the entry after the invocation.
-* If the invoked function performs actions with tokens (transfer, release/issue/burn, and others) and the invoking function obtains balances after the invocation, it receives the updated balances.
+* If the invoked function performs actions with tokens (transfer, issue/reissue/burn, and others) and the invoking function obtains balances after the invocation, it receives the updated balances.
 
 ## Transaction Fail
 
