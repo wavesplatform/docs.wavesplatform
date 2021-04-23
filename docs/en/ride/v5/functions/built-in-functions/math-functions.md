@@ -4,7 +4,8 @@
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| [fraction(Int, Int, Int): Int](#fraction) | Multiplies and divides [integers](/en/ride/v5/data-types/int) to avoid overflow | 1 |
+| [fraction(Int, Int, Int): Int](#fraction) | Multiplies and divides [integers](/en/ride/v5/data-types/int) to avoid overflow | 14 |
+| [fraction(Int, Int, Int, Union): Int](#fractionintround) | Multiplies and divides integers to avoid overflow, applying the specified rounding method | 17 |
 | [fraction(BigInt, BigInt, BigInt): BigInt](#fractionbigint) | Multiplies and divides [bid integers](/en/ride/v5/data-types/bigint) to avoid overflow | 128 |
 | [fraction(BigInt, BigInt, BigInt, Union): BigInt](#fractionbigintround) | Multiplies and divides bid integers to avoid overflow, applying the specified rounding method | 128 |
 | [log(Int, Int, Int, Int, Int, Union): Int](#log)| Calculates logarithm of a number to a given base | 100 |
@@ -19,6 +20,8 @@
 Multiplies [integers](/en/ride/v5/data-types/int) `a`, `b` and divides the result by the integer `c` to avoid overflow.
 
 Fraction `a × b / c` should not exceed the maximum value of the integer type 9,223,372,036,854,755,807.
+
+The rounding method is DOWN, see [Rounding variables](#rounding variables) below.
 
 ```ride
 fraction(a: Int, b: Int, c: Int): Int
@@ -54,11 +57,32 @@ The fraction function with no overflow:
 fraction(a, b, c) # Result: 2,000,000,000,000,000,000
 ```
 
+## fraction(Int, Int, Int, Union): Int<a id="fractionintround"></a>
+
+Multiplies [integers](/en/ride/v5/data-types/int) `a`, `b` and divides the result by the integer `c` to avoid overflow, applying the specified rounding method.
+
+Fraction `a × b / c` should not exceed the maximum value of the integer type 9,223,372,036,854,755,807.
+
+```ride
+fraction(a: Int, b: Int, c: Int, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): Int
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `a`: [Int](/en/ride/v5/data-types/int) | Integer `a` |
+| `b`: [Int](/en/ride/v5/data-types/int) | Integer `b` |
+| `c`: [Int](/en/ride/v5/data-types/int) | Integer `c` |
+| `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | One of the [rounding variables](#rounding-variables) |
+
 ## fraction(BigInt, BigInt, BigInt): BigInt<a id="fractionbigint"></a>
 
 Multiplies [big integers](/en/ride/v5/data-types/bigint) `a`, `b` and divides the result by the integer `c` to avoid overflow.
 
 Fraction `a × b / c` should not exceed the maximum value of the big integer type.
+
+The rounding method is DOWN, see [Rounding variables](#rounding variables) below.
 
 ```ride
 fraction(a: BigInt, b: BigInt, c: BigInt): BigInt
