@@ -11,7 +11,7 @@
 | [indexOf(String, String, Int): Int&#124;Unit](#indexof-string-string-int-int-unit) | Returns the index of the first occurrence of a substring after a certain index | 3 |
 | [lastIndexOf(String, String): Int&#124;Unit](#lastindexof-string-string-int-unit) | Returns the index of the last occurrence of a substring | 3 |
 | [lastindexOf(String, String, Int): Int&#124;Unit](#lastindexof-string-string-int-int-unit) | Returns the index of the last occurrence of a substring before a certain index | 3 |
-| [makeString(List[String], String): String](#makestring-list-string-string-string) | Concatenates list strings adding a separator | 10 |
+| [makeString(List[String], String): String](#makestring-list-string-string-string) | Concatenates list strings adding a separator | 30 |
 | [size(String): Int](#size-string-int) | Returns the size of a string | 1 |
 | [split(String, String): List[String]](#split-string-string-list-string) | Splits a string delimited by a separator into a list of substrings | 75 |
 | [take(String, Int): String](#take) | Takes the first `n` characters from a string | 20 |
@@ -22,7 +22,7 @@
 Checks whether the string contains substring.
 
 ``` ride
-drop(haystack: String, needle: String): Boolean
+contains(haystack: String, needle: String): Boolean
 ```
 
 ### Parameters

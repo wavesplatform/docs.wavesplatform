@@ -39,7 +39,7 @@
 Чтобы отправить подписанную транзакцию на ноду:
 
 * Если вы используете собственную ноду и [gRPC-сервер](/ru/waves-node/extensions/grpc-server/), отправьте объект `SignedTransaction`.
-* Если вы используете Node REST API, сформируйте JSON-представление транзакции. Подпись укажите в массиве `proofs` в кодировке base58. Передайте подписанную транзакцию с помощью метода `POST ​/transactions​/broadcast`.
+* Если вы используете Node REST API, сформируйте JSON-представление транзакции. Подпись укажите в массиве `proofs` в кодировке base58. Передайте подписанную транзакцию с помощью метода `POST /transactions/broadcast`.
 
 Protobuf-схема для бинарного формата добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
@@ -74,7 +74,6 @@ message Transaction {
         SetAssetScriptTransactionData set_asset_script = 115;
         InvokeScriptTransactionData invoke_script = 116;
         UpdateAssetInfoTransactionData update_asset_info = 117;
-        ContinuationTransactionData continuation = 118;
     };
 };
 
@@ -112,4 +111,4 @@ message Amount {
 * [Транзакция спонсирования](/ru/blockchain/binary-format/transaction-binary-format/sponsor-fee-transaction-binary-format)
 * [Транзакция установки скрипта](/ru/blockchain/binary-format/transaction-binary-format/set-script-transaction-binary-format)
 * [Транзакция установки скрипта ассета](/ru/blockchain/binary-format/transaction-binary-format/set-asset-script-transaction-binary-format)
-* [Транзакция продолжения](/ru/blockchain/binary-format/transaction-binary-format/continuation-transaction-binary-format)
+<!-- * [Транзакция продолжения](/ru/blockchain/binary-format/transaction-binary-format/continuation-transaction-binary-format) -->

@@ -8,12 +8,17 @@
 
 Как и ленивые переменные, нетерпеливые переменные являются неизменяемыми.
 
-Нетерпеливые переменные используются для [вызова dApp из dApp](/ru/ride/advanced/dapp-to-dapp), чтобы гарантировать порядок выполнения вызываемых функций и применения действий скрипта. Пример:
+Применение нетерпеливой переменной для [вызова dApp из dApp](/ru/ride/advanced/dapp-to-dapp) гарантирует порядок выполнения функций и применения действий скрипта. Пример:
 
 ```scala
 func foo() = {
    ...
-   strict z = Invoke(dapp,bar,args,[AttachedPayment(unit,100000000)])
-   ...
+   strict balanceBefore = wavesBalance(this).regular
+   strict z = invoke(dapp2,bar,args,[AttachedPayment(unit,100000000)])
+   strict balanceAfter = wavesBalance(this).regular
+
+   if(balanceAfter < balanceBefore) then ... else...
 }
 ```
+
+В этом примере значения `balanceBefore` и `balanceAfter` могут отличаться, поскольку на балансе отражаются платежи в пользу `dApp2` и действия, выполненные вызываемой функцией `bar`.

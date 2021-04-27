@@ -138,10 +138,10 @@ module.exports = {
               title: 'Перевод',
               path: blockchainPath + 'transaction-type/transfer-transaction',
             },
-            {
+/*            {
               title: 'Продолжение',
               path: blockchainPath + 'transaction-type/continuation-transaction',
-            },
+            }, */
             {
               title: 'Сжигание токена',
               path: blockchainPath + 'transaction-type/burn-transaction',
@@ -398,10 +398,10 @@ module.exports = {
                   title: 'Перевод',
                   path: blockchainPath + 'binary-format/transaction-binary-format/transfer-transaction-binary-format',
                 },
-                {
+/*                {
                   title: 'Продолжение',
                   path: blockchainPath + 'binary-format/transaction-binary-format/continuation-transaction-binary-format',
-                },
+                },*/
                 {
                   title: 'Установка скрипта',
                   path: blockchainPath + 'binary-format/transaction-binary-format/set-script-transaction-binary-format',
@@ -994,10 +994,10 @@ module.exports = {
           title: 'Вызов dApp из dApp',
           path: ridePath + 'advanced/dapp-to-dapp',
         },
-        {
+/*        {
           title: 'Вычисления с продолжением',
           path: ridePath + 'advanced/continuation',
-        },
+        },*/
         {
           title: 'Подключение библиотек',
           path: ridePath + 'advanced/import',
@@ -1014,6 +1014,14 @@ module.exports = {
           title: 'Типы данных',
           path: rideV5Path + 'data-types',
           children: [
+            {
+              title: 'Any',
+              path: rideV5Path + 'data-types/any',
+            },
+            {
+              title: 'BigInt',
+              path: rideV5Path + 'data-types/bigint',
+            },
             {
               title: 'Boolean',
               path: rideV5Path + 'data-types/boolean',
@@ -1301,6 +1309,12 @@ module.exports = {
         {
           title: 'Ограничения',
           path: rideV5Path + 'limits',
+          children: [
+            {
+              title: 'Вес данных',
+              path: rideV5Path + 'limits/weight',
+            },
+          ],
         },
       ],
     },
@@ -1430,20 +1444,24 @@ module.exports = {
       path: sdkPath,
       children: [
         {
+          title: 'Data Service API',
+          path: sdkPath + 'waves-data-service-api',
+        },
+        {
           title: 'Node REST API 🡥',
           path: nodePath + 'node-api',
         },
         {
-          title: 'Waves Keeper API 🡥',
-          path: ecosystemPath + 'waves-keeper/waves-keeper-api',
-        },
-        {
-          title: '[en] Waves data service API',
-          path: sdkPath + 'waves-data-service-api',
-        },
-        {
           title: 'Node gRPC Server 🡥',
           path: nodePath + 'extensions/grpc-server',
+        },
+        {
+          title: 'Blockchain Updates 🡥',
+          path: nodePath + 'extensions/blockchain-updates',
+        },
+        {
+          title: 'Waves Keeper API 🡥',
+          path: ecosystemPath + 'waves-keeper/waves-keeper-api',
         },
       ],
     },

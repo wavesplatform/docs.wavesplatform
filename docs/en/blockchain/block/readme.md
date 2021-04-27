@@ -2,12 +2,18 @@
 
 A **block** is a link in the chain of the [blockchain](/en/blockchain/blockchain/).
 
-Block contains [transactions](/en/blockchain/transaction/). The number of transactions inside of one block varies from 0 to 6000 inclusive.
+Block contains [transactions](/en/blockchain/transaction/).
 
 A block has the [height](/en/blockchain/block/block-height).
 
-The maximum size of a block is 1 MB.
+## Limitations
+
+The maximum block size is 1 MB.
+
+The maximum total complexity of scripts in transactions of the block is 1,000,000. The complexity of all executed scripts is taken into account: dApp scripts, account scripts, and asset scripts.
+
+Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the maximum total complexity of scripts in transactions of the block is 2,500,000. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 
 ## Binary format
 
-See the page [Block binary format](/en/blockchain/binary-format/block-binary-format).
+See the [Block binary format](/en/blockchain/binary-format/block-binary-format) article.

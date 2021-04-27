@@ -2,46 +2,33 @@
 
 The easiest way to run Waves node is by means of **Waves Docker container**. Waves Docker image is focused on fast and convenient deployment of Waves Node and contains scripts and configs to run the node in Mainnet, Testnet, Stagenet or any other custom network.
 
+GitHub repository: https://github.com/wavesplatform/Waves/tree/master/docker
+
 ## Prerequisites
 
 Install Docker app from [Docker website](https://docs.docker.com/engine/installation/).
 
-<!--- ## Building Docker Image Scenarios
+## Building Docker image
 
-There are the following scenarios of building Waves Docker image:
+You can get the latest image at [Docker Hub](https://hub.docker.com/r/wavesplatform/wavesnode) or download it with the following command:
 
-* Image with Waves Node of latest released version available.
-**Note**: Pre-releases are skipped.
-Use the following command:
+```bash
+docker pull wavesplatform/wavesnode
+```
 
-   ```bash
-   docker build -t wavesplatform/wavesnode
-   ```
+Or use the following command to build an image with the current local repository (from the repository root):
 
-* Image with Waves Node of a version existing in [GitHub Releases](https://github.com/wavesplatform/Waves/releases).
-Use the following command:
-
-   ```bash
-   docker build --build-arg WAVES_VERSION=1.1.1
-   ```
-
-* Image with Waves Node from Git branch. Use `WAVES_VERSION` build argument to specify a Git tag ('v' is added automatically) and `BRANCH` argument to specify a branch to checkout. Make sure to specify a tag that does not exist in GitHub Releases repo, otherwise use previous scenario.
-Use the following command:
-
-   ```bash
-   docker build --build-arg WAVES_VERSION=99.99.99 --build-arg BRANCH=version-0.17.x
-   ```
+```bash
+./build-with-docker.sh && docker build -t wavesplatform/wavesnode docker
+```
 
 You can specify the following arguments when building the image:
 
 | Argument | Default Value | Description |
 |----------|---------------|---------------------------------------------|
 | WAVES_NETWORK | mainnet | Waves Blockchain network. The available values are `mainnet`, `testnet` and `stagenet`. Can be overridden in a runtime using environment variable with the same name. |
-| WAVES_VERSION | latest | A node version which corresponds to the Git tag that you want to use/create. |
-| BRANCH | version-0.17.x | Relevant if the Git tag 'v WAVES_VERSION' does not exist in the public repository. This option represents a Git branch to be used to compile Waves node and set a Git tag on. |
-| SBT_VERSION | 1.2.8 | Scala build tool version. |
 | WAVES_LOG_LEVEL | DEBUG | Default Waves Node log level. The available values are `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` and `TRACE`. Can be overridden in a runtime using environment variable with the same name. [Read more about logging](/en/waves-node/logging-configuration). |
-| WAVES_HEAP_SIZE | 2g | Default Waves Node JVM Heap Size limit in -X Command-line Options notation (-Xms=[your value]). Can be overridden in a runtime using environment variable with the same name. [Read more about -X Command-line Options](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html). | --->
+| WAVES_HEAP_SIZE | 2g | Default Waves Node JVM Heap Size limit in -X Command-line Options notation (-Xms=[your value]). Can be overridden in a runtime using environment variable with the same name. [Read more about -X Command-line Options](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html). |
 
 ## Running the Image
 
@@ -82,17 +69,13 @@ It is recommended to store the blockchain state as well as node configuration on
 
 **Example**:
 
-* Create directories to store Waves data with the following commands:
+* Create directories to store Waves data with the following command:
 
    ```bash
    mkdir -p /docker/waves
-   ```
 
-   ```bash
    mkdir /docker/waves/waves-data
-   ```
 
-   ```bash
    mkdir /docker/waves/waves-config
    ```
 
@@ -108,6 +91,7 @@ It is recommended to store the blockchain state as well as node configuration on
 
    If you already have node configuration file or other data you can place it in the corresponding directory.
 
+<!--
 * To run the container you need to configure access permissions. Use `waves` user with predefined uid/gid `143/143`. To do so, change the permissions of the created directories or change their owner with the following command:
 
    ```bash
@@ -119,6 +103,7 @@ It is recommended to store the blockchain state as well as node configuration on
    ```bash
    sudo chmod -R 777 /docker/waves
    ```
+-->
 
 * Add appropriate arguments to `docker run` command similar to the following example:
 
@@ -134,9 +119,9 @@ You can speed this process up by downloading a compressed blockchain state from 
 
 | Network | Link |
 |---------|---------------------------------------------------------|
-| mainnet | http://blockchain.wavesplatform.com/blockchain_last.tar |
-| testnet | http://blockchain-testnet.wavesplatform.com/blockchain_last.tar |
-| stagenet | http://blockchain-stagenet.wavesplatform.com/blockchain_last.tar |
+| mainnet | http://blockchain.wavesnodes.com/blockchain_last.tar |
+| testnet | http://blockchain-testnet.wavesnodes.com/blockchain_last.tar |
+| stagenet | http://blockchain-stagenet.wavesnodes.com/blockchain_last.tar |
 
 **Note**: We do not guarantee the state consistency if it is downloaded from third parties.
 
@@ -144,18 +129,10 @@ You can speed this process up by downloading a compressed blockchain state from 
 
 ```bash
 mkdir -p /docker/waves/waves-data
-```
 
-```bash
-wget -qO- http://blockchain-stagenet.wavesplatform.com/blockchain_last.tar --show-progress | tar -xvf - -C /docker/waves/waves-data
-```
+wget -qO- http://blockchain-stagenet.wavesnodes.com/blockchain_last.tar --show-progress | tar -xvf - -C /docker/waves/waves-data
 
-```bash
-chown -R 143:143 /docker/waves/waves-data
-```
-
-```bash
-docker run -v /docker/waves/waves-data:/var/lib/waves wavesplatform/Node -e WAVES_NETWORK=stagenet -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti wavesplatform/wavesnode
+docker run -v /docker/waves/waves-data:/var/lib/waves -e WAVES_NETWORK=stagenet -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti wavesplatform/wavesnode
 ```
 
 ### Network Ports

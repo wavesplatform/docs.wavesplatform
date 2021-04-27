@@ -41,7 +41,7 @@
 | Оператор | Описание |
 | :---: | :--- |
 | if-then-else | Ветвление |
-| match-case | [Определение типа из Union](/ru/ride/v5/operators/match-case) |
+| match-case | [Определение типа из Union](/ru/ride/operators/match-case) |
 
 ## Операторы списка
 

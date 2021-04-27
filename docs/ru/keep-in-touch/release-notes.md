@@ -4,25 +4,58 @@
 
 ### Развитие протокола
 
-* **Вызов dApp из dApp.** Вызываемая функция dApp-скрипта может вызывать вызываемую функцию другого dApp или того же самого dApp, в том числе сама себя. Все вызванные функции выполняются в рамках одной транзакции вызова скрипта. Сложность выполняемых скриптов ограничена. [Подробнее о вызове dApp из dApp](/ru/ride/advanced/dapp-to-dapp)
-* **Вычисления с продолжением.** Добавлена поддержка dApp-скриптов, сложность которых превышает 4000. Выполнение такого скрипта разбивается на несколько этапов: первый этап вычислений выполняется в рамках транзакции вызова скрипта, последующие этапы — в рамках транзакций продолжения. [Подробнее о вычислениях с продолжением](/ru/ride/advanced/continuation)
-* Добавлен новый тип транзакции: [Continuation](/ru/blockchain/transaction-type/continuation-transaction). Транзакция продолжения создается генератором блока автоматически в случае наличия незавершенной цепочки вычислений. Транзакция не может быть отправлена пользователем.
-* Добавлена версия 3 [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction): с ее помощью можно вызвать скрипт сложностью выше 4000.
+* **Вызов dApp из dApp.** Вызываемая функция dApp-скрипта может выполнять вложенные вызовы. Из dApp можно вызвать вызываемую функцию другого dApp или того же самого dApp, в том числе функция может вызвать сама себя. Все вызванные функции выполняются в рамках одной транзакции вызова скрипта. [Подробнее о вызове dApp из dApp](/ru/ride/advanced/dapp-to-dapp)
+* Изменения для [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction):
+   * Отменена дополнительная комиссия 0,004 WAVES за выполнение скриптов ассетов в платежах и действиях скрипта.
+   * Транзакция может содержать до 10 приложенных платежей.
+   * Суммарная сложность всех вызываемых функций и скриптов ассетов в одной транзакции — не более 26&nbsp;000 (cложность скрипта отправителя не учитывается в этом лимите). 
+   * Максимальная сложность вызываемой функции скрипта dApp изменена на 10&nbsp;000.
+* Для всех типов транзакций отменена дополнительная комиссия 0,004 WAVES за отправку транзакции со смарт-аккаунта или dApp, в случае если сложность скрипта аккаунта или функции-верификатора dApp-скрипта не превышает 200.
+
+<!--* **Вычисления с продолжением.** Добавлена поддержка dApp-скриптов, сложность которых превышает 10&nbsp;000. Выполнение такого скрипта разбивается на несколько этапов: первый этап вычислений выполняется в рамках транзакции вызова скрипта, последующие этапы — в рамках транзакций продолжения. [Подробнее о вычислениях с продолжением](/ru/ride/advanced/continuation)
+   * Добавлен новый тип транзакции: [Continuation](/ru/blockchain/transaction-type/continuation-transaction). Транзакция продолжения создается генератором блока автоматически в случае наличия незавершенной цепочки вычислений. Транзакция не может быть отправлена пользователем.-->
 
 ### Ride
 
 * Выпущена [версия 5](/ru/ride/v5/) Стандартной библиотеки.
-* Добавлена функция [Invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp) для вызова dApp из dApp.
-* Добавлены [нетерпеливые переменные](/ru/ride/variables/), которые вычисляются до следующего выражения, чтобы гарантировать порядок выполнения и применения действий скрипта вызываемых функций.
+* Реализована возможность обрабатывать в dApp до 10 платежей, приложенных к транзакции вызова скрипта.
+* Добавлены функции для вызова dApp из dApp:
+   * [invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp#invoke)
+   * [reentrantInvoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp#reentrantinvoke)
+* Добавлены [нетерпеливые переменные](/ru/ride/v5/variables/), которые вычисляются до следующего выражения, чтобы гарантировать порядок выполнения и применения действий скрипта вызываемых функций.
 * Изменен [формат результата](/ru/ride/v5/functions/callable-function#result) вызываемой функции: добавлено возвращаемое значение.
+* Изменена структура [Invocation](/ru/ride/v5/structures/common-structures/invocation): в случае вызова dApp из dApp она содержит адрес и публичный ключ как отправителя транзакции вызова скрипта, так и аккаунта dApp, который вызывает функцию.
+* Общее количество действий скрипта `Issue`, `Reissue`, `Burn`, `SponsorFee`, `ScriptTransfer`, `Lease`, `LeaseCancel`, выполняемых всеми вызываемыми функциями в одной транзакции, — не более 30.
+* Общее количество действий скрипта `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, `StringEntry`, `DeleteEntry`, выполняемых всеми вызываемыми функциями в одной транзакции, — не более 100.
 * Добавлены действия скрипта, которые может выполнять вызываемая функция:
    * [Lease](/ru/ride/v5/structures/script-actions/lease) — передает WAVES в лизинг.
    * [LeaseCancel](/ru/ride/v5/structures/script-actions/lease-cancel) — прекращает лизинг.
 
-   С помощью действий `Lease` и `LeaseCancel` можно изменить сумму лизинга, в частности, извлечь часть средств из лизинга. Если в одном вызове скрипта отменить лизинг на большую сумму и создать новый лизинг на меньшую сумму с тем же получателем, генерирующий баланс получателя уменьшится на разницу. Если же отправить две отдельные транзакции — транзакцию отмены лизинга и транзакцию лизинга, генерирующий баланс сразу же уменьшится на сумму отмененного лизинга, а увеличится на сумму нового лизинга только через 1000 блоков.
+   С помощью действий `Lease` и `LeaseCancel` можно изменить сумму лизинга, в частности, извлечь часть средств из лизинга. Если в одном вызове скрипта отменить лизинг на большую сумму и создать новый лизинг на меньшую сумму с тем же получателем, генерирующий баланс получателя уменьшится на разницу. Если же отправить две отдельные транзакции — транзакцию отмены лизинга и транзакцию лизинга,  они могут попасть в разные блоки, и тогда генерирующий баланс сразу же уменьшится на сумму отмененного лизинга, а увеличится на сумму нового лизинга только через 1000 блоков.
 
 * Добавлена встроенная функция [calculateLeaseId](/ru/ride/v5/functions/built-in-functions/blockchain-functions#calculateleaseid) для получения ID лизинга, сформированного структурой `Lease`.
-* Добавлены [функции хранилища данных аккаунта](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions), позволяющие dApp-скрипту читать данные собственного хранилища данных на любом этапе вычислений:
+* Добавлен произвольный тип данных — [Any](/ru/ride/v5/data-types/any).
+* Добавлен тип данных [BigInt](/ru/ride/v5/data-types/bigint) размером 64 байта (512 бит) и поддерживающие его функции:
+   * [fraction(BigInt, BigInt, BigInt): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionbigint)
+   * [fraction(BigInt, BigInt, BigInt, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionbigintround)
+   * [log(BigInt, Int, BigInt, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#logbigint)
+   * [max(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/list-functions#max-list-bigint-bigint)
+   * [median(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#medianbigint)
+   * [min(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/list-functions#min-list-bigint-bigint)
+   * [pow(BigInt, Int, BigInt, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#powbigint)
+   * [parseBigInt(String): BigInt|Unit](/ru/ride/v5/functions/built-in-functions/converting-functions#parse-bigint)
+   * [parseBigIntValue(String): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#parse-bigintvalue)
+   * [toBigInt(ByteVector): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bigint-bytevector)
+   * [toBigInt(ByteVector, Int, Int): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bigint-bytevector-int-int)
+   * [toBigInt(Int): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bigint-int)
+   * [toBytes(BigInt): ByteVector](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bytes-bigint)
+   * [toInt(BigInt): Int](/ru/ride/v5/functions/built-in-functions/converting-functions#to-int-bigint)
+   * [toString(BigInt): String](/ru/ride/v5/functions/built-in-functions/converting-functions#to-string-bigint)
+* Добавлены встроенные функции:
+   * [isDataStorageUntouched](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions#isdatastorageuntouched) — проверяет, что хранилище данных указанного аккаунта никогда не содержало записей.
+   * [hashScriptAtAddress](/ru/ride/v5/functions/built-in-functions/blockchain-functions#hashscriptataddress) — возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте.
+   * [fraction(Int, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionintround) — умножает два целых числа и делит на третье без переполнения, применяя указанный метод округления.
+* Добавлены встроенные [функции хранилища данных аккаунта](/ru/ride/v6/functions/built-in-functions/account-data-storage-functions), позволяющие dApp-скрипту читать записи из собственного хранилища данных:
    * `getBinary(key: String): ByteVector|Unit`
    * `getBinaryValue(key: String): ByteVector`
    * `getBoolean(key: String): Boolean|Unit`
@@ -32,41 +65,41 @@
    * `getString(key: String): String|Unit`
    * `getStringValue(key: String): String`
 * Добавлена возможность [создания и подключения библиотек](/ru/ride/advanced/import).
+* Максимальная сложность вызываемой функции скрипта dApp изменена на 10&nbsp;000.
 
 ### Node REST API
 
 #### Ломающие изменения
 
-* Добавлен новый тип транзакции: [транзакция продолжения](/ru/blockchain/transaction-type/continuation-transaction).
-* Лизинг может быть создан не только в результате транзакции лизинга, но и в результате транзакции вызова скрипта с помощью действия скрипта `Lease`. Поэтому изменен формат ответа следующих методов:
-   * В ответе методов `/transactions/address/{address}/limit/{limit}` и `/transactions/info/{id}` для транзакции отмены лизинга структура `lease` теперь содержит не транзакцию лизинга, а структуру с параметрами лизинга.
-   * `/leasing/active/{address}` возвращает не массив транзакций лизинга, а массив структур c параметрами лизингов.
+<!--* Добавлен новый тип транзакции: [транзакция продолжения](/ru/blockchain/transaction-type/continuation-transaction).-->
+Лизинг может быть создан не только в результате транзакции лизинга, но и в результате транзакции вызова скрипта с помощью действия скрипта `Lease`. Поэтому изменен формат ответа следующих методов:
+* В ответе методов `/transactions/address/{address}/limit/{limit}` и `/transactions/info/{id}` для транзакции отмены лизинга структура `lease` теперь содержит не транзакцию лизинга, а структуру с параметрами лизинга.
+* `/leasing/active/{address}` возвращает не массив транзакций лизинга, а массив структур c параметрами лизингов.
 
-   <details>
-      <summary>Формат</summary>
+<details>
+<summary>Формат</summary>
     
-   ```json
-   "lease":
-      {
-        "leaseId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
-        "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
-        "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
-        "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
-        "amount": 1000000000000,
-        "height": 2253315
-      }
-   ```
-</details>
+```json
+"lease":
+   {
+      "id": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+      "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
+      "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
+      "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
+      "amount": 1000000000000,
+      "height": 2253315
+   }
+```
 
+Поле `originTransactionId` может содержать идентификатор транзакции лизинга или транзакции вызова скрипта.
+</details>
 
 #### Семантические изменения
 
-* В ответ методов, возвращающих транзакции, для [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) версии 3 добавлены поля `extraFeePerStep` и `continuationTransactionIds`, а также значение `script_execution_in_progress` для поля `applicationStatus`.
+<!--* В ответ методов, возвращающих транзакции, для [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) версии 3 добавлены поля `extraFeePerStep` и `continuationTransactionIds`, а также значение `script_execution_in_progress` для поля `applicationStatus`.-->
 * Результат вызова dApp из dApp добавлен в виде массива `invokes` в структуру `stateChanges`, возвращаемую следующими методами:
    * `/transactions/info/{id}`
    * `/transactions/address/{address}/limit/{limit}`
-   * `/debug/stateChanges/info/{id}`
-   * `/debug/stateChanges/address/{address}/limit/{limit}`
 
    Каждый элемент массива `invokes`, в свою очередь, содержит `stateChanges`.
    
@@ -129,15 +162,23 @@
    ```json
    "stateChanges": {
       "leases": [
-        {
-          "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
-          "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
-          "amount": 500000
-        }
+         {
+            "id": "F3ZmBbig3gekPu4a8fyrZGiU53MFxtFSWKw5dTyTMvq7",
+            "originTransactionId": "6GLmdBZZeevtbomFYif5ys7Ltf2DuXMGP29bLrSoX9HA",
+            "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
+            "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
+            "amount": 200000000,
+            "height": 739442
+         },
       ],
       "leaseCancels": [
          {
-            "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
+            "id": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
+            "originTransactionId": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
+            "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
+            "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
+            "amount": 300000000,
+            "height": 739436
          }
       ]
    }
@@ -162,27 +203,74 @@
                "type": "integer",
                "value": 12345
             }
-        ],
-        "result": {
+         ],
+         "result": {
             "leases": [
                {
-                  "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
-                  "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
-                  "amount": 500000
-               }
+                  "id": "F3ZmBbig3gekPu4a8fyrZGiU53MFxtFSWKw5dTyTMvq7",
+                  "originTransactionId": "6GLmdBZZeevtbomFYif5ys7Ltf2DuXMGP29bLrSoX9HA",
+                  "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
+                  "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
+                  "amount": 200000000,
+                  "height": 739442
+               },
             ],
             "leaseCancels": [
                {
-                  "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
+                  "id": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
+                  "originTransactionId": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
+                  "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
+                  "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
+                  "amount": 300000000,
+                  "height": 739436
                }
             ]
          }
       }
    ]
    ```
-   ```
    </details>
 
+#### Улучшения
+
+* Новый метод `/leasing/info` возвращает параметры лизингов с указанными идентификаторами.
+
+   <details>
+      <summary>Формат</summary>
+    
+   ```json
+   [
+      {
+         "id": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+         "originTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
+         "sender": "3P3Dwc7aAeG8VgpZBNKsAAaXHqrq3dR4ffn",
+         "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
+         "amount": 1000000000000,
+         "height": 2253315,
+         "status": "active"
+      },
+      {
+         "id": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
+         "originTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
+         "sender": "3P3Dwc7aAeG8VgpZBNKsAAaXHqrq3dR4ffn",
+         "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
+         "amount": 1000000000000,
+         "height": 2253315,     
+         "status": "canceled",
+         "leaseCancelTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
+         "leaseCancellationHeight": 2278654
+      }
+   ]
+   ```
+
+    Если база данных на ноде не была перестроена после активации фичи №&nbsp;16, метод не возвращает поле `leaseCancelTransactionId` для лизингов, отмененных до активации фичи №&nbsp;16.
+   </details>
+
+* Новый метод `/utils/heightByTimestamp` возвращает высоту блокчейна в указанный момент времени.
+
+### Активация
+
+Чтобы активировать перечисленные выше улучшения, голосуйте за фичу №&nbsp;16 “Ride V5, dApp-to-dApp invocations”.
 
 ## Версия 1.2
 
@@ -387,7 +475,7 @@
    * [groth16Verify](/ru/ride/functions/built-in-functions/verification-functions#groth16verify) — семейство функций верификации доказательства с нулевым разглашением [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) по протоколу groth16 на кривой bls12-381. Сложность 1200–2700 в зависимости от размера массива публичных входов.
    * [indexOf](/ru/ride/functions/built-in-functions/list-functions#indexof) — возвращает индекс первого вхождения элемента в списке. Сложность 5.
    * [lastIndexOf](/ru/ride/functions/built-in-functions/list-functions#lastindexof) — возвращает индекс последнего вхождения элемента в списке. Сложность 5.
-   * [makeString](/ru/ride/functions/built-in-functions/string-functions#makestring-list-string-string-string) — объединяет строки из списка, используя разделитель. Сложность 10.
+   * [makeString](/ru/ride/functions/built-in-functions/string-functions#makestring-list-string-string-string) — объединяет строки из списка, используя разделитель. Сложность 30.
    * [max](/ru/ride/functions/built-in-functions/list-functions#max) — возвращает наибольший элемент в списке. Сложность 3.
    * [median](/ru/ride/functions/built-in-functions/math-functions#median) — вычисляет медиану списка целых чисел. Сложность 20.
    * [min](/ru/ride/functions/built-in-functions/list-functions#min) — возвращает наименьший элемент в списке. Сложность 3.

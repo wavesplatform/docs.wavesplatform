@@ -21,121 +21,7 @@ The invoke script transaction can have payments in favor of dApp applied. Funds 
 
 ## Annotation
 
-The callable function should be marked with the `@Callable(i)` annotation, where `i` is an [Invocation](/en/ride/v5/structures/common-structures/invocation) structure that contains invoke script transaction fields that are available to the callable function. The variable name in the annotation is required even if the called function does not use it.
-
-## Version 3
-
-### Arguments
-
-Callable function can have arguments of the following types:
-
-* [Boolean](/en/ride/v5/data-types/boolean),
-* [ByteVector](/en/ride/v5/data-types/byte-vector),
-* [Int](/en/ride/v5/data-types/int),
-* [String](/en/ride/v5/data-types/string),
-* [Union](/en/ride/v5/data-types/union) with elements whose types are listed above.
-
-### Invocation result
-
-Callable function invocation result in Standard library version 3 is one of the following structures:
-
-* [WriteSet](/en/ride/v5/structures/script-results/write-set) — contains a list of actions for account data storage entries.
-
-   Example:
-   
-   ```
-   WriteSet([
-         DataEntry("key", true),
-         DataEntry("another_key", base58'someBase58VaLue'),
-         DataEntry("yet_another_key", 42),
-         DataEntry("one_more_key", "value")
-      ])
-   ```
-
-* [TransferSet](/en/ride/v5/structures/script-results/transfer-set) — contains a list of transfers.
-
-   Example:
-
-   ```
-   TransferSet([ScriptTransfer(Address(base58'3Ms8fSfAxBLDjKvNVgACRzQoBLCtCWxtawu'), 100, base58'someAssetid')])
-   ```
-
-* [ScriptResult](/en/ride/v5/structures/script-results/script-result) — contains `WriteSet` and `TransferSet` structures.
-
-   Example:
-
-   ```
-   ScriptResult(
-        WriteSet([
-          DataEntry("key", true),
-          DataEntry("other_key", base58'someBase58VaLue'),
-          DataEntry("yet_another_key", 42), DataEntry("one_more_key", "value")
-        ]),
-        TransferSet([ScriptTransfer(Address(base58'3Ms8fSfAxBLDjKvNVgACRzQoBLCtCWxtawu'), 100, base58'someAssetid')])
-      )
-   ```
-
-### Script actions <a id="scriptactions3"></a>
-
-Script actions executed by the callable function are set by Ride structures.
-
-| Ride structure that sets action | Description |
-|---|---|
-| [DataEntry](/en/ride/v5/structures/script-actions/data-entry) | - If in the account data storage there is no entry with the key similar to the DataEntry key, then the entry will be added.<br>- If in the account data storage there is an entry with the key similar to the DataEntry key, then the entry will be modified |
-| [ScriptTransfer](/en/ride/v5/structures/script-actions/script-transfer) | Token transfer |
-
-### Limitations
-
-* Amount of dApp account data storage entries which can be added/modified within the single invoke script transaction - up to 100.
-* Amount of token transfers which can be performed by the dApp within single invoke script transaction — up to 10.
-* Amount of the payments in favor of dApp which are attached to the invoke script transaction — 1.
-
-### Example <a id="example3"></a>
-
-The example listed below is a wallet application which allows to send [WAVES](/en/blockchain/token/waves) to certain address and withdraw them (withdrawing others' WAVES is prevented). There are two callable functions in the example:
-
-* `deposit` — provides desposit of the tokens.
-* `withdraw` — provides withdraw of the tokens.
-
-```
-{-# STDLIB_VERSION 3 #-}
-{-# CONTENT_TYPE DAPP #-}
-{-# SCRIPT_TYPE ACCOUNT #-}
-@Callable(i)
-func deposit() = {
- let pmt = extract(i.payment)
- if (isDefined(pmt.assetId))
-    then throw("works with waves only")
-    else {
-     let currentKey = toBase58String(i.caller.bytes)
-     let currentAmount = match getInteger(this, currentKey) {
-       case a:Int => a
-       case _ => 0
-     }
-     let newAmount = currentAmount + pmt.amount
-     WriteSet([DataEntry(currentKey, newAmount)])
-   }
- }
-@Callable(i)
-func withdraw(amount: Int) = {
- let currentKey = toBase58String(i.caller.bytes)
- let currentAmount = match getInteger(this, currentKey) {
-   case a:Int => a
-   case _ => 0
- }
- let newAmount = currentAmount - amount
- if (amount < 0)
-   then throw("Can't withdraw negative amount")
-   else if (newAmount < 0)
-     then throw("Not enough balance")
-     else ScriptResult(
-       WriteSet([DataEntry(currentKey, newAmount)]),
-       TransferSet([ScriptTransfer(i.caller, amount, unit)])
-      )
- }
-@Verifier(tx)
-func verify() = false
-```
+The callable function should be marked with the `@Callable(i)` annotation, where `i` is an [Invocation](/en/ride/structures/common-structures/invocation) structure that contains invoke script transaction fields that are available to the callable function. The variable name in the annotation is required even if the called function does not use it.
 
 ## Version 4
 
@@ -143,17 +29,17 @@ func verify() = false
 
 Callable function can have arguments of the following types:
 
-* [Boolean](/en/ride/v5/data-types/boolean),
-* [ByteVector](/en/ride/v5/data-types/byte-vector),
-* [Int](/en/ride/v5/data-types/int),
-* [String](/en/ride/v5/data-types/string),
-* [Union](/en/ride/v5/data-types/union) with elements having types listed above.
-* [List](/en/ride/v5/data-types/list) having elements of the following types:
-  * [Boolean](/en/ride/v5/data-types/boolean),
-  * [ByteVector](/en/ride/v5/data-types/byte-vector),
-  * [Int](/en/ride/v5/data-types/int),
-  * [String](/en/ride/v5/data-types/string),
-  * [List](/en/ride/v5/data-types/list).
+* [Boolean](/en/ride/data-types/boolean),
+* [ByteVector](/en/ride/data-types/byte-vector),
+* [Int](/en/ride/data-types/int),
+* [String](/en/ride/data-types/string),
+* [Union](/en/ride/data-types/union) with elements having types listed above.
+* [List](/en/ride/data-types/list) having elements of the following types:
+  * [Boolean](/en/ride/data-types/boolean),
+  * [ByteVector](/en/ride/data-types/byte-vector),
+  * [Int](/en/ride/data-types/int),
+  * [String](/en/ride/data-types/string),
+  * [List](/en/ride/data-types/list).
 
 ### Invocation result
 
@@ -182,13 +68,13 @@ Script actions executed by the callable function are set by Ride structures.
 
 | Ride structure that sets action | Description |
 |---|---|
-| - [BinaryEntry](/en/ride/v5/structures/script-actions/binary-entry)<br>- [BooleanEntry](/en/ride/v5/structures/script-actions/boolean-entry)<br>- [IntegerEntry](/en/ride/v5/structures/script-actions/int-entry)<br>- [StringEntry](/en/ride/v5/structures/script-actions/string-entry) | Adding/modifying of the entry. The type of structure must match the type of entry to be added/changed.<br>- If there is no entry in the account data storage with the key specified in the structure, the entry will be added.<br>- If the entry is present in the account data storage, it will be modified |
-| [DeleteEntry](/en/ride/v5/structures/script-actions/delete-entry) | Entry deletion |
-| [Issue](/en/ride/v5/structures/script-actions/issue) | Token issue |
-| [Reissue](/en/ride/v5/structures/script-actions/reissue) | Token reissue |
-| [Burn](/en/ride/v5/structures/script-actions/burn) | Token burn |
-| [SponsorFee](/en/ride/v5/structures/script-actions/sponsor-fee) | Sponsorship setup |
-| [ScriptTransfer](/en/ride/v5/structures/script-actions/script-transfer) | Token transfer |
+| - [BinaryEntry](/en/ride/structures/script-actions/binary-entry)<br>- [BooleanEntry](/en/ride/structures/script-actions/boolean-entry)<br>- [IntegerEntry](/en/ride/structures/script-actions/int-entry)<br>- [StringEntry](/en/ride/structures/script-actions/string-entry) | Adding/modifying of the entry. The type of structure must match the type of entry to be added/changed.<br>- If there is no entry in the account data storage with the key specified in the structure, the entry will be added.<br>- If the entry is present in the account data storage, it will be modified |
+| [DeleteEntry](/en/ride/structures/script-actions/delete-entry) | Entry deletion |
+| [Issue](/en/ride/structures/script-actions/issue) | Token issue |
+| [Reissue](/en/ride/structures/script-actions/reissue) | Token reissue |
+| [Burn](/en/ride/structures/script-actions/burn) | Token burn |
+| [SponsorFee](/en/ride/structures/script-actions/sponsor-fee) | Sponsorship setup |
+| [ScriptTransfer](/en/ride/structures/script-actions/script-transfer) | Token transfer |
 
 ### Limitations
 
@@ -249,10 +135,124 @@ func withdraw(amount: Int) = {
 func verify() = false
 ```
 
+## Version 3
+
+### Arguments
+
+Callable function can have arguments of the following types:
+
+* [Boolean](/en/ride/data-types/boolean),
+* [ByteVector](/en/ride/data-types/byte-vector),
+* [Int](/en/ride/data-types/int),
+* [String](/en/ride/data-types/string),
+* [Union](/en/ride/data-types/union) with elements whose types are listed above.
+
+### Invocation result
+
+Callable function invocation result in Standard library version 3 is one of the following structures:
+
+* [WriteSet](/en/ride/structures/script-results/write-set) — contains a list of actions for account data storage entries.
+
+   Example:
+   
+   ```
+   WriteSet([
+         DataEntry("key", true),
+         DataEntry("another_key", base58'someBase58VaLue'),
+         DataEntry("yet_another_key", 42),
+         DataEntry("one_more_key", "value")
+      ])
+   ```
+
+* [TransferSet](/en/ride/structures/script-results/transfer-set) — contains a list of transfers.
+
+   Example:
+
+   ```
+   TransferSet([ScriptTransfer(Address(base58'3Ms8fSfAxBLDjKvNVgACRzQoBLCtCWxtawu'), 100, base58'someAssetid')])
+   ```
+
+* [ScriptResult](/en/ride/structures/script-results/script-result) — contains `WriteSet` and `TransferSet` structures.
+
+   Example:
+
+   ```
+   ScriptResult(
+        WriteSet([
+          DataEntry("key", true),
+          DataEntry("other_key", base58'someBase58VaLue'),
+          DataEntry("yet_another_key", 42), DataEntry("one_more_key", "value")
+        ]),
+        TransferSet([ScriptTransfer(Address(base58'3Ms8fSfAxBLDjKvNVgACRzQoBLCtCWxtawu'), 100, base58'someAssetid')])
+      )
+   ```
+
+### Script actions <a id="scriptactions3"></a>
+
+Script actions executed by the callable function are set by Ride structures.
+
+| Ride structure that sets action | Description |
+|---|---|
+| [DataEntry](/en/ride/structures/script-actions/data-entry) | - If in the account data storage there is no entry with the key similar to the DataEntry key, then the entry will be added.<br>- If in the account data storage there is an entry with the key similar to the DataEntry key, then the entry will be modified |
+| [ScriptTransfer](/en/ride/structures/script-actions/script-transfer) | Token transfer |
+
+### Limitations
+
+* Amount of dApp account data storage entries which can be added/modified within the single invoke script transaction - up to 100.
+* Amount of token transfers which can be performed by the dApp within single invoke script transaction — up to 10.
+* Amount of the payments in favor of dApp which are attached to the invoke script transaction — 1.
+
+### Example <a id="example3"></a>
+
+The example listed below is a wallet application which allows to send [WAVES](/en/blockchain/token/waves) to certain address and withdraw them (withdrawing others' WAVES is prevented). There are two callable functions in the example:
+
+* `deposit` — provides desposit of the tokens.
+* `withdraw` — provides withdraw of the tokens.
+
+```
+{-# STDLIB_VERSION 3 #-}
+{-# CONTENT_TYPE DAPP #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+@Callable(i)
+func deposit() = {
+ let pmt = extract(i.payment)
+ if (isDefined(pmt.assetId))
+    then throw("works with waves only")
+    else {
+     let currentKey = toBase58String(i.caller.bytes)
+     let currentAmount = match getInteger(this, currentKey) {
+       case a:Int => a
+       case _ => 0
+     }
+     let newAmount = currentAmount + pmt.amount
+     WriteSet([DataEntry(currentKey, newAmount)])
+   }
+ }
+@Callable(i)
+func withdraw(amount: Int) = {
+ let currentKey = toBase58String(i.caller.bytes)
+ let currentAmount = match getInteger(this, currentKey) {
+   case a:Int => a
+   case _ => 0
+ }
+ let newAmount = currentAmount - amount
+ if (amount < 0)
+   then throw("Can't withdraw negative amount")
+   else if (newAmount < 0)
+     then throw("Not enough balance")
+     else ScriptResult(
+       WriteSet([DataEntry(currentKey, newAmount)]),
+       TransferSet([ScriptTransfer(i.caller, amount, unit)])
+      )
+ }
+@Verifier(tx)
+func verify() = false
+```
+
 ## Threshold for Saving Failed Transactions
 
 After activation of feature # 15 “Ride V4, VRF, Protobuf, Failed transactions” the invoke script transaction is saved on the blockchain and a fee is charged for it even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed.
 
-However if the callable function failed with an error or [throwing an exception](/en/ride/exceptions) before the [complexity](/en/ride/base-concepts/complexity) of performed calculations exceeded the [threshold for saving failed transactions](/en/ride/v5/limits/), the transaction is rejected and the fee is not charged.
+However if the callable function failed with an error or [throwing an exception](/en/ride/exceptions) before the [complexity](/en/ride/base-concepts/complexity) of performed computations exceeded the [threshold for saving failed transactions](/en/ride/limits/), the transaction is rejected and the fee is not charged.
 
 This rule doesn't depend on the Standard library version used. Keep it in mind when developing a dApp script. For more information, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article.

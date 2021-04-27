@@ -36,6 +36,13 @@ The transaction fee is calculated in the same way as for [smart accounts](/en/bu
 
 **Note.** If a scripted account transfers a smart asset, then the fee is increased twice \(the fee increases _**+0.004**_ every time the transaction is validated by account’s script or asset’s script\).
 
+Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”:
+
+* For Invoke Script transactions, canceled the extra fee of 0.004 WAVES for smart assets in payments and script actions.
+* For all types of transactions, the extra fee of 0.004 WAVES for sending a transaction from a smart account or dApp is only required if the complexity of sender's account script or dApp script verifier function exceeds the [sender complexity threshold](/en/ride/limits/).
+
+Versions 1.3.x are currently available for [Stagenet](/en/blockchain/blockchain-network/) only.
+
 ## Trading
 
 Trading on SmartAssets is allowed \(node validates every ExchangeTransaction using scripts of the two assets in AssetPair\).
@@ -119,6 +126,8 @@ The assets that were issued without a script cannot become scripted. You can cre
 A smart asset’s script can be changed via [_**SetAssetScriptTransaction**_](/en/blockchain/binary-format/transaction-binary-format/set-asset-script-transaction-binary-format) \([fee](/en/blockchain/transaction/transaction-fee) on changing is equal to 1 WAVES\).
 
 Only the issuer can change the asset's script.
+
+The script cannot be removed, so it is impossible to turn a smart asset into a regular one. However, you can set a script that always returns `true`, that is, allows all transactions.
 
 ## Examples of Scripts for Smart Assets
 

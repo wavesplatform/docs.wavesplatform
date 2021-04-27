@@ -2,7 +2,6 @@
 
 :warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/functions/built-in-functions/account-data-storage-functions)
 
-
 > Learn more about [account data storage](/en/blockchain/account/account-data-storage).
 
 | Name | Description | Complexity |
@@ -16,13 +15,14 @@
 | [getBooleanValue(Address&#124;Alias, String): Boolean](#get-boolean-value) | Gets a boolean value by key. Fails if there is no data | 10 |
 | [getBooleanValue(String): Boolean](#getbooleanvalue-string-boolean) | Gets a boolean value by key from the dApp's own data storage. Fails if there is no data | 10 |
 | [getInteger(Address&#124;Alias, String): Int&#124;Unit](#get-integer) | Gets an integer by key | 10 |
-| [getInteger(String): Int&#124;Unit](#getinteger-string-int) | Gets an integer by key from the dApp's own data storage | 10 |
+| [getInteger(String): Int&#124;Unit](#getinteger-string-int-unit) | Gets an integer by key from the dApp's own data storage | 10 |
 | [getIntegerValue(Address&#124;Alias, String): Int](#get-integer-value) | Gets an integer by key. Fails if there is no data | 10 |
 | [getIntegerValue(String): Int](#getintegervalue-string-int) | Gets an integer by key from the dApp's own data storage. Fails if there is no data | 10 |
 | [getString(Address&#124;Alias, String): String&#124;Unit](#get-string) | Gets a string by key | 10 |
-| [getString(String): String&#124;Unit](#getstring-string-string) | Gets a string by key from the dApp's own data storage | 10 |
+| [getString(String): String&#124;Unit](#getstring-string-string-unit) | Gets a string by key from the dApp's own data storage | 10 |
 | [getStringValue(Address&#124;Alias, String): String](#get-string-value) | Gets a string by key. Fails if there is no data | 10 |
 | [getStringValue(String): String](#getstringvalue-string-string) | Gets a string by key from the dApp's own data storage. Fails if there is no data | 10 |
+| [isDataStorageUntouched(Address&#124;Alias): Boolean](#isdatastorageuntouched) | Checks if the data storage of a given account never contained any entries | 10 |
 
 ## getBinary(Address|Alias, String): ByteVector|Unit <a id="get-binary"></a>
 
@@ -255,3 +255,27 @@ getString(key: String): String
 | Parameter | Description |
 | :--- | :--- |
 | `key`: [String](/en/ride/v5/data-types/string) | Entry key |
+
+## isDataStorageUntouched(Address|Alias): Boolean<a id="isdatastorageuntouched"></a>
+
+Checks if the data storage of a given account never contained any entries.
+
+Returns `false` if there was at least one entry in the account data storage even if the entry was deleted.
+
+``` ride
+isDataStorageUntouched(addressOrAlias: Address|Alias): Boolean
+```
+
+### Parameters
+
+| Parameter | Description |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/en/ride/v5/structures/common-structures/address)&#124;[Alias](/en/ride/v5/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+
+### Example
+
+```scala
+let addr = Address(base58'3N4iKL6ikwxiL7yNvWQmw7rg3wGna8uL6LU')
+
+isDataStorageUntouched(addr) # Returns false
+```

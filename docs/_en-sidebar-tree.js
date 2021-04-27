@@ -98,10 +98,10 @@ module.exports = {
               title: 'Burn Transaction',
               path: blockchainPath + 'transaction-type/burn-transaction',
             },
-            {
+/*            {
               title: 'Continuation Transaction',
               path: blockchainPath + 'transaction-type/continuation-transaction',
-            },
+            }, */
             {
               title: 'Create Alias Transaction',
               path: blockchainPath + 'transaction-type/create-alias-transaction',
@@ -346,10 +346,10 @@ module.exports = {
                   title: 'Burn Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/burn-transaction-binary-format',
                 },
-                {
+/*                {
                   title: 'Continuation Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/continuation-transaction-binary-format',
-                },
+                }, */
                 {
                   title: 'Create Alias Transaction Binary Format',
                   path: blockchainPath + 'binary-format/transaction-binary-format/create-alias-transaction-binary-format',
@@ -994,10 +994,10 @@ module.exports = {
           title: 'dApp-to-dApp Invocation',
           path: ridePath + 'advanced/dapp-to-dapp',
         },
-        {
-          title: 'Continued Calculations',
+/*        {
+          title: 'Continued Computations',
           path: ridePath + 'advanced/continuation',
-        },
+        },*/
         {
           title: 'Import Libraries',
           path: ridePath + 'advanced/import',
@@ -1014,6 +1014,14 @@ module.exports = {
           title: 'Data types',
           path: rideV5Path + 'data-types',
           children: [
+            {
+              title: 'Any',
+              path: rideV5Path + 'data-types/any',
+            },
+            {
+              title: 'BigInt',
+              path: rideV5Path + 'data-types/bigint',
+            },
             {
               title: 'Boolean',
               path: rideV5Path + 'data-types/boolean',
@@ -1301,6 +1309,12 @@ module.exports = {
         {
           title: 'Limitations',
           path: rideV5Path + 'limits',
+          children: [
+            {
+              title: 'Data Weight',
+              path: rideV5Path + 'limits/weight',
+            },
+          ],
         },
       ],
     },
@@ -1466,20 +1480,24 @@ module.exports = {
       path: sdkPath,
       children: [
         {
+          title: 'Data Service API',
+          path: sdkPath + 'waves-data-service-api',
+        },
+        {
           title: 'Node REST API 🡥',
           path: nodePath + 'node-api',
         },
         {
-          title: 'Waves Keeper API 🡥',
-          path: ecosystemPath + 'waves-keeper/waves-keeper-api',
-        },
-        {
-          title: 'Waves data service API',
-          path: sdkPath + 'waves-data-service-api',
-        },
-        {
           title: 'Node gRPC Server 🡥',
           path: nodePath + 'extensions/grpc-server',
+        },
+        {
+          title: 'Blockchain Updates 🡥',
+          path: nodePath + 'extensions/blockchain-updates',
+        },
+        {
+          title: 'Waves Keeper API 🡥',
+          path: ecosystemPath + 'waves-keeper/waves-keeper-api',
         },
       ],
     },

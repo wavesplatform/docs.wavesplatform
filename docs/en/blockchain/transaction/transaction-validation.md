@@ -6,45 +6,6 @@ Since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Proto
 
 > :warning: After activation of the feature #15, the fee for the Invoke Script transaction cannot be funded by transfer from the dApp to the transaction sender. If sender's balance is insufficient to pay the fee, dApp script is not executed.
 
-![](./_assets/tx-validaton.png)
-
-## Before Activation of Feature #15
-
-The following checks are performed:
-
-1. Transaction fields check including:
-
-   • Timestamp check: the transaction timestamp should be not more than 2 hours ago or 1.5 hours ahead from the current block timestamp.
-
-   • Transaction version check: all the features required to support this version should be activated.
-
-   • Transaction type check: all the features required to support this type should be activated.
-
-   • Check of fields depending on the transaction type.
-
-2. The sender's signature verification for ordinary account (without script), or account script execution if the sender is [smart account](/en/blockchain/account/dapp), or the [verifier function](/en/ride/functions/verifier-function) execution if the sender is [dApp](/en/blockchain/account/dapp). A similar check is performed for orders in an Exchange transaction.
-
-3. Execution of asset scripts if the transaction uses [smart assets](/en/blockchain/token/smart-asset), except scripts of assets used in [dApp script actions](/en/ride/structures/script-actions/) that are executed in step 5.
-4. Sender's balance check.
-
-   The sender should have enough funds to pay the fee. If a sponsored asset is used for the fee, the sponsor's balance is also checked.
-
-   Depending on the type of transaction, the sender should have enough asset for transfer or for payments attached to the Invoke Script transaction. Order senders in the Exchange transaction should have enough funds to exchange.
-
-5. For an Invoke Script transaction:
-
-   5.1. Calculation of the result of dApp callable function.
-
-   5.2. Execution of asset scripts if [dApp script actions](/en/ride/structures/script-actions/) use smart assets.
-
-   5.3. dApp balance check: dApp account should have enough funds for script actions.
-
-   5.4. Check that the transaction fee is not less than the minimum fee based on script actions.
-
-The transaction is saved on the blockchain and the transaction fee is charged if all checks passed.
-
-## After Activation of Feature #15
-
 The following checks are performed:
 
 1. Transaction fields check including:
@@ -90,3 +51,42 @@ For the Exchange transaction:
 For the other transaction:
 * If one of the checks failed, the transaction is rejected.
 * If all checks passed, the transaction is saved on the blockchain as successful and the sender is charged the fee.
+
+<br/>
+<details><summary> <b>Before Activation of Feature #15</b></summary>
+
+![](./_assets/tx-validaton.png)
+
+The following checks are performed:
+
+1. Transaction fields check including:
+
+   • Timestamp check: the transaction timestamp should be not more than 2 hours ago or 1.5 hours ahead from the current block timestamp.
+
+   • Transaction version check: all the features required to support this version should be activated.
+
+   • Transaction type check: all the features required to support this type should be activated.
+
+   • Check of fields depending on the transaction type.
+
+2. The sender's signature verification for ordinary account (without script), or account script execution if the sender is [smart account](/en/blockchain/account/dapp), or the [verifier function](/en/ride/functions/verifier-function) execution if the sender is [dApp](/en/blockchain/account/dapp). A similar check is performed for orders in an Exchange transaction.
+
+3. Execution of asset scripts if the transaction uses [smart assets](/en/blockchain/token/smart-asset), except scripts of assets used in [dApp script actions](/en/ride/structures/script-actions/) that are executed in step 5.
+4. Sender's balance check.
+
+   The sender should have enough funds to pay the fee. If a sponsored asset is used for the fee, the sponsor's balance is also checked.
+
+   Depending on the type of transaction, the sender should have enough asset for transfer or for payments attached to the Invoke Script transaction. Order senders in the Exchange transaction should have enough funds to exchange.
+
+5. For an Invoke Script transaction:
+
+   5.1. Calculation of the result of dApp callable function.
+
+   5.2. Execution of asset scripts if [dApp script actions](/en/ride/structures/script-actions/) use smart assets.
+
+   5.3. dApp balance check: dApp account should have enough funds for script actions.
+
+   5.4. Check that the transaction fee is not less than the minimum fee based on script actions.
+
+The transaction is saved on the blockchain and the transaction fee is charged if all checks passed.
+</details>

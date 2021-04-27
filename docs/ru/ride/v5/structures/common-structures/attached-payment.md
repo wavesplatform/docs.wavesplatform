@@ -2,7 +2,10 @@
 
 :warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/structures/common-structures/attached-payment)
 
-Структура платежа транзакции вызова скрипта.
+Структура платежа, приложенного к вызову скрипта и доступного [вызываемой функции](/ru/ride/v5/functions/callable-function). Используется:
+* в структуре [Invocation](/ru/ride/v5/structures/common-structures/invocation);
+* в структуре [InvokeScriptTransaction](/ru/ride/v5/structures/transaction-structures/invoke-script-transaction);
+* в функциях [invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp#invoke) и [reentrantInvoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp#reentrantinvoke).
 
 ## Конструктор
 

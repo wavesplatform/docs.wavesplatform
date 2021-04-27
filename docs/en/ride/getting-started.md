@@ -10,7 +10,7 @@ Ride is easy to learn, especially for beginning developers. This brochure gives 
 
 Ride is a statically-typed, lazy, functional, expression-based compiled programming language. It is designed for building developer-friendly decentralized applications (dApps).
 
-Ride is not Turing Complete and its execution engine (virtual machine) doesn’t have any concept of loops or possibility for recursions. Also, there are a number of limitations by design, helping to ensure execution is secure and straightforward. However, we recognize that iterations are necessary and have implemented them as FOLD macros (see below). One of the key features is that the execution cost is always predictable and known in advance.
+Ride is not Turing Complete and its execution engine (virtual machine) doesn’t have any concept of loops. Also, there are a number of limitations by design, helping to ensure execution is secure and straightforward. However, we recognize that iterations are necessary and have implemented them as FOLD macros (see below). One of the key features is that the execution cost is always predictable and known in advance.
 
 Despite being simple to use, however, Ride is powerful and offers wide-ranging functionality to developers. It’s broadly based on Scala and is also influenced by F# and the functional paradigm.
 

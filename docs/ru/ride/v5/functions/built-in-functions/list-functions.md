@@ -4,19 +4,21 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| [cons](#cons)  | Вставляет элемент в начало [списка](/ru/ride/v5/data-types/list) | 1 |
-| [containsElement](#containselement)  | Проверяет наличие элемента в списке | 5 |
-| [getElement](#getelement)  | Получает элемент списка по индексу | 2 |
-| [indexOf](#indexof)  | Возвращает индекс первого вхождения элемента в списке | 5 |
-| [lastIndexOf](#lastindexof)  | Возвращает индекс последнего вхождения элемента в списке | 5 |
-| [max](#max)  | Возвращает наибольший элемент в списке | 3 |
-| [min](#min)  | Возвращает наименьший элемент в списке | 3 |
-| [removeByIndex](#removebyindex) | Удаляет элемент из списка по индексу | 7 |
-| [size](#size)  | Возвращает размер списка | 2 |
+| [cons(A, List[B]): List[A&#124;B]](#cons-a-list-b-list-a-b) | Вставляет элемент в начало [списка](/ru/ride/v5/data-types/list) | 1 |
+| [containsElement(List[T], T): Boolean](#containselement-list-t-t-boolean) | Проверяет наличие элемента в списке | 5 |
+| [getElement(List[T], Int): T](#getelement-list-t-int-t) | Получает элемент списка по индексу | 2 |
+| [indexOf(List[T], T): Int&#124;Unit](#indexof-list-t-t-int-unit) | Возвращает индекс первого вхождения элемента в списке | 5 |
+| [lastIndexOf(List[T], T): Int&#124;Unit](#lastindexof-list-t-t-int-unit) | Возвращает индекс последнего вхождения элемента в списке | 5 |
+| [max(List[Int]): Int](#max-list-int-int) | Возвращает наибольший элемент в списке целых чисел | 3 |
+| [max(List[BigInt]): BigInt](#max-list-bigint-bigint) | Возвращает наибольший элемент в списке [больших целых чисел](/ru/ride/v5/data-types/bigint) | 192 |
+| [min(List[Int]): Int](#min-list-int-int)  | Возвращает наименьший элемент в списке целых чисел | 3 |
+| [min(List[BigInt]): BigInt](#min-list-bigint-bigint) | Возвращает наименьший элемент в списке [больших целых чисел](/ru/ride/v5/data-types/bigint) | 192 |
+| [removeByIndex(List[T], Int): List[T]](#removebyindex-list-t-int-list-t) | Удаляет элемент из списка по индексу | 7 |
+| [size(List[T]): Int](#size-list-t-int)  | Возвращает размер списка | 2 |
 
-`T` означает любой допустимый тип.
+`A`, `B`, `T` означает любой допустимый тип.
 
-## cons
+## cons(A, List[B]): List[A|B]
 
 Вставляет элемент в начало [списка](/ru/ride/v5/data-types/list).
 
@@ -38,7 +40,7 @@ cons("Ride", ["on", "Waves"]) # Возвращает ["Ride", "on", "Waves"]
 cons(1, [2, 3, 4, 5]) # Возвращает [1, 2, 3, 4, 5]
 ```
 
-## containsElement
+## containsElement(List[T], T): Boolean
 
 Проверяет наличие элемента в списке.
 
@@ -53,7 +55,7 @@ containsElement(list: List[T], element: T): Boolean
 | `list`: [List[T]](/ru/ride/v5/data-types/list) | Список |
 | `element`: T | Искомый элемент |
 
-## getElement
+## getElement(List[T], Int): T
 
 Получает элемент [списка](/ru/ride/v5/data-types/list) по индексу.
 
@@ -75,7 +77,7 @@ getElement(["Ride", "on", "Waves"], 0)  # Возвращает "Ride"
 getElement([false, true], 1) # Возвращает true
 ```
 
-## indexOf
+## indexOf(List[T], T): Int|Unit
 
 Возвращает индекс первого вхождения элемента в списке или `unit`, если элемент отсутствует.
 
@@ -97,7 +99,7 @@ let stringList = ["a","b","a","c"]
 indexOf("a", stringList) # Возвращает 0
 ```
 
-## lastIndexOf
+## lastIndexOf(List[T], T): Int|Unit
 
 Возвращает индекс последнего вхождения элемента в списке или `unit`, если элемент отсутствует.
 
@@ -119,9 +121,9 @@ let stringList = ["a","b","a","c"]
 lastIndexOf("a", stringList) # Возвращает 2
 ```
 
-## max
+## max(List[Int]): Int
 
-Возвращает наибольший элемент в списке. Если список пустой, возвращает ошибку.
+Возвращает наибольший элемент в списке целых чисел. Если список пустой, возвращает ошибку.
 
 ``` ride
 max(List[Int]): Int
@@ -131,11 +133,26 @@ max(List[Int]): Int
 
 | Параметр | Описание |
 | :--- | :--- |
-| `list`: [List[T]](/ru/ride/v5/data-types/list) | Список |
+| `list`: [List](/ru/ride/v5/data-types/list)[[Int](/ru/ride/v5/data-types/int)] | Список |
 
-## min
+## max(List[BigInt]): BigInt
 
-Возвращает наименьший элемент в списке. Если список пустой, возвращает ошибку.
+Возвращает наибольший элемент в списке [больших целых чисел](/ru/ride/v5/data-types/bigint). Если список пустой, возвращает ошибку.
+
+``` ride
+max(List[BigInt]): BigInt
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `list`: [List](/ru/ride/v5/data-types/list)[[BigInt](/ru/ride/v5/data-types/bigint)] | Список |
+
+
+## min(List[Int]): Int
+
+Возвращает наименьший элемент в списке целых чисел. Если список пустой, возвращает ошибку.
 
 ``` ride
 min(List[Int]): Int
@@ -145,9 +162,24 @@ min(List[Int]): Int
 
 | Параметр | Описание |
 | :--- | :--- |
-| `list`: [List[T]](/ru/ride/v5/data-types/list) | Список |
+| `list`: [List](/ru/ride/v5/data-types/list)[[Int](/ru/ride/v5/data-types/int)] | Список |
 
-## removeByIndex
+## min(List[BigInt]): BigInt
+
+Возвращает наименьший элемент в списке [больших целых чисел](/ru/ride/v5/data-types/bigint). Если список пустой, возвращает ошибку.
+
+``` ride
+min(List[BigInt]): BigInt
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `list`: [List](/ru/ride/v5/data-types/list)[[BigInt](/ru/ride/v5/data-types/bigint)] | Список |
+
+
+## removeByIndex(List[T], Int): List[T]
 
 Удаляет элемент из списка по индексу.
 
@@ -168,7 +200,7 @@ removeByIndex(list: List[T], index: Int): List[T]
 removeByIndex(["Waves", 42, true], 1) # Возвращает ["Waves", true]
 ```
 
-## size
+## size(List[T]): Int
 
 Возвращает размер [списка](/ru/ride/v5/data-types/list).
 

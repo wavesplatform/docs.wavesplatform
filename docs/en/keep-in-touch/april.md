@@ -4,7 +4,7 @@ Since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Proto
 
 * Invoke script transactions and exchange transactions are saved on the blockchain and a fee is charged for them even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed.
 
-   However if the callable function failed with an error or [throwing an exception](/en/ride/exceptions) before the [complexity](/en/ride/base-concepts/complexity) of performed calculations exceeded the [threshold for saving failed transactions](/en/ride/limits/), the transaction is rejected and the fee is not charged.
+   However if the callable function failed with an error or [throwing an exception](/en/ride/exceptions) before the [complexity](/en/ride/base-concepts/complexity) of performed computations exceeded the [threshold for saving failed transactions](/en/ride/limits/), the transaction is rejected and the fee is not charged.
 
 * A fee for the invoke script transaction cannot be funded by transfer from dApp to the transaction sender. If sender's balance is insufficient to pay the fee, dApp script is not executed.
 
@@ -102,8 +102,3 @@ For the invoke script transaction, in addition to the transaction status on the 
 
 **How to access:** go to <https://waves-dapp.com/>.
 
-## Ride limitations
-
-The maximum complexity of account script and verifier function of dApp script is changed to 2000 for new scripts, regardless of the Standard library version.
-
-The maximum complexity of asset script and callable function of dApp script remains 4000.

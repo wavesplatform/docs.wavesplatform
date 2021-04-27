@@ -2,13 +2,13 @@
 
 Invoke Script transaction invokes the [callable function](/en/ride/functions/callable-function) of the [dApp](/en/blockchain/account/dapp). [Learn more about dApp and script invocation](/en/building-apps/smart-contracts/what-is-a-dapp)
 
-In addition to the dApp address, callable function name, and arguments, the Invoke Script transaction can contain up to two payments to dApp (one payment before activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”).
+In addition to the dApp address, callable function name, and arguments, the Invoke Script transaction can contain payments to dApp. The maximum number of payments is 2 after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+
+Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the maximum number of payments is 10. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 
 ## Fee
 
 The sender can specify a transaction fee nominated in a sponsored asset instead of WAVES, see the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article.
-
-### Versions 2 and 1
 
 The minimum fee in WAVES for an Invoke Script transaction is calculated as follows:
 
@@ -21,92 +21,86 @@ The minimum fee in WAVES for an Invoke Script transaction is calculated as follo
 
 See also the example in the [Transaction Fee](/en/blockchain/transaction/transaction-fee) article.
 
-### Version 3
+Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the minimum fee in WAVES is calculated as follows:
 
-Version 3 of the Invoke Script transaction is added in node version 1.3.0 and enabled with feature #16 “Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
+`Fee` = 0.005 + `S` + 1  × `I`
 
-`Fee` = (0.005 + `E`) × ⌈`С` / 4000⌉ × + `S` + 0.004 × `P` + 0.004 × `A` + 1 × `I` + 0,004 × `N`,
+* If the transaction **s**ender is a [dApp or smart account](/en/blockchain/account/dapp), and that the complexity of the account script or dApp script verifier function exceeds the [sender complexity threshold](/en/ride/limits/), then `S` = 0.004, otherwise `S` = 0.
+* `I` is the number of **i**ssued assets that are not [NFT](/en/blockchain/token/non-fungible-token).
+
+Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
+
+<!-- ### Version 3
+
+Version 3 of the Invoke Script transaction is added in node version 1.3.0 and enabled with feature #16 “Ride V5, dApp-to-dApp invocations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
+
+`Fee` = (0.005 + `E`) × ⌈`С` / 10,000⌉ × + `S` + 0.004 × `P` + 0.004 × `A` + 1 × `I` + 0,004 × `N`,
+`Fee` = 0.005 + `S` + 0.004 × `P` + 0.004 × `A` + 1 × `I` + 0,004 × `N`,
+
 
 where:
 
    `E` is the **e**xtra fee specified in the `extraFeePerStep` field,
 
-   `С` is the **c**omplexity of the callable function. `С`/4000 rounded up to the nearest integer is the number of stages in the calculation sequence. For details see the [Continued Calculations](/en/ride/advanced/continuation) article.
+   `С` is the **c**omplexity of the callable function. `С`/10,000 rounded up to the nearest integer is the number of stages in the computation sequence. For details see the [Continued Computations](/en/ride/advanced/continuation) article. 
 
-   `N` is the total number of **n**ested invocations via `Invoke` function. For details see the [dApp-to-dApp Invocation](/en/ride/advanced/dApp-to-dApp) article.
+   `N` is the total number of **n**ested invocations via `invoke` function. For details see the [dApp-to-dApp Invocation](/en/ride/advanced/dapp-to-dapp) article.
 
-> Continued calculations and dApp-to-dApp invocation are mutually exclusive, that is, they cannot be initiated by the same transaction.
+<!-- > Continued computations and dApp-to-dApp invocation are mutually exclusive, that is, they cannot be initiated by the same transaction. -->
 
 ## JSON Representation
 
 ```json
 {
   "type": 16,
-  "id": "8SwojcZ9NbS37pLmaMBo7iNPWYtLGHVo8Fv9cAjRvafR",
-  "sender": "3P8pGyzZL9AUuFs9YRYPDV3vm73T48ptZxs",
-  "senderPublicKey": "FuChbN7t3gvW5esgARFytKNVuHSCZpXSYf1y3eDSruEN",
+  "id": "DN9Ny8mph4tLjn58e9CqhckPymH9zwPqBSZtcv2bBi3u",
+  "sender": "3Mw48B85LvkBUhhDDmUvLhF9koAzfsPekDb",
+  "senderPublicKey": "BvJEWY79uQEFetuyiZAF5U4yjPioMj9J6ZrF9uTNfe3E",
   "fee": 500000,
   "feeAssetId": null,
-  "timestamp": 1605001263787,
+  "timestamp": 1601652119485,
   "proofs": [
-    "5EpZvAzFSkcpZct5VAr5MMBm1zA52BS4uRWG19cX4Cv18b4hwaiYXPwv4zt2A6Tj86EQnk1Lib6SfnmB5jG9nUDZ"
+    "2536V2349X3cuVEK1rSxQf3HneJwLimjCmCfoG1QyMLLq1CNp6dpPKUG3Lb4pu76XqLe3nWyo3HAEwGoALgBhxkF"
   ],
-  "version": 1,
-  "dApp": "3PHaNgomBkrvEL2QnuJarQVJa71wjw9qiqG",
-  "payment": [
-    {
-      "amount": 787670779,
-      "assetId": null
-    },
-    {
-      "amount": 30000000,
-      "assetId": "DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p"
-    }
-  ],
+  "version": 2,
+  "chainId": 84,
+  "dApp": "3N28o4ZDhPK77QFFKoKBnN3uNeoaNSNXzXm",
+  "payment": [],
   "call": {
-    "function": "replenishWithTwoTokens",
+    "function": "foo",
     "args": [
       {
-        "type": "integer",
-        "value": 1
+        "type": "list",
+        "value": [
+          {
+            "type": "string",
+            "value": "alpha"
+          },
+          {
+            "type": "string",
+            "value": "beta"
+          },
+          {
+            "type": "string",
+            "value": "gamma"
+          }
+        ]
       }
     ]
   },
-  "height": 2322870,
+  "height": 1203100,
   "applicationStatus": "succeeded",
   "stateChanges": {
     "data": [
       {
-        "key": "A_asset_balance",
-        "type": "integer",
-        "value": 2557806714947
-      },
-      {
-        "key": "B_asset_balance",
-        "type": "integer",
-        "value": 97419129300
-      },
-      {
-        "key": "share_asset_supply",
-        "type": "integer",
-        "value": 498856828809
+        "key": "3Mw48B85LvkBUhhDDmUvLhF9koAzfsPekDb",
+        "type": "string",
+        "value": "alphabetagamma"
       }
     ],
-    "transfers": [
-      {
-        "address": "3P8pGyzZL9AUuFs9YRYPDV3vm73T48ptZxs",
-        "asset": "Btw3G1j4wQgdp49PTxaFkNvn75dQtqGDM7ejQppHnWC1",
-        "amount": 153620536
-      }
-    ],
+    "transfers": [],
     "issues": [],
-    "reissues": [
-      {
-        "assetId": "Btw3G1j4wQgdp49PTxaFkNvn75dQtqGDM7ejQppHnWC1",
-        "isReissuable": true,
-        "quantity": 153620536
-      }
-    ],
+    "reissues": [],
     "burns": [],
     "sponsorFees": []
   }
@@ -121,9 +115,9 @@ where:
 | dApp | dApp address base58 encoded or dApp [alias](/en/blockchain/account/alias) with `alias:<chain_id>:` prefix, for example `alias:T:merry` (see [Chain ID](/en/blockchain/blockchain-network/#chain-id)) |
 | payment.amount | Amount of token in payment: an integer value specified in [atomic units](/en/blockchain/token/#atomic-unit) |
 | payment.assetId | ID of token in payment, base58 encoded. `null` means that the payment is in WAVES |
-| stateChanges | Script actions performed by the callable function. In transaction version 3 the structure can also include [dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp) result | 
-| extraFeePerStep | Extra fee for each stage of calculations, see the [Continued Calculations](/en/ride/advanced/continuation) article. The extra fee is specified in the same token as the transaction fee, in atomic units. A value other than null or 0 is only valid when the version 5 dApp script is invoked. The field is added in transaction version 3 |
-| сontinuationTransactionIds | List of the Continuation transactions in the calculation sequence. The field is added in transaction version 3 |
+| stateChanges | Script actions performed by the callable function and [dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp) results |
+
+<!--| extraFeePerStep | Extra fee for each stage of computations, see the [Continued Computations](/en/ride/advanced/continuation) article. The extra fee is specified in the same token as the transaction fee, in atomic units. A value other than null or 0 is only valid when the version 5 dApp script is invoked. The field is added in transaction version 3 || сontinuationTransactionIds | List of the Continuation transactions in the computation sequence. The field is added in transaction version 3 |-->
 
 The fields that are common to all types of transactions are described in the [Transaction](/en/blockchain/transaction/#json-representation) article.
 

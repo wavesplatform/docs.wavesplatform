@@ -1,10 +1,8 @@
 # [Ride v5] Встроенные переменные
 
-:warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/variables/built-in-variables/)
+:warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/variables/built-in-variables)
 
 **Встроенная переменная** — [переменная](/ru/ride/v5/variables/) [Стандартной библиотеки](/ru/ride/script/standard-library).
-
-## Список встроенных переменных
 
 <table style="width:100%">
   <tr>
@@ -24,14 +22,12 @@
         <li>CEILING</li>
         <li>DOWN</li>
         <li>FLOOR</li>
-        <li>HALFDOWN</li>
         <li>HALFEVEN</li>
         <li>HALFUP</li>
-        <li>UP</li>
       </ul>
     </td>
     <td>
-      <a href="/ru/ride/v5/functions/built-in-functions/math-functions">Переменные округления</a>, которые используются в функциях <a href="/ru/ride/v5/functions/built-in-functions/math-functions">log</a> и <a href="/ru/ride/v5/functions/built-in-functions/math-functions">pow</a> functions
+      <a href="/ru/ride/v5/functions/built-in-functions/math-functions">Переменные округления</a>, которые используются в <a href="/ru/ride/v5/functions/built-in-functions/math-functions">математических функциях</a> <code>fraction</code>, <code>log</code>, <code>pow</code>
     </td>
   </tr>
   <tr>
@@ -85,7 +81,7 @@
   <tr>
     <td>8</td>
     <td>this</td>
-    <td><a href="/ru/blockchain/account/address">Адрес</a> отправителя транзакции или информация о <a href="/ru/blockchain/token">токене</a></td>
+    <td>• Для <a href="/ru/ride/script/script-types/dapp-script">скрипта dApp</a> или <a href="/ru/ride/script/script-types/account-script">скрипта аккаунта</a> — структура <a href="/ru/ride/structures/common-structures/address">Address</a><br/>• Для <a href="/ru/ride/script/script-types/asset-script">скрипта ассета</a> — структура <a href="/ru/ride/structures/common-structures/asset">Asset</a></td>
   </tr>
   <tr>
     <td>9</td>

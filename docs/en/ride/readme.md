@@ -35,7 +35,7 @@ Available script actions depend on [Standard library](/en/ride/script/standard-l
 
 ## Predictable Computational Cost
 
-The [complexity](/en/ride/base-concepts/complexity) is defined for each Ride function and operator. The complexities of the used functions and operators make up the script complexity. There are no loops or recursions in Ride, so the script complexity can be calculated in advance. The maximum script complexity is limited. Due to these limitations, Waves has low and predictable [fees](/en/blockchain/transaction/transaction-fee) for script execution.
+The [complexity](/en/ride/base-concepts/complexity) is defined for each Ride function and operator. The complexities of the used functions and operators make up the script complexity. There are no loops in Ride, so the script complexity can be calculated in advance. The maximum script complexity is limited. Due to these limitations, Waves has low and predictable [fees](/en/blockchain/transaction/transaction-fee) for script execution.
 
 Because of the lack of loops, the Ride language is not Turing complete. That's why it is not always possible to implement the necessary logic within a single script call. However, it is still possible to perform Turing-complete computations if the algorithm is split into several functions (or even several smart contracts) and invoked sequentially using several transactions.
 

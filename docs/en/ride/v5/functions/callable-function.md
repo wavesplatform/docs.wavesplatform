@@ -2,7 +2,7 @@
 
 :warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/functions/callable-function)
 
-**Callable function** is a [dApp script](/en/ride/script/script-types/dapp-script) function which can be invoked by an [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) or an [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function.
+**Callable function** is a [dApp script](/en/ride/script/script-types/dapp-script) function which can be invoked by an [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) or an `invoke` or `reentrantInvoke` functions (see details in the [dApp-to-dApp Invocation](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) article).
 
 dApp script can contain multiple callable functions.
 
@@ -18,7 +18,7 @@ The callable function can perform the following actions:
 
 The callable function can return a value that is passed to the invoking function in case of the [dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp).
 
-The invocation can contain payments to dApp. Tokens obtained in these payments can be used in script actions performed by the callable function, but cannot be used in payments attached to nested invocations.
+The invocation can contain payments to dApp. Tokens obtained in these payments can be used in script actions performed by the callable function and in payments attached to nested invocations.
 
 :warning: The fee for the Invoke Script transaction cannot be funded by transfer from the dApp to the transaction sender after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. If sender's balance is insufficient to pay the fee, dApp script is not executed.
 
@@ -88,9 +88,9 @@ Script actions performed by the callable function are set by Ride structures.
 
 ### Limitations
 
-* The maximum number of `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, `StringEntry`, `DeleteEntry` that are executed by callable function is 100.
-* The maximum number of `Issue`, `Reissue`, `Burn`, `SponsorFee`, `ScriptTransfer`, `Lease`, `LeaseCancel` that are executed by callable function is 10.
-* The maximum number of the payments to dApp in invocation is 2.
+* The maximum total number of `Issue`, `Reissue`, `Burn`, `SponsorFee`, `ScriptTransfer`, `Lease`, `LeaseCancel` script actions executed by all callable functions in a single transaction is 30.
+* The maximum total number of `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, `StringEntry`, `DeleteEntry` script actions executed by all callable functions in a single transaction is 100.
+* The maximum number of the payments to dApp in invocation is 10.
 
 See also the [Limitations](/en/ride/v5/limits/) article.
 
@@ -125,7 +125,7 @@ func deposit() = {
        [
          IntegerEntry(currentKey, newAmount)
        ],
-       null
+       unit
      )
    }
 }
@@ -147,7 +147,7 @@ func withdraw(amount: Int) = {
           IntegerEntry(currentKey, newAmount),
           ScriptTransfer(i.caller, amount, unit)
         ],
-        null
+        unit
       )
 }
 
@@ -159,6 +159,6 @@ func verify() = false
 
 The Invoke Script transaction is saved on the blockchain and a fee is charged for it even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed.
 
-However, if the callable function failed with an error or [throwing an exception](/en/ride/exceptions) before the [complexity](/en/ride/base-concepts/complexity) of performed calculations exceeded the [threshold for saving failed transactions](/en/ride/v5/limits/), the transaction is rejected and the fee is not charged.
+However, if the callable function failed with an error or [throwing an exception](/en/ride/exceptions) before the [complexity](/en/ride/base-concepts/complexity) of performed computations exceeded the [threshold for saving failed transactions](/en/ride/v5/limits/), the transaction is rejected and the fee is not charged.
 
 This rule is applied after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions” and doesn't depend on the Standard library version used. Keep it in mind when developing a dApp script. For more information, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article.

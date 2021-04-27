@@ -12,7 +12,6 @@
 | [getIntegerValue(Address&#124;Alias, String): Int](#get-integer-value) | Gets an integer by key. Fails if there is no data | 100 for Standard Library **version 3**<br>10 for Standard Library **version 4** |
 | [getString(Address&#124;Alias, String): String&#124;Unit](#get-string) | Gets a string by key | 100 for Standard Library **version 3**<br>10 for Standard Library **version 4** |
 | [getStringValue(Address&#124;Alias, String): String](#get-string-value) | Gets a string by key. Fails if there is no data | 100 for Standard Library **version 3**<br>10 for Standard Library **version 4** |
-| [wavesBalance(Address&#124;Alias): Int](#waves-balance) | Gets account balance in [WAVES](/en/blockchain/token/waves) | 100 for Standard Library **version 3**<br>10 for Standard Library **version 4** |
 
 ## getBinary <a id="get-binary"></a>
 

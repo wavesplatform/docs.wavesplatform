@@ -1,10 +1,10 @@
-# Continuation transaction
+# Continuation Transaction / Under Construction
 
-Continuation transaction is a stage of execution of a [dApp](/ru/blockchain/account/dapp) script callable function. If the complexity of the callable function exceeds 4000, its execution is split into several stages. The first stage is performed within an [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction). The further stages are performed within Continuation transactions that are created automatically by block generators. [More about continued calculations](/en/ride/advanced/continuation)
+Continuation transaction is a stage of execution of a [dApp](/ru/blockchain/account/dapp) script callable function. If the complexity of the callable function exceeds 10,000, its execution is split into several stages. The first stage is performed within an [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction). The further stages are performed within Continuation transactions that are created automatically by block generators. [More about continued computations](/en/ride/advanced/continuation)
 
-A block generator creates the Continuation transaction if there is an incomplete calculation sequence. A user cannot send a Continuation transaction.
+A block generator creates the Continuation transaction if there is an incomplete computation sequence. A user cannot send a Continuation transaction.
 
-> A script execution with a continuation is added in node version 1.3.0 and enabled with feature #16 “Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
+> A script execution with a continuation is added in node version 1.4.0.
 
 ## Fee
 
@@ -27,9 +27,9 @@ The fee specified in the Invoke Script transaction is automatically distributed 
 
 | Field | Description |
 | :--- | :--- |
-| invokeScriptTransactionId | ID of the Invoke Script transaction that started the calculation sequence |
+| invokeScriptTransactionId | ID of the Invoke Script transaction that started the computation sequence |
 | fee | Automatically calculated transaction fee |
-| nonce | Number that is unique in the calculation sequence. It is used to calculate the transaction ID |
+| nonce | Number that is unique in the computation sequence. It is used to calculate the transaction ID |
 
 > The Continuation transaction does not have `senderPublicKey`, `proofs`, `timestamp`, and `feeAssetId` fields.
 

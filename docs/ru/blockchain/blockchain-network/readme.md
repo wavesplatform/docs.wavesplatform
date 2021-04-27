@@ -53,7 +53,7 @@
 | :--- | :--- | :--- |
 | | Адрес для запросов | Swagger |
 | Mainnet | `https://api.wavesplatform.com/v0/` | <https://api.wavesplatform.com/v0/docs/> |
-| Testnet | `https://api.testnet.wavesplatform.com/v0/` | <https://api.testnet.wavesplatform.com/v0/docs/> |
+| Testnet | `https://api-testnet.wavesplatform.com/v0/` | <https://api-testnet.wavesplatform.com/v0/docs/> |
 | Stagenet | `https://api-stagenet.wavesplatform.com/v0/` | <https://api-stagenet.wavesplatform.com/v0/docs/> |
 
 ### Waves.Exchange

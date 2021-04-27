@@ -24,3 +24,13 @@ Asset(id: ByteVector, quantity: Int, decimals: Int, issuer: Address, issuerPubli
 | 9 | minSponsoredFee | [Int](/ru/ride/v5/data-types/int)&#124;[Unit](/ru/ride/v5/data-types/unit) | Количество спонсорского ассета, эквивалентное 0,001 WAVES (100&nbsp;000 WAVELET), в минимальных единицах («копейках») ассета. См. раздел [Спонсирование комиссии](/ru/blockchain/waves-protocol/sponsored-fee).<br>`unit` — спонсирование отключено. |
 | 10 | name | [String](/ru/ride/v5/data-types/string) | Название токена, до 16 символов |
 | 11 | description | [String](/ru/ride/v5/data-types/string) | Описание токена, до 1000 символов |
+
+## Пример
+
+Получение баланса аккаунта в ассете:
+
+```scala
+let address=base58'3Mw48B85LvkBUhhDDmUvLhF9koAzfsPekDb'
+let assetId=base58'GpxmxorKXLz1V7xootrvGyFgqP2tTTBib5HEm8QGZTHX'
+assetBalance(Address(address), assetId)
+```

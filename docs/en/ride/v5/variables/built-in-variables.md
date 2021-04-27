@@ -1,6 +1,6 @@
 # [Ride v5] Built-in variables
 
-:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/variables/built-in-variables/)
+:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/variables/built-in-variables)
 
 A **built-in variable** is a [variable](/en/ride/v5/variables/) of the [Standard library](/en/ride/script/standard-library).
 
@@ -23,14 +23,12 @@ A **built-in variable** is a [variable](/en/ride/v5/variables/) of the [Standard
         <li>CEILING</li>
         <li>DOWN</li>
         <li>FLOOR</li>
-        <li>HALFDOWN</li>
         <li>HALFEVEN</li>
         <li>HALFUP</li>
-        <li>UP</li>
       </ul>
     </td>
     <td>
-      <a href="/en/ride/v5/functions/built-in-functions/math-functions">Rounding methods</a> used in the <a href="/en/ride/v5/functions/built-in-functions/math-functions">log</a> and <a href="/en/ride/v5/functions/built-in-functions/math-functions">pow</a> functions
+      <a href="/en/ride/v5/functions/built-in-functions/math-functions">Rounding methods</a> used in the <a href="/ru/ride/v5/functions/built-in-functions/math-functions">math functions</a> <code>fraction</code>, <code>log</code>, <code>pow</code>
     </td>
   </tr>
   <tr>
@@ -90,6 +88,7 @@ A **built-in variable** is a [variable](/en/ride/v5/variables/) of the [Standard
   <tr>
     <td>8</td>
     <td>this</td>
+    <td>• For a <a href="/en/ride/script/script-types/dapp-script">dApp script</a> or an <a href="/ru/ride/script/script-types/account-script">account script</a>: the <a href="/en/ride/structures/common-structures/address">Address</a> structure<br/>• For an <a href="/en/ride/script/script-types/asset-script">asset script</a>: the <a href="/en/ride/structures/common-structures/asset">Asset</a> structure</td>
     <td>Transaction sender <a href="/en/blockchain/account/address">address</a> or information about the <a href="/en/blockchain/token">token</a></td>
   </tr>
   <tr>

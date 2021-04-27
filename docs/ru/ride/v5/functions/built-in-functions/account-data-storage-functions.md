@@ -22,6 +22,7 @@
 | [getString(String): String&#124;Unit](#get-string)  | Получает строку по ключу из собственного хранилища данных | 10 |
 | [getStringValue(Address&#124;Alias, String): String](#get-string-value)  | Получает строку по ключу. Завершается ошибкой, если данных нет | 10 |
 | [getStringValue(String): String](#get-string-value)  | Получает строку по ключу из собственного хранилища данных. Завершается ошибкой, если данных нет | 10 |
+| [isDataStorageUntouched(Address&#124;Alias): Boolean](#isdatastorageuntouched) | Проверяет, что хранилище данных указанного аккаунта никогда не содержало записей | 10 |
 
 ## getBinary(Address|Alias, String): ByteVector|Unit <a id="get-binary"></a>
 
@@ -254,3 +255,27 @@ geString(key: String): String
 | Параметр | Описание |
 | :--- | :--- |
 | `key`: [String](/ru/ride/v5/data-types/string) | Ключ записи |
+
+## isDataStorageUntouched(Address|Alias): Boolean<a id="isdatastorageuntouched"></a>
+
+Проверяет, что хранилище данных указанного аккаунта никогда не содержало записей.
+
+Возвращает `false`, если в хранилище данных была хотя бы одна запись, даже если она удалена.
+
+``` ride
+isDataStorageUntouched(addressOrAlias: Address|Alias): Boolean
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/ru/ride/v5/structures/common-structures/address)&#124;[Alias](/ru/ride/v5/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+
+### Пример
+
+```scala
+let addr = Address(base58'3N4iKL6ikwxiL7yNvWQmw7rg3wGna8uL6LU')
+
+isDataStorageUntouched(addr) # Возвращает false
+```

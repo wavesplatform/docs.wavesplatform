@@ -1,8 +1,8 @@
-# Continuation Transaction Binary Format
+# Continuation Transaction Binary Format / Under Construction
 
 > Learn more about [Continuation transaction](/en/blockchain/transaction-type/continuation-transaction).
 
-The Continuation transaction is added in node version 1.3.0 and enabled with feature #16 “Continuations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
+The Continuation transaction is added in node version 1.4.0.
 
 Binary format is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) protobuf scheme. The fields that are common to all types of transactions are described in the [Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format/) article.
 
@@ -17,5 +17,5 @@ message ContinuationTransactionData {
 
 | Field | Size | Description |
 | :--- | :--- | :--- |
-| invoke_transaction_id | 32 bytes | ID of the Invoke Script transaction that starts the calculation sequence |
-| nonce | 1 byte | Number that is unique in the calculation sequence. It is used to calculate the transaction ID |
+| invoke_transaction_id | 32 bytes | ID of the Invoke Script transaction that starts the computation sequence |
+| nonce | 4 bytes | Number that is unique in the computation sequence. It is used to calculate the transaction ID |
