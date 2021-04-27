@@ -19,7 +19,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | getInteger(Address&#124;Alias, String): Int&#124;Unit | Gets an integer by key | 10 |
 | getInteger(String): Int&#124;Unit | Gets an integer by key from dApp's own data storage | 10 |
 | getIntegerValue(Address&#124;Alias, String): Int | Gets an integer by key. Fails if there is no data | 10 |
-| getIntegerValue(String): Int](#getintegervalue-string-int) | Gets an integer by key from dApp's own data storage. Fails if there is no data | 10 |
+| getIntegerValue(String): Int | Gets an integer by key from dApp's own data storage. Fails if there is no data | 10 |
 | getString(Address&#124;Alias, String): String&#124;Unit | Gets a string by key | 10 |
 | getString(String): String&#124;Unit | Gets a string by key from dApp's own data storage | 10 |
 | getStringValue(Address&#124;Alias, String): String | Gets a string by key. Fails if there is no data | 10 |
@@ -88,18 +88,18 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| getInteger(List[], String): Int&#124;Unit | Gets an integer value from a list of data entires by key | 10 |
-| getInteger(List[], Int): Int&#124;Unit | Gets an integer value from a list of data entires by index | 4 |
-| getIntegerValue(List[], String): Int | Gets an integer value from a list of data entires by key. Fails if there is no data | 10 |
-| getIntegerValue(List[], Int): Int | Gets an integer value from a list of data entires by index. Fails if there is no data | 4 |
-| getBoolean(List[], String): Boolean&#124;Unit | Gets a boolean value from a list of data entires by key | 10 |
-| getBoolean(List[], Int): Boolean&#124;Unit | Gets a boolean value from a list of data entires by index | 4 |
-| getBooleanValue(List[], String): Boolean | Gets a boolean value from a list of data entires by key. Fails if there is no data | 10 |
-| getBooleanValue(List[], Int): Boolean | Gets a boolean value from a list of data entires by index. Fails if there is no data | 4 |
 | getBinary(List[], String): ByteVector&#124;Unit | Gets a binary value from a list of data entires by key | 10 |
 | getBinary(List[], Int): ByteVector&#124;Unit | Gets a binary value from a list of data entires by index | 4 |
 | getBinaryValue(List[], String): ByteVector | Gets a binary value from a list of data entires by key. Fails if there is no data | 10 |
 | getBinaryValue(List[], Int): ByteVector | Gets a binary value from a list of data entires by index. Fails if there is no data | 4 |
+| getBoolean(List[], String): Boolean&#124;Unit | Gets a boolean value from a list of data entires by key | 10 |
+| getBoolean(List[], Int): Boolean&#124;Unit | Gets a boolean value from a list of data entires by index | 4 |
+| getBooleanValue(List[], String): Boolean | Gets a boolean value from a list of data entires by key. Fails if there is no data | 10 |
+| getBooleanValue(List[], Int): Boolean | Gets a boolean value from a list of data entires by index. Fails if there is no data | 4 |
+| getInteger(List[], String): Int&#124;Unit | Gets an integer value from a list of data entires by key | 10 |
+| getInteger(List[], Int): Int&#124;Unit | Gets an integer value from a list of data entires by index | 4 |
+| getIntegerValue(List[], String): Int | Gets an integer value from a list of data entires by key. Fails if there is no data | 10 |
+| getIntegerValue(List[], Int): Int | Gets an integer value from a list of data entires by index. Fails if there is no data | 4 |
 | getString(List[] String): String&#124;Unit | Gets a string value from a list of data entires by key | 10 |
 | getString(List[], Int): String&#124;Unit | Gets a string value from a list of data entires by index | 4 |
 | getStringValue(List[], String): String | Gets a string value from a list of data entires by key. Fails if there is no data | 10 |
