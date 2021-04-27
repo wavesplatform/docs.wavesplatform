@@ -1,6 +1,6 @@
 # [Ride v6] Continued Computations / Under Construction
 
-If the complexity of a dApp script exceeds 4000, its execution is split into several stages. A block generator that adds an Invoke Script transaction to a block performs computations with the total complexity up to 4000 and saves intermediate results in the internal database. Then the block generator, the same or another if a new block has already been created, detects an incomplete computation sequence, creates a Continuation transaction, and adds it to the block, performing the next stage of computations. The process continues until the script is completely executed or fails.
+If the complexity of a dApp script exceeds 10,000, its execution is split into several stages. A block generator that adds an Invoke Script transaction to a block performs computations with the total complexity up to 10,000 and saves intermediate results in the internal database. Then the block generator, the same or another if a new block has already been created, detects an incomplete computation sequence, creates a Continuation transaction, and adds it to the block, performing the next stage of computations. The process continues until the script is completely executed or fails.
 
 Thus, the first stage of computations is performed within the Invoke Script transaction. The further stages are performed within Continuation transactions created automatically by block generators. Continuation transaction fields are described in the [Continuation Transaction](/en/blockchain/transaction-type/continuation-transaction) article.
 
@@ -55,13 +55,13 @@ All the blockchain data, except for the dApp's data storage entries, are conside
 * Current blockchain height.
 * Asset parameters, block headers, transactions, etc.
 
-All external data used by the dApp script must be obtained at the first stage of computations. The complexity of the script's part from the beginning to the last function that reads external data of the blockchain should not exceed 4000 inclusive. 
+All external data used by the dApp script must be obtained at the first stage of computations. The complexity of the script's part from the beginning to the last function that reads external data of the blockchain should not exceed 10,000 inclusive. 
 
 If the script contains branches, it is not known in advance which branch will be executed. Therefore, the total complexity for all branches is taken into account. Consider the following scheme:
 
 ![](./_assets/continuation-init.png)
 
-If the operations `op2`, `op-a2` and `op-b3` read the external data of the blockchain, then the total complexity of the operations `op1` + `op2` + `op-a1` + `op-a2` + `op-b1` + `op-b2` + `op-b3` must not exceed 4000, otherwise the dApp script cannot be assigned to an account (Set Script transaction would be rejected).
+If the operations `op2`, `op-a2` and `op-b3` read the external data of the blockchain, then the total complexity of the operations `op1` + `op2` + `op-a1` + `op-a2` + `op-b1` + `op-b2` + `op-b3` must not exceed 10,000, otherwise the dApp script cannot be assigned to an account (Set Script transaction would be rejected).
 
 ## Fee
 
@@ -69,13 +69,13 @@ The sender should specify a fee taking into account the maximum possible number 
 
 The minimum fee in WAVES for an Invoke Script transaction is calculated as follows:
 
-`Fee` = (0.005 + `E`) × ⌈`С` / 4000⌉ + `S` + 0.004 × `P` + 0.004 × `A` + 1 × `I`,
+`Fee` = (0.005 + `E`) × ⌈`С` / 10,000⌉ + `S` + 0.004 × `P` + 0.004 × `A` + 1 × `I`,
 
 Where:
 
    `E` is the **e**xtra fee specified in the `extraFeePerStep` field. `extraFeePerStep` can be 0. The transaction sender can specify `extraFeePerStep` > 0 in order to raise the processing priority of transactions of the computation sequence.
 
-   `С` is the **c**omplexity of the callable function. `С`/4000 rounded up to the nearest integer is the number of stages in the computation sequence.
+   `С` is the **c**omplexity of the callable function. `С`/10,000 rounded up to the nearest integer is the number of stages in the computation sequence.
 
    `S` = 0.004 if the transaction **s**ender is a [dApp or smart account](/en/blockchain/account/dapp), otherwise 0.
 
@@ -116,7 +116,7 @@ The minimum fee for the Invoke Script transaction is (0.005 + 0.002) × 3 + 0.00
 
 If the Invoke Script transaction fails after the computations' complexity exceeds the threshold for saving failed transactions:
 * If the callable function execution fails, then the sender pays 0.005 + 0.002 + 0.004 = 0.011 WAVES. The unused fee of 1.034 WAVES is returned.
-* If all operations of the callable function within the complexity of 4000 are completed, but one of the asset scripts denied the transaction, the sender also pays 0.004 WAVES for each asset script actually executed. For example, if the first asset script returned `false` or failed, and the second asset script has not started execution, then the sender pays 0.005 + 0.002 + 0.004 + 0.004 × 1 = 0.015 WAVES. The unused fee of 1.030 WAVES is returned.
+* If all operations of the callable function within the complexity of 10,000 are completed, but one of the asset scripts denied the transaction, the sender also pays 0.004 WAVES for each asset script actually executed. For example, if the first asset script returned `false` or failed, and the second asset script has not started execution, then the sender pays 0.005 + 0.002 + 0.004 + 0.004 × 1 = 0.015 WAVES. The unused fee of 1.030 WAVES is returned.
 
 If the first Continuation transaction fails, then the sender pays (0.005 + 0.002) × 2 + 0.004 + 0.004 × 2 = 0.026 WAVES. The unused fee of 1.019 WAVES is returned.
 

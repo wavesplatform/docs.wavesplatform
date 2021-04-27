@@ -9,11 +9,12 @@
    * Canceled the extra fee of 0.004 WAVES for smart assets in payments and script actions.
    * Transaction can contain up to 10 attached payments.
    * The total complexity for all callable functions and asset scripts involved is limited by 26,000 (the sender's account script complexity is not included in this limit). 
+   * The maximum complexity of a callable function of a dApp script is changed to 10,000.
 * For all types of transactions, canceled the extra fee of 0.004 WAVES for sending a transaction from a smart account or dApp unless the complexity of sender's account script or dApp script verifier function exceeds 200.
 
-<!--* **Continued computations.** Added support for dApp scripts with complexity over 4000. The execution of such a script is split into several stages. The first stage of computations is performed within the Invoke Script transaction. The further stages are performed within Continuation transactions. [More about continued computations](/en/ride/advanced/continuation)
+<!--* **Continued computations.** Added support for dApp scripts with complexity over 10,000. The execution of such a script is split into several stages. The first stage of computations is performed within the Invoke Script transaction. The further stages are performed within Continuation transactions. [More about continued computations](/en/ride/advanced/continuation)
    * Implemented the new transaction type: [Continuation](/en/blockchain/transaction-type/continuation-transaction). A block generator creates the Continuation transaction if there is an incomplete computation sequence. A user cannot send a Continuation transaction.
-   * Added version 3 for the [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) that can invoke a script with complexity over 4000.-->
+   * Added version 3 for the [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) that can invoke a script with complexity over 10,000.-->
 
 ### Ride
 
@@ -64,6 +65,7 @@
    * `getIntegerValue(key: String): Int`
    * `getString(key: String): String|Unit`
    * `getStringValue(key: String): String`
+* The maximum complexity of a callable function of a dApp script is changed to 10,000.
 
 ### Node REST API
 

@@ -34,7 +34,7 @@ Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-networ
 
 Version 3 of the Invoke Script transaction is added in node version 1.3.0 and enabled with feature #16 “Ride V5, dApp-to-dApp invocations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 
-`Fee` = (0.005 + `E`) × ⌈`С` / 4000⌉ × + `S` + 0.004 × `P` + 0.004 × `A` + 1 × `I` + 0,004 × `N`,
+`Fee` = (0.005 + `E`) × ⌈`С` / 10,000⌉ × + `S` + 0.004 × `P` + 0.004 × `A` + 1 × `I` + 0,004 × `N`,
 `Fee` = 0.005 + `S` + 0.004 × `P` + 0.004 × `A` + 1 × `I` + 0,004 × `N`,
 
 
@@ -42,7 +42,7 @@ where:
 
    `E` is the **e**xtra fee specified in the `extraFeePerStep` field,
 
-   `С` is the **c**omplexity of the callable function. `С`/4000 rounded up to the nearest integer is the number of stages in the computation sequence. For details see the [Continued Computations](/en/ride/advanced/continuation) article. 
+   `С` is the **c**omplexity of the callable function. `С`/10,000 rounded up to the nearest integer is the number of stages in the computation sequence. For details see the [Continued Computations](/en/ride/advanced/continuation) article. 
 
    `N` is the total number of **n**ested invocations via `invoke` function. For details see the [dApp-to-dApp Invocation](/en/ride/advanced/dapp-to-dapp) article.
 
