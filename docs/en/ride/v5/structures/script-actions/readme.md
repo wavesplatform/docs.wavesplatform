@@ -1,6 +1,6 @@
 # [Ride v5] Script actions
 
-:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/structures/script-actions/)
+:warning: This is the documentation for the Standard Library **version 5**, which becomes available after activation of feature #16 “Ride V5, dApp-to-dApp invocations”. [Go to version 4](/en/ride/structures/script-actions/)
 
 Script actions are executed, that is, they make changes on the blockchain only if they are included in the resulting expression of the callable function. See more details in the [Callable function](/en/ride/v5/functions/callable-function) article.
 

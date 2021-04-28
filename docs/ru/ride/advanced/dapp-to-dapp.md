@@ -19,7 +19,7 @@
 
 ## Условия
 
-* Вызовы dApp из dApp добавлены в версии ноды 1.3.0 и включаются с активацией фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”. Версии 1.3.x в настоящее время доступны только для [Stagenet](/ru/blockchain/blockchain-network/).
+* Вызовы dApp из dApp добавлены в версии ноды 1.3.0 и включаются с активацией фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”.
 * Скрипт исходного dApp использует [Стандартную библиотеку](/ru/ride/script/standard-library) **версии 5**.
 * Если dApp вызывает сам себя, вызов не должен содержать платежи.
 * Количество вызовов функций [invoke или reentrantInvoke](#invoke) — не более 100 в одной транзакции.

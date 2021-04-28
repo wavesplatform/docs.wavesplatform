@@ -1,6 +1,6 @@
 # [Ride v5] Invocation
 
-:warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/structures/common-structures/invocation)
+:warning: Это документация Стандартной библиотеки **версии 5**, которая доступна с момента активации фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”. [Перейти к&nbsp;версии&nbsp;4](/ru/ride/structures/common-structures/invocation)
 
 Структура содержит поля вызова, которые может использовать [вызываемая функция](/ru/ride/v5/functions/callable-function).
 

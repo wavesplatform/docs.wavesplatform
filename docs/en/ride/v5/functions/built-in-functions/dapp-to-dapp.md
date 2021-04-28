@@ -1,6 +1,6 @@
 # [Ride v5] dApp-to-dApp Invocation Functions
 
-:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only.
+:warning: This is the documentation for the Standard Library **version 5**, which becomes available after activation of feature #16 “Ride V5, dApp-to-dApp invocations”.
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |

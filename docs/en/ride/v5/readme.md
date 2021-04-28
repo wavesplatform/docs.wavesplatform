@@ -1,6 +1,6 @@
 # [Ride v5] Standard Library Version 5
 
-Standard library version 5 is added in node version 1.3.0 and enabled with feature #16 “Ride V5, dApp-to-dApp invocations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
+Standard library version 5 is added in node version 1.3.0 and enabled with feature #16 “Ride V5, dApp-to-dApp invocations”.
 
 ## dApp-to-dApp Invocation
 

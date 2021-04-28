@@ -4,7 +4,7 @@ Invoke Script transaction invokes the [callable function](/en/ride/functions/cal
 
 In addition to the dApp address, callable function name, and arguments, the Invoke Script transaction can contain payments to dApp. The maximum number of payments is 2 after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
-Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the maximum number of payments is 10. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
+Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the maximum number of payments is 10.
 
 ## Fee
 
@@ -28,11 +28,9 @@ Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dA
 * If the transaction **s**ender is a [dApp or smart account](/en/blockchain/account/dapp), and that the complexity of the account script or dApp script verifier function exceeds the [sender complexity threshold](/en/ride/limits/), then `S` = 0.004, otherwise `S` = 0.
 * `I` is the number of **i**ssued assets that are not [NFT](/en/blockchain/token/non-fungible-token).
 
-Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
-
 <!-- ### Version 3
 
-Version 3 of the Invoke Script transaction is added in node version 1.3.0 and enabled with feature #16 “Ride V5, dApp-to-dApp invocations”. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
+Version 3 of the Invoke Script transaction is added in node version 1.4.0 and enabled with feature #17 “Ride V6”. Versions 1.4.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
 
 `Fee` = (0.005 + `E`) × ⌈`С` / 10,000⌉ × + `S` + 0.004 × `P` + 0.004 × `A` + 1 × `I` + 0,004 × `N`,
 `Fee` = 0.005 + `S` + 0.004 × `P` + 0.004 × `A` + 1 × `I` + 0,004 × `N`,

@@ -1,6 +1,6 @@
 # [Ride v5] SetAssetScriptTransaction
 
-:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/structures/transaction-structures/set-asset-script-transaction)
+:warning: This is the documentation for the Standard Library **version 5**, which becomes available after activation of feature #16 “Ride V5, dApp-to-dApp invocations”. [Go to version 4](/en/ride/structures/transaction-structures/set-asset-script-transaction)
 
 Structure of a [set asset script transaction](/en/blockchain/transaction-type/set-asset-script-transaction).
 

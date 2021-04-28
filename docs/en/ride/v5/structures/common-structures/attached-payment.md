@@ -1,6 +1,6 @@
 # [Ride v5] AttachedPayment
 
-:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/structures/common-structures/attached-payment)
+:warning: This is the documentation for the Standard Library **version 5**, which becomes available after activation of feature #16 “Ride V5, dApp-to-dApp invocations”. [Go to version 4](/en/ride/structures/common-structures/attached-payment)
 
 Structure of a payment attached to the script invocation and available to the [callable function](/en/ride/v5/functions/callable-function). The structure is used in:
 * [Invocation](/en/ride/v5/structures/common-structures/invocation) structure;

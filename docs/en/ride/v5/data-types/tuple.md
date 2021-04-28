@@ -1,6 +1,6 @@
 # [Ride v5] Tuple
 
-:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/data-types/tuple)
+:warning: This is the documentation for the Standard Library **version 5**, which becomes available after activation of feature #16 “Ride V5, dApp-to-dApp invocations”. [Go to version 4](/en/ride/data-types/tuple)
 
 Tuple is an ordered collection of elements. Elements can be of any type. The tuple can contain from 2 to 22 elements.
 

@@ -1,6 +1,6 @@
 # [Ride v5] ByteVector
 
-:warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/data-types/byte-vector)
+:warning: Это документация Стандартной библиотеки **версии 5**, которая доступна с момента активации фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”. [Перейти к&nbsp;версии&nbsp;4](/ru/ride/data-types/byte-vector)
 
 `ByteVector` — [тип данных](/ru/ride/v5/data-types/) для массива байтов.
 

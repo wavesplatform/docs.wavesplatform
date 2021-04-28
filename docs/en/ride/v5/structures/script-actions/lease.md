@@ -1,6 +1,6 @@
 # [Ride v5] Lease
 
-:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only.
+:warning: This is the documentation for the Standard Library **version 5**, which becomes available after activation of feature #16 “Ride V5, dApp-to-dApp invocations”.
 
 `Lease` is a structure that sets the lease parameters. The lease is performed only if the structure is included in the [callable function result](/en/ride/v5/functions/callable-function#invocation-result-2). [More about lease](/en/blockchain/leasing)
 

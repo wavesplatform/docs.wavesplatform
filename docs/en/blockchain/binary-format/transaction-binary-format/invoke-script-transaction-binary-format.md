@@ -38,7 +38,7 @@ message Amount {
 
 The maximum number of payments is 2.
 
-Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the maximum number of payments is 10. Versions 1.3.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only.
+Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the maximum number of payments is 10.
 
 The maximum size of `d_app` + `function_call` + `payments` is 5120 bytes.
 
