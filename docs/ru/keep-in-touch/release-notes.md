@@ -53,7 +53,7 @@
    * [toString(BigInt): String](/ru/ride/v5/functions/built-in-functions/converting-functions#to-string-bigint)
 * Добавлены встроенные функции:
    * [isDataStorageUntouched](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions#isdatastorageuntouched) — проверяет, что хранилище данных указанного аккаунта никогда не содержало записей.
-   * [hashScriptAtAddress](/ru/ride/v5/functions/built-in-functions/blockchain-functions#hashscriptataddress) — возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте.
+   * [scriptHash](/ru/ride/v5/functions/built-in-functions/blockchain-functions#scripthash) — возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте.
    * [fraction(Int, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionintround) — умножает два целых числа и делит на третье без переполнения, применяя указанный метод округления.
 * Добавлены встроенные [функции хранилища данных аккаунта](/ru/ride/v6/functions/built-in-functions/account-data-storage-functions), позволяющие dApp-скрипту читать записи из собственного хранилища данных:
    * `getBinary(key: String): ByteVector|Unit`
