@@ -37,7 +37,7 @@ invoke(dApp: Address|Alias, function: String, arguments: List[Any], payments: Li
 
 Стек вызовов, порожденный функцией `invoke`, не должен содержать вызовы исходного dApp после вызова другого dApp.
 
-Пусть исходный dApp A вызывает dApp B c помощью функции `invoke`. Независимо от того, какую функцию использует dApp B — `invoke` или `reentrantInvoke`, cледующие последовательности вызовов завершатся **ошибкой**:
+Пусть исходный dApp A вызывает dApp B c помощью функции `invoke`. Независимо от того, какую функцию использует dApp B — `invoke` или `reentrantInvoke`, следующие последовательности вызовов завершатся **ошибкой**:
 
 ```
 → dApp A
@@ -137,7 +137,22 @@ func bar(a: Int) = {
 
 ## reentrantInvoke
 
-Вызывает [вызываемую функцию](/en/ride/v5/functions/callable-function) dApp. Отличается от функции [invoke](#invoke) только отсутствием ограничения на [повторные вызовы](#reentrancy) исходного dApp: любая последовательность вызовов dApp допустима.
+Вызывает [вызываемую функцию](/ru/ride/v5/functions/callable-function) dApp. Отличается от функции [invoke](#invoke) только отсутствием ограничения на [повторные вызовы](#reentrancy) исходного dApp, который использовал `reentrantInvoke`.
+
+Однако, если исходный dApp был вызван повторно и на этот раз использовал функцию `invoke`, то в этом стеке вызовов нельзя вызвать исходный dApp еще раз.
+
+Например, последовательность вызовов
+
+```
+→ dApp A
+   → dapp B
+      → dApp A
+         → dApp C
+            → dApp A
+```
+
+* **допустима**, если dApp A вызывает и dApp B, и dApp С с помощью функции `reentrantInvoke`;
+* **завершается ошибкой**, если dApp A вызывает dApp B с помощью функции `reentrantInvoke`, а dApp С — с помощью функции `invoke`.
 
 ```ride
 reentrantInvoke(dApp: Address|Alias, function: String, arguments: List[Any], payments: List[AttachedPayments]): Any
