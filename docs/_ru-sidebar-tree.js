@@ -999,10 +999,6 @@ module.exports = {
           path: ridePath + 'advanced/continuation',
         },*/
         {
-          title: 'Подключение библиотек',
-          path: ridePath + 'advanced/import',
-        },
-        {
           title: 'Нетерпеливая переменная',
           path: rideV5Path + 'variables',
         },
@@ -1317,6 +1313,10 @@ module.exports = {
           ],
         },
       ],
+    },
+    {
+      title: 'Подключение библиотек',
+      path: ridePath + 'advanced/import',
     },
     {
       title: 'Компоненты Ride',

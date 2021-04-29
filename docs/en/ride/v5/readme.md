@@ -45,10 +45,6 @@ Added the [BigInt](/en/ride/v5/data-types/bigint) data type of 64 bytes (512 bit
 * [toInt(BigInt): Int](/en/ride/v5/functions/built-in-functions/converting-functions#to-int-bigint)
 * [toString(BigInt): String](/en/ride/v5/functions/built-in-functions/converting-functions#to-string-bigint)
 
-## Import Libraries
-
-Added the ability to create script libraries containing definitions of functions and variables, and import them to other scripts. When compiling a dApp script, account or asset script that contains imports, the used functions and variables from libraries are added to the compiled script. [More about library import](/en/ride/advanced/import)
-
 ## Miscellaneous
 
 Added the following built-in functions:

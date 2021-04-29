@@ -1,13 +1,8 @@
-# [Ride v5] Import Libraries
+# Import Libraries
 
 You can create a library script containing function and variable definitions and import the library to other scripts.
 
-When compiling a dApp script, account or asset script that has imported libraries, the used functions and variables from the libraries are added to the compiled script.
-
-## Conditions
-
-* The library and the script that imported it use the [Standard library](/en/ride/script/standard-library) **version 5**.
-* The names of functions and variables are unique within the main script and all connected libraries.
+When compiling a dApp script, account or asset script that has imported libraries, the used functions and variables from the libraries are added to the compiled script. The names of functions and variables must be unique within the main script and all connected libraries.
 
 ## Script library
 
@@ -15,16 +10,14 @@ The library script should start with [directives](/en/ride/script/directives):
 
 ```scala
 {-# STDLIB_VERSION 5 #-}
-{-# CONTENT_TYPE LIBRARY #-}
 ```
 
-After the directives, you can define auxiliary variables and functions. Functions should not have [annotations](/en/ride/functions/annotations).
+After the directives, you can define variables and functions. Functions should not have [annotations](/en/ride/functions/annotations).
 
 Example:
 
 ```scala
 {-# STDLIB_VERSION 5 #-}
-{-# CONTENT_TYPE LIBRARY #-}
 
 let someConstant = 42
 

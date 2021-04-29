@@ -45,10 +45,6 @@ C помощью действий `Lease` и `LeaseCancel` можно измен
 * [toInt(BigInt): Int](/ru/ride/v5/functions/built-in-functions/converting-functions#to-int-bigint)
 * [toString(BigInt): String](/ru/ride/v5/functions/built-in-functions/converting-functions#to-string-bigint)
 
-## Подключение библиотек
-
-Добавлена возможность создавать скрипты-библиотеки, содержащие определения функций и переменных, и подключать их в другие скрипты. При компиляции скрипта dApp, аккаунта или ассета, в котором есть подключенные библиотеки, в скомпилированный скрипт добавляются используемые функции и переменные библиотек. [Подробнее о подключении библиотек](/ru/ride/advanced/import)
-
 ## Разное
 
 Добавлены встроенные функции:
