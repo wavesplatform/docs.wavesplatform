@@ -43,4 +43,4 @@ Application developers can pay fees for dApp script calls of their users and dec
 * [Launch your own node](/en/waves-node/) and get rewarded for block generation.
 * Earn on [leasing WAVES](/en/blockchain/leasing) and [staking USDN](https://waves.exchange/investments/staking/USDN).
 * [Create decentralized applications](/en/building-apps/) for gaming and gambling, DeFi, digital identity, supply chains, and many other purposes.
-* Use [dApps built on Waves](https://wavescap.com/dapps).
+* Use [dApps built on Waves](https://www.dappocean.io/).
