@@ -8,7 +8,8 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| fraction(Int, Int, Int): Int | Умножает два целых числа и делит на третье без переполнения | 1 |
+| fraction(Int, Int, Int): Int | Умножает два целых числа и делит на третье без переполнения | 14 |
+| fraction(Int, Int, Int, Union): Int | Умножает два целых числа и делит на третье без переполнения, применяя указанный метод округления | 17 |
 | fraction(BigInt, BigInt, BigInt): BigInt | Умножает два [больших целых числа](/ru/ride/v5/data-types/bigint) и делит на третье без переполнения | 128 |
 | fraction(BigInt, BigInt, BigInt, Union): BigInt | Умножает два больших целых числа и делит на третье без переполнения, применяя указанный метод округления | 128 |
 | log(Int, Int, Int, Int, Int, Union): Int | Вычисляет логарифм числа по заданному основанию| 100 |
@@ -28,7 +29,7 @@
 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Получает информацию о [блоке](/ru/blockchain/block/) по [высоте блока](/ru/blockchain/block/block-height) | 5 |
 | calculateAssetId(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/v5/structures/script-actions/issue) при выполнении [вызываемой функции](/ru/ride/v5/functions/callable-function) | 10 |
 | calculateLeaseId(Lease): ByteVector | Вычисляет ID лизинга, созданного структурой [Lease](/ru/ride/v5/structures/script-actions/issue) при выполнении вызываемой функции | 1 |
-| hashScriptAtAddress(Address&#124;Alias): ByteVector&#124;Unit | Возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте | 200 |
+| scriptHash(Address&#124;Alias): ByteVector&#124;Unit | Возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте | 200 |
 | transactionHeightById(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 20 |
 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 60 |
 | wavesBalance(Address&#124;Alias): Int | Получает баланс аккаунта в [WAVES](/ru/blockchain/token/waves) | 10 |
@@ -44,11 +45,12 @@
 | rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Проверяют, что цифровая подпись [RSA](https://ru.wikipedia.org/wiki/RSA) достоверна | 500–1000 |
 | sigVerify(ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Проверяют, что цифровая подпись [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна | 47–200 |
 
-## [Функция вызова dApp из dApp](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp)
+## [Функции вызова dApp из dApp](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| Invoke(Address&#124;Alias, String, List[Any], List[AttachedPayments]): Any | Вызывает вызываемую функцию dApp | 75 |
+| invoke(Address&#124;Alias, String, List[Any], List[AttachedPayments]): Any | Вызывает вызываемую функцию dApp, c ограничением на [повторные вызовы](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp#reentrancy) исходного dApp | 75 |
+| reentrantInvoke(Address&#124;Alias, String, List[Any], List[AttachedPayments]): Any | Вызывает вызываемую функцию dApp, без ограничения на повторные вызовы исходного dApp  | 75 |
 
 ## [Функции декодирования](/ru/ride/v5/functions/built-in-functions/decoding-functions)
 
@@ -125,13 +127,21 @@
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | getBinary(Address&#124;Alias, String): ByteVector&#124;Unit | Получает массив байтов по ключу | 10 |
+| getBinary(String): ByteVector&#124;Unit | Получает массив байтов по ключу из собственного хранилища данных | 10 |
 | getBinaryValue(Address&#124;Alias, String): ByteVector | Получает массив байтов по ключу. Завершается ошибкой, если данных нет | 10 |
+| getBinaryValue(String): ByteVector | Получает массив байтов по ключу из собственного хранилища данных. Завершается ошибкой, если данных нет | 10 |
 | getBoolean(Address&#124;Alias, String): Boolean&#124;Unit | Получает логическое значение по ключу | 10 |
+| getBoolean(String): Boolean&#124;Unit | Получает логическое значение по ключу из собственного хранилища данных | 10 |
 | getBooleanValue(Address&#124;Alias, String): Boolean | Получает логическое значение по ключу. Завершается ошибкой, если данных нет | 10 |
-| getInteger(Address&#124;Alias, String | Получает целое число по ключу | 10 |
+| getBooleanValue(String): Boolean | Получает логическое значение по ключу из собственного хранилища данных. Завершается ошибкой, если данных нет | 10 |
+| getInteger(Address&#124;Alias, String): Int&#124;Unit | Получает целое число по ключу | 10 |
+| getInteger(String): Int&#124;Unit | Получает целое число по ключу из собственного хранилища данных | 10 |
 | getIntegerValue(Address&#124;Alias, String): Int | Получает целое число по ключу. Завершается ошибкой, если данных нет | 10 |
+| getIntegerValue(String): Int | Получает целое число по ключу из собственного хранилища данных. Завершается ошибкой, если данных нет | 10 |
 | getString(Address&#124;Alias, String): String&#124;Unit | Получает строку по ключу | 10 |
+| getString(String): String&#124;Unit | Получает строку по ключу из собственного хранилища данных | 10 |
 | getStringValue(Address&#124;Alias, String): String | Получает строку по ключу. Завершается ошибкой, если данных нет | 10 |
+| getStringValue(String): String | Получает строку по ключу из собственного хранилища данных. Завершается ошибкой, если данных нет | 10 |
 | isDataStorageUntouched(Address&#124;Alias): Boolean | Проверяет, что хранилище данных указанного аккаунта никогда не содержало записей | 10 |
 
 ## [Функции списка](/ru/ride/v5/functions/built-in-functions/list-functions)
@@ -173,18 +183,18 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| getInteger(List[], String): Int&#124;Unit | Возвращает целое число из списка записей данных по ключу | 10 |
-| getInteger(List[], Int): Int&#124;Unit | Возвращает целое число из списка записей данных по индексу | 4 |
-| getIntegerValue(List[], String): Int | Возвращает целое число из списка записей данных по ключу. Завершается ошибкой, если данных нет | 10 |
-| getIntegerValue(List[], Int): Int | Возвращает целое число из списка записей данных по индексу. Завершается ошибкой, если данных нет | 4 |
-| getBoolean(List[], String): Boolean&#124;Unit | Возвращает логическое значение из списка записей данных по ключу | 10 |
-| getBoolean(List[], Int): Boolean&#124;Unit | Возвращает логическое значение из списка записей данных по индексу | 4 |
-| getBooleanValue(List[], String): Boolean | Возвращает логическое значение из списка записей данных по ключу. Завершается ошибкой, если данных нет | 10 |
-| getBooleanValue(List[], Int): Boolean | Возвращает логическое значение из списка записей данных по индексу. Завершается ошибкой, если данных нет | 4 |
 | getBinary(List[], String): ByteVector&#124;Unit | Возвращает массив байтов из списка записей данных по ключу | 10 |
 | getBinary(List[], Int): ByteVector&#124;Unit | Возвращает массив байтов из списка записей данных по индексу | 4 |
 | getBinaryValue(List[], String): ByteVector | Возвращает массив байтов из списка записей данных по ключу. Завершается ошибкой, если данных нет | 10 |
 | getBinaryValue(List[], Int): ByteVector | Возвращает массив байтов из списка записей данных по индексу. Завершается ошибкой, если данных нет | 4 |
+| getBoolean(List[], String): Boolean&#124;Unit | Возвращает логическое значение из списка записей данных по ключу | 10 |
+| getBoolean(List[], Int): Boolean&#124;Unit | Возвращает логическое значение из списка записей данных по индексу | 4 |
+| getBooleanValue(List[], String): Boolean | Возвращает логическое значение из списка записей данных по ключу. Завершается ошибкой, если данных нет | 10 |
+| getBooleanValue(List[], Int): Boolean | Возвращает логическое значение из списка записей данных по индексу. Завершается ошибкой, если данных нет | 4 |
+| getInteger(List[], String): Int&#124;Unit | Возвращает целое число из списка записей данных по ключу | 10 |
+| getInteger(List[], Int): Int&#124;Unit | Возвращает целое число из списка записей данных по индексу | 4 |
+| getIntegerValue(List[], String): Int | Возвращает целое число из списка записей данных по ключу. Завершается ошибкой, если данных нет | 10 |
+| getIntegerValue(List[], Int): Int | Возвращает целое число из списка записей данных по индексу. Завершается ошибкой, если данных нет | 4 |
 | getString(List[] String): String&#124;Unit | Возвращает строку из списка записей данных по ключу | 10 |
 | getString(List[], Int): String&#124;Unit | Возвращает строку из списка записей данных по индексу | 4 |
 | getStringValue(List[], String): String | Возвращает строку из списка записей данных по ключу. Завершается ошибкой, если данных нет | 10 |

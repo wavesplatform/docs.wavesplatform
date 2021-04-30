@@ -5,7 +5,7 @@
 Structure of a payment attached to the script invocation and available to the [callable function](/en/ride/v5/functions/callable-function). The structure is used in:
 * [Invocation](/en/ride/v5/structures/common-structures/invocation) structure;
 * [InvokeScriptTransaction](/en/ride/v5/structures/transaction-structures/invoke-script-transaction) structure;
-* [Invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp) function.
+* [invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp#invoke) and [reentrantInvoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp#reentrantinvoke) functions.
 
 ## Constructor
 

@@ -9,16 +9,19 @@
    * Отменена дополнительная комиссия 0,004 WAVES за выполнение скриптов ассетов в платежах и действиях скрипта.
    * Транзакция может содержать до 10 приложенных платежей.
    * Суммарная сложность всех вызываемых функций и скриптов ассетов в одной транзакции — не более 26&nbsp;000 (cложность скрипта отправителя не учитывается в этом лимите). 
+   * Максимальная сложность вызываемой функции скрипта dApp изменена на 10&nbsp;000.
 * Для всех типов транзакций отменена дополнительная комиссия 0,004 WAVES за отправку транзакции со смарт-аккаунта или dApp, в случае если сложность скрипта аккаунта или функции-верификатора dApp-скрипта не превышает 200.
 
-<!--* **Вычисления с продолжением.** Добавлена поддержка dApp-скриптов, сложность которых превышает 4000. Выполнение такого скрипта разбивается на несколько этапов: первый этап вычислений выполняется в рамках транзакции вызова скрипта, последующие этапы — в рамках транзакций продолжения. [Подробнее о вычислениях с продолжением](/ru/ride/advanced/continuation)
+<!--* **Вычисления с продолжением.** Добавлена поддержка dApp-скриптов, сложность которых превышает 10&nbsp;000. Выполнение такого скрипта разбивается на несколько этапов: первый этап вычислений выполняется в рамках транзакции вызова скрипта, последующие этапы — в рамках транзакций продолжения. [Подробнее о вычислениях с продолжением](/ru/ride/advanced/continuation)
    * Добавлен новый тип транзакции: [Continuation](/ru/blockchain/transaction-type/continuation-transaction). Транзакция продолжения создается генератором блока автоматически в случае наличия незавершенной цепочки вычислений. Транзакция не может быть отправлена пользователем.-->
 
 ### Ride
 
 * Выпущена [версия 5](/ru/ride/v5/) Стандартной библиотеки.
 * Реализована возможность обрабатывать в dApp до 10 платежей, приложенных к транзакции вызова скрипта.
-* Добавлена функция [Invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp) для вызова dApp из dApp.
+* Добавлены функции для вызова dApp из dApp:
+   * [invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp#invoke)
+   * [reentrantInvoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp#reentrantinvoke)
 * Добавлены [нетерпеливые переменные](/ru/ride/v5/variables/), которые вычисляются до следующего выражения, чтобы гарантировать порядок выполнения и применения действий скрипта вызываемых функций.
 * Изменен [формат результата](/ru/ride/v5/functions/callable-function#result) вызываемой функции: добавлено возвращаемое значение.
 * Изменена структура [Invocation](/ru/ride/v5/structures/common-structures/invocation): в случае вызова dApp из dApp она содержит адрес и публичный ключ как отправителя транзакции вызова скрипта, так и аккаунта dApp, который вызывает функцию.
@@ -50,9 +53,9 @@
    * [toString(BigInt): String](/ru/ride/v5/functions/built-in-functions/converting-functions#to-string-bigint)
 * Добавлены встроенные функции:
    * [isDataStorageUntouched](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions#isdatastorageuntouched) — проверяет, что хранилище данных указанного аккаунта никогда не содержало записей.
-   * [hashScriptAtAddress](/ru/ride/v5/functions/built-in-functions/blockchain-functions#hashscriptataddress) — возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте.
-
-<!--* Добавлены [функции хранилища данных аккаунта](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions), позволяющие dApp-скрипту читать данные собственного хранилища данных на любом этапе вычислений:
+   * [scriptHash](/ru/ride/v5/functions/built-in-functions/blockchain-functions#scripthash) — возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте.
+   * [fraction(Int, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionintround) — умножает два целых числа и делит на третье без переполнения, применяя указанный метод округления.
+* Добавлены встроенные [функции хранилища данных аккаунта](/ru/ride/v6/functions/built-in-functions/account-data-storage-functions), позволяющие dApp-скрипту читать записи из собственного хранилища данных:
    * `getBinary(key: String): ByteVector|Unit`
    * `getBinaryValue(key: String): ByteVector`
    * `getBoolean(key: String): Boolean|Unit`
@@ -60,7 +63,8 @@
    * `getInteger(key: String): Int|Unit`
    * `getIntegerValue(key: String): Int`
    * `getString(key: String): String|Unit`
-   * `getStringValue(key: String): String`-->
+   * `getStringValue(key: String): String`
+* Максимальная сложность вызываемой функции скрипта dApp изменена на 10&nbsp;000.
 
 ### Node REST API
 

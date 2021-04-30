@@ -2,7 +2,7 @@
 
 :warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/functions/callable-function)
 
-**Вызываемая функция** — функция [dApp-скрипта](/ru/ride/script/script-types/dapp-script), которая может быть вызвана с помощью [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) или функции [Invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp).
+**Вызываемая функция** — функция [dApp-скрипта](/ru/ride/script/script-types/dapp-script), которая может быть вызвана с помощью [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) или функции `invoke` или `reentrantInvoke` (см. раздел [Вызов dApp из dApp](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp)).
 
 dApp-скрипт может содержать несколько вызываемых функций.
 
