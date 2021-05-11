@@ -4,7 +4,19 @@ This article provides answers to questions related to Waves Node.
 
 ## `How do I disconnect from other nodes?`
 
-**Answer**: You can disconnect from other nodes by setting `waves.network.known-peers` parameter to `[]` (default value) in your [node configuration file](/en/waves-node/node-configuration) and temporarily renaming the `peers.dat` file.
+**Answer**: Stop the node by killing Waves java process or execute the following command:
+
+```bash
+# sudo systemctl stop waves
+```
+
+Then set `waves.network.known-peers` parameter to `[]` (default value) in your [node configuration file](/en/waves-node/node-configuration) and temporarily rename the `peers.dat` file.
+
+Then run your Node again with the following command:
+
+```bash
+java -jar waves.jar waves.conf
+```
 
 ## `My node deployed in Docker crashed right after running. Why? What do I do?`
 
@@ -86,19 +98,21 @@ kernel: Out of memory: Kill process 6033 (java) score 367 or sacrifice child
 kernel: Killed process 6033 (java) total-vm:29930040kB, anon-rss:10625048kB, file-rss:0kB, shmem-rss:24kB
 ```
 
-**Solution**: Make sure that the value of `-Xmx` parameter does not exceed the amount of the available RAM (there is enough RAM for the needs of the OS). If the value of `-Xmx` parameter exceeds the available RAM, you can reduce the value of `-Xmx` parameter. [How to change the value of `-Xmx` parameter](#how-to-setup-xmx-parameter). You can also disable other heavy processes consuming the RAM and/or increase the amount of RAM by [adding swap space](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-18-04).
+**Solution**: Make sure that the value of `-Xmx` parameter does not exceed the amount of the available RAM (there is enough RAM for the needs of the OS). If the value of `-Xmx` parameter exceeds the available RAM, you can reduce the value of `-Xmx` parameter. [How to change the value of `-Xmx` parameter](#how-to-setup-xmx-parameter). You can also disable other heavy processes consuming the RAM and/or increase the amount of RAM by [adding swap space](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-18-04). The value of `-Xmx` parameter must be not more than 3/4 of the available memory if the swap is enabled.
 
 If the provided solutions do not help, send to Waves team the fragments of the involved logs and the fragment of `waves.log` with the records before the node crashed.
 
 ## `How to setup -Xmx parameter?`
 
-**Answer**: You can setup `-Xmx` parameter of your node either in `application.ini` file (DEB node) or by entering the `-Xmx` parameter in the command line starting the node (jar node). Use the following command (replace {*} with actual file name):
+**Answer**: You can set `-J-Xmx` parameter of your node either in `application.ini` file (DEB node) or by adding the `-Xmx` parameter in the command line starting the node (jar node). Use the following command (replace {*} with actual file name):
 
 ```bash
 java -Xmx2g -jar {*}.jar {*}.conf
 ```
 
 **Note**: Ubuntu Server version 18.04/20.04 should have at least 512MB of RAM for the needs of OS. If your total RAM is less than 2GB, you can expand it by [adding swap space](https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-18-04).
+
+For example, if you want to dedicate 4 gigabytes to your DEB node, open `application.ini` file (MainNet DEB node path: `/etc/waves/application.ini`), find `-J-Xmx**` parameter and change it to `-J-Xmx4g`.
 
 ## Other Issues
 
