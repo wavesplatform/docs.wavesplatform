@@ -157,10 +157,11 @@ The [gRPC Server](/en/waves-node/extensions/grpc-server/) extension can be insta
 
    ```bash
    java -cp 'waves-all-{version number}.jar;grpc-server-{version number}/lib/*' com.wavesplatform.Application {configuration file name}.conf
+   ```
 
 ## gRPC on Public Nodes
 
-The Waves team provides node pools with public gRPC services:
+You can connect to the public gRPC services provided by the Waves team for getting acquainted:
 
 * Mainnet: https://nodes.wavesnodes.com:6870
 * Testnet: https://nodes-testnet.wavesnodes.com:6870
