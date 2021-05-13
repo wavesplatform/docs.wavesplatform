@@ -21,7 +21,7 @@ Multiplies [integers](/en/ride/v5/data-types/int) `a`, `b` and divides the resul
 
 Fraction `a × b / c` should not exceed the maximum value of the integer type 9,223,372,036,854,755,807.
 
-The rounding method is DOWN, see [Rounding variables](#rounding variables) below.
+The rounding method is DOWN, see [Rounding variables](#rounding-variables) below.
 
 ```ride
 fraction(a: Int, b: Int, c: Int): Int
@@ -82,7 +82,7 @@ Multiplies [big integers](/en/ride/v5/data-types/bigint) `a`, `b` and divides th
 
 Fraction `a × b / c` should not exceed the maximum value of the big integer type.
 
-The rounding method is DOWN, see [Rounding variables](#rounding variables) below.
+The rounding method is DOWN, see [Rounding variables](#rounding-variables) below.
 
 ```ride
 fraction(a: BigInt, b: BigInt, c: BigInt): BigInt

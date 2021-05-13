@@ -74,7 +74,7 @@ log(value: Int, ep: Int, base: Int, bp: Int, rp: Int, round: UP|DOWN|CEILING|FLO
 | `base`: [Int](/ru/ride/data-types/int) | Основание логарифма `b` без десятичной точки |
 | `bp`: [Int](/ru/ride/data-types/int) | Количество знаков после запятой у `b` |
 | `rp`: [Int](/ru/ride/data-types/int) | Количество знаков после запятой у результата, от 0 до 8 включительно. Задает точность вычисления |
-| `round`: UP&#124;DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFDOWN&#124;HALFEVEN | Одна из [переменных округления](#переменные-округления) |
+| `round`: UP&#124;DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFDOWN&#124;HALFEVEN | Одна из [переменных округления](#rounding-variables) |
 
 ### Примеры
 
@@ -134,7 +134,7 @@ pow(base: Int, bp: Int, exponent: Int, ep: Int, rp: Int, round: UP|DOWN|CEILING|
 | `exponent`: [Int](/ru/ride/data-types/int) | Показатель степени `b` без десятичной точки |
 | `ep`: [Int](/ru/ride/data-types/int) | Количество знаков после запятой у `b` |
 | `rp`: [Int](/ru/ride/data-types/int) | Количество знаков после запятой у результата, от 0 до 8 включительно. Задает точность вычисления |
-| `round`: UP&#124;DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFDOWN&#124;HALFEVEN | Одна из [переменных округления](#переменные-округления) |
+| `round`: UP&#124;DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFDOWN&#124;HALFEVEN | Одна из [переменных округления](#rounding-variables) |
 
 ### Примеры
 
@@ -145,7 +145,7 @@ pow(1625, 2, 27, 1, 2, HALFUP) # function returns 185911, so the result is: 1859
 pow(1625, 2, 27, 1, 5, HALFUP) # function returns 185910572, so, the result is: 1859.10572
 ```
 
-## Переменные округления
+## Переменные округления<a id="rounding-variables"></a>
 
 Переменные округления соответствуют [методам округления](https://ru.wikipedia.org/wiki/Округление).
 
