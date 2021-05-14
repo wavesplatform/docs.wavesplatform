@@ -1,6 +1,6 @@
 # Release Notes
 
-## Version 1.3 (Testnet, Stagenet)
+## Version 1.3 Jumeirah (Testnet, Stagenet)
 
 ### Protocol Enhancements
 
