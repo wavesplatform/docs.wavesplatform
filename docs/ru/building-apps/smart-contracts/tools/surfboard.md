@@ -16,13 +16,13 @@ Surfboard из коробки поддерживает функции для в�
 2. Установите Surfboard:
 
    ```bash
-   nmp i -g @waves/surfboard@latest
+   npm i -g @waves/surfboard@latest
    ```
 
    :bulb: Бета-версия Surfboard поддерживает новые функции протокола Waves, доступные только на Stagenet:
 
    ```bash
-   nmp i -g @waves/surfboard@beta
+   npm i -g @waves/surfboard@beta
    ```
 
 3. Создайте пустую папку и выполните в ней команду:

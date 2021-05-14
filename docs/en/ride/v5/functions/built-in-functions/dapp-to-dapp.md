@@ -137,7 +137,22 @@ func bar(a: Int) = {
 
 ## reentrantInvoke
 
-Invokes a dApp callable function. The only difference from the [invoke](#invoke) function is that there is no [reentrancy restriction](#reentrancy) of the parent dApp: any sequence of dApp invocations is allowed.
+Invokes a dApp [callable function](/en/ride/v5/functions/callable-function). The only difference from the [invoke](#invoke) function is that there is no [reentrancy restriction](#reentrancy) for the parent dApp that uses `reentrantInvoke`.
+
+However, if the parent dApp is invoked again and this time uses the `invoke` function, the parent dApp cannot be invoked again in this invocation stack.
+
+For example, the invocation stack
+
+```
+→ dApp A
+   → dapp B
+      → dApp A
+         → dApp C
+            → dApp A
+```
+
+* is **valid** if dApp A invokes both dApp B and dApp C via the `reentrantInvoke` function;
+* **fails** if dApp A invokes dApp B via the `reentrantInvoke` function and invokes dApp C via the `invoke` function.
 
 ```ride
 reentrantInvoke(dApp: Address|Alias, function: String, arguments: List[Any], payments: List[AttachedPayments]): Any

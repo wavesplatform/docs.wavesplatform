@@ -21,7 +21,7 @@
 
 Результат `a × b / c` не должен превышать максимальное целочисленное значение 9&nbsp;223&nbsp;372&nbsp;036&nbsp;854&nbsp;755&nbsp;807.
 
-Используется метод округления DOWN, см. [Переменные округления](#переменные-округления) ниже.
+Используется метод округления DOWN, см. [Переменные округления](#rounding-variables) ниже.
 
 ```ride
 fraction(a: Int, b: Int, c: Int): Int
@@ -74,7 +74,7 @@ fraction(a: Int, b: Int, c: Int, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): Int
 | `a`: Int | Целое `a` |
 | `b`: Int | Целое `b` |
 | `c`: Int | Целое `c` |
-| `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | Одна из [переменных округления](#переменные-округления) |
+| `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | Одна из [переменных округления](#rounding-variables) |
 
 ## fraction(BigInt, BigInt, BigInt): BigInt<a id="fractionbigint"></a>
 
@@ -82,7 +82,7 @@ fraction(a: Int, b: Int, c: Int, round: DOWN|CEILING|FLOOR|HALFUP|HALFEVEN): Int
 
 Результат `a × b / c` не должен превышать максимальное значение большого целого.
 
-Используется метод округления DOWN, см. [Переменные округления](#переменные-округления) ниже.
+Используется метод округления DOWN, см. [Переменные округления](#rounding-variables) ниже.
 
 ```ride
 fraction(a: BigInt, b: BigInt, c: BigInt): BigInt
@@ -112,7 +112,7 @@ fraction(a: BigInt, b: BigInt, c: BigInt, round: DOWN|CEILING|FLOOR|HALFUP|HALFE
 | `a`: BigInt | Большое целое `a` |
 | `b`: BigInt | Большое целое `b` |
 | `c`: BigInt | Большое целое `c` |
-| `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | Одна из [переменных округления](#переменные-округления) |
+| `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | Одна из [переменных округления](#rounding-variables) |
 
 ## log(Int, Int, Int, Int, Int, Union): Int<a id="log"></a>
 
@@ -143,7 +143,7 @@ log(value: Int, ep: Int, base: Int, bp: Int, rp: Int, round: DOWN|CEILING|FLOOR|
 | `base`: [Int](/ru/ride/v5/data-types/int) | Основание логарифма `b` без десятичной точки |
 | `bp`: [Int](/ru/ride/v5/data-types/int) | Количество знаков после запятой у `b` |
 | `rp`: [Int](/ru/ride/v5/data-types/int) | Количество знаков после запятой у результата, от 0 до 8 включительно. Задает точность вычисления |
-| `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | Одна из [переменных округления](#переменные-округления) |
+| `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | Одна из [переменных округления](#rounding-variables) |
 
 ### Примеры
 
@@ -179,7 +179,7 @@ log(value: BigInt, ep: Int, base: BigInt, bp: Int, rp: Int, round: DOWN|CEILING|
 | `base`: [BigInt](/ru/ride/v5/data-types/bigint) | Основание логарифма `b` без десятичной точки |
 | `bp`: [Int](/ru/ride/v5/data-types/int) | Количество знаков после запятой у `b` |
 | `rp`: [Int](/ru/ride/v5/data-types/int) | Количество знаков после запятой у результата, от 0 до 18 включительно. Задает точность вычисления |
-| `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | Одна из [переменных округления](#переменные-округления) |
+| `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | Одна из [переменных округления](#rounding-variables) |
 
 ## median(List[Int]): Int<a id="median"></a>
 
@@ -238,7 +238,7 @@ pow(base: Int, bp: Int, exponent: Int, ep: Int, rp: Int, round: DOWN|CEILING|FLO
 | `exponent`: [Int](/ru/ride/v5/data-types/int) | Показатель степени `b` без десятичной точки |
 | `ep`: [Int](/ru/ride/v5/data-types/int) | Количество знаков после запятой у `b` |
 | `rp`: [Int](/ru/ride/v5/data-types/int) | Количество знаков после запятой у результата, от 0 до 8 включительно. Задает точность вычисления |
-| `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | Одна из [переменных округления](#переменные-округления) |
+| `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | Одна из [переменных округления](#rounding-variables) |
 
 ### Примеры
 
@@ -270,9 +270,9 @@ pow(base: BigInt, bp: Int, exponent: BigInt, ep: Int, rp: Int, round: DOWN|CEILI
 | `exponent`: [BigInt](/ru/ride/v5/data-types/bigint) | Показатель степени `b` без десятичной точки |
 | `ep`: [Int](/ru/ride/v5/data-types/int) | Количество знаков после запятой у `b` |
 | `rp`: [Int](/ru/ride/v5/data-types/int) | Количество знаков после запятой у результата, от 0 до 18 включительно. Задает точность вычисления |
-| `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | Одна из [переменных округления](#переменные-округления) |
+| `round`: DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFEVEN | Одна из [переменных округления](#rounding-variables) |
 
-## Переменные округления
+## Переменные округления<a id="rounding-variables"></a>
 
 Переменные округления соответствуют [методам округления](https://ru.wikipedia.org/wiki/Округление).
 

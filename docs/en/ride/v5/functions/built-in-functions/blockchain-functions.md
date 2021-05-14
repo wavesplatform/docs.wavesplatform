@@ -10,7 +10,7 @@
 | [blockInfoByHeight(Int): BlockInfo&#124;Unit](#blockinfobyheight) | Gets the information about a [block](/en/blockchain/block/) by the [block height](/en/blockchain/block/block-height) | 5 |
 | [calculateAssetId(Issue): ByteVector](#calculateassetid) | Calculates ID of the token formed by the [Issue](/en/ride/v5/structures/script-actions/issue) structure when executing the [callable function](/en/ride/v5/functions/callable-function) | 10 |
 | [calculateLeaseId(Lease): ByteVector](#calculateleaseid) | Calculates ID of the lease formed by the [Lease](/en/ride/v5/structures/script-actions/lease) structure when executing the callable function | 1 |
-| [hashScriptAtAddress(Address&#124;Alias): ByteVector&#124;Unit](#hashscriptataddress) | Returns [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) hash of the script assigned to a given account | 200 |
+| [scriptHash(Address&#124;Alias): ByteVector&#124;Unit](#scripthash) | Returns [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) hash of the script assigned to a given account | 200 |
 | [transactionHeightById(ByteVector): Int&#124;Unit](#transactionheightbyid) | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 20 |
 | [transferTransactionById(ByteVector): TransferTransaction&#124;Unit](#transfertransactionbyid) | Gets the data of a transfer transaction | 60 |
 | [wavesBalance(Address&#124;Alias): BalanceDetails](#waves-balance) | Gets account balance in [WAVES](/en/blockchain/token/waves) | 10 |
@@ -218,14 +218,14 @@ func foo() = {
 }
 ```
 
-## hashScriptAtAddress
+## scriptHash
 
 Returns [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) hash of the script assigned to a given account. Returns `unit` if there is no script.
 
 The function can be used to verify that the script is exactly the same as expected.
 
 ```
-hashScriptAtAddress(addressOrAlias: Address|Alias): ByteVector|Unit
+scriptHash(addressOrAlias: Address|Alias): ByteVector|Unit
 ```
 
 ### Parameters
@@ -239,7 +239,7 @@ hashScriptAtAddress(addressOrAlias: Address|Alias): ByteVector|Unit
 ```scala
 let addr = Address(base58'3MxBZbnN8Z8sbYjjL5N3oG5C8nWq9NMeCEm')
 
-hashScriptAtAddress(addr) # Returns base58'G6ihnWN5mMedauCgNa8TDrSKWACPJKGQyYagmMQhPuja'
+scriptHash(addr) # Returns base58'G6ihnWN5mMedauCgNa8TDrSKWACPJKGQyYagmMQhPuja'
 ```
 
 ## transactionHeightById

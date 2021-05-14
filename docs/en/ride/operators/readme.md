@@ -10,6 +10,8 @@
 | / | Division |
 | % | Remainder |
 
+> The **/** operator uses the FLOOR rounding method, see [Rounding variables](/en/ride/functions/built-in-functions/math-functions#rounding-variables). For example, the result of `-1 / 100` is `-1`.
+
 ## Comparison operators
 
 | Operator | Description |

@@ -8,6 +8,8 @@ This article provides answers for frequently asked questions about block generat
 
 * Check your [generating balance](/en/blockchain/account/account-balance#account-balance-in-waves-token). To start generating blocks, you need to have 1000 WAVES on your balance during 1000 blocks (including WAVES leased to the node). [How to check or top up balance](/en/blockchain/account/account-balance#top-up-and-view-account-balance).
 
+* Check that there is no script assigned to node's account.
+
 * Make sure that the node is not on fork. [How to detect and fix fork](/en/waves-node/#deal-with-forks).
 
 * Make sure that the node wallet is properly setup. To do this, in the `waves.log` file find messages about the node's attempts to generate blocks (`Next attempt`) and check the address (`acc=`) of the generating node. If the address does not match the address of your node, check the [wallet settings](/en/waves-node/node-configuration#wallet-settings) in your node configuration file.

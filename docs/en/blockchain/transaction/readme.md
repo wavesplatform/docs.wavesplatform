@@ -1,6 +1,6 @@
 # Transaction
 
-**Transaction** is an action on the [blockchain](/en/blockchain/blockchain/) on behalf of an [account](/en/blockchain/account/). 
+**Transaction** is an action on the [blockchain](/en/blockchain/blockchain/) on behalf of an [account](/en/blockchain/account/).
 
 The Waves blockchain provides various types of transactions. For example:
 
@@ -11,7 +11,7 @@ Content of transaction depends on its type. Transaction types are listed in the 
 
 ## Sender and Signature
 
-Each transaction<!-- (except a [Continuation transactoin](/en/blockchain/transaction-type/continuation-transaction)))--> contains the public key of sender account, on behalf of which the action is performed on the blockchain. Transaction that is sent from an ordinary account (without script) must contain the sender's digital signature. Smart accounts and dApps can set their own rules for outgoing transactions verification. See the [Transaction Signature and Proofs](/en/blockchain/transaction/transaction-proof) article for more information.
+Each transaction contains the public key of sender account, on behalf of which the action is performed on the blockchain. Transaction that is sent from an ordinary account (without script) must contain the sender's digital signature. Smart accounts and dApps can set their own rules for outgoing transactions verification. See the [Transaction Signature and Proofs](/en/blockchain/transaction/transaction-proof) article for more information.
 
 ## Transaction Fee
 
@@ -52,7 +52,7 @@ Here is an example of JSON representation:
 | *id* | Transaction ID. For the transaction ID calculation method, see the [Cryptographic Practical Details](/en/blockchain/waves-protocol/cryptographic-practical-details#calculating-transaction-id) article |
 | type | Transaction type. Type IDs are listed in the [Transaction Type](/en/blockchain/transaction-type/) article |
 | version | Transaction version. Versions for each type of transaction are listed in [transaction binary format](/en/blockchain/binary-format/transaction-binary-format/) descriptions |
-| *applicationStatus* | Status of transaction execution:<br>- `succeeded`: transaction is successful.<br>- `script_execution_failed`: the dApp script or the asset script failed.<!-- br>- `script_execution_in_progress` (for an Invoke Script transaction only) — the computation sequence is not completed yet, see the [Continued Computations](/en/ride/advanced/continuation) article.--><br>The field is enabled with feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. See the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article for details.<!-- br>The `script_execution_in_progress` value is added in node version 1.4.0 and enabled with feature #17 “Ride V6”. Versions 1.4.x are now available for [Stagenet](/en/blockchain/blockchain-network/) only--> |
+| *applicationStatus* | Status of transaction execution:<br>- `succeeded`: transaction is successful.<br>- `script_execution_failed`: the dApp script or the asset script failed. <br>The field is enabled with feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. See the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article for details. |
 | timestamp | Transaction timestamp specified by the sender: Unix time in milliseconds. The transaction cannot be added to the blockchain if the timestamp value is more than 2 hours behind or 1.5 hours ahead of current block timestamp |
 | *height* | The sequence number of the block that contains the transaction |
 
@@ -99,7 +99,7 @@ You can get the transaction by ID, or the list of transactions by certain accoun
    * the `POST /transactions/broadcast` method sends a signed transaction to a node;
    * the `POST /transactions/sign` method generates transaction signature (but this method is only available to the node owner).
 
-## After Transaction Is Sent<a id="utx-pool"></a>
+## After Transaction Is Sent <a id="utx-pool"></a>
 
 Upon receiving a transaction, the node validates its signature, checks the sender's balance, and so on, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article for details. If the transaction is valid, the node puts the transaction to the UTX pool that is a list of transactions awaiting to be added, and also broadcasts the transaction to other nodes of the blockchain network.
 
