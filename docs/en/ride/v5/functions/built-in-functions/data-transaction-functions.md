@@ -1,6 +1,6 @@
 # [Ride v5] Data transaction functions
 
-:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/functions/built-in-functions/data-transaction-functions)
+:warning: This is the documentation for the Standard Library **version 5**, which becomes available after activation of feature #16 “Ride V5, dApp-to-dApp invocations”. [Go to version 4](/en/ride/functions/built-in-functions/data-transaction-functions)
 
 The functions listed below retrieve data by key from the [Data transaction](/en/ride/v5/structures/transaction-structures/data-transaction) structure or from any list of data entries.
 

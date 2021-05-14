@@ -1,6 +1,6 @@
 # [Ride v5] Функции транзакции данных
 
-:warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/functions/built-in-functions/data-transaction-functions)
+:warning: Это документация Стандартной библиотеки **версии 5**, которая доступна с момента активации фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”. [Перейти к&nbsp;версии&nbsp;4](/ru/ride/functions/built-in-functions/data-transaction-functions)
 
 Приведенные в этом разделе функции получают данные ключу из структуры [транзакции данных](/ru/ride/v5/structures/transaction-structures/data-transaction) или из произвольного списка записей.
 

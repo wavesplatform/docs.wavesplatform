@@ -1,6 +1,6 @@
 # [Ride v5] Built-in functions
 
-:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/functions/built-in-functions/)
+:warning: This is the documentation for the Standard Library **version 5**, which becomes available after activation of feature #16 “Ride V5, dApp-to-dApp invocations”. [Go to version 4](/en/ride/functions/built-in-functions/)
 
 A **built-in function** is a [function](/en/ride/functions/) of the [Standard library](/en/ride/script/standard-library).
 

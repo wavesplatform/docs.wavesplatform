@@ -95,4 +95,4 @@ match tx {
 
 If the transaction is sent from a smart account, the transaction fee is increased by 0.004 WAVES. So if the transaction fee is 0.001 WAVES, the owner of the smart account will pay 0.001 + 0.004 = 0.005 WAVES.
 
-Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the extra fee of 0.004 WAVES is only required if the complexity of the account script exceeds the [sender complexity threshold](/en/ride/limits/). Versions 1.3.x are currently available for [Stagenet](/en/blockchain/blockchain-network/) only.
+Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the extra fee of 0.004 WAVES is only required if the complexity of the account script exceeds the [sender complexity threshold](/en/ride/limits/).

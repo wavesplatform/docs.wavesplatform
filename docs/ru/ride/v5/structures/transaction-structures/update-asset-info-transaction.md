@@ -1,6 +1,6 @@
 # [Ride v5] UpdateAssetInfoTransaction
 
-:warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/structures/transaction-structures/update-asset-info-transaction)
+:warning: Это документация Стандартной библиотеки **версии 5**, которая доступна с момента активации фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”. [Перейти к&nbsp;версии&nbsp;4](/ru/ride/structures/transaction-structures/update-asset-info-transaction)
 
 Структура [транзакции обновления информации ассета](/ru/blockchain/transaction-type/update-asset-info-transaction).
 

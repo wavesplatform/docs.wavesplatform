@@ -1,6 +1,6 @@
 # [Ride v5] SponsorFee
 
-:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/structures/script-actions/sponsor-fee)
+:warning: This is the documentation for the Standard Library **version 5**, which becomes available after activation of feature #16 “Ride V5, dApp-to-dApp invocations”. [Go to version 4](/en/ride/structures/script-actions/sponsor-fee)
 
 `SponsorFee` is a structure that sets up sponsorship. For information about sponsorship, see the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article. The sponsorship setup is performed only if the structure is included in the resulting expression of the callable function. See details in the [Callable Function](/en/ride/v5/functions/callable-function) article.
 

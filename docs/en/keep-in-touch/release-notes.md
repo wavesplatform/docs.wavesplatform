@@ -1,6 +1,6 @@
 # Release Notes
 
-## Version 1.3 (Stagenet)
+## Version 1.3 Jumeirah (Testnet, Stagenet)
 
 ### Protocol Enhancements
 
@@ -273,7 +273,7 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
 
 To activate the improvements listed above, vote for feature #16 “Ride V5, dApp-to-dApp invocations”.
 
-## Version 1.2
+## Version 1.2 Malibu
 
 ### Protocol Enhancements
 

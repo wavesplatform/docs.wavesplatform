@@ -1,6 +1,6 @@
 # [Ride v5] BigInt
 
-:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only.
+:warning: This is the documentation for the Standard Library **version 5**, which becomes available after activation of feature #16 “Ride V5, dApp-to-dApp invocations”.
 
 `BigInt` is a special numeric [data type](/en/ride/v5/data-types/) designed to handle values outside the range of [Int](/en/ride/v5/data-types/int) and to perform high accuracy calculations.
 

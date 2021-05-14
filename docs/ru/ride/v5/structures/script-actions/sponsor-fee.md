@@ -1,6 +1,6 @@
 # [Ride v5] SponsorFee
 
-:warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/structures/script-actions/sponsor-fee)
+:warning: Это документация Стандартной библиотеки **версии 5**, которая доступна с момента активации фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”. [Перейти к&nbsp;версии&nbsp;4](/ru/ride/structures/script-actions/sponsor-fee)
 
 `SponsorFee` — cтруктура, задающая настройки спонсирования. Подробнее о спонсировании см. в разделе [Спонсирование комиссии](/ru/blockchain/waves-protocol/sponsored-fee). Установка или отмена спонсирования выполняется, только если структура включена в результирующее выражение вызываемой функции. Подробнее см. в разделе [Вызываемая функция](/ru/ride/v5/functions/callable-function).
 

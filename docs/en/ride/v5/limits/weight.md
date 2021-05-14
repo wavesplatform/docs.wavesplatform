@@ -1,6 +1,6 @@
 # [Ride v5] Data Weight
 
-:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/limits/)
+:warning: This is the documentation for the Standard Library **version 5**, which becomes available after activation of feature #16 “Ride V5, dApp-to-dApp invocations”. [Go to version 4](/en/ride/limits/)
 
 The weight of each value approximately corresponds to its size in bytes. Weight is used in [limitations](#limitations) on creating and comparing values.
 
