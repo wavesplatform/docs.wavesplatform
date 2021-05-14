@@ -1,5 +1,9 @@
 # Documentation Updates
 
+## June
+
+* [Node Configuration](/en/waves-node/node-configuration): added the `minimum-peers` parameter.
+
 ## March
 
 * [Blockchain Updates Extension](/en/waves-node/extensions/blockchain-updates) — <span style="color:green">updated</span>

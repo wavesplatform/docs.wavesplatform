@@ -193,6 +193,7 @@ The `rest-api` section in the node configuration file contains settings of [Node
 | `transactions-by-address-limit` | • Maximum `limit` value in request to&nbsp;`/transactions/address/{address}/limit/{limit}`<br>• Maximum number of transactions in request to&nbsp;`/transactions/status` | 1000 |
 | `distribution-address-limit` | Maximum `limit` value in request to&nbsp;`/assets/{assetId}/distribution/{height}/limit/{limit}` | 1000 |
 | `limited-pool-threads` | Maximum number of threads that process requests to&nbsp;`/utils/script/compile*`, `/utils/script/decompile`, `/utils/script/estimate` (the processing time for each request is limited) | 2 |
+| `minimum-peers` | Minimum required number of connected peers to accept transactions via gRPC or REST API (`broadcast`). If the number of connected peers is less than the specified number, the node rejects transactions received via the API | 3 |
 
 ### Synchronization Settings
 

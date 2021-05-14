@@ -197,6 +197,7 @@ java -jar {*}.jar {*}.conf
 | `transactions-by-address-limit` | • Максимальное значение `limit` в запросе к&nbsp;`/transactions/address/{address}/limit/{limit}`<br>• Максимальное количество транзакций в запросе &nbsp;`/transactions/status` | 1000 |
 | `distribution-address-limit` | Максимальное значение `limit` в запросе к&nbsp;`/assets/{assetId}/distribution/{height}/limit/{limit}` | 1000 |
 | `limited-pool-threads` | Максимальное количество потоков, которые обрабатывают запросы к&nbsp;`/utils/script/compile*`, `/utils/script/decompile`, `/utils/script/estimate` (время обработки каждого запроса ограничено) | 2 |
+| `minimum-peers` | Минимальное количество подключенных peer-нод, необходимое для приема транзакций через gRPC или REST API (метод `broadcast`). Если количество подключенных нод меньше указанного, нода отбрасывает транзакции, поступающие через API | 3 |
 
 ### Настройки синхронизации
 

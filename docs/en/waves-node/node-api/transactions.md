@@ -637,6 +637,8 @@ In the last case, check the transaction status (see the next step) or broadcast 
 
 In case of success, the broadcast operation returns a JSON representation of the transaction with all parameters, including optional ones (in fact, the response body can match the request body).
 
+> For the node to accept transactions using the `POST /transactions/broadcast` operation, the node must be connected to at least the number of peers specified in the `waves.rest-api.minimum-peers` parameter (3 by default), see the [REST API Settings](/en/waves-node/node-configuration#rest-api-settings) section.
+
 ## Step 5. Check Transaction Status
 
 To check if a transaction is added to the blockchain, use one of the public operations:

@@ -1,5 +1,9 @@
 # Обновления в документации
 
+## Июнь
+
+* [Конфигурация ноды](/ru/waves-node/node-configuration) — добавлен параметр `minimum-peers`.
+
 ## Март
 
 * [Расширение Blockchain Updates](/ru/waves-node/extensions/blockchain-updates) — <span style="color:green">обновлено</span>
