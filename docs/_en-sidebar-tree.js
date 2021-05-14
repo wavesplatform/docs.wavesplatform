@@ -987,7 +987,7 @@ module.exports = {
       ],
     },
     {
-      title: 'Version 5 (Stagenet)',
+      title: 'Version 5 (Testnet, Stagenet)',
       path: rideV5Path,
       children: [
         {
