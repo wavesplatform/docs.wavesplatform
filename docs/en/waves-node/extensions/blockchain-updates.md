@@ -25,14 +25,14 @@ Examples of usage:
 
 ## Hardware Requirements
 
-For a node with the Blockchain Updates extension, we recommended to increase the disk space by 50 GB (for instance, at height 2422450, 35 GB is used for extension data).
+For a node with the Blockchain Updates extension, we recommended to increase the disk space by 40 GB (for instance, at height 2595114, 32,5 GB is used for extension data).
 
 ## Launch Node with Extension
 
 :warning: **Important:** Blockchain Updates requires the blockchain database containing the complete history of changes since the blockchain creation. Use one of the following ways to get such a database:
 * Start the node with the extension from scratch and synchronize the blockchain during regular node operation (see the [Synchronize Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article).
 * Import the blockchain from a binary file (see the [Import/Export Blockchain](/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain) article).
-* Download the database archive (see the [Download the Latest Blockchain](/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying) article). Use the `blockchain-updates_last.tar` archive instead of `blockchain_last.tar`.
+* Download the database archives `blockchain_last.tar` and `blockchain-updates_last.tar` (see the [Download the Latest Blockchain](/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying) article). Unpack the `blockchain_last.tar` archive in the directory specified in the [waves.db.directory](/en/waves-node/node-configuration#db-settings) setting (by default, the `data` subdirectory of the base directory of the node). Unpack the `blockchain-updates_last.tar` archive in the `blockchain-updates` subdirectory of the base directory of the node.
 
 There are two ways to install the node with Blockchain Updates extension: using a DEB package or a JAR file. The Blockchain Updates extension is in the same package and archive as [gRPC Server](/en/waves-node/extensions/grpc-server/). You can install these extensions both together and separately, only the settings in the node configuration file differ.
 
