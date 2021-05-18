@@ -1,5 +1,7 @@
 # String functions
 
+:warning: Fixed an error in the implementation of string functions related to incorrect splitting of a string into UTF-8 characters in case of the string contains special characters. The error could lead to invalid strings containing sequences that do not match any UTF-8 character. The fix is applied starting from activation of feature #16 “Ride V5, dApp-to-dApp invocations”, regardless of the version of the Standard library.
+
 | Name | Description | Complexity | 
 | :--- | :--- | :--- |
 | [contains(String, String): Boolean](#contains-string-string-boolean) | Checks whether the string contains substring | 3 |
