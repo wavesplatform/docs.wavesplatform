@@ -41,8 +41,7 @@ sidebarDepth: 2
 Описание функций приведено в [документации библиотеки](https://wavesplatform.github.io/waves-transactions/index.html) на Github.
 
 ```javascript
-import { broadcast } from "@waves/waves-transactions";
-import { issue } from "@waves/waves-transactions";
+const { issue, broadcast } = require('@waves/waves-transactions');
 
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com'; // Нода Testnet
 const seed = 'insert your seed here';
@@ -78,13 +77,11 @@ my_address.issueAsset(
 
 ### С помощью dApp
 
-В Стандартной библиотеке версии 4 вызываемая функция может выпустить токен. Подробнее см. разделы [Вызываемая функция](/ru/ride/functions/callable-function) и [Issue](/ru/ride/structures/script-actions/issue) главы [Ride](/ru/ride/).
-
-> :warning: Стандартная библиотека версии 4 доступна начиная с версии ноды 1.2.0, после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
+В Стандартной библиотеке начиная с версии 4 вызываемая функция может выпустить токен. Подробнее см. разделы [Вызываемая функция](/ru/ride/functions/callable-function) и [Issue](/ru/ride/structures/script-actions/issue) главы [Ride](/ru/ride/).
 
 В следующем примере функция `myToken` выпускает токен со следующими параметрами:
 
-* `name` содержит адрес аккаунта, вызвавшего функцию (например, `Spring_3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z`);
+* `name` содержит часть адреса аккаунта, вызвавшего функцию (например, `S_3Mw48B`);
 * количество токена: 1000, знаков после запятой: 2;
 * возможен довыпуск токена.
 
@@ -95,9 +92,11 @@ my_address.issueAsset(
   
 @Callable(i)
 func myToken() = [
-  Issue("Spring_" + toBase58String(i.caller.bytes), "", 100000, 2, true)
+  Issue("S_" + take(toBase58String(i.caller.bytes),6), "", 100000, 2, true)
 ]
 ```
+
+:warning: Минимальная комиссия за транзакцию вызова скрипта увеличивается на 1 WAVES за каждый токен, выпускаемый вызываемой функцией.
 
 ## Выпуск NFT
 
@@ -120,8 +119,7 @@ func myToken() = [
 ### С помощью JavaScript
 
 ```javascript
-import { broadcast } from "@waves/waves-transactions";
-import { reissue } from "@waves/waves-transactions";
+const { reissue, broadcast } = require('@waves/waves-transactions');
 
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
 const seed = 'insert your seed here';
@@ -159,8 +157,7 @@ my_address.reissueAsset(my_token, quantity=50000, reissuable=True)
 ### С помощью JavaScript
 
 ```javascript
-import { broadcast } from "@waves/waves-transactions";
-import { burn } from "@waves/waves-transactions";
+const { burn, broadcast } = require('@waves/waves-transactions');
 
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
 const seed = 'insert your seed here';
@@ -184,4 +181,63 @@ import pywaves as pw
 my_address = pw.Address(privateKey=some_private_key)
 asset_to_burn = pw.Asset('39M7cn3PZ7T468vGGfkc4VtxqbeDS5ssU4tLYJeoKfn4')
 my_address.burnAsset(asset_to_burn, quantity=10000)
+```
+
+## Изменение названия и описания ассета
+
+Вы можете изменить название и/или описание своего ассета:
+* на Mainnet и Testnet — не ранее чем через 100 000 блоков (около 70 дней) от последнего изменения (или выпуска ассета);
+* на Stagenet — не ранее чем через 10 блоков.
+
+:bulb: Вместо переименования ассета вы можете [выпустить](#выпуск-ассета) новый ассет и использовать его вместо прежнего.
+
+### С помощью Waves.Exchange
+
+1. Нажмите на аватар аккаунта в правом верхнем углу. Выберите **Настройки**. В окне **Настройки** установите галочку **Расширенные возможности**.
+2. Перейдите на вкладку **Кошелек**. Нажмите кнопку **{} JSON** в правом верхнем углу.
+3. Вставьте код транзакции:
+
+   ```json
+   {
+      "type": 17,
+      "version": 1,
+      "assetId": "ВСТАВЬТЕ ID СВОЕГО АССЕТА",
+      "name": "ВСТАВЬТЕ НОВОЕ ИМЯ",
+      "description": "ВСТАВЬТЕ НОВОЕ ОПИСАНИЕ",
+      "fee": 100000
+   }
+   ```
+
+   > В поле `fee` указывается комиссия за транзакцию в WAVELET. `"fee": 100000` соответствует комиссии 0,001 WAVES.
+
+4.  Нажмите **Продолжить**, затем **Подписать**, затем **Отправить**.
+
+### С помощью JavaScript
+
+```javascript
+const { updateAssetInfo, broadcast } = require('@waves/waves-transactions');
+
+const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
+const seed = 'insert your seed here';
+
+const myToken = {
+  assetId: '39M7cn3PZ7T468vGGfkc4VtxqbeDS5ssU4tLYJeoKfn4',
+  name: "New name",
+  description: "New description",
+  chainId: 'T' // Testnet; для Mainnet укажите 'W'
+};
+
+const renameTx = updateAssetInfo(myToken, seed); // Создание и подписание транзакции
+
+broadcast(renameTx,nodeUrl).then(resp => console.log(resp));
+```
+
+### С помощью Python
+
+```python
+import pywaves as pw
+
+pw.setNode(node = 'https://nodes-testnet.wavesnodes.com', chain = 'testnet')
+my_address = pw.Address(seed = 'insert your seed here')
+my_address.updateAssetInfo('H1g2vAaNt6v1oDmxRWiv6KZeQbb5gCbcLosRfi6PqYjH', name = 'New name', description = 'New description')
 ```
