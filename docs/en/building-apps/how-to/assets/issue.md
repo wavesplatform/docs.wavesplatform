@@ -41,8 +41,7 @@ The issue transaction ID becomes also the token ID.
 See function descriptions in [waves-transactions documentation](https://wavesplatform.github.io/waves-transactions/index.html) on Github.
 
 ```javascript
-import { broadcast } from "@waves/waves-transactions";
-import { issue } from "@waves/waves-transactions";
+const { issue, broadcast } = require('@waves/waves-transactions');
 
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com'; // Testnet node
 const seed = 'insert your seed here';
@@ -120,8 +119,7 @@ You can use online or desktop app. See the [Reissue Token](https://docs.waves.ex
 ### Using JavaScript
 
 ```javascript
-import { broadcast } from "@waves/waves-transactions";
-import { reissue } from "@waves/waves-transactions";
+const { reissue, broadcast } = require('@waves/waves-transactions');
 
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
 const seed = 'insert your seed here';
@@ -159,8 +157,7 @@ You can use online, desktop or mobile app. See the [Burn Token (Online & Desktop
 ### Using JavaScript
 
 ```javascript
-import { broadcast } from "@waves/waves-transactions";
-import { burn } from "@waves/waves-transactions";
+const { burn, broadcast } = require('@waves/waves-transactions');
 
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
 const seed = 'insert your seed here';
@@ -184,4 +181,61 @@ import pywaves as pw
 my_address = pw.Address(privateKey=some_private_key)
 asset_to_burn = pw.Asset('39M7cn3PZ7T468vGGfkc4VtxqbeDS5ssU4tLYJeoKfn4')
 my_address.burnAsset(asset_to_burn, quantity=10000)
+```
+
+## Change Asset Name and Description
+
+You can change the name and/or description of your asset:
+* on Mainnet and Testnet: after 100,000 or more blocks (about 70 days) from the last change (or the asset issue);
+* on Stagenet: after 10 or more blocks.
+
+:bulb: Instead of renaming an asset, you can [issue](#issue-asset) a new asset and use it instead of the old one.
+
+### Using Waves.Exchange
+
+1. Click your avatar in the upper right corner of the page. Select **Settings**. In the **Settings** window, select the **Advanced features** checkbox.
+2. Switch to the **Wallet** tab. Click the **{} JSON** button in the upper right corner.
+3. Paste the transaction code:
+
+   ```json
+   {
+      "type": 17,
+      "version": 1,
+      "assetId": "INSERT YOUR ASSET ID",
+      "name": "INSERT NEW NAME",
+      "description": "INSERT YOUR DESCRIPTION",
+      "fee": 100000
+   }
+   ```
+
+4. Click **Continue**, then **Sign**, then **Send**.
+
+### Using JavaScript
+
+```javascript
+const { updateAssetInfo, broadcast } = require('@waves/waves-transactions');
+
+const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
+const seed = 'insert your seed here';
+
+const myToken = {
+  assetId: '39M7cn3PZ7T468vGGfkc4VtxqbeDS5ssU4tLYJeoKfn4',
+  name: "New name",
+  description: "New description",
+  chainId: 'T' // Testnet; 'W' for Mainnet
+};
+
+const renameTx = updateAssetInfo(myToken, seed); // Create and sign transaction
+
+broadcast(renameTx,nodeUrl).then(resp => console.log(resp));
+```
+
+### Using Python
+
+```python
+import pywaves as pw
+
+pw.setNode(node = 'https://nodes-testnet.wavesnodes.com', chain = 'testnet')
+my_address = pw.Address(seed = 'insert your seed here')
+my_address.updateAssetInfo('H1g2vAaNt6v1oDmxRWiv6KZeQbb5gCbcLosRfi6PqYjH', name = 'New name', description = 'New description')
 ```
