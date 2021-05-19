@@ -4,7 +4,7 @@ sidebarDepth: 2
 
 # How to Create and Manage Your Own Token
 
-One of the key benefits of the Waves blockchain is the simplicity of issuing tokens. To launch your own token, you don't have to write a smart contract – just create issue transaction and send it to the blockchain. The only threshold for the issuer is to pay a fee: 1 WAVES for reqular token (asset) or 0.001 for non-fungible token (NFT).
+One of the key benefits of the Waves blockchain is the simplicity of issuing tokens. To launch your own token, you don't have to write a smart contract – just create an Issue transaction and send it to the blockchain. The only threshold for the issuer is to pay a fee: 1 WAVES for reqular token (asset) or 0.001 for non-fungible token (NFT).
 
 New tokens are immediately available:
 
@@ -33,10 +33,10 @@ You can use online or desktop app. See the [Create Token](https://docs.waves.exc
 
 Use functions of `waves-transactions` library:
 
-* `issue` function creates and signs an issue transaction. Transaction proof is derived from seed. By default, fee is calculated automatically.
+* `issue` function creates and signs an Issue transaction. Transaction proof is derived from seed. By default, fee is calculated automatically.
 * `broadcast` sends a transation to the blockchain.
 
-The issue transaction ID becomes also the token ID.
+The Issue transaction ID becomes also the token ID.
 
 See function descriptions in [waves-transactions documentation](https://wavesplatform.github.io/waves-transactions/index.html) on Github.
 
@@ -57,7 +57,7 @@ const myToken = {
   chainId: 'T' // Testnet; set 'W' for Mainnet
 };
 
-const issueTx = issue(myToken, seed); // Create and sign issue transaction
+const issueTx = issue(myToken, seed); // Create and sign Issue transaction
 
 broadcast(issueTx,nodeUrl).then(resp => console.log(resp));
 
@@ -77,13 +77,11 @@ my_address.issueAsset(
 
 ### Using dApp
 
-Since Standard library version 4, dApp callable function can issue a token. See [Callable Function](/en/ride/functions/callable-function) and [Issue](/en/ride/structures/script-actions/issue) articles of [Ride](/en/ride/) chapter for more information.
-
-> :warning: Standard ibrary Version 4 is available from node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+In the Standard library version 4 or later, dApp callable function can issue a token. See [Callable Function](/en/ride/functions/callable-function) and [Issue](/en/ride/structures/script-actions/issue) articles of [Ride](/en/ride/) chapter for more information.
 
 In this example, `myToken` function issues a token with following params:
 
-* `name` contains the address of the account which invoked the function (for example, `Spring_3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z`),
+* `name` contains part of the address of the account which invoked the function (for example, `S_3Mw48B`),
 * number of tokens equals to 1000 and decimals = 2,
 * token is reissuable.
 
@@ -94,9 +92,11 @@ In this example, `myToken` function issues a token with following params:
   
 @Callable(i)
 func myToken() = [
-  Issue("Spring_" + toBase58String(i.caller.bytes), "", 100000, 2, true)
+  Issue("S_" + take(toBase58String(i.caller.bytes),6), "", 100000, 2, true)
 ]
 ```
+
+:warning: The minimum fee for an Invoke Script transaction is increased by 1 WAVES for each token issued by the callable function.
 
 ## Issue NFT
 
@@ -131,7 +131,7 @@ const myToken = {
   chainId: 'T' // Testnet; 'W' for Mainnet
 };
 
-const reissueTx = reissue(myToken, seed); // Create and sign reissue transaction
+const reissueTx = reissue(myToken, seed); // Create and sign Reissue transaction
 
 broadcast(reissueTx,nodeUrl).then(resp => console.log(resp));
 ```
@@ -148,7 +148,7 @@ my_address.reissueAsset(my_token, quantity=50000, reissuable=True)
 
 ## Burn Asset
 
-Account that owns an asset (not necessarily asset issuer) can destroy some amount of the asset using burn transaction. The burn transaction decreases the amount of the asset on sender's account and thereby the total amount of the asset on the blockchain.
+Account that owns an asset (not necessarily asset issuer) can destroy some amount of the asset using a Burn transaction. The Burn transaction decreases the amount of the asset on sender's account and thereby the total amount of the asset on the blockchain.
 
 ### Using Waves.Exchange
 
@@ -168,7 +168,7 @@ const myToken = {
   chainId: 'T' // Testnet; 'W' for Mainnet
 };
 
-const burnTx = burn(myToken, seed); // Create and sign burn transaction
+const burnTx = burn(myToken, seed); // Create and sign Burn transaction
 
 broadcast(burnTx,nodeUrl).then(resp => console.log(resp));
 ```
@@ -207,6 +207,8 @@ You can change the name and/or description of your asset:
       "fee": 100000
    }
    ```
+
+   > The `fee` field specifies the transaction fee in WAVELET. The `fee: 100000` corresponds to a fee of 0.001 WAVES.
 
 4. Click **Continue**, then **Sign**, then **Send**.
 

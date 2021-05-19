@@ -77,13 +77,11 @@ my_address.issueAsset(
 
 ### С помощью dApp
 
-В Стандартной библиотеке версии 4 вызываемая функция может выпустить токен. Подробнее см. разделы [Вызываемая функция](/ru/ride/functions/callable-function) и [Issue](/ru/ride/structures/script-actions/issue) главы [Ride](/ru/ride/).
-
-> :warning: Стандартная библиотека версии 4 доступна начиная с версии ноды 1.2.0, после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
+В Стандартной библиотеке начиная с версии 4 вызываемая функция может выпустить токен. Подробнее см. разделы [Вызываемая функция](/ru/ride/functions/callable-function) и [Issue](/ru/ride/structures/script-actions/issue) главы [Ride](/ru/ride/).
 
 В следующем примере функция `myToken` выпускает токен со следующими параметрами:
 
-* `name` содержит адрес аккаунта, вызвавшего функцию (например, `Spring_3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z`);
+* `name` содержит часть адреса аккаунта, вызвавшего функцию (например, `S_3Mw48B`);
 * количество токена: 1000, знаков после запятой: 2;
 * возможен довыпуск токена.
 
@@ -94,9 +92,11 @@ my_address.issueAsset(
   
 @Callable(i)
 func myToken() = [
-  Issue("Spring_" + toBase58String(i.caller.bytes), "", 100000, 2, true)
+  Issue("S_" + take(toBase58String(i.caller.bytes),6), "", 100000, 2, true)
 ]
 ```
+
+:warning: Минимальная комиссия за транзакцию вызова скрипта увеличивается на 1 WAVES за каждый токен, выпускаемый вызываемой функцией.
 
 ## Выпуск NFT
 
@@ -207,6 +207,8 @@ my_address.burnAsset(asset_to_burn, quantity=10000)
       "fee": 100000
    }
    ```
+
+   > В поле `fee` указывается комиссия за транзакцию в WAVELET. `"fee": 100000` соответствует комиссии 0,001 WAVES.
 
 4.  Нажмите **Продолжить**, затем **Подписать**, затем **Отправить**.
 
