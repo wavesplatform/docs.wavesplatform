@@ -6,7 +6,7 @@ sidebarDepth: 3
 
 **Blockchain Updates** is a [node extension](/en/waves-node/extensions/) that sends blockchain updates via [gRPC](https://en.wikipedia.org/wiki/GRPC).
 
->This article is intended for **Blockchain Updates** version **1.2.20** or later. Please note that this Blockchain Updates extension version is incompatible with the previous versions (consumers working with previous extension versions will not be able to connect to this version). See [Upgrading from Previous Versions](#upgrading-from-previous-version) below.
+>This article is intended for **Blockchain Updates** version **1.2.20** or later. Please note that this Blockchain Updates extension version is incompatible with the previous versions (consumers working with previous extension versions will not be able to connect to this version). See [Upgrading from Previous Versions](#upgrading-from-previous-versions) below.
 
 Blockchain Updates enables tracking changes made by each transaction and block:
 

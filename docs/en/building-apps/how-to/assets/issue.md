@@ -208,7 +208,7 @@ You can change the name and/or description of your asset:
    }
    ```
 
-   > The `fee` field specifies the transaction fee in WAVELET. The `fee: 100000` corresponds to a fee of 0.001 WAVES.
+   > The `fee` field contains transaction fee in [WAVELET](/en/blockchain/token/waves). The `fee: 100000` corresponds to a fee of 0.001 WAVES.
 
 4. Click **Continue**, then **Sign**, then **Send**.
 
