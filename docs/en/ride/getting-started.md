@@ -72,7 +72,7 @@ Not all combinations of directives are correct. The example below won’t work, 
 
 ## Variables
 
-Variables are declared and initialized with the `let` keyword. This is the only way to declare variables in Ride.
+Variables are declared and initialized with the `let` keyword.
 
 ```scala
 let a = "Bob"

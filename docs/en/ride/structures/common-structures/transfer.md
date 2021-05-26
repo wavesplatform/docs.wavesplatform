@@ -1,6 +1,6 @@
 # Transfer
 
-Structure of a [mass transfer transaction](/en/blockchain/transaction-type/mass-transfer-transaction) token transfer.
+Structure of a single transfer within the [MassTransferTransaction](/en/ride/structures/transaction-structures/mass-transfer-transaction) structure.
 
 ## Constructor
 

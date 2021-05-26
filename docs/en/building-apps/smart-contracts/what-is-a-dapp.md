@@ -35,14 +35,14 @@ In addition, dApp script can comprise a verifier function that checks transactio
 Each Ride script should start with directives. Here is the set of directives for the dApp script:
 
 ```ride
-{-# STDLIB_VERSION 3 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 ```
 
 These directives tell the compiler that:
 
-- The script uses Standard library version 3.
+- The script uses Standard library version 5.
 - Type of the script is dApp.
 - The script will be assigned to an account (not asset).
 
@@ -93,7 +93,7 @@ Verifier function checks transactions and orders that are sent from dApp account
 
 For a detailed description, see the [Verifier Function](/en/ride/functions/verifier-function) article.
 
-In the example below the verifier fuction allows [transfer transactions](/en/blockchain/transaction-type/transfer-transaction) and denies orders and other types of transactions. The [match](/en/ride/operators/match-case) operator is used to specify verification rules depending on the type of transaction (or order).
+In the example below the verifier function allows [transfer transactions](/en/blockchain/transaction-type/transfer-transaction) and denies orders and other types of transactions. The [match](/en/ride/operators/match-case) operator is used to specify verification rules depending on the type of transaction (or order).
 
 ```ride
 @Verifier(tx)

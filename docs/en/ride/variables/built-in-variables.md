@@ -21,14 +21,12 @@ A **built-in variable** is a [variable](/en/ride/variables/) of the [Standard li
         <li>CEILING</li>
         <li>DOWN</li>
         <li>FLOOR</li>
-        <li>HALFDOWN</li>
         <li>HALFEVEN</li>
         <li>HALFUP</li>
-        <li>UP</li>
       </ul>
     </td>
     <td>
-      <a href="/en/ride/functions/built-in-functions/math-functions">Rounding methods</a> used in the <a href="/en/ride/functions/built-in-functions/math-functions">log</a> and <a href="/en/ride/functions/built-in-functions/math-functions">pow</a> functions
+      <a href="/en/ride/functions/built-in-functions/math-functions">Rounding methods</a> used in the <a href="/en/ride/functions/built-in-functions/math-functions">math functions</a> <code>fraction</code>, <code>log</code>, <code>pow</code>
     </td>
   </tr>
   <tr>
@@ -88,7 +86,7 @@ A **built-in variable** is a [variable](/en/ride/variables/) of the [Standard li
   <tr>
     <td>8</td>
     <td>this</td>
-    <td>Transaction sender <a href="/en/blockchain/account/address">address</a> or information about the <a href="/en/blockchain/token">token</a></td>
+    <td>• For a <a href="/en/ride/script/script-types/dapp-script">dApp script</a> or an <a href="/ru/ride/script/script-types/account-script">account script</a>: the <a href="/en/ride/structures/common-structures/address">Address</a> structure<br/>• For an <a href="/en/ride/script/script-types/asset-script">asset script</a>: the <a href="/en/ride/structures/common-structures/asset">Asset</a> structure</td>
   </tr>
   <tr>
     <td>9</td>
@@ -102,15 +100,18 @@ A **built-in variable** is a [variable](/en/ride/variables/) of the [Standard li
 
 <pre>
 <code class=“lang-ride”>
-{-# STDLIB_VERSION 3 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 
 @Callable(inv)
 func deposit() = {
-  TransferSet([
-    ScriptTransfer(inv.caller, 5, unit) \# Transfer 5 WAVELETs to the inv.caller account. Instead of the token ID the unit is specified
-  ])
+  (
+    [
+      ScriptTransfer(inv.caller, 5, unit) \# Transfer 5 WAVELETs to the inv.caller account. Instead of the token ID the unit is specified
+    ],
+    unit
+  )
 }
 </code>
 </pre>
@@ -118,12 +119,8 @@ func deposit() = {
 WAVES does not have a <a href="/en/blockchain/token/token-id">token ID</a>; the <code>unit</code> is passed instead of the ID.<br><b>Example 2</b><br>The <a href="/en/ride/functions/built-in-functions/blockchain-functions"><tt>assetInfo</tt></a> function requests information about the token by its ID. Next, the <code>isDefined</code> function checks that a token with this ID exists on the blockchain.
 <pre>
 <code class=“lang-ride”>
-{-# STDLIB_VERSION 3 #-}
-{-# CONTENT_TYPE EXPRESSION #-}
-{-# SCRIPT_TYPE ACCOUNT #-}
-
 let asset = assetInfo(base58'8LQW8f7P5d5PZM7GtZEBgaqRPGSzS3DfPuiXrURJ4AJS')
-token.isDefined()
+asset.isDefined()
 </code>
 </pre>
 Instead of calling the <code>isDefined</code> function, you may use the equality with <code>unit</code>.

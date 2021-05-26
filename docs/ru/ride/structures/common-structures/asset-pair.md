@@ -1,6 +1,6 @@
 # AssetPair
 
-Структура пары токенов ордера.
+Структура пары токенов ордера в составе структуры [Order](/ru/ride/structures/common-structures/order).
 
 ## Конструктор
 

@@ -32,8 +32,9 @@
 
 | Operator | Description |
 | :--- | :--- |
-| let | Variable local definition |
 | func | Function local definition |
+| let | Lazy definition of a variable |
+| strict | [Strict definition](/en/ride/variables/) of a variable |
 
 ## Conditional operators
 
@@ -49,8 +50,6 @@
 | ++ | Concatenation |
 | :+ | Adding the element to the end of the list |
 | :: | Adding the element to the beginning of the list |
-
-> :warning: `++` and `:+` operators are added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 See examples of the [List](/en/ride/data-types/list) article.
 

@@ -1,6 +1,6 @@
 # Transfer
 
-Структура перевода [токенов](/ru/blockchain/token/) транзакции массового перевода.
+Структура единичного перевода в составе структуры [MassTransferTransaction](/ru/ride/structures/transaction-structures/mass-transfer-transaction).
 
 ## Конструктор
 

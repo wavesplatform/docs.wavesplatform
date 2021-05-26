@@ -1,7 +1,5 @@
 # BooleanEntry
 
-> :warning: Структура `BooleanEntry` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
-
 `BooleanEntry` — cтруктура, задающая ключ и значение записи [хранилища данных аккаунта](/ru/blockchain/account/account-data-storage) логического типа. Cоздание или изменение записи выполняется, только если структура включена в [результирующее выражение](/ru/ride/functions/callable-function#резуnьтат-выпоnнения-2) вызываемой функции.
 
 ## Конструктор
