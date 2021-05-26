@@ -14,5 +14,5 @@ Transfer(recipient: Address|Alias, amount: Int)
 
 | # | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | recipient | [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) of a recipient of tokens |
-| 2 | amount | [Int](/en/ride/data-types/int) | Number of tokens |
+| 1 | recipient | [Address](/en/ride/v4/structures/common-structures/address)&#124;[Alias](/en/ride/v4/structures/common-structures/alias) | [Address](/en/blockchain/account/address) of a recipient of tokens |
+| 2 | amount | [Int](/en/ride/v4/data-types/int) | Number of tokens |

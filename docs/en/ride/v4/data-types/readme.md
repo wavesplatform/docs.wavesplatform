@@ -4,14 +4,14 @@
 
 | Data type name | Ride keyword |
 | :--- | :--- |
-| [Boolean](/en/ride/data-types/boolean) | Boolean |
-| [Byte array](/en/ride/data-types/byte-vector) | ByteVector |
-| [Integer](/en/ride/data-types/int) | Int |
-| [String](/en/ride/data-types/string) | String |
-| [Empty value](/en/ride/data-types/unit) | Unit |
-| [List](/en/ride/data-types/list) | List |
-| [Tuple](/en/ride/data-types/tuple) | — |
-| [Union](/en/ride/data-types/union) | — |
-| [Structure](/en/ride/structures/) | — |
+| [Boolean](/en/ride/v4/data-types/boolean) | Boolean |
+| [Byte array](/en/ride/v4/data-types/byte-vector) | ByteVector |
+| [Integer](/en/ride/v4/data-types/int) | Int |
+| [String](/en/ride/v4/data-types/string) | String |
+| [Empty value](/en/ride/v4/data-types/unit) | Unit |
+| [List](/en/ride/v4/data-types/list) | List |
+| [Tuple](/en/ride/v4/data-types/tuple) | — |
+| [Union](/en/ride/v4/data-types/union) | — |
+| [Structure](/en/ride/v4/structures/) | — |
 
-For each value, depending on the data type, the weight is determined. The weight is used in limitations on creating and comparing values. For more information see the [Data Weight](/en/ride/limits/weight).
+For each value, depending on the data type, the weight is determined. The weight is used in limitations on creating and comparing values. For more information see the [Data Weight](/en/ride/v4/limits/weight).

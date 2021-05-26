@@ -2,9 +2,9 @@
 
 :warning: This is the documentation for the Standard library version 4 and 3. We recommend to use version 5. [Go to version 5](/en/ride/functions/built-in-functions/data-transaction-functions)
 
-The functions listed below retrieve data by key from the [Data transaction](/en/ride/structures/transaction-structures/data-transaction) structure or from any list of data entries:
-* List[[BinaryEntry](/en/ride/structures/script-actions/binary-entry)|[BooleanEntry](/en/ride/structures/script-actions/boolean-entry)|[IntegerEntry](/en/ride/structures/script-actions/int-entry)|[StringEntry](/en/ride/structures/script-actions/string-entry)] for Standard library **version 4**.
-* List[[DataEntry](/en/ride/structures/script-actions/data-entry)] for Standard library **version 3**.
+The functions listed below retrieve data by key from the [Data transaction](/en/ride/v4/structures/transaction-structures/data-transaction) structure or from any list of data entries:
+* List[[BinaryEntry](/en/ride/v4/structures/script-actions/binary-entry)|[BooleanEntry](/en/ride/v4/structures/script-actions/boolean-entry)|[IntegerEntry](/en/ride/v4/structures/script-actions/int-entry)|[StringEntry](/en/ride/v4/structures/script-actions/string-entry)] for Standard library **version 4**.
+* List[[DataEntry](/en/ride/v4/structures/script-actions/data-entry)] for Standard library **version 3**.
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
@@ -45,8 +45,8 @@ getBinary(data: List[DataEntry], key: String): ByteVector|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| data: [List](/en/ride/data-types/list)[] | List of data entries, usually `tx.data` |
-| key: [String](/en/ride/data-types/string) | Key |
+| data: [List](/en/ride/v4/data-types/list)[] | List of data entries, usually `tx.data` |
+| key: [String](/en/ride/v4/data-types/string) | Key |
 
 ## getBinary(List[], Int): ByteVector|Unit<a id="get-binary-integer"></a>
 
@@ -68,8 +68,8 @@ getBinary(data: List[DataEntry], index: Int): ByteVector|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| data: [List](/en/ride/data-types/list)[] | List of data entries, usually `tx.data` |
-| index: [Int](/en/ride/data-types/int) | Index |
+| data: [List](/en/ride/v4/data-types/list)[] | List of data entries, usually `tx.data` |
+| index: [Int](/en/ride/v4/data-types/int) | Index |
 
 ## getBinaryValue(List[], String): ByteVector<a id="get-binary-value-string"></a>
 
@@ -91,8 +91,8 @@ getBinaryValue(data: List[DataEntry], key: String): ByteVector
 
 | Parameter | Description |
 | :--- | :--- |
-| data: [List](/en/ride/data-types/list)[] | List of data entries, usually `tx.data` |
-| key: [String](/en/ride/data-types/string) | Key |
+| data: [List](/en/ride/v4/data-types/list)[] | List of data entries, usually `tx.data` |
+| key: [String](/en/ride/v4/data-types/string) | Key |
 
 ## getBinaryValue(List[], Int): ByteVector<a id="get-binary-value-integer"></a>
 
@@ -114,8 +114,8 @@ getBinaryValue(data: List[DataEntry], index: Int): ByteVector
 
 | Parameter | Description |
 | :--- | :--- |
-| data: [List](/en/ride/data-types/list)[] | List of data entries, usually `tx.data` |
-| index: [Int](/en/ride/data-types/int) | Index |
+| data: [List](/en/ride/v4/data-types/list)[] | List of data entries, usually `tx.data` |
+| index: [Int](/en/ride/v4/data-types/int) | Index |
 
 ## getBoolean(List[], String): Boolean|Unit<a id="get-boolean-string"></a>
 
@@ -137,8 +137,8 @@ getBoolean(data: List[DataEntry], key: String): Boolean|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| data: [List](/en/ride/data-types/list)[] | List of data entries, usually `tx.data` |
-| key: [String](/en/ride/data-types/string) | Key |
+| data: [List](/en/ride/v4/data-types/list)[] | List of data entries, usually `tx.data` |
+| key: [String](/en/ride/v4/data-types/string) | Key |
 
 ## getBoolean(List[], Int): Boolean|Unit<a id="get-boolean-integer"></a>
 
@@ -160,8 +160,8 @@ getBoolean(data: List[DataEntry], index: Int): Boolean|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| data: [List](/en/ride/data-types/list)[] | List of data entries, usually `tx.data` |
-| index: [Int](/en/ride/data-types/int) | Index |
+| data: [List](/en/ride/v4/data-types/list)[] | List of data entries, usually `tx.data` |
+| index: [Int](/en/ride/v4/data-types/int) | Index |
 
 ## getBooleanValue(List[], String): Boolean<a id="get-boolean-value-string"></a>
 
@@ -183,8 +183,8 @@ getBooleanValue(data: List[DataEntry], key: String): Boolean
 
 | Parameter | Description |
 | :--- | :--- |
-| data: [List](/en/ride/data-types/list)[] | List of data entries, usually `tx.data` |
-| key: [String](/en/ride/data-types/string) | Key |
+| data: [List](/en/ride/v4/data-types/list)[] | List of data entries, usually `tx.data` |
+| key: [String](/en/ride/v4/data-types/string) | Key |
 
 ## getBooleanValue(List[], Int): Boolean<a id="get-boolean-value-integer"></a>
 
@@ -206,8 +206,8 @@ getBooleanValue(data: List[DataEntry], index: Int): Boolean
 
 | Parameter | Description |
 | :--- | :--- |
-| data: [List](/en/ride/data-types/list)[] | List of data entries, usually `tx.data` |
-| index: [Int](/en/ride/data-types/int) | Index |
+| data: [List](/en/ride/v4/data-types/list)[] | List of data entries, usually `tx.data` |
+| index: [Int](/en/ride/v4/data-types/int) | Index |
 
 ## getInteger(List[], String): Int|Unit<a id="get-integer-string"></a>
 
@@ -229,8 +229,8 @@ getInteger(data: List[DataEntry], key: String): Int|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| data: [List](/en/ride/data-types/list)[] | List of data entries, usually `tx.data` |
-| key: [String](/en/ride/data-types/string) | Key |
+| data: [List](/en/ride/v4/data-types/list)[] | List of data entries, usually `tx.data` |
+| key: [String](/en/ride/v4/data-types/string) | Key |
 
 ## getInteger(List[], Int): Int|Unit<a id="get-integer-integer"></a>
 
@@ -252,8 +252,8 @@ getInteger(data: List[DataEntry], index: Int): Int|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| data: [List](/en/ride/data-types/list)[] | List of data entries, usually `tx.data` |
-| index: [Int](/en/ride/data-types/int) | Index |
+| data: [List](/en/ride/v4/data-types/list)[] | List of data entries, usually `tx.data` |
+| index: [Int](/en/ride/v4/data-types/int) | Index |
 
 ## getIntegerValue(List[], String): Int<a id="get-integer-value-string"></a>
 
@@ -275,8 +275,8 @@ getIntegerValue(data: List[DataEntry], key: String): Int
 
 | Parameter | Description |
 | :--- | :--- |
-| data: [List](/en/ride/data-types/list)[] | List of data entries, usually `tx.data` |
-| key: [String](/en/ride/data-types/string) | Key |
+| data: [List](/en/ride/v4/data-types/list)[] | List of data entries, usually `tx.data` |
+| key: [String](/en/ride/v4/data-types/string) | Key |
 
 ## getIntegerValue(List[], Int): Int<a id="get-integer-value-integer"></a>
 
@@ -298,8 +298,8 @@ getIntegerValue(data: List[DataEntry], index: Int): Int
 
 | Parameter | Description |
 | :--- | :--- |
-| data: [List](/en/ride/data-types/list)[] | List of data entries, usually `tx.data` |
-| index: [Int](/en/ride/data-types/int) | Index |
+| data: [List](/en/ride/v4/data-types/list)[] | List of data entries, usually `tx.data` |
+| index: [Int](/en/ride/v4/data-types/int) | Index |
 
 ## getString(List[], String): String|Unit<a id="get-string-string"></a>
 
@@ -321,8 +321,8 @@ getString(data: List[DataEntry], key: String): String|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| data: [List](/en/ride/data-types/list)[] | List of data entries, usually `tx.data` |
-| key: [String](/en/ride/data-types/string) | Key |
+| data: [List](/en/ride/v4/data-types/list)[] | List of data entries, usually `tx.data` |
+| key: [String](/en/ride/v4/data-types/string) | Key |
 
 ## getString(List[], Int): String|Unit<a id="get-string-integer"></a>
 
@@ -344,8 +344,8 @@ getString(data: List[DataEntry], index: Int): String|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| data: [List](/en/ride/data-types/list)[] | List of data entries, usually `tx.data` |
-| index: [Int](/en/ride/data-types/int) | Index |
+| data: [List](/en/ride/v4/data-types/list)[] | List of data entries, usually `tx.data` |
+| index: [Int](/en/ride/v4/data-types/int) | Index |
 
 ## getStringValue(List[], String): String<a id="get-string-value-string"></a>
 
@@ -367,8 +367,8 @@ getStringValue(data: List[DataEntry], key: String): String
 
 | Parameter | Description |
 | :--- | :--- |
-| data: [List](/en/ride/data-types/list)[] | List of data entries, usually `tx.data` |
-| key: [String](/en/ride/data-types/string) | Key |
+| data: [List](/en/ride/v4/data-types/list)[] | List of data entries, usually `tx.data` |
+| key: [String](/en/ride/v4/data-types/string) | Key |
 
 ## getStringValue(List[], Int): String<a id="get-string-value-integer"></a>
 
@@ -390,5 +390,5 @@ getStringValue(data: List[DataEntry], index: Int): String
 
 | Parameter | Description |
 | :--- | :--- |
-| data: [List](/en/ride/data-types/list)[] | List of data entries, usually `tx.data` |
-| index: [Int](/en/ride/data-types/int) | Index |
+| data: [List](/en/ride/v4/data-types/list)[] | List of data entries, usually `tx.data` |
+| index: [Int](/en/ride/v4/data-types/int) | Index |

@@ -18,13 +18,13 @@ Decodes address from [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) s
 addressFromString(string: String): Address|Unit
 ```
 
-For a description of the return value, see the [Address](/en/ride/structures/common-structures/address) article.
+For a description of the return value, see the [Address](/en/ride/v4/structures/common-structures/address) article.
 
 ### Parameters
 
 | Parameter | Description |
 | :--- | :--- |
-| `string`: [String](/en/ride/data-types/string) | String to decode |
+| `string`: [String](/en/ride/v4/data-types/string) | String to decode |
 
 ### Examples
 
@@ -42,13 +42,13 @@ Fails if the address cannot be decoded.
 addressFromStringValue(string: String): Address
 ```
 
-For a description of the return value, see the [Address](/en/ride/structures/common-structures/address) article.
+For a description of the return value, see the [Address](/en/ride/v4/structures/common-structures/address) article.
 
 ### Parameters
 
 | Parameter | Description |
 | :--- | :--- |
-| `string`: [String](/en/ride/data-types/string) | String to decode |
+| `string`: [String](/en/ride/v4/data-types/string) | String to decode |
 
 ### Examples
 
@@ -68,7 +68,7 @@ fromBase16String(str: String): ByteVector
 
 | Parameter | Description |
 | :--- | :--- |
-| `str`: [String](/en/ride/data-types/string) | String to decode |
+| `str`: [String](/en/ride/v4/data-types/string) | String to decode |
 
 ### Examples
 
@@ -88,7 +88,7 @@ fromBase58String(str: String): ByteVector
 
 | Parameter | Description |
 | :--- | :--- |
-| `str`: [String](/en/ride/data-types/string) | String to decode |
+| `str`: [String](/en/ride/v4/data-types/string) | String to decode |
 
 ### Examples
 
@@ -108,7 +108,7 @@ fromBase64String(str: String): ByteVector
 
 | Parameter | Description |
 | :--- | :--- |
-| `str`: [String](/en/ride/data-types/string) | String to decode |
+| `str`: [String](/en/ride/v4/data-types/string) | String to decode |
 
 ### Examples
 

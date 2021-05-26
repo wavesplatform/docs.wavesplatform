@@ -10,7 +10,7 @@
 | / | Деление |
 | % | Нахождение остатка от деления |
 
-> Оператор **/** использует метод округления FLOOR, см. [Переменные округления](/ru/ride/functions/built-in-functions/math-functions#rounding-variables). Например, результат выражения `-1/100` равен `-1`.
+> Оператор **/** использует метод округления FLOOR, см. [Переменные округления](/ru/ride/v4/functions/built-in-functions/math-functions#rounding-variables). Например, результат выражения `-1/100` равен `-1`.
 
 ## Операторы сравнения
 
@@ -52,7 +52,7 @@
 
 > :warning: Операторы `++` и `:+` добавлены в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
 
-См. примеры в разделе [List](/ru/ride/data-types/list).
+См. примеры в разделе [List](/ru/ride/v4/data-types/list).
 
 ## Унарные операторы
 

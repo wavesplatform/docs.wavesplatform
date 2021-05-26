@@ -41,7 +41,7 @@ where:
 
 ### Example
 
-Let's consider the [AssetPair](/en/ride/structures/common-structures/asset-pair) structure:
+Let's consider the [AssetPair](/en/ride/v4/structures/common-structures/asset-pair) structure:
 
 ```
 AssetPair(amountAsset: ByteVector|Unit, priceAsset: ByteVector|Unit)

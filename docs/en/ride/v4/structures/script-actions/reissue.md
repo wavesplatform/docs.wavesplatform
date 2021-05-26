@@ -4,11 +4,11 @@
 
 > :warning: The structure is added in Standard library **version 4**.
 
-`Reissue` is a structure that sets the parameters of the token reissue. The token reissue is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#invocation-result-2).
+`Reissue` is a structure that sets the parameters of the token reissue. The token reissue is performed only if the structure is included in the [callable function result](/en/ride/v4/functions/callable-function#invocation-result-2).
 
 The token reissue is only available for an asset that is issued by a dApp account.
 
-If the token is a smart asset, the asset script verifies the `Reissue` action as if it were [ReissueTransaction](/en/ride/structures/transaction-structures/reissue-transaction) with the fee of 0 and the version of 0. If the asset script denies the action, then the transaction that invoked the dApp script is either denied or saved on the blockchain as failed, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation).
+If the token is a smart asset, the asset script verifies the `Reissue` action as if it were [ReissueTransaction](/en/ride/v4/structures/transaction-structures/reissue-transaction) with the fee of 0 and the version of 0. If the asset script denies the action, then the transaction that invoked the dApp script is either denied or saved on the blockchain as failed, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation).
 
 ## Constructor
 
@@ -20,6 +20,6 @@ Reissue(assetId: ByteVector, quantity: Int, isReissuable: Boolean)
 
 | # | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | assetId | [ByteVector](/en/ride/data-types/byte-vector) | [ID of the token](/en/blockchain/token/token-id) to reissue |
-| 2 | quantity | [Int](/en/ride/data-types/int) | Amount of the token |
-| 3 | isReissuable | [Boolean](/en/ride/data-types/boolean) | Reissue ability flag |
+| 1 | assetId | [ByteVector](/en/ride/v4/data-types/byte-vector) | [ID of the token](/en/blockchain/token/token-id) to reissue |
+| 2 | quantity | [Int](/en/ride/v4/data-types/int) | Amount of the token |
+| 3 | isReissuable | [Boolean](/en/ride/v4/data-types/boolean) | Reissue ability flag |

@@ -4,7 +4,7 @@
 
 All variables in Ride are _immutable_. After definition, the value of the variable does not change.
 
-Definition and simultaneous initialization of the variable are performed with the help of the `let` [operator](/en/ride/operators/).
+Definition and simultaneous initialization of the variable are performed with the help of the `let` [operator](/en/ride/v4/operators/).
 
 You cannot declare a variable without initialization.
 
@@ -39,4 +39,4 @@ Ride has the lazy variable initialization, so the value of the variable is calcu
 
 ## Variables built into the script
 
-The [script](/en/ride/script/) has [built-in variables](/en/ride/variables/built-in-variables).
+The [script](/en/ride/script/) has [built-in variables](/en/ride/v4/variables/built-in-variables).

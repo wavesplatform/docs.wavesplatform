@@ -8,7 +8,7 @@
 | [assetBalancе(Address&#124;Alias, ByteVector): Int](#asset-balance) | Gets account balance by token ID | 100 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>10 for Standard Library **version 4** |
 | [assetInfo(ByteVector): Аsset&#124;Unit](#assetinfo) | Gets the information about a [token](/en/blockchain/token/) | 100 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>15 for Standard Library **version 4** |
 | [blockInfoByHeight(Int): BlockInfo&#124;Unit](#blockinfobyheight) | Gets the information about a [block](/en/blockchain/block/) by the [block height](/en/blockchain/block/block-height) | 100 for Standard Library **version 3**<br>5 for Standard Library **version 4** |
-| [calculateAssetId(Issue): ByteVector](#calculateassetid) | Calculates the ID of the asset, created by [Issue](/en/ride/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
+| [calculateAssetId(Issue): ByteVector](#calculateassetid) | Calculates the ID of the asset, created by [Issue](/en/ride/v4/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
 | [transactionHeightById(ByteVector): Int&#124;Unit](#transactionheightbyid) | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 100 for Standard Library **version 3**<br>20 for Standard Library **version 4** |
 | [transferTransactionById(ByteVector): TransferTransaction&#124;Unit](#transfertransactionbyid) | Gets the data of a transfer transaction | 100 for Standard Library **version 3**<br>60 for Standard Library **version 4** |
 | [wavesBalance(Address&#124;Alias): BalanceDetails](#waves-balance) | Gets account balance in [WAVES](/en/blockchain/token/waves) | 100 for Standard Library **version 3**<br>10 for Standard Library **version 4** |
@@ -21,13 +21,13 @@ Gets the corresponding [address](/en/blockchain/account/address) of the [alias](
 addressFromRecipient(AddressOrAlias: Address|Alias): Address
 ```
 
-For a description of the return value, see the [Address](/en/ride/structures/common-structures/address) article.
+For a description of the return value, see the [Address](/en/ride/v4/structures/common-structures/address) article.
 
 ### Parameters
 
 | Parameter | Description |
 | :--- | :--- |
-| AddressOrAlias: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | 
+| AddressOrAlias: [Address](/en/ride/v4/structures/common-structures/address)&#124;[Alias](/en/ride/v4/structures/common-structures/alias) | 
 Address or alias, usually tx.recipient |
 
 ### Examples
@@ -49,8 +49,8 @@ assetBalance(addressOrAlias: Address|Alias, assetId: ByteVector): Int
 
 | Parameter | Description |
 | :--- | :--- |
-| addressOrAlias: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
-| assetId: [ByteVector](/en/ride/data-types/byte-vector) | Token ID |
+| addressOrAlias: [Address](/en/ride/v4/structures/common-structures/address)&#124;[Alias](/en/ride/v4/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| assetId: [ByteVector](/en/ride/v4/data-types/byte-vector) | Token ID |
 
 ## assetInfo
 
@@ -60,13 +60,13 @@ Gets the information about a [token](/en/blockchain/token/).
 assetInfo(id: ByteVector): Аsset|Unit
 ```
 
-For a description of the return value, see the [Asset](/en/ride/structures/common-structures/asset) article.
+For a description of the return value, see the [Asset](/en/ride/v4/structures/common-structures/asset) article.
 
 ### Parameters
 
 | Parameter | Description |
 | :--- | :--- |
-| `id`: [ByteVector](/en/ride/data-types/byte-vector) | ID of the [token](/en/blockchain/token/) |
+| `id`: [ByteVector](/en/ride/v4/data-types/byte-vector) | ID of the [token](/en/blockchain/token/) |
 
 ### Example
 
@@ -87,13 +87,13 @@ Gets the information about a [block](/en/blockchain/block/) by the [block height
 blockInfoByHeight(height: Int): BlockInfo|Unit
 ```
 
-For a description of the return value, see the [BlockInfo](/en/ride/structures/common-structures/block-info) article.
+For a description of the return value, see the [BlockInfo](/en/ride/v4/structures/common-structures/block-info) article.
 
 ### Parameters
 
 | Parameter | Description |
 | :--- | :--- |
-| `height`: [Int](/en/ride/data-types/int) | Block height |
+| `height`: [Int](/en/ride/v4/data-types/int) | Block height |
 
 ### Example
 
@@ -107,7 +107,7 @@ let x = match blockInfoByHeight(1234567) {
 
 ## calculateAssetId
 
-Calculates the ID of the asset, created by [Issue](/en/ride/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution.
+Calculates the ID of the asset, created by [Issue](/en/ride/v4/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution.
 
 > :warning: The `calculateAssetId` function is added in Standard library **version 4**.
 
@@ -119,7 +119,7 @@ calculateAssetId(issue: Issue): ByteVector
 
 | Parameter | Description |
 | :--- | :--- |
-| `issue`: [Issue](/en/ride/structures/script-actions/issue) | The structure by which the asset is formed |
+| `issue`: [Issue](/en/ride/v4/structures/script-actions/issue) | The structure by which the asset is formed |
 
 ### Example
 
@@ -159,7 +159,7 @@ transactionHeightById(id: ByteVector): Int|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `id`: [ByteVector](/en/ride/data-types/byte-vector) | ID of the transaction |
+| `id`: [ByteVector](/en/ride/v4/data-types/byte-vector) | ID of the transaction |
 
 ### Example
 
@@ -179,13 +179,13 @@ Gets the data of a [transfer transaction](/en/blockchain/transaction-type/transf
 transferTransactionById(id: ByteVector): TransferTransaction|Unit
 ```
 
-For a description of the return value, see the [TransferTransaction](/en/ride/structures/transaction-structures/transfer-transaction) article.
+For a description of the return value, see the [TransferTransaction](/en/ride/v4/structures/transaction-structures/transfer-transaction) article.
 
 ### Parameters
 
 | Parameter | Description |
 | :--- | :--- |
-| `id`: [ByteVector](/en/ride/data-types/byte-vector) | ID of the transfer transaction |
+| `id`: [ByteVector](/en/ride/v4/data-types/byte-vector) | ID of the transfer transaction |
 
 ### Example
 
@@ -216,10 +216,10 @@ Gets all types of [WAVES](/en/blockchain/token/waves) balances. For description 
 wavesBalance(addressOrAlias: Address|Alias): BalanceDetails
 ```
 
-For a description of the return value, see the [BalanceDetails](/en/ride/structures/common-structures/balance-details) article.
+For a description of the return value, see the [BalanceDetails](/en/ride/v4/structures/common-structures/balance-details) article.
 
 ### Parameters
 
 | Parameter | Description |
 | :--- | :--- |
-| addressOrAlias: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| addressOrAlias: [Address](/en/ride/v4/structures/common-structures/address)&#124;[Alias](/en/ride/v4/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |

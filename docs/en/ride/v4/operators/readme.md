@@ -12,7 +12,7 @@
 | / | Division |
 | % | Remainder |
 
-> The **/** operator uses the FLOOR rounding method, see [Rounding variables](/en/ride/functions/built-in-functions/math-functions#rounding-variables). For example, the result of `-1 / 100` is `-1`.
+> The **/** operator uses the FLOOR rounding method, see [Rounding variables](/en/ride/v4/functions/built-in-functions/math-functions#rounding-variables). For example, the result of `-1 / 100` is `-1`.
 
 ## Comparison operators
 
@@ -54,7 +54,7 @@
 
 > :warning: `++` and `:+` operators are added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
-See examples of the [List](/en/ride/data-types/list) article.
+See examples of the [List](/en/ride/v4/data-types/list) article.
 
 ## Unary operators
 

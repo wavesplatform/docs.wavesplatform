@@ -12,5 +12,5 @@ Transfer(recipient: Address|Alias, amount: Int)
 
 | # | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | recipient | [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | Адрес получателя |
-| 2 | amount | [Int](/ru/ride/data-types/int) | Количество токенов |
+| 1 | recipient | [Address](/ru/ride/v4/structures/common-structures/address)&#124;[Alias](/ru/ride/v4/structures/common-structures/alias) | Адрес получателя |
+| 2 | amount | [Int](/ru/ride/v4/data-types/int) | Количество токенов |

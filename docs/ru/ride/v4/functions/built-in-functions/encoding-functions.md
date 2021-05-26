@@ -1,6 +1,6 @@
 # [Ride v4 и v3] Функции кодирования
 
-:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/functions/built-in-functions/encoding-functions)
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/v4/functions/built-in-functions/encoding-functions)
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
@@ -20,7 +20,7 @@ toBase16String(bytes: ByteVector): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `bytes`: [ByteVector](/ru/ride/data-types/byte-vector) | Массив байтов для кодирования |
+| `bytes`: [ByteVector](/ru/ride/v4/data-types/byte-vector) | Массив байтов для кодирования |
 
 ### Примеры
 
@@ -41,7 +41,7 @@ toBase58String(bytes: ByteVector): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `bytes`: [ByteVector](/ru/ride/data-types/byte-vector) | Массив байтов для кодирования |
+| `bytes`: [ByteVector](/ru/ride/v4/data-types/byte-vector) | Массив байтов для кодирования |
 
 ### Примеры
 
@@ -62,7 +62,7 @@ toBase64String(bytes: ByteVector): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `bytes`: [ByteVector](/ru/ride/data-types/byte-vector) | Массив байтов для кодирования |
+| `bytes`: [ByteVector](/ru/ride/v4/data-types/byte-vector) | Массив байтов для кодирования |
 
 ### Примеры
 

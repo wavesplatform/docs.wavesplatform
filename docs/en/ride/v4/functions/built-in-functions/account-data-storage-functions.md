@@ -27,8 +27,8 @@ getBinary(addressOrAlias: Address|Alias, key: String): ByteVector|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
-| `key`: [String](/en/ride/data-types/string) | The key |
+| `addressOrAlias`: [Address](/en/ride/v4/structures/common-structures/address)&#124;[Alias](/en/ride/v4/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/v4/data-types/string) | The key |
 
 ## getBinaryValue<a id="get-binary-value"></a>
 
@@ -42,8 +42,8 @@ getBinaryValue(addressOrAlias: Address|Alias, key: String): ByteVector
 
 | Parameter | Description |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
-| `key`: [String](/en/ride/data-types/string) | The key |
+| `addressOrAlias`: [Address](/en/ride/v4/structures/common-structures/address)&#124;[Alias](/en/ride/v4/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/v4/data-types/string) | The key |
 
 ## getBoolean<a id="get-boolean"></a>
 
@@ -57,8 +57,8 @@ getBoolean(addressOrAlias: Address|Alias, key: String): Boolean|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
-| `key`: [String](/en/ride/data-types/string) | The key |
+| `addressOrAlias`: [Address](/en/ride/v4/structures/common-structures/address)&#124;[Alias](/en/ride/v4/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/v4/data-types/string) | The key |
 
 ## getBooleanValue<a id="get-boolean-value"></a>
 
@@ -72,8 +72,8 @@ getBooleanValue(addressOrAlias: Address|Alias, key: String): Boolean
 
 | Parameter | Description |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
-| `key`: [String](/en/ride/data-types/string) | The key |
+| `addressOrAlias`: [Address](/en/ride/v4/structures/common-structures/address)&#124;[Alias](/en/ride/v4/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/v4/data-types/string) | The key |
 
 ## getInteger<a id="get-integer"></a>
 
@@ -87,8 +87,8 @@ getInteger(addressOrAlias: Address|Alias, key: String): Int|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
-| `key`: [String](/en/ride/data-types/string) | The key |
+| `addressOrAlias`: [Address](/en/ride/v4/structures/common-structures/address)&#124;[Alias](/en/ride/v4/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/v4/data-types/string) | The key |
 
 ## getIntegerValue<a id="get-integer-value"></a>
 
@@ -102,8 +102,8 @@ getIntegerValue(addressOrAlias: Address|Alias, key: String): Int
 
 | Parameter | Description |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
-| `key`: [String](/en/ride/data-types/string) | The key |
+| `addressOrAlias`: [Address](/en/ride/v4/structures/common-structures/address)&#124;[Alias](/en/ride/v4/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/v4/data-types/string) | The key |
 
 ## getString<a id="get-string"></a>
 
@@ -117,8 +117,8 @@ getString(addressOrAlias: Address|Alias, key: String): String|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
-| `key`: [String](/en/ride/data-types/string) | The key |
+| `addressOrAlias`: [Address](/en/ride/v4/structures/common-structures/address)&#124;[Alias](/en/ride/v4/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/v4/data-types/string) | The key |
 
 ## getStringValue<a id="get-string-value"></a>
 
@@ -132,5 +132,5 @@ getStringValue(addressOrAlias: Address|Alias, key: String): String
 
 | Parameter | Description |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/en/ride/structures/common-structures/address)&#124;[Alias](/en/ride/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
-| `key`: [String](/en/ride/data-types/string) | The key |
+| `addressOrAlias`: [Address](/en/ride/v4/structures/common-structures/address)&#124;[Alias](/en/ride/v4/structures/common-structures/alias) | [Address](/en/blockchain/account/address) or [alias](/en/blockchain/account/alias) of the account |
+| `key`: [String](/en/ride/v4/data-types/string) | The key |

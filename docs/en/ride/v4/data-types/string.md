@@ -16,5 +16,5 @@ The maximum size of a `String` variable is:
 ## String Functions
 
 The built-in functions for working with strings are presented in the following articles:
-* [String Functions](/en/ride/functions/built-in-functions/string-functions)
-* [Conversion Functions](/en/ride/functions/built-in-functions/string-functions)
+* [String Functions](/en/ride/v4/functions/built-in-functions/string-functions)
+* [Conversion Functions](/en/ride/v4/functions/built-in-functions/string-functions)

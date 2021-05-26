@@ -1,6 +1,6 @@
 # [Ride v4 и v3] String
 
-:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/data-types/string)
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/v4/data-types/string)
 
 `String` — строковый тип данных.
 
@@ -16,5 +16,5 @@
 ## Функции работы со строками
 
 Встроенные функции работы со строками представлены в разделах:
-* [Функции строки](/en/ride/functions/built-in-functions/string-functions)
-* [Функции конвертации](/en/ride/functions/built-in-functions/string-functions)
+* [Функции строки](/en/ride/v4/functions/built-in-functions/string-functions)
+* [Функции конвертации](/en/ride/v4/functions/built-in-functions/string-functions)

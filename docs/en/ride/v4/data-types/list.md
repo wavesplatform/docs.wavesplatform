@@ -6,7 +6,7 @@
 
 The list may contain elements of various types, including nested lists.
 
-The maximim number of list items is 1000. The nesting depth is not limited. For weight restrictions, see the [Data Weight](/en/ride/limits/weight) article.
+The maximim number of list items is 1000. The nesting depth is not limited. For weight restrictions, see the [Data Weight](/en/ride/v4/limits/weight) article.
 
 ## List Operations
 
@@ -59,4 +59,4 @@ Result: [[1, 2], 1, 2, "3", "4"]
 
 ## List functions
 
-The built-in list functions are presented in the [List Functions](/en/ride/functions/built-in-functions/list-functions) article.
+The built-in list functions are presented in the [List Functions](/en/ride/v4/functions/built-in-functions/list-functions) article.

@@ -2,7 +2,7 @@
 
 :warning: This is the documentation for the Standard library version 4 and 3. We recommend to use version 5. [Go to version 5](/en/ride/variables/built-in-variables)
 
-A **built-in variable** is a [variable](/en/ride/variables/) of the [Standard library](/en/ride/script/standard-library).
+A **built-in variable** is a [variable](/en/ride/v4/variables/) of the [Standard library](/en/ride/script/standard-library).
 
 ## List of built-in variables
 <table style="width:100%">
@@ -30,7 +30,7 @@ A **built-in variable** is a [variable](/en/ride/variables/) of the [Standard li
       </ul>
     </td>
     <td>
-      <a href="/en/ride/functions/built-in-functions/math-functions">Rounding methods</a> used in the <a href="/en/ride/functions/built-in-functions/math-functions">log</a> and <a href="/en/ride/functions/built-in-functions/math-functions">pow</a> functions
+      <a href="/en/ride/v4/functions/built-in-functions/math-functions">Rounding methods</a> used in the <a href="/en/ride/v4/functions/built-in-functions/math-functions">log</a> and <a href="/en/ride/v4/functions/built-in-functions/math-functions">pow</a> functions
     </td>
   </tr>
   <tr>
@@ -46,7 +46,7 @@ A **built-in variable** is a [variable](/en/ride/variables/) of the [Standard li
   <tr>
     <td>5</td>
     <td>nil</td>
-    <td>Variable that contains an empty <a href="/en/ride/data-types/list">list.</a><br>The variable is used for creating lists. For example, instead of:<br>
+    <td>Variable that contains an empty <a href="/en/ride/v4/data-types/list">list.</a><br>The variable is used for creating lists. For example, instead of:<br>
 <pre>
 <code class=“lang-ride”>
     let a = [5,6]
@@ -79,7 +79,7 @@ A **built-in variable** is a [variable](/en/ride/variables/) of the [Standard li
       </ul>
     </td>
     <td>
-      Variables that are passed as the first parameter to the <a href="/en/ride/functions/built-in-functions/verification-functions">rsaVerify</a> function
+      Variables that are passed as the first parameter to the <a href="/en/ride/v4/functions/built-in-functions/verification-functions">rsaVerify</a> function
     </td>
   </tr>
   <tr>
@@ -100,7 +100,7 @@ A **built-in variable** is a [variable](/en/ride/variables/) of the [Standard li
   <tr>
     <td>10</td>
     <td>unit</td>
-    <td>Variable that contains an object of <a href="/en/ride/data-types/unit">Unit</a> type.<br><b>Example 1</b><br> the <code>deposit</code> function transfers 5 <a href="/en/blockchain/token/waves">WAVELETs</a> to the account, that <a href="/en/ride/functions/callable-function">called</a> this function.
+    <td>Variable that contains an object of <a href="/en/ride/v4/data-types/unit">Unit</a> type.<br><b>Example 1</b><br> the <code>deposit</code> function transfers 5 <a href="/en/blockchain/token/waves">WAVELETs</a> to the account, that <a href="/en/ride/v4/functions/callable-function">called</a> this function.
 
 <pre>
 <code class=“lang-ride”>
@@ -117,7 +117,7 @@ func deposit() = {
 </code>
 </pre>
 
-WAVES does not have a <a href="/en/blockchain/token/token-id">token ID</a>; the <code>unit</code> is passed instead of the ID.<br><b>Example 2</b><br>The <a href="/en/ride/functions/built-in-functions/blockchain-functions"><tt>assetInfo</tt></a> function requests information about the token by its ID. Next, the <code>isDefined</code> function checks that a token with this ID exists on the blockchain.
+WAVES does not have a <a href="/en/blockchain/token/token-id">token ID</a>; the <code>unit</code> is passed instead of the ID.<br><b>Example 2</b><br>The <a href="/en/ride/v4/functions/built-in-functions/blockchain-functions"><tt>assetInfo</tt></a> function requests information about the token by its ID. Next, the <code>isDefined</code> function checks that a token with this ID exists on the blockchain.
 <pre>
 <code class=“lang-ride”>
 {-# STDLIB_VERSION 3 #-}

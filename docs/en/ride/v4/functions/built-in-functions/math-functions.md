@@ -4,14 +4,14 @@
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| [fraction](#fraction) | Multiplies and divides [integers](/en/ride/data-types/int) to avoid overflow | 1 |
+| [fraction](#fraction) | Multiplies and divides [integers](/en/ride/v4/data-types/int) to avoid overflow | 1 |
 | [log](#log)| Calculates logarithm of a number with a given base | 100 |
 | [median](#median)| Returns the median of a list of integers | 20 |
 | [pow](#pow) | Raises a number to a given power | 100 |
 
 ## fraction
 
-Multiplies [integers](/en/ride/data-types/int) `a`, `b` and divides the result by the integer `c` to avoid overflow.
+Multiplies [integers](/en/ride/v4/data-types/int) `a`, `b` and divides the result by the integer `c` to avoid overflow.
 
 Fraction `a × b / c` should not exceed the maximum value of the integer type 9,223,372,036,854,755,807.
 
@@ -23,9 +23,9 @@ fraction(a: Int, b: Int, c: Int): Int
 
 | Parameter | Description |
 | :--- | :--- |
-| `a`: [Int](/en/ride/data-types/int) | Integer `a` |
-| `b`: [Int](/en/ride/data-types/int) | Integer `b` |
-| `c`: [Int](/en/ride/data-types/int) | Integer `c` |
+| `a`: [Int](/en/ride/v4/data-types/int) | Integer `a` |
+| `b`: [Int](/en/ride/v4/data-types/int) | Integer `b` |
+| `c`: [Int](/en/ride/v4/data-types/int) | Integer `c` |
 
 ### Example
 
@@ -37,7 +37,7 @@ b = 50,000,000,000,000,
 
 c = 2,500,000.
 
-The following formula, with [operators](/en/ride/operators/) `*` and `/`, fails due to overflow:
+The following formula, with [operators](/en/ride/v4/operators/) `*` and `/`, fails due to overflow:
 
 ```ride
 a * b / c #  overflow, because a × b exceeds max integer value
@@ -57,7 +57,7 @@ Calculates `log`<sub>`b`</sub>`a`.
 log(value: Int, vp: Int, base: Int, bp: Int, rp: Int, round: UP|DOWN|CEILING|FLOOR|HALFUP|HALFDOWN|HALFEVEN): Int
 ```
 
-In Ride, there is no [data type](/en/ride/data-types/) with the floating point. That is why, for example, when you need to calculate `log`<sub>2.7</sub>16.25 then the number `value` = 1625, `vp` = 2 and the `base` = 27, `bp` = 1.
+In Ride, there is no [data type](/en/ride/v4/data-types/) with the floating point. That is why, for example, when you need to calculate `log`<sub>2.7</sub>16.25 then the number `value` = 1625, `vp` = 2 and the `base` = 27, `bp` = 1.
 
 More examples:
 
@@ -73,11 +73,11 @@ If the `log` function returns, for example, 2807, and the parameter of functio
 
 | Parameter | Description |
 | :--- | :--- |
-| `value`: [Int](/en/ride/data-types/int) | Number `a` without decimal point |
-| `vp`: [Int](/en/ride/data-types/int) | Number of decimals of `a` |
-| `base`: [Int](/en/ride/data-types/int) | Logarithm base `b` without decimal point |
-| `bp`: [Int](/en/ride/data-types/int) | Number of decimals of `b` |
-| `rp`: [Int](/en/ride/data-types/int) | Number of decimals in the resulting value, from 0 to 8 inclusive. Specifies the accuracy of the calculated result. |
+| `value`: [Int](/en/ride/v4/data-types/int) | Number `a` without decimal point |
+| `vp`: [Int](/en/ride/v4/data-types/int) | Number of decimals of `a` |
+| `base`: [Int](/en/ride/v4/data-types/int) | Logarithm base `b` without decimal point |
+| `bp`: [Int](/en/ride/v4/data-types/int) | Number of decimals of `b` |
+| `rp`: [Int](/en/ride/v4/data-types/int) | Number of decimals in the resulting value, from 0 to 8 inclusive. Specifies the accuracy of the calculated result. |
 | `round`: UP&#124;DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFDOWN&#124;HALFEVEN | One of the [rounding variables](#rounding-variables) |
 
 ### Examples
@@ -95,7 +95,7 @@ log(0, 0, 2, 0, 0, HALFUP)     # Result: -Infinity
 
 ## median
 
-Returns the median of the [list](/en/ride/data-types/list). The list can't be empty, otherwise, the function fails.
+Returns the median of the [list](/en/ride/v4/data-types/list). The list can't be empty, otherwise, the function fails.
 
 > :warning: The `median` function is added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
@@ -107,7 +107,7 @@ median(arr: List[Int]): Int
 
 | Parameter | Description |
 | :--- | :--- |
-| `arr`: [List[Int]](/en/ride/data-types/list) | List of integers |
+| `arr`: [List[Int]](/en/ride/v4/data-types/list) | List of integers |
 
 ### Examples
 
@@ -125,7 +125,7 @@ Calculates `a`<sup>`b`</sup>.
 pow(base: Int, bp: Int, exponent: Int, ep: Int, rp: Int, round: UP|DOWN|CEILING|FLOOR|HALFUP|HALFDOWN|HALFEVEN): Int
 ```
 
-In Ride, there is no [data type](/en/ride/data-types/) with the floating point. That is why, for example, when you need to calculate, 16.25<sup>2.7</sup>, then the number `base` = 1625, `bp` = 2, and the `exponent` = 27, `ep` = 1.
+In Ride, there is no [data type](/en/ride/v4/data-types/) with the floating point. That is why, for example, when you need to calculate, 16.25<sup>2.7</sup>, then the number `base` = 1625, `bp` = 2, and the `exponent` = 27, `ep` = 1.
 
 If the `pow` function returns, for example, 18591057, and the parameter of function `rp` = 4, then the result is 1859.1057; in the number 18591057 the last 4 digits is a fractional part.
 
@@ -133,11 +133,11 @@ If the `pow` function returns, for example, 18591057, and the parameter of fun
 
 | Parameter | Description |
 | :--- | :--- |
-| `base`: [Int](/en/ride/data-types/int) | Number `a` without decimal point |
-| `bp`: [Int](/en/ride/data-types/int) | Number of decimals of `a` |
-| `exponent`: [Int](/en/ride/data-types/int) | Exponent `b` without decimal point |
-| `ep`: [Int](/en/ride/data-types/int) | Number of decimals of `b` |
-| `rp`: [Int](/en/ride/data-types/int) | Number of decimals in the resulting value. Specifies the accuracy of the calculated result. The value of the variable can be 0 to 8 integer inclusive |
+| `base`: [Int](/en/ride/v4/data-types/int) | Number `a` without decimal point |
+| `bp`: [Int](/en/ride/v4/data-types/int) | Number of decimals of `a` |
+| `exponent`: [Int](/en/ride/v4/data-types/int) | Exponent `b` without decimal point |
+| `ep`: [Int](/en/ride/v4/data-types/int) | Number of decimals of `b` |
+| `rp`: [Int](/en/ride/v4/data-types/int) | Number of decimals in the resulting value. Specifies the accuracy of the calculated result. The value of the variable can be 0 to 8 integer inclusive |
 | `round`: UP&#124;DOWN&#124;CEILING&#124;FLOOR&#124;HALFUP&#124;HALFDOWN&#124;HALFEVEN | One of the [rounding variables](#rounding-variables) |
 
 ### Examples

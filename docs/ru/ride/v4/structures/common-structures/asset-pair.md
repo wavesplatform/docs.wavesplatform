@@ -12,5 +12,5 @@ AssetPair(amountAsset: ByteVector|Unit, priceAsset: ByteVector|Unit)
 
 |   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | amountAsset | [ByteVector](/ru/ride/data-types/byte-vector)&#124;[Unit](/ru/ride/data-types/unit) | Первый токен пары |
-| 2 | priceAsset | [ByteVector](/ru/ride/data-types/byte-vector)&#124;[Unit](/ru/ride/data-types/unit) | Второй токен пары |
+| 1 | amountAsset | [ByteVector](/ru/ride/v4/data-types/byte-vector)&#124;[Unit](/ru/ride/v4/data-types/unit) | Первый токен пары |
+| 2 | priceAsset | [ByteVector](/ru/ride/v4/data-types/byte-vector)&#124;[Unit](/ru/ride/v4/data-types/unit) | Второй токен пары |

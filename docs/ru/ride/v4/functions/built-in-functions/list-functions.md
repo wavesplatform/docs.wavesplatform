@@ -1,10 +1,10 @@
 # [Ride v4 и v3] Функции списка
 
-:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/functions/built-in-functions/list-functions)
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/v4/functions/built-in-functions/list-functions)
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| [cons](#cons)  | Вставляет элемент в начало [списка](/ru/ride/data-types/list) | 2 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>1 для Стандартной библиотеки **версии 4** |
+| [cons](#cons)  | Вставляет элемент в начало [списка](/ru/ride/v4/data-types/list) | 2 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>1 для Стандартной библиотеки **версии 4** |
 | [containsElement](#containselement)  | Проверяет наличие элемента в списке | 5 |
 | [getElement](#getelement)  | Получает элемент списка по индексу | 2 |
 | [indexOf](#indexof)  | Возвращает индекс первого вхождения элемента в списке | 5 |
@@ -18,7 +18,7 @@
 
 ## cons
 
-Вставляет элемент в начало [списка](/ru/ride/data-types/list).
+Вставляет элемент в начало [списка](/ru/ride/v4/data-types/list).
 
 ``` ride
 cons(head:T, tail: List[T]): List[T]
@@ -29,7 +29,7 @@ cons(head:T, tail: List[T]): List[T]
 | Параметр | Описание |
 | :--- | :--- |
 | `head`: T | Элемент |
-| `tail`: [List[T]](/ru/ride/data-types/list) | Список |
+| `tail`: [List[T]](/ru/ride/v4/data-types/list) | Список |
 
 ### Примеры
 
@@ -52,12 +52,12 @@ containsElement(list: List[T], element: T): Boolean
 
 | Параметр | Описание |
 | :--- | :--- |
-| `list`: [List[T]](/ru/ride/data-types/list) | Список |
+| `list`: [List[T]](/ru/ride/v4/data-types/list) | Список |
 | `element`: T | Искомый элемент |
 
 ## getElement
 
-Получает элемент [списка](/ru/ride/data-types/list) по индексу.
+Получает элемент [списка](/ru/ride/v4/data-types/list) по индексу.
 
 ``` ride
 getElement(arr: List[T], pos: Int): T
@@ -67,7 +67,7 @@ getElement(arr: List[T], pos: Int): T
 
 | Параметр | Описание |
 | :--- | :--- |
-| `arr`: [List[T]](/ru/ride/data-types/list) | Список |
+| `arr`: [List[T]](/ru/ride/v4/data-types/list) | Список |
 | `pos`: Int | Индекс элемента |
 
 ### Примеры
@@ -91,7 +91,7 @@ indexOf(list: List[T], element: T): Int|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `list`: [List[T]](/ru/ride/data-types/list) | Список |
+| `list`: [List[T]](/ru/ride/v4/data-types/list) | Список |
 | `element`: T | Искомый элемент |
 
 ### Пример
@@ -115,7 +115,7 @@ lastIndexOf(list: List[T], element: T): Int|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `list`: [List[T]](/ru/ride/data-types/list) | Список |
+| `list`: [List[T]](/ru/ride/v4/data-types/list) | Список |
 | `element`: T | Искомый элемент |
 
 ### Пример
@@ -139,7 +139,7 @@ max(List[Int]): Int
 
 | Параметр | Описание |
 | :--- | :--- |
-| `list`: [List[T]](/ru/ride/data-types/list) | Список |
+| `list`: [List[T]](/ru/ride/v4/data-types/list) | Список |
 
 ## min
 
@@ -155,7 +155,7 @@ min(List[Int]): Int
 
 | Параметр | Описание |
 | :--- | :--- |
-| `list`: [List[T]](/ru/ride/data-types/list) | Список |
+| `list`: [List[T]](/ru/ride/v4/data-types/list) | Список |
 
 ## removeByIndex
 
@@ -171,7 +171,7 @@ removeByIndex(list: List[T], index: Int): List[T]
 
 | Параметр | Описание |
 | :--- | :--- |
-| `list`: [List[T]](/ru/ride/data-types/list) | Список |
+| `list`: [List[T]](/ru/ride/v4/data-types/list) | Список |
 | `index`: T | Индекс элемента |
 
 ### Примеры
@@ -182,7 +182,7 @@ removeByIndex(["Waves", 42, true], 1) # Возвращает ["Waves", true]
 
 ## size
 
-Возвращает размер [списка](/ru/ride/data-types/list).
+Возвращает размер [списка](/ru/ride/v4/data-types/list).
 
 ``` ride
 size(arr: List[T]): Int
@@ -192,7 +192,7 @@ size(arr: List[T]): Int
 
 | Параметр | Описание |
 | :--- | :--- |
-| `arr`: [List[T]](/ru/ride/data-types/list) | Список |
+| `arr`: [List[T]](/ru/ride/v4/data-types/list) | Список |
 
 ### Пример
 

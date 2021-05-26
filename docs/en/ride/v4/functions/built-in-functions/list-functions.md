@@ -4,7 +4,7 @@
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| [cons](#cons) | Inserts element to the beginning of the [list](/en/ride/data-types/list) | 2 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>1 for Standard Library **version 4** |
+| [cons](#cons) | Inserts element to the beginning of the [list](/en/ride/v4/data-types/list) | 2 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>1 for Standard Library **version 4** |
 | [containsElement](#containselement)  | Check if the element is in the list | 5 |
 | [getElement](#getelement) | Gets the element from the list | 2 |
 | [indexOf](#indexof) | Returns the index of the first occurrence of the element in the list | 5 |
@@ -18,7 +18,7 @@
 
 ## cons
 
-Inserts element to the beginning of the [list](/en/ride/data-types/list).
+Inserts element to the beginning of the [list](/en/ride/v4/data-types/list).
 
 ``` ride
 cons(head:T, tail: List[T]): List[T]
@@ -29,7 +29,7 @@ cons(head:T, tail: List[T]): List[T]
 | Parameter | Description |
 | :--- | :--- |
 | `head`: T | Element |
-| `tail`: [List[T]](/en/ride/data-types/list) | List |
+| `tail`: [List[T]](/en/ride/v4/data-types/list) | List |
 
 ### Examples
 
@@ -52,12 +52,12 @@ containsElement(list: List[T], element: T): Boolean
 
 | Parameter | Description |
 | :--- | :--- |
-| `list`: [List[T]](/en/ride/data-types/list) | List |
+| `list`: [List[T]](/en/ride/v4/data-types/list) | List |
 | `element`: T | Element to search for |
 
 ## getElement
 
-Gets the element from the [list](/en/ride/data-types/list) by index.
+Gets the element from the [list](/en/ride/v4/data-types/list) by index.
 
 ``` ride
 getElement(arr: List[T], pos: Int): T
@@ -67,7 +67,7 @@ getElement(arr: List[T], pos: Int): T
 
 | Parameter | Description |
 | :--- | :--- |
-| `arr`: [List[T]](/en/ride/data-types/list) | List |
+| `arr`: [List[T]](/en/ride/v4/data-types/list) | List |
 | `pos`: Int | Index of the element |
 
 ### Examples
@@ -91,7 +91,7 @@ indexOf(list: List[T], element: T): Int|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `list`: [List[T]](/en/ride/data-types/list) | List |
+| `list`: [List[T]](/en/ride/v4/data-types/list) | List |
 | `element`: T | Element to locate |
 
 ### Example
@@ -115,7 +115,7 @@ lastIndexOf(list: List[T], element: T): Int|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `list`: [List[T]](/en/ride/data-types/list) | List |
+| `list`: [List[T]](/en/ride/v4/data-types/list) | List |
 | `element`: T | Element to locate |
 
 ### Example
@@ -137,7 +137,7 @@ max(List[Int]): Int
 
 | Parameter | Description |
 | :--- | :--- |
-| `list`: [List[T]](/en/ride/data-types/list) | List |
+| `list`: [List[T]](/en/ride/v4/data-types/list) | List |
 
 ## min
 
@@ -151,7 +151,7 @@ min(List[Int]): Int
 
 | Parameter | Description |
 | :--- | :--- |
-| `list`: [List[T]](/en/ride/data-types/list) | List |
+| `list`: [List[T]](/en/ride/v4/data-types/list) | List |
 
 ## removeByIndex
 
@@ -167,7 +167,7 @@ removeByIndex(list: List[T], index: Int): List[T]
 
 | Parameter | Description |
 | :--- | :--- |
-| `list`: [List[T]](/en/ride/data-types/list) | List |
+| `list`: [List[T]](/en/ride/v4/data-types/list) | List |
 | `index`: T | Index of the element |
 
 ### Examlpes
@@ -178,7 +178,7 @@ removeByIndex(["Waves", 42, true], 1) # Returns ["Waves", true]
 
 ## size
 
-Returns the size of the [list](/en/ride/data-types/list).
+Returns the size of the [list](/en/ride/v4/data-types/list).
 
 ``` ride
 size(arr: List[T]): Int
@@ -188,7 +188,7 @@ size(arr: List[T]): Int
 
 | Parameter | Description |
 | :--- | :--- |
-| `arr`: [List[T]](/en/ride/data-types/list) | List |
+| `arr`: [List[T]](/en/ride/v4/data-types/list) | List |
 
 ### Examples
 

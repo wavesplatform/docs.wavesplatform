@@ -4,11 +4,11 @@
 
 > :warning: The structure is added in Standard library **version 4**.
 
-`Issue` is a structure that sets the parameters of the token issue. The token issue is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#invocation-result-2).
+`Issue` is a structure that sets the parameters of the token issue. The token issue is performed only if the structure is included in the [callable function result](/en/ride/v4/functions/callable-function#invocation-result-2).
 
 The minimum fee for an invoke script transaction is increased by 1 WAVES for each issued asset that is not [NFT](/en/blockchain/token/non-fungible-token).
 
-You can get the ID of the issued token using the [calculateAssetId](/en/ride/functions/built-in-functions/blockchain-functions#calculateassetid) function.
+You can get the ID of the issued token using the [calculateAssetId](/en/ride/v4/functions/built-in-functions/blockchain-functions#calculateassetid) function.
 
 ## Constructor
 
@@ -28,13 +28,13 @@ In the second case, `compiledScript = unit` and `nonce = 0` values are inserted 
 
 | # | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | name | [String](/en/ride/data-types/string) | Token name |
-| 2 | description | [String](/en/ride/data-types/string) | Token description |
-| 3 | quantity | [Int](/en/ride/data-types/int) | Amount of the [token](/en/blockchain/token/). Set to `1` for NFT |
-| 4 | decimals | [Int](/en/ride/data-types/int) | Number of digits in decimal part. Set to `0` for NFT |
-| 5 | isReissuable | [Boolean](/en/ride/data-types/boolean) | Reissue ability flag. Set to `0` for [NFT](/en/blockchain/token/non-fungible-token) |
-| 6 | compiledScript | [Script](/en/ride/script/)&#124;[Unit](/en/ride/data-types/unit) | Set it to `unit`. Smart asset issue is currently unavailable |
-| 7 | nonce | [Int](/en/ride/data-types/int) | Nonce that is used for token ID generation. If the callable function issues several tokens with the same parameters, you should use different nonce, see the [example](#multiple-tokens-issue) |
+| 1 | name | [String](/en/ride/v4/data-types/string) | Token name |
+| 2 | description | [String](/en/ride/v4/data-types/string) | Token description |
+| 3 | quantity | [Int](/en/ride/v4/data-types/int) | Amount of the [token](/en/blockchain/token/). Set to `1` for NFT |
+| 4 | decimals | [Int](/en/ride/v4/data-types/int) | Number of digits in decimal part. Set to `0` for NFT |
+| 5 | isReissuable | [Boolean](/en/ride/v4/data-types/boolean) | Reissue ability flag. Set to `0` for [NFT](/en/blockchain/token/non-fungible-token) |
+| 6 | compiledScript | [Script](/en/ride/script/)&#124;[Unit](/en/ride/v4/data-types/unit) | Set it to `unit`. Smart asset issue is currently unavailable |
+| 7 | nonce | [Int](/en/ride/v4/data-types/int) | Nonce that is used for token ID generation. If the callable function issues several tokens with the same parameters, you should use different nonce, see the [example](#multiple-tokens-issue) |
 
 ## Examples
 

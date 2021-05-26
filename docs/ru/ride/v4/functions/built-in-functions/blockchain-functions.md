@@ -1,6 +1,6 @@
 # [Ride v4 и v3] Функции блокчейна
 
-:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/functions/built-in-functions/blockchain-functions)
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/v4/functions/built-in-functions/blockchain-functions)
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
@@ -8,7 +8,7 @@
 | [assetBalancе(Address&#124;Alias, ByteVector): Int](#asset-balance)  | Получает баланс аккаунта по ID токена | 100 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10 для Стандартной библиотеки **версии 4** |
 | [assetInfo](#assetinfo)(ByteVector): Аsset&#124;Unit | Получает информацию о [токене](/ru/blockchain/token/) | 100 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>15 для Стандартной библиотеки **версии 4** |
 | [blockInfoByHeight](#blockinfobyheight)(Int): BlockInfo &#124;Unit | Получает информацию о [блоке](/ru/blockchain/block/) по [высоте блока](/ru/blockchain/block/block-height) | 100 для Стандартной библиотеки **версии 3**<br>5 для Стандартной библиотеки **версии 4** |
-| [calculateAssetId](#calculateassetid)(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/script-actions/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 10 |
+| [calculateAssetId](#calculateassetid)(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/v4/structures/script-actions/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 10 |
 | [transactionHeightById](#transactionheightbyid)(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 100 для Стандартной библиотеки **версии 3**<br>20 для Стандартной библиотеки **версии 4** |
 | [transferTransactionById](#transfertransactionbyid)(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 100 для Стандартной библиотеки **версии 3**<br>60 для Стандартной библиотеки **версии 4** |
 | [wavesBalance(Address&#124;Alias): BalanceDetails](#waves-balance) | Получает баланс аккаунта в [WAVES](/ru/blockchain/token/waves) | 100 для Стандартной библиотеки **версии 3**<br>10 для Стандартной библиотеки **версии 4** |
@@ -21,13 +21,13 @@
 addressFromRecipient(AddressOrAlias: Address|Alias): Address
 ```
 
-Описание возвращаемой структуры см. в разделе [Address](/ru/ride/structures/common-structures/address).
+Описание возвращаемой структуры см. в разделе [Address](/ru/ride/v4/structures/common-structures/address).
 
 ### Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
-| `AddressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | Адрес или псевдоним, обычно получателя транзакции |
+| `AddressOrAlias`: [Address](/ru/ride/v4/structures/common-structures/address)&#124;[Alias](/ru/ride/v4/structures/common-structures/alias) | Адрес или псевдоним, обычно получателя транзакции |
 
 ### Примеры
 
@@ -47,8 +47,8 @@ assetBalance(addressOrAlias: Address|Alias, assetId: ByteVector): Int
 
 | Параметр | Описание |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
-| `assetId`: [ByteVector](/ru/ride/data-types/byte-vector) | ID токена |
+| `addressOrAlias`: [Address](/ru/ride/v4/structures/common-structures/address)&#124;[Alias](/ru/ride/v4/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+| `assetId`: [ByteVector](/ru/ride/v4/data-types/byte-vector) | ID токена |
 
 ## assetBalance <a id="asset-balance"></a>
 
@@ -62,8 +62,8 @@ assetBalance(addressOrAlias: Address|Alias, assetId: ByteVector): Int
 
 | Параметр | Описание |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
-| `assetId`: [ByteVector](/ru/ride/data-types/byte-vector) | ID токена |
+| `addressOrAlias`: [Address](/ru/ride/v4/structures/common-structures/address)&#124;[Alias](/ru/ride/v4/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+| `assetId`: [ByteVector](/ru/ride/v4/data-types/byte-vector) | ID токена |
 
 ## assetInfo
 
@@ -73,13 +73,13 @@ assetBalance(addressOrAlias: Address|Alias, assetId: ByteVector): Int
 assetInfo(id: ByteVector): Аsset|Unit
 ```
 
-Описание возвращаемой структуры см. в разделе [Asset](/ru/ride/structures/common-structures/asset).
+Описание возвращаемой структуры см. в разделе [Asset](/ru/ride/v4/structures/common-structures/asset).
 
 ### Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
-| `id`: [ByteVector](/ru/ride/data-types/byte-vector) | ID [токена](/ru/blockchain/token/) |
+| `id`: [ByteVector](/ru/ride/v4/data-types/byte-vector) | ID [токена](/ru/blockchain/token/) |
 
 ### Пример
 
@@ -100,13 +100,13 @@ let x = match assetInfo(bitcoinId) {
 blockInfoByHeight(height: Int): BlockInfo|Unit
 ```
 
-Описание возвращаемой структуры см. в разделе [BlockInfo](/ru/ride/structures/common-structures/block-info).
+Описание возвращаемой структуры см. в разделе [BlockInfo](/ru/ride/v4/structures/common-structures/block-info).
 
 ### Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
-| `height`: [Int](/ru/ride/data-types/int) | Высота блока |
+| `height`: [Int](/ru/ride/v4/data-types/int) | Высота блока |
 
 ### Пример
 
@@ -120,7 +120,7 @@ let x = match blockInfoByHeight(1234567) {
 
 ## calculateAssetId
 
-Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/script-actions/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction).
+Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/v4/structures/script-actions/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction).
 
 > :warning: Функция `calculateAssetId` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
 
@@ -132,7 +132,7 @@ calculateAssetId(issue: Issue): ByteVector
 
 | Параметр | Описание |
 | :--- | :--- |
-| `issue`: [Issue](/ru/ride/structures/script-actions/issue) | Структура, при помощи которой сформирован ассет |
+| `issue`: [Issue](/ru/ride/v4/structures/script-actions/issue) | Структура, при помощи которой сформирован ассет |
 
 ### Пример
 
@@ -172,7 +172,7 @@ transactionHeightById(id: ByteVector): Int|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `id`: [ByteVector](/ru/ride/data-types/byte-vector) | ID транзакции |
+| `id`: [ByteVector](/ru/ride/v4/data-types/byte-vector) | ID транзакции |
 
 ## transferTransactionById
 
@@ -182,13 +182,13 @@ transactionHeightById(id: ByteVector): Int|Unit
 transferTransactionById(id: ByteVector): TransferTransaction|Unit
 ```
 
-Описание возвращаемой структуры см. в разделе [TransferTransaction](/ru/ride/structures/transaction-structures/transfer-transaction).
+Описание возвращаемой структуры см. в разделе [TransferTransaction](/ru/ride/v4/structures/transaction-structures/transfer-transaction).
 
 ### Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
-| `id`: [ByteVector](/ru/ride/data-types/byte-vector) | ID транзакции перевода |
+| `id`: [ByteVector](/ru/ride/v4/data-types/byte-vector) | ID транзакции перевода |
 
 ### Пример
 
@@ -219,10 +219,10 @@ wavesBalance(addressOrAlias: Address|Alias): Int
 wavesBalance(addressOrAlias: Address|Alias): BalanceDetails
 ```
 
-Описание возвращаемой структуры см. в разделе [BalanceDetails](/ru/ride/structures/common-structures/balance-details).
+Описание возвращаемой структуры см. в разделе [BalanceDetails](/ru/ride/v4/structures/common-structures/balance-details).
 
 ### Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+| `addressOrAlias`: [Address](/ru/ride/v4/structures/common-structures/address)&#124;[Alias](/ru/ride/v4/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |

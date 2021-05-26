@@ -33,8 +33,8 @@ contains(haystack: String, needle: String): Boolean
 
 | Parameter | Description |
 | :--- | :--- |
-| `haystack`: [String](/en/ride/data-types/string) | String to search in |
-| `needle`: [String](/en/ride/data-types/string) | String to search for |
+| `haystack`: [String](/en/ride/v4/data-types/string) | String to search in |
+| `needle`: [String](/en/ride/v4/data-types/string) | String to search for |
 
 ### Examples
 
@@ -59,8 +59,8 @@ drop(xs: String, number: Int): String
 
 | Parameter | Description |
 | :--- | :--- |
-| `xs`: [String](/en/ride/data-types/string) | The string |
-| `number`: [Int](/en/ride/data-types/int) | The number `n` |
+| `xs`: [String](/en/ride/v4/data-types/string) | The string |
+| `number`: [Int](/en/ride/v4/data-types/int) | The number `n` |
 
 ### Examples
 
@@ -84,8 +84,8 @@ dropRight(xs: String, number: Int): String
 
 | Parameter | Description |
 | :--- | :--- |
-| `xs`: [String](/en/ride/data-types/string) | The string |
-| `number`: [Int](/en/ride/data-types/int) | The number `n` |
+| `xs`: [String](/en/ride/v4/data-types/string) | The string |
+| `number`: [Int](/en/ride/v4/data-types/int) | The number `n` |
 
 ### Examples
 
@@ -109,8 +109,8 @@ indexOf(str: String, substr: String): Int|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `str`: [String](/en/ride/data-types/string) | The string |
-| `substr`: [String](/en/ride/data-types/string) | The substring |
+| `str`: [String](/en/ride/v4/data-types/string) | The string |
+| `substr`: [String](/en/ride/v4/data-types/string) | The substring |
 
 ### Examples
 
@@ -132,9 +132,9 @@ indexOf(str: String, substr: String, offset: Int): Int|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `str`: [String](/en/ride/data-types/string) | The string |
-| `substr`: [String](/en/ride/data-types/string) | The substring |
-| `offset`: [Int](/en/ride/data-types/int) | The index |
+| `str`: [String](/en/ride/v4/data-types/string) | The string |
+| `substr`: [String](/en/ride/v4/data-types/string) | The substring |
+| `offset`: [Int](/en/ride/v4/data-types/int) | The index |
 
 ### Examples
 
@@ -156,8 +156,8 @@ lastIndexOf(str: String, substr: String): Int|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `str`: [String](/en/ride/data-types/string) | The string |
-| `substr`: [String](/en/ride/data-types/string) | The substring |
+| `str`: [String](/en/ride/v4/data-types/string) | The string |
+| `substr`: [String](/en/ride/v4/data-types/string) | The substring |
 
 ### Examples
 
@@ -179,9 +179,9 @@ lastIndexOf(str: String, substr: String, offset: Int): Int|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `str`: [String](/en/ride/data-types/string) | The string |
-| `substr`: [String](/en/ride/data-types/string) | The substring |
-| `offset`: [Int](/en/ride/data-types/int) | The index |
+| `str`: [String](/en/ride/v4/data-types/string) | The string |
+| `substr`: [String](/en/ride/v4/data-types/string) | The substring |
+| `offset`: [Int](/en/ride/v4/data-types/int) | The index |
 
 ### Examples
 
@@ -206,8 +206,8 @@ makeString(arr: List[String], separator: String): String
 
 | Parameter | Description |
 | :--- | :--- |
-| `arr`: [List](/en/ride/data-types/list)[[String](/en/ride/data-types/string)] | List of strings to concatenate |
-| `separator`: [String](/en/ride/data-types/string) | Separator |
+| `arr`: [List](/en/ride/v4/data-types/list)[[String](/en/ride/v4/data-types/string)] | List of strings to concatenate |
+| `separator`: [String](/en/ride/v4/data-types/string) | Separator |
 
 ### Пример
 
@@ -227,7 +227,7 @@ size(xs: String): Int
 
 | Parameter | Description |
 | :--- | :--- |
-| `xs`: [String](/en/ride/data-types/string) | The string |
+| `xs`: [String](/en/ride/v4/data-types/string) | The string |
 
 ### Examples
 
@@ -249,8 +249,8 @@ split(str: String, separator: String): List[String]
 
 | Parameter | Description |
 | :--- | :--- |
-| `str`: [String](/en/ride/data-types/string) | The string |
-| `separator`: [Int](/en/ride/data-types/int) | The separator |
+| `str`: [String](/en/ride/v4/data-types/string) | The string |
+| `separator`: [Int](/en/ride/v4/data-types/int) | The separator |
 
 ### Examples
 
@@ -273,8 +273,8 @@ take(xs: String, number: Int): String
 
 | Parameter | Description |
 | :--- | :--- |
-| `xs`: [String](/en/ride/data-types/string) | The string |
-| `number`: [Int](/en/ride/data-types/int) | The number `n` |
+| `xs`: [String](/en/ride/v4/data-types/string) | The string |
+| `number`: [Int](/en/ride/v4/data-types/int) | The number `n` |
 
 ### Examples
 
@@ -299,8 +299,8 @@ takeRight(xs: String, number: Int): String
 
 | Parameter | Description |
 | :--- | :--- |
-| `xs`: [String](/en/ride/data-types/string) | The string |
-| `number`: [Int](/en/ride/data-types/int) | The number `n` |
+| `xs`: [String](/en/ride/v4/data-types/string) | The string |
+| `number`: [Int](/en/ride/v4/data-types/int) | The number `n` |
 
 ### Examples
 

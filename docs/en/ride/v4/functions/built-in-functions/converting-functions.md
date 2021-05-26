@@ -26,13 +26,13 @@ Gets the corresponding [address](/en/blockchain/account/address) of the accoun
 addressFromPublicKey(publicKey: ByteVector): Address
 ```
 
-For a description of the return value, see the [Address](/en/ride/structures/common-structures/address) article.
+For a description of the return value, see the [Address](/en/ride/v4/structures/common-structures/address) article.
 
 ### Parameters
 
 | Parameter | Description |
 | :--- | :--- |
-| `publicKey`: [ByteVector](/en/ride/data-types/byte-vector) | Public key |
+| `publicKey`: [ByteVector](/en/ride/v4/data-types/byte-vector) | Public key |
 
 ### Examples
 
@@ -52,7 +52,7 @@ parseInt(str: String): Int|Unit
 
 | Parameter | Description |
 | :--- | :--- |
-| `str`: [String](/en/ride/data-types/string) | String to parse |
+| `str`: [String](/en/ride/v4/data-types/string) | String to parse |
 
 ### Examples
 
@@ -77,7 +77,7 @@ parseIntValue(str: String): Int
 
 | Parameter | Description |
 | :--- | :--- |
-| `str`: [String](/en/ride/data-types/string) | String to parse |
+| `str`: [String](/en/ride/v4/data-types/string) | String to parse |
 
 ### Examples
 
@@ -101,7 +101,7 @@ toBytes(b: Boolean): ByteVector
 
 | Parameter | Description |
 | :--- | :--- |
-| `b`: [Boolean](/en/ride/data-types/boolean) | Boolean to convert |
+| `b`: [Boolean](/en/ride/v4/data-types/boolean) | Boolean to convert |
 
 ### Examples
 
@@ -122,7 +122,7 @@ toBytes(n: Int): ByteVector
 
 | Parameter | Description |
 | :--- | :--- |
-| `n`: [Int](/en/ride/data-types/int) | Integer to convert |
+| `n`: [Int](/en/ride/v4/data-types/int) | Integer to convert |
 
 ### Examples
 
@@ -142,7 +142,7 @@ toBytes(s: String): ByteVector
 
 | Parameter | Description |
 | :--- | :--- |
-| `s`: [String](/en/ride/data-types/string) | String to convert |
+| `s`: [String](/en/ride/v4/data-types/string) | String to convert |
 
 ### Examples
 
@@ -162,7 +162,7 @@ toInt(bin: ByteVector) : Int
 
 | Parameter | Description |
 | :--- | :--- |
-| `bin`: [ByteVector](/en/ride/data-types/byte-vector) | Array of bytes to convert |
+| `bin`: [ByteVector](/en/ride/v4/data-types/byte-vector) | Array of bytes to convert |
 
 ### Examples
 
@@ -182,8 +182,8 @@ toInt(bin: ByteVector, offset: Int): Int
 
 | Parameter | Description |
 | :--- | :--- |
-| `bin`: [ByteVector](/en/ride/data-types/byte-vector) | Array of bytes to convert |
-| `offset`: [Int](/en/ride/data-types/int) | Index to start from |
+| `bin`: [ByteVector](/en/ride/v4/data-types/byte-vector) | Array of bytes to convert |
+| `offset`: [Int](/en/ride/v4/data-types/int) | Index to start from |
 
 ### Examples
 
@@ -205,7 +205,7 @@ toString(Address: Address): String
 
 | Parameter | Description |
 | :--- | :--- |
-| `Address`: [Address](/en/ride/structures/common-structures/address) | Address to convert |
+| `Address`: [Address](/en/ride/v4/structures/common-structures/address) | Address to convert |
 
 ### Examples
 
@@ -226,7 +226,7 @@ toString(b: Boolean): String
 
 | Parameter | Description |
 | :--- | :--- |
-| `b`: [Boolean](/en/ride/data-types/boolean) | Boolean to convert |
+| `b`: [Boolean](/en/ride/v4/data-types/boolean) | Boolean to convert |
 
 ### Examples
 
@@ -247,7 +247,7 @@ toString(n: Int): String
 
 | Parameter | Description |
 | :--- | :--- |
-| `n`: [Int](/en/ride/data-types/int) | Integer to convert |
+| `n`: [Int](/en/ride/v4/data-types/int) | Integer to convert |
 
 ### Examples
 
@@ -267,7 +267,7 @@ toUtf8String(u: ByteVector): String
 
 | Parameter | Description |
 | :--- | :--- |
-| `u`: [ByteVector](/en/ride/data-types/byte-vector) | Array of bytes to convert |
+| `u`: [ByteVector](/en/ride/v4/data-types/byte-vector) | Array of bytes to convert |
 
 ### Examples
 
@@ -278,7 +278,7 @@ toUtf8String(bytes) # Returns "Ride on Waves"
 
 ## transferTransactionFromProto
 
-Deserializes transfer transaction: converts protobuf-encoded [binary format](/en/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format) specified in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) to a [TransferTransaction](/en/ride/structures/transaction-structures/transfer-transaction) structure. Returns `unit` if deserialization failed.
+Deserializes transfer transaction: converts protobuf-encoded [binary format](/en/blockchain/binary-format/transaction-binary-format/transfer-transaction-binary-format) specified in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) to a [TransferTransaction](/en/ride/v4/structures/transaction-structures/transfer-transaction) structure. Returns `unit` if deserialization failed.
 
 > :warning: The functions is added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
@@ -286,13 +286,13 @@ Deserializes transfer transaction: converts protobuf-encoded [binary format](/en
 transferTransactionFromProto(b: ByteVector): TransferTransaction|Unit
 ```
 
-For a description of the return value, see the [TransferTransaction](/en/ride/structures/transaction-structures/transfer-transaction) article.
+For a description of the return value, see the [TransferTransaction](/en/ride/v4/structures/transaction-structures/transfer-transaction) article.
 
 ### Parameters
 
 | Parameter | Description |
 | :--- | :--- |
-| `b`: [ByteVector](/en/ride/data-types/byte-vector) | Transfer transaction in protobuf-encoded binary format |
+| `b`: [ByteVector](/en/ride/v4/data-types/byte-vector) | Transfer transaction in protobuf-encoded binary format |
 
 ### Examples
 

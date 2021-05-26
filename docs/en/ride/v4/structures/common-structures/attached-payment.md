@@ -14,5 +14,5 @@ AttachedPayment(assetId: ByteVector|Unit, amount: Int)
 
 |   #   | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | assetId | [ByteVector](/en/ride/data-types/byte-vector)&#124;[Unit](/en/ride/data-types/unit) | ID of a [token](/en/blockchain/token/) |
-| 2 | amount | [Int](/en/ride/data-types/int) | Payment amount |
+| 1 | assetId | [ByteVector](/en/ride/v4/data-types/byte-vector)&#124;[Unit](/en/ride/v4/data-types/unit) | ID of a [token](/en/blockchain/token/) |
+| 2 | amount | [Int](/en/ride/v4/data-types/int) | Payment amount |

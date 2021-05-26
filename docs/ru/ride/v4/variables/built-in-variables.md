@@ -1,6 +1,6 @@
 # Встроенные переменные
 
-**Встроенная переменная** — [переменная](/ru/ride/variables/) [Стандартной библиотеки](/ru/ride/script/standard-library).
+**Встроенная переменная** — [переменная](/ru/ride/v4/variables/) [Стандартной библиотеки](/ru/ride/script/standard-library).
 
 ## Список встроенных переменных
 
@@ -29,7 +29,7 @@
       </ul>
     </td>
     <td>
-      <a href="/ru/ride/functions/built-in-functions/math-functions">Переменные округления</a>, которые используются в функциях <a href="/ru/ride/functions/built-in-functions/math-functions">log</a> и <a href="/ru/ride/functions/built-in-functions/math-functions">pow</a> functions
+      <a href="/ru/ride/v4/functions/built-in-functions/math-functions">Переменные округления</a>, которые используются в функциях <a href="/ru/ride/v4/functions/built-in-functions/math-functions">log</a> и <a href="/ru/ride/v4/functions/built-in-functions/math-functions">pow</a> functions
     </td>
   </tr>
   <tr>
@@ -45,7 +45,7 @@
   <tr>
     <td>5</td>
     <td>nil</td>
-    <td>Переменная, которая содержит пустой <a href="/ru/ride/data-types/list">список.</a><br>Используется для создания списков. Например, вместо:<br>
+    <td>Переменная, которая содержит пустой <a href="/ru/ride/v4/data-types/list">список.</a><br>Используется для создания списков. Например, вместо:<br>
 <pre>
 <code class=“lang-ride”>
     let a = [5,6]
@@ -72,7 +72,7 @@
         <li>SHA3512</li></ol>
     </td>
     <td>
-      Переменные, которые передаются первым параметром в функцию <a href="/ru/ride/functions/built-in-functions/verification-functions">rsaVerify</a>
+      Переменные, которые передаются первым параметром в функцию <a href="/ru/ride/v4/functions/built-in-functions/verification-functions">rsaVerify</a>
     </td>
   </tr>
   <tr>
@@ -93,7 +93,7 @@
   <tr>
     <td>10</td>
     <td>unit</td>
-    <td>Переменная, которая содержит объект типа <a href="/ru/ride/data-types/unit">Unit</a>. <br><b>Пример 1</b><br> Функция <code>deposit</code> переводит 5 <a href="/ru/blockchain/token/waves">WAVELET</a> на аккаунт, который <a href="/ru/ride/functions/callable-function">вызвал</a> эту функцию.
+    <td>Переменная, которая содержит объект типа <a href="/ru/ride/v4/data-types/unit">Unit</a>. <br><b>Пример 1</b><br> Функция <code>deposit</code> переводит 5 <a href="/ru/blockchain/token/waves">WAVELET</a> на аккаунт, который <a href="/ru/ride/v4/functions/callable-function">вызвал</a> эту функцию.
 
 <pre>
 <code class=“lang-ride”>
@@ -110,7 +110,7 @@ func deposit() = {
 </code>
 </pre>
 
-У WAVES нет <a href="/ru/blockchain/token/token-id">ID токена</a>; вместо ID передается <code>unit</code>.<br><b>Пример 2</b><br>Функция <a href="/ru/ride/functions/built-in-functions/blockchain-functions"><tt>assetInfo</tt></a> запрашивает информацию о токене по его ID. Далее функция <code>isDefined</code> проверяет, что токен с таким ID существует на блокчейне.
+У WAVES нет <a href="/ru/blockchain/token/token-id">ID токена</a>; вместо ID передается <code>unit</code>.<br><b>Пример 2</b><br>Функция <a href="/ru/ride/v4/functions/built-in-functions/blockchain-functions"><tt>assetInfo</tt></a> запрашивает информацию о токене по его ID. Далее функция <code>isDefined</code> проверяет, что токен с таким ID существует на блокчейне.
 <pre>
 <code class=“lang-ride”>
 {-# STDLIB_VERSION 3 #-}

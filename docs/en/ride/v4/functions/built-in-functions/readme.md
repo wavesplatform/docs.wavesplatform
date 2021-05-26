@@ -4,7 +4,7 @@
 
 A **built-in function** is a [function](/en/ride/functions/) of the [Standard library](/en/ride/script/standard-library).
 
-## [Account data storage functions](/en/ride/functions/built-in-functions/account-data-storage-functions)
+## [Account data storage functions](/en/ride/v4/functions/built-in-functions/account-data-storage-functions)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
@@ -17,7 +17,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | getString(Address&#124;Alias, String): String&#124;Unit | Gets a string by key | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
 | getStringValue(Address&#124;Alias, String): String | Gets a string by key. Fails if there is no data | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
 
-## [Blockchain functions](/en/ride/functions/built-in-functions/blockchain-functions)
+## [Blockchain functions](/en/ride/v4/functions/built-in-functions/blockchain-functions)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
@@ -25,12 +25,12 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | assetBalancе(Address&#124;Alias, ByteVector): Int | Gets account balance by token ID | 100 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
 | assetInfo(ByteVector): Аsset&#124;Unit | Gets the information about a [token](/en/blockchain/token/) | 100 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>15 for Standard Library **version&nbsp;4** |
 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Gets the information about a [block](/en/blockchain/block/) by the [block height](/en/blockchain/block/block-height) | 100 for Standard Library **version&nbsp;3**<br>5 for Standard Library **version&nbsp;4** |
-| calculateAssetId(Issue): ByteVector | Calculates the ID of the asset, created by [Issue](/en/ride/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
+| calculateAssetId(Issue): ByteVector | Calculates the ID of the asset, created by [Issue](/en/ride/v4/structures/script-actions/issue) structure during [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) execution | 10 |
 | transactionHeightById(ByteVector):  Int&#124;Unit | Gets the [block height](/en/blockchain/block/block-height) of a transaction | 100 for Standard Library **version&nbsp;3**<br>20 for Standard Library **version&nbsp;4** |
 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Gets the data of a [transfer transaction](/en/blockchain/transaction-type/transfer-transaction) | 100 for Standard Library **version&nbsp;3**<br>60 for Standard Library **version&nbsp;4** |
 | wavesBalance(Address&#124;Alias): Int | Gets account balance in [WAVES](/en/blockchain/token/waves) | 100 for Standard Library **version&nbsp;3**<br>10 for Standard Library **version&nbsp;4** |
 
-## [Byte array functions](/en/ride/functions/built-in-functions/byte-array-functions)
+## [Byte array functions](/en/ride/v4/functions/built-in-functions/byte-array-functions)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
@@ -40,7 +40,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | take(ByteVector, Int): ByteVector | Returns the first `N` bytes of the byte array | 1 for Standard Library **version&nbsp;3**<br>6 for Standard Library **version&nbsp;4** |
 | takeRight(ByteVector, Int): ByteVector | Returns the last `N` bytes of the byte array | 19 for Standard Library **version&nbsp;3**<br>6 for Standard Library **version&nbsp;4** |
 
-## [Converting functions](/en/ride/functions/built-in-functions/converting-functions)
+## [Converting functions](/en/ride/v4/functions/built-in-functions/converting-functions)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
@@ -58,7 +58,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | toUtf8String(ByteVector): String | Converts an array of bytes to a UTF-8 string | 20 for Standard Library **version&nbsp;3**<br>7 for Standard Library **version&nbsp;4** |
 | transferTransactionFromProto(ByteVector): TransferTransaction&#124;Unit | Deserializes transfer transaction | 5 |
 
-## [Data transaction functions](/en/ride/functions/built-in-functions/data-transaction-functions)
+## [Data transaction functions](/en/ride/v4/functions/built-in-functions/data-transaction-functions)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
@@ -79,7 +79,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | getStringValue(List[], String): String | Gets a string value from a list of data entires by key. Fails if there is no data | 10 |
 | getStringValue(List[], Int): String | Gets a string value from a list of data entires by index. Fails if there is no data | 30 for Standard Library **version&nbsp;3**<br>4 for Standard Library **version&nbsp;4** |
 
-## [Decoding functions](/en/ride/functions/built-in-functions/decoding-functions)
+## [Decoding functions](/en/ride/v4/functions/built-in-functions/decoding-functions)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
@@ -89,7 +89,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | fromBase58String(String): ByteVector | Decodes [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) string to an array of bytes | 10 for Standard Library **version&nbsp;3**<br>1 for Standard Library **version&nbsp;4** |
 | fromBase64String(String): ByteVector | Decodes [base64](https://en.wikipedia.org/wiki/Base64) string to an array of bytes | 10 for Standard Library **version&nbsp;3**<br>40 for Standard Library **version&nbsp;4** |
 
-## [Encoding functions](/en/ride/functions/built-in-functions/encoding-functions)
+## [Encoding functions](/en/ride/v4/functions/built-in-functions/encoding-functions)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
@@ -97,14 +97,14 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | toBase58String(ByteVector): String | Encodes array of bytes to [base58](https://en.bitcoin.it/wiki/Base58Check_encoding) string | 10 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>3 for Standard Library **version&nbsp;4** |
 | toBase64String(ByteVector): String | Encodes array of bytes to [base64](https://en.wikipedia.org/wiki/Base64) string | 10 for Standard Library **version&nbsp;3**<br>35 for Standard Library **version&nbsp;4** |
 
-## [Exception functions](/en/ride/functions/built-in-functions/exception-functions)
+## [Exception functions](/en/ride/v4/functions/built-in-functions/exception-functions)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | throw() | Raises an exception | 1 |
 | throw(String) | Raises an exception with a message | 1 |
 
-## [Hashing functions](/en/ride/functions/built-in-functions/hashing-functions)
+## [Hashing functions](/en/ride/v4/functions/built-in-functions/hashing-functions)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
@@ -112,11 +112,11 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | keccak256(ByteVector): ByteVector | Range of functions.<br>Hash an array of bytes using [Keccak-256](https://keccak.team/files/Keccak-submission-3.pdf) | 10 for Standard Library **version&nbsp;3**<br>10–200 for Standard Library **version&nbsp;4** |
 | sha256(ByteVector): ByteVector | Range of functions.<br>Hash an array of bytes using [SHA-256](https://en.wikipedia.org/wiki/SHA-2) | 10 for Standard Library **version&nbsp;3**<br>10–200 for Standard Library **version&nbsp;4** |
 
-## [List functions](/en/ride/functions/built-in-functions/list-functions)
+## [List functions](/en/ride/v4/functions/built-in-functions/list-functions)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| cons(T, List[T]): List[T] | Inserts element to the beginning of the [list](/en/ride/data-types/list) | 2 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>1 for Standard Library **version&nbsp;4** |
+| cons(T, List[T]): List[T] | Inserts element to the beginning of the [list](/en/ride/v4/data-types/list) | 2 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>1 for Standard Library **version&nbsp;4** |
 | containsElement(list: List[T], element: T): Boolean | Check if the element is in the list | 5 |
 | getElement(List[T], Int): T | Gets element from the list | 2 |
 | indexOf(list: List[T], element: T): Int&#124;Unit | Returns the index of the first occurrence of the element in the list | 5 |
@@ -128,7 +128,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 
 `T` means any valid type.
 
-## [Math functions](/en/ride/functions/built-in-functions/math-functions)
+## [Math functions](/en/ride/v4/functions/built-in-functions/math-functions)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
@@ -137,7 +137,7 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | median(List[Int]): Int | Returns the median of a list of integers | 20 |
 | pow(Int, Int, Int, Int, Int, Union): Int | Raises a number to a given power | 100 |
 
-## [String functions](/en/ride/functions/built-in-functions/string-functions)
+## [String functions](/en/ride/v4/functions/built-in-functions/string-functions)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
@@ -154,17 +154,17 @@ A **built-in function** is a [function](/en/ride/functions/) of the [Standard li
 | take(String, Int): String | Takes the first `n` characters from a string | 1 for Standard Library **version&nbsp;3**<br>20 for Standard Library **version&nbsp;4** |
 | takeRight(String, Int): String | Takes the last `n` characters from a string | 19 for Standard Library **version&nbsp;3**<br>20 for Standard Library **version&nbsp;4** |
 
-## [Union functions](/en/ride/functions/built-in-functions/union-functions)
+## [Union functions](/en/ride/v4/functions/built-in-functions/union-functions)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
-| extract(T&#124;Unit): T | Gets a value from a [union](/en/ride/data-types/union) type argument. Fails if it is [unit](/en/ride/data-types/unit) | 13 |
+| extract(T&#124;Unit): T | Gets a value from a [union](/en/ride/v4/data-types/union) type argument. Fails if it is [unit](/en/ride/v4/data-types/unit) | 13 |
 | isDefined(T&#124;Unit): Boolean | Checks if an argument is not `unit` | 1 |
 | value(T&#124;Unit): T | Gets a value from a `union` type argument. Fails if it is `unit` | 13 for [Standard Library](/en/ride/script/standard-library) **version&nbsp;3**<br>2 for Standard Library **version&nbsp;4** |
 | valueOrElse(T&#124;Unit, T): T | Returns a value from a `union` type argument if it's not `unit`. Otherwise, returns the second argument | 2 |
 | valueOrErrorMessage(T&#124;Unit, String): T | Gets a value from a `union` type argument if it's not `unit`. Otherwise, fails with the message specified in the second argument | 13 for Standard Library **version&nbsp;3**<br>2 for Standard Library **version&nbsp;4** |
 
-## [Verification functions](/en/ride/functions/built-in-functions/verification-functions)
+## [Verification functions](/en/ride/v4/functions/built-in-functions/verification-functions)
 
 | Name | Description | Complexity |
 | :--- | :--- | :--- |

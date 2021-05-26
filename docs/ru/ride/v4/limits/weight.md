@@ -39,7 +39,7 @@ W<sub>struct</sub> = 40 + 30 × Q + W<sub>fields</sub>
 
 ### Пример расчета
 
-Рассмотрим структуру [AssetPair](/ru/ride/structures/common-structures/asset-pair):
+Рассмотрим структуру [AssetPair](/ru/ride/v4/structures/common-structures/asset-pair):
 
 ```
 AssetPair(amountAsset: ByteVector|Unit, priceAsset: ByteVector|Unit)

@@ -14,4 +14,4 @@ Address(bytes: ByteVector)
 
 |   #   | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | bytes | [ByteVector](/en/ride/data-types/byte-vector) | Array of bytes of the address |
+| 1 | bytes | [ByteVector](/en/ride/v4/data-types/byte-vector) | Array of bytes of the address |

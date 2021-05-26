@@ -1,10 +1,10 @@
 # [Ride v4 и v3] Встроенные функции
 
-:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/functions/built-in-functions/)
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/v4/functions/built-in-functions/)
 
 **Встроенная функция** — [функция](/ru/ride/functions/) [Стандартной библиотеки](/ru/ride/script/standard-library).
 
-## [Математические функции](/ru/ride/functions/built-in-functions/math-functions)
+## [Математические функции](/ru/ride/v4/functions/built-in-functions/math-functions)
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
@@ -13,7 +13,7 @@
 | median(List[Int]): Int | Возвращает медиану списка целых чисел | 20 |
 | pow(Int, Int, Int, Int, Int, Union): Int | Возводит число в степень | 100 |
 
-## [Функции блокчейна](/ru/ride/functions/built-in-functions/blockchain-functions)
+## [Функции блокчейна](/ru/ride/v4/functions/built-in-functions/blockchain-functions)
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
@@ -21,12 +21,12 @@
 | assetBalancе(Address&#124;Alias, ByteVector): Int | Получает баланс аккаунта по ID токена | 100 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии&nbsp;3**<br>10 для Стандартной библиотеки **версии&nbsp;4** |
 | assetInfo(ByteVector): Аsset&#124;Unit | Получает информацию о [токене](/ru/blockchain/token/) | 100 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии&nbsp;3**<br>15 для Стандартной библиотеки **версии&nbsp;4** |
 | blockInfoByHeight(Int): BlockInfo &#124;Unit | Получает информацию о [блоке](/ru/blockchain/block/) по [высоте блока](/ru/blockchain/block/block-height) | 100 для Стандартной библиотеки **версии&nbsp;3**<br>5 для Стандартной библиотеки **версии&nbsp;4** |
-| calculateAssetId(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/script-actions/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 10 |
+| calculateAssetId(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/v4/structures/script-actions/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 10 |
 | transactionHeightById(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 100 для Стандартной библиотеки **версии&nbsp;3**<br>20 для Стандартной библиотеки **версии&nbsp;4** |
 | transferTransactionById(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 100 для Стандартной библиотеки **версии&nbsp;3**<br>60 для Стандартной библиотеки **версии&nbsp;4** |
 | wavesBalance(Address&#124;Alias): Int | Получает баланс аккаунта в [WAVES](/ru/blockchain/token/waves) | 100 для Стандартной библиотеки **версии&nbsp;3**<br>10 для Стандартной библиотеки **версии&nbsp;4** |
 
-## [Функции верификации](/ru/ride/functions/built-in-functions/verification-functions)
+## [Функции верификации](/ru/ride/v4/functions/built-in-functions/verification-functions)
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
@@ -38,7 +38,7 @@
 | rsaVerify(digestAlgorithmType, ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Проверяют, что цифровая подпись [RSA](https://ru.wikipedia.org/wiki/RSA) достоверна | 300 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии&nbsp;3**<br>500–1000 для Стандартной библиотеки **версии&nbsp;4** |
 | sigVerify(ByteVector, ByteVector, ByteVector): Boolean | Семейство функций.<br>Проверяют, что цифровая подпись [Curve25519](https://en.wikipedia.org/wiki/Curve25519) достоверна | 100 для Стандартной библиотеки **версии&nbsp;3**<br>47–200 для Стандартной библиотеки **версии&nbsp;4** |
 
-## [Функции декодирования](/ru/ride/functions/built-in-functions/decoding-functions)
+## [Функции декодирования](/ru/ride/v4/functions/built-in-functions/decoding-functions)
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
@@ -48,14 +48,14 @@
 | fromBase58String(String): ByteVector | Декодирует строку [base58](https://ru.wikipedia.org/wiki/Base58) в массив байтов | 10 для Стандартной библиотеки **версии&nbsp;3**<br>1 для Стандартной библиотеки **версии&nbsp;4** |
 | fromBase64String(String): ByteVector | Декодирует строку [base64](https://ru.wikipedia.org/wiki/Base64) в массив байтов | 10 для Стандартной библиотеки **версии&nbsp;3**<br>40 для Стандартной библиотеки **версии&nbsp;4** |
 
-## [Функции исключения](/ru/ride/functions/built-in-functions/exception-functions)
+## [Функции исключения](/ru/ride/v4/functions/built-in-functions/exception-functions)
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
 | throw() | Выбрасывает исключение | 1 |
 | throw(String) | Выбрасывает исключение с сообщением | 1 |
 
-## [Функции кодирования](/ru/ride/functions/built-in-functions/encoding-functions)
+## [Функции кодирования](/ru/ride/v4/functions/built-in-functions/encoding-functions)
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
@@ -63,7 +63,7 @@
 | toBase58String(ByteVector): String | Кодирует массив байтов в строку [base58](https://ru.wikipedia.org/wiki/Base58) | 10 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии&nbsp;3**<br>3 для Стандартной библиотеки **версии&nbsp;4** |
 | toBase64String(ByteVector): String | Кодирует массив байтов в строку [base64](https://ru.wikipedia.org/wiki/Base64) | 10 для Стандартной библиотеки **версии&nbsp;3**<br>35 для Стандартной библиотеки **версии&nbsp;4** |
 
-## [Функции конвертации](/ru/ride/functions/built-in-functions/converting-functions)
+## [Функции конвертации](/ru/ride/v4/functions/built-in-functions/converting-functions)
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
@@ -82,7 +82,7 @@
 | transferTransactionFromProto(ByteVector): TransferTransaction&#124;Unit | Десериализует транзакцию перевода | 5 |
 
 
-## [Функции массива байтов](/ru/ride/functions/built-in-functions/byte-array-functions)
+## [Функции массива байтов](/ru/ride/v4/functions/built-in-functions/byte-array-functions)
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
@@ -92,17 +92,17 @@
 | take(ByteVector, Int): ByteVector | Возвращает первые `N` байтов массива байтов | 1 для Стандартной библиотеки **версии&nbsp;3**<br>6 для Стандартной библиотеки **версии&nbsp;4** |
 | takeRight(ByteVector, Int): ByteVector | Возвращает последние `N` байтов массива байтов     | 19 для Стандартной библиотеки **версии&nbsp;3**<br>6 для Стандартной библиотеки **версии&nbsp;4** |
 
-## [Функции объединения](/ru/ride/functions/built-in-functions/union-functions)
+## [Функции объединения](/ru/ride/v4/functions/built-in-functions/union-functions)
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| extract(T&#124;Unit): T | Возвращает значение из параметра типа данных [объединение](/ru/ride/data-types/union).<br>Завершается ошибкой, если параметр равен [unit](/ru/ride/data-types/unit) | 13 |
+| extract(T&#124;Unit): T | Возвращает значение из параметра типа данных [объединение](/ru/ride/v4/data-types/union).<br>Завершается ошибкой, если параметр равен [unit](/ru/ride/v4/data-types/unit) | 13 |
 | isDefined(T&#124;Unit): Boolean | Проверяет, что параметр отличен от `unit` | 1 |
 | value(T&#124;Unit): T | Возвращает значение из параметра типа данных объединение.<br>Завершается ошибкой, если параметр равен `unit` | 13 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии&nbsp;3**<br>2 для Стандартной библиотеки **версии&nbsp;4** |
 | valueOrElse(T&#124;Unit, T): T | Возвращает значение из параметра типа данных объединение, если параметр не равен `unit`. В противном случае возвращает второй параметр | 2 |
 | valueOrErrorMessage(T&#124;Unit, String): T |Возвращает значение из параметра типа данных объединение, если параметр не равен `unit`. В противном случае завершается ошибкой с сообщением, заданным во втором параметре | 13 для Стандартной библиотеки **версии&nbsp;3**<br>2 для Стандартной библиотеки **версии&nbsp;4** |
 
-## [Функции получения данных из хранилища данных аккаунта](/ru/ride/functions/built-in-functions/account-data-storage-functions)
+## [Функции получения данных из хранилища данных аккаунта](/ru/ride/v4/functions/built-in-functions/account-data-storage-functions)
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
@@ -123,7 +123,7 @@
 | getStringValue(Address&#124;Alias, String): String | Получает строку по ключу. Завершается ошибкой, если данных нет | 100 для Стандартной библиотеки **версии 3**<br>10 для Стандартной библиотеки **версии 4 и 5** |
 | getStringValue(String): String | Получает строку по ключу из собственного хранилища данных. Завершается ошибкой, если данных нет | 10 |
 
-## [Функции списка](/ru/ride/functions/built-in-functions/list-functions)
+## [Функции списка](/ru/ride/v4/functions/built-in-functions/list-functions)
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
@@ -140,7 +140,7 @@
 `T` означает любой допустимый тип.
 
 
-## [Функции строки](/ru/ride/functions/built-in-functions/string-functions)
+## [Функции строки](/ru/ride/v4/functions/built-in-functions/string-functions)
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
@@ -157,7 +157,7 @@
 | take(String, Int): String | Возвращает первые `n` символов строки | 1 для Стандартной библиотеки **версии&nbsp;3**<br>20 для Стандартной библиотеки **версии&nbsp;4** |
 | takeRight(String, Int): String | Возвращает последние `n` символов строки | 19 для Стандартной библиотеки **версии&nbsp;3**<br>20 для Стандартной библиотеки **версии&nbsp;4** |
 
-## [Функции транзакции данных](/ru/ride/functions/built-in-functions/data-transaction-functions)
+## [Функции транзакции данных](/ru/ride/v4/functions/built-in-functions/data-transaction-functions)
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
@@ -178,7 +178,7 @@
 | getStringValue(List[], String): String | Возвращает строку из списка записей данных по ключу. Завершается ошибкой, если данных нет | 10 |
 | getStringValue(List[], Int): String | Возвращает строку из списка записей данных по индексу. Завершается ошибкой, если данных нет | 30 для Стандартной библиотеки **версии&nbsp;3**<br>4 для Стандартной библиотеки **версии&nbsp;4** |
 
-## [Функции хеширования](/ru/ride/functions/built-in-functions/hashing-functions)
+## [Функции хеширования](/ru/ride/v4/functions/built-in-functions/hashing-functions)
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |

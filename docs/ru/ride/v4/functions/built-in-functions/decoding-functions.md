@@ -1,6 +1,6 @@
 # [Ride v4 и v3] Функции декодирования
 
-:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/functions/built-in-functions/decoding-functions)
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/v4/functions/built-in-functions/decoding-functions)
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
@@ -19,13 +19,13 @@
 addressFromString(string: String): Address|Unit
 ```
 
-Описание возвращаемой структуры см. в разделе [Address](/ru/ride/structures/common-structures/address).
+Описание возвращаемой структуры см. в разделе [Address](/ru/ride/v4/structures/common-structures/address).
 
 ### Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
-| `string`: [String](/ru/ride/data-types/string) | Строка для декодирования |
+| `string`: [String](/ru/ride/v4/data-types/string) | Строка для декодирования |
 
 ### Примеры
 
@@ -43,13 +43,13 @@ let address = addressFromString("3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF")
 addressFromStringValue(string: String): Address
 ```
 
-Описание возвращаемой структуры см. в разделе [Address](/ru/ride/structures/common-structures/address).
+Описание возвращаемой структуры см. в разделе [Address](/ru/ride/v4/structures/common-structures/address).
 
 ### Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
-| `string`: [String](/ru/ride/data-types/string) | Строка для декодирования |
+| `string`: [String](/ru/ride/v4/data-types/string) | Строка для декодирования |
 
 ### Примеры
 
@@ -69,7 +69,7 @@ fromBase16String(str: String): ByteVector
 
 | Параметр | Описание |
 | :--- | :--- |
-| `str`: [String](/ru/ride/data-types/string) | Строка для декодирования |
+| `str`: [String](/ru/ride/v4/data-types/string) | Строка для декодирования |
 
 ### Примеры
 
@@ -89,7 +89,7 @@ fromBase58String(str: String): ByteVector
 
 | Параметр | Описание |
 | :--- | :--- |
-| `str`: [String](/ru/ride/data-types/string) | Строка для декодирования |
+| `str`: [String](/ru/ride/v4/data-types/string) | Строка для декодирования |
 
 ### Примеры
 
@@ -109,7 +109,7 @@ fromBase64String(str: String): ByteVector
 
 | Параметр | Описание |
 | :--- | :--- |
-| `str`: [String](/ru/ride/data-types/string) | Строка для декодирования |
+| `str`: [String](/ru/ride/v4/data-types/string) | Строка для декодирования |
 
 ### Примеры
 

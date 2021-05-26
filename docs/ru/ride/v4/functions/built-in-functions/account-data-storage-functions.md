@@ -1,6 +1,6 @@
 # [Ride v4 и v3] Функции хранилища данных аккаунта
 
-:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/functions/built-in-functions/account-data-storage-functions)
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/v4/functions/built-in-functions/account-data-storage-functions)
 
 > Подробнее о [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage)
 
@@ -27,8 +27,8 @@ getBinary(addressOrAlias: Address|Alias, key: String): ByteVector|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
-| `key`: [String](/ru/ride/data-types/string) | Ключ |
+| `addressOrAlias`: [Address](/ru/ride/v4/structures/common-structures/address)&#124;[Alias](/ru/ride/v4/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+| `key`: [String](/ru/ride/v4/data-types/string) | Ключ |
 
 ## getBinaryValue <a id="get-binary-value"></a>
 
@@ -42,8 +42,8 @@ getBinaryValue(addressOrAlias: Address|Alias, key: String): ByteVector
 
 | Параметр | Описание |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
-| `key`: [String](/ru/ride/data-types/string) | Ключ |
+| `addressOrAlias`: [Address](/ru/ride/v4/structures/common-structures/address)&#124;[Alias](/ru/ride/v4/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+| `key`: [String](/ru/ride/v4/data-types/string) | Ключ |
 
 ## getBoolean <a id="get-boolean"></a>
 
@@ -57,8 +57,8 @@ getBoolean(addressOrAlias: Address|Alias, key: String): Boolean|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
-| `key`: [String](/ru/ride/data-types/string) | Ключ |
+| `addressOrAlias`: [Address](/ru/ride/v4/structures/common-structures/address)&#124;[Alias](/ru/ride/v4/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+| `key`: [String](/ru/ride/v4/data-types/string) | Ключ |
 
 ## getBooleanValue <a id="get-boolean-value"></a>
 
@@ -72,8 +72,8 @@ getBooleanValue(addressOrAlias: Address|Alias, key: String): Boolean
 
 | Параметр | Описание |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
-| `key`: [String](/ru/ride/data-types/string) | Ключ |
+| `addressOrAlias`: [Address](/ru/ride/v4/structures/common-structures/address)&#124;[Alias](/ru/ride/v4/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+| `key`: [String](/ru/ride/v4/data-types/string) | Ключ |
 
 ## getInteger <a id="get-integer"></a>
 
@@ -87,8 +87,8 @@ getInteger(addressOrAlias: Address|Alias, key: String): Int|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
-| `key`: [String](/ru/ride/data-types/string) | Ключ |
+| `addressOrAlias`: [Address](/ru/ride/v4/structures/common-structures/address)&#124;[Alias](/ru/ride/v4/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+| `key`: [String](/ru/ride/v4/data-types/string) | Ключ |
 
 ## getIntegerValue <a id="get-integer-value"></a>
 
@@ -102,8 +102,8 @@ getIntegerValue(addressOrAlias: Address|Alias, key: String): Int
 
 | Параметр | Описание |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
-| `key`: [String](/ru/ride/data-types/string) | Ключ |
+| `addressOrAlias`: [Address](/ru/ride/v4/structures/common-structures/address)&#124;[Alias](/ru/ride/v4/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+| `key`: [String](/ru/ride/v4/data-types/string) | Ключ |
 
 ## getString <a id="get-string"></a>
 
@@ -117,8 +117,8 @@ getString(addressOrAlias: Address|Alias, key: String): String|Unit
 
 | Параметр | Описание |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
-| `key`: [String](/ru/ride/data-types/string) | Ключ |
+| `addressOrAlias`: [Address](/ru/ride/v4/structures/common-structures/address)&#124;[Alias](/ru/ride/v4/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+| `key`: [String](/ru/ride/v4/data-types/string) | Ключ |
 
 ## getStringValue <a id="get-string-value"></a>
 
@@ -132,5 +132,5 @@ getStringValue(addressOrAlias: Address|Alias, key: String): String
 
 | Параметр | Описание |
 | :--- | :--- |
-| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
-| `key`: [String](/ru/ride/data-types/string) | Ключ |
+| `addressOrAlias`: [Address](/ru/ride/v4/structures/common-structures/address)&#124;[Alias](/ru/ride/v4/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+| `key`: [String](/ru/ride/v4/data-types/string) | Ключ |

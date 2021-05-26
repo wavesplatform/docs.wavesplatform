@@ -14,4 +14,4 @@ Alias(alias: String)
 
 | # | Name | Data type | Description |
 | :--- | :--- | :--- | :--- |
-| 1 | alias | [String](/en/ride/data-types/string) | [Alias](/en/blockchain/account/alias) |
+| 1 | alias | [String](/en/ride/v4/data-types/string) | [Alias](/en/blockchain/account/alias) |
