@@ -1,4 +1,6 @@
-# ScriptResult (доступно в Стандартной библиотеке версии 3)
+# [Ride v3] ScriptResult
+
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5.
 
 > :warning: Структура ScriptResult не входит в [Стандартную библиотеку](/ru/ride/script/standard-library) версии 4. Используйте List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry|ScriptTranfer|Issue|Reissue|Burn] вместо этой структуры.
 

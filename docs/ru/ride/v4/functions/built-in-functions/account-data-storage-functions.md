@@ -1,6 +1,6 @@
 # [Ride v4 и v3] Функции хранилища данных аккаунта
 
-:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/v4/functions/built-in-functions/account-data-storage-functions)
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/functions/built-in-functions/account-data-storage-functions)
 
 > Подробнее о [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage)
 

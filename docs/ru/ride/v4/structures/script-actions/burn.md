@@ -1,4 +1,6 @@
-# Burn
+# [Ride v4] Burn
+
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/structures/script-actions/burn)
 
 > :warning: Структура `Burn` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
 

@@ -1,4 +1,6 @@
-# AssetPair
+# [Ride v4 и v3] AssetPair
+
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/structures/common-structures/asset-pair)
 
 Структура пары токенов ордера.
 

@@ -1,6 +1,6 @@
 # [Ride v4 и v3] Вызываемая функция
 
-:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/v4/functions/callable-function)
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/functions/callable-function)
 
 **Вызываемая функция** — функция [dApp-скрипта](/ru/ride/script/script-types/dapp-script), которая может быть вызвана извне при помощи [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction).
 

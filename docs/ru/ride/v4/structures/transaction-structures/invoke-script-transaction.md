@@ -1,4 +1,6 @@
-# InvokeScriptTransaction
+# [Ride v4 и v3] InvokeScriptTransaction
+
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/structures/transaction-structures/invoke-script-transaction)
 
 Структура [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction).
 

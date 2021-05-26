@@ -1,4 +1,6 @@
-# Reissue
+# [Ride v4] Reissue
+
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/structures/script-actions/reissue)
 
 > :warning: Структура `Reissue` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
 

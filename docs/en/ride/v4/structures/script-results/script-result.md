@@ -1,5 +1,7 @@
 # [Ride v3] ScriptResult
 
+:warning: This is the documentation for the Standard library version 4 and 3. We recommend to use version 5.
+
 > :warning: The structure is disabled in Standard library version 4. Use `List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry|ScriptTransfer|Issue|Reissue|Burn]` instead.
 
 **ScriptResult** is a structure used when both token transfers and adding/modifying of accound data storage entries must be performed as the result of [callable function](/en/ride/v4/functions/callable-function) invocation.

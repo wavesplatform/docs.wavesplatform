@@ -1,4 +1,6 @@
-# LeaseTransaction
+# [Ride v4 и v3] LeaseTransaction
+
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/structures/transaction-structures/lease-transaction)
 
 Структура [транзакции лизинга](/ru/blockchain/transaction-type/lease-transaction).
 

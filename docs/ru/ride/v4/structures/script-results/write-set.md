@@ -1,4 +1,6 @@
-# WriteSet (доступно в Стандартной библиотеке версии 3)
+# [Ride v3] WriteSet
+
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5.
 
 > :warning: Структура WriteSet не входит в [Стандартную библиотеку](/ru/ride/script/standard-library) версии 4. Используйте `BinaryEntry`, `BooleanEntry`, `IntegerEntry` и `StringEntry` напрямую, см. раздел [Вызываемая функция](/ru/ride/v4/functions/callable-function).
 

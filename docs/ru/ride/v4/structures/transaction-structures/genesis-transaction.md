@@ -1,4 +1,6 @@
-# GenesisTransaction
+# [Ride v4 и v3] GenesisTransaction
+
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/structures/transaction-structures/genesis-transaction)
 
 Структура [транзакции генезиса](/ru/blockchain/transaction-type/genesis-transaction).
 

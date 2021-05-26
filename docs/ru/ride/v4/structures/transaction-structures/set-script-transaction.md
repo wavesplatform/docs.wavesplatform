@@ -1,4 +1,6 @@
-# SetScriptTransaction
+# [Ride v4 и v3] SetScriptTransaction
+
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/structures/transaction-structures/set-script-transaction)
 
 Структура [транзакции установки скрипта](/ru/blockchain/transaction-type/set-script-transaction).
 

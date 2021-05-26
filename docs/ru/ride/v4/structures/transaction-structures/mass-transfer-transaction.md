@@ -1,4 +1,6 @@
-# MassTransferTransaction
+# [Ride v4 и v3] MassTransferTransaction
+
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/structures/transaction-structures/mass-transfer-transaction)
 
 Структура [транзакции массового перевода](/ru/blockchain/transaction-type/mass-transfer-transaction).
 

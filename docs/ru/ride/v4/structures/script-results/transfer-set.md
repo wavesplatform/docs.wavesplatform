@@ -1,4 +1,6 @@
-# TransferSet (доступно в Стандартной библиотеке версии 3)
+# [Ride v3] TransferSet
+
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5.
 
 > :warning: Структура TransferSet не входит в [Стандартную библиотеку](/ru/ride/script/standard-library) версии 4. Начиная с версии 4, используйте `ScriptTransfer` напрямую, см. раздел [Вызываемая функция](/ru/ride/v4/functions/callable-function).
 

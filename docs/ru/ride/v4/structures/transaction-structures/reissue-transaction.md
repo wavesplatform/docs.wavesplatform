@@ -1,4 +1,6 @@
-# ReissueTransaction
+# [Ride v4 и v3] ReissueTransaction
+
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/structures/transaction-structures/reissue-transaction)
 
 Структура [транзакции довыпуска](/ru/blockchain/transaction-type/reissue-transaction).
 

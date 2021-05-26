@@ -1,4 +1,8 @@
-# UpdateAssetInfoTransaction
+# [Ride v4] UpdateAssetInfoTransaction
+
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/structures/transaction-structures/update-asset-info-transaction)
+
+> :warning: Структура `UpdateAssetInfoTransaction` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
 
 Структура [транзакции обновления информации ассета](/ru/blockchain/transaction-type/update-asset-info-transaction).
 

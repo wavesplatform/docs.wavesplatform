@@ -1,4 +1,6 @@
-# BlockInfo
+# [Ride v4 и v3] BlockInfo
+
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/structures/common-structures/block-info)
 
 Структура [блока](/ru/blockchain/block/).
 

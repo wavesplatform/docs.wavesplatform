@@ -1,5 +1,7 @@
 # [Ride v3] Script results
 
+:warning: This is the documentation for the Standard library version 4 and 3. We recommend to use version 5.
+
 > :warning: The structures are disabled in Standard library version 4. Use `List[BinaryEntry|BooleanEntry|IntegerEntry|StringEntry|ScriptTransfer|Issue|Reissue|Burn]` instead.
 
 The script results listed below combine script actions, which must be executed as result of invoking the [callable function](/en/ride/v4/functions/callable-function).

@@ -1,4 +1,4 @@
-# SponsorFeeTransaction
+# [Ride v4 и v3] SponsorFeeTransaction
 
 К сожалению, эта статья еще не переведена на русский язык.
 

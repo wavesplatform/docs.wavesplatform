@@ -1,4 +1,6 @@
-# LeaseCancelTransaction
+# [Ride v4 и v3] LeaseCancelTransaction
+
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/structures/transaction-structures/lease-cancel-transaction)
 
 Структура [транзакции закрытия лизинга](/ru/blockchain/transaction-type/lease-cancel-transaction).
 

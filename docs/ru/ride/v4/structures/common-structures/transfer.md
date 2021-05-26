@@ -1,4 +1,6 @@
-# Transfer
+# [Ride v4 и v3] Transfer
+
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/structures/common-structures/transfer)
 
 Структура перевода [токенов](/ru/blockchain/token/) транзакции массового перевода.
 

@@ -1,4 +1,6 @@
-# BurnTransaction
+# [Ride v4 и v3] BurnTransaction
+
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/structures/transaction-structures/burn-transaction)
 
 Структура [транзакции сжигания токена](/ru/blockchain/transaction-type/burn-transaction).
 

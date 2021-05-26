@@ -1,6 +1,6 @@
 # [Ride v4 и v3] Функции транзакции данных
 
-:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/v4/functions/built-in-functions/data-transaction-functions)
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/functions/built-in-functions/data-transaction-functions)
 
 Приведенные в этом разделе функции получают данные ключу из структуры [транзакции данных](/ru/ride/v4/structures/transaction-structures/data-transaction) или из произвольного списка записей:
 * List[[BinaryEntry](/ru/ride/v4/structures/script-actions/binary-entry)|[BooleanEntry](/ru/ride/v4/structures/script-actions/boolean-entry)|[IntegerEntry](/ru/ride/v4/structures/script-actions/int-entry)|[StringEntry](/ru/ride/v4/structures/script-actions/string-entry)] — для Стандартной библиотеки **версии 4**.

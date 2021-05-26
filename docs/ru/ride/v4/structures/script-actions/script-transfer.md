@@ -1,4 +1,6 @@
-# ScriptTransfer
+# [Ride v4 и v3] ScriptTransfer
+
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/structures/script-actions/script-transfer)
 
 `ScriptTransfer` — cтруктура, задающая параметры перевода токенов. Перевод выполняется, только если структура включена в [результирующее выражение](/ru/ride/v4/functions/callable-function#резуnьтат-выпоnнения-вызываемой-функции-2) вызываемой функции.
 

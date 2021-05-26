@@ -1,6 +1,6 @@
 # [Ride v4 и v3] Встроенные функции
 
-:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/v4/functions/built-in-functions/)
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/functions/built-in-functions/)
 
 **Встроенная функция** — [функция](/ru/ride/functions/) [Стандартной библиотеки](/ru/ride/script/standard-library).
 

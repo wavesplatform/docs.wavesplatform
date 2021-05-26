@@ -1,6 +1,6 @@
 # [Ride v4 и v3] ByteVector
 
-:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/v4/data-types/byte-vector)
+:warning: Это документация Стандартной библиотеки версии 4 и 3. Рекомендуем использовать версию 5. [Перейти к&nbsp;версии&nbsp;5](/ru/ride/data-types/byte-vector)
 
 `ByteVector` — [тип данных](/ru/ride/v4/data-types/) для массива байтов.
 

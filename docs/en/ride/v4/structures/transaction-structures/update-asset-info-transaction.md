@@ -1,4 +1,4 @@
-# [Ride v4 and v3] UpdateAssetInfoTransaction
+# [Ride v4] UpdateAssetInfoTransaction
 
 :warning: This is the documentation for the Standard library version 4 and 3. We recommend to use version 5. [Go to version 5](/en/ride/structures/transaction-structures/update-asset-info-transaction)
 
