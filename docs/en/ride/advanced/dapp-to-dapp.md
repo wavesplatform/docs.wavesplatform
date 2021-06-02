@@ -20,7 +20,7 @@ Features:
 ## Conditions
 
 * dApp-to-dApp invocations are added in node version 1.3.0 and enabled with feature #16 “Ride V5, dApp-to-dApp invocations”.
-* The parent dApp script uses [Standard library](/en/ride/script/standard-library) **version 5**.
+* Both the parent and invoked dApp scripts use [Standard library](/en/ride/script/standard-library) **version 5**.
 * If the dApp invokes itself, the invocation must not contain payments.
 * The number of the [invoke or reentrantInvoke](#invoke) function calls is up to 100 within a single Invoke Script transaction.
 * The maximum total number of `Issue`, `Reissue`, `Burn`, `SponsorFee`, `ScriptTransfer`, `Lease`, `LeaseCancel` script actions executed by all callable functions in a single transaction is 30.

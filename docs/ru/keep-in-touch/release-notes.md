@@ -1,6 +1,6 @@
 # Release Notes
 
-## Версия 1.3 Jumeirah (Testnet, Stagenet)
+## Версия 1.3 Jumeirah
 
 ### Развитие протокола
 
