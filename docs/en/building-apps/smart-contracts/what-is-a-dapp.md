@@ -138,9 +138,7 @@ There are the following options to send the transaction:
 
 The fee for the set script transaction is 0.01 WAVES.
 
-After assigning the script, the minimum fee for each transaction sent from  dApp account increases by 0.004 WAVES.
-
-Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the extra fee of 0.004 WAVES is only required if the complexity of the verifier function exceeds the [sender complexity threshold](/en/ride/limits/).
+If the script contains a verifier function and the complexity of the function exceeds the [sender complexity threshold](/en/ride/limits/), the minimum fee for each transaction sent from the dApp account is increased by 0.004 WAVES.
 
 ## Limitations
 

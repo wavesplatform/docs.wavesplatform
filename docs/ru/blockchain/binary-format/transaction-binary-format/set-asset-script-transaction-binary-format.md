@@ -6,7 +6,7 @@
 
 Бинарный формат версии 2 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format/).
 
-Версия 2 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
+Версия 2 появилась с момента активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ```
 message SetAssetScriptTransactionData {

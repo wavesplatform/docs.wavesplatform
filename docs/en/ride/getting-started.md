@@ -51,12 +51,12 @@ You can add comments to your code much as you can with other languages such as P
 Every Ride script should start with directives for the compiler. At the time of publication, there are three types of directive, with different possible values.
 
 ```scala
-{-# STDLIB_VERSION 4 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 ```
 
-`STDLIB_VERSION` sets the version of the standard library. The latest version currently in production is 4.
+`STDLIB_VERSION` sets the version of the standard library. The latest version currently in production is 5.
 
 `CONTENT_TYPE` sets the type of the file you're working on. There are different content types, `DAPP` and `EXPRESSION`. The `DAPP` type allows you to define functions and finish execution with certain transactions (changes to the blockchain), as well as using annotations. The `EXPRESSION` type should always return a boolean value, since it’s used as a predicate for transaction validation.
 
@@ -65,7 +65,7 @@ Every Ride script should start with directives for the compiler. At the time of 
 Not all combinations of directives are correct. The example below won’t work, because `DAPP` content type is allowed only for accounts, while `EXPRESSION` type is allowed for assets and accounts.
 
 ```scala
-{-# STDLIB_VERSION 3 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ASSET #-} # dApp content type is not allowed for an asset
 ```
@@ -234,7 +234,7 @@ let lastAgain = getElement(collection, size(collection) - 1) # the same as above
 let initList = [16, 10]                   # init value
 let newList = cons(1997, initList)        # [1997, 16, 10]
 let newList2 = 1997 :: initList           # [1997, 16, 10]
-let newList2 = initList :+ 1              # [16, 10, 1](* Available in STDLIB_VERSION 4)
+let newList2 = initList :+ 1              # [16, 10, 1]
 let newList2 = [4, 8, 15, 16] ++ [23, 42]     # [4 8 15 16 23 42](*)
 ```
 
@@ -468,7 +468,7 @@ Every caller of `giveAway` function will receive as many WAVES as his age and th
 
 #### Actions
 
-Initial Actions are DataEntry, which allows for writing data as a key-value pair, and ScriptTransfer, a transfer of tokens from dApp to addressee. Other actions such as Issue/Reissue/Burn are designed to support native token operations as well as the family of Leasing operations(Available in STDLIB_VERSION 4).
+Initial Actions are DataEntry, which allows for writing data as a key-value pair, and ScriptTransfer, a transfer of tokens from dApp to addressee. Other actions such as Issue/Reissue/Burn are designed to support native token operations as well as the family of Leasing operations.
 
 A list of DataEntry structures in `WriteSet` will set or update key-value pairs in the storage of an account, while a list of ScriptTransfer structures in `TransferSet` will move tokens from the dApp account to other accounts.
 

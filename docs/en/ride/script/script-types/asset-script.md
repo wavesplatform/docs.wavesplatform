@@ -24,14 +24,14 @@ The script code is composed of the following parts:
 The asset script should start with [directives](/en/ride/script/directives):
 
 ```scala
-{- # STDLIB_VERSION 4 # -}
+{- # STDLIB_VERSION 5 # -}
 {- # CONTENT_TYPE EXPRESSION # -}
 {- # SCRIPT_TYPE ACCOUNT # -}
 ```
 
 The above directives tell the compiler that:
 
-- the script uses the Standard Library version 4,
+- the script uses the Standard library version 5,
 - the script contains a boolean expression,
 - the script will be assigned to an asset.
 

@@ -46,12 +46,12 @@ Ride разработан для выполнения на блокчейне и
 Каждый скрипт на Ride должен начинаться с директив для компилятора. Предусмотрено три типа директив с различными возможными значениями.
 
 ```scala
-{-# STDLIB_VERSION 4 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 ```
 
-`STDLIB_VERSION` задает версию стандартной библиотеки. Последняя версия, доступная в Mainnet, — 4.
+`STDLIB_VERSION` задает версию стандартной библиотеки. Последняя версия, доступная в Mainnet, — 5.
 
 `CONTENT_TYPE` определяет содержание скрипта:
 
@@ -63,7 +63,7 @@ Ride разработан для выполнения на блокчейне и
 Не все комбинации директив допустимы. Следующий пример не будет работать, поскольку тип содержания `DAPP` допустим только для аккаунтов. Тип `EXPRESSION` применим как для аккаунтов, так и ассетов.
 
 ```scala
-{-# STDLIB_VERSION 3 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ASSET #-} # тип содержания DAPP недопустим для ассетов
 ```
@@ -230,7 +230,7 @@ let lastAgain = getElement(collection, size(collection) - 1) # то же сам�
 let initList = [16, 10]                       # начальное значение
 let newList = cons(1997, initList)            # [1997, 16, 10]
 let newList2 = 1997 :: initList               # [1997, 16, 10]
-let newList2 = initList :+ 1                  # [16, 10, 1](* Доступно в STDLIB_VERSION 4)
+let newList2 = initList :+ 1                  # [16, 10, 1]
 let newList2 = [4, 8, 15, 16] ++ [23, 42]     # [4 8 15 16 23 42](*)
 ```
 
@@ -453,7 +453,7 @@ func giveAway(age: Int) = {
 
 #### Actions
 
-Initial Actions are DataEntry, which allows for writing data as a key-value pair, and ScriptTransfer, a transfer of tokens from dApp to addressee. Other actions such as Issue/Reissue/Burn are designed to support native token operations as well as the family of Leasing operations(Available in STDLIB_VERSION 4).
+Initial Actions are DataEntry, which allows for writing data as a key-value pair, and ScriptTransfer, a transfer of tokens from dApp to addressee. Other actions such as Issue/Reissue/Burn are designed to support native token operations as well as the family of Leasing operations.
 
 A list of DataEntry structures in `WriteSet` will set or update key-value pairs in the storage of an account, while a list of ScriptTransfer structures in `TransferSet` will move tokens from the dApp account to other accounts.
 

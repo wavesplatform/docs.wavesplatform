@@ -78,9 +78,7 @@ my_address.issueAsset(
 
 ### Using dApp
 
-Since Standard library version 4, dApp callable function can issue a token. See [Callable Function](/en/ride/functions/callable-function) and [Issue](/en/ride/structures/script-actions/issue) articles of [Ride](/en/ride/) chapter for more information.
-
-> :warning: Standard ibrary Version 4 is available from node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+dApp callable function can issue a token. See [Callable Function](/en/ride/functions/callable-function) and [Issue](/en/ride/structures/script-actions/issue) articles of [Ride](/en/ride/) chapter for more information.
 
 In this example, `myToken` function issues a token with following params:
 
@@ -89,14 +87,16 @@ In this example, `myToken` function issues a token with following params:
 * token is reissuable.
 
 ```ride
-{-# STDLIB_VERSION 4 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
   
 @Callable(i)
-func myToken() = [
-  Issue("Spring_" + toBase58String(i.caller.bytes), "", 100000, 2, true)
-]
+func myToken() = ([
+    Issue("Spring_" + toBase58String(i.caller.bytes), "", 100000, 2, true)
+  ],
+  unit
+)
 ```
 
 ## Issue NFT

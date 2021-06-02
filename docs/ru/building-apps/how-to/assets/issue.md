@@ -78,9 +78,7 @@ my_address.issueAsset(
 
 ### С помощью dApp
 
-В Стандартной библиотеке версии 4 вызываемая функция может выпустить токен. Подробнее см. разделы [Вызываемая функция](/ru/ride/functions/callable-function) и [Issue](/ru/ride/structures/script-actions/issue) главы [Ride](/ru/ride/).
-
-> :warning: Стандартная библиотека версии 4 доступна начиная с версии ноды 1.2.0, после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
+Вызываемая функция dApp-скрипта может выпустить токен. Подробнее см. разделы [Вызываемая функция](/ru/ride/functions/callable-function) и [Issue](/ru/ride/structures/script-actions/issue) главы [Ride](/ru/ride/).
 
 В следующем примере функция `myToken` выпускает токен со следующими параметрами:
 
@@ -89,14 +87,16 @@ my_address.issueAsset(
 * возможен довыпуск токена.
 
 ```ride
-{-# STDLIB_VERSION 4 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
   
 @Callable(i)
-func myToken() = [
-  Issue("Spring_" + toBase58String(i.caller.bytes), "", 100000, 2, true)
-]
+func myToken() = ([
+    Issue("Spring_" + toBase58String(i.caller.bytes), "", 100000, 2, true)
+  ],
+  unit
+)
 ```
 
 ## Выпуск NFT

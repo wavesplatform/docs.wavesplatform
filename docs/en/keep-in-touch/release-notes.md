@@ -1,6 +1,8 @@
 # Release Notes
 
-## Version 1.3 Jumeirah (Testnet, Stagenet)
+## Version 1.3 Jumeirah
+
+The improvements listed below are enabled by feature #16 “Ride V5, dApp-to-dApp invocations”.
 
 ### Protocol Enhancements
 
@@ -269,11 +271,9 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
 
 * Added the `/utils/heightByTimestamp` endpoint that returns blockchain height at a given timestamp.
 
-### Activation
-
-To activate the improvements listed above, vote for feature #16 “Ride V5, dApp-to-dApp invocations”.
-
 ## Version 1.2 Malibu
+
+The improvements listed below are enabled by feature #15 "Ride V4, VRF, Protobuf, Failed transactions".
 
 ### Protocol Enhancements
 

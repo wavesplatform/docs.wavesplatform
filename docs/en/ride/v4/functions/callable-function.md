@@ -17,7 +17,7 @@ Callable functions features rely on [standard library](/en/ride/script/standard-
 
 The invoke script transaction can have payments in favor of dApp applied. Funds obtained in this payments can be included in token transfers.
 
-> Standard library v4 is available starting from node version 1.2.0 after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> Standard library v4 is enabled by feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 :warning: After activation of the feature #15, the fee for the invoke script transaction cannot be funded by transfer from the dApp to the transaction sender. If sender's balance is insufficient to pay the fee, dApp script is not executed.
 
@@ -253,7 +253,7 @@ func verify() = false
 
 ## Threshold for Saving Failed Transactions
 
-After activation of feature # 15 “Ride V4, VRF, Protobuf, Failed transactions” the invoke script transaction is saved on the blockchain and a fee is charged for it even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed.
+After activation of feature # 15 “Ride V4, VRF, Protobuf, Failed transactions”, the Invoke Script transaction is saved on the blockchain and a fee is charged for it even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed.
 
 However if the callable function failed with an error or [throwing an exception](/en/ride/exceptions) before the [complexity](/en/ride/base-concepts/complexity) of performed computations exceeded the [threshold for saving failed transactions](/en/ride/v4/limits/), the transaction is rejected and the fee is not charged.
 

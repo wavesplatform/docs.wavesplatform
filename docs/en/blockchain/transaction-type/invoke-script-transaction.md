@@ -2,9 +2,7 @@
 
 Invoke Script transaction invokes the [callable function](/en/ride/functions/callable-function) of the [dApp](/en/blockchain/account/dapp). [Learn more about dApp and script invocation](/en/building-apps/smart-contracts/what-is-a-dapp)
 
-In addition to the dApp address, callable function name, and arguments, the Invoke Script transaction can contain payments to dApp. The maximum number of payments is 2 after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
-
-Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the maximum number of payments is 10.
+In addition to the dApp address, callable function name, and arguments, the Invoke Script transaction can contain payments to dApp. The maximum number of payments is 10. (Before activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the maximum number of payments was 2. Before activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”, the maximum number of payments was 1.)
 
 ## Fee
 
@@ -12,21 +10,15 @@ The sender can specify a transaction fee nominated in a sponsored asset instead 
 
 The minimum fee in WAVES for an Invoke Script transaction is calculated as follows:
 
-`Fee` = 0.005 + `S` + 0.004 × `P` + 0.004 × `A` + 1  × `I`
-
-* If the transaction **s**ender is a [dApp or smart account](/en/blockchain/account/dapp), then `S` = 0.004, otherwise `S` = 0.
-* The Invoke Script transaction can contain payments. `P` is the number of **p**ayments in [smart assets](/en/blockchain/token/smart-asset).
-* The Invoke Script transaction can result in the token transfer, reissue or burning. `A` is the number of smart assets among these **a**ctions.
-* The Invoke Script transaction can result in the token issue. `I` is the number of **i**ssued assets that are not [NFT](/en/blockchain/token/non-fungible-token).
-
-See also the example in the [Transaction Fee](/en/blockchain/transaction/transaction-fee) article.
-
-Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the minimum fee in WAVES is calculated as follows:
-
 `Fee` = 0.005 + `S` + 1  × `I`
 
 * If the transaction **s**ender is a [dApp or smart account](/en/blockchain/account/dapp), and that the complexity of the account script or dApp script verifier function exceeds the [sender complexity threshold](/en/ride/limits/), then `S` = 0.004, otherwise `S` = 0.
 * `I` is the number of **i**ssued assets that are not [NFT](/en/blockchain/token/non-fungible-token).
+
+(Before activation of feature #16 “Ride V5, dApp-to-dApp invocations”:
+
+* The minimum fee was increased by 0.004 WAVES for each execution of asset script in payments and script actions.
+* The extra fee of 0.004 WAVES was required for transactions sent from smart account or dApp regardless of the complexity of the account script or the presence and complexity of the dApp script verifier function.)
 
 <!-- ### Version 3
 

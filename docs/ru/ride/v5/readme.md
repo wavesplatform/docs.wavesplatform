@@ -1,6 +1,6 @@
 # [Ride v5] Версия 5 Стандартной библиотеки
 
-Версия 5 [Стандартной библиотеки](/ru/ride/script/standard-library) включается с активацией фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”.
+Версия 5 [Стандартной библиотеки](/ru/ride/script/standard-library) доступна с момента с активации фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”.
 
 ## Вызов dApp из dApp
 

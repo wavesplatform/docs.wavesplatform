@@ -6,13 +6,13 @@
 |---|---|
 | dApp script size | 32 Kbytes |
 | Account script or asset script size | 8 Kbytes |
-| [Complexity](/en/ride/base-concepts/complexity) of account script | 2000 |
+| [Complexity](/en/ride/base-concepts/complexity) of account script | 2000* |
 | Complexity of asset script | 4000 |
 | Complexity of each callable function of dApp script | 4000 |
-| Total complexity for a callable function and asset scripts involved in an Invoke Script transaction. The sender's account script complexity is not included in this limit.<br>Applied after activation of feature #16 “Ride V5, dApp-to-dApp invocations” regardless of the Standard library version | 26,000 |
+| Total complexity for a callable function and asset scripts involved in an Invoke Script transaction. The sender's account script complexity is not included in this limit | 26,000** |
 | Complexity threshold for saving failed transactions: if the callable function failed with an error or throwing an exception before the threshold exceeded, the invoke script transaction is rejected and the fee is not charged | 1000 |
-| Complexity of verifier function of dApp script | 2000 |
-| Sender complexity threshold: if the complexity of an account script or the verifier function of a dApp script exceeds this limit, the minimum fee for a transaction sent from the account is increased by 0.004 WAVES.<br>Applied after activation of feature #16 “Ride V5, dApp-to-dApp invocations” regardless of the Standard library version | 200 |
+| Complexity of verifier function of dApp script | 2000* |
+| Sender complexity threshold: if the complexity of an account script or the verifier function of a dApp script exceeds this limit, the minimum fee for a transaction sent from the account is increased by 0.004 WAVES. | 200*** |
 | Function name or variable name | 255 bytes |
 | Size of [String](/en/ride/v4/data-types/string) variable | 32,767 characters for **version 3**<br>32,767 **bytes** for **version 4** |
 | Size of [ByteVector](/en/ride/v4/data-types/byte-vector) variable | 65,536 bytes for **version 3**<br>32,767 bytes (except `bodyBytes` field of transaction structure) for **version&nbsp;4** |
@@ -24,3 +24,9 @@
 | Number of [ScriptTransfer](/en/ride/v4/structures/script-actions/script-transfer) structures in [TransferSet](/en/ride/v4/structures/script-results/transfer-set) (applicable for **version&nbsp;3**) | 10 |
 | Number of [DataEntry](/en/ride/v4/structures/script-actions/data-entry) structures in [WriteSet](/en/ride/v4/structures/script-results/write-set) (applicable for **version 3**) | 100 |
 | Total size of the data written to the account data storage, for all `DataEntry` in `WriteSet` (applicable for **version&nbsp;3**) | 5 Kbytes |
+
+\* Before activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”, the maximum complexity of an account script or the verifier function of a dApp script was 4000 regardless of the Standard library version.
+
+\** Before activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the total complexity of the scripts was not limited, regardless of the Standard library version.
+
+\*** Before activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the extra fee of 0.004 WAVES was required regardless of the complexity of the account script or the presence and complexity of the dApp script verifier function.
