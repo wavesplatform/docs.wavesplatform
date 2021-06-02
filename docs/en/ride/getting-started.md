@@ -79,7 +79,7 @@ let a = "Bob"
 let b = 1
 ```
 
-All variables in Ride are immutable. This means you cannot change the value of a variable after declaration.
+All variables in Ride are **immutable**. This means you cannot change the value of a variable after declaration.
 
 Ride is strongly typed and the variable's type is inferred from the value on the right hand side. 
 
@@ -96,7 +96,7 @@ func lazyIsGood() = {
 }
 ```
 
-The function above will compile and return true as a result, but variable `a` won't be initialized because Ride is lazy, meaning that any unused variables will not be calculated.
+The function above will compile and return true as a result, but variable `a` won't be evaluated because initialization via `let` is lazy: unused variables are not evaluated. For strict (eager) initialization, use the `strict` keyword.
 
 ## Functions
 

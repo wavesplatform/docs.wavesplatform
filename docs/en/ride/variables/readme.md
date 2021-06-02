@@ -1,12 +1,16 @@
 # Variables
 
-In Ride you can only declare a variable with simultaneous assignment of a value. At the right side of the `=` sign must be an [expression](/en/ride/base-concepts/expression). The value of the variable is the expression result. Ride is strongly typed and the variable's type is inferred from the value.
+In Ride, you can only declare a variable along with a value assignment. At the right side of the `=` sign must be an [expression](/en/ride/base-concepts/expression). The value of the variable is the expression result. 
 
-Ride variables are immutable: the value of a variable cannot be changed after it is defined.
+Ride variables are **immutable**: the value of a variable cannot be changed after it is defined.
+
+Ride is strongly typed and the variable's type is inferred from the value.
 
 # Lazy Variables
 
-`let` keyword defines a variable with lazy evaluation. The value of a lazy variable is evaluated the first time it is used.
+`let` keyword defines a variable with lazy evaluation: the value of a variable is evaluated the first time it is used.
+
+Examples:
 
 ```scala
 let a = 42                 # Integer variable definition
@@ -14,7 +18,6 @@ let b = "Ride the Waves!"  # String variable definition
 ```
 
 Ride allows you to define variables globally, inside any function, or even inside a variable definition.
-
 
 ```scala
 func lazyIsGood() = {
@@ -36,7 +39,7 @@ let result = lazyIsGood()  # result is true
 
 # Strict Variables
 
-`strict` keyword defines a variable with eager evaluation. Unlike lazy variables defined with `let`, a strict variable is evaluated immediately when script execution reaches it, that is, before the next expression.
+`strict` keyword defines a variable with strict (eager) evaluation. Unlike lazy variables defined with `let`, a strict variable is evaluated immediately when script execution reaches it, that is, before the next expression.
 
 Strict variable can be defined only inside another definition, for example, inside the body of a function. A strict variable will not be evaluated if it is defined inside another definition that is not used: for example, inside a function that has not been called.
 

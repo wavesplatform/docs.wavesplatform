@@ -15,10 +15,20 @@ The minimum fee in WAVES for an Invoke Script transaction is calculated as follo
 * If the transaction **s**ender is a [dApp or smart account](/en/blockchain/account/dapp), and that the complexity of the account script or dApp script verifier function exceeds the [sender complexity threshold](/en/ride/limits/), then `S` = 0.004, otherwise `S` = 0.
 * `I` is the number of **i**ssued assets that are not [NFT](/en/blockchain/token/non-fungible-token).
 
-(Before activation of feature #16 “Ride V5, dApp-to-dApp invocations”:
+<br/>
+<details><summary>Before activation of feature #16 “Ride V5, dApp-to-dApp invocations”</summary>
 
 * The minimum fee was increased by 0.004 WAVES for each execution of asset script in payments and script actions.
 * The extra fee of 0.004 WAVES was required for transactions sent from smart account or dApp regardless of the complexity of the account script or the presence and complexity of the dApp script verifier function.)
+</details>
+
+## Total Complexity
+
+A dApp callable function can invoke a callable function of another dApp, or another callable function of the same dApp, or even itself. All invoked functions are executed within a single Invoke Script transaction. [More about dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp)
+
+DApp-to-dApp invocation is enabled by feature #16 “Ride V5, dApp-to-dApp invocations”.
+
+The total [complexity](/en/ride/base-concepts/complexity) is limited by 26,000 for all callable functions and asset scripts of involved smart assets in a single Invoke Script transaction. The sender's account script complexity is not included in that limit. (Before activation of feature #16 “Ride V5, dApp-to-dApp invocations” the total complexity was not limited.)
 
 <!-- ### Version 3
 
@@ -92,7 +102,10 @@ where:
     "issues": [],
     "reissues": [],
     "burns": [],
-    "sponsorFees": []
+    "sponsorFees": [],
+    "leases": [],
+    "leaseCancels": [],
+    "invokes": []
   }
 }
 ```
@@ -105,7 +118,9 @@ where:
 | dApp | dApp address base58 encoded or dApp [alias](/en/blockchain/account/alias) with `alias:<chain_id>:` prefix, for example `alias:T:merry` (see [Chain ID](/en/blockchain/blockchain-network/#chain-id)) |
 | payment.amount | Amount of token in payment: an integer value specified in [atomic units](/en/blockchain/token/#atomic-unit) |
 | payment.assetId | ID of token in payment, base58 encoded. `null` means that the payment is in WAVES |
-| stateChanges | Script actions performed by the callable function and [dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp) results |
+| *stateChanges* | Script actions performed by the callable function and [dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp) results |
+
+The `stateChanges` structure does not need to be filled when sending a transaction, and it is not stored on the blockchain. The node returns this structure when providing transaction data via the REST API.
 
 <!--| extraFeePerStep | Extra fee for each stage of computations, see the [Continued Computations](/en/ride/advanced/continuation) article. The extra fee is specified in the same token as the transaction fee, in atomic units. A value other than null or 0 is only valid when the version 5 dApp script is invoked. The field is added in transaction version 3 || сontinuationTransactionIds | List of the Continuation transactions in the computation sequence. The field is added in transaction version 3 |-->
 
