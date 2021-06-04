@@ -104,15 +104,19 @@ dApp1:
 {-# SCRIPT_TYPE ACCOUNT #-}
 
 @Callable(i)
-func foo(dapp2: String, a: Integer, key1: String, key2: String) = {
-   strict r = invoke(addressFromStringValue(dapp2),bar,[a],[AttachedPayment(base58'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p',1000000)])
-   (
-      [
-         IntegerEntry(key1, r),
-         IntegerEntry(key2, wavesBalance(dapp2).regular)
-      ],
-      unit
-   )
+func foo(dapp2: String, a: Int, key1: String, key2: String) = {
+   strict res = invoke(addressFromStringValue(dapp2),"bar",[a],[AttachedPayment(base58'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p',1000000)])
+   match res {
+     case r : Int => 
+      (
+         [
+           IntegerEntry(key1, r),
+           IntegerEntry(key2, wavesBalance(addressFromStringValue(dapp2)).regular)
+         ],
+         unit
+      )
+     case _ => throw("Incorrect invoke result") 
+   }
 }
 ```
 
@@ -125,10 +129,9 @@ dApp2:
 
 @Callable(i)
 func bar(a: Int) = {
-   let 
    (
       [
-         ScriptTransfer(i.caller, 100000000, unit),
+         ScriptTransfer(i.caller, 100000000, unit)
       ],
       a*2
    )

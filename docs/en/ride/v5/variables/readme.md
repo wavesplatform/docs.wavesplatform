@@ -14,7 +14,7 @@ Strict variables are suitable for [dApp-to-dApp invocation](/en/ride/advanced/da
 func foo() = {
    ...
    strict balanceBefore = wavesBalance(this).regular
-   strict z = invoke(dapp2,bar,args,[AttachedPayment(unit,100000000)])
+   strict z = invoke(dapp2,"bar",args,[AttachedPayment(unit,100000000)])
    strict balanceAfter = wavesBalance(this).regular
 
    if(balanceAfter < balanceBefore) then ... else...
