@@ -679,11 +679,11 @@ module.exports = {
       children: [
         {
           title: 'Any',
-          path: rideV5Path + 'data-types/any',
+          path: ridePath + 'data-types/any',
         },
         {
           title: 'BigInt',
-          path: rideV5Path + 'data-types/bigint',
+          path: ridePath + 'data-types/bigint',
         },
         {
           title: 'Boolean',

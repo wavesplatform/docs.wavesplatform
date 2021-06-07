@@ -679,11 +679,11 @@ module.exports = {
       children: [
         {
           title: 'Any',
-          path: rideV5Path + 'data-types/any',
+          path: ridePath + 'data-types/any',
         },
         {
           title: 'BigInt',
-          path: rideV5Path + 'data-types/bigint',
+          path: ridePath + 'data-types/bigint',
         },
         {
           title: 'Boolean',
@@ -941,7 +941,7 @@ module.exports = {
         },
         {
           title: 'Функции вызова dApp из dApp',
-          path: rideV5Path + 'functions/built-in-functions/dapp-to-dapp',
+          path: ridePath + 'functions/built-in-functions/dapp-to-dapp',
         },
         {
           title: 'Функции списка',
