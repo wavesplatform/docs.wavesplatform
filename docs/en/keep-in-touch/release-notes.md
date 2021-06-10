@@ -205,7 +205,7 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
    </details>
 
 * Results of `Lease` and `LeaseCancel` script actions are also added to the `trace` structure returned by the following endpoints:
-   * `/transactions/broadcast`
+   * `/transactions/broadcast` with `trace=true` input parameter
    * `/debug/validate`
 
    <details>

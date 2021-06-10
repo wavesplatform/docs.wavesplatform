@@ -205,7 +205,7 @@
 
 * Результат действий скрипта `Lease` и `LeaseCancel` добавлен в структуру `trace`, возвращаемую следующими методами:
    * `/transactions/broadcast` c параметром `trace=true`
-   * `/debug/validate` c параметром `trace=true`
+   * `/debug/validate`
 
    <details>
       <summary>Формат</summary>
