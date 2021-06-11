@@ -1,6 +1,6 @@
 # InvokeScriptTransaction
 
-Structure of an [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction).
+Structure of an [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction).
 
 ### Constructor
 

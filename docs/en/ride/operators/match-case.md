@@ -1,6 +1,6 @@
 # match-case
 
-`match-case` operator is used to spot a certain type from [Union](/en/ride/data-types/union)-type. The spotting is required to perform certain action. Let's review the following example.
+`match-case` operator is used to spot a certain type from [Union](/en/ride/data-types/union) or [Any](/en/ride/data-types/any) type. The spotting is required to perform certain operation. Let's review the following example.
 
 ```ride
 match tx {

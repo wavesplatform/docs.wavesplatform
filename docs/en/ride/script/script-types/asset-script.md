@@ -52,9 +52,9 @@ func doSomething () = {
 
 The expression checks transactions involving the asset for compliance with the specified conditions. If the conditions are not met, the transaction is denied. Possible results of evaluating the expression are:
 
-* true: the transaction is allowed,
-* false: the transaction is denied,
-* error: the transaction is denied.
+* `true`: the transaction is allowed,
+* `false`: the transaction is denied,
+* an error: the transaction is denied.
 
 Using the [match ... case](/en/ride/operators/match-case) operator, you can set up different conditions depending on the type of the transaction. For example, the following expression prohibits changing the asset script and allows other transactions:
 

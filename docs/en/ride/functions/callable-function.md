@@ -40,7 +40,7 @@ The callable function can have arguments of the following types:
   * [String](/en/ride/data-types/string),
   * [List](/en/ride/data-types/list).
 
-### Invocation Result
+## Invocation Result
 
 The callable function invocation result is a [Tuple](/en/ride/data-types/tuple) of two elements:
 * List of script actions. Actions are executed in the same order as the elements in the list.
@@ -68,7 +68,7 @@ Example:
 )
 ```
 
-## Script Action
+## Script Actions
 
 Script actions performed by the callable function are set by Ride structures.
 
@@ -77,14 +77,14 @@ Script actions performed by the callable function are set by Ride structures.
 | [BinaryEntry](/en/ride/structures/script-actions/binary-entry)<br>[BooleanEntry](/en/ride/structures/script-actions/boolean-entry)<br>[IntegerEntry](/en/ride/structures/script-actions/int-entry)<br>[StringEntry](/en/ride/structures/script-actions/string-entry) | Adding/modifying the entry. The type of structure must match the type of entry to be added/changed.<br>- If there is no entry in the account data storage with the key specified in the structure, the entry will be added.<br>- If the entry is present in the account data storage, it will be modified |
 | [DeleteEntry](/en/ride/structures/script-actions/delete-entry) | Entry deletion |
 | [Issue](/en/ride/structures/script-actions/issue) | Token issue |
-| [Lease](/en/ride/structures/script-actions/lease) | Lease |
-| [LeaseCancel](/en/ride/structures/script-actions/issue) | Lease cancellation |
 | [Reissue](/en/ride/structures/script-actions/reissue) | Token reissue |
 | [Burn](/en/ride/structures/script-actions/burn) | Token burn |
 | [SponsorFee](/en/ride/structures/script-actions/sponsor-fee) | Sponsorship setup |
 | [ScriptTransfer](/en/ride/structures/script-actions/script-transfer) | Token transfer |
+| [Lease](/en/ride/structures/script-actions/lease) | Lease |
+| [LeaseCancel](/en/ride/structures/script-actions/lease-cancel) | Lease cancellation |
 
-### Limitations
+## Limitations
 
 * The maximum total number of `Issue`, `Reissue`, `Burn`, `SponsorFee`, `ScriptTransfer`, `Lease`, `LeaseCancel` script actions executed by all callable functions in a single transaction is 30.
 * The maximum total number of `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, `StringEntry`, `DeleteEntry` script actions executed by all callable functions in a single transaction is 100.
@@ -92,7 +92,7 @@ Script actions performed by the callable function are set by Ride structures.
 
 See also the [Limitations](/en/ride/limits/) article.
 
-### Example
+## Example
 
 The example listed below is a wallet application which allows to send [WAVES](/en/blockchain/token/waves) to a certain address and withdraw them (withdrawing others' WAVES is prevented). There are two callable functions in the example:
 

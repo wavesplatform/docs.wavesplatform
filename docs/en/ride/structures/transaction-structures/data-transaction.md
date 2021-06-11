@@ -1,6 +1,6 @@
 # DataTransaction
 
-Structure of a [data transaction](/en/blockchain/transaction-type/data-transaction).
+Structure of a [Data transaction](/en/blockchain/transaction-type/data-transaction).
 
 ### Constructor
 

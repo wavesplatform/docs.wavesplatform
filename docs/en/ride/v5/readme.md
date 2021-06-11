@@ -1,6 +1,6 @@
 # Standard Library Version 5
 
-Standard library version 5 is added in node version 1.3.0 and enabled by feature #16 “Ride V5, dApp-to-dApp invocations”.
+Standard library version 5 is enabled by feature #16 “Ride V5, dApp-to-dApp invocations”.
 
 ## dApp-to-dApp Invocation
 

@@ -22,7 +22,7 @@ The fee is not increased by 0,004 WAVES for [Exchange transactions](/en/blockcha
 
 * The extra fee of 0.004 WAVES was required for transactions sent from smart account or dApp regardless of the complexity of the account script or the presence and complexity of the dApp script verifier function.
 * For Invoke Script transaction, the minimum fee was increased by 0.004 WAVES for each execution of asset script in payments and script actions.
-</details>
+</details></br>
 
 **Example 1.**
 

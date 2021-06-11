@@ -1,6 +1,6 @@
 # StringEntry
 
-`StringEntry` is a structure that sets key and value of [account data storage](/en/blockchain/account/account-data-storage) string entry. Adding or changing an entry is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#invocation-result-2).
+`StringEntry` is a structure that sets key and value of [account data storage](/en/blockchain/account/account-data-storage) string entry. Adding or changing an entry is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#invocation-result).
 
 ## Constructor
 

@@ -1,6 +1,6 @@
 # LeaseCancel
 
-`LeaseCancel` is a structure that sets the lease cancellation parameters. The lease cancellation is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#invocation-result-2).
+`LeaseCancel` is a structure that sets the lease cancellation parameters. The lease cancellation is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#invocation-result).
 
 ## Constructor
 

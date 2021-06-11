@@ -1,6 +1,6 @@
 # Issue
 
-`Issue` is a structure that sets the parameters of the token issue. The token issue is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#invocation-result-2).
+`Issue` is a structure that sets the parameters of the token issue. The token issue is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#invocation-result).
 
 The minimum fee for an invoke script transaction is increased by 1 WAVES for each issued asset that is not [NFT](/en/blockchain/token/non-fungible-token).
 
@@ -50,11 +50,14 @@ The structure sets the following parameters of token:
 
 ### Multiple Tokens Issue
 
-```
-[
-   Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 0),
-   Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 1)
-]
+```scala
+(
+   [
+      Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 0),
+      Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 1)
+   ],
+   unit
+)
 ```
 
 ### NFT Issue

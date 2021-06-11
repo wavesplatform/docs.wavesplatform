@@ -12,4 +12,4 @@
 
 Встроенные функции работы со строками представлены в разделах:
 * [Функции строки](/en/ride/functions/built-in-functions/string-functions)
-* [Функции конвертации](/en/ride/functions/built-in-functions/string-functions)
+* [Функции конвертации](/en/ride/functions/built-in-functions/converting-functions)

@@ -1,6 +1,6 @@
 # dApp Script
 
-dApp script enables you to define сallable functions that can be called from other accounts by the [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction). Callable functions can accept payments to the dApp and perform various actions on the blockchain. Also dApp script can comprise a verifier function that allows or denies transactions and orders that are sent on behalf of the dApp account.
+dApp script enables you to define сallable functions that can be called from other accounts by sending an [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) by a [dApp-to-dApp invocation](/en/ride/functions/built-in-functions/dapp-to-dapp). Callable functions can accept payments to the dApp and perform various actions on the blockchain. Also dApp script can comprise a verifier function that allows or denies transactions and orders that are sent on behalf of the dApp account.
 
 An account with a dApp script assigned to it is called a dApp. For information about how dApp works, see the [What is dApp](/en/building-apps/smart-contracts/what-is-a-dapp) article. For information about how to create a dApp, see the [Creating and Running dApp](/en/building-apps/smart-contracts/writing-dapps) article.
 
@@ -33,7 +33,7 @@ The above directives tell the compiler that:
 
 ### Auxiliary Definitions
 
-After the directives, you can define auxiliary variables and functions. These variables and functions are accessible within the entire script. Please note that functions without [annotations](/en/ride/functions/annotations) cannot be called outside the dApp script.
+After the directives, you can define auxiliary variables and functions. These variables and functions are accessible within the entire script. Please note that functions without [annotations](/en/ride/functions/annotations) cannot be called from other accounts.
 
 Example:
 
@@ -48,9 +48,9 @@ func doSomething() = {
 
 Callable function can be called from another account via the Invoke Script transaction.
 
-The callable function should be marked with the `@Callable(i)` annotation, where `i` is an [Invocation](/en/ride/structures/common-structures/invocation) structure that contains Invoke Script transaction fields that are accessible to the callable function. The variable name in the annotation is required even if the function does not use it.
+The callable function should be marked with the `@Callable(i)` annotation, where `i` is an [Invocation](/en/ride/structures/common-structures/invocation) structure that contains fields of the script invocation that are accessible to the callable function. The variable name in the annotation is required even if the function does not use it.
 
-Callable function result is a set of [script actions](/en/ride/structures/script-actions/) that are performed on the blockchain: adding/deleting/modifying entries to the account data storages, token transfers, issue/reissue/burning and others. The result format and the available actions depend on the Standard library version used.
+Callable function result is a set of [script actions](/en/ride/structures/script-actions/) that are performed on the blockchain: adding/deleting/modifying entries to the account data storages, token transfers, issue/reissue/burning, and others. The result format and the available actions depend on the Standard library version used.
 
 For a detailed description, see the [Callable Function](/en/ride/functions/callable-function) article.
 
@@ -59,18 +59,21 @@ In the example below the callable function transfers 1 WAVES to an account that 
 ```ride
 @Callable(i)
 func faucet () = {
-    let isKnownCaller =  match getBoolean(this, toBase58String(i.caller.bytes)) {
-        case hist: Boolean =>
-            hist
-        case _ =>
-            false
-    }
-    if (!isKnownCaller) then 
-        [
-           BooleanEntry(toBase58String(i.caller.bytes), true),
-           ScriptTransfer(i.caller, 100000000, unit)
-        ]
-    else throw("Can be used only once")
+   let isKnownCaller =  match getBoolean(this, toBase58String(i.caller.bytes)) {
+      case hist: Boolean =>
+         hist
+      case _ =>
+         false
+   }
+   if (!isKnownCaller) then 
+      (
+         [
+            BooleanEntry(toBase58String(i.caller.bytes), true),
+            ScriptTransfer(i.caller, 100000000, unit)
+         ],
+         unit
+      )
+   else throw("Can be used only once")
 }
 ```
 
@@ -82,11 +85,11 @@ The verifier function should be marked with the `@Verifier(tx)` annotation, wher
 
 The verifier function has no arguments.
 
-Possible results of the verified function are:
+Possible results of the verifier function are:
 
-* true: the transaction/order is allowed,
-* false: the transaction/order is denied,
-* error: the transaction/order is denied.
+* `true`: the transaction/order is allowed,
+* `false`: the transaction/order is denied,
+* an error: the transaction/order is denied.
 
 For a detailed description, see the [Verifier Function](/en/ride/functions/verifier-function) article.
 
@@ -127,7 +130,7 @@ The transaction sender is charged a fee. The transaction doesn't entail any othe
 
 Data accessible to the **callable** function:
 
-* Particular fields of the transaction that invoked the dApp script, including payments, fee, sender address and public key. See the [Invocation](/en/ride/structures/common-structures/invocation) article for the fields description. Proofs are inaccessible.
+* Particular fields of the invocation, including payments, fee, sender address and public key. See the [Invocation](/en/ride/structures/common-structures/invocation) article for the fields description. Proofs are inaccessible.
 * [Blockchain data](/en/ride/#blockchain-operation): current height, account balances, entries in account data storages, parameters of tokens, etc.
 
 Data accessible to the **verifier** function:
@@ -135,7 +138,7 @@ Data accessible to the **verifier** function:
 * Fields of the current verified transaction/order, including `proofs`. The built-in variable `tx` contains this transaction or order. The set of fields depends on the type of transaction/order, see the [Transaction Structures](/en/ride/structures/transaction-structures/) chapter and [Order](/en/ride/structures/common-structures/order) article.
 * [Blockchain data](/en/ride/#blockchain-operation): current height, account balances, entries in account data storages, parameters of tokens, etc.
 
-   : warning: Blockchain data is available only when checking a transaction and not available when checking an order (`case t: Order`).
+   :warning: Blockchain data is available only when checking a transaction and not available when checking an order (`case t: Order`).
 
 ## Examples
 

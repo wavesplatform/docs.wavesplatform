@@ -47,9 +47,9 @@ func doSomething () = {
 
 The expression checks transactions and orders that are sent on behalf of the account for compliance with the specified conditions. If the conditions are not met, the transaction/order is denied. Possible results of evaluating the expression are:
 
-* true: the transaction/order is allowed,
-* false: the transaction/order is denied,
-* error: the transaction/order is denied.
+* `true`: the transaction/order is allowed,
+* `false`: the transaction/order is denied,
+* an error: the transaction/order is denied.
 
 Using the [match ... case](/en/ride/operators/match-case), you can set up different conditions depending on the type of the transaction/order. For example, the following expression prohibits sending orders and changing the account script, and allows other transactions, provided that the array of confirmations (`proofs`) contains the correct signature of the account at position 0:
 

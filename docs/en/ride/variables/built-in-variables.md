@@ -2,7 +2,6 @@
 
 A **built-in variable** is a [variable](/en/ride/variables/) of the [Standard library](/en/ride/script/standard-library).
 
-## List of built-in variables
 <table style="width:100%">
   <tr>
     <th align="left">#</th>
@@ -61,16 +60,11 @@ A **built-in variable** is a [variable](/en/ride/variables/) of the [Standard li
     <td>6</td>
     <td>
       <ul>
-        <li>NOALG</li>
-        <li>MD5</li>
-        <li>SHA1</li>
-        <li>SHA224</li>
-        <li>SHA256</li>
-        <li>SHA384</li>
-        <li>SHA512</li>
-        <li>SHA3224</li>
-        <li>SHA3256</li>
-        <li>SHA3384</li>
+        <li>NOALG</li><li>MD5</li>
+        <li>SHA1</li><li>SHA224</li>
+        <li>SHA256</li><li>SHA384</li>
+        <li>SHA512</li><li>SHA3224</li>
+        <li>SHA3256</li><li>SHA3384</li>
         <li>SHA3512</li>
       </ul>
     </td>
@@ -108,7 +102,9 @@ A **built-in variable** is a [variable](/en/ride/variables/) of the [Standard li
 func deposit() = {
   (
     [
-      ScriptTransfer(inv.caller, 5, unit) \# Transfer 5 WAVELETs to the inv.caller account. Instead of the token ID the unit is specified
+      # Transfer 5 WAVELETs to the inv.caller account
+      # WAVES does not have a token ID, unit is specified instead
+      ScriptTransfer(inv.caller, 5, unit) 
     ],
     unit
   )
@@ -116,18 +112,19 @@ func deposit() = {
 </code>
 </pre>
 
-WAVES does not have a <a href="/en/blockchain/token/token-id">token ID</a>; the <code>unit</code> is passed instead of the ID.<br><b>Example 2</b><br>The <a href="/en/ride/functions/built-in-functions/blockchain-functions"><tt>assetInfo</tt></a> function requests information about the token by its ID. Next, the <code>isDefined</code> function checks that a token with this ID exists on the blockchain.
+<b>Example 2</b><br>The <a href="/en/ride/functions/built-in-functions/blockchain-functions"><tt>assetInfo</tt></a> function requests information about the token by its ID. Next, the <code>isDefined</code> function checks that a token with this ID exists on the blockchain.
 <pre>
 <code class=“lang-ride”>
 let asset = assetInfo(base58'8LQW8f7P5d5PZM7GtZEBgaqRPGSzS3DfPuiXrURJ4AJS')
 asset.isDefined()
 </code>
 </pre>
+
 Instead of calling the <code>isDefined</code> function, you may use the equality with <code>unit</code>.
 <pre>
 <code class=“lang-ride”>
 asset != unit
-\# Expression asset != unit is equivalent to the expression token.isDefined()
+# Expression asset != unit is equivalent to the expression token.isDefined()
 </code>
 </pre>
   </td>

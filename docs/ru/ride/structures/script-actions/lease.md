@@ -1,6 +1,6 @@
 # Lease
 
-`Lease` — структура, задающая параметры лизинга. Лизинг выполняется, только если структура включена в [результирующее выражение](/ru/ride/functions/callable-function#резуnьтат-выпоnнения-2) вызываемой функции. [Подробнее о лизинге](/ru/blockchain/leasing)
+`Lease` — структура, задающая параметры лизинга. Лизинг выполняется, только если структура включена в [результирующее выражение](/ru/ride/functions/callable-function#invocation-result) вызываемой функции. [Подробнее о лизинге](/ru/blockchain/leasing)
 
 Получить идентификатор лизинга можно с помощью функции [calculateLeaseId](/ru/ride/functions/built-in-functions/blockchain-functions#calculateleaseid).
 

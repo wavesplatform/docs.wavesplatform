@@ -12,4 +12,4 @@ The maximum size of a `String` variable is 32,767 (1 character can take up to 4 
 
 The built-in functions for working with strings are presented in the following articles:
 * [String Functions](/en/ride/functions/built-in-functions/string-functions)
-* [Conversion Functions](/en/ride/functions/built-in-functions/string-functions)
+* [Converting Functions](/en/ride/functions/built-in-functions/converting-functions)

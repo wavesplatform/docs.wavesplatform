@@ -1,6 +1,6 @@
 # Lease
 
-`Lease` is a structure that sets the lease parameters. The lease is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#invocation-result-2). [More about lease](/en/blockchain/leasing)
+`Lease` is a structure that sets the lease parameters. The lease is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#invocation-result). [More about lease](/en/blockchain/leasing)
 
 You can get the lease ID using the [calculateLeaseId](/en/ride/functions/built-in-functions/blockchain-functions#calculateleaseid) function.
 

@@ -6,7 +6,7 @@ Ride variables are **immutable**: the value of a variable cannot be changed afte
 
 Ride is strongly typed and the variable's type is inferred from the value.
 
-# Lazy Variables
+## Lazy Variables
 
 `let` keyword defines a variable with lazy evaluation: the value of a variable is evaluated the first time it is used.
 
@@ -37,7 +37,7 @@ Since a [function](/en/ride/functions/) is a [definition](/en/ride/base-concepts
 let result = lazyIsGood()  # result is true
 ```
 
-# Strict Variables
+## Strict Variables
 
 `strict` keyword defines a variable with strict (eager) evaluation. Unlike lazy variables defined with `let`, a strict variable is evaluated immediately when script execution reaches it, that is, before the next expression.
 
@@ -57,6 +57,8 @@ func foo() = {
 ```
 
 In this example, `balanceBefore` and `balanceAfter` may differ because payments to `dApp2` and actions performed by the `bar` callable function can affect the balance.
+
+> Strict variables are added in [Standard library](/en/ride/script/standard-library) version 5.
 
 # Built-in Variables
 

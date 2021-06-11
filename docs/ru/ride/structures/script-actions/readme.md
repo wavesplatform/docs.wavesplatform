@@ -10,8 +10,8 @@
 | [DeleteEntry](/ru/ride/structures/script-actions/delete-entry) | Удаление записи |
 | [IntegerEntry](/ru/ride/structures/script-actions/int-entry) | Добавление/изменение записи целочисленного типа |
 | [Issue](/ru/ride/structures/script-actions/issue) | Выпуск токена |
-| [Lease](/ru/ride/structures/script-actions/issue) | Лизинг |
-| [LeaseCancel](/ru/ride/structures/script-actions/issue) | Отмена лизинга |
+| [Lease](/ru/ride/structures/script-actions/lease) | Лизинг |
+| [LeaseCancel](/ru/ride/structures/script-actions/lease-cancel) | Отмена лизинга |
 | [Reissue](/ru/ride/structures/script-actions/reissue) | Довыпуск токена |
 | [ScriptTransfer](/ru/ride/structures/script-actions/script-transfer)  Перевод токена |
 | [SponsorFee](/ru/ride/structures/script-actions/sponsor-fee) | Настройка спонсирования |

@@ -25,7 +25,7 @@
    * [invoke](/ru/ride/functions/built-in-functions/dapp-to-dapp#invoke)
    * [reentrantInvoke](/ru/ride/functions/built-in-functions/dapp-to-dapp#reentrantinvoke)
 * Добавлены [нетерпеливые переменные](/ru/ride/variables/), которые вычисляются до следующего выражения, чтобы гарантировать порядок выполнения и применения действий скрипта вызываемых функций.
-* Изменен [формат результата](/ru/ride/functions/callable-function#result) вызываемой функции: добавлено возвращаемое значение.
+* Изменен [формат результата](/ru/ride/functions/callable-function#invocation-result) вызываемой функции: добавлено возвращаемое значение.
 * Изменена структура [Invocation](/ru/ride/structures/common-structures/invocation): в случае вызова dApp из dApp она содержит адрес и публичный ключ как отправителя транзакции вызова скрипта, так и аккаунта dApp, который вызывает функцию.
 * Общее количество действий скрипта `Issue`, `Reissue`, `Burn`, `SponsorFee`, `ScriptTransfer`, `Lease`, `LeaseCancel`, выполняемых всеми вызываемыми функциями в одной транзакции, — не более 30.
 * Общее количество действий скрипта `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, `StringEntry`, `DeleteEntry`, выполняемых всеми вызываемыми функциями в одной транзакции, — не более 100.

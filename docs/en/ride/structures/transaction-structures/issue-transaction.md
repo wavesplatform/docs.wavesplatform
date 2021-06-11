@@ -1,6 +1,6 @@
 # IssueTransaction
 
-Structure of an [issue transaction](/en/blockchain/transaction-type/issue-transaction).
+Structure of an [Issue transaction](/en/blockchain/transaction-type/issue-transaction).
 
 ### Constructor
 

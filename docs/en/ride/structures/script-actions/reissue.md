@@ -1,6 +1,6 @@
 # Reissue
 
-`Reissue` is a structure that sets the parameters of the token reissue. The token reissue is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#invocation-result-2).
+`Reissue` is a structure that sets the parameters of the token reissue. The token reissue is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#invocation-result).
 
 The token reissue is only available for an asset that is issued by a dApp account.
 

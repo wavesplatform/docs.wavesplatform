@@ -1,6 +1,6 @@
 # ExchangeTransaction
 
-Structure of an [exchange transaction](/en/blockchain/transaction-type/exchange-transaction).
+Structure of an [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction).
 
 ### Constructor
 

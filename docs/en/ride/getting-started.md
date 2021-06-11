@@ -58,7 +58,7 @@ Every Ride script should start with directives for the compiler. At the time of 
 
 `STDLIB_VERSION` sets the version of the standard library. The latest version currently in production is 5.
 
-`CONTENT_TYPE` sets the type of the file you're working on. There are different content types, `DAPP` and `EXPRESSION`. The `DAPP` type allows you to define functions and finish execution with certain transactions (changes to the blockchain), as well as using annotations. The `EXPRESSION` type should always return a boolean value, since it’s used as a predicate for transaction validation.
+`CONTENT_TYPE` sets the type of the file you're working on. There are different content types, `DAPP` and `EXPRESSION`. The `DAPP` type allows you to define functions and finish execution with certain actions which result in account balances, asset properties, and entries in the dApp account data storage. The `EXPRESSION` type should always return a boolean value, since it’s used as a predicate for transaction validation.
 
 `SCRIPT_TYPE` sets the entity type we want to add to the script to change its default behavior. Ride scripts can be attached to either an `ACCOUNT` or `ASSET`.
 
@@ -128,7 +128,7 @@ func do() = {
 }
 ```
 
-The `callable` function will not be called either, because variable a is unused.
+The `calc` function will not be called either, because variable a is unused.
 
 Unlike most languages, variable shadowing is not allowed. Declaring a variable with a name that is already used in a parent scope will result in a compilation error.
 
@@ -218,14 +218,14 @@ let list = [16, 10, 1997, "birthday"]       # can contain different data types
 let second = list[1]                        # 10 - read second value from the list
 ```
 
-`List` doesn't have any fields, but there are functions in the standard library that make it easier to work with fields.
+`List` doesn't have any fields, but there are functions and operators in the Standard library that make it easier to work with fields.
 
 ```scala
 let list = [16, 10, 1997, "birthday"]
 
 let last = list[(list.size() - 1)] # "birthday", postfix call of size() function
 
-let lastAgain = getElement(collection, size(collection) - 1) # the same as above
+let lastAgain = getElement(list, size(list) - 1) # the same as above
 ```
 
 `.size()` function returns the length of a list. Note that it's a read-only value, and it cannot be modified by the user. (Note also that `last` could be of more than one type, but this is only inferred when the variable is set.)
@@ -235,14 +235,25 @@ let initList = [16, 10]                   # init value
 let newList = cons(1997, initList)        # [1997, 16, 10]
 let newList2 = 1997 :: initList           # [1997, 16, 10]
 let newList2 = initList :+ 1              # [16, 10, 1]
-let newList2 = [4, 8, 15, 16] ++ [23, 42]     # [4 8 15 16 23 42](*)
+let newList2 = [4, 8, 15, 16] ++ [23, 42]     # [4 8 15 16 23 42]
 ```
 
-- To prepend an element to an existing list, use the cons function or :: operator 
-- To append an element, use the :+ operator (*)
-- To concatenate 2 lists, use the ++ operator (*)
+- To prepend an element to an existing list, use the cons function or :: operator
+- To append an element, use the :+ operator
+- To concatenate 2 lists, use the ++ operator
 
-### Union types & Type Matching
+### Tuple
+
+Tuple is an ordered collection of elements. Elements can be of any type.
+
+```ride
+let x=("Hello Waves",42,true)
+let num = x._2                                # 42
+let (a,b,c) = x
+let bool = c                                  # true
+```
+
+### Union Types & Type Matching
 
 ```scala
 let valueFromBlockchain = getString("3PHHD7dsVqBFnZfUuDPLwbayJiQudQJ9Ngf", "someKey") # Union(String | Unit)
@@ -287,10 +298,10 @@ let amount = match tx {              # tx is a current outgoing transaction
 
 The code above shows an example of type matching. There are different types of transactions in Waves, and depending on the type, the real amount of transferred tokens can be stored in different fields. If a transaction is `TransferTransaction` or `MassTransferTransaction` we use the corresponding field, while in all other cases, we will get 0.
 
-## State reader functions
+## Data Reading Functions
 
 ```scala
-let readOrZero = match getInteger(this, "someKey") { # reading data from state
+let readOrZero = match getInteger(this, "someKey") { # reading data
     case a:Int => a
     case _ => 0
 }
@@ -298,7 +309,7 @@ let readOrZero = match getInteger(this, "someKey") { # reading data from state
 readOrZero + 1
 ```
 
-`getString` returns `Union(String | Unit)` because while reading data from the blockchain (the key-value state of accounts) some key-value pairs may not exist.
+`getString` returns `Union(String | Unit)` because while reading data from the blockchain (the key-value data storages of accounts) some key-value pairs may not exist.
 
 ```scala
 let v = getInteger("3PHHD7dsVqBFnZfUuDPLwbayJiQudQJ9Ngf", "someKey")
@@ -344,25 +355,21 @@ if (a != 100) then
   else throw("A is 100")
 ```
 
-## Predefined data structures
+## Predefined Data Structures
 
 \#**LET THE HOLY WAR BEGIN**
 
-Ride has many predefined data structures specific to the Waves blockchain, such as: `Address`, `Alias`, `DataEntry`, `ScriptResult`, `Invocation`, `ScriptTransfer`, `TransferSet`, `WriteSet`, `AssetInfo`, `BlockInfo`.
+Ride has many predefined data structures specific to the Waves blockchain, such as: `Address`, `Alias`, `Invocation`, `Issue`, `Lease`, `ScriptTransfer`, `StringEntry`, `ExchangeTransaction`, `SetScriptTransactions`.
 
 ```scala
-let keyValuePair = DataEntry("someKey", "someStringValue")
+let keyValuePair = StringEntry("someKey", "someStringValue")
 ```
 
-For example, `DataEntry` is a data structure which describes a key-value pair, e.g. for account storage.
+For example, `StringEntry` is a structure which describes a key-value pair with string value, e.g. for an account data storage.
 
-```scala
-let transferSet = TransferSet([ScriptTransfer("3P23fi1qfVw6RVDn4CH2a5nNouEtWNQ4THs", amount, unit)])
-```
+All structures can be used for type checking, pattern matching and their constructors as well.
 
-All data structures can be used for type checking, pattern matching and their constructors as well.
-
-## Loops with FOLD&lt;N&gt;
+## Loops With FOLD&lt;N&gt;
 
 Since Ride’s virtual machine doesn’t have any concept of loops, they are implemented at compiler level via the FOLD&lt;N&gt; macro. The macro behaves like the ‘fold’ function in other programming languages, taking the input arguments: collection for iteration, starting values of the accumulator and folding function.
 
@@ -386,39 +393,41 @@ FOLD<5>(a, [], foldFunc) # returns [6, 5, 4, 3, 2]
 
 ## Annotations
 
-Functions can be without annotations, or with `@Callable` or `@Verifier` annotations.
+Functions can be without annotations, or with `@Callable` or `@Verifier` annotations. Annotated function are used only in scripts of type `DAPP`.
 
 ```scala
+{-# STDLIB_VERSION 5 #-}
+{-# CONTENT_TYPE DAPP #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+
 func getPayment(i: Invocation) = {
-  let pmt = i.payment.valueOrErrorMessage(“Payment must be attached”)
-  if (isDefined(pmt.assetId)) then 
-    throw("This function accepts waves tokens only")
-  else
-    pmt.amount
+  if (size(i.payments) == 0)
+    then throw("Payment must be attached")
+    else {
+      let pmt = i.payments[0]
+      if (isDefined(pmt.assetId))
+        then throw("This function accepts WAVES tokens only")
+        else pmt.amount
+    }
 }
 
 @Callable(i)
 func pay() = {
   let amount = getPayment(i)
-  WriteSet([DataEntry(i.caller.bytes, amount)])
+  (
+    [
+      IntegerEntry(toBase58String(i.caller.bytes), amount)
+    ],
+    unit
+  )
 }
 ```
 
-Annotations can bind some values to the function. In the example above, variable `i` was bound to the function `pay` and stored all the information about the fact of invocation (the caller’s public key, address, payment attached to the transaction, fee, transactionId etc.).
+Annotations can bind some values to the function. In the example above, variable `i` was bound to the function `pay` and stored some fields of the invocation (the caller’s public key, address, payments attached to the invocation, fee, transaction ID etc.).
 
 Functions without annotations are not available from the outside. You can call them only inside other functions.
 
-```scala
-@Verifier(tx)
-func verifier() = {
-  match tx {
-    case m: TransferTransaction => tx.amount <= 100 # can send up to 100 tokens
-    case _ => false
-  }
-}
-```
-
-### @Verifier annotation
+## Verifier Function
 
 ```scala
 @Verifier(tx)
@@ -440,7 +449,6 @@ Expression scripts (with directive `{-# CONTENT_TYPE EXPRESSION #-}`) along with
 @Verifier(tx)
 func verifier() = {
   sigVerify(tx.bodyBytes, tx.proofs[0], tx.senderPublicKey)
-
 }
 ```
 
@@ -448,25 +456,28 @@ The Verifier function binds variable `tx`, which is an object with all fields of
 
 A maximum of one `@Verifier()` function can be defined in each dApp script.
 
-### @Callable annotation
+## Callable Function
 
-Functions with the `@Callable` annotation can be called (or invoked) from outside of the blockchain. To call a callable function you have to send `InvokeScriptTransaction`.
+Functions with the `@Callable` annotation can be called (or invoked) from other accounts: by an Invoke Script transaction or by a dApp.
+
+A callable function can perform actions: write data to the dApp data storage, transfer tokens from the dApp to other accounts, issue/release/burn tokens, and others. The result of a callable function is a tuple of two elements: a list of structures describing script actions and a value passed to the parent function in case of the dApp-to-dApp invocation.
 
 ```scala
 @Callable(i)
 func giveAway(age: Int) = {
-  ScriptResult(
-    WriteSet([DataEntry("age", age)]),
-    TransferSet([ScriptTransfer(i.caller, age, unit)])
+  (
+    [
+      ScriptTransfer(i.caller, age, unit),
+      IntegerEntry(toBase58String(i.caller.bytes), age)
+    ],
+    unit
   )
 }
 ```
 
-Every caller of `giveAway` function will receive as many WAVES as his age and the dApp will store information about the fact of the transfer in its state.
+Every caller of `giveAway` function will receive as many WAVELETs as their age. The `ScriptTransfer` structure sets the parameters of the token transfer. dApp also will store information about the fact of the transfer in its data storage. The `IntegerEntry` structure sets the parameters of the entry: key and value. 
 
-<!--
-
-#### Actions
+<!-- ## Script Actions
 
 Initial Actions are DataEntry, which allows for writing data as a key-value pair, and ScriptTransfer, a transfer of tokens from dApp to addressee. Other actions such as Issue/Reissue/Burn are designed to support native token operations as well as the family of Leasing operations.
 

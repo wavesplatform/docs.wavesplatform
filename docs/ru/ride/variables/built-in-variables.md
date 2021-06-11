@@ -59,13 +59,14 @@
   <tr>
     <td>6</td>
     <td>
-      <ol>
+      <ul>
         <li>NOALG</li><li>MD5</li>
         <li>SHA1</li><li>SHA224</li>
         <li>SHA256</li><li>SHA384</li>
         <li>SHA512</li><li>SHA3224</li>
         <li>SHA3256</li><li>SHA3384</li>
-        <li>SHA3512</li></ol>
+        <li>SHA3512</li>
+      </ul>
     </td>
     <td>
       Переменные, которые передаются первым параметром в функцию <a href="/ru/ride/functions/built-in-functions/verification-functions">rsaVerify</a>
@@ -93,35 +94,37 @@
 
 <pre>
 <code class=“lang-ride”>
-{-# STDLIB_VERSION 3 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 
 @Callable(inv)
 func deposit() = {
-  TransferSet([
-    ScriptTransfer(inv.caller, 5, unit) \# Перевести 5 WAVELET на аккаунт inv.caller. Вместо ID токена указан unit
-  ])
+  (
+    [
+      # Перевести 5 WAVELET на аккаунт inv.caller
+      # У WAVES нет ID токена, вместо него указан unit
+      ScriptTransfer(inv.caller, 5, unit)
+    ],
+    unit
+  )
 }
 </code>
 </pre>
 
-У WAVES нет <a href="/ru/blockchain/token/token-id">ID токена</a>; вместо ID передается <code>unit</code>.<br><b>Пример 2</b><br>Функция <a href="/ru/ride/functions/built-in-functions/blockchain-functions"><tt>assetInfo</tt></a> запрашивает информацию о токене по его ID. Далее функция <code>isDefined</code> проверяет, что токен с таким ID существует на блокчейне.
+<b>Пример 2</b><br>Функция <a href="/ru/ride/functions/built-in-functions/blockchain-functions"><tt>assetInfo</tt></a> запрашивает информацию о токене по его ID. Далее функция <code>isDefined</code> проверяет, что токен с таким ID существует на блокчейне.
 <pre>
 <code class=“lang-ride”>
-{-# STDLIB_VERSION 3 #-}
-{-# CONTENT_TYPE EXPRESSION #-}
-{-# SCRIPT_TYPE ACCOUNT #-}
-
 let asset = assetInfo(base58'8LQW8f7P5d5PZM7GtZEBgaqRPGSzS3DfPuiXrURJ4AJS')
-token.isDefined()
+asset.isDefined()
 </code>
 </pre>
+
 Вместо вызова функции <code>isDefined</code> можно использовать равенство с <code>unit</code>.
 <pre>
 <code class=“lang-ride”>
 asset != unit
-\# Выражение asset != unit эквивалентно выражению token.isDefined()
+# Выражение asset != unit эквивалентно выражению token.isDefined()
 </code>
 </pre>
   </td>

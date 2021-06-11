@@ -1,6 +1,6 @@
 # BinaryEntry
 
-`BinaryEntry` is a structure that sets key and value of [account data storage](/en/blockchain/account/account-data-storage) binary entry. Adding or changing an entry is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#invocation-result-2).
+`BinaryEntry` is a structure that sets key and value of [account data storage](/en/blockchain/account/account-data-storage) binary entry. Adding or changing an entry is performed only if the structure is included in the [callable function result](/en/ride/functions/callable-function#invocation-result).
 
 ## Constructor
 

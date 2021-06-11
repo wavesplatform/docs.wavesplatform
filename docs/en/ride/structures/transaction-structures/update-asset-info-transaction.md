@@ -1,6 +1,6 @@
 # UpdateAssetInfoTransaction
 
-Structure of a [update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction).
+Structure of a [Update Asset Info transaction](/en/blockchain/transaction-type/update-asset-info-transaction).
 
 ## Constructor
 
