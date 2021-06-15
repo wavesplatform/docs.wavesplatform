@@ -13,11 +13,17 @@ FOLD<N>(list, start, foldFunc)
 | `start` | Начальное значение |
 | `foldFunc` | Cворачиваемая функция |
 
-Сворачиваемая функция получает на вход два параметра: промежуточный результат и очередной элемент списка. Макрос `FOLD<N>(list, start, foldFunc)` означает: выполнить не более `N` итераций; на каждой итерации взять результат предыдущей итерации (на первой итерации — начальное значение `start`) и следующий элемент списка `list`, применить к этой паре функцию `foldFunc`; вернуть итоговый результат.
+Сворачиваемая функция получает на вход два параметра: промежуточный результат и очередной элемент списка. Макрос `FOLD<N>(list, start, foldFunc)` означает:
+
+* выполнить не более `N` итераций;
+* на каждой итерации: взять результат предыдущей итерации (на первой итерации взять значение `start`) и следующий элемент списка `list`, применить к этой паре функцию `foldFunc`;
+* вернуть итоговый результат.
 
 Величина `N` должна быть известна заранее. Если в списке оказалось больше элементов, чем указано в FOLD, выполнение скрипта завершается ошибкой.
 
 Сложность `FOLD<N>` соответствует сложности сворачиваемой функции, умноженной на `N`, плюс накладные расходы.
+
+Макрос `FOLD<N>` — синтаксический сахар, он «разворачивается» на этапе компиляции кода. Поэтому, в частности, размер скрипта растет линейно с ростом `N`.
 
 ## Суммирование
 
@@ -27,52 +33,52 @@ let arr = [1,2,3,4,5]
 FOLD<5>(arr, 0, sum)    # Результат: 15
 ```
 
-Макрос `FOLD<N>` — синтаксический сахар, он «разворачивается» на этапе компиляции кода. Поэтому, в частности, размер скрипта растет линейно с ростом `N`. Выражение 
-
-```scala
-FOLD<5>(arr, 0, sum)
-``` 
-
-после компиляции и декомпиляции будет выглядеть так:
-
-```scala
-let $list = arr
-let $size = size($list)
-let $acc0 = 0
-if (($size == 0))
-   then $acc0
-   else {
-      let $acc1 = sum($acc0, $list[0])
-      if (($size == 1))
-         then $acc1
-         else {
-            let $acc2 = sum($acc1, $list[1])
-            if (($size == 2))
-               then $acc2
-               else {
-                  let $acc3 = sum($acc2, $list[2])
-                  if (($size == 3))
-                  then $acc3
-                     else {
-                        let $acc4 = sum($acc3, $list[3])
-                        if (($size == 4))
-                           then $acc4
-                           else {
-                              let $acc5 = sum($acc4, $list[4])
-                              if (($size == 5))
-                                 then $acc5
-                                 else {
-                                    let $acc6 = sum($acc5, $list[5])
-                                    throw("List size exceed 5")
-                                 }
-                           }
-                     }
-               }
-         }
-   }
-```
-
-Такой код вы можете увидеть в [Waves Explorer](https://testnet.wavesexplorer.com/tx/Cb2vQfkMXRXT94NwyutEz2CV8XFvrLUohMHXRKgRH3HM).
+> Выражение 
+> 
+> ```scala
+> FOLD<5>(arr, 0, sum)
+> ``` 
+> 
+> после компиляции и декомпиляции будет выглядеть так:
+> 
+> ```scala
+> let $list = arr
+> let $size = size($list)
+> let $acc0 = 0
+> if (($size == 0))
+>    then $acc0
+>    else {
+>       let $acc1 = sum($acc0, $list[0])
+>       if (($size == 1))
+>          then $acc1
+>          else {
+>             let $acc2 = sum($acc1, $list[1])
+>             if (($size == 2))
+>                then $acc2
+>                else {
+>                   let $acc3 = sum($acc2, $list[2])
+>                   if (($size == 3))
+>                   then $acc3
+>                      else {
+>                         let $acc4 = sum($acc3, $list[3])
+>                         if (($size == 4))
+>                            then $acc4
+>                            else {
+>                               let $acc5 = sum($acc4, $list[4])
+>                               if (($size == 5))
+>                                  then $acc5
+>                                  else {
+>                                     let $acc6 = sum($acc5, $list[5])
+>                                     throw("List size exceed 5")
+>                                  }
+>                            }
+>                      }
+>                }
+>          }
+>    }
+> ```
+> 
+> Такой код вы можете увидеть в Waves Explorer. [Пример](https://testnet.wavesexplorer.com/tx/Cb2vQfkMXRXT94NwyutEz2CV8XFvrLUohMHXRKgRH3HM)
 
 ## Произведение
 
