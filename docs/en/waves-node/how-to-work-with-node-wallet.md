@@ -48,6 +48,8 @@ wallet {
 
 As a result, the wallet.dat will be generated in the selected directory based on the existing seed.
 
+[More about the configuration file](/en/waves-node/node-configuration)
+
 ## Using Existing Wallet <a id="existing-wallet"></a>
 
 If you already have the wallet.dat created before, then just put it in the directory listed in the `wallet` section, and specify a password for it with the `password` parameter. Additional actions are not required.

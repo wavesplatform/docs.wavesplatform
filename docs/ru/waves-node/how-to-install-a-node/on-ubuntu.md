@@ -99,9 +99,9 @@ journalctl -u waves.service -f
 
 ## Установка для продвинутых пользователей
 
-Загрузите [последнюю версию](https://github.com/wavesplatform/Waves/releases) архива `waves.jar` и файла конфигурации [.conf](https://github.com/wavesplatform/Waves/tree/master/node) (для Mainnet, Testnet или Stagenet) в любую папку, например `/opt/waves`.
+Загрузите [последнюю версию](https://github.com/wavesplatform/Waves/releases) `waves-all-<номер версии>.jar` в любую папку, например `/opt/waves`.
 
-Отредактируйте файл конфигурации. Подробнее в статье [Конфигурация ноды](/ru/waves-node/node-configuration).
+Создайте в этой папке файл конфигурации `.conf`. Подробнее в статье [Конфигурация ноды](/ru/waves-node/node-configuration). **Это очень важно! От конфигурации зависит безопасность вашего кошелька и средств!**
 
 Запустите консоль, перейдите в папку с файлом `.jar` с помощью команды `cd /opt/waves` и запустите ноду с помощью следующей команды (замените `{*}` именем файла):
 
@@ -117,6 +117,6 @@ java -jar {*}.jar {*}.conf
 
 Скрипт DEB-пакета Waves создает пользователя `waves`. Приложение waves, кошелек и папки с данными по умолчанию принадлежат этому пользователю.
 
-Если вы хотите использовать RPC, необходимо защитить Ubuntu с помощью встроенного `ufw` или любого другого файрвола. Подробно об этом [тут](https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server). Если ваш сервер находится в публичном доступе и вы хотите использовать RPC, задействуйте только определенные методы, используя [Nginx's proxy\_pass module](http://nginx.org/ru/docs/http/ngx_http_proxy_module.html), и не забудьте указать хеш API-ключа `apiKeyHash` хэш в файле конфигурации Waves.
+Если вы хотите использовать RPC, необходимо защитить Ubuntu с помощью встроенного `ufw` или любого другого файрвола. Подробно об этом [тут](https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server). Если ваш сервер находится в публичном доступе и вы хотите использовать RPC, задействуйте только определенные методы, используя [Nginx's proxy\_pass module](http://nginx.org/ru/docs/http/ngx_http_proxy_module.html), и не забудьте указать хеш API-ключа `apiKeyHash` хэш в файле конфигурации.
 
 Не забывайте своевременно обновлять операционную систему и антивирусное программное обеспечение.

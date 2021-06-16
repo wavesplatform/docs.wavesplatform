@@ -25,7 +25,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
 
 ## Загрузка пакета Waves и настройка приложения
 
-Загрузите [последнюю версию](https://github.com/wavesplatform/Waves/releases) архива `waves.jar` и файла конфигурации [.conf](https://github.com/wavesplatform/Waves/tree/master/node) (для Mainnet, Testnet или Stagenet).
+Загрузите [последнюю версию](https://github.com/wavesplatform/Waves/releases) `waves-all-<номер версии>.jar` в любую папку.
 
 Отредактируйте файл конфигурации. **Это очень важно! От конфигурации зависит безопасность вашего кошелька и средств!** Подробнее в статье [Конфигурация ноды](/ru/waves-node/node-configuration).
 
@@ -41,6 +41,6 @@ java -jar {*}.jar {*}.conf
 
 Также, возможно, вы захотите ограничить использование зашифрованных папок для некоторых пользователей. Подробно об этом [тут](https://technet.microsoft.com/en-us/library/cc754344%28v=ws.11%29.aspx).
 
-Если вы хотите использовать RPC, необходимо защитить Windows с помощью встроенного или любого другого файрвола. Подробно об этом [тут](https://www.howtogeek.com/112564/how-to-create-advanced-firewall-rules-in-the-windows-firewall/). Если ваш сервер находится в публичном доступе и вы хотите использовать RPC, задействуйте только определенные методы, используя [Nginx's proxy\_pass module](http://nginx.org/ru/docs/http/ngx_http_proxy_module.html), и не забудьте указать хеш API-ключа в файле конфигурации Waves.
+Если вы хотите использовать RPC, необходимо защитить Windows с помощью встроенного или любого другого файрвола. Подробно об этом [тут](https://www.howtogeek.com/112564/how-to-create-advanced-firewall-rules-in-the-windows-firewall/). Если ваш сервер находится в публичном доступе и вы хотите использовать RPC, задействуйте только определенные методы, используя [Nginx's proxy\_pass module](http://nginx.org/ru/docs/http/ngx_http_proxy_module.html), и не забудьте указать хеш API-ключа в файле конфигурации.
 
 Не забывайте своевременно обновлять операционную систему и антивирусное программное обеспечение.
