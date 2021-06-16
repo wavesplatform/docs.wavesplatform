@@ -124,7 +124,7 @@ asset.isDefined()
 <pre>
 <code class=“lang-ride”>
 asset != unit
-# Выражение asset != unit эквивалентно выражению token.isDefined()
+\# Выражение asset != unit эквивалентно выражению token.isDefined()
 </code>
 </pre>
   </td>

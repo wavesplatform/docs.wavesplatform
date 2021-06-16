@@ -67,7 +67,7 @@ The following data can be used for checks:
 * Fields of the current verified transaction/order, including `proofs`. The built-in variable `tx` contains this transaction or order. The set of fields depends on the type of transaction/order, see the [Transaction Structures](/en/ride/structures/transaction-structures/) chapter and [Order](/en/ride/structures/common-structures/order) article.
 * [Blockchain data](/en/ride/#blockchain-operation): current height, account balances, entries in account data storages, parameters of tokens, etc.
 
-   : warning: Blockchain data is available only when checking a transaction and not available when checking an order (`case t: Order`).
+   :warning: Blockchain data is available only when checking a transaction and not available when checking an order (`case t: Order`).
 
 ## Examples
 

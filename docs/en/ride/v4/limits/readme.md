@@ -9,7 +9,7 @@
 | [Complexity](/en/ride/base-concepts/complexity) of account script | 2000 <sup>(1)</sup> |
 | Complexity of asset script | 4000 |
 | Complexity of each callable function of dApp script | 4000 |
-| Total complexity for a callable function and asset scripts involved in an Invoke Script transaction. The sender's account script complexity is not included in this limit | 26,00 <sup>(2)</sup> |
+| Total complexity for a callable function and asset scripts involved in an Invoke Script transaction. The sender's account script complexity is not included in this limit | 26,000 <sup>(2)</sup> |
 | Complexity threshold for saving failed transactions: if the callable function failed with an error or throwing an exception before the threshold exceeded, the invoke script transaction is rejected and the fee is not charged | 1000 <sup>(3)</sup> |
 | Complexity of verifier function of dApp script | 2000 <sup>(1)</sup> |
 | Sender complexity threshold: if the complexity of an account script or the verifier function of a dApp script exceeds this limit, the minimum fee for a transaction sent from the account is increased by 0.004 WAVES. | 200 <sup>(4)</sup> |

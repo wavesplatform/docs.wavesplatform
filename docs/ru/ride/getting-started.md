@@ -58,7 +58,7 @@ Ride разработан для выполнения на блокчейне и
 * Тип `DAPP` позволяет объявлять функции и в завершение скрипта выполнять действия, в результате которых изменяются балансы аккаунтов, свойства ассетов, а также записи в хранилище данных dApp.
 * Тип `EXPRESSION` представляет собой логическое выражение и используется для валидации транзакций.
 
-`SCRIPT_TYPE` определяет тип объекта, к которому прикреплен скрипт: `ACCOUNT` or `ASSET`.
+`SCRIPT_TYPE` определяет тип объекта, к которому прикреплен скрипт: `ACCOUNT` или `ASSET`.
 
 Не все комбинации директив допустимы. Следующий пример не будет работать, поскольку тип содержания `DAPP` допустим только для аккаунтов. Тип `EXPRESSION` применим как для аккаунтов, так и ассетов.
 
@@ -317,7 +317,7 @@ v.valueOrErrorMessage("oops") +  1 # компилируется и выполн�
 let realStringValue2 = getStringValue(this, "someKey")
 ```
 
-Чтобы получить реальный тип и значение из Union-типа, используйте функцию `value`, которая прервет выполнение скрипта в случае значения `Unit`. Другой вариант — используйте специализированные функции, такие как `getStringValue`, `getIntegerValue` и др.
+Чтобы получить реальный тип и значение из Union-типа, используйте функцию `value`, которая прервет выполнение скрипта в случае значения `unit`. Другой вариант — используйте специализированные функции, такие как `getStringValue`, `getIntegerValue` и др.
 
 ## If
 
@@ -375,7 +375,7 @@ let keyValuePair = StringEntry("someKey", "someStringValue")
 ```scala
 let a = [1, 2, 3, 4, 5]
 func foldFunc(acc: Int, e: Int) = acc + e
-FOLD<5>(a, 0, foldFunc) # returns 15
+FOLD<5>(a, 0, foldFunc) # Результат: 15
 ```
 
 `FOLD<N>` также может использоваться для фильтрации и преобразования данных. Вот пример инвертирования списка:
@@ -383,7 +383,7 @@ FOLD<5>(a, 0, foldFunc) # returns 15
 ```scala
 let a = [1, 2, 3, 4, 5]
 func foldFunc(acc: List[Int], e: Int) = (e + 1) :: acc
-FOLD<5>(a, [], foldFunc) # возвращает [6, 5, 4, 3, 2]
+FOLD<5>(a, [], foldFunc) # Результат: [6, 5, 4, 3, 2]
 ```
 
 ## Аннотации
@@ -434,7 +434,7 @@ func verifier() = {
 }
 ```
 
-Функция с аннотацией `@Verifier` устанавливает правила валидации исходящих транзакций (dApp). Функция верификации не может быть вызвана извне, однако она выполняется при каждой попытке отправить транзакцию из dApp.
+Функция с аннотацией `@Verifier` устанавливает правила валидации исходящих транзакций (dApp). Функция верификации не может быть вызвана извне, однако она выполняется при каждой попытке отправить транзакцию с аккаунта dApp.
 
 Функция верификации должна возвращать логическое значение: разрешено отправить транзакцию в блокчейн или нет.
 
@@ -456,8 +456,7 @@ func verifier() = {
 
 Функция с аннотацией `@Callable` может быть вызвана c других аккаунтов: с помощью транзакции вызова скрипта или из другого dApp.
 
-Вызываемая функция может выполнять действия: записывать данные в хранилище данных dApp, переводить токены с аккаунта dApp других адресатам, выпускать/довыпускать/сжигать токены и т.д. Результат вызываемой функции — это кортеж из двух элементов: списка структур, описывающих действия скрипта, и значения, которое передается в вызывающую функцию в случае вызова dApp из dApp.
-
+Вызываемая функция может выполнять действия: записывать данные в хранилище данных dApp, переводить токены с аккаунта dApp других адресатам, выпускать/довыпускать/сжигать токены и т.д. Результат вызываемой функции — это кортеж из двух элементов: списка структур, описывающих действия скрипта, и значения, которое в случае вызова dApp из dApp передается исходному dApp.
 
 ```scala
 @Callable(i)
@@ -474,78 +473,27 @@ func giveAway(age: Int) = {
 
 Каждый аккаунт, вызвавший функцию `giveAway`, получит столько WAVELET, сколько ему лет. Структура `ScriptTransfer` задает параметры перевода токена. Кроме того, dApp сохранит информацию об этом в своем хранилище данных. Параметры целочисленной записи — ключ и значение — задает структура `IntegerEntry`.
 
-<!--
+## Тестирование и инструменты
 
-#### Actions
-
-Initial Actions are DataEntry, which allows for writing data as a key-value pair, and ScriptTransfer, a transfer of tokens from dApp to addressee. Other actions such as Issue/Reissue/Burn are designed to support native token operations as well as the family of Leasing operations.
-
-A list of DataEntry structures in `WriteSet` will set or update key-value pairs in the storage of an account, while a list of ScriptTransfer structures in `TransferSet` will move tokens from the dApp account to other accounts.
-
-
-```scala
-@Callable(i)
-func callMePlease(age: Int) = {
-  TransferSet([ScriptTransfer(i.caller, age, unit)])
-}
-```
-
-In STDLIB_VERSION 3, `@Callable` functions can return one of the following structures: `ScriptResult`, `WriteSet`, `TransferSet`.
-
-`WriteSet` can contain up to 100 `DataEntry`, while `TransferSet` can contain up to 10 `ScriptTransfer`.
-
-## Account vs Asset scripts
-
-```scala
-{-# STDLIB_VERSION 3 #-}
-{-# CONTENT_TYPE EXPRESSION #-}
-{-# SCRIPT_TYPE ACCOUNT #-}
-
-let a = this # Address of the current account
-a == Address(base58'3P9DEDP5VbyXQyKtXDUt2crRPn5B7gs6ujc') # true if script is running on the account with defined address
-```
-Ride scripts on the Waves blockchain can be attached to accounts and assets (`{-# SCRIPT_TYPE ACCOUNT #-}` defines it) and depending on the `SCRIPT_TYPE` keyword this can refer to different entities. For `ACCOUNT` script types this is an `Address` type.
-
-For `ASSET` script type this will have `AssetInfo` type.
-
-```scala
-{-# STDLIB_VERSION 3 #-}
-{-# CONTENT_TYPE EXPRESSION #-}
-{-# SCRIPT_TYPE ASSET #-}
-let a = this # AssetInfo of the current asset
-a.assetId == AssetInfo(base58'3P9DEDP5VbyXQyKtXDUt2crRPn5B7gs6ujc').assetId # true if script is running for the asset with defined assetId
-```
-
-
-## Testing and tools
-
-You can try out Ride in REPL both online at [https://waves-ide.com/](https://waves-ide.com/) and on desktop via terminal with `surfboard`:
+Вы можете опробовать Ride в REPL как онлайн на [https://waves-ide.com/](https://waves-ide.com/), так и через терминал с `surfboard`:
 
 ```scala
 > npm i -g @waves/surfboard
 > surfboard repl
 ```
 
-For further development, the following tools and utilities are useful:
+Для дальнейшей разработки полезны следующие инструменты и утилиты:
 
-- Visual Studio Code plugin: waves-ride
-- The `surfboard` tool will allow you to REPL and run tests on your existing node: [https://github.com/wavesplatform/surfboard]
-- You should also install the Waves Keeper browser extension: </ru/ecosystem/waves-keeper>
-- Online IDE with examples: [https://waves-ide.com/](https://waves-ide.com/)
+* Плагин Visual Studio Code: waves-ride
+* Инструмент командной строки для компиляции и тестирования `surfboard`: <https://github.com/wavesplatform/surfboard>
+* Онлайн IDE с примерами: [https://waves-ide.com/](https://waves-ide.com/)
 
-Further help and information about tools can be found here: <https://wavesprotocol.org/developers>
+[Подробно об инструментах](/en/building-apps/smart-contracts/tools/)
 
+## Отличной работы!
 
-## Enjoy the Ride!
+Надеемся, эта статья дала вам хорошее введение в Ride — простой, безопасный, мощный язык программирования для смарт-контрактов и dApps на блокчейне Waves.
 
+Теперь вы готовы писать свои собственные смарт-контракты, и у вас есть инструменты для их тестирования перед развертыванием на блокчейне Waves.
 
-Hopefully this brochure will have given you a good introduction to Ride: a straightforward, secure, powerful programming language for smart contracts and dApps on the Waves blockchain. 
-
-You should now be able to write your own smart contracts, and have all the tools you need to test them before deploying them to the Waves blockchain.
-
-If you need help learning the basics of the Ride language, you can take the [Mastering Web3 with Waves](https://www.coursera.org/learn/mastering-web3-waves). 
-Waves also runs developer workshops and hackathons in different locations around the world – check out our community page to stay up to date: [https://wavescommunity.com](https://wavescommunity.com)
-
-We hope to meet you online or offline soon!
-
--->
+Если вам нужна помощь в изучении основ языка Ride, вы можете пройти курс [Mastering Web3 with Waves](https://www.coursera.org/learn/mastering-web3-waves).

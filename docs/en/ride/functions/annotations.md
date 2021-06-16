@@ -6,14 +6,14 @@ At the present moment, there are two annotations: `@Callable(i)` and `@Verifier(
 
 An annotated function cannot be called inside a dApp script.
 
-## @Callable(i: [Invocation](/en/ride/structures/common-structures/invocation))
+## @Callable(i)
 
 Annotation of a [callable function](/en/ride/functions/callable-function).
 
-Variable `i` contains information about the transaction that invoked the function of a [dApp](/en/blockchain/account/dapp). 
+Variable `i` contains an [Invocation](/en/ride/structures/common-structures/invocation) structure representing certian fields of the invocation.
 
-## @Verifier(tx: Transaction|[Order](/en/ride/structures/common-structures/order))
+## @Verifier(tx)
 
 Annotation of a [verifier function](/en/ride/functions/verifier-function).
 
-Variable `tx` contains information about the transaction or the order that was sent.
+Variable `tx` contains a structure of [transaction](/en/ride/v4/structures/transaction-structures/) or [order](/en/ride/structures/common-structures/order) sent from a dApp's account.

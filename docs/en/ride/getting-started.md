@@ -4,7 +4,7 @@
 
 Ride is a purpose-designed programming language for smart contracts on the Waves blockchain. It was created to address many of the most serious shortcomings of other popular smart contract languages. The overall idea was to offer a straightforward functional language for dApp development on the Waves blockchain. 
 
-Ride is easy to learn, especially for beginning developers. This brochure gives a comprehensive introduction to Ride, along with examples and further tools and resources.
+Ride is easy to learn, especially for beginning developers. This article gives a comprehensive introduction to Ride, along with examples and further tools and resources.
 
 ## Overview
 
@@ -320,7 +320,7 @@ v.valueOrErrorMessage(“oops”) +  1 # compiles and executes
 let realStringValue2 = getStringValue(this, "someKey")
 ```
 
-To get the real type and value from Union use the `value` function, which will terminate the script in case of `Unit` value. Another option is to use specialized functions like `getStringValue`, `getIntegerValue`, etc.
+To get the real type and value from Union use the `value` function, which will terminate the script in case of `unit` value. Another option is to use specialized functions like `getStringValue`, `getIntegerValue`, etc.
 
 ## If
 
@@ -516,9 +516,9 @@ For `ASSET` script type this will have `AssetInfo` type.
 let a = this # AssetInfo of the current asset
 a.assetId == AssetInfo(base58'3P9DEDP5VbyXQyKtXDUt2crRPn5B7gs6ujc').assetId # true if script is running for the asset with defined assetId
 ```
+-->
 
-
-## Testing and tools
+## Testing and Tools
 
 You can try out Ride in REPL both online at [https://waves-ide.com/](https://waves-ide.com/) and on desktop via terminal with `surfboard`:
 
@@ -529,24 +529,18 @@ You can try out Ride in REPL both online at [https://waves-ide.com/](https://wav
 
 For further development, the following tools and utilities are useful:
 
-- Visual Studio Code plugin: waves-ride
-- The `surfboard` tool will allow you to REPL and run tests on your existing node: [https://github.com/wavesplatform/surfboard]
-- You should also install the Waves Keeper browser extension: </en/ecosystem/waves-keeper>
-- Online IDE with examples: [https://waves-ide.com/](https://waves-ide.com/)
+* Visual Studio Code plugin: waves-ride
+* The `surfboard` tool for compiling Ride smart contracts and running tests: <https://github.com/wavesplatform/surfboard>
+* Online IDE with examples: [https://waves-ide.com/](https://waves-ide.com/)
 
-Further help and information about tools can be found here: <https://wavesprotocol.org/developers>
-
+[Further information about tools](/en/building-apps/smart-contracts/tools/)
 
 ## Enjoy the Ride!
 
+Hopefully this article will have given you a good introduction to Ride: a straightforward, secure, powerful programming language for smart contracts and dApps on the Waves blockchain.
 
-Hopefully this brochure will have given you a good introduction to Ride: a straightforward, secure, powerful programming language for smart contracts and dApps on the Waves blockchain. 
+Now you are able to write your own smart contracts, and have all the tools you need to test them before deploying them to the Waves blockchain.
 
-You should now be able to write your own smart contracts, and have all the tools you need to test them before deploying them to the Waves blockchain.
+If you need help learning the basics of the Ride language, you can take the [Mastering Web3 with Waves](https://www.coursera.org/learn/mastering-web3-waves).
 
-If you need help learning the basics of the Ride language, you can take the [Mastering Web3 with Waves](https://www.coursera.org/learn/mastering-web3-waves). 
-Waves also runs developer workshops and hackathons in different locations around the world – check out our community page to stay up to date: [https://wavescommunity.com](https://wavescommunity.com)
-
-We hope to meet you online or offline soon!
-
--->
+<!-- Waves also runs developer workshops and hackathons in different locations around the world – check out our community page to stay up to date: [https://wavescommunity.com](https://wavescommunity.com) -->

@@ -10,7 +10,7 @@ Invocation(caller: Address, callerPublicKey: ByteVector, originCaller: Address, 
 
 ## Fields
 
-The field  values depend on how the callable function is invoked.
+The field values depend on how the callable function is invoked.
 
 If the callable function is invoked by an [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction):
 

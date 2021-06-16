@@ -1,6 +1,6 @@
 # dApp Script
 
-dApp script enables you to define сallable functions that can be called from other accounts by sending an [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) by a [dApp-to-dApp invocation](/en/ride/functions/built-in-functions/dapp-to-dapp). Callable functions can accept payments to the dApp and perform various actions on the blockchain. Also dApp script can comprise a verifier function that allows or denies transactions and orders that are sent on behalf of the dApp account.
+dApp script enables you to define callable functions that can be called from other accounts by sending an [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) or by a [dApp-to-dApp invocation](/en/ride/functions/built-in-functions/dapp-to-dapp). Callable functions can accept payments to the dApp and perform various actions on the blockchain. Also dApp script can comprise a verifier function that allows or denies transactions and orders that are sent on behalf of the dApp account.
 
 An account with a dApp script assigned to it is called a dApp. For information about how dApp works, see the [What is dApp](/en/building-apps/smart-contracts/what-is-a-dapp) article. For information about how to create a dApp, see the [Creating and Running dApp](/en/building-apps/smart-contracts/writing-dapps) article.
 
