@@ -1,6 +1,6 @@
 # Continuation Transaction / Under Construction
 
-Continuation transaction is a stage of execution of a [dApp](/ru/blockchain/account/dapp) script callable function. If the complexity of the callable function exceeds 4000, its execution is split into several stages. The first stage is performed within an [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction). The further stages are performed within Continuation transactions that are created automatically by block generators. [More about continued computations](/en/ride/advanced/continuation)
+Continuation transaction is a stage of execution of a [dApp](/ru/blockchain/account/dapp) script callable function. If the complexity of the callable function exceeds 10,000, its execution is split into several stages. The first stage is performed within an [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction). The further stages are performed within Continuation transactions that are created automatically by block generators. [More about continued computations](/en/ride/advanced/continuation)
 
 A block generator creates the Continuation transaction if there is an incomplete computation sequence. A user cannot send a Continuation transaction.
 

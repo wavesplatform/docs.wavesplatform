@@ -987,7 +987,7 @@ module.exports = {
       ],
     },
     {
-      title: 'Версия 5 (Stagenet)',
+      title: 'Версия 5 (Testnet, Stagenet)',
       path: rideV5Path,
       children: [
         {
@@ -1342,7 +1342,7 @@ module.exports = {
           path: buildingAppsPath + 'how-to/basic/transaction',
         },
         {
-          title: 'Выпуск токена',
+          title: 'Токенизация',
           path: buildingAppsPath + 'how-to/assets/issue',
         },
         {

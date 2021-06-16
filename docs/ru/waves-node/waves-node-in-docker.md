@@ -2,9 +2,33 @@
 
 Самый простой способ запустить ноду Waves — это развернуть **образ Waves в Docker**. Docker-образ Waves предназначен для быстрого и удобного разворачивания ноды и содержит скрипты и файлы конфигурации для запуска ноды в сети Mainnet, Testnet, Stagenet и любой другой кастомной сети.
 
+GitHub-репозиторий: https://github.com/wavesplatform/Waves/tree/master/docker
+
 ## Предварительные требования
 
 Установите приложение Docker с [официального сайта](https://docs.docker.com/engine/installation/).
+
+## Сборка Docker-образа
+
+Вы можете загрузить актуальную версию Docker-образа на странице [Docker Hub](https://hub.docker.com/r/wavesplatform/wavesnode) или с помощью команды:
+
+```bash
+docker pull wavesplatform/wavesnode
+```
+
+Или используйте следующую команду для сборки образа из текущего локального репозитория (из корневой директории репозитория):
+
+```bash
+./build-with-docker.sh && docker build -t wavesplatform/wavesnode docker
+```
+
+Вы можете задать следующие параметра при сборке образа:
+
+| Параметр | Значение по умолчанию | Описание |
+|----------|---------------|---------------------------------------------|
+| WAVES_NETWORK | mainnet | Тип блокчейн-сети Waves. Возможные значения: `mainnet`, `testnet` или `stagenet`. Значение может быть переопределено во время выполнения, с помощью переменной среды с тем же именем. |
+| WAVES_LOG_LEVEL | DEBUG | Уровень логирования по умолчанию. Возможные значения: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` или `TRACE`. Значение может быть переопределено во время выполнения, с помощью переменной среды с тем же именем. [Подробнее про логирование](/ru/waves-node/logging-configuration). |
+| WAVES_HEAP_SIZE | 2g | Ограничение Java Heap Size в нотации -X Command-line Options (-Xms=[ваше значение]). Значение может быть переопределено во время выполнения, с помощью переменной среды с тем же именем. [Подробнее про -X Command-line Options](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html). |
 
 ## Запуск образа
 
@@ -49,13 +73,9 @@
 
    ```bash
    mkdir -p /docker/waves
-   ```
-
-   ```bash
+   
    mkdir /docker/waves/waves-data
-   ```
 
-   ```bash
    mkdir /docker/waves/waves-config
    ```
 
@@ -71,6 +91,7 @@
 
    Если у вас уже есть файл конфигурации или другие данные, вы можете поместить их в соответствующие директории.
 
+<!--
 * Для запуска контейнера, потребуется настроить соответствующие разрешения. Используйте пользователя `waves` с заданными uid/gid `143/143`. Для этого поменяйте разрешения созданных директорий или поменяйте владельца директорий с помощью следующей команды:
 
    ```bash
@@ -82,6 +103,7 @@
    ```bash
    sudo chmod -R 777 /docker/waves
    ```
+-->
 
 * Добавьте соответствующие аргументы в команду `docker run`, как в следующем примере:
 
@@ -107,17 +129,9 @@
 
 ```bash
 mkdir -p /docker/waves/waves-data
-```
 
-```bash
 wget -qO- http://blockchain-stagenet.wavesnodes.com/blockchain_last.tar --show-progress | tar -xvf - -C /docker/waves/waves-data
-```
-
-```bash
-chown -R 143:143 /docker/waves/waves-data
-```
-
-```bash
+ 
 docker run -v /docker/waves/waves-data:/var/lib/waves -e WAVES_NETWORK=stagenet -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti wavesplatform/wavesnode
 ```
 

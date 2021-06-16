@@ -38,7 +38,7 @@ message Amount {
 
 Количество платежей — не более 2.
 
-Начиная с версии ноды 1.3.1, с момента активации фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”, количество платежей — не более 10. Версии 1.3.x в настоящее время доступны только на [Stagenet](/ru/blockchain/blockchain-network/).
+Начиная с версии ноды 1.3.1, с момента активации фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”, количество платежей — не более 10.
 
 Максимальный размер `d_app` + `function_call` + `payments` — 5120 байт.
 

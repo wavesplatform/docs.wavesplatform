@@ -1,6 +1,6 @@
 # [Ride v5] Order
 
-:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/structures/common-structures/order)
+:warning: This is the documentation for the Standard Library **version 5**, which becomes available after activation of feature #16 “Ride V5, dApp-to-dApp invocations”. [Go to version 4](/en/ride/structures/common-structures/order)
 
 Structure of an [order](/en/blockchain/binary-format/order-binary-format). The structure is used:
 * when checking an outgoing order by the [account script](/en/ride/script/script-types/account-script) or the verifier function of the [dApp script](/en/ride/script/script-types/dapp-script),

@@ -1,11 +1,11 @@
 # [Ride v5] AttachedPayment
 
-:warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/structures/common-structures/attached-payment)
+:warning: Это документация Стандартной библиотеки **версии 5**, которая доступна с момента активации фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”. [Перейти к&nbsp;версии&nbsp;4](/ru/ride/structures/common-structures/attached-payment)
 
 Структура платежа, приложенного к вызову скрипта и доступного [вызываемой функции](/ru/ride/v5/functions/callable-function). Используется:
 * в структуре [Invocation](/ru/ride/v5/structures/common-structures/invocation);
 * в структуре [InvokeScriptTransaction](/ru/ride/v5/structures/transaction-structures/invoke-script-transaction);
-* в функции [Invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp).
+* в функциях [invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp#invoke) и [reentrantInvoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp#reentrantinvoke).
 
 ## Конструктор
 

@@ -1,6 +1,6 @@
 # Release Notes
 
-## Версия 1.3 (Stagenet)
+## Версия 1.3 Jumeirah
 
 ### Развитие протокола
 
@@ -9,16 +9,19 @@
    * Отменена дополнительная комиссия 0,004 WAVES за выполнение скриптов ассетов в платежах и действиях скрипта.
    * Транзакция может содержать до 10 приложенных платежей.
    * Суммарная сложность всех вызываемых функций и скриптов ассетов в одной транзакции — не более 26&nbsp;000 (cложность скрипта отправителя не учитывается в этом лимите). 
+   * Максимальная сложность вызываемой функции скрипта dApp изменена на 10&nbsp;000.
 * Для всех типов транзакций отменена дополнительная комиссия 0,004 WAVES за отправку транзакции со смарт-аккаунта или dApp, в случае если сложность скрипта аккаунта или функции-верификатора dApp-скрипта не превышает 200.
 
-<!--* **Вычисления с продолжением.** Добавлена поддержка dApp-скриптов, сложность которых превышает 4000. Выполнение такого скрипта разбивается на несколько этапов: первый этап вычислений выполняется в рамках транзакции вызова скрипта, последующие этапы — в рамках транзакций продолжения. [Подробнее о вычислениях с продолжением](/ru/ride/advanced/continuation)
+<!--* **Вычисления с продолжением.** Добавлена поддержка dApp-скриптов, сложность которых превышает 10&nbsp;000. Выполнение такого скрипта разбивается на несколько этапов: первый этап вычислений выполняется в рамках транзакции вызова скрипта, последующие этапы — в рамках транзакций продолжения. [Подробнее о вычислениях с продолжением](/ru/ride/advanced/continuation)
    * Добавлен новый тип транзакции: [Continuation](/ru/blockchain/transaction-type/continuation-transaction). Транзакция продолжения создается генератором блока автоматически в случае наличия незавершенной цепочки вычислений. Транзакция не может быть отправлена пользователем.-->
 
 ### Ride
 
 * Выпущена [версия 5](/ru/ride/v5/) Стандартной библиотеки.
 * Реализована возможность обрабатывать в dApp до 10 платежей, приложенных к транзакции вызова скрипта.
-* Добавлена функция [Invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp) для вызова dApp из dApp.
+* Добавлены функции для вызова dApp из dApp:
+   * [invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp#invoke)
+   * [reentrantInvoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp#reentrantinvoke)
 * Добавлены [нетерпеливые переменные](/ru/ride/v5/variables/), которые вычисляются до следующего выражения, чтобы гарантировать порядок выполнения и применения действий скрипта вызываемых функций.
 * Изменен [формат результата](/ru/ride/v5/functions/callable-function#result) вызываемой функции: добавлено возвращаемое значение.
 * Изменена структура [Invocation](/ru/ride/v5/structures/common-structures/invocation): в случае вызова dApp из dApp она содержит адрес и публичный ключ как отправителя транзакции вызова скрипта, так и аккаунта dApp, который вызывает функцию.
@@ -33,26 +36,26 @@
 * Добавлена встроенная функция [calculateLeaseId](/ru/ride/v5/functions/built-in-functions/blockchain-functions#calculateleaseid) для получения ID лизинга, сформированного структурой `Lease`.
 * Добавлен произвольный тип данных — [Any](/ru/ride/v5/data-types/any).
 * Добавлен тип данных [BigInt](/ru/ride/v5/data-types/bigint) размером 64 байта (512 бит) и поддерживающие его функции:
-   * [fractionBigInt(BigInt, BigInt, BigInt): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionbigint)
-   * [fractionBigInt(BigInt, BigInt, BigInt, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionbigintround)
-   * [logBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#logbigint)
-   * [maxBigInt(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/list-functions#maxbigint)
-   * [medianBigInt(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#medianbigint)
-   * [minBigInt(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/list-functions#minbigint)
-   * [powBigInt(BigInt, Int, BigInt, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#powbigint)
+   * [fraction(BigInt, BigInt, BigInt): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionbigint)
+   * [fraction(BigInt, BigInt, BigInt, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionbigintround)
+   * [log(BigInt, Int, BigInt, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#logbigint)
+   * [max(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/list-functions#max-list-bigint-bigint)
+   * [median(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#medianbigint)
+   * [min(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/list-functions#min-list-bigint-bigint)
+   * [pow(BigInt, Int, BigInt, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#powbigint)
    * [parseBigInt(String): BigInt|Unit](/ru/ride/v5/functions/built-in-functions/converting-functions#parse-bigint)
    * [parseBigIntValue(String): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#parse-bigintvalue)
    * [toBigInt(ByteVector): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bigint-bytevector)
    * [toBigInt(ByteVector, Int, Int): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bigint-bytevector-int-int)
    * [toBigInt(Int): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bigint-int)
-   * [toBytesBigInt(BigInt): ByteVector](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bytes-bigint)
+   * [toBytes(BigInt): ByteVector](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bytes-bigint)
    * [toInt(BigInt): Int](/ru/ride/v5/functions/built-in-functions/converting-functions#to-int-bigint)
-   * [toStringBigInt(BigInt): String](/ru/ride/v5/functions/built-in-functions/converting-functions#to-string-bigint)
+   * [toString(BigInt): String](/ru/ride/v5/functions/built-in-functions/converting-functions#to-string-bigint)
 * Добавлены встроенные функции:
    * [isDataStorageUntouched](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions#isdatastorageuntouched) — проверяет, что хранилище данных указанного аккаунта никогда не содержало записей.
-   * [hashScriptAtAddress](/ru/ride/v5/functions/built-in-functions/blockchain-functions#hashscriptataddress) — возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте.
-
-<!--* Добавлены [функции хранилища данных аккаунта](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions), позволяющие dApp-скрипту читать данные собственного хранилища данных на любом этапе вычислений:
+   * [scriptHash](/ru/ride/v5/functions/built-in-functions/blockchain-functions#scripthash) — возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте.
+   * [fraction(Int, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionintround) — умножает два целых числа и делит на третье без переполнения, применяя указанный метод округления.
+* Добавлены встроенные [функции хранилища данных аккаунта](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions), позволяющие dApp-скрипту читать записи из собственного хранилища данных:
    * `getBinary(key: String): ByteVector|Unit`
    * `getBinaryValue(key: String): ByteVector`
    * `getBoolean(key: String): Boolean|Unit`
@@ -60,7 +63,8 @@
    * `getInteger(key: String): Int|Unit`
    * `getIntegerValue(key: String): Int`
    * `getString(key: String): String|Unit`
-   * `getStringValue(key: String): String`-->
+   * `getStringValue(key: String): String`
+* Максимальная сложность вызываемой функции скрипта dApp изменена на 10&nbsp;000.
 
 ### Node REST API
 
@@ -69,26 +73,21 @@
 <!--* Добавлен новый тип транзакции: [транзакция продолжения](/ru/blockchain/transaction-type/continuation-transaction).-->
 Лизинг может быть создан не только в результате транзакции лизинга, но и в результате транзакции вызова скрипта с помощью действия скрипта `Lease`. Поэтому изменен формат ответа следующих методов:
 * В ответе методов `/transactions/address/{address}/limit/{limit}` и `/transactions/info/{id}` для транзакции отмены лизинга структура `lease` теперь содержит не транзакцию лизинга, а структуру с параметрами лизинга.
-
-   Замечание: если транзакция отмены лизинга отменяет лизинг, созданный в результате транзакции вызова скрипта, то структура `lease` содержит `null`. Это будет исправлено в версии 1.3.2.
-
 * `/leasing/active/{address}` возвращает не массив транзакций лизинга, а массив структур c параметрами лизингов.
-
-   Замечание: метод не возвращает лизинг, если он создан dApp, вызванным из другого dApp. Это будет исправлено в версии 1.3.2.
 
 <details>
 <summary>Формат</summary>
     
 ```json
-"lease":
-   {
-      "leaseId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
-      "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
-      "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
-      "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
-      "amount": 1000000000000,
-      "height": 2253315
-   }
+"lease": {
+   "id": "7bRbb9DH6V2ztdbmsZhWLdhTPQD14t8W38GjrtW8ug1N",
+   "originTransactionId": "7bRbb9DH6V2ztdbmsZhWLdhTPQD14t8W38GjrtW8ug1N",
+   "sender": "3MqqqDw65oL423pjsdeAS5vcRyXa9bmruGx",
+   "recipient": "3Mz9N7YPfZPWGd4yYaX6H53Gcgrq6ifYiH7",
+   "amount": 400000000,
+   "height": 1560062,
+   "status": "canceled"
+}
 ```
 
 Поле `originTransactionId` может содержать идентификатор транзакции лизинга или транзакции вызова скрипта.
@@ -108,48 +107,62 @@
     
    ```json
    "stateChanges": {
-     "data": [],
-     "transfers": [],
-     "issues": [],
-     "reissues": [],
-     "burns": [],
-     "invokes": [
-       {
-         "dApp": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
-         "payment": [
-           {
-             "amount": 50000000,
-             "assetId": "DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p"
+      "data": [
+         {
+            "key": "test_key_1",
+            "type": "integer",
+            "value": 14
+         },
+         {
+            "key": "test_key_2",
+            "type": "integer",
+            "value": 999000000
+         }
+      ],
+      "transfers": [],
+      "issues": [],
+      "reissues": [],
+      "burns": [],
+      "sponsorFees": [],
+      "leases": [],
+      "leaseCancels": [],
+      "invokes": [
+         {
+            "dApp": "3N4o9UGcFTDxcJptFG2yimYpLqLLoD44diX",
+            "call": {
+               "function": "bar",
+               "args": [
+                  {
+                     "type": "Int",
+                     "value": 7
+                  }
+               ]
+            },
+            "payments": [
+               {
+                  "asset": "25FEqEjRkqK6yCkiT7Lz6SAYz7gUFCtxfCChnrVFD5AT",
+                  "amount": 1000000
+               }
+            ],
+            "stateChanges": {
+               "data": [],
+               "transfers": [
+                  {
+                     "address": "3ND86XoiA9ytxysBCvhkRQez82R3d6wZBzP",
+                     "asset": null,
+                     "amount": 100000000
+                  }
+               ],
+              "issues": [],
+              "reissues": [],
+              "burns": [],
+              "sponsorFees": [],
+              "leases": [],
+              "leaseCancels": [],
+              "invokes": []
            }
-         ],
-         "call": {
-           "function": "swapNeutrinoToWaves",
-           "args": [
-             {
-               "type": "string",
-               "value": "EUR"
-             },
-             {
-               "type": "integer",
-               "value": 843699
-             },
-             {
-               "type": "binary",
-               "value": "base64:OK+armP11YmAyoQOwl8jLDLi2dK2sRc1Ue2QzZX1wgRmwGASLhllv1iKg2fRKS8cAlSDrfMYPb6374WMC9gFgA=="
-             }
-           ]
-          },
-         "stateChanges": {
-            "data": [],
-            "transfers": [],
-            "issues": [],
-            "reissues": [],
-            "burns": [],
-            "sponsorFees": [],
-            "invokes": []
-          }
-       }
-      ]
+        }
+     ]
    }
    ```
    </details>
@@ -161,25 +174,38 @@
 
    ```json
    "stateChanges": {
-      "leases": [
-        {
-          "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
-          "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
-          "amount": 500000
-        }
-      ],
-      "leaseCancels": [
-         {
-            "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
-         }
-      ]
+      "data": [],
+      "transfers": [],
+      "issues": [],
+      "reissues": [],
+      "burns": [],
+      "sponsorFees": [],
+      "leases": [{
+         "id": "94PfEzE3yCo1wVrZGubMwqJgNYLHVBxae5psdeZu9c1c",
+         "originTransactionId": "Dc5fzXUKVDd22PbJFt2T5RSsNieFCJwwpuWUsGR4YDZs",
+         "sender": "3MopBTg99nDNv4gfQf76WnuPrnPq1TppDEp",
+         "recipient": "3MT5dAS4Zr2g8MBLSPnbyAM18pf7A2PUuMY",
+         "amount": 444444,
+         "height": 817572,
+         "status": "active"
+      }],
+      "leaseCancels": [{
+         "id": "5NTgkz8rT8RwSSLbBhyE6yev824Ff8NLStzMreGFEpWk",
+         "originTransactionId": "Fr8pwXPK81rXRGs9rwpZaQKHPa8irY3GL4bWXUGemvZi",
+         "sender": "3MopBTg99nDNv4gfQf76WnuPrnPq1TppDEp",
+         "recipient": "3MT5dAS4Zr2g8MBLSPnbyAM18pf7A2PUuMY",
+         "amount": 12000000,
+         "height": 817540,
+         "status": "canceled"
+      }],
+      "invokes": []
    }
    ```
    </details>
 
 * Результат действий скрипта `Lease` и `LeaseCancel` добавлен в структуру `trace`, возвращаемую следующими методами:
    * `/transactions/broadcast` c параметром `trace=true`
-   * `/debug/validate` c параметром `trace=true`
+   * `/debug/validate`
 
    <details>
       <summary>Формат</summary>
@@ -195,18 +221,26 @@
                "type": "integer",
                "value": 12345
             }
-        ],
-        "result": {
+         ],
+         "result": {
             "leases": [
                {
-                  "leaseId": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
-                  "recipient": "3PLosK1gb6GpN5vV7ZyiCdwRWizpy2H31KR",
-                  "amount": 500000
-               }
+                  "id": "F3ZmBbig3gekPu4a8fyrZGiU53MFxtFSWKw5dTyTMvq7",
+                  "originTransactionId": "6GLmdBZZeevtbomFYif5ys7Ltf2DuXMGP29bLrSoX9HA",
+                  "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
+                  "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
+                  "amount": 200000000,
+                  "height": 739442
+               },
             ],
             "leaseCancels": [
                {
-                  "leaseId": "4iWxWZK9VMZMh98MqrkE8SQLm6K9sgxZdL4STW8CZBbX"
+                  "id": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
+                  "originTransactionId": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
+                  "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
+                  "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
+                  "amount": 300000000,
+                  "height": 739436
                }
             ]
          }
@@ -215,7 +249,7 @@
    ```
    </details>
 
-<!--#### Улучшения
+#### Улучшения
 
 * Новый метод `/leasing/info` возвращает параметры лизингов с указанными идентификаторами.
 
@@ -225,31 +259,40 @@
    ```json
    [
       {
-         "leaseId": "3iUCv2YG6mwTXCDmEY6e3AvvSgawaQwMsHvGXzxfkhEF",
-         "sender": "3PPrWhPAZMjy75oinpGzavXMmUwsRGMfoXZ",
-         "recipient": "3PA1KvFfq9VuJjg45p2ytGgaNjrgnLSgf4r",
-         "amount": 469589704,
-         "status": "Cancelled",
-         "leaseTransaction": {
-            "originTransactionId": "3iUCv2YG6mwTXCDmEY6e3AvvSgawaQwMsHvGXzxfkhEF",
-            "height": 2252433
-         },
-         "leaseCancelTransaction": {
-            "originTransactionId": "DV33ehoA9bj9qEDpTHqWSb7xV5ddmNGifHt5tTQRPCJP",
-            "height": 2497740
-         }
+         "id": "DNZ8tpZt6i9fTRW6b7UmBV9LHNmX4c5EgeTMhcNk3ReB",
+         "originTransactionId": "Dc5fzXUKVDd22PbJFt2T5RSsNieFCJwwpuWUsGR4YDZs",
+         "sender": "3MgPxT7piLX6u3yqDFNUTPL93b5dhdpuYKH",
+         "recipient": "3MT5dAS4Zr2g8MBLSPnbyAM18pf7A2PUuMY",
+         "amount": 222222,
+         "height": 817572,
+         "status": "active",
+         "cancelHeight": null,
+         "cancelTransactionId": null
+      },
+      {
+         "id": "5NTgkz8rT8RwSSLbBhyE6yev824Ff8NLStzMreGFEpWk",
+         "originTransactionId": "Fr8pwXPK81rXRGs9rwpZaQKHPa8irY3GL4bWXUGemvZi",
+         "sender": "3MopBTg99nDNv4gfQf76WnuPrnPq1TppDEp",
+         "recipient": "3MT5dAS4Zr2g8MBLSPnbyAM18pf7A2PUuMY",
+         "amount": 12000000,
+         "height": 817540,
+         "status": "canceled",
+         "cancelHeight": 817572,
+         "cancelTransactionId": "Dc5fzXUKVDd22PbJFt2T5RSsNieFCJwwpuWUsGR4YDZs"
       }
    ]
    ```
+
+    Если база данных на ноде не была перестроена после активации фичи №&nbsp;16, метод не возвращает поле `leaseCancelTransactionId` для лизингов, отмененных до активации фичи №&nbsp;16.
    </details>
 
-* Новый метод `/utils/heightByTimestamp` возвращает высоту блокчейна в указанный момент времени.-->
+* Новый метод `/blocks/heightByTimestamp/{timestamp}` возвращает высоту блокчейна в указанный момент времени.
 
 ### Активация
 
 Чтобы активировать перечисленные выше улучшения, голосуйте за фичу №&nbsp;16 “Ride V5, dApp-to-dApp invocations”.
 
-## Версия 1.2
+## Версия 1.2 Malibu
 
 ### Развитие протокола
 

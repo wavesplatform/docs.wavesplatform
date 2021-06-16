@@ -1,6 +1,6 @@
 # [Ride v5] Int
 
-:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/data-types/int)
+:warning: This is the documentation for the Standard Library **version 5**, which becomes available after activation of feature #16 “Ride V5, dApp-to-dApp invocations”. [Go to version 4](/en/ride/data-types/int)
 
 `Int` is an integer [data type](/en/ride/v5/data-types/).
 

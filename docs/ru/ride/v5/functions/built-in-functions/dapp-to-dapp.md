@@ -1,36 +1,79 @@
-# [Ride v5] Функция вызова dApp из dApp
+# [Ride v5] Функции вызова dApp из dApp
 
-:warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/).
+:warning: Это документация Стандартной библиотеки **версии 5**, которая доступна с момента активации фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”.
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| [Invoke](#invoke) | Вызывает вызываемую функцию dApp | 75 |
+| [invoke](#invoke) | Вызывает вызываемую функцию dApp, c ограничением на [повторные вызовы](#reentrancy) исходного dApp | 75 |
+| [reentrantInvoke](#reentrantinvoke) | Вызывает вызываемую функцию dApp, без ограничения на повторные вызовы исходного dApp | 75 |
 
-## Invoke
+## invoke
 
-Вызывает [вызываемую функцию](/en/ride/v5/functions/callable-function) dApp.
+Вызывает [вызываемую функцию](/en/ride/v5/functions/callable-function) dApp, с ограничением на повторные вызовы.
 
-Функция `Invoke` может использоваться только вызываемой функцией [dApp-скрипта](/ru/ride/script/script-types/dapp-script), но не [функцией-верификатором](/ru/ride/functions/verifier-function), [скриптом аккаунта](/ru/ride/script/script-types/account-script) или [скриптом ассета](/ru/ride/script/script-types/asset-script).
+```ride
+invoke(dApp: Address|Alias, function: String, arguments: List[Any], payments: List[AttachedPayments]): Any
+```
 
-С помощью функции `Invoke` вызываемая функция может вызвать вызываемую функцию другого dApp или того же самого dApp, в том числе сама себя, а затем использовать результаты вызова в дальнейших вычислениях. Подробнее в разделе [Вызов dApp из dApp](/ru/ride/advanced/dapp-to-dapp).
+`Any` означает любой допустимый тип.
 
-Вызов может содержать платежи, которые будут переведены с баланса вызывающего dApp на баланс вызываемого. Платежи запрещены, если dApp вызывает сам себя.
+Функция `invoke` может использоваться только вызываемой функцией [dApp-скрипта](/ru/ride/script/script-types/dapp-script), но не [функцией-верификатором](/ru/ride/functions/verifier-function), [скриптом аккаунта](/ru/ride/script/script-types/account-script) или [скриптом ассета](/ru/ride/script/script-types/asset-script).
 
-Если токен в платеже является смарт-ассетом, то скрипт ассета верифицирует вызов `Invoke` как [InvokeScriptTransaction](/ru/ride/v5/structures/transaction-structures/invoke-script-transaction) с полями:
-* `dApp`, `payments`, `function`, `args` — значения, указанные в функции `Invoke`;
+С помощью функции `invoke` вызываемая функция может вызвать вызываемую функцию другого dApp или того же самого dApp, в том числе сама себя, а затем использовать результаты вызова в дальнейших вычислениях. Подробнее в разделе [Вызов dApp из dApp](/ru/ride/advanced/dapp-to-dapp).
+
+:bulb: Чтобы гарантировать порядок выполнения вызываемых функций и применения действий скрипта, присвойте возвращаемое значение `invoke` [ нетерпеливой переменной](/ru/ride/v5/variables/).
+
+Вызов может содержать платежи, которые будут переведены с баланса исходного dApp на баланс вызываемого. Платежи запрещены, если dApp вызывает сам себя.
+
+Если токен в платеже является смарт-ассетом, то скрипт ассета верифицирует вызов `invoke` как [InvokeScriptTransaction](/ru/ride/v5/structures/transaction-structures/invoke-script-transaction) с полями:
+* `dApp`, `payments`, `function`, `args` — значения, указанные в функции `invoke`;
 * `sender`, `senderPublicKey` — параметры dApp, который вызвал функцию;
 * `id`, `timestamp`, `fee`, `feeAssetId` — как в транзакции вызова скрипта;
 * `version` = 0.
 
 Если скрипт ассета отклоняет действие, то транзакция, которая вызвала скрипт dApp, либо отклоняется, либо сохраняется на блокчейне как неуспешная, см. раздел [Валидация транзакций](/ru/blockchain/transaction/transaction-validation).
 
-```ride
-Invoke(dApp: Address|Alias, function: String, arguments: List[Any], payments: List[AttachedPayments]): Any
+## Ограничение повторных вызовов<a id="reentrancy"></a>
+
+Стек вызовов, порожденный функцией `invoke`, не должен содержать вызовы исходного dApp после вызова другого dApp.
+
+Пусть исходный dApp A вызывает dApp B c помощью функции `invoke`. Независимо от того, какую функцию использует dApp B — `invoke` или `reentrantInvoke`, следующие последовательности вызовов завершатся **ошибкой**:
+
+```
+→ dApp A
+   → dapp B
+       → dApp A
 ```
 
-`Any` означает любой допустимый тип.
+```
+→ dApp A
+   → dapp B
+      → dApp C
+         → dApp A
+```
 
-:bulb: Чтобы гарантировать порядок выполнения вызываемых функций и применения действий скрипта, присвойте возвращаемое значение `Invoke` [ нетерпеливой переменной](/ru/ride/v5/variables/).
+Следующие последовательности вызовов **допустимы**:
+
+```
+→ dApp A
+   → dapp A
+      → dapp A
+```
+
+```
+→ dApp N
+   → dapp A
+   → dApp A
+```
+
+```
+→ dapp N
+   → dapp A
+      → dapp B
+   → dapp B
+      → dapp A
+      → dapp C
+```
 
 ## Параметры
 
@@ -61,15 +104,19 @@ dApp1:
 {-# SCRIPT_TYPE ACCOUNT #-}
 
 @Callable(i)
-func foo(dapp2: String, a: Integer, key1: String, key2: String) = {
-   strict r = Invoke(addressFromStringValue(dapp2),bar,[a],[AttachedPayment(base58'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p',1000000)])
-   (
-      [
-         IntegerEntry(key1, r),
-         IntegerEntry(key2, wavesBalance(dapp2).regular)
-      ],
-      unit
-   )
+func foo(dapp2: String, a: Int, key1: String, key2: String) = {
+   strict res = invoke(addressFromStringValue(dapp2),"bar",[a],[AttachedPayment(base58'DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p',1000000)])
+   match res {
+     case r : Int => 
+      (
+         [
+           IntegerEntry(key1, r),
+           IntegerEntry(key2, wavesBalance(addressFromStringValue(dapp2)).regular)
+         ],
+         unit
+      )
+     case _ => throw("Incorrect invoke result") 
+   }
 }
 ```
 
@@ -82,13 +129,34 @@ dApp2:
 
 @Callable(i)
 func bar(a: Int) = {
-   let 
    (
       [
-         ScriptTransfer(i.caller, 100000000, unit),
+         ScriptTransfer(i.caller, 100000000, unit)
       ],
       a*2
    )
 }
 ```
 
+## reentrantInvoke
+
+Вызывает [вызываемую функцию](/ru/ride/v5/functions/callable-function) dApp. Отличается от функции [invoke](#invoke) только отсутствием ограничения на [повторные вызовы](#reentrancy) исходного dApp, который использовал `reentrantInvoke`.
+
+Однако, если исходный dApp был вызван повторно и на этот раз использовал функцию `invoke`, то в этом стеке вызовов нельзя вызвать исходный dApp еще раз.
+
+Например, последовательность вызовов
+
+```
+→ dApp A
+   → dapp B
+      → dApp A
+         → dApp C
+            → dApp A
+```
+
+* **допустима**, если dApp A вызывает и dApp B, и dApp С с помощью функции `reentrantInvoke`;
+* **завершается ошибкой**, если dApp A вызывает dApp B с помощью функции `reentrantInvoke`, а dApp С — с помощью функции `invoke`.
+
+```ride
+reentrantInvoke(dApp: Address|Alias, function: String, arguments: List[Any], payments: List[AttachedPayments]): Any
+```

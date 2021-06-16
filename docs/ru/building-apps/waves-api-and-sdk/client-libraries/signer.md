@@ -120,7 +120,7 @@ Signer поддерживает все браузеры, кроме Brave.
      // Укажите адрес ноды, подключенной к Testnet
      NODE_URL: 'https://nodes-testnet.wavesnodes.com'
    });
-   signer.setProvider(new ProviderCloud('https://testnet.waves.exchange/signer/'))
+   signer.setProvider(new ProviderCloud())
    ```
 
 * Для работы с Mainnet и Waves.Exchange ProviderWeb:

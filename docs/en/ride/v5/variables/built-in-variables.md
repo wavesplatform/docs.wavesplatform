@@ -1,6 +1,6 @@
 # [Ride v5] Built-in variables
 
-:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/variables/built-in-variables)
+:warning: This is the documentation for the Standard Library **version 5**, which becomes available after activation of feature #16 “Ride V5, dApp-to-dApp invocations”. [Go to version 4](/en/ride/variables/built-in-variables)
 
 A **built-in variable** is a [variable](/en/ride/v5/variables/) of the [Standard library](/en/ride/script/standard-library).
 
@@ -28,7 +28,7 @@ A **built-in variable** is a [variable](/en/ride/v5/variables/) of the [Standard
       </ul>
     </td>
     <td>
-      <a href="/en/ride/v5/functions/built-in-functions/math-functions">Rounding methods</a> used in the <a href="/ru/ride/v5/functions/built-in-functions/math-functions">math functions</a> <code>fractionBigInt</code>, <code>log</code>, <code>logBigInt</code>, <code>pow</code>, <code>powBigInt</code>
+      <a href="/en/ride/v5/functions/built-in-functions/math-functions">Rounding methods</a> used in the <a href="/ru/ride/v5/functions/built-in-functions/math-functions">math functions</a> <code>fraction</code>, <code>log</code>, <code>pow</code>
     </td>
   </tr>
   <tr>

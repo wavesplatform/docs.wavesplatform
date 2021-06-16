@@ -1,6 +1,6 @@
 # [Ride v5] Operators
 
-:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/operators/)
+:warning: This is the documentation for the Standard Library **version 5**, which becomes available after activation of feature #16 “Ride V5, dApp-to-dApp invocations”. [Go to version 4](/en/ride/operators/)
 
 ## Arithmetic operators
 
@@ -11,6 +11,8 @@
 | \* | Multiplication |
 | / | Division |
 | % | Remainder |
+
+> The **/** operator uses the FLOOR rounding method, see [Rounding variables](/en/ride/v5/functions/built-in-functions/math-functions#rounding-variables). For example, the result of `-1 / 100` is `-1`.
 
 ## Comparison operators
 

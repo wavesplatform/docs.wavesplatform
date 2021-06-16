@@ -19,8 +19,6 @@ Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dA
 * For Invoke Script transactions, canceled the extra fee of 0.004 WAVES for smart assets in payments and script actions.
 * For all types of transactions, the extra fee of 0.004 WAVES for sending a transaction from a smart account or dApp is only required if the complexity of sender's account script or dApp script verifier function exceeds the [sender complexity threshold](/en/ride/limits/).
 
-Versions 1.3.x are currently available for [Stagenet](/en/blockchain/blockchain-network/) only.
-
 **Example 1.**
 
 The minimum fee for a Transfer transaction:
@@ -67,7 +65,7 @@ The minimum fee for an Invoke Script transaction:
 
 An issuer of an asset can set up sponsorship — so that any user can specify a transaction fee in this asset for Invoke Script transactions and Transfer transactions.
 
-To activate sponsorship, the issuer puts a Sponsor Fee transaction that specifies an amount of asset that is equivalent to the minimum fee of 0.001 WAVES. For example, if `minSponsoredAssetFee: 5`, then the fee in this asset for Exchange transaction equals 5 × 0.003 / 0.001 = 15. See the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article for details.
+To activate sponsorship, the issuer puts a Sponsor Fee transaction that specifies an amount of asset that is equivalent to the minimum fee of 0.001 WAVES. For example, if `minSponsoredAssetFee: 5`, then the fee in this asset for an Invoke Script transaction equals 5 × 0.005 / 0.001 = 25. See the [Sponsored Fee](/en/blockchain/waves-protocol/sponsored-fee) article for details.
 
 ## Fee for Failed Transactions
 

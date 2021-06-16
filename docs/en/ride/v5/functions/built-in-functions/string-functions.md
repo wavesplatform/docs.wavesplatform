@@ -1,6 +1,6 @@
 # [Ride v5] String functions
 
-:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/functions/built-in-functions/string-functions)
+:warning: This is the documentation for the Standard Library **version 5**, which becomes available after activation of feature #16 “Ride V5, dApp-to-dApp invocations”. [Go to version 4](/en/ride/functions/built-in-functions/string-functions)
 
 | Name | Description | Complexity | 
 | :--- | :--- | :--- |
@@ -22,7 +22,7 @@
 Checks whether the string contains substring.
 
 ``` ride
-drop(haystack: String, needle: String): Boolean
+contains(haystack: String, needle: String): Boolean
 ```
 
 ### Parameters

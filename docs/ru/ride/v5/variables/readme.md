@@ -1,6 +1,6 @@
 # [Ride v5] Нетерпеливая переменная
 
-:warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/variables/)
+:warning: Это документация Стандартной библиотеки **версии 5**, которая доступна с момента активации фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”. [Перейти к&nbsp;версии&nbsp;4](/ru/ride/variables/)
 
 Ключевое слово `strict` предназначено для определения переменной с нетерпеливым вычислением значения. В отличие от ленивых переменных, определенных с помощью `let`, значение нетерпеливой вычисляется немедленно, когда исполнение скрипта доходит до нее, то есть перед следующим выражением.
 
@@ -14,7 +14,7 @@
 func foo() = {
    ...
    strict balanceBefore = wavesBalance(this).regular
-   strict z = Invoke(dapp2,bar,args,[AttachedPayment(unit,100000000)])
+   strict z = invoke(dapp2,"bar",args,[AttachedPayment(unit,100000000)])
    strict balanceAfter = wavesBalance(this).regular
 
    if(balanceAfter < balanceBefore) then ... else...

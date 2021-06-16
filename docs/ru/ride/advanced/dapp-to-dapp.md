@@ -5,8 +5,8 @@
 Вызов dApp из dApp осуществляется следующим образом:
 
 1. Пользователь отправляет транзакцию вызова скрипта, которая вызывает вызываемую функцию 1.
-2. Вызываемая функция 1 вызывает вызываемую функцию 2 с помощью [нетерпеливой переменной](#нетерпеливая-переменная) и функции [Invoke](#функция-invoke).
-3. Вызываемая функция 2 выполняется; вычисляются действия скрипта и [возвращаемое значение](#результат-вызываемой-функции).
+2. Вызываемая функция 1 вызывает вызываемую функцию 2 с помощью [нетерпеливой переменной](#strict-variable) и функции [invoke или reentrantInvoke](#invoke).
+3. Вызываемая функция 2 выполняется; вычисляются действия скрипта и [возвращаемое значение](#callable-function-result).
 4. Возвращаемое значение присваивается нетерпеливой переменной. Последующие операции вызываемой функции 1 выполняются с учетом действий скрипта вызываемой функции 2 (как если бы эти действия были применены на блокчейне).
 5. В завершение действия скрипта вызываемых функций 2 и 1 применяются на блокчейне.
 
@@ -14,74 +14,30 @@
 
 * Вызовы dApp из dApp могут быть вложенными.
 * Все вызванные функции выполняются в рамках одной транзакции вызова скрипта.
-* Вызов dApp из dApp может содержать платежи, которые будут переведены с баланса вызывающего dApp на баланс вызываемого.
+* Вызов dApp из dApp может содержать платежи, которые будут переведены с баланса исходного dApp на баланс вызываемого.
 * Платежи, приложенные к вызову, могут использоваться как в действиях скрипта, так и в платежах, приложенных к вложенным вызовам.
 
 ## Условия
 
-* Вызовы dApp из dApp добавлены в версии ноды 1.3.0 и включаются с активацией фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”. Версии 1.3.x в настоящее время доступны только для [Stagenet](/ru/blockchain/blockchain-network/).
-* Скрипт вызывающего dApp использует [Стандартную библиотеку](/ru/ride/script/standard-library) **версии 5**.
+* Вызовы dApp из dApp добавлены в версии ноды 1.3.0 и включаются с активацией фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”.
+* Скрипты как исходного, так и вызываемого dApp используют [Стандартную библиотеку](/ru/ride/script/standard-library) **версии 5**.
 * Если dApp вызывает сам себя, вызов не должен содержать платежи.
-* Стек вызовов не должен содержать вызовы одного и того же dApp, между которыми есть вызов другого dApp.
-
-   <details>
-      <summary>Подробнее</summary>
-
-   Следующие последовательности вызовов завершатся **ошибкой**:
-
-   ```
-   → dApp A
-      → dapp B
-          → dApp A
-   ```
-
-   ```
-   → dApp A
-      → dapp B
-          → dApp C
-             → dApp D
-                → dApp B
-   ```
-
-   Следующие последовательности вызовов **допустимы**:
-
-   ```
-   → dApp A
-      → dapp B
-          → dApp B
-   ```
-
-   ```
-   → dApp A
-      → dapp B
-      → dApp B
-   ```
-
-   ```
-   → dapp A
-       → dapp B
-          → dapp D
-       → dapp С
-         → dapp B
-         → dapp D
-   ```
-   </details>
-
-* Количество вызовов функции [Invoke](#функция-invoke) — не более 100 в одной транзакции.
+* Количество вызовов функций [invoke или reentrantInvoke](#invoke) — не более 100 в одной транзакции.
 * Общее количество действий скрипта `Issue`, `Reissue`, `Burn`, `SponsorFee`, `ScriptTransfer`, `Lease`, `LeaseCancel`, выполняемых всеми вызываемыми функциями в одной транзакции, — не более 30.
 * Общее количество действий скрипта `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, `StringEntry`, `DeleteEntry`, выполняемых всеми вызываемыми функциями в одной транзакции, — не более 100.
 * Общая сложность всех вызываемых функций и скриптов ассета, участвующих в транзакции, — не более 26&nbsp;000. Сложность скрипта аккаунта-отправителя не учитывается в этом лимите.
 
 <!-- > Вычисления с продолжением и вызов dApp из dApp несовместимы, то есть не могут быть инициированы одной и той же транзакцией.-->
 
-## Нетерпеливая переменная
+## Нетерпеливая переменная<a id="strict-variable"></a>
 
 Для определения нетерпеливой переменной предназначено ключевое слово `strict`. В отличие от ленивых переменных, определенных с помощью `let`, значение нетерпеливой вычисляется немедленно, когда исполнение скрипта доходит до нее, то есть перед следующим выражением.
 
-## Функция Invoke
+## Функции invoke и reentrantInvoke<a id="invoke"></a>
 
 ```
-Invoke(dApp: Address|Alias, function: String, arguments: List[Any], payments: List[AttachedPayments]): Any
+invoke(dApp: Address|Alias, function: String, arguments: List[Any], payments: List[AttachedPayments]): Any
+reentrantInvoke(dApp: Address|Alias, function: String, arguments: List[Any], payments: List[AttachedPayments]): Any
 ```
 
 | Параметр | Описание |
@@ -94,8 +50,10 @@ Invoke(dApp: Address|Alias, function: String, arguments: List[Any], payments: Li
 Пример:
 
 ```
-strict z = Invoke(dapp,foo,args,[AttachedPayment(unit,100000000)])
+strict z = invoke(dapp,foo,args,[AttachedPayment(unit,100000000)])
 ```
+
+Функции `invoke` и `reentrantInvoke` отличаются только ограничением [повторного вызова](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp#reentrancy) исходного dApp другими dApp в стеке вызова.
 
 Подробнее в разделе [Функция вызова dApp из dApp](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp).
 
@@ -107,14 +65,14 @@ strict z = Invoke(dapp,foo,args,[AttachedPayment(unit,100000000)])
 | :--- | :--- | :--- | :--- |
 | 1 | caller | [Address](/ru/ride/v5/structures/common-structures/address) | [Адрес](/ru/blockchain/account/address) dApp, который вызвал функцию |
 | 2 | callerPublicKey | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Открытый ключ аккаунта dApp, который вызвал функцию |
-| 3 | originalCaller | [Address](/ru/ride/v5/structures/common-structures/address) | Адрес аккаунта, который отправил транзакцию вызова скрипта |
-| 4 | originalCallerPublicKey | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Открытый ключ аккаунта, который отправил транзакцию вызова скрипта |
-| 5 | payments | List[[AttachedPayment](/ru/ride/v5/structures/common-structures/attached-payment)] | Платежи, указанные в функции [Invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp) |
+| 3 | originCaller | [Address](/ru/ride/v5/structures/common-structures/address) | Адрес аккаунта, который отправил транзакцию вызова скрипта |
+| 4 | originCallerPublicKey | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Открытый ключ аккаунта, который отправил транзакцию вызова скрипта |
+| 5 | payments | List[[AttachedPayment](/ru/ride/v5/structures/common-structures/attached-payment)] | Платежи, указанные в функции `invoke` или `reentrantInvoke` |
 | 6 | transactionId | [ByteVector](/ru/ride/v5/data-types/byte-vector) | ID транзакции вызова скрипта |
 | 7 | fee | [Int](/ru/ride/v5/data-types/int) | Комиссия за транзакцию вызова скрипта |
 | 8 | feeAssetId | [ByteVector](/ru/ride/v5/data-types/byte-vector)&#124;[Unit](/ru/ride/v5/data-types/unit) | ID токена, в котором указана комиссия |
 
-## Результат вызываемой функции
+## Результат вызываемой функции<a id="callable-function-result"></a>
 
 В Стандартной  библиотеке версии 5 результат выполнения вызываемой функции представляет собой [кортеж](/ru/ride/v5/data-types/tuple) из двух элементов:
 * Список действий скрипта.
@@ -137,7 +95,7 @@ strict z = Invoke(dapp,foo,args,[AttachedPayment(unit,100000000)])
 
 ## Обновление баланса и записей в хранилище данных аккаунта
 
-Если функция, вызываемая с помощью Invoke, выполняет действия скрипта, то результаты этих действий доступны в вызывающей функции:
+Если функция, вызываемая с помощью `invoke` или `reentrantInvoke`, выполняет действия скрипта, то результаты этих действий доступны в вызывающей функции:
 * Если вызываемая функция добавляет запись в хранилище данных аккаунта, то после вызова вызывающая функция может прочитать эту запись.
 * Если вызываемая функция удаляет запись из хранилища данных аккаунта, то после вызова вызывающая функция не может прочитать эту запись.
 * Если вызываемая функция выполняет действия с токенами (перевод, выпуск/довыпуск/сжигание и др.), то после вызова вызывающая функция при запросе балансов получает новые значения.

@@ -1,13 +1,13 @@
 # [Ride v5] Invocation
 
-:warning: Это документация Стандартной библиотеки **версии 5**, которая в настоящее время доступна только на [Stagenet](/ru/blockchain/blockchain-network/). [Перейти к версии для Mainnet](/ru/ride/structures/common-structures/invocation)
+:warning: Это документация Стандартной библиотеки **версии 5**, которая доступна с момента активации фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”. [Перейти к&nbsp;версии&nbsp;4](/ru/ride/structures/common-structures/invocation)
 
 Структура содержит поля вызова, которые может использовать [вызываемая функция](/ru/ride/v5/functions/callable-function).
 
 ## Конструктор
 
 ```ride
-Invocation(caller: Address, callerPublicKey: ByteVector, originalCaller: Address, originalCallerPublicKey: ByteVector, payments: List[AttachedPayment], transactionId: ByteVector, fee: Int, feeAssetId: ByteVector|Unit)
+Invocation(caller: Address, callerPublicKey: ByteVector, originCaller: Address, originCallerPublicKey: ByteVector, payments: List[AttachedPayment], transactionId: ByteVector, fee: Int, feeAssetId: ByteVector|Unit)
 ```
 
 ## Поля
@@ -20,27 +20,27 @@ Invocation(caller: Address, callerPublicKey: ByteVector, originalCaller: Address
 | :--- | :--- | :--- | :--- |
 | 1 | caller | [Address](/ru/ride/v5/structures/common-structures/address) | [Адрес](/ru/blockchain/account/address) аккаунта, который отправил транзакцию вызова скрипта |
 | 2 | callerPublicKey | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Открытый ключ аккаунта, который отправил транзакцию вызова скрипта |
-| 3 | originalCaller | [Address](/ru/ride/v5/structures/common-structures/address) | Дублирует поле `caller` |
-| 4 | originalCallerPublicKey | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Дублирует поле `callerPublicKey` |
+| 3 | originCaller | [Address](/ru/ride/v5/structures/common-structures/address) | Дублирует поле `caller` |
+| 4 | originCallerPublicKey | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Дублирует поле `callerPublicKey` |
 | 5 | payments | List[[AttachedPayment](/ru/ride/v5/structures/common-structures/attached-payment)] | Платежи, указанные в транзакции |
 | 6 | transactionId | [ByteVector](/ru/ride/v5/data-types/byte-vector) | ID транзакции вызова скрипта |
 | 7 | fee | [Int](/ru/ride/v5/data-types/int) | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) |
 | 8 | feeAssetId | [ByteVector](/ru/ride/v5/data-types/byte-vector)&#124;[Unit](/ru/ride/v5/data-types/unit) | ID [токена](/ru/blockchain/token/), в котором указана комиссия |
 
-Если вызываемая функция вызвана с помощью функции [Invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp):
+Если вызываемая функция вызвана с помощью функции `invoke` или `reentrantInvoke` (см. раздел [Вызов dApp из dApp](/ru/ride/advanced/dapp-to-dapp)):
 
 |   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
 | 1 | caller | [Address](/ru/ride/v5/structures/common-structures/address) | [Адрес](/ru/blockchain/account/address) dApp, который вызвал функцию |
 | 2 | callerPublicKey | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Открытый ключ аккаунта dApp, который вызвал функцию |
-| 3 | originalCaller | [Address](/ru/ride/v5/structures/common-structures/address) | Адрес аккаунта, который отправил транзакцию вызова скрипта |
-| 4 | originalCallerPublicKey | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Открытый ключ аккаунта, который отправил транзакцию вызова скрипта |
-| 5 | payments | List[[AttachedPayment](/ru/ride/v5/structures/common-structures/attached-payment)] | Платежи, указанные в функции [Invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp) |
+| 3 | originCaller | [Address](/ru/ride/v5/structures/common-structures/address) | Адрес аккаунта, который отправил транзакцию вызова скрипта |
+| 4 | originCallerPublicKey | [ByteVector](/ru/ride/v5/data-types/byte-vector) | Открытый ключ аккаунта, который отправил транзакцию вызова скрипта |
+| 5 | payments | List[[AttachedPayment](/ru/ride/v5/structures/common-structures/attached-payment)] | Платежи, указанные в функции `invoke` или `reentrantInvoke` |
 | 6 | transactionId | [ByteVector](/ru/ride/v5/data-types/byte-vector) | ID транзакции вызова скрипта |
 | 7 | fee | [Int](/ru/ride/v5/data-types/int) | Комиссия за транзакцию вызова скрипта |
 | 8 | feeAssetId | [ByteVector](/ru/ride/v5/data-types/byte-vector)&#124;[Unit](/ru/ride/v5/data-types/unit) | ID токена, в котором указана комиссия |
 
-> Значения `originalCaller`, `originalCallerPublicKey`, `transactionId`, `fee`, `feeAssetId` одни и те же для всех вызовов dApp из dApp, выполняемых в рамках одной транзакции.
+> Значения `originCaller`, `originCallerPublicKey`, `transactionId`, `fee`, `feeAssetId` одни и те же для всех вызовов dApp из dApp, выполняемых в рамках одной транзакции.
 
 ## Пример: обработка платежей
 

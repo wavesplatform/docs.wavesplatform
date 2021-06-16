@@ -6,7 +6,7 @@ sidebarDepth: 3
 
 **Blockchain Updates** is a [node extension](/en/waves-node/extensions/) that sends blockchain updates via [gRPC](https://en.wikipedia.org/wiki/GRPC).
 
->This article is intended for **Blockchain Updates** version **1.2.20** or higher.
+>This article is intended for **Blockchain Updates** version **1.2.20** or later. Please note that this Blockchain Updates extension version is incompatible with the previous versions (consumers working with previous extension versions will not be able to connect to this version). See [Upgrading from Previous Versions](#upgrading-from-previous-versions) below.
 
 Blockchain Updates enables tracking changes made by each transaction and block:
 
@@ -25,13 +25,21 @@ Examples of usage:
 
 ## Hardware Requirements
 
-For a node with the Blockchain Updates extension, we recommended to increase the disk space by 50 GB (for instance, at height 2422450, 35 GB is used for extension data).
+For a node with the Blockchain Updates extension, we recommended to increase the disk space by 40 GB (for instance, 32.5 GB is used for extension data at height 2595114).
 
 ## Launch Node with Extension
 
-:warning: **Important:** Blockchain Updates requires the history of changes since the blockchain creation. Therefore, you can either start the node with the extension from scratch and synchronize the blockchain during regular node operation (see the [Synchronize Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article) or import the blockchain from a binary file (see the [Import/Export Blockchain](/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain) article). This can take 1–3 days. Downloading the latest blockchain database is not applicable.
-
 There are two ways to install the node with Blockchain Updates extension: using a DEB package or a JAR file. The Blockchain Updates extension is in the same package and archive as [gRPC Server](/en/waves-node/extensions/grpc-server/). You can install these extensions both together and separately, only the settings in the node configuration file differ.
+
+:warning: **Important:** If you already have a working node, it's not enough to just install the extension. It is required to get the up-to-date blockchain database with the history of changes:
+
+1. Delete the database files: they are located in the directory specified in the [waves.db.directory](/en/waves-node/node-configuration#db-settings) setting (by default, in the `data` subdirectory of the base directory of the node).
+2. Install the extension via the DEB package or JAR file and enable the extension in the node settings as described below.
+3. Download or import the blockchain in one of the following ways:
+
+   * Start the node with the extension from scratch and synchronize the blockchain during regular node operation (see the [Synchronize Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article).
+   * Import the blockchain from a binary file (see the [Import/Export Blockchain](/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain) article).
+   * Download the database archives `blockchain_last.tar` and `blockchain-updates_last.tar` (see the [Download the Latest Blockchain](/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying) article). Unpack the `blockchain_last.tar` archive in the directory specified in the [waves.db.directory](/en/waves-node/node-configuration#db-settings) setting (by default, the `data` subdirectory of the base directory of the node). Unpack the `blockchain-updates_last.tar` archive in the `blockchain-updates` subdirectory of the base directory.
 
 ### Installation via DEB Package
 
@@ -205,8 +213,8 @@ Generate your client code from the [blockchain_updates.proto](https://github.com
 
 API Blockchain Updates provides the following functions:
 * `GetBlockUpdate` returns updates performed by the block at the given height.
-* [GetBlockUpdatesRange](#GetBlockUpdatesRange) returns updates performed by the blocks at the given range of height.
-* [Subscribe](#Subscribe) returns stream of messages, first historical data (i.e. updates up to the current blockchain height), then current events in real time. Optionally, you can specify the start and/or end height.
+* [GetBlockUpdatesRange](#getblockupdatesrange) returns updates performed by the blocks at the given range of height.
+* [Subscribe](#subscribe) returns stream of messages, first historical data (i.e. updates up to the current blockchain height), then current events in real time. Optionally, you can specify the start and/or end height.
 
 See the format of requests and responses in the [blockchain_updates.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/events/grpc/blockchain_updates.proto) file.
 
@@ -232,7 +240,7 @@ Message fields:
 | update.id | bytes | ID of the last block or microblock on the blockchain after the event |
 | update.height | int32 | Height |
 | update.update | Append or Rollback | Event: append or rollback of a block or a microblock. See [Event Format](#event-format) below |
-| referenced_assets | repeated StateUpdate.AssetInfo | Assets involved in the event. See [AssetInfo](#AssetInfo) below |
+| referenced_assets | repeated StateUpdate.AssetInfo | Assets involved in the event. See [AssetInfo](#assetinfo) below |
 
 ### GetBlockUpdatesRange
 
@@ -263,12 +271,12 @@ Message fields:
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| block | [Block](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Block data: headers and transactions. See also the [Block Binary Format](/en/blockchian/binary-format/block-binary-format) article |
+| block | [Block](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Block data: headers and transactions. See also the [Block Binary Format](/en/blockchain/binary-format/block-binary-format) article |
 | updated_waves_amount | int64 | Total number of WAVES including the block reward |
 | transaction_ids | repeated bytes | IDs of block's transactions |
-| transactions_metadata | repeated TransactionMetadata | Additional info about transactions. See [TransactionMetadata](#TransactionMetadata) below |
-| state_update | StateUpdate | Blockchain state updates related to a block. See [StateUpdate](#StateUpdate) below |
-| transaction_state_updates | repeated StateUpdate | Blockchain state updates related to transactions. See [StateUpdate](#StateUpdate) below |
+| transactions_metadata | repeated TransactionMetadata | Additional info about transactions. See [TransactionMetadata](#transactionmetadata) below |
+| state_update | StateUpdate | Blockchain state updates related to a block. See [StateUpdate](#stateupdate) below |
+| transaction_state_updates | repeated StateUpdate | Blockchain state updates related to transactions. See [StateUpdate](#stateupdate) below |
 
 `transaction_ids`, `transactions_metadata`, `transaction_state_updates` are parallel arrays: the same index corresponds to the data related to the same transaction. If there is no additional info, then the `transactions_metadata` array contains an empty value by this index.
 
@@ -596,9 +604,9 @@ Message fields:
 | micro_block | [SignedMicroBlock](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Microblock data |
 | updated_transactions_root | int64 | [Transactions Root Hash](/en/blockchain/block/merkle-root) of all transactions of the current block |
 | transaction_ids | repeated bytes | IDs of microblock's transactions |
-| transactions_metadata | repeated TransactionMetadata | Additional info about transactions. See [TransactionMetadata](#TransactionMetadata) below |
-| state_update | StateUpdate | Blockchain state updates related to a block. See [StateUpdate](#StateUpdate) below |
-| transaction_state_updates | repeated StateUpdate | Blockchain state updates related to transactions. See [StateUpdate](#StateUpdate) below |
+| transactions_metadata | repeated TransactionMetadata | Additional info about transactions. See [TransactionMetadata](#transactionmetadata) below |
+| state_update | StateUpdate | Blockchain state updates related to a block. See [StateUpdate](#stateupdate) below |
+| transaction_state_updates | repeated StateUpdate | Blockchain state updates related to transactions. See [StateUpdate](#stateupdate) below |
 
 `transaction_ids`, `transactions_metadata`, `transaction_state_updates` are parallel arrays: the same index corresponds to the data related to the same transaction. If there is no additional info, then the `transactions_metadata` array contains an empty value by this index.
 
@@ -919,7 +927,7 @@ Message fields:
 | type | RollbackType | Message type: BLOCK — block rollback, MICROBLOCK — microblock rollback |
 | removed_transaction_ids | repeated bytes | IDs of transactions deleted as a result of the rollback |
 | removed_blocks | repeated [Block](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) | Blocks deleted as a result of the rollback. Empty for microblock rollback |
-| rollback_state_update | StateUpdate | Blockchain state updates generated by the rollback (the reverse of changes related to transactions and blocks/microblocks that are rolled back). See [StateUpdate](#StateUpdate) below |
+| rollback_state_update | StateUpdate | Blockchain state updates generated by the rollback (the reverse of changes related to transactions and blocks/microblocks that are rolled back). See [StateUpdate](#stateupdate) below |
 
 **Examples:**
 
@@ -1261,7 +1269,7 @@ Unlike in transactions, account addresses in `StateUpdate` are given in full, in
 
 | Name | Type | Description |
 | :--- | :--- | :--- |
-| assets.before | AssetDetails | Previous token parameters. Empty for the token issue. See [AssetDetails](#AssetDetails) below |
+| assets.before | AssetDetails | Previous token parameters. Empty for the token issue. See [AssetDetails](#assetdetails) below |
 | assets.after | AssetDetails | New token parameters. Empty for the rollback of a block/microblock that generated the token issue |
 
 #### AssetDetails
@@ -1323,3 +1331,19 @@ Unlike in transactions, account addresses in `TransactionMetadata` are given in 
 | Name | Type | Description |
 | :--- | :--- | :--- |
 | recipient_address | bytes | Recipient's address |
+
+## Upgrading from Previous Versions
+
+If you used previous version of Blockchain Updates from and want to upgrade to version 1.2.20 or later:
+
+1. Re-build the history of changes:
+
+   1.1. Delete the database files: they are located in the directory specified in the [waves.db.directory](/en/waves-node/node-configuration#db-settings) setting (by default, in the `data` subdirectory of the base directory of the node).
+
+   1.2. Delete the extension files: they are located in the `blockchain-updates` subdirectory of the base directory of the node.
+
+   1.3. Download or import the blockchain again in one of the ways listed in section [Launch Node with Extension](#launch-node-with-extension)) above.
+
+2. Download the updated protobuf schemes and re-generate client stubs, see [Client Generation](#client-generation) above. Migrate your code to the new stubs.
+
+After upgrading to the current version, you can start using the fields added in it. See [Release Notes 1.2.20](https://github.com/wavesplatform/Waves/releases/tag/v1.2.20) for a description of the new features. Most of the fields of the previous version are not changed.

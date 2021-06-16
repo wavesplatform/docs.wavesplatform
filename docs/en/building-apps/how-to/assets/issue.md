@@ -4,7 +4,7 @@ sidebarDepth: 2
 
 # How to Create and Manage Your Own Token
 
-One of the key benefits of the Waves blockchain is the simplicity of issuing tokens. To launch your own token, you don't have to write a smart contract – just create issue transaction and send it to the blockchain. The only threshold for the issuer is to pay a fee: 1 WAVES for reqular token (asset) or 0.001 for non-fungible token (NFT).
+One of the key benefits of the Waves blockchain is the simplicity of issuing tokens. To launch your own token, you don't have to write a smart contract – just create an Issue transaction and send it to the blockchain. The only threshold for the issuer is to pay a fee: 1 WAVES for reqular token (asset) or 0.001 for non-fungible token (NFT).
 
 New tokens are immediately available:
 
@@ -33,16 +33,15 @@ You can use online or desktop app. See the [Create Token](https://docs.waves.exc
 
 Use functions of `waves-transactions` library:
 
-* `issue` function creates and signs an issue transaction. Transaction proof is derived from seed. By default, fee is calculated automatically.
+* `issue` function creates and signs an Issue transaction. Transaction proof is derived from seed. By default, fee is calculated automatically.
 * `broadcast` sends a transation to the blockchain.
 
-The issue transaction ID becomes also the token ID.
+The Issue transaction ID becomes also the token ID.
 
 See function descriptions in [waves-transactions documentation](https://wavesplatform.github.io/waves-transactions/index.html) on Github.
 
 ```javascript
-import { broadcast } from "@waves/waves-transactions";
-import { issue } from "@waves/waves-transactions";
+const { issue, broadcast } = require('@waves/waves-transactions');
 
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com'; // Testnet node
 const seed = 'insert your seed here';
@@ -58,7 +57,7 @@ const myToken = {
   chainId: 'T' // Testnet; set 'W' for Mainnet
 };
 
-const issueTx = issue(myToken, seed); // Create and sign issue transaction
+const issueTx = issue(myToken, seed); // Create and sign Issue transaction
 
 broadcast(issueTx,nodeUrl).then(resp => console.log(resp));
 
@@ -78,13 +77,11 @@ my_address.issueAsset(
 
 ### Using dApp
 
-Since Standard library version 4, dApp callable function can issue a token. See [Callable Function](/en/ride/functions/callable-function) and [Issue](/en/ride/structures/script-actions/issue) articles of [Ride](/en/ride/) chapter for more information.
-
-> :warning: Standard ibrary Version 4 is available from node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+In the Standard library version 4 or later, dApp callable function can issue a token. See [Callable Function](/en/ride/functions/callable-function) and [Issue](/en/ride/structures/script-actions/issue) articles of [Ride](/en/ride/) chapter for more information.
 
 In this example, `myToken` function issues a token with following params:
 
-* `name` contains the address of the account which invoked the function (for example, `Spring_3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z`),
+* `name` contains part of the address of the account which invoked the function (for example, `S_3Mw48B`),
 * number of tokens equals to 1000 and decimals = 2,
 * token is reissuable.
 
@@ -95,9 +92,11 @@ In this example, `myToken` function issues a token with following params:
   
 @Callable(i)
 func myToken() = [
-  Issue("Spring_" + toBase58String(i.caller.bytes), "", 100000, 2, true)
+  Issue("S_" + take(toBase58String(i.caller.bytes),6), "", 100000, 2, true)
 ]
 ```
+
+:warning: The minimum fee for an Invoke Script transaction is increased by 1 WAVES for each token issued by the callable function.
 
 ## Issue NFT
 
@@ -120,8 +119,7 @@ You can use online or desktop app. See the [Reissue Token](https://docs.waves.ex
 ### Using JavaScript
 
 ```javascript
-import { broadcast } from "@waves/waves-transactions";
-import { reissue } from "@waves/waves-transactions";
+const { reissue, broadcast } = require('@waves/waves-transactions');
 
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
 const seed = 'insert your seed here';
@@ -133,7 +131,7 @@ const myToken = {
   chainId: 'T' // Testnet; 'W' for Mainnet
 };
 
-const reissueTx = reissue(myToken, seed); // Create and sign reissue transaction
+const reissueTx = reissue(myToken, seed); // Create and sign Reissue transaction
 
 broadcast(reissueTx,nodeUrl).then(resp => console.log(resp));
 ```
@@ -150,7 +148,7 @@ my_address.reissueAsset(my_token, quantity=50000, reissuable=True)
 
 ## Burn Asset
 
-Account that owns an asset (not necessarily asset issuer) can destroy some amount of the asset using burn transaction. The burn transaction decreases the amount of the asset on sender's account and thereby the total amount of the asset on the blockchain.
+Account that owns an asset (not necessarily asset issuer) can destroy some amount of the asset using a Burn transaction. The Burn transaction decreases the amount of the asset on sender's account and thereby the total amount of the asset on the blockchain.
 
 ### Using Waves.Exchange
 
@@ -159,8 +157,7 @@ You can use online, desktop or mobile app. See the [Burn Token (Online & Desktop
 ### Using JavaScript
 
 ```javascript
-import { broadcast } from "@waves/waves-transactions";
-import { burn } from "@waves/waves-transactions";
+const { burn, broadcast } = require('@waves/waves-transactions');
 
 const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
 const seed = 'insert your seed here';
@@ -171,7 +168,7 @@ const myToken = {
   chainId: 'T' // Testnet; 'W' for Mainnet
 };
 
-const burnTx = burn(myToken, seed); // Create and sign burn transaction
+const burnTx = burn(myToken, seed); // Create and sign Burn transaction
 
 broadcast(burnTx,nodeUrl).then(resp => console.log(resp));
 ```
@@ -184,4 +181,63 @@ import pywaves as pw
 my_address = pw.Address(privateKey=some_private_key)
 asset_to_burn = pw.Asset('39M7cn3PZ7T468vGGfkc4VtxqbeDS5ssU4tLYJeoKfn4')
 my_address.burnAsset(asset_to_burn, quantity=10000)
+```
+
+## Change Asset Name and Description
+
+You can change the name and/or description of your asset:
+* on Mainnet and Testnet: after 100,000 or more blocks (about 70 days) from the last change (or the asset issue);
+* on Stagenet: after 10 or more blocks.
+
+:bulb: Instead of renaming an asset, you can [issue](#issue-asset) a new asset and use it instead of the old one.
+
+### Using Waves.Exchange
+
+1. Click your avatar in the upper right corner of the page. Select **Settings**. In the **Settings** window, select the **Advanced features** checkbox.
+2. Switch to the **Wallet** tab. Click the **{} JSON** button in the upper right corner.
+3. Paste the transaction code:
+
+   ```json
+   {
+      "type": 17,
+      "version": 1,
+      "assetId": "INSERT YOUR ASSET ID",
+      "name": "INSERT NEW NAME",
+      "description": "INSERT YOUR DESCRIPTION",
+      "fee": 100000
+   }
+   ```
+
+   > The `fee` field contains transaction fee in [WAVELET](/en/blockchain/token/waves). The `fee: 100000` corresponds to a fee of 0.001 WAVES.
+
+4. Click **Continue**, then **Sign**, then **Send**.
+
+### Using JavaScript
+
+```javascript
+const { updateAssetInfo, broadcast } = require('@waves/waves-transactions');
+
+const nodeUrl = 'https://nodes-testnet.wavesnodes.com';
+const seed = 'insert your seed here';
+
+const myToken = {
+  assetId: '39M7cn3PZ7T468vGGfkc4VtxqbeDS5ssU4tLYJeoKfn4',
+  name: "New name",
+  description: "New description",
+  chainId: 'T' // Testnet; 'W' for Mainnet
+};
+
+const renameTx = updateAssetInfo(myToken, seed); // Create and sign transaction
+
+broadcast(renameTx,nodeUrl).then(resp => console.log(resp));
+```
+
+### Using Python
+
+```python
+import pywaves as pw
+
+pw.setNode(node = 'https://nodes-testnet.wavesnodes.com', chain = 'testnet')
+my_address = pw.Address(seed = 'insert your seed here')
+my_address.updateAssetInfo('H1g2vAaNt6v1oDmxRWiv6KZeQbb5gCbcLosRfi6PqYjH', name = 'New name', description = 'New description')
 ```

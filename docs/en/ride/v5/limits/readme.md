@@ -1,6 +1,6 @@
 # [Ride v5] Limitations
 
-:warning: This is the documentation for the Standard Library **version 5**, which is currently available for [Stagenet](/en/blockchain/blockchain-network/) only. [Go to Mainnet version](/en/ride/limits/)
+:warning: This is the documentation for the Standard Library **version 5**, which becomes available after activation of feature #16 “Ride V5, dApp-to-dApp invocations”. [Go to version 4](/en/ride/limits/)
 
 | Limitation | Maximum value |
 |---|---|
@@ -8,7 +8,7 @@
 | Account script or asset script size | 8 Kbytes |
 | [Complexity](/en/ride/base-concepts/complexity) of account script | 2000 |
 | Complexity of asset script | 4000 |
-| Complexity of each callable function of dApp script | 4000 |
+| Complexity of each callable function of dApp script | 10,000 |
 | Total number of [dApp-to-dApp invocations](/en/ride/advanced/dapp-to-dapp) within a single Invoke Script transaction | 100 |
 | Total complexity for all callable functions and asset scripts involved in an Invoke Script transaction. The sender's account script complexity is not included in this limit.<br>Applied after activation of feature #16 “Ride V5, dApp-to-dApp invocations” regardless of the Standard library version | 26,000 |
 | Complexity threshold for saving failed transactions: if the callable function failed with an error or throwing an exception before the threshold exceeded, the invoke script transaction is rejected and the fee is not charged | 1000 |
