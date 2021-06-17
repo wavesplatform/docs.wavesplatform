@@ -7,7 +7,7 @@
 
 **Примечание:** Не устанавливайте OpenJDK 8, если у вас уже установлен OpenJDK 11. Установка ноды поддерживается в обеих версиях 8 и 11.
 
-Установите OpenJDK 8, как описано в [документации](https://access.redhat.com/documentation/en-us/openjdk/8/html/openjdk_8_for_windows_getting_started_guide/getting_started_with_openjdk_for_windows).
+Установите OpenJDK 8, как описано в [документации](https://access.redhat.com/documentation/en-us/openjdk/8/html/installing_and_using_openjdk_8_for_windows/openjdk8-windows-installation-options).
 
 Откройте командную строку и проверьте версию JDK с помощью следующей команды:
 

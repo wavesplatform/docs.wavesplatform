@@ -511,78 +511,36 @@ module.exports = {
       path: nodePath + 'private-waves-network',
     },
     {
-      title: 'Node API',
+      title: 'Node REST API',
       path: nodePath + 'node-api',
       children: [
-	    {
+        {
           title: 'API Key',
           path: nodePath + 'node-api/api-key',
         },
         {
-          title: 'Request headers',
+          title: 'Working with Transactions',
+          path: nodePath + 'node-api/transactions',
+        },
+        {
+          title: 'Monetary Fields',
           path: nodePath + 'node-api/headers',
+        },
+        {
+          title: 'Pagination',
+          path: nodePath + 'node-api/pagination',
         },
         {
           title: 'CORS',
           path: nodePath + 'node-api/cors',
         },
         {
-          title: 'Feature Activation',
-          path: nodePath + 'node-api/feature-activation',
-        },
-        {
-          title: 'Addresses',
-          path: nodePath + 'node-api/address',
-        },
-        {
-          title: 'Lease Transactions',
-          path: nodePath + 'node-api/lease-transactions',
-        },
-        {
-          title: 'Assets',
-          path: nodePath + 'node-api/asset-transactions',
-          children: [
-            {
-              title: 'Public Functions',
-              path: nodePath + 'node-api/asset-transactions/public-functions',
-            },
-            {
-              title: 'Private Functions',
-              path: nodePath + 'node-api/asset-transactions/private-functions',
-            },
-            {
-              title: 'Distribution Methods',
-              path: nodePath + 'node-api/asset-transactions/distribution-methods',
-            }
-          ],
-        },
-        {
-          title: 'Alias Transaction',
-          path: nodePath + 'node-api/alias-transaction',
-        },
-        {
-          title: 'Transactions',
-          path: nodePath + 'node-api/transactions',
-        },
-        {
-          title: 'Peers',
-          path: nodePath + 'node-api/peers',
-        },
-        {
-          title: 'Blocks',
-          path: nodePath + 'node-api/blocks',
-        },
-        {
-          title: 'Utils',
-          path: nodePath + 'node-api/utils',
-        },
-        {
-          title: 'Examples of transactions',
-          path: nodePath + 'node-api/example-transactions',
-        },
-        {
-          title: 'API limitations of the pool of public nodes',
+          title: 'API Limitations of Pool of Public Nodes',
           path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
+        },
+        {
+          title: 'Response Codes and Errors',
+          path: nodePath + 'node-api/response',
         },
       ],
     },
@@ -609,6 +567,10 @@ module.exports = {
 			path: nodePath + 'block-generation-faq',
 		},
 	  ]
+	},
+	{
+      title: 'Node Go',
+      path: nodePath + 'node-go',
 	},
   ],
 

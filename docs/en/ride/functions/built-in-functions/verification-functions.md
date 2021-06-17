@@ -39,9 +39,9 @@ Range of functions. Check [zk-SNARK](https://media.consensys.net/introduction-to
 
 | Parameter | Description |
 | :--- | :--- |
-| `vk`: ByteVector | Key for the check.<br>Maximum size:<br>• For `bn256groth16Verify_<N>inputs` function — 256 + 32 × `N` bytes.<br>• For `bn256groth16Verify` function — 256 + 32 × 16 =768 bytes |
-| `proof`: ByteVector | [Zero-knowledge proof](https://en.wikipedia.org/wiki/Zero-knowledge_proof). Fixed size: 128 bytes |
-| `inputs`: ByteVector | Zero-knowledge proof's public inputs array. For example, array of UTXO hashes in case of shielded transactions.<br>Maximum size:<br>• For `bn256groth16Verify_<N>inputs` function – 32 × `N` bytes.<br>• For `bn256groth16Verify` function – 512 bytes |
+| `vk`: [ByteVector](/en/ride/data-types/byte-vector) | Key for the check.<br>Maximum size:<br>• For `bn256groth16Verify_<N>inputs` function — 256 + 32 × `N` bytes.<br>• For `bn256groth16Verify` function — 256 + 32 × 16 =768 bytes |
+| `proof`: [ByteVector](/en/ride/data-types/byte-vector) | [Zero-knowledge proof](https://en.wikipedia.org/wiki/Zero-knowledge_proof). Fixed size: 128 bytes |
+| `inputs`: [ByteVector](/en/ride/data-types/byte-vector) | Zero-knowledge proof's public inputs array. For example, array of UTXO hashes in case of shielded transactions.<br>Maximum size:<br>• For `bn256groth16Verify_<N>inputs` function – 32 × `N` bytes.<br>• For `bn256groth16Verify` function – 512 bytes |
 
 ## checkMerkleProof
 
@@ -59,9 +59,9 @@ checkMerkleProof(merkleRoot: ByteVector, merkleProof: ByteVector, valueBytes: By
 
 | Parameter | Description |
 | :--- | :--- |
-| merkleRoot: ByteVector | Root hash of the Merkle tree |
-| merkleProof: ByteVector | Array of hashes |
-| valueBytes: ByteVector | Data to check |
+| merkleRoot: [ByteVector](/en/ride/data-types/byte-vector) | Root hash of the Merkle tree |
+| merkleProof: [ByteVector](/en/ride/data-types/byte-vector) | Array of hashes |
+| valueBytes: [ByteVector](/en/ride/data-types/byte-vector) | Data to check |
 
 ## createMerkleRoot
 
@@ -78,15 +78,15 @@ createMerkleRoot(merkleProofs: List[ByteVector], valueBytes: ByteVector, index: 
 
 | Parameter | Description |
 | :--- | :--- |
-| `merkleProofs`: List[ByteVector] | Array of sibling hashes of the Merkle tree. Up to 16 items, 32 bytes each |
-| `valueBytes`: ByteVector | Hash of transaction. Fixed size: 32 bytes. You can use [blake2b256](/en/ride/functions/built-in-functions/hashing-functions#blake2b256) function. The transaction must be hashed together with the signature |
-| `index`: Int | Index of the transaction in the block |
+| `merkleProofs`: [List](/en/ride/data-types/list)[[ByteVector](/en/ride/data-types/byte-vector)] | Array of sibling hashes of the Merkle tree. Up to 16 items, 32 bytes each |
+| `valueBytes`: [ByteVector](/en/ride/data-types/byte-vector) | Hash of transaction. Fixed size: 32 bytes. You can use [blake2b256](/en/ride/functions/built-in-functions/hashing-functions#blake2b256) function. The transaction must be hashed together with the signature |
+| `index`: [Int](/en/ride/data-types/int) | Index of the transaction in the block |
 
 ## ecrecover
 
 > :warning: The function is added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
-Recovers public key from the message hash and the [ECDSA](https://en.wikipedia.org/wiki/ECDSA) digital signature based on the secp256k1 elliptic curve. Throws an exception if the recovery failed.
+Recovers public key from the message hash and the [ECDSA](https://en.wikipedia.org/wiki/ECDSA) digital signature based on the secp256k1 elliptic curve. Fails if the recovery failed.
 
 The public key is returned in uncompressed format (64 bytes).
 
@@ -101,8 +101,8 @@ ecrecover(messageHash: ByteVector, signature: ByteVector): ByteVector
 
 | Parameter | Description |
 | :--- | :--- |
-| `messageHash`: ByteVector | Keccak-256 hash of the message.  Fixed size: 32 bytes |
-| `signature`: ByteVector | ECDSA digital signature. Fixed size: 65 bytes |
+| `messageHash`: [ByteVector](/en/ride/data-types/byte-vector) | Keccak-256 hash of the message.  Fixed size: 32 bytes |
+| `signature`: [ByteVector](/en/ride/data-types/byte-vector) | ECDSA digital signature. Fixed size: 65 bytes |
 
 ### Example
 
@@ -147,9 +147,9 @@ Range of functions. Check [zk-SNARK](https://media.consensys.net/introduction-to
 
 | Parameter | Description |
 | :--- | :--- |
-| `vk`: ByteVector | Key for the check.<br>Maximum size:<br>• For `groth16Verify_<N>inputs` function — 384 + 48 × `N` bytes.<br>• For `groth16Verify` function — 384 + 48 × 16 =1152 bytes |
-| `proof`: ByteVector | [Zero-knowledge proof](https://en.wikipedia.org/wiki/Zero-knowledge_proof). Fixed size: 192 bytes |
-| `inputs`: ByteVector | Zero-knowledge proof's public inputs array.<br>Maximum size:<br>• For `groth16Verify_<N>inputs` function – 32 × `N` bytes.<br>• For `groth16Verify` function – 512 bytes |
+| `vk`: [ByteVector](/en/ride/data-types/byte-vector) | Key for the check.<br>Maximum size:<br>• For `groth16Verify_<N>inputs` function — 384 + 48 × `N` bytes.<br>• For `groth16Verify` function — 384 + 48 × 16 =1152 bytes |
+| `proof`: [ByteVector](/en/ride/data-types/byte-vector) | [Zero-knowledge proof](https://en.wikipedia.org/wiki/Zero-knowledge_proof). Fixed size: 192 bytes |
+| `inputs`: [ByteVector](/en/ride/data-types/byte-vector) | Zero-knowledge proof's public inputs array.<br>Maximum size:<br>• For `groth16Verify_<N>inputs` function – 32 × `N` bytes.<br>• For `groth16Verify` function – 512 bytes |
 
 ### Example
 
@@ -197,9 +197,9 @@ Data can be hashed before signing using one of the following algorithms:
 | Parameter | Description |
 | :--- | :--- |
 | `digest`: digestAlgorithmType | The hashing algorithm applied to the data before signing. Acceptable values:<br>• `NOALG` — data is not hashed.<br>• `MD5`<br>• SHA1<br>• `SHA224`<br>• `SHA256`<br>• `SHA384`<br>• `SHA512`<br>•  `SHA3224` <br>• `SHA3256`<br>• `SHA3384`<br>• `SHA3512` |
-| `message`: ByteVector | Signed data.<br>Maximum size:<br>• For `rsaVerify_<N>Kb` functions – `N` kB.<br>• For `rsaVerify` function — 150 kB. |
-| `sig`: ByteVector | Digital signature. Fixed size: 25 bytes |
-| `pub`: ByteVector | Binary public key. Fixed size: 294 bytes |
+| `message`: [ByteVector](/en/ride/data-types/byte-vector) | Signed data.<br>Maximum size:<br>• For `rsaVerify_<N>Kb` functions – `N` kB.<br>• For `rsaVerify` function — 150 kB. |
+| `sig`: [ByteVector](/en/ride/data-types/byte-vector) | Digital signature. Fixed size: 25 bytes |
+| `pub`: [ByteVector](/en/ride/data-types/byte-vector) | Binary public key. Fixed size: 294 bytes |
 
 ## sigVerify
 
@@ -220,6 +220,6 @@ Range of functions. Check that the [Curve25519](https://en.wikipedia.org/wiki/C
 
 | Parameter | Description |
 | :--- | :--- |
-| `message`: ByteVector | Signed data.<br>Maximum size:<br>• For `rsaVerify_<N>Kb` functions – `N` kB.<br>• For `rsaVerify` function — 150 kB. |
-| `sig`: ByteVector | Digital signature. Fixed size: 25 bytes |
-| `pub`: ByteVector | Binary public key. Fixed size: 294 bytes |
+| `message`: [ByteVector](/en/ride/data-types/byte-vector) | Signed data.<br>Maximum size:<br>• For `rsaVerify_<N>Kb` functions – `N` kB.<br>• For `rsaVerify` function — 150 kB. |
+| `sig`: [ByteVector](/en/ride/data-types/byte-vector) | Digital signature. Fixed size: 25 bytes |
+| `pub`: [ByteVector](/en/ride/data-types/byte-vector) | Binary public key. Fixed size: 294 bytes |

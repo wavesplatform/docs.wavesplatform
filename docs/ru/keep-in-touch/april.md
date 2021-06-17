@@ -5,7 +5,7 @@
 * Транзакции вызова скрипта и транзакции обмена сохраняются на блокчейне и за них взимается комиссия, даже если результат выполнения dApp-скрипта или скрипта ассета был неудачным (при условии что транзакция прошла проверку подписи отправителя или проверку скриптом аккаунта).
 
    Однако если вызываемая функция завершилась ошибкой или [выбрасыванием исключения](/ru/ride/exceptions) прежде, чем [сложность](/ru/ride/base-concepts/complexity) выполненных вычислений превысила [порог для сохранения неуспешных транзакций](/ru/ride/limits/), транзакция вызова скрипта отклоняется и комиссия не взимается.
-   
+
 * Становится невозможной оплата комиссии за транзакцию вызова скрипта за счет средств, переведенных dApp-скриптом отправителю. Если баланс отправителя недостаточен для оплаты комиссии, dApp-скрипт не выполняется.
 
 [Подробнее о валидации транзакций](/ru/blockchain/transaction/transaction-validation)
@@ -20,16 +20,16 @@
 
 В следующие методы добавлено поле `applicationStatus`:
 
-   • `/blocks/{id}`
-   • `/blocks/address/{address}/{from}/{to}`
-   • `/blocks/at/{height}`
-   • `/blocks/last`
-   • `/blocks/seq/{from}/{to}`
-   • `/debug/stateChanges/address/{address}/limit/{limit}`
-   • `/debug/stateChanges/info/{id}`
-   • `/transactions/address/{address}/limit/{limit}`
-   • `/transactions/info/{id}`
-   • `/transactions/status`
+   * `/blocks/{id}`
+   * `/blocks/address/{address}/{from}/{to}`
+   * `/blocks/at/{height}`
+   * `/blocks/last`
+   * `/blocks/seq/{from}/{to}`
+   * `/debug/stateChanges/address/{address}/limit/{limit}`
+   * `/debug/stateChanges/info/{id}`
+   * `/transactions/address/{address}/limit/{limit}`
+   * `/transactions/info/{id}`
+   * `/transactions/status`
 
 **Как воспользоваться**: пул нод Waves с публичным API доступны по адресу:
 * Mainnet: <https://nodes.wavesnodes.com/>

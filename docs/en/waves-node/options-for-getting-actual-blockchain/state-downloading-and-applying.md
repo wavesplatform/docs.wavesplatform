@@ -18,20 +18,18 @@ To download and manually deploy the latest blockchain database, complete the fol
 
 2. Run the checksum with some tool to test files (checksum of the **blockchain_last.tar** file should be the same as inside **blockchain_last.tar.SHA1SUM** file).
 
-3. Empty the existing `data` folder.
+3. Empty the existing `data` folder. By default the blockchain data is stored in `data` folder in [base application directory](/en/waves-node/node-configuration#default-application-directory).
 
    <details>
-     <summary>Linux</summary>
+     <summary>Linux console command</summary>
   
      ```sudo rm -rdf /var/lib/waves/data```.
    </details>
 
-   By default the blockchain data is stored in `data` folder in [base application directory](/en/waves-node/node-configuration#default-application-directory).
-
-4. Unpack the database files in the `data` folder.
+4. Unpack the downloaded database files (**blockchain_last.tar**) in the `data` folder.
 
    <details>
-     <summary>Linux</summary>
+     <summary>Linux console command</summary>
   
      ```tar -xvf blockchain_last.tar -C /var/lib/waves/data```
    </details>

@@ -144,7 +144,7 @@ module.exports = {
                     },
                     forum: {
                         text: 'Forum',
-                        link: 'https://forum.wavesplatform.com/',
+                        link: 'https://forum.waves.tech',
                     },
                     chat: {
                         text: 'Developer chat',
@@ -249,7 +249,7 @@ module.exports = {
                     },
                     forum: {
                         title: 'Forum',
-                        link: 'https://forum.wavesplatform.com',
+                        link: 'https://forum.waves.tech',
                     },
                 },
             },

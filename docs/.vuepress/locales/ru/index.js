@@ -156,7 +156,7 @@ module.exports = deepmerge(mixin, {
                     },
                     forum: {
                         text: 'Форум',
-                        link: 'https://forum.wavesplatform.com/',
+                        link: 'https://forum.waves.tech',
                     },
                     chat: {
                         text: 'Чат разработчиков',

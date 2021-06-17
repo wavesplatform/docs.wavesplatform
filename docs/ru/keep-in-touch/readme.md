@@ -10,4 +10,4 @@
 * [Telegram (Новости RU)](https://t.me/WavesNewsRU)
 * [Чат разработчиков в Telegram](https://t.me/waves_ride_dapps_dev)
 * [Discord](https://discord.gg/cnFmDyA)
-* [Форум](https://forum.wavesplatform.com/)
+* [Форум](https://forum.waves.tech)

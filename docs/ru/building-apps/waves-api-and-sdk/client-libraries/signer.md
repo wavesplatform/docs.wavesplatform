@@ -35,7 +35,7 @@ Signer предоставляет приложению удобный прото
 
 ### Ограничения
 
-Signer поддерживает все типы транзакций, кроме транзакций обмена.
+Signer поддерживает все типы транзакций, кроме транзакций обмена и транзакций обновления информации ассета.
 
 Signer поддерживает все браузеры, кроме Brave.
 
@@ -95,7 +95,7 @@ Signer поддерживает все браузеры, кроме Brave.
      // Укажите адрес ноды, подключенной к Testnet
      NODE_URL: 'https://nodes-testnet.wavesnodes.com'
    });
-   signer.setProvider(new Provider());
+   signer.setProvider(new Provider('https://testnet.waves.exchange/signer/'))
    ```
 
 * Для работы с Mainnet и Waves.Exchange ProviderWeb:
@@ -153,36 +153,36 @@ new Signer({
 
 * [Данные пользователя](#данные-пользователя)
 
-   • [login](#login)
-   • [logout](#logout)
-   • [getBalance](#getbalance)
-   • [getSponsoredBalances](#getsponsoredbalances)
+   * [login](#login)
+   * [logout](#logout)
+   * [getBalance](#getbalance)
+   * [getSponsoredBalances](#getsponsoredbalances)
 
 * [Создание транзакций](#создание-транзакций)
 
-   • [Общие параметры](#общие-параметры)
-   • [Как подписать и отправить транзакцию](#как-подписать-и-отправить-транзакцию)
-   • [alias](#alias)
-   • [burn](#burn)
-   • [cancelLease](#cancellease)
-   • [data](#data)
-   • [invoke](#invoke)
-   • [issue](#issue)
-   • [lease](#lease)
-   • [massTransfer](#masstransfer)
-   • [reissue](#reissue)
-   • [setAssetScript](#setassetscript)
-   • [setScript](#setscript)
-   • [sponsorship](#sponsorship)
-   • [transfer](#transfer)
-   • [batch](#batch)
+   * [Общие параметры](#общие-параметры)
+   * [Как подписать и отправить транзакцию](#как-подписать-и-отправить-транзакцию)
+   * [alias](#alias)
+   * [burn](#burn)
+   * [cancelLease](#cancellease)
+   * [data](#data)
+   * [invoke](#invoke)
+   * [issue](#issue)
+   * [lease](#lease)
+   * [massTransfer](#masstransfer)
+   * [reissue](#reissue)
+   * [setAssetScript](#setassetscript)
+   * [setScript](#setscript)
+   * [sponsorship](#sponsorship)
+   * [transfer](#transfer)
+   * [batch](#batch)
 
 * [Прочие](#методы)
 
-   • [broadcast](#broadcast)
-   • [getNetworkByte](#getnetworkbyte)
-   • [setProvider](#setprovider)
-   • [waitTxConfirm](#waittxconfirm)
+   * [broadcast](#broadcast)
+   * [getNetworkByte](#getnetworkbyte)
+   * [setProvider](#setprovider)
+   * [waitTxConfirm](#waittxconfirm)
 
 В коде можно использовать [типы TypeScript](https://github.com/wavesplatform/ts-types/blob/master/transactions/index.d.ts).
 
@@ -1106,24 +1106,24 @@ signer.waitTxConfirm(tx, 1).then((tx) => {
 interface IProvider {
 
     /**
-     • Устанавливает соединение с нодой Waves
-     • @param options
+     * Устанавливает соединение с нодой Waves
+     * @param options
      */
     connect(options: {NODE_URL: string, NETWORK_BYTE: number}): Promise<void>;
 
     /**
-     • Выполняет вход в аккаунт пользователя
+     * Выполняет вход в аккаунт пользователя
      */
     login(): Promise<{addres: string, publicKey: string}>;
 
     /**
-     • Выполняет выход из аккаунта пользователя
+     * Выполняет выход из аккаунта пользователя
      */
     logout(): Promise<void>;
 
     /**
-     • Подписывает транзакции в массиве
-     • @param list
+     * Подписывает транзакции в массиве
+     * @param list
      */
     sign(list: Array<TTransactionParamWithType>): Promise<Array<TTransactionWithProofs<TLong> & IWithId>>;
 }

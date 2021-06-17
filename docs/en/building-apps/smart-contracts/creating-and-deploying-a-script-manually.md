@@ -9,7 +9,7 @@ In this example, we're going to create and deploy a simple 2 of 2 MultiSig examp
 **Example Assumptions:**
 
 1. We assume that we have our own Waves node \(if you do not have Waves node, you can implement the example using one of [Waves Libraries](/en/building-apps/waves-api-and-sdk/client-libraries/) as shown in this [video tutorial](https://www.youtube.com/watch?v=o2msjSo0y0o&t=21s) using Waves Java Library\).
-2. We want to set up a script for a [generated](/en/waves-node/node-api/address#post-addresses) account in order to implement the **smart account **idea.
+2. We want to set up a script for a [generated](https://nodes.wavesnodes.com/api-docs/index.html#/addresses/create_1) account in order to implement the **smart account **idea.
 3. we assume that we have three generated addresses:
 
 `3MxjWXEUcVCeiaEUqNcorB5HxSpLsgJCGxE` - Alice's account.
@@ -183,6 +183,7 @@ Now, let's try to make a valid transactions with all required proofs. For exampl
 1. Alice signs this request by her private key through [POST /transactions/sign/{signerAddress}](/en/waves-node/node-api/transactions#post-transactionssignsigneraddress)
 
    • Alice address: `3MxjWXEUcVCeiaEUqNcorB5HxSpLsgJCGxE`
+
    • JSON:
 
      ```json
@@ -223,6 +224,7 @@ Now, let's try to make a valid transactions with all required proofs. For exampl
 3. Bob signs it by his private key by same method [POST /transactions/sign/{signerAddress}](/en/waves-node/node-api/transactions#post-transactionssignsigneraddress)
 
    • Signer address: `3MqGVvfgqdqqU6P9mTAsLSxyRoRjrHF18Mf`
+
    • JSON:
 
      ```json

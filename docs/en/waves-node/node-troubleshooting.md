@@ -15,8 +15,8 @@ This article describes known issues of Waves Node and their possible solutions.
    In this case the solution is to change the default values to `65536` of the following parameters in the `/etc/security/limits.conf` file:
 
    ```bash
-    • soft nofile 24000 #soft limits
-    • hard nofile 65000 #hard limits
+    * soft nofile 24000 #soft limits
+    * hard nofile 65000 #hard limits
    ```
 
    and also add the following line in the `/etc/systemd/system.conf` file:

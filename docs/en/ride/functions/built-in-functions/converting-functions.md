@@ -4,7 +4,7 @@
 | :--- | :--- | :--- |
 | [addressFromPublicKey(ByteVector): Address](#address-from-public-key)| Gets the corresponding [address](/en/blockchain/account/address) of the account public key | 82 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>63 for Standard Library **version 4** |
 | [parseInt(String): Int&#124;Unit](#parse-int) | Converts the string representation of a number to its integer equivalent | 20 for Standard Library **version 3**<br>2 for Standard Library **version 4** |
-| [parseIntValue(String): Int](#parse-int-value) | Converts the string representation of a number to its integer equivalent.<br>Raises an exception if the string cannot be parsed | 20 for Standard Library **version 3**<br>2 for Standard Library **version 4** |
+| [parseIntValue(String): Int](#parse-int-value) | Converts the string representation of a number to its integer equivalent.<br>Fails if the string cannot be parsed | 20 for Standard Library **version 3**<br>2 for Standard Library **version 4** |
 | [toBytes(Boolean): ByteVector](#tobytes-bool) | Converts a boolean value to an array of bytes | 1 |
 | [toBytes(Int): ByteVector](#tobytes-int) | Converts an integer to an array of bytes | 1 |
 | [toBytes(String): ByteVector](#tobytes-string) | Converts a string to an array of bytes | 1 for Standard Library **version 3**<br>8 for Standard Library **version 4** |
@@ -23,6 +23,8 @@ Gets the corresponding [address](/en/blockchain/account/address) of the accoun
 ```
 addressFromPublicKey(publicKey: ByteVector): Address
 ```
+
+For a description of the return value, see the [Address](/en/ride/structures/common-structures/address) article.
 
 ### Parameters
 
@@ -63,7 +65,7 @@ parseInt("10.30") # Returns Unit
 
 Converts the string representation of a number to its integer equivalent.
 
-Raises an exception if the string cannot be parsed.
+Fails if the string cannot be parsed.
 
 ```
 parseIntValue(str: String): Int
@@ -281,6 +283,8 @@ Deserializes transfer transaction: converts protobuf-encoded [binary format](/en
 ```ride
 transferTransactionFromProto(b: ByteVector): TransferTransaction|Unit
 ```
+
+For a description of the return value, see the [TransferTransaction](/en/ride/structures/transaction-structures/transfer-transaction) article.
 
 ### Parameters
 

@@ -8,7 +8,7 @@
 | [Строка](/ru/ride/data-types/string) | String |
 | [Тип данных пустого значения](/ru/ride/data-types/unit) | Unit |
 | [Список](/ru/ride/data-types/list) | List |
-| [Кортеж](/ru/ride/data-types/tuple) | Tuple |
+| [Кортеж](/ru/ride/data-types/tuple) | — |
 | [Объединение](/ru/ride/data-types/union) | — |
 | [Структура](/ru/ride/structures/) | — |
 

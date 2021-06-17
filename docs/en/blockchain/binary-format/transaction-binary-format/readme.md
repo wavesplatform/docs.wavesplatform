@@ -23,7 +23,9 @@ How to generate a transacton signature using Protobuf:
 2. Fill in the transaction fields.
 
    :warning: Please note:
+
    • Asset IDs should be specified in the binary format.
+
    • Adresses should be specified in the shortened binary format (without the first two and the last four bytes). See the [Address binary format](/en/blockchain/binary-format/address-binary-format) article.
 
 3. Serialize the transaction object to get transaction body bytes.
