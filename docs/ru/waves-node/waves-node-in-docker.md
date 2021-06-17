@@ -36,7 +36,7 @@ docker pull wavesplatform/wavesnode
 
 Перед запуском Docker-образа рекомендуем ознакомиться со статьей [Конфигурация ноды](/ru/waves-node/node-configuration).
 
-Параметры конфигурации ноды можно указать в файле конфигурации ноды или в виде JVM-параметров в команде запуска образа. Переменные среды имеют приоритет над настройками в файле конфигурации.
+Параметры конфигурации ноды можно указать в файле конфигурации ноды или при запуске образа в виде JVM-параметров. Переменные среды имеют приоритет над настройками в файле конфигурации.
 
 Пример команды запуска образа ноды с JVM-параметрами:
 
@@ -51,9 +51,7 @@ docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-con
 | WAVES_LOG_LEVEL | Уровень логирования ноды. Возможные значения: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` и `TRACE`. [Подробнее про логирование](/ru/waves-node/logging-configuration) |
 | WAVES_HEAP_SIZE | Ограничение Java Heap Size в нотации -X Command-line Options (-Xms=[ваше значение]). [Подробнее про -X Command-line Options](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html). |
 | WAVES_NETWORK | Тип сети Waves. Возможные значения: `mainnet`, `testnet` и `stagenet` |
-| JAVA_OPTS | Дополнительные параметры JVM-конфигурации ноды |
-
-Полные пути к параметрам конфигурации примеры значений можно посмотреть в файле [application.conf](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf).
+| JAVA_OPTS | Дополнительные параметры JVM-конфигурации ноды. Полные пути к параметрам конфигурации и примеры значений можно посмотреть в файле [application.conf](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf) |
 
 Файл конфигурации ноды Waves (по умолчанию) хранится в директории `/etc/waves/waves.conf`. Вы можете смонтировать данную директорию в Docker volumes. См. подробнее про Docker volumes в секции [Работы с данными](#работа-с-данными).
 

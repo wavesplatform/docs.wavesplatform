@@ -459,16 +459,6 @@ module.exports = {
           title: 'Install from Source (Building SBT)',
           path: nodePath + 'how-to-build-and-test-a-node',
         },
-        {
-          title: 'Deploy Node in Cloud',
-          path: nodePath + 'how-to-install-a-node/clouds',
-          children: [
-            {
-              title: 'Deploy Node in Yandex.Cloud',
-              path: nodePath + 'running-waves-node-in-yandex-cloud',
-            },
-          ]
-        },
       ],
     },
     {

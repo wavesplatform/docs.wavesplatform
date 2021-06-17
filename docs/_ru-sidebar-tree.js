@@ -459,16 +459,6 @@ module.exports = {
           title: 'Установить из исходников (сборка SBT)',
           path: nodePath + 'how-to-build-and-test-a-node',
         },
-        {
-          title: 'Развернуть ноду в облаке',
-          path: nodePath + 'how-to-install-a-node/clouds',
-		  children: [
-		    {
-              title: 'Развернуть ноду в Yandex.Cloud',
-              path: nodePath + 'running-waves-node-in-yandex-cloud',
-            },
-		  ]			
-        },	
       ],
     },
 	{

@@ -788,6 +788,22 @@ module.exports = [
     from: '/en/waves-full-node/how-to-install-a-node/on-ubuntu.html',
   },
   {
+    from: '/en/waves-node/how-to-install-a-node/clouds',
+    to: '/en/waves-node/how-to-install-a-node/how-to-install-a-node',
+  },
+  {
+    from: '/en/waves-node/running-waves-node-in-yandex-cloud',
+    to: '/en/waves-node/how-to-install-a-node/how-to-install-a-node',
+  },
+  {
+    from: '/ru/waves-node/how-to-install-a-node/clouds',
+    to: '/ru/waves-node/how-to-install-a-node/how-to-install-a-node',
+  },
+  {
+    from: '/ru/waves-node/running-waves-node-in-yandex-cloud',
+    to: '/ru/waves-node/how-to-install-a-node/how-to-install-a-node',
+  },
+  {
     to: '/en/waves-node/upgrading',
     from: '/en/waves-full-node/upgrading.html',
   },

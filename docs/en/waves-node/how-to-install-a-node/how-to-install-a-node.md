@@ -28,7 +28,3 @@ For details about configuration file, see [Node Configuration](/en/waves-node/no
 ### SBT Package
 
 You can install Waves node from your own DEB or JAR package. Such package can be built from Waves node source files (from Git repository) by means of SBT (Scala Build Tool). For details, see [Install from Source (Building SBT)](/en/waves-node/how-to-build-and-test-a-node) article.
-
-### Clouds
-
-You can use all of the available methods described in this guide to install Waves node on any cloud-based virtual machine that meets the [system requirements](#system-requirements). For details, see [Deploy Node in Cloud](/en/waves-node/how-to-install-a-node/clouds) article.
