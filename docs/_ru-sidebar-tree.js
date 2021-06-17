@@ -1070,7 +1070,7 @@ module.exports = {
       ]
     },
     {
-      title: '[en] Waves Smart Contracts',
+      title: 'Смарт-контракты Waves',
       path: programmingPath + 'waves-smart-contracts-overview',
       children: [
         {
