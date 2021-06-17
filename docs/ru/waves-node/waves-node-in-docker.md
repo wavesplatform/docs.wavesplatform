@@ -36,9 +36,9 @@ docker pull wavesplatform/wavesnode
 
 Перед запуском Docker-образа рекомендуем ознакомиться со статьей [Конфигурация ноды](/ru/waves-node/node-configuration).
 
-Параметры конфигурации ноды можно указать в файле конфигурации ноды или при запуске образа в виде JVM-параметров. Переменные среды имеют приоритет над настройками в файле конфигурации.
+Параметры конфигурации ноды можно указать в файле конфигурации ноды или при запуске образа в виде переменных среды. Переменные среды имеют приоритет над настройками в файле конфигурации.
 
-Пример команды запуска образа ноды с JVM-параметрами:
+Пример команды запуска образа ноды с переменными среды:
 
 ```bash
 docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-config:/etc/waves -p 6869:6869 -p 6862:6862 -e JAVA_OPTS="-Dwaves.rest-api.enable=yes -Dwaves.rest-api.bind-address=0.0.0.0 -Dwaves.wallet.password=myWalletSuperPassword" -e WAVES_NETWORK=stagenet -ti wavesplatform/wavesnode
@@ -49,15 +49,15 @@ docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-con
 | WAVES_WALLET_SEED | Seed-фраза в base58. JVM-параметр `-Dwaves.wallet.seed` |
 | WAVES_WALLET_PASSWORD | Пароль файла кошелька. JVM-параметр `-Dwaves.wallet.password` |
 | WAVES_LOG_LEVEL | Уровень логирования ноды. Возможные значения: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` и `TRACE`. [Подробнее про логирование](/ru/waves-node/logging-configuration) |
-| WAVES_HEAP_SIZE | Ограничение Java Heap Size в нотации -X Command-line Options (-Xms=[ваше значение]). [Подробнее про -X Command-line Options](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html). |
+| WAVES_HEAP_SIZE | Ограничение Java Heap Size в нотации -X Command-line Options (-Xms=[ваше значение]). [Подробнее про -X Command-line Options](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html) |
 | WAVES_NETWORK | Тип сети Waves. Возможные значения: `mainnet`, `testnet` и `stagenet` |
 | JAVA_OPTS | Дополнительные параметры JVM-конфигурации ноды. Полные пути к параметрам конфигурации и примеры значений можно посмотреть в файле [application.conf](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf) |
 
-Файл конфигурации ноды Waves (по умолчанию) хранится в директории `/etc/waves/waves.conf`. Вы можете смонтировать данную директорию в Docker volumes. См. подробнее про Docker volumes в секции [Работы с данными](#работа-с-данными).
+Файл конфигурации ноды Waves (по умолчанию) находится в директории `/etc/waves/waves.conf`. Вы можете смонтировать данную директорию в Docker volumes. См. подробнее про Docker volumes в секции [Работы с данными](#работа-с-данными).
 
 Если директория не существует, то она будет создана вместе с файлом конфигурации по умолчанию. Файл конфигурации по умолчанию будет создан в зависимости от типа сети, заданного переменной `WAVES_NETWORK`. Если значение `WAVES_NETWORK` не `mainnet`, `testnet` или `stagenet`, файл конфигурации по умолчанию не будет использован. В этом случае будет использован тип сети `CUSTOM`, для которого требуются файл конфигурации с соответствующими настройками. Если запустить образ с типом сети `CUSTOM` и система не обнаружит файл `/etc/waves/waves.conf`, то образ не запустится.
 
-По умолчанию файл `/etc/waves/waves.conf` содержит `/etc/waves/local.conf`. Вы можете использовать измененный `/etc/waves/local.conf` для переопределения настроек по умолчанию. Можно использовать измененный `/etc/waves/waves.conf` чтобы переопределить все настройки ноды.
+По умолчанию файл `/etc/waves/waves.conf` содержит `/etc/waves/local.conf`. Вы можете использовать измененный `/etc/waves/local.conf` для переопределения настроек по умолчанию. Можно использовать измененный `/etc/waves/waves.conf`, чтобы переопределить все настройки ноды.
 
 ### Работа с данными
 
