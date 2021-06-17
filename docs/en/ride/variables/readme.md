@@ -1,6 +1,6 @@
 # Variables
 
-In Ride, you can only declare a variable along with a value assignment. At the right side of the `=` sign must be an [expression](/en/ride/base-concepts/expression). The value of the variable is the expression result. 
+In Ride, you can only declare a variable along with a value assignment. The `=` sign must be followed by an expression. The value of the variable is the expression result.
 
 Ride variables are **immutable**: the value of a variable cannot be changed after it is defined.
 
@@ -41,7 +41,7 @@ let result = lazyIsGood()  # result is true
 
 `strict` keyword defines a variable with strict (eager) evaluation. Unlike lazy variables defined with `let`, a strict variable is evaluated immediately when script execution reaches it, that is, before the next expression.
 
-Strict variable can be defined only inside another definition, for example, inside the body of a function. A strict variable will not be evaluated if it is defined inside another definition that is not used: for example, inside a function that has not been called.
+Strict variable can only be defined only inside another definition, for example, inside the body of a function. A strict variable will not be evaluated if it is defined inside another definition that is not used: for example, inside a function that has not been called.
 
 Strict variables are suitable for [dApp-to-dApp invocation](/en/ride/advanced/dapp-to-dapp) as they ensure executing callable functions and applying their actions in the right order. Example:
 
