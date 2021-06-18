@@ -48,6 +48,13 @@ sudo apt update
 sudo apt install waves
 ```
 
+Файл конфигурации ноды вложен в пакет и распаковывается в папку:
+* для Mainnet: `/usr/share/waves/conf/waves.conf` с символической ссылкой на `/etc/waves/waves.conf`;
+* для Testnet: `/usr/share/waves-testnet/conf/waves.conf` с символической ссылкой на `/etc/waves-testnet/waves.conf`;
+* для Stagenet: `/usr/share/waves-stagenet/conf/waves.conf` с символической ссылкой на `/etc/waves-stagenet/waves.conf`.
+
+Укажите в файле обязательные параметры ноды. **Будьте внимательны: от конфигурации ноды зависит безопасность вашего кошелька и средств.** Подробная информация приведена в статье [Конфигурация ноды](/ru/waves-node/node-configuration).
+
 Запустите ноду с помощью следующей команды (`waves-testnet` для Testnet):
 
 ```bash
@@ -75,7 +82,12 @@ sudo apt upgrade
 sudo dpkg -i waves*.deb
 ```
 
-Файл конфигурации ноды вложен в архив `.deb` и распаковывается в папку `/usr/share/waves/conf/waves.conf` (или `waves-testnet` для Testnet) с символической ссылкой на `/etc/waves/waves.conf`. Редактируйте файл с особой осторожностью. Подробнее в статье [Конфигурация ноды](/ru/waves-node/node-configuration).
+Файл конфигурации ноды вложен в пакет и распаковывается в папку:
+* для Mainnet: `/usr/share/waves/conf/waves.conf` с символической ссылкой на `/etc/waves/waves.conf`;
+* для Testnet: `/usr/share/waves-testnet/conf/waves.conf` с символической ссылкой на `/etc/waves-testnet/waves.conf`;
+* для Stagenet: `/usr/share/waves-stagenet/conf/waves.conf` с символической ссылкой на `/etc/waves-stagenet/waves.conf`.
+
+Укажите в файле обязательные параметры ноды. **Будьте внимательны: от конфигурации зависит безопасность вашего кошелька и средств.** Подробная информация приведена в статье [Конфигурация ноды](/ru/waves-node/node-configuration).
 
 Запустите ноду с помощью следующей команды (`waves-testnet` для Testnet):
 
