@@ -60,7 +60,7 @@ You can override parameters specified in the node configuration file by running 
 | WAVES_WALLET_PASSWORD | Password for the wallet file. Overrides `-Dwaves.wallet.password` JVM config parameter. |
 | WAVES_LOG_LEVEL | Node logging level. Available values: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` and `TRACE`. [Read more about logging](/en/waves-node/logging-configuration). |
 | WAVES_HEAP_SIZE | Default Java Heap Size limit in -X Command-line Options notation (-Xms=[your value]). [Read more about -X Command-line Options](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html). |
-| WAVES_NETWORK | Waves Blockchain network. The available values are `mainnet`, `testnet` and **stagenet**. |
+| WAVES_NETWORK | Waves Blockchain network. The available values are `mainnet`, `testnet` and `stagenet`. |
 | JAVA_OPTS | Additional Waves Node JVM configuration parameters. |
 
 ### Managing Data

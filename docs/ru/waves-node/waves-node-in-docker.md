@@ -40,20 +40,20 @@ docker pull wavesplatform/wavesnode
 
 Пример команды запуска образа ноды с переменными среды:
 
-```bash
-docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-config:/etc/waves -p 6869:6869 -p 6862:6862 -e JAVA_OPTS="-Dwaves.rest-api.enable=yes -Dwaves.rest-api.bind-address=0.0.0.0 -Dwaves.wallet.password=myWalletSuperPassword" -e WAVES_NETWORK=stagenet -ti wavesplatform/wavesnode
-```
+<pre><code style="word-break: break-word; white-space: pre-wrap !important;">
+docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-config:/etc/waves -p 6870:6870 -p 6868:6868 -e JAVA_OPTS="-Dwaves.network.declared-address=0.0.0.0:6868 -Dwaves.network.node-name=-my-testnet-node -Dwaves.rest-api.api-key-hash=6nSftY1F5kurz23yLrT1r9YJpiEveBLEa9RB1SCChiqv -Dwaves.rest-api.bind-address=0.0.0.0 -Dwaves.rest-api.port=6870" -e WAVES_WALLET_SEED="TBXHUUcVx2n3Rgszpu5MCybRaR86JGmqCWp7XKh7czU57ox5dgjdX4K4" -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -e WAVES_NETWORK=testnet -ti wavesplatform/wavesnode
+</code></pre>
 
 | Переменная среды | Описание |
 |----------------------|-------------------------------------------------|
-| WAVES_WALLET_SEED | Seed-фраза в base58. JVM-параметр `-Dwaves.wallet.seed` |
-| WAVES_WALLET_PASSWORD | Пароль файла кошелька. JVM-параметр `-Dwaves.wallet.password` |
+| WAVES_WALLET_SEED | Seed-фраза в base58. Переопределяет JVM-параметр `-Dwaves.wallet.seed` |
+| WAVES_WALLET_PASSWORD | Пароль файла кошелька. Переопределяет JVM-параметр `-Dwaves.wallet.password` |
 | WAVES_LOG_LEVEL | Уровень логирования ноды. Возможные значения: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` и `TRACE`. [Подробнее про логирование](/ru/waves-node/logging-configuration) |
 | WAVES_HEAP_SIZE | Ограничение Java Heap Size в нотации -X Command-line Options (-Xms=[ваше значение]). [Подробнее про -X Command-line Options](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html) |
 | WAVES_NETWORK | Тип сети Waves. Возможные значения: `mainnet`, `testnet` и `stagenet` |
 | JAVA_OPTS | Дополнительные параметры JVM-конфигурации ноды. Полные пути к параметрам конфигурации и примеры значений можно посмотреть в файле [application.conf](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf) |
 
-Файл конфигурации ноды Waves (по умолчанию) находится в директории `/etc/waves/waves.conf`. Вы можете смонтировать данную директорию в Docker volumes. См. подробнее про Docker volumes в секции [Работы с данными](#работа-с-данными).
+Файл конфигурации ноды Waves (по умолчанию) находится в директории `/etc/waves/waves.conf`. Вы можете смонтировать данную директорию в Docker volumes. См. подробнее про Docker volumes в секции [Работа с данными](#работа-с-данными).
 
 Если директория не существует, то она будет создана вместе с файлом конфигурации по умолчанию. Файл конфигурации по умолчанию будет создан в зависимости от типа сети, заданного переменной `WAVES_NETWORK`. Если значение `WAVES_NETWORK` не `mainnet`, `testnet` или `stagenet`, файл конфигурации по умолчанию не будет использован. В этом случае будет использован тип сети `CUSTOM`, для которого требуются файл конфигурации с соответствующими настройками. Если запустить образ с типом сети `CUSTOM` и система не обнаружит файл `/etc/waves/waves.conf`, то образ не запустится.
 
@@ -103,9 +103,9 @@ docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-con
 
 * Добавьте соответствующие аргументы в команду `docker run`, как в следующем примере:
 
-   ```bash
+   <pre><code style="word-break: break-word; white-space: pre-wrap !important;">
    docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-config:/etc/waves -e WAVES_NETWORK=stagenet -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti wavesplatform/wavesnode
-   ```
+   </code></pre>
 
 ### Состояние блокчейна
 
@@ -123,13 +123,13 @@ docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-con
 
 **Пример команд для загрузки файлов состояние блокчейна и запуска образа**:
 
-```bash
+<pre><code style="word-break: break-word; white-space: pre-wrap !important;">
 mkdir -p /docker/waves/waves-data
 
 wget -qO- http://blockchain-stagenet.wavesnodes.com/blockchain_last.tar --show-progress | tar -xvf - -C /docker/waves/waves-data
  
 docker run -v /docker/waves/waves-data:/var/lib/waves -e WAVES_NETWORK=stagenet -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti wavesplatform/wavesnode
-```
+</code></pre>
 
 ### Сетевые порты
 
@@ -141,9 +141,9 @@ docker run -v /docker/waves/waves-data:/var/lib/waves -e WAVES_NETWORK=stagenet 
 * Порт соединения ноды включен и задан на socket `0.0.0.0:6868`
 * Порты `6868` и `6870` заданы от хоста до контейнера
 
-```bash
+<pre><code style="word-break: break-word; white-space: pre-wrap !important;">
 docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-config:/etc/waves -p 6870:6870 -p 6868:6868 -e JAVA_OPTS="-Dwaves.network.declared-address=0.0.0.0:6868 -Dwaves.rest-api.port=6870 -Dwaves.rest-api.bind-address=0.0.0.0 -Dwaves.rest-api.enable=yes" -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti  wavesplatform/wavesnode
-```
+</code></pre>
 
 **Примечание**: По умолчанию REST API использует порт 6869. Сетевой порт по умолчанию зависит от типа сети (MAINNET - 6868, STAGENET - 6862, TESTNET/custom - 6863).
 
@@ -163,6 +163,6 @@ docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-con
 
 3. Запустите образ с помощью команды:
 
-   ```bash
+   <pre><code style="word-break: break-word; white-space: pre-wrap !important;">
    docker run -v "$(pwd)/plugins:/usr/share/waves/lib/plugins" -v "$(pwd)/local.conf:/etc/waves/local.conf" -i wavesplatform/wavesnode
-   ```
+   </code></pre>
