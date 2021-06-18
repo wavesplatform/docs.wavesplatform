@@ -40,7 +40,7 @@ docker pull wavesplatform/wavesnode
 
 Пример команды запуска образа ноды с переменными среды:
 
-<pre><code style="word-break: break-word; white-space: pre-wrap !important; background-color rgba(27,31,35,0.05); border-radius 3px">
+<pre style="line-height 1.4; padding 1.25rem 1.5rem; margin 0.85rem 0; border-radius 6px"><code style="word-break: break-word; white-space: pre-wrap !important; padding 0.25rem 0.5rem; margin 0; font-size 0.85em; background-color rgba(27,31,35,0.05); border-radius 3px">
 docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-config:/etc/waves -p 6870:6870 -p 6868:6868 -e JAVA_OPTS="-Dwaves.network.declared-address=0.0.0.0:6868 -Dwaves.network.node-name=-my-testnet-node -Dwaves.rest-api.api-key-hash=6nSftY1F5kurz23yLrT1r9YJpiEveBLEa9RB1SCChiqv -Dwaves.rest-api.bind-address=0.0.0.0 -Dwaves.rest-api.port=6870" -e WAVES_WALLET_SEED="TBXHUUcVx2n3Rgszpu5MCybRaR86JGmqCWp7XKh7czU57ox5dgjdX4K4" -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -e WAVES_NETWORK=testnet -ti wavesplatform/wavesnode
 </code></pre>
 
@@ -103,8 +103,7 @@ docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-con
 
 * Добавьте соответствующие аргументы в команду `docker run`, как в следующем примере:
 
-   <pre><code style="word-break: break-word; white-space: pre-wrap !important; background-color rgba(27,31,35,0.05); border-radius 3px">
-   docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-config:/etc/waves -e WAVES_NETWORK=stagenet -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti wavesplatform/wavesnode
+   <pre><code style="word-break: break-word; white-space: pre-wrap !important; background-color rgba(27,31,35,0.05); border-radius 3px">   docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-config:/etc/waves -e WAVES_NETWORK=stagenet -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti wavesplatform/wavesnode
    </code></pre>
 
 ### Состояние блокчейна
