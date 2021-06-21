@@ -144,7 +144,7 @@ docker run -v /docker/waves/waves-data:/var/lib/waves -e WAVES_NETWORK=stagenet 
 docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-config:/etc/waves -p 6870:6870 -p 6868:6868 -e JAVA_OPTS="-Dwaves.network.declared-address=0.0.0.0:6868 -Dwaves.rest-api.port=6870 -Dwaves.rest-api.bind-address=0.0.0.0 -Dwaves.rest-api.enable=yes" -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti  wavesplatform/wavesnode
 </code></pre>
 
-**Примечание**: По умолчанию REST API использует порт 6869. Сетевой порт по умолчанию зависит от типа сети (MAINNET - 6868, STAGENET - 6862, TESTNET/custom - 6863).
+**Примечание**: По умолчанию для подключения других нод используется порт 6868, для REST API — порт 6869.
 
 Для проверки работоспособности REST API, перейдите по следующей ссылке со стороны хоста: http://localhost:6870/api-docs/index.html
 

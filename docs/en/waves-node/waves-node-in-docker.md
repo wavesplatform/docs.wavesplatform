@@ -149,7 +149,7 @@ Node REST API parameters can be specified in [REST API section](/en/waves-node/n
 docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-config:/etc/waves -p 6870:6870 -p 6868:6868 -e JAVA_OPTS="-Dwaves.network.declared-address=0.0.0.0:6868 -Dwaves.rest-api.port=6870 -Dwaves.rest-api.bind-address=0.0.0.0 -Dwaves.rest-api.enable=yes" -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti  wavesplatform/wavesnode
 ```
 
-**Note**: By default the REST API port is 6869. The default network port depends on the type of network (MAINNET - 6868, STAGENET - 6862, TESTNET/custom - 6863).
+**Note**: By default, port 6868 is used to connect peers, and port 6869 is used for the REST API.
 
 To check that the REST API is up, navigate to the following URL from the host side: http://localhost:6870/api-docs/index.html
 
