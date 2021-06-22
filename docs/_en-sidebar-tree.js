@@ -1045,6 +1045,16 @@ module.exports = {
       ],
     },
     {
+      title: 'dApp',
+      path: programmingPath + 'what-is-a-dapp',
+      children: [
+        {
+          title: 'Creating & Launching dApp',
+          path: programmingPath + 'writing-dapps',
+        },
+      ],
+    },
+    {
       title: 'Smart Account',
       path: programmingPath + 'what-is-smart-account',
       children: [
@@ -1095,16 +1105,6 @@ module.exports = {
         {
           title: 'What is a Smart Asset',
           path: programmingPath + 'what-is-smart-asset',
-        },
-      ],
-    },
-    {
-      title: 'dApp',
-      path: programmingPath + 'what-is-a-dapp',
-      children: [
-        {
-          title: 'Creating & Launching dApp',
-          path: programmingPath + 'writing-dapps',
         },
       ],
     },

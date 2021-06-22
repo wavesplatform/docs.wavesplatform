@@ -153,3 +153,7 @@ dApp может использовать данные блокчейна:
 * На Github в репозитории [ride-examples](https://github.com/wavesplatform/ride-examples/blob/master/welcome.md).
 
 Руководство по созданию dApp приведено в разделе [Создание и запуск dApp](/ru/building-apps/smart-contracts/writing-dapps).
+
+## Статьи о dApp
+
+* 
