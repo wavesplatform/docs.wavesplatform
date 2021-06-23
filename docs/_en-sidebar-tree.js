@@ -548,6 +548,10 @@ module.exports = {
           path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
         },
         {
+          title: 'Slow Requests',
+          path: nodePath + 'node-api/slow-requests',
+        },
+        {
           title: 'Response Codes and Errors',
           path: nodePath + 'node-api/response',
         },

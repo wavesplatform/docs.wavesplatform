@@ -1,5 +1,9 @@
 # Documentation Updates
 
+## June
+
+* [Slow requests](/en/waves-node/node-api/slow-requests)
+
 ## May
 
 * [Change Asset Name and Description](/en/building-apps/how-to/assets/issue#change-asset-name-and-description)
