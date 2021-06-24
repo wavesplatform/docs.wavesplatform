@@ -2,6 +2,8 @@
 
 A dApp callable function can invoke a callable function of another dApp, or another callable function of the same dApp, or even itself. The invocation is synchronous. The invoked function returns a value that the invoking function can use.
 
+> dApp-to-dApp invocations are enabled by feature #16 “Ride V5, dApp-to-dApp invocations”.
+
 dApp-to-dApp invocation is processed as follows:
 
 1. A user sends an Invoke Script transaction that invokes the callable function 1.

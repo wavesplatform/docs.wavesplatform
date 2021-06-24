@@ -1341,7 +1341,7 @@ module.exports = {
           path: buildingAppsPath + 'how-to/basic/transaction',
         },
         {
-          title: 'Выпуск токена',
+          title: 'Токенизация',
           path: buildingAppsPath + 'how-to/assets/issue',
         },
         {

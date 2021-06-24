@@ -6,7 +6,7 @@ sidebarDepth: 3
 
 **Blockchain Updates** is a [node extension](/en/waves-node/extensions/) that sends blockchain updates via [gRPC](https://en.wikipedia.org/wiki/GRPC).
 
->This article is intended for **Blockchain Updates** version **1.2.20** or higher.
+>This article is intended for **Blockchain Updates** version **1.2.20** or later. Please note that this Blockchain Updates extension version is incompatible with the previous versions (consumers working with previous extension versions will not be able to connect to this version). See [Upgrading from Previous Versions](#upgrading-from-previous-versions) below.
 
 Blockchain Updates enables tracking changes made by each transaction and block:
 
@@ -25,13 +25,21 @@ Examples of usage:
 
 ## Hardware Requirements
 
-For a node with the Blockchain Updates extension, we recommended to increase the disk space by 50 GB (for instance, at height 2422450, 35 GB is used for extension data).
+For a node with the Blockchain Updates extension, we recommended to increase the disk space by 40 GB (for instance, 32.5 GB is used for extension data at height 2595114).
 
 ## Launch Node with Extension
 
-:warning: **Important:** Blockchain Updates requires the history of changes since the blockchain creation. Therefore, you can either start the node with the extension from scratch and synchronize the blockchain during regular node operation (see the [Synchronize Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article) or import the blockchain from a binary file (see the [Import/Export Blockchain](/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain) article). This can take 1–3 days. Downloading the latest blockchain database is not applicable.
-
 There are two ways to install the node with Blockchain Updates extension: using a DEB package or a JAR file. The Blockchain Updates extension is in the same package and archive as [gRPC Server](/en/waves-node/extensions/grpc-server/). You can install these extensions both together and separately, only the settings in the node configuration file differ.
+
+:warning: **Important:** If you already have a working node, it's not enough to just install the extension. It is required to get the up-to-date blockchain database with the history of changes:
+
+1. Delete the database files: they are located in the directory specified in the [waves.db.directory](/en/waves-node/node-configuration#db-settings) setting (by default, in the `data` subdirectory of the base directory of the node).
+2. Install the extension via the DEB package or JAR file and enable the extension in the node settings as described below.
+3. Download or import the blockchain in one of the following ways:
+
+   * Start the node with the extension from scratch and synchronize the blockchain during regular node operation (see the [Synchronize Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article).
+   * Import the blockchain from a binary file (see the [Import/Export Blockchain](/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain) article).
+   * Download the database archives `blockchain_last.tar` and `blockchain-updates_last.tar` (see the [Download the Latest Blockchain](/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying) article). Unpack the `blockchain_last.tar` archive in the directory specified in the [waves.db.directory](/en/waves-node/node-configuration#db-settings) setting (by default, the `data` subdirectory of the base directory of the node). Unpack the `blockchain-updates_last.tar` archive in the `blockchain-updates` subdirectory of the base directory.
 
 ### Installation via DEB Package
 
@@ -1323,3 +1331,19 @@ Unlike in transactions, account addresses in `TransactionMetadata` are given in 
 | Name | Type | Description |
 | :--- | :--- | :--- |
 | recipient_address | bytes | Recipient's address |
+
+## Upgrading from Previous Versions
+
+If you used previous version of Blockchain Updates from and want to upgrade to version 1.2.20 or later:
+
+1. Re-build the history of changes:
+
+   1.1. Delete the database files: they are located in the directory specified in the [waves.db.directory](/en/waves-node/node-configuration#db-settings) setting (by default, in the `data` subdirectory of the base directory of the node).
+
+   1.2. Delete the extension files: they are located in the `blockchain-updates` subdirectory of the base directory of the node.
+
+   1.3. Download or import the blockchain again in one of the ways listed in section [Launch Node with Extension](#launch-node-with-extension)) above.
+
+2. Download the updated protobuf schemes and re-generate client stubs, see [Client Generation](#client-generation) above. Migrate your code to the new stubs.
+
+After upgrading to the current version, you can start using the fields added in it. See [Release Notes 1.2.20](https://github.com/wavesplatform/Waves/releases/tag/v1.2.20) for a description of the new features. Most of the fields of the previous version are not changed.
