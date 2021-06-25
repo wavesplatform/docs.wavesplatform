@@ -13,11 +13,11 @@ sidebarDepth: 3
 * `false` — транзакция отклонена,
 * ошибка — транзакция отклонена.
 
-Если скрипт ассета отклонил транзакцию, она либо не попадет на блокчейн вовсе, либо будет сохранена как неуспешная.
+Если скрипт ассета отклонил транзакцию, она будет либо отброшена, либо сохранена на блокчейне как неуспешная. В случае сохранения неуспешной транзакции с отправителя взимается комиссия, и больше никаких изменений на блокчейне не происходит.
 
 С помощью оператора [match ... case](/ru/ride/operators/match-case) можно настроить разные условия в зависимости от типа транзакции.
 
-Скрипт ассета может использовать данные блокчейна: текущую высоту, балансы аккаунтов, записи в хранилищах данных аккаунтов, параметры самого ассета и других токенов. Скрипту также доступны поля текущей верифицируемой транзакции, за исключением [подтверждений](/ru/blockchain/transaction/transaction-proof) (`proofs`).
+Скрипт ассета может использовать данные блокчейна: текущую высоту, балансы аккаунтов, записи в хранилищах данных аккаунтов, параметры самого ассета и других токенов. Скрипту также доступны поля текущей транзакции, за исключением [подтверждений](/ru/blockchain/transaction/transaction-proof) (`proofs`).
 
 [Подробнее о формате и особенностях скрипта ассета](/ru/ride/script/script-types/asset-script)
 
@@ -28,6 +28,10 @@ sidebarDepth: 3
 Транзакции со смарт-ассетом могут быть запрещены до (или после) момента, когда [блокчейн](/ru/blockchain/blockchain/) наберет определенную [высоту](/ru/blockchain/glossary#blockchain-height).
 
 ```scala
+{-# STDLIB_VERSION 5 #-}
+{-# CONTENT_TYPE EXPRESSION #-}
+{-# SCRIPT_TYPE ASSET #-}
+
 let targetHeight = 100500
 height >= targetHeight
 ```
@@ -37,6 +41,10 @@ height >= targetHeight
 Для смарт-ассета в примере запрещена транзакция сжигания токена.
 
 ```scala
+{-# STDLIB_VERSION 5 #-}
+{-# CONTENT_TYPE EXPRESSION #-}
+{-# SCRIPT_TYPE ASSET #-}
+
 match tx {
   case t : BurnTransaction => false
    case _ => true
@@ -45,13 +53,17 @@ match tx {
 
 ### Комиссия в спонсорском ассете
 
-Следующий скрипт разрешает [транзакцию перевода](/ru/blockchain/transaction-type/transfer-transaction) смарт-ассета, только если комиссия за перевод указана в спонсорском ассете `R9yNZwP1VkUksacNjtLqua6CePGGX9dYwBEj2TyjYkv`. Аналогичное условие действует для [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction), если она содержит платеж в смарт-ассете.
+Следующий скрипт разрешает [транзакцию перевода](/ru/blockchain/transaction-type/transfer-transaction) смарт-ассета, только если комиссия за перевод указана в спонсорском ассете `R9yNZwP1VkUksacNjtLqua6CePGGX9dYwBEj2TyjYkv`. Аналогичное условие действует для [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction), к которой приложен платеж в смарт-ассете.
 
 Комиссия в спонсорском ассете означает, что спонсор получает сумму комиссии в спонсорском ассете со счета отправителя транзакции, а со счета спонсора списывается эквивалентное количество WAVES в пользу генераторов блоков. Спонсор может продавать спонсорский ассет пользователям по более высокой цене и таким образом получать прибыль. [Подробнее о спонсировании](/ru/blockchain/waves-protocol/sponsored-fee)
 
 Скрипт ассета также запрещает [транзакции массового перевода](/ru/blockchain/transaction-type/mass-transfer-transaction), поскольку для них комиссия в спонсорском ассете не предусмотрена.
 
 ```scala
+{-# STDLIB_VERSION 5 #-}
+{-# CONTENT_TYPE EXPRESSION #-}
+{-# SCRIPT_TYPE ASSET #-}
+
 match tx {
    case t : TransferTransaction|InvokeScriptTransaction =>
       t.feeAssetId == base58'R9yNZwP1VkUksacNjtLqua6CePGGX9dYwBEj2TyjYkv'
@@ -64,13 +76,17 @@ match tx {
 
 Перевод смарт-ассета может быть запрещен на указанные [адреса](/ru/blockchain/account/address) или, наоборот, разрешен только на указанные адреса.
 
-В этом скрипте список разрешенных адресов хранится на аккаунте `3P6ms9EotRX8JwSrebeTXYVnzpsGCrKWLv4`: ключ записи — разрешенный адрес, значение — `true`.
+В этом скрипте список разрешенных адресов хранится на аккаунте `3MsuUWABLwFDU4FY5n1zHqbDYnPUspJHeuF` в следующем формате: ключ записи — разрешенный адрес, значение — `true`.
 
 ```scala
+{-# STDLIB_VERSION 5 #-}
+{-# CONTENT_TYPE EXPRESSION #-}
+{-# SCRIPT_TYPE ASSET #-}
+
 match tx {
    case t : TransferTransaction =>
       let allowlist = Address(base58'3MsuUWABLwFDU4FY5n1zHqbDYnPUspJHeuF')
-      #убеждаемся, что в стейте эмитента содержится ID текущей транзакции
+      #убеждаемся, что адрес есть в списке разрешенных
       getBooleanValue(allowlist,toBase58String(addressFromRecipient(t.recipient).bytes))
    case _ => false
 }
@@ -85,6 +101,10 @@ match tx {
 Смарт-ассет с приведенным ниже скриптом можно покупать только за BTC.
 
 ```scala
+{-# STDLIB_VERSION 5 #-}
+{-# CONTENT_TYPE EXPRESSION #-}
+{-# SCRIPT_TYPE ASSET #-}
+
 let BTCId = base58'8LQW8f7P5d5PZM7GtZEBgaqRPGSzS3DfPuiXrURJ4AJS'
 match tx {
    case e : ExchangeTransaction =>
@@ -95,9 +115,17 @@ match tx {
 
 ### Покупка по заданной цене
 
-В скрипте смарт-ассета можно задать разрешение на обмен только по цене, зафиксированной в хранилище данных оракула.
+В скрипте ассета можно задать разрешение на обмен только по цене, указанной в [оракуле](/ru/blockchain/oracle).
+
+В примере ниже оракулом служит аккаунт `3MqBeuDhyc9Zr5MM54CtYm7PivApGEYrEDB`. Его хранилище данных содержит цены в формате: в ключ записи — ID токена, значение — цена токена в WAVES. 
+
+ID смарт-ассета можно получить через встроенную переменную `this`. В скрипте ассета переменная `this` содержит структуру [Asset](/ru/ride/structures/common-structures/asset) с параметрами ассета, к которому этот скрипт прикреплен.
 
 ```scala
+{-# STDLIB_VERSION 5 #-}
+{-# CONTENT_TYPE EXPRESSION #-}
+{-# SCRIPT_TYPE ASSET #-}
+
 let oracle = Address(base58'3MqBeuDhyc9Zr5MM54CtYm7PivApGEYrEDB')
 
 match tx {
@@ -105,7 +133,7 @@ match tx {
   case t: TransferTransaction | MassTransferTransaction | InvokeScriptTransaction =>
     false
   case e: ExchangeTransaction =>
-    # Проверка, что цена обмена равна цене, указанной в оракуле для этого ассета
+    # Проверка, что цена обмена равна цене, указанной в оракуле
     let correctPrice = e.price == getIntegerValue(oracle, toBase58String(this.id))
     # Проверка, что смарт-ассет обменивается на WAVES
     # Если ID ассета не определен, значит, это WAVES
@@ -114,9 +142,6 @@ match tx {
   case _ => true
 }
 ```
-
-В скрипте ассета встроенная `this` содержит структуру [Asset](/ru/ride/structures/common-structures/asset) с параметрами ассета, к которому этот скрипт прикреплен.
-
 
 ## Создание смарт-ассета
 
@@ -135,6 +160,10 @@ match tx {
 Например, следующий скрипт запрещает все типы транзакций, кроме транзакций перевода, в том числе и транзакцию установки скрипта ассета, поэтому изменить такой скрипт невозможно.
 
 ```scala
+{-# STDLIB_VERSION 5 #-}
+{-# CONTENT_TYPE EXPRESSION #-}
+{-# SCRIPT_TYPE ASSET #-}
+
 match tx {
   case t : TransferTransaction => true
   case _ => false
