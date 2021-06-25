@@ -4,14 +4,6 @@
 
 ## Конструктор
 
-В Стандартной библиотеке **версии 3**:
-
-``` ride
-IssueTransaction(quantity: Int, name: ByteVector, description: ByteVector, reissuable: Boolean, decimals: Int, script: ByteVector|Unit, id: ByteVector, fee: Int, timestamp: Int, version: Int, sender: Address, senderPublicKey: ByteVector, bodyBytes: ByteVector, proofs: List[ByteVector])
-```
-
-В Стандартной библиотеке **версии 4**:
-
 ``` ride
 IssueTransaction(quantity: Int, name: String, description: String, reissuable: Boolean, decimals: Int, script: ByteVector|Unit, id: ByteVector, fee: Int, timestamp: Int, version: Int, sender: Address, senderPublicKey: ByteVector, bodyBytes: ByteVector, proofs: List[ByteVector])
 ```
@@ -21,8 +13,8 @@ IssueTransaction(quantity: Int, name: String, description: String, reissuable: B
 | # | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
 | 1 | quantity | [Int](/ru/ride/data-types/int) | Количество [токена](/ru/blockchain/token/) |
-| 2 | name | В версии 3: [ByteVector](/ru/ride/data-types/byte-vector)<br>В версии 4: [String](/ru/ride/data-types/string) | Название токена |
-| 3 | description | В версии 3: [ByteVector](/ru/ride/data-types/byte-vector)<br>В версии 4: [String](/ru/ride/data-types/string) | Описание токена |
+| 2 | name | [String](/ru/ride/data-types/string) | Название токена |
+| 3 | description | [String](/ru/ride/data-types/string) | Описание токена |
 | 4 | reissuable | [Boolean](/ru/ride/data-types/boolean) | Флаг возможности довыпуска токена |
 | 5 | decimals | [Int](/ru/ride/data-types/int) | Число знаков после запятой |
 | 6 | script | [ByteVector](/ru/ride/data-types/byte-vector)&#124;[Unit](/ru/ride/data-types/unit) | [Скрипт ассета](/ru/ride/script/script-types/asset-script) |

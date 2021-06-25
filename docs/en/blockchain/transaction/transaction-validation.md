@@ -2,10 +2,6 @@
 
 Waves nodes validate each transaction. Depending on the validation result the transaction can be saved on the blockchain or rejected.
 
-Since node version 1.2.4, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions” the transaction validation procedure is changed.
-
-> :warning: After activation of the feature #15, the fee for the Invoke Script transaction cannot be funded by transfer from the dApp to the transaction sender. If sender's balance is insufficient to pay the fee, dApp script is not executed.
-
 The following checks are performed:
 
 1. Transaction fields check including:
@@ -54,6 +50,8 @@ For the other transaction:
 
 <br/>
 <details><summary> <b>Before Activation of Feature #15</b></summary>
+
+Before activation of the feature #15 "Ride V4, VRF, Protobuf, Failed transactions", there was a different procedure for transaction validation. In particular, the fee for the Invoke Script transaction could be funded by transfer from the dApp to the transaction sender.
 
 ![](./_assets/tx-validaton.png)
 

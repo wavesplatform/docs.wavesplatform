@@ -77,7 +77,7 @@ my_address.issueAsset(
 
 ### С помощью dApp
 
-В Стандартной библиотеке начиная с версии 4 вызываемая функция может выпустить токен. Подробнее см. разделы [Вызываемая функция](/ru/ride/functions/callable-function) и [Issue](/ru/ride/structures/script-actions/issue) главы [Ride](/ru/ride/).
+Вызываемая функция dApp-скрипта может выпустить токен. Подробнее см. разделы [Вызываемая функция](/ru/ride/functions/callable-function) и [Issue](/ru/ride/structures/script-actions/issue) главы [Ride](/ru/ride/).
 
 В следующем примере функция `myToken` выпускает токен со следующими параметрами:
 
@@ -86,14 +86,16 @@ my_address.issueAsset(
 * возможен довыпуск токена.
 
 ```ride
-{-# STDLIB_VERSION 4 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
   
 @Callable(i)
-func myToken() = [
-  Issue("S_" + take(toBase58String(i.caller.bytes),6), "", 100000, 2, true)
-]
+func myToken() = ([
+    Issue("S_" + take(toBase58String(i.caller.bytes),6), "", 100000, 2, true)
+  ],
+  unit
+)
 ```
 
 :warning: Минимальная комиссия за транзакцию вызова скрипта увеличивается на 1 WAVES за каждый токен, выпускаемый вызываемой функцией.

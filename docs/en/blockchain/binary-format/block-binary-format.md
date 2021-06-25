@@ -8,7 +8,7 @@ Blocks are stored on the blockchain in a binary format (byte representation). [N
 
 Binary format of block version 5 is defined in [block.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/block.proto) protobuf scheme. For more information about protobuf see [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=ru).
 
-Version 5 is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+Version 5 is enabled by feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ```protobuf
 message Block {

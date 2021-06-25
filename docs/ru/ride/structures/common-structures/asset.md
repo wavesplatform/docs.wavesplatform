@@ -4,14 +4,6 @@
 
 ## Конструктор
 
-В [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 3**:
-
-``` ride
-Asset(id: ByteVector, quantity: Int, decimals: Int, issuer: Address, issuerPublicKey: ByteVector, reissuable: Boolean, scripted: Boolean, sponsored: Boolean)
-```
-
-В Стандартной библиотеке **версии 4**:
-
 ``` ride
 Asset(id: ByteVector, quantity: Int, decimals: Int, issuer: Address, issuerPublicKey: ByteVector, reissuable: Boolean, scripted: Boolean, minSponsoredFee: Int|Unit, name: String, description: String)
 ```
@@ -27,7 +19,16 @@ Asset(id: ByteVector, quantity: Int, decimals: Int, issuer: Address, issuerPubli
 | 5 | issuerPublicKey | [ByteVector](/ru/ride/data-types/byte-vector) | Открытый ключ аккаунта, выпустившего токен |
 | 6 | reissuable | [Boolean](/ru/ride/data-types/boolean) | true — токен можно довыпускать, false — нельзя довыпускать |
 | 7 | scripted | [Boolean](/ru/ride/data-types/boolean) | true — [смарт-ассет](/ru/blockchain/token/smart-asset), false — обычный токен |
-| 8 | sponsored | [Boolean](/ru/ride/data-types/boolean) | true — спонсирование включено, false — спонсирование отключено.<br>:warning: Поле удалено в Стандартной библиотеке версии 4 |
-| 9 | minSponsoredFee | [Int](/ru/ride/data-types/int)&#124;[Unit](/ru/ride/data-types/unit) | Количество спонсорского ассета, эквивалентное 0,001 WAVES (100&nbsp;000 WAVELET), в минимальных единицах («копейках») ассета. См. раздел [Спонсирование комиссии](/ru/blockchain/waves-protocol/sponsored-fee).<br>`unit` — спонсирование отключено.<br>Поле добавлено в Стандартной библиотеке версии 4 |
-| 10 | name | [String](/ru/ride/data-types/string) | Название токена, до 16 символов<br>Поле добавлено в Стандартной библиотеке версии 4 |
-| 11 | description | [String](/ru/ride/data-types/string) | Описание токена, до 1000 символов<br>Поле добавлено в Стандартной библиотеке версии 4 |
+| 9 | minSponsoredFee | [Int](/ru/ride/data-types/int)&#124;[Unit](/ru/ride/data-types/unit) | Количество спонсорского ассета, эквивалентное 0,001 WAVES (100&nbsp;000 WAVELET), в минимальных единицах («копейках») ассета. См. раздел [Спонсирование комиссии](/ru/blockchain/waves-protocol/sponsored-fee).<br>`unit` — спонсирование отключено. |
+| 10 | name | [String](/ru/ride/data-types/string) | Название токена, до 16 символов |
+| 11 | description | [String](/ru/ride/data-types/string) | Описание токена, до 1000 символов |
+
+## Пример
+
+Получение баланса аккаунта в ассете:
+
+```scala
+let address=base58'3Mw48B85LvkBUhhDDmUvLhF9koAzfsPekDb'
+let assetId=base58'GpxmxorKXLz1V7xootrvGyFgqP2tTTBib5HEm8QGZTHX'
+assetBalance(Address(address), assetId)
+```

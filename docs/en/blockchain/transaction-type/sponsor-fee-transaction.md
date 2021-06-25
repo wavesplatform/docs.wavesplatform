@@ -8,14 +8,9 @@ Smart asset cannot be a sponsored asset.
 
 ## Transaction Fee
 
-The minimum fee for the Sponsor Fee transaction is:
+The minimum fee for the Sponsor Fee transaction is 0.001 WAVES. (Before activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions” it was 1 WAVES.)
 
-* 0.001 WAVES after the activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
-* 1 WAVES before activation of feature #15.
-
-If the transaction sender is a [dApp or smart account](/en/blockchain/account/dapp), the minimum fee is increased by 0.004 WAVES.
-
-Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the extra fee of 0.004 WAVES is only required if the complexity of sender's account script or dApp script verifier function exceeds the [sender complexity threshold](/en/ride/limits/).
+If the transaction sender is a [dApp or smart account](/en/blockchain/account/dapp), and the complexity of the account script or dApp script verifier function exceeds the [sender complexity threshold](/en/ride/limits/), the minimum fee is increased by 0.004 WAVES. (Before activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the extra fee of 0.004 WAVES was required regardless of the complexity of the account script or the presence and complexity of the dApp script verifier function.)
 
 ## JSON Representation
 

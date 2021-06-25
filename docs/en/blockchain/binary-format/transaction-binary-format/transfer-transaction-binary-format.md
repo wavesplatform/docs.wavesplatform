@@ -1,12 +1,12 @@
 # Transfer Transaction Binary Format
 
-> Learn more about [transfer transaction](/en/blockchain/transaction-type/transfer-transaction).
+> Learn more about [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction).
 
 ## Version 3
 
 Binary format of version 3 is defined in [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto) protobuf scheme. The fields that are common to all types of transactions are described in the [Transaction Binary Format](/en/blockchain/binary-format/transaction-binary-format/) article.
 
-Version 3 is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+Version 3 is enabled by feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ```
 message TransferTransactionData {

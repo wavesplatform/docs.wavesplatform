@@ -22,14 +22,14 @@ You can attach a script to a token only at the time the token is created. The sc
 The directive should be placed at the very beginning of the script. Review the example directive:
 
 ```ride
-{-# STDLIB_VERSION 3 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE EXPRESSION #-}
 {-# SCRIPT_TYPE ASSET #-}
 ```
 
 The given directive provides the compiler with the following information:
 
-- the script will use the third version of the library of standard functions
+- the script uses version 5 of the library of standard functions
 - the type of this script is Expression
 - the script will be attached to the asset (and not to the account)
 
@@ -127,14 +127,7 @@ The script cannot be removed, so it is impossible to turn a smart asset into a r
 
 ## Smart asset fees
 
-A transaction involving the execution of an asset script has the transaction fee increased by 0.004 WAVES. If the sender account is a [dApp or smart account](/en/blockchain/account/dapp), then the size of the fee is increased by an additional 0.004 WAVES.
-
-Let's review the example. The fee for a Transfer transaction is 0.001 WAVES. If a user makes a transfer of a smart asset from a smart account, then the minimum fee is 0.001 + 0.004 + 0.004 = 0.009 WAVES.
-
-Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”:
-
-* For Invoke Script transactions, canceled the extra fee of 0.004 WAVES for smart assets in payments and script actions.
-* For all types of transactions, the extra fee of 0.004 WAVES for sending a transaction from a smart account or dApp is only required if the complexity of sender's account script or dApp script verifier function exceeds the [sender complexity threshold](/en/ride/limits/).
+The minimum fee for any transaction, except Invoke Script transactions, is increased by 0.004 WAVES for each smart asset involved. For example, the minimum fee for a Transfer transaction is 0.001 WAVES; in case of transferring a smart asset, 0.005 WAVES.
 
 ## Buying and selling smart assets
 

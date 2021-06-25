@@ -24,9 +24,6 @@ let c = "Ride".toBytes()
 
 ## Ограничения
 
-Максимальный размер переменной типа `ByteVector`:
-
-* В [Стандартной библиотеке](/ru/ride/script/standard-library) версии 3 — 65&nbsp;536 байт.
-* В Стандартной библиотеке версии 4 — 32&nbsp;767 байт.
+Максимальный размер переменной типа `ByteVector` — 32&nbsp;767 байт.
 
    Исключение: поле `bodyBytes` из [структуры транзакции](/ru/ride/structures/transaction-structures/). Это значение можно передать в качестве аргумента [функций верификации](/ru/ride/functions/built-in-functions/verification-functions) `rsaVerify` и `sigVerify` (но нельзя объединять с другими массивами байтов, если ограничение превышено).

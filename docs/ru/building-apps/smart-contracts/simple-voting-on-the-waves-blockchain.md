@@ -54,7 +54,7 @@
 Замените автоматически сгенерированный код на следующий:
 
 ```ride
-{-# STDLIB_VERSION 3 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 
@@ -84,8 +84,12 @@ func vote(theVote: Int) = {
         then
             throw("Вы уже голосовали! Повтороное голосование запрещено.")
         else
-            WriteSet([DataEntry(i.callerPublicKey.toBase58String(), theVote)])
-
+            (
+                [
+                    IntegerEntry(i.callerPublicKey.toBase58String(), theVote)
+                ],
+                unit
+            )
 }
 ```
 
@@ -93,11 +97,11 @@ func vote(theVote: Int) = {
 
 #### Функция `vote`
 
-Функция `vote` возвращает [структуру](/ru/ride/structures/) `WriteSet`, внутри которой происходит запись голоса в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage) главы ТСЖ.
+Функция `vote` выполняет [действие](/ru/ride/structures/script-actions/) `IntegerEntry`, которое записывает голос в [хранилище данных аккаунта](/ru/blockchain/account/account-data-storage) главы ТСЖ.
 
-Перед функцией `vote` указана аннотация `@Callable`, которая делает данную функцию вызываемой у dApp. У данной аннотации `i` — переменная, содержащая информацию о транзакции, которая вызвала функцию `vote`. Мы используем переменную `i` в коде для получения открытого ключа аккаунта `i.callerPublicKey`, который отправил транзакцию вызова скрипта.
+Перед функцией `vote` указана аннотация `@Callable`, которая делает данную функцию вызываемой у dApp. У данной аннотации `i` — переменная, содержащая информацию о вызове функции `vote`. Мы используем переменную `i` в коде для получения открытого ключа аккаунта `i.callerPublicKey`, который вызвал функцию.
 
-Для простоты, в функции `vote` нет никаких проверок значения переменной `theVote`.
+Для простоты в функции `vote` нет никаких проверок значения переменной `theVote`.
 
 #### Функция `voterIsAllowedToVote`
 
@@ -145,7 +149,7 @@ let dataFromStorage = this.getInteger(i.callerPublicKey.toBase58String())
 
 ![](./_assets/voting/testnet-address.png)
 
-По адресу главы ТСЖ отображаются две транзакции: [транзакция перевода](/ru/blockchain/transaction-type/transfer-transaction) (пополнение баланса на 10 WAVES с помощью faucet) и отправка транзакции установки скрипта. Отметим, что с баланса аккаунта главы ТСЖ списали комиссию за транзакцию установки скрипта в 0,001 WAVES.
+По адресу главы ТСЖ отображаются две транзакции: [транзакция перевода](/ru/blockchain/transaction-type/transfer-transaction) (пополнение баланса на 10 WAVES с помощью faucet) и отправка транзакции установки скрипта. Отметим, что с баланса аккаунта главы ТСЖ списали комиссию за транзакцию установки скрипта в 0,01 WAVES.
 
 ![](./_assets/voting/waves-explorer-chief-transactions.png)
 
@@ -153,11 +157,11 @@ let dataFromStorage = this.getInteger(i.callerPublicKey.toBase58String())
 
 Для того, чтобы проголосовать, жильцу необходимо отправить транзакцию вызова скрипта со своего аккаунта. В транзакции необходимо указать адрес dApp, имя вызываемого метода dApp, а также передаваемые в метод параметры.
 
-Отправьте транзакцию вызова скрипта с аккаунта Алексея с помощью [REPL](/ru/building-apps/smart-contracts/tools/repl). Для этого в Waves IDE _выберите аккаунт Алексея_.
+Отправьте транзакцию вызова скрипта с аккаунта Алексея с помощью [консоли](/ru/building-apps/smart-contracts/tools/waves-ide#javascript-interactive-console). Для этого в Waves IDE _выберите аккаунт Алексея_.
 
 ![](./_assets/voting/account-aleksei.png)
 
-Далее в REPL выполните следующую команду:
+Далее на вкладке **Console** выполните следующую команду:
 
 ```
 broadcast(invokeScript({dApp: "3Mz2X8c4Gpf8uporPrkEHA5TH73pYDYg6vL", call: {function: "vote", args: [{type: "integer", value: 7}]} }))

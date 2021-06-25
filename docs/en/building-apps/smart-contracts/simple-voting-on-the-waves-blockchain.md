@@ -54,14 +54,14 @@ Rename the script to the "Head of the HOA voting".
 Replace automatically generated code with the following:
 
 ```ride
-{-# STDLIB_VERSION 3 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 
 func voterIsAllowedToVote(voterPublicKey: ByteVector) = {
 
-    let alekseiPubKey = base58'8t38fWQhrYJsqxXtPpiRCEk1g5RJdq9bG5Rkr2N7mDFC'
-    let annaPubKey = base58'BqHZaEwUMvoF8HKNC69gkHwQwHnw5FX9i67DJSH78z9E'
+    let alekseiPubKey = base58'8QvKvspfNF6cUv2DFMCfvT8SrbraERqXpNMEMqBfJZ3e'
+    let annaPubKey = base58'AtYwJTqWNfwYrPnWVvfmnPTSTEioiLFzUTcZVttgDj1x'
 
     if (voterPublicKey != alekseiPubKey && voterPublicKey != annaPubKey)
     then
@@ -74,18 +74,22 @@ func voterIsAllowedToVote(voterPublicKey: ByteVector) = {
 @Callable(i)
 func vote(theVote: Int) = {
 
-    if(!voterIsAllowedToVote(i.callerPublicKey))
+    if (!voterIsAllowedToVote(i.callerPublicKey))
     then
         throw("You can not vote because you are not in the list of voters!")
     else
         let dataFromStorage = this.getInteger(i.callerPublicKey.toBase58String())
 
-        if(dataFromStorage.isDefined())
+        if (dataFromStorage.isDefined())
         then
             throw("You have already voted! Voting the second time is not allowed.")
         else
-            WriteSet([DataEntry(i.callerPublicKey.toBase58String(), theVote)])
-
+            (
+                [
+                    IntegerEntry(i.callerPublicKey.toBase58String(), theVote)
+                ],
+                unit
+            )
 }
 ```
 
@@ -93,9 +97,9 @@ func vote(theVote: Int) = {
 
 #### The `vote` function
 
-The `vote` function returns the `WriteSet` [structure](/en/ride/structures/), inside of which takes place the recording of the vote to the [account data storage](/en/blockchain/account/account-data-storage) of the head of the HOA.
+The `vote` function performs the `IntegerEntry` [script action](/en/ride/structures/script-actions/) that records the vote to the [account data storage](/en/blockchain/account/account-data-storage) of the head of the HOA.
 
-In front of the `vote` function, there is a `@Callable` annotation which makes the dApp function callable. The `i` is the variable that contains the information about transaction which invoked the `vote` function. In the code we use variable `i` to get public key of the account which sent the invoke script transaction.
+In front of the `vote` function, there is a `@Callable` annotation which makes the dApp function callable. The `i` is the variable that contains the information about the invocation. In the code we use variable `i` to get public key of the account which invoked the `vote` function.
 
 To keep things simple, there are no checks of the value of the `theVote` variable in the code.
 
@@ -143,18 +147,18 @@ In the [Waves Explorer](https://testnet.wavesexplorer.com/) for Testnet, find th
 
 ![](./_assets/voting/testnet-address.png)
 
-There are two transactions on the head of the HOA's address: the [transfer transaction](/en/blockchain/transaction-type/transfer-transaction) (balance top up by 10 WAVES using the Faucet) and the set script transaction. Note that the commission of 0.001 WAVES was charged from the head of the HOA's balance for the set script transaction.
+There are two transactions on the head of the HOA's address: the [transfer transaction](/en/blockchain/transaction-type/transfer-transaction) (balance top up by 10 WAVES using the Faucet) and the set script transaction. Note that the commission of 0.01 WAVES was charged from the head of the HOA's balance for the set script transaction.
 
 ![](./_assets/voting/waves-explorer-chief-transactions.png)
 
 ## 5. Voting
 
 In order to vote a resident must send an invoke script transaction from his account. In the transaction he must specify the address of the dApp, the name of the method to call, and the passed parameters.
-Send an invoke script transaction from Aleksei's account using [REPL](/en/building-apps/smart-contracts/tools/repl). First, _select Aleksei's account_ in the Waves IDE.
+Send an invoke script transaction from Aleksei's account using [Console](/en/building-apps/smart-contracts/tools/waves-ide#javascript-interactive-console). First, _select Aleksei's account_ in the Waves IDE.
 
 ![](./_assets/voting/account-aleksei.png)
 
-Then in the REPL execute the following command:
+Then, on the **Console** tab, execute the following command:
 
 ```ride
 broadcast(invokeScript({dApp: "3Mw2J9yxS8ftQ8FZuD6hsE3fCu494qJqB5r", call: {function: "vote", args: [{type: "integer", value: 7}]} }))

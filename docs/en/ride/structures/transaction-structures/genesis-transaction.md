@@ -1,6 +1,6 @@
 # GenesisTransaction
 
-Structure of a [genesis transaction](/en/blockchain/transaction-type/genesis-transaction).
+Structure of a [Genesis transaction](/en/blockchain/transaction-type/genesis-transaction).
 
 ### Constructor
 

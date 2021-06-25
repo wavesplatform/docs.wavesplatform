@@ -1,6 +1,6 @@
 # SetAssetScriptTransaction
 
-Structure of a [set asset script transaction](/en/blockchain/transaction-type/set-asset-script-transaction).
+Structure of a [Set Asset Script transaction](/en/blockchain/transaction-type/set-asset-script-transaction).
 
 ## Constructor
 

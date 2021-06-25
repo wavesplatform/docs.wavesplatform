@@ -2,8 +2,6 @@
 
 **Встроенная переменная** — [переменная](/ru/ride/variables/) [Стандартной библиотеки](/ru/ride/script/standard-library).
 
-## Список встроенных переменных
-
 <table style="width:100%">
   <tr>
     <th align="left">№</th>
@@ -22,14 +20,12 @@
         <li>CEILING</li>
         <li>DOWN</li>
         <li>FLOOR</li>
-        <li>HALFDOWN</li>
         <li>HALFEVEN</li>
         <li>HALFUP</li>
-        <li>UP</li>
       </ul>
     </td>
     <td>
-      <a href="/ru/ride/functions/built-in-functions/math-functions">Переменные округления</a>, которые используются в функциях <a href="/ru/ride/functions/built-in-functions/math-functions">log</a> и <a href="/ru/ride/functions/built-in-functions/math-functions">pow</a> functions
+      <a href="/ru/ride/functions/built-in-functions/math-functions">Переменные округления</a>, которые используются в <a href="/ru/ride/functions/built-in-functions/math-functions">математических функциях</a> <code>fraction</code>, <code>log</code>, <code>pow</code>
     </td>
   </tr>
   <tr>
@@ -63,13 +59,14 @@
   <tr>
     <td>6</td>
     <td>
-      <ol>
+      <ul>
         <li>NOALG</li><li>MD5</li>
         <li>SHA1</li><li>SHA224</li>
         <li>SHA256</li><li>SHA384</li>
         <li>SHA512</li><li>SHA3224</li>
         <li>SHA3256</li><li>SHA3384</li>
-        <li>SHA3512</li></ol>
+        <li>SHA3512</li>
+      </ul>
     </td>
     <td>
       Переменные, которые передаются первым параметром в функцию <a href="/ru/ride/functions/built-in-functions/verification-functions">rsaVerify</a>
@@ -83,7 +80,7 @@
   <tr>
     <td>8</td>
     <td>this</td>
-    <td><a href="/ru/blockchain/account/address">Адрес</a> отправителя транзакции или информация о <a href="/ru/blockchain/token">токене</a></td>
+    <td>• Для <a href="/ru/ride/script/script-types/dapp-script">скрипта dApp</a> или <a href="/ru/ride/script/script-types/account-script">скрипта аккаунта</a> — структура <a href="/ru/ride/structures/common-structures/address">Address</a><br/>• Для <a href="/ru/ride/script/script-types/asset-script">скрипта ассета</a> — структура <a href="/ru/ride/structures/common-structures/asset">Asset</a></td>
   </tr>
   <tr>
     <td>9</td>
@@ -97,30 +94,32 @@
 
 <pre>
 <code class=“lang-ride”>
-{-# STDLIB_VERSION 3 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 
 @Callable(inv)
 func deposit() = {
-  TransferSet([
-    ScriptTransfer(inv.caller, 5, unit) \# Перевести 5 WAVELET на аккаунт inv.caller. Вместо ID токена указан unit
-  ])
+  (
+    [
+      # Перевести 5 WAVELET на аккаунт inv.caller
+      # У WAVES нет ID токена, вместо него указан unit
+      ScriptTransfer(inv.caller, 5, unit)
+    ],
+    unit
+  )
 }
 </code>
 </pre>
 
-У WAVES нет <a href="/ru/blockchain/token/token-id">ID токена</a>; вместо ID передается <code>unit</code>.<br><b>Пример 2</b><br>Функция <a href="/ru/ride/functions/built-in-functions/blockchain-functions"><tt>assetInfo</tt></a> запрашивает информацию о токене по его ID. Далее функция <code>isDefined</code> проверяет, что токен с таким ID существует на блокчейне.
+<b>Пример 2</b><br>Функция <a href="/ru/ride/functions/built-in-functions/blockchain-functions"><tt>assetInfo</tt></a> запрашивает информацию о токене по его ID. Далее функция <code>isDefined</code> проверяет, что токен с таким ID существует на блокчейне.
 <pre>
 <code class=“lang-ride”>
-{-# STDLIB_VERSION 3 #-}
-{-# CONTENT_TYPE EXPRESSION #-}
-{-# SCRIPT_TYPE ACCOUNT #-}
-
 let asset = assetInfo(base58'8LQW8f7P5d5PZM7GtZEBgaqRPGSzS3DfPuiXrURJ4AJS')
-token.isDefined()
+asset.isDefined()
 </code>
 </pre>
+
 Вместо вызова функции <code>isDefined</code> можно использовать равенство с <code>unit</code>.
 <pre>
 <code class=“lang-ride”>

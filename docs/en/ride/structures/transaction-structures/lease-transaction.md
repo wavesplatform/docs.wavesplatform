@@ -1,6 +1,6 @@
 # LeaseTransaction
 
-Structure of a [lease transaction](/en/blockchain/transaction-type/lease-transaction).
+Structure of a [Lease transaction](/en/blockchain/transaction-type/lease-transaction).
 
 ## Constructor
 

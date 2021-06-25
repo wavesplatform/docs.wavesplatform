@@ -240,7 +240,7 @@ The **public key** is one of a pair of [account](#account) keys. A public key un
 
 ### Ride
 
-The **Ride** is a functional expression-based programming language. Ride is used to write [scripts](#script). The language has [strong static typing](https://en.wikipedia.org/wiki/Type_system), it is case sensitive, has no loops, recursions, and goto-like expressions, and therefore it is [Turing-incomplete](https://en.wikipedia.org/wiki/Turing_completeness).
+The **Ride** is a functional expression-based programming language. Ride is used to write [scripts](#script). The language has [strong static typing](https://en.wikipedia.org/wiki/Type_system), it is case sensitive, has no loops and goto-like expressions, and therefore it is [Turing-incomplete](https://en.wikipedia.org/wiki/Turing_completeness).
 
 ## S
 

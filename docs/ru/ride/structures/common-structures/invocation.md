@@ -1,39 +1,51 @@
 # Invocation
 
-Структура содержит поля [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction), которые может использовать [вызываемая функция](/ru/ride/functions/callable-function).
+Структура содержит поля вызова, которые может использовать [вызываемая функция](/ru/ride/functions/callable-function).
 
 ## Конструктор
 
-В Стандартной библиотеке **версии 3**:
-
 ```ride
-Invocation(caller: Address, callerPublicKey: ByteVector, payment: AttachedPayment|Unit, transactionId: ByteVector, fee: Int, feeAssetId: ByteVector|Unit)
-```
-
-В Стандартной библиотеке **версии 4**:
-
-```ride
-Invocation(caller: Address, callerPublicKey: ByteVector, payments: List[AttachedPayment], transactionId: ByteVector, fee: Int, feeAssetId: ByteVector|Unit)
+Invocation(caller: Address, callerPublicKey: ByteVector, originCaller: Address, originCallerPublicKey: ByteVector, payments: List[AttachedPayment], transactionId: ByteVector, fee: Int, feeAssetId: ByteVector|Unit)
 ```
 
 ## Поля
 
+Значения полей отличаются в зависимости от того, каким образом вызвана функция.
+
+Если вызываемая функция вызвана с помощью [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction):
+
 |   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
-| 1 | caller | [Address](/ru/ride/structures/common-structures/address) | [Адрес](/ru/blockchain/account/address) аккаунта, который отправил транзакцию |
-| 2 | callerPublicKey | [ByteVector](/ru/ride/data-types/byte-vector) | Открытый ключ аккаунта, который отправил транзакцию |
-| 3 | payment | [AttachedPayment](/ru/ride/structures/common-structures/attached-payment)&#124;[Unit](/ru/ride/data-types/unit) | Приложенный платеж.<br>:warning: Поле удалено в Стандартной библиотеке версии 4 |
-| 3 | payments | List[[AttachedPayment](/ru/ride/structures/common-structures/attached-payment)] | Приложенные платежи.<br>Поле добавлено в Стандартной библиотеке версии 4 |
-| 4 | transactionId | [ByteVector](/ru/ride/data-types/byte-vector) | ID транзакции |
-| 5 | fee | [Int](/ru/ride/data-types/int) | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) |
-| 6 | feeAssetId | [ByteVector](/ru/ride/data-types/byte-vector)&#124;[Unit](/ru/ride/data-types/unit) | [Токен](/ru/blockchain/token/) комиссии за отправку транзакции |
+| 1 | caller | [Address](/ru/ride/structures/common-structures/address) | [Адрес](/ru/blockchain/account/address) аккаунта, который отправил транзакцию вызова скрипта |
+| 2 | callerPublicKey | [ByteVector](/ru/ride/data-types/byte-vector) | Открытый ключ аккаунта, который отправил транзакцию вызова скрипта |
+| 3 | originCaller | [Address](/ru/ride/structures/common-structures/address) | Дублирует поле `caller` |
+| 4 | originCallerPublicKey | [ByteVector](/ru/ride/data-types/byte-vector) | Дублирует поле `callerPublicKey` |
+| 5 | payments | List[[AttachedPayment](/ru/ride/structures/common-structures/attached-payment)] | Платежи, указанные в транзакции |
+| 6 | transactionId | [ByteVector](/ru/ride/data-types/byte-vector) | ID транзакции вызова скрипта |
+| 7 | fee | [Int](/ru/ride/data-types/int) | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) |
+| 8 | feeAssetId | [ByteVector](/ru/ride/data-types/byte-vector)&#124;[Unit](/ru/ride/data-types/unit) | ID [токена](/ru/blockchain/token/), в котором указана комиссия |
 
-## Пример: обработка платежей (для версии 4)
+Если вызываемая функция вызвана с помощью функции `invoke` или `reentrantInvoke` (см. раздел [Вызов dApp из dApp](/ru/ride/advanced/dapp-to-dapp)):
+
+|   #   | Название | Тип данных | Описание |
+| :--- | :--- | :--- | :--- |
+| 1 | caller | [Address](/ru/ride/structures/common-structures/address) | [Адрес](/ru/blockchain/account/address) dApp, который вызвал функцию |
+| 2 | callerPublicKey | [ByteVector](/ru/ride/data-types/byte-vector) | Открытый ключ аккаунта dApp, который вызвал функцию |
+| 3 | originCaller | [Address](/ru/ride/structures/common-structures/address) | Адрес аккаунта, который отправил транзакцию вызова скрипта |
+| 4 | originCallerPublicKey | [ByteVector](/ru/ride/data-types/byte-vector) | Открытый ключ аккаунта, который отправил транзакцию вызова скрипта |
+| 5 | payments | List[[AttachedPayment](/ru/ride/structures/common-structures/attached-payment)] | Платежи, указанные в функции `invoke` или `reentrantInvoke` |
+| 6 | transactionId | [ByteVector](/ru/ride/data-types/byte-vector) | ID транзакции вызова скрипта |
+| 7 | fee | [Int](/ru/ride/data-types/int) | Комиссия за транзакцию вызова скрипта |
+| 8 | feeAssetId | [ByteVector](/ru/ride/data-types/byte-vector)&#124;[Unit](/ru/ride/data-types/unit) | ID токена, в котором указана комиссия |
+
+> Значения `originCaller`, `originCallerPublicKey`, `transactionId`, `fee`, `feeAssetId` одни и те же для всех вызовов dApp из dApp, выполняемых в рамках одной транзакции.
+
+## Пример: обработка платежей
 
 Следующая функция проверяет, что первый платеж в транзакции вызова скрипта составляет не менее 1 WAVES или 5 в указанном ассете.
 
 ```scala
-{-# STDLIB_VERSION 4 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 
@@ -52,6 +64,6 @@ func isPaymentOk(i: Invocation) = {
 
 @Callable(i)
 func foo() = {
-  if isPaymentOk(i) then [] else throw("Wrong payment amount or asset")
+  if isPaymentOk(i) then ([],unit) else throw("Wrong payment amount or asset")
 }
 ```

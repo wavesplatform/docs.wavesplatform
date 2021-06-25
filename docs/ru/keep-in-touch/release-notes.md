@@ -2,6 +2,8 @@
 
 ## Версия 1.3 Jumeirah
 
+Изменения, перечисленные ниже, вступили в силу с активацией фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”.
+
 ### Развитие протокола
 
 * **Вызов dApp из dApp.** Вызываемая функция dApp-скрипта может выполнять вложенные вызовы. Из dApp можно вызвать вызываемую функцию другого dApp или того же самого dApp, в том числе функция может вызвать сама себя. Все вызванные функции выполняются в рамках одной транзакции вызова скрипта. [Подробнее о вызове dApp из dApp](/ru/ride/advanced/dapp-to-dapp)
@@ -20,42 +22,42 @@
 * Выпущена [версия 5](/ru/ride/v5/) Стандартной библиотеки.
 * Реализована возможность обрабатывать в dApp до 10 платежей, приложенных к транзакции вызова скрипта.
 * Добавлены функции для вызова dApp из dApp:
-   * [invoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp#invoke)
-   * [reentrantInvoke](/ru/ride/v5/functions/built-in-functions/dapp-to-dapp#reentrantinvoke)
-* Добавлены [нетерпеливые переменные](/ru/ride/v5/variables/), которые вычисляются до следующего выражения, чтобы гарантировать порядок выполнения и применения действий скрипта вызываемых функций.
-* Изменен [формат результата](/ru/ride/v5/functions/callable-function#result) вызываемой функции: добавлено возвращаемое значение.
-* Изменена структура [Invocation](/ru/ride/v5/structures/common-structures/invocation): в случае вызова dApp из dApp она содержит адрес и публичный ключ как отправителя транзакции вызова скрипта, так и аккаунта dApp, который вызывает функцию.
+   * [invoke](/ru/ride/functions/built-in-functions/dapp-to-dapp#invoke)
+   * [reentrantInvoke](/ru/ride/functions/built-in-functions/dapp-to-dapp#reentrantinvoke)
+* Добавлены [нетерпеливые переменные](/ru/ride/variables/), которые вычисляются до следующего выражения, чтобы гарантировать порядок выполнения и применения действий скрипта вызываемых функций.
+* Изменен [формат результата](/ru/ride/functions/callable-function#invocation-result) вызываемой функции: добавлено возвращаемое значение.
+* Изменена структура [Invocation](/ru/ride/structures/common-structures/invocation): в случае вызова dApp из dApp она содержит адрес и публичный ключ как отправителя транзакции вызова скрипта, так и аккаунта dApp, который вызывает функцию.
 * Общее количество действий скрипта `Issue`, `Reissue`, `Burn`, `SponsorFee`, `ScriptTransfer`, `Lease`, `LeaseCancel`, выполняемых всеми вызываемыми функциями в одной транзакции, — не более 30.
 * Общее количество действий скрипта `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, `StringEntry`, `DeleteEntry`, выполняемых всеми вызываемыми функциями в одной транзакции, — не более 100.
 * Добавлены действия скрипта, которые может выполнять вызываемая функция:
-   * [Lease](/ru/ride/v5/structures/script-actions/lease) — передает WAVES в лизинг.
-   * [LeaseCancel](/ru/ride/v5/structures/script-actions/lease-cancel) — прекращает лизинг.
+   * [Lease](/ru/ride/structures/script-actions/lease) — передает WAVES в лизинг.
+   * [LeaseCancel](/ru/ride/structures/script-actions/lease-cancel) — прекращает лизинг.
 
    С помощью действий `Lease` и `LeaseCancel` можно изменить сумму лизинга, в частности, извлечь часть средств из лизинга. Если в одном вызове скрипта отменить лизинг на большую сумму и создать новый лизинг на меньшую сумму с тем же получателем, генерирующий баланс получателя уменьшится на разницу. Если же отправить две отдельные транзакции — транзакцию отмены лизинга и транзакцию лизинга,  они могут попасть в разные блоки, и тогда генерирующий баланс сразу же уменьшится на сумму отмененного лизинга, а увеличится на сумму нового лизинга только через 1000 блоков.
 
-* Добавлена встроенная функция [calculateLeaseId](/ru/ride/v5/functions/built-in-functions/blockchain-functions#calculateleaseid) для получения ID лизинга, сформированного структурой `Lease`.
-* Добавлен произвольный тип данных — [Any](/ru/ride/v5/data-types/any).
-* Добавлен тип данных [BigInt](/ru/ride/v5/data-types/bigint) размером 64 байта (512 бит) и поддерживающие его функции:
-   * [fraction(BigInt, BigInt, BigInt): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionbigint)
-   * [fraction(BigInt, BigInt, BigInt, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionbigintround)
-   * [log(BigInt, Int, BigInt, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#logbigint)
-   * [max(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/list-functions#max-list-bigint-bigint)
-   * [median(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#medianbigint)
-   * [min(List[BigInt]): BigInt](/ru/ride/v5/functions/built-in-functions/list-functions#min-list-bigint-bigint)
-   * [pow(BigInt, Int, BigInt, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#powbigint)
-   * [parseBigInt(String): BigInt|Unit](/ru/ride/v5/functions/built-in-functions/converting-functions#parse-bigint)
-   * [parseBigIntValue(String): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#parse-bigintvalue)
-   * [toBigInt(ByteVector): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bigint-bytevector)
-   * [toBigInt(ByteVector, Int, Int): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bigint-bytevector-int-int)
-   * [toBigInt(Int): BigInt](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bigint-int)
-   * [toBytes(BigInt): ByteVector](/ru/ride/v5/functions/built-in-functions/converting-functions#to-bytes-bigint)
-   * [toInt(BigInt): Int](/ru/ride/v5/functions/built-in-functions/converting-functions#to-int-bigint)
-   * [toString(BigInt): String](/ru/ride/v5/functions/built-in-functions/converting-functions#to-string-bigint)
+* Добавлена встроенная функция [calculateLeaseId](/ru/ride/functions/built-in-functions/blockchain-functions#calculateleaseid) для получения ID лизинга, сформированного структурой `Lease`.
+* Добавлен произвольный тип данных — [Any](/ru/ride/data-types/any).
+* Добавлен тип данных [BigInt](/ru/ride/data-types/bigint) размером 64 байта (512 бит) и поддерживающие его функции:
+   * [fraction(BigInt, BigInt, BigInt): BigInt](/ru/ride/functions/built-in-functions/math-functions#fractionbigint)
+   * [fraction(BigInt, BigInt, BigInt, Union): BigInt](/ru/ride/functions/built-in-functions/math-functions#fractionbigintround)
+   * [log(BigInt, Int, BigInt, Int, Int, Union): BigInt](/ru/ride/functions/built-in-functions/math-functions#logbigint)
+   * [max(List[BigInt]): BigInt](/ru/ride/functions/built-in-functions/list-functions#max-list-bigint-bigint)
+   * [median(List[BigInt]): BigInt](/ru/ride/functions/built-in-functions/math-functions#medianbigint)
+   * [min(List[BigInt]): BigInt](/ru/ride/functions/built-in-functions/list-functions#min-list-bigint-bigint)
+   * [pow(BigInt, Int, BigInt, Int, Int, Union): BigInt](/ru/ride/functions/built-in-functions/math-functions#powbigint)
+   * [parseBigInt(String): BigInt|Unit](/ru/ride/functions/built-in-functions/converting-functions#parse-bigint)
+   * [parseBigIntValue(String): BigInt](/ru/ride/functions/built-in-functions/converting-functions#parse-bigintvalue)
+   * [toBigInt(ByteVector): BigInt](/ru/ride/functions/built-in-functions/converting-functions#to-bigint-bytevector)
+   * [toBigInt(ByteVector, Int, Int): BigInt](/ru/ride/functions/built-in-functions/converting-functions#to-bigint-bytevector-int-int)
+   * [toBigInt(Int): BigInt](/ru/ride/functions/built-in-functions/converting-functions#to-bigint-int)
+   * [toBytes(BigInt): ByteVector](/ru/ride/functions/built-in-functions/converting-functions#to-bytes-bigint)
+   * [toInt(BigInt): Int](/ru/ride/functions/built-in-functions/converting-functions#to-int-bigint)
+   * [toString(BigInt): String](/ru/ride/functions/built-in-functions/converting-functions#to-string-bigint)
 * Добавлены встроенные функции:
-   * [isDataStorageUntouched](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions#isdatastorageuntouched) — проверяет, что хранилище данных указанного аккаунта никогда не содержало записей.
-   * [scriptHash](/ru/ride/v5/functions/built-in-functions/blockchain-functions#scripthash) — возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте.
-   * [fraction(Int, Int, Int, Union): BigInt](/ru/ride/v5/functions/built-in-functions/math-functions#fractionintround) — умножает два целых числа и делит на третье без переполнения, применяя указанный метод округления.
-* Добавлены встроенные [функции хранилища данных аккаунта](/ru/ride/v5/functions/built-in-functions/account-data-storage-functions), позволяющие dApp-скрипту читать записи из собственного хранилища данных:
+   * [isDataStorageUntouched](/ru/ride/functions/built-in-functions/account-data-storage-functions#isdatastorageuntouched) — проверяет, что хранилище данных указанного аккаунта никогда не содержало записей.
+   * [scriptHash](/ru/ride/functions/built-in-functions/blockchain-functions#scripthash) — возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте.
+   * [fraction(Int, Int, Int, Union): BigInt](/ru/ride/functions/built-in-functions/math-functions#fractionintround) — умножает два целых числа и делит на третье без переполнения, применяя указанный метод округления.
+* Добавлены встроенные [функции хранилища данных аккаунта](/ru/ride/functions/built-in-functions/account-data-storage-functions), позволяющие dApp-скрипту читать записи из собственного хранилища данных:
    * `getBinary(key: String): ByteVector|Unit`
    * `getBinaryValue(key: String): ByteVector`
    * `getBoolean(key: String): Boolean|Unit`
@@ -288,11 +290,9 @@
 
 * Новый метод `/blocks/heightByTimestamp/{timestamp}` возвращает высоту блокчейна в указанный момент времени.
 
-### Активация
-
-Чтобы активировать перечисленные выше улучшения, голосуйте за фичу №&nbsp;16 “Ride V5, dApp-to-dApp invocations”.
-
 ## Версия 1.2 Malibu
+
+Изменения, перечисленные ниже, вступили в силу с активацией фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ### Развитие протокола
 

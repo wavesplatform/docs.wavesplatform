@@ -12,7 +12,7 @@
 
 Бинарный формат ордера версии 4 соответствует protobuf-схеме [order.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/order.proto). См. [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=ru).
 
-Версия 4 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
+Версия 4 появилась с момента активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ```protobuf
 message AssetPair {

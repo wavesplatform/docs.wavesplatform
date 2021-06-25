@@ -12,7 +12,7 @@ An exchange transaction of [version 1](/en/blockchain/binary-format/transaction-
 
 Binary format of order version 4 is defined in [order.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/order.proto) protobuf scheme. For information about `proto` see [Protocol Buffers Developer Guide](https://developers.google.com/protocol-buffers/docs/overview?hl=en).
 
-Version 4 is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+Version 4 is enabled by feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ```protobuf
 message AssetPair {

@@ -27,19 +27,7 @@ Smart assets can be used in the following cases:
 
 # Smart Asset Fees
 
-The transaction fee is calculated in the same way as for [smart accounts](/en/building-apps/smart-contracts/what-is-smart-account): for each time the script is called, [total transaction’s fee](/en/blockchain/transaction/transaction-fee) increases by 0.004 WAVES.
-
-**Examples:**
-
-* If user will transfer smart assets from scripted account the final fee is 0.009.waves
-* x for a TransferTransaction of a Smart Asset from a Smart Account would be 0.001+0.004+0.004=0.009 WAVES
-
-**Note.** If a scripted account transfers a smart asset, then the fee is increased twice \(the fee increases _**+0.004**_ every time the transaction is validated by account’s script or asset’s script\).
-
-Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”:
-
-* For Invoke Script transactions, canceled the extra fee of 0.004 WAVES for smart assets in payments and script actions.
-* For all types of transactions, the extra fee of 0.004 WAVES for sending a transaction from a smart account or dApp is only required if the complexity of sender's account script or dApp script verifier function exceeds the [sender complexity threshold](/en/ride/limits/).
+The minimum fee for any transaction, except Invoke Script transactions, is increased by 0.004 WAVES for each smart asset involved. For example, the minimum fee for a Transfer transaction is 0.001 WAVES; in case of transferring a smart asset, 0.005 WAVES.
 
 ## Trading
 
