@@ -29,7 +29,7 @@ invoke(dApp: Address|Alias, function: String, arguments: List[Any], payments: Li
 * `id`, `timestamp`, `fee`, `feeAssetId` — как в транзакции вызова скрипта;
 * `version` = 0.
 
-Если скрипт ассета отклоняет действие, то транзакция, которая вызвала скрипт dApp, либо отклоняется, либо сохраняется на блокчейне как неуспешная, см. раздел [Валидация транзакций](/ru/blockchain/transaction/transaction-validation).
+Если скрипт ассета отклоняет действие, то транзакция, которая вызвала скрипт dApp, либо отбрасывается, либо сохраняется на блокчейне как неуспешная, см. раздел [Валидация транзакций](/ru/blockchain/transaction/transaction-validation).
 
 ## Ограничение повторных вызовов<a id="reentrancy"></a>
 
