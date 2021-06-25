@@ -1,6 +1,6 @@
 # SetScriptTransaction
 
-Structure of a [set script transaction](/en/blockchain/transaction-type/set-script-transaction).
+Structure of a [Set Script transaction](/en/blockchain/transaction-type/set-script-transaction).
 
 ## Constructor
 

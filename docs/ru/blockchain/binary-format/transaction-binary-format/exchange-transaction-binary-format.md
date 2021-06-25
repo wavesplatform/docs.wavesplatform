@@ -8,7 +8,7 @@
 
 Транзакция версии 3 может сoдержать ордера версий [1](/ru/blockchain/binary-format/order-binary-format#v1)–[4](/ru/blockchain/binary-format/order-binary-format#v4).
 
-Версия 3 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
+Версия 3 появилась с момента активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ```
 message ExchangeTransactionData {

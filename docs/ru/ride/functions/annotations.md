@@ -6,14 +6,14 @@
 
 Аннотированная функция не может быть вызвана внутри скрипта dApp.
 
-## @Callable(i: [Invocation](/ru/ride/structures/common-structures/invocation))
+## @Callable(i)
 
 Аннотация [вызываемой функции](/ru/ride/functions/callable-function).
 
-Переменная `i` содержит информацию о транзакции, которая вызвала функцию [dApp](/ru/blockchain/account/dapp). 
+Переменная `i` содержит структуру [Invocation](/ru/ride/structures/common-structures/invocation)) с информацией о вызове.
 
-## @Verifier(tx: Transaction|[Order](/ru/ride/structures/common-structures/order))
+## @Verifier(tx)
 
 Аннотация [функции-верификатора](/ru/ride/functions/verifier-function).
 
-Переменная `tx` содержит информацию об отправляемой транзакции или ордере.
+Переменная `tx` содержит структуру [транзакции](/ru/ride/structures/transaction-structures/) или [ордера](/ru/ride/structures/common-structures/order), отправляемых с аккаунта dApp.

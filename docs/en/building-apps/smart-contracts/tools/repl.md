@@ -9,7 +9,7 @@ Ride REPL is built into the following developer tools:
 
 ![](./_assets/repl.png)
 
-In Ride REPL, you can define variables and functions and use the results of previous calculations:
+In Ride REPL, you can define variables and functions and use the results of previous computations:
 
 ```
 RIDE > let x = 42
@@ -40,8 +40,9 @@ You can query the function signature, structure definition or variable type by u
 ```
 RIDE > ? getInteger
 func getInteger(addressOrAlias: Address|Alias, key: String): Int|Unit
-func getInteger(data: List[DataEntry], key: String): Int|Unit
-func getInteger(data: List[DataEntry], index: Int): Int|Unit
+func getInteger(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], key: String): Int|Unit
+func getInteger(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], index: Int): Int|Unit
+func getInteger(key: String): Int|Unit
 ```
 
 The `??` command dumps all the existing definitions.

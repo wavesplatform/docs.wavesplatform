@@ -4,7 +4,7 @@ There are various types of transactions implemented on the Waves blockchain. Typ
 
 ![](./_assets/types.png)
 
-## Tokenisation
+## Tokenization
 
 | Type ID | Name | Description |
 | :--- | :--- | :--- |
@@ -14,7 +14,7 @@ There are various types of transactions implemented on the Waves blockchain. Typ
 | 15 | [Set Asset Script transaction](/en/blockchain/transaction-type/set-asset-script-transaction) | Modifies the asset script |
 | 17 | [Update Asset Info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) | Changes the token name and description |
 
-> The Update Asset Info transaction type is added starting from node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> The Update Asset Info transaction type is enabled by feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ## Usage
 
@@ -27,6 +27,8 @@ There are various types of transactions implemented on the Waves blockchain. Typ
 | 12 | [Data transaction](/en/blockchain/transaction-type/data-transaction) | Adds, modifies and deletes data entries in the sender's account data storage |
 | 13 | [Set Script transaction](/en/blockchain/transaction-type/set-script-transaction) | Assigns the dApp script or account script to the sender's account |
 | 16 | [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) | Invokes a callable function of a dApp |
+
+<!-- | 18 | [Continuation transaction](/en/blockchain/transaction-type/continuation-transaction) | Created automatically for continuation of a dApp script execution | -->
 
 ## Network
 

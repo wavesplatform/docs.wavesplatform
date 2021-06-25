@@ -1,12 +1,12 @@
 # Set Asset Script Transaction
 
-Set Asset Script transaction replaces the [asset script](/en/ride/script/script-types/asset-script). Only the token issuer can send an Asset Script transaction. If a token is issued without a script, then no script can be assigned to it.
+Set Asset Script transaction replaces the [asset script](/en/ride/script/script-types/asset-script). Only the token issuer can send an Asset Script transaction. If a token is issued without a script, then no script can be assigned to it. It is also impossible to remove the script and turn the smart asset into a regular one.
 
 ## Fee
 
 The minimum fee for a Set Asset script transaction is 1 WAVES.
 
-If the transaction sender is a [dApp or smart account](/en/blockchain/account/dapp), the minimum fee is increased by 0.004 WAVES.
+If the transaction sender is a [dApp or smart account](/en/blockchain/account/dapp), and the complexity of the account script or dApp script verifier function exceeds the [sender complexity threshold](/en/ride/limits/), the minimum fee is increased by 0.004 WAVES. (Before activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the extra fee of 0.004 WAVES was required regardless of the complexity of the account script or the presence and complexity of the dApp script verifier function.)
 
 ## JSON Representation
 

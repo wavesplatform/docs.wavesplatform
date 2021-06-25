@@ -1,7 +1,5 @@
 # BalanceDetails
 
-> :warning: The `BalanceDetails` structure is introduced in [Standard library](/en/ride/script/standard-library) **version 4**.
-
 Structure that contains WAVES balances of account. The structure is returned by the [wavesBalance](/en/ride/functions/built-in-functions/blockchain-functions#waves-balance) built-in function. For description of balance types, see the [Account Balance](/en/blockchain/account/account-balance) article.
 
 ## Конструктор

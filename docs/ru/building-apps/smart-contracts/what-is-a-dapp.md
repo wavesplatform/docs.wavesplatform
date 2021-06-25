@@ -36,14 +36,14 @@ dApp-скрипт содержит одну или несколько вызыв
 Каждый скрипт Ride должен начинаться с директив. Для dApp набор директив следующий:
 
 ```ride
-{-# STDLIB_VERSION 3 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 ```
 
 Приведенные директивы сообщают компилятору, что:
 
-- в скрипте будет использоваться Стандартная библиотека версии 3;
+- в скрипте будет использоваться Стандартная библиотека версии 5;
 - тип скрипта — dApp;
 - скрипт будет привязан к аккаунту (а не к ассету).
 
@@ -80,11 +80,14 @@ func faucet () = {
             false
     }
     if (!isKnownCaller) then 
-        ScriptResult(
-           WriteSet([DataEntry(toBase58String(i.caller.bytes), true)]),
-           TransferSet([ScriptTransfer(i.caller, 100000000, unit)])
+        (
+           [
+               BooleanEntry(toBase58String(i.caller.bytes), true),
+               ScriptTransfer(i.caller, 100000000, unit)
+           ],
+           unit
         )
-    else WriteSet([])
+    else ([],unit)
 }
 ```
 
@@ -138,7 +141,7 @@ dApp может использовать данные блокчейна:
 
 Комиссия за транзакцию установки скрипта — 0,01 WAVES.
 
-После установки скрипта минимальная комиссия за транзакцию, отправленную с аккаунта dApp, увеличивается на 0,004 WAVES.
+Если скрипт содержит функцию-верификатор и ее сложность больше [порога сложности отправителя](/ru/ride/limits/), то минимальная комиссия за каждую транзакцию, отправленную с аккаунта dApp, увеличивается на 0,004 WAVES.
 
 ## Ограничения
 
@@ -148,7 +151,7 @@ dApp может использовать данные блокчейна:
 
 Примеры dApp-скриптов можно найти:
 
-* В разделе [Практические руководства](/ru/building-apps/how-to#dapps).
+* В разделе [Практические руководства](/ru/building-apps/how-to/#dapps).
 * В [Waves IDE](https://waves-ide.com/) в меню **Library**.
 * На Github в репозитории [ride-examples](https://github.com/wavesplatform/ride-examples/blob/master/welcome.md).
 

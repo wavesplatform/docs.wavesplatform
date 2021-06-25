@@ -10,7 +10,7 @@ Verifier function can have one of the following execution results:
 
 - `true` (the transaction or the order is allowed),
 - `false` (the transaction or the order is denied),
-- error (the transaction or the order is denied).
+- an error (the transaction or the order is denied).
 
 dApp that has no verifier function performs default verification, that is, checking that the first [proof](/en/blockchain/transaction/transaction-proof) of the transaction/order has the correct sender's signature. The following function does the same as the default implementation:
 
@@ -22,6 +22,8 @@ dApp that has no verifier function performs default verification, that is, check
    ```
 
 If the verifier function is defined, only verification by this function is performed, proofs are not checked additionally.
+
+:warning: If the the complexity of the verifier function exceeds the [sender complexity threshold](/en/ride/limits), the minimum fee for transactions sent on behalf of the account is increased by 0.004 WAVES. (Before activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the extra fee was required regardless of the presence and complexity of the verifier function.)
 
 ## Example
 

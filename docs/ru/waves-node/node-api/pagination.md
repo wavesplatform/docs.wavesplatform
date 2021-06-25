@@ -35,9 +35,11 @@
 
    где:
 
-   * `hasNext` — наличие следующей страницы.
-   * `lastItem` — последний адрес на странице.
-   * `items` — страница распределения ассета по адресам.
+   • `hasNext` — наличие следующей страницы.
+
+   • `lastItem` — последний адрес на странице.
+
+   • `items` — страница распределения ассета по адресам.
 
 2. Получаем следующую страницу. В параметре `after` нужно указать значение из `lastItem`.
 
@@ -49,7 +51,7 @@
 
 ## Пример 2: список транзакций по адресу
 
-Метод [GET /transactions​/address​/{address}​/limit​/{limit}](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/addressLimit_1) возвращает список транзакций с участием указанного адреса.
+Метод [GET /transactions/address/{address}/limit/{limit}](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/addressLimit_1) возвращает список транзакций с участием указанного адреса.
 
 1. Получаем первую страницу:
 

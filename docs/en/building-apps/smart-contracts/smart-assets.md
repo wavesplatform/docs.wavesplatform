@@ -27,14 +27,7 @@ Smart assets can be used in the following cases:
 
 # Smart Asset Fees
 
-The transaction fee is calculated in the same way as for [smart accounts](/en/building-apps/smart-contracts/what-is-smart-account): for each time the script is called, [total transaction’s fee](/en/blockchain/transaction/transaction-fee) increases by 0.004 WAVES.
-
-**Examples:**
-
-* If user will transfer smart assets from scripted account the final fee is 0.009.waves
-* x for a TransferTransaction of a Smart Asset from a Smart Account would be 0.001+0.004+0.004=0.009 WAVES
-
-**Note.** If a scripted account transfers a smart asset, then the fee is increased twice \(the fee increases _**+0.004**_ every time the transaction is validated by account’s script or asset’s script\).
+The minimum fee for any transaction, except Invoke Script transactions, is increased by 0.004 WAVES for each smart asset involved. For example, the minimum fee for a Transfer transaction is 0.001 WAVES; in case of transferring a smart asset, 0.005 WAVES.
 
 ## Trading
 
@@ -119,6 +112,8 @@ The assets that were issued without a script cannot become scripted. You can cre
 A smart asset’s script can be changed via [_**SetAssetScriptTransaction**_](/en/blockchain/binary-format/transaction-binary-format/set-asset-script-transaction-binary-format) \([fee](/en/blockchain/transaction/transaction-fee) on changing is equal to 1 WAVES\).
 
 Only the issuer can change the asset's script.
+
+The script cannot be removed, so it is impossible to turn a smart asset into a regular one. However, you can set a script that always returns `true`, that is, allows all transactions.
 
 ## Examples of Scripts for Smart Assets
 

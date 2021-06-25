@@ -21,7 +21,7 @@
 
 Пример пользовательского токена: <https://wavesexplorer.com/assets/DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p>
 
-Пример JSON-представления, возвращаемого методом `GET /assets​/details​/{assetId}` [Node REST API](/ru/waves-node/node-api/):
+Пример JSON-представления, возвращаемого методом `GET /assets/details/{assetId}` [Node REST API](/ru/waves-node/node-api/):
 
 ```json
 {

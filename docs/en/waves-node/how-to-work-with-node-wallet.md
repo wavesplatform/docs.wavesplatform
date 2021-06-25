@@ -15,6 +15,8 @@ In this article, the following use cases of wallet are reviewed:
 * [updating wallet's settings](#wallet-settings).
 * [changing node's account](#re-create).
 
+:warning: If there is a script assigned to the node's account, the node won't generate blocks.
+
 ## Creating a New Wallet From Scratch <a id="new"></a>
 
 On startup a node creates wallet if the directory listed in `wallet` section of [node's configuration file](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf) does not already contain `wallet.dat` file.
@@ -71,3 +73,5 @@ If you need to change node's account, first of all, delete the existing wallet.d
 * [create a new wallet from scratch](#new).
 * [create a wallet using existing seed](#existing-seed).
 * [use other wallet](#existing-wallet).
+
+> If the seed in the `wallet.dat` file and in the node's configuration file do not match, the seed from `wallet.dat` is used.

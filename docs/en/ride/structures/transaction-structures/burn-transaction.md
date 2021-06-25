@@ -1,6 +1,6 @@
 # BurnTransaction
 
-Structure of a [burn transaction](/en/blockchain/transaction-type/burn-transaction).
+Structure of a [Burn transaction](/en/blockchain/transaction-type/burn-transaction).
 
 ## Constructor
 

@@ -2,7 +2,7 @@
 
 Data transaction adds, modifies and deletes data entries in sender's [account data storage](/en/blockchain/account/account-data-storage).
 
-> Entry deletion becomes available since node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> Entry deletion is enabled by feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 Limitations are as follows:
 * The maximum number of entries is 100.
@@ -11,9 +11,17 @@ Limitations are as follows:
 
 ## Fee
 
-The minimum fee for a Data transaction is 0.001 WAVES per kilobyte, the fee value is rounded up to three decimals.
+The minimum fee for a Data transaction is 0.001 WAVES per kilobyte, the size is rounded up to an integer number of kilobytes.
 
-If the transaction sender is a [dApp or smart account](/en/blockchain/account/dapp), the minimum fee is increased by 0.004 WAVES.
+<details>
+   <summary>Details</summary>
+
+* For transaction version 2, the minimum fee is based on the data size (keys + values), that is the serialized `data_transaction` field in [protobuf representation](/en/blockchain/binary-format/transaction-binary-format/data-transaction-binary-format).
+* For transaction version 1, starting from activation of feature №&nbsp;4 "Smart Accounts", the minimum fee is based on the size of the transaction body bytes (all transaction fields except proofs).
+* For transaction version 1, before activation of feature №&nbsp;4, the minimum fee is based on the size of the entire transaction, including proofs.
+</details>
+
+If the transaction sender is a [dApp or smart account](/en/blockchain/account/dapp), and the complexity of the account script or dApp script verifier function exceeds the [sender complexity threshold](/en/ride/limits/), the minimum fee is increased by 0.004 WAVES. (Before activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the extra fee of 0.004 WAVES was required regardless of the complexity of the account script or the presence and complexity of the dApp script verifier function.)
 
 ## JSON Representation
 

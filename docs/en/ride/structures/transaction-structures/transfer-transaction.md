@@ -1,6 +1,6 @@
 # TransferTransaction
 
-Structure of a [transfer transaction](/en/blockchain/transaction-type/transfer-transaction).
+Structure of a [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction).
 
 ## Constructor
 

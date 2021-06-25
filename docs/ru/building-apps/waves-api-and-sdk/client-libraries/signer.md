@@ -22,8 +22,9 @@ Signer предоставляет приложению удобный прото
 
 В данный момент вы можете подключить один из следующих Провайдеров:
 
-* [ProviderSeed](https://github.com/wavesplatform/provider-seed) разработан командой Waves и создает аккаунт пользователя из секретной фразы. ProviderSeed можно использовать на этапе разработки и отладки приложения.
-* [ProviderWeb](https://github.com/waves-exchange/provider-web) — приложение-кошелек, разработанное командой Waves.Exchange, которое хранит в зашифрованном виде секретную фразу и закрытый ключ пользователя.
+* [ProviderSeed](https://github.com/wavesplatform/provider-seed), разработанный командой Waves, создает аккаунт пользователя из секретной фразы. ProviderSeed можно использовать на этапе разработки и отладки приложения.
+* [ProviderWeb](https://github.com/waves-exchange/provider-web), разработанный командой Waves.Exchange, использует аккаунт, созданный или импортированный в веб-приложение Waves.Exchange через секретную фразу или приватный ключ.
+* [ProviderCloud](https://github.com/waves-exchange/provider-cloud), разработанный командой Waves.Exchange, использует аккаунт Waves.Exchange на основе email.
 
 Вы также можете разработать собственный Провайдер, см. подраздел [Интерфейс Провайдера](#интерфейс-провайдера).
 
@@ -66,6 +67,17 @@ Signer поддерживает все браузеры, кроме Brave.
    npm i '@waves.exchange/provider-web'
    ```
 
+* Чтобы установить ProviderCloud от Waves.Exchange, используйте команду
+
+   ```bash
+   npm i @waves.exchange/provider-cloud
+   ```
+  
+   Для Windows используйте следующий формат:
+   ```bash
+   npm i '@waves.exchange/provider-cloud'
+   ```
+
 ### 2. Подключение библиотек
 
 Инициализируйте библиотеки в приложении.
@@ -73,7 +85,7 @@ Signer поддерживает все браузеры, кроме Brave.
 * Для работы с Testnet и ProviderSeed:
 
    ```js
-   import Signer from '@waves/signer';
+   import { Signer } from '@waves/signer';
    import { ProviderSeed } from '@waves/provider-seed';
    import { libs } from '@waves/waves-transactions';
 
@@ -88,24 +100,47 @@ Signer поддерживает все браузеры, кроме Brave.
 * Для работы с Testnet и Waves.Exchange ProviderWeb:
 
    ```js
-   import Signer from '@waves/signer';
-   import Provider from '@waves.exchange/provider-web';
+   import { Signer } from '@waves/signer';
+   import { ProviderWeb } from '@waves.exchange/provider-web';
    
    const signer = new Signer({
      // Укажите адрес ноды, подключенной к Testnet
      NODE_URL: 'https://nodes-testnet.wavesnodes.com'
    });
-   signer.setProvider(new Provider('https://testnet.waves.exchange/signer/'))
+   signer.setProvider(new ProviderWeb('https://testnet.waves.exchange/signer/'))
+   ```
+
+* Для работы с Testnet и Waves.Exchange ProviderCloud:
+
+   ```js
+   import { Signer } from '@waves/signer';
+   import { ProviderCloud } from '@waves.exchange/provider-cloud';
+   
+   const signer = new Signer({
+     // Укажите адрес ноды, подключенной к Testnet
+     NODE_URL: 'https://nodes-testnet.wavesnodes.com'
+   });
+   signer.setProvider(new ProviderCloud())
    ```
 
 * Для работы с Mainnet и Waves.Exchange ProviderWeb:
 
    ```js
-   import Signer from '@waves/signer';
-   import Provider from '@waves.exchange/provider-web';
+   import { Signer } from '@waves/signer';
+   import { ProviderWeb } from '@waves.exchange/provider-web';
    
    const signer = new Signer();
-   signer.setProvider(new Provider());
+   signer.setProvider(new ProviderWeb());
+   ```
+
+* Для работы с Mainnet и Waves.Exchange ProviderCloud:
+
+   ```js
+   import { Signer } from '@waves/signer';
+   import { ProviderCloud } from '@waves.exchange/provider-cloud';
+   
+   const signer = new Signer();
+   signer.setProvider(new ProviderCloud());
    ```
 
 Теперь ваше приложение может использовать функции Signer.
@@ -184,7 +219,7 @@ new Signer({
    * [setProvider](#setprovider)
    * [waitTxConfirm](#waittxconfirm)
 
-В коде можно использовать [типы TypeScript](https://github.com/wavesplatform/ts-types/blob/master/transactions/index.d.ts).
+В коде можно использовать [типы TypeScript](https://github.com/wavesplatform/ts-types/blob/master/transactions/index.ts).
 
 ### Данные пользователя
 
@@ -1103,7 +1138,49 @@ signer.waitTxConfirm(tx, 1).then((tx) => {
 Провайдер должен предоставлять следующий интерфейс:
 
 ```js
-interface IProvider {
+interface Provider {
+
+    /**
+     * Signer подписывается на события login в Провайдере
+     * При срабатывании Провайдер должен передать данные пользователя: адрес и публичный ключ
+     * Для последующей отписки Signer вызывает функцию off
+     */
+    on(
+        event: 'login',
+        handler:({ address: string; publicKey: string }) => any 
+    ) => Provider;
+
+    /**
+     * Signer подписывается на события logout в Провайдере
+     * Для последующей отписки Signer вызывает функцию off
+     */
+    on( event: 'logout', handler:() => any) => Provider;
+
+    /**
+     * Signer подписывается на первое событие login в Провайдере
+     * При срабатывании Провайдер должен передать данные пользователя:
+     *   адрес и публичный ключ, а также выполнить отписку
+     * Отписка не нужна
+     */
+    once(
+        event: 'login',
+        handler:({ address: string; publicKey: string }) => any 
+    ) => Provider;
+
+    /**
+     * Signer подписывается на первое событие logout в Провайдере
+     * При срабатывании Провайдер должен выполнить отписку
+     */
+    once( event: 'logout', handler:() => any) => Provider;
+
+    /**
+     * Signer отписывается от событий в Провайдере, на которые были подписки
+     */
+    off(
+        event: 'login',
+        handler:({ address: string; publicKey: string }) => any 
+    ) => Provider;
+    off( event: 'logout', handler:() => any) => Provider;
 
     /**
      * Устанавливает соединение с нодой Waves
@@ -1114,7 +1191,7 @@ interface IProvider {
     /**
      * Выполняет вход в аккаунт пользователя
      */
-    login(): Promise<{addres: string, publicKey: string}>;
+    login(): Promise<{address: string, publicKey: string}>;
 
     /**
      * Выполняет выход из аккаунта пользователя
@@ -1122,9 +1199,37 @@ interface IProvider {
     logout(): Promise<void>;
 
     /**
+     * Подписывает произвольную строку
+     * @param data
+     */
+    signMessage(data: string | number): Promise<string>;
+
+    /**
+     * Подписывает типизированные данные
+     * @param data
+     */
+    signTypedData(data: Array<TypedData>): Promise<string>;
+
+    /**
      * Подписывает транзакции в массиве
+     * Здесь SignedTx<T> — любая транзакция, T[] — массив любых транзакций
      * @param list
      */
-    sign(list: Array<TTransactionParamWithType>): Promise<Array<TTransactionWithProofs<TLong> & IWithId>>;
+    sign<T extends SignerTx>(toSign: T[]): Promise<SignedTx<T>>;
+    sign<T extends Array<SignerTx>>(toSign: T): Promise<SignedTx<T>>;
 }
 ```
+
+## Коды ошибок
+
+| Класс ошибки                  | Код | Тип           | Описание |
+|:------------------------------|:-----|:---------------|:--------|
+| SignerOptionsError            | 1000 | validation     | Invalid signer options: NODE_URL, debug |
+| SignerNetworkByteError        | 1001 | network        | Could not fetch network from {NODE_URL}: Failed to fetch |
+| SignerAuthError               | 1002 | authorization  | Can't use method: getBalance. User must be logged in |
+| SignerProviderConnectError    | 1003 | network        | Could not connect the Provider |
+| SignerEnsureProviderError     | 1004 | provider       | Can't use method: login. Provider instance is missing<br/>🛈 Возможные причины: пользователь в режиме Инкогнито или отключил cookie |
+| SignerProviderInterfaceError  | 1005 | validation     | Invalid provider properties: connect |
+| SignerProviderInternalError   | 1006 | provider       | Provider internal error: {...}. This is not error of signer. |
+| SignerApiArgumentsError       | 1007 | validation     | Validation error for invoke transaction: {...}. Invalid arguments: senderPublicKey |
+| SignerNetworkError            | 1008 | network        | Network Error |

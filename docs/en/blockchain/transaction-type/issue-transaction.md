@@ -6,7 +6,7 @@ Issue transaction creates a new [token](/en/blockchain/token/).
 
 The minimum fee for an Issue transaction is 1 WAVES, in case of issue of a [non-fungible token (NFT)](/en/blockchain/token/non-fungible-token) 0.001 WAVES.
 
-If the transaction sender is a [dApp or smart account](/en/blockchain/account/dapp), the minimum fee is increased by 0.004 WAVES.
+If the transaction sender is a [dApp or smart account](/en/blockchain/account/dapp), and the complexity of the account script or dApp script verifier function exceeds the [sender complexity threshold](/en/ride/limits/), the minimum fee is increased by 0.004 WAVES. (Before activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the extra fee of 0.004 WAVES was required regardless of the complexity of the account script or the presence and complexity of the dApp script verifier function.)
 
 ## JSON Representation
 

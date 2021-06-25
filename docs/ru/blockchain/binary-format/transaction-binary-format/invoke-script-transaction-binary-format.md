@@ -6,7 +6,7 @@
 
 Бинарный формат версии 2 соответствует protobuf-схеме [transaction.proto](https://github.com/wavesplatform/protobuf-schemas/blob/master/proto/waves/transaction.proto). Описание полей, общих для всех типов транзакций, представлено в разделе [Бинарный формат транзакции](/ru/blockchain/binary-format/transaction-binary-format/).
 
-Версия 2 добавлена в версии ноды 1.2.0 и включается с активацией фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
+Версия 2 доступна с момента активации фичи № 15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ```
 message InvokeScriptTransactionData {
@@ -34,9 +34,9 @@ message Amount {
 | d_app.alias | От 4 до 30 байт | [Псевдоним адреса](/ru/blockchain/account/alias) аккаунта dApp |
 | function_call | | Имя и аргументы вызываемой функции. Бинарный формат вызова аналогичен [версии 1](#версия-1) (см. п. 7 в таблице) |
 | payments.asset_id | • 32 байта для ассета<br>• 0 для WAVES | ID токена в платеже |
-| payments.amount | 8 байт | Количество токена в платеже, в минимальных единицах («копейках») токена |
+| payments.amount | 8 байт | Количество токена в платеже, в [атомарных единицах](/ru/blockchain/token/#атомарная-единица) |
 
-Количество платежей — не более 2.
+Количество платежей — не более 10. (До активации фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations” количество платежей не превышало 2.)
 
 Максимальный размер `d_app` + `function_call` + `payments` — 5120 байт.
 
@@ -56,22 +56,23 @@ message Amount {
 | **7.4** | Длина имени функции | | [Int](/ru/blockchain/blockchain/blockchain-data-types) | 4 |  |
 | **7.5** | Имя функции | function | [String](/ru/blockchain/blockchain/blockchain-data-types) | До 255 |  |
 | **7.6.1** | Количество аргументов функции |  | [Int](/ru/blockchain/blockchain/blockchain-data-types) | 4 |  |
-| **7.6.2** | ID типа аргумента 1 | type | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — длинное целое.<br>1 — массив байтов.<br>2 — строка.<br>6 — логическое значение True.<br>7 — логическое значение False.<br>11 — список.<br>Возможность передавать список в качестве аргумента добавлена в версии ноды 1.2.3 и включается после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions” |
+| **7.6.2** | ID типа аргумента 1 | type | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — длинное целое.<br>1 — массив байтов.<br>2 — строка.<br>6 — логическое значение True.<br>7 — логическое значение False.<br>11 — список.<br>Возможность передавать список в качестве аргумента появилась с момента активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions” |
 | **7.6.3** | Аргумент 1 | value | - [Long](/ru/blockchain/blockchain/blockchain-data-types)<br>- Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)]<br>- [String](/ru/blockchain/blockchain/blockchain-data-types)<br>- логическое значение True<br>- логическое значение False<br>- [List](/ru/ride/data-types/list) | `S` | `S` = 8, если типом является длинное целое.<br>Eсли типом является массив байтов, строка или список, то размер поля ограничен только общим размером транзакции.<br>Если типом является список, то<br>- его длина не должна превышать 1000 элементов,<br>- количество элементов в нем представляют первые 4 байта текущего поля,<br>- каждый элемент сериализуется так же, как и аргумент функции: сначала размещается ID типа элемента, затем его значение.<br>`S` = 0, если типом является логическое значение True или False |
-| **7.6.4** | ID типа аргумента 2 | type | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — длинное целое.<br>1 — массив байтов.<br>2 — строка.<br>6 — логическое значение True.<br>7 — логическое значение False.<br>11 — список.<br>Возможность передавать список в качестве аргумента добавлена в версии ноды 1.2.3 и включается после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions” |
+| **7.6.4** | ID типа аргумента 2 | type | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — длинное целое.<br>1 — массив байтов.<br>2 — строка.<br>6 — логическое значение True.<br>7 — логическое значение False.<br>11 — список.<br>Возможность передавать список в качестве аргумента появилась с момента активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions” |
 | **7.6.5** | Аргумент 2 | value | - [Long](/ru/blockchain/blockchain/blockchain-data-types)<br>- Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)]<br>- [String](/ru/blockchain/blockchain/blockchain-data-types)<br>- логическое значение True<br>- логическое значение False<br>- [List](/ru/ride/data-types/list) | `S` | `S` = 8, если типом является длинное целое.<br>Eсли типом является массив байтов, строка или список, то размер поля ограничен только общим размером транзакции.<br>Если типом является список, то<br>- его длина не должна превышать 1000 элементов,<br>- количество элементов в нем представляют первые 4 байта текущего поля,<br>- каждый элемент сериализуется так же, как и аргумент функции: сначала размещается ID типа элемента, затем его значение.<br>`S` = 0, если типом является логическое значение True или False |
 | ... | ... | ... | ... | ... | ... |
-| **7.6.[2&nbsp;×&nbsp;N]** | ID типа аргумента N | type | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — длинное целое.<br>1 — массив байтов.<br>2 — строка.<br>6 — логическое значение True.<br>7 — логическое значение False.<br>11 — список.<br>Возможность передавать список в качестве аргумента добавлена в версии ноды 1.2.3 и включается после активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions” |
-| **7.6.[2&nbsp;×&nbsp;N&nbsp;+&nbsp;1]** | Аргумент N | value | - [Long](/ru/blockchain/blockchain/blockchain-data-types)<br>- Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)]<br>- [String](/ru/blockchain/blockchain/blockchain-data-types)<br>- логическое значение True<br>- логическое значение False<br>- [List](/ru/ride/data-types/list) | `S` | `S` = 8, если типом является длинное целое.<br>Eсли типом является массив байтов, строка или список, то размер поля ограничен только общим размером транзакции.<br>Если типом является список, то<br>- его длина не должна превышать 1000 элементов,<br>- количество элементов в нем представляют первые 4 байта текущего поля,<br>- каждый элемент сериализуется так же, как и аргумент функции: сначала размещается ID типа элемента, затем его значение.<br>`S` = 0, если типом является логическое значение True или False |
+| **7.6.[2&nbsp;×&nbsp;N]** | ID типа аргумента N | type | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — длинное целое.<br>1 — массив байтов.<br>2 — строка.<br>6 — логическое значение True.<br>7 — логическое значение False.<br>11 — список.<br>Возможность передавать список в качестве аргумента появилась с момента активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions” |
+| **7.6.[2&nbsp;×&nbsp;N&nbsp;+&nbsp;1]** | Аргумент N | value | - [Long](/ru/blockchain/blockchain/blockchain-data-types)<br>- Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)]<br>- [String](/ru/blockchain/blockchain/blockchain-data-types)<br>- логическое значение True<br>- логическое значение False<br>- [List](/ru/ride/data-types/list) | `S` | `S` = 8, если типом является длинное целое.<br>Если типом является массив байтов, строка или список, то размер поля ограничен только общим размером транзакции.<br>Если типом является список, то<br>- его длина не должна превышать 1000 элементов,<br>- количество элементов в нем представляют первые 4 байта текущего поля,<br>- каждый элемент сериализуется так же, как и аргумент функции: сначала размещается ID типа элемента, затем его значение.<br>`S` = 0, если типом является логическое значение True или False |
 | **8.1** | Количество платежей |  | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 2 |  |
 | **8.2** | Длина платежа 1 | | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 2 | |
 | **8.3** | Количество токена в платеже 1 | amount | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **8.4** | Флаг токена платежа 1 |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — WAVES.<br>1 — другой токен |
 | **8.5** | ID токена платежа 1 | assetId | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
-| **8.6** | Длина платежа 2 | | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 2 | |
-| **8.7** | Количество токена в платеже 2 | amount | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
-| **8.8** | Флаг токена платежа 2 |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — [WAVES](/ru/blockchain/token/waves).<br>1 — другой токен |
-| **8.9** | ID токена платежа 2 | assetId | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
+| ... | ... | ... | ... | ... | ... |
+| **8.[4&nbsp;×&nbsp;N&nbsp;–&nbsp;2]** | Длина платежа N | | [Short](/ru/blockchain/blockchain/blockchain-data-types) | 2 | |
+| **8.[4&nbsp;×&nbsp;N&nbsp;–&nbsp;1]** | Количество токена в платеже N | amount | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
+| **8.[4&nbsp;×&nbsp;N]** | Флаг токена платежа N |  | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — [WAVES](/ru/blockchain/token/waves).<br>1 — другой токен |
+| **8.[4&nbsp;×&nbsp;N&nbsp;+&nbsp;1]** | ID токена платежа N | assetId | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | 32 |  |
 | **9** | [Комиссия за транзакцию](/ru/blockchain/transaction/transaction-fee) | fee | [Long](/ru/blockchain/blockchain/blockchain-data-types) | 8 |  |
 | **10.1** | Флаг токена комиссии | [Byte](/ru/blockchain/blockchain/blockchain-data-types) | 1 | 0 — WAVES<br>1 — другой токен |
 | **10.2** | ID токена комиссии | feeAssetId | Array[[Byte](/ru/blockchain/blockchain/blockchain-data-types)] | `S` | `S` = 0, если токеном является WAVES.<br>`S` = 32, если это другой токен |
@@ -79,6 +80,8 @@ message Amount {
 | 12 | [Подтверждения транзакции](/ru/blockchain/transaction/transaction-proof) | proofs | См. раздел [Бинарный формат подтверждений](/ru/blockchain/binary-format/transaction-proof-binary-format) | `S` | Если массив пустой, то `S` = 3. <br>Если массив не пустой, то `S` = 3 + 2 × `N` + 64 × `N`, где `N` — количество подтверждений в массиве.<br>Максимальное количество подтверждений в массиве — 8. Размер каждого подтверждения — 64 байта |
 
 > Поля, номера которых выделены жирным шрифтом, составляют байты тела транзакции.
+
+Количество платежей — не более 10. (До активации фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations” количество платежей не превышало 2. До активации фичи №&nbsp;15 “Ride V4, VRF, Protobuf, Failed transactions” количество платежей не превышало 1.)
 
 Максимальный размер транзакции, включая `proofs`, — 5120 байт.
 

@@ -35,14 +35,14 @@ In addition, dApp script can comprise a verifier function that checks transactio
 Each Ride script should start with directives. Here is the set of directives for the dApp script:
 
 ```ride
-{-# STDLIB_VERSION 3 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 ```
 
 These directives tell the compiler that:
 
-- The script uses Standard library version 3.
+- The script uses Standard library version 5.
 - Type of the script is dApp.
 - The script will be assigned to an account (not asset).
 
@@ -79,11 +79,14 @@ func faucet () = {
             false
     }
     if (!isKnownCaller) then 
-        ScriptResult(
-           WriteSet([DataEntry(toBase58String(i.caller.bytes), true)]),
-           TransferSet([ScriptTransfer(i.caller, 100000000, unit)])
+        (
+           [
+               BooleanEntry(toBase58String(i.caller.bytes), true),
+               ScriptTransfer(i.caller, 100000000, unit)
+           ],
+           unit
         )
-    else WriteSet([])
+    else ([],unit)
 }
 ```
 
@@ -93,7 +96,7 @@ Verifier function checks transactions and orders that are sent from dApp account
 
 For a detailed description, see the [Verifier Function](/en/ride/functions/verifier-function) article.
 
-In the example below the verifier fuction allows [transfer transactions](/en/blockchain/transaction-type/transfer-transaction) and denies orders and other types of transactions. The [match](/en/ride/operators/match-case) operator is used to specify verification rules depending on the type of transaction (or order).
+In the example below the verifier function allows [transfer transactions](/en/blockchain/transaction-type/transfer-transaction) and denies orders and other types of transactions. The [match](/en/ride/operators/match-case) operator is used to specify verification rules depending on the type of transaction (or order).
 
 ```ride
 @Verifier(tx)
@@ -138,7 +141,7 @@ There are the following options to send the transaction:
 
 The fee for the set script transaction is 0.01 WAVES.
 
-After assigning the script, the minimum fee for each transaction sent from  dApp account increases by 0.004 WAVES.
+If the script contains a verifier function and the complexity of the function exceeds the [sender complexity threshold](/en/ride/limits/), the minimum fee for each transaction sent from the dApp account is increased by 0.004 WAVES.
 
 ## Limitations
 
@@ -148,7 +151,7 @@ Limitations on the size, complexity of the script, as well as on functions and v
 
 Find dApp script examples:
 
-* In the [How-to Guides](/en/building-apps/how-to#dapps) chapter.
+* In the [How-to Guides](/en/building-apps/how-to/#dapps) chapter.
 * In [Waves IDE](https://waves-ide.com/) in the **Library** menu.
 * In Github repository [ride-examples](https://github.com/wavesplatform/ride-examples/blob/master/welcome.md).
 

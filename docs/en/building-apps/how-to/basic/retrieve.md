@@ -46,7 +46,7 @@ Use functions of `waves-transactions` library:
 * `accountData` function retrieves all the data records from an account data storage. Optionally you can filter keys using [regular expression](https://en.wikipedia.org/wiki/Regular_expression).
 * `accountDataByKey` retrieves a data record by key.
 
-See function descriptions in [library documentation](https://wavesplatform.github.io/waves-transactions/modules/nodeinteraction.html) on Github.
+See function descriptions in [library documentation](https://wavesplatform.github.io/waves-transactions/modules/_nodeinteraction_.html) on Github.
 
 **Example:**
 
@@ -119,7 +119,7 @@ You can use functions of `waves-transactions` library:
 * `balanceDetails` function retrieves all types of balalnces of WAVES.
 * `assetBalance` function retrieve balances of other assets.
 
-See function descriptions in [library documentation](https://wavesplatform.github.io/waves-transactions/modules/nodeinteraction.html) on Github.
+See function descriptions in [library documentation](https://wavesplatform.github.io/waves-transactions/modules/_nodeinteraction_.html) on Github.
 
 **Example:**
 

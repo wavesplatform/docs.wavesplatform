@@ -18,4 +18,6 @@ Please note:
 
 * To assign a script to an account, you have to send a [Set Script transaction](/en/blockchain/transaction-type/set-script-transaction) on behalf of the account.
 * You can also change or delete the script via the Set Script transaction, unless the script itself prohibits it.
-* The [minimum fee](/en/blockchain/transaction/transaction-fee) for any transaction sent from a dApp or smart account is increased by 0.004 WAVES.
+* The [minimum fee](/en/blockchain/transaction/transaction-fee) for any transaction sent from a dApp or smart account is increased by 0.004 WAVES if the complexity of sender's account script or dApp script verifier function exceeds the [sender complexity threshold](/en/ride/limits/).
+
+   (Before activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the extra fee of 0.004 WAVES was required regardless of the complexity of the account script or the presence and complexity of the dApp script verifier function.)

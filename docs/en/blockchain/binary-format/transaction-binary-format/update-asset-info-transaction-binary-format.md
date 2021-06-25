@@ -1,8 +1,8 @@
 # Update Asset Info Transaction Binary Format
 
-> Learn more about [Update asset info transaction](/en/blockchain/transaction-type/update-asset-info-transaction).
+> Learn more about [Update Asset Info transaction](/en/blockchain/transaction-type/update-asset-info-transaction).
 
-Update asset info transaction is added since node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+Update Asset Info transaction type is enabled by feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ## Version 1
 

@@ -2,14 +2,16 @@
 
 | Название | Описание | Сложность |
 | :--- | :--- | :--- |
-| [addressFromRecipient(Address&#124;Alias): Address](#address-from-recipient) | Получает [адрес](/ru/blockchain/account/address), соответствующий [псевдониму](/ru/blockchain/account/alias) | 100 для Стандартной библиотеки **версии 3**<br>5 для Стандартной библиотеки **версии 4** |
-| [assetBalancе(Address&#124;Alias, ByteVector): Int](#asset-balance)  | Получает баланс аккаунта по ID токена | 100 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>10 для Стандартной библиотеки **версии 4** |
-| [assetInfo](#assetinfo)(ByteVector): Аsset&#124;Unit | Получает информацию о [токене](/ru/blockchain/token/) | 100 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>15 для Стандартной библиотеки **версии 4** |
-| [blockInfoByHeight](#blockinfobyheight)(Int): BlockInfo &#124;Unit | Получает информацию о [блоке](/ru/blockchain/block/) по [высоте блока](/ru/blockchain/block/block-height) | 100 для Стандартной библиотеки **версии 3**<br>5 для Стандартной библиотеки **версии 4** |
-| [calculateAssetId](#calculateassetid)(Issue): ByteVector | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/script-actions/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | 10 |
-| [transactionHeightById](#transactionheightbyid)(ByteVector):  Int&#124;Unit | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 100 для Стандартной библиотеки **версии 3**<br>20 для Стандартной библиотеки **версии 4** |
-| [transferTransactionById](#transfertransactionbyid)(ByteVector): TransferTransaction&#124;Unit | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 100 для Стандартной библиотеки **версии 3**<br>60 для Стандартной библиотеки **версии 4** |
-| [wavesBalance(Address&#124;Alias): Int](#waves-balance) | Получает баланс аккаунта в [WAVES](/ru/blockchain/token/waves) | 100 для Стандартной библиотеки **версии 3**<br>10 для Стандартной библиотеки **версии 4** |
+| [addressFromRecipient(Address&#124;Alias): Address](#address-from-recipient) | Получает [адрес](/ru/blockchain/account/address), соответствующий [псевдониму](/ru/blockchain/account/alias) | 5 |
+| [assetBalancе(Address&#124;Alias, ByteVector): Int](#asset-balance)  | Получает баланс аккаунта по ID токена | 10 |
+| [assetInfo(ByteVector): Аsset&#124;Unit](#assetinfo) | Получает информацию о [токене](/ru/blockchain/token/) | 15 |
+| [blockInfoByHeight(Int): BlockInfo &#124;Unit](#blockinfobyheight) | Получает информацию о [блоке](/ru/blockchain/block/) по [высоте блока](/ru/blockchain/block/block-height) | 5 |
+| [calculateAssetId(Issue): ByteVector](#calculateassetid) | Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/script-actions/issue) при выполнении [вызываемой функции](/ru/ride/functions/callable-function) | 10 |
+| [calculateLeaseId(Lease): ByteVector](#calculateleaseid) | Вычисляет ID ассета, созданного структурой [Lease](/ru/ride/structures/script-actions/lease) при выполнении вызываемой функции | 1 |
+| [scriptHash(Address&#124;Alias): ByteVector&#124;Unit](#scripthash) | Возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте | 200 |
+| [transactionHeightById(ByteVector):  Int&#124;Unit](#transactionheightbyid) | Получает [высоту блока](/ru/blockchain/block/block-height) транзакции | 20 |
+| [transferTransactionById(ByteVector): TransferTransaction&#124;Unit](#transfertransactionbyid) | Получает данные [транзакции перевода](/ru/blockchain/transaction-type/transfer-transaction) | 60 |
+| [wavesBalance(Address&#124;Alias): BalanceDetails](#waves-balance) | Получает баланс аккаунта в [WAVES](/ru/blockchain/token/waves) | 10 |
 
 ## addressFromRecipient(Address&#124;Alias): Address<a id="address-from-recipient"></a>
 
@@ -33,6 +35,20 @@ addressFromRecipient(AddressOrAlias: Address|Alias): Address
 let address =Address(base58'3NADPfTVhGvVvvRZuqQjhSU4trVqYHwnqjF')
 addressFromRecipient(address)
 ```
+## assetBalance
+
+Получает баланс аккаунта по ID токена.
+
+``` ride
+assetBalance(addressOrAlias: Address|Alias, assetId: ByteVector): Int
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+| `assetId`: [ByteVector](/ru/ride/data-types/byte-vector) | ID токена |
 
 ## assetBalance <a id="asset-balance"></a>
 
@@ -104,9 +120,7 @@ let x = match blockInfoByHeight(1234567) {
 
 ## calculateAssetId
 
-Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/script-actions/issue) при выполнении [транзакции вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction).
-
-> :warning: Функция `calculateAssetId` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
+Вычисляет ID ассета, созданного структурой [Issue](/ru/ride/structures/script-actions/issue) при выполнении [вызываемой функции](/ru/ride/functions/callable-function).
 
 ```
 calculateAssetId(issue: Issue): ByteVector
@@ -121,27 +135,81 @@ calculateAssetId(issue: Issue): ByteVector
 ### Пример
 
 ```
-{-# STDLIB_VERSION 4 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
   
 @Callable(inv)
-func issueAndSend() = {
+func issueAndId() = {
   let issue = Issue("CryptoRouble", "Description", 1000, 2, true)
   let id = calculateAssetId(issue)
-  [
-    issue,
-    ScriptTransfer(inv.caller, issue.quantity, id),
-    BinaryEntry("id", id)
-  ]
+  (
+    [
+      issue,
+      BinaryEntry("id", id)
+    ],
+    unit
+  )
 }
- 
-// Результат:
-//   {
-//     "type": "string",
-//     "value": "55jbTUxWkbLbfd6Z7Wy93DcyD7xikBg5GRDmccD4s8uv",
-//     "key": "id"
-//   }
+```
+
+## calculateLeaseId
+
+Вычисляет ID лизинга, созданного структурой [Lease](/ru/ride/structures/script-actions/lease) при выполнении [вызываемой функции](/ru/ride/functions/callable-function).
+
+```
+calculateLeaseId(lease: Lease): ByteVector
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `lease`: [Lease](/ru/ride/structures/script-actions/lease) | Структура, задающая параметры лизинга |
+
+### Пример
+
+```
+{-# STDLIB_VERSION 5 #-}
+{-# CONTENT_TYPE DAPP #-}
+{-# SCRIPT_TYPE ACCOUNT #-}
+  
+@Callable(i)
+func foo() = {
+  let lease = Lease(Alias("merry"),100000000)
+  let id = calculateLeaseId(lease)
+  (
+    [
+      lease,
+      BinaryEntry("lease", id)
+    ],
+    unit
+  )
+}
+```
+
+## scriptHash
+
+Возвращает [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29)-хеш скрипта, установленного на аккаунте. Возвращает `unit`, если скрипт отсутствует.
+
+Функция может использоваться для проверки того, что скрипт совпадает с ожидаемым.
+
+```
+scriptHash(addressOrAlias: Address|Alias): ByteVector|Unit
+```
+
+### Параметры
+
+| Параметр | Описание |
+| :--- | :--- |
+| `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
+
+### Пример
+
+```scala
+let addr = Address(base58'3MxBZbnN8Z8sbYjjL5N3oG5C8nWq9NMeCEm')
+
+scriptHash(addr) # Возвращает base58'G6ihnWN5mMedauCgNa8TDrSKWACPJKGQyYagmMQhPuja'
 ```
 
 ## transactionHeightById
@@ -185,17 +253,7 @@ let x = match transferTransactionById(transferId) {
 }
 ```
 
-## wavesBalance: Int<a id="waves-balance"></a>
-
-### В Стандартной библиотеке версии 3
-
-Возвращает доступный баланс [WAVES](/ru/blockchain/token/waves) аккаунта.
-
-``` ride
-wavesBalance(addressOrAlias: Address|Alias): Int
-```
-
-### В Стандартной библиотеке версии 4
+## wavesBalance<a id="waves-balance"></a>
 
 Возвращает все виды баланса [WAVES](/ru/blockchain/token/waves) аккаунта. О видах баланса см. в разделe [Баланс аккаунта](/ru/blockchain/account/account-balance).
 
@@ -210,4 +268,3 @@ wavesBalance(addressOrAlias: Address|Alias): BalanceDetails
 | Параметр | Описание |
 | :--- | :--- |
 | `addressOrAlias`: [Address](/ru/ride/structures/common-structures/address)&#124;[Alias](/ru/ride/structures/common-structures/alias) | [Адрес](/ru/blockchain/account/address) или [псевдоним](/ru/blockchain/account/alias) аккаунта |
-

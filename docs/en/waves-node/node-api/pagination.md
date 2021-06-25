@@ -35,9 +35,11 @@ The [GET /assets/{assetId}/distribution/{height}/limit/{limit}](https://nodes.wa
 
    where:
 
-   * `hasNext` indicates that the next page exists.
-   * `lastItem` is the last address on the current page.
-   * `items` is the page of the distribution of the asset by addresses.
+   • `hasNext` indicates that the next page exists.
+
+   • `lastItem` is the last address on the current page.
+
+   • `items` is the page of the distribution of the asset by addresses.
 
 2. Obtain the next page: specify the `lastItem` value as the `after` request parameter.
 
@@ -49,7 +51,7 @@ The [GET /assets/{assetId}/distribution/{height}/limit/{limit}](https://nodes.wa
 
 ## Example 2: List of Transactions by Address
 
-The [GET /transactions​/address​/{address}​/limit​/{limit}](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/addressLimit_1) operation returns a list of transactions where the specified address is involved.
+The [GET /transactions/address/{address}/limit/{limit}](https://nodes.wavesnodes.com/api-docs/index.html#/transactions/addressLimit_1) operation returns a list of transactions where the specified address is involved.
 
 1. Obtain the first page:
 

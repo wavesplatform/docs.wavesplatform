@@ -6,6 +6,8 @@ const buildingAppsPath = localePath + 'building-apps/';
 const programmingPath = buildingAppsPath + 'smart-contracts/';
 const sdkPath = buildingAppsPath + 'waves-api-and-sdk/';
 const ridePath = localePath + 'ride/';
+const rideV4Path = localePath + 'ride/v4/';
+const rideV5Path = localePath + 'ride/v5/';
 const ecosystemPath = localePath + 'ecosystem/';
 const keepInTouchPath = localePath + 'keep-in-touch/';
 
@@ -137,6 +139,10 @@ module.exports = {
               title: 'Перевод',
               path: blockchainPath + 'transaction-type/transfer-transaction',
             },
+/*            {
+              title: 'Продолжение',
+              path: blockchainPath + 'transaction-type/continuation-transaction',
+            }, */
             {
               title: 'Сжигание токена',
               path: blockchainPath + 'transaction-type/burn-transaction',
@@ -393,6 +399,10 @@ module.exports = {
                   title: 'Перевод',
                   path: blockchainPath + 'binary-format/transaction-binary-format/transfer-transaction-binary-format',
                 },
+/*                {
+                  title: 'Продолжение',
+                  path: blockchainPath + 'binary-format/transaction-binary-format/continuation-transaction-binary-format',
+                },*/
                 {
                   title: 'Установка скрипта',
                   path: blockchainPath + 'binary-format/transaction-binary-format/set-script-transaction-binary-format',
@@ -656,11 +666,25 @@ module.exports = {
     {
       title: 'Стандартная библиотека',
       path: ridePath + 'script/standard-library',
+      children: [
+        {
+          title: 'Версия 5: что нового',
+          path: rideV5Path,
+        },
+      ]
     },
     {
       title: 'Типы данных',
       path: ridePath + 'data-types',
       children: [
+        {
+          title: 'Any',
+          path: ridePath + 'data-types/any',
+        },
+        {
+          title: 'BigInt',
+          path: ridePath + 'data-types/bigint',
+        },
         {
           title: 'Boolean',
           path: ridePath + 'data-types/boolean',
@@ -704,69 +728,55 @@ module.exports = {
           path: ridePath + 'structures/script-actions',
           children: [
             {
-              title: 'BinaryEntry (v4)',
+              title: 'BinaryEntry',
               path: ridePath + 'structures/script-actions/binary-entry',
             },
             {
-              title: 'BooleanEntry (v4)',
+              title: 'BooleanEntry',
               path: ridePath + 'structures/script-actions/boolean-entry',
             },
             {
-              title: 'Burn (v4)',
+              title: 'Burn',
               path: ridePath + 'structures/script-actions/burn',
             },
             {
-              title: 'DataEntry (v3)',
-              path: ridePath + 'structures/script-actions/data-entry',
-            },
-            {
-              title: 'DeleteEntry (v4)',
+              title: 'DeleteEntry',
               path: ridePath + 'structures/script-actions/delete-entry',
             },
             {
-              title: 'IntegerEntry (v4)',
+              title: 'IntegerEntry',
               path: ridePath + 'structures/script-actions/int-entry',
             },
             {
-              title: 'Issue (v4)',
+              title: 'Issue',
               path: ridePath + 'structures/script-actions/issue',
             },
             {
-              title: 'Reissue (v4)',
+              title: 'Lease',
+              path: ridePath + 'structures/script-actions/lease',
+            },
+            {
+              title: 'LeaseCancel',
+              path: ridePath + 'structures/script-actions/lease-cancel',
+            },
+            {
+              title: 'Reissue',
               path: ridePath + 'structures/script-actions/reissue',
             },
             {
-              title: 'ScriptTransfer (v3 and v4)',
+              title: 'ScriptTransfer',
               path: ridePath + 'structures/script-actions/script-transfer',
             },
             {
-              title: 'SponsorFee (v4)',
+              title: 'SponsorFee',
               path: ridePath + 'structures/script-actions/sponsor-fee',
             },
             {
-              title: 'StringEntry (v4)',
+              title: 'StringEntry',
               path: ridePath + 'structures/script-actions/string-entry',
             },
           ],
         },
-        {
-          title: 'Результаты скрипта (v3)',
-          path: ridePath + 'structures/script-results',
-          children: [
-            {
-              title: 'ScriptResult',
-              path: ridePath + 'structures/script-results/script-result',
-            },
-            {
-              title: 'TransferSet',
-              path: ridePath + 'structures/script-results/transfer-set',
-            },
-            {
-              title: 'WriteSet',
-              path: ridePath + 'structures/script-results/write-set',
-            },
-          ],
-        },        
         {
           title: 'Общие структуры',
           path: ridePath + 'structures/common-structures',
@@ -870,7 +880,7 @@ module.exports = {
               path: ridePath + 'structures/transaction-structures/set-script-transaction',
             },
             {
-              title: '[en] SponsorFeeTransaction',
+              title: 'SponsorFeeTransaction',
               path: ridePath + 'structures/transaction-structures/sponsor-fee-transaction',
             },
             {
@@ -930,6 +940,10 @@ module.exports = {
           path: ridePath + 'functions/built-in-functions/hashing-functions',
         },
         {
+          title: 'Функции вызова dApp из dApp',
+          path: ridePath + 'functions/built-in-functions/dapp-to-dapp',
+        },
+        {
           title: 'Функции списка',
           path: ridePath + 'functions/built-in-functions/list-functions',
         },
@@ -963,7 +977,10 @@ module.exports = {
       title: 'Итерации: FOLD<N>',
       path: ridePath + 'fold-macro',
     },
-
+    {
+      title: 'Вызов dApp из dApp',
+      path: ridePath + 'advanced/dapp-to-dapp',
+    },
     {
       title: 'Ограничения',
       path: ridePath + 'limits',
@@ -975,6 +992,324 @@ module.exports = {
         {
           title: 'Вес данных',
           path: ridePath + 'limits/weight',
+        },
+      ],
+    },
+    {
+      title: 'Предыдущие версии: 4 и 3',
+      path: rideV4Path,
+      children: [
+        {
+          title: 'Вызываемая функция',
+          path: rideV4Path + 'functions/callable-function',
+        },
+        {
+          title: 'Типы данных',
+          path: rideV4Path + 'data-types',
+          children: [
+            {
+              title: 'Boolean',
+              path: rideV4Path + 'data-types/boolean',
+            },
+            {
+              title: 'ByteVector',
+              path: rideV4Path + 'data-types/byte-vector',
+            },
+            {
+              title: 'Int',
+              path: rideV4Path + 'data-types/int',
+            },
+            {
+              title: 'String',
+              path: rideV4Path + 'data-types/string',
+            },
+            {
+              title: 'Unit',
+              path: rideV4Path + 'data-types/unit',
+            },
+            {
+              title: 'List',
+              path: rideV4Path + 'data-types/list',
+            },
+            {
+              title: 'Кортеж',
+              path: rideV4Path + 'data-types/tuple',
+            },
+            {
+              title: 'Объединение',
+              path: rideV4Path + 'data-types/union',
+            },
+          ],
+        },
+        {  
+          title: 'Структуры',
+          path: rideV4Path + 'structures',
+          children: [
+            {
+              title: 'Действия скрипта',
+              path: rideV4Path + 'structures/script-actions',
+              children: [
+                {
+                  title: 'BinaryEntry (v4)',
+                  path: rideV4Path + 'structures/script-actions/binary-entry',
+                },
+                {
+                  title: 'BooleanEntry (v4)',
+                  path: rideV4Path + 'structures/script-actions/boolean-entry',
+                },
+                {
+                  title: 'Burn (v4)',
+                  path: rideV4Path + 'structures/script-actions/burn',
+                },
+                {
+                  title: 'DataEntry (v3)',
+                  path: rideV4Path + 'structures/script-actions/data-entry',
+                },
+                {
+                  title: 'DeleteEntry (v4)',
+                  path: rideV4Path + 'structures/script-actions/delete-entry',
+                },
+                {
+                  title: 'IntegerEntry (v4)',
+                  path: rideV4Path + 'structures/script-actions/int-entry',
+                },
+                {
+                  title: 'Issue (v4)',
+                  path: rideV4Path + 'structures/script-actions/issue',
+                },
+                {
+                  title: 'Reissue (v4)',
+                  path: rideV4Path + 'structures/script-actions/reissue',
+                },
+                {
+                  title: 'ScriptTransfer (v3 and v4)',
+                  path: rideV4Path + 'structures/script-actions/script-transfer',
+                },
+                {
+                  title: 'SponsorFee (v4)',
+                  path: rideV4Path + 'structures/script-actions/sponsor-fee',
+                },
+                {
+                  title: 'StringEntry (v4)',
+                  path: rideV4Path + 'structures/script-actions/string-entry',
+                },
+              ],
+            },
+            {
+              title: 'Результаты скрипта (v3)',
+              path: rideV4Path + 'structures/script-results',
+              children: [
+                {
+                  title: 'ScriptResult',
+                  path: rideV4Path + 'structures/script-results/script-result',
+                },
+                {
+                  title: 'TransferSet',
+                  path: rideV4Path + 'structures/script-results/transfer-set',
+                },
+                {
+                  title: 'WriteSet',
+                  path: rideV4Path + 'structures/script-results/write-set',
+                },
+              ],
+            },
+            {
+              title: 'Общие структуры',
+              path: rideV4Path + 'structures/common-structures',
+              children: [
+                {
+                  title: 'Address',
+                  path: rideV4Path + 'structures/common-structures/address',
+                },
+                {
+                  title: 'Alias',
+                  path: rideV4Path + 'structures/common-structures/alias',
+                },
+                {
+                  title: 'Asset',
+                  path: rideV4Path + 'structures/common-structures/asset',
+                },
+                {
+                  title: 'AssetPair',
+                  path: rideV4Path + 'structures/common-structures/asset-pair',
+                },
+                {
+                  title: 'AttachedPayment',
+                  path: rideV4Path + 'structures/common-structures/attached-payment',
+                },
+                {
+                  title: 'BalanceDetails',
+                  path: rideV4Path + 'structures/common-structures/balance-details',
+                },
+                {
+                  title: 'BlockInfo',
+                  path: rideV4Path + 'structures/common-structures/block-info',
+                },
+                {
+                  title: 'Invocation',
+                  path: rideV4Path + 'structures/common-structures/invocation',
+                },
+                {
+                  title: 'Order',
+                  path: rideV4Path + 'structures/common-structures/order',
+                },
+                {
+                  title: 'Transfer',
+                  path: rideV4Path + 'structures/common-structures/transfer',
+                },
+              ],
+            },
+            {
+              title: 'Структуры транзакций',
+              path: rideV4Path + 'structures/transaction-structures',
+              children: [
+                {
+                  title: 'BurnTransaction',
+                  path: rideV4Path + 'structures/transaction-structures/burn-transaction',
+                },
+                {
+                  title: 'CreateAliasTransaction',
+                  path: rideV4Path + 'structures/transaction-structures/create-alias-transaction',
+                },
+                {
+                  title: 'DataTransaction',
+                  path: rideV4Path + 'structures/transaction-structures/data-transaction',
+                },
+                {
+                  title: 'ExchangeTransaction',
+                  path: rideV4Path + 'structures/transaction-structures/exchange-transaction',
+                },
+                {
+                  title: 'GenesisTransaction',
+                  path: rideV4Path + 'structures/transaction-structures/genesis-transaction',
+                },
+                {
+                  title: 'InvokeScriptTransaction',
+                  path: rideV4Path + 'structures/transaction-structures/invoke-script-transaction',
+                },
+                {
+                  title: 'IssueTransaction',
+                  path: rideV4Path + 'structures/transaction-structures/issue-transaction',
+                },
+                {
+                  title: 'LeaseCancelTransaction',
+                  path: rideV4Path + 'structures/transaction-structures/lease-cancel-transaction',
+                },
+                {
+                  title: 'LeaseTransaction',
+                  path: rideV4Path + 'structures/transaction-structures/lease-transaction',
+                },
+                {
+                  title: 'MassTransferTransaction',
+                  path: rideV4Path + 'structures/transaction-structures/mass-transfer-transaction',
+                },
+                {
+                  title: 'ReissueTransaction',
+                  path: rideV4Path + 'structures/transaction-structures/reissue-transaction',
+                },
+                {
+                  title: 'SetAssetScriptTransaction',
+                  path: rideV4Path + 'structures/transaction-structures/set-asset-script-transaction',
+                },
+                {
+                  title: 'SetScriptTransaction',
+                  path: rideV4Path + 'structures/transaction-structures/set-script-transaction',
+                },
+                {
+                  title: '[en] SponsorFeeTransaction',
+                  path: rideV4Path + 'structures/transaction-structures/sponsor-fee-transaction',
+                },
+                {
+                  title: 'TransferTransaction',
+                  path: rideV4Path + 'structures/transaction-structures/transfer-transaction',
+                },
+                {
+                  title: 'UpdateAssetInfoTransaction',
+                  path: rideV4Path + 'structures/transaction-structures/update-asset-info-transaction',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          title: 'Встроенные переменные',
+          path: rideV4Path + 'variables/built-in-variables',
+        },
+        {
+          title: 'Встроенные функции',
+          path: rideV4Path + 'functions/built-in-functions',
+          children: [
+            {
+              title: 'Функции хранилища данных аккаунта',
+              path: rideV4Path + 'functions/built-in-functions/account-data-storage-functions',
+            },
+            {
+              title: 'Функции блокчейна',
+              path: rideV4Path + 'functions/built-in-functions/blockchain-functions',
+            },
+            {
+              title: 'Функции массива байтов',
+              path: rideV4Path + 'functions/built-in-functions/byte-array-functions',
+            },
+            {
+              title: 'Функции конвертации',
+              path: rideV4Path + 'functions/built-in-functions/converting-functions',
+            },
+            {
+              title: 'Функции транзакции данных',
+              path: rideV4Path + 'functions/built-in-functions/data-transaction-functions',
+            },
+            {
+              title: 'Функции декодирования',
+              path: rideV4Path + 'functions/built-in-functions/decoding-functions',
+            },
+            {
+              title: 'Функции кодирования',
+              path: rideV4Path + 'functions/built-in-functions/encoding-functions',
+            },
+            {
+              title: 'Функции исключения',
+              path: rideV4Path + 'functions/built-in-functions/exception-functions',
+            },
+            {
+              title: 'Функции хеширования',
+              path: rideV4Path + 'functions/built-in-functions/hashing-functions',
+            },
+            {
+              title: 'Функции списка',
+              path: rideV4Path + 'functions/built-in-functions/list-functions',
+            },
+            {
+              title: 'Математические функции',
+              path: rideV4Path + 'functions/built-in-functions/math-functions',
+            },
+            {
+              title: 'Функции строки',
+              path: rideV4Path + 'functions/built-in-functions/string-functions',
+            },
+            {
+              title: 'Функции объединения',
+              path: rideV4Path + 'functions/built-in-functions/union-functions',
+            },
+            {
+              title: 'Функции верификации',
+              path: rideV4Path + 'functions/built-in-functions/verification-functions',
+            },
+          ],
+        },
+        {
+          title: 'Операторы',
+          path: rideV4Path + 'operators',
+        },
+        {
+          title: 'Ограничения',
+          path: rideV4Path + 'limits',
+          children: [
+            {
+              title: 'Вес данных',
+              path: rideV4Path + 'limits/weight',
+            },
+          ],
         },
       ],
     },
@@ -1006,7 +1341,7 @@ module.exports = {
           path: buildingAppsPath + 'how-to/basic/transaction',
         },
         {
-          title: 'Выпуск токена',
+          title: 'Токенизация',
           path: buildingAppsPath + 'how-to/assets/issue',
         },
         {
@@ -1104,20 +1439,24 @@ module.exports = {
       path: sdkPath,
       children: [
         {
+          title: 'Data Service API',
+          path: sdkPath + 'waves-data-service-api',
+        },
+        {
           title: 'Node REST API 🡥',
           path: nodePath + 'node-api',
         },
         {
-          title: 'Waves Keeper API 🡥',
-          path: ecosystemPath + 'waves-keeper/waves-keeper-api',
-        },
-        {
-          title: '[en] Waves data service API',
-          path: sdkPath + 'waves-data-service-api',
-        },
-        {
           title: 'Node gRPC Server 🡥',
           path: nodePath + 'extensions/grpc-server',
+        },
+        {
+          title: 'Blockchain Updates 🡥',
+          path: nodePath + 'extensions/blockchain-updates',
+        },
+        {
+          title: 'Waves Keeper API 🡥',
+          path: ecosystemPath + 'waves-keeper/waves-keeper-api',
         },
       ],
     },

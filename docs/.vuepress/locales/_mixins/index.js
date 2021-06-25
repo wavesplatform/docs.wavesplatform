@@ -65,6 +65,10 @@ module.exports = {
                         text: 'How-to guides',
                         link: '/en/building-apps/how-to/'
                     },
+                    dataService: {
+                        text: 'Data Service API',
+                        link: '/en/building-apps/waves-api-and-sdk/waves-data-service-api'
+                    },
                 }
             },
             rideProgrammingLanguage: {
@@ -170,7 +174,7 @@ module.exports = {
 
     footer: {
         broughtToYouByWavesTeam: 'Brought to you by Waves Team.',
-        copyright: '© 2019—2020 Waves Technologies',
+        copyright: '© 2019—2021 Waves Technologies',
         email: '',
         resourcesCategories: {
             productsAndTools: {

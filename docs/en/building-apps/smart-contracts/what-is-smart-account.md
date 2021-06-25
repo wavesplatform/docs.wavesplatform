@@ -27,14 +27,14 @@ To attach your own script to an account, you need to send a [set script transact
 The directive should be placed at the very beginning of the script. Review the example directive:
 
 ```ride
-{-# STDLIB_VERSION 3 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE EXPRESSION #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 ```
 
 The given directive consists of three annotations and provides the compiler with the following information:
 
-- the script will use the third version of the library of standard functions
+- the script uses version 5 of the library of standard functions
 - the type of script content is Expression
 - `this` variable type will be `Address`.
 
@@ -93,4 +93,4 @@ match tx {
 
 ## Smart Account Fees
 
-If the transaction is sent from a smart account, the transaction fee is increased by 0.004 WAVES. So if the transaction fee is 0.001 WAVES, the owner of the smart account will pay 0.001 + 0.004 = 0.005 WAVES.
+If the complexity of the account script exceeds the [sender complexity threshold](/en/ride/limits/), the minimum fee for each transaction sent from the smart account is increased by 0.004 WAVES.

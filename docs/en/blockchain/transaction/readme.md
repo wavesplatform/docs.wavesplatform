@@ -1,6 +1,6 @@
 # Transaction
 
-**Transaction** is an action on the [blockchain](/en/blockchain/blockchain/) on behalf of an [account](/en/blockchain/account/). 
+**Transaction** is an action on the [blockchain](/en/blockchain/blockchain/) on behalf of an [account](/en/blockchain/account/).
 
 The Waves blockchain provides various types of transactions. For example:
 
@@ -51,8 +51,8 @@ Here is an example of JSON representation:
 | fee | [Transaction fee](/en/blockchain/transaction/transaction-fee): an integer value indicated in the minimum fraction (“cent”) of the fee asset. For example, if the fee is 0.001 WAVES, 100000 is indicated in the JSON representation, so far as 1 WAVES = 10<sup>8</sup> WAVELET |
 | *id* | Transaction ID. For the transaction ID calculation method, see the [Cryptographic Practical Details](/en/blockchain/waves-protocol/cryptographic-practical-details#calculating-transaction-id) article |
 | type | Transaction type. Type IDs are listed in the [Transaction Type](/en/blockchain/transaction-type/) article |
-| version | Transaction version. Versions for each type of transaction are listed in [transaction binary format](/en/blockchain/binary-format/transaction-binary-format) descriptions |
-| *applicationStatus* | Result of transaction validation:<br>- `succeeded`: transaction is successful.<br>- `script_execution_failed`: the dApp script or the asset script failed.<br>The field is added starting from node version 1.2.4, after the activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. See the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article for details |
+| version | Transaction version. Versions for each type of transaction are listed in [transaction binary format](/en/blockchain/binary-format/transaction-binary-format/) descriptions |
+| *applicationStatus* | Status of transaction execution:<br>- `succeeded`: transaction is successful.<br>- `script_execution_failed`: the dApp script or the asset script failed. <br>The field is enabled by feature #15 “Ride V4, VRF, Protobuf, Failed transactions”. See the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article for details. |
 | timestamp | Transaction timestamp specified by the sender: Unix time in milliseconds. The transaction cannot be added to the blockchain if the timestamp value is more than 2 hours behind or 1.5 hours ahead of current block timestamp |
 | *height* | The sequence number of the block that contains the transaction |
 
@@ -99,7 +99,7 @@ You can get the transaction by ID, or the list of transactions by certain accoun
    * the `POST /transactions/broadcast` method sends a signed transaction to a node;
    * the `POST /transactions/sign` method generates transaction signature (but this method is only available to the node owner).
 
-## After Transaction Is Sent
+## After Transaction Is Sent <a id="utx-pool"></a>
 
 Upon receiving a transaction, the node validates its signature, checks the sender's balance, and so on, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article for details. If the transaction is valid, the node puts the transaction to the UTX pool that is a list of transactions awaiting to be added, and also broadcasts the transaction to other nodes of the blockchain network.
 

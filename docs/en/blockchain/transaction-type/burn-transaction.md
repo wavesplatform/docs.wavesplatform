@@ -6,7 +6,7 @@ Burn transaction decreases the amount of token on sender's account and thereby t
 
 The minimum fee for a Burn transaction is 0.001 WAVES, in case of burning a [smart asset](/en/blockchain/token/smart-asset) 0.005 WAVES.
 
-If the transaction sender is a [dApp or smart account](/en/blockchain/account/dapp), the minimum fee is increased by 0.004 WAVES.
+If the transaction sender is a [dApp or smart account](/en/blockchain/account/dapp), and the complexity of the account script or dApp script verifier function exceeds the [sender complexity threshold](/en/ride/limits/), the minimum fee is increased by 0.004 WAVES. (Before activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the extra fee of 0.004 WAVES was required regardless of the complexity of the account script or the presence and complexity of the dApp script verifier function.)
 
 ## JSON Representation
 

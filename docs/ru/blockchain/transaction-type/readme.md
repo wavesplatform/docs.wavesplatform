@@ -28,6 +28,8 @@
 | 13 | [Транзакция установки скрипта](/ru/blockchain/transaction-type/set-script-transaction) | Устанавливает dApp-скрипт или скрипт аккаунта |
 | 16 | [Транзакция вызова скрипта](/ru/blockchain/transaction-type/invoke-script-transaction) | Вызывает функцию скрипта dApp |
 
+<!-- | 18 | [Транзакция продолжения](/ru/blockchain/transaction-type/continuation-transaction) | Создается автоматически для продолжения выполнения скрипта dApp | -->
+
 ## Сеть
 
 | ID типа транзакции | Название | Описание |
