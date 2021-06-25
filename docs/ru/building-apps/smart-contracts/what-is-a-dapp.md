@@ -156,4 +156,8 @@ dApp может использовать данные блокчейна:
 
 ## Статьи о dApp
 
-* 
+* [Чем хорош протокол Waves для DeFi-приложений?](https://vk.com/@wavesprotocol-chem-horosh-protokol-waves-dlya-defi-prilozhenii)
+* [Что такое смарт-контракты и как их использовать в приложении](https://vk.com.@wavesplatform-chto-takoe-smart-kontrakty-i-kak-ih-ispolzovat-v-prilozhenii)
+* [Как создать dApp для мотивации сотрудников](https://vk.com/@wavesprotocol-kak-sozdat-dapp-dlya-motivacii-sotrudnikov)
+* [Как избежать ошибок при разработке dApp](https://vk.com/@wavesprotocol-kak-izbezhat-oshibok-pri-razrabotke-dapp)
+* [5 вещей, которые я хотел бы знать до того, как начал разрабатывать децентрализованные приложения](https://vk.com/@wavesprotocol-5-veschei-kotorye-ya-hotel-by-znat-do-togo-kak-nachal-razrab)

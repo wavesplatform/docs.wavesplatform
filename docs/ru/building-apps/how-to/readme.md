@@ -45,3 +45,9 @@
 [**Простое голосование на блокчейне Waves**](/ru/building-apps/smart-contracts/simple-voting-on-the-waves-blockchain)
 
 dApp реализует голосование жильцов дома: скрипт проверяет, что аккаунт имеет право голосовать, и записывает результаты в хранилище данных dApp.
+
+## Статьи
+
+* [Как создать dApp для мотивации сотрудников](https://vk.com/@wavesprotocol-kak-sozdat-dapp-dlya-motivacii-sotrudnikov)
+* [Как написать децентрализованный оракул на Ride](https://vk.com/@wavesprotocol-kak-napisat-decentralizovannyi-orakul-na-ride)
+* [Инструмент для автоматического вызова смарт-контрактов](https://vk.com/@wavesprotocol-instrument-dlya-dlya-avtomaticheskogo-vyzova-smart-kontrakto)
