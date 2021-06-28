@@ -41,7 +41,7 @@ Example:
 | 102 | Invalid address | |
 | 108 | Invalid public key | |
 | 110 | Invalid message | Failed to decode message, signature or key for `/addresses/verify/{address}` or `/addresses/verifyText/{address}` endpoint |
-| 113 | Overflow error | `fee`+`amount` or the total amount in the Mass Transfer transaction is greater than the maximum [Long](/ru/blockchain/blockchain/blockchain-data-types) value |
+| 113 | Overflow error | `fee`+`amount` or the total amount in the Mass Transfer transaction is greater than the maximum [Long](/en/blockchain/blockchain/blockchain-data-types) value |
 | 116 | Request contains invalid IDs. id1, id2, ... | Invalid base58 in the list of transaction IDs |
 | 199 | ... | Other validation errors |
 | 301 | Block does not exist | |

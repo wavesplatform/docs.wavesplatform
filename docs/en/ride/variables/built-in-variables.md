@@ -80,7 +80,7 @@ A **built-in variable** is a [variable](/en/ride/variables/) of the [Standard li
   <tr>
     <td>8</td>
     <td>this</td>
-    <td>• For a <a href="/en/ride/script/script-types/dapp-script">dApp script</a> or an <a href="/ru/ride/script/script-types/account-script">account script</a>: the <a href="/en/ride/structures/common-structures/address">Address</a> structure<br/>• For an <a href="/en/ride/script/script-types/asset-script">asset script</a>: the <a href="/en/ride/structures/common-structures/asset">Asset</a> structure</td>
+    <td>• For a <a href="/en/ride/script/script-types/dapp-script">dApp script</a> or an <a href="/en/ride/script/script-types/account-script">account script</a>: the <a href="/en/ride/structures/common-structures/address">Address</a> structure<br/>• For an <a href="/en/ride/script/script-types/asset-script">asset script</a>: the <a href="/en/ride/structures/common-structures/asset">Asset</a> structure</td>
   </tr>
   <tr>
     <td>9</td>

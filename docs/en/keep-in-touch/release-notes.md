@@ -287,7 +287,6 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
    ```
 
    If the blockchain state on the node was not rebuilt after activation of feature #16, the endpoint does not return the `leaseCancelTransactionId` field for leases that are canceled before activation of feature #16.
-
    </details>
 
 * Added the `/blocks/heightByTimestamp/{timestamp}` endpoint that returns blockchain height at a given timestamp.
@@ -481,7 +480,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    * [Reissue](/en/ride/structures/script-actions/reissue)
    * [Burn](/en/ride/structures/script-actions/burn)
    * [SponsorFee](/en/ride/structures/script-actions/sponsor-fee)
-   * [BooleanEntry](/en/ride/structures/script-actions/boolean-entry), [BinaryEntry](/en/ride/structures/script-actions/binary-entry), [IntegerEntry](/en/ride/structures/script-actions/int-entry), [StringEntry](/en/ride/structures/script-actions/string-entry) that add or update the [account data storage](/en/blockchain/account/account-data-storage) entries of the corresponding type. These actions replace [DataEntry](/en/ride/structures/script-actions/data-entry) that is not supported in version 4.
+   * [BooleanEntry](/en/ride/structures/script-actions/boolean-entry), [BinaryEntry](/en/ride/structures/script-actions/binary-entry), [IntegerEntry](/en/ride/structures/script-actions/int-entry), [StringEntry](/en/ride/structures/script-actions/string-entry) that add or update the [account data storage](/en/blockchain/account/account-data-storage) entries of the corresponding type. These actions replace [DataEntry](/en/ride/v4/structures/script-actions/data-entry) that is not supported in version 4.
    * [DeleteEntry](/en/ride/structures/script-actions/delete-entry) that deletes the account data storage entry.
 * The [callable](/en/ride/functions/callable-function) function result format is modified. Since version 4 the result is the list of script actions. The `ScriptResult`, `WriteSet` and `TransferSet` structures are not supported.
 * Invoke script transaction's fee increased by 1 WAVES for each non-NFT asset issued by the transaction's Issue structure.
