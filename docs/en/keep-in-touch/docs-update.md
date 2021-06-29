@@ -1,6 +1,6 @@
 # Documentation Updates
 
-## June
+## July
 
 * [Slow requests](/en/waves-node/node-api/slow-requests)
 
