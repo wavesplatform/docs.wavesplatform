@@ -1427,13 +1427,7 @@ module.exports = {
     },
     {
       title: 'Smart Asset',
-      path: programmingPath + 'smart-assets',
-      children: [
-        {
-          title: 'What is a Smart Asset',
-          path: programmingPath + 'what-is-smart-asset',
-        },
-      ],
+      path: programmingPath + 'what-is-smart-asset',
     },
     {
       title: 'dApp',

@@ -127,7 +127,7 @@ Furthermore:
 
 ## Assigning dApp Script to Account
 
-To assign dApp script to an account you need to send a [set script transaction](/en/blockchain/transaction-type/set-script-transaction) from this account.
+To assign dApp script to an account, you have to send a [Set Script transaction](/en/blockchain/transaction-type/set-script-transaction) from this account.
 
 There are the following options to send the transaction:
 
@@ -136,7 +136,7 @@ There are the following options to send the transaction:
 
 [Set script transaction example](https://testnet.wavesexplorer.com/tx/213JdqCLq6qGLUvoXkMaSA2wLSwdzH24BuhHBhcBeHUR)
 
-The fee for the set script transaction is 0.01 WAVES.
+The fee for the Set Script transaction is 0.01 WAVES.
 
 After assigning the script, the minimum fee for each transaction sent from  dApp account increases by 0.004 WAVES.
 
