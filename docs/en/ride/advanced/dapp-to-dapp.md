@@ -113,3 +113,9 @@ Consider the example: callable function 1 performs computations of 800 complexit
 If the total complexity of executed callable functions and asset scripts exceeds the limit of 26,000, the transaction is saved as failed as well. For example, if the complexity of executed callable functions is 25,000 in total, and there is a smart asset in script action whose script's complexity is 1500.
 
 In case of failure, no payments and script actions are applied to the blockchain state, even if some of the invoked functions are executed completely. The only state change the failed transaction entails is charging the fee.
+
+## Known Issue
+
+If the `invoke` or `reentrantInvoke` function is called inside a function without annotation (that is, inside a function that cannot be invoked from outside), and the dApp script contains a verifier function, an error occurs when trying to set such a script.
+
+This issue will be fixed in version 1.4.
