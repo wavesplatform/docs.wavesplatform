@@ -116,6 +116,6 @@ In case of failure, no payments and script actions are applied to the blockchain
 
 ## Known Issue
 
-If the `invoke` or `reentrantInvoke` function is called inside a function without annotation (that is, inside a function that cannot be invoked from outside), and the dApp script contains a verifier function, an error occurs when trying to set such a script.
+If the `invoke` or `reentrantInvoke` function is called inside a function without annotation (that is, inside a function that cannot be invoked from outside the dApp), and the dApp script contains a verifier function, then an error occurs when trying to set such a script.
 
-This issue will be fixed in version 1.4.
+This issue will be fixed in node version 1.4.
