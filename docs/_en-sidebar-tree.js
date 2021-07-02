@@ -1373,12 +1373,6 @@ module.exports = {
     {
       title: 'Waves Smart Contracts',
       path: programmingPath + 'waves-smart-contracts-overview',
-      children: [
-        {
-          title: 'Articles on Smart Contracts',
-          path: programmingPath + 'articles-on-dapps',
-        },
-      ],
     },
     {
       title: 'dApp',
