@@ -11,7 +11,7 @@ The table lists Node API response codes.
 | 429 Too Many Requests | The size of the request queue has exceeded the limit set for [public nodes](/en/waves-node/api-limitations-of-the-pool-of-public-nodes) |
 | 500 Internal Server Error | Server Error |
 | 501 Not Implemented | Unsupported transaction type |
-| 503 Service Unavailable | API is not available, or the node did not manage to process the request in the allotted time (see [Slow requests](/en/waves-node/node-api/slow-requests), or the number of simultaneous connections has exceeded the limit set for [public nodes](/en/waves-node/api-limitations-of-the-pool-of-public-nodes) |
+| 503 Service Unavailable | API is not available, or the node did not manage to process the request in the allotted time (see [Slow requests](/en/waves-node/node-api/slow-requests)), or the number of simultaneous connections has exceeded the limit set for [public nodes](/en/waves-node/api-limitations-of-the-pool-of-public-nodes) |
 
 If 4xx or 501 error occurs, the following structure is returned:
 
