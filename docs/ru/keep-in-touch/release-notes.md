@@ -81,15 +81,15 @@
 <summary>Формат</summary>
     
 ```json
-"lease":
-   {
-      "id": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
-      "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
-      "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
-      "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
-      "amount": 1000000000000,
-      "height": 2253315
-   }
+"lease": {
+   "id": "7bRbb9DH6V2ztdbmsZhWLdhTPQD14t8W38GjrtW8ug1N",
+   "originTransactionId": "7bRbb9DH6V2ztdbmsZhWLdhTPQD14t8W38GjrtW8ug1N",
+   "sender": "3MqqqDw65oL423pjsdeAS5vcRyXa9bmruGx",
+   "recipient": "3Mz9N7YPfZPWGd4yYaX6H53Gcgrq6ifYiH7",
+   "amount": 400000000,
+   "height": 1560062,
+   "status": "canceled"
+}
 ```
 
 Поле `originTransactionId` может содержать идентификатор транзакции лизинга или транзакции вызова скрипта.
@@ -109,48 +109,62 @@
     
    ```json
    "stateChanges": {
-     "data": [],
-     "transfers": [],
-     "issues": [],
-     "reissues": [],
-     "burns": [],
-     "invokes": [
-       {
-         "dApp": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
-         "payment": [
-           {
-             "amount": 50000000,
-             "assetId": "DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p"
+      "data": [
+         {
+            "key": "test_key_1",
+            "type": "integer",
+            "value": 14
+         },
+         {
+            "key": "test_key_2",
+            "type": "integer",
+            "value": 999000000
+         }
+      ],
+      "transfers": [],
+      "issues": [],
+      "reissues": [],
+      "burns": [],
+      "sponsorFees": [],
+      "leases": [],
+      "leaseCancels": [],
+      "invokes": [
+         {
+            "dApp": "3N4o9UGcFTDxcJptFG2yimYpLqLLoD44diX",
+            "call": {
+               "function": "bar",
+               "args": [
+                  {
+                     "type": "Int",
+                     "value": 7
+                  }
+               ]
+            },
+            "payments": [
+               {
+                  "asset": "25FEqEjRkqK6yCkiT7Lz6SAYz7gUFCtxfCChnrVFD5AT",
+                  "amount": 1000000
+               }
+            ],
+            "stateChanges": {
+               "data": [],
+               "transfers": [
+                  {
+                     "address": "3ND86XoiA9ytxysBCvhkRQez82R3d6wZBzP",
+                     "asset": null,
+                     "amount": 100000000
+                  }
+               ],
+              "issues": [],
+              "reissues": [],
+              "burns": [],
+              "sponsorFees": [],
+              "leases": [],
+              "leaseCancels": [],
+              "invokes": []
            }
-         ],
-         "call": {
-           "function": "swapNeutrinoToWaves",
-           "args": [
-             {
-               "type": "string",
-               "value": "EUR"
-             },
-             {
-               "type": "integer",
-               "value": 843699
-             },
-             {
-               "type": "binary",
-               "value": "base64:OK+armP11YmAyoQOwl8jLDLi2dK2sRc1Ue2QzZX1wgRmwGASLhllv1iKg2fRKS8cAlSDrfMYPb6374WMC9gFgA=="
-             }
-           ]
-          },
-         "stateChanges": {
-            "data": [],
-            "transfers": [],
-            "issues": [],
-            "reissues": [],
-            "burns": [],
-            "sponsorFees": [],
-            "invokes": []
-          }
-       }
-      ]
+        }
+     ]
    }
    ```
    </details>
@@ -162,33 +176,38 @@
 
    ```json
    "stateChanges": {
-      "leases": [
-         {
-            "id": "F3ZmBbig3gekPu4a8fyrZGiU53MFxtFSWKw5dTyTMvq7",
-            "originTransactionId": "6GLmdBZZeevtbomFYif5ys7Ltf2DuXMGP29bLrSoX9HA",
-            "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
-            "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
-            "amount": 200000000,
-            "height": 739442
-         },
-      ],
-      "leaseCancels": [
-         {
-            "id": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
-            "originTransactionId": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
-            "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
-            "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
-            "amount": 300000000,
-            "height": 739436
-         }
-      ]
+      "data": [],
+      "transfers": [],
+      "issues": [],
+      "reissues": [],
+      "burns": [],
+      "sponsorFees": [],
+      "leases": [{
+         "id": "94PfEzE3yCo1wVrZGubMwqJgNYLHVBxae5psdeZu9c1c",
+         "originTransactionId": "Dc5fzXUKVDd22PbJFt2T5RSsNieFCJwwpuWUsGR4YDZs",
+         "sender": "3MopBTg99nDNv4gfQf76WnuPrnPq1TppDEp",
+         "recipient": "3MT5dAS4Zr2g8MBLSPnbyAM18pf7A2PUuMY",
+         "amount": 444444,
+         "height": 817572,
+         "status": "active"
+      }],
+      "leaseCancels": [{
+         "id": "5NTgkz8rT8RwSSLbBhyE6yev824Ff8NLStzMreGFEpWk",
+         "originTransactionId": "Fr8pwXPK81rXRGs9rwpZaQKHPa8irY3GL4bWXUGemvZi",
+         "sender": "3MopBTg99nDNv4gfQf76WnuPrnPq1TppDEp",
+         "recipient": "3MT5dAS4Zr2g8MBLSPnbyAM18pf7A2PUuMY",
+         "amount": 12000000,
+         "height": 817540,
+         "status": "canceled"
+      }],
+      "invokes": []
    }
    ```
    </details>
 
 * Результат действий скрипта `Lease` и `LeaseCancel` добавлен в структуру `trace`, возвращаемую следующими методами:
    * `/transactions/broadcast` c параметром `trace=true`
-   * `/debug/validate` c параметром `trace=true`
+   * `/debug/validate`
 
    <details>
       <summary>Формат</summary>
@@ -242,24 +261,26 @@
    ```json
    [
       {
-         "id": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
-         "originTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
-         "sender": "3P3Dwc7aAeG8VgpZBNKsAAaXHqrq3dR4ffn",
-         "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
-         "amount": 1000000000000,
-         "height": 2253315,
-         "status": "active"
+         "id": "DNZ8tpZt6i9fTRW6b7UmBV9LHNmX4c5EgeTMhcNk3ReB",
+         "originTransactionId": "Dc5fzXUKVDd22PbJFt2T5RSsNieFCJwwpuWUsGR4YDZs",
+         "sender": "3MgPxT7piLX6u3yqDFNUTPL93b5dhdpuYKH",
+         "recipient": "3MT5dAS4Zr2g8MBLSPnbyAM18pf7A2PUuMY",
+         "amount": 222222,
+         "height": 817572,
+         "status": "active",
+         "cancelHeight": null,
+         "cancelTransactionId": null
       },
       {
-         "id": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
-         "originTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
-         "sender": "3P3Dwc7aAeG8VgpZBNKsAAaXHqrq3dR4ffn",
-         "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
-         "amount": 1000000000000,
-         "height": 2253315,     
+         "id": "5NTgkz8rT8RwSSLbBhyE6yev824Ff8NLStzMreGFEpWk",
+         "originTransactionId": "Fr8pwXPK81rXRGs9rwpZaQKHPa8irY3GL4bWXUGemvZi",
+         "sender": "3MopBTg99nDNv4gfQf76WnuPrnPq1TppDEp",
+         "recipient": "3MT5dAS4Zr2g8MBLSPnbyAM18pf7A2PUuMY",
+         "amount": 12000000,
+         "height": 817540,
          "status": "canceled",
-         "leaseCancelTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
-         "leaseCancellationHeight": 2278654
+         "cancelHeight": 817572,
+         "cancelTransactionId": "Dc5fzXUKVDd22PbJFt2T5RSsNieFCJwwpuWUsGR4YDZs"
       }
    ]
    ```
@@ -267,7 +288,7 @@
     Если база данных на ноде не была перестроена после активации фичи №&nbsp;16, метод не возвращает поле `leaseCancelTransactionId` для лизингов, отмененных до активации фичи №&nbsp;16.
    </details>
 
-* Новый метод `/utils/heightByTimestamp` возвращает высоту блокчейна в указанный момент времени.
+* Новый метод `/blocks/heightByTimestamp/{timestamp}` возвращает высоту блокчейна в указанный момент времени.
 
 ## Версия 1.2 Malibu
 
@@ -458,7 +479,7 @@
    * [Reissue](/ru/ride/structures/script-actions/reissue) — довыпуск токена.
    * [Burn](/ru/ride/structures/script-actions/burn) — сжигание токена.
    * [SponsorFee](/ru/ride/structures/script-actions/sponsor-fee) — настройка спонсирования.
-   * [BooleanEntry](/ru/ride/structures/script-actions/boolean-entry), [BinaryEntry](/ru/ride/structures/script-actions/binary-entry), [IntegerEntry](/ru/ride/structures/script-actions/int-entry), [StringEntry](/ru/ride/structures/script-actions/string-entry) — добавление или изменение записи соответствующего типа в хранилище данных аккаунта. Эти действия используются вместо [DataEntry](/ru/ride/structures/script-actions/data-entry), которая не поддерживается в версии 4.
+   * [BooleanEntry](/ru/ride/structures/script-actions/boolean-entry), [BinaryEntry](/ru/ride/structures/script-actions/binary-entry), [IntegerEntry](/ru/ride/structures/script-actions/int-entry), [StringEntry](/ru/ride/structures/script-actions/string-entry) — добавление или изменение записи соответствующего типа в хранилище данных аккаунта. Эти действия используются вместо [DataEntry](/ru/ride/v4/structures/script-actions/data-entry), которая не поддерживается в версии 4.
    * [DeleteEntry](/ru/ride/structures/script-actions/delete-entry) — удаление записи из хранилища данных аккаунта.
 * Изменен формат результата вызываемой функции: в версии 4 результат представляет собой список действий скрипта. Структуры `ScriptResult`, `WriteSet` и `TransferSet` не поддерживаются.
 * Комиссия за выполнение транзакции вызова скрипта увеличивается на 1 WAVES за каждый ассет (кроме NFT), выпущенный при помощи структуры `Issue`.

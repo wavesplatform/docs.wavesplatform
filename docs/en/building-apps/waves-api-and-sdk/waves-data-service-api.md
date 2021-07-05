@@ -56,7 +56,7 @@ If the endpoint returns `null` or `Not found` for the selected pair `{amountAsse
 2. There were no Exchange transactions for the selected pair in the period for which the endpoint provides data (last 24 hours for the `/pairs*` endpoints). You can check this using the [/transactions/exchange](https://api.wavesplatform.com/v0/docs/#/transactions/searchTxsExchange) endpoint by getting, for example, the last 10 Exchange transactions for this pair.
 </details>
 
-Market data is available for all [matchers](https://docs.waves.exchange/ru/waves-matcher/) (senders of Exchange transactions) or for a given matcher. To receive data for a given matcher, specify its address in the request.
+Market data is available for all [matchers](https://docs.waves.exchange/en/waves-matcher/) (senders of Exchange transactions) or for a given matcher. To receive data for a given matcher, specify its address in the request.
 
 :bulb: Address of the Waves.Exchange matcher:
 * Mainnet: 3PEjHv3JGjcWNpYEEkif2w8NXV4kbhnoGgu

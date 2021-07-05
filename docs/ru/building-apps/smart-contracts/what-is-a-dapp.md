@@ -156,3 +156,11 @@ dApp может использовать данные блокчейна:
 * На Github в репозитории [ride-examples](https://github.com/wavesplatform/ride-examples/blob/master/welcome.md).
 
 Руководство по созданию dApp приведено в разделе [Создание и запуск dApp](/ru/building-apps/smart-contracts/writing-dapps).
+
+## Статьи в блоге Waves Tech
+
+* [Чем хорош протокол Waves для DeFi-приложений?](https://vk.com/@wavesprotocol-chem-horosh-protokol-waves-dlya-defi-prilozhenii) _(25 мартa 2021)_
+* [5 вещей, которые я хотел бы знать до того, как начал разрабатывать децентрализованные приложения](https://vk.com/@wavesprotocol-5-veschei-kotorye-ya-hotel-by-znat-do-togo-kak-nachal-razrab) _(17 июня 2020)_
+* [Как создать dApp для мотивации сотрудников](https://vk.com/@wavesprotocol-kak-sozdat-dapp-dlya-motivacii-sotrudnikov) _(9 июня 2020)_
+* [Как избежать ошибок при разработке dApp](https://vk.com/@wavesprotocol-kak-izbezhat-oshibok-pri-razrabotke-dapp) _(8 мая 2020)_
+* [Что такое смарт-контракты и как их использовать в приложении](https://vk.com/@wavesplatform-chto-takoe-smart-kontrakty-i-kak-ih-ispolzovat-v-prilozhenii) _(19 мартa 2020)_

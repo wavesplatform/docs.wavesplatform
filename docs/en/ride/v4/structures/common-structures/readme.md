@@ -9,7 +9,7 @@
 | [Asset](/en/ride/v4/structures/common-structures/asset) | [Token](/en/blockchain/token/) info |
 | [AssetPair](/en/ride/v4/structures/common-structures/asset-pair) | Pair of tokens in an [order](/en/blockchain/order) |
 | [AttachedPayment](/en/ride/v4/structures/common-structures/attached-payment) | Payment in an [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction) |
-| [BalanceDetails](/ru/ride/v4/structures/common-structures/balance-details) | [Account balance in WAVES](/en/blockchain/account/account-balance) |
+| [BalanceDetails](/en/ride/v4/structures/common-structures/balance-details) | [Account balance in WAVES](/en/blockchain/account/account-balance) |
 | [BlockInfo](/en/ride/v4/structures/common-structures/block-info) | [Block](/en/blockchain/block/) header |
 | [Invocation](/en/ride/v4/structures/common-structures/invocation) | Invoke Script transaction fields that are available to a [callable function](/en/ride/v4/functions/callable-function) |
 | [Order](/en/ride/v4/structures/common-structures/order) | [Order](/en/blockchain/order) |

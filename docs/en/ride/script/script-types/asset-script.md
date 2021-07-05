@@ -8,6 +8,7 @@ Asset with a script assigned to it is called a [smart asset](/en/building-apps/s
 - The asset script can only verify transactions, but not orders.
 - If a token is issued without a script, then the script cannot be added later.
 - The script cannot be removed, so it is impossible to turn a smart asset into a regular one.
+- Smart asset cannot be a sponsored asset.
 
 ## Asset Script Format
 

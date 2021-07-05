@@ -82,15 +82,15 @@ A lease can be created both as a result of a Lease transaction and as a result o
 <summary>Format</summary>
     
 ```json
-"lease":
-   {
-      "id": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
-      "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
-      "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
-      "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
-      "amount": 1000000000000,
-      "height": 2253315
-   }
+"lease": {
+   "id": "7bRbb9DH6V2ztdbmsZhWLdhTPQD14t8W38GjrtW8ug1N",
+   "originTransactionId": "7bRbb9DH6V2ztdbmsZhWLdhTPQD14t8W38GjrtW8ug1N",
+   "sender": "3MqqqDw65oL423pjsdeAS5vcRyXa9bmruGx",
+   "recipient": "3Mz9N7YPfZPWGd4yYaX6H53Gcgrq6ifYiH7",
+   "amount": 400000000,
+   "height": 1560062,
+   "status": "canceled"
+}
 ```
 
 The `originTransactionId` field can contain an ID of a Lease Transaction or an Invoke Script transaction.
@@ -110,48 +110,62 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
     
    ```json
    "stateChanges": {
-     "data": [],
-     "transfers": [],
-     "issues": [],
-     "reissues": [],
-     "burns": [],
-     "invokes": [
-       {
-         "dApp": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
-         "payment": [
-           {
-             "amount": 50000000,
-             "assetId": "DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p"
+      "data": [
+         {
+            "key": "test_key_1",
+            "type": "integer",
+            "value": 14
+         },
+         {
+            "key": "test_key_2",
+            "type": "integer",
+            "value": 999000000
+         }
+      ],
+      "transfers": [],
+      "issues": [],
+      "reissues": [],
+      "burns": [],
+      "sponsorFees": [],
+      "leases": [],
+      "leaseCancels": [],
+      "invokes": [
+         {
+            "dApp": "3N4o9UGcFTDxcJptFG2yimYpLqLLoD44diX",
+            "call": {
+               "function": "bar",
+               "args": [
+                  {
+                     "type": "Int",
+                     "value": 7
+                  }
+               ]
+            },
+            "payments": [
+               {
+                  "asset": "25FEqEjRkqK6yCkiT7Lz6SAYz7gUFCtxfCChnrVFD5AT",
+                  "amount": 1000000
+               }
+            ],
+            "stateChanges": {
+               "data": [],
+               "transfers": [
+                  {
+                     "address": "3ND86XoiA9ytxysBCvhkRQez82R3d6wZBzP",
+                     "asset": null,
+                     "amount": 100000000
+                  }
+               ],
+              "issues": [],
+              "reissues": [],
+              "burns": [],
+              "sponsorFees": [],
+              "leases": [],
+              "leaseCancels": [],
+              "invokes": []
            }
-         ],
-         "call": {
-           "function": "swapNeutrinoToWaves",
-           "args": [
-             {
-               "type": "string",
-               "value": "EUR"
-             },
-             {
-               "type": "integer",
-               "value": 843699
-             },
-             {
-               "type": "binary",
-               "value": "base64:OK+armP11YmAyoQOwl8jLDLi2dK2sRc1Ue2QzZX1wgRmwGASLhllv1iKg2fRKS8cAlSDrfMYPb6374WMC9gFgA=="
-             }
-           ]
-          },
-         "stateChanges": {
-            "data": [],
-            "transfers": [],
-            "issues": [],
-            "reissues": [],
-            "burns": [],
-            "sponsorFees": [],
-            "invokes": []
-          }
-       }
-      ]
+        }
+     ]
    }
    ```
    </details>
@@ -163,32 +177,37 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
 
    ```json
    "stateChanges": {
-      "leases": [
-         {
-            "id": "F3ZmBbig3gekPu4a8fyrZGiU53MFxtFSWKw5dTyTMvq7",
-            "originTransactionId": "6GLmdBZZeevtbomFYif5ys7Ltf2DuXMGP29bLrSoX9HA",
-            "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
-            "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
-            "amount": 200000000,
-            "height": 739442
-         },
-      ],
-      "leaseCancels": [
-         {
-            "id": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
-            "originTransactionId": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
-            "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
-            "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
-            "amount": 300000000,
-            "height": 739436
-         }
-      ]
+      "data": [],
+      "transfers": [],
+      "issues": [],
+      "reissues": [],
+      "burns": [],
+      "sponsorFees": [],
+      "leases": [{
+         "id": "94PfEzE3yCo1wVrZGubMwqJgNYLHVBxae5psdeZu9c1c",
+         "originTransactionId": "Dc5fzXUKVDd22PbJFt2T5RSsNieFCJwwpuWUsGR4YDZs",
+         "sender": "3MopBTg99nDNv4gfQf76WnuPrnPq1TppDEp",
+         "recipient": "3MT5dAS4Zr2g8MBLSPnbyAM18pf7A2PUuMY",
+         "amount": 444444,
+         "height": 817572,
+         "status": "active"
+      }],
+      "leaseCancels": [{
+         "id": "5NTgkz8rT8RwSSLbBhyE6yev824Ff8NLStzMreGFEpWk",
+         "originTransactionId": "Fr8pwXPK81rXRGs9rwpZaQKHPa8irY3GL4bWXUGemvZi",
+         "sender": "3MopBTg99nDNv4gfQf76WnuPrnPq1TppDEp",
+         "recipient": "3MT5dAS4Zr2g8MBLSPnbyAM18pf7A2PUuMY",
+         "amount": 12000000,
+         "height": 817540,
+         "status": "canceled"
+      }],
+      "invokes": []
    }
    ```
    </details>
 
 * Results of `Lease` and `LeaseCancel` script actions are also added to the `trace` structure returned by the following endpoints:
-   * `/transactions/broadcast`
+   * `/transactions/broadcast` with `trace=true` input parameter
    * `/debug/validate`
 
    <details>
@@ -243,33 +262,34 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
    ```json
    [
       {
-         "id": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
-         "originTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
-         "sender": "3P3Dwc7aAeG8VgpZBNKsAAaXHqrq3dR4ffn",
-         "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
-         "amount": 1000000000000,
-         "height": 2253315,
-         "status": "active"
+         "id": "DNZ8tpZt6i9fTRW6b7UmBV9LHNmX4c5EgeTMhcNk3ReB",
+         "originTransactionId": "Dc5fzXUKVDd22PbJFt2T5RSsNieFCJwwpuWUsGR4YDZs",
+         "sender": "3MgPxT7piLX6u3yqDFNUTPL93b5dhdpuYKH",
+         "recipient": "3MT5dAS4Zr2g8MBLSPnbyAM18pf7A2PUuMY",
+         "amount": 222222,
+         "height": 817572,
+         "status": "active",
+         "cancelHeight": null,
+         "cancelTransactionId": null
       },
       {
-         "id": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
-         "originTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
-         "sender": "3P3Dwc7aAeG8VgpZBNKsAAaXHqrq3dR4ffn",
-         "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
-         "amount": 1000000000000,
-         "height": 2253315,     
+         "id": "5NTgkz8rT8RwSSLbBhyE6yev824Ff8NLStzMreGFEpWk",
+         "originTransactionId": "Fr8pwXPK81rXRGs9rwpZaQKHPa8irY3GL4bWXUGemvZi",
+         "sender": "3MopBTg99nDNv4gfQf76WnuPrnPq1TppDEp",
+         "recipient": "3MT5dAS4Zr2g8MBLSPnbyAM18pf7A2PUuMY",
+         "amount": 12000000,
+         "height": 817540,
          "status": "canceled",
-         "leaseCancelTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
-         "leaseCancellationHeight": 2278654
+         "cancelHeight": 817572,
+         "cancelTransactionId": "Dc5fzXUKVDd22PbJFt2T5RSsNieFCJwwpuWUsGR4YDZs"
       }
    ]
    ```
 
    If the blockchain state on the node was not rebuilt after activation of feature #16, the endpoint does not return the `leaseCancelTransactionId` field for leases that are canceled before activation of feature #16.
-
    </details>
 
-* Added the `/utils/heightByTimestamp` endpoint that returns blockchain height at a given timestamp.
+* Added the `/blocks/heightByTimestamp/{timestamp}` endpoint that returns blockchain height at a given timestamp.
 
 ## Version 1.2 Malibu
 
@@ -460,7 +480,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    * [Reissue](/en/ride/structures/script-actions/reissue)
    * [Burn](/en/ride/structures/script-actions/burn)
    * [SponsorFee](/en/ride/structures/script-actions/sponsor-fee)
-   * [BooleanEntry](/en/ride/structures/script-actions/boolean-entry), [BinaryEntry](/en/ride/structures/script-actions/binary-entry), [IntegerEntry](/en/ride/structures/script-actions/int-entry), [StringEntry](/en/ride/structures/script-actions/string-entry) that add or update the [account data storage](/en/blockchain/account/account-data-storage) entries of the corresponding type. These actions replace [DataEntry](/en/ride/structures/script-actions/data-entry) that is not supported in version 4.
+   * [BooleanEntry](/en/ride/structures/script-actions/boolean-entry), [BinaryEntry](/en/ride/structures/script-actions/binary-entry), [IntegerEntry](/en/ride/structures/script-actions/int-entry), [StringEntry](/en/ride/structures/script-actions/string-entry) that add or update the [account data storage](/en/blockchain/account/account-data-storage) entries of the corresponding type. These actions replace [DataEntry](/en/ride/v4/structures/script-actions/data-entry) that is not supported in version 4.
    * [DeleteEntry](/en/ride/structures/script-actions/delete-entry) that deletes the account data storage entry.
 * The [callable](/en/ride/functions/callable-function) function result format is modified. Since version 4 the result is the list of script actions. The `ScriptResult`, `WriteSet` and `TransferSet` structures are not supported.
 * Invoke script transaction's fee increased by 1 WAVES for each non-NFT asset issued by the transaction's Issue structure.

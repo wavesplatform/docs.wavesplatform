@@ -51,7 +51,7 @@ getBinary(key: String): ByteVector|Unit
 | :--- | :--- |
 | `key`: [String](/ru/ride/data-types/string) | Ключ записи |
 
-## getBinaryValue(Address|Alias, String): ByteVector
+## getBinaryValue(Address|Alias, String): ByteVector <a id="get-binary-value"></a>
 
 Получает массив байтов по ключу. Завершается ошибкой, если данных нет.
 

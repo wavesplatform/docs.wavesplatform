@@ -55,7 +55,7 @@ For the Invoke Script transaction:
 
 For the Exchange transaction:
 * If one of the checks 1–3 failed, the transaction is **discarded**.
-* If checks 1–3 passed but check 5 failed, the transaction is **saved on the blockchain but marked as failed**: `"applicationStatus": "script_execution_failed"`. The sender of the transaction (matcher) is charged the transaction fee. The transaction doesn't entail any other changes in balances, in particular, the order senders don't pay the [matcher fee](/ru/blockchain/transaction-type/exchange-transaction#matcher-fee).
+* If checks 1–3 passed but check 5 failed, the transaction is **saved on the blockchain but marked as failed**: `"applicationStatus": "script_execution_failed"`. The sender of the transaction (matcher) is charged the transaction fee. The transaction doesn't entail any other changes in balances, in particular, the order senders don't pay the [matcher fee](/en/blockchain/transaction-type/exchange-transaction#matcher-fee).
 * If all checks passed, the transaction is saved on the blockchain as **successful**: `"applicationStatus": "succeeded"`. The matcher is charged the transaction fee as well as the order senders are charged the matcher fee.
 
 For the other transaction:

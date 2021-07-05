@@ -1,5 +1,14 @@
 # Обновления в документации
 
+## Июль
+
+* [Медленные запросы](/ru/waves-node/node-api/slow-requests)
+
+## Май
+
+* [Изменение названия и описания ассета](/ru/building-apps/how-to/assets/issue#изменение-названия-и-описания-ассета)
+* [Переход с предыдущей версии Blockchain Updates](/ru/waves-node/extensions/blockchain-updates#upgrading)
+
 ## Март
 
 * [Расширение Blockchain Updates](/ru/waves-node/extensions/blockchain-updates) — <span style="color:green">обновлено</span>

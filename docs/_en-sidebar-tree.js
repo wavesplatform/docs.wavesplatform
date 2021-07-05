@@ -549,6 +549,10 @@ module.exports = {
           path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
         },
         {
+          title: 'Slow Requests',
+          path: nodePath + 'node-api/slow-requests',
+        },
+        {
           title: 'Response Codes and Errors',
           path: nodePath + 'node-api/response',
         },
@@ -1373,10 +1377,14 @@ module.exports = {
     {
       title: 'Waves Smart Contracts',
       path: programmingPath + 'waves-smart-contracts-overview',
+    },
+    {
+      title: 'dApp',
+      path: programmingPath + 'what-is-a-dapp',
       children: [
         {
-          title: 'Articles on Smart Contracts',
-          path: programmingPath + 'articles-on-dapps',
+          title: 'Creating & Launching dApp',
+          path: programmingPath + 'writing-dapps',
         },
       ],
     },
@@ -1426,23 +1434,7 @@ module.exports = {
     },
     {
       title: 'Smart Asset',
-      path: programmingPath + 'smart-assets',
-      children: [
-        {
-          title: 'What is a Smart Asset',
-          path: programmingPath + 'what-is-smart-asset',
-        },
-      ],
-    },
-    {
-      title: 'dApp',
-      path: programmingPath + 'what-is-a-dapp',
-      children: [
-        {
-          title: 'Creating & Launching dApp',
-          path: programmingPath + 'writing-dapps',
-        },
-      ],
+      path: programmingPath + 'what-is-smart-asset',
     },
     {
       title: 'Developer Tools',

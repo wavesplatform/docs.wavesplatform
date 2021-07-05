@@ -549,6 +549,10 @@ module.exports = {
           path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
         },
         {
+          title: 'Медленные запросы',
+          path: nodePath + 'node-api/slow-requests',
+        },
+        {
           title: 'Коды ответов и ошибки',
           path: nodePath + 'node-api/response',
         },
@@ -1341,7 +1345,7 @@ module.exports = {
           path: buildingAppsPath + 'how-to/basic/transaction',
         },
         {
-          title: 'Выпуск токена',
+          title: 'Токенизация',
           path: buildingAppsPath + 'how-to/assets/issue',
         },
         {
@@ -1367,13 +1371,17 @@ module.exports = {
       ]
     },
     {
-      title: '[en] Waves Smart Contracts',
+      title: 'Смарт-контракты Waves',
       path: programmingPath + 'waves-smart-contracts-overview',
+    },
+    {
+      title: 'dApp',
+      path: programmingPath + 'what-is-a-dapp',
       children: [
         {
-          title: 'Статьи о смарт-контрактах',
-          path: programmingPath + 'articles-on-dapps',
-        },
+          title: 'Создание и запуск dApp',
+          path: programmingPath + 'writing-dapps',
+        }
       ],
     },
     {
@@ -1397,16 +1405,6 @@ module.exports = {
     {
       title: 'Cмарт-ассет',
       path: programmingPath + 'what-is-smart-asset',
-    },
-    {
-      title: 'dApp',
-      path: programmingPath + 'what-is-a-dapp',
-      children: [
-        {
-          title: 'Создание и запуск dApp',
-          path: programmingPath + 'writing-dapps',
-        }
-      ],
     },
     {
       title: 'Инструменты разработчика',

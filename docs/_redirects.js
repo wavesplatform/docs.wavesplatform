@@ -803,12 +803,24 @@ module.exports = [
     from: '/en/blockchain/waves-protocol/smart-contracts.html',
   }, 
   {
+    from: '/en/building-apps/smart-contracts/articles-on-dapps',
+    to: '/en/building-apps/smart-contracts/waves-smart-contracts-overview',
+  }, 
+  {
+    from: '/ru/building-apps/smart-contracts/articles-on-dapps',
+    to: '/ru/building-apps/smart-contracts/waves-smart-contracts-overview',
+  }, 
+  {
     to: '/en/building-apps/smart-contracts/what-is-smart-account',
     from: '/en/building-apps/smart-contracts/smart-accounts',
   }, 
   {
-    to: '/en/building-apps/smart-contracts/smart-assets',
+    to: '/en/building-apps/smart-contracts/what-is-smart-asset',
     from: '/en/technical-details/smart-assets.html',
+  },
+  {
+    to: '/en/building-apps/smart-contracts/what-is-smart-asset',
+    from: '/en/building-apps/smart-contracts/smart-assets',
   },
   { /* link found on medium */
     from: '/en/smart-contracts/waves-contracts-language-description.html',

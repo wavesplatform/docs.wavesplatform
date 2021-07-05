@@ -14,7 +14,7 @@ Script functionality depends on its [type](/en/ride/script):
 
 ## Blockchain Operation
 
-Ride is created specifically for execution within a blockchain environment and optimised for this purpose. Since the blockchain is a distributed ledger, located on many computers all around the world, there is no way to access the filesystem or display anything in the console. Instead, Ride functions can read data from the blockchain:
+Ride is created specifically for execution within a blockchain environment and optimized for this purpose. Since the blockchain is a distributed ledger, located on many computers all around the world, there is no way to access the filesystem or display anything in the console. Instead, Ride functions can read data from the blockchain:
 
 * Entries in account data storages (both dApp or smart account and any other account).
 * Balances of accounts.

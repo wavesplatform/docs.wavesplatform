@@ -1,5 +1,14 @@
 # Documentation Updates
 
+## July
+
+* [Slow requests](/en/waves-node/node-api/slow-requests)
+
+## May
+
+* [Change Asset Name and Description](/en/building-apps/how-to/assets/issue#change-asset-name-and-description)
+* [Blockchain Updates: Upgrading from Previous Versions](/en/waves-node/extensions/blockchain-updates#upgrading-from-previous-versions)
+
 ## March
 
 * [Blockchain Updates Extension](/en/waves-node/extensions/blockchain-updates) — <span style="color:green">updated</span>
