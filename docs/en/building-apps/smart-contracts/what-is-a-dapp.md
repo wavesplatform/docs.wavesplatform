@@ -156,3 +156,11 @@ Find dApp script examples:
 * In Github repository [ride-examples](https://github.com/wavesplatform/ride-examples/blob/master/welcome.md).
 
 For tutorial on creating dApp, see the [Creating & Launching dApp](/en/building-apps/smart-contracts/writing-dapps) article.
+
+## Waves Tech Blog Articles
+
+* [Why use the Waves protocol for DeFi applications?](https://medium.com/wavesprotocol/why-use-the-waves-protocol-for-defi-applications-53db183747b2) _(Mar 25, 2021)_
+* [5 things I wish I’d known before starting to develop dApps](https://medium.com/wavesprotocol/5-things-i-wish-id-known-before-starting-to-develop-dapps-e6f834018ce7) _(Jun 17, 2020)_
+* [How to build a dApp for team motivation](https://medium.com/wavesprotocol/how-to-build-a-dapp-for-team-motivation-8943504e3feb) _(Jun 9, 2020)_
+* [How to avoid common mistakes in dApp development](https://medium.com/wavesprotocol/how-to-avoid-common-mistakes-in-dapp-development-61015e700459) _(May 8, 2020)_
+* [What are Smart Contracts and how to use them in your app](https://medium.com/wavesprotocol/what-are-smart-contracts-and-how-to-use-them-in-your-app-a1c0d62d1a5) _(Mar 19, 2020)_

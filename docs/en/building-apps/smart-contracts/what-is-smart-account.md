@@ -94,3 +94,12 @@ match tx {
 ## Smart Account Fees
 
 If the complexity of the account script exceeds the [sender complexity threshold](/en/ride/limits/), the minimum fee for each transaction sent from the smart account is increased by 0.004 WAVES.
+
+## Waves Tech Blog Articles
+
+* [The Hitchhiker’s Guide to Waves Smart Contracts. Part 1](https://medium.com/wavesprotocol/the-hitchhikers-guide-to-waves-smart-contracts-part-1-b80aa47a745a) _(14 September 2018)_
+* [The Hitchhiker’s Guide to Waves Smart Contracts. Part 2](https://medium.com/wavesprotocol/the-hitchhikers-guide-to-waves-smart-contracts-part-2-44621fd5a007) _(18 September 2018)_
+* [Stateful Smart Accounts. Part 1 ](https://medium.com/wavesprotocol/stateful-smart-accounts-part-1-315731d8c06) _(17 September 2018)_
+* [Stateful Smart Accounts. Part 2](https://medium.com/wavesprotocol/stateful-smart-accounts-part-2-implementing-erc-20-and-nft-erc-721-step-by-step-7bac364fdadb) _(3 October 2018)_
+* [Application of Waves Smart Accounts: from Auctions to Customer Loyalty Schemes](https://medium.com/wavesprotocol/application-of-waves-smart-accounts-from-auctions-to-customer-loyalty-schemes-e5f27eb99bf5) _(2 March 2019)_
+* [Application of Waves Smart Accounts and Smart Assets for Financial Instruments](https://medium.com/wavesprotocol/application-of-waves-smart-accounts-and-smart-assets-for-financial-instruments-813a993b78e9) _(15 March 2019)_

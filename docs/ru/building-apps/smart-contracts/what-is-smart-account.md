@@ -94,3 +94,12 @@ match tx {
 ## Комиссии смарт-аккаунтов
 
 Если сложность скрипта аккаунта больше [порога сложности отправителя](/ru/ride/limits/), то минимальная комиссия за каждую транзакцию, отправленную со смарт-аккаунта, увеличивается на 0,004 WAVES.
+
+## Статьи в блоге Waves Tech
+
+* [The Hitchhiker’s Guide to Waves Smart Contracts. Part 1](https://medium.com/wavesprotocol/the-hitchhikers-guide-to-waves-smart-contracts-part-1-b80aa47a745a) _(14 сентября 2018)_
+* [The Hitchhiker’s Guide to Waves Smart Contracts. Part 2](https://medium.com/wavesprotocol/the-hitchhikers-guide-to-waves-smart-contracts-part-2-44621fd5a007) _(18 сентября 2018)_
+* [Stateful Smart Accounts. Part 1 ](https://medium.com/wavesprotocol/stateful-smart-accounts-part-1-315731d8c06) _(17 сентября 2018)_
+* [Stateful Smart Accounts. Part 2](https://medium.com/wavesprotocol/stateful-smart-accounts-part-2-implementing-erc-20-and-nft-erc-721-step-by-step-7bac364fdadb) _(3 октября 2018)_
+* [Применение смарт-аккаунтов Waves: от аукционов до бонусных программ](https://habr.com/en/company/waves/blog/442238/) _(1 мартa 2019)_
+* [Применение смарт-аккаунтов и смарт-ассетов Waves в финансовых инструментах](https://habr.com/ru/company/waves/blog/443836/) _(15 мартa 2019)_

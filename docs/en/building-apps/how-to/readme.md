@@ -49,3 +49,10 @@ This dApp implements voting among HOA (homeowners association) members on the Wa
 [**Reading Price Data Provided by Band Protocol’s Oracle**](/en/building-apps/how-to/dapp/band-price-oracle)
 
 Band's bridge smart contract on the Waves blockchain provides the following price data: BTC/USD, ETH/USD, WAVES/USD.
+
+## Waves Tech Blog Articles
+
+* [How to build a dApp for team motivation](https://medium.com/wavesprotocol/how-to-build-a-dapp-for-team-motivation-8943504e3feb) _(Jun 9, 2020)_
+* [How to write decentralized oracles in Ride](https://medium.com/wavesprotocol/how-to-write-decentralized-oracles-in-ride-f2c096812b18) _(May 13, 2020)_
+* [Blockchain Trigger: a tool for automatic smart contract invocation](https://medium.com/wavesprotocol/blockchain-trigger-a-tool-for-automatic-smart-contract-invocation-1cb2748c53be) _(Apr 23, 2020)_
+* [Blockchain RSA-based random](https://medium.com/wavesprotocol/blockchain-rsa-based-random-297900015604) _(Nov 5, 2019)_
