@@ -109,16 +109,10 @@ dApp script that has no verifier function performs default verification, that is
 
 ## Failed Transactions
 
-If the callable function failed with an error or threw an [exception](/en/ride/exceptions), provided that:
+If the callable function failed or threw an [exception](/en/ride/exceptions) when a block generator adds the transaction to a block, such a transaction is saved on the blockchain and marked with the attribute `"applicationStatus": "script_execution_failed"`, provided that:
 
 * the [Invoke Script transaction](/en/blockchain/transaction-type/exchange-transaction) passed the sender signature verification or the account script verification,
-* the complexity of performed computations exceeded the [threshold for saving failed transactions](/en/ride/limits/),
-
-such a transaction is saved on the blockchain and marked with the attribute
-
-```
-"applicationStatus": "script_execution_failed"
-```
+* the complexity of performed computations exceeded the [threshold for saving failed transactions](/en/ride/limits/).
 
 The transaction sender is charged a fee. The transaction doesn't entail any other changes on the blockchain.
 

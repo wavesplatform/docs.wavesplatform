@@ -1,8 +1,12 @@
 # Transaction Validation
 
-Waves nodes validate each transaction. Depending on the validation result the transaction can be saved on the blockchain or rejected.
+Waves nodes validate each transaction in the following cases:
+* A node receives the transaction by the `broadcast` endpoint of [Node REST API](/en/waves-node/node-api/) or [gRPC Server](/en/waves-node/extensions/grpc-server/).
+* A node receives the transaction using the binary protocol from another node of the blockchain network.
+* A block generator adds the transaction to a block.
+* A node receives a block (or microblock) from another node in the network.
 
-The following checks are performed:
+Full transaction validation includes the following checks:
 
 1. Transaction fields check including:
 
@@ -11,6 +15,8 @@ The following checks are performed:
    • Transaction version check: all the features required to support this version should be activated.
 
    • Transaction type check: all the features required to support this type should be activated.
+
+   • Check of token amounts: the values must be non-negative.
 
    • Check of fields depending on the transaction type.
 
@@ -31,21 +37,29 @@ The following checks are performed:
 
 5. Execution of asset scripts if the transaction uses [smart assets](/en/blockchain/token/smart-asset), including scripts of assets used in dApp script actions.
 
+> When receiving the transaction by the `broadcast` endpoint, or adding transaction to a block, or receiving a block over the network, the node performs full validation of the transaction. When receiving an Invoke Script transaction over the network, the node performs calculations of the callable function up to the [threshold for saving unsuccessful transactions](/en/ride/limits/).
+
 ### Validation Result
 
+When the transaction is received by `broadcast` and over the network:
+* If one of the checks failed, the transaction is discarded.
+* If all the checks passed, the transaction is added to the [UTX pool](/en/blockchain/transaction/#utx-pool) that is the list of transactions waiting to be added to the block.
+
+When adding the transaction to the block, the result of validation depends on the transaction type.
+
 For the Invoke Script transaction:
-* If one of the checks 1–3 failed, the transaction is **rejected**.
-* If checks 1–3 passed, and the calculation of the result of the dApp callable function (check 4.1) failed with an error or [throwing an exception](/en/ride/exceptions) before the [complexity](/en/ride/base-concepts/complexity) of performed calculations exceeded the [threshold for saving failed transactions](/en/ride/limits/), the transaction is also **rejected**.
+* If one of the checks 1–3 failed, the transaction is **discarded**.
+* If checks 1–3 passed, and the calculation of the result of the dApp callable function (check 4.1) failed with an error or [throwing an exception](/en/ride/exceptions) before the [complexity](/en/ride/base-concepts/complexity) of performed calculations exceeded the [threshold for saving failed transactions](/en/ride/limits/), the transaction is also **discarded**.
 * If checks 1–3 passed but checks 4–5 failed and besides the result of the callable function is calculated successfully or the complexity exceeded the threshold, the transaction is **saved on the blockchain but marked as failed**: `"applicationStatus": "script_execution_failed"`. The sender is charged the transaction fee. The transaction doesn't entail any other changes to the state of the blockchain.
 * If all checks passed, the transaction is saved on the blockchain as **successful**: `"applicationStatus": "succeeded"` and the sender is charged the fee.
 
 For the Exchange transaction:
-* If one of the checks 1–3 failed, the transaction is **rejected**.
+* If one of the checks 1–3 failed, the transaction is **discarded**.
 * If checks 1–3 passed but check 5 failed, the transaction is **saved on the blockchain but marked as failed**: `"applicationStatus": "script_execution_failed"`. The sender of the transaction (matcher) is charged the transaction fee. The transaction doesn't entail any other changes in balances, in particular, the order senders don't pay the [matcher fee](/ru/blockchain/transaction-type/exchange-transaction#matcher-fee).
 * If all checks passed, the transaction is saved on the blockchain as **successful**: `"applicationStatus": "succeeded"`. The matcher is charged the transaction fee as well as the order senders are charged the matcher fee.
 
 For the other transaction:
-* If one of the checks failed, the transaction is rejected.
+* If one of the checks failed, the transaction is discarded.
 * If all checks passed, the transaction is saved on the blockchain as successful and the sender is charged the fee.
 
 <br/>

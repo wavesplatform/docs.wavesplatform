@@ -74,6 +74,6 @@ To activate sponsorship, the issuer puts a Sponsor Fee transaction that specifie
 
 ## Fee for Failed Transactions
 
-Invoke Script transactions and Exchange transactions are saved on the blockchain and the transaction sender pays the fee if the dApp script or the asset script failed. For more information, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article. For an Exchange transaction, the matcher is charged the transaction fee but the order senders are not charged the [matcher fee](/en/blockchain/transaction-type/exchange-transaction#matcher-fee).
+Invoke Script transactions and Exchange transactions can be saved on the blockchain even if the result of a dApp script or asset script execution failed. In this case, the sender is charged a fee. For an Exchange transaction, the matcher is charged the transaction fee but the order senders are not charged the [matcher fee](/en/blockchain/transaction-type/exchange-transaction#matcher-fee). For more information, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article. 
 
 Saving failed transactions and charging fees for them is enabled by feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.

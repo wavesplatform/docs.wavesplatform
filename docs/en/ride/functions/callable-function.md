@@ -155,8 +155,8 @@ func verify() = false
 
 ## Threshold for Saving Failed Transactions
 
-The Invoke Script transaction is saved on the blockchain and a fee is charged for it even if the dApp script or the asset script failed, provided that the sender's signature or account script verification passed.
+The Invoke Script transaction is saved on the blockchain and a fee is charged for it even if the dApp script or the asset script failed when a block generator adds the transaction to a block, provided that the sender's signature or account script verification passed.
 
-However, if the callable function failed with an error or [throwing an exception](/en/ride/exceptions) before the [complexity](/en/ride/base-concepts/complexity) of performed computations exceeded the [threshold for saving failed transactions](/en/ride/limits/), the transaction is rejected and the fee is not charged.
+However, if the callable function failed or [threw an exception](/en/ride/exceptions) before the [complexity](/en/ride/base-concepts/complexity) of performed calculations exceeded the [threshold for saving failed transactions](/en/ride/limits/), the transaction is discarded and the fee is not charged.
 
 This rule is applied after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions” and doesn't depend on the Standard library version used. Keep it in mind when developing a dApp script. For more information, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation) article.
