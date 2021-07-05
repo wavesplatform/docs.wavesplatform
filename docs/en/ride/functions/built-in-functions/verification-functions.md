@@ -3,18 +3,15 @@
 | Name | Description | Complexity |
 | :--- | :--- | :--- |
 | [bn256groth16Verify](#bn256groth16verify) | Range of functions.<br>Check [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol on the bn254 curve | 800–1650 |
-| [checkMerkleProof](#checkmerkleproof) | Checks that the data is part of the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) | 30 |
 | [createMerkleRoot](#createmerkleroot) | Calculates the [Merkle root hash](/en/blockchain/block/merkle-root) for transactions of block | 30 |
 | [ecrecover](#ecrecover) | Recovers public key from the message hash and the [ECDSA](https://en.wikipedia.org/wiki/ECDSA) digital signature | 70 |
 | [groth16Verify](#groth16verify) | Range of functions.<br>Check [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol on the bls12-381 curve | 1200–2700 |
-| [rsaVerify](#rsaverify) | Range of functions.<br>Check that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29) digital signature is valid | 300 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>500–1000 for Standard Library **version 4** |
-| [sigVerify](#sigverify) | Range of functions.<br>Check that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid | 100 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>47–200 for Standard Library **version 4** |
+| [rsaVerify](#rsaverify) | Range of functions.<br>Check that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cryptosystem%29) digital signature is valid | 500–1000 |
+| [sigVerify](#sigverify) | Range of functions.<br>Check that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid | 47–200 |
 
 ## bn256groth16Verify
 
 Range of functions. Check [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol on the bn254 curve. (Although the curve is called bn254 in the scientific literature, it is commonly referred to as bn256 in the code.)
-
-> :warning: The `bn256groth16Verify` range of functions is added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 | Name | Max number of inputs | Complexity |
 |:---| :--- | :--- |
@@ -43,29 +40,7 @@ Range of functions. Check [zk-SNARK](https://media.consensys.net/introduction-to
 | `proof`: [ByteVector](/en/ride/data-types/byte-vector) | [Zero-knowledge proof](https://en.wikipedia.org/wiki/Zero-knowledge_proof). Fixed size: 128 bytes |
 | `inputs`: [ByteVector](/en/ride/data-types/byte-vector) | Zero-knowledge proof's public inputs array. For example, array of UTXO hashes in case of shielded transactions.<br>Maximum size:<br>• For `bn256groth16Verify_<N>inputs` function – 32 × `N` bytes.<br>• For `bn256groth16Verify` function – 512 bytes |
 
-## checkMerkleProof
-
-> :warning: This function is disabled in [Standard library](/en/ride/script/standard-library) version 4. Use `createMerkleRoot` instead of it.
-
-Checks that the data is part of the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree).
-
-[BLAKE2b](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) hashing function is used to hash the [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree).
-
-``` ride
-checkMerkleProof(merkleRoot: ByteVector, merkleProof: ByteVector, valueBytes: ByteVector): Boolean
-```
-
-### Parameters
-
-| Parameter | Description |
-| :--- | :--- |
-| merkleRoot: [ByteVector](/en/ride/data-types/byte-vector) | Root hash of the Merkle tree |
-| merkleProof: [ByteVector](/en/ride/data-types/byte-vector) | Array of hashes |
-| valueBytes: [ByteVector](/en/ride/data-types/byte-vector) | Data to check |
-
 ## createMerkleRoot
-
-> :warning: The function is added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 Calculates the [Merkle root hash](/en/blockchain/block/merkle-root) for transactions of block on the basis of the transaction hash and the sibling hashes of the Merkle tree. [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) algorithm is used for hashing. To check for the  transaction in the block, you need to compare the calculated hash with the `transactionsRoot` field in the block header. For more informtion see the [Transactions Root Hash](/en/blockchain/block/merkle-root).
 
@@ -83,8 +58,6 @@ createMerkleRoot(merkleProofs: List[ByteVector], valueBytes: ByteVector, index: 
 | `index`: [Int](/en/ride/data-types/int) | Index of the transaction in the block |
 
 ## ecrecover
-
-> :warning: The function is added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 Recovers public key from the message hash and the [ECDSA](https://en.wikipedia.org/wiki/ECDSA) digital signature based on the secp256k1 elliptic curve. Fails if the recovery failed.
 
@@ -122,8 +95,6 @@ func check(t: ByteVector, signature: ByteVector, publicKey: ByteVector) = {
 
 Range of functions. Check [zk-SNARK](https://media.consensys.net/introduction-to-zksnarks-with-examples-3283b554fc3b) by [groth16](https://eprint.iacr.org/2016/260.pdf) protocol.
 
-> :warning: The `groth16verify` range of functions is added in [Standard library](/en/ride/script/standard-library) **version 4**.
-
 | Name | Max number of inputs | Complexity |
 |:---| :--- | :--- |
 | groth16Verify(vk:ByteVector, proof:ByteVector, inputs:ByteVector): Boolean | 16 | 2700 |
@@ -154,10 +125,6 @@ Range of functions. Check [zk-SNARK](https://media.consensys.net/introduction-to
 ### Example
 
 ```
-{-# STDLIB_VERSION 4 #-}
-{-# CONTENT_TYPE DAPP #-}
-{-# SCRIPT_TYPE ACCOUNT #-}
- 
 groth16Verify(vk, proof, inputs)
 ```
 
@@ -167,13 +134,11 @@ Range of functions. Check that the [RSA](https://en.wikipedia.org/wiki/RSA_%28cr
 
 | Name | Max `message` size | Complexity |
 |:---| :--- | :--- |
-| rsaVerify(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 150 kB | 300 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>1000 for Standard Library **version 4** |
+| rsaVerify(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 150 kB | 1000 |
 | rsaVerify_16Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 16 kB | 500 |
 | rsaVerify_32Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 32 kB | 550 |
 | rsaVerify_64Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 64 kB | 625 |
 | rsaVerify_128Kb(digest: digestAlgorithmType, message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 128 kB | 750 |
-
-> :warning: The `rsaVerify_16Kb`, `rsaVerify_32Kb`, `rsaVerify_64Kb`, `rsaVerify_128Kb` functions are added in [Standard library](/en/ride/script/standard-library) **version 4**.
 
 The recommended RSA key module length is at least 2048 bits.
 
@@ -205,11 +170,9 @@ Data can be hashed before signing using one of the following algorithms:
 
 Range of functions. Check that the [Curve25519](https://en.wikipedia.org/wiki/Curve25519) digital signature is valid, i.e. it was created by the owner of the public key.
 
-> :warning: The `sigVerify_8Kb`, `sigVerify_16Kb`, `sigVerify_32Kb`, `sigVerify_64Kb`, `sigVerify_128Kb` functions are added in [Standard library](/en/ride/script/standard-library) **version 4**.
-
 | Name | Max `message` size | Complexity |
 |:---| :--- | :--- |
-| sigVerify(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean |150 kB | 100 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>200 for Standard Library **version 4** |
+| sigVerify(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean |150 kB | 200 |
 | sigVerify_8Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 8 kB | 47 |
 | sigVerify_16Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 16 kB | 57 |
 | sigVerify_32Kb(message: ByteVector, sig: ByteVector, pub: ByteVector): Boolean | 32 kB | 70 |

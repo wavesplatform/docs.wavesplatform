@@ -40,8 +40,9 @@ res4: ByteVector = base58'GKot5hBsd81kMupNCXHaqbhv3huEbxAFMLnpcX2hniwn')
 ```
 RIDE > ? getInteger
 func getInteger(addressOrAlias: Address|Alias, key: String): Int|Unit
-func getInteger(data: List[DataEntry], key: String): Int|Unit
-func getInteger(data: List[DataEntry], index: Int): Int|Unit
+func getInteger(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], key: String): Int|Unit
+func getInteger(data: List[BinaryEntry|BooleanEntry|DeleteEntry|IntegerEntry|StringEntry], index: Int): Int|Unit
+func getInteger(key: String): Int|Unit
 ```
 
 Команда `??` выводит все описания.

@@ -1,6 +1,9 @@
 # AttachedPayment
 
-Структура платежа транзакции вызова скрипта.
+Структура платежа, приложенного к вызову скрипта и доступного [вызываемой функции](/ru/ride/functions/callable-function). Используется:
+* в структуре [Invocation](/ru/ride/structures/common-structures/invocation);
+* в структуре [InvokeScriptTransaction](/ru/ride/structures/transaction-structures/invoke-script-transaction);
+* в функциях [invoke](/ru/ride/functions/built-in-functions/dapp-to-dapp#invoke) и [reentrantInvoke](/ru/ride/functions/built-in-functions/dapp-to-dapp#reentrantinvoke).
 
 ## Конструктор
 

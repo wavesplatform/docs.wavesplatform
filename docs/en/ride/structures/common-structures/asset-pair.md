@@ -1,6 +1,6 @@
 # AssetPair
 
-Structure of a pair of [tokens](/en/blockchain/token/) of an order.
+Structure of a pair of [tokens](/en/blockchain/token/) of an order within the [Order](/en/ride/structures/common-structures/order) structure.
 
 ## Constructor
 

@@ -1,5 +1,9 @@
 # Documentation Updates
 
+## July
+
+* [Slow requests](/en/waves-node/node-api/slow-requests)
+
 ## May
 
 * [Change Asset Name and Description](/en/building-apps/how-to/assets/issue#change-asset-name-and-description)
@@ -27,7 +31,6 @@
 ### Ride
 
 * [Standard Library Version 5](/en/ride/v5/) ![stagenet](./_assets/stagenet.svg)
-* [Continued Computations](/en/ride/advanced/continuation) ![stagenet](./_assets/stagenet.svg)
 * [dApp-to-dApp Invocation](/en/ride/advanced/dapp-to-dapp) ![stagenet](./_assets/stagenet.svg)
 
 ## November

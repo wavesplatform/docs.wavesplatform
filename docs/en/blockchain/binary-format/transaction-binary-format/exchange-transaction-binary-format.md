@@ -1,6 +1,6 @@
 # Exchange Transaction Binary Format
 
-> Learn more about [exchange transaction](/en/blockchain/transaction-type/exchange-transaction).
+> Learn more about [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction).
 
 ## Version 3
 
@@ -8,7 +8,7 @@ Binary format of version 3 is defined in [transaction.proto](https://github.com/
 
 Exchange transaction of version 3 can accept orders of versions [1](/en/blockchain/binary-format/order-binary-format#v1)–[4](/en/blockchain/binary-format/order-binary-format#v4).
 
-Version 3 is added in node version 1.2.0 and becomes available after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+Version 3 is enabled by feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ```
 message ExchangeTransactionData {

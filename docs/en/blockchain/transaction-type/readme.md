@@ -14,7 +14,7 @@ There are various types of transactions implemented on the Waves blockchain. Typ
 | 15 | [Set Asset Script transaction](/en/blockchain/transaction-type/set-asset-script-transaction) | Modifies the asset script |
 | 17 | [Update Asset Info transaction](/en/blockchain/transaction-type/update-asset-info-transaction) | Changes the token name and description |
 
-> The Update Asset Info transaction type is added starting from node version 1.2.0, after activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
+> The Update Asset Info transaction type is enabled by feature #15 “Ride V4, VRF, Protobuf, Failed transactions”.
 
 ## Usage
 

@@ -1,6 +1,9 @@
 # AttachedPayment
 
-Structure of an [invoke script transaction](/en/blockchain/transaction-type/invoke-script-transaction) payment.
+Structure of a payment attached to the script invocation and available to the [callable function](/en/ride/functions/callable-function). The structure is used in:
+* [Invocation](/en/ride/structures/common-structures/invocation) structure;
+* [InvokeScriptTransaction](/en/ride/structures/transaction-structures/invoke-script-transaction) structure;
+* [invoke](/en/ride/functions/built-in-functions/dapp-to-dapp#invoke) and [reentrantInvoke](/en/ride/functions/built-in-functions/dapp-to-dapp#reentrantinvoke) functions.
 
 ## Constructor
 

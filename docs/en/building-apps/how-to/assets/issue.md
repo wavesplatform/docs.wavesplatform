@@ -77,7 +77,7 @@ my_address.issueAsset(
 
 ### Using dApp
 
-In the Standard library version 4 or later, dApp callable function can issue a token. See [Callable Function](/en/ride/functions/callable-function) and [Issue](/en/ride/structures/script-actions/issue) articles of [Ride](/en/ride/) chapter for more information.
+dApp callable function can issue a token. See [Callable Function](/en/ride/functions/callable-function) and [Issue](/en/ride/structures/script-actions/issue) articles of [Ride](/en/ride/) chapter for more information.
 
 In this example, `myToken` function issues a token with following params:
 
@@ -86,14 +86,16 @@ In this example, `myToken` function issues a token with following params:
 * token is reissuable.
 
 ```ride
-{-# STDLIB_VERSION 4 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
   
 @Callable(i)
-func myToken() = [
-  Issue("S_" + take(toBase58String(i.caller.bytes),6), "", 100000, 2, true)
-]
+func myToken() = ([
+    Issue("S_" + take(toBase58String(i.caller.bytes),6), "", 100000, 2, true)
+  ],
+  unit
+)
 ```
 
 :warning: The minimum fee for an Invoke Script transaction is increased by 1 WAVES for each token issued by the callable function.

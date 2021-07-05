@@ -41,7 +41,7 @@ There are the following options to create the transaction:
 * In [Waves.Exchange](https://waves.exchange/) app developed by the third-party team from the community. See the [Sponsored Transaction](https://docs.waves.exchange/en/waves-exchange/waves-exchange-online-desktop/online-desktop-asset/online-desktop-sponsored-trx) article of Waves.Exchange documentation.
 * Using [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/). See also the [Creating and broadcasting transactions to the blockchain](/en/building-apps/how-to/basic/transaction) article.
 
-The fee for this type of transaction is 0.001 WAVES (before activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions” it was 1 WAVES).
+The fee for this type of transaction 0.001 WAVES. (Before activation of feature #15 “Ride V4, VRF, Protobuf, Failed transactions” it was 1 WAVES.)
 
 ## How to Disable Sponsorship
 

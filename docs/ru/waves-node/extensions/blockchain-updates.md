@@ -39,7 +39,7 @@ Blockchain Updates позволяет отслеживать изменения,
 
    * Запустите ноду с расширением с нуля и дождитесь синхронизации блокчейна в обычном режиме работы ноды (см. раздел [Синхронизировать блокчейн Waves](/ru/waves-node/options-for-getting-actual-blockchain/)).
    * Импортируйте блокчейн из бинарного файла (см. раздел [Импортировать и экспортировать блокчейн](/ru/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain)).
-   * Загрузите архивы баз данных `blockchain_last.tar` и `blockchain-updates_last.tar` (см. раздел [Загрузить актуальный блокчейн](/ru/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying.md)). Распакуйте архив `blockchain_last.tar` в каталог, указанный в настройке [waves.db.directory](/ru/waves-node/node-configuration#настройки-базы-данных) (по умолчанию — подкаталог `data` основного каталога ноды). Распакуйте архив `blockchain-updates_last.tar` в подкаталог `blockchain-updates` основного каталога ноды.
+   * Загрузите архивы баз данных `blockchain_last.tar` и `blockchain-updates_last.tar` (см. раздел [Загрузить актуальный блокчейн](/ru/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying)). Распакуйте архив `blockchain_last.tar` в каталог, указанный в настройке [waves.db.directory](/ru/waves-node/node-configuration#настройки-базы-данных) (по умолчанию — подкаталог `data` основного каталога ноды). Распакуйте архив `blockchain-updates_last.tar` в подкаталог `blockchain-updates` основного каталога ноды.
 
 ### Установка из DEB-пакета
 
