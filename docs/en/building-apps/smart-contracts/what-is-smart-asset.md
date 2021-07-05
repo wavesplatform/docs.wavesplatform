@@ -1,10 +1,14 @@
+---
+sidebarDepth: 3
+---
+
 # What is Smart Asset
 
-Any user can not only create their own [token](/en/blockchain/token/) on the Waves blockchain, but also set the rules for its circulation by attaching a script to it. For example, for in-game currency, you can allow only transactions between characters with certain properties. A token with an attached script is called a **smart asset**, and the attached script is called an **asset script**.
+Any user can create their own [token](/en/blockchain/token/) on the Waves blockchain and also set the rules for its circulation by assigning a script to it. For example, for in-game currency, you can allow only transactions between characters with certain properties. A token with an assigned script is called a **smart asset**, and the assigned script is called an **asset script**.
 
 ## Asset Script
 
-Asset script checks [transactions](/en/blockchain/transaction/) involving the asset for the specified conditions. The script contains a logical [expression](/en/ride/base-concepts/expression). Possible results of the expression calculation are:
+Asset script checks [transactions](/en/blockchain/transaction/) involving the asset against the specified conditions. The script contains a logical [expression](/en/ride/base-concepts/expression). Possible results of the expression calculation are:
 
 * `true`: the transaction is allowed,
 * `false`: the transaction is denied,
@@ -51,11 +55,11 @@ match tx {
 
 ### Fee in Sponsored Asset
 
-The following script allows transfers for the smart asset only if the fee for the [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction) is specified in the sponsored asset `R9yNZwP1VkUksacNjtLqua6CePGGX9dYwBEj2TyjYkv`. The same condition applies to [Invoke Script transactions](/en/blockchain/transaction-type/invoke-script-transaction) that contains a payment in the smart asset.
+The following script allows transfers of the smart asset only if the fee for the [Transfer transaction](/en/blockchain/transaction-type/transfer-transaction) is specified in the sponsored asset `R9yNZwP1VkUksacNjtLqua6CePGGX9dYwBEj2TyjYkv`. The same condition applies to [Invoke Script transactions](/en/blockchain/transaction-type/invoke-script-transaction) that contain a payment in the smart asset.
 
-The transaction fee in the sponsored asset means that the sponsor receives the fee in the sponsored asset from the from the account of the sender of the transaction.The equivalent amount of WAVES is deducted from the sponsor's account in favor of block generators. The sponsor can sell the sponsored asset to users at a higher price and thus make a profit. [More about sponsorship](/en/blockchain/waves-protocol/sponsored-fee)
+The transaction fee in the sponsored asset means that the sponsor receives the fee in the sponsored asset from the account of the transaction's sender. The equivalent amount of WAVES is charged from the sponsor's account in favor of block generators. The sponsor can sell the sponsored asset to users at a higher price and thus make a profit. [More about sponsorship](/en/blockchain/waves-protocol/sponsored-fee)
 
-Asset script also denied [Mass Transfer transactions](/en/blockchain/transaction-type/mass-transfer-transaction), because the sponsored fee is not allowed for this type of transactions.
+The following script also denied [Mass Transfer transactions](/en/blockchain/transaction-type/mass-transfer-transaction), because the sponsored fee is not allowed for this type of transactions.
 
 ```scala
 {-# STDLIB_VERSION 5 #-}
@@ -94,9 +98,9 @@ match tx {
 
 :warning: Buying and selling smart assets on [Waves.Exchange](https://waves.exchange/) developed by the third-party team from the community is temporarily unavailable.
 
-Asset script cannot check an [order](/en/blockchain/order) directly, but when checking an [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) the script can use parameters of orders as part of the transaction.
+An asset script cannot check an [order](/en/blockchain/order) directly, but when checking an [Exchange transaction](/en/blockchain/transaction-type/exchange-transaction) the script can use parameters of orders as a part of the transaction.
 
-A smart asset with the script below can only be bought for BTC.
+A smart asset with the script below can only be bought or sold for BTC.
 
 ```scala
 {-# STDLIB_VERSION 5 #-}
@@ -115,11 +119,11 @@ match tx {
 
 :warning: Buying and selling smart assets on [Waves.Exchange](https://waves.exchange/) developed by the third-party team from the community is temporarily unavailable.
 
-In the asset script, you can allow an exchange only at the price specified in the [oracle](/en/blockchain/oracle).
+An asset script can allow exchanges only at the price specified in the [oracle](/en/blockchain/oracle).
 
-In the example below, the account `3MqBeuDhyc9Zr5MM54CtYm7PivApGEYrEDB` serves as an oracle. Its data storage contains prices in the format: entry key is the token ID, value is the token price in WAVES. 
+In the example below, the account `3MqBeuDhyc9Zr5MM54CtYm7PivApGEYrEDB` serves as an oracle. Its data storage contains token prices: entry key is the token ID, value is the token price in WAVES. 
 
-The smart asset ID can be obtained through the built-in variable `this`. In the asset script, the `this` variable contains the [Asset](/en/ride/structures/common-structures/asset) structure with contains parameters of the asset to which this script is assigned.
+The smart asset ID can be obtained through the built-in variable `this`. In the asset script, `this` is the [Asset](/en/ride/structures/common-structures/asset) structure containing parameters of the asset to which this script is assigned.
 
 ```scala
 {-# STDLIB_VERSION 5 #-}
@@ -129,7 +133,7 @@ The smart asset ID can be obtained through the built-in variable `this`. In the 
 let oracle = Address(base58'3MqBeuDhyc9Zr5MM54CtYm7PivApGEYrEDB')
 
 match tx {
-  # Prohibiting the transfer of the asset
+  # Prohibiting transfers of the asset
   case t: TransferTransaction | MassTransferTransaction | InvokeScriptTransaction =>
     false
   case e: ExchangeTransaction =>
@@ -146,10 +150,10 @@ match tx {
 ## Creating Smart Asset
 
 :warning: Please note:
--- If a token is issued without a script, then the script cannot be added later. However, you can issue a token with the script always returning `true` and change the script later.
+- If a token is issued without a script, then the script cannot be added later. However, you can issue a token with the script that always returns `true` and change the script later.
 - Smart asset cannot be sponsored.
 
-To create a smart asset, you have to send an [Issue transaction](/en/blockchain/transaction-type/issue-transaction) version 2 or higher, specifying in it the compiled script in base64 encoding. It is most convenient to do this in [Waves IDE](https://waves-ide.com/), see instructions in [Issuing Smart Asset](/en/building-apps/smart-contracts/tools/waves-ide#issuing-smart-asset). The minimum fee for this type of transaction is 1 WAVES.
+To create a smart asset, you have to send an [Issue transaction](/en/blockchain/transaction-type/issue-transaction) version 2 or higher that contains the compiled script in base64. It is most convenient to do this in [Waves IDE](https://waves-ide.com/), see instructions in the [Issuing Smart Asset](/en/building-apps/smart-contracts/tools/waves-ide#issuing-smart-asset) section. The minimum fee for this type of transaction is 1 WAVES.
 
 ## Modifying Smart Asset Script
 
@@ -182,7 +186,7 @@ Examples:
 
 :warning: Buying and selling smart assets on [Waves.Exchange](https://waves.exchange/) developed by the third-party team from the community is temporarily unavailable.
 
-## Articles about Smart Assets
+## Waves Tech Blog Articles
 
 * [Waves Smart Asset Applications: Whitelists, Blacklists and Interval Trading](https://medium.com/wavesprotocol/waves-smart-asset-applications-whitelists-blacklists-and-interval-trading-4169f11f8690) _(Mar 21, 2019)_
 * [Application of Waves Smart Accounts and Smart Assets for Financial Instruments](https://medium.com/wavesprotocol/application-of-waves-smart-accounts-and-smart-assets-for-financial-instruments-813a993b78e9) _(Mar 15, 2019)_
