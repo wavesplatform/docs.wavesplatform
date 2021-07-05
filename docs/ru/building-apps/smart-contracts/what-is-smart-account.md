@@ -95,7 +95,7 @@ match tx {
 
 Если сложность скрипта аккаунта больше [порога сложности отправителя](/ru/ride/limits/), то минимальная комиссия за каждую транзакцию, отправленную со смарт-аккаунта, увеличивается на 0,004 WAVES.
 
-## Статьи из блога Waves Tech
+## Статьи в блоге Waves Tech
 
 * [The Hitchhiker’s Guide to Waves Smart Contracts. Part 1](https://medium.com/wavesprotocol/the-hitchhikers-guide-to-waves-smart-contracts-part-1-b80aa47a745a) _(14 сентября 2018)_
 * [The Hitchhiker’s Guide to Waves Smart Contracts. Part 2](https://medium.com/wavesprotocol/the-hitchhikers-guide-to-waves-smart-contracts-part-2-44621fd5a007) _(18 сентября 2018)_

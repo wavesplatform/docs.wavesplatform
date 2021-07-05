@@ -46,7 +46,7 @@
 
 dApp реализует голосование жильцов дома: скрипт проверяет, что аккаунт имеет право голосовать, и записывает результаты в хранилище данных dApp.
 
-## Статьи из блога Waves Tech
+## Статьи в блоге Waves Tech
 
 * [Как создать dApp для мотивации сотрудников](https://vk.com/@wavesprotocol-kak-sozdat-dapp-dlya-motivacii-sotrudnikov) _(9 июня 2020)_
 * [Как написать децентрализованный оракул на Ride](https://vk.com/@wavesprotocol-kak-napisat-decentralizovannyi-orakul-na-ride) _(13 мая 2020)_

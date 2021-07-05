@@ -157,7 +157,7 @@ dApp может использовать данные блокчейна:
 
 Руководство по созданию dApp приведено в разделе [Создание и запуск dApp](/ru/building-apps/smart-contracts/writing-dapps).
 
-## Статьи из блога Waves Tech
+## Статьи в блоге Waves Tech
 
 * [Чем хорош протокол Waves для DeFi-приложений?](https://vk.com/@wavesprotocol-chem-horosh-protokol-waves-dlya-defi-prilozhenii) _(25 мартa 2021)_
 * [5 вещей, которые я хотел бы знать до того, как начал разрабатывать децентрализованные приложения](https://vk.com/@wavesprotocol-5-veschei-kotorye-ya-hotel-by-znat-do-togo-kak-nachal-razrab) _(17 июня 2020)_
