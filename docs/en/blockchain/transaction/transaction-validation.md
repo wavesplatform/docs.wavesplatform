@@ -1,10 +1,10 @@
 # Transaction Validation
 
-Waves nodes validate each transaction in the following cases:
-* A node receives the transaction by the `broadcast` endpoint of [Node REST API](/en/waves-node/node-api/) or [gRPC Server](/en/waves-node/extensions/grpc-server/).
-* A node receives the transaction using the binary protocol from another node of the blockchain network.
-* A block generator adds the transaction to a block.
-* A node receives a block (or microblock) from another node in the network.
+A Waves node validates each transaction in the following cases:
+* The node receives the transaction via the `broadcast` endpoint of [Node REST API](/en/waves-node/node-api/) or [gRPC Server](/en/waves-node/extensions/grpc-server/).
+* The node receives the transaction from another node of the blockchain network using the binary protocol.
+* The block generator adds the transaction to a block.
+* The node receives a block (or microblock) from another node in the network.
 
 Full transaction validation includes the following checks:
 
@@ -37,11 +37,11 @@ Full transaction validation includes the following checks:
 
 5. Execution of asset scripts if the transaction uses [smart assets](/en/blockchain/token/smart-asset), including scripts of assets used in dApp script actions.
 
-> When receiving the transaction by the `broadcast` endpoint, or adding transaction to a block, or receiving a block over the network, the node performs full validation of the transaction. When receiving an Invoke Script transaction over the network, the node performs calculations of the callable function up to the [threshold for saving unsuccessful transactions](/en/ride/limits/).
+> When receiving the transaction via the `broadcast` endpoint, or adding transaction to a block, or receiving a block over the network, the node performs full validation of the transaction. When receiving an Invoke Script transaction over the network, the node performs calculations of the callable function (check 4.1) up to the [threshold for saving unsuccessful transactions](/en/ride/limits/).
 
 ### Validation Result
 
-When the transaction is received by `broadcast` and over the network:
+When the transaction is received via `broadcast` or over the network:
 * If one of the checks failed, the transaction is discarded.
 * If all the checks passed, the transaction is added to the [UTX pool](/en/blockchain/transaction/#utx-pool) that is the list of transactions waiting to be added to the block.
 
