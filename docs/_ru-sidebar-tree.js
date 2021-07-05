@@ -549,6 +549,10 @@ module.exports = {
           path: nodePath + 'api-limitations-of-the-pool-of-public-nodes',
         },
         {
+          title: 'Медленные запросы',
+          path: nodePath + 'node-api/slow-requests',
+        },
+        {
           title: 'Коды ответов и ошибки',
           path: nodePath + 'node-api/response',
         },
