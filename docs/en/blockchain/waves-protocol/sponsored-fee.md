@@ -4,7 +4,7 @@ Users of Waves-based apps should pay a fee for each transaction. This is the ent
 
 ## Sponsored asset
 
-An account that issued an asset can enable sponsorship, that is, allow all users to pay a fee in this asset for invoke script transactions and transfer transactions. The sponsor can distribute the sponsored asset among app users.
+An account that issued an asset can enable sponsorship, that is, allow all users to pay a fee in this asset for Invoke Script transactions and Transfer transactions. The sponsor can distribute the sponsored asset among app users.
 
 ## How It Works
 
@@ -33,7 +33,7 @@ For example, if the sponsor sets 3 tokens = 0.001 WAVES, then the minimum fee fo
 
 ## How to Enable Sponsorship
 
-To enable sponsorship, you have to create a sponsor fee transaction  with `minSponsoredAssetFee` specified in it. [Example of transaction](https://testnet.wavesexplorer.com/tx/5gHUMzmBfn4KP3tELzHtw3EYR947rzWUp5PuyF7hUW23)
+To enable sponsorship, you have to create a Sponsor Fee transaction  with `minSponsoredAssetFee` specified in it. [Example of transaction](https://testnet.wavesexplorer.com/tx/5gHUMzmBfn4KP3tELzHtw3EYR947rzWUp5PuyF7hUW23)
 
 > In the binary and JSON representation of the transaction, the value of `minSponsoredAssetFee` is specified in the minimum fraction (“cent”) of the sponsored asset.
 
