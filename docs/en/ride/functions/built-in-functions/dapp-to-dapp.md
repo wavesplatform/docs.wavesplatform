@@ -29,7 +29,7 @@ If a payment token is a smart asset, the asset script verifies the `invoke` as i
 * `id`, `timestamp`, `fee`, `feeAssetId` indicated in the original Invoke Script transaction;
 * `version` = 0;
 
-If the asset script denies the action, the Invoke Script transaction is either denied or saved on the blockchain as failed, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation).
+If the asset script denies the action, the Invoke Script transaction is either discarded or saved on the blockchain as failed, see the [Transaction Validation](/en/blockchain/transaction/transaction-validation).
 
 ## Reentrancy Restriction<a id="reentrancy"></a>
 
