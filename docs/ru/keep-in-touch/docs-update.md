@@ -2,6 +2,17 @@
 
 ## Июль
 
+### Блокчейн
+
+* [Валидация транзакции](/ru/blockchain/transaction/transaction-validation) — <span style="color:green">обновлено</span>
+
+### Разработка приложений
+
+* [Обзор смарт-контрактов Waves](/ru/building-apps/smart-contracts/waves-smart-contracts-overview) — <span style="color:green">обновлено</span>
+* [Что такое смарт-ассет](/ru/building-apps/smart-contracts/what-is-smart-asset) — <span style="color:green">обновлено</span>
+
+### Нода
+
 * [Медленные запросы](/ru/waves-node/node-api/slow-requests)
 
 ## Май
