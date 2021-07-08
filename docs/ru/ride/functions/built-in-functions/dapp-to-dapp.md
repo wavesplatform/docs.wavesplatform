@@ -1,3 +1,7 @@
+---
+sidebarDepth: 3
+---
+
 # Функции вызова dApp из dApp
 
 | Название | Описание | Сложность |
@@ -31,7 +35,7 @@ invoke(dApp: Address|Alias, function: String, arguments: List[Any], payments: Li
 
 Если скрипт ассета отклоняет действие, то транзакция, которая вызвала скрипт dApp, либо отбрасывается, либо сохраняется на блокчейне как неуспешная, см. раздел [Валидация транзакций](/ru/blockchain/transaction/transaction-validation).
 
-## Ограничение повторных вызовов<a id="reentrancy"></a>
+### Ограничение повторных вызовов<a id="reentrancy"></a>
 
 Стек вызовов, порожденный функцией `invoke`, не должен содержать вызовы исходного dApp после вызова другого dApp.
 
@@ -73,7 +77,7 @@ invoke(dApp: Address|Alias, function: String, arguments: List[Any], payments: Li
       → dapp C
 ```
 
-## Параметры
+### Параметры
 
 | Параметр | Описание |
 | :--- | :--- |
@@ -82,7 +86,7 @@ invoke(dApp: Address|Alias, function: String, arguments: List[Any], payments: Li
 | arguments: [List](/ru/ride/data-types/list)[[Any](/ru/ride/data-types/any)] | Параметры вызываемой функции. `unit` в случае вызова функции по умолчанию |
 | payments: [List](/ru/ride/data-types/list)[[AttachedPayment](/ru/ride/structures/common-structures/attached-payment)] | Платежи в пользу вызываемого dApp, не более 10 |
 
-## Пример
+### Пример
 
 Пользователь с помощью транзакции вызова скрипта вызывает функцию `foo` dApp1.
 
