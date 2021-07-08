@@ -39,7 +39,7 @@ height >= targetHeight
 
 ### Unburnable token
 
-For the example smart asset, Burn transactions are prohibited.
+For the smart asset in the example, Burn transactions are prohibited.
 
 
 ```scala

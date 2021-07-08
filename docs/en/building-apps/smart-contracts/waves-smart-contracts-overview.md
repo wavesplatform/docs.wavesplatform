@@ -1,6 +1,6 @@
 # Waves Smart Contracts Overview
 
-Welcome! We are excited that you want to learn Waves smart contracts.
+Welcome! We are excited that you want to learn about Waves smart contracts.
 
 A smart contract is a protocol of interaction between participants under certain terms without third parties. From a technical point of view, a smart contract is a script executed in a decentralized environment like a blockchain: not on a single server but multiple nodes of a network. The script contains various checks, data reading and writing, operations with digital assets.
 
@@ -13,7 +13,7 @@ Smart contracts on the Waves blockchain are [accounts](/en/blockchain/account/) 
 There are three types of smart contracts on the Waves blockchain:
 
 * **dApps** can perform almost all operations possible on the Waves blockchain. dApp callable functions can transfer, issue and burn [tokens](/en/blockchain/token/), change data in dApp’s [data storage](/en/blockchain/account/account-data-storage), and much more. A dApp script can be invoked by sending an [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction), and dApps can also invoke each other. An invocation can contain payments in favor of the dApp. A dApp also provides functionality similar to a smart account. [More about dApp](/en/building-apps/smart-contracts/what-is-a-dapp)
-* **Smart accounts** check transactions and orders sent on behalf of the account whether they meet certain conditions specified in the script. If the conditions are not met, the transaction is discarded. An example of a smart account is a multi-signature account by which several users jointly manage assets: a transaction from such an account is allowed if it contains valid signatures of co-owners. [More about smart accounts](/en/building-apps/smart-contracts/what-is-smart-account)
+* **Smart accounts** check whether transactions and orders sent on behalf of the account meet certain conditions specified in the script. If the conditions are not met, the transaction is discarded. An example of a smart account is a multi-signature account with which several users jointly manage assets: a transaction from such an account is allowed if it contains valid signatures of co-owners. [More about smart accounts](/en/building-apps/smart-contracts/what-is-smart-account)
 * **Smart assets** apply constraints on transactions involving the asset. For example, a script can allow only exchanges at a specific price, or transfers only to recipients on a trusted list, or lock operations outside a given blockchain height interval. [More about smart assets](/en/building-apps/smart-contracts/what-is-smart-asset)
 
 Smart contracts can use blockchain data: the current height, account balances, asset parameters, and entries in data storage of any account. Since the blockchain is a distributed ledger stored on many computers worldwide, smart contracts cannot access the filesystem. Data from the outside world can be delivered to the blockchain by [oracles](/en/blockchain/oracle).
