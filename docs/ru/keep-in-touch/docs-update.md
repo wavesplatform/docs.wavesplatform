@@ -1,5 +1,9 @@
 # Обновления в документации
 
+## Июль
+
+* [Импорт библиотек](/ru/ride/advanced/import)
+
 ## Март
 
 * [Расширение Blockchain Updates](/ru/waves-node/extensions/blockchain-updates) — <span style="color:green">обновлено</span>

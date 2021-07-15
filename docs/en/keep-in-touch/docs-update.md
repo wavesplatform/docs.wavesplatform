@@ -1,5 +1,9 @@
 # Documentation Updates
 
+## July
+
+* [Импорт библиотек](/en/ride/advanced/import)
+
 ## March
 
 * [Blockchain Updates Extension](/en/waves-node/extensions/blockchain-updates) — <span style="color:green">updated</span>
