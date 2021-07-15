@@ -25,7 +25,7 @@ Download the latest version of [jar node](https://github.com/wavesplatform/Waves
 
 ### Step 3
 
-Create `genesis.example.conf` file with genesis block parameters in the `.jar` file location directory.
+Create `genesis.example.conf` file with genesis block parameters in the `jar` file location directory.
 
 **Example**:
 
@@ -104,7 +104,7 @@ The `Addresses` section lists the accounts to which the assets are distributed i
 
 ### Step 5
 
-In the `.jar` file location directory create `*.conf` file with any name (for example `waves-custom-network.conf`) and edit it with a text editor. Use [example configuration file](https://github.com/wavesplatform/private-node-docker-image/blob/stagenet/waves.custom.conf) for reference.
+In the `jar` file location directory create `*.conf` file with any name (for example `waves-custom-network.conf`) and edit it with a text editor. Use [example configuration file](https://github.com/wavesplatform/private-node-docker-image/blob/stagenet/waves.custom.conf) for reference.
 
 See [Node Configuration](/en/waves-node/node-configuration) article for more information about Waves configuration file.
 

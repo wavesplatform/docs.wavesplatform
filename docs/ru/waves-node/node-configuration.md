@@ -4,7 +4,7 @@ sidebarDepth: 2
 
 # Конфигурация ноды
 
-Параметры [ноды](/ru/blockchain/node/) Waves находятся в **файле конфигурации** (*.conf). Система использует формат HOCON (Human-Optimized Config Object Notation), который обеспечивает простой синтаксис и возможность использовать комментарии. [Подробнее про HOCON](https://github.com/lightbend/config/blob/master/HOCON.md).
+Параметры [ноды](/ru/blockchain/node/) Waves находятся в **файле конфигурации** (`*.conf`). Система использует формат HOCON (Human-Optimized Config Object Notation), который обеспечивает простой синтаксис и возможность использовать комментарии. [Подробнее про HOCON](https://github.com/lightbend/config/blob/master/HOCON.md).
 
 В случае установки ноды из APT-репозитория или из DEB-пакета файл конфигурации вложен в пакет, см. раздел [Установить ноду на Ubuntu](/ru/waves-node/how-to-install-a-node/on-ubuntu). В случае установки ноды из JAR-файла скачайте образец файла конфигурации [waves-sample.conf](https://github.com/wavesplatform/Waves/blob/master/node/waves-sample.conf).
 
@@ -150,7 +150,7 @@ java -jar {*}.jar {*}.conf
 
 | Имя | Описание | Значение по умолчанию |
 |---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
-| `type` | <a name="blockchain-type"></a>Тип блокчейна: TESTNET, MAINNET, STAGENET или CUSTOM. Для MAINNET, TESTNET и STAGENET параметры блокчейна встроены в приложение, поэтому дополнительная настройка не требуется. [Стандартные параметры для различных типов блокчейна](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/network-defaults.conf). При выборе сети CUSTOM необходимо задать параметры в секции `custom` | TESTNET |
+| `type` | <a name="blockchain-type"></a>Тип блокчейна: TESTNET, MAINNET, STAGENET или CUSTOM. Для MAINNET, TESTNET и STAGENET параметры блокчейна встроены в приложение, поэтому дополнительная настройка не требуется. См. [стандартные параметры для различных типов блокчейна](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/network-defaults.conf). При выборе сети CUSTOM необходимо задать параметры в секции `custom` | TESTNET |
 
 #### Настройка собственного (custom) блокчейна <a id="custom"></a>
 

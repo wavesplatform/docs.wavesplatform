@@ -32,36 +32,32 @@ You can specify the following arguments when building the image:
 
 ## Running the Image
 
-It is recommended to learn about Waves node configuration in [Node Configuration](/en/waves-node/node-configuration) article before running the container.
+### Node Configuration Parameters
 
-### Configuration Options
+**Be careful: the security of your wallet and funds depends on the configuration.** For detailed information, see the [Node Configuration](/en/waves-node/node-configuration) article.
 
-* You can run an image with customized config parameters by using corresponding JVM options. Use `JAVA_OPTS` environment variable to send options to JVM. Refer to [example configuration file](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf) to get the full path of the configuration parameters that you want to change.
+You can set the node configuration parameters in the node configuration file or in the command to start the node image as environment variables. Environment variables override the settings specified in the configuration file.
 
-**Example of command running image with customized config parameters**:
+An example of the command to start a node image with environment variables:
 
-   ```bash
-   docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-config:/etc/waves -p 6869:6869 -p 6862:6862 -e JAVA_OPTS="-Dwaves.rest-api.enable=yes -Dwaves.rest-api.bind-address=0.0.0.0 -Dwaves.wallet.password=myWalletSuperPassword" -e WAVES_NETWORK=stagenet -ti wavesplatform/wavesnode
-   ```
-
-Waves Nodes store configuration file (by default) in `/etc/waves/waves.conf` directory. You can mount the directory with Docker volumes. See [Managing Data](#managing-data) section for more details about Docker volumes mapping.
-
-If the directory does not exist, the directory and default configuration file will be created. Default configuration file is used depending on type of network specified by `WAVES_NETWORK` environment variable. If the value of `WAVES_NETWORK` is not `mainnet`, `testnet` or `stagenet`, the default configuration will not be used. This is the case of using `CUSTOM` network type that requires correct configuration file. If you use `CUSTOM` network and the `/etc/waves/waves.conf` is NOT found, the container will not run.
-
-By default, the `/etc/waves/waves.conf` config includes `/etc/waves/local.conf`. Custom `/etc/waves/local.conf` can be used to override default config parameters. Custom `/etc/waves/waves.conf` can be used to override the whole node configuration.
-
-### Environment Variables
-
-You can override parameters specified in the node configuration file by running your container with the following optional environment variables:
+<pre style="line-height 1.4; padding 1.25rem 1.5rem; margin 0.85rem 0; border-radius 6px"><code style="word-break: break-word; white-space: pre-wrap !important; padding 0.25rem 0.5rem; margin 0; font-size 0.85em; background-color rgba(27,31,35,0.05); border-radius 3px">
+docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-config:/etc/waves -p 6870:6870 -p 6868:6868 -e JAVA_OPTS="-Dwaves.network.declared-address=0.0.0.0:6868 -Dwaves.network.node-name=-my-testnet-node -Dwaves.rest-api.api-key-hash=6nSftY1F5kurz23yLrT1r9YJpiEveBLEa9RB1SCChiqv -Dwaves.rest-api.bind-address=0.0.0.0 -Dwaves.rest-api.port=6870" -e WAVES_WALLET_SEED="TBXHUUcVx2n3Rgszpu5MCybRaR86JGmqCWp7XKh7czU57ox5dgjdX4K4" -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -e WAVES_NETWORK=testnet -ti wavesplatform/wavesnode
+</code></pre>
 
 | Environment Variable | Description |
 |----------------------|-------------------------------------------------|
-| WAVES_WALLET_SEED | Base58 encoded seed. Overrides `-Dwaves.wallet.seed` JVM config parameter. |
-| WAVES_WALLET_PASSWORD | Password for the wallet file. Overrides `-Dwaves.wallet.password` JVM config parameter. |
-| WAVES_LOG_LEVEL | Node logging level. Available values: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` and `TRACE`. [Read more about logging](/en/waves-node/logging-configuration). |
-| WAVES_HEAP_SIZE | Default Java Heap Size limit in -X Command-line Options notation (-Xms=[your value]). [Read more about -X Command-line Options](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html). |
-| WAVES_NETWORK | Waves Blockchain network. The available values are `mainnet`, `testnet` and `stagenet`. |
-| JAVA_OPTS | Additional Waves Node JVM configuration parameters. |
+| WAVES_WALLET_SEED | Base58 encoded seed. Overrides `-Dwaves.wallet.seed` JVM config parameter |
+| WAVES_WALLET_PASSWORD | Password for the wallet file. Overrides `-Dwaves.wallet.password` JVM config parameter |
+| WAVES_LOG_LEVEL | Node logging level. Available values: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` and `TRACE`. [Read more about logging](/en/waves-node/logging-configuration) |
+| WAVES_HEAP_SIZE | Default Java Heap Size limit in -X Command-line Options notation (-Xms=[your value]). [Read more about -X Command-line Options](https://docs.oracle.com/cd/E13150_01/jrockit_jvm/jrockit/jrdocs/refman/optionX.html) |
+| WAVES_NETWORK | Waves Blockchain network. The available values are `mainnet`, `testnet`, and `stagenet`. |
+| JAVA_OPTS | Additional Waves Node JVM configuration parameters. Refer to [application.conf](https://github.com/wavesplatform/Waves/blob/master/node/src/main/resources/application.conf) file to get the full path of the configuration parameters and examples of values |
+
+The Waves node stores default configuration file in `/etc/waves/waves.conf` directory. You can mount the directory with Docker volumes. See [Managing Data](#managing-data) section below for more details about Docker volumes mapping.
+
+If the directory does not exist, the directory and default configuration file will be created. Default configuration file is used depending on type of network specified by `WAVES_NETWORK` environment variable. If the value of `WAVES_NETWORK` is not `mainnet`, `testnet`, or `stagenet`, the default configuration will not be used. This is the case of using `CUSTOM` network type that requires correct configuration file. If you use `CUSTOM` network and the `/etc/waves/waves.conf` is NOT found, the container will not run.
+
+By default, the `/etc/waves/waves.conf` config includes `/etc/waves/local.conf`. Custom `/etc/waves/local.conf` can be used to override default config parameters. Custom `/etc/waves/waves.conf` can be used to override the whole node configuration.
 
 ### Managing Data
 
@@ -107,9 +103,8 @@ It is recommended to store the blockchain state as well as node configuration on
 
 * Add appropriate arguments to `docker run` command similar to the following example:
 
-   ```bash
-   docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-config:/etc/waves -e WAVES_NETWORK=stagenet -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti wavesplatform/wavesnode
-   ```
+   <pre><code style="word-break: break-word; white-space: pre-wrap !important; background-color rgba(27,31,35,0.05); border-radius 3px">   docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-config:/etc/waves -e WAVES_NETWORK=stagenet -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti wavesplatform/wavesnode
+   </code></pre>
 
 ### Blockchain State
 
@@ -127,27 +122,27 @@ You can speed this process up by downloading a compressed blockchain state from 
 
 **Example of commands to download blockchain state and run Docker image**:
 
-```bash
+<pre><code style="word-break: break-word; white-space: pre-wrap !important; background-color rgba(27,31,35,0.05); border-radius 3px">
 mkdir -p /docker/waves/waves-data
 
 wget -qO- http://blockchain-stagenet.wavesnodes.com/blockchain_last.tar --show-progress | tar -xvf - -C /docker/waves/waves-data
 
 docker run -v /docker/waves/waves-data:/var/lib/waves -e WAVES_NETWORK=stagenet -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti wavesplatform/wavesnode
-```
+</code></pre>
 
 ### Network Ports
 
-Node REST API parameters can be specified in [REST API section](/en/waves-node/node-configuration#rest-api-settings) of the node configuration file. Node communication port for incoming connections can be specified in [Network Settings section](/en/waves-node/node-configuration#network-settings) of the node configuration file.
+Node REST API parameters can be specified in [REST API section](/en/waves-node/node-configuration#rest-api-settings) of the node configuration file. Node communication port for incoming connections can be specified in the [Network Settings](/en/waves-node/node-configuration#network-settings) section of the node configuration file.
 
-**The following example command runs image with**:
+The following example command runs image with:
 
 * REST-API port enabled and configured on the socket `0.0.0.0:6870`
 * Waves node communication port enabled and configured on the socket `0.0.0.0:6868`
 * Ports `6868` and `6870` are mapped from the host to the container
 
-```bash
+<pre><code style="word-break: break-word; white-space: pre-wrap !important; background-color rgba(27,31,35,0.05); border-radius 3px">
 docker run -v /docker/waves/waves-data:/var/lib/waves -v /docker/waves/waves-config:/etc/waves -p 6870:6870 -p 6868:6868 -e JAVA_OPTS="-Dwaves.network.declared-address=0.0.0.0:6868 -Dwaves.rest-api.port=6870 -Dwaves.rest-api.bind-address=0.0.0.0 -Dwaves.rest-api.enable=yes" -e WAVES_WALLET_PASSWORD=myWalletSuperPassword -ti  wavesplatform/wavesnode
-```
+</code></pre>
 
 **Note**: By default, port 6868 is used to connect peers, and port 6869 is used for the REST API.
 
@@ -167,6 +162,6 @@ You can run custom extensions as follows:
 
 3. Run the image with the following command:
 
-   ```bash
+   <pre><code style="word-break: break-word; white-space: pre-wrap !important; background-color rgba(27,31,35,0.05); border-radius 3px">
    docker run -v "$(pwd)/plugins:/usr/share/waves/lib/plugins" -v "$(pwd)/local.conf:/etc/waves/local.conf" -i wavesplatform/wavesnode
-   ```
+   </code></pre>

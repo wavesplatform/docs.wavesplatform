@@ -26,16 +26,14 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
 
 ## Download Waves Package and Configure the Application
 
-[Download the latest version](https://github.com/wavesplatform/Waves/releases) of `waves.jar` and the required [.conf](https://github.com/wavesplatform/Waves/tree/master/node) file (for Mainnet, Testnet or Stagenet) to any folder, for example `~/waves`.
+Download the [latest version](https://github.com/wavesplatform/Waves/releases) of `waves-all-<version number>.jar` to any folder, for example `~/waves`.
 
-Configuration file is **very important! The safety of your wallet and assets depends on it!**
+Download the [sample configuration file](https://github.com/wavesplatform/Waves/blob/master/node/waves-sample.conf) and place it in the same directory. Specify the required node parameters in the file. **Be careful: the security of your wallet and funds depends on the configuration.** For detailed information, see the [Node Configuration](/en/waves-node/node-configuration) article.
 
-Edit the `.conf` file with your favorite text editor. For details see [Node configuration](/en/waves-node/node-configuration) article.
-
-Then start Terminal app `Terminal.app`, navigate to the folder with the jar file with the command `cd ~/waves` and start the node with the following command (replace {*} with actual package name):
+Then start Terminal app `Terminal.app`, navigate to the folder with the `jar` file with the command `cd ~/waves` and start the node with the following command (replace {*} with actual file name):
 
 ```bash
-java -jar {*}.jar waves.conf
+java -jar {*}.jar {*}.conf
 ```
 
 ## Additional Security

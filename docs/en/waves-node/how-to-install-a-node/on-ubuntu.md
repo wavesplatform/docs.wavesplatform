@@ -48,6 +48,13 @@ sudo apt update
 sudo apt install waves
 ```
 
+The node configuration file is embedded into the package and unpacked to the folder:
+* for Mainnet: `/usr/share/waves/conf/waves.conf` with symlink to `/etc/waves/waves.conf`;
+* for Testnet: `/usr/share/waves-testnet/conf/waves.conf` with symlink to `/etc/waves-testnet/waves.conf`;
+* for Stagenet: `/usr/share/waves-stagenet/conf/waves.conf` with symlink to `/etc/waves-stagenet/waves.conf`.
+
+Specify the required node parameters in the file. **Be careful: the security of your wallet and funds depends on the configuration.** For detailed information, see the [Node Configuration](/en/waves-node/node-configuration) article.
+
 Start the node with the following command (`waves-testnet` for Testnet):
 
 ```bash
@@ -75,7 +82,12 @@ sudo apt upgrade
 sudo dpkg -i waves*.deb
 ```
 
-The node configuration file is embedded into the `.deb` package and unpacked to `/usr/share/waves/conf/waves.conf` (or `waves-testnet` folder for Testnet) and symlinked to `/etc/waves/waves.conf`. Edit the configuration file with caution. For details see [Node Configuration](/en/waves-node/node-configuration) article.
+The node configuration file is embedded into the package and unpacked to the folder:
+* for Mainnet: `/usr/share/waves/conf/waves.conf` with symlink to `/etc/waves/waves.conf`;
+* for Testnet: `/usr/share/waves-testnet/conf/waves.conf` with symlink to `/etc/waves-testnet/waves.conf`;
+* for Stagenet: `/usr/share/waves-stagenet/conf/waves.conf` with symlink to `/etc/waves-stagenet/waves.conf`.
+
+Specify the required node parameters in the file. **Be careful: the security of your wallet and funds depends on the configuration.** For detailed information, see the [Node Configuration](/en/waves-node/node-configuration) article.
 
 Start the node with the following command (`waves-testnet` for Testnet):
 
@@ -99,11 +111,11 @@ You can read about journald tips [here](https://www.digitalocean.com/community/t
 
 ## Installation for Advanced Users
 
-[Download the latest version](https://github.com/wavesplatform/Waves/releases) of `waves.jar` and the required configuration [.conf](https://github.com/wavesplatform/Waves/tree/master/node) file (for Mainnet, Testnet or Stagenet) to any folder, for example `/opt/waves`.
+Download the [latest version](https://github.com/wavesplatform/Waves/releases) of `waves-all-<version number>.jar` to any folder, for example `/opt/waves`.
 
-Open and edit the config file with your favorite text editor. For details see [Node Configuration](/en/waves-node/node-configuration) article.
+Download the [sample configuration file](https://github.com/wavesplatform/Waves/blob/master/node/waves-sample.conf) and place it in the same directory. Specify the required node parameters in the file. **Be careful: the security of your wallet and funds depends on the configuration.** For detailed information, see the [Node Configuration](/en/waves-node/node-configuration) article.
 
-Then start console, navigate to the folder with the `.jar` file with the command `cd /opt/waves` and start the node with the following command (replace {*} with actual file name):
+Then start console, navigate to the folder with the `jar` file with the command `cd /opt/waves` and start the node with the following command (replace {*} with actual file name):
 
 ```bash
 java -jar {*}.jar {*}.conf
@@ -159,6 +171,6 @@ For added security, it is recommended to store your wallet and configuration app
 
 Also, you may want to limit the use of the node folders to only the specified users. You can read about it [here](http://manpages.ubuntu.com/manpages/precise/man1/chown.1.html). The scripts in deb packages create the user `waves` and the waves app, wallet and data folders by default belong to this user.
 
-If you decide to use RPC, you should protect it with embedded in ubuntu `ufw` or any other firewall. You can read about it [here](https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server). If your server is public and available to the Internet and you decide to enable and use RPC, then allow only certain methods using [Nginx's proxy\_pass module](http://nginx.org/en/docs/http/ngx_http_proxy_module.html) and do not forget to set the `apiKeyHash` in waves.conf.
+If you decide to use RPC, you should protect it with embedded in ubuntu `ufw` or any other firewall. You can read about it [here](https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server). If your server is public and available to the Internet and you decide to enable and use RPC, then allow only certain methods using [Nginx's proxy\_pass module](http://nginx.org/en/docs/http/ngx_http_proxy_module.html) and do not forget to set the `apiKeyHash` in the configuration file.
 
 Also, do not forget to update the OS and install software security updates.

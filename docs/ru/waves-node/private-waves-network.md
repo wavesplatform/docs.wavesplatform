@@ -25,7 +25,7 @@
 
 ### Шаг 3
 
-Создайте файл `genesis.example.conf` с параметрами блока генезиса в каталоге с файлом `.jar`.
+Создайте файл `genesis.example.conf` с параметрами блока генезиса в каталоге с файлом `jar`.
 
 **Пример**:
 
@@ -104,7 +104,7 @@ waves {
 
 ### Шаг 5
 
-В каталоге с файлом `.jar` создайте файл `*.conf` с произвольным именем (например, `waves-custom-network.conf`) и откройте его текстовым редактором. Используйте [пример файла конфигурации](https://github.com/wavesplatform/private-node-docker-image/blob/stagenet/waves.custom.conf) в качестве образца.
+В каталоге с файлом `jar` создайте файл `*.conf` с произвольным именем (например, `waves-custom-network.conf`) и откройте его текстовым редактором. Используйте [пример файла конфигурации](https://github.com/wavesplatform/private-node-docker-image/blob/stagenet/waves.custom.conf) в качестве образца.
 
 Больше информации про файл конфигурации см. в статье [Конфигурация ноды](/ru/waves-node/node-configuration).
 
