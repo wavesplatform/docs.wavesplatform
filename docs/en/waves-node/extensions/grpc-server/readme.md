@@ -60,7 +60,7 @@ The [gRPC Server](/en/waves-node/extensions/grpc-server/) extension can be insta
    waves {
       ...
       extensions = [
-         com.wavesplatform.events.GRPCServerExtension
+         com.wavesplatform.api.grpc.GRPCServerExtension
       ]
    }
    ```
@@ -117,7 +117,7 @@ The [gRPC Server](/en/waves-node/extensions/grpc-server/) extension can be insta
    waves {
       ...
       extensions = [
-         com.wavesplatform.events.GRPCServerExtension
+         com.wavesplatform.api.grpc.GRPCServerExtension
       ]
    }
    ```

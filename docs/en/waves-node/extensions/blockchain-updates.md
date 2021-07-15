@@ -37,9 +37,11 @@ There are two ways to install the node with Blockchain Updates extension: using 
 2. Install the extension via the DEB package or JAR file and enable the extension in the node settings as described below.
 3. Download or import the blockchain in one of the following ways:
 
-   * Start the node with the extension from scratch and synchronize the blockchain during regular node operation (see the [Synchronize Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article).
-   * Import the blockchain from a binary file (see the [Import/Export Blockchain](/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain) article).
-   * Download the database archives `blockchain_last.tar` and `blockchain-updates_last.tar` (see the [Download the Latest Blockchain](/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying) article). Unpack the `blockchain_last.tar` archive in the directory specified in the [waves.db.directory](/en/waves-node/node-configuration#db-settings) setting (by default, the `data` subdirectory of the base directory of the node). Unpack the `blockchain-updates_last.tar` archive in the `blockchain-updates` subdirectory of the base directory.
+   • Start the node with the extension from scratch and synchronize the blockchain during regular node operation (see the [Synchronize Waves Blockchain](/en/waves-node/options-for-getting-actual-blockchain/) article).
+
+   • Import the blockchain from a binary file (see the [Import/Export Blockchain](/en/waves-node/options-for-getting-actual-blockchain/import-from-the-blockchain) article).
+
+   • Download the database archives `blockchain_last.tar` and `blockchain-updates_last.tar` (see the [Download the Latest Blockchain](/en/waves-node/options-for-getting-actual-blockchain/state-downloading-and-applying) article). Unpack the `blockchain_last.tar` archive in the directory specified in the [waves.db.directory](/en/waves-node/node-configuration#db-settings) setting (by default, the `data` subdirectory of the base directory of the node). Unpack the `blockchain-updates_last.tar` archive in the `blockchain-updates` subdirectory of the base directory.
 
 ### Installation via DEB Package
 
