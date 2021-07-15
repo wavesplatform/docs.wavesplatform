@@ -1,95 +1,41 @@
-# Get Started
+# Waves Smart Contracts Overview
 
-Welcome! We are excited that you want to learn Waves Smart Contracts.
+Welcome! We are excited that you want to learn about Waves smart contracts.
 
-## Orientation
+A smart contract is a protocol of interaction between participants under certain terms without third parties. From a technical point of view, a smart contract is a script executed in a decentralized environment like a blockchain: not on a single server but multiple nodes of a network. The script contains various checks, data reading and writing, operations with digital assets.
 
-Smart Contracts in Waves ecosystem allow to change the default behaviour of accounts and assets. 
+Smart contracts have a variety of applications, including financial (DeFi), gaming/gambling, and many others. Because of running on the blockchain, smart contracts are transparent: anyone can read the code and understand how it works.
 
-Smart contracts are:
-1. Scripts written using Ride programming language.
-2. Predicates over account or asset transactions, which always should return `true` or `false`.
-3. Always passive and **not** callable.
+## Waves Smart Contracts
 
-Smart Contract Script has access to:  
-1. **Blockchain height**. There is `height()` function in the global scope of a script which returns the blockchain
-height at the execution time.  
-2. **Current transaction fields**. There is `tx` variable in the global scope of a script which contains all fields
-of current outgoing transaction, including `proofs` array.
+Smart contracts on the Waves blockchain are [accounts](/en/blockchain/account/) and [assets](/en/blockchain/token/) with assigned scripts written in [Ride](/en/ride/). Ride is a domain-specific programming language for developing decentralized applications focusing on security and ease of development.
 
-> :warning: `Proofs` array is not available in an asset script.
+There are three types of smart contracts on the Waves blockchain:
 
-3. **Proofs**. Any transaction can contain an array of proofs up to 8 elements. By default `proofs` array used for
-signatures, but you can put any data in the array (each element is up to 64 bytes).
-4. **Key-value storage of any account**.
+* **dApps** can perform almost all operations possible on the Waves blockchain. dApp callable functions can transfer, issue and burn [tokens](/en/blockchain/token/), change data in dApp’s [data storage](/en/blockchain/account/account-data-storage), and much more. A dApp script can be invoked by sending an [Invoke Script transaction](/en/blockchain/transaction-type/invoke-script-transaction), and dApps can also invoke each other. An invocation can contain payments in favor of the dApp. A dApp also provides functionality similar to a smart account. [More about dApp](/en/building-apps/smart-contracts/what-is-a-dapp)
+* **Smart accounts** check whether transactions and orders sent on behalf of the account meet certain conditions specified in the script. If the conditions are not met, the transaction is discarded. An example of a smart account is a multi-signature account with which several users jointly manage assets: a transaction from such an account is allowed if it contains valid signatures of co-owners. [More about smart accounts](/en/building-apps/smart-contracts/what-is-smart-account)
+* **Smart assets** apply constraints on transactions involving the asset. For example, a script can allow only exchanges at a specific price, or transfers only to recipients on a trusted list, or lock operations outside a given blockchain height interval. [More about smart assets](/en/building-apps/smart-contracts/what-is-smart-asset)
 
-> :bulb: The best intuition about smart contracts in Waves model are locks. There is a default lock for accounts and assets, which checks signatures of transactions. Smart Contracts allow to change that lock to custom, i.e. open lock (every user can send transaction from smart account), multisignature (account can send transactions only if multiple people sign a transaction), time lock (transactions can be send only after specified blockchain height).
+Smart contracts can use blockchain data: the current height, account balances, asset parameters, and entries in data storage of any account. Since the blockchain is a distributed ledger stored on many computers worldwide, smart contracts cannot access the filesystem. Data from the outside world can be delivered to the blockchain by [oracles](/en/blockchain/oracle).
 
-![Smart contracts intuition](./_assets/locks.png)
+## Waves Smart Contracts Features
 
+* No “gas”
 
-## Smart Accounts
-![MAINNET available](https://img.shields.io/badge/mainnet-available-4bc51d.svg)
-![TESTNET available](https://img.shields.io/badge/testnet-available-4bc51d.svg)
+   Running scripts on the Waves blockchain does not require “gas” fees depending on computational effort, which greatly improves the reliability of applications. The Ride smart contract language is non-Turing Complete: there are no loops in it. That’s why the computational costs are known in advance: before starting the calculations and even before installing the script. The complexity of the scripts involved in a single transaction is limited. Due to these limitations, Waves has low and predictable fees for script execution while maintaining high blockchain throughput.
 
-Waves uses account-based model, there are no inputs and outputs of transactions like in some other blockchain networks.
-All assets and [data](/en/blockchain/transaction-type/data-transaction) associates with an account and bound
-to its' public key.
+   For example, the [minimum fee](/en/blockchain/transaction/transaction-fee) for a dApp invocation transaction is 0.005 WAVES (just a few cents). An additional fee is required only in case the callable function issues a new asset (which is not NFT): 1 WAVES per asset; extra 0.004 WAVES are required if the transaction is sent on behalf of a smart account or dApp with complexity higher than a certain threshold.
 
-> :bulb: By default, public key “owns” assets and stores key-value data attached by [data transactions](/en/blockchain/transaction-type/data-transaction). To spend funds or update key-value storage the sender provides **a valid signature** matching transaction body and public key.
+* Working with state
 
-**The main idea** that before the transaction is submitted to be included in the next block, the account checks if
-the transaction meets certain requirements, defined in a **script**. The script is attached to the account so the
-account can validate every transaction before confirming it.
+   Waves smart contracts do not have an internal state. Instead, a key-value data storage is used. Each Waves account can add, modify and delete entries in its storage using [data transactions](/en/blockchain/transaction-type/data-transaction). In addition, callable functions of a dApp can modify the data in its storage. All Waves smart contracts can read data from the data storage of an arbitrary account.
 
-Smart contract (account script) allows to change the default behaviour of an account by sending a
-`setScriptTransaction`. It is an important property that the smart account does not store any
-data on the blockchain. A smart account will only have access to blockchain state values that can be retrieved and
-executed relatively fast, in a “constant” time.
+## Examples of Apps Based on Waves Smart Contracts
 
-Every usual account can become smart account.   
+* [Neutrino](http://neutrino.at/) is an algorithmic price-stable assetization protocol acting as an accessible DeFi toolkit. It enables the creation of stablecoins pegged to specific real-world assets, such as national currencies or commodities. The Neutrino protocol is represented by a set of interacting smart contracts deployed to the Waves blockchain. Neutrino TVL (Total Value Locked) surpassed $1 billion.
+* [Swop.fi](https://swop/fi) is an instant crypto exchange based on AMM (Automated Market Maker) model. Swop.fi also generates passive income from cryptocurrency investments. TVL exceeds $100 million.
+* [Waves Ducks](https://wavesducks.com/) is a game focused on collectible digital duck images of celebrities and memes in the NFT format. The game motivates the community to promote the Waves ecosystem.
+* [SIGN Art](https://sign-art.app/) is a web gallery of Blockchain-Certified Digital Art and a marketplace for NFTs. Artists can create a portfolio of digital creations, tokenize and sell NFTs. Collectors can buy NFTs and display NFT-collection.
+* [Waves DAO](https://dao.wavesassociation.org/) (decentralized autonomous organization) is the Waves Association’s decision-making framework for supporting initiatives and projects based on the Waves protocol.
 
-> [Detailed explanation of Smart Accounts with examples](/en/building-apps/smart-contracts/what-is-smart-account)
-
-### How to work with state
-If you're familiar with Ethereum smart contracts model you have to consider the main difference between them and Waves
-Smart Contracts:
-
-> :bulb: Waves smart **contract** does **not** have its' own state. There is a smart **account** state managed by
- [data transactions](/en/blockchain/transaction-type/data-transaction).
-
-If case you need to work with state you have to use data transactions and manage them with smart account scripts.
-More details about  
-
-
-### Gas and fees
-
-The simplicity of account scripts makes the system very scalable in terms of throughput and smart accounts work  
-**without “gas”**, which means that costs are always known upfront.
-Transactions from smart account or with smart asset require additional `0.004 WAVES` fee .
-
-> For example, minimal fee for transfer transaction is 0.001 WAVES for usual account and 0.005 (0.001 + 0.004) for
-smart account.
-
-### Restrictions
-
-Smart accounts cannot send transactions themselves or transfer funds according to given conditions,
-but can read data from the blockchain \(for example, the height of a blockchain or signatures from the transaction\)
-and return the result of a predicate obtained on the basis of this data.
-
-## Smart Assets
-
-If we plan to apply constraints on all operations for a specific asset, we cannot use a smart account.
-In our paradigm, we have smart assets for this purpose: the script will be attached to the asset and will work in a similar way.
-Transactions for such assets are valid only if the script returns True. For example, a script can verify proofs from a transaction,
-check if a notary/escrow approves the transaction, and that operations with the asset are not locked for a specified time.
-The script for the token is invoked upon the following operations with an asset:
-
-* Transfer Transaction
-* MassTransfer Transaction
-* Reissue Transaction
-* Burn Transaction
-* ExchangeTransaction
-* SetAssetScriptTransaction
-
-> :bulb: Here you can find [**White Paper**](https://s3.eu-central-1.amazonaws.com/waves.tech/White_paper_waves_smart_contracts_7a48be1231.pdf) which describes Waves Smart Contracts approach: basic use-cases, implementation details and Ride language description.
+For more examples of Waves-based apps, visit [dAppOcean](https://www.dappocean.io/).

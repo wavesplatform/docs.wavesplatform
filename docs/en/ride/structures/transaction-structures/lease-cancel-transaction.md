@@ -1,6 +1,6 @@
 # LeaseCancelTransaction
 
-Structure of a [lease cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction).
+Structure of a [Lease Cancel transaction](/en/blockchain/transaction-type/lease-cancel-transaction).
 
 ### Constructor
 

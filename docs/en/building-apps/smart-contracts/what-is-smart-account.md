@@ -27,14 +27,14 @@ To attach your own script to an account, you need to send a [set script transact
 The directive should be placed at the very beginning of the script. Review the example directive:
 
 ```ride
-{-# STDLIB_VERSION 3 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE EXPRESSION #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 ```
 
 The given directive consists of three annotations and provides the compiler with the following information:
 
-- the script will use the third version of the library of standard functions
+- the script uses version 5 of the library of standard functions
 - the type of script content is Expression
 - `this` variable type will be `Address`.
 
@@ -93,6 +93,13 @@ match tx {
 
 ## Smart Account Fees
 
-If the transaction is sent from a smart account, the transaction fee is increased by 0.004 WAVES. So if the transaction fee is 0.001 WAVES, the owner of the smart account will pay 0.001 + 0.004 = 0.005 WAVES.
+If the complexity of the account script exceeds the [sender complexity threshold](/en/ride/limits/), the minimum fee for each transaction sent from the smart account is increased by 0.004 WAVES.
 
-Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the extra fee of 0.004 WAVES is only required if the complexity of the account script exceeds the [sender complexity threshold](/en/ride/limits/). Versions 1.3.x are currently available for [Stagenet](/en/blockchain/blockchain-network/) only.
+## Waves Tech Blog Articles
+
+* [The Hitchhiker’s Guide to Waves Smart Contracts. Part 1](https://medium.com/wavesprotocol/the-hitchhikers-guide-to-waves-smart-contracts-part-1-b80aa47a745a) _(14 September 2018)_
+* [The Hitchhiker’s Guide to Waves Smart Contracts. Part 2](https://medium.com/wavesprotocol/the-hitchhikers-guide-to-waves-smart-contracts-part-2-44621fd5a007) _(18 September 2018)_
+* [Stateful Smart Accounts. Part 1 ](https://medium.com/wavesprotocol/stateful-smart-accounts-part-1-315731d8c06) _(17 September 2018)_
+* [Stateful Smart Accounts. Part 2](https://medium.com/wavesprotocol/stateful-smart-accounts-part-2-implementing-erc-20-and-nft-erc-721-step-by-step-7bac364fdadb) _(3 October 2018)_
+* [Application of Waves Smart Accounts: from Auctions to Customer Loyalty Schemes](https://medium.com/wavesprotocol/application-of-waves-smart-accounts-from-auctions-to-customer-loyalty-schemes-e5f27eb99bf5) _(2 March 2019)_
+* [Application of Waves Smart Accounts and Smart Assets for Financial Instruments](https://medium.com/wavesprotocol/application-of-waves-smart-accounts-and-smart-assets-for-financial-instruments-813a993b78e9) _(15 March 2019)_

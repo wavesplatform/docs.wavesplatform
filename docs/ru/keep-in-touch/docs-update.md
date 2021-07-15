@@ -2,7 +2,27 @@
 
 ## Июль
 
+### Блокчейн
+
+* [Валидация транзакции](/ru/blockchain/transaction/transaction-validation) — <span style="color:green">обновлено</span>
+
+### Разработка приложений
+
+* [Обзор смарт-контрактов Waves](/ru/building-apps/smart-contracts/waves-smart-contracts-overview) — <span style="color:green">обновлено</span>
+* [Что такое смарт-ассет](/ru/building-apps/smart-contracts/what-is-smart-asset) — <span style="color:green">обновлено</span>
+
+### Нода
+
+* [Медленные запросы](/ru/waves-node/node-api/slow-requests)
+
+### Ride
+
 * [Импорт библиотек](/ru/ride/advanced/import)
+
+## Май
+
+* [Изменение названия и описания ассета](/ru/building-apps/how-to/assets/issue#изменение-названия-и-описания-ассета)
+* [Переход с предыдущей версии Blockchain Updates](/ru/waves-node/extensions/blockchain-updates#upgrading)
 
 ## Март
 
@@ -27,7 +47,6 @@
 ### Ride
 
 * [Версия 5 Стандартной библиотеки](/ru/ride/v5/) ![stagenet](./_assets/stagenet.svg)
-* [Вычисления с продолжением](/ru/ride/advanced/continuation) ![stagenet](./_assets/stagenet.svg)
 * [Вызов dApp из dApp](/ru/ride/advanced/dapp-to-dapp) ![stagenet](./_assets/stagenet.svg)
 * [Подключение библиотек](/ru/ride/advanced/import) ![stagenet](./_assets/stagenet.svg)
 

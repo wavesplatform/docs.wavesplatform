@@ -1,6 +1,6 @@
 # ReissueTransaction
 
-Structure of a [reissue transaction](/en/blockchain/transaction-type/reissue-transaction).
+Structure of a [Reissue transaction](/en/blockchain/transaction-type/reissue-transaction).
 
 ## Constructor
 

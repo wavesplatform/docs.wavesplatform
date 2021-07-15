@@ -11,7 +11,7 @@ The following APIs are available for Waves:
 
 * [Waves Data Service API](/en/building-apps/waves-api-and-sdk/waves-data-service-api) is intended for reading data from the blockchain, including market data on cryptocurrency trading from Exchange transactions, lists of transactions by type and variety of filters, etc.
 
-* [gRPC Server](/en/waves-node/extensions/grpc-server/) (described in the “Node” chapter) is a node extension that lets the node owner to run gRPC services. gRPC Server can obtain information about accounts, tokens, transactions, and blocks, as well as broadcast a signed transaction.
+* [gRPC Server](/en/waves-node/extensions/grpc-server/) (described in the “Node” chapter) is a node extension that enables running gRPC services. gRPC Server can obtain information about accounts, tokens, transactions, and blocks, as well as broadcast a signed transaction.
 
 * [Blockchain Updates](/en/waves-node/extensions/blockchain-updates) (described in the “Node” chapter) is a node extension for tracking changes made by each transaction: in account balances, in data storages, in token parameters and other.
 

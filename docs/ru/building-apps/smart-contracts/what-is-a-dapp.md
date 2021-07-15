@@ -36,14 +36,14 @@ dApp-скрипт содержит одну или несколько вызыв
 Каждый скрипт Ride должен начинаться с директив. Для dApp набор директив следующий:
 
 ```ride
-{-# STDLIB_VERSION 3 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 ```
 
 Приведенные директивы сообщают компилятору, что:
 
-- в скрипте будет использоваться Стандартная библиотека версии 3;
+- в скрипте будет использоваться Стандартная библиотека версии 5;
 - тип скрипта — dApp;
 - скрипт будет привязан к аккаунту (а не к ассету).
 
@@ -80,11 +80,14 @@ func faucet () = {
             false
     }
     if (!isKnownCaller) then 
-        ScriptResult(
-           WriteSet([DataEntry(toBase58String(i.caller.bytes), true)]),
-           TransferSet([ScriptTransfer(i.caller, 100000000, unit)])
+        (
+           [
+               BooleanEntry(toBase58String(i.caller.bytes), true),
+               ScriptTransfer(i.caller, 100000000, unit)
+           ],
+           unit
         )
-    else WriteSet([])
+    else ([],unit)
 }
 ```
 
@@ -138,9 +141,7 @@ dApp может использовать данные блокчейна:
 
 Комиссия за транзакцию установки скрипта — 0,01 WAVES.
 
-После установки скрипта минимальная комиссия за транзакцию, отправленную с аккаунта dApp, увеличивается на 0,004 WAVES.
-
-Начиная с версии ноды 1.3.1, с момента активации фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”, дополнительная комиссия 0,004 WAVES требуется только в случае, если сложность скрипта аккаунта или функции-верификатора dApp-скрипта больше [порога сложности отправителя](/ru/ride/limits/). Версии 1.3.x в настоящее время доступны только на [Stagenet](/ru/blockchain/blockchain-network/).
+Если скрипт содержит функцию-верификатор и ее сложность больше [порога сложности отправителя](/ru/ride/limits/), то минимальная комиссия за каждую транзакцию, отправленную с аккаунта dApp, увеличивается на 0,004 WAVES.
 
 ## Ограничения
 
@@ -155,3 +156,11 @@ dApp может использовать данные блокчейна:
 * На Github в репозитории [ride-examples](https://github.com/wavesplatform/ride-examples/blob/master/welcome.md).
 
 Руководство по созданию dApp приведено в разделе [Создание и запуск dApp](/ru/building-apps/smart-contracts/writing-dapps).
+
+## Статьи в блоге Waves Tech
+
+* [Чем хорош протокол Waves для DeFi-приложений?](https://vk.com/@wavesprotocol-chem-horosh-protokol-waves-dlya-defi-prilozhenii) _(25 мартa 2021)_
+* [5 вещей, которые я хотел бы знать до того, как начал разрабатывать децентрализованные приложения](https://vk.com/@wavesprotocol-5-veschei-kotorye-ya-hotel-by-znat-do-togo-kak-nachal-razrab) _(17 июня 2020)_
+* [Как создать dApp для мотивации сотрудников](https://vk.com/@wavesprotocol-kak-sozdat-dapp-dlya-motivacii-sotrudnikov) _(9 июня 2020)_
+* [Как избежать ошибок при разработке dApp](https://vk.com/@wavesprotocol-kak-izbezhat-oshibok-pri-razrabotke-dapp) _(8 мая 2020)_
+* [Что такое смарт-контракты и как их использовать в приложении](https://vk.com/@wavesplatform-chto-takoe-smart-kontrakty-i-kak-ih-ispolzovat-v-prilozhenii) _(19 мартa 2020)_

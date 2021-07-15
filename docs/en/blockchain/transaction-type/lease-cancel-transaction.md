@@ -6,44 +6,36 @@ Lease Cancel transaction cancels the leasing. See the [Lease Transaction](/en/bl
 
 The minimum fee for a Lease Cancel transaction is 0.001 WAVES.
 
-If the transaction sender is a [dApp or smart account](/en/blockchain/account/dapp), the minimum fee is increased by 0.004 WAVES.
-
-Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the extra fee of 0.004 WAVES is only required if the complexity of sender's account script or dApp script verifier function exceeds the [sender complexity threshold](/en/ride/limits/). Versions 1.3.x are currently available for [Stagenet](/en/blockchain/blockchain-network/) only.
+If the transaction sender is a [dApp or smart account](/en/blockchain/account/dapp), and the complexity of the account script or dApp script verifier function exceeds the [sender complexity threshold](/en/ride/limits/), the minimum fee is increased by 0.004 WAVES. (Before activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the extra fee of 0.004 WAVES was required regardless of the complexity of the account script or the presence and complexity of the dApp script verifier function.)
 
 ## JSON Representation
 
 ```json
 {
-  "senderPublicKey": "BEPNBjo9Pi9hJ3hVtxpwyEfXCW3qWUNk5dMD7aFdiHsa",
-  "fee": 100000,
   "type": 9,
-  "version": 2,
-  "leaseId": "BggRaeNCVmzuFGohzF4dQeYXSWr8i5zNSnGtdKc5eGrY",
-  "sender": "3PMBXG13f89pq3WyJHHKX2m5zN6kt2CEkHQ",
+  "id": "6rzxZ3rEsCxgmkcn6DDPB9f9Phi28D4JWZsCtwcViD8C",
+  "sender": "3Mx7kNAFcGrAeCebnt3yXceiRSwru6N3XZd",
+  "senderPublicKey": "81fxJw7HM2VX1ucq1vNKiedM1XBGX7H2TDUtxN6ib68Z",
+  "fee": 100000,
   "feeAssetId": null,
-  "chainId": 87,
+  "timestamp": 1622579112096,
   "proofs": [
-    "3cqVVsaEDzBz367KTBFGgMXEYJ2r3yLWd4Ha8r3GzmAFsm2CZ3GeNW22wqxfK4LNRFgsM5kCWRVhf6gu2Nv6zVqW"
+    "3eFnprsRSeczc371bQ7AUsbh6qjiUFze6y5BZGKbxyHG27K1cU6jVUgRdthYz9uWVw1FgVpLjMciGCb64rJnMp3k"
   ],
-  "id": "7siEtrJAvmVzM1WDX6v9RN4qkiCtk7qQEeD5ZhE6955E",
+  "version": 2,
+  "leaseId": "BhHPPHBZpfp8FBy8DE7heTpWGJySYg2uU2r4YM6qaisw",
+  "chainId": 84,
+  "height": 1551763,
+  "applicationStatus": "succeeded",
   "lease": {
-    "senderPublicKey": "BEPNBjo9Pi9hJ3hVtxpwyEfXCW3qWUNk5dMD7aFdiHsa",
-    "amount": 406813214,
-    "sender": "3PMBXG13f89pq3WyJHHKX2m5zN6kt2CEkHQ",
-    "feeAssetId": null,
-    "signature": "4u1sBnSrBiLE7DdE3Uj7R8kVqW3BFoBcwnuqDyssqxaYrF5hs6ABbw5hVT9S1AjQmgDr18euS5bYgedy7wdFUBjC",
-    "proofs": [
-      "4u1sBnSrBiLE7DdE3Uj7R8kVqW3BFoBcwnuqDyssqxaYrF5hs6ABbw5hVT9S1AjQmgDr18euS5bYgedy7wdFUBjC"
-    ],
-    "fee": 100000,
-    "recipient": "3PMWRsRDy882VR2viKPrXhtjAQx7ygQcnea",
-    "id": "BggRaeNCVmzuFGohzF4dQeYXSWr8i5zNSnGtdKc5eGrY",
-    "type": 8,
-    "version": 1,
-    "timestamp": 1548192718874
-  },
-  "timestamp": 1548660629957,
-  "height": 1370970
+    "id": "BhHPPHBZpfp8FBy8DE7heTpWGJySYg2uU2r4YM6qaisw",
+    "originTransactionId": "BhHPPHBZpfp8FBy8DE7heTpWGJySYg2uU2r4YM6qaisw",
+    "sender": "3Mx7kNAFcGrAeCebnt3yXceiRSwru6N3XZd",
+    "recipient": "3Mz9N7YPfZPWGd4yYaX6H53Gcgrq6ifYiH7",
+    "amount": 124935000,
+    "height": 1551763,
+    "status": "canceled"
+  }
 }
 ```
 
@@ -51,7 +43,7 @@ Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dA
 | :--- | :--- |
 | leaseId | Lease transaction ID |
 | chainId | [Chain ID](/en/blockchain/blockchain-network/#chain-id) |
-| *lease* | Lease transaction fields |
+| *lease* | Parameters of canceled lease |
 
 The `lease` structure does not need to be filled when sending a transaction, and it is not stored on the blockchain. The node returns this structure when providing transaction data via the REST API.
 

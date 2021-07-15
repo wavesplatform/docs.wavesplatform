@@ -733,6 +733,62 @@ module.exports = [
     to: '/en/ride/script/script-types/asset-script',
     from: '/en/ride/ride-script/asset-script.html',
   },
+  {/*=============================== Switch to Version 5 =====================================*/
+    from: '/en/ride/v5/data-types()',
+    to: '/en/ride/data-types$1',
+  },
+  {
+    from: '/en/ride/v5/functions()',
+    to: '/en/ride/functions$1',
+  },
+  {
+    from: '/en/ride/v5/operators()',
+    to: '/en/ride/operators$1',
+  },
+  {
+    from: '/en/ride/v5/structures()',
+    to: '/en/ride/structures$1',
+  },
+  {
+    from: '/en/ride/v5/variables()',
+    to: '/en/ride/variables$1',
+  },
+  {
+    from: '/en/ride/structures/script-results()',
+    to: '/en/ride/v4/structures/script-results$1',
+  },
+  {
+    from: '/en/ride/structures/script-actions/data-entry',
+    to: '/en/ride/v4/structures/script-actions/data-entry',
+  },
+  {
+    from: '/ru/ride/v5/data-types()',
+    to: '/ru/ride/data-types$1',
+  },
+  {
+    from: '/ru/ride/v5/functions()',
+    to: '/ru/ride/functions$1',
+  },
+  {
+    from: '/ru/ride/v5/operators()',
+    to: '/ru/ride/operators$1',
+  },
+  {
+    from: '/ru/ride/v5/structures()',
+    to: '/ru/ride/structures$1',
+  },
+  {
+    from: '/ru/ride/v5/variables()',
+    to: '/ru/ride/variables$1',
+  },
+  {
+    from: '/ru/ride/structures/script-results()',
+    to: '/ru/ride/v4/structures/script-results$1',
+  },
+  {
+    from: '/ru/ride/structures/script-actions/data-entry',
+    to: '/ru/ride/v4/structures/script-actions/data-entry',
+  },
   {
     /*===============================  Smart contracts  =====================================*/
     to:'/en/building-apps/smart-contracts/what-is-a-dapp',
@@ -747,12 +803,24 @@ module.exports = [
     from: '/en/blockchain/waves-protocol/smart-contracts.html',
   }, 
   {
+    from: '/en/building-apps/smart-contracts/articles-on-dapps',
+    to: '/en/building-apps/smart-contracts/waves-smart-contracts-overview',
+  }, 
+  {
+    from: '/ru/building-apps/smart-contracts/articles-on-dapps',
+    to: '/ru/building-apps/smart-contracts/waves-smart-contracts-overview',
+  }, 
+  {
     to: '/en/building-apps/smart-contracts/what-is-smart-account',
     from: '/en/building-apps/smart-contracts/smart-accounts',
   }, 
   {
-    to: '/en/building-apps/smart-contracts/smart-assets',
+    to: '/en/building-apps/smart-contracts/what-is-smart-asset',
     from: '/en/technical-details/smart-assets.html',
+  },
+  {
+    to: '/en/building-apps/smart-contracts/what-is-smart-asset',
+    from: '/en/building-apps/smart-contracts/smart-assets',
   },
   { /* link found on medium */
     from: '/en/smart-contracts/waves-contracts-language-description.html',

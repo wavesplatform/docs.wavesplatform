@@ -1,6 +1,6 @@
 # Макрос FOLD&lt;N&gt;
 
-Макрос `FOLD<N>` позволяет реализовать операции над списком значений, такие как суммирование (`sum`), нахождение среднего (`avg`), фильтрация (`filter`), агрегация элементов (`zip`), проверка наличия (`exists`) и т.&thinsp;п. Он работает аналогично функции свертки `fold` или `reduce` в других языках программирования.
+Макрос `FOLD<N>` позволяет реализовать операции над списком значений, такие как суммирование (`sum`), фильтрация (`filter`), преобразование (`map`), агрегация элементов (`zip`), проверка наличия (`exists`) и т.&thinsp;п. Он работает аналогично функции свертки `fold` или `reduce` в других языках программирования.
 
 ```
 FOLD<N>(list, start, foldFunc)
@@ -13,35 +13,98 @@ FOLD<N>(list, start, foldFunc)
 | `start` | Начальное значение |
 | `foldFunc` | Cворачиваемая функция |
 
-Сложность `FOLD<N>` соответствует сложности функции `foldFunc`, умноженной на `N`, плюс накладные расходы.
+Сворачиваемая функция получает на вход два параметра: промежуточный результат и очередной элемент списка. Макрос `FOLD<N>(list, start, foldFunc)` означает:
 
-## Сумма
+* выполнить не более `N` итераций;
+* на каждой итерации: взять результат предыдущей итерации (на первой итерации взять значение `start`) и следующий элемент списка `list`, применить к этой паре функцию `foldFunc`;
+* вернуть итоговый результат.
 
-```
-func sum(a:Int, b:Int) = a + b
+Величина `N` должна быть известна заранее. Если в списке оказалось больше элементов, чем указано в FOLD, выполнение скрипта завершается ошибкой.
+
+Сложность `FOLD<N>` соответствует сложности сворачиваемой функции, умноженной на `N`, плюс накладные расходы.
+
+Макрос `FOLD<N>` — синтаксический сахар, он «раскрывается» на этапе компиляции кода. Поэтому, в частности, размер скрипта растет линейно с ростом `N`.
+
+## Суммирование
+
+```scala
+func sum(accum: Int, next: Int) = accum + next
 let arr = [1,2,3,4,5]
-FOLD<5>(arr, 0, sum)
+FOLD<5>(arr, 0, sum)    # Результат: 15
 ```
 
-Результат: 15
+> Выражение 
+> 
+> ```scala
+> FOLD<5>(arr, 0, sum)
+> ``` 
+> 
+> после компиляции и декомпиляции будет выглядеть так:
+> 
+> ```scala
+> let $list = arr
+> let $size = size($list)
+> let $acc0 = 0
+> if (($size == 0))
+>    then $acc0
+>    else {
+>       let $acc1 = sum($acc0, $list[0])
+>       if (($size == 1))
+>          then $acc1
+>          else {
+>             let $acc2 = sum($acc1, $list[1])
+>             if (($size == 2))
+>                then $acc2
+>                else {
+>                   let $acc3 = sum($acc2, $list[2])
+>                   if (($size == 3))
+>                   then $acc3
+>                      else {
+>                         let $acc4 = sum($acc3, $list[3])
+>                         if (($size == 4))
+>                            then $acc4
+>                            else {
+>                               let $acc5 = sum($acc4, $list[4])
+>                               if (($size == 5))
+>                                  then $acc5
+>                                  else {
+>                                     let $acc6 = sum($acc5, $list[5])
+>                                     throw("List size exceed 5")
+>                                  }
+>                            }
+>                      }
+>                }
+>          }
+>    }
+> ```
+> 
+> Такой код вы можете увидеть в Waves Explorer. [Пример](https://testnet.wavesexplorer.com/tx/Cb2vQfkMXRXT94NwyutEz2CV8XFvrLUohMHXRKgRH3HM)
 
 ## Произведение
 
-```ride
-func mult(a:Int, b:Int) = a * b
+```scala
+func mult(accum: Int, next: Int) = accum * next
 let arr = [1,2,3,4,5]
-FOLD<5>(arr, 1, mult)
+FOLD<5>(arr, 1, mult)    # Результат: 120
 ```
 
-Результат: 120
+## Фильтрация
 
-## Фильтр
+Следующий код формирует массив, состоящий только из четных элементов исходного массива.
 
-```
-func filterStep(accumulated: List[Int], a: Int) =
-   if (a % 2 == 0) then a :: accumulated else accumulated
+```scala
+func filterEven(accum: List[Int], next: Int) =
+   if (next % 2 == 0) then accum :+ next else accum
 let arr = [1,2,3,4,5]
-FOLD<5>(arr, [], filterStep)
+FOLD<5>(arr, [], filterEven)    # Результат: [2, 4]
 ```
 
-Результат: [4, 2]
+## Преобразование
+
+Следующий код инвертирует массив, уменьшая каждый элемент на единицу:
+
+```scala
+func map(accum: List[Int], next: Int) = (next - 1) :: accum
+let arr = [1, 2, 3, 4, 5]
+FOLD<5>(arr, [], map)    # Результат: [4, 3, 2, 1, 0]
+```

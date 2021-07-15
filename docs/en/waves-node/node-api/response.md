@@ -11,7 +11,7 @@ The table lists Node API response codes.
 | 429 Too Many Requests | The size of the request queue has exceeded the limit set for [public nodes](/en/waves-node/api-limitations-of-the-pool-of-public-nodes) |
 | 500 Internal Server Error | Server Error |
 | 501 Not Implemented | Unsupported transaction type |
-| 503 Service Unavailable | API is not available or the number of simultaneous connections has exceeded the limit set for [public nodes](/en/waves-node/api-limitations-of-the-pool-of-public-nodes) |
+| 503 Service Unavailable | API is not available, or the node did not manage to process the request in the allotted time (see [Slow requests](/en/waves-node/node-api/slow-requests)), or the number of simultaneous connections has exceeded the limit set for [public nodes](/en/waves-node/api-limitations-of-the-pool-of-public-nodes) |
 
 If 4xx or 501 error occurs, the following structure is returned:
 
@@ -41,7 +41,7 @@ Example:
 | 102 | Invalid address | |
 | 108 | Invalid public key | |
 | 110 | Invalid message | Failed to decode message, signature or key for `/addresses/verify/{address}` or `/addresses/verifyText/{address}` endpoint |
-| 113 | Overflow error | `fee`+`amount` or the total amount in the Mass Transfer transaction is greater than the maximum [Long](/ru/blockchain/blockchain/blockchain-data-types) value |
+| 113 | Overflow error | `fee`+`amount` or the total amount in the Mass Transfer transaction is greater than the maximum [Long](/en/blockchain/blockchain/blockchain-data-types) value |
 | 116 | Request contains invalid IDs. id1, id2, ... | Invalid base58 in the list of transaction IDs |
 | 199 | ... | Other validation errors |
 | 301 | Block does not exist | |

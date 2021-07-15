@@ -27,14 +27,14 @@ sigVerify(tx.bodyBytes, tx.proofs[0], tx.senderPk)
 Директива должна размещаться в самом начале скрипта. Рассмотрим пример директивы:
 
 ```ride
-{-# STDLIB_VERSION 3 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE EXPRESSION #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 ```
 
 Приведенная директива состоит из трёх аннотаций и сообщает компилятору следующую информацию:
 
-- в скрипте будет использоваться третья версия библиотеки стандартных функций,
+- в скрипте используется версия 5 библиотеки стандартных функций,
 - типом содержимого данного скрипта является Expression,
 - типом переменной `this` будет `Address`.
 
@@ -93,6 +93,13 @@ match tx {
 
 ## Комиссии смарт-аккаунтов
 
-Если транзакция отправляется со смарт-аккаунта, то размер комиссии за транзакцию увеличивается на 0,004 WAVES. Если размер комиссии составляет 0,001 WAVES, то владелец смарт-аккаунта заплатит 0,001 + 0,004 = 0,005 WAVES.
+Если сложность скрипта аккаунта больше [порога сложности отправителя](/ru/ride/limits/), то минимальная комиссия за каждую транзакцию, отправленную со смарт-аккаунта, увеличивается на 0,004 WAVES.
 
-Начиная с версии ноды 1.3.1, с момента активации фичи №&nbsp;16 “Ride V5, dApp-to-dApp invocations”, дополнительная комиссия 0,004 WAVES требуется только в случае, если сложность скрипта аккаунта или функции-верификатора dApp-скрипта больше [порога сложности отправителя](/ru/ride/limits/). Версии 1.3.x в настоящее время доступны только на [Stagenet](/ru/blockchain/blockchain-network/).
+## Статьи в блоге Waves Tech
+
+* [The Hitchhiker’s Guide to Waves Smart Contracts. Part 1](https://medium.com/wavesprotocol/the-hitchhikers-guide-to-waves-smart-contracts-part-1-b80aa47a745a) _(14 сентября 2018)_
+* [The Hitchhiker’s Guide to Waves Smart Contracts. Part 2](https://medium.com/wavesprotocol/the-hitchhikers-guide-to-waves-smart-contracts-part-2-44621fd5a007) _(18 сентября 2018)_
+* [Stateful Smart Accounts. Part 1 ](https://medium.com/wavesprotocol/stateful-smart-accounts-part-1-315731d8c06) _(17 сентября 2018)_
+* [Stateful Smart Accounts. Part 2](https://medium.com/wavesprotocol/stateful-smart-accounts-part-2-implementing-erc-20-and-nft-erc-721-step-by-step-7bac364fdadb) _(3 октября 2018)_
+* [Применение смарт-аккаунтов Waves: от аукционов до бонусных программ](https://habr.com/en/company/waves/blog/442238/) _(1 мартa 2019)_
+* [Применение смарт-аккаунтов и смарт-ассетов Waves в финансовых инструментах](https://habr.com/ru/company/waves/blog/443836/) _(15 мартa 2019)_

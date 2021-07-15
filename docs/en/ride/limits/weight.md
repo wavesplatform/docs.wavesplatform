@@ -6,6 +6,7 @@ The weight of each value approximately corresponds to its size in bytes. Weight 
 
 | Data type | Weight of value |
 | :--- | :--- |
+| BigInt | 64 |
 | Boolean | 1 |
 | ByteVector | Size in bytes |
 | Int | 8 |

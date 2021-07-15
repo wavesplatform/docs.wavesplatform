@@ -2,11 +2,11 @@
 
 |#|Name | Description | Complexity |
 |:---| :--- | :--- | :--- |
-|1| [drop(ByteVector, Int): ByteVector](#drop) | Returns the byte array without the first `N` bytes | 1 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>6 for Standard Library **version 4** |
-|2| [dropRight(ByteVector, Int): ByteVector](#drop-right) | Returns the byte array without the last `N` bytes | 19 for Standard Library **version 3**<br>6 for Standard Library **version 4** |
+|1| [drop(ByteVector, Int): ByteVector](#drop) | Returns the byte array without the first `N` bytes | 6 |
+|2| [dropRight(ByteVector, Int): ByteVector](#drop-right) | Returns the byte array without the last `N` bytes | 6 |
 |3| [size(ByteVector): Int](#size) | Returns the number of bytes in the byte array | 1 |
-|4| [take(ByteVector, Int): ByteVector](#take) | Returns the first `N` bytes of the byte array | 1 for Standard Library **version 3**<br>6 for Standard Library **version 4** |
-|5| [takeRight(ByteVector, Int): ByteVector](#take-right) | Returns the last `N` bytes of the byte array | 19 for Standard Library **version 3**<br>6 for Standard Library **version 4** |
+|4| [take(ByteVector, Int): ByteVector](#take) | Returns the first `N` bytes of the byte array | 6 |
+|5| [takeRight(ByteVector, Int): ByteVector](#take-right) | Returns the last `N` bytes of the byte array | 6 |
 
 ## drop(ByteVector, Int): ByteVector<a id="drop"></a>
 

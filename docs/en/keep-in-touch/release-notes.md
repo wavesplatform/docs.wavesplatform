@@ -1,6 +1,8 @@
 # Release Notes
 
-## Version 1.3 (Stagenet)
+## Version 1.3 Jumeirah
+
+The improvements listed below are enabled by feature #16 “Ride V5, dApp-to-dApp invocations”.
 
 ### Protocol Enhancements
 
@@ -21,42 +23,42 @@
 * Issued [version 5](/en/ride/v5/) of the Ride [Standard library](/en/ride/script/standard-library).
 * Enabled processing up to 10 payments attached to the Invoke Script transaction.
 * Added the functions for dApp-to-dApp invocation:
-   * [invoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp#invoke)
-   * [reentrantInvoke](/en/ride/v5/functions/built-in-functions/dapp-to-dapp#reentrantinvoke)
-* Added [strict variables](/en/ride/v5/variables/) that are evaluated before the next expression to ensure executing callable functions and applying their actions in the right order.
-* Modified the [callable function result](/en/ride/v5/functions/callable-function#invocation-result) by adding a return value.
-* Modified the [Invocation](/en/ride/v5/structures/common-structures/invocation) structure: in case of dApp-to-dApp invocation, the structure contains the address and public key of both the sender of the Invoke Script transaction and the dApp account that invokes the callable function.
+   * [invoke](/en/ride/functions/built-in-functions/dapp-to-dapp#invoke)
+   * [reentrantInvoke](/en/ride/functions/built-in-functions/dapp-to-dapp#reentrantinvoke)
+* Added [strict variables](/en/ride/variables/) that are evaluated before the next expression to ensure executing callable functions and applying their actions in the right order.
+* Modified the [callable function result](/en/ride/functions/callable-function#invocation-result) by adding a return value.
+* Modified the [Invocation](/en/ride/structures/common-structures/invocation) structure: in case of dApp-to-dApp invocation, the structure contains the address and public key of both the sender of the Invoke Script transaction and the dApp account that invokes the callable function.
 * The maximum total number of `Issue`, `Reissue`, `Burn`, `SponsorFee`, `ScriptTransfer`, `Lease`, `LeaseCancel` script actions executed by all callable functions in a single transaction is 30.
 * The maximum total number of `BinaryEntry`, `BooleanEntry`, `IntegerEntry`, `StringEntry`, `DeleteEntry` script actions executed by all callable functions in a single transaction is 100.
 * Added script actions that the callable function can perform:
-   * [Lease](/en/ride/v5/structures/script-actions/lease) — leases WAVES.
-   * [LeaseCancel](/en/ride/v5/structures/script-actions/lease-cancel) — cancels a specified lease.
+   * [Lease](/en/ride/structures/script-actions/lease) — leases WAVES.
+   * [LeaseCancel](/en/ride/structures/script-actions/lease-cancel) — cancels a specified lease.
 
    Using these actions, you can change the amount of the lease, in particular, withdraw a part of the leased funds. If you cancel a lease for a larger amount and create a new lease for a smaller amount with the same recipient in the same script invocation, the recipient's generating balance decreases by the difference. Otherwise, if you send two separate transactions: a Lease Cancel transaction and a Lease transaction, they can be added to a different blocks and therefore generating balance decreases by the amount of the canceled lease immediately and increases by the amount of the new lease after 1000 blocks.
 
-* Added the function [calculateLeaseId](/en/ride/v5/functions/built-in-functions/blockchain-functions#calculateleaseid) that calculates ID of the lease formed by the `Lease` structure.
-* Added an arbitrary data type — [Any](/en/ride/v5/data-types/any).
-* Added the [BigInt](/en/ride/v5/data-types/bigint) data type of 64 bytes (512 bits) and functions supporting it:
-   * [fraction(BigInt, BigInt, BigInt): BigInt](/en/ride/v5/functions/built-in-functions/math-functions#fractionbigint)
-   * [fraction(BigInt, BigInt, BigInt, Union): BigInt](/en/ride/v5/functions/built-in-functions/math-functions#fractionbigintround)
-   * [log(BigInt, Int, BigInt, Int, Int, Union): BigInt](/en/ride/v5/functions/built-in-functions/math-functions#logbigint)
-   * [max(List[BigInt]): BigInt](/en/ride/v5/functions/built-in-functions/list-functions#max-list-bigint-bigint)
-   * [median(List[BigInt]): BigInt](/en/ride/v5/functions/built-in-functions/math-functions#medianbigint)
-   * [min(List[BigInt]): BigInt](/en/ride/v5/functions/built-in-functions/list-functions#min-list-bigint-bigint)
-   * [pow(BigInt, Int, BigInt, Int, Int, Union): BigInt](/en/ride/v5/functions/built-in-functions/math-functions#powbigint)
-   * [parseBigInt(String): BigInt|Unit](/en/ride/v5/functions/built-in-functions/converting-functions#parse-bigint)
-   * [parseBigIntValue(String): BigInt](/en/ride/v5/functions/built-in-functions/converting-functions#parse-bigintvalue)
-   * [toBigInt(ByteVector): BigInt](/en/ride/v5/functions/built-in-functions/converting-functions#to-bigint-bytevector)
-   * [toBigInt(ByteVector, Int, Int): BigInt](/en/ride/v5/functions/built-in-functions/converting-functions#to-bigint-bytevector-int-int)
-   * [toBigInt(Int): BigInt](/en/ride/v5/functions/built-in-functions/converting-functions#to-bigint-int)
-   * [toBytes(BigInt): ByteVector](/en/ride/v5/functions/built-in-functions/converting-functions#to-bytes-bigint)
-   * [toInt(BigInt): Int](/en/ride/v5/functions/built-in-functions/converting-functions#to-int-bigint)
-   * [toString(BigInt): String](/en/ride/v5/functions/built-in-functions/converting-functions#to-string-bigint)
+* Added the function [calculateLeaseId](/en/ride/functions/built-in-functions/blockchain-functions#calculateleaseid) that calculates ID of the lease formed by the `Lease` structure.
+* Added an arbitrary data type — [Any](/en/ride/data-types/any).
+* Added the [BigInt](/en/ride/data-types/bigint) data type of 64 bytes (512 bits) and functions supporting it:
+   * [fraction(BigInt, BigInt, BigInt): BigInt](/en/ride/functions/built-in-functions/math-functions#fractionbigint)
+   * [fraction(BigInt, BigInt, BigInt, Union): BigInt](/en/ride/functions/built-in-functions/math-functions#fractionbigintround)
+   * [log(BigInt, Int, BigInt, Int, Int, Union): BigInt](/en/ride/functions/built-in-functions/math-functions#logbigint)
+   * [max(List[BigInt]): BigInt](/en/ride/functions/built-in-functions/list-functions#max-list-bigint-bigint)
+   * [median(List[BigInt]): BigInt](/en/ride/functions/built-in-functions/math-functions#medianbigint)
+   * [min(List[BigInt]): BigInt](/en/ride/functions/built-in-functions/list-functions#min-list-bigint-bigint)
+   * [pow(BigInt, Int, BigInt, Int, Int, Union): BigInt](/en/ride/functions/built-in-functions/math-functions#powbigint)
+   * [parseBigInt(String): BigInt|Unit](/en/ride/functions/built-in-functions/converting-functions#parse-bigint)
+   * [parseBigIntValue(String): BigInt](/en/ride/functions/built-in-functions/converting-functions#parse-bigintvalue)
+   * [toBigInt(ByteVector): BigInt](/en/ride/functions/built-in-functions/converting-functions#to-bigint-bytevector)
+   * [toBigInt(ByteVector, Int, Int): BigInt](/en/ride/functions/built-in-functions/converting-functions#to-bigint-bytevector-int-int)
+   * [toBigInt(Int): BigInt](/en/ride/functions/built-in-functions/converting-functions#to-bigint-int)
+   * [toBytes(BigInt): ByteVector](/en/ride/functions/built-in-functions/converting-functions#to-bytes-bigint)
+   * [toInt(BigInt): Int](/en/ride/functions/built-in-functions/converting-functions#to-int-bigint)
+   * [toString(BigInt): String](/en/ride/functions/built-in-functions/converting-functions#to-string-bigint)
 * Added the following built-in functions:
-   * [isDataStorageUntouched](/en/ride/v5/functions/built-in-functions/account-data-storage-functions#isdatastorageuntouched) that checks if the data storage of a given account never contained any entries.
-   * [hashScriptAtAddress](/en/ride/v5/functions/built-in-functions/blockchain-functions#hashscriptataddress) that returns [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) hash of the script assigned to a given account.
-   * [fraction(Int, Int, Int, Union): Int](/en/ride/v5/functions/built-in-functions/math-functions#fractionintround) that multiplies and divides integers to avoid overflow, applying the specified rounding method.
-* Added the following [account data storage functions](/en/ride/v5/functions/built-in-functions/account-data-storage-functions) that allow the dApp script to read entries of its own data storage:
+   * [isDataStorageUntouched](/en/ride/functions/built-in-functions/account-data-storage-functions#isdatastorageuntouched) that checks if the data storage of a given account never contained any entries.
+   * [scriptHash](/en/ride/functions/built-in-functions/blockchain-functions#scripthash) that returns [BLAKE2b-256](https://en.wikipedia.org/wiki/BLAKE_%28hash_function%29) hash of the script assigned to a given account.
+   * [fraction(Int, Int, Int, Union): Int](/en/ride/functions/built-in-functions/math-functions#fractionintround) that multiplies and divides integers to avoid overflow, applying the specified rounding method.
+* Added the following [account data storage functions](/en/ride/functions/built-in-functions/account-data-storage-functions) that allow the dApp script to read entries of its own data storage:
    * `getBinary(key: String): ByteVector|Unit`
    * `getBinaryValue(key: String): ByteVector`
    * `getBoolean(key: String): Boolean|Unit`
@@ -81,15 +83,15 @@ A lease can be created both as a result of a Lease transaction and as a result o
 <summary>Format</summary>
     
 ```json
-"lease":
-   {
-      "id": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
-      "originTransactionId": "4AZU8XPATw3QTX3BLyyc1iAZeftSxs7MUcZaXgprnzjk",
-      "sender": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
-      "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
-      "amount": 1000000000000,
-      "height": 2253315
-   }
+"lease": {
+   "id": "7bRbb9DH6V2ztdbmsZhWLdhTPQD14t8W38GjrtW8ug1N",
+   "originTransactionId": "7bRbb9DH6V2ztdbmsZhWLdhTPQD14t8W38GjrtW8ug1N",
+   "sender": "3MqqqDw65oL423pjsdeAS5vcRyXa9bmruGx",
+   "recipient": "3Mz9N7YPfZPWGd4yYaX6H53Gcgrq6ifYiH7",
+   "amount": 400000000,
+   "height": 1560062,
+   "status": "canceled"
+}
 ```
 
 The `originTransactionId` field can contain an ID of a Lease Transaction or an Invoke Script transaction.
@@ -109,48 +111,62 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
     
    ```json
    "stateChanges": {
-     "data": [],
-     "transfers": [],
-     "issues": [],
-     "reissues": [],
-     "burns": [],
-     "invokes": [
-       {
-         "dApp": "3PC9BfRwJWWiw9AREE2B3eWzCks3CYtg4yo",
-         "payment": [
-           {
-             "amount": 50000000,
-             "assetId": "DG2xFkPdDwKUoBkzGAhQtLpSGzfXLiCYPEzeKH2Ad24p"
+      "data": [
+         {
+            "key": "test_key_1",
+            "type": "integer",
+            "value": 14
+         },
+         {
+            "key": "test_key_2",
+            "type": "integer",
+            "value": 999000000
+         }
+      ],
+      "transfers": [],
+      "issues": [],
+      "reissues": [],
+      "burns": [],
+      "sponsorFees": [],
+      "leases": [],
+      "leaseCancels": [],
+      "invokes": [
+         {
+            "dApp": "3N4o9UGcFTDxcJptFG2yimYpLqLLoD44diX",
+            "call": {
+               "function": "bar",
+               "args": [
+                  {
+                     "type": "Int",
+                     "value": 7
+                  }
+               ]
+            },
+            "payments": [
+               {
+                  "asset": "25FEqEjRkqK6yCkiT7Lz6SAYz7gUFCtxfCChnrVFD5AT",
+                  "amount": 1000000
+               }
+            ],
+            "stateChanges": {
+               "data": [],
+               "transfers": [
+                  {
+                     "address": "3ND86XoiA9ytxysBCvhkRQez82R3d6wZBzP",
+                     "asset": null,
+                     "amount": 100000000
+                  }
+               ],
+              "issues": [],
+              "reissues": [],
+              "burns": [],
+              "sponsorFees": [],
+              "leases": [],
+              "leaseCancels": [],
+              "invokes": []
            }
-         ],
-         "call": {
-           "function": "swapNeutrinoToWaves",
-           "args": [
-             {
-               "type": "string",
-               "value": "EUR"
-             },
-             {
-               "type": "integer",
-               "value": 843699
-             },
-             {
-               "type": "binary",
-               "value": "base64:OK+armP11YmAyoQOwl8jLDLi2dK2sRc1Ue2QzZX1wgRmwGASLhllv1iKg2fRKS8cAlSDrfMYPb6374WMC9gFgA=="
-             }
-           ]
-          },
-         "stateChanges": {
-            "data": [],
-            "transfers": [],
-            "issues": [],
-            "reissues": [],
-            "burns": [],
-            "sponsorFees": [],
-            "invokes": []
-          }
-       }
-      ]
+        }
+     ]
    }
    ```
    </details>
@@ -162,32 +178,37 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
 
    ```json
    "stateChanges": {
-      "leases": [
-         {
-            "id": "F3ZmBbig3gekPu4a8fyrZGiU53MFxtFSWKw5dTyTMvq7",
-            "originTransactionId": "6GLmdBZZeevtbomFYif5ys7Ltf2DuXMGP29bLrSoX9HA",
-            "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
-            "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
-            "amount": 200000000,
-            "height": 739442
-         },
-      ],
-      "leaseCancels": [
-         {
-            "id": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
-            "originTransactionId": "DH7N1XW7tTNwHBmFsfeArP6hWfzrC4fGcsKPEMfFZpPL",
-            "sender": "3MUAwJP3ThWNrRcxwAB8QHrvo7BEQbRFdu9",
-            "recipient": "3MbwwebM61Y11UFZwkdQ1gXUJjY27ww1r6z",
-            "amount": 300000000,
-            "height": 739436
-         }
-      ]
+      "data": [],
+      "transfers": [],
+      "issues": [],
+      "reissues": [],
+      "burns": [],
+      "sponsorFees": [],
+      "leases": [{
+         "id": "94PfEzE3yCo1wVrZGubMwqJgNYLHVBxae5psdeZu9c1c",
+         "originTransactionId": "Dc5fzXUKVDd22PbJFt2T5RSsNieFCJwwpuWUsGR4YDZs",
+         "sender": "3MopBTg99nDNv4gfQf76WnuPrnPq1TppDEp",
+         "recipient": "3MT5dAS4Zr2g8MBLSPnbyAM18pf7A2PUuMY",
+         "amount": 444444,
+         "height": 817572,
+         "status": "active"
+      }],
+      "leaseCancels": [{
+         "id": "5NTgkz8rT8RwSSLbBhyE6yev824Ff8NLStzMreGFEpWk",
+         "originTransactionId": "Fr8pwXPK81rXRGs9rwpZaQKHPa8irY3GL4bWXUGemvZi",
+         "sender": "3MopBTg99nDNv4gfQf76WnuPrnPq1TppDEp",
+         "recipient": "3MT5dAS4Zr2g8MBLSPnbyAM18pf7A2PUuMY",
+         "amount": 12000000,
+         "height": 817540,
+         "status": "canceled"
+      }],
+      "invokes": []
    }
    ```
    </details>
 
 * Results of `Lease` and `LeaseCancel` script actions are also added to the `trace` structure returned by the following endpoints:
-   * `/transactions/broadcast`
+   * `/transactions/broadcast` with `trace=true` input parameter
    * `/debug/validate`
 
    <details>
@@ -242,39 +263,38 @@ The `originTransactionId` field can contain an ID of a Lease Transaction or an I
    ```json
    [
       {
-         "id": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
-         "originTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
-         "sender": "3P3Dwc7aAeG8VgpZBNKsAAaXHqrq3dR4ffn",
-         "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
-         "amount": 1000000000000,
-         "height": 2253315,
-         "status": "active"
+         "id": "DNZ8tpZt6i9fTRW6b7UmBV9LHNmX4c5EgeTMhcNk3ReB",
+         "originTransactionId": "Dc5fzXUKVDd22PbJFt2T5RSsNieFCJwwpuWUsGR4YDZs",
+         "sender": "3MgPxT7piLX6u3yqDFNUTPL93b5dhdpuYKH",
+         "recipient": "3MT5dAS4Zr2g8MBLSPnbyAM18pf7A2PUuMY",
+         "amount": 222222,
+         "height": 817572,
+         "status": "active",
+         "cancelHeight": null,
+         "cancelTransactionId": null
       },
       {
-         "id": "5fmWxmtrqiMp7pQjkCZG96KhctFHm9rJkMbq2QbveAHR",
-         "originTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
-         "sender": "3P3Dwc7aAeG8VgpZBNKsAAaXHqrq3dR4ffn",
-         "recipient": "3PMj3yGPBEa1Sx9X4TSBFeJCMMaE3wvKR4N",
-         "amount": 1000000000000,
-         "height": 2253315,     
+         "id": "5NTgkz8rT8RwSSLbBhyE6yev824Ff8NLStzMreGFEpWk",
+         "originTransactionId": "Fr8pwXPK81rXRGs9rwpZaQKHPa8irY3GL4bWXUGemvZi",
+         "sender": "3MopBTg99nDNv4gfQf76WnuPrnPq1TppDEp",
+         "recipient": "3MT5dAS4Zr2g8MBLSPnbyAM18pf7A2PUuMY",
+         "amount": 12000000,
+         "height": 817540,
          "status": "canceled",
-         "leaseCancelTransactionId": "22wXWZoPdzETzzsVtB5aybXimbgfkgYFcQ1U51ftHbAh",
-         "leaseCancellationHeight": 2278654
+         "cancelHeight": 817572,
+         "cancelTransactionId": "Dc5fzXUKVDd22PbJFt2T5RSsNieFCJwwpuWUsGR4YDZs"
       }
    ]
    ```
 
    If the blockchain state on the node was not rebuilt after activation of feature #16, the endpoint does not return the `leaseCancelTransactionId` field for leases that are canceled before activation of feature #16.
-
    </details>
 
-* Added the `/utils/heightByTimestamp` endpoint that returns blockchain height at a given timestamp.
+* Added the `/blocks/heightByTimestamp/{timestamp}` endpoint that returns blockchain height at a given timestamp.
 
-### Activation
+## Version 1.2 Malibu
 
-To activate the improvements listed above, vote for feature #16 “Ride V5, dApp-to-dApp invocations”.
-
-## Version 1.2
+The improvements listed below are enabled by feature #15 "Ride V4, VRF, Protobuf, Failed transactions".
 
 ### Protocol Enhancements
 
@@ -461,7 +481,7 @@ In the Node 1.2 release, we have some **semantic and breaking changes** in the A
    * [Reissue](/en/ride/structures/script-actions/reissue)
    * [Burn](/en/ride/structures/script-actions/burn)
    * [SponsorFee](/en/ride/structures/script-actions/sponsor-fee)
-   * [BooleanEntry](/en/ride/structures/script-actions/boolean-entry), [BinaryEntry](/en/ride/structures/script-actions/binary-entry), [IntegerEntry](/en/ride/structures/script-actions/int-entry), [StringEntry](/en/ride/structures/script-actions/string-entry) that add or update the [account data storage](/en/blockchain/account/account-data-storage) entries of the corresponding type. These actions replace [DataEntry](/en/ride/structures/script-actions/data-entry) that is not supported in version 4.
+   * [BooleanEntry](/en/ride/structures/script-actions/boolean-entry), [BinaryEntry](/en/ride/structures/script-actions/binary-entry), [IntegerEntry](/en/ride/structures/script-actions/int-entry), [StringEntry](/en/ride/structures/script-actions/string-entry) that add or update the [account data storage](/en/blockchain/account/account-data-storage) entries of the corresponding type. These actions replace [DataEntry](/en/ride/v4/structures/script-actions/data-entry) that is not supported in version 4.
    * [DeleteEntry](/en/ride/structures/script-actions/delete-entry) that deletes the account data storage entry.
 * The [callable](/en/ride/functions/callable-function) function result format is modified. Since version 4 the result is the list of script actions. The `ScriptResult`, `WriteSet` and `TransferSet` structures are not supported.
 * Invoke script transaction's fee increased by 1 WAVES for each non-NFT asset issued by the transaction's Issue structure.

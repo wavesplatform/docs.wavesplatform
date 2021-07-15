@@ -2,11 +2,11 @@
 
 | # | Название | Описание | Сложность |
 | :--- | :--- | :--- | :--- |
-| 1 | [drop(ByteVector, Int): ByteVector](#drop) | Возвращает массив байтов без первых `N` байтов | 1 для [Стандартной библиотеки](/ru/ride/script/standard-library) **версии 3**<br>6 для Стандартной библиотеки **версии 4** |
-| 2 | [dropRight(ByteVector, Int): ByteVector](#dropright) | Возвращает массив байтов без последних `N` байтов | 19 для Стандартной библиотеки **версии 3**<br>6 для Стандартной библиотеки **версии 4** |
+| 1 | [drop(ByteVector, Int): ByteVector](#drop) | Возвращает массив байтов без первых `N` байтов | 6 |
+| 2 | [dropRight(ByteVector, Int): ByteVector](#dropright) | Возвращает массив байтов без последних `N` байтов | 6 |
 | 3 | [size(ByteVector): Int](#size) | Возвращает количество байтов в массиве байтов | 1 |
-| 4 | [take(ByteVector, Int): ByteVector](#take) | Возвращает первые `N` байтов массива байтов | 1 для Стандартной библиотеки **версии 3**<br>6 для Стандартной библиотеки **версии 4** |
-| 5 | [takeRight(ByteVector, Int): ByteVector](#takeright) | Возвращает последние `N` байтов массива байтов | 19 для Стандартной библиотеки **версии 3**<br>6 для Стандартной библиотеки **версии 4** |
+| 4 | [take(ByteVector, Int): ByteVector](#take) | Возвращает первые `N` байтов массива байтов | 6 |
+| 5 | [takeRight(ByteVector, Int): ByteVector](#takeright) | Возвращает последние `N` байтов массива байтов | 6 |
 
 ## drop(ByteVector, Int): ByteVector <a id="drop"></a>
 

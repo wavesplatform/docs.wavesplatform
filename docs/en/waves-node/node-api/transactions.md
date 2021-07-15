@@ -45,7 +45,7 @@ Response body:
 
 ## Step 2. Sign Transaction
 
-: warning: Using the Node REST API, you can sign a transaction only on behalf of the account from the [node wallet](/en/waves-node/how-to-work-with-node-wallet). If you are not the node owner or you want to sign a transaction on behalf of an account outside the node wallet, use [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/) instead. See also the [Secure Transactions Signing](/en/building-apps/#secure-transactions-signing) and [How to Create Transaction and Send It to Blockchain](/en/building-apps/how-to/basic/transaction) articles.
+:warning: Using the Node REST API, you can sign a transaction only on behalf of the account from the [node wallet](/en/waves-node/how-to-work-with-node-wallet). If you are not the node owner or you want to sign a transaction on behalf of an account outside the node wallet, use [client libraries](/en/building-apps/waves-api-and-sdk/client-libraries/) instead. See also the [Secure Transactions Signing](/en/building-apps/#secure-transactions-signing) and [How to Create Transaction and Send It to Blockchain](/en/building-apps/how-to/basic/transaction) articles.
 
 The following operations are used to generate a signature:
 

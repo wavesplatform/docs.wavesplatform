@@ -1,9 +1,6 @@
 # Issue
 
-> :warning: Структура `Issue` добавлена в [Стандартной библиотеке](/ru/ride/script/standard-library) **версии 4**.
-
-`Issue` — cтруктура, задающая параметры выпуска токена. Выпуск выполняется, только если структура включена в [результирующее выражение](/ru/ride/functions/callable-function#резуnьтат-выпоnнения-2) вызываемой функции.
-
+`Issue` — cтруктура, задающая параметры выпуска токена. Выпуск выполняется, только если структура включена в [результирующее выражение](/ru/ride/functions/callable-function#invocation-result) вызываемой функции.
 
 Минимальная комиссия за транзакцию вызова скрипта увеличивается на 1 WAVES за каждый выпущенный токен, не являющийся [NFT](/ru/blockchain/token/non-fungible-token).
 
@@ -53,11 +50,14 @@ Issue("RegularToken", "This is an ordinary token", 10000, 2, true)
 
 ### Выпуск нескольких токенов
 
-```
-[
-   Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 0),
-   Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 1)
-]
+```scala
+(
+   [
+      Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 0),
+      Issue("RegularToken", "This is an ordinary token", 10000, 2, true, unit, 1)
+   ],
+   unit
+)
 ```
 
 ### Выпуск NFT-токена

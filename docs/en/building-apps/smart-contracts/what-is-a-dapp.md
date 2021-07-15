@@ -35,14 +35,14 @@ In addition, dApp script can comprise a verifier function that checks transactio
 Each Ride script should start with directives. Here is the set of directives for the dApp script:
 
 ```ride
-{-# STDLIB_VERSION 3 #-}
+{-# STDLIB_VERSION 5 #-}
 {-# CONTENT_TYPE DAPP #-}
 {-# SCRIPT_TYPE ACCOUNT #-}
 ```
 
 These directives tell the compiler that:
 
-- The script uses Standard library version 3.
+- The script uses Standard library version 5.
 - Type of the script is dApp.
 - The script will be assigned to an account (not asset).
 
@@ -79,11 +79,14 @@ func faucet () = {
             false
     }
     if (!isKnownCaller) then 
-        ScriptResult(
-           WriteSet([DataEntry(toBase58String(i.caller.bytes), true)]),
-           TransferSet([ScriptTransfer(i.caller, 100000000, unit)])
+        (
+           [
+               BooleanEntry(toBase58String(i.caller.bytes), true),
+               ScriptTransfer(i.caller, 100000000, unit)
+           ],
+           unit
         )
-    else WriteSet([])
+    else ([],unit)
 }
 ```
 
@@ -93,7 +96,7 @@ Verifier function checks transactions and orders that are sent from dApp account
 
 For a detailed description, see the [Verifier Function](/en/ride/functions/verifier-function) article.
 
-In the example below the verifier fuction allows [transfer transactions](/en/blockchain/transaction-type/transfer-transaction) and denies orders and other types of transactions. The [match](/en/ride/operators/match-case) operator is used to specify verification rules depending on the type of transaction (or order).
+In the example below the verifier function allows [transfer transactions](/en/blockchain/transaction-type/transfer-transaction) and denies orders and other types of transactions. The [match](/en/ride/operators/match-case) operator is used to specify verification rules depending on the type of transaction (or order).
 
 ```ride
 @Verifier(tx)
@@ -127,7 +130,7 @@ Furthermore:
 
 ## Assigning dApp Script to Account
 
-To assign dApp script to an account you need to send a [set script transaction](/en/blockchain/transaction-type/set-script-transaction) from this account.
+To assign dApp script to an account, you have to send a [Set Script transaction](/en/blockchain/transaction-type/set-script-transaction) from this account.
 
 There are the following options to send the transaction:
 
@@ -136,11 +139,9 @@ There are the following options to send the transaction:
 
 [Set script transaction example](https://testnet.wavesexplorer.com/tx/213JdqCLq6qGLUvoXkMaSA2wLSwdzH24BuhHBhcBeHUR)
 
-The fee for the set script transaction is 0.01 WAVES.
+The fee for the Set Script transaction is 0.01 WAVES.
 
-After assigning the script, the minimum fee for each transaction sent from  dApp account increases by 0.004 WAVES.
-
-Starting from node version 1.3.1, after activation of feature #16 “Ride V5, dApp-to-dApp invocations”, the extra fee of 0.004 WAVES is only required if the complexity of the verifier function exceeds the [sender complexity threshold](/en/ride/limits/). Versions 1.3.x are currently available for [Stagenet](/en/blockchain/blockchain-network/) only.
+If the script contains a verifier function and the complexity of the function exceeds the [sender complexity threshold](/en/ride/limits/), the minimum fee for each transaction sent from the dApp account is increased by 0.004 WAVES.
 
 ## Limitations
 
@@ -155,3 +156,11 @@ Find dApp script examples:
 * In Github repository [ride-examples](https://github.com/wavesplatform/ride-examples/blob/master/welcome.md).
 
 For tutorial on creating dApp, see the [Creating & Launching dApp](/en/building-apps/smart-contracts/writing-dapps) article.
+
+## Waves Tech Blog Articles
+
+* [Why use the Waves protocol for DeFi applications?](https://medium.com/wavesprotocol/why-use-the-waves-protocol-for-defi-applications-53db183747b2) _(Mar 25, 2021)_
+* [5 things I wish I’d known before starting to develop dApps](https://medium.com/wavesprotocol/5-things-i-wish-id-known-before-starting-to-develop-dapps-e6f834018ce7) _(Jun 17, 2020)_
+* [How to build a dApp for team motivation](https://medium.com/wavesprotocol/how-to-build-a-dapp-for-team-motivation-8943504e3feb) _(Jun 9, 2020)_
+* [How to avoid common mistakes in dApp development](https://medium.com/wavesprotocol/how-to-avoid-common-mistakes-in-dapp-development-61015e700459) _(May 8, 2020)_
+* [What are Smart Contracts and how to use them in your app](https://medium.com/wavesprotocol/what-are-smart-contracts-and-how-to-use-them-in-your-app-a1c0d62d1a5) _(Mar 19, 2020)_

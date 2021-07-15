@@ -55,7 +55,7 @@ module.exports = {
                     },
                     smartAsset: {
                         text: 'Smart assets',
-                        link: '/en/building-apps/smart-contracts/smart-assets'
+                        link: '/en/building-apps/smart-contracts/what-is-smart-asset'
                     },
                     signer: {
                         text: 'Signer',
@@ -174,7 +174,7 @@ module.exports = {
 
     footer: {
         broughtToYouByWavesTeam: 'Brought to you by Waves Team.',
-        copyright: '© 2019—2020 Waves Technologies',
+        copyright: '© 2019—2021 Waves Technologies',
         email: '',
         resourcesCategories: {
             productsAndTools: {

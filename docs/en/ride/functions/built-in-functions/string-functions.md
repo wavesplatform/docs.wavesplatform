@@ -3,23 +3,21 @@
 | Name | Description | Complexity | 
 | :--- | :--- | :--- |
 | [contains(String, String): Boolean](#contains-string-string-boolean) | Checks whether the string contains substring | 3 |
-| [drop(String, Int): String](#drop-string-int-string) | Drops the first `n` characters of a string | 1 for [Standard Library](/en/ride/script/standard-library) **version 3**<br>20 for Standard Library **version 4** |
-| [dropRight(String, Int): String](#dropright-string-int-string) | Drops the last `n` characters of a string | 19 for Standard Library **version 3**<br>20 for Standard Library **version 4** |
-| [indexOf(String, String): Int&#124;Unit](#indexof-string-string-int-unit) | Returns the index of the first occurrence of a substring | 20 for Standard Library **version 3**<br>3 for Standard Library **version 4** |
-| [indexOf(String, String, Int): Int&#124;Unit](#indexof-string-string-int-int-unit) | Returns the index of the first occurrence of a substring after a certain index | 20 for Standard Library **version 3**<br>3 for Standard Library **version 4** |
-| [lastIndexOf(String, String): Int&#124;Unit](#lastindexof-string-string-int-unit) | Returns the index of the last occurrence of a substring | 20 for Standard Library **version 3**<br>3 for Standard Library **version 4** |
-| [lastindexOf(String, String, Int): Int&#124;Unit](#lastindexof-string-string-int-int-unit) | Returns the index of the last occurrence of a substring before a certain index | 20 for Standard Library **version 3**<br>3 for Standard Library **version 4** |
+| [drop(String, Int): String](#drop-string-int-string) | Drops the first `n` characters of a string | 20 |
+| [dropRight(String, Int): String](#dropright-string-int-string) | Drops the last `n` characters of a string | 20 |
+| [indexOf(String, String): Int&#124;Unit](#indexof-string-string-int-unit) | Returns the index of the first occurrence of a substring | 3 |
+| [indexOf(String, String, Int): Int&#124;Unit](#indexof-string-string-int-int-unit) | Returns the index of the first occurrence of a substring after a certain index | 3 |
+| [lastIndexOf(String, String): Int&#124;Unit](#lastindexof-string-string-int-unit) | Returns the index of the last occurrence of a substring | 3 |
+| [lastindexOf(String, String, Int): Int&#124;Unit](#lastindexof-string-string-int-int-unit) | Returns the index of the last occurrence of a substring before a certain index | 3 |
 | [makeString(List[String], String): String](#makestring-list-string-string-string) | Concatenates list strings adding a separator | 30 |
 | [size(String): Int](#size-string-int) | Returns the size of a string | 1 |
-| [split(String, String): List[String]](#split-string-string-list-string) | Splits a string delimited by a separator into a list of substrings | 100 for Standard Library **version 3**<br>75 for Standard Library **version 4** |
-| [take(String, Int): String](#take) | Takes the first `n` characters from a string | 1 for Standard Library **version 3**<br>20 for Standard Library **version 4** |
-| [takeRight(String, Int): String](#take-right) | Takes the last `n` characters from a string | 19 for Standard Library **version 3**<br>20 for Standard Library **version 4** |
+| [split(String, String): List[String]](#split-string-string-list-string) | Splits a string delimited by a separator into a list of substrings | 75 |
+| [take(String, Int): String](#take) | Takes the first `n` characters from a string | 20 |
+| [takeRight(String, Int): String](#take-right) | Takes the last `n` characters from a string | 20 |
 
 ## contains(String, String): Boolean
 
 Checks whether the string contains substring.
-
-> :warning: The `contains` function is added in Standard library **version 4**.
 
 ``` ride
 contains(haystack: String, needle: String): Boolean
@@ -35,10 +33,6 @@ contains(haystack: String, needle: String): Boolean
 ### Examples
 
 ```ride
-{-# STDLIB_VERSION 4 #-}
-{-# CONTENT_TYPE DAPP #-}
-{-# SCRIPT_TYPE ACCOUNT #-}
-  
 "hello".contains("hell") # Возвращает true
 "hello".contains("world") # Возвращает false
 ```
@@ -189,8 +183,6 @@ lastIndexOf("mamamama","ma",3) # Returns 2
 ## makeString(List[String], String): String
 
 Concatenates list strings adding a separator.
-
-> :warning: The `makeString` function is added in Standard library **version 4**.
 
 ```ride
 makeString(arr: List[String], separator: String): String

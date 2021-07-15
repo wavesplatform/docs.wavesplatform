@@ -13,3 +13,10 @@ Alias(alias: String)
 |   #   | Название | Тип данных | Описание |
 | :--- | :--- | :--- | :--- |
 | 1 | alias | [String](/ru/ride/data-types/string) | [Псевдоним](/ru/blockchain/account/alias) |
+
+## Пример
+
+```scala
+let alias = Alias("merry")
+addressFromRecipient(alias)
+```

@@ -1,6 +1,6 @@
 # CreateAliasTransaction
 
-Structure of a [create alias transaction](/en/blockchain/transaction-type/create-alias-transaction).
+Structure of a [Create Alias transaction](/en/blockchain/transaction-type/create-alias-transaction).
 
 ## Constructor
 
